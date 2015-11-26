@@ -72,10 +72,6 @@
 
     You’ll need to complete a statutory declaration at the registry office as part of the application process.
 
-    <% if resident_of == 'ceremony_country' %>
-      ^You don't need to stay in the country while your notice is posted.^
-    <% end %>
-
     <% if partner_nationality != 'partner_british' %>
       <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
     <% end -%>
