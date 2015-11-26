@@ -9,7 +9,3 @@ en-GB:
   flow:
     defaults:
       error_message: Please answer this question
-  holiday_pay:
-    error_messages:
-      invalid_hours: Please enter a valid amount of hours per week.
-      invalid_days: Please enter a valid amount of days per week.
