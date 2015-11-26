@@ -68,11 +68,7 @@ class QuestionPresenter < NodePresenter
   end
 
   def render_option(key)
-    if use_erb_template?
-      @renderer.option_text(key.to_sym)
-    else
-      translate_option(key)
-    end
+    @renderer.option_text(key.to_sym)
   end
 
   def to_response(input)
