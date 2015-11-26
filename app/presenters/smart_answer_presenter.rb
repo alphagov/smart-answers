@@ -80,7 +80,11 @@ class SmartAnswerPresenter
                         OutcomePresenter
                       else NodePresenter
                       end
-    presenter_class.new(i18n_prefix, node, current_state)
+    if presenter_class == OutcomePresenter
+      presenter_class.new(node, current_state)
+    else
+      presenter_class.new(i18n_prefix, node, current_state)
+    end
   end
 
   def current_question_number

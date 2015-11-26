@@ -181,7 +181,7 @@ module SmartAnswer
 
       context 'common output' do
         setup do
-          presenter = OutcomePresenter.new('i18n-prefix', @outcome, @state)
+          presenter = OutcomePresenter.new(@outcome, @state)
           @body = presenter.body(html: false)
         end
 
@@ -201,7 +201,7 @@ module SmartAnswer
       context 'and the stopped_trading_on date is not set' do
         setup do
           @calculator.stubs(stopped_trading_on: nil)
-          presenter = OutcomePresenter.new('i18n-prefix', @outcome, @state)
+          presenter = OutcomePresenter.new(@outcome, @state)
           @body = presenter.body(html: false)
         end
 
@@ -213,7 +213,7 @@ module SmartAnswer
       context 'and the stopped_trading_on date is set' do
         setup do
           @calculator.stubs(stopped_trading_on: Date.parse('2016-04-05'))
-          presenter = OutcomePresenter.new('i18n-prefix', @outcome, @state)
+          presenter = OutcomePresenter.new(@outcome, @state)
           @body = presenter.body(html: false)
         end
 
