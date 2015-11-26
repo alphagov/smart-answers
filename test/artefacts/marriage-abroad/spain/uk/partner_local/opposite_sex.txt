@@ -16,7 +16,7 @@ $D
 $D
 
 $D
-[Download 'Marital status certificate' (PDF, 145KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/472727/Marital_Status_for_Marriage_Pack.pdf)
+[Download 'Marital status certificate' (PDF, 145KB)](https://www.gov.uk/government/publications/marital-status-example)
 $D
 
 ^Document requirements vary across Spain - check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC) where you’re getting married to find out what you’ll need.^
@@ -33,21 +33,13 @@ You can normally get a CNI by giving a notice of marriage at your local register
 
 You must then exchange your UK-issued CNI for one that’s valid in Spain.
 
-Download and fill in the CNI application pack - it contains a list of the documents you’ll need.
-
-$D
-[Download 'CNI for UK residents application pack' (PDF, 426KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/472729/UK_CNI_Pack.pdf)
-$D
+Download and fill in the [CNI application pack](/government/publications/uk-cni-pack) - it contains a list of the documents you’ll need.
 
 Send the documents by registered post to the address in the application pack.
 
 ##Getting a marital status certificate
 
-Download and complete the marital status certificate application pack - it contains a list of the documents you’ll need.
-
-$D
-[Download 'Marital status certificate application pack' (PDF, 424KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/472727/Marital_Status_for_Marriage_Pack.pdf)
-$D
+Download and complete the [marital status certificate application pack](/government/publications/marital-status-certificate-for-marriage-application-pack) - it contains a list of the documents you’ll need.
 
 You must sign the affirmation in the application pack in front of a local [notary public](http://www.notaries-directory.eu/) in Spain before you send your application to the consulate.
 
