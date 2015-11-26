@@ -15,7 +15,7 @@ s4. Post your documents and the form.
 
 ^Only the mother will be named on the local birth certificate if you aren’t married. To add the father’s name you must swear a paternity declaration in a Moroccan court and you may be ordered to get married.^
 
-You must send the original copies of:
+You must send the original versions of:
 
 - the child’s full local birth certificate - it must have both parents’ names
 - a [name confirmation form](https://www.gov.uk/government/publications/birth-registration-name-confirmation-form) that says how you would like the child's full name to be registered, if the name differs from the name on the local birth certificate
@@ -31,8 +31,7 @@ You must send the original copies of:
 You must also send photocopies of:
 
 - the photo page of the child’s British passport if they have one
-- the photo page of the parent’s current passport (for British parents)
-- the birth certificate or the photo page of the parent’s current passport (for parents who aren’t British)
+- the photo pages of both parents’ current passports regardless of nationality (if you don't have a passport, send a copy of another identity document that has a photo)
 
 %Your application will be rejected if the documents aren’t authentic, don’t confirm the child’s identity or don’t prove that the child has a claim to British nationality. The registration fee won’t be refunded.%
 
