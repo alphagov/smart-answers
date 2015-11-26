@@ -12,7 +12,7 @@ module SmartAnswer
     def question_presenter(question_name)
       question = @flow.node(question_name)
       state = SmartAnswer::State.new(question)
-      QuestionPresenter.new(@i18n_prefix, question, state)
+      QuestionPresenter.new(question, state)
     end
 
     context 'when rendering :continuing_student? question' do

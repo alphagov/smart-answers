@@ -5,7 +5,7 @@ module SmartAnswer
     setup do
       @question = Question::Base.new(nil, :question_name?)
       @renderer = stub('renderer')
-      @presenter = QuestionPresenter.new('i18n-prefix', @question, state = nil, renderer: @renderer)
+      @presenter = QuestionPresenter.new(@question, state = nil, renderer: @renderer)
     end
 
     test 'renderer is constructed using template name and directory obtained from question node' do
@@ -19,7 +19,7 @@ module SmartAnswer
         )
       )
 
-      QuestionPresenter.new('i18n-prefix', question)
+      QuestionPresenter.new(question)
     end
 
     test '#title returns single line of content rendered for title block' do
@@ -71,7 +71,7 @@ module SmartAnswer
 
       @renderer.stubs(:option_text).with(:option_one).returns('option-one-text')
       @renderer.stubs(:option_text).with(:option_two).returns('option-two-text')
-      presenter = QuestionPresenter.new('i18n-prefix', question, state = nil, renderer: @renderer)
+      presenter = QuestionPresenter.new(question, state = nil, renderer: @renderer)
 
       assert_equal %w(option_one option_two), presenter.options.map(&:value)
       assert_equal %w(option-one-text option-two-text), presenter.options.map(&:label)
@@ -79,14 +79,14 @@ module SmartAnswer
 
     test '#error returns nil if there is no error' do
       state = stub('state', error: nil)
-      presenter = QuestionPresenter.new('i18n-prefix', @question, state, renderer: @renderer)
+      presenter = QuestionPresenter.new(@question, state, renderer: @renderer)
 
       assert_nil presenter.error
     end
 
     test '#error returns error message for specific key if it exists' do
       state = stub('state', error: 'error_key')
-      presenter = QuestionPresenter.new('i18n-prefix', @question, state, renderer: @renderer)
+      presenter = QuestionPresenter.new(@question, state, renderer: @renderer)
       presenter.stubs(:error_message_for).with('error_key').returns('error-message-text')
 
       assert_equal 'error-message-text', presenter.error
@@ -94,7 +94,7 @@ module SmartAnswer
 
     test '#error returns error message for fallback key if specific key does not exist' do
       state = stub('state', error: 'error_key')
-      presenter = QuestionPresenter.new('i18n-prefix', @question, state, renderer: @renderer)
+      presenter = QuestionPresenter.new(@question, state, renderer: @renderer)
       presenter.stubs(:error_message_for).with('error_key').returns(nil)
       presenter.stubs(:error_message_for).with('error_message').returns('fallback-error-message-text')
 
@@ -103,7 +103,7 @@ module SmartAnswer
 
     test '#error returns global default error message for fallback key does not exist' do
       state = stub('state', error: 'error_key')
-      presenter = QuestionPresenter.new('i18n-prefix', @question, state, renderer: @renderer)
+      presenter = QuestionPresenter.new(@question, state, renderer: @renderer)
       presenter.stubs(:error_message_for).with('error_key').returns(nil)
       presenter.stubs(:error_message_for).with('error_message').returns(nil)
 

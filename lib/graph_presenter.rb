@@ -79,7 +79,7 @@ private
   end
 
   def node_title(node)
-    presenter = QuestionPresenter.new(@i18n_prefix, node, {}, helpers: [MethodMissingHelper])
+    presenter = QuestionPresenter.new(node, {}, helpers: [MethodMissingHelper])
     presenter.title
   end
 

@@ -23,9 +23,8 @@ flow.questions.each do |question|
   else
     # Find the question text so that we can write it to the YAML file
     question_node = flow.node(question)
-    i18n_prefix = ['flow', flow_name].join('.')
     begin
-      question_text = QuestionPresenter.new(i18n_prefix, question_node, {}, helpers: [MethodMissingHelper]).title
+      question_text = QuestionPresenter.new(question_node, {}, helpers: [MethodMissingHelper]).title
     rescue I18n::MissingInterpolationArgument => e
       question_text = e.string
     end

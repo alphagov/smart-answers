@@ -44,7 +44,7 @@ class FlowRegistrationPresenter
   def indexable_content
     HTMLEntities.new.decode(
       text = @flow.questions.inject([start_node.body]) { |acc, node|
-        pres = QuestionPresenter.new(@i18n_prefix, node, nil, helpers: [MethodMissingHelper])
+        pres = QuestionPresenter.new(node, nil, helpers: [MethodMissingHelper])
         acc.concat(NODE_PRESENTER_METHODS.map { |method|
           pres.send(method)
         })

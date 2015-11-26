@@ -24,7 +24,7 @@ module FlowTestHelper
 
   def current_question
     @current_question ||= begin
-      presenter = QuestionPresenter.new("flow.#{@flow.name}", @flow.node(current_state.current_node), current_state)
+      presenter = QuestionPresenter.new(@flow.node(current_state.current_node), current_state)
       presenter.title
     end
   end
