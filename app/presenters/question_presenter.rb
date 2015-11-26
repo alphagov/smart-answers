@@ -42,11 +42,7 @@ class QuestionPresenter < NodePresenter
   end
 
   def label
-    if use_erb_template?
-      @renderer.single_line_of_content_for(:label)
-    else
-      translate!('label')
-    end
+    @renderer.single_line_of_content_for(:label)
   end
 
   def suffix_label
