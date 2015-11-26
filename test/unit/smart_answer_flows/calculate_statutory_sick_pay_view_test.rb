@@ -6,7 +6,6 @@ module SmartAnswer
   class CalculateStatutorySickPayViewTest < ActiveSupport::TestCase
     setup do
       @flow = CalculateStatutorySickPayFlow.build
-      @i18n_prefix = "flow.#{@flow.name}"
     end
 
     context 'when rendering linked_sickness_end_date? question' do

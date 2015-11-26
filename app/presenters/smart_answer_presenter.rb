@@ -22,10 +22,6 @@ class SmartAnswerPresenter
     {}
   end
 
-  def i18n_prefix
-    "flow.#{@flow.name}"
-  end
-
   def title
     start_node.title
   end

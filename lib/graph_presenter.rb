@@ -1,7 +1,6 @@
 class GraphPresenter
   def initialize(flow)
     @flow = flow
-    @i18n_prefix = "flow.#{@flow.name}"
   end
 
   def labels

@@ -6,7 +6,6 @@ module SmartAnswer
   class PartYearProfitTaxCreditsViewTest < ActiveSupport::TestCase
     setup do
       @flow = PartYearProfitTaxCreditsFlow.build
-      @i18n_prefix = "flow.#{@flow.name}"
     end
 
     context 'when rendering when_did_your_tax_credits_award_end? question' do

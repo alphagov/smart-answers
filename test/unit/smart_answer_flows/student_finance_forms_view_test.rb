@@ -6,7 +6,6 @@ module SmartAnswer
   class StudentFinanceFormsViewTest < ActiveSupport::TestCase
     setup do
       @flow = StudentFinanceFormsFlow.build
-      @i18n_prefix = "flow.#{@flow.name}"
     end
 
     def question_presenter(question_name)
