@@ -46,11 +46,7 @@ class QuestionPresenter < NodePresenter
   end
 
   def suffix_label
-    if use_erb_template?
-      @renderer.single_line_of_content_for(:suffix_label)
-    else
-      translate!('suffix_label')
-    end
+    @renderer.single_line_of_content_for(:suffix_label)
   end
 
   def has_labels?
