@@ -353,15 +353,4 @@ outcome :savoury_tooth
     assert_equal 2, s.outcomes.size
     assert_equal [:sweet_tooth, :savoury_tooth], s.outcomes.map(&:name)
   end
-
-  test "change default renderer for questions" do
-    flow = SmartAnswer::Flow.new do
-      value_question :question_one?
-      use_i18n_templates_for_questions
-      value_question :question_two?
-    end
-    question_one, question_two = *flow.questions
-    assert question_one.use_erb_template?
-    refute question_two.use_erb_template?
-  end
 end

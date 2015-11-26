@@ -49,10 +49,6 @@ module SmartAnswer
       @status
     end
 
-    def use_i18n_templates_for_questions
-      @use_erb_templates_for_questions = false
-    end
-
     def multiple_choice(name, options = {}, &block)
       add_question(Question::MultipleChoice, name, options, &block)
     end
