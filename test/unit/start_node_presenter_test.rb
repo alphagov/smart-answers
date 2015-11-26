@@ -5,7 +5,7 @@ module SmartAnswer
     setup do
       start_node = Node.new(nil, :start_node_name)
       @renderer = stub('renderer')
-      @presenter = StartNodePresenter.new('i18n-prefix', start_node, state = nil, renderer: @renderer)
+      @presenter = StartNodePresenter.new(start_node, state = nil, renderer: @renderer)
     end
 
     test 'renderer is constructed using template name and directory obtained from start node' do
@@ -18,7 +18,7 @@ module SmartAnswer
         )
       )
 
-      StartNodePresenter.new('i18n-prefix', start_node)
+      StartNodePresenter.new(start_node)
     end
 
     test '#title returns single line of content rendered for title block' do
