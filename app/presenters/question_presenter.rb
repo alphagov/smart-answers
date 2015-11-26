@@ -58,11 +58,7 @@ class QuestionPresenter < NodePresenter
   end
 
   def post_body
-    if use_erb_template?
-      @renderer.content_for(:post_body, html: true)
-    else
-      translate_and_render('post_body', html: true)
-    end
+    @renderer.content_for(:post_body, html: true)
   end
 
   def options
