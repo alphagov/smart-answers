@@ -1,11 +1,4 @@
 class QuestionPresenter < NodePresenter
-  extend Forwardable
-  delegate [
-    :translate!,
-    :translate_and_render,
-    :translate_option
-  ] => :@renderer
-
   def initialize(i18n_prefix, node, state = nil, options = {})
     super(i18n_prefix, node, state)
     @renderer = options[:renderer]
