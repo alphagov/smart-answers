@@ -3,7 +3,7 @@ require_relative '../helpers/fixture_flows_helper'
 require_relative '../fixtures/smart_answer_flows/graph'
 
 module SmartAnswer
-  class GraphPresenterWithErbRendererTest < ActiveSupport::TestCase
+  class GraphPresenterTest < ActiveSupport::TestCase
     include FixtureFlowsHelper
 
     setup do
