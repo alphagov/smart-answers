@@ -1,7 +1,7 @@
 require_relative '../test_helper'
 
 module SmartAnswer
-  class QuestionPresenterWithErbRendererTest < ActiveSupport::TestCase
+  class QuestionPresenterTest < ActiveSupport::TestCase
     setup do
       @question = Question::Base.new(nil, :question_name?, use_erb_template: true)
       @renderer = stub('renderer')
