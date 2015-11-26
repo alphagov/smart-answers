@@ -10,7 +10,7 @@ module SmartAnswer
 
     test 'renderer is constructed using template name and directory obtained from question node' do
       question_directory = Pathname.new('question-template-directory')
-      question = stub('question', filesystem_friendly_name: 'question_name', template_directory: question_directory, use_erb_template?: true)
+      question = stub('question', filesystem_friendly_name: 'question_name', template_directory: question_directory)
 
       SmartAnswer::ErbRenderer.expects(:new).with(
         has_entries(

@@ -6,7 +6,9 @@ class QuestionPresenter < NodePresenter
     :translate_option
   ] => :@renderer
 
-  delegate use_erb_template?: :@node
+  def use_erb_template?
+    true
+  end
 
   def initialize(i18n_prefix, node, state = nil, options = {})
     super(i18n_prefix, node, state)

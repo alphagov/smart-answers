@@ -76,10 +76,6 @@ module SmartAnswer
         true
       end
 
-      def use_erb_template?
-        true
-      end
-
     private
       def permitted_next_node?(next_node)
         @permitted_next_nodes.include?(next_node)
