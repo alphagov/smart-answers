@@ -33,12 +33,8 @@ class QuestionPresenter < NodePresenter
   end
 
   def error_message_for(key)
-    if use_erb_template?
-      message = @renderer.single_line_of_content_for(key.to_sym)
-      message.blank? ? nil : message
-    else
-      translate!(key)
-    end
+    message = @renderer.single_line_of_content_for(key.to_sym)
+    message.blank? ? nil : message
   end
 
   def hint
