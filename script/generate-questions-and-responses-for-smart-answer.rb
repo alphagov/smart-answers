@@ -9,6 +9,12 @@ flow = SmartAnswer::FlowRegistry.instance.find(flow_name)
 questions_and_responses = {}
 unknown_questions = []
 
+module MethodMissingHelper
+  def method_missing(method, *args, &block)
+    MethodMissingObject.new(method)
+  end
+end
+
 flow.questions.each do |question|
   if question.is_a?(SmartAnswer::Question::CountrySelect)
     questions_and_responses[question.name] = question.options.map(&:slug)
@@ -19,7 +25,7 @@ flow.questions.each do |question|
     question_node = flow.node(question)
     i18n_prefix = ['flow', flow_name].join('.')
     begin
-      question_text = QuestionPresenter.new(i18n_prefix, question_node).title
+      question_text = QuestionPresenter.new(i18n_prefix, question_node, {}, helpers: [MethodMissingHelper]).title
     rescue I18n::MissingInterpolationArgument => e
       question_text = e.string
     end
