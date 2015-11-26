@@ -8,7 +8,6 @@ module SmartAnswer
         @validations ||= []
         @default_next_node_function ||= lambda {|_|}
         @permitted_next_nodes = []
-        @uses_erb_template = options[:use_erb_template]
         super
       end
 
@@ -78,7 +77,7 @@ module SmartAnswer
       end
 
       def use_erb_template?
-        @uses_erb_template
+        true
       end
 
     private
