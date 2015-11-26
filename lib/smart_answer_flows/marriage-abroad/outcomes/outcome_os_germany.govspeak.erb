@@ -17,6 +17,11 @@
 
     <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
 
+    <%= render partial: 'partner_needs_cni.govspeak.erb',
+                    locals: {
+                      partner_nationality: partner_nationality
+                    } %>
+
     <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
 
     <%= render partial: 'cni_issued_locally_validity.govspeak.erb',
