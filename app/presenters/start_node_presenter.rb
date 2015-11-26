@@ -1,6 +1,6 @@
 class StartNodePresenter < NodePresenter
   def initialize(node, state = nil, options = {})
-    super('unused-i18n-prefix', node, state)
+    super(node, state)
     @renderer = options[:renderer] || SmartAnswer::ErbRenderer.new(
       template_directory: @node.template_directory,
       template_name: @node.name.to_s

@@ -1,6 +1,6 @@
 class QuestionPresenter < NodePresenter
   def initialize(node, state = nil, options = {})
-    super('unused-i18n-prefix', node, state)
+    super(node, state)
     @renderer = options[:renderer]
     helpers = options[:helpers] || []
     @renderer ||= SmartAnswer::ErbRenderer.new(
