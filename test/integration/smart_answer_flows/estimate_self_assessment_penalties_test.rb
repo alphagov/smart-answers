@@ -110,7 +110,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
       end
     end
   end
-  context "check phraselist for over 365 days delay" do
+  context "check for over 365 days delay" do
     setup do
       add_response :"2011-12"
       add_response :online
