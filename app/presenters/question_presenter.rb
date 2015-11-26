@@ -17,7 +17,7 @@ class QuestionPresenter < NodePresenter
 
   def error
     if @state.error.present?
-      error_message_for(@state.error) || error_message_for('error_message') || I18n.translate('flow.defaults.error_message')
+      error_message_for(@state.error) || error_message_for('error_message') || default_error_message
     end
   end
 
@@ -74,5 +74,9 @@ class QuestionPresenter < NodePresenter
 
   def multiple_responses?
     false
+  end
+
+  def default_error_message
+    "Please answer this question"
   end
 end

@@ -6,6 +6,3 @@ en-GB:
     formats:
       day_and_month: "%e %B"
       long: "%e %B %Y"
-  flow:
-    defaults:
-      error_message: Please answer this question

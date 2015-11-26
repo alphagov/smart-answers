@@ -101,13 +101,13 @@ module SmartAnswer
       assert_equal 'fallback-error-message-text', presenter.error
     end
 
-    test '#error returns global default error message for fallback key does not exist' do
+    test '#error returns default error message for fallback key does not exist' do
       state = stub('state', error: 'error_key')
       presenter = QuestionPresenter.new(@question, state, renderer: @renderer)
       presenter.stubs(:error_message_for).with('error_key').returns(nil)
       presenter.stubs(:error_message_for).with('error_message').returns(nil)
 
-      assert_equal I18n.translate('flow.defaults.error_message'), presenter.error
+      assert_equal "Please answer this question", presenter.error
     end
 
     test '#error_message_for returns single line of content rendered for error_key block' do
