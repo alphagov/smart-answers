@@ -58,6 +58,7 @@ See [development using the GDS development virtual machine](doc/developing-using
 
 ### Development
 
+* [Environments](doc/environments.md)
 * [Refactoring existing Smart Answers](doc/refactoring.md)
 * [Common errors you might run into during development](doc/common-errors.md)
 * Adding [content-ids](doc/content-ids.md) to Smart Answers
