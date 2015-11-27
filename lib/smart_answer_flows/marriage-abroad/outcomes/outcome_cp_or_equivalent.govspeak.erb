@@ -74,11 +74,10 @@
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
   <% end %>
   <% unless ceremony_country == 'czech-republic' && sex_of_your_partner == 'same_sex' %>
-    ##Fees
-
-    Service | Fee
-    -|-
-    Issuing a CNI or equivalent | £65
+    <%= render partial: 'fee_table.govspeak.erb',
+               locals: {
+                 issuing_cni: 65
+               } %>
   <% end %>
 
   <% unless (ceremony_country == 'czech-republic' || data_query.countries_without_consular_facilities?(ceremony_country)) %>

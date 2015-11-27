@@ -8,6 +8,9 @@ Service | Fee
 <% if price = local_assigns[:receiving_notice_of_marriage] %>
   Receiving a notice of marriage | <%= format_money(price) %>
 <% end %>
+<% if price = local_assigns[:issuing_cni] %>
+  Issuing a CNI or equivalent | <%= format_money(price) %>
+<% end %>
 <% if price = local_assigns[:issuing_cni_or_nulla_osta] %>
   Issuing a CNI, Nulla Osta or equivalent | <%= format_money(price) %>
 <% end %>
