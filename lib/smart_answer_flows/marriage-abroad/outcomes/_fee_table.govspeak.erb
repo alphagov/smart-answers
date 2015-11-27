@@ -26,6 +26,9 @@ Service | Fee
 <% if price = local_assigns[:affirmation_for_freedom_to_marry_in_english] %>
   Affirmation for freedom to marry in English | <%= format_money(price) %>
 <% end %>
+<% if price = local_assigns[:affirmation_for_freedom_to_marry_in_english_and_chinese] %>
+  Affirmation or affidavit for freedom to marry in English & Chinese | <%= format_money(price) %>
+<% end %>
 <% if price = local_assigns[:affirmation_for_freedom_to_marry_in_other_language] %>
   Affirmation for freedom to marry in any other language | <%= format_money(price) %>
 <% end %>
