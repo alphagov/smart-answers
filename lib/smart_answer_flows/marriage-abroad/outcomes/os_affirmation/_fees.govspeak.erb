@@ -16,11 +16,10 @@
                affidavit_or_affirmation_for_marriage: 55
              } %>
 <% elsif ceremony_country == 'finland' %>
-  ##Fees
-
-  Service | Fee
-  -|-
-  Affirmation for marriage | £65
+  <%= render partial: 'fee_table.govspeak.erb',
+             locals: {
+               affirmation_for_marriage: 65
+             } %>
 
 <% elsif %w(philippines united-arab-emirates).include?(ceremony_country) %>
   ##Fees
