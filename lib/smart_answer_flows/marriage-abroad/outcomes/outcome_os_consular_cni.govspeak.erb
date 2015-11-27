@@ -457,17 +457,15 @@
   <% end -%>
 
   <% if ceremony_country == 'croatia' && resident_of == 'ceremony_country' %>
-    ##Fees
-
-    Service | Fee
-    -|-
-    Receiving a notice of marriage | £65
-    Issuing a CNI, Nulla Osta or equivalent | £65
-    Issuing any other consular letter or certificate in English | £45
-    Issuing any other consular letter or certificate in any other language | £70
-    Administering an oath or making a declaration | £55
-    Issuing a certificate of custom and law | £65
-
+    <%= render partial: 'fee_table.govspeak.erb',
+               locals: {
+                 receiving_notice_of_marriage: 65,
+                 issuing_cni_or_nulla_osta: 65,
+                 issuing_letter_or_certificate_english: 45,
+                 issuing_letter_or_certificate_other_language: 70,
+                 administrating_oath_making_declaration: 55,
+                 issuing_certificate_of_custom_and_law: 65
+               } %>
 
   <% else %>
     <%= render partial: 'fee_table.govspeak.erb',
