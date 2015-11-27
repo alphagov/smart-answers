@@ -23,6 +23,12 @@ Service | Fee
 <% if price = local_assigns[:affirmation_for_marriage] %>
   Affirmation for marriage | <%= format_money(price) %>
 <% end %>
+<% if price = local_assigns[:affirmation_for_freedom_to_marry_in_english] %>
+  Affirmation for freedom to marry in English | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:affirmation_for_freedom_to_marry_in_other_language] %>
+  Affirmation for freedom to marry in any other language | <%= format_money(price) %>
+<% end %>
 <% if price = local_assigns[:affidavit_or_affirmation_for_marriage] %>
   Affidavit or affirmation for marriage | <%= format_money(price) %>
 <% end %>
