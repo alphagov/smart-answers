@@ -50,6 +50,18 @@ Service | Fee
 <% if price = local_assigns[:issuing_marriage_or_civil_partnership_certificate] %>
   Issuing a marriage or civil partnership certificate | <%= format_money(price) %>
 <% end %>
+<% if price = local_assigns[:registering_marriage] %>
+  Registering a marriage | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:registering_civil_partnership] %>
+  Registering a civil partnership | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:issuing_marriage_certificate] %>
+  Issuing a marriage certificate | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:issuing_civil_partnership_certificate] %>
+  Issuing a civil partnership certificate | <%= format_money(price) %>
+<% end %>
 <% if price = local_assigns[:marriage_declaration] %>
   Marriage declaration | <%= format_money(price) %>
 <% end %>

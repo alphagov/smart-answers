@@ -150,13 +150,12 @@
   <% if data_query.ss_alt_fees_table_country?(ceremony_country, partner_nationality) %>
     <% case marriage_and_partnership_phrases %>
     <% when 'ss_marriage' %>
-      ##Fees
-
-      Service | Fee
-      -|-
-      Receiving a notice of registration  | £65
-      Registering a marriage | £140
-      Issuing a marriage certificate | £65
+      <%= render partial: 'fee_table.govspeak.erb',
+                 locals: {
+                   receiving_notice_of_registration: 65,
+                   registering_marriage: 140,
+                   issuing_marriage_certificate: 65
+                 } %>
 
     <% end %>
   <% else %>
