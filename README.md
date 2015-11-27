@@ -60,7 +60,7 @@ See [development using the GDS development virtual machine](doc/developing-using
 
 * [Refactoring existing Smart Answers](doc/refactoring.md)
 * [Common errors you might run into during development](doc/common-errors.md)
-* Adding [content-ids](doc/content-ids.md) to Smart Answers.
+* Adding [content-ids](doc/content-ids.md) to Smart Answers
 * [Developing using the VM](doc/developing-using-vm.md)
 * [Developing without using the VM](doc/developing-without-vm.md)
 * [Issues and Todo](https://github.com/alphagov/smart-answers/issues)
