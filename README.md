@@ -63,7 +63,7 @@ See [development using the GDS development virtual machine](doc/developing-using
 * Adding [content-ids](doc/content-ids.md) to Smart Answers
 * [Developing using the VM](doc/developing-using-vm.md)
 * [Developing without using the VM](doc/developing-without-vm.md)
-* [Issues and Todo](https://github.com/alphagov/smart-answers/issues)
+* [Issues and Todo](https://trello.com/b/7HgyU4hy/smart-answers-tasks)
 * [Rubocop](doc/rubocop.md)
 * [Testing](doc/testing.md)
 * [Updating worldwide fixture data](doc/updating-worldwide-fixture-data.md)
