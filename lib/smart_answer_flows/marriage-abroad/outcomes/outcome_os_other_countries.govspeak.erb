@@ -85,13 +85,13 @@
         <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 
       <% end %>
-      ##Fees
-
-      Service | Fee
-      -|-
-      Posting a marriage notice | £65
-      Performing a marriage ceremony| £140
-      Issuing a marriage certificate | £65
+      
+      <%= render partial: 'fee_table.govspeak.erb',
+                 locals: {
+                   posting_marriage_notice: 65,
+                   performing_marriage_ceremony: 140,
+                   issuing_marriage_certificate: 65
+                 } %>
 
       You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for <%= ceremony_country_name %>](/government/publications/<%= ceremony_country %>-consular-fees).
 

@@ -56,6 +56,12 @@ Service | Fee
 <% if price = local_assigns[:registering_civil_partnership] %>
   Registering a civil partnership | <%= format_money(price) %>
 <% end %>
+<% if price = local_assigns[:posting_marriage_notice] %>
+  Posting a marriage notice | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:performing_marriage_ceremony] %>
+  Performing a marriage ceremony | <%= format_money(price) %>
+<% end %>
 <% if price = local_assigns[:issuing_marriage_certificate] %>
   Issuing a marriage certificate | <%= format_money(price) %>
 <% end %>
