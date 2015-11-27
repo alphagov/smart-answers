@@ -1,16 +1,14 @@
 <% if %w(thailand turkey vietnam).include?(ceremony_country) %>
-  ##Fees
-
-  Service | Fee
-  -|-
-  Affidavit for marriage | £55
+<%= render partial: 'fee_table.govspeak.erb',
+           locals: {
+             affidavit_for_marriage: 55
+           } %>
 
 <% elsif %w(south-korea).include?(ceremony_country) %>
-  ##Fees
-
-  Service | Fee
-  -|-
-  Affidavit for marriage | £65
+  <%= render partial: 'fee_table.govspeak.erb',
+             locals: {
+               affidavit_for_marriage: 65
+             } %>
 
 <% elsif %w(belgium ecuador macao morocco norway).include?(ceremony_country) %>
   <%= render partial: 'fee_table.govspeak.erb',
