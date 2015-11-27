@@ -1,0 +1,19 @@
+##Fees
+
+Service | Fee
+-|-
+<% if price = local_assigns[:receiving_notice_of_marriage] %>
+  Receiving a notice of marriage | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:issuing_cni_or_nulla_osta] %>
+  Issuing a CNI, Nulla Osta or equivalent | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:issuing_letter_or_certificate_english] %>
+  Issuing any other consular letter or certificate in English | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:issuing_letter_or_certificate_other_language] %>
+  Issuing any other consular letter or certificate in any other language | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:administrating_oath_making_declaration] %>
+  Administering an oath or making a declaration | <%= format_money(price) %>
+<% end %>

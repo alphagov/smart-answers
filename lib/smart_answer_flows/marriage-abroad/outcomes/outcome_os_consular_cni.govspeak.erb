@@ -470,7 +470,14 @@
 
 
   <% else %>
-    <%= render partial: 'consular_cni_os_fees_incl_null_osta_oath_consular_letter.govspeak.erb' %>
+    <%= render partial: 'fee_table.govspeak.erb',
+               locals: {
+                 receiving_notice_of_marriage: 65,
+                 issuing_cni_or_nulla_osta: 65,
+                 issuing_letter_or_certificate_english: 45,
+                 issuing_letter_or_certificate_other_language: 70,
+                 administrating_oath_making_declaration: 55
+               } %>
 
   <% end %>
   <% unless data_query.countries_without_consular_facilities?(ceremony_country) || ceremony_country == 'cote-d-ivoire' %>
