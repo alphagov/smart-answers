@@ -32,3 +32,9 @@ Service | Fee
 <% if price = local_assigns[:affidavit_or_affirmation_for_marriage] %>
   Affidavit or affirmation for marriage | <%= format_money(price) %>
 <% end %>
+<% if price = local_assigns[:marriage_declaration] %>
+  Marriage declaration | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:making_an_oath] %>
+  Making an oath | <%= format_money(price) %>
+<% end %>
