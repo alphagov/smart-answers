@@ -54,6 +54,7 @@ See [development using the GDS development virtual machine](doc/developing-using
 * [Deploying changes for Factcheck](doc/factcheck.md)
 * [Deploying](doc/deploying.md)
 * [Merging pull requests from the content team](doc/merging-content-prs.md)
+* [Handling exceptions with Errbit](doc/errbit.md)
 
 ### Development
 
