@@ -86,7 +86,10 @@
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
   <% end %>
 
-  <%= render partial: 'fee_table_affirmation_55.govspeak.erb' %>
+  <%= render partial: 'fee_table.govspeak.erb',
+             locals: {
+               affidavit_or_affirmation_for_marriage: 55
+             } %>
   <%= render partial: 'link_to_consular_fees.govspeak.erb',
              locals: {
                country_name_lowercase_prefix: country_name_lowercase_prefix,
