@@ -171,7 +171,12 @@
       Issuing a marriage certificate | £65
 
     <% when 'ss_marriage_and_partnership' %>
-      <%= render partial: 'fees_table_ss_marriage_and_partnership.govspeak.erb' %>
+      <%= render partial: 'fee_table.govspeak.erb',
+                 locals: {
+                   receiving_notice_of_registration: 65,
+                   registering_marriage_or_civil_partnership: 140,
+                   issuing_marriage_or_civil_partnership_certificate: 65
+                 } %>
     <% end %>
   <% end %>
 

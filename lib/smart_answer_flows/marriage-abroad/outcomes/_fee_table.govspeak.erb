@@ -2,6 +2,9 @@
 
 Service | Fee
 -|-
+<% if price = local_assigns[:receiving_notice_of_registration] %>
+  Receiving a notice of registration | <%= format_money(price) %>
+<% end %>
 <% if price = local_assigns[:receiving_notice_of_marriage] %>
   Receiving a notice of marriage | <%= format_money(price) %>
 <% end %>
@@ -37,6 +40,12 @@ Service | Fee
 <% end %>
 <% if price = local_assigns[:issuing_certificate_of_custom_and_law] %>
   Issuing a certificate of custom and law | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:registering_marriage_or_civil_partnership] %>
+  Registering a marriage or civil partnership | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:issuing_marriage_or_civil_partnership_certificate] %>
+  Issuing a marriage or civil partnership certificate | <%= format_money(price) %>
 <% end %>
 <% if price = local_assigns[:marriage_declaration] %>
   Marriage declaration | <%= format_money(price) %>
