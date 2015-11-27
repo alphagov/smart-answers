@@ -34,7 +34,12 @@
 
 
 <% elsif ceremony_country == 'qatar' %>
-  <%= render partial: 'fee_table_45_70_55.govspeak.erb' %>
+  <%= render partial: 'fee_table.govspeak.erb',
+             locals: {
+               issuing_letter_or_certificate_english: 45,
+               issuing_letter_or_certificate_other_language: 70,
+               affidavit_for_marriage: 55
+             } %>
 
 <% elsif ceremony_country == 'egypt' %>
   ##Fees
