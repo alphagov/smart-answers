@@ -448,7 +448,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     setup do
       add_response "croatia"
     end
-    should "takes you to outcome_no_visa_needed with croatia phraselist" do
+    should "takes you to outcome_no_visa_needed" do
       assert_current_node :outcome_no_visa_needed
     end
   end
@@ -653,7 +653,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       setup do
         add_response 'school'
       end
-      should "take you to school outcome without personalised phraselist" do
+      should "take you to :outcome_school_y outcome" do
         assert_current_node :outcome_school_y
       end
     end
@@ -661,7 +661,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       setup do
         add_response 'tourism'
       end
-      should "take you to tourism outcome without personalised phraselist" do
+      should "take you to :outcome_standard_visit outcome" do
         assert_current_node :outcome_standard_visit
       end
     end
@@ -670,7 +670,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         add_response 'study'
         add_response 'six_months_or_less'
       end
-      should "take you to study outcome without personalised phraselist" do
+      should "take you to :outcome_study_m outcome" do
         assert_current_node :outcome_study_m
       end
     end
@@ -678,7 +678,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       setup do
         add_response 'medical'
       end
-      should "take you to medical outcome without personalised phraselist" do
+      should "take you to :outcome_medical_y outcome" do
         assert_current_node :outcome_medical_y
       end
     end

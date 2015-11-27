@@ -2,14 +2,3 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en-GB:
-  date:
-    formats:
-      day_and_month: "%e %B"
-      long: "%e %B %Y"
-  flow:
-    defaults:
-      error_message: Please answer this question
-  holiday_pay:
-    error_messages:
-      invalid_hours: Please enter a valid amount of hours per week.
-      invalid_days: Please enter a valid amount of days per week.

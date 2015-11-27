@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/minimum-wage-calculator-employers.rb: 9d2474cacf4b0ffb9fd0fb753a519122
+lib/smart_answer_flows/minimum-wage-calculator-employers.rb: 3acdd42973737a9c09ffa017cce5066c
 test/data/minimum-wage-calculator-employers-questions-and-responses.yml: ddadb3fc5fc1d82d77f53fbc90752d89
 test/data/minimum-wage-calculator-employers-responses-and-expected-results.yml: 3f047b0007e3432a77ea4e896ea763ea
 lib/smart_answer_flows/minimum-wage-calculator-employers/minimum_wage_calculator_employers.govspeak.erb: 925ea68bf1c68cb973393159b8ea01b7

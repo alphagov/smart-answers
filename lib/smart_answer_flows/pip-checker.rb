@@ -6,8 +6,6 @@ module SmartAnswer
       status :published
       satisfies_need "100389"
 
-      use_erb_templates_for_questions
-
       ## Q1
       multiple_choice :are_you_getting_dla? do
         option :yes

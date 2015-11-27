@@ -183,7 +183,7 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
                 add_response :no # no contract
                 add_response :no # not on payroll
               end
-              should "go to outcome with not entitled to leave or pay phraselists" do
+              should "go to adoption_not_entitled_to_leave_or_pay outcome" do
                 assert_current_node :adoption_not_entitled_to_leave_or_pay
               end
             end # no contract and not on payroll

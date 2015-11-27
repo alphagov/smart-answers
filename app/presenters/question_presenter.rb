@@ -1,78 +1,41 @@
 class QuestionPresenter < NodePresenter
-  extend Forwardable
-  delegate [
-    :translate!,
-    :translate_and_render,
-    :translate_option
-  ] => :@renderer
-
-  delegate use_erb_template?: :@node
-
-  def initialize(i18n_prefix, node, state = nil, options = {})
-    super(i18n_prefix, node, state)
+  def initialize(node, state = nil, options = {})
+    super(node, state)
     @renderer = options[:renderer]
     helpers = options[:helpers] || []
-    if use_erb_template?
-      @renderer ||= SmartAnswer::ErbRenderer.new(
-        template_directory: @node.template_directory.join('questions'),
-        template_name: @node.filesystem_friendly_name,
-        locals: @state.to_hash,
-        helpers: [SmartAnswer::FormattingHelper] + helpers
-      )
-    else
-      @renderer ||= SmartAnswer::I18nRenderer.new(
-        i18n_prefix: @i18n_prefix,
-        node: @node,
-        state: @state
-      )
-    end
+    @renderer ||= SmartAnswer::ErbRenderer.new(
+      template_directory: @node.template_directory.join('questions'),
+      template_name: @node.filesystem_friendly_name,
+      locals: @state.to_hash,
+      helpers: [SmartAnswer::FormattingHelper] + helpers
+    )
   end
 
   def title
-    if use_erb_template?
-      @renderer.single_line_of_content_for(:title)
-    else
-      translate!('title', rescue_exception: false)
-    end
+    @renderer.single_line_of_content_for(:title)
   end
 
   def error
     if @state.error.present?
-      error_message_for(@state.error) || error_message_for('error_message') || I18n.translate('flow.defaults.error_message')
+      error_message_for(@state.error) || error_message_for('error_message') || default_error_message
     end
   end
 
   def error_message_for(key)
-    if use_erb_template?
-      message = @renderer.single_line_of_content_for(key.to_sym)
-      message.blank? ? nil : message
-    else
-      translate!(key)
-    end
+    message = @renderer.single_line_of_content_for(key.to_sym)
+    message.blank? ? nil : message
   end
 
   def hint
-    if use_erb_template?
-      @renderer.single_line_of_content_for(:hint)
-    else
-      translate!('hint')
-    end
+    @renderer.single_line_of_content_for(:hint)
   end
 
   def label
-    if use_erb_template?
-      @renderer.single_line_of_content_for(:label)
-    else
-      translate!('label')
-    end
+    @renderer.single_line_of_content_for(:label)
   end
 
   def suffix_label
-    if use_erb_template?
-      @renderer.single_line_of_content_for(:suffix_label)
-    else
-      translate!('suffix_label')
-    end
+    @renderer.single_line_of_content_for(:suffix_label)
   end
 
   def has_labels?
@@ -80,19 +43,11 @@ class QuestionPresenter < NodePresenter
   end
 
   def body(html: true)
-    if use_erb_template?
-      @renderer.content_for(:body, html: html)
-    else
-      translate_and_render('body', html: html)
-    end
+    @renderer.content_for(:body, html: html)
   end
 
   def post_body
-    if use_erb_template?
-      @renderer.content_for(:post_body, html: true)
-    else
-      translate_and_render('post_body', html: true)
-    end
+    @renderer.content_for(:post_body, html: true)
   end
 
   def options
@@ -102,11 +57,7 @@ class QuestionPresenter < NodePresenter
   end
 
   def render_option(key)
-    if use_erb_template?
-      @renderer.option_text(key.to_sym)
-    else
-      translate_option(key)
-    end
+    @renderer.option_text(key.to_sym)
   end
 
   def to_response(input)
@@ -123,5 +74,9 @@ class QuestionPresenter < NodePresenter
 
   def multiple_responses?
     false
+  end
+
+  def default_error_message
+    "Please answer this question"
   end
 end

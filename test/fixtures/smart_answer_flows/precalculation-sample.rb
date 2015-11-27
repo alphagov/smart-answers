@@ -4,8 +4,6 @@ module SmartAnswer
       name 'precalculation-sample'
       status :draft
 
-      use_erb_templates_for_questions
-
       value_question :how_much_wood_would_a_woodchuck_chuck_if_a_woodchuck_could_chuck_wood? do
         save_input_as :woodchuck_capacity
 

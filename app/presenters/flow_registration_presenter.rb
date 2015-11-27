@@ -2,7 +2,6 @@ class FlowRegistrationPresenter
 
   def initialize(flow)
     @flow = flow
-    @i18n_prefix = "flow.#{@flow.name}"
   end
 
   def slug
@@ -44,14 +43,9 @@ class FlowRegistrationPresenter
   def indexable_content
     HTMLEntities.new.decode(
       text = @flow.questions.inject([start_node.body]) { |acc, node|
-        pres = QuestionPresenter.new(@i18n_prefix, node, nil, helpers: [MethodMissingHelper])
+        pres = QuestionPresenter.new(node, nil, helpers: [MethodMissingHelper])
         acc.concat(NODE_PRESENTER_METHODS.map { |method|
-          begin
-            pres.send(method)
-          rescue I18n::MissingInterpolationArgument
-            # We can't do much about this, so we ignore these text nodes
-            nil
-          end
+          pres.send(method)
         })
       }.compact.join(" ").gsub(/(?:<[^>]+>|\s)+/, " ")
     )
@@ -65,6 +59,6 @@ private
 
   def start_node
     node = SmartAnswer::Node.new(@flow, @flow.name.underscore.to_sym)
-    StartNodePresenter.new(@i18n_prefix, node)
+    StartNodePresenter.new(node)
   end
 end

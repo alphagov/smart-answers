@@ -6,8 +6,6 @@ module SmartAnswer
       status :published
       satisfies_need "100221"
 
-      use_erb_templates_for_questions
-
       exclude_countries = %w(holy-see british-antarctic-territory)
 
       multiple_choice :where_was_the_passport_lost_or_stolen? do

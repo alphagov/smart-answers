@@ -8,8 +8,6 @@ module SmartAnswer
       status :published
       satisfies_need "100245"
 
-      use_erb_templates_for_questions
-
       # Q1
       multiple_choice :which_calculation? do
         save_input_as :relevant_calculation

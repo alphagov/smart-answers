@@ -6,8 +6,6 @@ module SmartAnswer
       status :published
       satisfies_need "100422"
 
-      use_erb_templates_for_questions
-
       #Q1
       multiple_choice :currently_claiming? do
         option :yes

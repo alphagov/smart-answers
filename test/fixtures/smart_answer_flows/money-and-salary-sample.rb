@@ -4,8 +4,6 @@ module SmartAnswer
       name 'money-and-salary-sample'
       status :draft
 
-      use_erb_templates_for_questions
-
       salary_question :how_much_do_you_earn? do
         save_input_as :salary
         calculate :annual_salary do

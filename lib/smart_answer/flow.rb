@@ -48,10 +48,6 @@ module SmartAnswer
       @status
     end
 
-    def use_erb_templates_for_questions
-      @use_erb_templates_for_questions = true
-    end
-
     def multiple_choice(name, options = {}, &block)
       add_question(Question::MultipleChoice, name, options, &block)
     end
@@ -136,7 +132,6 @@ module SmartAnswer
     private
 
     def add_question(klass, name, options = {}, &block)
-      options.reverse_merge!(use_erb_template: @use_erb_templates_for_questions)
       add_node klass.new(self, name, options, &block)
     end
 

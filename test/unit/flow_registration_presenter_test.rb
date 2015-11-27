@@ -1,25 +1,19 @@
 require_relative "../test_helper"
-require_relative "../helpers/i18n_test_helper"
+require_relative "../helpers/fixture_flows_helper"
 
 require File.expand_path('../../fixtures/smart_answer_flows/flow-sample', __FILE__)
 
 class FlowRegistrationPresenterTest < ActiveSupport::TestCase
-  include I18nTestHelper
+  include FixtureFlowsHelper
 
   def setup
-    example_translation_file =
-      File.expand_path('../../fixtures/smart_answer_flows/locales/en/flow-sample.yml', __FILE__)
-    use_additional_translation_file(example_translation_file)
-
-    load_path = fixture_file('smart_answer_flows')
-    SmartAnswer::FlowRegistry.instance.stubs(:load_path).returns(load_path)
-
+    setup_fixture_flows
     @flow = SmartAnswer::FlowSampleFlow.build
     @presenter = FlowRegistrationPresenter.new(@flow)
   end
 
   def teardown
-    reset_translation_files
+    teardown_fixture_flows
   end
 
   context "slug" do
@@ -35,7 +29,7 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
   end
 
   context "title" do
-    should "should use the title translation" do
+    should "should use the title from the start node template" do
       assert_equal "FLOW_TITLE", @presenter.title
     end
   end
@@ -59,7 +53,7 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
   end
 
   context "description" do
-    should "use the meta.description translation" do
+    should "use the meta_description from the start node template" do
       assert_equal "FLOW_DESCRIPTION", @presenter.description
     end
   end
@@ -111,14 +105,12 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
     end
 
     should "ignore any interpolation errors" do
-      interpolation_example_translation_file =
-        File.expand_path('../../fixtures/smart_answer_flows/locales/en/flow-sample-interpolation.yml', __FILE__)
-      reset_translation_files
-      use_additional_translation_file(interpolation_example_translation_file)
+      @flow.multiple_choice(:question_with_interpolation)
       @content = @presenter.indexable_content
       assert_match %r{FLOW_BODY}, @content
-      assert_no_match %r{QUESTION_1_BODY}, @content
+      assert_match %r{QUESTION_1_BODY}, @content
       assert_match %r{QUESTION_2_BODY}, @content
+      assert_match %r{QUESTION_WITH_INTERPOLATION_BODY}, @content
     end
   end
 

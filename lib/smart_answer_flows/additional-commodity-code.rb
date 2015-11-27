@@ -7,8 +7,6 @@ module SmartAnswer
       status :published
       satisfies_need "100233"
 
-      use_erb_templates_for_questions
-
       # Q1
       multiple_choice :how_much_starch_glucose? do
         option 0

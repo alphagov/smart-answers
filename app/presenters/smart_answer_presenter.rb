@@ -22,10 +22,6 @@ class SmartAnswerPresenter
     {}
   end
 
-  def i18n_prefix
-    "flow.#{@flow.name}"
-  end
-
   def title
     start_node.title
   end
@@ -80,7 +76,7 @@ class SmartAnswerPresenter
                         OutcomePresenter
                       else NodePresenter
                       end
-    presenter_class.new(i18n_prefix, node, current_state)
+    presenter_class.new(node, current_state)
   end
 
   def current_question_number
@@ -97,7 +93,7 @@ class SmartAnswerPresenter
 
   def start_node
     node = SmartAnswer::Node.new(@flow, @flow.name.underscore.to_sym)
-    StartNodePresenter.new(i18n_prefix, node)
+    StartNodePresenter.new(node)
   end
 
   def change_collapsed_question_link(question_number)

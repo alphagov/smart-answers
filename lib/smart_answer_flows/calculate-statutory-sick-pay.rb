@@ -7,8 +7,6 @@ module SmartAnswer
       status :published
       satisfies_need "100262"
 
-      use_erb_templates_for_questions
-
       # Question 1
       checkbox_question :is_your_employee_getting? do
         option :statutory_maternity_pay

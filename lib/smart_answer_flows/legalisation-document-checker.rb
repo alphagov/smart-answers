@@ -6,10 +6,6 @@ module SmartAnswer
       status :published
       satisfies_need "101010"
 
-      use_erb_templates_for_questions
-
-      i18n_prefix = "flow.legalisation-document-checker"
-
       #Q1
       checkbox_question :which_documents_do_you_want_legalised? do
         option "acro-police-certificate"
