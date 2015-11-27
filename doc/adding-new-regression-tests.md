@@ -1,13 +1,13 @@
 # Adding new regression tests
 
-1. Update the flow to replace any single line conditionals around `Phraselist`s with multiple line conditionals. This is so that we get useful information from the running the coverage utility. Single line conditionals will show up as having been exercised irrespective of whether they caused something to be added to the `Phraselist`.
+1. Update the flow to replace any single line conditionals with multiple line conditionals. This is so that we get useful information from running the coverage utility. Single line conditionals will show up as having been exercised irrespective of whether the code they were guarding was exercised.
 
         # Replace single line conditional
-        phrases << :new_phrase if condition
+        array << :value if condition
 
         # With multiple line alternative
         if condition
-          phrases << :new_phrase
+          array << :value
         end
 
 2. Generate a set of responses for the flow that you want to add regression tests to.
