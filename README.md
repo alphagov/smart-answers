@@ -51,6 +51,7 @@ See [development using the GDS development virtual machine](doc/developing-using
 * [File structure](doc/file-structure.md)
 * [Flow definition](doc/flow-definition.md)
 * [Question types](doc/question-types.md)
+* [Next node rules](doc/next-node-rules.md)
 
 ### Process
 
