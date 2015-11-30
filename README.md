@@ -52,6 +52,7 @@ See [development using the GDS development virtual machine](doc/developing-using
 * [Next node rules](doc/next-node-rules.md)
 * [Storing data](doc/storing-data.md)
 * [Landing page template](doc/landing-page-template.md)
+* [Question templates](doc/question-templates.md)
 * [Outcome templates](doc/outcome-templates.md)
 
 ### Process
