@@ -101,6 +101,8 @@ The `Flow` class contains a single `#define` method that defines the questions (
 
 #### Using `next_node` with a block
 
+We define the permitted next nodes so that we can visualise the Smart Answer flows.
+
 ```ruby
 permitted_next_nodes = [
   :green,
