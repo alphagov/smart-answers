@@ -63,6 +63,7 @@ See [development using the GDS development virtual machine](doc/developing-using
 * [Continuous integration](doc/continuous-integration.md)
 * [Deploying changes for Factcheck](doc/factcheck.md)
 * [Deploying](doc/deploying.md)
+* [Describing pull requests](doc/pull-requests.md)
 * [Merging pull requests from the content team](doc/merging-content-prs.md)
 * [Handling exceptions with Errbit](doc/errbit.md)
 
