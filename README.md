@@ -49,6 +49,7 @@ See [development using the GDS development virtual machine](doc/developing-using
 ### Smart Answers
 
 * [File structure](doc/file-structure.md)
+* [Flow definition](doc/flow-definition.md)
 
 ### Process
 
