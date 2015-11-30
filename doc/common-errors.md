@@ -9,8 +9,10 @@ You'll see this error if you visit the root URL of the Smart Answers app (e.g. h
 
 ### Exception
 
-    NoMethodError at /
-    undefined method `to_html' for nil:NilClass
+```
+NoMethodError at /
+undefined method `to_html' for nil:NilClass
+```
 
 ### Resolution
 
@@ -25,8 +27,10 @@ You'll see this error if the Smart Answers app can't connect to the Content API.
 
 ### Exception
 
-    SocketError at /marriage-abroad
-    getaddrinfo: nodename nor servname provided, or not known
+```
+SocketError at /marriage-abroad
+getaddrinfo: nodename nor servname provided, or not known
+```
 
 ### Resolution
 
@@ -43,8 +47,10 @@ You'll see this error if the Smart Answers app can't connect to the [Static][sta
 
 ### Exception
 
-    Slimmer::CouldNotRetrieveTemplate at /marriage-abroad
-    Unable to fetch: 'wrapper' from 'http://static.dev.gov.uk/templates/wrapper.html.erb' because getaddrinfo: nodename nor servname provided, or not known
+```
+Slimmer::CouldNotRetrieveTemplate at /marriage-abroad
+Unable to fetch: 'wrapper' from 'http://static.dev.gov.uk/templates/wrapper.html.erb' because getaddrinfo: nodename nor servname provided, or not known
+```
 
 ### Resolution
 

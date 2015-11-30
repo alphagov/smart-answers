@@ -6,23 +6,27 @@ This walks through the basics of creating a new Smart Answer.
 
 Start by creating a new file to hold the logic of our flow:
 
-    $ touch lib/smart_answer_flows/example-smart-answer.rb
+```bash
+$ touch lib/smart_answer_flows/example-smart-answer.rb
+```
 
 Open the new file in your editor and copy/paste this skeleton flow:
 
-    module SmartAnswer
-      class ExampleSmartAnswerFlow < Flow
-        def define
-          name 'example-smart-answer'
+```ruby
+module SmartAnswer
+  class ExampleSmartAnswerFlow < Flow
+    def define
+      name 'example-smart-answer'
 
-          value_question :question_1 do
-            next_node :outcome_1
-          end
-
-          outcome :outcome_1
-        end
+      value_question :question_1 do
+        next_node :outcome_1
       end
+
+      outcome :outcome_1
     end
+  end
+end
+```
 
 This flow contains a single question and a single outcome. Any non-empty response to `:question_1` will send you to `:outcome_1`.
 
@@ -32,8 +36,10 @@ If you were to run `rails server` and visit http://localhost:3000/example-smart-
 
 Create a new file for our landing page template.
 
-    $ mkdir lib/smart_answer_flows/example-smart-answer
-    $ touch lib/smart_answer_flows/example-smart-answer/example_smart_answer.govspeak.erb
+```
+$ mkdir lib/smart_answer_flows/example-smart-answer
+$ touch lib/smart_answer_flows/example-smart-answer/example_smart_answer.govspeak.erb
+```
 
 Although the landing page template needs to exist, it doesn't actually need to contain anything!
 
@@ -45,8 +51,10 @@ Click "Start now" to visit the first question. You should see an error message i
 
 Create a new file for our question page template.
 
-    $ mkdir lib/smart_answer_flows/example-smart-answer/questions
-    $ touch lib/smart_answer_flows/example-smart-answer/questions/question_1.govspeak.erb
+```
+$ mkdir lib/smart_answer_flows/example-smart-answer/questions
+$ touch lib/smart_answer_flows/example-smart-answer/questions/question_1.govspeak.erb
+```
 
 Although the question page template needs to exist, it doesn't actually need to contain anything!
 
@@ -58,8 +66,10 @@ Enter any value in the text field and click "Next step". You should see an error
 
 Create a new file for our outcome page template.
 
-    $ mkdir lib/smart_answer_flows/example-smart-answer/outcomes
-    $ touch lib/smart_answer_flows/example-smart-answer/outcomes/outcome_1.govspeak.erb
+```
+$ mkdir lib/smart_answer_flows/example-smart-answer/outcomes
+$ touch lib/smart_answer_flows/example-smart-answer/outcomes/outcome_1.govspeak.erb
+```
 
 Although the question page template needs to exist, it doesn't actually need to contain anything!
 
