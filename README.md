@@ -46,6 +46,10 @@ See [development using the GDS development virtual machine](doc/developing-using
 
     $ bundle exec rake
 
+### Smart Answers
+
+* [File structure](doc/file-structure.md)
+
 ### Process
 
 * [Creating a new Smart Answer](doc/creating-a-new-smart-answer.md)
