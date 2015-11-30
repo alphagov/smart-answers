@@ -2,8 +2,6 @@
 
 Landing page templates live in `lib/smart_answer_flows/<flow-name>/<flow-name-with-underscores>.govspeak.erb`.
 
-Content is defined in `content_for` blocks.
-
 The templates can contain content for the `title`, `meta_description`, `body` and `post_body`, all of which are optional.
 
 ## Example

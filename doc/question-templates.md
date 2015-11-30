@@ -2,8 +2,6 @@
 
 Question templates live in `lib/smart_answer_flows/<flow-name>/questions/<question-name>.govspeak.erb`.
 
-Content is defined in `content_for` blocks.
-
 The templates can contain content for the `title`, `hint`, `suffix_label`, `body` and `post_body`, all of which are optional.
 
 The templates can contain the options for multiple choice questions.
