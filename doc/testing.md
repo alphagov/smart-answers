@@ -9,12 +9,6 @@ Smart-answers also require the govuk-content-schemas repository which can
 be [cloned](https://github.com/alphagov/govuk-content-schemas) into a sibling
 directory, or a directory referenced using GOVUK_CONTENT_SCHEMAS_PATH.
 
-## Executing tests
-
-Run all tests by executing the following:
-
-    bundle exec rake
-
 ## Regression tests
 
 See [regression tests documentation](regression-tests.md).
