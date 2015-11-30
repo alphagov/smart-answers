@@ -1,6 +1,6 @@
 # Next node rules
 
-## Using `next_node` with a block
+The `next_node` method takes a block that should return the name of the next node (question or outcome) to send the user to.
 
 We define the permitted next nodes so that we can visualise the Smart Answer flows.
 
