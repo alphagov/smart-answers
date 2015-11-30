@@ -2,11 +2,28 @@
 
 You can use the `precalculate`, `next_node_calculation`, `save_input_as` and `calculate` methods to store data for later use.
 
-Use `precalculate` or `next_node_calculation` to store data for use within the same node.
+* `precalculate` values are available in:
+  * The question template
+  * The `next_node_calculation` block
+  * The `validate` block
+  * The `next_node` block
+  * The `calculate` block
+  * All subsequent questions and outcomes
 
-Use `save_input_as` to store the answer to the question for use within subsequent nodes.
+__NOTE.__ `precalculate` blocks are not evaluated in the first question. This is because they're evaluated during the transition of one question to the next.
 
-Use `calculate` to store data for use within subsequent nodes.
+* `next_node_calculation` values are available in:
+  * The `validate` block
+  * The `next_node` block
+  * The `calculate` block
+  * All subsequent questions and outcomes
+
+* `save_input_as` values are available in:
+  * The `calculate` block
+  * All subsequent questions and outcomes
+
+* `calculate` values are available in:
+  * All subsequent questions and outcomes
 
 The flow below illustrates the data available to the different Question node methods.
 
