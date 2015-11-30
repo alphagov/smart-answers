@@ -1,6 +1,6 @@
 # Next node rules
 
-#### Using `next_node` with a block
+## Using `next_node` with a block
 
 We define the permitted next nodes so that we can visualise the Smart Answer flows.
 
