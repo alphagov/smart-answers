@@ -92,7 +92,3 @@ This is how we were previously writing integration tests for Smart Answer flows.
         end
       end
     end
-
-### Adding regression tests to Smart Answers
-
-We're not imagining introducing new regression tests but I think [these instructions](adding-new-regression-tests.md) are still useful while we still have them in the project.
