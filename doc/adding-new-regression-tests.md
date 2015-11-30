@@ -2,18 +2,22 @@
 
 1. Update the flow to replace any single line conditionals with multiple line conditionals. This is so that we get useful information from running the coverage utility. Single line conditionals will show up as having been exercised irrespective of whether the code they were guarding was exercised.
 
-        # Replace single line conditional
-        array << :value if condition
+```ruby
+# Replace single line conditional
+array << :value if condition
 
-        # With multiple line alternative
-        if condition
-          array << :value
-        end
+# With multiple line alternative
+if condition
+  array << :value
+end
+```
 
 2. Generate a set of responses for the flow that you want to add regression tests to.
 
-        $ rails r script/generate-questions-and-responses-for-smart-answer.rb \
-          <name-of-smart-answer>
+```bash
+$ rails r script/generate-questions-and-responses-for-smart-answer.rb \
+  <name-of-smart-answer>
+```
 
 3. Commit the generated questions-and-responses.yml file (in test/data) to git.
 
@@ -29,10 +33,12 @@
 
 6. Generate a set of input responses and expected results for the Smart Answer.
 
-        $ rm -rf coverage && \
-          TEST_COVERAGE=true \
-          rails r script/generate-responses-and-expected-results-for-smart-answer.rb \
-          <name-of-smart-answer>
+```bash
+$ rm -rf coverage && \
+  TEST_COVERAGE=true \
+  rails r script/generate-responses-and-expected-results-for-smart-answer.rb \
+  <name-of-smart-answer>
+```
 
 7. Inspect the code coverage report for the Smart Answer under test (`open coverage/rcov/index.html` and find the smart answer under test).
 
@@ -54,16 +60,20 @@
 
 9. Generate a yaml file containing the set of source files that this Smart Answer depends upon. The script will automatically take the ruby flow file, locale file and erb templates into account. You just need to supply it with the location of any additional files required by the Smart Answer (e.g. calculators and data files). This data is used to determine whether to run the regression tests based on whether the source files have changed.
 
-        $ rails r script/generate-checksums-for-smart-answer.rb \
-          <name-of-smart-answer> \
-          <path/to/additional/files>
+```bash
+$ rails r script/generate-checksums-for-smart-answer.rb \
+  <name-of-smart-answer> \
+  <path/to/additional/files>
+```
 
 10. Commit the generated yaml file to git.
 
 11. Run the regression test to generate the Govspeak of each landing page and outcome reached by the set of input responses.
 
-        $ RUN_REGRESSION_TESTS=<name-of-smart-answer> \
-          ruby test/regression/smart_answers_regression_test.rb
+```bash
+$ RUN_REGRESSION_TESTS=<name-of-smart-answer> \
+  ruby test/regression/smart_answers_regression_test.rb
+```
 
 If you want individual tests to fail early when differences are detected, set `ASSERT_EACH_ARTEFACT=true`.
 Note that this more than doubles the time it takes to run regression tests.
