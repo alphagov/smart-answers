@@ -2,8 +2,6 @@
 
 Outcome templates live in `lib/smart_answer_flows/<flow-name>/outcomes/<outcome-name>.govspeak.erb`.
 
-Content is defined in `content_for` blocks.
-
 The templates can contain content for the `title`, `body` and `next_steps`, all of which are optional.
 
 ## Example
