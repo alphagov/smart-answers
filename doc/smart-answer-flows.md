@@ -1,13 +1,5 @@
 # Ruby Smart Answers
 
-## Smart answer syntax
-
-### Outcome templates
-
-#### ERB
-
-The ERB outcome templates live in `lib/smart_answer_flows/<flow-name>/<outcome-name>.govspeak.erb`.
-
 ## Testing Smart Answers
 
 ### Avoid deeply nested contexts
