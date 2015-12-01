@@ -114,3 +114,9 @@ See [regression tests documentation](regression-tests.md).
 ### Adding regression tests to Smart Answers
 
 We're not imagining introducing new regression tests but I think [these instructions](adding-new-regression-tests.md) are still useful while we still have them in the project.
+
+### Removing regression tests
+
+The regression tests were never thought of as a long term part of the project. We added them to give us confidence to make larger changes to the system.
+
+The plan has always been to refactor the existing Smart Answers so that they're easier to test using more traditional techniques. You can hopefully see a good example of this in the way we're testing the part-year-profit-tax-credits Smart Answer. We didn't add any regression tests when we created that Smart Answer because we were confident in the unit and integration tests that we created for it.
