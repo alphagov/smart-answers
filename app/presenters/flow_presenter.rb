@@ -1,7 +1,7 @@
 require 'node_presenter'
 require 'gds_api/helpers'
 
-class SmartAnswerPresenter
+class FlowPresenter
   include GdsApi::Helpers
   extend Forwardable
   include Rails.application.routes.url_helpers
