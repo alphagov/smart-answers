@@ -6,7 +6,7 @@ Contact the relevant local authorities in Germany (registry office ‘standesamt
 
 ##What you need to do
 
-You don’t need a certificate of no impediment (CNI) to prove you’re allowed to marry if you’re a British national resident outside of the UK. However, you’ll need to apply for an exemption (‘Befreiung von der Beibringung des Ehefähigkeitszeugnisses’).
+You don’t need a certificate of no impediment (CNI) to prove you’re allowed to marry if you’re a British national resident outside of the UK. However, you’ll need to apply for an exemption (‘Befreiung von der Beibringung des Ehefähigkeitszeugnisses’) from the Higher Regional Court (‘Oberlandesgericht’) in the region where you want to marry.
 
 The local registry office (‘Standesamt’) where you’re getting married should tell you what to do.
 
@@ -14,7 +14,7 @@ If the Standesamt does ask you for a CNI (‘Ehefähigkeitszeugnis’), refer th
 
 Check with the Higher Regional Court where you’re getting married if they don’t accept this.
 
-^You don't need to stay in the country while your notice is posted.^
+You’ll need to complete a statutory declaration at the registry office as part of the application process.
 
 ##Naturalisation of your partner if they move to the UK
 
@@ -25,7 +25,6 @@ Your partner can apply to [become a British citizen](/becoming-a-british-citizen
 Service | Fee
 -|-
 Receiving a notice of marriage | £65
-Issuing a CNI, Nulla Osta or equivalent | £65
 Issuing any other consular letter or certificate in English | £45
 Issuing any other consular letter or certificate in any other language | £70
 Administering an oath or making a declaration | £55
