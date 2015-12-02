@@ -44,8 +44,11 @@
     <%= render partial: 'cost/child_or_adult_passport.govspeak.erb', locals: { ips_number: ips_number, child_or_adult: child_or_adult } %>
   <% end %>
 
-
   ## How to apply
+
+  <% if %w(hong-kong).include?(current_location) && %w(renewing replacing).include?(general_action) %>
+    ^Read the information in [Cantonese](government/publications/how-to-apply-for-a-british-national-overseas-passport-from-hong-kong).^
+  <% end %>
 
   You must apply and pay for your passport online.
 
