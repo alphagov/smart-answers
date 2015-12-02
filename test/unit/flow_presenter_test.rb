@@ -66,4 +66,11 @@ class FlowPresenterTest < ActiveSupport::TestCase
     node_presenter = @flow_presenter.presenter_for(node)
     assert_instance_of NodePresenter, node_presenter
   end
+
+  test '#presenter_for always returns same presenter for a given question' do
+    question = @flow.multiple_choice(:question_key).last
+    node_presenter_1 = @flow_presenter.presenter_for(question)
+    node_presenter_2 = @flow_presenter.presenter_for(question)
+    assert_same node_presenter_1, node_presenter_2
+  end
 end

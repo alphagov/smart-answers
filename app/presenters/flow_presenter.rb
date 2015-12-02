@@ -14,6 +14,7 @@ class FlowPresenter
     @request = request
     @params = request.params
     @flow = flow
+    @node_presenters = {}
   end
 
   def artefact
@@ -77,7 +78,7 @@ class FlowPresenter
                       else
                         NodePresenter
                       end
-    presenter_class.new(node, current_state)
+    @node_presenters[node.name] ||= presenter_class.new(node, current_state)
   end
 
   def current_question_number
