@@ -2,7 +2,10 @@ require_relative "../test_helper"
 
 class FlowPresenterTest < ActiveSupport::TestCase
   setup do
-    @flow = SmartAnswer::Flow.new { value_question :first_question_key }
+    @flow = SmartAnswer::Flow.new do
+      name 'flow-name'
+      value_question :first_question_key
+    end
     @request = ActionDispatch::TestRequest.new
     @flow_presenter = FlowPresenter.new(@request, @flow)
   end
@@ -72,5 +75,10 @@ class FlowPresenterTest < ActiveSupport::TestCase
     node_presenter_1 = @flow_presenter.presenter_for(question)
     node_presenter_2 = @flow_presenter.presenter_for(question)
     assert_same node_presenter_1, node_presenter_2
+  end
+
+  test '#start_node returns presenter for landing page node' do
+    start_node = @flow_presenter.start_node
+    assert_instance_of StartNodePresenter, start_node
   end
 end
