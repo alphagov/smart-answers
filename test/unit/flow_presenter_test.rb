@@ -81,4 +81,10 @@ class FlowPresenterTest < ActiveSupport::TestCase
     start_node = @flow_presenter.start_node
     assert_instance_of StartNodePresenter, start_node
   end
+
+  test '#start_node always returns same presenter for landing page node' do
+    start_node_1 = @flow_presenter.start_node
+    start_node_2 = @flow_presenter.start_node
+    assert_same start_node_1, start_node_2
+  end
 end
