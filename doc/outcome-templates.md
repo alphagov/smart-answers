@@ -6,7 +6,7 @@ The templates can contain content for the `title`, `body` and `next_steps`, all 
 
 ## Example
 
-```ruby
+```erb
 <% content_for :title do %>
   <% unless calculator.has_commodity_code? %>
     The product composition you indicated is not possible.
