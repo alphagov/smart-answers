@@ -63,27 +63,27 @@ See:
   * [Question templates](doc/question-templates.md)
   * [Outcome templates](doc/outcome-templates.md)
 
-### Process
+### Smart Answer flow development
 
+* [Deploying changes for Factcheck](doc/factcheck.md)
+* [Merging pull requests from the content team](doc/merging-content-prs.md)
+* [Refactoring existing Smart Answers](doc/refactoring.md)
+* Adding [content-ids](doc/content-ids.md) to Smart Answers
 * [Creating a new Smart Answer](doc/creating-a-new-smart-answer.md)
 * [Archiving a Smart Answer](doc/archiving.md)
-* [Continuous integration](doc/continuous-integration.md)
-* [Deploying changes for Factcheck](doc/factcheck.md)
-* [Deploying](doc/deploying.md)
-* [Describing pull requests](doc/pull-requests.md)
-* [Merging pull requests from the content team](doc/merging-content-prs.md)
-* [Handling exceptions with Errbit](doc/errbit.md)
+* [Updating worldwide fixture data](doc/updating-worldwide-fixture-data.md)
 
-### Development
+### Smart Answers app development
 
-* [Environments](doc/environments.md)
-* [Refactoring existing Smart Answers](doc/refactoring.md)
 * [Common errors you might run into during development](doc/common-errors.md)
-* Adding [content-ids](doc/content-ids.md) to Smart Answers
-* [Issues and Todo](https://trello.com/b/7HgyU4hy/smart-answers-tasks)
+* [Environments](doc/environments.md)
+* [Continuous integration](doc/continuous-integration.md)
+* [Describing pull requests](doc/pull-requests.md)
+* [Deploying](doc/deploying.md)
+* [Handling exceptions with Errbit](doc/errbit.md)
 * [Rubocop](doc/rubocop.md)
 * [Testing](doc/testing.md)
-* [Updating worldwide fixture data](doc/updating-worldwide-fixture-data.md)
+* [Issues and Todo](https://trello.com/b/7HgyU4hy/smart-answers-tasks)
 
 ### Debugging
 
