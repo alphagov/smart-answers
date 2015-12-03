@@ -42,7 +42,10 @@ This is a Ruby on Rails application that contains:
 
 ### Running the application
 
-See [development using the GDS development virtual machine](doc/developing-using-vm.md).
+See:
+
+* [Developing using the GDS development virtual machine](doc/developing-using-vm.md)
+* [Developing without using the development VM](doc/developing-without-vm.md)
 
 ### Running the test suite
 
