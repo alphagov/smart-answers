@@ -14,6 +14,8 @@ We've refactored a small number of these Smart Answers and have a rough set of s
 
 * Save the responses to questions on the calculator object rather than using `save_input_as`. See commit 64c60baf42e726fa234e579a04c36bc0da0fa3fc for an example.
 
+* Extract magic numbers into intention-revealing variables/constants. See commit 2e1f2ad117813cf0b8741ffbff6c711f5d838947 for an example.
+
 * Move policy logic from the flow to the calculator. See commit 96f10c4c04bd88cc6506d74dad48989de7b7fa29 for an example.
 
 * Move validation logic from the flow to the calculator. See commit 7833a2c4b5bed6e699a96a194a1c7663d35ec520 for an example.
