@@ -74,7 +74,8 @@ class FlowPresenter
                         QuestionPresenter
                       when SmartAnswer::Outcome
                         OutcomePresenter
-                      else NodePresenter
+                      else
+                        NodePresenter
                       end
     presenter_class.new(node, current_state)
   end
