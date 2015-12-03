@@ -80,8 +80,6 @@ See:
 * [Refactoring existing Smart Answers](doc/refactoring.md)
 * [Common errors you might run into during development](doc/common-errors.md)
 * Adding [content-ids](doc/content-ids.md) to Smart Answers
-* [Developing using the VM](doc/developing-using-vm.md)
-* [Developing without using the VM](doc/developing-without-vm.md)
 * [Issues and Todo](https://trello.com/b/7HgyU4hy/smart-answers-tasks)
 * [Rubocop](doc/rubocop.md)
 * [Testing](doc/testing.md)
