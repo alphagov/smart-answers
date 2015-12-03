@@ -65,6 +65,7 @@ See:
 
 ### Smart Answer flow development
 
+* [Development principles](doc/development-principles.md)
 * [Deploying changes for Factcheck](doc/factcheck.md)
 * [Merging pull requests from the content team](doc/merging-content-prs.md)
 * [Refactoring existing Smart Answers](doc/refactoring.md)
