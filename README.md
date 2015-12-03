@@ -28,7 +28,11 @@ Read more in [Lisa Scott's GDS blog post](https://gds.blog.gov.uk/2012/02/16/sma
 
 ## Technical documentation
 
-This is a Ruby on Rails application that both contains and serves the Smart Answers stored in this repository. Smart Answers are presented to public users.
+This is a Ruby on Rails application that contains:
+
+* A Rails application to serve Smart Answers
+* A DSL for creating Smart Answers
+* The Smart Answers that appear on GOV.UK
 
 **NOTE.** This application doesn't use a database.
 
