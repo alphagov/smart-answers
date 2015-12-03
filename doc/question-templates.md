@@ -8,7 +8,7 @@ The templates can contain the options for multiple choice questions.
 
 ## Example
 
-```ruby
+```erb
 <% content_for :title do %>
   How much milk proteins does the product contain?
 <% end %>

@@ -6,7 +6,7 @@ The templates can contain content for the `title`, `meta_description`, `body` an
 
 ## Example
 
-```ruby
+```erb
 <% content_for :title do %>
   Look up Meursing code
 <% end %>
