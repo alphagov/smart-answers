@@ -127,6 +127,11 @@ module SmartAnswer
       process(responses).responses
     end
 
+    def template_directory
+      load_path = FlowRegistry.instance.load_path
+      Pathname.new(load_path).join(String(name))
+    end
+
     class InvalidStatus < StandardError; end
 
     private

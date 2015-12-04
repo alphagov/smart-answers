@@ -1,15 +1,10 @@
 class OutcomePresenter < NodePresenter
-  def initialize(node, state = nil, options = {})
+  def initialize(node, action_view, state = nil, options = {})
     super(node, state)
     @renderer = options[:renderer] || SmartAnswer::ErbRenderer.new(
-      template_directory: @node.template_directory.join('outcomes'),
+      action_view: action_view,
       template_name: @node.name.to_s,
-      locals: @state.to_hash,
-      helpers: [
-        SmartAnswer::FormattingHelper,
-        SmartAnswer::OverseasPassportsHelper,
-        SmartAnswer::MarriageAbroadHelper
-      ]
+      locals: @state.to_hash
     )
   end
 
