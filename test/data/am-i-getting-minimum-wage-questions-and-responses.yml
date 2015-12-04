@@ -16,6 +16,9 @@
 - apprentice_under_19
 - apprentice_over_19_first_year
 - apprentice_over_19_second_year_onwards
+:will_you_be_a_first_year_apprentice?:
+- 'no'
+- 'yes'
 :were_you_an_apprentice?:
 - 'no'
 - apprentice_under_19

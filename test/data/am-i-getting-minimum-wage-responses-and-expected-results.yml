@@ -23171,23 +23171,32 @@
 - :current_node: :what_would_you_like_to_check?
   :responses:
   - current_payment_april_2016
+  :next_node: :will_you_be_a_first_year_apprentice?
+  :outcome_node: false
+- :current_node: :will_you_be_a_first_year_apprentice?
+  :responses:
+  - current_payment_april_2016
+  - 'no'
   :next_node: :how_old_are_you?
   :outcome_node: false
 - :current_node: :how_old_are_you?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '15'
   :next_node: :how_old_are_you?
   :outcome_node: false
 - :current_node: :how_old_are_you?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   :next_node: :how_often_do_you_get_paid?
   :outcome_node: false
 - :current_node: :how_often_do_you_get_paid?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   :next_node: :how_many_hours_do_you_work?
@@ -23195,6 +23204,7 @@
 - :current_node: :how_many_hours_do_you_work?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16'
@@ -23203,6 +23213,7 @@
 - :current_node: :how_much_are_you_paid_during_pay_period?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23212,6 +23223,7 @@
 - :current_node: :how_many_hours_overtime_do_you_work?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23222,6 +23234,7 @@
 - :current_node: :is_provided_with_accommodation?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23233,6 +23246,7 @@
 - :current_node: :is_provided_with_accommodation?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23244,6 +23258,7 @@
 - :current_node: :current_accommodation_usage?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23256,6 +23271,7 @@
 - :current_node: :is_provided_with_accommodation?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23267,6 +23283,7 @@
 - :current_node: :current_accommodation_charge?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23279,6 +23296,7 @@
 - :current_node: :current_accommodation_usage?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23292,6 +23310,7 @@
 - :current_node: :current_accommodation_charge?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23304,6 +23323,7 @@
 - :current_node: :current_accommodation_usage?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23317,6 +23337,7 @@
 - :current_node: :how_many_hours_overtime_do_you_work?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23327,6 +23348,7 @@
 - :current_node: :what_is_overtime_pay_per_hour?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23338,6 +23360,7 @@
 - :current_node: :is_provided_with_accommodation?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23350,6 +23373,7 @@
 - :current_node: :is_provided_with_accommodation?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23362,6 +23386,7 @@
 - :current_node: :current_accommodation_usage?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23375,6 +23400,7 @@
 - :current_node: :is_provided_with_accommodation?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23387,6 +23413,7 @@
 - :current_node: :current_accommodation_charge?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23400,6 +23427,7 @@
 - :current_node: :current_accommodation_usage?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23414,6 +23442,7 @@
 - :current_node: :current_accommodation_charge?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23427,6 +23456,7 @@
 - :current_node: :current_accommodation_usage?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23441,6 +23471,7 @@
 - :current_node: :how_much_are_you_paid_during_pay_period?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23450,6 +23481,7 @@
 - :current_node: :how_many_hours_overtime_do_you_work?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23460,6 +23492,7 @@
 - :current_node: :is_provided_with_accommodation?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23471,6 +23504,7 @@
 - :current_node: :is_provided_with_accommodation?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23482,6 +23516,7 @@
 - :current_node: :current_accommodation_usage?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23494,6 +23529,7 @@
 - :current_node: :is_provided_with_accommodation?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23505,6 +23541,7 @@
 - :current_node: :current_accommodation_charge?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23517,6 +23554,7 @@
 - :current_node: :current_accommodation_usage?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23530,6 +23568,7 @@
 - :current_node: :current_accommodation_charge?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23542,6 +23581,7 @@
 - :current_node: :current_accommodation_usage?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23555,6 +23595,7 @@
 - :current_node: :how_many_hours_overtime_do_you_work?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23565,6 +23606,7 @@
 - :current_node: :what_is_overtime_pay_per_hour?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23576,6 +23618,7 @@
 - :current_node: :is_provided_with_accommodation?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23588,6 +23631,7 @@
 - :current_node: :is_provided_with_accommodation?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23600,6 +23644,7 @@
 - :current_node: :current_accommodation_usage?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23613,6 +23658,7 @@
 - :current_node: :is_provided_with_accommodation?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23625,6 +23671,7 @@
 - :current_node: :current_accommodation_charge?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23638,6 +23685,7 @@
 - :current_node: :current_accommodation_usage?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23652,6 +23700,7 @@
 - :current_node: :current_accommodation_charge?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23665,6 +23714,7 @@
 - :current_node: :current_accommodation_usage?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '1'
   - '16.0'
@@ -23679,6 +23729,7 @@
 - :current_node: :how_often_do_you_get_paid?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   :next_node: :how_many_hours_do_you_work?
@@ -23686,6 +23737,7 @@
 - :current_node: :how_many_hours_do_you_work?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16'
@@ -23694,6 +23746,7 @@
 - :current_node: :how_much_are_you_paid_during_pay_period?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23703,6 +23756,7 @@
 - :current_node: :how_many_hours_overtime_do_you_work?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23713,6 +23767,7 @@
 - :current_node: :is_provided_with_accommodation?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23724,6 +23779,7 @@
 - :current_node: :is_provided_with_accommodation?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23735,6 +23791,7 @@
 - :current_node: :current_accommodation_usage?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23747,6 +23804,7 @@
 - :current_node: :is_provided_with_accommodation?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23758,6 +23816,7 @@
 - :current_node: :current_accommodation_charge?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23770,6 +23829,7 @@
 - :current_node: :current_accommodation_usage?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23783,6 +23843,7 @@
 - :current_node: :current_accommodation_charge?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23795,6 +23856,7 @@
 - :current_node: :current_accommodation_usage?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23808,6 +23870,7 @@
 - :current_node: :how_many_hours_overtime_do_you_work?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23818,6 +23881,7 @@
 - :current_node: :what_is_overtime_pay_per_hour?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23829,6 +23893,7 @@
 - :current_node: :is_provided_with_accommodation?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23841,6 +23906,7 @@
 - :current_node: :is_provided_with_accommodation?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23853,6 +23919,7 @@
 - :current_node: :current_accommodation_usage?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23866,6 +23933,7 @@
 - :current_node: :is_provided_with_accommodation?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23878,6 +23946,7 @@
 - :current_node: :current_accommodation_charge?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23891,6 +23960,7 @@
 - :current_node: :current_accommodation_usage?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23905,6 +23975,7 @@
 - :current_node: :current_accommodation_charge?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23918,6 +23989,7 @@
 - :current_node: :current_accommodation_usage?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23932,6 +24004,7 @@
 - :current_node: :how_much_are_you_paid_during_pay_period?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23941,6 +24014,7 @@
 - :current_node: :how_many_hours_overtime_do_you_work?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23951,6 +24025,7 @@
 - :current_node: :is_provided_with_accommodation?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23962,6 +24037,7 @@
 - :current_node: :is_provided_with_accommodation?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23973,6 +24049,7 @@
 - :current_node: :current_accommodation_usage?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23985,6 +24062,7 @@
 - :current_node: :is_provided_with_accommodation?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -23996,6 +24074,7 @@
 - :current_node: :current_accommodation_charge?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -24008,6 +24087,7 @@
 - :current_node: :current_accommodation_usage?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -24021,6 +24101,7 @@
 - :current_node: :current_accommodation_charge?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -24033,6 +24114,7 @@
 - :current_node: :current_accommodation_usage?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -24046,6 +24128,7 @@
 - :current_node: :how_many_hours_overtime_do_you_work?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -24056,6 +24139,7 @@
 - :current_node: :what_is_overtime_pay_per_hour?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -24067,6 +24151,7 @@
 - :current_node: :is_provided_with_accommodation?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -24079,6 +24164,7 @@
 - :current_node: :is_provided_with_accommodation?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -24091,6 +24177,7 @@
 - :current_node: :current_accommodation_usage?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -24104,6 +24191,7 @@
 - :current_node: :is_provided_with_accommodation?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -24116,6 +24204,7 @@
 - :current_node: :current_accommodation_charge?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -24129,6 +24218,7 @@
 - :current_node: :current_accommodation_usage?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -24143,6 +24233,7 @@
 - :current_node: :current_accommodation_charge?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -24156,6 +24247,7 @@
 - :current_node: :current_accommodation_usage?
   :responses:
   - current_payment_april_2016
+  - 'no'
   - '25'
   - '31'
   - '16.0'
@@ -24166,4 +24258,10 @@
   - '50.0'
   - '5'
   :next_node: :current_payment_below
+  :outcome_node: true
+- :current_node: :will_you_be_a_first_year_apprentice?
+  :responses:
+  - current_payment_april_2016
+  - 'yes'
+  :next_node: :does_not_apply_to_first_year_apprentices
   :outcome_node: true

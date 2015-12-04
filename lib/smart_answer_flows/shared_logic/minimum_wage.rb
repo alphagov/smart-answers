@@ -14,7 +14,7 @@ multiple_choice :what_would_you_like_to_check? do
 
   permitted_next_nodes = [
     :are_you_an_apprentice?,
-    :how_old_are_you?,
+    :will_you_be_a_first_year_apprentice?,
     :past_payment_date?
   ]
 
@@ -23,7 +23,7 @@ multiple_choice :what_would_you_like_to_check? do
     when 'current_payment'
       :are_you_an_apprentice?
     when 'current_payment_april_2016'
-      :how_old_are_you?
+      :will_you_be_a_first_year_apprentice?
     when 'past_payment'
       :past_payment_date?
     end
@@ -68,6 +68,27 @@ multiple_choice :are_you_an_apprentice? do
     when 'apprentice_under_19', 'apprentice_over_19_first_year'
       calculator.is_apprentice = true
       :how_often_do_you_get_paid?
+    end
+  end
+end
+
+# Q2 - April 2016
+multiple_choice :will_you_be_a_first_year_apprentice? do
+  option :yes
+  option :no
+
+  permitted_next_nodes = [
+    :does_not_apply_to_first_year_apprentices,
+    :how_old_are_you?
+  ]
+
+  next_node(permitted: permitted_next_nodes) do |response|
+    case response
+    when 'yes'
+      calculator.is_apprentice = true
+      :does_not_apply_to_first_year_apprentices
+    when 'no'
+      :how_old_are_you? #Q3
     end
   end
 end
@@ -425,5 +446,6 @@ outcome :past_payment_above
 outcome :past_payment_below
 
 outcome :under_school_leaving_age
+outcome :does_not_apply_to_first_year_apprentices
 outcome :does_not_apply_to_historical_apprentices
 outcome :under_school_leaving_age_past
