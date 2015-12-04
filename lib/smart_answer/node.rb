@@ -53,11 +53,6 @@ module SmartAnswer
       false
     end
 
-    def template_directory
-      load_path = FlowRegistry.instance.load_path
-      Pathname.new(load_path).join(String(@flow.name))
-    end
-
     def flow_name
       @flow.name
     end

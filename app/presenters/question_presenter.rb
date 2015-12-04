@@ -1,13 +1,11 @@
 class QuestionPresenter < NodePresenter
-  def initialize(node, state = nil, options = {})
+  def initialize(node, action_view, state = nil, options = {})
     super(node, state)
     @renderer = options[:renderer]
-    helpers = options[:helpers] || []
     @renderer ||= SmartAnswer::ErbRenderer.new(
-      template_directory: @node.template_directory.join('questions'),
+      action_view: action_view,
       template_name: @node.filesystem_friendly_name,
-      locals: @state.to_hash,
-      helpers: [SmartAnswer::FormattingHelper] + helpers
+      locals: @state.to_hash
     )
   end
 

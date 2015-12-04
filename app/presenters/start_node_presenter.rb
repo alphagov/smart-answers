@@ -1,8 +1,8 @@
 class StartNodePresenter < NodePresenter
-  def initialize(node, state = nil, options = {})
+  def initialize(node, action_view, state = nil, options = {})
     super(node, state)
     @renderer = options[:renderer] || SmartAnswer::ErbRenderer.new(
-      template_directory: @node.template_directory,
+      action_view: action_view,
       template_name: @node.name.to_s
     )
   end

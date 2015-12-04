@@ -78,7 +78,28 @@ class FlowPresenter
                       else
                         NodePresenter
                       end
-    @node_presenters[node.name] ||= presenter_class.new(node, current_state)
+    @node_presenters[node.name] ||= presenter_class.new(node, action_view, current_state)
+  end
+
+  HELPERS = [
+    SmartAnswer::FormattingHelper,
+    SmartAnswer::OverseasPassportsHelper,
+    SmartAnswer::MarriageAbroadHelper,
+    SmartAnswer::ErbRenderer::QuestionOptionsHelper
+  ]
+
+  def action_view
+    @action_view ||= ActionView::Base.new(view_paths).tap do |view|
+      HELPERS.each { |h| view.extend(h) }
+    end
+  end
+
+  def view_paths
+    [
+      @flow.template_directory,
+      @flow.template_directory.join('questions'),
+      @flow.template_directory.join('outcomes')
+    ]
   end
 
   def current_question_number
@@ -95,7 +116,7 @@ class FlowPresenter
 
   def start_node
     node = SmartAnswer::Node.new(@flow, @flow.name.underscore.to_sym)
-    @start_node ||= StartNodePresenter.new(node)
+    @start_node ||= StartNodePresenter.new(node, action_view)
   end
 
   def change_collapsed_question_link(question_number)

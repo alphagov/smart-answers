@@ -10,13 +10,13 @@ module SmartAnswer
       end
     end
 
-    def initialize(template_directory:, template_name:, locals: {}, helpers: [])
-      @template_directory = template_directory
+    def initialize(action_view:, template_name:, locals: {})
       @template_name = template_name
       @locals = locals
-      @view = ActionView::Base.new([@template_directory])
-      helpers.each { |helper| @view.extend(helper) }
-      @view.extend(QuestionOptionsHelper)
+      @captures = ActionView::OutputFlow.new
+      action_view.view_flow = @captures
+      action_view.render(template: erb_template_name, locals: @locals)
+      @options = action_view.options
     end
 
     def single_line_of_content_for(key)
@@ -24,30 +24,19 @@ module SmartAnswer
     end
 
     def content_for(key, html: true)
-      content = rendered_view.content_for(key) || ''
+      content = @captures.get(key) || ''
       content = strip_leading_spaces(content.to_str)
       html ? GovspeakPresenter.new(content).html : normalize_blank_lines(content).html_safe
     end
 
     def option_text(key)
-      rendered_view
-      @view.options.fetch(key).html_safe
-    end
-
-    def erb_template_path
-      @template_directory.join(erb_template_name)
+      @options.fetch(key).html_safe
     end
 
     private
 
     def erb_template_name
       "#{@template_name}.govspeak.erb"
-    end
-
-    def rendered_view
-      @rendered_view ||= @view.tap do |view|
-        view.render(template: erb_template_name, locals: @locals)
-      end
     end
 
     def strip_leading_spaces(string)
