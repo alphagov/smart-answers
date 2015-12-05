@@ -127,7 +127,4 @@ class FlowPresenter
       responses << params[:response] if params[:next]
     end
   end
-
-  def page_title
-  end
 end

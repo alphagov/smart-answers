@@ -17,9 +17,6 @@
   <% if @presenter.finished? %>
     <%= render partial: "result", locals: { outcome: @presenter.current_node } %>
   <% else %>
-    <% if @presenter.page_title %>
-      <h2 class="page-title"><%= @presenter.page_title %></h2>
-    <% end %>
     <div class="step current">
       <%= form_tag calculate_current_question_path(@presenter), :method => :get %>
         <div class="current-question" id="current-question">
