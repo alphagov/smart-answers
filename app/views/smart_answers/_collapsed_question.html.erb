@@ -1,4 +1,4 @@
-<% question = question_page.questions.first; begin %>
+<% begin %>
   <tr class="section">
     <td class="previous-question-title"><%= question.title %></td>
     <%- if question.multiple_responses? -%>
@@ -14,7 +14,7 @@
 
     <td class="link-right">
       <%= link_to @presenter.change_collapsed_question_link(number_questions_so_far + 1) do %>
-        Change<span class="visuallyhidden"> answer to "<%=question_page.questions.first.title%>"</span>
+        Change<span class="visuallyhidden"> answer to "<%= question.title %>"</span>
       <% end %>
     </td>
   </tr>
