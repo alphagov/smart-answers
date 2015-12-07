@@ -33,7 +33,8 @@ module CurrentQuestionHelper
     value.blank? ? nil : value.to_i
   end
 
-  def prefill_value_for(question, question_number = nil, attribute = nil)
+  def prefill_value_for(question, attribute = nil)
+    question_number = nil
     response = if params[previous_response_key(question_number)]
       question.to_response(params[previous_response_key(question_number)])
     elsif params[:response]

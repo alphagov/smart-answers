@@ -1,17 +1,17 @@
 <fieldset>
   <% unless question.default_day %>
     <label for="response_day">Day
-      <%= select_day default_for_date(prefill_value_for(question, nil, :day)), prefix: "response", :prompt => '' %>
+      <%= select_day default_for_date(prefill_value_for(question, :day)), prefix: "response", :prompt => '' %>
     </label>
   <% end %>
   <% unless question.default_month %>
     <label for="response_month">Month
-      <%= select_month default_for_date(prefill_value_for(question, nil, :month)), prefix: "response", prompt: '' %>
+      <%= select_month default_for_date(prefill_value_for(question, :month)), prefix: "response", prompt: '' %>
     </label>
   <% end %>
   <% unless question.default_year %>
     <label for="response_year">Year
-      <%= select_year default_for_date(prefill_value_for(question, nil, :year)), prefix: "response", prompt: '', :start_year => question.start_date.year, :end_year => question.end_date.year %>
+      <%= select_year default_for_date(prefill_value_for(question, :year)), prefix: "response", prompt: '', :start_year => question.start_date.year, :end_year => question.end_date.year %>
     </label>
   <% end %>
 </fieldset>

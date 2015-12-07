@@ -1,10 +1,10 @@
 <fieldset>
   <label for="response_amount">
-    &pound; <%= text_field_tag("response[amount]", nil, size: 5, value: prefill_value_for(question, nil, :amount)) %>
+    &pound; <%= text_field_tag("response[amount]", nil, size: 5, value: prefill_value_for(question, :amount)) %>
   </label>
   <label for="response_period">
   per <select name="response[period]">
-    <%= options_for_select %w{week month year}, prefill_value_for(question, nil, :period) %>
+    <%= options_for_select %w{week month year}, prefill_value_for(question, :period) %>
   </select>
   </label>
 </fieldset>
