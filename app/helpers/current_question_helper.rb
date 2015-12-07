@@ -6,12 +6,7 @@ module CurrentQuestionHelper
   end
 
   def previous_response_key
-    question_number = nil
-    if question_number
-      previous_response_key = "previous_response_#{question_number}".to_sym
-    else
-      previous_response_key = :previous_response
-    end
+    :previous_response
   end
 
   def prefill_value_is?(value)
