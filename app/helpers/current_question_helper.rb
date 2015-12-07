@@ -13,7 +13,8 @@ module CurrentQuestionHelper
     end
   end
 
-  def prefill_value_is?(value, question_number = nil)
+  def prefill_value_is?(value)
+    question_number = nil
     if params[previous_response_key(question_number)]
       params[previous_response_key(question_number)] == value
     elsif params[:response]
