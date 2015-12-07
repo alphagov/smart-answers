@@ -13,15 +13,8 @@
     <%- end -%>
 
     <td class="link-right">
-      <% if question_page.questions.count == 1 %>
-        <%= link_to @presenter.change_collapsed_question_link(number_questions_so_far + 1) do %>
-          Change<span class="visuallyhidden"> answer to "<%=question_page.questions.first.title%>"</span>
-        <% end %>
-      <% else %>
-        <%= link_to @presenter.change_collapsed_question_link(number_questions_so_far + 1, question_page.questions.count) do %>
-          <% titles = question_page.questions.map { |question| "\"#{question.title}\"" }.join(",") %>
-          Change<span class="visuallyhidden"> answer to <%=titles%></span>
-        <% end %>
+      <%= link_to @presenter.change_collapsed_question_link(number_questions_so_far + 1) do %>
+        Change<span class="visuallyhidden"> answer to "<%=question_page.questions.first.title%>"</span>
       <% end %>
     </td>
   </tr>
