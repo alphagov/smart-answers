@@ -1,15 +1,15 @@
-<% question = question_page.questions.first; question_index = 0; begin %>
+<% question = question_page.questions.first; begin %>
   <tr class="section">
     <td class="previous-question-title"><%= question.title %></td>
     <%- if question.multiple_responses? -%>
       <td class="previous-question-body"><ul>
-      <%- question.response_labels(@presenter.accepted_responses[number_questions_so_far + question_index]).each do |label| -%>
+      <%- question.response_labels(@presenter.accepted_responses[number_questions_so_far]).each do |label| -%>
         <li><%= label %></li>
       <%- end -%>
       </ul></td>
     <%- else -%>
       <td class="previous-question-body">
-      <%= question.response_label(@presenter.accepted_responses[number_questions_so_far + question_index]) %></td>
+      <%= question.response_label(@presenter.accepted_responses[number_questions_so_far]) %></td>
     <%- end -%>
 
     <td class="link-right">
