@@ -20,13 +20,7 @@
     <div class="step current">
       <%= form_tag calculate_current_question_path(@presenter), :method => :get %>
         <div class="current-question" id="current-question">
-          <% if @presenter.questions.count > 1 %>
-            <% @presenter.questions.each_with_index do |question, question_index| %>
-              <%= render partial: "current_question", locals: {question: question, number: question_index + 1} %>
-            <% end %>
-          <% else %>
-            <%= render partial: "current_question", locals: {question: @presenter.questions.first, number: nil} %>
-          <% end %>
+          <%= render partial: "current_question", locals: {question: @presenter.questions.first, number: nil} %>
           <div class="next-question">
             <input type="hidden" name="next" value="1" />
             <button type="submit" class="medium button">Next step</button>
