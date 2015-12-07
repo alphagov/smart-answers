@@ -1,4 +1,3 @@
-<% identifier = "response" %>
-<label for="<%= identifier %>"><%= question.hint %>
-  <%= text_field_tag(identifier, prefill_value_for(question)) %>
+<label for="response"><%= question.hint %>
+  <%= text_field_tag("response", prefill_value_for(question)) %>
 </label>
