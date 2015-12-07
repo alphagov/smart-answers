@@ -1,12 +1,10 @@
 <% if @presenter.current_question_number > 1 %>
-  <div class="previous-answers <%= "previous-answers-top" unless with_title %>">
+  <div class="previous-answers">
     <div class="done-questions">
       <article>
-          <% if with_title %>
-            <h3 class="previous-answers-title">
-              Previous answers
-            </h3>
-          <% end %>
+          <h3 class="previous-answers-title">
+            Previous answers
+          </h3>
           <%= link_to "Start again", smart_answer_path(params[:id]), :class => "start-right" %>
         <table>
           <tbody>
@@ -21,4 +19,3 @@
     </div>
   </div>
 <% end %>
-
