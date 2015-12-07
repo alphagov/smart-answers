@@ -22,9 +22,8 @@ module CurrentQuestionHelper
   end
 
   def prefill_value_includes?(question, value)
-    question_number = nil
-    if params[previous_response_key(question_number)]
-      question.to_response(params[previous_response_key(question_number)]).include?(value)
+    if params[previous_response_key(nil)]
+      question.to_response(params[previous_response_key(nil)]).include?(value)
     elsif params[:response]
       params[:response].include?(value)
     end
