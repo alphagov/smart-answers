@@ -8,8 +8,8 @@
           <%= link_to "Start again", smart_answer_path(params[:id]), :class => "start-right" %>
         <table>
           <tbody>
-            <% @presenter.collapsed_question_pages.each_with_index do |question_page, number_questions_so_far| %>
-              <%= render partial: "collapsed_question", locals: {question: question_page.questions.first, number_questions_so_far: number_questions_so_far} %>
+            <% @presenter.collapsed_questions.each_with_index do |question, number_questions_so_far| %>
+              <%= render partial: "collapsed_question", locals: {question: question, number_questions_so_far: number_questions_so_far} %>
             <% end %>
           </tbody>
         </table>
