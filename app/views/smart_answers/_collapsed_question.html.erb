@@ -1,4 +1,4 @@
-<% question_page.questions.each_with_index do |question, question_index|%>
+<% question = question_page.questions.first; question_index = 0; begin %>
   <tr class="section">
     <td class="previous-question-title"><%= question.title %></td>
     <%- if question.multiple_responses? -%>
