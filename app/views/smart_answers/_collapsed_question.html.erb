@@ -1,21 +1,19 @@
-<% begin %>
-  <tr class="section">
-    <td class="previous-question-title"><%= question.title %></td>
-    <%- if question.multiple_responses? -%>
-      <td class="previous-question-body"><ul>
-      <%- question.response_labels(@presenter.accepted_responses[number_questions_so_far]).each do |label| -%>
-        <li><%= label %></li>
-      <%- end -%>
-      </ul></td>
-    <%- else -%>
-      <td class="previous-question-body">
-      <%= question.response_label(@presenter.accepted_responses[number_questions_so_far]) %></td>
+<tr class="section">
+  <td class="previous-question-title"><%= question.title %></td>
+  <%- if question.multiple_responses? -%>
+    <td class="previous-question-body"><ul>
+    <%- question.response_labels(@presenter.accepted_responses[number_questions_so_far]).each do |label| -%>
+      <li><%= label %></li>
     <%- end -%>
+    </ul></td>
+  <%- else -%>
+    <td class="previous-question-body">
+    <%= question.response_label(@presenter.accepted_responses[number_questions_so_far]) %></td>
+  <%- end -%>
 
-    <td class="link-right">
-      <%= link_to @presenter.change_collapsed_question_link(number_questions_so_far + 1) do %>
-        Change<span class="visuallyhidden"> answer to "<%= question.title %>"</span>
-      <% end %>
-    </td>
-  </tr>
-<% end %>
+  <td class="link-right">
+    <%= link_to @presenter.change_collapsed_question_link(number_questions_so_far + 1) do %>
+      Change<span class="visuallyhidden"> answer to "<%= question.title %>"</span>
+    <% end %>
+  </td>
+</tr>
