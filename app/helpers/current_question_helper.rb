@@ -5,21 +5,17 @@ module CurrentQuestionHelper
     smart_answer_path(attrs)
   end
 
-  def previous_response_key
-    :previous_response
-  end
-
   def prefill_value_is?(value)
-    if params[previous_response_key]
-      params[previous_response_key] == value
+    if params[:previous_response]
+      params[:previous_response] == value
     elsif params[:response]
       params[:response] == value
     end
   end
 
   def prefill_value_includes?(question, value)
-    if params[previous_response_key]
-      question.to_response(params[previous_response_key]).include?(value)
+    if params[:previous_response]
+      question.to_response(params[:previous_response]).include?(value)
     elsif params[:response]
       params[:response].include?(value)
     end
@@ -30,8 +26,8 @@ module CurrentQuestionHelper
   end
 
   def prefill_value_for(question, attribute = nil)
-    response = if params[previous_response_key]
-      question.to_response(params[previous_response_key])
+    response = if params[:previous_response]
+      question.to_response(params[:previous_response])
     elsif params[:response]
       params[:response]
     end
