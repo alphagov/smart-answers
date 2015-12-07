@@ -16,7 +16,7 @@
         </p>
       <% end %>
 
-      <%= render partial: question.partial_template_name, locals: { question: question, number: nil } %>
+      <%= render partial: question.partial_template_name, locals: { question: question } %>
 
       <%= question.post_body %>
     </div>

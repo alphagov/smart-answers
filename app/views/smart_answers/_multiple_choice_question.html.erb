@@ -1,3 +1,4 @@
+<% number = nil %>
 <% yes_no = question.options.map(&:label).sort == ['No','Yes'] %>
 <% style = yes_no ? 'options inline' : 'options' %>
 <ul class="<%= style %>">
