@@ -79,10 +79,6 @@ class FlowPresenter
     current_state.path.size + 1
   end
 
-  def questions
-    (current_node.is_a? QuestionPresenter) ? [current_node] : []
-  end
-
   def current_node
     presenter_for(@flow.node(current_state.current_node))
   end
