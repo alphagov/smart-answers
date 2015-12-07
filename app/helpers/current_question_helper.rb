@@ -14,9 +14,8 @@ module CurrentQuestionHelper
   end
 
   def prefill_value_is?(value)
-    question_number = nil
-    if params[previous_response_key(question_number)]
-      params[previous_response_key(question_number)] == value
+    if params[previous_response_key(nil)]
+      params[previous_response_key(nil)] == value
     elsif params[:response]
       params[:response] == value
     end
