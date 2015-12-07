@@ -1,30 +1,5 @@
-<%- if question_page.title -%>
-  <tr class="section">
-    <td class="section-title">
-      <%= question_page.title %>
-    </td>
-    <td>
-    </td>
-    <td class="link-right">
-      <% if question_page.questions.count == 1 %>
-        <%= link_to @presenter.change_collapsed_question_link(number_questions_so_far + 1) do %>
-          Change<span class="visuallyhidden"> answer to "<%=question_page.title%>"</span>
-        <% end %>
-      <% else %>
-        <%= link_to @presenter.change_collapsed_question_link(number_questions_so_far + 1, question_page.questions.count) do %>
-          Change<span class="visuallyhidden"> answer to "<%=question_page.title%>"</span>
-        <% end %>
-      <% end %>
-    </td>
-  </tr>
-<% end %>
-
 <% question_page.questions.each_with_index do |question, question_index|%>
-  <%- if !question_page.title -%>
-    <tr class="section">
-  <% else %>
-    <tr>
-  <% end %>
+  <tr class="section">
     <td class="previous-question-title"><%= question.title %></td>
     <%- if question.multiple_responses? -%>
       <td class="previous-question-body"><ul>
@@ -37,19 +12,17 @@
       <%= question.response_label(@presenter.accepted_responses[number_questions_so_far + question_index]) %></td>
     <%- end -%>
 
-    <%- if !question_page.title -%>
-      <td class="link-right">
-        <% if question_page.questions.count == 1 %>
-          <%= link_to @presenter.change_collapsed_question_link(number_questions_so_far + 1) do %>
-            Change<span class="visuallyhidden"> answer to "<%=question_page.questions.first.title%>"</span>
-          <% end %>
-        <% else %>
-          <%= link_to @presenter.change_collapsed_question_link(number_questions_so_far + 1, question_page.questions.count) do %>
-            <% titles = question_page.questions.map { |question| "\"#{question.title}\"" }.join(",") %>
-            Change<span class="visuallyhidden"> answer to <%=titles%></span>
-          <% end %>
+    <td class="link-right">
+      <% if question_page.questions.count == 1 %>
+        <%= link_to @presenter.change_collapsed_question_link(number_questions_so_far + 1) do %>
+          Change<span class="visuallyhidden"> answer to "<%=question_page.questions.first.title%>"</span>
         <% end %>
-      </td>
-    <% end %>
+      <% else %>
+        <%= link_to @presenter.change_collapsed_question_link(number_questions_so_far + 1, question_page.questions.count) do %>
+          <% titles = question_page.questions.map { |question| "\"#{question.title}\"" }.join(",") %>
+          Change<span class="visuallyhidden"> answer to <%=titles%></span>
+        <% end %>
+      <% end %>
+    </td>
   </tr>
 <% end %>
