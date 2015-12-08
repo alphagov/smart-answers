@@ -44,8 +44,8 @@ This is a Ruby on Rails application that contains:
 
 See:
 
-* [Developing using the GDS development virtual machine](doc/developing-using-vm.md)
-* [Developing without using the development VM](doc/developing-without-vm.md)
+* [Developing with the GDS development VM](doc/developing-using-vm.md)
+* [Developing without the GDS development VM](doc/developing-without-vm.md)
 
 ### Running the test suite
 
