@@ -72,19 +72,15 @@
 
     ###Applying for a Nulla Osta
 
+    <%= render partial: "download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb" %>
 
-    <% if partner_nationality == 'partner_british' %>
-      You and your partner will need to provide your passports and [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate).
-
-    <% else %>
-      You’ll need to provide supporting documents, including:
+    You and your partner will need to provide supporting documents, including:
 
       - your passport
-      - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate) which states both of your parents’ names
-      - proof of residence, such as a residence certificate - check with the <%= embassy_or_consulate_ceremony_country %> to find out what you need
-      - a copy of your partner’s identity document
+      - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
+      - a utility bill, bank statement, official residency certificate, or driving license showing your name and Italian address (if you don’t normally live in <%= country_name_lowercase_prefix %> you can show a flight ticket or boarding pass with your date of entry or evidence of your hotel check-in)
+      - evidence if you’ve changed your name by deed poll
 
-    <% end %>
   <% end %>
   <% if resident_of != 'uk' %>
     <%= render partial: 'consular_cni_os_not_uk_resident_ceremony_not_germany.govspeak.erb' %>
@@ -96,17 +92,12 @@
 
   <% end %>
   <% if resident_of == 'ceremony_country' %>
-    <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
-
-
 
     ###What happens next
 
     They’ll display your notice of marriage publicly for 7 days.
 
     The British embassy will issue your CNI within 5 working days (as long as nobody has registered an objection). You can collect your CNI in person or have it delivered by post.
-
-    ^The embassy or consulate may charge a fee to return your documents to you.^
   <% end %>
 
 
