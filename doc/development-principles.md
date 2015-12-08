@@ -10,11 +10,11 @@
 
 * Model the domain of the policy/rules that make up a Smart Answer.
 
-* Ensure all policy logic is encapsulated in objects that are instantiated by the flow.
+* Ensure all policy logic is encapsulated in objects that are instantiated by (but separate from) the flow.
 
 * Ensure all presentation logic is kept in the ERB templates and associated helper methods.
 
-* Ensure the Smart Answer flows only contain routing logic.
+* Ensure the Smart Answer flows only contain routing (`next_node`) logic.
 
 * Iteratively develop new Smart Answers. Get a simply happy-path version deployed and build upon that in collaboration with the department and content team.
 
