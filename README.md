@@ -34,7 +34,7 @@ This is a Ruby on Rails application that contains:
 * A DSL for creating Smart Answers
 * The Smart Answers that appear on GOV.UK
 
-**NOTE.** This application doesn't use a database.
+**NOTE.** This application doesn't use a database and as such it [does not include the ActiveRecord Railtie in application.rb](https://github.com/alphagov/smart-answers/blob/4eb1b80a698e6835e745c4ad1954a3892e929b64/config/application.rb#L3).
 
 ### Dependencies
 
