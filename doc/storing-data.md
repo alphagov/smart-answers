@@ -1,6 +1,6 @@
 # Storing data for later use
 
-You can use the `precalculate`, `next_node_calculation`, `save_input_as` and `calculate` methods to store data for later use.
+You can use the `precalculate`, `next_node_calculation`, `save_input_as` and `calculate` methods to store data for later use. These values are stored in the state and are available in the rest of the flow and in the ERB templates.
 
 * `precalculate` values are available in:
   * The question template
