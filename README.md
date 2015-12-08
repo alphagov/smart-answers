@@ -28,11 +28,13 @@ Read more in [Lisa Scott's GDS blog post](https://gds.blog.gov.uk/2012/02/16/sma
 
 ## Technical documentation
 
-This is a Ruby on Rails application that both contains and serves the Smart Answers stored in this repository. Smart Answers are presented to public users.
+This is a Ruby on Rails application that contains:
 
-**NOTE.** This application doesn't use a database.
+* A Rails application to serve Smart Answers
+* A DSL for creating Smart Answers
+* The Smart Answers that appear on GOV.UK
 
-Read more about the [structure and syntax of Smart Answers](doc/smart-answers-flows.md).
+**NOTE.** This application doesn't use a database and as such it [does not include the ActiveRecord Railtie in application.rb](https://github.com/alphagov/smart-answers/blob/4eb1b80a698e6835e745c4ad1954a3892e929b64/config/application.rb#L3).
 
 ### Dependencies
 
@@ -40,28 +42,49 @@ Read more about the [structure and syntax of Smart Answers](doc/smart-answers-fl
 
 ### Running the application
 
-See [development using the GDS development virtual machine](developing-using-vm.md).
+See:
+
+* [Developing with the GDS development VM](doc/developing-using-vm.md)
+* [Developing without the GDS development VM](doc/developing-without-vm.md)
 
 ### Running the test suite
 
     $ bundle exec rake
 
-### Process
+### Smart Answers
 
-* [Archiving a Smart Answer](doc/archiving.md)
-* [Continuous integration](doc/continuous-integration.md)
+* [File structure](doc/file-structure.md)
+* [Flow definition](doc/flow-definition.md)
+* [Question types](doc/question-types.md)
+* [Next node rules](doc/next-node-rules.md)
+* [Storing data](doc/storing-data.md)
+* [ERB templates](doc/erb-templates.md)
+  * [Landing page template](doc/landing-page-template.md)
+  * [Question templates](doc/question-templates.md)
+  * [Outcome templates](doc/outcome-templates.md)
+
+### Smart Answer flow development
+
+* [Development principles](doc/development-principles.md)
 * [Deploying changes for Factcheck](doc/factcheck.md)
-* [Deploying](doc/deploying.md)
 * [Merging pull requests from the content team](doc/merging-content-prs.md)
+* [Refactoring existing Smart Answers](doc/refactoring.md)
+* Adding [content-ids](doc/content-ids.md) to Smart Answers
+* [Creating a new Smart Answer](doc/creating-a-new-smart-answer.md)
+* [Archiving a Smart Answer](doc/archiving.md)
+* [Updating worldwide fixture data](doc/updating-worldwide-fixture-data.md)
 
-### Development
+### Smart Answers app development
 
-* Adding [content-ids](doc/content-ids.md) to Smart Answers.
-* [Developing using the VM](doc/developing-using-vm.md)
-* [Issues and Todo](https://github.com/alphagov/smart-answers/issues)
+* [Common errors you might run into during development](doc/common-errors.md)
+* [Environments](doc/environments.md)
+* [Continuous integration](doc/continuous-integration.md)
+* [Describing pull requests](doc/pull-requests.md)
+* [Deploying](doc/deploying.md)
+* [Handling exceptions with Errbit](doc/errbit.md)
 * [Rubocop](doc/rubocop.md)
 * [Testing](doc/testing.md)
-* [Updating worldwide fixture data](doc/updating-worldwide-fixture-data.md)
+* [Issues and Todo](https://trello.com/b/7HgyU4hy/smart-answers-tasks)
 
 ### Debugging
 
