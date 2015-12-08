@@ -1,19 +1,15 @@
 <% if @presenter.current_question_number > 1 %>
-  <div class="previous-answers <%= "previous-answers-top" unless with_title %>">
+  <div class="previous-answers">
     <div class="done-questions">
       <article>
-          <% if with_title %>
-            <h3 class="previous-answers-title">
-              Previous answers
-            </h3>
-          <% end %>
+          <h3 class="previous-answers-title">
+            Previous answers
+          </h3>
           <%= link_to "Start again", smart_answer_path(params[:id]), :class => "start-right" %>
         <table>
           <tbody>
-            <% number_questions_so_far = 0 %>
-            <% @presenter.collapsed_question_pages.each do |question_page| %>
-              <%= render partial: "collapsed_question", locals: {question_page: question_page, number_questions_so_far: number_questions_so_far} %>
-              <% number_questions_so_far += question_page.questions.count %>
+            <% @presenter.collapsed_questions.each_with_index do |question, number_questions_so_far| %>
+              <%= render partial: "collapsed_question", locals: {question: question, number_questions_so_far: number_questions_so_far} %>
             <% end %>
           </tbody>
         </table>
@@ -21,4 +17,3 @@
     </div>
   </div>
 <% end %>
-

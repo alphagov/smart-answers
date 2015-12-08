@@ -43,12 +43,6 @@ class FlowPresenter
     @current_state ||= @flow.process(all_responses)
   end
 
-  def collapsed_question_pages
-    collapsed_questions.map do |collapsed_question|
-      OpenStruct.new(questions: [collapsed_question])
-    end
-  end
-
   def collapsed_questions
     @flow.path(all_responses).map do |name|
       presenter_for(@flow.node(name))
@@ -83,10 +77,6 @@ class FlowPresenter
 
   def current_question_number
     current_state.path.size + 1
-  end
-
-  def questions
-    (current_node.is_a? QuestionPresenter) ? [current_node] : []
   end
 
   def current_node
