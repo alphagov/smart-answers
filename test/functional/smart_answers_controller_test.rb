@@ -46,7 +46,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
     context "without a valid artefact" do
       setup do
-        SmartAnswerPresenter.any_instance.stubs(:artefact).returns({})
+        FlowPresenter.any_instance.stubs(:artefact).returns({})
       end
 
       should "still return a success response" do
@@ -90,14 +90,14 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
     should "send the artefact to slimmer" do
       artefact = artefact_for_slug('smart-answers-controller-sample')
-      SmartAnswerPresenter.any_instance.stubs(:artefact).returns(artefact)
+      FlowPresenter.any_instance.stubs(:artefact).returns(artefact)
       @controller.expects(:set_slimmer_artefact).with(artefact)
 
       get :show, id: 'smart-answers-controller-sample'
     end
 
     should "503 if content_api times out" do
-      SmartAnswerPresenter.any_instance.stubs(:artefact).raises(GdsApi::TimedOutException)
+      FlowPresenter.any_instance.stubs(:artefact).raises(GdsApi::TimedOutException)
 
       get :show, id: 'smart-answers-controller-sample'
       assert_equal 503, response.status
