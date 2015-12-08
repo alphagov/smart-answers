@@ -122,9 +122,7 @@ class FlowPresenter
 
   def all_responses
     normalize_responses_param.dup.tap do |responses|
-      if params[:next]
-        responses << params[:response]
-      end
+      responses << params[:response] if params[:next]
     end
   end
 
