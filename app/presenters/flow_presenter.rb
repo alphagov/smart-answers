@@ -14,6 +14,7 @@ class FlowPresenter
     @request = request
     @params = request.params
     @flow = flow
+    @node_presenters = {}
   end
 
   def artefact
@@ -74,9 +75,10 @@ class FlowPresenter
                         QuestionPresenter
                       when SmartAnswer::Outcome
                         OutcomePresenter
-                      else NodePresenter
+                      else
+                        NodePresenter
                       end
-    presenter_class.new(node, current_state)
+    @node_presenters[node.name] ||= presenter_class.new(node, current_state)
   end
 
   def current_question_number
@@ -93,7 +95,7 @@ class FlowPresenter
 
   def start_node
     node = SmartAnswer::Node.new(@flow, @flow.name.underscore.to_sym)
-    StartNodePresenter.new(node)
+    @start_node ||= StartNodePresenter.new(node)
   end
 
   def change_collapsed_question_link(question_number)
