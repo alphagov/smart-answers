@@ -2,6 +2,8 @@
 
 Based on your answers the child maintenance payment is the reduced rate of £8.00 per week.
 
+The calculator gives an estimate. The exact amount the Child Maintenance Service calculates might be different. For example, if the paying parent supports other children, the amount you receive may be less than this.
+
 This is the total weekly amount, not the amount per child.
 
 Depending on how child maintenance is arranged, fees may be added to this amount.
@@ -15,8 +17,6 @@ Payment type | Weekly payment | Fees | Total amount you’ll receive | Applicati
 You will pay up to £16.64 in fees per year if you receive child maintenance through the Collect and Pay service.
 
 ^You don’t have to pay an application fee if you’re in Northern Ireland.^
-
-The calculator gives an estimate. The exact amount the Child Maintenance Service would calculate might be different.
 
 Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/child-maintenance-rates)
 
