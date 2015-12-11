@@ -24,22 +24,6 @@ module SmartAnswer
           end
         end
       end
-
-      context "for :dob_amount?" do
-        setup do
-          @question = @flow.node(:dob_amount?)
-          @state = SmartAnswer::State.new(@question)
-          @state.gender = 'male'
-        end
-
-        should "raise if the date of birth is later than today's date" do
-          invalid_date_of_birth = 1.week.from_now.to_date
-          @state.response = invalid_date_of_birth
-          assert_raise(SmartAnswer::InvalidResponse) do
-            @question.transition(@state, invalid_date_of_birth)
-          end
-        end
-      end
     end
   end
 end
