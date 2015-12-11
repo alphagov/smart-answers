@@ -1,0 +1,10 @@
+<% content_for :title do %>
+  Your bus pass age
+
+<% end %>
+
+<% content_for :body do %>
+  <%= render partial: 'bus_pass_age.govspeak.erb', locals: { qualifies_for_bus_pass_on: qualifies_for_bus_pass_on } %>
+
+  ^Your [State Pension age](/state-pension-age/y/age) may be different.^
+<% end %>
