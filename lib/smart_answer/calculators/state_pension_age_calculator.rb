@@ -29,14 +29,6 @@ module SmartAnswer::Calculators
       pension_period_end_year(state_pension_date) - pension_period_end_year(Date.today)
     end
 
-    def what_you_would_get_if_not_full_raw
-      if (qualifying_years + years_to_pension) < years_needed
-        ((qualifying_years + years_to_pension) / years_needed.to_f * current_weekly_rate).round(10)
-      else
-        current_weekly_rate
-      end
-    end
-
     def pension_period_end_year(date)
       date < Date.civil(date.year, 4, 6) ? date.year - 1 : date.year
     end
