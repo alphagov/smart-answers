@@ -44,7 +44,7 @@
 
     You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for <%= country_name_lowercase_prefix %>](/government/publications/<%= ceremony_country %>-consular-fees).
 
-    You can pay by cash or credit card, but not by personal cheque.
+    <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
 
   <% else %>
     Contact the relevant local authorities in Kosovo to find out about local marriage laws, including what documents you’ll need.
@@ -113,7 +113,7 @@
 
     You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for <%= country_name_lowercase_prefix %>](/government/publications/<%= ceremony_country %>-consular-fees).
 
-    You can pay by cash or credit card, but not by personal cheque.
+    <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
 
   <% end %>
 <% end %>

@@ -95,7 +95,7 @@
 
       You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for <%= ceremony_country_name %>](/government/publications/<%= ceremony_country %>-consular-fees).
 
-      You can pay by cash or credit card, but not by personal cheque.
+      <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
 
     <% end %>
   <% else %>
