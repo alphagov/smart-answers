@@ -2,41 +2,6 @@ require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class StatePensionAgeCalculatorTest < ActiveSupport::TestCase
-    context "male, born 5th April 1945, 45 qualifying years" do
-      setup do
-        @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-          gender: "male", dob: Date.parse("1945-04-05"), qualifying_years: 45)
-        Timecop.travel('8 April 2013')
-      end
-
-      should "be 110.15 for what_you_get" do
-        assert_equal 110.15, @calculator.what_you_get
-      end
-    end
-
-    context "female, born 7th April 1951, 39 qualifying years" do
-      setup do
-        @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-          gender: "female", dob: Date.parse("1951-04-07"), qualifying_years: 45)
-        Timecop.travel('5 April 2013')
-      end
-
-      should "be 107.45 for what_you_get" do
-        assert_equal 107.45, @calculator.what_you_get
-      end
-    end
-
-    context "female, born 7th April 1951, 20 qualifying years" do
-      setup do
-        @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-          gender: "female", dob: Date.parse("1951-04-07"), qualifying_years: 20)
-        Timecop.travel('5 April 2013')
-      end
-
-      should "be 20/30 of 107.45 for what_you_get" do
-        assert_equal 71.63, @calculator.what_you_get
-      end
-    end
 
     context "female, born 29th Feb 1968" do
       setup do
@@ -66,108 +31,12 @@ module SmartAnswer::Calculators
         end
       end
 
-      should "uprate on or after 8th April 2013" do
-        Timecop.travel(Date.parse("2013-04-08")) do
-          @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-            gender: "male", dob: Date.parse("1950-04-04"), qualifying_years: 29)
-          assert_equal 106.48, @calculator.what_you_get
-          @calculator.qualifying_years = 28
-          assert_equal 102.81, @calculator.what_you_get
-          @calculator.qualifying_years = 27
-          assert_equal 99.14, @calculator.what_you_get
-          @calculator.qualifying_years = 26
-          assert_equal 95.46, @calculator.what_you_get
-          @calculator.qualifying_years = 15
-          assert_equal 55.08, @calculator.what_you_get
-          @calculator.qualifying_years = 10
-          assert_equal 36.72, @calculator.what_you_get
-          @calculator.qualifying_years = 5
-          assert_equal 18.36, @calculator.what_you_get
-          @calculator.qualifying_years = 4
-          assert_equal 14.69, @calculator.what_you_get
-          @calculator.qualifying_years = 2
-          assert_equal 7.34, @calculator.what_you_get
-          @calculator.qualifying_years = 1
-          assert_equal 3.67, @calculator.what_you_get
-        end
-      end
-
-      should "uprate on or after 8th April 2014" do
-        Timecop.travel(Date.parse("2014-04-08")) do
-          @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-            gender: "male", dob: Date.parse("1953-04-04"), qualifying_years: 29)
-          assert_equal 109.33, @calculator.what_you_get
-          @calculator.qualifying_years = 28
-          assert_equal 105.56, @calculator.what_you_get
-          @calculator.qualifying_years = 27
-          assert_equal 101.79, @calculator.what_you_get
-          @calculator.qualifying_years = 26
-          assert_equal 98.02, @calculator.what_you_get
-          @calculator.qualifying_years = 15
-          assert_equal 56.55, @calculator.what_you_get
-          @calculator.qualifying_years = 10
-          assert_equal 37.70, @calculator.what_you_get
-          @calculator.qualifying_years = 5
-          assert_equal 18.85, @calculator.what_you_get
-          @calculator.qualifying_years = 4
-          assert_equal 15.08, @calculator.what_you_get
-          @calculator.qualifying_years = 2
-          assert_equal 7.54, @calculator.what_you_get
-          @calculator.qualifying_years = 1
-          assert_equal 3.77, @calculator.what_you_get
-        end
-      end
-
-      should "uprate on or after 8th April 2015" do
-        Timecop.travel(Date.parse("2015-04-08")) do
-          @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-            gender: "male", dob: Date.parse("1953-04-04"), qualifying_years: 29)
-          assert_equal 112.09, @calculator.what_you_get
-          @calculator.qualifying_years = 28
-          assert_equal 108.22, @calculator.what_you_get
-          @calculator.qualifying_years = 27
-          assert_equal 104.36, @calculator.what_you_get
-          @calculator.qualifying_years = 26
-          assert_equal 100.49, @calculator.what_you_get
-          @calculator.qualifying_years = 15
-          assert_equal 57.98, @calculator.what_you_get
-          @calculator.qualifying_years = 10
-          assert_equal 38.65, @calculator.what_you_get
-          @calculator.qualifying_years = 9
-          assert_equal 34.79, @calculator.what_you_get
-          @calculator.qualifying_years = 5
-          assert_equal 19.33, @calculator.what_you_get
-          @calculator.qualifying_years = 4
-          assert_equal 15.46, @calculator.what_you_get
-          @calculator.qualifying_years = 2
-          assert_equal 7.73, @calculator.what_you_get
-          @calculator.qualifying_years = 1
-          assert_equal 3.87, @calculator.what_you_get
-          @calculator.qualifying_years = 0
-          assert_equal 0.0, @calculator.what_you_get
-        end
-      end
-
       should "fall back to the last rate available" do
         Timecop.travel('2045-01-01') do
           @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
             gender: "male", dob: Date.parse("2000-04-04"), qualifying_years: 29)
           assert @calculator.current_weekly_rate.is_a?(Numeric)
         end
-      end
-    end
-
-    # one of HMRC test cases
-    context "female born 6 April 1992 " do
-      setup do
-        @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-          gender: "female", dob: Date.parse("1992-04-06"))
-        Timecop.travel('5 April 2013')
-      end
-
-      should "get 2/30 of 107.45 for what_you_get" do
-        @calculator.qualifying_years = 2
-        assert_equal 7.16, @calculator.what_you_get
       end
     end
 
