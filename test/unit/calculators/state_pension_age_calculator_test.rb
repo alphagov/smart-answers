@@ -137,17 +137,6 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "testing what would get if not enough time to get full state pension" do
-        should "state that user has 13 remaining years and would get 2/3 of basic pension" do
-          Timecop.travel("2012-10-09") do
-            @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-              gender: "male", dob: Date.parse("1960-04-04"), qualifying_years: 7)
-            assert_equal 13, @calculator.years_to_pension
-            assert_equal 71.63, @calculator.what_you_would_get_if_not_full
-          end
-        end
-      end
-
       context "(testing years_to_pension)" do
         context "born 1988 before and after 6th April" do
           setup do
