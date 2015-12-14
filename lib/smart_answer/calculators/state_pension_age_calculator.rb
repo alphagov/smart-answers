@@ -168,12 +168,6 @@ module SmartAnswer::Calculators
       ! (available_years_sum(qual_years) < 0)
     end
 
-    # are there any more years users can enter based on how many years there are between today and time they were 19?
-    # used in flow to test if we should ask more questions
-    def no_more_available_years?(qual_years = @qualifying_years)
-      available_years_sum(qual_years) < 1
-    end
-
     def years_can_be_entered(ay, max_num)
       (ay > max_num ? max_num : ay)
     end
