@@ -12,10 +12,6 @@ module SmartAnswer::Calculators
       @available_years = ni_years_to_date_from_dob
     end
 
-    def years_to_pension
-      pension_period_end_year(state_pension_date) - pension_period_end_year(Date.today)
-    end
-
     def pension_period_end_year(date)
       date < Date.civil(date.year, 4, 6) ? date.year - 1 : date.year
     end
