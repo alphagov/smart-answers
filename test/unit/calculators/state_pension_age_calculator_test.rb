@@ -21,97 +21,6 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "female born 22 years ago" do
-      setup do
-        Timecop.travel(Date.parse("2012-10-09"))
-      end
-
-      should "return ni_years_to_date = 3 - dob 22 years ago on April" do
-        dob = Date.civil(22.years.ago.year, 4, 6)
-        @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-          gender: "female", dob: dob)
-        assert_equal 3, @calculator.available_years
-      end
-
-      should "return ni_years_to_date = 3 - dob 22 years ago on July" do
-        dob = Date.civil(22.years.ago.year, 7, 6)
-        @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-          gender: "female", dob: dob)
-        assert_equal 3, @calculator.available_years
-      end
-
-      should "return ni_years_to_date = 2" do
-        dob = Date.civil(22.years.ago.year, 1, 20)
-        @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-          gender: "female", dob: dob)
-        assert_equal 3, @calculator.available_years
-      end
-    end
-
-    context "test available years functions" do
-      context "male born 26 years and one month plus" do
-        setup do
-          dob =  (Date.today - (26.years - 1.month))
-          @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-            gender: "male", dob: dob)
-        end
-
-        should "available_years = 6" do
-          assert_equal 6, @calculator.available_years
-        end
-      end
-
-      context "male born 26 years and one month ago" do
-        setup do
-          Timecop.travel(Date.parse("2013-04-06"))
-          dob = Date.civil(26.years.ago.year, 3, 6)
-          @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-            gender: "male", dob: dob)
-        end
-
-        should "available_years = 7" do
-          assert_equal 7, @calculator.available_years
-        end
-      end
-
-      # NOTE: leave this test in case we need to turn on the day calculation
-      # context "male born 26 years and one day in future" do
-      #   setup do
-      #     dob = 1.day.since(26.years.ago)
-      #     @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(gender: "male", dob: dob)
-      #   end
-      #   should "avialable_years = 6" do
-      #     assert_equal 6, @calculator.available_years
-      #   end
-      # end
-
-      context "male born 26 years and one day ago" do
-        setup do
-          Timecop.travel(Date.parse("2013-03-01"))
-          dob = Date.civil(26.years.ago.year, 4, 5)
-          @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-            gender: "male", dob: dob)
-        end
-
-        should "available_years = 6" do
-          assert_equal 6, @calculator.available_years
-        end
-      end
-
-      context "32 years old" do
-        setup do
-          Timecop.travel(Date.parse("2013-03-01"))
-          dob = Date.civil(32.years.ago.year, 4, 6)
-          @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-            gender: "female", dob: dob)
-        end
-
-        should "available_years = 12" do
-          assert_equal 12, @calculator.available_years
-        end
-      end
-    end
-
     context "state_pension_age tests" do
       context "testing dynamic pension dates" do
         should "be 66 years, date 2029-11-10" do
@@ -231,18 +140,6 @@ module SmartAnswer::Calculators
           gender: "male", dob: Date.parse("15 November 1948"))
 
         assert calculator.within_four_months_one_day_from_state_pension?
-      end
-    end
-
-    context "born on 05-11-1948" do
-      setup do
-        Timecop.travel("2013-07-22")
-        @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-          gender: "male", dob: Date.parse("5 November 1948"))
-      end
-
-      should "should have 45 available years" do
-        assert_equal 45, @calculator.available_years
       end
     end
 
