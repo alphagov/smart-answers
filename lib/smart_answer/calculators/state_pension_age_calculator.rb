@@ -168,12 +168,6 @@ module SmartAnswer::Calculators
       ! (available_years_sum(qual_years) < 0)
     end
 
-    # used for flow optimisation so users who haven't entered enough qy but will get
-    # 1,2 or 3 starting credit years are sent to last question or result
-    def enough_qualifying_years_and_credits?(qual_years = @qualifying_years)
-      (qual_years + @starting_credits) > 29
-    end
-
     # are there any more years users can enter based on how many years there are between today and time they were 19?
     # used in flow to test if we should ask more questions
     def no_more_available_years?(qual_years = @qualifying_years)
