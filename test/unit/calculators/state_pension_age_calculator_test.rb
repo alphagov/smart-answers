@@ -14,32 +14,6 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "current_weekly_rate" do
-      should "be 107.45 before 6th April 2013" do
-        Timecop.travel(Date.parse("2013-04-05")) do
-          @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-            gender: "male", dob: Date.parse("1950-04-04"), qualifying_years: 30)
-          assert_equal 107.45, @calculator.current_weekly_rate
-        end
-      end
-
-      should "be 110.15 on or after 6th April 2013" do
-        Timecop.travel(Date.parse("2013-04-08")) do
-          @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-            gender: "male", dob: Date.parse("1950-04-04"), qualifying_years: 30)
-          assert_equal 110.15, @calculator.current_weekly_rate
-        end
-      end
-
-      should "fall back to the last rate available" do
-        Timecop.travel('2045-01-01') do
-          @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-            gender: "male", dob: Date.parse("2000-04-04"), qualifying_years: 29)
-          assert @calculator.current_weekly_rate.is_a?(Numeric)
-        end
-      end
-    end
-
     context "male born 6 April 1957 " do
       setup do
         @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(

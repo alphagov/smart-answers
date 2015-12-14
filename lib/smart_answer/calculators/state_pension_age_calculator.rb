@@ -16,10 +16,6 @@ module SmartAnswer::Calculators
       @available_years = ni_years_to_date_from_dob
     end
 
-    def current_weekly_rate
-      @current_weekly_rate ||= SmartAnswer::Calculators::RatesQuery.new('state_pension').rates.weekly_rate
-    end
-
     def years_to_pension
       pension_period_end_year(state_pension_date) - pension_period_end_year(Date.today)
     end
