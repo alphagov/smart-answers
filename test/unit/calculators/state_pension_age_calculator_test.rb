@@ -49,7 +49,7 @@ module SmartAnswer::Calculators
     end
 
     context "test available years functions" do
-      context "male born 26 years and one month plus, no qualifying_years" do
+      context "male born 26 years and one month plus" do
         setup do
           dob =  (Date.today - (26.years - 1.month))
           @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
@@ -61,7 +61,7 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "male born 26 years and one month ago, no qualifying_years" do
+      context "male born 26 years and one month ago" do
         setup do
           Timecop.travel(Date.parse("2013-04-06"))
           dob = Date.civil(26.years.ago.year, 3, 6)
@@ -75,7 +75,7 @@ module SmartAnswer::Calculators
       end
 
       # NOTE: leave this test in case we need to turn on the day calculation
-      # context "male born 26 years and one day in future, no qualifying_years" do
+      # context "male born 26 years and one day in future" do
       #   setup do
       #     dob = 1.day.since(26.years.ago)
       #     @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(gender: "male", dob: dob)
@@ -85,7 +85,7 @@ module SmartAnswer::Calculators
       #   end
       # end
 
-      context "male born 26 years and one day ago, no qualifying_years" do
+      context "male born 26 years and one day ago" do
         setup do
           Timecop.travel(Date.parse("2013-03-01"))
           dob = Date.civil(26.years.ago.year, 4, 5)
@@ -98,12 +98,12 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "32 years old with 10 qualifying_years" do
+      context "32 years old" do
         setup do
           Timecop.travel(Date.parse("2013-03-01"))
           dob = Date.civil(32.years.ago.year, 4, 6)
           @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-            gender: "female", dob: dob, qualifying_years: 10)
+            gender: "female", dob: dob)
         end
 
         should "available_years = 12" do
@@ -189,25 +189,25 @@ module SmartAnswer::Calculators
 
           should "state that user has 13 remaining_years" do
             @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-                gender: "male", dob: Date.parse("1960-04-04"), qualifying_years: 21)
+                gender: "male", dob: Date.parse("1960-04-04"))
             assert_equal 13, @calculator.years_to_pension
           end
 
           should "state that user has 26 remaining_years" do
             @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-                gender: "male", dob: Date.parse("1972-02-04"), qualifying_years: 13)
+                gender: "male", dob: Date.parse("1972-02-04"))
             assert_equal 26, @calculator.years_to_pension
           end
 
           should "state that user has 34 remaining_years" do
             @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-                gender: "male", dob: Date.parse("1978-11-03"), qualifying_years: 13)
+                gender: "male", dob: Date.parse("1978-11-03"))
             assert_equal 34, @calculator.years_to_pension
           end
 
           should "state the user has 5 remaining_years" do
             @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-                gender: "male", dob: Date.parse("1952-06-07"), qualifying_years: 33)
+                gender: "male", dob: Date.parse("1952-06-07"))
             assert_equal 5, @calculator.years_to_pension
           end
         end
@@ -370,7 +370,7 @@ module SmartAnswer::Calculators
       setup do
         Timecop.travel("2014-04-01")
         @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-          gender: "male", dob: Date.parse("6 May 1958"), qualifying_years: 50)
+          gender: "male", dob: Date.parse("6 May 1958"))
       end
 
       should "be 36 based on birthday not having happened yet" do
@@ -382,7 +382,7 @@ module SmartAnswer::Calculators
       setup do
         Timecop.travel("2014-06-01")
         @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-          gender: "male", dob: Date.parse("1 May 1958"), qualifying_years: 50)
+          gender: "male", dob: Date.parse("1 May 1958"))
       end
 
       should "be 37 years based on birthday having occured" do
@@ -394,7 +394,7 @@ module SmartAnswer::Calculators
       setup do
         Timecop.travel("2014-04-01")
         @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-          gender: "male", dob: Date.parse("6 April 1958"), qualifying_years: 50)
+          gender: "male", dob: Date.parse("6 April 1958"))
       end
 
       should "be 36 years based on birthday not having happened yet" do
@@ -406,7 +406,7 @@ module SmartAnswer::Calculators
       setup do
         Timecop.travel("2014-04-10")
         @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-          gender: "male", dob: Date.parse("6 April 1958"), qualifying_years: 50)
+          gender: "male", dob: Date.parse("6 April 1958"))
       end
 
       should "be 37 years based on birthday having occurred" do
@@ -417,7 +417,7 @@ module SmartAnswer::Calculators
     context "check correct pension age and date" do
       setup do
         @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-          gender: "male", dob: Date.parse("7 June 1960"), qualifying_years: 20)
+          gender: "male", dob: Date.parse("7 June 1960"))
       end
 
       should "be 66 years 3 months and 7 September 2026" do
@@ -430,7 +430,7 @@ module SmartAnswer::Calculators
       setup do
         Timecop.travel("2014-04-10")
         @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-          gender: "male", dob: Date.parse("23 March 1969"), qualifying_years: 0)
+          gender: "male", dob: Date.parse("23 March 1969"))
       end
 
       should "be 67 years" do
@@ -441,13 +441,13 @@ module SmartAnswer::Calculators
     context "#birthday_on_feb_29??" do
       should "be true for a date that is a the 29th of feb" do
         @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-          gender: "male", dob: Date.parse("29 February 1976"), qualifying_years: 20)
+          gender: "male", dob: Date.parse("29 February 1976"))
         assert_equal true, @calculator.birthday_on_feb_29?
       end
 
       should "be false for a date that is not the 29th of feb" do
         @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-          gender: "male", dob: Date.parse("7 June 1960"), qualifying_years: 20)
+          gender: "male", dob: Date.parse("7 June 1960"))
         assert_equal false, @calculator.birthday_on_feb_29?
       end
     end
@@ -455,13 +455,13 @@ module SmartAnswer::Calculators
     context "#over_55?" do
       should "be true for someone older than 55" do
         Timecop.travel("2015-01-01")
-        calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(gender: "male", dob: Date.parse("1 January 1960"), qualifying_years: 20)
+        calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(gender: "male", dob: Date.parse("1 January 1960"))
         assert_equal true, calculator.over_55?
       end
 
       should "be false for someone younger than 55" do
         Timecop.travel("2015-01-01")
-        calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(gender: "male", dob: Date.parse("1 January 1961"), qualifying_years: 20)
+        calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(gender: "male", dob: Date.parse("1 January 1961"))
         assert_equal false, calculator.over_55?
       end
     end
