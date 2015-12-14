@@ -18,10 +18,6 @@ module SmartAnswer::Calculators
       @pays_reduced_ni_rate = answers[:pays_reduced_ni_rate]
     end
 
-    def automatic_ni_age_group?
-      (Date.parse('1959-04-06')..Date.parse('1992-04-05')).cover?(dob)
-    end
-
     def woman_born_in_married_stamp_era?
       (Date.parse('6 April 1953')..Date.parse('5 April 1961')).cover?(dob) && gender == :female
     end
