@@ -24,7 +24,7 @@ module SmartAnswer::Calculators
     end
 
     def birthday_on_feb_29?
-      dob.month == 2 and dob.day == 29
+      dob.month == 2 && dob.day == 29
     end
 
     def before_state_pension_date?
