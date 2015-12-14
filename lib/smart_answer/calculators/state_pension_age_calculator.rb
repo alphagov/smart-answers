@@ -18,10 +18,6 @@ module SmartAnswer::Calculators
       @pays_reduced_ni_rate = answers[:pays_reduced_ni_rate]
     end
 
-    def woman_born_in_married_stamp_era?
-      (Date.parse('6 April 1953')..Date.parse('5 April 1961')).cover?(dob) && gender == :female
-    end
-
     def current_weekly_rate
       @current_weekly_rate ||= SmartAnswer::Calculators::RatesQuery.new('state_pension').rates.weekly_rate
     end
