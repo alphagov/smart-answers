@@ -1,0 +1,76 @@
+##Fees
+
+Service | Fee
+-|-
+<% if price = local_assigns[:receiving_notice_of_registration] %>
+  Receiving a notice of registration | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:receiving_notice_of_marriage] %>
+  Receiving a notice of marriage | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:issuing_cni] %>
+  Issuing a CNI or equivalent | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:issuing_cni_or_nulla_osta] %>
+  Issuing a CNI, Nulla Osta or equivalent | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:issuing_letter_or_certificate_english] %>
+  Issuing any other consular letter or certificate in English | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:issuing_letter_or_certificate_other_language] %>
+  Issuing any other consular letter or certificate in any other language | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:administrating_oath_making_declaration] %>
+  Administering an oath or making a declaration | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:affidavit_for_marriage] %>
+  Affidavit for marriage | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:affirmation_for_marriage] %>
+  Affirmation for marriage | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:affirmation_for_freedom_to_marry_in_english] %>
+  Affirmation for freedom to marry in English | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:affirmation_for_freedom_to_marry_in_english_and_chinese] %>
+  Affirmation or affidavit for freedom to marry in English & Chinese | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:affirmation_for_freedom_to_marry_in_other_language] %>
+  Affirmation for freedom to marry in any other language | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:affidavit_or_affirmation_for_marriage] %>
+  Affidavit or affirmation for marriage | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:issuing_certificate_of_custom_and_law] %>
+  Issuing a certificate of custom and law | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:registering_marriage_or_civil_partnership] %>
+  Registering a marriage or civil partnership | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:issuing_marriage_or_civil_partnership_certificate] %>
+  Issuing a marriage or civil partnership certificate | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:registering_marriage] %>
+  Registering a marriage | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:registering_civil_partnership] %>
+  Registering a civil partnership | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:posting_marriage_notice] %>
+  Posting a marriage notice | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:performing_marriage_ceremony] %>
+  Performing a marriage ceremony | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:issuing_marriage_certificate] %>
+  Issuing a marriage certificate | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:issuing_civil_partnership_certificate] %>
+  Issuing a civil partnership certificate | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:marriage_declaration] %>
+  Marriage declaration | <%= format_money(price) %>
+<% end %>
+<% if price = local_assigns[:making_an_oath] %>
+  Making an oath | <%= format_money(price) %>
+<% end %>

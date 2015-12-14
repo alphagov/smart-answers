@@ -57,13 +57,12 @@
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
   <% end %>
 
-  ##Fees
-
-  Service | Fee
-  -|-
-  Receiving a notice of registration | £65
-  Registering a civil partnership | £140
-  Issuing a civil partnership certificate | £65
+  <%= render partial: 'fee_table.govspeak.erb',
+             locals: {
+               receiving_notice_of_registration: 65,
+               registering_civil_partnership: 140,
+               issuing_civil_partnership_certificate: 65
+             } %>
 
   You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for <%= ceremony_country_name %>](/government/publications/<%= ceremony_country %>-consular-fees).
 

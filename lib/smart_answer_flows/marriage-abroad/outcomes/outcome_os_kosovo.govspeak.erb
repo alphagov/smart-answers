@@ -32,15 +32,14 @@
 
     %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
 
-    ##Fees
-
-    Service | Fee
-    -|-
-    Receiving a notice of marriage | £65
-    Issuing a CNI, Nulla Osta or equivalent | £65
-    Issuing any other consular letter or certificate in English | £45
-    Issuing any other consular letter or certificate in any other language | £70
-    Administering an oath or making a declaration | £55
+    <%= render partial: 'fee_table.govspeak.erb',
+               locals: {
+                 receiving_notice_of_marriage: 65,
+                 issuing_cni_or_nulla_osta: 65,
+                 issuing_letter_or_certificate_english: 45,
+                 issuing_letter_or_certificate_other_language: 70,
+                 administrating_oath_making_declaration: 55,
+               } %>
 
     You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for <%= country_name_lowercase_prefix %>](/government/publications/<%= ceremony_country %>-consular-fees).
 
@@ -101,15 +100,14 @@
 
     Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
 
-    ##Fees
-
-    Service | Fee
-    -|-
-    Receiving a notice of marriage | £65
-    Issuing a CNI, Nulla Osta or equivalent | £65
-    Issuing any other consular letter or certificate in English | £45
-    Issuing any other consular letter or certificate in any other language | £70
-    Administering an oath or making a declaration | £55
+    <%= render partial: 'fee_table.govspeak.erb',
+               locals: {
+                 receiving_notice_of_marriage: 65,
+                 issuing_cni_or_nulla_osta: 65,
+                 issuing_letter_or_certificate_english: 45,
+                 issuing_letter_or_certificate_other_language: 70,
+                 administrating_oath_making_declaration: 55
+               } %>
 
     You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for <%= country_name_lowercase_prefix %>](/government/publications/<%= ceremony_country %>-consular-fees).
 

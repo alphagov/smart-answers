@@ -148,7 +148,15 @@
       <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
     <% end %>
 
-    <%= render partial: 'consular_cni_os_fees_incl_null_osta_oath_consular_letter.govspeak.erb' %>
+    <%= render partial: 'fee_table.govspeak.erb',
+               locals: {
+                 receiving_notice_of_marriage: 65,
+                 issuing_cni_or_nulla_osta: 65,
+                 issuing_letter_or_certificate_english: 45,
+                 issuing_letter_or_certificate_other_language: 70,
+                 administrating_oath_making_declaration: 55
+               } %>
+
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,

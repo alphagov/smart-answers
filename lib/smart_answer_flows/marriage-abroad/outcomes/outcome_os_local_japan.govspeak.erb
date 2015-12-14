@@ -46,13 +46,10 @@
 
   <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' -%>
 
-
-  ##Fees
-
-  Service | Fee
-  -|-
-  Administering an oath or making a declaration | £55
-
+  <%= render partial: 'fee_table.govspeak.erb',
+             locals: {
+               administrating_oath_making_declaration: 55
+             } %>
 
   <%= render partial: 'link_to_consular_fees.govspeak.erb',
              locals: {

@@ -1,62 +1,60 @@
 <% if %w(thailand turkey vietnam).include?(ceremony_country) %>
-  ##Fees
-
-  Service | Fee
-  -|-
-  Affidavit for marriage | £55
+<%= render partial: 'fee_table.govspeak.erb',
+           locals: {
+             affidavit_for_marriage: 55
+           } %>
 
 <% elsif %w(south-korea).include?(ceremony_country) %>
-  ##Fees
-
-  Service | Fee
-  -|-
-  Affidavit for marriage | £65
+  <%= render partial: 'fee_table.govspeak.erb',
+             locals: {
+               affidavit_for_marriage: 65
+             } %>
 
 <% elsif %w(belgium ecuador macao morocco norway).include?(ceremony_country) %>
-  <%= render partial: 'fee_table_affirmation_55.govspeak.erb' %>
+  <%= render partial: 'fee_table.govspeak.erb',
+             locals: {
+               affidavit_or_affirmation_for_marriage: 55
+             } %>
 <% elsif ceremony_country == 'finland' %>
-  ##Fees
-
-  Service | Fee
-  -|-
-  Affirmation for marriage | £65
+  <%= render partial: 'fee_table.govspeak.erb',
+             locals: {
+               affirmation_for_marriage: 65
+             } %>
 
 <% elsif %w(philippines united-arab-emirates).include?(ceremony_country) %>
-  ##Fees
-
-  Service | Fee
-  -|-
-  Affirmation for freedom to marry in English | £55
-  Affirmation for freedom to marry in any other language | £70
-
+  <%= render partial: 'fee_table.govspeak.erb',
+             locals: {
+               affirmation_for_freedom_to_marry_in_english: 55,
+               affirmation_for_freedom_to_marry_in_other_language: 70
+             } %>
 
 <% elsif ceremony_country == 'qatar' %>
-  <%= render partial: 'fee_table_45_70_55.govspeak.erb' %>
+  <%= render partial: 'fee_table.govspeak.erb',
+             locals: {
+               issuing_letter_or_certificate_english: 45,
+               issuing_letter_or_certificate_other_language: 70,
+               affidavit_for_marriage: 55
+             } %>
 
 <% elsif ceremony_country == 'egypt' %>
-  ##Fees
-
-  Service | Fee
-  -|-
-  Marriage declaration | £55
-  Making an oath | £55
-
+  <%= render partial: 'fee_table.govspeak.erb',
+             locals: {
+               marriage_declaration: 55,
+               making_an_oath: 55
+             } %>
 
 <% elsif ceremony_country == 'china' %>
-  ##Fees
-
-  Service | Fee
-  -|-
-  Affirmation or affidavit for freedom to marry in English & Chinese | £55
+  <%= render partial: 'fee_table.govspeak.erb',
+             locals: {
+               affirmation_for_freedom_to_marry_in_english_and_chinese: 55
+             } %>
 
 <% else %>
-  ##Fees
-
-  Service | Fee
-  -|-
-  Affirmation for freedom to marry in English | £45
-  Affirmation for freedom to marry in any other language | £70
-
+  <%= render partial: 'fee_table.govspeak.erb',
+             locals: {
+               affirmation_for_freedom_to_marry_in_english: 45,
+               affirmation_for_freedom_to_marry_in_other_language: 70
+             } %>
 
 <% end %>
 <% unless data_query.countries_without_consular_facilities?(ceremony_country) %>
