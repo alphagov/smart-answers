@@ -4,7 +4,7 @@ module SmartAnswer::Calculators
   class StatePensionAgeCalculator
     include FriendlyTimeDiff
 
-    attr_reader :gender, :dob, :qualifying_years, :available_years , :starting_credits, :pays_reduced_ni_rate
+    attr_reader :gender, :dob, :qualifying_years, :available_years , :starting_credits
     attr_accessor :qualifying_years
 
     NEW_RULES_START_DATE = Date.parse('6 April 2016')
@@ -15,7 +15,6 @@ module SmartAnswer::Calculators
       @qualifying_years = answers.fetch(:qualifying_years, 0)
       @available_years = ni_years_to_date_from_dob
       @starting_credits = allocate_starting_credits
-      @pays_reduced_ni_rate = answers[:pays_reduced_ni_rate]
     end
 
     def current_weekly_rate
@@ -170,16 +169,6 @@ module SmartAnswer::Calculators
 
     def years_can_be_entered(ay, max_num)
       (ay > max_num ? max_num : ay)
-    end
-
-    def qualifies_for_rre_entitlements?
-      rre_start_date = Date.new(1953,4,6)
-      rre_end_date = Date.new(1961,4,5)
-
-      pays_reduced_ni_rate &&
-        gender == :female &&
-        qualifying_years.between?(10,29) &&
-        dob.between?(rre_start_date, rre_end_date)
     end
 
     def over_55?

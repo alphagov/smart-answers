@@ -53,29 +53,6 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "female, born 1953 - 1962, from 10 to 29 qualifying years" do
-
-      context "pays reduced NI rate" do
-        setup do
-          @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(gender: "female", dob: Date.parse("1958-02-08"), qualifying_years: 15, pays_reduced_ni_rate: true)
-        end
-
-        should "be eligible for rre entitlements" do
-          assert @calculator.qualifies_for_rre_entitlements?
-        end
-      end
-
-      context "pays full NI rate" do
-        setup do
-          @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(gender: "female", dob: Date.parse("1958-02-08"), qualifying_years: 15, pays_reduced_ni_rate: false)
-        end
-
-        should "be eligible for rre entitlements" do
-          assert !@calculator.qualifies_for_rre_entitlements?
-        end
-      end
-    end
-
     context "current_weekly_rate" do
       should "be 107.45 before 6th April 2013" do
         Timecop.travel(Date.parse("2013-04-05")) do
