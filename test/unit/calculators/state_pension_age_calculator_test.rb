@@ -267,14 +267,6 @@ module SmartAnswer::Calculators
           assert_equal 12, @calculator.available_years
           assert_equal 2, @calculator.available_years_sum
         end
-
-        should "has_available_years? return true" do
-          assert @calculator.has_available_years?
-        end
-
-        should "has_available_years?(14) return false" do
-          assert ! @calculator.has_available_years?(14)
-        end
       end
 
       context "years_can_be_entered test" do
