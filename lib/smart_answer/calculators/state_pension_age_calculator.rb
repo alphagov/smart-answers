@@ -29,10 +29,6 @@ module SmartAnswer::Calculators
       pension_period_end_year(state_pension_date) - pension_period_end_year(Date.today)
     end
 
-    def pension_loss
-      current_weekly_rate - what_you_get
-    end
-
     def what_you_get
       BigDecimal(what_you_get_raw.to_s).round(2).to_f
     end
