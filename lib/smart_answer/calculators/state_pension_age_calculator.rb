@@ -4,7 +4,7 @@ module SmartAnswer::Calculators
   class StatePensionAgeCalculator
     include FriendlyTimeDiff
 
-    attr_reader :gender, :dob, :qualifying_years, :available_years , :starting_credits
+    attr_reader :gender, :dob, :qualifying_years, :available_years
     attr_accessor :qualifying_years
 
     NEW_RULES_START_DATE = Date.parse('6 April 2016')
@@ -14,7 +14,6 @@ module SmartAnswer::Calculators
       @dob = answers[:dob]
       @qualifying_years = answers.fetch(:qualifying_years, 0)
       @available_years = ni_years_to_date_from_dob
-      @starting_credits = allocate_starting_credits
     end
 
     def current_weekly_rate
@@ -130,19 +129,6 @@ module SmartAnswer::Calculators
         credit_band[:validate] + 1
       else
         credit_band[:validate] == 1 ? 1 : 0
-      end
-    end
-
-    ## this is done just to control flow
-    def allocate_starting_credits
-      if three_year_credit_age?
-        @starting_credits = 3
-      elsif at_least_two_year_credit_age?
-        @starting_credits = 2
-      elsif at_least_one_year_credit_age?
-        @starting_credits = 1
-      else
-        @starting_credits = 0
       end
     end
 
