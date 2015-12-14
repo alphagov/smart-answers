@@ -47,10 +47,6 @@ module SmartAnswer::Calculators
       should "be eligible for state pension on 1 March 2034" do
         assert_equal Date.parse("2035-03-01"), @calculator.state_pension_date
       end
-
-      should "be eligible for three years of credit regardless of benefits claimed" do
-        assert @calculator.three_year_credit_age?
-      end
     end
 
     context "current_weekly_rate" do
@@ -299,10 +295,6 @@ module SmartAnswer::Calculators
                 gender: "male", dob: dob, qualifying_years: years)
             end
 
-            should "three_year_credit_age = false" do
-              assert ! @calculator.three_year_credit_age?
-            end
-
             context "simulate a entries in years_of_work question" do
               should "upon 3 calc_qualifying_years_credit: 0" do
                 entered_num = 3
@@ -330,10 +322,6 @@ module SmartAnswer::Calculators
             setup do
               @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
                 gender: "male", dob: Date.parse("5th May 1958"), qualifying_years: 29)
-            end
-
-            should "three_year_credit_age = false" do
-              assert ! @calculator.three_year_credit_age?
             end
 
             context "simulate a entries in years_of_work question" do
