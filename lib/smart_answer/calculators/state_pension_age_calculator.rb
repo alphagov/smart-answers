@@ -1,7 +1,7 @@
 require "data/state_pension_date_query"
 
 module SmartAnswer::Calculators
-  class StatePensionAmountCalculator
+  class StatePensionAgeCalculator
     include FriendlyTimeDiff
 
     attr_reader :gender, :dob, :qualifying_years, :available_years , :starting_credits, :pays_reduced_ni_rate
