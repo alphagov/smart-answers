@@ -263,9 +263,8 @@ module SmartAnswer::Calculators
             gender: "female", dob: dob, qualifying_years: 10)
         end
 
-        should "available_years = 12; available_years_sum = 3" do
+        should "available_years = 12" do
           assert_equal 12, @calculator.available_years
-          assert_equal 2, @calculator.available_years_sum
         end
       end
 
@@ -510,10 +509,6 @@ module SmartAnswer::Calculators
         Timecop.travel("2013-07-22")
         @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
           gender: "male", dob: Date.parse("5 November 1948"))
-      end
-
-      should "have zero available years left" do
-        assert_equal 0, @calculator.available_years_sum(45)
       end
 
       should "should have 45 available years" do

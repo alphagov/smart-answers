@@ -99,10 +99,6 @@ module SmartAnswer::Calculators
       years
     end
 
-    def available_years_sum(qual_years = @qualifying_years)
-      (@available_years - qual_years)
-    end
-
     def over_55?
       Date.today >= dob.advance(years: 55)
     end
