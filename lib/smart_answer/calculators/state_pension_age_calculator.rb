@@ -12,10 +12,6 @@ module SmartAnswer::Calculators
       @available_years = ni_years_to_date_from_dob
     end
 
-    def pension_period_end_year(date)
-      date < Date.civil(date.year, 4, 6) ? date.year - 1 : date.year
-    end
-
     def state_pension_date(sp_gender = gender)
       StatePensionDateQuery.find(dob, sp_gender)
     end
