@@ -86,12 +86,6 @@ module SmartAnswer::Calculators
       dob > 20.years.ago
     end
 
-    # these people always get at least 2 years of starting credits
-    def at_least_two_year_credit_age?
-      ( dob >= Date.parse('1958-04-06') and dob <= Date.parse('1959-04-05')) or
-      ( dob >= Date.parse('1992-04-06') and dob <= Date.parse('1993-04-05'))
-    end
-
     # these people always get at least 1 year of starting credits
     def at_least_one_year_credit_age?
       ( dob >= Date.parse('1957-04-06') and dob <= Date.parse('1958-04-05')) or
