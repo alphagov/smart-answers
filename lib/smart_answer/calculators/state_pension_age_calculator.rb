@@ -20,11 +20,6 @@ module SmartAnswer::Calculators
       @current_weekly_rate ||= SmartAnswer::Calculators::RatesQuery.new('state_pension').rates.weekly_rate
     end
 
-    # Everyone needs 30 qualifying years in all cases - no need to worry about old rules
-    def years_needed
-      30
-    end
-
     def years_to_pension
       pension_period_end_year(state_pension_date) - pension_period_end_year(Date.today)
     end
