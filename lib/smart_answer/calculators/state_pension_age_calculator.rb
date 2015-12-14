@@ -103,10 +103,6 @@ module SmartAnswer::Calculators
       (@available_years - qual_years)
     end
 
-    def years_can_be_entered(ay, max_num)
-      (ay > max_num ? max_num : ay)
-    end
-
     def over_55?
       Date.today >= dob.advance(years: 55)
     end

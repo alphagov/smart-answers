@@ -269,24 +269,6 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "years_can_be_entered test" do
-        should "should return 5" do
-          Timecop.travel("2013-04-20")
-          @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-            gender: "male", dob: 49.years.ago, qualifying_years: 25)
-          assert_equal 5, @calculator.available_years_sum
-          assert_equal 5, @calculator.years_can_be_entered(@calculator.available_years_sum, 22)
-        end
-
-        should "should return 22" do
-          Timecop.travel("2013-04-20")
-          @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-            gender: "male", dob: 49.years.ago, qualifying_years: 5)
-          assert_equal 25, @calculator.available_years_sum
-          assert_equal 22, @calculator.years_can_be_entered(@calculator.available_years_sum, 22)
-        end
-      end
-
       context "testing what would get if not enough time to get full state pension" do
         should "state that user has 13 remaining years and would get 2/3 of basic pension" do
           Timecop.travel("2012-10-09") do
