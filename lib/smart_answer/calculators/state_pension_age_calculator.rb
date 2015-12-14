@@ -18,10 +18,6 @@ module SmartAnswer::Calculators
       @pays_reduced_ni_rate = answers[:pays_reduced_ni_rate]
     end
 
-    def new_rules_and_less_than_10_ni? ni
-      (ni < 10) && (state_pension_date >= NEW_RULES_START_DATE)
-    end
-
     def automatic_ni_age_group?
       (Date.parse('1959-04-06')..Date.parse('1992-04-05')).cover?(dob)
     end
