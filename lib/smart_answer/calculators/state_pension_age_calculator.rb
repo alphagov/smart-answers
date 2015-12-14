@@ -86,18 +86,6 @@ module SmartAnswer::Calculators
       dob > 20.years.ago
     end
 
-     CREDIT_BANDS= [
-                    { min: Date.parse('1957-04-06'), max: Date.parse('1958-04-05'), credit: 1, validate: 0 },
-                    { min: Date.parse('1993-04-06'), max: Date.parse('1994-04-05'), credit: 1, validate: 0 },
-                    { min: Date.parse('1958-04-06'), max: Date.parse('1959-04-05'), credit: 2, validate: 1 },
-                    { min: Date.parse('1992-04-06'), max: Date.parse('1993-04-05'), credit: 2, validate: 1 },
-                   ]
-
-    # these people get different starting credits based on when they were born and what they answer to Q10
-    def credit_band
-      CREDIT_BANDS.find { |c| c[:min] <= dob and c[:max] >= dob }
-    end
-
     def ni_start_date
       (dob + 19.years)
     end
