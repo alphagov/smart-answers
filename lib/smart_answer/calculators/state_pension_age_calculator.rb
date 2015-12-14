@@ -98,15 +98,6 @@ module SmartAnswer::Calculators
       CREDIT_BANDS.find { |c| c[:min] <= dob and c[:max] >= dob }
     end
 
-    def calc_qualifying_years_credit(entered_num = 0)
-      return 0 unless credit_band && entered_num < 2
-      if entered_num == 0
-        credit_band[:validate] + 1
-      else
-        credit_band[:validate] == 1 ? 1 : 0
-      end
-    end
-
     def ni_start_date
       (dob + 19.years)
     end
