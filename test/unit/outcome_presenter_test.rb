@@ -5,7 +5,7 @@ module SmartAnswer
     setup do
       outcome = Outcome.new(nil, :outcome_name)
       @renderer = stub('renderer')
-      @presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, renderer: @renderer)
+      @presenter = OutcomePresenter.new(outcome, state = nil, renderer: @renderer)
     end
 
     test 'renderer is constructed using template name and directory obtained from outcome node' do
@@ -19,7 +19,7 @@ module SmartAnswer
         )
       )
 
-      OutcomePresenter.new('i18n-prefix', outcome)
+      OutcomePresenter.new(outcome)
     end
 
     test '#title returns single line of content rendered for title block' do

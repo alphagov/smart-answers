@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/register-a-birth.rb: 25c95aa072f64e367c03b4c2bbfce5fd
+lib/smart_answer_flows/register-a-birth.rb: 730dba55e2cc3353cf3982277702d68c
 test/data/register-a-birth-questions-and-responses.yml: c59cb1d0c11f3ad29f905b632f7c58bb
 test/data/register-a-birth-responses-and-expected-results.yml: 3ac4372034c86d8cc87665db59ff11d5
 lib/smart_answer_flows/register-a-birth/outcomes/commonwealth_result.govspeak.erb: a7c70e3191f23f7e747cb45587e4825f
@@ -8,7 +8,7 @@ lib/smart_answer_flows/register-a-birth/outcomes/no_birth_certificate_result.gov
 lib/smart_answer_flows/register-a-birth/outcomes/no_embassy_result.govspeak.erb: ed56d500311fbe441649c92193f0e631
 lib/smart_answer_flows/register-a-birth/outcomes/no_registration_result.govspeak.erb: 7b60252b078e6aec6f5759e894ce4ffb
 lib/smart_answer_flows/register-a-birth/outcomes/north_korea_result.govspeak.erb: 0d33d1741fb92edac74032ffedfbe7a5
-lib/smart_answer_flows/register-a-birth/outcomes/oru_result.govspeak.erb: 8f5c81b570028c19f0271b8026895b1a
+lib/smart_answer_flows/register-a-birth/outcomes/oru_result.govspeak.erb: bf3630b571fcdc85dbaa9ccc5d400d3d
 lib/smart_answer_flows/register-a-birth/questions/childs_date_of_birth.govspeak.erb: e911daf1dc69ce85db372dc4ea3bdd50
 lib/smart_answer_flows/register-a-birth/questions/country_of_birth.govspeak.erb: 31c306c928e71eee86c60352f51ccf83
 lib/smart_answer_flows/register-a-birth/questions/have_you_adopted_the_child.govspeak.erb: 3a9d66656446a508c7232b26778dfa23
@@ -23,7 +23,7 @@ lib/data/rates/births_and_deaths_document_return_fees.yml: 4ac203e9fd076c12f62b5
 lib/data/translators.yml: d86f628f0b85e24ffb0dc0ec77401387
 lib/data/registrations.yml: 2eb5c61678f21bd9cc06af67c230279f
 lib/smart_answer/calculators/country_name_formatter.rb: 0cb274748f0daf3965451b6230c183fd
-lib/smart_answer/calculators/registrations_data_query.rb: cbb0fad828d74606eb708d3442cf4ca5
+lib/smart_answer/calculators/registrations_data_query.rb: 563c5db7d7272bc07bd636a92b40f3ce
 lib/smart_answer/calculators/translator_links.rb: 079592f6c5ede06d7c6ae4e8c5553127
 test/fixtures/worldwide_locations.yml: 063711faceec3a4081d6d5fb386c8029
 test/fixtures/worldwide/afghanistan_organisations.json: 1fd89b60eb079c7b3fddcab985f37366

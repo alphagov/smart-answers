@@ -447,7 +447,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
         end
 
         context "adoption but not worked for long enough" do
-          should "go to not entitled to leave or pay outcome with right phraselist" do
+          should "go to :paternity_not_entitled_to_leave_or_pay outcome" do
             add_response "2014-01-01"
             add_response "2014-02-01"
             add_response "yes"

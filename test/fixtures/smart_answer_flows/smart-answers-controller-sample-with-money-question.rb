@@ -2,7 +2,6 @@ module SmartAnswer
   class SmartAnswersControllerSampleWithMoneyQuestionFlow < Flow
     def define
       name "smart-answers-controller-sample-with-money-question"
-      use_erb_templates_for_questions
       money_question :how_much? do
         next_node :money_question_with_suffix_label?
       end

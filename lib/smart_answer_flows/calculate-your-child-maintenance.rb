@@ -6,8 +6,6 @@ module SmartAnswer
       status :published
       satisfies_need "100147"
 
-      use_erb_templates_for_questions
-
       ## Q0
       multiple_choice :are_you_paying_or_receiving? do
         option :pay

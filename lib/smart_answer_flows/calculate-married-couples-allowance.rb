@@ -6,8 +6,6 @@ module SmartAnswer
       status :published
       satisfies_need "101007"
 
-      use_erb_templates_for_questions
-
       multiple_choice :were_you_or_your_partner_born_on_or_before_6_april_1935? do
         option :yes
         option :no

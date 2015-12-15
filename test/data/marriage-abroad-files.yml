@@ -1,7 +1,7 @@
 ---
-lib/smart_answer_flows/marriage-abroad.rb: 8aa5c189664e06916e904ba2722f6f3d
+lib/smart_answer_flows/marriage-abroad.rb: 1ef16130a78d3b768a2e99cc60102a10
 test/data/marriage-abroad-questions-and-responses.yml: eabbd09ca91fab72a9a520d1087fb35e
-test/data/marriage-abroad-responses-and-expected-results.yml: 839cce0363e0c51ba4ab9fb1722fc59f
+test/data/marriage-abroad-responses-and-expected-results.yml: 5a6a798dd1cbd008d0ab75406e90ddf1
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
 lib/smart_answer_flows/marriage-abroad/outcomes/_affirmation_os_translation_in_local_language_text.govspeak.erb: 4ac964ce5e41e3efaf0f43d11c71b2b7
 lib/smart_answer_flows/marriage-abroad/outcomes/_appointment_documents_in_vietnam.govspeak.erb: 6390e13560110a71b8a3c0dc018ff4cf
@@ -48,6 +48,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/_get_legal_advice.govspeak.erb: 
 lib/smart_answer_flows/marriage-abroad/outcomes/_get_legal_and_travel_advice.govspeak.erb: 40458ebc3d854994d78514e38d2f2a39
 lib/smart_answer_flows/marriage-abroad/outcomes/_gulf_states_os_consular_cni.govspeak.erb: dab9eb0b23cb0fe1782987ac4dee6da2
 lib/smart_answer_flows/marriage-abroad/outcomes/_gulf_states_os_consular_cni_local_resident.govspeak.erb: 16a875368a6c12234a28146a726f018c
+lib/smart_answer_flows/marriage-abroad/outcomes/_have_documents_witnessed_to_get_cni.govspeak.erb: dcbd828bbc11e965e409690b2640d409
 lib/smart_answer_flows/marriage-abroad/outcomes/_legalisation_and_translation.govspeak.erb: 938c66085fef989f4c01df279a8a75f2
 lib/smart_answer_flows/marriage-abroad/outcomes/_legalise_translate_and_check_with_authorities.govspeak.erb: 3bb7a614d36e08c0b864f7c1e0044c23
 lib/smart_answer_flows/marriage-abroad/outcomes/_legisation_and_translation_intro_uk.govspeak.erb: 6efaf5857252f7daefd3ce0c749e9889
@@ -57,6 +58,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/_no_objection_in_14_days_ss_marr
 lib/smart_answer_flows/marriage-abroad/outcomes/_no_objection_ss_marriage_and_partnership.govspeak.erb: 3cadb3cb4154ec4980faf1c254792227
 lib/smart_answer_flows/marriage-abroad/outcomes/_partner_naturalisation_in_uk.govspeak.erb: 0a72e43cea2aa1c26962c47eb8bea2d0
 lib/smart_answer_flows/marriage-abroad/outcomes/_partner_needs_affirmation.govspeak.erb: 24929cceaa0f738b63b5c9f821e730ec
+lib/smart_answer_flows/marriage-abroad/outcomes/_partner_needs_cni.govspeak.erb: 1d7b7d4330db8816549664f7fb3ebbed
 lib/smart_answer_flows/marriage-abroad/outcomes/_partner_probably_needs_affirmation.govspeak.erb: 2ccca7bda03792c78dd719f43d5e13b4
 lib/smart_answer_flows/marriage-abroad/outcomes/_pay_by_cash_or_credit_card_no_cheque.govspeak.erb: d48e019bef54a2de0e4e98be561aa1f6
 lib/smart_answer_flows/marriage-abroad/outcomes/_pay_by_cash_or_us_dollars_only.govspeak.erb: ca1f907c19f1d8393abd7ffc6cda3551
@@ -65,6 +67,8 @@ lib/smart_answer_flows/marriage-abroad/outcomes/_pay_for_ss_registration_and_cer
 lib/smart_answer_flows/marriage-abroad/outcomes/_pay_in_cash_visa_or_mastercard.govspeak.erb: 93ba88fe53f32e47c862d9d4562b3da2
 lib/smart_answer_flows/marriage-abroad/outcomes/_pay_in_euros_or_visa_electron.govspeak.erb: 6908aba839a9768e6b91830f38e3150a
 lib/smart_answer_flows/marriage-abroad/outcomes/_pay_in_local_currency_ceremony_country_name.govspeak.erb: 022a549716b33855871b257aa904c91a
+? lib/smart_answer_flows/marriage-abroad/outcomes/_provide_evidence_of_nationality_or_residence_for_divorce_or_dissolution.govspeak.erb
+: fc4e4718b871a5d8d6de41468bf425bf
 lib/smart_answer_flows/marriage-abroad/outcomes/_provide_two_witnesses_ss_marriage_and_partnership.govspeak.erb: 8cad642ce182d96fcb7befd6584723b3
 lib/smart_answer_flows/marriage-abroad/outcomes/_required_supporting_documents.govspeak.erb: 54eca61b5e7fafe122b2aac2eacd231f
 lib/smart_answer_flows/marriage-abroad/outcomes/_required_supporting_documents_egypt.govspeak.erb: bb36a7a8f8d1425f435ba57bea2f4f9b
@@ -97,10 +101,10 @@ lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_bot.govspeak.erb: 626
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_cambodia.govspeak.erb: fe40a6c6cd730cd45a3afe572f4d2bbd
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_colombia.govspeak.erb: 0278771b1619672cf187445c6cef00f4
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_commonwealth.govspeak.erb: e786f6ff0927f8e1fb729be638bea136
-lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_consular_cni.govspeak.erb: c24c779a0f3f648f05a1aee672f760c6
+lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_consular_cni.govspeak.erb: 650b144d0e894f24f93ee398068bfee7
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_france_or_fot.govspeak.erb: 7a5cb5ac119b7891858e415872d3e20e
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_hong_kong.govspeak.erb: 9fad3bd3a55309f5a345b378b1bb8dd4
-lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_indonesia.govspeak.erb: 341dbbf4bcf2d6e71144e069551cae1e
+lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_indonesia.govspeak.erb: 1bc444b14fea245c99be99b34d4afc16
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_italy.govspeak.erb: 0baaa6eda72586272a2d0d4f634dc015
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_kosovo.govspeak.erb: 8c158ffb3a7088c7163219af519767a8
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_laos.govspeak.erb: 141437f2f430c230566fe05cebdb8189
@@ -108,8 +112,9 @@ lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_local_japan.govspeak.
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_marriage_impossible_no_laos_locals.govspeak.erb: 3be3a33c8eba1ac4017c13ecd9ed284a
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_no_cni.govspeak.erb: 7f223da1e95e88ee963c6c340b1513bb
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_other_countries.govspeak.erb: 44a899defefec42ccf3fafae0f67b8d5
+lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_poland.govspeak.erb: 231b7d411d584d23d7d418a038a0f4ab
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_portugal.govspeak.erb: 695750a9cc381603f800f1c2c6c5e200
-lib/smart_answer_flows/marriage-abroad/outcomes/outcome_spain.govspeak.erb: ad2f16297be84a06a096637f209a445b
+lib/smart_answer_flows/marriage-abroad/outcomes/outcome_spain.govspeak.erb: 17cd79cfce4ecec1968f5407d1091e7d
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ss_affirmation.govspeak.erb: 0784e5066e751503bf9bc2a61aaf4f35
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ss_marriage.govspeak.erb: cf9209ce7229b87f6b3fd70e05ee73ed
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ss_marriage_malta.govspeak.erb: 6d0e1f7c4739820fd626deb23910ab2b
@@ -123,4 +128,4 @@ lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationali
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 2f521bae99c2f48b49d07bcb283a8063
 lib/smart_answer/calculators/marriage_abroad_data_query.rb: b69ed89bee92f2361f86e7509fc27ebf
 lib/smart_answer/calculators/country_name_formatter.rb: 0cb274748f0daf3965451b6230c183fd
-lib/smart_answer/calculators/registrations_data_query.rb: cbb0fad828d74606eb708d3442cf4ca5
+lib/smart_answer/calculators/registrations_data_query.rb: 563c5db7d7272bc07bd636a92b40f3ce

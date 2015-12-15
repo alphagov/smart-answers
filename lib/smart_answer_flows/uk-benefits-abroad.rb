@@ -6,8 +6,6 @@ module SmartAnswer
       status :published
       satisfies_need "100490"
 
-      use_erb_templates_for_questions
-
       exclude_countries = %w(british-antarctic-territory french-guiana guadeloupe holy-see martinique mayotte reunion st-maarten)
       additional_countries = [OpenStruct.new(slug: "jersey", name: "Jersey"), OpenStruct.new(slug: "guernsey", name: "Guernsey")]
 

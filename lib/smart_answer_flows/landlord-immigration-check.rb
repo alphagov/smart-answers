@@ -6,8 +6,6 @@ module SmartAnswer
       status :published
       satisfies_need "102373"
 
-      use_erb_templates_for_questions
-
       postcode_question :property? do
         permitted_next_nodes = [
           :main_home?,

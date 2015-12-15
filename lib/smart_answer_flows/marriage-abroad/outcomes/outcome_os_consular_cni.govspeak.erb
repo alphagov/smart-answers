@@ -102,16 +102,7 @@
 
   <% end %>
   <% if resident_of == 'uk' %>
-    <% if ceremony_country == 'poland' %>
-      <%= render partial: 'check_if_uk_issued_cnis_accepted.govspeak.erb',
-                 locals: {
-                   country_name_lowercase_prefix: country_name_lowercase_prefix
-                 } %>
-      ### Get a UK-issued CNI
-
-    <% end %>
     <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
-
     <%= render partial: 'cni_issued_locally_validity.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix
@@ -120,14 +111,6 @@
       They’ll post your notice, and as long as nobody has registered an objection after 14 days, they’ll issue your CNI.
 
     <% end -%>
-
-    <% if ceremony_country == 'poland' %>
-      ###Get a locally-issued CNI
-
-      If the local registry office in Poland doesn’t accept UK-issued CNIs, you must make an appointment at the British embassy in Warsaw to get a locally-issued CNI.
-
-      [Make an appointment at the embassy in Warsaw.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-warsaw/certificate-of-no-impediment/slot_picker)
-    <% end %>
   <% end %>
   <% if resident_of == 'uk' %>
 
@@ -155,12 +138,6 @@
       ###Legalisation and translation
 
       You should check with the local authorities in <%= country_name_lowercase_prefix %> to see if your CNI needs to be:
-
-
-    <% elsif ceremony_country == 'poland' %>
-      ###Legalisation and translation
-
-      You must check with the local authorities in <%= country_name_lowercase_prefix %> to see if your UK-issued CNI needs to be:
 
 
     <% elsif ceremony_country == 'greece' %>
@@ -205,23 +182,11 @@
 
     <% end %>
 
-    <% if ceremony_country == 'poland' %>
-      CNIs issued in <%= country_name_lowercase_prefix %> are valid for 6 months.
-    <% end %>
-
     <% if three_day_residency_handled_by_exception.exclude?(ceremony_country) && three_day_residency_requirement_applies.include?(ceremony_country) %>
       <%= render partial: "three_day_residency_requirement.govspeak.erb",
                  locals: {
                    country_name_lowercase_prefix: country_name_lowercase_prefix
                  } -%>
-    <% end %>
-
-    <% if ceremony_country == 'poland' %>
-      ### Posting notice in front of a notary public
-
-      Download an [‘Affidavit/Affirmation’](/government/publications/affidavitaffirmation-form-poland) form and a [‘Notice of Marriage’](/government/publications/notice-of-marriage-form-poland) form and take them with you to a notary public.
-
-      ###Posting notice at the embassy
     <% end %>
 
     <% if ceremony_country == 'greece' %>
@@ -273,9 +238,6 @@
                      overseas_passports_embassies: overseas_passports_embassies,
                      country_name_lowercase_prefix: country_name_lowercase_prefix
                    } %>
-      <% end %>
-      <% if ceremony_country == 'poland' %>
-        <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
       <% end %>
     <% end %>
   <% end %>
@@ -368,7 +330,7 @@
       $D
 
 
-    <% elsif %w(germany poland).exclude?(ceremony_country) %>
+    <% elsif %w(germany).exclude?(ceremony_country) %>
       <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
 
     <% end %>
@@ -434,39 +396,6 @@
 
       [Make an appointment to collect your CNI at the embassy in Athens](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-athens/certificate-of-no-impediment/slot_picker).
 
-    <% elsif ceremony_country == 'poland' %>
-      ## What happens next
-
-      The embassy or notary public can take your oath or affirmation and witness your notice of marriage. The notary public may charge 2 separate fees for this.
-
-      If you give notice at a notary public, you must post the signed forms to the British embassy in Warsaw afterwards.
-
-      $A
-      Consular section
-      British Embassy
-      ul. Kawalerii 12
-      00-468 Warsaw
-      Mazowieckie
-      Poland
-      $A
-
-      The embassy will display your notice of marriage publicly for 7 days. They’ll then send all of your documentation to the British embassy or consulate, who will issue your CNI (as long as nobody has registered an objection).
-
-      There’s an additional fee for this - you must complete a [payment form](/government/publications/credit-card-payment-authorisation-form-poland) and email it to the embassy in Warsaw.
-
-      $C
-      <mailto:Warsaw_consularmail@fco.gov.uk>
-      $C
-
-      The embassy will contact you to confirm that the payment was accepted.
-
-      You can collect the CNI from the embassy or ask for it it to be sent by post to an address in Poland.
-
-      [Make an appointment to collect your CNI at the embassy in Warsaw.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-warsaw/certificate-of-no-impediment/slot_picker )
-
-      ^The embassy may charge a fee to return your documents to you.^
-
-      You should check with the local registry office in Poland if your CNI needs to be legalised (certified as genuine).
     <% elsif cni_notary_public_countries.include?(ceremony_country) || ceremony_country == 'japan' %>
       ###What happens next
 
@@ -502,7 +431,7 @@
 
   <% end %>
 
-  <% if resident_of != 'uk' && %w(germany poland).exclude?(ceremony_country) %>
+  <% if resident_of != 'uk' && %w(germany).exclude?(ceremony_country) %>
     You should check if your CNI needs to be legalised (certified as genuine) by the local authorities in <%= country_name_lowercase_prefix %>.
 
 

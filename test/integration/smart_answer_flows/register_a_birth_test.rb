@@ -464,7 +464,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
   end
 
   context "answer Morocco and in another country " do
-    should "show Morocco phraselist" do
+    should "show :oru_result outcome" do
       worldwide_api_has_organisations_for_location('germany', read_fixture_file('worldwide/germany_organisations.json'))
       add_response "morocco"
       add_response "mother_and_father"
@@ -476,7 +476,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
   end
 
   context "answer Germany and in Cameroon" do
-    should "show Cameroon phraselist" do
+    should "show oru_result outcome" do
       worldwide_api_has_organisations_for_location('germany', read_fixture_file('worldwide/germany_organisations.json'))
       worldwide_api_has_organisations_for_location('cameroon', read_fixture_file('worldwide/cameroon_organisations.json'))
       add_response "germany"
@@ -489,7 +489,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
   end
 
   context "answer Venezuela and still in Venezuela" do
-    should "show Venezuela phraselist" do
+    should "show oru_result outcome" do
       worldwide_api_has_organisations_for_location('venezuela', read_fixture_file('worldwide/venezuela_organisations.json'))
       add_response "venezuela"
       add_response "mother_and_father"

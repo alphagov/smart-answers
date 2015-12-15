@@ -2,11 +2,15 @@
 
 The project includes a set of regression tests. These tests are not *normally* run as part of the standard build, because they take a long time to run. You can run just the regression tests with the following command:
 
-    $ RUN_REGRESSION_TESTS=true ruby test/regression/smart_answers_regression_test.rb
+```bash
+$ RUN_REGRESSION_TESTS=true ruby test/regression/smart_answers_regression_test.rb
+```
 
 You can run just the regression tests for a single flow using this command:
 
-    $ RUN_REGRESSION_TESTS=<smart-answer-flow-name> ruby test/regression/smart_answers_regression_test.rb
+```bash
+$ RUN_REGRESSION_TESTS=<smart-answer-flow-name> ruby test/regression/smart_answers_regression_test.rb
+```
 
 Note that the `RUN_REGRESSION_TESTS` environment variable can also be used in conjunction with the rake `test` task if you want to force regression tests to run as part of the standard build.
 
@@ -48,11 +52,15 @@ Checksums for all flow-specific files are stored in a YAML file:
 
 Once you're happy that the changes to the artefacts correspond to the changes you intended to make, you can update the checksums using the following command:
 
-    $ rails r script/generate-checksums-for-smart-answer.rb <smart-answer-flow-name>
+```bash
+$ rails r script/generate-checksums-for-smart-answer.rb <smart-answer-flow-name>
+```
 
 When you've resolved all these issues, you should be able to run the regression tests for the flow as before and all the tests should pass:
 
-    $ RUN_REGRESSION_TESTS=<smart-answer-flow-name> ruby test/regression/smart_answers_regression_test.rb
+```bash
+$ RUN_REGRESSION_TESTS=<smart-answer-flow-name> ruby test/regression/smart_answers_regression_test.rb
+```
 
 ## Automatic trigger
 

@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/legalisation-document-checker.rb: eec50547825c770f58f1494090ca4fed
+lib/smart_answer_flows/legalisation-document-checker.rb: b467124147814649224b01c1e6bbf757
 test/data/legalisation-document-checker-questions-and-responses.yml: 37c99c68ba04e459447622b01938ce0b
 test/data/legalisation-document-checker-responses-and-expected-results.yml: d55ccccc64cc1f58b648e810e5fa07e5
 lib/smart_answer_flows/legalisation-document-checker/legalisation_document_checker.govspeak.erb: 4be67b8e3aeebe4f3b99a5153b92ccdf

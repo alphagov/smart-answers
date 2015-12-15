@@ -15,8 +15,6 @@ module SmartAnswer
       status :published
       satisfies_need "101000"
 
-      use_erb_templates_for_questions
-
       data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
       country_name_query = SmartAnswer::Calculators::CountryNameFormatter.new
       reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
@@ -265,6 +263,7 @@ module SmartAnswer
           :outcome_os_marriage_impossible_no_laos_locals,
           :outcome_os_no_cni,
           :outcome_os_other_countries,
+          :outcome_os_poland,
           :outcome_portugal,
           :outcome_spain,
           :outcome_ss_affirmation,
@@ -309,6 +308,8 @@ module SmartAnswer
               :outcome_os_marriage_impossible_no_laos_locals
             elsif ceremony_country == "laos"
               :outcome_os_laos
+            elsif ceremony_country == 'poland'
+              :outcome_os_poland
             elsif data_query.os_consular_cni_countries?(ceremony_country) || (resident_of == 'uk' && data_query.os_no_marriage_related_consular_services?(ceremony_country)) || data_query.os_consular_cni_in_nearby_country?(ceremony_country)
               :outcome_os_consular_cni
             elsif ceremony_in_finland_uk_resident
@@ -380,6 +381,8 @@ module SmartAnswer
 
       outcome :outcome_os_colombia
 
+      outcome :outcome_os_poland
+
       outcome :outcome_monaco
 
       outcome :outcome_spain do
@@ -425,7 +428,7 @@ module SmartAnswer
           data_query
         end
         precalculate :three_day_residency_requirement_applies do
-          %w(albania algeria angola armenia austria azerbaijan bahrain belarus bolivia bosnia-and-herzegovina bulgaria chile croatia cuba democratic-republic-of-congo denmark dominican-republic el-salvador estonia ethiopia georgia greece guatemala honduras hungary iceland italy kazakhstan kosovo kuwait kyrgyzstan latvia lithuania luxembourg macedonia mexico moldova montenegro nepal panama poland romania russia serbia slovenia sudan sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+          %w(albania algeria angola armenia austria azerbaijan bahrain belarus bolivia bosnia-and-herzegovina bulgaria chile croatia cuba democratic-republic-of-congo denmark dominican-republic el-salvador estonia ethiopia georgia greece guatemala honduras hungary iceland italy kazakhstan kosovo kuwait kyrgyzstan latvia lithuania luxembourg macedonia mexico moldova montenegro nepal panama romania russia serbia slovenia sudan sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
         end
         precalculate :three_day_residency_handled_by_exception do
           %w(croatia italy russia)
@@ -434,10 +437,10 @@ module SmartAnswer
           three_day_residency_requirement_applies - ['italy']
         end
         precalculate :cni_notary_public_countries do
-          %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg mexico moldova montenegro poland russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+          %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg mexico moldova montenegro russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
         end
         precalculate :no_document_download_link_if_os_resident_of_uk_countries do
-          %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua poland russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+          %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
         end
         precalculate :cni_posted_after_14_days_countries do
           %w(oman jordan qatar saudi-arabia united-arab-emirates yemen)

@@ -6,8 +6,6 @@ module SmartAnswer
       status :published
       satisfies_need "100696"
 
-      use_erb_templates_for_questions
-
       # Q1
       multiple_choice :receive_housing_benefit? do
         option :yes

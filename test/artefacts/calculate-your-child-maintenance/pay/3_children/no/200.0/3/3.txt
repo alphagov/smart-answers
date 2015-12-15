@@ -2,6 +2,8 @@
 
 Based on your answers the child maintenance payment is the basic rate of £18.00 per week.
 
+The calculator gives an estimate. The exact amount the Child Maintenance Service calculates might be different.
+
 This is the total weekly amount, not the amount per child.
 
 Depending on how child maintenance is arranged, fees may be added to this amount.
@@ -17,8 +19,6 @@ You will pay up to £187.20 in fees per year if you pay child maintenance throug
 ^You don’t have to pay an application fee if you’re in Northern Ireland.^
 
 You may also have to pay an enforcement charge if you don’t make your full payments on time.
-
-The calculator gives an estimate. The exact amount the Child Maintenance Service would calculate might be different.
 
 Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/child-maintenance-rates)
 

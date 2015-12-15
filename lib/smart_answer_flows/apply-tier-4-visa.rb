@@ -6,8 +6,6 @@ module SmartAnswer
       status :published
       satisfies_need "101059"
 
-      use_erb_templates_for_questions
-
       # Q1
       multiple_choice :extending_or_switching? do
         option :extend_general

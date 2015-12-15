@@ -8,8 +8,6 @@ module SmartAnswer
 
       additional_countries = UkbaCountry.all
 
-      use_erb_templates_for_questions
-
       # Q1
       country_select :what_passport_do_you_have?, additional_countries: additional_countries, exclude_countries: Calculators::UkVisaCalculator::EXCLUDE_COUNTRIES do
         next_node_calculation :calculator do
@@ -140,7 +138,7 @@ module SmartAnswer
           :outcome_transit_not_leaving_airport,
           :outcome_transit_refugee_not_leaving_airport,
           :outcome_transit_taiwan,
-          :outcome_transit_venezuala,
+          :outcome_transit_venezuela,
           :outcome_visit_waiver
         ]
         next_node(permitted: permitted_next_nodes) do |response|
@@ -156,7 +154,7 @@ module SmartAnswer
             end
           else
             if calculator.passport_country_is_venezuela?
-              :outcome_transit_venezuala
+              :outcome_transit_venezuela
             elsif calculator.applicant_is_stateless_or_a_refugee?
               :outcome_transit_refugee_not_leaving_airport
             elsif calculator.passport_country_in_datv_list?
@@ -243,7 +241,7 @@ module SmartAnswer
       outcome :outcome_transit_not_leaving_airport
       outcome :outcome_transit_refugee_not_leaving_airport
       outcome :outcome_transit_taiwan
-      outcome :outcome_transit_venezuala
+      outcome :outcome_transit_venezuela
       outcome :outcome_visit_waiver
       outcome :outcome_work_m
       outcome :outcome_work_n

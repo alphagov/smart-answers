@@ -6,8 +6,6 @@ module SmartAnswer
       status :published
       satisfies_need "100119"
 
-      use_erb_templates_for_questions
-
       #Q1 - new or existing business
       multiple_choice :claimed_expenses_for_current_business? do
         option :yes

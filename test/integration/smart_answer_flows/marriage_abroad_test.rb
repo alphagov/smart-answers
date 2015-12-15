@@ -626,8 +626,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'opposite_sex'
     end
-    should "go to consular cni os outcome" do
-      assert_current_node :outcome_os_consular_cni
+    should "go to os poland outcome" do
+      assert_current_node :outcome_os_poland
     end
   end
 
@@ -1612,7 +1612,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   end
 
   context "south-korea new outcome" do
-    should "go to outcome os affirmation with new korea phraselist" do
+    should "go to :outcome_os_affirmation outcome" do
       worldwide_api_has_organisations_for_location('south-korea', read_fixture_file('worldwide/south-korea_organisations.json'))
       add_response 'south-korea'
       add_response 'uk'
@@ -1801,7 +1801,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_other'
       add_response 'opposite_sex'
     end
-    should "go to outcome_os_consular_cni and show specific phraselist" do
+    should "go to :outcome_os_consular_cni outcome" do
       assert_current_node :outcome_os_consular_cni
     end
   end
@@ -1811,14 +1811,14 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       worldwide_api_has_organisations_for_location('qatar', read_fixture_file('worldwide/croatia_organisations.json'))
       add_response 'qatar'
     end
-    should "go to outcome_os_consular_cni and show specific phraselist for OS marriage of local residents" do
+    should "go to :outcome_os_consular_cni outcome" do
       add_response 'ceremony_country'
       add_response 'partner_other'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_affirmation
     end
 
-    should "go to outcome_os_consular_cni and show specific phraselist for OS marriage of residents in a 3rd country" do
+    should "go to outcome_os_affirmation outcome" do
       add_response 'third_country'
       add_response 'partner_other'
       add_response 'opposite_sex'
@@ -1875,7 +1875,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "test morocco specific phraselists, living in the UK" do
+  context "test morocco specific, living in the UK" do
     setup do
       worldwide_api_has_organisations_for_location('morocco', read_fixture_file('worldwide/morocco_organisations.json'))
       add_response 'morocco'
@@ -1888,7 +1888,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "test morocco specific phraselists, living elsewhere" do
+  context "test morocco specific, living elsewhere" do
     setup do
       worldwide_api_has_organisations_for_location('morocco', read_fixture_file('worldwide/morocco_organisations.json'))
       add_response 'morocco'
@@ -2208,7 +2208,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_consular_cni_os_residing_in_third_country
     end
 
-    should "lead to a outcome_os_kosovo with uk resident phraselist when residing in the UK" do
+    should "lead to a :outcome_os_kosovo outcome for uk, partner_local and opposite_sex" do
       add_response 'uk'
       add_response 'partner_local'
       add_response 'opposite_sex'
@@ -2216,7 +2216,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_os_kosovo
     end
 
-    should "lead to a outcome_os_kosovo with local resident phraselist when residing in Kosovo" do
+    should "lead to a :outcome_os_kosovo outcome for ceremony_country, partner_local and opposite_sex" do
       add_response 'ceremony_country'
       add_response 'partner_local'
       add_response 'opposite_sex'

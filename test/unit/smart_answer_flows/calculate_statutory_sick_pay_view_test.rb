@@ -6,14 +6,13 @@ module SmartAnswer
   class CalculateStatutorySickPayViewTest < ActiveSupport::TestCase
     setup do
       @flow = CalculateStatutorySickPayFlow.build
-      @i18n_prefix = "flow.#{@flow.name}"
     end
 
     context 'when rendering linked_sickness_end_date? question' do
       setup do
         question = @flow.node(:linked_sickness_end_date?)
         @state = SmartAnswer::State.new(question)
-        @presenter = QuestionPresenter.new(@i18n_prefix, question, @state)
+        @presenter = QuestionPresenter.new(question, @state)
       end
 
       should 'have a must_be_within_eight_weeks error message' do

@@ -1,7 +1,6 @@
 class GraphPresenter
   def initialize(flow)
     @flow = flow
-    @i18n_prefix = "flow.#{@flow.name}"
   end
 
   def labels
@@ -13,9 +12,6 @@ class GraphPresenter
       adjacency_list = {}
       @flow.questions.each do |node|
         adjacency_list[node.name] = []
-        node.next_node_function_chain.each do |(nextnode, predicates)|
-          adjacency_list[node.name] << [nextnode, predicates.map(&:label).compact.join(" AND\n")]
-        end
         node.permitted_next_nodes.each do |permitted_next_node|
           existing_next_nodes = adjacency_list[node.name].map(&:first)
           unless existing_next_nodes.include?(permitted_next_node)
@@ -82,7 +78,7 @@ private
   end
 
   def node_title(node)
-    presenter = QuestionPresenter.new(@i18n_prefix, node, {}, helpers: [MethodMissingHelper])
+    presenter = QuestionPresenter.new(node, {}, helpers: [MethodMissingHelper])
     presenter.title
   end
 

@@ -1,31 +1,3 @@
-# Q1
-multiple_choice :what_would_you_like_to_check? do
-  option "current_payment"
-  option "past_payment"
-
-  calculate :accommodation_charge do
-    nil
-  end
-
-  permitted_next_nodes = [
-    :are_you_an_apprentice?,
-    :past_payment_date?
-  ]
-
-  next_node(permitted: permitted_next_nodes) do |response|
-    case response
-    when 'current_payment'
-      :are_you_an_apprentice?
-    when 'past_payment'
-      :past_payment_date?
-    end
-  end
-
-  calculate :calculator do
-    Calculators::MinimumWageCalculator.new
-  end
-end
-
 # Q1A
 multiple_choice :past_payment_date? do
   option "2014-10-01"
@@ -92,27 +64,6 @@ multiple_choice :were_you_an_apprentice? do
       else
         :does_not_apply_to_historical_apprentices
       end
-    end
-  end
-end
-
-# Q3
-value_question :how_old_are_you?, parse: Integer do
-  validate do |response|
-    calculator.valid_age?(response)
-  end
-
-  permitted_next_nodes = [
-    :under_school_leaving_age,
-    :how_often_do_you_get_paid?
-  ]
-
-  next_node(permitted: permitted_next_nodes) do |response|
-    calculator.age = response
-    if calculator.under_school_leaving_age?
-      :under_school_leaving_age
-    else
-      :how_often_do_you_get_paid?
     end
   end
 end
