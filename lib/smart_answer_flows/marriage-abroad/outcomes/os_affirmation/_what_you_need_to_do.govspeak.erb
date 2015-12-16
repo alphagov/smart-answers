@@ -260,6 +260,14 @@
 
 <% end %>
 
+<% if ceremony_country == 'philippines' %>
+  ##What happens next
+
+  You can usually get your affirmation or affidavit on the day of your appointment if you have all your supporting documents.
+
+  Once you have your affirmation or affidavit, you can apply for a marriage licence from the local civil registrar. 
+<% end %>
+
 <% if ceremony_country == 'egypt' %>
   <% if partner_nationality == 'partner_british' %>
     ^Your partner will need to make a declaration as well.^
@@ -268,6 +276,7 @@
     <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>
   <% end %>
 <% end %>
+
 <% unless ceremony_country == 'egypt' %>
   <% if ceremony_country == 'turkey' %>
     <% if partner_nationality == 'partner_british' %>
