@@ -7,6 +7,8 @@
 
   You’ll be asked to provide an affirmation or affidavit document to prove you’re allowed to marry.
 
+<% elsif ceremony_country == 'philippines' %>
+  <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
 <% else %>
   <%= render partial: 'what_you_need_to_do_affirmation.govspeak.erb' %>
 <% end %>
