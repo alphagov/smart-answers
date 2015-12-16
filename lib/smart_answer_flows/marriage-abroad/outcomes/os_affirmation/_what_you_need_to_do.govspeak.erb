@@ -279,8 +279,6 @@
   <% elsif ceremony_country == 'morocco' %>
     ^An ’affirmation for marriage’ document issued in Morocco is valid for 3 months.^
 
-    Your partner will probably need to get an equivalent document from their national authorities.
-
   <% else %>
     <% if partner_nationality == 'partner_british' %>
       <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
