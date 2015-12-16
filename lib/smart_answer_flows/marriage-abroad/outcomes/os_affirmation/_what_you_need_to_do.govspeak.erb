@@ -190,11 +190,6 @@
 
   <% end %>
 <% end %>
-<% if ceremony_country == 'philippines' %>
-  The embassy will provide you with an oath or affidavit (written statement of facts) stating that you’re free to marry. You can print and fill in (but not sign) the [affidavit/affirmation for marriage form](/government/publications/marriage-in-the-philippines) in advance - it must fit on one page.
-
-
-<% end %>
 
 <% if ceremony_country == 'turkey' && resident_of != 'uk' %>
   <%= render partial: 'contact_method.govspeak.erb',
@@ -248,9 +243,6 @@
   - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/) - you’ll need to get the document [translated](/government/collections/list-of-lawyers) if it’s not in English (bring the original and English translation with you)
   - the original marriage certificate, Advisory of Marriage and court documents (if the previous marriage was annulled in the Philippines)
   - evidence if you’ve changed your name by deed poll
-
-  You must bring photocopies of all your supporting documents.
-
 
 <% elsif ceremony_country == 'thailand' %>
   If you’ve been divorced or widowed, you’ll need the original [decree absolute or final order](/copy-decree-absolute-final-order) or the [death certificate](/order-copy-birth-death-marriage-certificate/).
