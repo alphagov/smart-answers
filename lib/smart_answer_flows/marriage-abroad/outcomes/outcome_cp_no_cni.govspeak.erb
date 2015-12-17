@@ -39,6 +39,14 @@
                    ceremony_country: ceremony_country
                  } %>
     <% end %>
+  <% elsif ceremony_country == 'usa' %>
+      <%= render partial: 'contact_local_authorities_in_country_cp.govspeak.erb',
+                 locals: {
+                   country_name_lowercase_prefix: country_name_lowercase_prefix,
+                   ceremony_country: ceremony_country
+                 } %>
+
+     ^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.^
   <% else %>
     <% if resident_of == 'uk' %>
       Contact your [nearest embassy or consulate](/government/publications/foreign-embassies-in-the-uk) representing <%= country_name_lowercase_prefix %> before making any plans to find out about local laws, including what documents you’ll need.
