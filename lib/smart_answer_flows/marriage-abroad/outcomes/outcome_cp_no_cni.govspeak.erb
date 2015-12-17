@@ -3,24 +3,27 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if data_query.cp_cni_not_required_countries?(ceremony_country) %>
+  <% if ceremony_country == 'usa' %>
+    You can get a same-sex relationship legally recognised in the USA.
+  <% elsif data_query.cp_cni_not_required_countries?(ceremony_country) %>
     <%= render partial: 'synonyms_of_cp.govspeak.erb',
                locals: {
                  ceremony_country: ceremony_country
                } %>
-  <% end %>
 
-  <% if resident_of == 'ceremony_country' %>
-    <%= render partial: 'get_legal_advice.govspeak.erb' %>
-  <% else %>
-    <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
-               locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: ceremony_country
-               } %>
+    <% if resident_of == 'ceremony_country' %>
+     <%= render partial: 'get_legal_advice.govspeak.erb' %>
+    <% else %>
+     <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
+                locals: {
+                  country_name_lowercase_prefix: country_name_lowercase_prefix,
+                  ceremony_country: ceremony_country
+                } %>
+    <% end %>
   <% end %>
 
   <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+
   <% if ceremony_country == 'bonaire-st-eustatius-saba' %>
     <%= render partial: 'country_is_dutch_caribbean_island.govspeak.erb',
                locals: {
@@ -47,6 +50,10 @@
                    ceremony_country: ceremony_country
                  } %>
     <% end %>
+  <% end %>
+
+  <% if ceremony_country == 'usa' %>
+    ^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.^
   <% end %>
 
   There aren’t any British consular facilities to register a same-sex relationship, or get legal documents to prove you’re eligible to enter into a same-sex relationship, in <%= country_name_lowercase_prefix %>.
