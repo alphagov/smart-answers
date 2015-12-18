@@ -46,7 +46,8 @@ class SmartAnswerFilesTest < ActiveSupport::TestCase
       smart_answer_with_erb_templates(flow_name) do |erb_template_files|
         smart_answer_files = SmartAnswerFiles.new(flow_name)
         erb_template_files.each do |file|
-          expected_path = file.path.relative_path_from(Rails.root)
+          absolute_path = File.expand_path(file)
+          expected_path = Pathname.new(absolute_path).relative_path_from(Rails.root).to_s
           assert_equal true, smart_answer_files.paths.include?(expected_path)
         end
       end
