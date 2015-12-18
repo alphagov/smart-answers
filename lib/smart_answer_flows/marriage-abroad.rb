@@ -285,6 +285,8 @@ module SmartAnswer
           elsif response == 'opposite_sex'
             if ceremony_country == 'hong-kong'
               :outcome_os_hong_kong
+            elsif ceremony_country == 'germany'
+              :outcome_os_germany
             elsif consular_cni_residing_in_third_country
               :outcome_consular_cni_os_residing_in_third_country
             elsif marriage_in_norway_third_country
