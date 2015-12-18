@@ -18,9 +18,13 @@
 
   Make an appointment at the British embassy in Tokyo or British Consulate General in Osaka to swear an affirmation/affidavit (written statement of facts) that you’re free to marry.
 
-  [Make an appointment at the embassy in Tokyo](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-tokyo/oaths-affirmations-and-affidavits/slot_picker).
-
-  [Make an appointment at the Consulate General in Osaka](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-osaka/oaths-affirmations-and-affidavits/slot_picker).
+  <%= render partial: 'contact_method.govspeak.erb',
+             locals: {
+               sex_of_your_partner: sex_of_your_partner,
+               ceremony_country: ceremony_country,
+               overseas_passports_embassies: overseas_passports_embassies,
+               country_name_lowercase_prefix: country_name_lowercase_prefix
+             } %>
 
   You can [download and fill in a form](/government/publications/affidavitaffirmation-of-marital-status-japan) for an ‘Affirmation for marriage’ (non-religious) or an ‘Affidavit for marriage’ (religious) before your appointment. Don’t sign it - you’ll do that at the appointment.
 
