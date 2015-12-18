@@ -399,7 +399,20 @@
     <%= render partial: 'check_if_cni_needs_to_be_legalised.govspeak.erb',
                locals: { calculator: calculator } %>
 
+  <% elsif calculator.ceremony_country == 'bulgaria' %>
+    You must then contact the Bulgarian Ministry of Foreign Affairs (MFA) to get your CNI legalised (certified as genuine).
+
+    $A
+    2 Alfred Nobel Street
+    Sofia
+    Bulgaria
+    $A
+
+    $C
+    Telephone: (+359) 2 807 64 23,  (+359) 2 807 64 28 or (+359) 2 807 64 26
+    $C
   <% end %>
+
   <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'you_dont_need_to_stay_in_country.govspeak.erb' %>
 
