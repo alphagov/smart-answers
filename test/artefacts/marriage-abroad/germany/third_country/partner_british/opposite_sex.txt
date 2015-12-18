@@ -6,14 +6,26 @@ Contact the relevant local authorities in Germany (registry office ‘standesamt
 
 ##What you need to do
 
-You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
+You don’t need a certificate of no impediment (CNI) to prove you’re allowed to marry if you’re a British national resident outside of the UK. However, you’ll need to apply for an exemption (‘Befreiung von der Beibringung des Ehefähigkeitszeugnisses’) from the Higher Regional Court (‘Oberlandesgericht’) in the region where you want to marry.
 
-There are 2 ways you can get a CNI:
+Contact the local registry office (‘Standesamt’) where you’re getting married - they'll tell you what you need to do.
 
-- [go to the UK and post notice with a UK registrar](/marriage-abroad/y/germany/uk/partner_british/opposite_sex)
-- [go to Germany and post notice at the embassy or consulate there](/marriage-abroad/y/germany/ceremony_country/partner_british/opposite_sex)
+If the Standesamt does ask you for a CNI (‘Ehefähigkeitszeugnis’), refer them to the relevant part of the [German Civil Code](http://www.gesetze-im-internet.de/bgb/__1309.html) (‘Bürgerliches Gesetzbuch’).
 
-%If you choose to post notice in Germany, you’ll normally have to wait at least 10 days before you can get married.%
+You’ll need to complete a statutory declaration at the registry office as part of the application process.
 
-*[CNI]:Certificate of no impediment
+##Fees
+
+Service | Fee
+-|-
+Receiving a notice of marriage | £65
+Issuing any other consular letter or certificate in English | £45
+Issuing any other consular letter or certificate in any other language | £70
+Administering an oath or making a declaration | £55
+
+You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Germany](/government/publications/germany-consular-fees).
+
+You can pay by cash or credit card, but not by personal cheque.
+
+*[CNI]:certificate of no impediment
 
