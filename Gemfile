@@ -57,10 +57,6 @@ else
   gem 'govspeak', '~> 3.3.0'
 end
 
-if ENV['RUBY_DEBUG']
-  gem 'debugger', require: "ruby-debug"
-end
-
 if ENV['SLIMMER_DEV']
   gem 'slimmer', path: '../slimmer'
 else
