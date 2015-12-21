@@ -119,9 +119,14 @@
       ^A photocopy of your document won’t be accepted.^
     <% when 'medical_reports' %>
       ##<%= heading %>
-      Your <%= type %> must be signed by a [doctor registered with the General Medical Council.](http://www.gmc-uk.org/doctors/register/LRMP.asp)
 
-      ^Your document can’t be legalised if it has been signed on behalf of your doctor by another doctor or member of staff.^
+      Your <%= type %> can only be legalised if it’s either:
+
+      - signed by a [doctor registered with the General Medical Council](http://www.gmc-uk.org/doctors/register/LRMP.asp) (your document can’t be legalised if it’s been signed on behalf of your doctor by another doctor or member of staff)
+      - a certified copy
+
+      ^A photocopy of your document can be legalised, but it must be certified first.^
+
     <% when 'police_disclosure' %>
       ##<%= heading %>
       Your <%= type %> can only be legalised if it has been either:
