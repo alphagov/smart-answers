@@ -193,10 +193,6 @@ module SmartAnswer
           (ceremony_country == 'brazil') && (resident_of != 'uk')
         }
 
-        next_node_calculation(:os_marriage_with_local_in_japan) {
-          ceremony_country == 'japan' && resident_of == 'ceremony_country' && partner_nationality == 'partner_local'
-        }
-
         next_node_calculation(:consular_cni_residing_in_third_country) {
           resident_of == 'third_country' && (data_query.os_consular_cni_countries?(ceremony_country) || %w(kosovo).include?(ceremony_country) || data_query.os_consular_cni_in_nearby_country?(ceremony_country))
         }
@@ -259,7 +255,7 @@ module SmartAnswer
           :outcome_os_italy,
           :outcome_os_kosovo,
           :outcome_os_laos,
-          :outcome_os_local_japan,
+          :outcome_os_japan,
           :outcome_os_marriage_impossible_no_laos_locals,
           :outcome_os_no_cni,
           :outcome_os_other_countries,
@@ -294,12 +290,12 @@ module SmartAnswer
               :outcome_consular_cni_os_residing_in_third_country
             elsif marriage_in_italy
               :outcome_os_italy
-            elsif os_marriage_with_local_in_japan
-              :outcome_os_local_japan
             elsif ceremony_country == 'cambodia'
               :outcome_os_cambodia
             elsif ceremony_country == "colombia"
               :outcome_os_colombia
+            elsif ceremony_country == 'japan'
+              :outcome_os_japan
             elsif ceremony_country == "kosovo"
               :outcome_os_kosovo
             elsif ceremony_country == "indonesia"
@@ -369,7 +365,7 @@ module SmartAnswer
 
       outcome :outcome_os_laos
 
-      outcome :outcome_os_local_japan
+      outcome :outcome_os_japan
 
       outcome :outcome_os_hong_kong
 
