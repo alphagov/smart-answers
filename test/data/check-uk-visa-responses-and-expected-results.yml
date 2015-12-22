@@ -973,7 +973,7 @@
   - taiwan
   - transit
   - 'yes'
-  :next_node: :outcome_transit_taiwan
+  :next_node: :outcome_transit_taiwan_through_border_control
   :outcome_node: true
 - :current_node: :passing_through_uk_border_control?
   :responses:
