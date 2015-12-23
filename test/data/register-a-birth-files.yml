@@ -3,7 +3,7 @@ lib/smart_answer_flows/register-a-birth.rb: 730dba55e2cc3353cf3982277702d68c
 test/data/register-a-birth-questions-and-responses.yml: c59cb1d0c11f3ad29f905b632f7c58bb
 test/data/register-a-birth-responses-and-expected-results.yml: 3ac4372034c86d8cc87665db59ff11d5
 lib/smart_answer_flows/register-a-birth/outcomes/commonwealth_result.govspeak.erb: a7c70e3191f23f7e747cb45587e4825f
-lib/smart_answer_flows/register-a-birth/outcomes/homeoffice_result.govspeak.erb: 680f670245380ebb3b9e95cb3b45a164
+lib/smart_answer_flows/register-a-birth/outcomes/homeoffice_result.govspeak.erb: 546c5ccac2d088c6209a75da0a7d5425
 lib/smart_answer_flows/register-a-birth/outcomes/no_birth_certificate_result.govspeak.erb: 174d68aa0d7cf3922a9e6a1867676359
 lib/smart_answer_flows/register-a-birth/outcomes/no_embassy_result.govspeak.erb: ed56d500311fbe441649c92193f0e631
 lib/smart_answer_flows/register-a-birth/outcomes/no_registration_result.govspeak.erb: 7b60252b078e6aec6f5759e894ce4ffb
