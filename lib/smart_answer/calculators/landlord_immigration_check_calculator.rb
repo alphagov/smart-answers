@@ -17,11 +17,35 @@ module SmartAnswer::Calculators
       wolverhampton-city-council
     )
 
-    def self.valid_postcode(postcode)
+    VALID_COUNTRIES = %w( England )
+
+    attr_reader :postcode
+
+    def initialize(postcode)
+      @postcode = postcode
+    end
+
+    def included_postcode?
+      included_country? || included_borough?
+    end
+
+    def included_country?
+      postcode_within?(VALID_COUNTRIES, 'country_name')
+    end
+
+    def included_borough?
+      postcode_within?(VALID_BOROUGHS, 'slug')
+    end
+
+    private
+
+    def postcode_within?(included_areas, key_name)
+      areas_for_postcode.select {|a| included_areas.include?(a[key_name]) }.any?
+    end
+
+    def areas_for_postcode
       response = Services.imminence_api.areas_for_postcode(postcode)
-      return false unless response and response.code == 200
-      areas = response.to_hash["results"]
-      ! areas.find { |a| VALID_BOROUGHS.include?(a["slug"]) }.nil?
+      response.try(:code) == 200 ? response.to_hash["results"] : {}
     end
   end
 end

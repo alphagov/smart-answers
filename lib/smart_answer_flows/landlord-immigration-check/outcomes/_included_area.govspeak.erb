@@ -1,0 +1,5 @@
+<% if calculator.included_borough? %>
+  <%= render partial: 'pilot_outcome.govspeak.erb' %>
+<% elsif calculator.included_country? %>
+  <%= render partial: 'england_outcome.govspeak.erb' %>
+<% end %>

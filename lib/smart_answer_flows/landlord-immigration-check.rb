@@ -11,8 +11,13 @@ module SmartAnswer
           :main_home?,
           :outcome_check_not_needed
         ]
+
+        next_node_calculation :calculator do |response|
+          Calculators::LandlordImmigrationCheckCalculator.new(response)
+        end
+
         next_node(permitted: permitted_next_nodes) do |response|
-          if Calculators::LandlordImmigrationCheckCalculator.valid_postcode(response)
+          if calculator.included_postcode?
             :main_home?
           else
             :outcome_check_not_needed
