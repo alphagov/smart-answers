@@ -25,7 +25,7 @@ lib/smart_answer_flows/calculate-state-pension/questions/years_of_caring.govspea
 lib/smart_answer_flows/calculate-state-pension/questions/years_of_jsa.govspeak.erb: 3c6b46fd896efe8a31772cc12499fb76
 lib/smart_answer_flows/calculate-state-pension/questions/years_of_work.govspeak.erb: ba4c65820b3797c1cdecd4b06094ba57
 lib/smart_answer_flows/calculate-state-pension/questions/years_paid_ni.govspeak.erb: 7c6dfc7d6bdcba46aefed81a563328d2
-lib/smart_answer/calculators/state_pension_amount_calculator.rb: dc34ccef222287ea14e4c9c7af164a32
+lib/smart_answer/calculators/state_pension_amount_calculator.rb: 6454d70c0f95d7eb3ddfa3e97c6c40a8
 lib/data/rates/state_pension.yml: 7e97e88500fb698038c49332b48b82bf
 lib/data/state_pension_date_query.rb: ddb745e6cfdfc199c5003e66d674b0f0
 lib/data/state_pension_dates.yml: da1bdee8a5b42c489b3966c43b625113
