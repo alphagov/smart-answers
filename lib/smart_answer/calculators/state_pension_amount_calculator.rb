@@ -207,7 +207,7 @@ module SmartAnswer::Calculators
     end
 
     def over_55?
-      dob <= 55.years.ago
+      Date.today >= dob.advance(years: 55)
     end
   end
 end
