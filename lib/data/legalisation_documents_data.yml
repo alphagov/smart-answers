@@ -106,7 +106,7 @@ department-of-health-document:
 diploma:
   heading: Diploma
   type: diploma
-  group: education_document
+  group: diploma
 disclosure-scotland-document:
   heading: Disclosure Scotland document
   type: Disclosure Scotland document
