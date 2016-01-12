@@ -9,6 +9,6 @@ Seeing [Govspeak](https://github.com/alphagov/govspeak) markup of Smart Answer p
 
 ## In Integration environment
 
-**Only outcomes pages can be rendered as Govspeak in Integration**. There's a [Trello card about this inconsistency](https://trello.com/c/qd5C7qDn/165-allow-landing-pages-to-be-rendered-as-govspeak-in-preview).
+**Only outcomes pages can be rendered as Govspeak in Integration**. There's a [Trello card about this inconsistency](https://trello.com/c/qd5C7qDn/165-allow-landing-pages-to-be-rendered-as-govspeak-in-integration).
 
 * [Marriage abroad outcome page](https://www-origin.integration.publishing.service.gov.uk/marriage-abroad/y/afghanistan/uk/partner_other/opposite_sex.txt)
