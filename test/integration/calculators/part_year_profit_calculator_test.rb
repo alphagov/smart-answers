@@ -144,6 +144,14 @@ module SmartAnswer
         assert_equal expected_tax_year, @calculator.tax_year
       end
 
+      should "maybe work for this params when calling pro_rata_taxable_profit" do
+        @calculator.tax_credits_award_ends_on  = Date.parse('2015-04-05')
+        @calculator.started_trading_on         = Date.parse('2014-10-26')
+        @calculator.stopped_trading_on         = nil
+        @calculator.accounts_end_month_and_day = Date.parse('0000-04-06')
+        expect @calculator.pro_rata_taxable_profit.to_not raise_error
+      end
+
       should "use the accounting period that ends in the 2015/16 tax year" do
         expected_accounting_year = YearRange.new(
           begins_on: Date.parse('2014-06-01')
