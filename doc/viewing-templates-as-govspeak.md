@@ -7,8 +7,8 @@ Seeing [Govspeak](https://github.com/alphagov/govspeak) markup of Smart Answer p
 * [Marriage abroad landing page](http://smartanswers.dev.gov.uk/marriage-abroad.txt)
 * [Marriage abroad outcome page](http://smartanswers.dev.gov.uk/marriage-abroad/y/afghanistan/uk/partner_other/opposite_sex.txt)
 
-## In Preview environment
+## In Integration environment
 
-**Only outcomes pages can be rendered as Govspeak in Preview**. There's a [Trello card about this inconsistency](https://trello.com/c/qd5C7qDn/165-allow-landing-pages-to-be-rendered-as-govspeak-in-preview).
+**Only outcomes pages can be rendered as Govspeak in Integration**. There's a [Trello card about this inconsistency](https://trello.com/c/qd5C7qDn/165-allow-landing-pages-to-be-rendered-as-govspeak-in-preview).
 
-* [Marriage abroad outcome page](https://www.preview.alphagov.co.uk/marriage-abroad/y/afghanistan/uk/partner_other/opposite_sex.txt)
+* [Marriage abroad outcome page](https://www-origin.integration.publishing.service.gov.uk/marriage-abroad/y/afghanistan/uk/partner_other/opposite_sex.txt)
