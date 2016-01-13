@@ -512,8 +512,6 @@ module SmartAnswer
       #Q5p
       money_question :housing_benefit_amount? do
 
-        save_input_as :housing_benefit_amount
-
         calculate :total_benefits do |response|
           calculator.claim(:housing_benefit, response.to_f)
           calculator.total_benefits
@@ -568,7 +566,7 @@ module SmartAnswer
         end
 
         precalculate :housing_benefit_amount do
-          sprintf("%.2f", housing_benefit_amount)
+          sprintf("%.2f", calculator.amount(:housing_benefit))
         end
 
         precalculate :total_over_cap do

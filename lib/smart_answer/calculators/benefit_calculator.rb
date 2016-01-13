@@ -10,6 +10,10 @@ module SmartAnswer::Calculators
       @benefits[benefit] = amount
     end
 
+    def amount(benefit)
+      @benefits[benefit]
+    end
+
     def total_benefits
       @benefits.values.inject(0) {|sum, value| sum + value }
     end

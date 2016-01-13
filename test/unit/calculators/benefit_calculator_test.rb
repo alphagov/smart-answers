@@ -18,6 +18,18 @@ module SmartAnswer::Calculators
         end
       end
 
+      context '#amount' do
+        should 'default to 0' do
+          assert @calculator.amount(:anything), 0
+        end
+
+        should 'return the claimed amount' do
+          @calculator.claim(:maternity, 200)
+
+          assert @calculator.amount(:maternity), 200
+        end
+      end
+
       context '#total_benefits' do
         should 'default to 0' do
           assert @calculator.total_benefits, 0
