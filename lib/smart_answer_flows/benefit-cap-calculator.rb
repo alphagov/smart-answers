@@ -95,14 +95,6 @@ module SmartAnswer
           SmartAnswer::Calculators::BenefitCalculator.new
         end
 
-        calculate :total_benefits do
-          0
-        end
-
-        calculate :benefit_cap do
-          0
-        end
-
         permitted_next_nodes = [
           :outcome_not_affected,
           :bereavement_amount?,
@@ -137,11 +129,6 @@ module SmartAnswer
       #Q5a
       money_question :bereavement_amount? do
 
-        calculate :total_benefits do |response|
-          calculator.claim(:bereavement, response.to_f)
-          calculator.total_benefits
-        end
-
         permitted_next_nodes = [
           :carers_amount?,
           :child_benefit_amount?,
@@ -161,18 +148,14 @@ module SmartAnswer
           :single_couple_lone_parent?
         ]
 
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.claim(:bereavement, response.to_f)
           benefit_related_questions.shift
         end
       end
 
       #Q5b
       money_question :carers_amount? do
-
-        calculate :total_benefits do |response|
-          calculator.claim(:carers, response.to_f)
-          calculator.total_benefits
-        end
 
         permitted_next_nodes = [
           :child_benefit_amount?,
@@ -192,18 +175,14 @@ module SmartAnswer
           :single_couple_lone_parent?
         ]
 
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.claim(:carers, response.to_f)
           benefit_related_questions.shift
         end
       end
 
       #Q5c
       money_question :child_benefit_amount? do
-
-        calculate :total_benefits do |response|
-          calculator.claim(:child_benefit, response.to_f)
-          calculator.total_benefits
-        end
 
         permitted_next_nodes = [
           :child_tax_amount?,
@@ -222,18 +201,14 @@ module SmartAnswer
           :single_couple_lone_parent?
         ]
 
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.claim(:child_benefit, response.to_f)
           benefit_related_questions.shift
         end
       end
 
       #Q5d
       money_question :child_tax_amount? do
-
-        calculate :total_benefits do |response|
-          calculator.claim(:child_tax, response.to_f)
-          calculator.total_benefits
-        end
 
         permitted_next_nodes = [
           :esa_amount?,
@@ -251,18 +226,14 @@ module SmartAnswer
           :single_couple_lone_parent?
         ]
 
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.claim(:child_tax, response.to_f)
           benefit_related_questions.shift
         end
       end
 
       #Q5e
       money_question :esa_amount? do
-
-        calculate :total_benefits do |response|
-          calculator.claim(:esa, response.to_f)
-          calculator.total_benefits
-        end
 
         permitted_next_nodes = [
           :guardian_amount?,
@@ -279,18 +250,14 @@ module SmartAnswer
           :single_couple_lone_parent?
         ]
 
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.claim(:esa, response.to_f)
           benefit_related_questions.shift
         end
       end
 
       #Q5f
       money_question :guardian_amount? do
-
-        calculate :total_benefits do |response|
-          calculator.claim(:guardian, response.to_f)
-          calculator.total_benefits
-        end
 
         permitted_next_nodes = [
           :incapacity_amount?,
@@ -306,18 +273,14 @@ module SmartAnswer
           :single_couple_lone_parent?
         ]
 
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.claim(:guardian, response.to_f)
           benefit_related_questions.shift
         end
       end
 
       #Q5g
       money_question :incapacity_amount? do
-
-        calculate :total_benefits do |response|
-          calculator.claim(:incapacity, response.to_f)
-          calculator.total_benefits
-        end
 
         permitted_next_nodes = [
           :income_support_amount?,
@@ -332,18 +295,14 @@ module SmartAnswer
           :single_couple_lone_parent?
         ]
 
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.claim(:incapacity, response.to_f)
           benefit_related_questions.shift
         end
       end
 
       #Q5h
       money_question :income_support_amount? do
-
-        calculate :total_benefits do |response|
-          calculator.claim(:income_support, response.to_f)
-          calculator.total_benefits
-        end
 
         permitted_next_nodes = [
           :jsa_amount?,
@@ -357,18 +316,14 @@ module SmartAnswer
           :single_couple_lone_parent?
         ]
 
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.claim(:income_support, response.to_f)
           benefit_related_questions.shift
         end
       end
 
       #Q5i
       money_question :jsa_amount? do
-
-        calculate :total_benefits do |response|
-          calculator.claim(:jsa, response.to_f)
-          calculator.total_benefits
-        end
 
         permitted_next_nodes = [
           :maternity_amount?,
@@ -381,18 +336,14 @@ module SmartAnswer
           :single_couple_lone_parent?
         ]
 
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.claim(:jsa, response.to_f)
           benefit_related_questions.shift
         end
       end
 
       #Q5j
       money_question :maternity_amount? do
-
-        calculate :total_benefits do |response|
-          calculator.claim(:maternity, response.to_f)
-          calculator.total_benefits
-        end
 
         permitted_next_nodes = [
           :sda_amount?,
@@ -404,18 +355,14 @@ module SmartAnswer
           :single_couple_lone_parent?
         ]
 
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.claim(:maternity, response.to_f)
           benefit_related_questions.shift
         end
       end
 
       #Q5k
       money_question :sda_amount? do
-
-        calculate :total_benefits do |response|
-          calculator.claim(:sda, response.to_f)
-          calculator.total_benefits
-        end
 
         permitted_next_nodes = [
           :widow_pension_amount?,
@@ -426,18 +373,14 @@ module SmartAnswer
           :single_couple_lone_parent?
         ]
 
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.claim(:sda, response.to_f)
           benefit_related_questions.shift
         end
       end
 
       #Q5n
       money_question :widow_pension_amount? do
-
-        calculate :total_benefits do |response|
-          calculator.claim(:widow_pension, response.to_f)
-          calculator.total_benefits
-        end
 
         permitted_next_nodes = [
           :widowed_mother_amount?,
@@ -447,18 +390,14 @@ module SmartAnswer
           :single_couple_lone_parent?
         ]
 
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.claim(:widow_pension, response.to_f)
           benefit_related_questions.shift
         end
       end
 
       #Q5l
       money_question :widowed_mother_amount? do
-
-        calculate :total_benefits do |response|
-          calculator.claim(:widowed_mother, response.to_f)
-          calculator.total_benefits
-        end
 
         permitted_next_nodes = [
           :widowed_parent_amount?,
@@ -467,7 +406,8 @@ module SmartAnswer
           :single_couple_lone_parent?
         ]
 
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.claim(:widowed_mother, response.to_f)
           benefit_related_questions.shift
         end
       end
@@ -475,18 +415,14 @@ module SmartAnswer
       #Q5m
       money_question :widowed_parent_amount? do
 
-        calculate :total_benefits do |response|
-          calculator.claim(:widowed_parent, response.to_f)
-          calculator.total_benefits
-        end
-
         permitted_next_nodes = [
           :widows_aged_amount?,
           :housing_benefit_amount?,
           :single_couple_lone_parent?
         ]
 
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.claim(:widowed_parent, response.to_f)
           benefit_related_questions.shift
         end
       end
@@ -494,17 +430,13 @@ module SmartAnswer
       #Q5o
       money_question :widows_aged_amount? do
 
-        calculate :total_benefits do |response|
-          calculator.claim(:widows_aged, response.to_f)
-          calculator.total_benefits
-        end
-
         permitted_next_nodes = [
           :housing_benefit_amount?,
           :single_couple_lone_parent?
         ]
 
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.claim(:widows_aged, response.to_f)
           benefit_related_questions.shift
         end
       end
@@ -512,14 +444,10 @@ module SmartAnswer
       #Q5p
       money_question :housing_benefit_amount? do
 
-        calculate :total_benefits do |response|
-          calculator.claim(:housing_benefit, response.to_f)
-          calculator.total_benefits
-        end
-
         permitted_next_nodes = [:single_couple_lone_parent?]
 
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.claim(:housing_benefit, response.to_f)
           benefit_related_questions.shift
         end
       end

@@ -66,7 +66,6 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
             should "ask how much for guardian allowance benefit" do
               assert_state_variable :benefit_related_questions, [:sda_amount?, :housing_benefit_amount?, :single_couple_lone_parent?]
               assert_current_node :guardian_amount?
-              assert_state_variable :total_benefits, 0
             end
 
             context "answer guardian allowance amount" do
@@ -76,7 +75,6 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
               should "ask how much for severe disability allowance" do
                 assert_state_variable :benefit_related_questions, [:housing_benefit_amount?, :single_couple_lone_parent?]
                 assert_current_node :sda_amount?
-                assert_state_variable :total_benefits, 300
               end
 
               context "answer sda amount" do
@@ -85,7 +83,6 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
                 #Q5p
                 should "ask how much for housing benefit" do
                   assert_state_variable :benefit_related_questions, [:single_couple_lone_parent?]
-                  assert_state_variable :total_benefits, 600
                   assert_current_node :housing_benefit_amount?
                 end
 
