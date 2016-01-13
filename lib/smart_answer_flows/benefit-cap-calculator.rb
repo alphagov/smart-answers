@@ -502,7 +502,7 @@ module SmartAnswer
         end
 
         precalculate :new_housing_benefit_amount do
-          housing_benefit_amount.to_f - calculator.total_over_cap
+          calculator.amount(:housing_benefit) - calculator.total_over_cap
         end
 
         precalculate :new_housing_benefit do
