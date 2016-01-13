@@ -91,6 +91,10 @@ module SmartAnswer
           questions
         end
 
+        calculate :calculator do
+          SmartAnswer::Calculators::BenefitCalculator.new
+        end
+
         calculate :total_benefits do
           0
         end
@@ -134,7 +138,8 @@ module SmartAnswer
       money_question :bereavement_amount? do
 
         calculate :total_benefits do |response|
-          total_benefits + response.to_f
+          calculator.claim(:bereavement, response.to_f)
+          calculator.total_benefits
         end
 
         permitted_next_nodes = [
@@ -165,7 +170,8 @@ module SmartAnswer
       money_question :carers_amount? do
 
         calculate :total_benefits do |response|
-          total_benefits + response.to_f
+          calculator.claim(:carers, response.to_f)
+          calculator.total_benefits
         end
 
         permitted_next_nodes = [
@@ -195,7 +201,8 @@ module SmartAnswer
       money_question :child_benefit_amount? do
 
         calculate :total_benefits do |response|
-          total_benefits + response.to_f
+          calculator.claim(:child_benefit, response.to_f)
+          calculator.total_benefits
         end
 
         permitted_next_nodes = [
@@ -224,7 +231,8 @@ module SmartAnswer
       money_question :child_tax_amount? do
 
         calculate :total_benefits do |response|
-          total_benefits + response.to_f
+          calculator.claim(:child_tax, response.to_f)
+          calculator.total_benefits
         end
 
         permitted_next_nodes = [
@@ -252,7 +260,8 @@ module SmartAnswer
       money_question :esa_amount? do
 
         calculate :total_benefits do |response|
-          total_benefits + response.to_f
+          calculator.claim(:esa, response.to_f)
+          calculator.total_benefits
         end
 
         permitted_next_nodes = [
@@ -279,7 +288,8 @@ module SmartAnswer
       money_question :guardian_amount? do
 
         calculate :total_benefits do |response|
-          total_benefits + response.to_f
+          calculator.claim(:guardian, response.to_f)
+          calculator.total_benefits
         end
 
         permitted_next_nodes = [
@@ -305,7 +315,8 @@ module SmartAnswer
       money_question :incapacity_amount? do
 
         calculate :total_benefits do |response|
-          total_benefits + response.to_f
+          calculator.claim(:incapacity, response.to_f)
+          calculator.total_benefits
         end
 
         permitted_next_nodes = [
@@ -330,7 +341,8 @@ module SmartAnswer
       money_question :income_support_amount? do
 
         calculate :total_benefits do |response|
-          total_benefits + response.to_f
+          calculator.claim(:income_support, response.to_f)
+          calculator.total_benefits
         end
 
         permitted_next_nodes = [
@@ -354,7 +366,8 @@ module SmartAnswer
       money_question :jsa_amount? do
 
         calculate :total_benefits do |response|
-          total_benefits + response.to_f
+          calculator.claim(:jsa, response.to_f)
+          calculator.total_benefits
         end
 
         permitted_next_nodes = [
@@ -377,7 +390,8 @@ module SmartAnswer
       money_question :maternity_amount? do
 
         calculate :total_benefits do |response|
-          total_benefits + response.to_f
+          calculator.claim(:maternity, response.to_f)
+          calculator.total_benefits
         end
 
         permitted_next_nodes = [
@@ -399,7 +413,8 @@ module SmartAnswer
       money_question :sda_amount? do
 
         calculate :total_benefits do |response|
-          total_benefits + response.to_f
+          calculator.claim(:sda, response.to_f)
+          calculator.total_benefits
         end
 
         permitted_next_nodes = [
@@ -420,7 +435,8 @@ module SmartAnswer
       money_question :widow_pension_amount? do
 
         calculate :total_benefits do |response|
-          total_benefits + response.to_f
+          calculator.claim(:widow_pension, response.to_f)
+          calculator.total_benefits
         end
 
         permitted_next_nodes = [
@@ -440,7 +456,8 @@ module SmartAnswer
       money_question :widowed_mother_amount? do
 
         calculate :total_benefits do |response|
-          total_benefits + response.to_f
+          calculator.claim(:widowed_mother, response.to_f)
+          calculator.total_benefits
         end
 
         permitted_next_nodes = [
@@ -459,7 +476,8 @@ module SmartAnswer
       money_question :widowed_parent_amount? do
 
         calculate :total_benefits do |response|
-          total_benefits + response.to_f
+          calculator.claim(:widowed_parent, response.to_f)
+          calculator.total_benefits
         end
 
         permitted_next_nodes = [
@@ -477,7 +495,8 @@ module SmartAnswer
       money_question :widows_aged_amount? do
 
         calculate :total_benefits do |response|
-          total_benefits + response.to_f
+          calculator.claim(:widows_aged, response.to_f)
+          calculator.total_benefits
         end
 
         permitted_next_nodes = [
@@ -496,7 +515,8 @@ module SmartAnswer
         save_input_as :housing_benefit_amount
 
         calculate :total_benefits do |response|
-          total_benefits + response.to_f
+          calculator.claim(:housing_benefit, response.to_f)
+          calculator.total_benefits
         end
 
         permitted_next_nodes = [:single_couple_lone_parent?]
@@ -512,28 +532,15 @@ module SmartAnswer
         option :couple
         option :parent
 
-        calculate :benefit_cap do |response|
-          if response == 'single'
-            benefit_cap = 350
-          else
-            benefit_cap = 500
-          end
-          sprintf("%.2f", benefit_cap)
-        end
-
         permitted_next_nodes = [
           :outcome_affected_greater_than_cap,
           :outcome_not_affected_less_than_cap
         ]
 
         next_node(permitted: permitted_next_nodes) do |response|
-          if response == 'single'
-            cap = 350
-          else
-            cap = 500
-          end
+          calculator.single_couple_lone_parent = response
 
-          if total_benefits > cap
+          if calculator.total_benefits > calculator.benefit_cap
             :outcome_affected_greater_than_cap
           else
             :outcome_not_affected_less_than_cap
@@ -552,8 +559,12 @@ module SmartAnswer
       ## Outcome 3
       outcome :outcome_affected_greater_than_cap do
 
+        precalculate :benefit_cap do
+          sprintf("%.2f", calculator.benefit_cap)
+        end
+
         precalculate :total_benefits do
-          sprintf("%.2f", total_benefits)
+          sprintf("%.2f", calculator.total_benefits)
         end
 
         precalculate :housing_benefit_amount do
@@ -561,11 +572,11 @@ module SmartAnswer
         end
 
         precalculate :total_over_cap do
-          sprintf("%.2f", (total_benefits.to_f - benefit_cap.to_f))
+          sprintf("%.2f", calculator.total_over_cap)
         end
 
         precalculate :new_housing_benefit_amount do
-          housing_benefit_amount.to_f - total_over_cap.to_f
+          housing_benefit_amount.to_f - calculator.total_over_cap
         end
 
         precalculate :new_housing_benefit do
@@ -579,10 +590,13 @@ module SmartAnswer
 
       ## Outcome 4
       outcome :outcome_not_affected_less_than_cap do
-        precalculate :total_benefits do
-          sprintf("%.2f", total_benefits)
+        precalculate :benefit_cap do
+          sprintf("%.2f", calculator.benefit_cap)
         end
 
+        precalculate :total_benefits do
+          sprintf("%.2f", calculator.total_benefits)
+        end
       end
 
       ## Outcome 5
