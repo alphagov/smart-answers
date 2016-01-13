@@ -484,33 +484,12 @@ module SmartAnswer
 
       ## Outcome 3
       outcome :outcome_affected_greater_than_cap do
-
-        precalculate :benefit_cap do
-          sprintf("%.2f", calculator.benefit_cap)
-        end
-
-        precalculate :total_benefits do
-          sprintf("%.2f", calculator.total_benefits)
-        end
-
-        precalculate :housing_benefit_amount do
-          sprintf("%.2f", calculator.amount(:housing_benefit))
-        end
-
-        precalculate :total_over_cap do
-          sprintf("%.2f", calculator.total_over_cap)
-        end
-
         precalculate :new_housing_benefit_amount do
           calculator.amount(:housing_benefit) - calculator.total_over_cap
         end
 
         precalculate :new_housing_benefit do
-          amount = sprintf("%.2f", new_housing_benefit_amount)
-          if amount < "0.5"
-            amount = sprintf("%.2f", 0.5)
-          end
-          amount
+          new_housing_benefit_amount < 0.5 ? 0.5 : new_housing_benefit_amount
         end
       end
 
