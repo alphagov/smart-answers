@@ -515,15 +515,7 @@ module SmartAnswer
       end
 
       ## Outcome 4
-      outcome :outcome_not_affected_less_than_cap do
-        precalculate :benefit_cap do
-          sprintf("%.2f", calculator.benefit_cap)
-        end
-
-        precalculate :total_benefits do
-          sprintf("%.2f", calculator.total_benefits)
-        end
-      end
+      outcome :outcome_not_affected_less_than_cap
 
       ## Outcome 5
       outcome :outcome_not_affected
