@@ -1,4 +1,4 @@
-Based on the answers you’ve given, you will be affected by the benefit cap as you get £1,100 in benefits and your benefit cap is £350.
+Based on the answers you’ve given, you will be affected by the benefit cap as you get £1,100 in benefits and your benefit cap is £257.
 
 This means your Housing Benefit will now be: £0.50.
 
@@ -8,17 +8,17 @@ The benefits you get are added together. The total amount of benefits over your 
 
 Total amount of benefits affected by cap: £1,100
 
-Your Housing Benefit is reduced by the amount you are over your benefit cap of £350:
+Your Housing Benefit is reduced by the amount you are over your benefit cap of £257:
 
 Total benefits affected: £1,100
 
-Minus benefit cap: £350
+Minus benefit cap: £257
 
-Total over cap: £750
+Total over cap: £843
 
 Housing benefit: £350
 
-Minus total over cap: £750
+Minus total over cap: £843
 
 New Housing Benefit amount: £0.50
 
