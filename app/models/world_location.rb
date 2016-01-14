@@ -4,7 +4,7 @@ class WorldLocation
   extend Forwardable
 
   def self.cache
-    @cache ||= LRUCache.new(soft_ttl: 24.hours, ttl: 1.week)
+    @cache ||= LRUCache.new(max_size: 250, soft_ttl: 24.hours, ttl: 1.week)
   end
 
   def self.reset_cache
