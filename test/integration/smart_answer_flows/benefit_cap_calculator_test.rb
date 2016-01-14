@@ -1,13 +1,18 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
+require 'gds_api/test_helpers/imminence'
 
 require "smart_answer_flows/benefit-cap-calculator"
 
 class BenefitCapCalculatorTest < ActiveSupport::TestCase
   include FlowTestHelper
+  include GdsApi::TestHelpers::Imminence
 
   setup do
     setup_for_testing_flow SmartAnswer::BenefitCapCalculatorFlow
+
+    # stub post code
+    imminence_has_areas_for_postcode("B1%201PW", [{ slug: "birmingham-city-council", country_name: 'England' }])
   end
 
   context "Benefit cap calculator" do
@@ -97,9 +102,18 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
                   context "answer single above cap" do
                     setup { add_response "single" }
 
-                    should "go to outcome 3" do
-                      assert_current_node :outcome_affected_greater_than_cap
+                    #Q7
+                    should "as for your postcode" do
+                      assert_current_node :property?
                     end
+
+                    context 'answer with B1 1PW' do
+                      setup { add_response 'B1 1PW' }
+
+                      should "go to outcome 3" do
+                        assert_current_node :outcome_affected_greater_than_cap
+                      end
+                    end #Q7 postcode
                   end #Q6 single greater than cap, at Outcome 3
                 end #Q5p how much for housing benefit
               end #Q5k how much for severe disablity allowance
@@ -140,9 +154,18 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
                   context "answer lone parent" do
                     setup { add_response 'parent' }
 
-                    should "go to outcome" do
-                      assert_current_node :outcome_not_affected_less_than_cap
+                    #Q7
+                    should "as for your postcode" do
+                      assert_current_node :property?
                     end
+
+                    context 'answer with B1 1PW' do
+                      setup { add_response 'B1 1PW' }
+
+                      should "go to outcome 3" do
+                        assert_current_node :outcome_not_affected_less_than_cap
+                      end
+                    end #Q7 postcode
                   end #Q6 lone parent, under cap, at Outcome 4
                 end #Q5p how much for housing, under cap
               end #Q5j how much for maternity, under cap
@@ -179,6 +202,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
         add_response "100"
         add_response "400"
         add_response :single
+        add_response 'B1 1PW'
         assert_current_node :outcome_affected_greater_than_cap
       end
     end

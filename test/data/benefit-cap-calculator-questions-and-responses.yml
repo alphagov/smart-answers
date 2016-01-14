@@ -44,8 +44,11 @@
 - 50
 :housing_benefit_amount?:
 - 50
-- 350
+- 257
 :single_couple_lone_parent?:
 - single
 - couple
 - parent
+:property?:
+- B1 1PW
+- WC2B 6SE

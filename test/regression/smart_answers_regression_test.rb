@@ -69,7 +69,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
         setup_worldwide_locations
 
         imminence_has_areas_for_postcode("PA3%202SW",  [{ slug: 'renfrewshire-council', country_name: 'Scotland' }])
-        imminence_has_areas_for_postcode("WC2B%206SE", [{ slug: 'camden-borough-council', country_name: 'England' }])
+        imminence_has_areas_for_postcode("WC2B%206SE", [{ slug: 'camden-borough-council', country_name: 'England' }, {slug: 'london', country_name: 'England'}])
         imminence_has_areas_for_postcode("B1%201PW",   [{ slug: "birmingham-city-council", country_name: 'England' }])
 
         self.class.setup_has_run!

@@ -459,12 +459,27 @@ module SmartAnswer
         option :parent
 
         permitted_next_nodes = [
+          :property?
+        ]
+
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.single_couple_lone_parent = response
+
+          :property?
+        end
+      end
+
+
+      #Q7
+      postcode_question :property? do
+
+        permitted_next_nodes = [
           :outcome_affected_greater_than_cap,
           :outcome_not_affected_less_than_cap
         ]
 
         next_node(permitted: permitted_next_nodes) do |response|
-          calculator.single_couple_lone_parent = response
+          calculator.postcode = response
 
           if calculator.total_benefits > calculator.benefit_cap
             :outcome_affected_greater_than_cap
