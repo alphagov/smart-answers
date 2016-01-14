@@ -32,4 +32,4 @@ lib/smart_answer_flows/benefit-cap-calculator/questions/widows_aged_amount.govsp
 lib/smart_answer_flows/benefit-cap-calculator/questions/working_tax_credit.govspeak.erb: d96c2ff97c1bb068389fbefc25b9ed1a
 lib/data/benefit_caps.yml: e977d9aab8065d1703a897f14a27e295
 lib/smart_answer/calculators/benefit_calculator.rb: 6c36598360b4d57bc105ed8fec7493a0
-test/unit/calculators/benefit_calculator_test.rb: 5470490803e407db3406c51270eebec9
+test/unit/calculators/benefit_calculator_test.rb: 8362f7b82d5a3ed9c35c0a067e8db63c
