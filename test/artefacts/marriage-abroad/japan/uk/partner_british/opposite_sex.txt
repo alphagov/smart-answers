@@ -1,43 +1,50 @@
 Marriage in Japan
 
-Contact your [nearest embassy or consulate](http://www.mofa.go.jp/about/emb_cons/over/index.html) of Japan to find out about local marriage laws, including what documents you’ll need.
+Contact the relevant local authorities in Japan to find out about local marriage laws, including what documents you’ll need.
 
-^You should [get legal advice](/government/publications/japan-list-of-lawyers) and check the [travel advice for Japan](/foreign-travel-advice/japan) before making any plans.^
+^You should [get legal advice](/government/publications/japan-list-of-lawyers) before making any plans.^
 
 ##What you need to do
 
-You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
+Make an appointment at the British embassy in Tokyo or British Consulate General in Osaka to swear an affirmation/affidavit (written statement of facts) that you’re free to marry.
 
-You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](https://www.gov.uk/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf), [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm), [Isle of Man](http://www.gov.im/registries/general/civilregistry), [Jersey](http://www.gov.je/pages/contacts.aspx?contactId=71) or [Guernsey](http://www.guernseyroyalcourt.gg/article/1663/Contact-Us).
+[Make an appointment at the embassy in Tokyo](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-tokyo/oaths-affirmations-and-affidavits/slot_picker).
 
-^A CNI issued in Scotland is valid for 3 months. A CNI issued in England, Wales or Northern Ireland will not expire. Check with your local register office to find out how long a CNI is valid if you live in the Channel Islands or the Isle of Man. You should also check with the local authorities in Japan to find out how long a CNI is valid under local law.^
+[Make an appointment at the Consulate General in Osaka](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-osaka/oaths-affirmations-and-affidavits/slot_picker).
 
-###Legalisation and translation
+You can [download and fill in a form](/government/publications/affidavitaffirmation-of-marital-status-japan) for an ‘Affirmation for marriage’ (non-religious) or an ‘Affidavit for marriage’ (religious) before your appointment. Don’t sign it - you’ll do that at the appointment.
 
-You might need to exchange your UK-issued CNI for one that’s valid in Japan at the nearest embassy or consulate to where you’re getting married.
+You’ll need to bring:
 
-You should also check if it needs to be:
+- your UK passport
+- proof of residence showing your current address, such as a residence card
+- your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
+- evidence of parental consent if you’re below the age you can legally get married without consent in the country you’re from (eg 18 in England and Wales)
+- evidence if you’ve changed your name (eg by deed poll)
 
-- ‘[legalised](/get-document-legalised)’ (certified as genuine)
-- translated - [find a translator abroad](/government/collections/list-of-lawyers), or in the UK through the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046)
+If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
 
-You should also check with the local authorities in Japan to find out if you need to provide legalised and translated copies of any other documents.
+- a [decree absolute or final order](/copy-decree-absolute-final-order)
+- a civil partnership dissolution or annulment certificate
+- your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
+
+###What happens next
+
+The embassy will charge a fee for taking the oath, and then give you the completed affirmation/affidavit. You should take this to the local authorities where you’re getting married. You’ll need to bring your passport and full birth certificate.
 
 %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
+
+##Naturalisation of your partner if they move to the UK
+
+Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
 
 ##Fees
 
 Service | Fee
 -|-
-Receiving a notice of marriage | £65
-Issuing a CNI, Nulla Osta or equivalent | £65
-Issuing any other consular letter or certificate in English | £45
-Issuing any other consular letter or certificate in any other language | £70
 Administering an oath or making a declaration | £55
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Japan](/government/publications/japan-consular-fees).
 
-You can pay by cash or credit card, but not by personal cheque.
-
-*[CNI]:certificate of no impediment
+You can pay by credit card, but not by personal cheque. The embassy in Tokyo will also accept cash.
 
