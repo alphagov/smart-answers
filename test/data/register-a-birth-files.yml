@@ -15,7 +15,7 @@ lib/smart_answer_flows/register-a-birth/questions/have_you_adopted_the_child.gov
 lib/smart_answer_flows/register-a-birth/questions/married_couple_or_civil_partnership.govspeak.erb: a2dba2ba31c300f55b1588bfbec4deb9
 lib/smart_answer_flows/register-a-birth/questions/where_are_you_now.govspeak.erb: ad17b2c0caf3785c34b0656af5543309
 lib/smart_answer_flows/register-a-birth/questions/which_country.govspeak.erb: 913b5637a2814cbd529affffc55b1f72
-lib/smart_answer_flows/register-a-birth/questions/who_has_british_nationality.govspeak.erb: 3e482183d55ccc5f7548d5a5d4034375
+lib/smart_answer_flows/register-a-birth/questions/who_has_british_nationality.govspeak.erb: 9a1a1acec4abc5a3f5199ab2eae0cd1c
 lib/smart_answer_flows/register-a-birth/register_a_birth.govspeak.erb: 05cf2d9426fc91f395fc524fdfdac800
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 2f521bae99c2f48b49d07bcb283a8063
 lib/smart_answer_flows/shared/births_and_deaths_registration/_button.govspeak.erb: bdd3818dfd2b9d6396daf6f60fd887a0
