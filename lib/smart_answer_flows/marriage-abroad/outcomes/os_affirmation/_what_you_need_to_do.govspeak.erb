@@ -57,6 +57,14 @@
 
 <% elsif ceremony_country == 'vietnam' %>
   Make an appointment at the British embassy in <%= country_name_lowercase_prefix %> to swear an affidavit (written statement of facts) that you’re free to marry.
+
+<% elsif ceremony_country == 'morocco' %>
+  <%= render partial: 'appointment_for_affidavit_morocco.govspeak.erb',
+             locals: {
+               country_name_lowercase_prefix: country_name_lowercase_prefix,
+               partner_nationality: partner_nationality
+             } %>
+
 <% else %>
   <%= render partial: 'appointment_for_affidavit.govspeak.erb',
              locals: {
@@ -124,6 +132,11 @@
     <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
 
   <% end %>
+
+  <% if ceremony_country == 'morocco' %>
+    <%= render partial: 'partner_must_get_affirmation.govspeak.erb' %>
+  <% end %>
+
   <% if ceremony_country == 'united-arab-emirates' %>
     ^If you have dual nationality and you entered the United Arab Emirates on a non-British passport, you must contact the embassy of that country to get your affirmation or affidavit.^
 
@@ -266,8 +279,6 @@
     <% end %>
   <% elsif ceremony_country == 'morocco' %>
     ^An ’affirmation for marriage’ document issued in Morocco is valid for 3 months.^
-
-    Your partner will probably need to get an equivalent document from their national authorities.
 
   <% else %>
     <% if partner_nationality == 'partner_british' %>

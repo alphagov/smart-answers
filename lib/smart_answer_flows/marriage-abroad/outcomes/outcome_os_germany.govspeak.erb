@@ -1,0 +1,88 @@
+<% content_for :title do %>
+  Marriage in Germany
+
+<% end %>
+
+<% content_for :body do %>
+  <% if resident_of == 'uk' %>
+    Contact the [Embassy of <%= country_name_lowercase_prefix %>](/government/publications/foreign-embassies-in-the-uk) and the registry office (Standesamt) or church where you plan to marry before making any plans to find out about local marriage laws, including what documents you’ll need.
+
+    <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix,
+                 ceremony_country: ceremony_country
+               } %>
+
+    <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+
+    <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
+
+    <%= render partial: 'partner_needs_cni.govspeak.erb',
+                    locals: {
+                      partner_nationality: partner_nationality
+                    } %>
+
+    <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
+
+    <%= render partial: 'cni_issued_locally_validity.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix
+               } %>
+
+    ###Translation
+
+    Check with the local authorities (standesamt) in <%= country_name_lowercase_prefix %> if you need to get your UK-issued CNI translated.
+
+    [Find a translator abroad](/government/collections/list-of-lawyers), or in the UK through the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046)
+
+    You should also check with the local authorities if you need to provide [legalised](/get-document-legalised) and translated copies of any other documents.
+
+    <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
+
+    <% if partner_nationality != 'partner_british' %>
+      <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
+    <% end -%>
+
+  <% else %>
+    <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix,
+                 ceremony_country: ceremony_country
+               } %>
+
+    <% if resident_of == 'ceremony_country' %>
+      <%= render partial: 'get_legal_advice.govspeak.erb' %>
+    <% else %>
+      <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
+                locals: {
+                  country_name_lowercase_prefix: country_name_lowercase_prefix,
+                  ceremony_country: ceremony_country
+                } %>
+    <% end %>
+
+    <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+
+    You don’t need a certificate of no impediment (CNI) to prove you’re allowed to marry if you’re a British national resident outside of the UK. However, you’ll need to apply for an exemption (‘Befreiung von der Beibringung des Ehefähigkeitszeugnisses’) from the Higher Regional Court (‘Oberlandesgericht’) in the region where you want to marry.
+
+    Contact the local registry office (‘Standesamt’) where you’re getting married - they'll tell you what you need to do.
+
+    If the Standesamt does ask you for a CNI (‘Ehefähigkeitszeugnis’), refer them to the relevant part of the [German Civil Code](http://www.gesetze-im-internet.de/bgb/__1309.html) (‘Bürgerliches Gesetzbuch’).
+
+    You’ll need to complete a statutory declaration at the registry office as part of the application process.
+
+    <% if partner_nationality != 'partner_british' %>
+      <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
+    <% end -%>
+
+  <% end %>
+
+  <%= render partial: 'fee_table_os_germany.govspeak.erb' %>
+  <%= render partial: 'link_to_consular_fees.govspeak.erb',
+             locals: {
+               country_name_lowercase_prefix: country_name_lowercase_prefix,
+               ceremony_country: ceremony_country
+             } %>
+  <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
+
+  *[CNI]:certificate of no impediment
+<% end %>

@@ -1,6 +1,6 @@
 Marriage in Germany
 
-Contact the [Embassy of Germany](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local marriage laws, including what documents you’ll need.
+Contact the [Embassy of Germany](/government/publications/foreign-embassies-in-the-uk) and the registry office (Standesamt) or church where you plan to marry before making any plans to find out about local marriage laws, including what documents you’ll need.
 
 ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for Germany](/foreign-travel-advice/germany) before making any plans.
 
@@ -14,7 +14,7 @@ You can normally get a CNI by giving a notice of marriage at your local register
 
 ###Translation
 
-Check with the local authorities in Germany if you need to get your UK-issued CNI translated.
+Check with the local authorities (standesamt) in Germany if you need to get your UK-issued CNI translated.
 
 [Find a translator abroad](/government/collections/list-of-lawyers), or in the UK through the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046)
 
@@ -31,7 +31,6 @@ Your partner can apply to [become a British citizen](/becoming-a-british-citizen
 Service | Fee
 -|-
 Receiving a notice of marriage | £65
-Issuing a CNI, Nulla Osta or equivalent | £65
 Issuing any other consular letter or certificate in English | £45
 Issuing any other consular letter or certificate in any other language | £70
 Administering an oath or making a declaration | £55
