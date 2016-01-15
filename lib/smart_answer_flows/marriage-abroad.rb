@@ -250,6 +250,7 @@ module SmartAnswer
           :outcome_os_colombia,
           :outcome_os_commonwealth,
           :outcome_os_consular_cni,
+          :outcome_os_germany,
           :outcome_os_hong_kong,
           :outcome_os_indonesia,
           :outcome_os_italy,
@@ -284,6 +285,8 @@ module SmartAnswer
           elsif response == 'opposite_sex'
             if ceremony_country == 'hong-kong'
               :outcome_os_hong_kong
+            elsif ceremony_country == 'germany'
+              :outcome_os_germany
             elsif consular_cni_residing_in_third_country
               :outcome_consular_cni_os_residing_in_third_country
             elsif marriage_in_norway_third_country
@@ -296,6 +299,8 @@ module SmartAnswer
               :outcome_os_colombia
             elsif ceremony_country == 'japan'
               :outcome_os_japan
+            elsif ceremony_country == 'germany'
+              :outcome_os_germany
             elsif ceremony_country == "kosovo"
               :outcome_os_kosovo
             elsif ceremony_country == "indonesia"
@@ -360,6 +365,8 @@ module SmartAnswer
       outcome :outcome_marriage_via_local_authorities
 
       outcome :outcome_portugal
+
+      outcome :outcome_os_germany
 
       outcome :outcome_os_indonesia
 
