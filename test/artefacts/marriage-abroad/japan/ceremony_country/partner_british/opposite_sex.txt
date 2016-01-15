@@ -1,50 +1,26 @@
 Marriage in Japan
 
-Contact your [nearest embassy or consulate](http://www.mofa.go.jp/about/emb_cons/over/index.html) of Japan to find out about local marriage laws, including what documents you’ll need.
+Contact the relevant local authorities in Japan to find out about local marriage laws, including what documents you’ll need.
 
-^You should [get legal advice](/government/publications/japan-list-of-lawyers) and check the [travel advice for Japan](/foreign-travel-advice/japan) before making any plans.^
+^You should [get legal advice](/government/publications/japan-list-of-lawyers) before making any plans.^
 
 ##What you need to do
 
-You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
+Make an appointment at the British embassy in Tokyo or British Consulate General in Osaka to swear an affirmation/affidavit (written statement of facts) that you’re free to marry.
 
-To get a CNI, you must post notice of your intended marriage in Japan. You can do this at the British embassy or in front of a notary public.
+[Make an appointment at the embassy in Tokyo](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-tokyo/oaths-affirmations-and-affidavits/slot_picker).
 
-$A
-British Embassy Tokyo
-〒102-8381
-No 1 Ichiban-cho, Chiyoda-ku, Tokyo
-Japan
-$A
+[Make an appointment at the Consulate General in Osaka](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-osaka/oaths-affirmations-and-affidavits/slot_picker).
 
-$C
-Telephone: (+81) (3) 5211-1100
-Fax: (+81) (3) 5275-3164
-Fax - Consular assistance for British nationals: +(81) (3) 5275 0346
-Email - consular enquiries: consular.tokyo@fco.gov.uk
-Email - general enquiries: public-enquiries.tokyo@fco.gov.uk
+You can [download and fill in a form](/government/publications/affidavitaffirmation-of-marital-status-japan) for an ‘Affirmation for marriage’ (non-religious) or an ‘Affidavit for marriage’ (religious) before your appointment. Don’t sign it - you’ll do that at the appointment.
 
-[British Embassy Tokyo - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-tokyo/office/british-embassy-tokyo)
-$C
+You’ll need to bring:
 
-##Giving notice of marriage
-
-You’ll need to provide supporting documents, including:
-
-- your passport, showing that you’ve been in Japan for at least 3 days (if you’ve been outside of Japan for a short period and recently returned, a residence visa is normally acceptable)
-- your [full birth certificate](/order-copy-birth-death-marriage-certificate) or [naturalisation certificate](/get-replacement-citizenship-certificate)
+- your UK passport
+- proof of residence showing your current address, such as a residence card
+- your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
 - evidence of parental consent if you’re below the age you can legally get married without consent in the country you’re from (eg 18 in England and Wales)
-- equivalent documents for your partner
-
-You’ll need to complete a [‘Notice of marriage’](/government/publications/notice-of-marriage-form--2) form and an [‘Affidavit for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form) form.
-
-You can download and fill in (but not sign) the forms in advance.
-
-You must take the forms with you to your appointment.
-
-%The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
-
-^Your partner will need to follow the same process and pay the fees to get their own CNI.^
+- evidence if you’ve changed your name (eg by deed poll)
 
 If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
 
@@ -52,39 +28,23 @@ If you or your partner have been divorced, widowed or previously in a civil part
 - a civil partnership dissolution or annulment certificate
 - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
 
-^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
-
 ###What happens next
 
-The embassy or notary public will charge a fee for taking the oath.
+The embassy will charge a fee for taking the oath, and then give you the completed affirmation/affidavit. You should take this to the local authorities where you’re getting married. You’ll need to bring your passport and full birth certificate.
 
-If you give notice at a notary public, you must post the signed forms and any supporting documents to your nearest British embassy or consulate afterwards.
+%The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
 
-^The embassy or consulate may charge a fee to return your documents to you.^
+##Naturalisation of your partner if they move to the UK
 
-The consulate will display your notice of marriage publicly for 7 days.
-
-They’ll then send all of your documentation to the British embassy or consulate nearest to where you’re getting married in Japan, who will issue your CNI (as long as nobody has registered an objection).
-
-There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
-
-You should check if your CNI needs to be legalised (certified as genuine) by the local authorities in Japan.
-
-^You don't need to stay in the country while your notice is posted.^
+Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
 
 ##Fees
 
 Service | Fee
 -|-
-Receiving a notice of marriage | £65
-Issuing a CNI, Nulla Osta or equivalent | £65
-Issuing any other consular letter or certificate in English | £45
-Issuing any other consular letter or certificate in any other language | £70
 Administering an oath or making a declaration | £55
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Japan](/government/publications/japan-consular-fees).
 
-You can pay by cash or credit card, but not by personal cheque.
-
-*[CNI]:certificate of no impediment
+You can pay by credit card, but not by personal cheque. The embassy in Tokyo will also accept cash.
 
