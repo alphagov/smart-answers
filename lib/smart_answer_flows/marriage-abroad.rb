@@ -259,6 +259,7 @@ module SmartAnswer
           :outcome_os_japan,
           :outcome_os_marriage_impossible_no_laos_locals,
           :outcome_os_no_cni,
+          :outcome_os_oman,
           :outcome_os_other_countries,
           :outcome_os_poland,
           :outcome_os_slovenia,
@@ -288,6 +289,8 @@ module SmartAnswer
               :outcome_os_hong_kong
             elsif ceremony_country == 'germany'
               :outcome_os_germany
+            elsif ceremony_country == 'oman'
+              :outcome_os_oman
             elsif consular_cni_residing_in_third_country
               :outcome_consular_cni_os_residing_in_third_country
             elsif marriage_in_norway_third_country
@@ -387,6 +390,8 @@ module SmartAnswer
 
       outcome :outcome_os_colombia
 
+      outcome :outcome_os_oman
+
       outcome :outcome_os_poland
 
       outcome :outcome_os_slovenia
@@ -451,7 +456,7 @@ module SmartAnswer
           %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
         end
         precalculate :cni_posted_after_14_days_countries do
-          %w(oman jordan qatar saudi-arabia united-arab-emirates yemen)
+          %w(jordan qatar saudi-arabia united-arab-emirates yemen)
         end
         precalculate :ceremony_not_germany_or_not_resident_other do
           (ceremony_country != 'germany' || resident_of == 'uk')
