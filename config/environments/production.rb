@@ -72,6 +72,9 @@ SmartAnswers::Application.configure do
     config.logstasher.logger = Logger.new("#{Rails.root}/log/#{Rails.env}.json.log")
     config.logstasher.suppress_app_logs = true
   else
+    # flush output to the underlying OS without buffering
+    STDOUT.sync = true
+
     # enable STDOUT logging for Heroku
     config.logger = Logger.new(STDOUT)
     config.logger.level = Logger.const_get(ENV['LOG_LEVEL'] ? ENV['LOG_LEVEL'].upcase : 'INFO')
