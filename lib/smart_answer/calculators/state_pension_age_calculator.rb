@@ -32,9 +32,10 @@ module SmartAnswer::Calculators
       Date.today < state_pension_date
     end
 
-    def within_four_months_one_day_from_state_pension?
-      Date.today > state_pension_date.months_ago(4)
+    def pension_credit_date
+      StatePensionDateQuery.bus_pass_qualification_date(dob)
     end
+    alias_method :bus_pass_qualification_date, :pension_credit_date
 
     def under_20_years_old?
       dob > 20.years.ago
