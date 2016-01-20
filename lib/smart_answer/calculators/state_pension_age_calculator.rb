@@ -4,11 +4,12 @@ module SmartAnswer::Calculators
   class StatePensionAgeCalculator
     include FriendlyTimeDiff
 
-    attr_reader :gender, :dob
+    attr_reader :dob
+    attr_accessor :gender
 
     def initialize(answers)
-      @gender = answers[:gender].to_sym
       @dob = answers[:dob]
+      @gender = answers[:gender] ? answers[:gender].to_sym : nil
     end
 
     def state_pension_date(sp_gender = gender)

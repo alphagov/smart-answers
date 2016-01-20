@@ -36,6 +36,10 @@ module SmartAnswer
           :gender?
         ]
 
+        calculate :calculator do |response|
+          Calculators::StatePensionAgeCalculator.new(dob: response)
+        end
+
         next_node(permitted: permitted_next_nodes) do
           if which_calculation == 'age'
             :gender?
