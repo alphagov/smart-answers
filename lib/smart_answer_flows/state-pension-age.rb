@@ -32,7 +32,7 @@ module SmartAnswer
         save_input_as :dob
 
         permitted_next_nodes = [
-          :bus_pass_age_result,
+          :bus_pass_result,
           :gender?
         ]
 
@@ -40,7 +40,7 @@ module SmartAnswer
           if which_calculation == 'age'
             :gender?
           else
-            :bus_pass_age_result
+            :bus_pass_result
           end
         end
       end
@@ -97,7 +97,7 @@ module SmartAnswer
         end
       end
 
-      outcome :bus_pass_age_result do
+      outcome :bus_pass_result do
         precalculate :qualifies_for_bus_pass_on do
           StatePensionDateQuery.bus_pass_qualification_date(dob).strftime("%-d %B %Y")
         end

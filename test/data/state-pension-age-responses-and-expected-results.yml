@@ -144,29 +144,29 @@
   :responses:
   - bus_pass
   - '1950-02-01'
-  :next_node: :bus_pass_age_result
+  :next_node: :bus_pass_result
   :outcome_node: true
 - :current_node: :dob_age?
   :responses:
   - bus_pass
   - '1951-04-06'
-  :next_node: :bus_pass_age_result
+  :next_node: :bus_pass_result
   :outcome_node: true
 - :current_node: :dob_age?
   :responses:
   - bus_pass
   - '1953-02-06'
-  :next_node: :bus_pass_age_result
+  :next_node: :bus_pass_result
   :outcome_node: true
 - :current_node: :dob_age?
   :responses:
   - bus_pass
   - '1980-01-01'
-  :next_node: :bus_pass_age_result
+  :next_node: :bus_pass_result
   :outcome_node: true
 - :current_node: :dob_age?
   :responses:
   - bus_pass
   - '2000-01-01'
-  :next_node: :bus_pass_age_result
+  :next_node: :bus_pass_result
   :outcome_node: true

@@ -283,8 +283,8 @@ class StatePensionAgeTest < ActiveSupport::TestCase
         add_response '1956-05-31'
       end
 
-      should "lead to bus_pass_age_result" do
-        assert_current_node :bus_pass_age_result
+      should "lead to bus_pass_result" do
+        assert_current_node :bus_pass_result
         assert_state_variable :qualifies_for_bus_pass_on, "31 May 2022"
       end
     end
