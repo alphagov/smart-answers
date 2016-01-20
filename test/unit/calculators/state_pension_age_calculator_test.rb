@@ -142,45 +142,57 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "within_four_months_one_day_from_state_pension?" do
-      # test edge cases
+    context '#before_state_pension_date?' do
       setup do
-        @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-          gender: "female", dob: Date.parse("1 Feb 1952")) # retires 2013-11-06
+        @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new({})
       end
 
-      should "not be true for someone exactly four months from state pension date" do
-        Timecop.travel("2013-07-06")
-        refute @calculator.within_four_months_one_day_from_state_pension?
+      should 'return true for someone yet to reach their state pension date' do
+        Timecop.freeze do
+          @calculator.stubs(:state_pension_date).returns(Date.today + 1.minute)
+          assert @calculator.before_state_pension_date?
+        end
       end
 
-      should "be true for someone under four months from state pension date" do
-        Timecop.travel("2013-07-07")
-        assert @calculator.within_four_months_one_day_from_state_pension?
+      should 'return false for someone who has reached their state pension date' do
+        Timecop.freeze do
+          @calculator.stubs(:state_pension_date).returns(Date.today)
+          assert_not @calculator.before_state_pension_date?
+        end
+      end
+
+      should 'return false for someone who has just passed their state pension date' do
+        Timecop.freeze do
+          @calculator.stubs(:state_pension_date).returns(Date.today - 1.minute)
+          assert_not @calculator.before_state_pension_date?
+        end
       end
     end
 
-    context "check ni_years_to_date_from_dob before" do
+    context '#before_state_pension_date?(days: 30)' do
       setup do
-        Timecop.travel("2014-04-01")
-        @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-          gender: "male", dob: Date.parse("6 May 1958"))
+        @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new({})
       end
 
-      should "be 36 based on birthday not having happened yet" do
-        assert_equal 36, @calculator.ni_years_to_date_from_dob
-      end
-    end
-
-    context "check ni_years_to_date_from_dob after" do
-      setup do
-        Timecop.travel("2014-06-01")
-        @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
-          gender: "male", dob: Date.parse("1 May 1958"))
+      should 'return true for someone just over 30 days away from their pension_credit_date' do
+        Timecop.freeze do
+          @calculator.stubs(:state_pension_date).returns(Date.today + 31.days)
+          assert @calculator.before_state_pension_date?(days: 2)
+        end
       end
 
-      should "be 37 years based on birthday having occured" do
-        assert_equal 37, @calculator.ni_years_to_date_from_dob
+      should 'return false for someone exactly 30 days away' do
+        Timecop.freeze do
+          @calculator.stubs(:state_pension_date).returns(Date.today + 30.days)
+          assert_not @calculator.before_state_pension_date?(days: 30)
+        end
+      end
+
+      should 'return false for someone less than 30 days to their pension credit date' do
+        Timecop.freeze do
+          @calculator.stubs(:state_pension_date).returns(Date.today + 29.days)
+          assert_not @calculator.before_state_pension_date?(days: 30)
+        end
       end
     end
 

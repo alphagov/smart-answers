@@ -28,8 +28,8 @@ module SmartAnswer::Calculators
       dob.month == 2 && dob.day == 29
     end
 
-    def before_state_pension_date?
-      Date.today < state_pension_date
+    def before_state_pension_date?(days: 0)
+      Date.today < state_pension_date - days.days
     end
 
     def pension_credit_date
