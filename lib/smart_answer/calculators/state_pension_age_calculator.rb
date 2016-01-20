@@ -12,8 +12,8 @@ module SmartAnswer::Calculators
       @gender = answers[:gender] ? answers[:gender].to_sym : nil
     end
 
-    def state_pension_date(sp_gender = gender)
-      StatePensionDateQuery.find(dob, sp_gender)
+    def state_pension_date
+      StatePensionDateQuery.find(dob, gender)
     end
 
     def state_pension_age
