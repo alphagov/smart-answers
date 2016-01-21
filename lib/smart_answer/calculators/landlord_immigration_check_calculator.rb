@@ -1,7 +1,7 @@
 module SmartAnswer::Calculators
   class LandlordImmigrationCheckCalculator
     # These MTD areas are currently different on mapit.mysociety.org
-    # to preview/production data. They are *-city-council in all cases
+    # to integration/production data. They are *-city-council in all cases
     # on Mapit but a mixture of *-borough-council and *-city-council
     # on the internal GOV.UK Mapit instance. The duplication here
     # protects us against the effects of a data update.

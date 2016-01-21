@@ -1,12 +1,12 @@
 # Deploying
 
-## Preview
+## Integration
 
-This happens automatically when the main CI build passes.
+This happens automatically as a post build action when the govuk_smart_answers build passes on CI.
 
 ### Manually
 
-If you have sufficient permissions, you can use the [Preview Deploy Jenkins project](https://deploy.preview.alphagov.co.uk/job/Preview_Deploy/). Click the "Build with Parameters" link and enter "release" as the "TAG".
+If you have sufficient permissions, you can use the [Integration Deploy App](https://deploy.integration.publishing.service.gov.uk/job/Deploy_App/). Click the "Build with Parameters" link and enter "release" as the "TAG".
 
 If you do not have sufficient permissions, you can either kick the main CI build in Jenkins or commit & push something to the `master` branch.
 

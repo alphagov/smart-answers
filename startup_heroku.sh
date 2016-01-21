@@ -19,12 +19,12 @@ echo "# Configuring Heroku ready for Smart Answers"
 echo
 heroku config:set \
 --app $APP_NAME \
-GOVUK_APP_DOMAIN=preview.alphagov.co.uk \
+GOVUK_APP_DOMAIN=integration.publishing.service.gov.uk \
 PLEK_SERVICE_CONTENTAPI_URI=https://www.gov.uk/api \
-PLEK_SERVICE_STATIC_URI=https://assets-origin.preview.alphagov.co.uk \
+PLEK_SERVICE_STATIC_URI=https://assets-origin.integration.publishing.service.gov.uk/ \
 RUNNING_ON_HEROKU=true \
 EXPOSE_GOVSPEAK=true \
-ERRBIT_ENV=preview
+ERRBIT_ENV=integration
 
 echo
 echo "# Pushing the current branch to Heroku's master"
@@ -42,6 +42,6 @@ open $HEROKU_URL$SMART_ANSWER_TO_OPEN
 
 echo
 echo "*Set ERRBIT_API_KEY and ERRBIT_HOST manually to enable error reporting*"
-echo "*You can find those key values on https://errbit.<environment>.alphagov.co.uk*"
+echo "*You can find those key values on https://errbit.<environment>.publishing.service.gov.uk*"
 echo "All done"
 echo

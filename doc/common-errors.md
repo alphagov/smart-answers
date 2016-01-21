@@ -56,7 +56,7 @@ Unable to fetch: 'wrapper' from 'http://static.dev.gov.uk/templates/wrapper.html
 
 There are a couple of solutions to this problem:
 
-1. Set the `PLEK_SERVICE_STATIC_URI` environment variable to "https://assets-origin.preview.alphagov.co.uk", which is the static/assets server running in preview.
+1. Set the `PLEK_SERVICE_STATIC_URI` environment variable to "https://assets-origin.integration.publishing.service.gov.uk", which is the static/assets server running in integration.
 
 2. Run the static/assets server locally at http://static.dev.gov.uk. This is the default location of the static/asset server in development so configuring this  means that you won't have to set the `PLEK_SERVICE_STATIC_URI` environment variable.
 
