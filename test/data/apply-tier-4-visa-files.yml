@@ -6,4 +6,4 @@ lib/smart_answer_flows/apply-tier-4-visa/apply_tier_4_visa.govspeak.erb: 3381c11
 lib/smart_answer_flows/apply-tier-4-visa/outcomes/outcome.govspeak.erb: f68864437aaec0bf9e39217906ed0709
 lib/smart_answer_flows/apply-tier-4-visa/questions/extending_or_switching.govspeak.erb: dc13d9da757a3531215b7f33035fc42d
 lib/smart_answer_flows/apply-tier-4-visa/questions/sponsor_id.govspeak.erb: 54a8d4dcd98b76da8951678b873a6e38
-lib/data/apply_tier_4_visa_data.yml: 671371971f6024d6d8b95f422e7985f6
+lib/data/apply_tier_4_visa_data.yml: 25332cb35dab5cba31243a32a54fe511
