@@ -55,7 +55,7 @@ class ApplyTier4VisaTest < ActiveSupport::TestCase
       add_response "YYAX6VCR8"
     end
     should "show :outcome outcome" do
-      assert_state_variable :sponsor_name, "Wimbledon High School"
+      assert_state_variable :sponsor_name, "WIMBLEDON HIGH SCHOOL"
       assert_state_variable :sponsor_id, "YYAX6VCR8"
       assert_current_node :outcome
     end
@@ -66,7 +66,7 @@ class ApplyTier4VisaTest < ActiveSupport::TestCase
       add_response "2W8TVPP77"
     end
     should "show :outcome outcome" do
-      assert_state_variable :sponsor_name, "14 Stars (London) Ltd t/a European College for Higher Education"
+      assert_state_variable :sponsor_name, "14 Stars (London) Ltd t/a EUROPEAN COLLEGE FOR HIGHER EDUCATION"
       assert_state_variable :sponsor_id, "2W8TVPP77"
       assert_current_node :outcome
     end
@@ -77,7 +77,7 @@ class ApplyTier4VisaTest < ActiveSupport::TestCase
       add_response "GFHRH18H5"
     end
     should "show :outcome outcome" do
-      assert_state_variable :sponsor_name, "Kaplan International Colleges Cambridge"
+      assert_state_variable :sponsor_name, "Kaplan International Cambridge"
       assert_state_variable :sponsor_id, "GFHRH18H5"
       assert_current_node :outcome
     end
