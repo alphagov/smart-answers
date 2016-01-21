@@ -1,8 +1,8 @@
 # Errbit
 
-Exceptions raised in preview, staging and production are sent to Errbit.
+Exceptions raised in integration, staging and production are sent to Errbit.
 
-* [Preview Errbit][errbit-preview]
+* [Integration Errbit][errbit-integration]
 * [Staging Errbit][errbit-staging]
 * [Production Errbit][errbit-prod]
 
@@ -32,7 +32,7 @@ These exceptions will often be seen together when network connectivity issues me
 
 * `GdsApi::HTTPServerError` ([example][gds-api-http-server-error-example])
 
-[errbit-preview]: https://errbit.preview.alphagov.co.uk/apps/533c2ee40da115303f0129a5
+[errbit-integration]: https://errbit.integration.publishing.service.gov.uk/apps/533c2ee40da115303f0129a5
 [errbit-staging]: https://errbit.staging.publishing.service.gov.uk/apps/533c35ae0da1159384044f5f
 [errbit-prod]: https://errbit.publishing.service.gov.uk/apps/533c35ae0da1159384044f5f
 [append-exception-example]: https://errbit.publishing.service.gov.uk/apps/533c35ae0da1159384044f5f/problems/565056ee6578630639f57100

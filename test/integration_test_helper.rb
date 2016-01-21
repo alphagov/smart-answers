@@ -9,9 +9,9 @@ require 'capybara/poltergeist'
 require 'gds_api/test_helpers/content_api'
 
 # This additional configuration is a protective measure while
-# we have invalid ssl certs in the preview environment, it
+# we have invalid ssl certs in the test environment, it
 # will ignore ssl errors when requesting scripts from
-# assets-origin.preview.*
+# assets-origin.*
 #
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, { phantomjs_options: ['--ssl-protocol=TLSv1', '--ignore-ssl-errors=yes'] })
