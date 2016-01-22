@@ -66,10 +66,17 @@ SmartAnswers::Application.configure do
   config.action_mailer.default_url_options = { host: Plek.new.find('smartanswers') }
   config.action_mailer.delivery_method = :ses
 
-  unless ENV['RUNNING_ON_HEROKU'].present?
+  if ENV['RUNNING_ON_HEROKU'].blank?
     # Enable JSON-style logging
     config.logstasher.enabled = true
     config.logstasher.logger = Logger.new("#{Rails.root}/log/#{Rails.env}.json.log")
     config.logstasher.suppress_app_logs = true
+  else
+    # flush output to the underlying OS without buffering
+    STDOUT.sync = true
+
+    # enable STDOUT logging for Heroku
+    config.logger = Logger.new(STDOUT)
+    config.logger.level = Logger.const_get(ENV['LOG_LEVEL'] ? ENV['LOG_LEVEL'].upcase : 'INFO')
   end
 end
