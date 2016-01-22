@@ -23,10 +23,12 @@
 
 <% elsif ceremony_country == 'china' %>
   <% if partner_nationality != 'partner_local' %>
-    Make an appointment at your local British embassy or consulate in China to swear an affirmation or affidavit that you’re free to marry. You’ll need to bring your passport and pay a fee.
+    Make an appointment at your local British embassy or consulate in China to swear an affirmation or affidavit that you’re free to marry. You’ll need to bring your passport, your partner’s passport and pay a fee.
 
   <% else %>
-    Make an appointment at the British embassy or consulate in China nearest to the address in your partner’s Hukou (family registration) book,  to swear an affirmation or affidavit that you’re free to marry. You’ll need to bring your passport, your partner’s Hukou and pay a fee.
+    Make an appointment at the British embassy or consulate in China nearest to the address in your partner’s Hukou (family registration) book,  to swear an affirmation or affidavit that you’re free to marry.
+
+    You’ll need to bring your passport, your partner’s Hukou or Chinese ID card and pay a fee.
 
   <% end %>
   <%= render partial: 'contact_method.govspeak.erb',
@@ -37,7 +39,7 @@
                country_name_lowercase_prefix: country_name_lowercase_prefix
              } %>
 
-  You’ll need to complete an ‘Affirmation of marital status’ form (non-religious) or an ‘Affidavit of marital status’ form (religious).
+  You’ll need to complete an ‘Affirmation of marital status’ form (non-religious) or an ‘Affidavit of marital status’ form (religious). Take this with you to your appointment.
 
   You can download and fill in (but not sign) the forms in advance.
 
@@ -144,7 +146,7 @@
 
     You can download and fill in (but not sign) the form in advance.
 
-    <%= render partial: 'os_affirmation/partner_probably_needs_affirmation_affidavit_callout.govspeak.erb' %>
+    <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
 
     ### What you need to take
 
@@ -231,7 +233,7 @@
   You’ll also need to provide evidence if you’ve changed your name by deed poll.
 
 <% elsif ceremony_country == 'china' %>
-  <%= render partial: 'documents_for_divorced_or_widowed_china_colombia.govspeak.erb' %>
+  <%= render partial: 'documents_for_divorced_or_widowed_china.govspeak.erb' %>
 <% elsif ceremony_country == 'philippines' %>
   If you’ve been divorced or widowed, you’ll also need:
 
@@ -283,17 +285,10 @@
   <% else %>
     <% if partner_nationality == 'partner_british' %>
       <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
-
     <% else %>
-      <% if ceremony_country == 'china' && partner_nationality != 'partner_local' %>
-        <%= render partial: 'os_affirmation/partner_probably_needs_affirmation_affidavit_callout.govspeak.erb' %>
-
-
-      <% else %>
-        <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>
-        <% if %w(belgium ecuador).include?(ceremony_country) %>
-          <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
-        <% end %>
+      <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>
+      <% if %w(belgium ecuador).include?(ceremony_country) %>
+        <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
       <% end %>
     <% end %>
 
