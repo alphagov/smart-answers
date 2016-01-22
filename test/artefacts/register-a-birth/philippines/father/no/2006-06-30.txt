@@ -2,10 +2,14 @@
 
 $!You must register the birth according to the regulations in the Philippines.$!
 
-You can’t register your child’s birth with the UK authorities abroad. This is because unmarried fathers can’t pass on British nationality to a child born before 1 July 2006.
+You can’t usually register your child’s birth with the Foreign and Commonwealth Office (FCO) Overseas Registration Unit. This is because unmarried fathers can’t pass on British nationality to a child born before 1 July 2006.
 
 You may still be able to apply for [British citizenship](https://www.gov.uk/browse/citizenship/citizenship) for the child.
 
-You may also be able to register the birth if you’ve married the other parent since the child was born.
+You may however be able to register the birth if either:
+
+- you’ve married the other parent since the child was born (depending on where the father was considered to be permanently living at the time of the birth)
+- the country where the father was considered to be permanently living at the time of the birth did not distinguish between married and unmarried parents
+
 Contact the Overseas Registration Unit for advice at <birthregistrationenquiries@fco.gov.uk>.
 
