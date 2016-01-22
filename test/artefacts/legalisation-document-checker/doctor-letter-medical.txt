@@ -1,9 +1,38 @@
 
 
 ##Doctor’s letter (medical)
-Your doctor’s letter must be signed by a [doctor registered with the General Medical Council.](http://www.gmc-uk.org/doctors/register/LRMP.asp)
 
-^Your document can’t be legalised if it has been signed on behalf of your doctor by another doctor or member of staff.^
+Your doctor’s letter can only be legalised if it’s either:
+
+- signed by a [doctor registered with the General Medical Council](http://www.gmc-uk.org/doctors/register/LRMP.asp) (your document can’t be legalised if it’s been signed on behalf of your doctor by another doctor or member of staff)
+- a certified copy
+
+^A photocopy of your document can be legalised, but it must be certified first.^
+
+##Certifying documents
+
+If you provide a certified document, it must be certified in the UK by a solicitor or ‘notary public’.
+
+When the solicitor or notary public signs the document, they must:
+
+- note the type of certification they have done (eg the document is a true copy of the original)
+- use their personal signature, not a company signature
+- include the date of certification
+- include their company address
+
+If they add a notarial certificate, it must be attached to the document. The certificate must also  contain a specific reference to the document they have certified.
+
+If a notary public from England, Wales or Northern Ireland signs a document for legalisation, they must also stamp or emboss the document with their notarial seal.
+
+You can find:
+
+- [solicitors in England and Wales](http://www.lawsociety.org.uk/home.law)
+
+- [notaries public in England and Wales](http://www.facultyoffice.org.uk/notary/find-a-notary/)
+
+- [solicitors and notaries public in Scotland](http://www.lawscot.org.uk/)
+
+- [solicitors and notaries public in Northern Ireland](http://www.lawsoc-ni.org/)
 
 ##Get your documents legalised
 

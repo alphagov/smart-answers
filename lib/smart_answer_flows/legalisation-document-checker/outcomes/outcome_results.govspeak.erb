@@ -49,6 +49,26 @@
       - been certified
 
       It can take the Legalisation Office longer to legalise a court document that only has a signature. Getting your document certified might make the process quicker.
+    <% when 'diploma' %>
+      ##<%= heading %>
+      Your <%= type %> must be issued by an institution that is accredited by either:
+
+      - UK Border Agency
+      - Scottish Qualifications Authority
+      - OfQual
+      - British Accreditation Council
+      - Open and Distance Learning Quality Council
+      - Association of British Language Schools
+      - Sport England
+
+      It must also be certified, signed and dated by either:
+
+      - a solicitor or notary public in the UK
+      - an official of the British Council (only original certificates)
+
+      You may be able to get your document certified at a British embassy. [Check if this service is offered](/government/organisations/foreign-commonwealth-office/series/notarial-services) in the country you’re in.
+
+      ^A photocopy of your document can be legalised, but it must be certified.^
     <% when 'education_document' %>
       ##<%= heading %>
       Your <%= type %> must be issued by an institution that is accredited by either:
@@ -104,7 +124,9 @@
 
       - an official certified copy of the certificate issued by the General Register Office (GRO) with the original seal
 
-      - an original certificate (or original certified copy) issued by a church, religious establishment or local register office, with the original signature of the official who issued the certificate
+      - an original GRO certificate (or original certified copy) issued by a church, religious establishment or local register office, with the original signature of the official who issued the certificate
+
+      ^If your certificate wasn't issued by the GRO (eg an Islamic marriage certificate), you must get it certified before it can be legalised.^
 
       It can take longer to legalise a signature on an original certificate, especially if it was issued before 1991.
 
@@ -114,15 +136,17 @@
       - [GRO for Scotland](http://www.gro-scotland.gov.uk/contacts/opentime/index.html/)
       - [General Register Office for Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/order-life-event-certificates/order-a-marriage-certificate.htm)
 
-      ^Non-GRO marriage certificates (eg Islamic marriage certificates) can't be legalised unless they are certified.^
-
-
-      ^A photocopy of your document won’t be accepted.^
+      ^A photocopy of your GRO document won’t be accepted.^
     <% when 'medical_reports' %>
       ##<%= heading %>
-      Your <%= type %> must be signed by a [doctor registered with the General Medical Council.](http://www.gmc-uk.org/doctors/register/LRMP.asp)
 
-      ^Your document can’t be legalised if it has been signed on behalf of your doctor by another doctor or member of staff.^
+      Your <%= type %> can only be legalised if it’s either:
+
+      - signed by a [doctor registered with the General Medical Council](http://www.gmc-uk.org/doctors/register/LRMP.asp) (your document can’t be legalised if it’s been signed on behalf of your doctor by another doctor or member of staff)
+      - a certified copy
+
+      ^A photocopy of your document can be legalised, but it must be certified first.^
+
     <% when 'police_disclosure' %>
       ##<%= heading %>
       Your <%= type %> can only be legalised if it has been either:
@@ -131,6 +155,14 @@
       - certified
 
       ^A photocopy of your document won’t be accepted.^
+    <% when 'power_of_attorney' %>
+      ##<%= heading %>
+
+      Your <%= type %> can only be legalised if it’s either:
+
+      - an original document issued by the Office of the Public Guardian (OPG) that’s marked with the embossed seal or the ink signature of an official of the OPG
+      - an original or photocopy that’s been certified
+
     <% when 'solicitors_notaries' %>
       ##<%= heading %>
       Your <%= type %> can only be legalised if it has been certified.
