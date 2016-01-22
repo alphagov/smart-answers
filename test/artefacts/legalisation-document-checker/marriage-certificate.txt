@@ -6,7 +6,9 @@ Your marriage certificate can be legalised if it’s either:
 
 - an official certified copy of the certificate issued by the General Register Office (GRO) with the original seal
 
-- an original certificate (or original certified copy) issued by a church, religious establishment or local register office, with the original signature of the official who issued the certificate
+- an original GRO certificate (or original certified copy) issued by a church, religious establishment or local register office, with the original signature of the official who issued the certificate
+
+^If your certificate wasn't issued by the GRO (eg an Islamic marriage certificate), you must get it certified before it can be legalised.^
 
 It can take longer to legalise a signature on an original certificate, especially if it was issued before 1991.
 
@@ -16,9 +18,7 @@ It might be quicker to order a certified copy of your certificate from the:
 - [GRO for Scotland](http://www.gro-scotland.gov.uk/contacts/opentime/index.html/)
 - [General Register Office for Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/order-life-event-certificates/order-a-marriage-certificate.htm)
 
-^Non-GRO marriage certificates (eg Islamic marriage certificates) can't be legalised unless they are certified.^
-
-^A photocopy of your document won’t be accepted.^
+^A photocopy of your GRO document won’t be accepted.^
 
 ##Certifying documents
 
