@@ -1,7 +1,8 @@
+require_relative 'state_pension_date'
+
 StatePensionDateQuery = Struct.new(:dob, :gender) do
-  def self.find(dob, gender)
-    state_pension_query = new(dob, gender)
-    state_pension_query.find_date
+  def self.state_pension_date(dob, gender)
+    new(dob, gender).find_date
   end
 
   def self.pension_credit_date(dob)
@@ -23,6 +24,8 @@ StatePensionDateQuery = Struct.new(:dob, :gender) do
       adjust_when_dob_is_29february(result.pension_date)
     end
   end
+
+  private
 
   def run(pension_dates)
     pension_dates.find {|p| p.match?(dob, gender)}
