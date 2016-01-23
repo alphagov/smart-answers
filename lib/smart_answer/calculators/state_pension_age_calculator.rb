@@ -32,30 +32,24 @@ module SmartAnswer::Calculators
       Date.today < state_pension_date - days.days
     end
 
-    def pension_credit_date
+    def bus_pass_qualification_date
       StatePensionDateQuery.bus_pass_qualification_date(dob)
     end
-    alias_method :bus_pass_qualification_date, :pension_credit_date
 
-    def under_20_years_old?
-      dob > 20.years.ago
+    def pension_credit_date
+      StatePensionDateQuery.pension_credit_date(dob)
     end
 
-    def ni_start_date
-      (dob + 19.years)
+    def before_pension_credit_date?(days: 0)
+      Date.today < pension_credit_date - days.days
     end
 
-    def ni_years_to_date_from_dob
-      today = Date.today
-      years = today.year - ni_start_date.year
-      if (today.month < dob.month) || ((today.month == dob.month) && (today.day < dob.day))
-        years = years - 1
-      end
-      years
+    def old_state_pension?
+      state_pension_date < Date.parse('6 April 2016')
     end
 
-    def over_55?
-      Date.today >= dob.advance(years: 55)
+    def over_16_years_old?
+      dob < 16.years.ago
     end
   end
 end
