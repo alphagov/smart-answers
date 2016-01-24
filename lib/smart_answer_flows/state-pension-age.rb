@@ -1,5 +1,3 @@
-require "data/state_pension_date_query"
-
 module SmartAnswer
   class StatePensionAgeFlow < Flow
     def define
@@ -29,8 +27,6 @@ module SmartAnswer
 
         validate { |response| response <= Date.today }
 
-        save_input_as :dob
-
         permitted_next_nodes = [
           :bus_pass_result,
           :gender?
@@ -54,64 +50,27 @@ module SmartAnswer
         option :male
         option :female
 
-        next_node_calculation :calculator do |response|
-          Calculators::StatePensionAgeCalculator.new(dob: dob, gender: response)
-        end
-
-        calculate :state_pension_date do
-          calculator.state_pension_date
-        end
-
-        calculate :old_state_pension do
-          calculator.state_pension_date < Date.parse('6 April 2016')
-        end
-
-        calculate :pension_credit_date do
-          StatePensionDateQuery.bus_pass_qualification_date(dob).strftime("%-d %B %Y")
-        end
-
-        calculate :formatted_state_pension_date do
-          state_pension_date.strftime("%-d %B %Y")
-        end
-
-        calculate :state_pension_age do
-          calculator.state_pension_age
-        end
-
-        calculate :available_ni_years do
-          calculator.ni_years_to_date_from_dob
-        end
-
         permitted_next_nodes = [
-          :too_young,
-          :near_state_pension_age,
-          :age_result
+          :not_yet_reached_sp_age,
+          :has_reached_sp_age
         ]
-        next_node(permitted: permitted_next_nodes) do
-          near_pension_date = calculator.before_state_pension_date? && calculator.within_four_months_one_day_from_state_pension?
-          under_20_years_old = calculator.under_20_years_old?
 
-          if under_20_years_old
-            :too_young
-          elsif near_pension_date
-            :near_state_pension_age
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.gender = response.to_sym
+
+          if calculator.before_state_pension_date?
+            :not_yet_reached_sp_age
           else
-            :age_result
+            :has_reached_sp_age
           end
         end
       end
 
-      outcome :bus_pass_result do
-        precalculate :qualifies_for_bus_pass_on do
-          StatePensionDateQuery.bus_pass_qualification_date(dob).strftime("%-d %B %Y")
-        end
-      end
+      outcome :bus_pass_result
 
-      outcome :near_state_pension_age
+      outcome :not_yet_reached_sp_age
 
-      outcome :too_young
-
-      outcome :age_result
+      outcome :has_reached_sp_age
     end
   end
 end

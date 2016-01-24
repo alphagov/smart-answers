@@ -1,0 +1,29 @@
+<% content_for :title do %>
+  You’ll reach State Pension age on <%= format_date(calculator.state_pension_date) %>.
+
+<% end %>
+
+<% content_for :body do %>
+  Your State Pension age is <%= calculator.state_pension_age %>.
+
+  ##Pension Credit
+  You might get [Pension Credit](/pension-credit) if you’re retired and on a low income.
+
+  <% if calculator.before_pension_credit_date? %>
+    You'll reach the Pension Credit qualifying age on <%= format_date(calculator.pension_credit_date) %>.
+  <% else %>
+    You’ve already reached the Pension Credit qualifying age. Check if you’re eligible to claim [Pension Credit](/pension-credit/eligibility).
+  <% end %>
+
+  The State Pension age is regularly reviewed and may change in the future. This may also affect Pension Credit.
+
+  <% if calculator.before_state_pension_date?(days: 30) && calculator.over_16_years_old? %>
+    ^You can get a [forecast or statement of how much State Pension you may get](/check-state-pension).^
+  <% end %>
+
+  <% if calculator.old_state_pension? %>
+    Find out more information about the [basic State Pension](/state-pension).
+  <% else %>
+    Find out more information about the [new State Pension](/new-state-pension).
+  <% end %>
+<% end %>
