@@ -6,7 +6,7 @@
 <% content_for :body do %>
   The date you qualify for a bus pass depends on where you live:
 
-  - on <%= qualifies_for_bus_pass_on %> in England
+  - on <%= format_date(calculator.bus_pass_qualification_date) %> in England
   - when you turn 60 years old in [Scotland](http://www.transportscotland.gov.uk/public-transport/concessionary-travel-people-aged-60-or-disability),[Wales](http://wales.gov.uk/topics/transport/public/concessionary/?lang=en),[Northern Ireland](http://www.nidirect.gov.uk/free-bus-travel-and-concessions)
 
   The dates may be different in some areas, check with your council when you can [apply for a bus pass](/apply-for-elderly-person-bus-pass).
