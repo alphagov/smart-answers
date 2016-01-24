@@ -2,7 +2,6 @@ require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class StatePensionAgeCalculatorTest < ActiveSupport::TestCase
-
     context '#state_pension_date' do
       setup do
         @calculator = SmartAnswer::Calculators::StatePensionAgeCalculator.new(
@@ -168,12 +167,12 @@ module SmartAnswer::Calculators
         assert @calculator.old_state_pension?
       end
 
-      should 'return false when the state_pension_date falls on 6 April 2016'  do
+      should 'return false when the state_pension_date falls on 6 April 2016' do
         @calculator.stubs(:state_pension_date).returns(Date.parse('6 April 2016'))
         assert_not @calculator.old_state_pension?
       end
 
-      should 'return false when the state_pension_date falls after 6 April 2016'  do
+      should 'return false when the state_pension_date falls after 6 April 2016' do
         @calculator.stubs(:state_pension_date).returns(Date.parse('7 April 2016'))
         assert_not @calculator.old_state_pension?
       end

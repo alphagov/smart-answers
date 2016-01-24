@@ -2,7 +2,6 @@ require_relative '../../lib/data/state_pension_date'
 require_relative '../test_helper'
 
 class StatePensionDateTest < ActiveSupport::TestCase
-
   context '#born_in_range' do
     setup do
       @pension_date = StatePensionDate.new(:female, Date.parse('6 April 1950'), Date.parse('5 May 1950'), Date.parse('6 May 2010'))
@@ -31,7 +30,6 @@ class StatePensionDateTest < ActiveSupport::TestCase
   end
 
   context '#same_gender?' do
-
     context 'with a pension date for females' do
       setup do
         @pension_date = StatePensionDate.new(:female, Date.parse('6 April 1950'), Date.parse('5 May 1950'), Date.parse('6 May 2010'))
