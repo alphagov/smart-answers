@@ -8,7 +8,9 @@
 
   This is the total weekly amount, not the amount per child.  
 
+  <% if paying_or_receiving == 'pay' %>
   Depending on how child maintenance is arranged, fees may be added to this amount.
+  <% end %>
 
   Payment type | Weekly flat rate payment | <%= fees_title %> | Application fee  - you only pay this once
   - | -
