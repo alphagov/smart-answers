@@ -49,7 +49,6 @@
       <% if ceremony_country == 'greece' %>
         %If you choose to post notice in <%= country_name_lowercase_prefix %>, you’ll normally have to wait at least 14 days before you can apply to get married.%
       <% elsif ceremony_country == 'italy' %>
-        %If you choose to post notice in <%= country_name_lowercase_prefix %>, you’ll normally have to wait at least 15 days before you can get married.%
       <% else %>
         <%= render partial: 'you_will_have_to_wait_to_get_married.govspeak.erb',
                    locals: {
