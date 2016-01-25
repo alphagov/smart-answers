@@ -8,10 +8,12 @@
 
   ^This is the total weekly amount, not the amount per child.^
 
-  The calculator gives an estimate. The exact amount the Child Maintenance Service calculates might be different.<% if paying_or_receiving == 'receive' %> For example, if the paying parent supports other children, the amount you receive may be less than this.<% end %>
+  The calculator gives an estimate. The exact amount the Child Maintenance Service calculates might be different.<% if paying_or_receiving == 'receive' %> For example, if the paying parent also supports other children, the amount you receive may be less than this.<% end %>
 
+  <% if paying_or_receiving == 'pay' %>
   Depending on how child maintenance is arranged, fees may be added to this amount.
-
+  <% end %>
+  
   Payment type | Weekly payment | <%= fees_title %> | Application fee  - you only pay this once
   - | -
   [Collect and Pay](/child-maintenance/how-to-pay) | £<%= child_maintenance_payment %> | £<%= collect_fees %> | £<%= total_fees %> | £20.00
