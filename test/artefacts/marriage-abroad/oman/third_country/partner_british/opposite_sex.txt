@@ -1,19 +1,50 @@
 Marriage in Oman
 
-Contact the relevant local authorities in Oman to find out about local marriage laws, including what documents you’ll need.
+Contact the relevant local authorities in Oman (the local church, mosque or temple)  to find out about local marriage laws, including what documents you’ll need.
+
+^There are no civil marriages in Oman, but you can get married through a religious ceremony at a church, mosque or temple.^
 
 ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for Oman](/foreign-travel-advice/oman) before making any plans.
 
 ##What you need to do
 
-You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
+You may be asked to swear an oath or affidavit (written statement of facts) before you get married. You must do this at a British embassy in Oman.
 
-There are 2 ways you can get a CNI:
+[Make an appointment at the embassy in Muscat.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-muscat/oaths-affirmations-and-affidavits/slot_picker)
 
-- [go to the UK and post notice with a UK registrar](/marriage-abroad/y/oman/uk/partner_british/opposite_sex)
-- [go to Oman and post notice at the embassy or consulate there](/marriage-abroad/y/oman/ceremony_country/partner_british/opposite_sex)
+You’ll need to complete an [affidavit form](/government/publications/affidavit-form-oman) to prove you’re allowed to marry.
 
-%If you choose to post notice in Oman, you’ll normally have to wait at least 10 days before you can get married.%
+You can download and fill in (but not sign) the form in advance.
 
-*[CNI]:Certificate of no impediment
+You must take the form with you to your appointment.
+
+You’ll need to provide supporting documents, including:
+
+- your passport
+- proof of residence, such as a residence certificate - check with the embassy to find out what you need
+- equivalent documents for your partner
+
+If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
+
+- a [decree absolute or final order](/copy-decree-absolute-final-order)
+- a civil partnership dissolution or annulment certificate
+- your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
+
+^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
+
+%The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
+
+##If you can’t have a religious ceremony
+
+If you can’t get married at a church, mosque or temple, you may be able to get married at the British embassy in Muscat. You and your partner will both need to be resident in Oman and will need to prove that you’re unable to have a religious ceremony. Email <Muscat.Consular@fco.gov.uk> for more information.
+
+##Fees
+
+Service | Fee
+-|-
+Administering an oath or making a declaration | £55
+
+You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Oman](/government/publications/oman-consular-fees).
+
+You can pay by cash or credit card, but not by personal cheque.
 
