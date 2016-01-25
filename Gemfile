@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.2.3'
 
-gem 'rails', '4.2.5'
+gem 'rails', '4.2.5.1'
 
 gem 'airbrake', '4.1.0'
 gem 'gds-api-adapters', '~> 25.1'
