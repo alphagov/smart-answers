@@ -3,11 +3,11 @@ lib/smart_answer_flows/minimum-wage-calculator-employers.rb: 1e9730889bb15889ee9
 test/data/minimum-wage-calculator-employers-questions-and-responses.yml: ddadb3fc5fc1d82d77f53fbc90752d89
 test/data/minimum-wage-calculator-employers-responses-and-expected-results.yml: 3f047b0007e3432a77ea4e896ea763ea
 lib/smart_answer_flows/minimum-wage-calculator-employers/minimum_wage_calculator_employers.govspeak.erb: 925ea68bf1c68cb973393159b8ea01b7
-lib/smart_answer_flows/minimum-wage-calculator-employers/outcomes/current_payment_above.govspeak.erb: 8fab4952e238396aff3956bd755116b0
-lib/smart_answer_flows/minimum-wage-calculator-employers/outcomes/current_payment_below.govspeak.erb: 58b5f424774f2b2b0158a483c545750d
+lib/smart_answer_flows/minimum-wage-calculator-employers/outcomes/current_payment_above.govspeak.erb: 404550f9ec8f3373fa39d12b57b84b4f
+lib/smart_answer_flows/minimum-wage-calculator-employers/outcomes/current_payment_below.govspeak.erb: a77b443e6797ed23cbbdc564dc6c80e4
 lib/smart_answer_flows/minimum-wage-calculator-employers/outcomes/does_not_apply_to_historical_apprentices.govspeak.erb: b7db231cc648b8b6abc846efd5a840ff
-lib/smart_answer_flows/minimum-wage-calculator-employers/outcomes/past_payment_above.govspeak.erb: 074d745321f61f7547e93dd65efe827f
-lib/smart_answer_flows/minimum-wage-calculator-employers/outcomes/past_payment_below.govspeak.erb: a4f837c09207052b6d520ac25cf7eedf
+lib/smart_answer_flows/minimum-wage-calculator-employers/outcomes/past_payment_above.govspeak.erb: 3180229e7682f23c1c453c9284ab147f
+lib/smart_answer_flows/minimum-wage-calculator-employers/outcomes/past_payment_below.govspeak.erb: d9960b551e39c37338a5c59dc41dd33f
 lib/smart_answer_flows/minimum-wage-calculator-employers/outcomes/under_school_leaving_age.govspeak.erb: 13de5d10bbbb015df597f78c66da1b67
 lib/smart_answer_flows/minimum-wage-calculator-employers/outcomes/under_school_leaving_age_past.govspeak.erb: 9c56f76e04984f07627efbc1f42b2b63
 lib/smart_answer_flows/minimum-wage-calculator-employers/questions/are_you_an_apprentice.govspeak.erb: 11de56b82b0200a358b0ef7d8a79f8a7
