@@ -14,7 +14,7 @@ module SmartAnswer
       @template_directory = template_directory
       @template_name = template_name
       @locals = locals
-      @view = ActionView::Base.new([@template_directory])
+      @view = ActionView::Base.new([@template_directory, FlowRegistry.instance.load_path])
       helpers.each { |helper| @view.extend(helper) }
       @view.extend(QuestionOptionsHelper)
     end

@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.2.3'
 
-gem 'rails', '4.2.5'
+gem 'rails', '4.2.5.1'
 
 gem 'airbrake', '4.1.0'
 gem 'gds-api-adapters', '~> 25.1'
@@ -17,7 +17,7 @@ gem 'plek', '1.7.0'
 gem 'rack_strip_client_ip', '0.0.1'
 gem 'rails-i18n'
 gem 'sass-rails', '~> 4.0.0'
-gem 'slimmer', '9.0.0'
+gem 'slimmer', '~> 9.0.1'
 gem 'tilt', '1.4.1'
 gem 'therubyracer', '~> 0.12.1'
 gem 'uglifier'
