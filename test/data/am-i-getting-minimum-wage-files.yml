@@ -3,12 +3,12 @@ lib/smart_answer_flows/am-i-getting-minimum-wage.rb: b6265a5c47c5696a14cebd7965f
 test/data/am-i-getting-minimum-wage-questions-and-responses.yml: 212c0b6343d812ba81b18cb940bfba35
 test/data/am-i-getting-minimum-wage-responses-and-expected-results.yml: ee1cc2d8ee436f03a31203c4dbc3ef70
 lib/smart_answer_flows/am-i-getting-minimum-wage/am_i_getting_minimum_wage.govspeak.erb: e3bad2e005bb806999594e9f87f5e5ae
-lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/current_payment_above.govspeak.erb: 9b82c9fc163ecff3b9d55e6352afbddd
-lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/current_payment_below.govspeak.erb: c5df501d4653304260fb0a95111ff111
+lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/current_payment_above.govspeak.erb: d2e326974f71c8a8acd5966f816bff91
+lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/current_payment_below.govspeak.erb: 78cc8b17fa890c9eab539ee6358cdef2
 lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/does_not_apply_to_first_year_apprentices.govspeak.erb: fb80102faf5304ff5c9bb11d1273a95a
 lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/does_not_apply_to_historical_apprentices.govspeak.erb: bd846fa5585f32e995c74bb714f6d600
-lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/past_payment_above.govspeak.erb: 83b499f49b224ef3faf022f3f5df0ac1
-lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/past_payment_below.govspeak.erb: b53b6378246a28ae3b8706d54d09bd75
+lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/past_payment_above.govspeak.erb: 7fa641ebf615eb10fcc144e427319a78
+lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/past_payment_below.govspeak.erb: f566fc35eef541dc8a729c015b95a378
 lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/under_school_leaving_age.govspeak.erb: 44bf68757d1ef90249d19f5d88ad4bc2
 lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/under_school_leaving_age_past.govspeak.erb: 2182c103915b753894722760c9a56cf3
 lib/smart_answer_flows/am-i-getting-minimum-wage/questions/are_you_an_apprentice.govspeak.erb: 57df1253683403572d013ff87885e9d3

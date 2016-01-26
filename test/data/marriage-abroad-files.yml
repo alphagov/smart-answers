@@ -25,7 +25,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/_contact_local_authorities.govsp
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_local_authorities_in_country_cp.govspeak.erb: 9225c7cd9902eee4ace1271cdfc3d01e
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_local_authorities_in_country_marriage.govspeak.erb: 3857cf990c9d7645091710278952348d
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_local_authorities_in_greece.govspeak.erb: cac1fcbc77323dc53596ca6d3cf7bd84
-lib/smart_answer_flows/marriage-abroad/outcomes/_contact_method.govspeak.erb: 7b341d2ec66ceca4da682774d1e668d1
+lib/smart_answer_flows/marriage-abroad/outcomes/_contact_method.govspeak.erb: 348c6f381cefad0fe848d79cc6c798eb
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_nearest_embassy_of_country.govspeak.erb: 196319d3632f94cfa087f191d887e36c
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_to_make_appointment.govspeak.erb: a7e4a184e974b3989a697578277b3b7a
 lib/smart_answer_flows/marriage-abroad/outcomes/_convert_cc_to_ss_marriage.govspeak.erb: 38e1be8bb7bdd80ef0c4c6c3af8f7f04
@@ -114,7 +114,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_kosovo.govspeak.erb: 
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_laos.govspeak.erb: 141437f2f430c230566fe05cebdb8189
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_marriage_impossible_no_laos_locals.govspeak.erb: 3be3a33c8eba1ac4017c13ecd9ed284a
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_no_cni.govspeak.erb: 7f223da1e95e88ee963c6c340b1513bb
-lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_other_countries.govspeak.erb: 98fd5dd8e692fda16d09b946875d0d73
+lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_other_countries.govspeak.erb: 4c07f4c0a10c160d20b1adb838b19060
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_poland.govspeak.erb: 231b7d411d584d23d7d418a038a0f4ab
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_portugal.govspeak.erb: 695750a9cc381603f800f1c2c6c5e200
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_spain.govspeak.erb: 17cd79cfce4ecec1968f5407d1091e7d

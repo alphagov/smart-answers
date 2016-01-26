@@ -148,7 +148,7 @@
   <% when 'venezuela' %>
     [Make an appointment at the embassy in Caracas.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-caracas/notice-of-marriage-or-civil-partnership/slot_picker)
   <% else %>
-    <%= render partial: '../../shared/overseas_passports_embassies.govspeak.erb',
+    <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb',
                locals: {
                  overseas_passports_embassies: overseas_passports_embassies
                } %>
@@ -196,7 +196,7 @@
       <%= contact_message %>
 
     <% end %>
-    <%= render partial: '../../shared/overseas_passports_embassies.govspeak.erb',
+    <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb',
                locals: {
                  overseas_passports_embassies: overseas_passports_embassies
                } %>
