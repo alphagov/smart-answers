@@ -261,6 +261,7 @@ module SmartAnswer
           :outcome_os_no_cni,
           :outcome_os_other_countries,
           :outcome_os_poland,
+          :outcome_os_slovenia,
           :outcome_portugal,
           :outcome_spain,
           :outcome_ss_affirmation,
@@ -311,6 +312,8 @@ module SmartAnswer
               :outcome_os_laos
             elsif ceremony_country == 'poland'
               :outcome_os_poland
+            elsif ceremony_country == 'slovenia'
+              :outcome_os_slovenia
             elsif data_query.os_consular_cni_countries?(ceremony_country) || (resident_of == 'uk' && data_query.os_no_marriage_related_consular_services?(ceremony_country)) || data_query.os_consular_cni_in_nearby_country?(ceremony_country)
               :outcome_os_consular_cni
             elsif ceremony_in_finland_uk_resident
@@ -385,6 +388,8 @@ module SmartAnswer
       outcome :outcome_os_colombia
 
       outcome :outcome_os_poland
+
+      outcome :outcome_os_slovenia
 
       outcome :outcome_monaco
 
