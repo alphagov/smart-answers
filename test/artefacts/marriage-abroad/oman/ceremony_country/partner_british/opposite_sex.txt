@@ -1,62 +1,28 @@
 Marriage in Oman
 
-Contact the relevant local authorities in Oman to find out about local marriage laws, including what documents you’ll need.
+Contact the relevant local authorities in Oman (the local church, mosque or temple)  to find out about local marriage laws, including what documents you’ll need.
 
-^There are no civil marriages in Oman, but you can get married through a religious ceremony at a church or Sharia court.^
+^There are no civil marriages in Oman, but you can get married through a religious ceremony at a church, mosque or temple.^
 
-You may be able to get married at the British Embassy if you’re both resident in Oman and can prove that there are no other suitable facilities to get married locally.
-
-Contact the British Embassy in Oman for more information.
-
-^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.^
+^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for Oman](/foreign-travel-advice/oman) before making any plans.
 
 ##What you need to do
 
-You need to have been living in the country where you intend to marry for 21 full days.
+You may be asked to swear an oath or affidavit (written statement of facts) before you get married. You must do this at a British embassy in Oman.
 
-You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
+[Make an appointment at the embassy in Muscat.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-muscat/oaths-affirmations-and-affidavits/slot_picker)
 
-To get a CNI, you must post notice of your intended marriage in Oman. You can do this at the British embassy or in front of a notary public.
+You’ll need to complete an [affidavit form](/government/publications/affidavit-form-oman) to prove you’re allowed to marry.
 
-$A
-British Embassy Muscat, main contact
-British Embassy
-PO Box 185
-Mina Al Fahal
-116 Muscat
-Muscat
-Oman
-$A
+You can download and fill in (but not sign) the form in advance.
 
-$C
-Telephone enquiries: +968 2460 9000
-Telephone commercial: +968 2460 9002 
-Fax general: +968 2460 9010
-Fax commercial: +968 2460 9012
-Fax consular: +968 24609011
-Visa International Enquiry Service: https://www.gov.uk/contact-ukvi-outside-uk 
-
-Email: <muscat.enquiries@fco.gov.uk>
-
-[British Embassy Muscat, main contact - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-muscat/office/british-embassy-muscat-main-contact)
-$C
+You must take the form with you to your appointment.
 
 You’ll need to provide supporting documents, including:
 
 - your passport
-- your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
 - proof of residence, such as a residence certificate - check with the embassy to find out what you need
 - equivalent documents for your partner
-
-You’ll need to complete a [‘Notice of marriage’](/government/publications/notice-of-marriage-form--2) form and an [‘Affidavit for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form) form.
-
-You can download and fill in (but not sign) the forms in advance.
-
-You must take the forms with you to your appointment.
-
-%The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
-
-^Your partner will need to follow the same process and pay the fees to get their own CNI.^
 
 If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
 
@@ -66,27 +32,19 @@ If you or your partner have been divorced, widowed or previously in a civil part
 
 ^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
 
-###What happens next
+%The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
 
-The embassy will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 7 days. They’ll then issue the CNI, as long as nobody has registered an objection. There’s an additional fee for this.
+##If you can’t have a religious ceremony
 
-You should check if your CNI needs to be legalised (certified as genuine) by the local authorities in Oman.
-
-^You don't need to stay in the country while your notice is posted.^
+If you can’t get married at a church, mosque or temple, you may be able to get married at the British embassy in Muscat. You and your partner will both need to be resident in Oman and will need to prove that you’re unable to have a religious ceremony. Email <Muscat.Consular@fco.gov.uk> for more information.
 
 ##Fees
 
 Service | Fee
 -|-
-Receiving a notice of marriage | £65
-Issuing a CNI, Nulla Osta or equivalent | £65
-Issuing any other consular letter or certificate in English | £45
-Issuing any other consular letter or certificate in any other language | £70
 Administering an oath or making a declaration | £55
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Oman](/government/publications/oman-consular-fees).
 
 You can pay by cash or credit card, but not by personal cheque.
-
-*[CNI]:certificate of no impediment
 

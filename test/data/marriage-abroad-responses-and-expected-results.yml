@@ -15029,7 +15029,7 @@
   - uk
   - partner_british
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_oman
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -15052,7 +15052,7 @@
   - uk
   - partner_local
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_oman
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -15075,7 +15075,7 @@
   - uk
   - partner_other
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_oman
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -15083,7 +15083,7 @@
   - uk
   - partner_other
   - same_sex
-  :next_node: :outcome_cp_all_other_countries
+  :next_node: :outcome_os_oman
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -15104,7 +15104,7 @@
   - ceremony_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_oman
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -15127,7 +15127,7 @@
   - ceremony_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_oman
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -15150,7 +15150,7 @@
   - ceremony_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_os_consular_cni
+  :next_node: :outcome_os_oman
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -15179,7 +15179,7 @@
   - third_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_consular_cni_os_residing_in_third_country
+  :next_node: :outcome_os_oman
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -15202,7 +15202,7 @@
   - third_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_consular_cni_os_residing_in_third_country
+  :next_node: :outcome_os_oman
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -15225,7 +15225,7 @@
   - third_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_consular_cni_os_residing_in_third_country
+  :next_node: :outcome_os_oman
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:

@@ -811,8 +811,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'opposite_sex'
     end
-    should "go to os affirmation outcome" do
-      assert_current_node :outcome_os_consular_cni
+    should "go to os oman outcome" do
+      assert_current_node :outcome_os_oman
     end
   end
 
