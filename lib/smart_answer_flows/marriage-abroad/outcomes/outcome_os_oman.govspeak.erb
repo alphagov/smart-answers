@@ -1,0 +1,63 @@
+<% content_for :title do %>
+  Marriage in Oman
+<% end %>
+
+<% content_for :body do %>
+  <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
+             locals: {
+               country_name_lowercase_prefix: country_name_lowercase_prefix,
+               ceremony_country: ceremony_country
+             } %>
+
+  ^There are no civil marriages in Oman, but you can get married through a religious ceremony at a church, mosque or temple.^
+
+  <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
+             locals: {
+               country_name_lowercase_prefix: country_name_lowercase_prefix,
+               ceremony_country: ceremony_country
+             } %>
+
+  <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+
+  You may be asked to swear an oath or affidavit (written statement of facts) before you get married. You must do this at a British embassy in Oman.
+
+  <%= render partial: 'contact_method.govspeak.erb',
+             locals: {
+               sex_of_your_partner: sex_of_your_partner,
+               ceremony_country: ceremony_country,
+               overseas_passports_embassies: overseas_passports_embassies,
+               country_name_lowercase_prefix: country_name_lowercase_prefix
+             } %>
+
+  You’ll need to complete an [affidavit form](/government/publications/affidavit-form-oman) to prove you’re allowed to marry.
+
+  You can download and fill in (but not sign) the form in advance.
+
+  You must take the form with you to your appointment.
+
+  <%= render partial: 'required_supporting_documents.govspeak.erb',
+             locals: {
+               embassy_or_consulate_ceremony_country: embassy_or_consulate_ceremony_country
+             } %>
+
+  <%= render partial: 'consular_cni_os_not_uk_resident_ceremony_not_germany.govspeak.erb' %>
+
+  <%= render partial: 'provide_evidence_of_nationality_or_residence_for_divorce_or_dissolution.govspeak.erb' %>
+
+  <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
+
+  ##If you can’t have a religious ceremony
+
+  If you can’t get married at a church, mosque or temple, you may be able to get married at the British embassy in Muscat. You and your partner will both need to be resident in Oman and will need to prove that you’re unable to have a religious ceremony. Email <Muscat.Consular@fco.gov.uk> for more information.
+
+  <%= render partial: 'fee_table_oath_55.govspeak.erb' %>
+
+  <%= render partial: 'link_to_consular_fees.govspeak.erb',
+    locals: {
+      country_name_lowercase_prefix: country_name_lowercase_prefix,
+      ceremony_country: ceremony_country
+    } %>
+
+  <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
+
+<% end %>
