@@ -103,6 +103,13 @@ class SmartAnswersControllerTest < ActionController::TestCase
       assert_equal 503, response.status
     end
 
+    should 'cope with 503 exception during rendering' do
+      @controller.view_context_class.any_instance.stubs(:content_for).raises(GdsApi::TimedOutException)
+
+      get :show, id: 'smart-answers-controller-sample'
+      assert_equal 503, response.status
+    end
+
     should "404 Not Found if request is for an unknown format" do
       @controller.stubs(:respond_to).raises(ActionController::UnknownFormat)
 
