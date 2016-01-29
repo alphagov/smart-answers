@@ -8,7 +8,7 @@ lib/smart_answer_flows/register-a-birth/outcomes/no_birth_certificate_result.gov
 lib/smart_answer_flows/register-a-birth/outcomes/no_embassy_result.govspeak.erb: ed56d500311fbe441649c92193f0e631
 lib/smart_answer_flows/register-a-birth/outcomes/no_registration_result.govspeak.erb: 7b60252b078e6aec6f5759e894ce4ffb
 lib/smart_answer_flows/register-a-birth/outcomes/north_korea_result.govspeak.erb: 61f902aceeebe0c90fb42a998916e0b7
-lib/smart_answer_flows/register-a-birth/outcomes/oru_result.govspeak.erb: d822693c41b9683f12b43cb83b04e8e6
+lib/smart_answer_flows/register-a-birth/outcomes/oru_result.govspeak.erb: eeed695325359da6001774feaa070704
 lib/smart_answer_flows/register-a-birth/questions/childs_date_of_birth.govspeak.erb: e911daf1dc69ce85db372dc4ea3bdd50
 lib/smart_answer_flows/register-a-birth/questions/country_of_birth.govspeak.erb: 31c306c928e71eee86c60352f51ccf83
 lib/smart_answer_flows/register-a-birth/questions/have_you_adopted_the_child.govspeak.erb: 3a9d66656446a508c7232b26778dfa23
