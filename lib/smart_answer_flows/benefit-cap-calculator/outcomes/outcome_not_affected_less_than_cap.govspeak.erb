@@ -7,9 +7,9 @@
 
   The total amount of your benefits are added together:
 
-  Total amount of benefits affected by cap: £<%= total_benefits %>
+  Total amount of benefits affected by cap: <%= format_money(calculator.total_benefits) %>
 
-  As this amount is lower than your benefit cap of £<%= benefit_cap %>, your benefits won’t change.
+  As this amount is lower than your benefit cap of <%= format_money(calculator.benefit_cap) %>, your benefits won’t change.
 
   This is an estimate only. Contact the Department for Work and Pensions if you need further help.
 

@@ -1,0 +1,9 @@
+---
+:default:
+  :single: 257
+  :couple: 384
+  :parent: 384
+:london:
+  :single: 296
+  :couple: 442
+  :parent: 442
