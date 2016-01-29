@@ -245,6 +245,7 @@ module SmartAnswer
           :outcome_ireland,
           :outcome_marriage_via_local_authorities,
           :outcome_os_affirmation,
+          :outcome_os_belarus,
           :outcome_os_bot,
           :outcome_os_cambodia,
           :outcome_os_colombia,
@@ -291,6 +292,8 @@ module SmartAnswer
               :outcome_os_germany
             elsif ceremony_country == 'oman'
               :outcome_os_oman
+            elsif ceremony_country == 'belarus'
+              :outcome_os_belarus
             elsif consular_cni_residing_in_third_country
               :outcome_consular_cni_os_residing_in_third_country
             elsif marriage_in_norway_third_country
@@ -416,6 +419,8 @@ module SmartAnswer
 
       outcome :outcome_os_bot
 
+      outcome :outcome_os_belarus
+
       outcome :outcome_os_italy
 
       outcome :outcome_consular_cni_os_residing_in_third_country do
@@ -441,7 +446,7 @@ module SmartAnswer
           data_query
         end
         precalculate :three_day_residency_requirement_applies do
-          %w(albania algeria angola armenia austria azerbaijan bahrain belarus bolivia bosnia-and-herzegovina bulgaria chile croatia cuba democratic-republic-of-congo denmark dominican-republic el-salvador estonia ethiopia georgia greece guatemala honduras hungary iceland italy kazakhstan kosovo kuwait kyrgyzstan latvia lithuania luxembourg macedonia mexico moldova montenegro nepal panama romania russia serbia slovenia sudan sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+          %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria chile croatia cuba democratic-republic-of-congo denmark dominican-republic el-salvador estonia ethiopia georgia greece guatemala honduras hungary iceland italy kazakhstan kosovo kuwait kyrgyzstan latvia lithuania luxembourg macedonia mexico moldova montenegro nepal panama romania russia serbia slovenia sudan sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
         end
         precalculate :three_day_residency_handled_by_exception do
           %w(croatia italy russia)
