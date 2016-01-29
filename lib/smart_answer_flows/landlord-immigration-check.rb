@@ -17,7 +17,7 @@ module SmartAnswer
         end
 
         next_node(permitted: permitted_next_nodes) do |response|
-          if calculator.included_postcode?
+          if calculator.included_country?
             :main_home?
           else
             :outcome_check_not_needed
