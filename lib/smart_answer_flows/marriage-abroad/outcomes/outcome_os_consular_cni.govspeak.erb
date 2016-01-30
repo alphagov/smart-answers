@@ -505,8 +505,6 @@
 
     <% elsif ceremony_country == 'finland' %>
       <%= render partial: 'pay_in_euros_or_visa_electron.govspeak.erb' %>
-    <% elsif ceremony_country == 'kuwait' %>
-      You can pay by cash or credit card (except American Express), but not by personal cheque.
 
     <% elsif %w(cote-d-ivoire burundi).exclude?(ceremony_country) %>
       <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
