@@ -7,6 +7,26 @@
 - :current_node: :dob_age?
   :responses:
   - age
+  - '1949-02-01'
+  :next_node: :gender?
+  :outcome_node: false
+- :current_node: :gender?
+  :responses:
+  - age
+  - '1949-02-01'
+  - male
+  :next_node: :has_reached_sp_age
+  :outcome_node: true
+- :current_node: :gender?
+  :responses:
+  - age
+  - '1949-02-01'
+  - female
+  :next_node: :has_reached_sp_age
+  :outcome_node: true
+- :current_node: :dob_age?
+  :responses:
+  - age
   - '1950-02-01'
   :next_node: :gender?
   :outcome_node: false
@@ -15,125 +35,74 @@
   - age
   - '1950-02-01'
   - male
-  :next_node: :near_state_pension_age
+  :next_node: :not_yet_reached_sp_age
   :outcome_node: true
-- :current_node: :dob_age?
-  :responses:
-  - age
-  - '1951-04-06'
-  :node_node: :gender?
-  :outcome_node: false
-- :currend_node: :gender?
-  :responses:
-  - age
-  - '1951-04-06'
-  - male
-  :next_node: :age_result
-  :outcome_node: true
-- :current_node: :dob_age?
-  :responses:
-  - age
-  - '1953-02-06'
-  :node_node: :gender?
-  :outcome_node: false
-- :currend_node: :gender?
-  :responses:
-  - age
-  - '1953-02-06'
-  - male
-  :next_node: :age_result
-  :outcome_node: true
-- :current_node: :dob_age?
-  :responses:
-  - age
-  - '1980-01-01'
-  :node_node: :gender?
-  :outcome_node: false
-- :currend_node: :gender?
-  :responses:
-  - age
-  - '1980-01-01'
-  - male
-  :next_node: :age_result
-  :outcome_node: true
-- :current_node: :dob_age?
-  :responses:
-  - age
-  - '2000-01-01'
-  :node_node: :gender?
-  :outcome_node: false
-- :currend_node: :gender?
-  :responses:
-  - age
-  - '2000-01-01'
-  - male
-  :next_node: :too_young
-  :outcome_node: true
-- :current_node: :dob_age?
-  :responses:
-  - age
-  - '1950-02-01'
-  :node_node: :gender?
-  :outcome_node: false
-- :currend_node: :gender?
+- :current_node: :gender?
   :responses:
   - age
   - '1950-02-01'
   - female
-  :next_node: :age_result
-  :outcome_node: true
-- :current_node: :dob_age?
-  :responses:
-  - age
-  - '1951-04-06'
-  :node_node: :gender?
-  :outcome_node: false
-- :currend_node: :gender?
-  :responses:
-  - age
-  - '1951-04-06'
-  - female
-  :next_node: :age_result
+  :next_node: :has_reached_sp_age
   :outcome_node: true
 - :current_node: :dob_age?
   :responses:
   - age
   - '1953-02-06'
-  :node_node: :gender?
+  :next_node: :gender?
   :outcome_node: false
-- :currend_node: :gender?
+- :current_node: :gender?
+  :responses:
+  - age
+  - '1953-02-06'
+  - male
+  :next_node: :not_yet_reached_sp_age
+  :outcome_node: true
+- :current_node: :gender?
   :responses:
   - age
   - '1953-02-06'
   - female
-  :next_node: :age_result
+  :next_node: :not_yet_reached_sp_age
   :outcome_node: true
 - :current_node: :dob_age?
   :responses:
   - age
   - '1980-01-01'
-  :node_node: :gender?
+  :next_node: :gender?
   :outcome_node: false
-- :currend_node: :gender?
+- :current_node: :gender?
+  :responses:
+  - age
+  - '1980-01-01'
+  - male
+  :next_node: :not_yet_reached_sp_age
+  :outcome_node: true
+- :current_node: :gender?
   :responses:
   - age
   - '1980-01-01'
   - female
-  :next_node: :age_result
+  :next_node: :not_yet_reached_sp_age
   :outcome_node: true
-
 - :current_node: :dob_age?
   :responses:
   - age
   - '2000-01-01'
-  :node_node: :gender?
+  :next_node: :gender?
   :outcome_node: false
-- :currend_node: :gender?
+- :current_node: :gender?
+  :responses:
+  - age
+  - '2000-01-01'
+  - male
+  :next_node: :not_yet_reached_sp_age
+  :outcome_node: true
+- :current_node: :gender?
   :responses:
   - age
   - '2000-01-01'
   - female
-  :next_node: :too_young
+  :next_node: :not_yet_reached_sp_age
   :outcome_node: true
 - :current_node: :which_calculation?
   :responses:
@@ -143,13 +112,13 @@
 - :current_node: :dob_age?
   :responses:
   - bus_pass
-  - '1950-02-01'
+  - '1949-02-01'
   :next_node: :bus_pass_result
   :outcome_node: true
 - :current_node: :dob_age?
   :responses:
   - bus_pass
-  - '1951-04-06'
+  - '1950-02-01'
   :next_node: :bus_pass_result
   :outcome_node: true
 - :current_node: :dob_age?

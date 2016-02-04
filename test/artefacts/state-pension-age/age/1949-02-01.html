@@ -28,11 +28,11 @@
   </header>
 
     <div class="step current">
-      <form action="/state-pension-age/y" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+      <form action="/state-pension-age/y/age/1949-02-01" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
         <div class="current-question" id="current-question">
           <div class="question">
   <h2>
-    What would you like to calculate?
+    Are you a man or a woman?
   </h2>
   <div class="question-body">
     
@@ -44,14 +44,14 @@
       <ul class="options">
     <li>
       <label for="response_0" class="selectable">
-        <input type="radio" name="response" id="response_0" value="age" />
-        State Pension age - including Pension Credit qualifying age
+        <input type="radio" name="response" id="response_0" value="male" />
+        Man
       </label>
     </li>
     <li>
       <label for="response_1" class="selectable">
-        <input type="radio" name="response" id="response_1" value="bus_pass" />
-        Bus pass age - find out when you’ll get free bus travel
+        <input type="radio" name="response" id="response_1" value="female" />
+        Woman
       </label>
     </li>
 </ul>
@@ -70,7 +70,43 @@
         </div>
       </form>
     </div>
-  
+    <div class="previous-answers">
+    <div class="done-questions">
+      <article>
+          <h3 class="previous-answers-title">
+            Previous answers
+          </h3>
+          <a class="start-right" href="/state-pension-age">Start again</a>
+        <table>
+          <tbody>
+              <tr class="section">
+  <td class="previous-question-title">What would you like to calculate?</td>
+    <td class="previous-question-body">
+    State Pension age - including Pension Credit qualifying age</td>
+
+  <td class="link-right">
+    <a href="/state-pension-age/y?previous_response=age">
+      Change<span class="visuallyhidden"> answer to "What would you like to calculate?"</span>
+</a>  </td>
+</tr>
+
+              <tr class="section">
+  <td class="previous-question-title">What is your date of birth?</td>
+    <td class="previous-question-body">
+     1 February 1949</td>
+
+  <td class="link-right">
+    <a href="/state-pension-age/y/age?previous_response=1949-02-01">
+      Change<span class="visuallyhidden"> answer to "What is your date of birth?"</span>
+</a>  </td>
+</tr>
+
+          </tbody>
+        </table>
+      </article>
+    </div>
+  </div>
+
 
   </div>
 
