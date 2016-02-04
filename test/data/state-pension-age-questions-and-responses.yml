@@ -1,0 +1,13 @@
+---
+:which_calculation?:
+- age
+- bus_pass
+:dob_age?:
+- 1949-02-01
+- 1950-02-01
+- 1953-02-06
+- 1980-01-01
+- 2000-01-01
+:gender?:
+- male
+- female
