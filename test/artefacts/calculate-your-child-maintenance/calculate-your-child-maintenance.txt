@@ -1,16 +1,24 @@
 Child maintenance calculator
 
-Use the calculator to agree on a child maintenance amount if [you’re arranging it yourselves](/arranging-child-maintenance-yourself), or to get an idea of the statutory amount the government would work out for you (including collection and application fees).
 
-Don't use the calculator if you have a ['1993 scheme' or '2003 scheme' case](/how-child-maintenance-is-worked-out/child-maintenance-before-march-2003). These are managed by the Child Support Agency (CSA).
+You can use this calculator to estimate your child maintenance. It can help you to:
 
-##What you need to know:##
+* agree an amount with the other parent if [you’re arranging it yourselves](/arranging-child-maintenance-yourself)
+* get an idea of the amount the government would work out for you (including collection and application fees)
 
-- the calculator gives an estimate (it won't cover variations for exceptional circumstances)
-- you need information about your income
-- if you already have a case with the Child Support Agency (CSA) or the Child Maintenance Service and your circumstances have changed, [contact the office managing your case](/child-support-agency) - they’ll tell you if your child maintenance payments will change
+Don't use the calculator if you have a ['1993 scheme' or '2003 scheme' case](/how-child-maintenance-is-worked-out/child-maintenance-before-march-2003). These are managed by the [Child Support Agency](/child-maintenance/contact) (CSA).
+
+^The calculator only gives an estimate - it may not give the right result for complicated circumstances, eg if the paying parent also has children from a different relationship.^
+
+##Before you start
+
+You need information about the income of the parent who'll be paying.
 
 Check the [child maintenance rates](/how-child-maintenance-is-worked-out/how-the-child-maintenance-service-works-out-child-maintenance) before you use the calculator.
+
+##If your circumstances have changed
+
+If you already have a case with the Child Support Agency (CSA) or the Child Maintenance Service and your circumstances have changed, [contact the office managing your case](/child-maintenance/contact). They’ll tell you if your child maintenance payments will change.
 
 *[CSA]: Child Support Agency
 
