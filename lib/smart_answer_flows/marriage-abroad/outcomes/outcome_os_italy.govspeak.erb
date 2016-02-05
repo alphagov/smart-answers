@@ -63,14 +63,14 @@
 
   <% end %>
   <% if resident_of == 'ceremony_country' %>
-    To get a Nulla Osta, you’ll first need to give notice of your intended marriage at the British Embassy in Rome.
-
-    ###Applying for a Nulla Osta from the embassy
+    To get a Nulla Osta, you’ll first need to post notice of your intended marriage at the British Embassy in Rome.
 
     <%= render partial: "three_day_residency_requirement.govspeak.erb",
                      locals: {
                        country_name_lowercase_prefix: country_name_lowercase_prefix
-                     } -%> You can then book an appointment at the British Embassy in Rome.
+                     } -%>
+
+    ###Applying for a Nulla Osta from the embassy
 
 
     <% if partner_nationality == 'partner_british' %>
