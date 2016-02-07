@@ -80,7 +80,7 @@
     <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
   <% end %>
 
-  <% if calculator.partner_nationality == 'partner_british' %>
+  <% if calculator.partner_british? %>
     <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
   <% else %>
     <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>
