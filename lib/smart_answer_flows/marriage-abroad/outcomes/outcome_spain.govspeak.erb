@@ -145,7 +145,7 @@
 
     <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
 
-    <% unless calculator.partner_nationality == 'partner_british' %>
+    <% unless calculator.partner_british? %>
       <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
     <% end %>
 

@@ -11,7 +11,7 @@
   <% if resident_of == 'uk' %>
     You’ll need to get a certificate of no impediment (CNI) from the authorities in the UK to prove you’re allowed to marry.
 
-    <% if calculator.partner_nationality == 'partner_british' %>
+    <% if calculator.partner_british? %>
       ^Your partner will need to follow the same process to get their own CNI.^
     <% end %>
 
@@ -23,7 +23,7 @@
                } -%>
 
     ###Getting a statutory declaration
-    <% if calculator.partner_nationality == 'partner_british' %>
+    <% if calculator.partner_british? %>
 
 
       While you’re waiting for your CNI, you and your partner will need to make a statutory declaration before a [solicitor or public notary](http://www.lawsociety.org.uk/find-a-solicitor/) in the UK. The Italian authorities will need this in addition to your CNI. There’s a standard template in English and Italian that you can download and use.

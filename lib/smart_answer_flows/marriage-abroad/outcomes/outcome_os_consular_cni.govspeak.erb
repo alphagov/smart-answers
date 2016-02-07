@@ -348,7 +348,7 @@
 
   <% if resident_of == 'ceremony_country' %>
 
-    <% if calculator.partner_nationality == 'partner_british' && %w(germany finland).exclude?(ceremony_country) %>
+    <% if calculator.partner_british? && %w(germany finland).exclude?(ceremony_country) %>
       ^Your partner will need to follow the same process and pay the fees to get their own CNI.^
     <% end %>
 
