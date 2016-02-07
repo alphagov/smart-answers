@@ -39,13 +39,14 @@
 
   <%= render partial: 'os_affirmation/what_you_need_to_do.govspeak.erb',
              locals: {
+               calculator: calculator,
                data_query: data_query,
                resident_of: resident_of,
                ceremony_country: ceremony_country,
                country_name_lowercase_prefix: country_name_lowercase_prefix,
                sex_of_your_partner: sex_of_your_partner,
                overseas_passports_embassies: overseas_passports_embassies,
-               partner_nationality: partner_nationality,
+               partner_nationality: calculator.partner_nationality,
                embassy_or_consulate_ceremony_country: embassy_or_consulate_ceremony_country
              } -%>
 

@@ -22,7 +22,8 @@
     <% end %>
   <% end %>
 
-  <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+  <%= render partial: 'what_you_need_to_do.govspeak.erb',
+      locals: { calculator: calculator } %>
 
   <% if ceremony_country == 'bonaire-st-eustatius-saba' %>
     <%= render partial: 'country_is_dutch_caribbean_island.govspeak.erb',
@@ -62,7 +63,7 @@
 
   There aren’t any British consular facilities to register a same-sex relationship, or get legal documents to prove you’re eligible to enter into a same-sex relationship, in <%= country_name_lowercase_prefix %>.
 
-  <% if partner_nationality != 'partner_british' %>
+  <% if calculator.partner_nationality != 'partner_british' %>
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
   <% end %>
 <% end %>

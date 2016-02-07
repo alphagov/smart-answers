@@ -38,7 +38,8 @@
 
   <% end %>
 
-  <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+  <%= render partial: 'what_you_need_to_do.govspeak.erb',
+      locals: { calculator: calculator } %>
 
   You'll be asked to provide a certificate of no impediment (CNI), marital status certificate or both to prove you’re allowed to marry.
 
@@ -144,7 +145,7 @@
 
     <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
 
-    <% unless partner_nationality == 'partner_british' %>
+    <% unless calculator.partner_nationality == 'partner_british' %>
       <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
     <% end %>
 

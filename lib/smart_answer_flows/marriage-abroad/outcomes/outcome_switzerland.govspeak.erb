@@ -27,7 +27,8 @@
     ^You should [get legal advice](/government/publications/switzerland-list-of-lawyers) and check the [travel advice for Switzerland](/foreign-travel-advice/switzerland) before making any plans.^
 
 
-    <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+    <%= render partial: 'what_you_need_to_do.govspeak.erb',
+        locals: { calculator: calculator } %>
 
     <% if sex_of_your_partner == 'opposite_sex' %>
       You may be asked to provide a civil status declaration to prove you’re allowed to marry.

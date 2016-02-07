@@ -40,7 +40,8 @@
                  ceremony_country: ceremony_country
                } %>
 
-    <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+    <%= render partial: 'what_you_need_to_do.govspeak.erb',
+        locals: { calculator: calculator } %>
 
     Make an appointment at the British embassy or consulate in Brazil to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee of £55.
 

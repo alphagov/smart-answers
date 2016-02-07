@@ -32,5 +32,18 @@ module SmartAnswer
         assert_same @calculator, @new_state.calculator
       end
     end
+
+    context 'when answering what_is_your_partners_nationality? question' do
+      setup do
+        Calculators::MarriageAbroadCalculator.stubs(:new).returns(@calculator)
+        setup_states_for_question(:what_is_your_partners_nationality?,
+          responding_with: 'partner_british', initial_state: {
+            calculator: @calculator })
+      end
+
+      should 'store parsed response on calculator as partner_nationality' do
+        assert_equal 'partner_british', @calculator.partner_nationality
+      end
+    end
   end
 end

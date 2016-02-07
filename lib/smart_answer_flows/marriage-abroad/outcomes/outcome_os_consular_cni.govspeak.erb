@@ -56,7 +56,8 @@
     <% end %>
   <% end %>
 
-  <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+  <%= render partial: 'what_you_need_to_do.govspeak.erb',
+      locals: { calculator: calculator } %>
 
   <% if ceremony_and_residency_in_croatia %>
     You'll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
@@ -347,7 +348,7 @@
 
   <% if resident_of == 'ceremony_country' %>
 
-    <% if partner_nationality == 'partner_british' && %w(germany finland).exclude?(ceremony_country) %>
+    <% if calculator.partner_nationality == 'partner_british' && %w(germany finland).exclude?(ceremony_country) %>
       ^Your partner will need to follow the same process and pay the fees to get their own CNI.^
     <% end %>
 
@@ -426,7 +427,7 @@
                } %>
 
   <% end %>
-  <% if resident_of == 'uk' && "partner_other" == partner_nationality && "finland" == ceremony_country %>
+  <% if resident_of == 'uk' && "partner_other" == calculator.partner_nationality && "finland" == ceremony_country %>
     <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>
 
   <% end %>
@@ -442,7 +443,7 @@
     <%= render partial: 'you_dont_need_to_stay_in_country.govspeak.erb' %>
 
   <% end %>
-  <% if partner_nationality != 'partner_british' %>
+  <% if calculator.partner_nationality != 'partner_british' %>
 
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 

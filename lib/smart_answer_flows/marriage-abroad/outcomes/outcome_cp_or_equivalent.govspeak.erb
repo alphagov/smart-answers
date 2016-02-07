@@ -71,7 +71,7 @@
                  } %>
     <% end %>
   <% end %>
-  <% if partner_nationality != 'partner_british' %>
+  <% if calculator.partner_nationality != 'partner_british' %>
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
   <% end %>
   <% unless ceremony_country == 'czech-republic' && sex_of_your_partner == 'same_sex' %>

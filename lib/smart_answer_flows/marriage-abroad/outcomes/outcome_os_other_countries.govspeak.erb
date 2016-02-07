@@ -10,7 +10,7 @@
                locals: {
                  overseas_passports_embassies: overseas_passports_embassies
                } %>
-    <% if partner_nationality == 'partner_local' %>
+    <% if calculator.partner_nationality == 'partner_local' %>
       %Marriage between a Burmese citizen and a foreign national is not allowed under local law.%
 
     <% end %>
@@ -20,7 +20,7 @@
                locals: {
                  overseas_passports_embassies: overseas_passports_embassies
                } %>
-    <% if partner_nationality == 'partner_local' %>
+    <% if calculator.partner_nationality == 'partner_local' %>
       %Marriage between a citizen of North Korea and a foreign national is not allowed under local law.%
 
     <% end %>
@@ -81,7 +81,7 @@
 
       You’ll need to pay additional fees for the marriage ceremony and to get your marriage certificate (see below).
 
-      <% if partner_nationality != 'partner_british' %>
+      <% if calculator.partner_nationality != 'partner_british' %>
         <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 
       <% end %>

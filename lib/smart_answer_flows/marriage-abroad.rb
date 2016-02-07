@@ -28,9 +28,6 @@ module SmartAnswer
           Calculators::MarriageAbroadCalculator.new
         end
 
-        calculate :partner_nationality do
-          nil
-        end
         calculate :resident_of do
           nil
         end
@@ -170,8 +167,10 @@ module SmartAnswer
         option :partner_local
         option :partner_other
 
-        save_input_as :partner_nationality
-        next_node :partner_opposite_or_same_sex?
+        next_node(permitted: [:partner_opposite_or_same_sex?]) do |response|
+          calculator.partner_nationality = response
+          :partner_opposite_or_same_sex?
+        end
       end
 
       # Q5
@@ -182,7 +181,7 @@ module SmartAnswer
         save_input_as :sex_of_your_partner
 
         next_node_calculation(:ceremony_in_laos_partners_not_local) {
-          (ceremony_country == "laos") && (partner_nationality != "partner_local")
+          (ceremony_country == "laos") && (calculator.partner_nationality != "partner_local")
         }
 
         next_node_calculation(:ceremony_in_finland_uk_resident) {
@@ -214,20 +213,20 @@ module SmartAnswer
         }
 
         next_node_calculation(:ss_marriage_germany_partner_local) { |response|
-          response == 'same_sex' && (ceremony_country == "germany") && (partner_nationality == "partner_local")
+          response == 'same_sex' && (ceremony_country == "germany") && (calculator.partner_nationality == "partner_local")
         }
         next_node_calculation(:ss_marriage_countries) { |response|
           response == 'same_sex' && data_query.ss_marriage_countries?(ceremony_country)
         }
         next_node_calculation(:ss_marriage_countries_when_couple_british) { |response|
-          response == 'same_sex' && data_query.ss_marriage_countries_when_couple_british?(ceremony_country) && %w(partner_british).include?(partner_nationality)
+          response == 'same_sex' && data_query.ss_marriage_countries_when_couple_british?(ceremony_country) && %w(partner_british).include?(calculator.partner_nationality)
         }
         next_node_calculation(:ss_marriage_and_partnership) { |response|
           response == 'same_sex' && data_query.ss_marriage_and_partnership?(ceremony_country)
         }
 
         next_node_calculation(:ss_marriage_not_possible) { |response|
-          response == 'same_sex' && data_query.ss_marriage_not_possible?(ceremony_country, partner_nationality)
+          response == 'same_sex' && data_query.ss_marriage_not_possible?(ceremony_country, calculator.partner_nationality)
         }
 
         next_node_calculation(:ss_unknown_no_embassies) { |response|
