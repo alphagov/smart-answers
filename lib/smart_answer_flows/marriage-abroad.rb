@@ -24,6 +24,10 @@ module SmartAnswer
       country_select :country_of_ceremony?, exclude_countries: exclude_countries do
         save_input_as :ceremony_country
 
+        next_node_calculation :calculator do
+          Calculators::MarriageAbroadCalculator.new
+        end
+
         calculate :partner_nationality do
           nil
         end
