@@ -11,7 +11,8 @@
 
   <%= render partial: 'get_legal_advice.govspeak.erb' %>
 
-  <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+  <%= render partial: 'what_you_need_to_do.govspeak.erb',
+      locals: { calculator: calculator } %>
 
   You may be asked to provide an ‘affirmation for marriage’ document to prove you’re allowed to marry.
 

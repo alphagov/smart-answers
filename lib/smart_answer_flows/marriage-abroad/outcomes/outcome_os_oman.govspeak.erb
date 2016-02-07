@@ -17,7 +17,8 @@
                ceremony_country: ceremony_country
              } %>
 
-  <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+  <%= render partial: 'what_you_need_to_do.govspeak.erb',
+      locals: { calculator: calculator } %>
 
   You may be asked to swear an oath or affidavit (written statement of facts) before you get married. You must do this at a British embassy in Oman.
 

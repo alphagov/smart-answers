@@ -74,7 +74,7 @@
            } %>
     <% end %>
 
-    <% if partner_nationality == 'partner_british' %>
+    <% if calculator.partner_nationality == 'partner_british' %>
       <%= render partial: 'documents_needed_ss_british.govspeak.erb' %>
     <% elsif ceremony_country == 'germany' %>
       You’ll both need to bring your original passports. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need to provide:
@@ -147,7 +147,7 @@
 
   <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 
-  <% if data_query.ss_alt_fees_table_country?(ceremony_country, partner_nationality) %>
+  <% if data_query.ss_alt_fees_table_country?(ceremony_country, calculator.partner_nationality) %>
     <% case marriage_and_partnership_phrases %>
     <% when 'ss_marriage' %>
       ##Fees

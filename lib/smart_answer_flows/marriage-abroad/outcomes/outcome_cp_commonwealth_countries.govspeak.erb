@@ -37,7 +37,7 @@
                country_name_lowercase_prefix: country_name_lowercase_prefix
              } %>
 
-  <% if partner_nationality != 'partner_british' %>
+  <% if calculator.partner_nationality != 'partner_british' %>
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
   <% end %>
 <% end %>

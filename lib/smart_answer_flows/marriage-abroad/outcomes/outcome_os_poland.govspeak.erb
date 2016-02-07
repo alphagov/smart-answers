@@ -27,7 +27,8 @@
                } %>
   <% end %>
 
-  <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+  <%= render partial: 'what_you_need_to_do.govspeak.erb',
+      locals: { calculator: calculator } %>
   <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
 
   <% if resident_of == 'uk' %>
@@ -61,7 +62,7 @@
 
     <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
 
-    <% if partner_nationality != 'partner_british' %>
+    <% if calculator.partner_nationality != 'partner_british' %>
       <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
     <% end %>
   <% end %>
@@ -105,7 +106,8 @@
 
      <%= render partial: 'partner_needs_cni.govspeak.erb',
                 locals: {
-                  partner_nationality: partner_nationality
+                  calculator: calculator,
+                  partner_nationality: calculator.partner_nationality
                 } %>
 
      <%= render partial: 'consular_cni_os_not_uk_resident_ceremony_not_germany.govspeak.erb' %>
@@ -154,7 +156,7 @@
 
     ^You don't need to stay in the country while your notice is posted.^
 
-    <% if partner_nationality != 'partner_british' %>
+    <% if calculator.partner_nationality != 'partner_british' %>
       <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
     <% end %>
   <% end %>
