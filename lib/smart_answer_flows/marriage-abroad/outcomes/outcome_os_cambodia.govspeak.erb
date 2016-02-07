@@ -11,11 +11,12 @@
              } %>
 
 
-  <% if partner_nationality != 'partner_local' %>
+  <% if calculator.partner_nationality != 'partner_local' %>
     %There are certain restrictions on getting married in Cambodia if neither of you is Cambodian. If neither of you is Cambodian, you must check with both the Ministry of Foreign Affairs and the local Sangkat to find out if if you can get married.%
   <% end -%>
 
-  <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+  <%= render partial: 'what_you_need_to_do.govspeak.erb',
+      locals: { calculator: calculator } %>
 
   If the local authorities say you can get married, you’ll be asked to provide an ‘affirmation for marriage’ document to prove you’re allowed to marry.
 
@@ -37,7 +38,7 @@
 
   <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
 
-  <% if partner_nationality != 'partner_british' %>
+  <% if calculator.partner_nationality != 'partner_british' %>
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
   <% end %>
 

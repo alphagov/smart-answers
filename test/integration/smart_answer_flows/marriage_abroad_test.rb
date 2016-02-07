@@ -93,7 +93,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         end
         should "ask what sex is your partner" do
           assert_current_node :partner_opposite_or_same_sex?
-          assert_state_variable :partner_nationality, 'partner_british'
         end
         context "opposite sex partner" do
           setup do
@@ -134,7 +133,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         end
         should "ask what sex is your partner" do
           assert_current_node :partner_opposite_or_same_sex?
-          assert_state_variable :partner_nationality, 'partner_local'
         end
         context "opposite sex partner" do
           setup do
@@ -175,7 +173,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         end
         should "ask what sex is your partner" do
           assert_current_node :partner_opposite_or_same_sex?
-          assert_state_variable :partner_nationality, 'partner_local'
         end
         context "opposite sex partner" do
           setup do

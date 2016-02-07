@@ -22,7 +22,8 @@
                } %>
 
   <% end %>
-  <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+  <%= render partial: 'what_you_need_to_do.govspeak.erb',
+      locals: { calculator: calculator } %>
 
   <% if ceremony_country == 'norway' %>
     You’ll need to prove that you’re allowed to marry. There are 2 ways you can do this:
