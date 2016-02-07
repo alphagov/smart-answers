@@ -115,7 +115,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_italy.govspeak.erb: 0
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_japan.govspeak.erb: 4b74067069ad26147cc9c83079c76a71
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_kosovo.govspeak.erb: d57c297e30f3e31be3d50f51d0cf5708
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_laos.govspeak.erb: 141437f2f430c230566fe05cebdb8189
-lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_marriage_impossible_no_laos_locals.govspeak.erb: 3be3a33c8eba1ac4017c13ecd9ed284a
+lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_laos_marriage_impossible.govspeak.erb: 3be3a33c8eba1ac4017c13ecd9ed284a
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_no_cni.govspeak.erb: 7f223da1e95e88ee963c6c340b1513bb
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_oman.govspeak.erb: 0d7e78492aade7d76c4cdd6a4dcf5f79
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_other_countries.govspeak.erb: 4c07f4c0a10c160d20b1adb838b19060

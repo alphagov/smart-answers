@@ -258,7 +258,7 @@ module SmartAnswer
           :outcome_os_kosovo,
           :outcome_os_laos,
           :outcome_os_japan,
-          :outcome_os_marriage_impossible_no_laos_locals,
+          :outcome_os_laos_marriage_impossible,
           :outcome_os_no_cni,
           :outcome_os_oman,
           :outcome_os_other_countries,
@@ -313,7 +313,7 @@ module SmartAnswer
             elsif ceremony_country == "indonesia"
               :outcome_os_indonesia
             elsif ceremony_in_laos_partners_not_local
-              :outcome_os_marriage_impossible_no_laos_locals
+              :outcome_os_laos_marriage_impossible
             elsif ceremony_country == "laos"
               :outcome_os_laos
             elsif ceremony_country == 'poland'
@@ -542,7 +542,7 @@ module SmartAnswer
 
       outcome :outcome_ss_affirmation
 
-      outcome :outcome_os_marriage_impossible_no_laos_locals
+      outcome :outcome_os_laos_marriage_impossible
     end
   end
 end
