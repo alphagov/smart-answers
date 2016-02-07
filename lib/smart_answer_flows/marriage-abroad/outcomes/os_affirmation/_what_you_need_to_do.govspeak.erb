@@ -263,7 +263,7 @@
 <% end %>
 
 <% if ceremony_country == 'egypt' %>
-  <% if calculator.partner_nationality == 'partner_british' %>
+  <% if calculator.partner_british? %>
     ^Your partner will need to make a declaration as well.^
 
   <% else %>
@@ -272,7 +272,7 @@
 <% end %>
 <% unless ceremony_country == 'egypt' %>
   <% if ceremony_country == 'turkey' %>
-    <% if calculator.partner_nationality == 'partner_british' %>
+    <% if calculator.partner_british? %>
       <%= render partial: 'partner_needs_affirmation.govspeak.erb' %>
 
     <% else %>
@@ -285,7 +285,7 @@
     ^An ’affirmation for marriage’ document issued in Morocco is valid for 3 months.^
 
   <% else %>
-    <% if calculator.partner_nationality == 'partner_british' %>
+    <% if calculator.partner_british? %>
       <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
     <% else %>
       <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>

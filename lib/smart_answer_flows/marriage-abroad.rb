@@ -219,7 +219,7 @@ module SmartAnswer
           response == 'same_sex' && data_query.ss_marriage_countries?(ceremony_country)
         }
         next_node_calculation(:ss_marriage_countries_when_couple_british) { |response|
-          response == 'same_sex' && data_query.ss_marriage_countries_when_couple_british?(ceremony_country) && %w(partner_british).include?(calculator.partner_nationality)
+          response == 'same_sex' && data_query.ss_marriage_countries_when_couple_british?(ceremony_country) && calculator.partner_british?
         }
         next_node_calculation(:ss_marriage_and_partnership) { |response|
           response == 'same_sex' && data_query.ss_marriage_and_partnership?(ceremony_country)

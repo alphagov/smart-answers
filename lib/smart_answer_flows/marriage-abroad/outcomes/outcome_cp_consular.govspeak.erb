@@ -53,7 +53,7 @@
   You’ll need to provide two witnesses and pay a fee to register your civil partnership. You’ll need to pay an additional fee for your civil partnership certificate (see below).
 
 
-  <% unless calculator.partner_nationality == 'partner_british' %>
+  <% unless calculator.partner_british? %>
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
   <% end %>
 
