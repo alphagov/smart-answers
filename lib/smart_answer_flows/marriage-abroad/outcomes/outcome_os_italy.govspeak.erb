@@ -63,7 +63,7 @@
     You’ll also need to get your CNI [translated](/government/publications/italy-list-of-translators-and-interpreters) and sworn before the Italian courts or an Italian Justice of the Peace.
 
   <% end %>
-  <% if calculator.resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of_ceremony_country? %>
     To get a Nulla Osta, you’ll first need to give notice of your intended marriage at the British Embassy in Rome.
 
     ###Applying for a Nulla Osta from the embassy
@@ -96,7 +96,7 @@
     ^If you’re a woman you must wait 300 days after divorcing or the death of your husband before remarrying.^
 
   <% end %>
-  <% if calculator.resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
 
 
@@ -113,7 +113,7 @@
 
   <%= render partial: 'names_on_documents_must_match.govspeak.erb' -%>
 
-  <% if calculator.resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of_ceremony_country? %>
     ^You don't need to stay in the country while your notice is posted.^
 
   <% end %>

@@ -4,7 +4,7 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if calculator.resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'contact_local_authorities.govspeak.erb' %>
 
     <%= render partial: 'get_legal_advice.govspeak.erb' %>
