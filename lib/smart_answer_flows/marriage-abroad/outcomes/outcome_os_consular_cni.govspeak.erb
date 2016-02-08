@@ -35,7 +35,7 @@
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix
                } %>
-    <% if calculator.resident_of == 'ceremony_country' %>
+    <% if calculator.resident_of_ceremony_country? %>
       <%= render partial: 'gulf_states_os_consular_cni_local_resident.govspeak.erb',
                  locals: {
                    country_name_lowercase_prefix: country_name_lowercase_prefix
@@ -45,7 +45,7 @@
   <% end %>
   <% if %(japan).exclude?(calculator.ceremony_country) %>
 
-    <% if calculator.resident_of == 'ceremony_country' %>
+    <% if calculator.resident_of_ceremony_country? %>
       <%= render partial: 'get_legal_advice.govspeak.erb' %>
     <% else %>
       <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
@@ -161,7 +161,7 @@
                  } %>
     <% end %>
   <% end %>
-  <% if calculator.resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of_ceremony_country? %>
     <% if calculator.ceremony_country == 'croatia' %>
 
       ###Applying for a CNI from the <%= embassy_or_consulate_ceremony_country %>
@@ -199,7 +199,7 @@
       ### Posting notice at the embassy
 
     <% end %>
-    <% if calculator.ceremony_country == 'estonia' && calculator.resident_of == 'ceremony_country' %>
+    <% if calculator.ceremony_country == 'estonia' && calculator.resident_of_ceremony_country? %>
       ^You may be able to get married without a CNI if you have a permanent address in Estonia and have a 6 month residence permit - contact the local authorities to find out.^
 
     <% end %>
@@ -257,7 +257,7 @@
     <%= render partial: 'required_supporting_documents_philippines.govspeak.erb' %>
   <% elsif calculator.resident_of != 'uk' && calculator.ceremony_country == 'macao' %>
     <%= render partial: 'required_supporting_documents_macao.govspeak.erb' %>
-  <% elsif calculator.resident_of == 'ceremony_country' && %w(germany japan).exclude?(calculator.ceremony_country) %>
+  <% elsif calculator.resident_of_ceremony_country? && %w(germany japan).exclude?(calculator.ceremony_country) %>
     <% if birth_cert_inclusion && notary_public_inclusion %>
       You’ll need to provide supporting documents, including:
 
@@ -296,7 +296,7 @@
 
     <% end %>
   <% end %>
-  <% if calculator.resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of_ceremony_country? %>
     <% if calculator.ceremony_country == 'japan' %>
       <%= render partial: 'contact_method.govspeak.erb',
                  locals: {
@@ -317,7 +317,7 @@
 
     <% end %>
   <% end %>
-  <% if calculator.resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of_ceremony_country? %>
     <% if calculator.ceremony_country == 'greece' %>
       You’ll need to fill in forms for your notice of marriage, and complete an affirmation (non-religious) or affidavit (religious) stating that you’re free to marry.
 
@@ -346,7 +346,7 @@
     <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
   <% end %>
 
-  <% if calculator.resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of_ceremony_country? %>
 
     <% if calculator.partner_british? && %w(germany finland).exclude?(calculator.ceremony_country) %>
       ^Your partner will need to follow the same process and pay the fees to get their own CNI.^
@@ -439,7 +439,7 @@
                } %>
 
   <% end %>
-  <% if calculator.resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'you_dont_need_to_stay_in_country.govspeak.erb' %>
 
   <% end %>
@@ -459,7 +459,7 @@
     You may be asked to provide a copy of your birth certificate. Make sure you send a [certified copy](/order-copy-birth-death-marriage-certificate) as you won’t get it back.
   <% end -%>
 
-  <% if calculator.ceremony_country == 'croatia' && calculator.resident_of == 'ceremony_country' %>
+  <% if calculator.ceremony_country == 'croatia' && calculator.resident_of_ceremony_country? %>
     ##Fees
 
     Service | Fee

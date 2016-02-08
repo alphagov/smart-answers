@@ -27,5 +27,9 @@ module SmartAnswer::Calculators
     def resident_of_uk?
       resident_of == 'uk'
     end
+
+    def resident_of_ceremony_country?
+      resident_of == 'ceremony_country'
+    end
   end
 end

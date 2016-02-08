@@ -35,7 +35,7 @@
     <% end %>
   <% end %>
 
-  <% if calculator.resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'get_legal_advice.govspeak.erb' %>
   <% else %>
     <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',

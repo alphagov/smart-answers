@@ -482,7 +482,7 @@ module SmartAnswer
           (calculator.ceremony_country != 'germany' || calculator.resident_of_uk?)
         end
         precalculate :ceremony_and_residency_in_croatia do
-          (calculator.ceremony_country == 'croatia' && calculator.resident_of == 'ceremony_country')
+          (calculator.ceremony_country == 'croatia' && calculator.resident_of_ceremony_country?)
         end
         precalculate :birth_cert_inclusion do
           if no_birth_cert_requirement.exclude?(calculator.ceremony_country)

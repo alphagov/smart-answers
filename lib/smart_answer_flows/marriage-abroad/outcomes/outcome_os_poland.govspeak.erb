@@ -17,7 +17,7 @@
                } %>
   <% end %>
 
-  <% if calculator.resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'get_legal_advice.govspeak.erb' %>
   <% else %>
     <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
@@ -67,7 +67,7 @@
     <% end %>
   <% end %>
 
-  <% if calculator.resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: "have_documents_witnessed_to_get_cni.govspeak.erb",
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix
@@ -115,7 +115,7 @@
 
   ## What happens next
 
-  <% if calculator.resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of_ceremony_country? %>
     The embassy or notary public can take your oath or affirmation and witness your notice of marriage. The notary public may charge 2 separate fees for this.
 
     If you got your documents witnessed at a notary public, you must post the signed forms to the British embassy in Warsaw afterwards.

@@ -15,7 +15,7 @@
              } -%>
 
   <% if %w(ecuador).exclude?(calculator.ceremony_country) %>
-    <% if calculator.resident_of == 'ceremony_country' %>
+    <% if calculator.resident_of_ceremony_country? %>
       <%= render partial: 'get_legal_advice.govspeak.erb' %>
     <% else %>
       <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
@@ -46,7 +46,7 @@
                embassy_or_consulate_ceremony_country: embassy_or_consulate_ceremony_country
              } -%>
 
-   <% if calculator.ceremony_country == 'united-arab-emirates' && calculator.resident_of == 'ceremony_country' %>
+   <% if calculator.ceremony_country == 'united-arab-emirates' && calculator.resident_of_ceremony_country? %>
      You may be able to get married at the British Embassy if you’re both resident in the United Arab Emirates and can prove that there are no other suitable facilities to get married locally.
 
      Contact the [British Embassy in Abu Dhabi](/government/world/organisations/british-embassy-abu-dhabi) or the [British Embassy in Dubai](/government/world/organisations/british-embassy-dubai) for more information.
