@@ -6,16 +6,16 @@
   <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
              locals: {
                country_name_lowercase_prefix: country_name_lowercase_prefix,
-               ceremony_country: ceremony_country
+               ceremony_country: calculator.ceremony_country
              } %>
 
   <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
              locals: {
                country_name_lowercase_prefix: country_name_lowercase_prefix,
-               ceremony_country: ceremony_country
+               ceremony_country: calculator.ceremony_country
              } %>
 
-  <% if data_query.os_no_marriage_related_consular_services?(ceremony_country) %>
+  <% if data_query.os_no_marriage_related_consular_services?(calculator.ceremony_country) %>
     <%= render partial: 'cni_os_consular_facilities_unavailable.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix
@@ -25,7 +25,7 @@
   <%= render partial: 'what_you_need_to_do.govspeak.erb',
       locals: { calculator: calculator } %>
 
-  <% if ceremony_country == 'norway' %>
+  <% if calculator.ceremony_country == 'norway' %>
     You’ll need to prove that you’re allowed to marry. There are 2 ways you can do this:
 
     - [go to the UK and post notice with a UK registrar](<%= uk_residence_outcome_path %>)
@@ -33,7 +33,7 @@
   <% else %>
     <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
 
-    <% if ceremony_country == 'nicaragua' %>
+    <% if calculator.ceremony_country == 'nicaragua' %>
       There are 2 ways you can get a CNI:
 
       - [go to the UK and post notice with a UK registrar](<%= uk_residence_outcome_path %>)
@@ -47,9 +47,9 @@
       - [go to the UK and post notice with a UK registrar](<%= uk_residence_outcome_path %>)
       - [go to <%= country_name_lowercase_prefix %> and post notice at the embassy or consulate there](<%= ceremony_country_residence_outcome_path %>)
 
-      <% if ceremony_country == 'greece' %>
+      <% if calculator.ceremony_country == 'greece' %>
         %If you choose to post notice in <%= country_name_lowercase_prefix %>, you’ll normally have to wait at least 14 days before you can apply to get married.%
-      <% elsif ceremony_country == 'italy' %>
+      <% elsif calculator.ceremony_country == 'italy' %>
       <% else %>
         <%= render partial: 'you_will_have_to_wait_to_get_married.govspeak.erb',
                    locals: {
@@ -57,7 +57,7 @@
                    } %>
       <% end -%>
 
-      <% if ceremony_country == 'poland' %>
+      <% if calculator.ceremony_country == 'poland' %>
         <%= render partial: 'check_if_uk_issued_cnis_accepted.govspeak.erb',
                    locals: {
                      country_name_lowercase_prefix: country_name_lowercase_prefix

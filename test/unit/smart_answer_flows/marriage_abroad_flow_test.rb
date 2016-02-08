@@ -31,6 +31,10 @@ module SmartAnswer
       should 'instantiate and store calculator' do
         assert_same @calculator, @new_state.calculator
       end
+
+      should 'store parsed response on calculator as ceremony_country' do
+        assert_equal 'afghanistan', @calculator.ceremony_country
+      end
     end
 
     context 'when answering what_is_your_partners_nationality? question' do
