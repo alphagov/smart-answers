@@ -81,7 +81,7 @@
 
       You’ll need to pay additional fees for the marriage ceremony and to get your marriage certificate (see below).
 
-      <% if calculator.partner_nationality != 'partner_british' %>
+      <% if calculator.partner_not_british? %>
         <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 
       <% end %>

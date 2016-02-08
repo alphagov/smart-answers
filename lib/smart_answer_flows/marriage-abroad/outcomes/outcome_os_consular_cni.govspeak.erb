@@ -441,7 +441,7 @@
     ^You don't need to stay in the country while your notice is posted.^
 
   <% end %>
-  <% if calculator.partner_nationality != 'partner_british' %>
+  <% if calculator.partner_not_british? %>
 
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 

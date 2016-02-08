@@ -300,7 +300,7 @@
       You must present your approved affirmation for marriage to a local registrar in <%= country_name_lowercase_prefix %>. They will register the marriage and provide you with 2 marriage certificates.
     <% end %>
 
-    <% if calculator.partner_nationality != 'partner_british' %>
+    <% if calculator.partner_not_british? %>
       <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
     <% end %>
 
