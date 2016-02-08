@@ -42,7 +42,7 @@ module SmartAnswer
       end
 
       should 'store parsed response on calculator as partner_nationality' do
-        assert_equal 'partner_british', @calculator.partner_nationality
+        assert_equal 'partner_british', @calculator.instance_variable_get('@partner_nationality')
       end
     end
   end
