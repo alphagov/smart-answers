@@ -19,6 +19,22 @@ module SmartAnswer
         end
       end
 
+      context '#partner_not_british?' do
+        setup do
+          @calculator = MarriageAbroadCalculator.new
+        end
+
+        should 'be true if partner_nationality != "partner_british"' do
+          @calculator.partner_nationality = 'not-partner_british'
+          assert @calculator.partner_not_british?
+        end
+
+        should 'be false if partner_nationality == "partner_british"' do
+          @calculator.partner_nationality = 'partner_british'
+          refute @calculator.partner_not_british?
+        end
+      end
+
       context '#partner_is_national_of_ceremony_country?' do
         setup do
           @calculator = MarriageAbroadCalculator.new
