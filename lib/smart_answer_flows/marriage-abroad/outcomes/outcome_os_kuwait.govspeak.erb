@@ -105,7 +105,7 @@
                  country_name_lowercase_prefix: country_name_lowercase_prefix
                } %>
 
-  <% elsif calculator.resident_of == 'uk' %>
+  <% elsif calculator.resident_of_uk? %>
     <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_marriage.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix
