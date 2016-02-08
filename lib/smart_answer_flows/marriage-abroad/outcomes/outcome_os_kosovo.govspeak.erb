@@ -4,10 +4,10 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if resident_of == 'uk' %>
+  <% if calculator.resident_of_uk? %>
     Contact the [Embassy of the Republic of Kosovo in London](/government/publications/foreign-embassies-in-the-uk) to find out about local marriage laws, including what documents you’ll need.
 
-    ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for <%= country_name_lowercase_prefix %>](/foreign-travel-advice/<%= ceremony_country %>) before making any plans.^
+    ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for <%= country_name_lowercase_prefix %>](/foreign-travel-advice/<%= calculator.ceremony_country %>) before making any plans.^
 
     ##What you need to do
 
@@ -42,7 +42,7 @@
     Issuing any other consular letter or certificate in any other language | £70
     Administering an oath or making a declaration | £55
 
-    You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for <%= country_name_lowercase_prefix %>](/government/publications/<%= ceremony_country %>-consular-fees).
+    You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for <%= country_name_lowercase_prefix %>](/government/publications/<%= calculator.ceremony_country %>-consular-fees).
 
     <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
 
@@ -111,7 +111,7 @@
     Issuing any other consular letter or certificate in any other language | £70
     Administering an oath or making a declaration | £55
 
-    You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for <%= country_name_lowercase_prefix %>](/government/publications/<%= ceremony_country %>-consular-fees).
+    You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for <%= country_name_lowercase_prefix %>](/government/publications/<%= calculator.ceremony_country %>-consular-fees).
 
     <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
 

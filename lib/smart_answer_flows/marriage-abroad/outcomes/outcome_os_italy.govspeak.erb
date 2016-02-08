@@ -5,12 +5,13 @@
 <% content_for :body do %>
   Contact the local comune (town hall) before making any plans to find out about local marriage laws, including what documents you’ll need.
 
-  <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+  <%= render partial: 'what_you_need_to_do.govspeak.erb',
+      locals: { calculator: calculator } %>
 
-  <% if resident_of == 'uk' %>
+  <% if calculator.resident_of_uk? %>
     You’ll need to get a certificate of no impediment (CNI) from the authorities in the UK to prove you’re allowed to marry.
 
-    <% if partner_nationality == 'partner_british' %>
+    <% if calculator.partner_british? %>
       ^Your partner will need to follow the same process to get their own CNI.^
     <% end %>
   <% else %>
@@ -19,12 +20,12 @@
     <%= render partial: 'contact_method.govspeak.erb',
                locals: {
                  sex_of_your_partner: sex_of_your_partner,
-                 ceremony_country: ceremony_country,
+                 calculator: calculator,
                  overseas_passports_embassies: overseas_passports_embassies,
                  country_name_lowercase_prefix: country_name_lowercase_prefix
                } %>
   <% end %>
-  <% if resident_of == 'uk' %>
+  <% if calculator.resident_of_uk? %>
     <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
 
     <%= render partial: 'cni_issued_locally_validity.govspeak.erb',
@@ -32,7 +33,7 @@
                  country_name_lowercase_prefix: country_name_lowercase_prefix
                } -%>
 
-    <% if partner_nationality == 'partner_british' %>
+    <% if calculator.partner_british? %>
       ###Getting a statutory declaration
 
       While you’re waiting for your CNI, you and your partner will need to make a statutory declaration before a [solicitor or public notary](http://www.lawsociety.org.uk/find-a-solicitor/). The Italian authorities will need this in addition to your CNI. There’s a standard template in English and Italian that you can download and use.
@@ -49,7 +50,7 @@
     $D
 
 
-    <% if partner_nationality != 'partner_british' %>
+    <% if calculator.partner_not_british? %>
 
       ^Your partner should check what they need to do with their own consulate.^
 
@@ -62,7 +63,7 @@
     You’ll also need to get your CNI [translated](/government/publications/italy-list-of-translators-and-interpreters) and sworn before the Italian courts or an Italian Justice of the Peace.
 
   <% end %>
-  <% if resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of_ceremony_country? %>
     To get a Nulla Osta, you’ll first need to give notice of your intended marriage at the British Embassy in Rome.
 
     ###Applying for a Nulla Osta from the embassy
@@ -73,7 +74,7 @@
                      } -%> You can then book an appointment at the British Embassy in Rome.
 
 
-    <% if partner_nationality == 'partner_british' %>
+    <% if calculator.partner_british? %>
       You and your partner will need to provide your passports and [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate).
 
     <% else %>
@@ -86,7 +87,7 @@
 
     <% end %>
   <% end %>
-  <% if resident_of != 'uk' %>
+  <% if calculator.resident_outside_of_uk? %>
     <%= render partial: 'consular_cni_os_not_uk_resident_ceremony_not_germany.govspeak.erb' %>
 
     You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/publications/italy-list-of-translators-and-interpreters) if it’s not in English.
@@ -95,7 +96,7 @@
     ^If you’re a woman you must wait 300 days after divorcing or the death of your husband before remarrying.^
 
   <% end %>
-  <% if resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
 
 
@@ -112,16 +113,16 @@
 
   <%= render partial: 'names_on_documents_must_match.govspeak.erb' -%>
 
-  <% if resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of_ceremony_country? %>
     ^You don't need to stay in the country while your notice is posted.^
 
   <% end %>
-  <% if partner_nationality != 'partner_british' %>
+  <% if calculator.partner_not_british? %>
 
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 
   <% end %>
-  <% if resident_of != 'uk' %>
+  <% if calculator.resident_outside_of_uk? %>
     ##Fees
 
     Service | Fee
@@ -133,7 +134,7 @@
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: ceremony_country
+                 calculator: calculator
                } %>
 
     <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>

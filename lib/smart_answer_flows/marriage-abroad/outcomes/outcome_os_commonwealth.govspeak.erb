@@ -3,8 +3,8 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if resident_of == 'uk' %>
-    <% if ceremony_country == 'zimbabwe' %>
+  <% if calculator.resident_of_uk? %>
+    <% if calculator.ceremony_country == 'zimbabwe' %>
 
       Contact the [Zimbabwean Embassy in the UK](http://www.zimlondon.gov.zw/index.php/contact-us) to find out about local marriage laws, including what documents you’ll need.
 
@@ -18,29 +18,29 @@
     <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: ceremony_country
+                 calculator: calculator
                } %>
   <% end %>
 
-  <% if resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'get_legal_advice.govspeak.erb' %>
   <% else %>
     <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: ceremony_country
+                 calculator: calculator
                } %>
   <% end %>
 
-  <% if ceremony_country == 'zimbabwe' %>
+  <% if calculator.ceremony_country == 'zimbabwe' %>
     The UK doesn’t issue certificates of no impediment (CNI) for marriages in Zimbabwe. You’ll need to explain this if you’re asked to provide a CNI or a similar document to prove you’re allowed to marry.
   <% else %>
     The UK doesn’t issue certificates of no impediment (CNI) for marriages in Commonwealth countries. You’ll need to explain this if you’re asked to provide a CNI or a similar document to prove you’re allowed to marry.
   <% end %>
 
-  <% case ceremony_country %>
+  <% case calculator.ceremony_country %>
   <% when 'south-africa' %>
-    <% if partner_nationality == 'partner_local' %>
+    <% if calculator.partner_is_national_of_ceremony_country? %>
 
       %You’ll probably be asked for a CNI if you want to marry a South African citizen in South Africa. You’ll need to ask if there are any other documents the authorities will accept instead.%
 
@@ -53,7 +53,7 @@
     <%= render partial: 'contact_method.govspeak.erb',
                locals: {
                  sex_of_your_partner: sex_of_your_partner,
-                 ceremony_country: ceremony_country,
+                 calculator: calculator,
                  overseas_passports_embassies: overseas_passports_embassies,
                  country_name_lowercase_prefix: country_name_lowercase_prefix
                } %>
@@ -63,7 +63,7 @@
     <%= render partial: 'contact_method.govspeak.erb',
                locals: {
                  sex_of_your_partner: sex_of_your_partner,
-                 ceremony_country: ceremony_country,
+                 calculator: calculator,
                  overseas_passports_embassies: overseas_passports_embassies,
                  country_name_lowercase_prefix: country_name_lowercase_prefix
                } -%>
@@ -84,7 +84,7 @@
     ^You must get married through an Islamic ceremony in Brunei if you or your partner is a Muslim. Otherwise, you’ll need to have a civil marriage.^
 
   <% when 'cyprus' %>
-    <% if resident_of == 'ceremony_country' %>
+    <% if calculator.resident_of_ceremony_country? %>
 
       ###Other requirements for Cyprus
 
@@ -94,7 +94,7 @@
 
     <% end %>
   <% end %>
-  <% unless partner_nationality == 'partner_british' %>
+  <% unless calculator.partner_british? %>
 
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
   <% end %>

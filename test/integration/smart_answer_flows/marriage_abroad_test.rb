@@ -69,7 +69,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "ask your country of residence" do
       assert_current_node :legal_residency?
-      assert_state_variable :ceremony_country, 'bahamas'
       assert_state_variable :ceremony_country_name, 'Bahamas'
       assert_state_variable :country_name_lowercase_prefix, "the Bahamas"
     end
@@ -81,10 +80,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
       should "go to partner nationality question" do
         assert_current_node :what_is_your_partners_nationality?
-        assert_state_variable :ceremony_country, 'bahamas'
         assert_state_variable :ceremony_country_name, 'Bahamas'
         assert_state_variable :country_name_lowercase_prefix, "the Bahamas"
-        assert_state_variable :resident_of, 'uk'
       end
 
       context "partner is british" do
@@ -93,7 +90,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         end
         should "ask what sex is your partner" do
           assert_current_node :partner_opposite_or_same_sex?
-          assert_state_variable :partner_nationality, 'partner_british'
         end
         context "opposite sex partner" do
           setup do
@@ -123,8 +119,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
       should "go to partner's nationality question" do
         assert_current_node :what_is_your_partners_nationality?
-        assert_state_variable :resident_of, 'ceremony_country'
-        assert_state_variable :ceremony_country, 'bahamas'
         assert_state_variable :ceremony_country_name, 'Bahamas'
       end
 
@@ -134,7 +128,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         end
         should "ask what sex is your partner" do
           assert_current_node :partner_opposite_or_same_sex?
-          assert_state_variable :partner_nationality, 'partner_local'
         end
         context "opposite sex partner" do
           setup do
@@ -164,8 +157,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
       should "go to partner's nationality question" do
         assert_current_node :what_is_your_partners_nationality?
-        assert_state_variable :resident_of, 'third_country'
-        assert_state_variable :ceremony_country, 'bahamas'
         assert_state_variable :ceremony_country_name, 'Bahamas'
       end
 
@@ -175,7 +166,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         end
         should "ask what sex is your partner" do
           assert_current_node :partner_opposite_or_same_sex?
-          assert_state_variable :partner_nationality, 'partner_local'
         end
         context "opposite sex partner" do
           setup do
@@ -2181,8 +2171,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         add_response 'partner_other'
         add_response 'opposite_sex'
       end
-      should "lead to outcome_os_marriage_impossible_no_laos_locals" do
-        assert_current_node :outcome_os_marriage_impossible_no_laos_locals
+      should "lead to outcome_os_laos_marriage_impossible" do
+        assert_current_node :outcome_os_laos_marriage_impossible
       end
     end
   end
