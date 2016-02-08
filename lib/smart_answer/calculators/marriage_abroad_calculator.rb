@@ -40,6 +40,10 @@ module SmartAnswer::Calculators
       !resident_of_ceremony_country?
     end
 
+    def resident_of_uk_or_of_ceremony_country?
+      resident_of_uk? || resident_of_ceremony_country?
+    end
+
     def resident_outside_of_uk_and_outside_of_ceremony_country?
       resident_of == 'third_country'
     end

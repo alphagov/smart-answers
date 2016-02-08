@@ -15,7 +15,7 @@
                } %>
   <% end %>
 
-  <% if calculator.resident_of != 'third_country' && sex_of_your_partner == 'opposite_sex' %>
+  <% if calculator.resident_of_uk_or_of_ceremony_country? && sex_of_your_partner == 'opposite_sex' %>
     Civil weddings in Spain take place at a town hall, register office or district court. You must register with the local civil authorities afterwards to get an official marriage certificate if you have a religious wedding.
 
   <% end %>
@@ -102,7 +102,7 @@
 
   <% end %>
 
-  <% if calculator.resident_of != 'third_country' %>
+  <% if calculator.resident_of_uk_or_of_ceremony_country? %>
     ##Getting a marital status certificate
 
     Download and complete the [marital status certificate application pack](/government/publications/marital-status-certificate-for-marriage-application-pack) - it contains a list of the documents you’ll need.
