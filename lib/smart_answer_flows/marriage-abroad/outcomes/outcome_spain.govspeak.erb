@@ -7,7 +7,7 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if resident_of != 'uk' %>
+  <% if calculator.resident_of != 'uk' %>
     <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
@@ -15,7 +15,7 @@
                } %>
   <% end %>
 
-  <% if resident_of != 'third_country' && sex_of_your_partner == 'opposite_sex' %>
+  <% if calculator.resident_of != 'third_country' && sex_of_your_partner == 'opposite_sex' %>
     Civil weddings in Spain take place at a town hall, register office or district court. You must register with the local civil authorities afterwards to get an official marriage certificate if you have a religious wedding.
 
   <% end %>
@@ -25,7 +25,7 @@
 
   <% end %>
 
-  <% if resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of == 'ceremony_country' %>
     <%= render partial: 'get_legal_advice.govspeak.erb' %>
   <% else %>
     <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
@@ -51,7 +51,7 @@
   [Download 'Marital status certificate' (PDF, 145KB)](https://www.gov.uk/government/publications/marital-status-example)
   $D
 
-  <% if resident_of == 'third_country' %>
+  <% if calculator.resident_of == 'third_country' %>
     Check with the civil registry  where you’re getting married to find out what certificate you’ll need.
 
     There are 2 ways you can get these certificates:
@@ -72,7 +72,7 @@
 
   <% end %>
 
-  <% if resident_of == 'uk' %>
+  <% if calculator.resident_of == 'uk' %>
     ## Getting a certificate of no impediment
 
     <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
@@ -85,7 +85,7 @@
 
     Send the documents by registered post to the address in the application pack.
 
-  <% elsif resident_of == 'ceremony_country' %>
+  <% elsif calculator.resident_of == 'ceremony_country' %>
     ## Getting a certificate of no impediment
 
     Download and complete the [CNI application pack](/government/publications/certificate-of-no-impediment-application-pack) - it contains a list of the documents you’ll need.
@@ -102,7 +102,7 @@
 
   <% end %>
 
-  <% if resident_of != 'third_country' %>
+  <% if calculator.resident_of != 'third_country' %>
     ##Getting a marital status certificate
 
     Download and complete the [marital status certificate application pack](/government/publications/marital-status-certificate-for-marriage-application-pack) - it contains a list of the documents you’ll need.
@@ -119,7 +119,7 @@
 
     They’ll send your certificate and original documents to you by registered post.
 
-    <% if resident_of == 'ceremony_country' %>
+    <% if calculator.resident_of == 'ceremony_country' %>
       ##Other requirements for Spain
 
       If you’ve been living in Spain for less than 2 years, the civil registrar may also ask for confirmation of your addresses for the past 2 years (‘confirmación de domicilio para casarse en España’).

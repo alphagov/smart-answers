@@ -12,8 +12,8 @@
     Contact the Civil Register Office where you’re entering into a civil partnership to find out about local laws, including what documents you’ll need.
   <% end %>
 
-  <% unless resident_of == 'ceremony_country' %>
-    <% if resident_of == 'uk' %>
+  <% unless calculator.resident_of == 'ceremony_country' %>
+    <% if calculator.resident_of == 'uk' %>
 
 
       You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to enter into a <%= ceremony_type_lowercase(sex_of_your_partner) %> or equivalent in Switzerland.

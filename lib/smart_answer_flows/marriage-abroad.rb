@@ -26,9 +26,6 @@ module SmartAnswer
           Calculators::MarriageAbroadCalculator.new
         end
 
-        calculate :resident_of do
-          nil
-        end
         calculate :pay_by_cash_or_credit_card_no_cheque do
           nil
         end
@@ -123,13 +120,12 @@ module SmartAnswer
         option :ceremony_country
         option :third_country
 
-        save_input_as :resident_of
-
         permitted_next_nodes = [
           :partner_opposite_or_same_sex?,
           :what_is_your_partners_nationality?
         ]
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.resident_of = response
           if calculator.ceremony_country == 'switzerland'
             :partner_opposite_or_same_sex?
           else
@@ -184,23 +180,23 @@ module SmartAnswer
         }
 
         next_node_calculation(:ceremony_in_finland_uk_resident) {
-          (calculator.ceremony_country == "finland") && (resident_of == "uk")
+          (calculator.ceremony_country == "finland") && (calculator.resident_of == "uk")
         }
 
         next_node_calculation(:ceremony_in_norway_uk_resident) {
-          (calculator.ceremony_country == "norway") && (resident_of == "uk")
+          (calculator.ceremony_country == "norway") && (calculator.resident_of == "uk")
         }
 
         next_node_calculation(:ceremony_in_brazil_not_resident_in_the_uk) {
-          (calculator.ceremony_country == 'brazil') && (resident_of != 'uk')
+          (calculator.ceremony_country == 'brazil') && (calculator.resident_of != 'uk')
         }
 
         next_node_calculation(:consular_cni_residing_in_third_country) {
-          resident_of == 'third_country' && (data_query.os_consular_cni_countries?(calculator.ceremony_country) || %w(kosovo).include?(calculator.ceremony_country) || data_query.os_consular_cni_in_nearby_country?(calculator.ceremony_country))
+          calculator.resident_of == 'third_country' && (data_query.os_consular_cni_countries?(calculator.ceremony_country) || %w(kosovo).include?(calculator.ceremony_country) || data_query.os_consular_cni_in_nearby_country?(calculator.ceremony_country))
         }
 
         next_node_calculation(:marriage_in_norway_third_country) {
-          calculator.ceremony_country == 'norway' && resident_of == 'third_country'
+          calculator.ceremony_country == 'norway' && calculator.resident_of == 'third_country'
         }
 
         next_node_calculation(:marriage_via_local_authorities) {
@@ -325,7 +321,7 @@ module SmartAnswer
               :outcome_os_poland
             elsif calculator.ceremony_country == 'slovenia'
               :outcome_os_slovenia
-            elsif data_query.os_consular_cni_countries?(calculator.ceremony_country) || (resident_of == 'uk' && data_query.os_no_marriage_related_consular_services?(calculator.ceremony_country)) || data_query.os_consular_cni_in_nearby_country?(calculator.ceremony_country)
+            elsif data_query.os_consular_cni_countries?(calculator.ceremony_country) || (calculator.resident_of == 'uk' && data_query.os_no_marriage_related_consular_services?(calculator.ceremony_country)) || data_query.os_consular_cni_in_nearby_country?(calculator.ceremony_country)
               :outcome_os_consular_cni
             elsif ceremony_in_finland_uk_resident
               :outcome_os_consular_cni
@@ -337,7 +333,7 @@ module SmartAnswer
               :outcome_os_commonwealth
             elsif data_query.british_overseas_territories?(calculator.ceremony_country)
               :outcome_os_bot
-            elsif data_query.os_no_consular_cni_countries?(calculator.ceremony_country) || (resident_of != 'uk' && data_query.os_no_marriage_related_consular_services?(calculator.ceremony_country))
+            elsif data_query.os_no_consular_cni_countries?(calculator.ceremony_country) || (calculator.resident_of != 'uk' && data_query.os_no_marriage_related_consular_services?(calculator.ceremony_country))
               :outcome_os_no_cni
             elsif marriage_via_local_authorities
               :outcome_marriage_via_local_authorities
@@ -483,10 +479,10 @@ module SmartAnswer
           %w(jordan qatar saudi-arabia united-arab-emirates yemen)
         end
         precalculate :ceremony_not_germany_or_not_resident_other do
-          (calculator.ceremony_country != 'germany' || resident_of == 'uk')
+          (calculator.ceremony_country != 'germany' || calculator.resident_of == 'uk')
         end
         precalculate :ceremony_and_residency_in_croatia do
-          (calculator.ceremony_country == 'croatia' && resident_of == 'ceremony_country')
+          (calculator.ceremony_country == 'croatia' && calculator.resident_of == 'ceremony_country')
         end
         precalculate :birth_cert_inclusion do
           if no_birth_cert_requirement.exclude?(calculator.ceremony_country)

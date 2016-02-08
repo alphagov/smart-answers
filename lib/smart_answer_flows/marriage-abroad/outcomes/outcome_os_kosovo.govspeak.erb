@@ -4,7 +4,7 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if resident_of == 'uk' %>
+  <% if calculator.resident_of == 'uk' %>
     Contact the [Embassy of the Republic of Kosovo in London](/government/publications/foreign-embassies-in-the-uk) to find out about local marriage laws, including what documents you’ll need.
 
     ^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for <%= country_name_lowercase_prefix %>](/foreign-travel-advice/<%= calculator.ceremony_country %>) before making any plans.^
