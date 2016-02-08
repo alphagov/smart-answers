@@ -73,7 +73,7 @@
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: calculator.ceremony_country
+                 calculator: calculator
                } %>
 
     <%= render partial: 'pay_by_cash_or_credit_card_no_cheque_nor_amex.govspeak.erb' %>
@@ -148,7 +148,7 @@
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: calculator.ceremony_country
+                 calculator: calculator
                } %>
 
     <%= render partial: 'pay_by_cash_or_credit_card_no_cheque_nor_amex.govspeak.erb' %>
