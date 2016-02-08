@@ -12,7 +12,7 @@
   <%= render partial: 'what_you_need_to_do_affirmation.govspeak.erb' %>
 <% end %>
 
-<% if calculator.ceremony_country == 'turkey' && resident_of == 'uk' %>
+<% if calculator.ceremony_country == 'turkey' && calculator.resident_of == 'uk' %>
   Make an appointment with a UK [notary or commissioner of oaths](http://www.thenotariessociety.org.uk/find-a-notary) to swear an affidavit - a written statement that is used to formally declare that you’re free to marry.
 
 <% elsif calculator.ceremony_country == 'philippines' %>
@@ -189,7 +189,7 @@
 
 <% end %>
 
-<% if calculator.ceremony_country == 'turkey' && resident_of != 'uk' %>
+<% if calculator.ceremony_country == 'turkey' && calculator.resident_of != 'uk' %>
   <%= render partial: 'contact_method.govspeak.erb',
              locals: {
                sex_of_your_partner: sex_of_your_partner,
@@ -208,7 +208,7 @@
   $D
 
 
-  <% if resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of == 'ceremony_country' %>
     You’ll need to get your affidavit ‘legalised’ (certified as genuine) by the local authorities, this is usually done on the same day - the embassy or consulate should be able to give you advice.
 
   <% else %>
