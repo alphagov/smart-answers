@@ -5,5 +5,9 @@ module SmartAnswer::Calculators
     def partner_british?
       partner_nationality == 'partner_british'
     end
+
+    def partner_is_national_of_ceremony_country?
+      partner_nationality == 'partner_local'
+    end
   end
 end

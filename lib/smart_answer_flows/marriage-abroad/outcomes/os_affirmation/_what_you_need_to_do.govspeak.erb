@@ -94,7 +94,7 @@
   <% if ceremony_country == 'south-korea' %>
     You’ll need to fill in an [‘Affidavit for Marriage’](/government/publications/south-korea-affidavit-of-eligibility-for-marriage-form) form stating that you’re free to marry. You can download and fill in (but not sign) the form in advance. You’ll need to take the form with you to your appointment.
 
-    <% if calculator.partner_nationality == 'partner_local' %>
+    <% if calculator.partner_is_national_of_ceremony_country? %>
       You’ll need to provide supporting documents, including:
 
       - you partner’s Family Relationship Certificate and Marriage Status Certificate - these can be obtained from a local district office anywhere in South Korea and must be translated into English and notarised by a lawyer in Korea
@@ -165,7 +165,7 @@
   <% if ceremony_country == 'egypt' %>
     <%= render partial: 'required_supporting_documents_egypt.govspeak.erb' %>
 
-    <% if calculator.partner_nationality == 'partner_local' %>
+    <% if calculator.partner_is_national_of_ceremony_country? %>
       Your partner will need to provide their Egyptian ID card, if they’re an Egyptian national.
 
 
