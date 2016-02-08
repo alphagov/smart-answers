@@ -8,7 +8,7 @@
   <%= render partial: 'what_you_need_to_do.govspeak.erb',
       locals: { calculator: calculator } %>
 
-  <% if resident_of == 'uk' %>
+  <% if calculator.resident_of == 'uk' %>
     You’ll need to get a certificate of no impediment (CNI) from the authorities in the UK to prove you’re allowed to marry.
 
     <% if calculator.partner_british? %>
@@ -25,7 +25,7 @@
                  country_name_lowercase_prefix: country_name_lowercase_prefix
                } %>
   <% end %>
-  <% if resident_of == 'uk' %>
+  <% if calculator.resident_of == 'uk' %>
     <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
 
     <%= render partial: 'cni_issued_locally_validity.govspeak.erb',
@@ -63,7 +63,7 @@
     You’ll also need to get your CNI [translated](/government/publications/italy-list-of-translators-and-interpreters) and sworn before the Italian courts or an Italian Justice of the Peace.
 
   <% end %>
-  <% if resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of == 'ceremony_country' %>
     To get a Nulla Osta, you’ll first need to give notice of your intended marriage at the British Embassy in Rome.
 
     ###Applying for a Nulla Osta from the embassy
@@ -87,7 +87,7 @@
 
     <% end %>
   <% end %>
-  <% if resident_of != 'uk' %>
+  <% if calculator.resident_of != 'uk' %>
     <%= render partial: 'consular_cni_os_not_uk_resident_ceremony_not_germany.govspeak.erb' %>
 
     You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/publications/italy-list-of-translators-and-interpreters) if it’s not in English.
@@ -96,7 +96,7 @@
     ^If you’re a woman you must wait 300 days after divorcing or the death of your husband before remarrying.^
 
   <% end %>
-  <% if resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of == 'ceremony_country' %>
     <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
 
 
@@ -113,7 +113,7 @@
 
   <%= render partial: 'names_on_documents_must_match.govspeak.erb' -%>
 
-  <% if resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of == 'ceremony_country' %>
     ^You don't need to stay in the country while your notice is posted.^
 
   <% end %>
@@ -122,7 +122,7 @@
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 
   <% end %>
-  <% if resident_of != 'uk' %>
+  <% if calculator.resident_of != 'uk' %>
     ##Fees
 
     Service | Fee

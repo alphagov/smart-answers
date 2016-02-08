@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if resident_of == 'uk' %>
+  <% if calculator.resident_of == 'uk' %>
     <% if calculator.ceremony_country == 'zimbabwe' %>
 
       Contact the [Zimbabwean Embassy in the UK](http://www.zimlondon.gov.zw/index.php/contact-us) to find out about local marriage laws, including what documents you’ll need.
@@ -22,7 +22,7 @@
                } %>
   <% end %>
 
-  <% if resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of == 'ceremony_country' %>
     <%= render partial: 'get_legal_advice.govspeak.erb' %>
   <% else %>
     <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
@@ -84,7 +84,7 @@
     ^You must get married through an Islamic ceremony in Brunei if you or your partner is a Muslim. Otherwise, you’ll need to have a civil marriage.^
 
   <% when 'cyprus' %>
-    <% if resident_of == 'ceremony_country' %>
+    <% if calculator.resident_of == 'ceremony_country' %>
 
       ###Other requirements for Cyprus
 
