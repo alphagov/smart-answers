@@ -43,5 +43,9 @@ module SmartAnswer::Calculators
     def resident_of_third_country?
       resident_of == 'third_country'
     end
+
+    def resident_outside_of_third_country?
+      !resident_of_third_country?
+    end
   end
 end
