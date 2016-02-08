@@ -213,7 +213,7 @@ module SmartAnswer
         }
 
         next_node_calculation(:ss_marriage_germany_partner_local) { |response|
-          response == 'same_sex' && (ceremony_country == "germany") && (calculator.partner_nationality == "partner_local")
+          response == 'same_sex' && (ceremony_country == "germany") && (calculator.partner_is_national_of_ceremony_country?)
         }
         next_node_calculation(:ss_marriage_countries) { |response|
           response == 'same_sex' && data_query.ss_marriage_countries?(ceremony_country)

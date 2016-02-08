@@ -25,7 +25,7 @@
 
   You must pay a fee to the British embassy in Jakarta - email them to find out how to pay.
 
-  <% unless calculator.partner_nationality == 'partner_local' %>
+  <% unless calculator.partner_is_national_of_ceremony_country? %>
     ^Your partner must get an affirmation or affidavit as well.^
   <% end %>
 
@@ -34,7 +34,7 @@
   You must take all of the following to your appointment:
 
   - a copy of your affirmation or affidavit
-  <% if calculator.partner_nationality == 'partner_local' %>
+  <% if calculator.partner_is_national_of_ceremony_country? %>
   - your passport and your partner’s passport or KTP (Indonesian identity card)
   <% else %>
   - your passport and your partner’s passport

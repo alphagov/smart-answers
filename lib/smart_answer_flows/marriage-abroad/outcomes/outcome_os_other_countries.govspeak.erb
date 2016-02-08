@@ -10,7 +10,7 @@
                locals: {
                  overseas_passports_embassies: overseas_passports_embassies
                } %>
-    <% if calculator.partner_nationality == 'partner_local' %>
+    <% if calculator.partner_is_national_of_ceremony_country? %>
       %Marriage between a Burmese citizen and a foreign national is not allowed under local law.%
 
     <% end %>
@@ -20,7 +20,7 @@
                locals: {
                  overseas_passports_embassies: overseas_passports_embassies
                } %>
-    <% if calculator.partner_nationality == 'partner_local' %>
+    <% if calculator.partner_is_national_of_ceremony_country? %>
       %Marriage between a citizen of North Korea and a foreign national is not allowed under local law.%
 
     <% end %>
