@@ -25,7 +25,7 @@
 
   <% end %>
 
-  <% if calculator.resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'get_legal_advice.govspeak.erb' %>
   <% else %>
     <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
@@ -85,7 +85,7 @@
 
     Send the documents by registered post to the address in the application pack.
 
-  <% elsif calculator.resident_of == 'ceremony_country' %>
+  <% elsif calculator.resident_of_ceremony_country? %>
     ## Getting a certificate of no impediment
 
     Download and complete the [CNI application pack](/government/publications/certificate-of-no-impediment-application-pack) - it contains a list of the documents you’ll need.
@@ -119,7 +119,7 @@
 
     They’ll send your certificate and original documents to you by registered post.
 
-    <% if calculator.resident_of == 'ceremony_country' %>
+    <% if calculator.resident_of_ceremony_country? %>
       ##Other requirements for Spain
 
       If you’ve been living in Spain for less than 2 years, the civil registrar may also ask for confirmation of your addresses for the past 2 years (‘confirmación de domicilio para casarse en España’).

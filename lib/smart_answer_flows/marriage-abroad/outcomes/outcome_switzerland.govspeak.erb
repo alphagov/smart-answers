@@ -12,7 +12,7 @@
     Contact the Civil Register Office where you’re entering into a civil partnership to find out about local laws, including what documents you’ll need.
   <% end %>
 
-  <% unless calculator.resident_of == 'ceremony_country' %>
+  <% unless calculator.resident_of_ceremony_country? %>
     <% if calculator.resident_of_uk? %>
 
 
