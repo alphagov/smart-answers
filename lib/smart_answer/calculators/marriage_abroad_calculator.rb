@@ -1,6 +1,7 @@
 module SmartAnswer::Calculators
   class MarriageAbroadCalculator
     attr_accessor :ceremony_country
+    attr_accessor :resident_of
     attr_writer :partner_nationality
 
     def partner_british?

@@ -3,20 +3,20 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if calculator.ceremony_country == 'macao' && resident_of != 'ceremony_country' %>
+  <% if calculator.ceremony_country == 'macao' && calculator.resident_of != 'ceremony_country' %>
     You can only get married in <%= country_name_lowercase_prefix %> if you or your partner live there, eg on a valid work visa.
 
   <% end %>
 
   <%= render partial: 'os_affirmation/contact.govspeak.erb',
              locals: {
-               resident_of: resident_of,
+               resident_of: calculator.resident_of,
                calculator: calculator,
                country_name_lowercase_prefix: country_name_lowercase_prefix
              } -%>
 
   <% if %w(ecuador).exclude?(calculator.ceremony_country) %>
-    <% if resident_of == 'ceremony_country' %>
+    <% if calculator.resident_of == 'ceremony_country' %>
       <%= render partial: 'get_legal_advice.govspeak.erb' %>
     <% else %>
       <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
@@ -41,14 +41,14 @@
              locals: {
                calculator: calculator,
                data_query: data_query,
-               resident_of: resident_of,
+               resident_of: calculator.resident_of,
                country_name_lowercase_prefix: country_name_lowercase_prefix,
                sex_of_your_partner: sex_of_your_partner,
                overseas_passports_embassies: overseas_passports_embassies,
                embassy_or_consulate_ceremony_country: embassy_or_consulate_ceremony_country
              } -%>
 
-   <% if calculator.ceremony_country == 'united-arab-emirates' && resident_of == 'ceremony_country' %>
+   <% if calculator.ceremony_country == 'united-arab-emirates' && calculator.resident_of == 'ceremony_country' %>
      You may be able to get married at the British Embassy if you’re both resident in the United Arab Emirates and can prove that there are no other suitable facilities to get married locally.
 
      Contact the [British Embassy in Abu Dhabi](/government/world/organisations/british-embassy-abu-dhabi) or the [British Embassy in Dubai](/government/world/organisations/british-embassy-dubai) for more information.

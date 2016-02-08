@@ -37,6 +37,19 @@ module SmartAnswer
       end
     end
 
+    context 'when answering legal_residency? question' do
+      setup do
+        Calculators::MarriageAbroadCalculator.stubs(:new).returns(@calculator)
+        setup_states_for_question(:legal_residency?,
+          responding_with: 'uk', initial_state: {
+            calculator: @calculator })
+      end
+
+      should 'store parsed response on calculator as resident_of' do
+        assert_equal 'uk', @calculator.resident_of
+      end
+    end
+
     context 'when answering what_is_your_partners_nationality? question' do
       setup do
         Calculators::MarriageAbroadCalculator.stubs(:new).returns(@calculator)

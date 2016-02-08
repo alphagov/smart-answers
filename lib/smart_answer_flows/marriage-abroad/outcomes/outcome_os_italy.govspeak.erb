@@ -8,7 +8,7 @@
   <%= render partial: 'what_you_need_to_do.govspeak.erb',
       locals: { calculator: calculator } %>
 
-  <% if resident_of == 'uk' %>
+  <% if calculator.resident_of == 'uk' %>
     You’ll need to get a certificate of no impediment (CNI) from the authorities in the UK to prove you’re allowed to marry.
 
     <% if calculator.partner_british? %>
@@ -51,7 +51,7 @@
   <% else %>
     You’ll be asked to provide a ‘Nulla Osta’ by the authorities in Italy. This is a certificate that proves you’re allowed to marry.
 
-    <% if resident_of == 'ceremony_country' %>
+    <% if calculator.resident_of == 'ceremony_country' %>
       To get a Nulla Osta, you’ll first need to post notice of your intended marriage at the British Embassy in Rome.
     <% end %>
 
@@ -63,7 +63,7 @@
                  country_name_lowercase_prefix: country_name_lowercase_prefix
                } %>
 
-    <% if resident_of == 'ceremony_country' %>
+    <% if calculator.resident_of == 'ceremony_country' %>
       <%= render partial: "three_day_residency_requirement.govspeak.erb",
                        locals: {
                          country_name_lowercase_prefix: country_name_lowercase_prefix,
@@ -91,7 +91,7 @@
 
     ^If you’re a woman you must wait 300 days after divorcing or the death of your husband before remarrying.^
 
-    <% if resident_of == 'ceremony_country' %>
+    <% if calculator.resident_of == 'ceremony_country' %>
 
       ###What happens next
 
@@ -104,7 +104,7 @@
 
   <%= render partial: 'names_on_documents_must_match.govspeak.erb' -%>
 
-  <% if resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of == 'ceremony_country' %>
     <%= render partial: 'you_dont_need_to_stay_in_country.govspeak.erb' %>
 
   <% end %>
@@ -113,7 +113,7 @@
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 
   <% end %>
-  <% if resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of == 'ceremony_country' %>
     ##Fees
 
     Service | Fee
