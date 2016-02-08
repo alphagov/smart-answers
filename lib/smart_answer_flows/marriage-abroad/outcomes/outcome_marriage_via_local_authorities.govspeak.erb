@@ -4,7 +4,7 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if calculator.resident_of != 'uk' || calculator.ceremony_country == 'usa' %>
+  <% if calculator.resident_outside_of_uk? || calculator.ceremony_country == 'usa' %>
     <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,

@@ -188,7 +188,7 @@ module SmartAnswer
         }
 
         next_node_calculation(:ceremony_in_brazil_not_resident_in_the_uk) {
-          (calculator.ceremony_country == 'brazil') && (calculator.resident_of != 'uk')
+          (calculator.ceremony_country == 'brazil') && (calculator.resident_outside_of_uk?)
         }
 
         next_node_calculation(:consular_cni_residing_in_third_country) {
@@ -333,7 +333,7 @@ module SmartAnswer
               :outcome_os_commonwealth
             elsif data_query.british_overseas_territories?(calculator.ceremony_country)
               :outcome_os_bot
-            elsif data_query.os_no_consular_cni_countries?(calculator.ceremony_country) || (calculator.resident_of != 'uk' && data_query.os_no_marriage_related_consular_services?(calculator.ceremony_country))
+            elsif data_query.os_no_consular_cni_countries?(calculator.ceremony_country) || (calculator.resident_outside_of_uk? && data_query.os_no_marriage_related_consular_services?(calculator.ceremony_country))
               :outcome_os_no_cni
             elsif marriage_via_local_authorities
               :outcome_marriage_via_local_authorities

@@ -28,6 +28,10 @@ module SmartAnswer::Calculators
       resident_of == 'uk'
     end
 
+    def resident_outside_of_uk?
+      !resident_of_uk?
+    end
+
     def resident_of_ceremony_country?
       resident_of == 'ceremony_country'
     end
