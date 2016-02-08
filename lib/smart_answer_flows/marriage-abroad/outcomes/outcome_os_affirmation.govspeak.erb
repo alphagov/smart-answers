@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if calculator.ceremony_country == 'macao' && calculator.resident_of != 'ceremony_country' %>
+  <% if calculator.ceremony_country == 'macao' && calculator.resident_outside_of_ceremony_country? %>
     You can only get married in <%= country_name_lowercase_prefix %> if you or your partner live there, eg on a valid work visa.
 
   <% end %>

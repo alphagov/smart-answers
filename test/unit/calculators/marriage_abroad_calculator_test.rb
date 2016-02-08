@@ -130,6 +130,22 @@ module SmartAnswer
           refute @calculator.resident_of_ceremony_country?
         end
       end
+
+      context '#resident_outside_of_ceremony_country?' do
+        setup do
+          @calculator = MarriageAbroadCalculator.new
+        end
+
+        should 'be true if not resident of ceremony country' do
+          @calculator.resident_of = 'not-ceremony_country'
+          assert @calculator.resident_outside_of_ceremony_country?
+        end
+
+        should 'be false if resident of ceremony country' do
+          @calculator.resident_of = 'ceremony_country'
+          refute @calculator.resident_outside_of_ceremony_country?
+        end
+      end
     end
   end
 end
