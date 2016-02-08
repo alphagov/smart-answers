@@ -5,7 +5,7 @@
 <% content_for :body do %>
   <%= render partial: 'synonyms_of_cp.govspeak.erb',
              locals: {
-               ceremony_country: calculator.ceremony_country
+               calculator: calculator
              } %>
 
   <% if resident_of == 'uk' %>
