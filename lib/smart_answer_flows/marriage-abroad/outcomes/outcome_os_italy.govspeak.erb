@@ -87,7 +87,7 @@
 
     <% end %>
   <% end %>
-  <% if calculator.resident_of != 'uk' %>
+  <% if calculator.resident_outside_of_uk? %>
     <%= render partial: 'consular_cni_os_not_uk_resident_ceremony_not_germany.govspeak.erb' %>
 
     You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/publications/italy-list-of-translators-and-interpreters) if it’s not in English.
@@ -122,7 +122,7 @@
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 
   <% end %>
-  <% if calculator.resident_of != 'uk' %>
+  <% if calculator.resident_outside_of_uk? %>
     ##Fees
 
     Service | Fee
