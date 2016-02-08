@@ -11,7 +11,7 @@
              } %>
 
 
-  <% if calculator.partner_nationality != 'partner_local' %>
+  <% if calculator.partner_is_not_national_of_ceremony_country? %>
     %There are certain restrictions on getting married in Cambodia if neither of you is Cambodian. If neither of you is Cambodian, you must check with both the Ministry of Foreign Affairs and the local Sangkat to find out if if you can get married.%
   <% end -%>
 

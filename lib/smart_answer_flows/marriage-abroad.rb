@@ -181,7 +181,7 @@ module SmartAnswer
         save_input_as :sex_of_your_partner
 
         next_node_calculation(:ceremony_in_laos_partners_not_local) {
-          (ceremony_country == "laos") && (calculator.partner_nationality != "partner_local")
+          (ceremony_country == "laos") && (calculator.partner_is_not_national_of_ceremony_country?)
         }
 
         next_node_calculation(:ceremony_in_finland_uk_resident) {
