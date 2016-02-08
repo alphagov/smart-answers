@@ -192,7 +192,7 @@
   <% end %>
 <% end %>
 
-<% if calculator.ceremony_country == 'turkey' && calculator.resident_of != 'uk' %>
+<% if calculator.ceremony_country == 'turkey' && calculator.resident_outside_of_uk? %>
   <%= render partial: 'contact_method.govspeak.erb',
              locals: {
                sex_of_your_partner: sex_of_your_partner,
