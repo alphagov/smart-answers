@@ -50,6 +50,22 @@ module SmartAnswer
           refute @calculator.partner_is_national_of_ceremony_country?
         end
       end
+
+      context '#partner_is_not_national_of_ceremony_country?' do
+        setup do
+          @calculator = MarriageAbroadCalculator.new
+        end
+
+        should 'be true if partner is not a national of the ceremony country' do
+          @calculator.partner_nationality = 'not-partner_local'
+          assert @calculator.partner_is_not_national_of_ceremony_country?
+        end
+
+        should 'be false if partner is a national of the ceremony country' do
+          @calculator.partner_nationality = 'partner_local'
+          refute @calculator.partner_is_not_national_of_ceremony_country?
+        end
+      end
     end
   end
 end
