@@ -8,7 +8,7 @@
   <% elsif data_query.cp_cni_not_required_countries?(calculator.ceremony_country) %>
     <%= render partial: 'synonyms_of_cp.govspeak.erb',
                locals: {
-                 ceremony_country: calculator.ceremony_country
+                 calculator: calculator
                } %>
 
     <% if resident_of == 'ceremony_country' %>
