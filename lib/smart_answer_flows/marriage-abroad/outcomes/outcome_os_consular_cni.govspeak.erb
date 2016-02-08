@@ -427,7 +427,7 @@
                } %>
 
   <% end %>
-  <% if resident_of == 'uk' && "partner_other" == calculator.partner_nationality && "finland" == ceremony_country %>
+  <% if resident_of == 'uk' && calculator.partner_is_neither_british_nor_a_national_of_ceremony_country? && "finland" == ceremony_country %>
     <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>
 
   <% end %>

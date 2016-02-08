@@ -17,5 +17,9 @@ module SmartAnswer::Calculators
     def partner_is_not_national_of_ceremony_country?
       !partner_is_national_of_ceremony_country?
     end
+
+    def partner_is_neither_british_nor_a_national_of_ceremony_country?
+      partner_nationality == 'partner_other'
+    end
   end
 end
