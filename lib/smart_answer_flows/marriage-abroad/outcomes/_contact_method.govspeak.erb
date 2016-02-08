@@ -1,6 +1,6 @@
 <% case sex_of_your_partner %>
 <% when 'opposite_sex' %>
-  <% case ceremony_country %>
+  <% case calculator.ceremony_country %>
   <% when 'albania' %>
     [Make an appointment at the embassy in Tirana.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-tirana/notice-of-marriage-or-civil-partnership/slot_picker)
   <% when 'algeria' %>
@@ -160,7 +160,7 @@
                } %>
   <% end %>
 <% when 'same_sex' %>
-  <% case ceremony_country %>
+  <% case calculator.ceremony_country %>
   <% when 'albania' %>
     [Make an appointment at the embassy in Tirana.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-tirana/notice-of-marriage-or-civil-partnership/slot_picker)
   <% when 'australia' %>
