@@ -10,7 +10,7 @@
     <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: ceremony_country
+                 ceremony_country: calculator.ceremony_country
                } %>
 
     <%= render partial: 'what_you_need_to_do.govspeak.erb',
@@ -48,7 +48,7 @@
     <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: ceremony_country
+                 ceremony_country: calculator.ceremony_country
                } %>
 
     <% if resident_of == 'ceremony_country' %>
@@ -57,7 +57,7 @@
       <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
                 locals: {
                   country_name_lowercase_prefix: country_name_lowercase_prefix,
-                  ceremony_country: ceremony_country
+                  ceremony_country: calculator.ceremony_country
                 } %>
     <% end %>
 
@@ -82,7 +82,7 @@
   <%= render partial: 'link_to_consular_fees.govspeak.erb',
              locals: {
                country_name_lowercase_prefix: country_name_lowercase_prefix,
-               ceremony_country: ceremony_country
+               ceremony_country: calculator.ceremony_country
              } %>
   <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
 

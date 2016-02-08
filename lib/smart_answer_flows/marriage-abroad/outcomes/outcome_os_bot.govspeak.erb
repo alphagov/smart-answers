@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if ceremony_country == 'british-indian-ocean-territory' %>
+  <% if calculator.ceremony_country == 'british-indian-ocean-territory' %>
     Access to the British Indian Ocean Territory is restricted, and it’s unlikely that marriage would be allowed there.
 
     Contact the British Indian Ocean Territory Administration for further details.
@@ -12,11 +12,11 @@
       <%= render partial: 'contact_method.govspeak.erb',
                  locals: {
                    sex_of_your_partner: sex_of_your_partner,
-                   ceremony_country: ceremony_country,
+                   ceremony_country: calculator.ceremony_country,
                    overseas_passports_embassies: overseas_passports_embassies,
                    country_name_lowercase_prefix: country_name_lowercase_prefix
                  } %>
-  <% elsif ceremony_country == 'british-virgin-islands' %>
+  <% elsif calculator.ceremony_country == 'british-virgin-islands' %>
     The British Virgin Islands is a British overseas territory.
 
     Contact the [Civil Registry](http://www.bvi.gov.vg/department/civil-registry-and-passport-office) to find out about getting married there, including what documents you’ll need.
@@ -32,7 +32,7 @@
       <%= render partial: 'contact_method.govspeak.erb',
                  locals: {
                    sex_of_your_partner: sex_of_your_partner,
-                   ceremony_country: ceremony_country,
+                   ceremony_country: calculator.ceremony_country,
                    overseas_passports_embassies: overseas_passports_embassies,
                    country_name_lowercase_prefix: country_name_lowercase_prefix
                  } %>
@@ -43,7 +43,7 @@
       <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
                  locals: {
                    country_name_lowercase_prefix: country_name_lowercase_prefix,
-                   ceremony_country: ceremony_country
+                   ceremony_country: calculator.ceremony_country
                  } %>
     <% end %>
     <% unless calculator.partner_british? %>

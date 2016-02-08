@@ -4,11 +4,11 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if resident_of != 'uk' || ceremony_country == 'usa' %>
+  <% if resident_of != 'uk' || calculator.ceremony_country == 'usa' %>
     <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: ceremony_country
+                 ceremony_country: calculator.ceremony_country
                } %>
   <% else %>
     <%= render partial: 'contact_nearest_embassy_of_country.govspeak.erb',
@@ -23,7 +23,7 @@
     <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: ceremony_country
+                 ceremony_country: calculator.ceremony_country
                } %>
   <% end %>
 
