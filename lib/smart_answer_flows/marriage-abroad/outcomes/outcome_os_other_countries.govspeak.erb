@@ -37,7 +37,7 @@
                  overseas_passports_embassies: overseas_passports_embassies
                } %>
   <% when 'saudi-arabia' %>
-    <% if calculator.resident_of != 'ceremony_country' %>
+    <% if calculator.resident_outside_of_ceremony_country? %>
       ^One of you must be a Muslim to get married under local laws in Saudi Arabia. You can only get married at the British Embassy if you’re resident in the country.^
 
       Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/) to find out about local marriage laws.
