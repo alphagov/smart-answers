@@ -192,11 +192,11 @@ module SmartAnswer
         }
 
         next_node_calculation(:consular_cni_residing_in_third_country) {
-          calculator.resident_of == 'third_country' && (data_query.os_consular_cni_countries?(calculator.ceremony_country) || %w(kosovo).include?(calculator.ceremony_country) || data_query.os_consular_cni_in_nearby_country?(calculator.ceremony_country))
+          calculator.resident_outside_of_uk_and_outside_of_ceremony_country? && (data_query.os_consular_cni_countries?(calculator.ceremony_country) || %w(kosovo).include?(calculator.ceremony_country) || data_query.os_consular_cni_in_nearby_country?(calculator.ceremony_country))
         }
 
         next_node_calculation(:marriage_in_norway_third_country) {
-          calculator.ceremony_country == 'norway' && calculator.resident_of == 'third_country'
+          calculator.ceremony_country == 'norway' && calculator.resident_outside_of_uk_and_outside_of_ceremony_country?
         }
 
         next_node_calculation(:marriage_via_local_authorities) {
