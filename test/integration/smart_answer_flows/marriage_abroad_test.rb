@@ -69,7 +69,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "ask your country of residence" do
       assert_current_node :legal_residency?
-      assert_state_variable :ceremony_country, 'bahamas'
       assert_state_variable :ceremony_country_name, 'Bahamas'
       assert_state_variable :country_name_lowercase_prefix, "the Bahamas"
     end
@@ -81,7 +80,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
       should "go to partner nationality question" do
         assert_current_node :what_is_your_partners_nationality?
-        assert_state_variable :ceremony_country, 'bahamas'
         assert_state_variable :ceremony_country_name, 'Bahamas'
         assert_state_variable :country_name_lowercase_prefix, "the Bahamas"
         assert_state_variable :resident_of, 'uk'
@@ -123,7 +121,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       should "go to partner's nationality question" do
         assert_current_node :what_is_your_partners_nationality?
         assert_state_variable :resident_of, 'ceremony_country'
-        assert_state_variable :ceremony_country, 'bahamas'
         assert_state_variable :ceremony_country_name, 'Bahamas'
       end
 
@@ -163,7 +160,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       should "go to partner's nationality question" do
         assert_current_node :what_is_your_partners_nationality?
         assert_state_variable :resident_of, 'third_country'
-        assert_state_variable :ceremony_country, 'bahamas'
         assert_state_variable :ceremony_country_name, 'Bahamas'
       end
 

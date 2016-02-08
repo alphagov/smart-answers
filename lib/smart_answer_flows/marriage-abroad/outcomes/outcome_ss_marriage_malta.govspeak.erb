@@ -10,7 +10,7 @@
   <%= render partial: 'contact_method.govspeak.erb',
              locals: {
                sex_of_your_partner: sex_of_your_partner,
-               ceremony_country: ceremony_country,
+               ceremony_country: calculator.ceremony_country,
                overseas_passports_embassies: overseas_passports_embassies,
                country_name_lowercase_prefix: country_name_lowercase_prefix
              } %>
@@ -48,7 +48,7 @@
   <%= render partial: 'link_to_consular_fees.govspeak.erb',
              locals: {
                country_name_lowercase_prefix: country_name_lowercase_prefix,
-               ceremony_country: ceremony_country
+               ceremony_country: calculator.ceremony_country
              } %>
 
   <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>

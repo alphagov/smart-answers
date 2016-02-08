@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if data_query.dutch_caribbean_islands?(ceremony_country) %>
+  <% if data_query.dutch_caribbean_islands?(calculator.ceremony_country) %>
     <%= render partial: 'country_is_dutch_caribbean_island.govspeak.erb',
                locals: {
                  country_name_uppercase_prefix: country_name_uppercase_prefix
@@ -15,16 +15,16 @@
       <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
                  locals: {
                    country_name_lowercase_prefix: country_name_lowercase_prefix,
-                   ceremony_country: ceremony_country
+                   ceremony_country: calculator.ceremony_country
                  } %>
 
     <% end %>
   <% else %>
-    <% if resident_of != 'uk' || data_query.ss_unknown_no_embassies?(ceremony_country) %>
+    <% if resident_of != 'uk' || data_query.ss_unknown_no_embassies?(calculator.ceremony_country) %>
       <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
                  locals: {
                    country_name_lowercase_prefix: country_name_lowercase_prefix,
-                   ceremony_country: ceremony_country
+                   ceremony_country: calculator.ceremony_country
                  } %>
 
     <% elsif resident_of == 'uk' %>
@@ -41,7 +41,7 @@
     <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: ceremony_country
+                 ceremony_country: calculator.ceremony_country
                } %>
   <% end %>
 
@@ -50,11 +50,11 @@
                country_name_lowercase_prefix: country_name_lowercase_prefix
              } %>
 
-  <% unless data_query.countries_without_consular_facilities?(ceremony_country) %>
+  <% unless data_query.countries_without_consular_facilities?(calculator.ceremony_country) %>
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: ceremony_country
+                 ceremony_country: calculator.ceremony_country
                } %>
     <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
   <% end %>
@@ -62,7 +62,7 @@
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 
   <% end %>
-  <% if data_query.requires_7_day_notice?(ceremony_country) %>
+  <% if data_query.requires_7_day_notice?(calculator.ceremony_country) %>
     <%= render partial: 'display_notice_of_marriage_7_days.govspeak.erb',
                locals: {
                  embassy_or_consulate_ceremony_country: embassy_or_consulate_ceremony_country

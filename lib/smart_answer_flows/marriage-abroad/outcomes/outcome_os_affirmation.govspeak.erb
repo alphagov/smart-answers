@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if ceremony_country == 'macao' && resident_of != 'ceremony_country' %>
+  <% if calculator.ceremony_country == 'macao' && resident_of != 'ceremony_country' %>
     You can only get married in <%= country_name_lowercase_prefix %> if you or your partner live there, eg on a valid work visa.
 
   <% end %>
@@ -11,27 +11,27 @@
   <%= render partial: 'os_affirmation/contact.govspeak.erb',
              locals: {
                resident_of: resident_of,
-               ceremony_country: ceremony_country,
+               ceremony_country: calculator.ceremony_country,
                country_name_lowercase_prefix: country_name_lowercase_prefix
              } -%>
 
-  <% if %w(ecuador).exclude?(ceremony_country) %>
+  <% if %w(ecuador).exclude?(calculator.ceremony_country) %>
     <% if resident_of == 'ceremony_country' %>
       <%= render partial: 'get_legal_advice.govspeak.erb' %>
     <% else %>
       <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
                  locals: {
                    country_name_lowercase_prefix: country_name_lowercase_prefix,
-                   ceremony_country: ceremony_country
+                   ceremony_country: calculator.ceremony_country
                  } %>
     <% end %>
   <% end %>
 
-  <% if ceremony_country == 'thailand' %>
+  <% if calculator.ceremony_country == 'thailand' %>
     %You must register your marriage at an amphur office (district office) in Thailand - a religious ceremony on its own won’t be valid.%
   <% end %>
 
-  <% if ceremony_country == 'united-arab-emirates' %>
+  <% if calculator.ceremony_country == 'united-arab-emirates' %>
     ^There are no civil marriages in the United Arab Emirates, but you can get married through a religious ceremony at a church or Sharia court.^
 
     You can only get married in the United Arab Emirates if you or your partner are resident there.
@@ -42,14 +42,14 @@
                calculator: calculator,
                data_query: data_query,
                resident_of: resident_of,
-               ceremony_country: ceremony_country,
+               ceremony_country: calculator.ceremony_country,
                country_name_lowercase_prefix: country_name_lowercase_prefix,
                sex_of_your_partner: sex_of_your_partner,
                overseas_passports_embassies: overseas_passports_embassies,
                embassy_or_consulate_ceremony_country: embassy_or_consulate_ceremony_country
              } -%>
 
-   <% if ceremony_country == 'united-arab-emirates' && resident_of == 'ceremony_country' %>
+   <% if calculator.ceremony_country == 'united-arab-emirates' && resident_of == 'ceremony_country' %>
      You may be able to get married at the British Embassy if you’re both resident in the United Arab Emirates and can prove that there are no other suitable facilities to get married locally.
 
      Contact the [British Embassy in Abu Dhabi](/government/world/organisations/british-embassy-abu-dhabi) or the [British Embassy in Dubai](/government/world/organisations/british-embassy-dubai) for more information.
@@ -58,7 +58,7 @@
   <%= render partial: 'os_affirmation/fees.govspeak.erb',
              locals: {
                data_query: data_query,
-               ceremony_country: ceremony_country,
+               ceremony_country: calculator.ceremony_country,
                country_name_lowercase_prefix: country_name_lowercase_prefix
               } -%>
 

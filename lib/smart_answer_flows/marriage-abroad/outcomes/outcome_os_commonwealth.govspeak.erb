@@ -4,7 +4,7 @@
 
 <% content_for :body do %>
   <% if resident_of == 'uk' %>
-    <% if ceremony_country == 'zimbabwe' %>
+    <% if calculator.ceremony_country == 'zimbabwe' %>
 
       Contact the [Zimbabwean Embassy in the UK](http://www.zimlondon.gov.zw/index.php/contact-us) to find out about local marriage laws, including what documents you’ll need.
 
@@ -18,7 +18,7 @@
     <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: ceremony_country
+                 ceremony_country: calculator.ceremony_country
                } %>
   <% end %>
 
@@ -28,17 +28,17 @@
     <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: ceremony_country
+                 ceremony_country: calculator.ceremony_country
                } %>
   <% end %>
 
-  <% if ceremony_country == 'zimbabwe' %>
+  <% if calculator.ceremony_country == 'zimbabwe' %>
     The UK doesn’t issue certificates of no impediment (CNI) for marriages in Zimbabwe. You’ll need to explain this if you’re asked to provide a CNI or a similar document to prove you’re allowed to marry.
   <% else %>
     The UK doesn’t issue certificates of no impediment (CNI) for marriages in Commonwealth countries. You’ll need to explain this if you’re asked to provide a CNI or a similar document to prove you’re allowed to marry.
   <% end %>
 
-  <% case ceremony_country %>
+  <% case calculator.ceremony_country %>
   <% when 'south-africa' %>
     <% if calculator.partner_is_national_of_ceremony_country? %>
 
@@ -53,7 +53,7 @@
     <%= render partial: 'contact_method.govspeak.erb',
                locals: {
                  sex_of_your_partner: sex_of_your_partner,
-                 ceremony_country: ceremony_country,
+                 ceremony_country: calculator.ceremony_country,
                  overseas_passports_embassies: overseas_passports_embassies,
                  country_name_lowercase_prefix: country_name_lowercase_prefix
                } %>
@@ -63,7 +63,7 @@
     <%= render partial: 'contact_method.govspeak.erb',
                locals: {
                  sex_of_your_partner: sex_of_your_partner,
-                 ceremony_country: ceremony_country,
+                 ceremony_country: calculator.ceremony_country,
                  overseas_passports_embassies: overseas_passports_embassies,
                  country_name_lowercase_prefix: country_name_lowercase_prefix
                } -%>
