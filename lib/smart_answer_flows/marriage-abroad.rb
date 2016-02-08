@@ -226,7 +226,7 @@ module SmartAnswer
         }
 
         next_node_calculation(:ss_marriage_not_possible) { |response|
-          response == 'same_sex' && data_query.ss_marriage_not_possible?(ceremony_country, calculator.partner_nationality)
+          response == 'same_sex' && data_query.ss_marriage_not_possible?(ceremony_country, calculator)
         }
 
         next_node_calculation(:ss_unknown_no_embassies) { |response|
