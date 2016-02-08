@@ -8,7 +8,7 @@
                calculator: calculator
              } %>
 
-  <% if calculator.resident_of == 'uk' %>
+  <% if calculator.resident_of_uk? %>
     Contact the [High Commission of <%= country_name_lowercase_prefix %>](/government/publications/foreign-embassies-in-the-uk) to find out about local laws, including what documents you’ll need.
 
   <% else %>

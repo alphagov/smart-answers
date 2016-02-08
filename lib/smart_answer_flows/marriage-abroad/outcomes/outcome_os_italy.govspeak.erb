@@ -8,7 +8,7 @@
   <%= render partial: 'what_you_need_to_do.govspeak.erb',
       locals: { calculator: calculator } %>
 
-  <% if calculator.resident_of == 'uk' %>
+  <% if calculator.resident_of_uk? %>
     You’ll need to get a certificate of no impediment (CNI) from the authorities in the UK to prove you’re allowed to marry.
 
     <% if calculator.partner_british? %>
