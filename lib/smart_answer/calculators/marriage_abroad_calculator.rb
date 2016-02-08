@@ -1,7 +1,7 @@
 module SmartAnswer::Calculators
   class MarriageAbroadCalculator
     attr_accessor :ceremony_country
-    attr_accessor :resident_of
+    attr_writer :resident_of
     attr_writer :partner_nationality
 
     def partner_british?
@@ -25,7 +25,7 @@ module SmartAnswer::Calculators
     end
 
     def resident_of_uk?
-      resident_of == 'uk'
+      @resident_of == 'uk'
     end
 
     def resident_outside_of_uk?
@@ -33,7 +33,7 @@ module SmartAnswer::Calculators
     end
 
     def resident_of_ceremony_country?
-      resident_of == 'ceremony_country'
+      @resident_of == 'ceremony_country'
     end
 
     def resident_outside_of_ceremony_country?
@@ -41,7 +41,7 @@ module SmartAnswer::Calculators
     end
 
     def resident_of_third_country?
-      resident_of == 'third_country'
+      @resident_of == 'third_country'
     end
 
     def resident_outside_of_third_country?

@@ -46,7 +46,7 @@ module SmartAnswer
       end
 
       should 'store parsed response on calculator as resident_of' do
-        assert_equal 'uk', @calculator.resident_of
+        assert_equal 'uk', @calculator.instance_variable_get('@resident_of')
       end
     end
 
