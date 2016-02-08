@@ -1,9 +1,9 @@
 module SmartAnswer::Calculators
   class MarriageAbroadCalculator
-    attr_accessor :partner_nationality
+    attr_writer :partner_nationality
 
     def partner_british?
-      partner_nationality == 'partner_british'
+      @partner_nationality == 'partner_british'
     end
 
     def partner_not_british?
@@ -11,7 +11,7 @@ module SmartAnswer::Calculators
     end
 
     def partner_is_national_of_ceremony_country?
-      partner_nationality == 'partner_local'
+      @partner_nationality == 'partner_local'
     end
 
     def partner_is_not_national_of_ceremony_country?
@@ -19,7 +19,7 @@ module SmartAnswer::Calculators
     end
 
     def partner_is_neither_british_nor_a_national_of_ceremony_country?
-      partner_nationality == 'partner_other'
+      @partner_nationality == 'partner_other'
     end
   end
 end
