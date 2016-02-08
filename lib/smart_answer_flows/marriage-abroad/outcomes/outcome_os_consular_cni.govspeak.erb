@@ -10,7 +10,7 @@
 
   <% end %>
   <% if %(japan).exclude?(calculator.ceremony_country) %>
-    <% if calculator.resident_of == 'uk' %>
+    <% if calculator.resident_of_uk? %>
       <% if data_query.dutch_caribbean_islands?(calculator.ceremony_country) %>
         <%= country_name_uppercase_prefix %> is one of the Dutch Caribbean islands.
 
@@ -102,7 +102,7 @@
 
 
   <% end %>
-  <% if calculator.resident_of == 'uk' %>
+  <% if calculator.resident_of_uk? %>
     <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
     <%= render partial: 'cni_issued_locally_validity.govspeak.erb',
                locals: {
@@ -113,7 +113,7 @@
 
     <% end -%>
   <% end %>
-  <% if calculator.resident_of == 'uk' %>
+  <% if calculator.resident_of_uk? %>
 
     <% if calculator.ceremony_country == 'tunisia' %>
       You’ll need to exchange your UK-issued CNI for one that’s valid in Tunisia at the nearest British embassy to where you’re getting married.
@@ -342,7 +342,7 @@
     <% end %>
   <% end %>
 
-  <% if calculator.ceremony_country != 'germany'  || (calculator.ceremony_country == 'germany' && calculator.resident_of == 'uk') %>
+  <% if calculator.ceremony_country != 'germany'  || (calculator.ceremony_country == 'germany' && calculator.resident_of_uk?) %>
     <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
   <% end %>
 
@@ -427,7 +427,7 @@
                } %>
 
   <% end %>
-  <% if calculator.resident_of == 'uk' && calculator.partner_is_not_british_nor_a_national_of_ceremony_country? && "finland" == calculator.ceremony_country %>
+  <% if calculator.resident_of_uk? && calculator.partner_is_not_british_nor_a_national_of_ceremony_country? && "finland" == calculator.ceremony_country %>
     <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>
 
   <% end %>
@@ -448,7 +448,7 @@
   <% end -%>
 
   <% if calculator.ceremony_country == 'poland' %>
-    <% if calculator.resident_of == 'uk' %>
+    <% if calculator.resident_of_uk? %>
       ## What happens next
     <% end %>
 

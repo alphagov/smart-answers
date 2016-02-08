@@ -13,7 +13,7 @@
   <% end %>
 
   <% unless calculator.resident_of == 'ceremony_country' %>
-    <% if calculator.resident_of == 'uk' %>
+    <% if calculator.resident_of_uk? %>
 
 
       You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to enter into a <%= ceremony_type_lowercase(sex_of_your_partner) %> or equivalent in Switzerland.

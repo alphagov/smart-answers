@@ -12,7 +12,7 @@
   <%= render partial: 'what_you_need_to_do_affirmation.govspeak.erb' %>
 <% end %>
 
-<% if calculator.ceremony_country == 'turkey' && calculator.resident_of == 'uk' %>
+<% if calculator.ceremony_country == 'turkey' && calculator.resident_of_uk? %>
   Make an appointment with a UK [notary or commissioner of oaths](http://www.thenotariessociety.org.uk/find-a-notary) to swear an affidavit - a written statement that is used to formally declare that you’re free to marry.
 
 <% elsif calculator.ceremony_country == 'philippines' %>

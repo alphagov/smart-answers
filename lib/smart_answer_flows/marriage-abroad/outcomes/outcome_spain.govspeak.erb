@@ -72,7 +72,7 @@
 
   <% end %>
 
-  <% if calculator.resident_of == 'uk' %>
+  <% if calculator.resident_of_uk? %>
     ## Getting a certificate of no impediment
 
     <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
