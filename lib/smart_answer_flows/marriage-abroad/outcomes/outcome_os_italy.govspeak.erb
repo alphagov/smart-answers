@@ -13,18 +13,7 @@
     <% if partner_nationality == 'partner_british' %>
       ^Your partner will need to follow the same process to get their own CNI.^
     <% end %>
-  <% else %>
-    You’ll be asked to provide a ‘Nulla Osta’ by the authorities in Italy. This is a certificate that proves you’re allowed to marry.
 
-    <%= render partial: 'contact_method.govspeak.erb',
-               locals: {
-                 sex_of_your_partner: sex_of_your_partner,
-                 ceremony_country: ceremony_country,
-                 overseas_passports_embassies: overseas_passports_embassies,
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
-               } %>
-  <% end %>
-  <% if resident_of == 'uk' %>
     <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
 
     <%= render partial: 'cni_issued_locally_validity.govspeak.erb',
@@ -32,17 +21,15 @@
                  country_name_lowercase_prefix: country_name_lowercase_prefix
                } -%>
 
+    ###Getting a statutory declaration
     <% if partner_nationality == 'partner_british' %>
-      ###Getting a statutory declaration
 
-      While you’re waiting for your CNI, you and your partner will need to make a statutory declaration before a [solicitor or public notary](http://www.lawsociety.org.uk/find-a-solicitor/). The Italian authorities will need this in addition to your CNI. There’s a standard template in English and Italian that you can download and use.
 
+      While you’re waiting for your CNI, you and your partner will need to make a statutory declaration before a [solicitor or public notary](http://www.lawsociety.org.uk/find-a-solicitor/) in the UK. The Italian authorities will need this in addition to your CNI. There’s a standard template in English and Italian that you can download and use.
     <% else %>
-      ###Getting a statutory declaration
+
 
       While you’re waiting for your CNI, you will need to make a statutory declaration before a [solicitor or public notary](http://www.lawsociety.org.uk/find-a-solicitor/). The Italian authorities will need this in addition to your CNI. There’s a standard template in English and Italian that you can download and use.
-
-
     <% end %>
     $D
     [Download ‘Bilingual statutory declaration for marriage in Italy’ (PDF, 90KB)](/government/uploads/system/uploads/attachment_data/file/153753/bilingual-statutory-declaration.pdf)
@@ -60,33 +47,42 @@
     You’ll need to get your statutory declaration and CNI ’[legalised](/get-document-legalised)’ (certified as genuine) by the Foreign & Commonwealth Office (FCO).
 
     You’ll also need to get your CNI [translated](/government/publications/italy-list-of-translators-and-interpreters) and sworn before the Italian courts or an Italian Justice of the Peace.
+  <% else %>
+    You’ll be asked to provide a ‘Nulla Osta’ by the authorities in Italy. This is a certificate that proves you’re allowed to marry.
 
-  <% end %>
-  <% if resident_of == 'ceremony_country' %>
-    To get a Nulla Osta, you’ll first need to give notice of your intended marriage at the British Embassy in Rome.
+    <% if resident_of == 'ceremony_country' %>
+      To get a Nulla Osta, you’ll first need to post notice of your intended marriage at the British Embassy in Rome.
+    <% end %>
 
-    ###Applying for a Nulla Osta from the embassy
+    <%= render partial: 'contact_method.govspeak.erb',
+               locals: {
+                 sex_of_your_partner: sex_of_your_partner,
+                 ceremony_country: ceremony_country,
+                 overseas_passports_embassies: overseas_passports_embassies,
+                 country_name_lowercase_prefix: country_name_lowercase_prefix
+               } %>
 
-    <%= render partial: "three_day_residency_requirement.govspeak.erb",
-                     locals: {
-                       country_name_lowercase_prefix: country_name_lowercase_prefix
-                     } -%> You can then book an appointment at the British Embassy in Rome.
+    <% if resident_of == 'ceremony_country' %>
+      <%= render partial: "three_day_residency_requirement.govspeak.erb",
+                       locals: {
+                         country_name_lowercase_prefix: country_name_lowercase_prefix,
+                         callout: true
+                       } -%>
 
+      ###Applying for a Nulla Osta
 
-    <% if partner_nationality == 'partner_british' %>
-      You and your partner will need to provide your passports and [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate).
+      <%= render partial: "download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb" %>
 
-    <% else %>
-      You’ll need to provide supporting documents, including:
+      You will need to provide supporting documents, including:
 
-      - your passport
-      - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate) which states both of your parents’ names
-      - proof of residence, such as a residence certificate - check with the <%= embassy_or_consulate_ceremony_country %> to find out what you need
-      - a copy of your partner’s identity document
+        - your passport
+        - your partner’s ID document
+        - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
+        - a utility bill, bank statement, official residency certificate, or driving license showing your name and Italian address (if you don’t normally live in <%= country_name_lowercase_prefix %> you can show a flight ticket or boarding pass with your date of entry or evidence of your hotel check-in)
+        - evidence if you’ve changed your name by deed poll
 
     <% end %>
-  <% end %>
-  <% if resident_of != 'uk' %>
+
     <%= render partial: 'consular_cni_os_not_uk_resident_ceremony_not_germany.govspeak.erb' %>
 
     You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [translated](/government/publications/italy-list-of-translators-and-interpreters) if it’s not in English.
@@ -94,19 +90,14 @@
 
     ^If you’re a woman you must wait 300 days after divorcing or the death of your husband before remarrying.^
 
-  <% end %>
-  <% if resident_of == 'ceremony_country' %>
-    <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
+    <% if resident_of == 'ceremony_country' %>
 
+      ###What happens next
 
+      They’ll display your notice of marriage publicly for 7 days.
 
-    ###What happens next
-
-    They’ll display your notice of marriage publicly for 7 days.
-
-    The British embassy will issue your CNI within 5 working days (as long as nobody has registered an objection). You can collect your CNI in person or have it delivered by post.
-
-    ^The embassy or consulate may charge a fee to return your documents to you.^
+      The British embassy will issue your CNI within 5 working days (as long as nobody has registered an objection). You can collect your CNI in person or have it delivered by post.
+    <% end %>
   <% end %>
 
 
@@ -121,7 +112,7 @@
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 
   <% end %>
-  <% if resident_of != 'uk' %>
+  <% if resident_of == 'ceremony_country' %>
     ##Fees
 
     Service | Fee
@@ -136,7 +127,7 @@
                  ceremony_country: ceremony_country
                } %>
 
-    <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
+    <%= render partial: 'pay_in_euro_or_sterling_or_card.govspeak.erb' %>
   <% end %>
 
 

@@ -7,6 +7,8 @@
 
   You’ll be asked to provide an affirmation or affidavit document to prove you’re allowed to marry.
 
+<% elsif ceremony_country == 'philippines' %>
+  <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
 <% else %>
   <%= render partial: 'what_you_need_to_do_affirmation.govspeak.erb' %>
 <% end %>
@@ -15,7 +17,7 @@
   Make an appointment with a UK [notary or commissioner of oaths](http://www.thenotariessociety.org.uk/find-a-notary) to swear an affidavit - a written statement that is used to formally declare that you’re free to marry.
 
 <% elsif ceremony_country == 'philippines' %>
-  Contact the British embassy or consulate in <%= country_name_lowercase_prefix %> to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
+  Make an appointment at the British embassy or consulate in <%= country_name_lowercase_prefix %> to swear an affirmation or affidavit (written statement of facts) that you’re free to marry.
 
 <% elsif ceremony_country == 'egypt' %>
   Make an appointment at the British embassy or consulate in <%= country_name_lowercase_prefix %> to make a declaration that you’re free to marry. You’ll need to bring your passport and pay a fee.
@@ -116,6 +118,12 @@
   <% end %>
 
   <% if ceremony_country == 'philippines' %>
+    You’ll need to complete an [affirmation for marriage](/government/publications/marriage-in-the-philippines) (non-religious) form or an [affidavit for marriage](/government/publications/marriage-in-the-philippines) (religious) form.
+
+    You must download and fill in (but not sign) the forms in advance. It must be typed on a computer and printed.
+
+    ^Your partner will probably need to get an affirmation or affidavit as well.^
+
     <%= render partial: 'required_supporting_documents_philippines.govspeak.erb' %>
 
   <% end %>
@@ -182,11 +190,6 @@
 
   <% end %>
 <% end %>
-<% if ceremony_country == 'philippines' %>
-  The embassy will provide you with an oath or affidavit (written statement of facts) stating that you’re free to marry. You can print and fill in (but not sign) the [affidavit/affirmation for marriage form](/government/publications/marriage-in-the-philippines) in advance - it must fit on one page.
-
-
-<% end %>
 
 <% if ceremony_country == 'turkey' && resident_of != 'uk' %>
   <%= render partial: 'contact_method.govspeak.erb',
@@ -241,9 +244,6 @@
   - the original marriage certificate, Advisory of Marriage and court documents (if the previous marriage was annulled in the Philippines)
   - evidence if you’ve changed your name by deed poll
 
-  You must bring photocopies of all your supporting documents.
-
-
 <% elsif ceremony_country == 'thailand' %>
   If you’ve been divorced or widowed, you’ll need the original [decree absolute or final order](/copy-decree-absolute-final-order) or the [death certificate](/order-copy-birth-death-marriage-certificate/).
   Documents issued outside the UK or <%= country_name_lowercase_prefix %> must be certified by the country’s embassy in <%= country_name_lowercase_prefix %>, and [translated](/government/collections/list-of-lawyers) if they’re not in English.
@@ -260,6 +260,14 @@
 
 <% end %>
 
+<% if ceremony_country == 'philippines' %>
+  ##What happens next
+
+  You can usually get your affirmation or affidavit on the day of your appointment if you have all your supporting documents.
+
+  Once you have your affirmation or affidavit, you can apply for a marriage licence from the local civil registrar. 
+<% end %>
+
 <% if ceremony_country == 'egypt' %>
   <% if partner_nationality == 'partner_british' %>
     ^Your partner will need to make a declaration as well.^
@@ -268,6 +276,7 @@
     <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>
   <% end %>
 <% end %>
+
 <% unless ceremony_country == 'egypt' %>
   <% if ceremony_country == 'turkey' %>
     <% if partner_nationality == 'partner_british' %>
