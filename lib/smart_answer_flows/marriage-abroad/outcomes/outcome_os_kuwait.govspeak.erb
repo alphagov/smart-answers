@@ -76,7 +76,7 @@
                  ceremony_country: ceremony_country
                } %>
 
-    <%= render partial: 'pay_by_cash_or_credit_card_no_amex_or_cheque.govspeak.erb' %>
+    <%= render partial: 'pay_by_cash_or_credit_card_no_cheque_nor_amex.govspeak.erb' %>
 
   <% elsif resident_of == 'third_country' %>
     <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
@@ -151,7 +151,7 @@
                  ceremony_country: ceremony_country
                } %>
 
-    <%= render partial: 'pay_by_cash_or_credit_card_no_amex_or_cheque.govspeak.erb' %>
+    <%= render partial: 'pay_by_cash_or_credit_card_no_cheque_nor_amex.govspeak.erb' %>
   <% end %>
 
   *[CNI]:Certificate of no impediment
