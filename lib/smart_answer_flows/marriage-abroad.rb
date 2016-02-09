@@ -256,6 +256,7 @@ module SmartAnswer
           :outcome_os_indonesia,
           :outcome_os_italy,
           :outcome_os_kosovo,
+          :outcome_os_kuwait,
           :outcome_os_laos,
           :outcome_os_japan,
           :outcome_os_marriage_impossible_no_laos_locals,
@@ -294,6 +295,8 @@ module SmartAnswer
               :outcome_os_oman
             elsif ceremony_country == 'belarus'
               :outcome_os_belarus
+            elsif ceremony_country == 'kuwait'
+              :outcome_os_kuwait
             elsif consular_cni_residing_in_third_country
               :outcome_consular_cni_os_residing_in_third_country
             elsif marriage_in_norway_third_country
@@ -376,6 +379,20 @@ module SmartAnswer
       outcome :outcome_portugal
 
       outcome :outcome_os_germany
+
+      outcome :outcome_os_kuwait do
+        precalculate :current_path do
+          (['/marriage-abroad/y'] + responses).join('/')
+        end
+
+        precalculate :uk_residence_outcome_path do
+          current_path.gsub('third_country', 'uk')
+        end
+
+        precalculate :ceremony_country_residence_outcome_path do
+          current_path.gsub('third_country', 'ceremony_country')
+        end
+      end
 
       outcome :outcome_os_indonesia
 

@@ -152,7 +152,7 @@
 
     ^The embassy may charge a fee to return your documents to you.^
 
-    ^You don't need to stay in the country while your notice is posted.^
+    <%= render partial: 'you_dont_need_to_stay_in_country.govspeak.erb' %>
 
     <% if partner_nationality != 'partner_british' %>
       <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>

@@ -1,0 +1,158 @@
+<% content_for :title do %>
+  Marriage in Kuwait
+
+<% end %>
+
+<% content_for :body do %>
+  <% if resident_of == 'ceremony_country' %>
+    <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
+                 locals: {
+                   country_name_lowercase_prefix: country_name_lowercase_prefix,
+                   ceremony_country: ceremony_country
+                 } %>
+
+    <%= render partial: 'get_legal_advice.govspeak.erb' %>
+
+    <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+
+    <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
+
+    To get a CNI, you must post notice of your intended marriage in <%= country_name_lowercase_prefix %>. You can do this at the British embassy.
+
+    <%= render partial: "three_day_residency_requirement.govspeak.erb",
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix
+               } -%>
+
+    <%= render partial: 'contact_method.govspeak.erb',
+              locals: {
+                sex_of_your_partner: sex_of_your_partner,
+                ceremony_country: ceremony_country,
+                overseas_passports_embassies: overseas_passports_embassies,
+                country_name_lowercase_prefix: country_name_lowercase_prefix
+              } %>
+
+    You’ll need to provide supporting documents, including:
+
+    - your passport
+    - proof of residence, such as Civil ID - check with the embassy to find out what you need
+    - equivalent documents for your partner
+
+    <%= render partial: 'consular_cni_os_not_uk_resident_ceremony_not_germany.govspeak.erb' %>
+
+    <%= render partial: 'provide_evidence_of_nationality_or_residence_for_divorce_or_dissolution.govspeak.erb' %>
+
+    <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
+
+    <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
+
+    <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
+
+    ###What happens next
+
+    The embassy will charge a fee for taking the oath.
+
+    The embassy will display your notice of marriage publicly for 7 days (from the day after they receive your payment).
+
+    They’ll then issue your CNI the next working day (as long as nobody has registered an objection).
+
+    There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
+
+    You can then collect your CNI at the British embassy in Kuwait City.
+    [Make an appointment to collect your CNI at the embassy in Kuwait City.](https://www.consular-appointments.service.gov.uk/fco#!/british-embassy-kuwait-city/certificate-of-no-impediment/slot_picker)
+
+    <%= render partial: 'check_if_cni_needs_to_be_legalised.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix
+               } %>
+
+    <%= render partial: 'you_dont_need_to_stay_in_country.govspeak.erb' %>
+
+    <%= render partial: 'consular_cni_os_fees_incl_null_osta_oath_consular_letter.govspeak.erb' %>
+
+    <%= render partial: 'link_to_consular_fees.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix,
+                 ceremony_country: ceremony_country
+               } %>
+
+    <%= render partial: 'pay_by_cash_or_credit_card_no_cheque_nor_amex.govspeak.erb' %>
+
+  <% elsif resident_of == 'third_country' %>
+    <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
+                 locals: {
+                   country_name_lowercase_prefix: country_name_lowercase_prefix,
+                   ceremony_country: ceremony_country
+                 } %>
+
+    <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix,
+                 ceremony_country: ceremony_country
+               } %>
+
+    <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+
+    <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
+
+    There are 2 ways you can get a CNI:
+
+    - [go to the UK and post notice with a UK registrar](<%= uk_residence_outcome_path %>)
+    - [go to <%= country_name_lowercase_prefix %> and post notice at the embassy or consulate there](<%= ceremony_country_residence_outcome_path %>)
+
+    <%= render partial: 'you_will_have_to_wait_to_get_married.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix
+               } %>
+
+  <% elsif resident_of == 'uk' %>
+    <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_marriage.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix
+               } %>
+
+    <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix,
+                 ceremony_country: ceremony_country
+               } %>
+
+    <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+
+    <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
+    <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
+
+    <%= render partial: 'cni_issued_locally_validity.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix
+               } %>
+
+    <%= render partial: 'legisation_and_translation_intro_uk.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix
+               } %>
+
+    <%= render partial: 'legalise_translate_and_check_with_authorities.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix
+               } %>
+
+    <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
+
+    <% if partner_nationality != 'partner_british' %>
+      <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
+    <% end -%>
+
+    <%= render partial: 'consular_cni_os_fees_incl_null_osta_oath_consular_letter.govspeak.erb' %>
+
+    <%= render partial: 'link_to_consular_fees.govspeak.erb',
+               locals: {
+                 country_name_lowercase_prefix: country_name_lowercase_prefix,
+                 ceremony_country: ceremony_country
+               } %>
+
+    <%= render partial: 'pay_by_cash_or_credit_card_no_cheque_nor_amex.govspeak.erb' %>
+  <% end %>
+
+  *[CNI]:Certificate of no impediment
+<% end %>
