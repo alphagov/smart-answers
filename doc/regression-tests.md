@@ -64,7 +64,7 @@ $ RUN_REGRESSION_TESTS=<smart-answer-flow-name> ruby test/regression/smart_answe
 
 ## Automatic trigger
 
-The regression test for a given flow are triggered automatically when you run the rake `test` task if you've made changed to any of the files whose checksums are listed in `test/data/<smart-answer-flow-name>-files.yml`. Although this won't always trigger the regression test when it should be run, it covers most common scenarios.
+The regression test for a given flow is triggered automatically when you run the rake `test` task if you've made changes to any of the files whose checksums are listed in `test/data/<smart-answer-flow-name>-files.yml`. Although this won't always trigger the regression test when it should be run, it covers most common scenarios.
 
 If you've added new classes, modules or data which is used by a flow, you should add the relevant files to the checksums file.
 
