@@ -35,14 +35,18 @@ module SmartAnswer
         )
       end
 
+      def linked_period_of_incapacity_for_work
+        PeriodOfIncapacityForWork.new(
+          begins_on: linked_sickness_start_date,
+          ends_on: linked_sickness_end_date
+        )
+      end
+
       def prev_sick_days
         return 0 unless has_linked_sickness
-        prev_sick_days = self.class.dates_matching_pattern(
-          from: linked_sickness_start_date,
-          to: linked_sickness_end_date,
-          pattern: days_of_the_week_worked
-        )
-        prev_sick_days.length
+        linked_period_of_incapacity_for_work.working_days(
+          days_of_the_week_worked
+        ).length
       end
 
       def waiting_days
