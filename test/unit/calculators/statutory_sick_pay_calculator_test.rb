@@ -7,7 +7,7 @@ module SmartAnswer
       context ".dates_matching_pattern" do
         should "return dates maching working days pattern" do
           working_days = %w(Sunday Tuesday Thursday).map { |d| Date::DAYNAMES.index(d).to_s }
-          dates = StatutorySickPayCalculator.dates_matching_pattern(
+          dates = StatutorySickPayCalculator::PeriodOfIncapacityForWork.dates_matching_pattern(
             from: Date.parse("Sun, 04 Jan 2015"),
             to:   Date.parse("Wed, 14 Jan 2015"),
             pattern: working_days
