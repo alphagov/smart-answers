@@ -5,17 +5,7 @@ module SmartAnswer
 
       class PeriodOfIncapacityForWork < DateRange
         def working_days(pattern)
-          self.class.dates_matching_pattern(
-            from: begins_on,
-            to: ends_on,
-            pattern: pattern
-          )
-        end
-
-        private
-
-        def self.dates_matching_pattern(from:, to:, pattern:)
-          dates = from..to
+          dates = begins_on..ends_on
           # create an array of all dates that would have been normal workdays
           matching_dates = []
           dates.each do |d|
