@@ -4,6 +4,13 @@ module SmartAnswer
       MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_FOR_WORK = 4
 
       class PeriodOfIncapacityForWork < DateRange
+        def working_days(pattern)
+          StatutorySickPayCalculator.dates_matching_pattern(
+            from: begins_on,
+            to: ends_on,
+            pattern: pattern
+          )
+        end
       end
 
       include ActiveModel::Model
@@ -298,10 +305,8 @@ module SmartAnswer
       end
 
       def init_normal_workdays_missed(days_of_the_week_worked)
-        self.class.dates_matching_pattern(
-          from: @sick_start_date,
-          to: @sick_end_date,
-          pattern: days_of_the_week_worked
+        current_period_of_incapacity_for_work.working_days(
+          days_of_the_week_worked
         )
       end
 
