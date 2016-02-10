@@ -29,7 +29,13 @@ module SmartAnswer
       end
 
       def prev_sick_days
-        prior_sick_days
+        return 0 unless has_linked_sickness
+        prev_sick_days = self.class.dates_matching_pattern(
+          from: linked_sickness_start_date,
+          to: linked_sickness_end_date,
+          pattern: days_of_the_week_worked
+        )
+        prev_sick_days.length
       end
 
       def waiting_days
@@ -105,16 +111,6 @@ module SmartAnswer
 
       def sick_end_date_for_awe
         linked_sickness_end_date || sick_end_date
-      end
-
-      def prior_sick_days
-        return 0 unless has_linked_sickness
-        prev_sick_days = self.class.dates_matching_pattern(
-          from: linked_sickness_start_date,
-          to: linked_sickness_end_date,
-          pattern: days_of_the_week_worked
-        )
-        prev_sick_days.length
       end
 
       def pay_day_offset
@@ -223,7 +219,7 @@ module SmartAnswer
       end
 
       def maximum_entitlement_reached?
-        prior_sick_days >= (days_of_the_week_worked.size * 28 + 3)
+        prev_sick_days >= (days_of_the_week_worked.size * 28 + 3)
       end
 
       def maximum_entitlement_reached_v2?
