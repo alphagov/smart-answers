@@ -100,7 +100,7 @@ module SmartAnswer
 
       def prior_sick_days
         return 0 unless has_linked_sickness
-        prev_sick_days = Calculators::StatutorySickPayCalculator.dates_matching_pattern(
+        prev_sick_days = self.class.dates_matching_pattern(
           from: linked_sickness_start_date,
           to: linked_sickness_end_date,
           pattern: days_of_the_week_worked
