@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if data_query.french_overseas_territories?(ceremony_country) %>
+  <% if data_query.french_overseas_territories?(calculator.ceremony_country) %>
     <%= country_name_uppercase_prefix %> is an overseas department or territory of France. The rules and requirements for getting married there are similar to France.
   <% end %>
 

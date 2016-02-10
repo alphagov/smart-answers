@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if %w(new-caledonia wallis-and-futuna).include?(ceremony_country) %>
+  <% if %w(new-caledonia wallis-and-futuna).include?(calculator.ceremony_country) %>
     <%= country_name_lowercase_prefix %> is an overseas department or territory of France. The rules and requirements for PACS there are similar to France.
   <% end %>
 

@@ -4,22 +4,23 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if resident_of == 'uk' %>
+  <% if calculator.resident_of_uk? %>
     Contact the [Embassy of <%= country_name_lowercase_prefix %>](/government/publications/foreign-embassies-in-the-uk) and the registry office (Standesamt) or church where you plan to marry before making any plans to find out about local marriage laws, including what documents you’ll need.
 
     <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: ceremony_country
+                 calculator: calculator
                } %>
 
-    <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+    <%= render partial: 'what_you_need_to_do.govspeak.erb',
+        locals: { calculator: calculator } %>
 
     <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
 
     <%= render partial: 'partner_needs_cni.govspeak.erb',
                     locals: {
-                      partner_nationality: partner_nationality
+                      calculator: calculator
                     } %>
 
     <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
@@ -39,7 +40,7 @@
 
     <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
 
-    <% if partner_nationality != 'partner_british' %>
+    <% if calculator.partner_not_british? %>
       <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
     <% end -%>
 
@@ -47,20 +48,21 @@
     <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: ceremony_country
+                 calculator: calculator
                } %>
 
-    <% if resident_of == 'ceremony_country' %>
+    <% if calculator.resident_of_ceremony_country? %>
       <%= render partial: 'get_legal_advice.govspeak.erb' %>
     <% else %>
       <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
                 locals: {
                   country_name_lowercase_prefix: country_name_lowercase_prefix,
-                  ceremony_country: ceremony_country
+                  calculator: calculator
                 } %>
     <% end %>
 
-    <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+    <%= render partial: 'what_you_need_to_do.govspeak.erb',
+        locals: { calculator: calculator } %>
 
     You don’t need a certificate of no impediment (CNI) to prove you’re allowed to marry if you’re a British national resident outside of the UK. However, you’ll need to apply for an exemption (‘Befreiung von der Beibringung des Ehefähigkeitszeugnisses’) from the Higher Regional Court (‘Oberlandesgericht’) in the region where you want to marry.
 
@@ -70,7 +72,7 @@
 
     You’ll need to complete a statutory declaration at the registry office as part of the application process.
 
-    <% if partner_nationality != 'partner_british' %>
+    <% if calculator.partner_not_british? %>
       <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
     <% end -%>
 
@@ -80,7 +82,7 @@
   <%= render partial: 'link_to_consular_fees.govspeak.erb',
              locals: {
                country_name_lowercase_prefix: country_name_lowercase_prefix,
-               ceremony_country: ceremony_country
+               calculator: calculator
              } %>
   <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
 
