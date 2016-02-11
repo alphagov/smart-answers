@@ -1,18 +1,18 @@
-<% if resident_of == 'uk' %>
+<% if calculator.resident_of_uk? %>
   <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_marriage.govspeak.erb',
              locals: {
                country_name_lowercase_prefix: country_name_lowercase_prefix
              } %>
-  <% if ceremony_country == 'morocco' %>
+  <% if calculator.ceremony_country == 'morocco' %>
     <%= render partial: 'contact_laadoul.govspeak.erb' %>
   <% end %>
-<% elsif resident_of == 'ceremony_country' || ceremony_country == 'qatar' %>
+<% elsif calculator.resident_of_ceremony_country? || calculator.ceremony_country == 'qatar' %>
   <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
              locals: {
                country_name_lowercase_prefix: country_name_lowercase_prefix,
-               ceremony_country: ceremony_country
+               calculator: calculator
              } %>
-  <% if ceremony_country == 'qatar' %>
+  <% if calculator.ceremony_country == 'qatar' %>
     <%= render partial: 'gulf_states_os_consular_cni.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix
@@ -23,21 +23,21 @@
                } %>
 
   <% end %>
-<% elsif resident_of == 'third_country' %>
+<% elsif calculator.resident_of_third_country? %>
   <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
              locals: {
                country_name_lowercase_prefix: country_name_lowercase_prefix,
-               ceremony_country: ceremony_country
+               calculator: calculator
              } %>
-  <% if ceremony_country == 'morocco' %>
+  <% if calculator.ceremony_country == 'morocco' %>
     <%= render partial: 'contact_laadoul.govspeak.erb' %>
   <% end %>
 
-<% elsif resident_of == ceremony_country && ceremony_country == 'thailand' %>
+<% elsif calculator.resident_of_ceremony_country && calculator.ceremony_country == 'thailand' %>
   <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
              locals: {
                country_name_lowercase_prefix: country_name_lowercase_prefix,
-               ceremony_country: ceremony_country
+               calculator: calculator
              } %>
 
 <% end %>

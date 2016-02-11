@@ -1,27 +1,27 @@
-<% if %w(thailand turkey vietnam).include?(ceremony_country) %>
+<% if %w(thailand turkey vietnam).include?(calculator.ceremony_country) %>
   ##Fees
 
   Service | Fee
   -|-
   Affidavit for marriage | £55
 
-<% elsif %w(south-korea).include?(ceremony_country) %>
+<% elsif %w(south-korea).include?(calculator.ceremony_country) %>
   ##Fees
 
   Service | Fee
   -|-
   Affidavit for marriage | £65
 
-<% elsif %w(belgium ecuador macao morocco norway).include?(ceremony_country) %>
+<% elsif %w(belgium ecuador macao morocco norway).include?(calculator.ceremony_country) %>
   <%= render partial: 'fee_table_affirmation_55.govspeak.erb' %>
-<% elsif ceremony_country == 'finland' %>
+<% elsif calculator.ceremony_country == 'finland' %>
   ##Fees
 
   Service | Fee
   -|-
   Affirmation for marriage | £65
 
-<% elsif %w(philippines united-arab-emirates).include?(ceremony_country) %>
+<% elsif %w(philippines united-arab-emirates).include?(calculator.ceremony_country) %>
   ##Fees
 
   Service | Fee
@@ -30,10 +30,10 @@
   Affirmation for freedom to marry in any other language | £70
 
 
-<% elsif ceremony_country == 'qatar' %>
+<% elsif calculator.ceremony_country == 'qatar' %>
   <%= render partial: 'fee_table_45_70_55.govspeak.erb' %>
 
-<% elsif ceremony_country == 'egypt' %>
+<% elsif calculator.ceremony_country == 'egypt' %>
   ##Fees
 
   Service | Fee
@@ -42,7 +42,7 @@
   Making an oath | £55
 
 
-<% elsif ceremony_country == 'china' %>
+<% elsif calculator.ceremony_country == 'china' %>
   ##Fees
 
   Service | Fee
@@ -59,28 +59,28 @@
 
 
 <% end %>
-<% unless data_query.countries_without_consular_facilities?(ceremony_country) %>
-  <% if ceremony_country == 'vietnam' %>
+<% unless data_query.countries_without_consular_facilities?(calculator.ceremony_country) %>
+  <% if calculator.ceremony_country == 'vietnam' %>
     <%= render partial: 'consular_fees_in_cash_visa_master.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: ceremony_country
+                 calculator: calculator
                } -%>
   <% else %>
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: ceremony_country
+                 calculator: calculator
                } %>
   <% end %>
 
-  <% if ceremony_country == 'finland' %>
+  <% if calculator.ceremony_country == 'finland' %>
     <%= render partial: 'pay_in_euros_or_visa_electron.govspeak.erb' %>
-  <% elsif ceremony_country == 'philippines' %>
+  <% elsif calculator.ceremony_country == 'philippines' %>
     You can pay in cash or by cheque issued by a bank.
-  <% elsif ceremony_country == 'norway' %>
+  <% elsif calculator.ceremony_country == 'norway' %>
     <%= render partial: 'pay_by_visas_or_mastercard.govspeak.erb' %>
-  <% elsif ceremony_country == 'south-korea' %>
+  <% elsif calculator.ceremony_country == 'south-korea' %>
     You can pay by cash in the local currency or by credit card, but not by personal cheque.
 
   <% else %>

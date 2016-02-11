@@ -15,12 +15,12 @@
     You may be able to register a civil partnership or get married at the British embassy or consulate in <%= country_name_lowercase_prefix %>.
   <% end %>
 
-  <% if ceremony_country == 'japan' %>
+  <% if calculator.ceremony_country == 'japan' %>
     <%= render partial: 'contact_to_make_appointment.govspeak.erb' %>
     <%= render partial: 'contact_method.govspeak.erb',
                locals: {
                  sex_of_your_partner: sex_of_your_partner,
-                 ceremony_country: ceremony_country,
+                 calculator: calculator,
                  overseas_passports_embassies: overseas_passports_embassies,
                  country_name_lowercase_prefix: country_name_lowercase_prefix
                } %>
@@ -30,18 +30,18 @@
                  country_name_lowercase_prefix: country_name_lowercase_prefix
                } %>
     <%= render partial: 'documents_needed_ss_british.govspeak.erb' %>
-  <% elsif ceremony_country == 'germany' %>
+  <% elsif calculator.ceremony_country == 'germany' %>
     Contact the British Embassy in Berlin to make an appointment.
 
     <%= render partial: 'contact_method.govspeak.erb',
                locals: {
                  sex_of_your_partner: sex_of_your_partner,
-                 ceremony_country: ceremony_country,
+                 calculator: calculator,
                  overseas_passports_embassies: overseas_passports_embassies,
                  country_name_lowercase_prefix: country_name_lowercase_prefix
                } %>
 
-  <% elsif ceremony_country == 'vietnam' %>
+  <% elsif calculator.ceremony_country == 'vietnam' %>
     You’ll need to download and complete the following documents:
 
     <%= render partial: "appointment_documents_in_vietnam.govspeak.erb" %>
@@ -52,7 +52,7 @@
     <%= render partial: 'contact_method.govspeak.erb',
                locals: {
                  sex_of_your_partner: sex_of_your_partner,
-                 ceremony_country: ceremony_country,
+                 calculator: calculator,
                  overseas_passports_embassies: overseas_passports_embassies,
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
                  contact_message: "Contact the embassy or consulate to make an appointment."
@@ -60,10 +60,10 @@
 
   <% end %>
 
-  <% unless ceremony_country == 'japan' %>
-    <% if ceremony_country == 'vietnam' %>
+  <% unless calculator.ceremony_country == 'japan' %>
+    <% if calculator.ceremony_country == 'vietnam' %>
       You and your partner will need to sign a declaration and provide proof of residence eg, an employer’s letter or a bank statement.
-    <% elsif ceremony_country == 'cambodia' %>
+    <% elsif calculator.ceremony_country == 'cambodia' %>
       ##What documents you’ll need
 
       You’ll both need to bring proof that you’ve been resident in Cambodia for the last 7 days.
@@ -74,9 +74,9 @@
            } %>
     <% end %>
 
-    <% if partner_nationality == 'partner_british' %>
+    <% if calculator.partner_british? %>
       <%= render partial: 'documents_needed_ss_british.govspeak.erb' %>
-    <% elsif ceremony_country == 'germany' %>
+    <% elsif calculator.ceremony_country == 'germany' %>
       You’ll both need to bring your original passports. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need to provide:
 
       - a [decree absolute or final order](/copy-decree-absolute-final-order)
@@ -103,7 +103,7 @@
   <% when 'ss_marriage_and_partnership' %>
     ##What you need to do
 
-    <% if ceremony_country == 'vietnam' %>
+    <% if calculator.ceremony_country == 'vietnam' %>
       You’ll need to be in Vietnam for 7 clear days (not including the date of arrival) before your appointment. At your appointment, the embassy or consulate will give you:
     <% else %>
       At your appointment the embassy or consulate will give you:
@@ -116,7 +116,7 @@
 
   Once you’ve completed these and paid the registration fee, the embassy or consulate will display your notice publicly for 14 days.
 
-  <% if ceremony_country == 'vietnam' %>
+  <% if calculator.ceremony_country == 'vietnam' %>
     ^You must stay in <%= country_name_lowercase_prefix %> while your notice is posted.^
   <% end %>
 
@@ -133,7 +133,7 @@
                marriage_and_partnership_phrases: marriage_and_partnership_phrases
              } %>
 
-  <% if ceremony_country == 'australia' %>
+  <% if calculator.ceremony_country == 'australia' %>
     You can’t have a same-sex marriage in a British embassy or consulate if you’re already in one of these relationships:
 
     * civil partnership (Australian Capital Territory)
@@ -147,7 +147,7 @@
 
   <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 
-  <% if data_query.ss_alt_fees_table_country?(ceremony_country, partner_nationality) %>
+  <% if data_query.ss_alt_fees_table_country?(calculator.ceremony_country, calculator) %>
     <% case marriage_and_partnership_phrases %>
     <% when 'ss_marriage' %>
       ##Fees
@@ -175,25 +175,25 @@
     <% end %>
   <% end %>
 
-  <% if ceremony_country == 'cambodia' %>
+  <% if calculator.ceremony_country == 'cambodia' %>
     <%= render partial: 'pay_by_cash_or_us_dollars_only.govspeak.erb' %>
-  <% elsif ceremony_country == 'vietnam' %>
+  <% elsif calculator.ceremony_country == 'vietnam' %>
     <%= render partial: 'consular_fees_in_cash_visa_master.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: ceremony_country
+                 calculator: calculator
                } -%>
   <% else %>
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: ceremony_country
+                 calculator: calculator
                } %>
 
     <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
   <% end %>
 
-  <% if %w{albania australia germany japan philippines russia serbia vietnam}.include?(ceremony_country) %>
+  <% if %w{albania australia germany japan philippines russia serbia vietnam}.include?(calculator.ceremony_country) %>
     <%= render partial: 'convert_cc_to_ss_marriage.govspeak.erb' %>
   <% end %>
 <% end %>

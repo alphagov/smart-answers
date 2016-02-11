@@ -7,13 +7,14 @@
   <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
              locals: {
                country_name_lowercase_prefix: country_name_lowercase_prefix,
-               ceremony_country: ceremony_country
+               calculator: calculator
              } %>
 
   ^You should [get legal advice](/government/publications/japan-list-of-lawyers) before making any plans.^
 
 
-  <%= render partial: 'what_you_need_to_do.govspeak.erb' -%>
+  <%= render partial: 'what_you_need_to_do.govspeak.erb',
+      locals: { calculator: calculator } -%>
 
 
   Make an appointment at the British embassy in Tokyo or British Consulate General in Osaka to swear an affirmation/affidavit (written statement of facts) that you’re free to marry.
@@ -21,7 +22,7 @@
   <%= render partial: 'contact_method.govspeak.erb',
              locals: {
                sex_of_your_partner: sex_of_your_partner,
-               ceremony_country: ceremony_country,
+               calculator: calculator,
                overseas_passports_embassies: overseas_passports_embassies,
                country_name_lowercase_prefix: country_name_lowercase_prefix
              } %>
@@ -57,7 +58,7 @@
   <%= render partial: 'link_to_consular_fees.govspeak.erb',
              locals: {
                country_name_lowercase_prefix: country_name_lowercase_prefix,
-               ceremony_country: ceremony_country
+               calculator: calculator
              } -%>
 
 

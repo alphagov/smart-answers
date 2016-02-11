@@ -3,14 +3,14 @@
 <% end %>
 
 <% content_for :body do %>
-  <% case ceremony_country %>
+  <% case calculator.ceremony_country %>
   <% when 'burma' %>
     The British Embassy in Rangoon doesn’t register marriages of British citizens in Burma. Contact the embassy if you need further advice.
     <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb',
                locals: {
                  overseas_passports_embassies: overseas_passports_embassies
                } %>
-    <% if partner_nationality == 'partner_local' %>
+    <% if calculator.partner_is_national_of_ceremony_country? %>
       %Marriage between a Burmese citizen and a foreign national is not allowed under local law.%
 
     <% end %>
@@ -20,7 +20,7 @@
                locals: {
                  overseas_passports_embassies: overseas_passports_embassies
                } %>
-    <% if partner_nationality == 'partner_local' %>
+    <% if calculator.partner_is_national_of_ceremony_country? %>
       %Marriage between a citizen of North Korea and a foreign national is not allowed under local law.%
 
     <% end %>
@@ -37,7 +37,7 @@
                  overseas_passports_embassies: overseas_passports_embassies
                } %>
   <% when 'saudi-arabia' %>
-    <% if resident_of != 'ceremony_country' %>
+    <% if calculator.resident_outside_of_ceremony_country? %>
       ^One of you must be a Muslim to get married under local laws in Saudi Arabia. You can only get married at the British Embassy if you’re resident in the country.^
 
       Contact the [Embassy of Saudi Arabia](http://www.saudiembassy.org.uk/) to find out about local marriage laws.
@@ -47,7 +47,7 @@
       <%= render partial: 'contact_method.govspeak.erb',
                  locals: {
                    sex_of_your_partner: sex_of_your_partner,
-                   ceremony_country: ceremony_country,
+                   calculator: calculator,
                    overseas_passports_embassies: overseas_passports_embassies,
                    country_name_lowercase_prefix: country_name_lowercase_prefix
                  } %>
@@ -81,7 +81,7 @@
 
       You’ll need to pay additional fees for the marriage ceremony and to get your marriage certificate (see below).
 
-      <% if partner_nationality != 'partner_british' %>
+      <% if calculator.partner_not_british? %>
         <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 
       <% end %>
@@ -93,12 +93,12 @@
       Performing a marriage ceremony| £140
       Issuing a marriage certificate | £65
 
-      You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for <%= ceremony_country_name %>](/government/publications/<%= ceremony_country %>-consular-fees).
+      You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for <%= ceremony_country_name %>](/government/publications/<%= calculator.ceremony_country %>-consular-fees).
 
       <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
 
     <% end %>
   <% else %>
-    <% raise "The outcome for #{ceremony_country} is not handled" %>
+    <% raise "The outcome for #{calculator.ceremony_country} is not handled" %>
   <% end %>
 <% end %>

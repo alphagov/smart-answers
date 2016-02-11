@@ -68,17 +68,17 @@ module SmartAnswer::Calculators
       SS_MARRIAGE_AND_PARTNERSHIP_COUNTRIES.include?(country_slug)
     end
 
-    def ss_alt_fees_table_country?(country_slug, partner_nationality)
+    def ss_alt_fees_table_country?(country_slug, calculator)
       SS_ALT_FEES_TABLE_COUNTRY.include?(country_slug) ||
-        (SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_A.include?(country_slug) && partner_nationality == "partner_british") ||
-        (SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B.include?(country_slug) && partner_nationality != "partner_local") &&
+        (SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_A.include?(country_slug) && calculator.partner_british?) ||
+        (SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B.include?(country_slug) && calculator.partner_is_not_national_of_ceremony_country?) &&
         (%w(cambodia vietnam).exclude?(country_slug))
     end
 
-    def ss_marriage_not_possible?(country_slug, partner_nationality)
-      (SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_A.include?(country_slug) && partner_nationality != "partner_british") ||
-      ((SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B.include?(country_slug) || %w(cambodia vietnam).include?(country_slug)) && partner_nationality == "partner_local") ||
-      NO_SS_MARRIAGE_COUNTRIES.include?(country_slug)
+    def ss_marriage_not_possible?(country_slug, calculator)
+      (SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_A.include?(country_slug) && calculator.partner_not_british?) ||
+        ((SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B.include?(country_slug) || %w(cambodia vietnam).include?(country_slug)) && calculator.partner_is_national_of_ceremony_country?) ||
+        NO_SS_MARRIAGE_COUNTRIES.include?(country_slug)
     end
 
     def commonwealth_country?(country_slug)

@@ -5,7 +5,7 @@
 <% content_for :body do %>
   You may be able to register a civil partnership at the <%= institution_name %> in <%= country_name_lowercase_prefix %>.
 
-  <% if %w(croatia bulgaria).include?(ceremony_country) && partner_nationality == 'partner_local' %>
+  <% if %w(croatia bulgaria).include?(calculator.ceremony_country) && calculator.partner_is_national_of_ceremony_country? %>
     %However, they can’t register a civil partnership between a British national and a national of <%= country_name_lowercase_prefix %>.%
 
   <% else %>
@@ -14,7 +14,7 @@
   <%= render partial: 'contact_method.govspeak.erb',
              locals: {
                sex_of_your_partner: sex_of_your_partner,
-               ceremony_country: ceremony_country,
+               calculator: calculator,
                overseas_passports_embassies: overseas_passports_embassies,
                country_name_lowercase_prefix: country_name_lowercase_prefix
              } %>
@@ -29,7 +29,7 @@
   - a [decree absolute or final order](/copy-decree-absolute-final-order), or
   - the [death certificate](/order-copy-birth-death-marriage-certificate/)
 
-  <% if partner_nationality != 'partner_british' %>
+  <% if calculator.partner_not_british? %>
     Your partner will also need either:
 
     - a ‘certificate of no impediment’ (CNI) or similar document to prove they’re allowed to enter into a civil partnership from their national authorities
@@ -53,7 +53,7 @@
   You’ll need to provide two witnesses and pay a fee to register your civil partnership. You’ll need to pay an additional fee for your civil partnership certificate (see below).
 
 
-  <% unless partner_nationality == 'partner_british' %>
+  <% unless calculator.partner_british? %>
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
   <% end %>
 
@@ -65,7 +65,7 @@
   Registering a civil partnership | £140
   Issuing a civil partnership certificate | £65
 
-  You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for <%= ceremony_country_name %>](/government/publications/<%= ceremony_country %>-consular-fees).
+  You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for <%= ceremony_country_name %>](/government/publications/<%= calculator.ceremony_country %>-consular-fees).
 
   <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
 

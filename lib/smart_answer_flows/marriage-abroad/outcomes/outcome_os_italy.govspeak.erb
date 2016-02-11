@@ -5,12 +5,13 @@
 <% content_for :body do %>
   Contact the local comune (town hall) before making any plans to find out about local marriage laws, including what documents you’ll need.
 
-  <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+  <%= render partial: 'what_you_need_to_do.govspeak.erb',
+      locals: { calculator: calculator } %>
 
-  <% if resident_of == 'uk' %>
+  <% if calculator.resident_of_uk? %>
     You’ll need to get a certificate of no impediment (CNI) from the authorities in the UK to prove you’re allowed to marry.
 
-    <% if partner_nationality == 'partner_british' %>
+    <% if calculator.partner_british? %>
       ^Your partner will need to follow the same process to get their own CNI.^
     <% end %>
 
@@ -22,7 +23,7 @@
                } -%>
 
     ###Getting a statutory declaration
-    <% if partner_nationality == 'partner_british' %>
+    <% if calculator.partner_british? %>
 
 
       While you’re waiting for your CNI, you and your partner will need to make a statutory declaration before a [solicitor or public notary](http://www.lawsociety.org.uk/find-a-solicitor/) in the UK. The Italian authorities will need this in addition to your CNI. There’s a standard template in English and Italian that you can download and use.
@@ -36,7 +37,7 @@
     $D
 
 
-    <% if partner_nationality != 'partner_british' %>
+    <% if calculator.partner_not_british? %>
 
       ^Your partner should check what they need to do with their own consulate.^
 
@@ -50,19 +51,19 @@
   <% else %>
     You’ll be asked to provide a ‘Nulla Osta’ by the authorities in Italy. This is a certificate that proves you’re allowed to marry.
 
-    <% if resident_of == 'ceremony_country' %>
+    <% if calculator.resident_of_ceremony_country? %>
       To get a Nulla Osta, you’ll first need to post notice of your intended marriage at the British Embassy in Rome.
     <% end %>
 
     <%= render partial: 'contact_method.govspeak.erb',
                locals: {
                  sex_of_your_partner: sex_of_your_partner,
-                 ceremony_country: ceremony_country,
+                 calculator: calculator,
                  overseas_passports_embassies: overseas_passports_embassies,
                  country_name_lowercase_prefix: country_name_lowercase_prefix
                } %>
 
-    <% if resident_of == 'ceremony_country' %>
+    <% if calculator.resident_of_ceremony_country? %>
       <%= render partial: "three_day_residency_requirement.govspeak.erb",
                        locals: {
                          country_name_lowercase_prefix: country_name_lowercase_prefix,
@@ -90,7 +91,7 @@
 
     ^If you’re a woman you must wait 300 days after divorcing or the death of your husband before remarrying.^
 
-    <% if resident_of == 'ceremony_country' %>
+    <% if calculator.resident_of_ceremony_country? %>
 
       ###What happens next
 
@@ -103,16 +104,16 @@
 
   <%= render partial: 'names_on_documents_must_match.govspeak.erb' -%>
 
-  <% if resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'you_dont_need_to_stay_in_country.govspeak.erb' %>
 
   <% end %>
-  <% if partner_nationality != 'partner_british' %>
+  <% if calculator.partner_not_british? %>
 
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 
   <% end %>
-  <% if resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of_ceremony_country? %>
     ##Fees
 
     Service | Fee
@@ -124,7 +125,7 @@
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: ceremony_country
+                 calculator: calculator
                } %>
 
     <%= render partial: 'pay_in_euro_or_sterling_or_card.govspeak.erb' %>

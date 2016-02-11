@@ -3,17 +3,17 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if data_query.cp_equivalent_countries?(ceremony_country) %>
+  <% if data_query.cp_equivalent_countries?(calculator.ceremony_country) %>
     <%= render partial: 'synonyms_of_cp.govspeak.erb',
                locals: {
-                 ceremony_country: ceremony_country
+                 calculator: calculator
                } %>
   <% end %>
 
-  <% if ceremony_country == 'brazil' && sex_of_your_partner == 'same_sex' && resident_of != 'ceremony_country' %>
-    You should check the [travel advice for <%= country_name_lowercase_prefix %>](/foreign-travel-advice/<%= ceremony_country %>).
+  <% if calculator.ceremony_country == 'brazil' && sex_of_your_partner == 'same_sex' && calculator.resident_outside_of_ceremony_country? %>
+    You should check the [travel advice for <%= country_name_lowercase_prefix %>](/foreign-travel-advice/<%= calculator.ceremony_country %>).
 
-  <% elsif resident_of == 'uk' %>
+  <% elsif calculator.resident_of_uk? %>
     <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_cp.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix
@@ -22,17 +22,17 @@
     <%= render partial: 'contact_local_authorities_in_country_cp.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: ceremony_country
+                 calculator: calculator
                } %>
   <% end %>
 
-  <% if resident_of != 'ceremony_country' && ceremony_country != 'brazil' %>
-    You should also check the [travel advice for <%= country_name_lowercase_prefix %>](/foreign-travel-advice/<%= ceremony_country %>).
+  <% if calculator.resident_outside_of_ceremony_country? && calculator.ceremony_country != 'brazil' %>
+    You should also check the [travel advice for <%= country_name_lowercase_prefix %>](/foreign-travel-advice/<%= calculator.ceremony_country %>).
 
   <% end %>
 
-  <% unless ceremony_country == 'czech-republic' && sex_of_your_partner == 'same_sex' %>
-    <% if ceremony_country == 'brazil' && sex_of_your_partner == 'same_sex' && resident_of == 'uk' %>
+  <% unless calculator.ceremony_country == 'czech-republic' && sex_of_your_partner == 'same_sex' %>
+    <% if calculator.ceremony_country == 'brazil' && sex_of_your_partner == 'same_sex' && calculator.resident_of_uk? %>
       ##What you need to do
 
       You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to enter into a civil partnership or equivalent in <%= country_name_lowercase_prefix %>.
@@ -65,16 +65,16 @@
       <%= render partial: 'contact_method.govspeak.erb',
                  locals: {
                    sex_of_your_partner: sex_of_your_partner,
-                   ceremony_country: ceremony_country,
+                   calculator: calculator,
                    overseas_passports_embassies: overseas_passports_embassies,
                    country_name_lowercase_prefix: country_name_lowercase_prefix
                  } %>
     <% end %>
   <% end %>
-  <% if partner_nationality != 'partner_british' %>
+  <% if calculator.partner_not_british? %>
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
   <% end %>
-  <% unless ceremony_country == 'czech-republic' && sex_of_your_partner == 'same_sex' %>
+  <% unless calculator.ceremony_country == 'czech-republic' && sex_of_your_partner == 'same_sex' %>
     ##Fees
 
     Service | Fee
@@ -82,25 +82,25 @@
     Issuing a CNI or equivalent | £65
   <% end %>
 
-  <% unless (ceremony_country == 'czech-republic' || data_query.countries_without_consular_facilities?(ceremony_country)) %>
+  <% unless (calculator.ceremony_country == 'czech-republic' || data_query.countries_without_consular_facilities?(calculator.ceremony_country)) %>
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: ceremony_country
+                 calculator: calculator
                } %>
   <% end %>
 
-  <% if %w(iceland slovenia).include?(ceremony_country) %>
+  <% if %w(iceland slovenia).include?(calculator.ceremony_country) %>
     <%= render partial: 'pay_in_local_currency_ceremony_country_name.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix
                } %>
-  <% elsif ceremony_country == 'luxembourg' %>
+  <% elsif calculator.ceremony_country == 'luxembourg' %>
     <%= render partial: 'pay_in_cash_visa_or_mastercard.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix
                } %>
-  <% elsif %w(czech-republic cote-d-ivoire).exclude?(ceremony_country) %>
+  <% elsif %w(czech-republic cote-d-ivoire).exclude?(calculator.ceremony_country) %>
     <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
   <% end %>
 <% end %>

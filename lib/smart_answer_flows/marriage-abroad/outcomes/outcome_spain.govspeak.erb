@@ -7,15 +7,15 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if resident_of != 'uk' %>
+  <% if calculator.resident_outside_of_uk? %>
     <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: ceremony_country
+                 calculator: calculator
                } %>
   <% end %>
 
-  <% if resident_of != 'third_country' && sex_of_your_partner == 'opposite_sex' %>
+  <% if calculator.resident_outside_of_third_country? && sex_of_your_partner == 'opposite_sex' %>
     Civil weddings in Spain take place at a town hall, register office or district court. You must register with the local civil authorities afterwards to get an official marriage certificate if you have a religious wedding.
 
   <% end %>
@@ -25,20 +25,21 @@
 
   <% end %>
 
-  <% if resident_of == 'ceremony_country' %>
+  <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'get_legal_advice.govspeak.erb' %>
   <% else %>
     <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: ceremony_country
+                 calculator: calculator
                } %>
 
     %There are certain legal restrictions on getting married in Spain if neither of you lives there. If you both live outside Spain, you must check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC) where you’re planning to get married to find out if this is allowed.%
 
   <% end %>
 
-  <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+  <%= render partial: 'what_you_need_to_do.govspeak.erb',
+      locals: { calculator: calculator } %>
 
   You'll be asked to provide a certificate of no impediment (CNI), marital status certificate or both to prove you’re allowed to marry.
 
@@ -50,7 +51,7 @@
   [Download 'Marital status certificate' (PDF, 145KB)](https://www.gov.uk/government/publications/marital-status-example)
   $D
 
-  <% if resident_of == 'third_country' %>
+  <% if calculator.resident_of_third_country? %>
     Check with the civil registry  where you’re getting married to find out what certificate you’ll need.
 
     There are 2 ways you can get these certificates:
@@ -71,7 +72,7 @@
 
   <% end %>
 
-  <% if resident_of == 'uk' %>
+  <% if calculator.resident_of_uk? %>
     ## Getting a certificate of no impediment
 
     <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
@@ -84,7 +85,7 @@
 
     Send the documents by registered post to the address in the application pack.
 
-  <% elsif resident_of == 'ceremony_country' %>
+  <% elsif calculator.resident_of_ceremony_country? %>
     ## Getting a certificate of no impediment
 
     Download and complete the [CNI application pack](/government/publications/certificate-of-no-impediment-application-pack) - it contains a list of the documents you’ll need.
@@ -101,7 +102,7 @@
 
   <% end %>
 
-  <% if resident_of != 'third_country' %>
+  <% if calculator.resident_outside_of_third_country? %>
     ##Getting a marital status certificate
 
     Download and complete the [marital status certificate application pack](/government/publications/marital-status-certificate-for-marriage-application-pack) - it contains a list of the documents you’ll need.
@@ -118,7 +119,7 @@
 
     They’ll send your certificate and original documents to you by registered post.
 
-    <% if resident_of == 'ceremony_country' %>
+    <% if calculator.resident_of_ceremony_country? %>
       ##Other requirements for Spain
 
       If you’ve been living in Spain for less than 2 years, the civil registrar may also ask for confirmation of your addresses for the past 2 years (‘confirmación de domicilio para casarse en España’).
@@ -144,7 +145,7 @@
 
     <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
 
-    <% unless partner_nationality == 'partner_british' %>
+    <% unless calculator.partner_british? %>
       <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
     <% end %>
 
@@ -152,7 +153,7 @@
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: {
                  country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 ceremony_country: ceremony_country
+                 calculator: calculator
                } %>
     <%= render partial: 'pay_by_visas_or_mastercard.govspeak.erb' %>
   <% end %>
