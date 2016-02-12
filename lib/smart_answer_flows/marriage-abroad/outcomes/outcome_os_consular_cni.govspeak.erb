@@ -334,7 +334,7 @@
 
     <% end %>
   <% else %>
-    <% if calculator.sex_of_your_partner == 'same_sex' || no_document_download_link_if_os_resident_of_uk_countries.exclude?(calculator.ceremony_country) && (cni_notary_public_countries + %w(japan macedonia) - %w(greece tunisia)).include?(calculator.ceremony_country) %>
+    <% if calculator.partner_is_same_sex? || no_document_download_link_if_os_resident_of_uk_countries.exclude?(calculator.ceremony_country) && (cni_notary_public_countries + %w(japan macedonia) - %w(greece tunisia)).include?(calculator.ceremony_country) %>
       <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
 
     <% end %>

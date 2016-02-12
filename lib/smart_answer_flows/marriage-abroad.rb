@@ -339,7 +339,7 @@ module SmartAnswer
             elsif data_query.os_other_countries?(calculator.ceremony_country)
               :outcome_os_other_countries
             end
-          elsif calculator.sex_of_your_partner == 'same_sex'
+          elsif calculator.partner_is_same_sex?
             if ss_affirmation
               :outcome_ss_affirmation
             elsif ss_unknown_no_embassies

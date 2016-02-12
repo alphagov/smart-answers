@@ -52,5 +52,9 @@ module SmartAnswer::Calculators
     def partner_is_opposite_sex?
       sex_of_your_partner == 'opposite_sex'
     end
+
+    def partner_is_same_sex?
+      sex_of_your_partner == 'same_sex'
+    end
   end
 end
