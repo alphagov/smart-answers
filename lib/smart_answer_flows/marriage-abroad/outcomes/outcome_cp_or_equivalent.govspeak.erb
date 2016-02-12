@@ -10,7 +10,7 @@
                } %>
   <% end %>
 
-  <% if calculator.ceremony_country == 'brazil' && calculator.sex_of_your_partner == 'same_sex' && calculator.resident_outside_of_ceremony_country? %>
+  <% if calculator.ceremony_country == 'brazil' && calculator.partner_is_same_sex? && calculator.resident_outside_of_ceremony_country? %>
     You should check the [travel advice for <%= country_name_lowercase_prefix %>](/foreign-travel-advice/<%= calculator.ceremony_country %>).
 
   <% elsif calculator.resident_of_uk? %>
@@ -31,8 +31,8 @@
 
   <% end %>
 
-  <% unless calculator.ceremony_country == 'czech-republic' && calculator.sex_of_your_partner == 'same_sex' %>
-    <% if calculator.ceremony_country == 'brazil' && calculator.sex_of_your_partner == 'same_sex' && calculator.resident_of_uk? %>
+  <% unless calculator.ceremony_country == 'czech-republic' && calculator.partner_is_same_sex? %>
+    <% if calculator.ceremony_country == 'brazil' && calculator.partner_is_same_sex? && calculator.resident_of_uk? %>
       ##What you need to do
 
       You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to enter into a civil partnership or equivalent in <%= country_name_lowercase_prefix %>.
@@ -73,7 +73,7 @@
   <% if calculator.partner_not_british? %>
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
   <% end %>
-  <% unless calculator.ceremony_country == 'czech-republic' && calculator.sex_of_your_partner == 'same_sex' %>
+  <% unless calculator.ceremony_country == 'czech-republic' && calculator.partner_is_same_sex? %>
     ##Fees
 
     Service | Fee
