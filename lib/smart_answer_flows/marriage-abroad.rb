@@ -187,10 +187,6 @@ module SmartAnswer
           response == 'same_sex' && data_query.ss_marriage_and_partnership?(calculator.ceremony_country)
         }
 
-        next_node_calculation(:ss_unknown_no_embassies) { |response|
-          response == 'same_sex' && data_query.ss_unknown_no_embassies?(calculator.ceremony_country)
-        }
-
         next_node_calculation(:ss_affirmation) { |response|
           response == 'same_sex' && %w(belgium norway).include?(calculator.ceremony_country)
         }
@@ -307,7 +303,7 @@ module SmartAnswer
           elsif calculator.partner_is_same_sex?
             if ss_affirmation
               :outcome_ss_affirmation
-            elsif ss_unknown_no_embassies
+            elsif calculator.partner_is_same_sex? && data_query.ss_unknown_no_embassies?(calculator.ceremony_country)
               :outcome_os_no_cni
             elsif calculator.ceremony_country == "malta"
               :outcome_ss_marriage_malta
