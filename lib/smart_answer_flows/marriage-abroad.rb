@@ -177,10 +177,6 @@ module SmartAnswer
           calculator.resident_of_third_country? && (data_query.os_consular_cni_countries?(calculator.ceremony_country) || %w(kosovo).include?(calculator.ceremony_country) || data_query.os_consular_cni_in_nearby_country?(calculator.ceremony_country))
         }
 
-        next_node_calculation(:marriage_in_norway_third_country) {
-          calculator.ceremony_country == 'norway' && calculator.resident_of_third_country?
-        }
-
         next_node_calculation(:marriage_via_local_authorities) {
           data_query.os_marriage_via_local_authorities?(calculator.ceremony_country)
         }
@@ -280,7 +276,7 @@ module SmartAnswer
               :outcome_os_kuwait
             elsif consular_cni_residing_in_third_country
               :outcome_consular_cni_os_residing_in_third_country
-            elsif marriage_in_norway_third_country
+            elsif calculator.ceremony_country == 'norway' && calculator.resident_of_third_country?
               :outcome_consular_cni_os_residing_in_third_country
             elsif marriage_in_italy
               :outcome_os_italy
