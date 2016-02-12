@@ -3,6 +3,7 @@ module SmartAnswer::Calculators
     attr_accessor :ceremony_country
     attr_writer :resident_of
     attr_writer :partner_nationality
+    attr_accessor :sex_of_your_partner
 
     def partner_british?
       @partner_nationality == 'partner_british'
