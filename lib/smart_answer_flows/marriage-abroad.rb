@@ -307,7 +307,7 @@ module SmartAnswer
               :outcome_ss_marriage_not_possible
             elsif calculator.partner_is_same_sex? && calculator.ceremony_country == "germany" && calculator.partner_is_national_of_ceremony_country?
               :outcome_cp_or_equivalent
-            elsif ss_marriage_countries | ss_marriage_countries_when_couple_british | ss_marriage_and_partnership
+            elsif ss_marriage_countries || ss_marriage_countries_when_couple_british || ss_marriage_and_partnership
               :outcome_ss_marriage
             elsif data_query.cp_equivalent_countries?(calculator.ceremony_country)
               :outcome_cp_or_equivalent
