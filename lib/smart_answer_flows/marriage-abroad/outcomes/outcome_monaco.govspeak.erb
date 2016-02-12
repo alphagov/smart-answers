@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  <% if marriage_or_pacs == 'marriage' %>
+  <% if calculator.marriage_or_pacs == 'marriage' %>
     Marriage in Monaco
   <% else %>
     PACS in Monaco
@@ -8,7 +8,7 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if marriage_or_pacs == 'marriage' %>
+  <% if calculator.marriage_or_pacs == 'marriage' %>
 
     Contact the relevant local authorities to find out about local marriage laws, including what documents you’ll need.
 
