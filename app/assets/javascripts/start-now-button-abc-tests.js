@@ -4,11 +4,13 @@ $(function(){
   if(window.location.href.indexOf("/overseas-passports") > -1) {
     new GOVUK.MultivariateTest({
       el: '.get-started a',
-      name: 'start-now-button-overseas-passports',
+      name: 'startButton_osPassport_201602',
+      customDimensionIndex: 13,
+      contentExperimentId: 'egf8SiUzQJmsUuEIbxkCRw',
       cohorts: {
-        control: { callback: function() {} },
-        option_1: { html: 'Get application information' },
-        option_2: { html: 'Next' }
+        original: { callback: function() {}, variantId: 0 },
+        getApplicationInfo: { html: 'Get application information', variantId: 1 },
+        next: { html: 'Next', variantId: 2 }
       }
     });
   }
@@ -16,11 +18,13 @@ $(function(){
   if(window.location.href.indexOf("/calculate-your-child-maintenance") > -1) {
     new GOVUK.MultivariateTest({
       el: '.get-started a',
-      name: 'start-now-button-calculate-your-child-maintenance',
+      name: 'startButton_calcChildM_201602',
+      customDimensionIndex: 13,
+      contentExperimentId: 'u0MzUmYRRzmb5mchoGp9Fw',
       cohorts: {
-        control: { callback: function() {} },
-        option_1: { html: 'Calculate' },
-        option_2: { html: 'Estimate your child maintenance' }
+        original: { callback: function() {}, variantId: 0 },
+        calculate: { html: 'Calculate', variantId: 1 },
+        estimateChildMaintenance: { html: 'Estimate your child maintenance', variantId: 2 }
       }
     });
   }
@@ -28,11 +32,13 @@ $(function(){
   if(window.location.href.indexOf("/marriage-abroad") > -1) {
     new GOVUK.MultivariateTest({
       el: '.get-started a',
-      name: 'start-now-button-marriage-abroad',
+      name: 'startButton_marriageAbroad_201602',
+      customDimensionIndex: 13,
+      contentExperimentId: 'Xk_FTKgiTwikoIH0fzPklw',
       cohorts: {
-        control: { callback: function() {} },
-        option_1: { html: 'Find out how' },
-        option_2: { html: 'Get more information' }
+        original: { callback: function() {}, variantId: 0 },
+        findOutHow: { html: 'Find out how', variantId: 1 },
+        getMoreInfo: { html: 'Get more information', variantId: 2 }
       }
     });
   }
