@@ -287,19 +287,19 @@ module SmartAnswer
               :outcome_os_other_countries
             end
           elsif calculator.partner_is_same_sex?
-            if calculator.partner_is_same_sex? && %w(belgium norway).include?(calculator.ceremony_country)
+            if %w(belgium norway).include?(calculator.ceremony_country)
               :outcome_ss_affirmation
-            elsif calculator.partner_is_same_sex? && data_query.ss_unknown_no_embassies?(calculator.ceremony_country)
+            elsif data_query.ss_unknown_no_embassies?(calculator.ceremony_country)
               :outcome_os_no_cni
             elsif calculator.ceremony_country == "malta"
               :outcome_ss_marriage_malta
-            elsif calculator.partner_is_same_sex? && data_query.ss_marriage_not_possible?(calculator.ceremony_country, calculator)
+            elsif data_query.ss_marriage_not_possible?(calculator.ceremony_country, calculator)
               :outcome_ss_marriage_not_possible
-            elsif calculator.partner_is_same_sex? && calculator.ceremony_country == "germany" && calculator.partner_is_national_of_ceremony_country?
+            elsif calculator.ceremony_country == "germany" && calculator.partner_is_national_of_ceremony_country?
               :outcome_cp_or_equivalent
-            elsif (calculator.partner_is_same_sex? && data_query.ss_marriage_countries?(calculator.ceremony_country)) ||
-                (calculator.partner_is_same_sex? && data_query.ss_marriage_countries_when_couple_british?(calculator.ceremony_country) && calculator.partner_british?) ||
-                (calculator.partner_is_same_sex? && data_query.ss_marriage_and_partnership?(calculator.ceremony_country))
+            elsif (data_query.ss_marriage_countries?(calculator.ceremony_country)) ||
+                (data_query.ss_marriage_countries_when_couple_british?(calculator.ceremony_country) && calculator.partner_british?) ||
+                (data_query.ss_marriage_and_partnership?(calculator.ceremony_country))
               :outcome_ss_marriage
             elsif data_query.cp_equivalent_countries?(calculator.ceremony_country)
               :outcome_cp_or_equivalent
