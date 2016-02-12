@@ -177,10 +177,6 @@ module SmartAnswer
           calculator.resident_of_third_country? && (data_query.os_consular_cni_countries?(calculator.ceremony_country) || %w(kosovo).include?(calculator.ceremony_country) || data_query.os_consular_cni_in_nearby_country?(calculator.ceremony_country))
         }
 
-        next_node_calculation(:ss_marriage_and_partnership) { |response|
-          response == 'same_sex' && data_query.ss_marriage_and_partnership?(calculator.ceremony_country)
-        }
-
         permitted_next_nodes = [
           :outcome_brazil_not_living_in_the_uk,
           :outcome_consular_cni_os_residing_in_third_country,
@@ -303,7 +299,7 @@ module SmartAnswer
               :outcome_cp_or_equivalent
             elsif (calculator.partner_is_same_sex? && data_query.ss_marriage_countries?(calculator.ceremony_country)) ||
                 (calculator.partner_is_same_sex? && data_query.ss_marriage_countries_when_couple_british?(calculator.ceremony_country) && calculator.partner_british?) ||
-                ss_marriage_and_partnership
+                (calculator.partner_is_same_sex? && data_query.ss_marriage_and_partnership?(calculator.ceremony_country))
               :outcome_ss_marriage
             elsif data_query.cp_equivalent_countries?(calculator.ceremony_country)
               :outcome_cp_or_equivalent
