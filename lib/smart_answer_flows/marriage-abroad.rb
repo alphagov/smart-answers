@@ -173,10 +173,6 @@ module SmartAnswer
         option :opposite_sex
         option :same_sex
 
-        next_node_calculation(:ceremony_in_norway_uk_resident) {
-          (calculator.ceremony_country == "norway") && (calculator.resident_of_uk?)
-        }
-
         next_node_calculation(:ceremony_in_brazil_not_resident_in_the_uk) {
           (calculator.ceremony_country == 'brazil') && (calculator.resident_outside_of_uk?)
         }
@@ -316,7 +312,7 @@ module SmartAnswer
               :outcome_os_consular_cni
             elsif calculator.ceremony_country == "finland" && calculator.resident_of_uk?
               :outcome_os_consular_cni
-            elsif ceremony_in_norway_uk_resident
+            elsif calculator.ceremony_country == "norway" && calculator.resident_of_uk?
               :outcome_os_consular_cni
             elsif data_query.os_affirmation_countries?(calculator.ceremony_country)
               :outcome_os_affirmation
