@@ -138,7 +138,6 @@ module SmartAnswer
       multiple_choice :marriage_or_pacs? do
         option :marriage
         option :pacs
-        save_input_as :marriage_or_pacs
 
         permitted_next_nodes = [
           :outcome_cp_france_pacs,
@@ -146,9 +145,10 @@ module SmartAnswer
           :outcome_os_france_or_fot
         ]
         next_node(permitted: permitted_next_nodes) do |response|
+          calculator.marriage_or_pacs = response
           if calculator.ceremony_country == 'monaco'
             :outcome_monaco
-          elsif response == 'marriage'
+          elsif calculator.marriage_or_pacs == 'marriage'
             :outcome_os_france_or_fot
           else
             :outcome_cp_france_pacs
