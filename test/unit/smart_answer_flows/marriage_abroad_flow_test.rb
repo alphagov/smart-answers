@@ -72,7 +72,7 @@ module SmartAnswer
       end
 
       should 'store parsed response on calculator as sex_of_your_partner' do
-        assert_equal 'same_sex', @calculator.sex_of_your_partner
+        assert_equal 'same_sex', @calculator.instance_variable_get('@sex_of_your_partner')
       end
     end
   end
