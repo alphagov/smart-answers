@@ -177,9 +177,6 @@ module SmartAnswer
           calculator.resident_of_third_country? && (data_query.os_consular_cni_countries?(calculator.ceremony_country) || %w(kosovo).include?(calculator.ceremony_country) || data_query.os_consular_cni_in_nearby_country?(calculator.ceremony_country))
         }
 
-        next_node_calculation(:ss_marriage_germany_partner_local) { |response|
-          response == 'same_sex' && (calculator.ceremony_country == "germany") && (calculator.partner_is_national_of_ceremony_country?)
-        }
         next_node_calculation(:ss_marriage_countries) { |response|
           response == 'same_sex' && data_query.ss_marriage_countries?(calculator.ceremony_country)
         }
@@ -320,7 +317,7 @@ module SmartAnswer
               :outcome_ss_marriage_malta
             elsif ss_marriage_not_possible
               :outcome_ss_marriage_not_possible
-            elsif ss_marriage_germany_partner_local
+            elsif calculator.partner_is_same_sex? && calculator.ceremony_country == "germany" && calculator.partner_is_national_of_ceremony_country?
               :outcome_cp_or_equivalent
             elsif ss_marriage_countries | ss_marriage_countries_when_couple_british | ss_marriage_and_partnership
               :outcome_ss_marriage
