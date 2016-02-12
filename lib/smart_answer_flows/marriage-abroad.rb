@@ -173,10 +173,6 @@ module SmartAnswer
         option :opposite_sex
         option :same_sex
 
-        next_node_calculation(:consular_cni_residing_in_third_country) {
-          calculator.resident_of_third_country? && (data_query.os_consular_cni_countries?(calculator.ceremony_country) || %w(kosovo).include?(calculator.ceremony_country) || data_query.os_consular_cni_in_nearby_country?(calculator.ceremony_country))
-        }
-
         permitted_next_nodes = [
           :outcome_brazil_not_living_in_the_uk,
           :outcome_consular_cni_os_residing_in_third_country,
@@ -241,7 +237,7 @@ module SmartAnswer
               :outcome_os_belarus
             elsif calculator.ceremony_country == 'kuwait'
               :outcome_os_kuwait
-            elsif consular_cni_residing_in_third_country
+            elsif calculator.resident_of_third_country? && (data_query.os_consular_cni_countries?(calculator.ceremony_country) || %w(kosovo).include?(calculator.ceremony_country) || data_query.os_consular_cni_in_nearby_country?(calculator.ceremony_country))
               :outcome_consular_cni_os_residing_in_third_country
             elsif calculator.ceremony_country == 'norway' && calculator.resident_of_third_country?
               :outcome_consular_cni_os_residing_in_third_country
