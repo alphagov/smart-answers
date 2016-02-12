@@ -173,10 +173,6 @@ module SmartAnswer
         option :opposite_sex
         option :same_sex
 
-        next_node_calculation(:ceremony_in_laos_partners_not_local) {
-          (calculator.ceremony_country == "laos") && (calculator.partner_is_not_national_of_ceremony_country?)
-        }
-
         next_node_calculation(:ceremony_in_finland_uk_resident) {
           (calculator.ceremony_country == "finland") && (calculator.resident_of_uk?)
         }
@@ -312,7 +308,7 @@ module SmartAnswer
               :outcome_os_kosovo
             elsif calculator.ceremony_country == "indonesia"
               :outcome_os_indonesia
-            elsif ceremony_in_laos_partners_not_local
+            elsif calculator.ceremony_country == "laos" && calculator.partner_is_not_national_of_ceremony_country?
               :outcome_os_marriage_impossible_no_laos_locals
             elsif calculator.ceremony_country == "laos"
               :outcome_os_laos
