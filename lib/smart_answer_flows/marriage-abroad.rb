@@ -173,10 +173,6 @@ module SmartAnswer
         option :opposite_sex
         option :same_sex
 
-        next_node_calculation(:ceremony_in_brazil_not_resident_in_the_uk) {
-          (calculator.ceremony_country == 'brazil') && (calculator.resident_outside_of_uk?)
-        }
-
         next_node_calculation(:consular_cni_residing_in_third_country) {
           calculator.resident_of_third_country? && (data_query.os_consular_cni_countries?(calculator.ceremony_country) || %w(kosovo).include?(calculator.ceremony_country) || data_query.os_consular_cni_in_nearby_country?(calculator.ceremony_country))
         }
@@ -259,7 +255,7 @@ module SmartAnswer
         ]
         next_node(permitted: permitted_next_nodes) do |response|
           calculator.sex_of_your_partner = response
-          if ceremony_in_brazil_not_resident_in_the_uk
+          if calculator.ceremony_country == 'brazil' && calculator.resident_outside_of_uk?
             :outcome_brazil_not_living_in_the_uk
           elsif calculator.ceremony_country == "netherlands"
             :outcome_marriage_via_local_authorities
