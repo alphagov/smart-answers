@@ -173,8 +173,6 @@ module SmartAnswer
         option :opposite_sex
         option :same_sex
 
-        save_input_as :sex_of_your_partner
-
         next_node_calculation(:ceremony_in_laos_partners_not_local) {
           (calculator.ceremony_country == "laos") && (calculator.partner_is_not_national_of_ceremony_country?)
         }
@@ -272,6 +270,7 @@ module SmartAnswer
           :outcome_switzerland
         ]
         next_node(permitted: permitted_next_nodes) do |response|
+          calculator.sex_of_your_partner = response
           if ceremony_in_brazil_not_resident_in_the_uk
             :outcome_brazil_not_living_in_the_uk
           elsif calculator.ceremony_country == "netherlands"
@@ -284,7 +283,7 @@ module SmartAnswer
             :outcome_switzerland
           elsif calculator.ceremony_country == "spain"
             :outcome_spain
-          elsif response == 'opposite_sex'
+          elsif calculator.sex_of_your_partner == 'opposite_sex'
             if calculator.ceremony_country == 'hong-kong'
               :outcome_os_hong_kong
             elsif calculator.ceremony_country == 'germany'
@@ -340,7 +339,7 @@ module SmartAnswer
             elsif data_query.os_other_countries?(calculator.ceremony_country)
               :outcome_os_other_countries
             end
-          elsif response == 'same_sex'
+          elsif calculator.sex_of_your_partner == 'same_sex'
             if ss_affirmation
               :outcome_ss_affirmation
             elsif ss_unknown_no_embassies

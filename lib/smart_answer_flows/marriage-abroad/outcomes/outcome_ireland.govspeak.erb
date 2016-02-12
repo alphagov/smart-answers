@@ -1,10 +1,10 @@
 <% content_for :title do %>
-  <%= ceremony_type(sex_of_your_partner) %> in Ireland
+  <%= ceremony_type(calculator.sex_of_your_partner) %> in Ireland
 
 <% end %>
 
 <% content_for :body do %>
-  <% if sex_of_your_partner == 'opposite_sex' %>
+  <% if calculator.sex_of_your_partner == 'opposite_sex' %>
     The General Register Office of Ireland’s website explains what you need to do if you want to [get married in Ireland](http://www.groireland.ie/getting_married.htm).
   <% else %>
     The General Register Office of Ireland’s website explains what you need to do if you want to [enter into a civil partnership in Ireland](http://www.groireland.ie/civil_partnership.htm).

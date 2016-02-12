@@ -54,7 +54,7 @@
 
     <%= render partial: 'contact_method.govspeak.erb',
                locals: {
-                 sex_of_your_partner: sex_of_your_partner,
+                 sex_of_your_partner: calculator.sex_of_your_partner,
                  calculator: calculator,
                  overseas_passports_embassies: overseas_passports_embassies,
                  country_name_lowercase_prefix: country_name_lowercase_prefix
@@ -64,7 +64,7 @@
     The British High Commission in Malaysia can provide you with a letter explaining this position for a charge - see [consular fees for Malaysia](/government/publications/malaysia-consular-fees).
     <%= render partial: 'contact_method.govspeak.erb',
                locals: {
-                 sex_of_your_partner: sex_of_your_partner,
+                 sex_of_your_partner: calculator.sex_of_your_partner,
                  calculator: calculator,
                  overseas_passports_embassies: overseas_passports_embassies,
                  country_name_lowercase_prefix: country_name_lowercase_prefix
