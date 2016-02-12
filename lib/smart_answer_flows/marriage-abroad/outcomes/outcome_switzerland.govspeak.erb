@@ -4,7 +4,7 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if calculator.sex_of_your_partner == 'opposite_sex' %>
+  <% if calculator.partner_is_opposite_sex? %>
     Contact the Civil Register Office where you’re getting married to find out about local laws, including what documents you’ll need.
   <% else %>
     Same-sex relationships in Switzerland that are recognised as civil partnerships under British law are known as ’eingetragene Partnerschaft’, ’partenariat enregistré’, ’unione domestica registrata’ or ’partenadi registrà’ (’registered partnership’).
@@ -30,7 +30,7 @@
     <%= render partial: 'what_you_need_to_do.govspeak.erb',
         locals: { calculator: calculator } %>
 
-    <% if calculator.sex_of_your_partner == 'opposite_sex' %>
+    <% if calculator.partner_is_opposite_sex? %>
       You may be asked to provide a civil status declaration to prove you’re allowed to marry.
 
     <% else %>

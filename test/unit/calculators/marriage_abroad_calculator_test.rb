@@ -178,6 +178,22 @@ module SmartAnswer
           refute @calculator.resident_outside_of_third_country?
         end
       end
+
+      context '#partner_is_opposite_sex?' do
+        setup do
+          @calculator = MarriageAbroadCalculator.new
+        end
+
+        should 'be true when partner is of the opposite sex' do
+          @calculator.sex_of_your_partner = 'opposite_sex'
+          assert @calculator.partner_is_opposite_sex?
+        end
+
+        should 'be false when partner is not of the opposite sex' do
+          @calculator.sex_of_your_partner = 'not-opposite_sex'
+          refute @calculator.partner_is_opposite_sex?
+        end
+      end
     end
   end
 end
