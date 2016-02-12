@@ -4,7 +4,7 @@ module SmartAnswer::Calculators
     attr_writer :resident_of
     attr_writer :partner_nationality
     attr_writer :sex_of_your_partner
-    attr_accessor :marriage_or_pacs
+    attr_writer :marriage_or_pacs
 
     def partner_british?
       @partner_nationality == 'partner_british'
@@ -59,7 +59,7 @@ module SmartAnswer::Calculators
     end
 
     def want_to_get_married?
-      marriage_or_pacs == 'marriage'
+      @marriage_or_pacs == 'marriage'
     end
   end
 end

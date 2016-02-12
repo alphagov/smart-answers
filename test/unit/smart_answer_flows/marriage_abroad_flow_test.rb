@@ -85,7 +85,7 @@ module SmartAnswer
       end
 
       should 'store parsed response on calculator as marriage_or_pacs' do
-        assert_equal 'marriage', @calculator.marriage_or_pacs
+        assert_equal 'marriage', @calculator.instance_variable_get('@marriage_or_pacs')
       end
     end
   end
