@@ -48,5 +48,9 @@ module SmartAnswer::Calculators
     def resident_outside_of_third_country?
       !resident_of_third_country?
     end
+
+    def partner_is_opposite_sex?
+      sex_of_your_partner == 'opposite_sex'
+    end
   end
 end
