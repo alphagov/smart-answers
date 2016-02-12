@@ -210,6 +210,22 @@ module SmartAnswer
           refute @calculator.partner_is_same_sex?
         end
       end
+
+      context '#want_to_get_married?' do
+        setup do
+          @calculator = MarriageAbroadCalculator.new
+        end
+
+        should 'be true when the couple want to get married' do
+          @calculator.marriage_or_pacs = 'marriage'
+          assert @calculator.want_to_get_married?
+        end
+
+        should "be false when the couple don't want to get married" do
+          @calculator.marriage_or_pacs = 'not-marriage'
+          refute @calculator.want_to_get_married?
+        end
+      end
     end
   end
 end

@@ -148,7 +148,7 @@ module SmartAnswer
           calculator.marriage_or_pacs = response
           if calculator.ceremony_country == 'monaco'
             :outcome_monaco
-          elsif calculator.marriage_or_pacs == 'marriage'
+          elsif calculator.want_to_get_married?
             :outcome_os_france_or_fot
           else
             :outcome_cp_france_pacs

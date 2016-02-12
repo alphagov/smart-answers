@@ -57,5 +57,9 @@ module SmartAnswer::Calculators
     def partner_is_same_sex?
       @sex_of_your_partner == 'same_sex'
     end
+
+    def want_to_get_married?
+      marriage_or_pacs == 'marriage'
+    end
   end
 end
