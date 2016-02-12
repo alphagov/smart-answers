@@ -187,10 +187,6 @@ module SmartAnswer
           response == 'same_sex' && data_query.ss_marriage_and_partnership?(calculator.ceremony_country)
         }
 
-        next_node_calculation(:ss_affirmation) { |response|
-          response == 'same_sex' && %w(belgium norway).include?(calculator.ceremony_country)
-        }
-
         permitted_next_nodes = [
           :outcome_brazil_not_living_in_the_uk,
           :outcome_consular_cni_os_residing_in_third_country,
@@ -301,7 +297,7 @@ module SmartAnswer
               :outcome_os_other_countries
             end
           elsif calculator.partner_is_same_sex?
-            if ss_affirmation
+            if calculator.partner_is_same_sex? && %w(belgium norway).include?(calculator.ceremony_country)
               :outcome_ss_affirmation
             elsif calculator.partner_is_same_sex? && data_query.ss_unknown_no_embassies?(calculator.ceremony_country)
               :outcome_os_no_cni
