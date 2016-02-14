@@ -101,8 +101,8 @@ module SmartAnswer
       end
 
       def valid_last_sick_day?(value)
-        period = DateRange.new(begins_on: sick_start_date, ends_on: value)
-        period.number_of_days >= 1
+        prospective_current_piw = current_piw.ending_on(value)
+        prospective_current_piw.number_of_days >= 1
       end
 
       def valid_linked_sickness_start_date?(value)
