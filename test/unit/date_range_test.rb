@@ -268,5 +268,25 @@ module SmartAnswer
         end
       end
     end
+
+    context 'ending_on' do
+      setup do
+        @date_range = DateRange.new(begins_on: Date.parse('2000-01-01'))
+        @ends_on = Date.parse('2000-01-02')
+        @ending_on = @date_range.ending_on(@ends_on)
+      end
+
+      should 'build new date range' do
+        assert_not_same @date_range, @ending_on
+      end
+
+      should 'set begins_on to same as original date range' do
+        assert_equal @date_range.begins_on, @ending_on.begins_on
+      end
+
+      should 'set ends_on to specified date' do
+        assert_equal @ends_on, @ending_on.ends_on
+      end
+    end
   end
 end

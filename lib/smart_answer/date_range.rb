@@ -60,5 +60,9 @@ module SmartAnswer
     def empty?
       number_of_days == 0
     end
+
+    def ending_on(date)
+      self.class.new(begins_on: begins_on, ends_on: date)
+    end
   end
 end
