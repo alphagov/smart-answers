@@ -106,7 +106,8 @@ module SmartAnswer
       end
 
       def valid_linked_sickness_start_date?(value)
-        sick_start_date > value
+        prospective_linked_piw = PeriodOfIncapacityForWork.new(begins_on: value)
+        prospective_linked_piw.begins_before?(current_piw)
       end
 
       def within_eight_weeks_of_current_sickness_period?(value)
