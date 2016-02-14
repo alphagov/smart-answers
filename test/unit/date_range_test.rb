@@ -288,5 +288,31 @@ module SmartAnswer
         assert_equal @ends_on, @ending_on.ends_on
       end
     end
+
+    context 'begins_before?' do
+      setup do
+        @date_range = DateRange.new(begins_on: Date.parse('2000-01-02'))
+      end
+
+      should 'be true if date range starts before specified date range' do
+        starts_before = DateRange.new(begins_on: Date.parse('2000-01-01'))
+        assert starts_before.begins_before?(@date_range)
+      end
+
+      should 'be true if date range starts infinitely before specified date range' do
+        starts_before = DateRange.new(begins_on: nil)
+        assert starts_before.begins_before?(@date_range)
+      end
+
+      should 'be false if date range starts on same day as specified date range' do
+        does_not_start_before = @date_range.dup
+        refute does_not_start_before.begins_before?(@date_range)
+      end
+
+      should 'be false if date range starts after specified infinite date range' do
+        does_not_start_after = DateRange.new(begins_on: nil)
+        refute @date_range.begins_before?(does_not_start_after)
+      end
+    end
   end
 end

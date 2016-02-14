@@ -64,5 +64,9 @@ module SmartAnswer
     def ending_on(date)
       self.class.new(begins_on: begins_on, ends_on: date)
     end
+
+    def begins_before?(other)
+      ComparableDate.new(begins_on) < ComparableDate.new(other.begins_on)
+    end
   end
 end
