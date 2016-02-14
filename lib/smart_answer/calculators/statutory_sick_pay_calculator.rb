@@ -30,14 +30,14 @@ module SmartAnswer
       attr_accessor :contractual_days_covered_by_earnings
       attr_accessor :days_covered_by_earnings
 
-      def current_period_of_incapacity_for_work
+      def current_piw
         PeriodOfIncapacityForWork.new(
           begins_on: sick_start_date,
           ends_on: sick_end_date
         )
       end
 
-      def linked_period_of_incapacity_for_work
+      def linked_piw
         PeriodOfIncapacityForWork.new(
           begins_on: linked_sickness_start_date,
           ends_on: linked_sickness_end_date
@@ -46,9 +46,7 @@ module SmartAnswer
 
       def prev_sick_days
         return 0 unless has_linked_sickness
-        linked_period_of_incapacity_for_work.working_days(
-          days_of_the_week_worked
-        ).length
+        linked_piw.working_days(days_of_the_week_worked).length
       end
 
       def waiting_days
@@ -80,7 +78,7 @@ module SmartAnswer
       end
 
       def days_sick
-        current_period_of_incapacity_for_work.number_of_days
+        current_piw.number_of_days
       end
 
       def valid_last_sick_day?(value)
@@ -301,9 +299,7 @@ module SmartAnswer
       end
 
       def init_normal_workdays_missed(days_of_the_week_worked)
-        current_period_of_incapacity_for_work.working_days(
-          days_of_the_week_worked
-        )
+        current_piw.working_days(days_of_the_week_worked)
       end
 
       def init_payable_days
