@@ -20,7 +20,6 @@ module SmartAnswer
       attr_accessor :days_of_the_week_worked
       attr_accessor :other_pay_types_received, :enough_notice_of_absence
       attr_accessor :has_linked_sickness
-      attr_accessor :linked_sickness_start_date, :linked_sickness_end_date
       attr_accessor :relevant_period_to, :relevant_period_from
       attr_accessor :eight_weeks_earnings
       attr_accessor :pay_pattern
@@ -30,7 +29,7 @@ module SmartAnswer
       attr_accessor :contractual_days_covered_by_earnings
       attr_accessor :days_covered_by_earnings
 
-      attr_reader :current_piw
+      attr_reader :current_piw, :linked_piw
 
       def sick_start_date=(date)
         @current_piw = PeriodOfIncapacityForWork.new(begins_on: date)
@@ -48,11 +47,20 @@ module SmartAnswer
         @current_piw.ends_on
       end
 
-      def linked_piw
-        PeriodOfIncapacityForWork.new(
-          begins_on: linked_sickness_start_date,
-          ends_on: linked_sickness_end_date
-        )
+      def linked_sickness_start_date=(date)
+        @linked_piw = PeriodOfIncapacityForWork.new(begins_on: date)
+      end
+
+      def linked_sickness_start_date
+        @linked_piw && @linked_piw.begins_on
+      end
+
+      def linked_sickness_end_date=(date)
+        @linked_piw = @linked_piw.ending_on(date)
+      end
+
+      def linked_sickness_end_date
+        @linked_piw && @linked_piw.ends_on
       end
 
       def prev_sick_days
