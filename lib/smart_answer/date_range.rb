@@ -60,5 +60,9 @@ module SmartAnswer
     def empty?
       number_of_days == 0
     end
+
+    def begins_before?(other)
+      ComparableDate.new(begins_on) < ComparableDate.new(other.begins_on)
+    end
   end
 end
