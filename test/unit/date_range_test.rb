@@ -314,5 +314,59 @@ module SmartAnswer
         refute @date_range.begins_before?(does_not_start_after)
       end
     end
+
+    context 'between' do
+      context 'two overlapping date ranges' do
+        setup do
+          @date_range = DateRange.new(begins_on: Date.parse('2000-01-01'), ends_on: Date.parse('2000-12-31'))
+          @overlapping = DateRange.new(begins_on: Date.parse('2000-06-01'), ends_on: Date.parse('2001-05-31'))
+        end
+
+        should 'return an empty date range, because there is no gap' do
+          gap = @date_range.gap_between(@overlapping)
+        end
+      end
+
+      context 'two infinite overlapping date ranges' do
+        setup do
+          @date_range = DateRange.new(ends_on: Date.parse('2000-12-31'))
+          @overlapping = DateRange.new(begins_on: Date.parse('2000-06-01'))
+        end
+
+        should 'return an empty date range, because there is no gap' do
+          gap = @date_range.gap_between(@overlapping)
+          assert gap.empty?
+        end
+      end
+
+      context 'two non-overlapping date ranges' do
+        setup do
+          @date_range = DateRange.new(begins_on: Date.parse('2000-01-01'), ends_on: Date.parse('2000-12-31'))
+          @non_overlapping = DateRange.new(begins_on: Date.parse('2002-01-01'), ends_on: Date.parse('2002-12-31'))
+        end
+
+        should 'return the gap between the two date ranges' do
+          gap = @date_range.gap_between(@non_overlapping)
+          assert_equal DateRange.new(begins_on: Date.parse('2001-01-01'), ends_on: Date.parse('2001-12-31')), gap
+        end
+
+        should 'be commutative' do
+          gap = @non_overlapping.gap_between(@date_range)
+          assert_equal DateRange.new(begins_on: Date.parse('2001-01-01'), ends_on: Date.parse('2001-12-31')), gap
+        end
+      end
+
+      context 'two non-overlapping infinite date ranges' do
+        setup do
+          @date_range = DateRange.new(ends_on: Date.parse('2000-12-31'))
+          @non_overlapping = DateRange.new(begins_on: Date.parse('2002-01-01'))
+        end
+
+        should 'return the gap between the two date ranges' do
+          gap = @date_range.gap_between(@non_overlapping)
+          assert_equal DateRange.new(begins_on: Date.parse('2001-01-01'), ends_on: Date.parse('2001-12-31')), gap
+        end
+      end
+    end
   end
 end
