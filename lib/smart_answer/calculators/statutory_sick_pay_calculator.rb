@@ -17,7 +17,7 @@ module SmartAnswer
 
       include ActiveModel::Model
 
-      attr_accessor :sick_start_date, :sick_end_date, :days_of_the_week_worked
+      attr_accessor :days_of_the_week_worked
       attr_accessor :other_pay_types_received, :enough_notice_of_absence
       attr_accessor :has_linked_sickness
       attr_accessor :linked_sickness_start_date, :linked_sickness_end_date
@@ -30,11 +30,22 @@ module SmartAnswer
       attr_accessor :contractual_days_covered_by_earnings
       attr_accessor :days_covered_by_earnings
 
-      def current_piw
-        PeriodOfIncapacityForWork.new(
-          begins_on: sick_start_date,
-          ends_on: sick_end_date
-        )
+      attr_reader :current_piw
+
+      def sick_start_date=(date)
+        @current_piw = PeriodOfIncapacityForWork.new(begins_on: date)
+      end
+
+      def sick_start_date
+        @current_piw.begins_on
+      end
+
+      def sick_end_date=(date)
+        @current_piw = @current_piw.ending_on(date)
+      end
+
+      def sick_end_date
+        @current_piw.ends_on
       end
 
       def linked_piw
