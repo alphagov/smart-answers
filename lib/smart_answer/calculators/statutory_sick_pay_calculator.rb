@@ -102,7 +102,7 @@ module SmartAnswer
 
       def valid_last_sick_day?(value)
         prospective_current_piw = current_piw.ending_on(value)
-        prospective_current_piw.number_of_days >= 1
+        !prospective_current_piw.empty?
       end
 
       def valid_linked_sickness_start_date?(value)
