@@ -82,7 +82,7 @@ module SmartAnswer
       end
 
       def valid_last_sick_day?
-        current_piw.number_of_days >= 1
+        !current_piw.empty?
       end
 
       def valid_linked_sickness_start_date?
