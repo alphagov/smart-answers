@@ -19,6 +19,142 @@ module SmartAnswer
         end
       end
 
+      context "valid_last_sick_day?" do
+        setup do
+          @date = Date.parse("2015-01-02")
+          @calculator = StatutorySickPayCalculator.new(sick_start_date: @date)
+        end
+
+        should "be valid if current PIW would not be empty" do
+          assert @calculator.valid_last_sick_day?(@date)
+        end
+
+        should "not be valid if current PIW would be empty" do
+          refute @calculator.valid_last_sick_day?(@date - 1)
+        end
+      end
+
+      context "valid_linked_sickness_start_date?" do
+        setup do
+          @date = Date.parse("2015-01-01")
+          @calculator = StatutorySickPayCalculator.new(sick_start_date: @date)
+        end
+
+        should "be valid if linked PIW begins before current PIW" do
+          assert @calculator.valid_linked_sickness_start_date?(@date - 1)
+        end
+
+        should "not be valid if linked PIW begins on same day as current PIW" do
+          refute @calculator.valid_linked_sickness_start_date?(@date)
+        end
+      end
+
+      context "within_eight_weeks_of_current_sickness_period?" do
+        setup do
+          @date = Date.parse("2015-01-01")
+          @calculator = StatutorySickPayCalculator.new(
+            sick_start_date: @date,
+            linked_sickness_start_date: @date - 9.weeks
+          )
+        end
+
+        should "be valid if gap between linked PIW and current PIW is 8 weeks or less" do
+          assert @calculator.within_eight_weeks_of_current_sickness_period?(@date - 8.weeks - 1.day)
+        end
+
+        should "not be valid if gap between linked PIW and current PIW is more than 8 weeks" do
+          refute @calculator.within_eight_weeks_of_current_sickness_period?(@date - 8.weeks - 2.days)
+        end
+      end
+
+      context "at_least_1_day_before_first_sick_day?" do
+        setup do
+          @date = Date.parse("2015-01-01")
+          @calculator = StatutorySickPayCalculator.new(
+            sick_start_date: @date,
+            linked_sickness_start_date: @date - 1.week
+          )
+        end
+
+        should "be valid if gap between linked PIW and current PIW is at least 1 day" do
+          assert @calculator.at_least_1_day_before_first_sick_day?(@date - 2.days)
+        end
+
+        should "not be valid if there is no gap between linked PIW and current PIW" do
+          refute @calculator.at_least_1_day_before_first_sick_day?(@date - 1.day)
+        end
+      end
+
+      context "valid_period_of_incapacity_for_work?" do
+        setup do
+          @date = Date.parse("2015-01-01")
+        end
+
+        should "be valid if current PIW is at least 4 days long" do
+          calculator = StatutorySickPayCalculator.new(
+            sick_start_date: @date,
+            sick_end_date: @date + 3.days
+          )
+          assert calculator.valid_period_of_incapacity_for_work?
+        end
+
+        should "not be valid if current PIW is less than 4 days long" do
+          calculator = StatutorySickPayCalculator.new(
+            sick_start_date: @date,
+            sick_end_date: @date + 2.days
+          )
+          refute calculator.valid_period_of_incapacity_for_work?
+        end
+      end
+
+      context "valid_linked_period_of_incapacity_for_work?" do
+        setup do
+          @date = Date.parse("2015-01-01")
+          @calculator = StatutorySickPayCalculator.new(
+            linked_sickness_start_date: @date
+          )
+        end
+
+        should "be valid if linked PIW is at least 4 days long" do
+          assert @calculator.valid_linked_period_of_incapacity_for_work?(@date + 3.days)
+        end
+
+        should "not be valid if current PIW is less than 4 days long" do
+          refute @calculator.valid_linked_period_of_incapacity_for_work?(@date + 2.days)
+        end
+      end
+
+      context "valid_last_payday_before_sickness?" do
+        setup do
+          @date = Date.parse("2015-01-02")
+          @calculator = StatutorySickPayCalculator.new(sick_start_date: @date)
+        end
+
+        should "be valid if last payday is before current PIW" do
+          assert @calculator.valid_last_payday_before_sickness?(@date - 1.day)
+        end
+
+        should "not be valid if last payday is not before current PIW" do
+          refute @calculator.valid_last_payday_before_sickness?(@date)
+        end
+      end
+
+      context "valid_last_payday_before_offset?" do
+        setup do
+          @calculator = StatutorySickPayCalculator.new(
+            relevant_period_to: Date.parse("2015-01-02")
+          )
+        end
+
+        should "be valid if last payday is on offset date" do
+          assert @calculator.valid_last_payday_before_offset?(@calculator.pay_day_offset)
+        end
+
+        should "not be valid if last payday is after offset date" do
+          refute @calculator.valid_last_payday_before_offset?(@calculator.pay_day_offset + 1.day)
+        end
+      end
+
       context ".months_between" do
         should "calculate number of months between dates" do
           months = StatutorySickPayCalculator.months_between(Date.parse("04/02/2012"), Date.parse("17/05/2012"))
