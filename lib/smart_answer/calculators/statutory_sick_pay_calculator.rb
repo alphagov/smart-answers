@@ -13,6 +13,10 @@ module SmartAnswer
           end
           matching_dates
         end
+
+        def valid?
+          number_of_days >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_FOR_WORK
+        end
       end
 
       include ActiveModel::Model
@@ -119,12 +123,12 @@ module SmartAnswer
       end
 
       def valid_period_of_incapacity_for_work?
-        current_piw.number_of_days >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_FOR_WORK
+        current_piw.valid?
       end
 
       def valid_linked_period_of_incapacity_for_work?(value)
         prospective_linked_piw = linked_piw.ending_on(value)
-        prospective_linked_piw.number_of_days >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_FOR_WORK
+        prospective_linked_piw.valid?
       end
 
       def valid_last_payday_before_sickness?(value)
