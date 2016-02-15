@@ -13,6 +13,10 @@ module SmartAnswer
     end
 
     context 'when answering last_sick_day? question' do
+      setup do
+        @calculator.sick_start_date = Date.parse('2015-01-01')
+      end
+
       context 'and sickness period is valid period of incapacity for work' do
         setup do
           @calculator.stubs(valid_period_of_incapacity_for_work?: true)
