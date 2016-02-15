@@ -111,8 +111,9 @@ module SmartAnswer
       end
 
       def within_eight_weeks_of_current_sickness_period?(value)
-        earliest_allowed_date = sick_start_date - 8.weeks - 1.day
-        value >= earliest_allowed_date
+        prospective_linked_piw = linked_piw.ending_on(value)
+        gap = prospective_linked_piw.gap_between(current_piw)
+        gap.number_of_days.days <= 8.weeks
       end
 
       def at_least_1_day_before_first_sick_day?(value)
