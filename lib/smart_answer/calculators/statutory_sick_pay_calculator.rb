@@ -1,9 +1,9 @@
 module SmartAnswer
   module Calculators
     class StatutorySickPayCalculator
-      MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_FOR_WORK = 4
-
       class PeriodOfIncapacityForWork < DateRange
+        MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_FOR_WORK = 4
+
         def working_days(pattern)
           dates = begins_on..ends_on
           # create an array of all dates that would have been normal workdays
