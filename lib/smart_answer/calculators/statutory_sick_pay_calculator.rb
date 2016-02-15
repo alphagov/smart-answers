@@ -77,10 +77,6 @@ module SmartAnswer
         (other_pay_types_received & %w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay none}).none?
       end
 
-      def days_sick
-        current_piw.number_of_days
-      end
-
       def valid_last_sick_day?
         !current_piw.empty?
       end
@@ -100,7 +96,7 @@ module SmartAnswer
       end
 
       def valid_period_of_incapacity_for_work?
-        days_sick >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_FOR_WORK
+        current_piw.number_of_days >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_FOR_WORK
       end
 
       def valid_linked_period_of_incapacity_for_work?
