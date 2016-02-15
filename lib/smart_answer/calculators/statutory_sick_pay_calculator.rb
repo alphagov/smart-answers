@@ -77,11 +77,11 @@ module SmartAnswer
       end
 
       def pattern_days
-        @days_of_the_week_worked.length
+        days_of_the_week_worked.length
       end
 
       def normal_workdays_missed
-        @normal_workdays_missed ||= current_piw.qualifying_days(@days_of_the_week_worked)
+        @normal_workdays_missed ||= current_piw.qualifying_days(days_of_the_week_worked)
       end
 
       def normal_workdays
