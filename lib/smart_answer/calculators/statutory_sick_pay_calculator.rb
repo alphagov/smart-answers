@@ -95,7 +95,8 @@ module SmartAnswer
       end
 
       def at_least_1_day_before_first_sick_day?
-        linked_sickness_end_date < sick_start_date - 1
+        gap = linked_piw.gap_between(current_piw)
+        !gap.empty?
       end
 
       def valid_period_of_incapacity_for_work?
