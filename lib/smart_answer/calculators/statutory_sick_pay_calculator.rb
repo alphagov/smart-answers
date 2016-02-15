@@ -253,7 +253,7 @@ module SmartAnswer
       end
 
       def maximum_entitlement_reached?
-        prev_sick_days >= (days_of_the_week_worked.size * 28 + 3)
+        prev_sick_days >= (days_of_the_week_worked.length * 28 + 3)
       end
 
       def maximum_entitlement_reached_v2?
