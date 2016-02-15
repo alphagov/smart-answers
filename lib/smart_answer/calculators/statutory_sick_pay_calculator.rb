@@ -81,7 +81,7 @@ module SmartAnswer
       end
 
       def normal_workdays_missed
-        @normal_workdays_missed ||= init_normal_workdays_missed(@days_of_the_week_worked)
+        @normal_workdays_missed ||= current_piw.qualifying_days(@days_of_the_week_worked)
       end
 
       def normal_workdays
@@ -319,10 +319,6 @@ module SmartAnswer
         else
           0
         end
-      end
-
-      def init_normal_workdays_missed(days_of_the_week_worked)
-        current_piw.qualifying_days(days_of_the_week_worked)
       end
 
       def init_payable_days
