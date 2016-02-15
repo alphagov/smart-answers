@@ -4,7 +4,7 @@ module SmartAnswer
       class PeriodOfIncapacityForWork < DateRange
         MINIMUM_NUMBER_OF_DAYS = 4
 
-        def working_days(pattern)
+        def qualifying_days(pattern)
           dates = begins_on..ends_on
           # create an array of all dates that would have been normal workdays
           matching_dates = []
@@ -69,7 +69,7 @@ module SmartAnswer
 
       def prev_sick_days
         return 0 unless has_linked_sickness
-        linked_piw.working_days(days_of_the_week_worked).length
+        linked_piw.qualifying_days(days_of_the_week_worked).length
       end
 
       def waiting_days
@@ -322,7 +322,7 @@ module SmartAnswer
       end
 
       def init_normal_workdays_missed(days_of_the_week_worked)
-        current_piw.working_days(days_of_the_week_worked)
+        current_piw.qualifying_days(days_of_the_week_worked)
       end
 
       def init_payable_days

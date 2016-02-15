@@ -5,14 +5,14 @@ module SmartAnswer
     class StatutorySickPayCalculatorTest < ActiveSupport::TestCase
 
       context "period of incapacity for work" do
-        context "working_days" do
+        context "qualifying_days" do
           should "return dates maching working days pattern" do
             pattern = %w(Sunday Tuesday Thursday).map { |d| Date::DAYNAMES.index(d).to_s }
             piw = StatutorySickPayCalculator::PeriodOfIncapacityForWork.new(
               begins_on: Date.parse("Sun, 04 Jan 2015"),
               ends_on:   Date.parse("Wed, 14 Jan 2015"),
             )
-            dates = piw.working_days(pattern)
+            dates = piw.qualifying_days(pattern)
             assert_equal [
               Date.parse("Sun, 04 Jan 2015"), Date.parse("Tue, 06 Jan 2015"), Date.parse("Thu, 08 Jan 2015"),
               Date.parse("Sun, 11 Jan 2015"), Date.parse("Tue, 13 Jan 2015")
