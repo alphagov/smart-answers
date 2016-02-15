@@ -586,7 +586,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
       add_response :yes
       add_response "2015-03-20"
       assert_current_node :linked_sickness_end_date?
-      @earliest_linked_sickness_end_date = Date.parse("2015-03-27") # (Date.parse("2015-05-21") - 8.weeks).tomorrow
+      @earliest_linked_sickness_end_date = Date.parse("2015-03-25") # Date.parse("2015-05-21") - 8.weeks - 1.day
     end
 
     should "not allow dates before 2010" do
