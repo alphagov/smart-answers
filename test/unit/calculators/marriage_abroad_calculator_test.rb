@@ -272,6 +272,27 @@ module SmartAnswer
           assert_nil @calculator.fco_organisation
         end
       end
+
+      context '#overseas_passports_embassies' do
+        setup do
+          @calculator = MarriageAbroadCalculator.new
+        end
+
+        should 'return the offices that offer registrations of marriage and civil partnerships' do
+          world_office = stub('World Office')
+          organisation = stub.quacks_like(WorldwideOrganisation.new({}))
+          organisation.stubs(:offices_with_service).with('Registrations of Marriage and Civil Partnerships').returns([world_office])
+          @calculator.stubs(fco_organisation: organisation)
+
+          assert_equal [world_office], @calculator.overseas_passports_embassies
+        end
+
+        should 'return an empty array when there is no fco organisation' do
+          @calculator.stubs(fco_organisation: nil)
+
+          assert_equal [], @calculator.overseas_passports_embassies
+        end
+      end
     end
   end
 end

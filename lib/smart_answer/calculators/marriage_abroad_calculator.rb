@@ -69,5 +69,13 @@ module SmartAnswer::Calculators
     def fco_organisation
       world_location.fco_organisation
     end
+
+    def overseas_passports_embassies
+      if fco_organisation
+        fco_organisation.offices_with_service 'Registrations of Marriage and Civil Partnerships'
+      else
+        []
+      end
+    end
   end
 end
