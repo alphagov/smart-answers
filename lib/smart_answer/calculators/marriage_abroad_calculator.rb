@@ -70,6 +70,10 @@ module SmartAnswer::Calculators
       WorldLocation.find(ceremony_country) || raise(SmartAnswer::InvalidResponse)
     end
 
+    def ceremony_country_name
+      world_location.name
+    end
+
     def fco_organisation
       world_location.fco_organisation
     end
