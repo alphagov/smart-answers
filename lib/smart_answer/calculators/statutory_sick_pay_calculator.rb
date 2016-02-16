@@ -54,7 +54,7 @@ module SmartAnswer
       end
 
       def number_of_waiting_days_in_linked_piw
-        prev_sick_days < 3 ? prev_sick_days : 3
+        [prev_sick_days, 3].min
       end
 
       def number_of_waiting_days_not_in_linked_piw
