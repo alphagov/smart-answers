@@ -138,7 +138,6 @@ module SmartAnswer
       multiple_choice :marriage_or_pacs? do
         option :marriage
         option :pacs
-        save_input_as :marriage_or_pacs
 
         permitted_next_nodes = [
           :outcome_cp_france_pacs,
@@ -146,9 +145,10 @@ module SmartAnswer
           :outcome_os_france_or_fot
         ]
         next_node(permitted: permitted_next_nodes) do |response|
+          calculator.marriage_or_pacs = response
           if calculator.ceremony_country == 'monaco'
             :outcome_monaco
-          elsif response == 'marriage'
+          elsif calculator.want_to_get_married?
             :outcome_os_france_or_fot
           else
             :outcome_cp_france_pacs
@@ -172,65 +172,6 @@ module SmartAnswer
       multiple_choice :partner_opposite_or_same_sex? do
         option :opposite_sex
         option :same_sex
-
-        save_input_as :sex_of_your_partner
-
-        next_node_calculation(:ceremony_in_laos_partners_not_local) {
-          (calculator.ceremony_country == "laos") && (calculator.partner_is_not_national_of_ceremony_country?)
-        }
-
-        next_node_calculation(:ceremony_in_finland_uk_resident) {
-          (calculator.ceremony_country == "finland") && (calculator.resident_of_uk?)
-        }
-
-        next_node_calculation(:ceremony_in_norway_uk_resident) {
-          (calculator.ceremony_country == "norway") && (calculator.resident_of_uk?)
-        }
-
-        next_node_calculation(:ceremony_in_brazil_not_resident_in_the_uk) {
-          (calculator.ceremony_country == 'brazil') && (calculator.resident_outside_of_uk?)
-        }
-
-        next_node_calculation(:consular_cni_residing_in_third_country) {
-          calculator.resident_of_third_country? && (data_query.os_consular_cni_countries?(calculator.ceremony_country) || %w(kosovo).include?(calculator.ceremony_country) || data_query.os_consular_cni_in_nearby_country?(calculator.ceremony_country))
-        }
-
-        next_node_calculation(:marriage_in_norway_third_country) {
-          calculator.ceremony_country == 'norway' && calculator.resident_of_third_country?
-        }
-
-        next_node_calculation(:marriage_via_local_authorities) {
-          data_query.os_marriage_via_local_authorities?(calculator.ceremony_country)
-        }
-
-        next_node_calculation(:marriage_in_italy) {
-          calculator.ceremony_country == 'italy'
-        }
-
-        next_node_calculation(:ss_marriage_germany_partner_local) { |response|
-          response == 'same_sex' && (calculator.ceremony_country == "germany") && (calculator.partner_is_national_of_ceremony_country?)
-        }
-        next_node_calculation(:ss_marriage_countries) { |response|
-          response == 'same_sex' && data_query.ss_marriage_countries?(calculator.ceremony_country)
-        }
-        next_node_calculation(:ss_marriage_countries_when_couple_british) { |response|
-          response == 'same_sex' && data_query.ss_marriage_countries_when_couple_british?(calculator.ceremony_country) && calculator.partner_british?
-        }
-        next_node_calculation(:ss_marriage_and_partnership) { |response|
-          response == 'same_sex' && data_query.ss_marriage_and_partnership?(calculator.ceremony_country)
-        }
-
-        next_node_calculation(:ss_marriage_not_possible) { |response|
-          response == 'same_sex' && data_query.ss_marriage_not_possible?(calculator.ceremony_country, calculator)
-        }
-
-        next_node_calculation(:ss_unknown_no_embassies) { |response|
-          response == 'same_sex' && data_query.ss_unknown_no_embassies?(calculator.ceremony_country)
-        }
-
-        next_node_calculation(:ss_affirmation) { |response|
-          response == 'same_sex' && %w(belgium norway).include?(calculator.ceremony_country)
-        }
 
         permitted_next_nodes = [
           :outcome_brazil_not_living_in_the_uk,
@@ -272,7 +213,8 @@ module SmartAnswer
           :outcome_switzerland
         ]
         next_node(permitted: permitted_next_nodes) do |response|
-          if ceremony_in_brazil_not_resident_in_the_uk
+          calculator.sex_of_your_partner = response
+          if calculator.ceremony_country == 'brazil' && calculator.resident_outside_of_uk?
             :outcome_brazil_not_living_in_the_uk
           elsif calculator.ceremony_country == "netherlands"
             :outcome_marriage_via_local_authorities
@@ -284,7 +226,7 @@ module SmartAnswer
             :outcome_switzerland
           elsif calculator.ceremony_country == "spain"
             :outcome_spain
-          elsif response == 'opposite_sex'
+          elsif calculator.partner_is_opposite_sex?
             if calculator.ceremony_country == 'hong-kong'
               :outcome_os_hong_kong
             elsif calculator.ceremony_country == 'germany'
@@ -295,11 +237,11 @@ module SmartAnswer
               :outcome_os_belarus
             elsif calculator.ceremony_country == 'kuwait'
               :outcome_os_kuwait
-            elsif consular_cni_residing_in_third_country
+            elsif calculator.resident_of_third_country? && (data_query.os_consular_cni_countries?(calculator.ceremony_country) || %w(kosovo).include?(calculator.ceremony_country) || data_query.os_consular_cni_in_nearby_country?(calculator.ceremony_country))
               :outcome_consular_cni_os_residing_in_third_country
-            elsif marriage_in_norway_third_country
+            elsif calculator.ceremony_country == 'norway' && calculator.resident_of_third_country?
               :outcome_consular_cni_os_residing_in_third_country
-            elsif marriage_in_italy
+            elsif calculator.ceremony_country == 'italy'
               :outcome_os_italy
             elsif calculator.ceremony_country == 'cambodia'
               :outcome_os_cambodia
@@ -313,7 +255,7 @@ module SmartAnswer
               :outcome_os_kosovo
             elsif calculator.ceremony_country == "indonesia"
               :outcome_os_indonesia
-            elsif ceremony_in_laos_partners_not_local
+            elsif calculator.ceremony_country == "laos" && calculator.partner_is_not_national_of_ceremony_country?
               :outcome_os_marriage_impossible_no_laos_locals
             elsif calculator.ceremony_country == "laos"
               :outcome_os_laos
@@ -323,9 +265,9 @@ module SmartAnswer
               :outcome_os_slovenia
             elsif data_query.os_consular_cni_countries?(calculator.ceremony_country) || (calculator.resident_of_uk? && data_query.os_no_marriage_related_consular_services?(calculator.ceremony_country)) || data_query.os_consular_cni_in_nearby_country?(calculator.ceremony_country)
               :outcome_os_consular_cni
-            elsif ceremony_in_finland_uk_resident
+            elsif calculator.ceremony_country == "finland" && calculator.resident_of_uk?
               :outcome_os_consular_cni
-            elsif ceremony_in_norway_uk_resident
+            elsif calculator.ceremony_country == "norway" && calculator.resident_of_uk?
               :outcome_os_consular_cni
             elsif data_query.os_affirmation_countries?(calculator.ceremony_country)
               :outcome_os_affirmation
@@ -335,23 +277,25 @@ module SmartAnswer
               :outcome_os_bot
             elsif data_query.os_no_consular_cni_countries?(calculator.ceremony_country) || (calculator.resident_outside_of_uk? && data_query.os_no_marriage_related_consular_services?(calculator.ceremony_country))
               :outcome_os_no_cni
-            elsif marriage_via_local_authorities
+            elsif data_query.os_marriage_via_local_authorities?(calculator.ceremony_country)
               :outcome_marriage_via_local_authorities
             elsif data_query.os_other_countries?(calculator.ceremony_country)
               :outcome_os_other_countries
             end
-          elsif response == 'same_sex'
-            if ss_affirmation
+          elsif calculator.partner_is_same_sex?
+            if %w(belgium norway).include?(calculator.ceremony_country)
               :outcome_ss_affirmation
-            elsif ss_unknown_no_embassies
+            elsif data_query.ss_unknown_no_embassies?(calculator.ceremony_country)
               :outcome_os_no_cni
             elsif calculator.ceremony_country == "malta"
               :outcome_ss_marriage_malta
-            elsif ss_marriage_not_possible
+            elsif data_query.ss_marriage_not_possible?(calculator.ceremony_country, calculator)
               :outcome_ss_marriage_not_possible
-            elsif ss_marriage_germany_partner_local
+            elsif calculator.ceremony_country == "germany" && calculator.partner_is_national_of_ceremony_country?
               :outcome_cp_or_equivalent
-            elsif ss_marriage_countries | ss_marriage_countries_when_couple_british | ss_marriage_and_partnership
+            elsif (data_query.ss_marriage_countries?(calculator.ceremony_country)) ||
+                (data_query.ss_marriage_countries_when_couple_british?(calculator.ceremony_country) && calculator.partner_british?) ||
+                (data_query.ss_marriage_and_partnership?(calculator.ceremony_country))
               :outcome_ss_marriage
             elsif data_query.cp_equivalent_countries?(calculator.ceremony_country)
               :outcome_cp_or_equivalent

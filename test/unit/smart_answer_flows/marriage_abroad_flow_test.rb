@@ -62,5 +62,31 @@ module SmartAnswer
         assert_equal 'partner_british', @calculator.instance_variable_get('@partner_nationality')
       end
     end
+
+    context 'when answering partner_opposite_or_same_sex? question' do
+      setup do
+        Calculators::MarriageAbroadCalculator.stubs(:new).returns(@calculator)
+        setup_states_for_question(:partner_opposite_or_same_sex?,
+          responding_with: 'same_sex', initial_state: {
+            calculator: @calculator })
+      end
+
+      should 'store parsed response on calculator as sex_of_your_partner' do
+        assert_equal 'same_sex', @calculator.instance_variable_get('@sex_of_your_partner')
+      end
+    end
+
+    context 'when answering marriage_or_pacs? question' do
+      setup do
+        Calculators::MarriageAbroadCalculator.stubs(:new).returns(@calculator)
+        setup_states_for_question(:marriage_or_pacs?,
+          responding_with: 'marriage', initial_state: {
+            calculator: @calculator })
+      end
+
+      should 'store parsed response on calculator as marriage_or_pacs' do
+        assert_equal 'marriage', @calculator.instance_variable_get('@marriage_or_pacs')
+      end
+    end
   end
 end

@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  <% if sex_of_your_partner == 'opposite_sex' %>
+  <% if calculator.partner_is_opposite_sex? %>
     Marriage in Spain
   <% else %>
     Same-sex Marriage in Spain
@@ -15,12 +15,12 @@
                } %>
   <% end %>
 
-  <% if calculator.resident_outside_of_third_country? && sex_of_your_partner == 'opposite_sex' %>
+  <% if calculator.resident_outside_of_third_country? && calculator.partner_is_opposite_sex? %>
     Civil weddings in Spain take place at a town hall, register office or district court. You must register with the local civil authorities afterwards to get an official marriage certificate if you have a religious wedding.
 
   <% end %>
 
-  <% if sex_of_your_partner == 'same_sex' %>
+  <% if calculator.partner_is_same_sex? %>
     The process for same-sex marriages in Spain is the same as for opposite-sex civil marriages.
 
   <% end %>

@@ -3,6 +3,8 @@ module SmartAnswer::Calculators
     attr_accessor :ceremony_country
     attr_writer :resident_of
     attr_writer :partner_nationality
+    attr_writer :sex_of_your_partner
+    attr_writer :marriage_or_pacs
 
     def partner_british?
       @partner_nationality == 'partner_british'
@@ -46,6 +48,18 @@ module SmartAnswer::Calculators
 
     def resident_outside_of_third_country?
       !resident_of_third_country?
+    end
+
+    def partner_is_opposite_sex?
+      @sex_of_your_partner == 'opposite_sex'
+    end
+
+    def partner_is_same_sex?
+      @sex_of_your_partner == 'same_sex'
+    end
+
+    def want_to_get_married?
+      @marriage_or_pacs == 'marriage'
     end
   end
 end

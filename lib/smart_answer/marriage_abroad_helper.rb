@@ -1,15 +1,15 @@
 module SmartAnswer
   module MarriageAbroadHelper
-    def ceremony_type(sex_of_your_partner)
-      if sex_of_your_partner == 'opposite_sex'
+    def ceremony_type(calculator)
+      if calculator.partner_is_opposite_sex?
         'Marriage'
       else
         'Civil partnership'
       end
     end
 
-    def ceremony_type_lowercase(sex_of_your_partner)
-      ceremony_type(sex_of_your_partner).downcase
+    def ceremony_type_lowercase(calculator)
+      ceremony_type(calculator).downcase
     end
 
     def specific_local_authorities(country_slug)
