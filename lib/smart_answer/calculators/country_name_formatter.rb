@@ -27,7 +27,7 @@ module SmartAnswer::Calculators
     private
 
     def country_name(country)
-      WorldLocation.all.find { |c| c.slug == country }.name
+      WorldLocation.find(country).name
     end
   end
 end
