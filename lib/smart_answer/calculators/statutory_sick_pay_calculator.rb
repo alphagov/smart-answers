@@ -72,7 +72,7 @@ module SmartAnswer
         linked_piw.qualifying_days(days_of_the_week_worked).length
       end
 
-      def waiting_days
+      def number_of_waiting_days_not_in_linked_piw
         prev_sick_days >= 3 ? 0 : 3 - prev_sick_days
       end
 
@@ -325,7 +325,7 @@ module SmartAnswer
         # copy not to modify the instance variable we need to keep
         payable_days_temp = normal_workdays_missed.dup
         ## 1. remove up to 3 first dates from the array if there are waiting days in this period
-        payable_days_temp.shift(waiting_days)
+        payable_days_temp.shift(number_of_waiting_days_not_in_linked_piw)
         ## 2. return only the first days_that_can_be_paid_for_this_period
         payable_days_temp.shift(days_that_can_be_paid_for_this_period)
       end
