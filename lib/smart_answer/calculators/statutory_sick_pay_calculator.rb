@@ -318,11 +318,7 @@ module SmartAnswer
       end
 
       def days_paid_in_linked_period
-        if prev_sick_days > 3
-          prev_sick_days - 3
-        else
-          0
-        end
+        [prev_sick_days - 3, 0].max
       end
 
       def init_payable_days
