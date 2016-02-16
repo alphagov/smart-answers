@@ -290,6 +290,34 @@ module SmartAnswer
           assert_equal [], @calculator.overseas_passports_embassies
         end
       end
+
+      context '#marriage_and_partnership_phrases' do
+        setup do
+          @data_query = MarriageAbroadDataQuery.new
+          @data_query.stubs(:ss_marriage_countries?).returns(false)
+          @data_query.stubs(:ss_marriage_countries_when_couple_british?).returns(false)
+          @data_query.stubs(:ss_marriage_and_partnership?).returns(false)
+          @calculator = MarriageAbroadCalculator.new(data_query: @data_query)
+        end
+
+        should 'return ss_marriage when the ceremony country is in the list of same sex marriage countries' do
+          @calculator.ceremony_country = 'same-sex-marriage-country'
+          @data_query.stubs(:ss_marriage_countries?).with('same-sex-marriage-country').returns(true)
+          assert_equal 'ss_marriage', @calculator.marriage_and_partnership_phrases
+        end
+
+        should 'return ss_marriage when the ceremony country is in the list of same sex marriage countries for british couples' do
+          @calculator.ceremony_country = 'same-sex-marriage-country-for-british-couple'
+          @data_query.stubs(:ss_marriage_countries_when_couple_british?).with('same-sex-marriage-country-for-british-couple').returns(true)
+          assert_equal 'ss_marriage', @calculator.marriage_and_partnership_phrases
+        end
+
+        should 'return ss_marriage_and_partnership when the ceremony country is in the list of same sex marriage and partnership countries' do
+          @calculator.ceremony_country = 'same-sex-marriage-and-partnership-country'
+          @data_query.stubs(:ss_marriage_and_partnership?).with('same-sex-marriage-and-partnership-country').returns(true)
+          assert_equal 'ss_marriage_and_partnership', @calculator.marriage_and_partnership_phrases
+        end
+      end
     end
   end
 end

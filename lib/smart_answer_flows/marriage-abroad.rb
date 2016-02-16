@@ -37,11 +37,7 @@ module SmartAnswer
         end
 
         calculate :marriage_and_partnership_phrases do
-          if data_query.ss_marriage_countries?(calculator.ceremony_country) || data_query.ss_marriage_countries_when_couple_british?(calculator.ceremony_country)
-            "ss_marriage"
-          elsif data_query.ss_marriage_and_partnership?(calculator.ceremony_country)
-            "ss_marriage_and_partnership"
-          end
+          calculator.marriage_and_partnership_phrases
         end
 
         calculate :ceremony_country_name do
