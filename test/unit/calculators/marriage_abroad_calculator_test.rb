@@ -318,6 +318,17 @@ module SmartAnswer
           assert_equal 'ss_marriage_and_partnership', @calculator.marriage_and_partnership_phrases
         end
       end
+
+      context '#ceremony_country_name' do
+        should 'return the name of the world location associated with the ceremony country' do
+          calculator = MarriageAbroadCalculator.new
+          calculator.ceremony_country = 'ceremony-country'
+          world_location = WorldLocation.new({})
+          world_location.stubs(:name).returns('world-location-name')
+          WorldLocation.stubs(:find).with('ceremony-country').returns(world_location)
+          assert_equal 'world-location-name', calculator.ceremony_country_name
+        end
+      end
     end
   end
 end

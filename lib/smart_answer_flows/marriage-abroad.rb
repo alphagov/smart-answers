@@ -41,7 +41,7 @@ module SmartAnswer
         end
 
         calculate :ceremony_country_name do
-          location.name
+          calculator.ceremony_country_name
         end
 
         calculate :country_name_lowercase_prefix do
