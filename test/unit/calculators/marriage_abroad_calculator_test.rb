@@ -1,4 +1,5 @@
 require_relative "../../test_helper"
+require 'gds_api/test_helpers/worldwide'
 
 module SmartAnswer
   module Calculators
@@ -224,6 +225,27 @@ module SmartAnswer
         should "be false when the couple don't want to get married" do
           @calculator.marriage_or_pacs = 'not-marriage'
           refute @calculator.want_to_get_married?
+        end
+      end
+
+      context '#world_location' do
+        include GdsApi::TestHelpers::Worldwide
+
+        setup do
+          @calculator = MarriageAbroadCalculator.new
+          @calculator.ceremony_country = 'ceremony-country'
+        end
+
+        should 'return the world location for the given ceremony country' do
+          worldwide_api_has_location('ceremony-country')
+          assert_match 'ceremony-country', @calculator.world_location.slug
+        end
+
+        should 'raise an InvalidResponse exception if the world location cannot be found for the ceremony country' do
+          worldwide_api_does_not_have_location('ceremony-country')
+          assert_raise(InvalidResponse) do
+            @calculator.world_location
+          end
         end
       end
     end

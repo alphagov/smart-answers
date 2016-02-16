@@ -27,9 +27,7 @@ module SmartAnswer
         end
 
         calculate :location do
-          loc = WorldLocation.find(calculator.ceremony_country)
-          raise InvalidResponse unless loc
-          loc
+          calculator.world_location
         end
         calculate :organisation do
           location.fco_organisation
