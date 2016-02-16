@@ -2,6 +2,7 @@ module SmartAnswer
   module Calculators
     class StatutorySickPayCalculator
       class PeriodOfIncapacityForWork < DateRange
+        MAXIMUM_NUMBER_OF_WAITING_DAYS = 3
         MINIMUM_NUMBER_OF_DAYS = 4
 
         def qualifying_days(pattern)
@@ -54,11 +55,11 @@ module SmartAnswer
       end
 
       def number_of_waiting_days_in_linked_piw
-        [prev_sick_days, 3].min
+        [prev_sick_days, PeriodOfIncapacityForWork::MAXIMUM_NUMBER_OF_WAITING_DAYS].min
       end
 
       def number_of_waiting_days_not_in_linked_piw
-        3 - number_of_waiting_days_in_linked_piw
+        PeriodOfIncapacityForWork::MAXIMUM_NUMBER_OF_WAITING_DAYS - number_of_waiting_days_in_linked_piw
       end
 
       def pattern_days
@@ -233,7 +234,7 @@ module SmartAnswer
       end
 
       def maximum_entitlement_reached?
-        prev_sick_days >= (days_of_the_week_worked.length * 28 + 3)
+        prev_sick_days >= (days_of_the_week_worked.length * 28 + PeriodOfIncapacityForWork::MAXIMUM_NUMBER_OF_WAITING_DAYS)
       end
 
       def maximum_entitlement_reached_v2?
@@ -294,7 +295,7 @@ module SmartAnswer
       end
 
       def days_paid_in_linked_period
-        [prev_sick_days - 3, 0].max
+        [prev_sick_days - PeriodOfIncapacityForWork::MAXIMUM_NUMBER_OF_WAITING_DAYS, 0].max
       end
 
       def init_payable_days
