@@ -236,8 +236,8 @@ module SmartAnswer
           assert_equal @calculator.prev_sick_days, 5
         end
 
-        should "return waiting_days of 0" do
-          assert_equal @calculator.waiting_days, 0
+        should "return number_of_waiting_days_not_in_linked_piw of 0" do
+          assert_equal @calculator.number_of_waiting_days_not_in_linked_piw, 0
         end
 
         should "return daily rate of 17.1700" do
@@ -344,8 +344,8 @@ module SmartAnswer
           assert_equal @calculator.prev_sick_days, 2
         end
 
-        should "return waiting_days of 1" do
-          assert_equal @calculator.waiting_days, 1
+        should "return number_of_waiting_days_not_in_linked_piw of 1" do
+          assert_equal @calculator.number_of_waiting_days_not_in_linked_piw, 1
         end
       end
 
@@ -362,8 +362,8 @@ module SmartAnswer
           assert_equal @calculator.prev_sick_days, 1
         end
 
-        should "return waiting_days of 2" do
-          assert_equal @calculator.waiting_days, 2
+        should "return number_of_waiting_days_not_in_linked_piw of 2" do
+          assert_equal @calculator.number_of_waiting_days_not_in_linked_piw, 2
           assert_equal @calculator.normal_workdays, 5
           assert_equal @calculator.send(:days_to_pay), 3
         end
@@ -380,8 +380,8 @@ module SmartAnswer
           assert_equal @calculator.prev_sick_days, 0
         end
 
-        should "return waiting_days of 3, ssp payment of 0" do
-          assert_equal @calculator.waiting_days, 3
+        should "return number_of_waiting_days_not_in_linked_piw of 3, ssp payment of 0" do
+          assert_equal @calculator.number_of_waiting_days_not_in_linked_piw, 3
           assert_equal @calculator.send(:days_to_pay), 0
           assert_equal @calculator.normal_workdays, 3
           assert_equal @calculator.ssp_payment, 0.00
@@ -458,7 +458,7 @@ module SmartAnswer
         end
 
         should "give correct ssp calculation" do # 15 days with 3 waiting days, so 6 days at lower weekly rate, 6 days at higher rate
-          assert_equal @calculator.waiting_days, 3
+          assert_equal @calculator.number_of_waiting_days_not_in_linked_piw, 3
           assert_equal @calculator.send(:days_to_pay), 12
           assert_equal @calculator.normal_workdays, 15
           assert_equal @calculator.ssp_payment, 200.94
@@ -557,7 +557,7 @@ module SmartAnswer
         end
 
         should "give correct ssp calculation" do # 12 days with 3 waiting days, all at 2012-13 daily rate
-          assert_equal @calculator.waiting_days, 3
+          assert_equal @calculator.number_of_waiting_days_not_in_linked_piw, 3
           assert_equal @calculator.send(:days_to_pay), 9
           assert_equal @calculator.normal_workdays, 12
           assert_equal @calculator.ssp_payment, 386.33
@@ -617,7 +617,7 @@ module SmartAnswer
 
         should "give correct ssp calculation" do # there should be 3 normal workdays to pay
           assert_equal @calculator.send(:days_to_pay), 3
-          assert_equal @calculator.waiting_days, 3
+          assert_equal @calculator.number_of_waiting_days_not_in_linked_piw, 3
           assert_equal @calculator.ssp_payment, 257.55
         end
       end
