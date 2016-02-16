@@ -248,6 +248,29 @@ module SmartAnswer
           end
         end
       end
+
+      context '#fco_organisation' do
+        setup do
+          @calculator = MarriageAbroadCalculator.new
+        end
+
+        should 'return the fco organisation for the world location' do
+          fco_organisation = WorldwideOrganisation.new({})
+          world_location = WorldLocation.new({})
+          world_location.stubs(:fco_organisation).returns(fco_organisation)
+          WorldLocation.stubs(:find).with('ceremony-country-with-fco-organisation').returns(world_location)
+          @calculator.ceremony_country = 'ceremony-country-with-fco-organisation'
+          assert_equal fco_organisation, @calculator.fco_organisation
+        end
+
+        should "return nil if the world location doesn't have an fco organisation" do
+          world_location = WorldLocation.new({})
+          world_location.stubs(:fco_organisation).returns(nil)
+          WorldLocation.stubs(:find).with('ceremony-country-without-fco-organisation').returns(world_location)
+          @calculator.ceremony_country = 'ceremony-country-without-fco-organisation'
+          assert_nil @calculator.fco_organisation
+        end
+      end
     end
   end
 end

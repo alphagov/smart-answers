@@ -30,7 +30,7 @@ module SmartAnswer
           calculator.world_location
         end
         calculate :organisation do
-          location.fco_organisation
+          calculator.fco_organisation
         end
         calculate :overseas_passports_embassies do
           if organisation
