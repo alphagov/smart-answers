@@ -20,12 +20,14 @@ module SmartAnswer::Calculators
       result
     end
 
-    def country_name(country)
-      WorldLocation.all.find { |c| c.slug == country }.name
-    end
-
     def requires_definite_article?(country)
       COUNTRIES_WITH_DEFINITIVE_ARTICLES.include?(country)
+    end
+
+    private
+
+    def country_name(country)
+      WorldLocation.all.find { |c| c.slug == country }.name
     end
   end
 end
