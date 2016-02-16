@@ -1,3 +1,5 @@
+//= require start-now-button-abc-tests
+
 function browserSupportsHtml5HistoryApi() {
   return !! (history && history.replaceState && history.pushState);
 }
