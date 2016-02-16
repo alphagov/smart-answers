@@ -24,5 +24,19 @@ module SmartAnswer::Calculators
         assert_equal 'Antigua And Barbuda', @formatter.definitive_article('antigua-and-barbuda')
       end
     end
+
+    context '#requires_definite_article?' do
+      setup do
+        @formatter = CountryNameFormatter.new
+      end
+
+      should 'return true if the country should be prepended by "the"' do
+        assert @formatter.requires_definite_article?('bahamas')
+      end
+
+      should 'return false if the country should not be prepended by "the"' do
+        refute @formatter.requires_definite_article?('antigua-and-barbuda')
+      end
+    end
   end
 end

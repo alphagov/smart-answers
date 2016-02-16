@@ -14,7 +14,7 @@ module SmartAnswer::Calculators
 
     def definitive_article(country, capitalized=false)
       result = country_name(country)
-      if COUNTRIES_WITH_DEFINITIVE_ARTICLES.include?(country)
+      if requires_definite_article?(country)
         result = capitalized ? "The #{result}" : "the #{result}"
       end
       result
@@ -24,5 +24,8 @@ module SmartAnswer::Calculators
       WorldLocation.all.find { |c| c.slug == country }.name
     end
 
+    def requires_definite_article?(country)
+      COUNTRIES_WITH_DEFINITIVE_ARTICLES.include?(country)
+    end
   end
 end
