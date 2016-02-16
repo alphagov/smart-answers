@@ -33,11 +33,7 @@ module SmartAnswer
           calculator.fco_organisation
         end
         calculate :overseas_passports_embassies do
-          if organisation
-            organisation.offices_with_service 'Registrations of Marriage and Civil Partnerships'
-          else
-            []
-          end
+          calculator.overseas_passports_embassies
         end
 
         calculate :marriage_and_partnership_phrases do
