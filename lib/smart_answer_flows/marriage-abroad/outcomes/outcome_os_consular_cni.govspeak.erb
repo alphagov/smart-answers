@@ -234,7 +234,6 @@
       <% else %>
         <%= render partial: 'contact_method.govspeak.erb',
                    locals: {
-                     sex_of_your_partner: sex_of_your_partner,
                      calculator: calculator,
                      overseas_passports_embassies: overseas_passports_embassies,
                      country_name_lowercase_prefix: country_name_lowercase_prefix
@@ -300,7 +299,6 @@
     <% if calculator.ceremony_country == 'japan' %>
       <%= render partial: 'contact_method.govspeak.erb',
                  locals: {
-                   sex_of_your_partner: sex_of_your_partner,
                    calculator: calculator,
                    overseas_passports_embassies: overseas_passports_embassies,
                    country_name_lowercase_prefix: country_name_lowercase_prefix
@@ -336,7 +334,7 @@
 
     <% end %>
   <% else %>
-    <% if sex_of_your_partner == 'same_sex' || no_document_download_link_if_os_resident_of_uk_countries.exclude?(calculator.ceremony_country) && (cni_notary_public_countries + %w(japan macedonia) - %w(greece tunisia)).include?(calculator.ceremony_country) %>
+    <% if calculator.partner_is_same_sex? || no_document_download_link_if_os_resident_of_uk_countries.exclude?(calculator.ceremony_country) && (cni_notary_public_countries + %w(japan macedonia) - %w(greece tunisia)).include?(calculator.ceremony_country) %>
       <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
 
     <% end %>

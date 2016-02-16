@@ -1,10 +1,10 @@
 <% content_for :title do %>
-  <%= ceremony_type(sex_of_your_partner) %> in Switzerland
+  <%= ceremony_type(calculator) %> in Switzerland
 
 <% end %>
 
 <% content_for :body do %>
-  <% if sex_of_your_partner == 'opposite_sex' %>
+  <% if calculator.partner_is_opposite_sex? %>
     Contact the Civil Register Office where you’re getting married to find out about local laws, including what documents you’ll need.
   <% else %>
     Same-sex relationships in Switzerland that are recognised as civil partnerships under British law are known as ’eingetragene Partnerschaft’, ’partenariat enregistré’, ’unione domestica registrata’ or ’partenadi registrà’ (’registered partnership’).
@@ -16,7 +16,7 @@
     <% if calculator.resident_of_uk? %>
 
 
-      You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to enter into a <%= ceremony_type_lowercase(sex_of_your_partner) %> or equivalent in Switzerland.
+      You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to enter into a <%= ceremony_type_lowercase(calculator) %> or equivalent in Switzerland.
 
       Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.
 
@@ -30,7 +30,7 @@
     <%= render partial: 'what_you_need_to_do.govspeak.erb',
         locals: { calculator: calculator } %>
 
-    <% if sex_of_your_partner == 'opposite_sex' %>
+    <% if calculator.partner_is_opposite_sex? %>
       You may be asked to provide a civil status declaration to prove you’re allowed to marry.
 
     <% else %>
