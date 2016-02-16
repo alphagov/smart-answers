@@ -1146,7 +1146,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "go to cp or equivalent outcome" do
       assert_current_node :outcome_cp_or_equivalent
       assert_state_variable :country_name_lowercase_prefix, 'the Czech Republic'
-      assert_state_variable :pay_by_cash_or_credit_card_no_cheque, nil
     end
   end
 
@@ -1270,7 +1269,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni cp countries outcome" do
       assert_current_node :outcome_cp_or_equivalent
-      assert_state_variable :pay_by_cash_or_credit_card_no_cheque, nil
     end
   end
 

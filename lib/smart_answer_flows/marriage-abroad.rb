@@ -26,10 +26,6 @@ module SmartAnswer
           Calculators::MarriageAbroadCalculator.new
         end
 
-        calculate :pay_by_cash_or_credit_card_no_cheque do
-          nil
-        end
-
         calculate :location do
           loc = WorldLocation.find(calculator.ceremony_country)
           raise InvalidResponse unless loc
