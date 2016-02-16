@@ -6,8 +6,9 @@ module SmartAnswer::Calculators
     attr_writer :sex_of_your_partner
     attr_writer :marriage_or_pacs
 
-    def initialize(data_query: nil)
+    def initialize(data_query: nil, country_name_formatter: nil)
       @data_query = data_query || MarriageAbroadDataQuery.new
+      @country_name_formatter = country_name_formatter || CountryNameFormatter.new
     end
 
     def partner_british?
@@ -91,6 +92,16 @@ module SmartAnswer::Calculators
         'ss_marriage'
       elsif @data_query.ss_marriage_and_partnership?(ceremony_country)
         'ss_marriage_and_partnership'
+      end
+    end
+
+    def country_name_lowercase_prefix
+      if @country_name_formatter.requires_definite_article?(ceremony_country)
+        @country_name_formatter.definitive_article(ceremony_country)
+      elsif @country_name_formatter.has_friendly_name?(ceremony_country)
+        @country_name_formatter.friendly_name(ceremony_country).html_safe
+      else
+        ceremony_country_name
       end
     end
   end
