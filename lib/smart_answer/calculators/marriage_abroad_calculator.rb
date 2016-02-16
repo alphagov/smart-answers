@@ -61,5 +61,9 @@ module SmartAnswer::Calculators
     def want_to_get_married?
       @marriage_or_pacs == 'marriage'
     end
+
+    def world_location
+      WorldLocation.find(ceremony_country) || raise(SmartAnswer::InvalidResponse)
+    end
   end
 end
