@@ -53,8 +53,12 @@ module SmartAnswer
         linked_piw.qualifying_days(days_of_the_week_worked).length
       end
 
+      def number_of_waiting_days_in_linked_piw
+        prev_sick_days < 3 ? prev_sick_days : 3
+      end
+
       def number_of_waiting_days_not_in_linked_piw
-        prev_sick_days >= 3 ? 0 : 3 - prev_sick_days
+        3 - number_of_waiting_days_in_linked_piw
       end
 
       def pattern_days
