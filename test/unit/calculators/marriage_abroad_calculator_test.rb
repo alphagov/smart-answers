@@ -337,6 +337,45 @@ module SmartAnswer
           assert_equal 'world-location-name', calculator.ceremony_country_name
         end
       end
+
+      context '#country_name_lowercase_prefix' do
+        setup do
+          @country_name_formatter = stub.quacks_like(CountryNameFormatter.new)
+          @calculator = MarriageAbroadCalculator.new(country_name_formatter: @country_name_formatter)
+          @calculator.ceremony_country = 'country-slug'
+        end
+
+        should 'return the definitive article if ceremony country is in the list of countries with definitive article' do
+          @country_name_formatter.stubs(:requires_definite_article?).with('country-slug').returns(true)
+          @country_name_formatter.stubs(:definitive_article).with('country-slug').returns('the-country-name')
+
+          assert_equal 'the-country-name', @calculator.country_name_lowercase_prefix
+        end
+
+        should 'return the friendly country name if definitive article not required and friendly country name found' do
+          @country_name_formatter.stubs(:requires_definite_article?).with('country-slug').returns(false)
+          @country_name_formatter.stubs(:has_friendly_name?).with('country-slug').returns(true)
+          @country_name_formatter.stubs(:friendly_name).with('country-slug').returns('friendly-country-name')
+
+          assert_equal 'friendly-country-name', @calculator.country_name_lowercase_prefix
+        end
+
+        should 'return an html safe version of the friendly country name' do
+          @country_name_formatter.stubs(:requires_definite_article?).with('country-slug').returns(false)
+          @country_name_formatter.stubs(:has_friendly_name?).with('country-slug').returns(true)
+          @country_name_formatter.stubs(:friendly_name).with('country-slug').returns('friendly-country-name')
+
+          assert @calculator.country_name_lowercase_prefix.html_safe?
+        end
+
+        should 'return the ceremony country name if not in the list of definitive articles or friendly country names' do
+          @country_name_formatter.stubs(:requires_definite_article?).with('country-slug').returns(false)
+          @country_name_formatter.stubs(:has_friendly_name?).with('country-slug').returns(false)
+          @calculator.stubs(ceremony_country_name: 'country-name')
+
+          assert_equal 'country-name', @calculator.country_name_lowercase_prefix
+        end
+      end
     end
   end
 end
