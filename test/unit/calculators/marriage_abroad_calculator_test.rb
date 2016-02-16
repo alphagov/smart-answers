@@ -226,6 +226,27 @@ module SmartAnswer
           refute @calculator.want_to_get_married?
         end
       end
+
+      context '#world_location' do
+        setup do
+          @calculator = MarriageAbroadCalculator.new
+          @calculator.ceremony_country = 'ceremony-country'
+        end
+
+        should 'return the world location for the given ceremony country' do
+          WorldLocation.stubs(:find).with('ceremony-country').returns('world-location')
+
+          assert_equal 'world-location', @calculator.world_location
+        end
+
+        should 'raise an InvalidResponse exception if the world location cannot be found for the ceremony country' do
+          WorldLocation.stubs(:find).with('ceremony-country').returns(nil)
+
+          assert_raise(InvalidResponse) do
+            @calculator.world_location
+          end
+        end
+      end
     end
   end
 end
