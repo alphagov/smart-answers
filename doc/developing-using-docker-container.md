@@ -35,7 +35,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
   config.vm.network :private_network, ip: "192.168.51.10"
 
-  config.vm.synced_folder "../../../gds/", "/gds", nfs: true
+  config.vm.synced_folder "../../gds/", "/gds", nfs: true # adjust this acc
   config.vm.provider :virtualbox do |vb|
     # Use VBoxManage to customize the VM. For example to change memory:
     vb.customize ["modifyvm", :id, "--memory", "2048"]
@@ -103,4 +103,41 @@ apt-get install lxc-docker -y
 sudo gpasswd -a vagrant docker
 sudo service docker restart
 
+```
+
+Create your vagrant box with the following commands:
+
+```bash
+cd gds/vagrant
+vagrant up
+```
+
+After this is done, ssh into the vagrant box
+
+```bash
+vagrant ssh
+```
+
+Build the smart-answers docker container.
+
+```bash
+docker build --tag=smart-answers /gds/smart-answers
+```
+
+Next run your docker container:
+ 
+```bash
+ docker run --name=smart-answers --detach=true --volume=/gds:/gds --publish=3010:3010 smart-answers
+```
+
+This should listed in the list of running containers as smart-answers.
+
+```bash
+docker ps
+```
+
+To run tests:
+
+```bash
+ docker run --tty=true --interactive=true --detach=false --rm=true --volume=/gds:/gds smart-answers "cd /gds/smart-answers; bundle exec rake test"
 ```
