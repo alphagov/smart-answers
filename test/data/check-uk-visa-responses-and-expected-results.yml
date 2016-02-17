@@ -731,7 +731,7 @@
   - oman
   - work
   - six_months_or_less
-  :next_node: :outcome_work_m
+  :next_node: :outcome_work_waiver
   :outcome_node: true
 - :current_node: :staying_for_how_long?
   :responses:

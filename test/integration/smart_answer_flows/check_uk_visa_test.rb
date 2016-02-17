@@ -279,6 +279,46 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     end
   end
 
+  context 'choose an EVW country' do
+    setup do
+      add_response 'oman'
+    end
+
+    should 'ask what are you comming to the UK to do' do
+      assert_current_node :purpose_of_visit?
+    end
+
+    context 'coming to the UK to work' do
+      setup do
+        add_response 'work'
+      end
+
+      should 'ask how long you intend to stay' do
+        assert_current_node :staying_for_how_long?
+      end
+
+      context '6 months or less' do
+        setup do
+          add_response 'six_months_or_less'
+        end
+
+        should 'take you to the outcome work_waiver' do
+          assert_current_node :outcome_work_waiver
+        end
+      end
+
+      context 'longer than 6 months' do
+        setup do
+          add_response 'longer_than_six_months'
+        end
+
+        should 'take you to the outcome work_y' do
+          assert_current_node :outcome_work_y
+        end
+      end
+    end
+  end
+
   context "choose a DATV country" do
     setup do
       add_response 'yemen'
