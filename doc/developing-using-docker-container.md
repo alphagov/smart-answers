@@ -47,7 +47,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   # Bootstrap to Docker
-  config.vm.provision :shell, path: "script/bootstrap", :privileged => true
+  config.vm.provision :shell, path: "scripts/bootstrap", :privileged => true
 end
 
 ```
