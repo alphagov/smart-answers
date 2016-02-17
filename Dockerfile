@@ -70,4 +70,4 @@ EXPOSE 5000
 
 # Setup the entrypoint
 ENTRYPOINT ["/bin/bash", "-l", "-c"]
-CMD ["/smart-answers/startup.sh"]
+CMD ["/smart-answers/startup_docker.sh"]
