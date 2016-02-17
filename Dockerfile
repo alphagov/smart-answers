@@ -59,6 +59,7 @@ VOLUME ["/smart-answers"]
 # Create Gemset
 RUN /bin/bash -l -c "rvm gemset create smart-answers"
 RUN /bin/bash -l -c "rvm use $RUBY_RVM_VERSION@smart-answers --default"
+RUN /bin/bash -l -c "rvm get stable --auto-dotfiles"
 
 # Install the bundle
 RUN /bin/bash -l -c "gem install bundler -v 1.10.6; bundle install"
