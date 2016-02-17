@@ -22,7 +22,7 @@ lib/smart_answer_flows/shared/births_and_deaths_registration/_button.govspeak.er
 lib/data/rates/births_and_deaths_document_return_fees.yml: 4ac203e9fd076c12f62b57f8d1b64ffc
 lib/data/translators.yml: d86f628f0b85e24ffb0dc0ec77401387
 lib/data/registrations.yml: 2eb5c61678f21bd9cc06af67c230279f
-lib/smart_answer/calculators/country_name_formatter.rb: 0cb274748f0daf3965451b6230c183fd
+lib/smart_answer/calculators/country_name_formatter.rb: 94d726282265283a4cc80b2839a158ce
 lib/smart_answer/calculators/registrations_data_query.rb: 563c5db7d7272bc07bd636a92b40f3ce
 lib/smart_answer/calculators/translator_links.rb: 079592f6c5ede06d7c6ae4e8c5553127
 test/fixtures/worldwide_locations.yml: 063711faceec3a4081d6d5fb386c8029
