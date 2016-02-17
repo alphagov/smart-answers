@@ -47,13 +47,14 @@ RUN /bin/bash -l -c "nvm alias default v\$NVM_INSTALL_VERSION"
 RUN /bin/bash -l -c "npm install -g phantom"
 
 # Add the application to the container (cwd)
-WORKDIR /smart-answers
-ADD ./ /smart-answers
-VOLUME ["/smart-answers"]
 
 WORKDIR /govuk-content-schemas
 ADD ./ /govuk-content-schemas
 VOLUME ["/govuk-content-schemas"]
+
+WORKDIR /smart-answers
+ADD ./ /smart-answers
+VOLUME ["/smart-answers"]
 
 # Create Gemset
 RUN /bin/bash -l -c "rvm gemset create smart-answers"
