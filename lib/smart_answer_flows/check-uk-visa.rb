@@ -185,9 +185,9 @@ module SmartAnswer
         permitted_next_nodes = [
           :outcome_no_visa_needed,
           :outcome_study_m,
+          :outcome_study_waiver,
           :outcome_study_y,
           :outcome_taiwan_exception,
-          :outcome_visit_waiver,
           :outcome_work_m,
           :outcome_work_n,
           :outcome_work_waiver,
@@ -204,7 +204,7 @@ module SmartAnswer
           when 'six_months_or_less'
             if calculator.study_visit?
               if calculator.passport_country_in_electronic_visa_waiver_list?
-                :outcome_visit_waiver #outcome 12 visit outcome_visit_waiver
+                :outcome_study_waiver
               elsif calculator.passport_country_is_taiwan?
                 :outcome_taiwan_exception
               elsif calculator.passport_country_in_datv_list? || calculator.passport_country_in_visa_national_list?
@@ -240,6 +240,7 @@ module SmartAnswer
       outcome :outcome_school_y
       outcome :outcome_standard_visit
       outcome :outcome_study_m
+      outcome :outcome_study_waiver
       outcome :outcome_study_y
       outcome :outcome_taiwan_exception
       outcome :outcome_transit_leaving_airport
