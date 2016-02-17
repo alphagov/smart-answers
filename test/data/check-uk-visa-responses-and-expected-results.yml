@@ -796,7 +796,7 @@
   :responses:
   - oman
   - school
-  :next_node: :outcome_visit_waiver
+  :next_node: :outcome_school_waiver
   :outcome_node: true
 - :current_node: :purpose_of_visit?
   :responses:

@@ -69,6 +69,7 @@ module SmartAnswer
           :outcome_medical_y,
           :outcome_no_visa_needed,
           :outcome_school_n,
+          :outcome_school_waiver,
           :outcome_school_y,
           :outcome_standard_visit,
           :outcome_taiwan_exception,
@@ -83,7 +84,17 @@ module SmartAnswer
             next :staying_for_how_long?
           elsif calculator.diplomatic_visit?
             next :outcome_diplomatic_business
-          elsif calculator.medical_visit? || calculator.tourism_visit? || calculator.school_visit?
+          elsif calculator.school_visit?
+            if calculator.passport_country_in_electronic_visa_waiver_list?
+              next :outcome_school_waiver
+            elsif calculator.passport_country_is_taiwan?
+              next :outcome_taiwan_exception
+            elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
+              next :outcome_school_n
+            else
+              next :outcome_school_y
+            end
+          elsif calculator.medical_visit? || calculator.tourism_visit?
             if calculator.passport_country_in_electronic_visa_waiver_list?
               next :outcome_visit_waiver
             elsif calculator.passport_country_is_taiwan?
@@ -92,16 +103,14 @@ module SmartAnswer
           end
 
           if calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
-            if calculator.school_visit? || calculator.tourism_visit?
+            if calculator.tourism_visit?
               next :outcome_school_n
             elsif calculator.medical_visit?
               next :outcome_medical_n
             end
           end
 
-          if calculator.school_visit?
-            :outcome_school_y
-          elsif calculator.tourism_visit?
+          if calculator.tourism_visit?
             :outcome_standard_visit
           elsif calculator.marriage_visit?
             :outcome_marriage
@@ -237,6 +246,7 @@ module SmartAnswer
       outcome :outcome_medical_y
       outcome :outcome_no_visa_needed
       outcome :outcome_school_n
+      outcome :outcome_school_waiver
       outcome :outcome_school_y
       outcome :outcome_standard_visit
       outcome :outcome_study_m
