@@ -125,7 +125,7 @@ docker build --tag=smart-answers /gds/smart-answers
 ```
 
 Next run your docker container:
- 
+
 ```bash
  docker run --name=smart-answers --detach=true --volume=/gds:/gds --publish=3010:3010 smart-answers
 ```
@@ -141,3 +141,5 @@ To run tests:
 ```bash
  docker run --tty=true --interactive=true --detach=false --rm=true --volume=/gds:/gds smart-answers "cd /gds/smart-answers; bundle exec rake test"
 ```
+
+For more on docker see the [docker documentation](https://docs.docker.com/)
