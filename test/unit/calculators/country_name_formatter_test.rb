@@ -39,5 +39,19 @@ module SmartAnswer::Calculators
         refute @formatter.requires_definite_article?('antigua-and-barbuda')
       end
     end
+
+    context 'has_friendly_name?' do
+      setup do
+        @formatter = CountryNameFormatter.new
+      end
+
+      should 'return true if the country slug has a friendly name' do
+        assert @formatter.has_friendly_name?('democratic-republic-of-congo')
+      end
+
+      should 'return false if the country slug does not have a friendly name' do
+        refute @formatter.has_friendly_name?('antigua-and-barbuda')
+      end
+    end
   end
 end
