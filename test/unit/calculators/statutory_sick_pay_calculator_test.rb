@@ -4,18 +4,156 @@ module SmartAnswer
   module Calculators
     class StatutorySickPayCalculatorTest < ActiveSupport::TestCase
 
-      context ".dates_matching_pattern" do
-        should "return dates maching working days pattern" do
-          working_days = %w(Sunday Tuesday Thursday).map { |d| Date::DAYNAMES.index(d).to_s }
-          dates = StatutorySickPayCalculator.dates_matching_pattern(
-            from: Date.parse("Sun, 04 Jan 2015"),
-            to:   Date.parse("Wed, 14 Jan 2015"),
-            pattern: working_days
+      context "period of incapacity for work" do
+        context "qualifying_days" do
+          should "return dates maching working days pattern" do
+            pattern = %w(Sunday Tuesday Thursday).map { |d| Date::DAYNAMES.index(d).to_s }
+            piw = StatutorySickPayCalculator::PeriodOfIncapacityForWork.new(
+              begins_on: Date.parse("Sun, 04 Jan 2015"),
+              ends_on:   Date.parse("Wed, 14 Jan 2015"),
+            )
+            dates = piw.qualifying_days(pattern)
+            assert_equal [
+              Date.parse("Sun, 04 Jan 2015"), Date.parse("Tue, 06 Jan 2015"), Date.parse("Thu, 08 Jan 2015"),
+              Date.parse("Sun, 11 Jan 2015"), Date.parse("Tue, 13 Jan 2015")
+            ], dates
+          end
+        end
+      end
+
+      context "valid_last_sick_day?" do
+        setup do
+          @date = Date.parse("2015-01-02")
+          @calculator = StatutorySickPayCalculator.new(sick_start_date: @date)
+        end
+
+        should "be valid if current PIW would not be empty" do
+          assert @calculator.valid_last_sick_day?(@date)
+        end
+
+        should "not be valid if current PIW would be empty" do
+          refute @calculator.valid_last_sick_day?(@date - 1)
+        end
+      end
+
+      context "valid_linked_sickness_start_date?" do
+        setup do
+          @date = Date.parse("2015-01-01")
+          @calculator = StatutorySickPayCalculator.new(sick_start_date: @date)
+        end
+
+        should "be valid if linked PIW begins before current PIW" do
+          assert @calculator.valid_linked_sickness_start_date?(@date - 1)
+        end
+
+        should "not be valid if linked PIW begins on same day as current PIW" do
+          refute @calculator.valid_linked_sickness_start_date?(@date)
+        end
+      end
+
+      context "within_eight_weeks_of_current_sickness_period?" do
+        setup do
+          @date = Date.parse("2015-01-01")
+          @calculator = StatutorySickPayCalculator.new(
+            sick_start_date: @date,
+            linked_sickness_start_date: @date - 9.weeks
           )
-          assert_equal [
-            Date.parse("Sun, 04 Jan 2015"), Date.parse("Tue, 06 Jan 2015"), Date.parse("Thu, 08 Jan 2015"),
-            Date.parse("Sun, 11 Jan 2015"), Date.parse("Tue, 13 Jan 2015")
-          ], dates
+        end
+
+        should "be valid if gap between linked PIW and current PIW is 8 weeks or less" do
+          assert @calculator.within_eight_weeks_of_current_sickness_period?(@date - 8.weeks - 1.day)
+        end
+
+        should "not be valid if gap between linked PIW and current PIW is more than 8 weeks" do
+          refute @calculator.within_eight_weeks_of_current_sickness_period?(@date - 8.weeks - 2.days)
+        end
+      end
+
+      context "at_least_1_day_before_first_sick_day?" do
+        setup do
+          @date = Date.parse("2015-01-01")
+          @calculator = StatutorySickPayCalculator.new(
+            sick_start_date: @date,
+            linked_sickness_start_date: @date - 1.week
+          )
+        end
+
+        should "be valid if gap between linked PIW and current PIW is at least 1 day" do
+          assert @calculator.at_least_1_day_before_first_sick_day?(@date - 2.days)
+        end
+
+        should "not be valid if there is no gap between linked PIW and current PIW" do
+          refute @calculator.at_least_1_day_before_first_sick_day?(@date - 1.day)
+        end
+      end
+
+      context "valid_period_of_incapacity_for_work?" do
+        setup do
+          @date = Date.parse("2015-01-01")
+        end
+
+        should "be valid if current PIW is at least 4 days long" do
+          calculator = StatutorySickPayCalculator.new(
+            sick_start_date: @date,
+            sick_end_date: @date + 3.days
+          )
+          assert calculator.valid_period_of_incapacity_for_work?
+        end
+
+        should "not be valid if current PIW is less than 4 days long" do
+          calculator = StatutorySickPayCalculator.new(
+            sick_start_date: @date,
+            sick_end_date: @date + 2.days
+          )
+          refute calculator.valid_period_of_incapacity_for_work?
+        end
+      end
+
+      context "valid_linked_period_of_incapacity_for_work?" do
+        setup do
+          @date = Date.parse("2015-01-01")
+          @calculator = StatutorySickPayCalculator.new(
+            linked_sickness_start_date: @date
+          )
+        end
+
+        should "be valid if linked PIW is at least 4 days long" do
+          assert @calculator.valid_linked_period_of_incapacity_for_work?(@date + 3.days)
+        end
+
+        should "not be valid if current PIW is less than 4 days long" do
+          refute @calculator.valid_linked_period_of_incapacity_for_work?(@date + 2.days)
+        end
+      end
+
+      context "valid_last_payday_before_sickness?" do
+        setup do
+          @date = Date.parse("2015-01-02")
+          @calculator = StatutorySickPayCalculator.new(sick_start_date: @date)
+        end
+
+        should "be valid if last payday is before current PIW" do
+          assert @calculator.valid_last_payday_before_sickness?(@date - 1.day)
+        end
+
+        should "not be valid if last payday is not before current PIW" do
+          refute @calculator.valid_last_payday_before_sickness?(@date)
+        end
+      end
+
+      context "valid_last_payday_before_offset?" do
+        setup do
+          @calculator = StatutorySickPayCalculator.new(
+            relevant_period_to: Date.parse("2015-01-02")
+          )
+        end
+
+        should "be valid if last payday is on offset date" do
+          assert @calculator.valid_last_payday_before_offset?(@calculator.pay_day_offset)
+        end
+
+        should "not be valid if last payday is after offset date" do
+          refute @calculator.valid_last_payday_before_offset?(@calculator.pay_day_offset + 1.day)
         end
       end
 
@@ -85,8 +223,8 @@ module SmartAnswer
           assert_equal @calculator.prev_sick_days, 5
         end
 
-        should "return waiting_days of 0" do
-          assert_equal @calculator.waiting_days, 0
+        should "return number_of_waiting_days_not_in_linked_piw of 0" do
+          assert_equal @calculator.number_of_waiting_days_not_in_linked_piw, 0
         end
 
         should "return daily rate of 17.1700" do
@@ -193,8 +331,8 @@ module SmartAnswer
           assert_equal @calculator.prev_sick_days, 2
         end
 
-        should "return waiting_days of 1" do
-          assert_equal @calculator.waiting_days, 1
+        should "return number_of_waiting_days_not_in_linked_piw of 1" do
+          assert_equal @calculator.number_of_waiting_days_not_in_linked_piw, 1
         end
       end
 
@@ -211,8 +349,8 @@ module SmartAnswer
           assert_equal @calculator.prev_sick_days, 1
         end
 
-        should "return waiting_days of 2" do
-          assert_equal @calculator.waiting_days, 2
+        should "return number_of_waiting_days_not_in_linked_piw of 2" do
+          assert_equal @calculator.number_of_waiting_days_not_in_linked_piw, 2
           assert_equal @calculator.normal_workdays, 5
           assert_equal @calculator.send(:days_to_pay), 3
         end
@@ -229,8 +367,8 @@ module SmartAnswer
           assert_equal @calculator.prev_sick_days, 0
         end
 
-        should "return waiting_days of 3, ssp payment of 0" do
-          assert_equal @calculator.waiting_days, 3
+        should "return number_of_waiting_days_not_in_linked_piw of 3, ssp payment of 0" do
+          assert_equal @calculator.number_of_waiting_days_not_in_linked_piw, 3
           assert_equal @calculator.send(:days_to_pay), 0
           assert_equal @calculator.normal_workdays, 3
           assert_equal @calculator.ssp_payment, 0.00
@@ -307,7 +445,7 @@ module SmartAnswer
         end
 
         should "give correct ssp calculation" do # 15 days with 3 waiting days, so 6 days at lower weekly rate, 6 days at higher rate
-          assert_equal @calculator.waiting_days, 3
+          assert_equal @calculator.number_of_waiting_days_not_in_linked_piw, 3
           assert_equal @calculator.send(:days_to_pay), 12
           assert_equal @calculator.normal_workdays, 15
           assert_equal @calculator.ssp_payment, 200.94
@@ -406,7 +544,7 @@ module SmartAnswer
         end
 
         should "give correct ssp calculation" do # 12 days with 3 waiting days, all at 2012-13 daily rate
-          assert_equal @calculator.waiting_days, 3
+          assert_equal @calculator.number_of_waiting_days_not_in_linked_piw, 3
           assert_equal @calculator.send(:days_to_pay), 9
           assert_equal @calculator.normal_workdays, 12
           assert_equal @calculator.ssp_payment, 386.33
@@ -466,7 +604,7 @@ module SmartAnswer
 
         should "give correct ssp calculation" do # there should be 3 normal workdays to pay
           assert_equal @calculator.send(:days_to_pay), 3
-          assert_equal @calculator.waiting_days, 3
+          assert_equal @calculator.number_of_waiting_days_not_in_linked_piw, 3
           assert_equal @calculator.ssp_payment, 257.55
         end
       end

@@ -268,5 +268,105 @@ module SmartAnswer
         end
       end
     end
+
+    context 'ending_on' do
+      setup do
+        @date_range = DateRange.new(begins_on: Date.parse('2000-01-01'))
+        @ends_on = Date.parse('2000-01-02')
+        @ending_on = @date_range.ending_on(@ends_on)
+      end
+
+      should 'build new date range' do
+        assert_not_same @date_range, @ending_on
+      end
+
+      should 'set begins_on to same as original date range' do
+        assert_equal @date_range.begins_on, @ending_on.begins_on
+      end
+
+      should 'set ends_on to specified date' do
+        assert_equal @ends_on, @ending_on.ends_on
+      end
+    end
+
+    context 'begins_before?' do
+      setup do
+        @date_range = DateRange.new(begins_on: Date.parse('2000-01-02'))
+      end
+
+      should 'be true if date range starts before specified date range' do
+        starts_before = DateRange.new(begins_on: Date.parse('2000-01-01'))
+        assert starts_before.begins_before?(@date_range)
+      end
+
+      should 'be true if date range starts infinitely before specified date range' do
+        starts_before = DateRange.new(begins_on: nil)
+        assert starts_before.begins_before?(@date_range)
+      end
+
+      should 'be false if date range starts on same day as specified date range' do
+        does_not_start_before = @date_range.dup
+        refute does_not_start_before.begins_before?(@date_range)
+      end
+
+      should 'be false if date range starts after specified infinite date range' do
+        does_not_start_after = DateRange.new(begins_on: nil)
+        refute @date_range.begins_before?(does_not_start_after)
+      end
+    end
+
+    context 'between' do
+      context 'two overlapping date ranges' do
+        setup do
+          @date_range = DateRange.new(begins_on: Date.parse('2000-01-01'), ends_on: Date.parse('2000-12-31'))
+          @overlapping = DateRange.new(begins_on: Date.parse('2000-06-01'), ends_on: Date.parse('2001-05-31'))
+        end
+
+        should 'return an empty date range, because there is no gap' do
+          gap = @date_range.gap_between(@overlapping)
+        end
+      end
+
+      context 'two infinite overlapping date ranges' do
+        setup do
+          @date_range = DateRange.new(ends_on: Date.parse('2000-12-31'))
+          @overlapping = DateRange.new(begins_on: Date.parse('2000-06-01'))
+        end
+
+        should 'return an empty date range, because there is no gap' do
+          gap = @date_range.gap_between(@overlapping)
+          assert gap.empty?
+        end
+      end
+
+      context 'two non-overlapping date ranges' do
+        setup do
+          @date_range = DateRange.new(begins_on: Date.parse('2000-01-01'), ends_on: Date.parse('2000-12-31'))
+          @non_overlapping = DateRange.new(begins_on: Date.parse('2002-01-01'), ends_on: Date.parse('2002-12-31'))
+        end
+
+        should 'return the gap between the two date ranges' do
+          gap = @date_range.gap_between(@non_overlapping)
+          assert_equal DateRange.new(begins_on: Date.parse('2001-01-01'), ends_on: Date.parse('2001-12-31')), gap
+        end
+
+        should 'be commutative' do
+          gap = @non_overlapping.gap_between(@date_range)
+          assert_equal DateRange.new(begins_on: Date.parse('2001-01-01'), ends_on: Date.parse('2001-12-31')), gap
+        end
+      end
+
+      context 'two non-overlapping infinite date ranges' do
+        setup do
+          @date_range = DateRange.new(ends_on: Date.parse('2000-12-31'))
+          @non_overlapping = DateRange.new(begins_on: Date.parse('2002-01-01'))
+        end
+
+        should 'return the gap between the two date ranges' do
+          gap = @date_range.gap_between(@non_overlapping)
+          assert_equal DateRange.new(begins_on: Date.parse('2001-01-01'), ends_on: Date.parse('2001-12-31')), gap
+        end
+      end
+    end
   end
 end

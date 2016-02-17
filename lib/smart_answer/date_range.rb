@@ -60,5 +60,20 @@ module SmartAnswer
     def empty?
       number_of_days == 0
     end
+
+    def ending_on(date)
+      self.class.new(begins_on: begins_on, ends_on: date)
+    end
+
+    def begins_before?(other)
+      ComparableDate.new(begins_on) < ComparableDate.new(other.begins_on)
+    end
+
+    def gap_between(other)
+      self.class.new(
+        begins_on: [ComparableDate.new(ends_on), ComparableDate.new(other.ends_on)].min.date + 1,
+        ends_on: [ComparableDate.new(begins_on), ComparableDate.new(other.begins_on)].max.date - 1
+      )
+    end
   end
 end

@@ -1,14 +1,30 @@
 module SmartAnswer
   module Calculators
     class StatutorySickPayCalculator
-      MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK = 4
+      class PeriodOfIncapacityForWork < DateRange
+        MAXIMUM_NUMBER_OF_WAITING_DAYS = 3
+        MINIMUM_NUMBER_OF_DAYS = 4
+
+        def qualifying_days(pattern)
+          dates = begins_on..ends_on
+          # create an array of all dates that would have been normal workdays
+          matching_dates = []
+          dates.each do |d|
+            matching_dates << d if pattern.include?(d.wday.to_s)
+          end
+          matching_dates
+        end
+
+        def valid?
+          number_of_days >= MINIMUM_NUMBER_OF_DAYS
+        end
+      end
 
       include ActiveModel::Model
 
-      attr_accessor :sick_start_date, :sick_end_date, :days_of_the_week_worked
+      attr_accessor :days_of_the_week_worked
       attr_accessor :other_pay_types_received, :enough_notice_of_absence
       attr_accessor :has_linked_sickness
-      attr_accessor :linked_sickness_start_date, :linked_sickness_end_date
       attr_accessor :relevant_period_to, :relevant_period_from
       attr_accessor :eight_weeks_earnings
       attr_accessor :pay_pattern
@@ -18,20 +34,59 @@ module SmartAnswer
       attr_accessor :contractual_days_covered_by_earnings
       attr_accessor :days_covered_by_earnings
 
-      def prev_sick_days
-        prior_sick_days
+      attr_reader :current_piw, :linked_piw
+
+      def sick_start_date=(date)
+        @current_piw = PeriodOfIncapacityForWork.new(begins_on: date)
       end
 
-      def waiting_days
-        prev_sick_days >= 3 ? 0 : 3 - prev_sick_days
+      def sick_start_date
+        @current_piw.begins_on
+      end
+
+      def sick_end_date=(date)
+        @current_piw = @current_piw.ending_on(date)
+      end
+
+      def sick_end_date
+        @current_piw.ends_on
+      end
+
+      def linked_sickness_start_date=(date)
+        @linked_piw = PeriodOfIncapacityForWork.new(begins_on: date)
+      end
+
+      def linked_sickness_start_date
+        @linked_piw && @linked_piw.begins_on
+      end
+
+      def linked_sickness_end_date=(date)
+        @linked_piw = @linked_piw.ending_on(date)
+      end
+
+      def linked_sickness_end_date
+        @linked_piw && @linked_piw.ends_on
+      end
+
+      def prev_sick_days
+        return 0 unless has_linked_sickness
+        linked_piw.qualifying_days(days_of_the_week_worked).length
+      end
+
+      def number_of_waiting_days_in_linked_piw
+        [prev_sick_days, PeriodOfIncapacityForWork::MAXIMUM_NUMBER_OF_WAITING_DAYS].min
+      end
+
+      def number_of_waiting_days_not_in_linked_piw
+        PeriodOfIncapacityForWork::MAXIMUM_NUMBER_OF_WAITING_DAYS - number_of_waiting_days_in_linked_piw
       end
 
       def pattern_days
-        @days_of_the_week_worked.length
+        days_of_the_week_worked.length
       end
 
       def normal_workdays_missed
-        @normal_workdays_missed ||= init_normal_workdays_missed(@days_of_the_week_worked)
+        @normal_workdays_missed ||= current_piw.qualifying_days(days_of_the_week_worked)
       end
 
       def normal_workdays
@@ -50,36 +105,35 @@ module SmartAnswer
         (other_pay_types_received & %w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay none}).none?
       end
 
-      def days_sick
-        period = DateRange.new(begins_on: sick_start_date, ends_on: sick_end_date)
-        period.number_of_days
-      end
-
       def valid_last_sick_day?(value)
-        period = DateRange.new(begins_on: sick_start_date, ends_on: value)
-        period.number_of_days >= 1
+        prospective_current_piw = current_piw.ending_on(value)
+        !prospective_current_piw.empty?
       end
 
       def valid_linked_sickness_start_date?(value)
-        sick_start_date > value
+        prospective_linked_piw = PeriodOfIncapacityForWork.new(begins_on: value)
+        prospective_linked_piw.begins_before?(current_piw)
       end
 
       def within_eight_weeks_of_current_sickness_period?(value)
-        furthest_allowed_date = sick_start_date - 8.weeks
-        value > furthest_allowed_date
+        prospective_linked_piw = linked_piw.ending_on(value)
+        gap = prospective_linked_piw.gap_between(current_piw)
+        gap.number_of_days.days <= 8.weeks
       end
 
       def at_least_1_day_before_first_sick_day?(value)
-        value < sick_start_date - 1
+        prospective_linked_piw = linked_piw.ending_on(value)
+        gap = prospective_linked_piw.gap_between(current_piw)
+        !gap.empty?
       end
 
       def valid_period_of_incapacity_for_work?
-        days_sick >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
+        current_piw.valid?
       end
 
       def valid_linked_period_of_incapacity_for_work?(value)
-        period = DateRange.new(begins_on: linked_sickness_start_date, ends_on: value)
-        period.number_of_days >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
+        prospective_linked_piw = linked_piw.ending_on(value)
+        prospective_linked_piw.valid?
       end
 
       def valid_last_payday_before_sickness?(value)
@@ -96,16 +150,6 @@ module SmartAnswer
 
       def sick_end_date_for_awe
         linked_sickness_end_date || sick_end_date
-      end
-
-      def prior_sick_days
-        return 0 unless has_linked_sickness
-        prev_sick_days = Calculators::StatutorySickPayCalculator.dates_matching_pattern(
-          from: linked_sickness_start_date,
-          to: linked_sickness_end_date,
-          pattern: days_of_the_week_worked
-        )
-        prev_sick_days.length
       end
 
       def pay_day_offset
@@ -214,7 +258,7 @@ module SmartAnswer
       end
 
       def maximum_entitlement_reached?
-        prior_sick_days >= (days_of_the_week_worked.size * 28 + 3)
+        prev_sick_days >= (days_of_the_week_worked.length * 28 + PeriodOfIncapacityForWork::MAXIMUM_NUMBER_OF_WAITING_DAYS)
       end
 
       def maximum_entitlement_reached_v2?
@@ -235,16 +279,6 @@ module SmartAnswer
         else
           (pay / BigDecimal.new(days_worked.to_s) * 7).round(2)
         end
-      end
-
-      def self.dates_matching_pattern(from:, to:, pattern:)
-        dates = from..to
-        # create an array of all dates that would have been normal workdays
-        matching_dates = []
-        dates.each do |d|
-          matching_dates << d if pattern.include?(d.wday.to_s)
-        end
-        matching_dates
       end
 
       def weekly_payments
@@ -268,12 +302,12 @@ module SmartAnswer
       end
 
       def sick_pay_weekly_dates
-        if @sick_end_date.sunday?
-          ssp_week_end = @sick_end_date + 6
+        if sick_end_date.sunday?
+          ssp_week_end = sick_end_date + 6
         else
-          ssp_week_end = @sick_end_date.end_of_week - 1
+          ssp_week_end = sick_end_date.end_of_week - 1
         end
-        (@sick_start_date..ssp_week_end).select { |day| day.wday == 6 }
+        (sick_start_date..ssp_week_end).select { |day| day.wday == 6 }
       end
 
       def weekly_payment(week_start_date)
@@ -285,26 +319,14 @@ module SmartAnswer
       end
 
       def days_paid_in_linked_period
-        if prev_sick_days > 3
-          prev_sick_days - 3
-        else
-          0
-        end
-      end
-
-      def init_normal_workdays_missed(days_of_the_week_worked)
-        self.class.dates_matching_pattern(
-          from: @sick_start_date,
-          to: @sick_end_date,
-          pattern: days_of_the_week_worked
-        )
+        [prev_sick_days - PeriodOfIncapacityForWork::MAXIMUM_NUMBER_OF_WAITING_DAYS, 0].max
       end
 
       def init_payable_days
         # copy not to modify the instance variable we need to keep
         payable_days_temp = normal_workdays_missed.dup
         ## 1. remove up to 3 first dates from the array if there are waiting days in this period
-        payable_days_temp.shift(waiting_days)
+        payable_days_temp.shift(number_of_waiting_days_not_in_linked_piw)
         ## 2. return only the first days_that_can_be_paid_for_this_period
         payable_days_temp.shift(days_that_can_be_paid_for_this_period)
       end
