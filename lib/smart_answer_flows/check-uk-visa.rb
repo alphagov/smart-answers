@@ -190,6 +190,7 @@ module SmartAnswer
           :outcome_visit_waiver,
           :outcome_work_m,
           :outcome_work_n,
+          :outcome_work_waiver,
           :outcome_work_y
         ]
         next_node(permitted: permitted_next_nodes) do |response|
@@ -212,7 +213,9 @@ module SmartAnswer
                 :outcome_no_visa_needed #outcome 1 no visa needed
               end
             elsif calculator.work_visit?
-              if calculator.passport_country_in_ukot_list? ||
+              if calculator.passport_country_in_electronic_visa_waiver_list?
+                :outcome_work_waiver
+              elsif calculator.passport_country_in_ukot_list? ||
                   calculator.passport_country_is_taiwan? || calculator.passport_country_in_non_visa_national_list?
                 #outcome 5.5 work N no visa needed
                 :outcome_work_n
@@ -249,6 +252,7 @@ module SmartAnswer
       outcome :outcome_visit_waiver
       outcome :outcome_work_m
       outcome :outcome_work_n
+      outcome :outcome_work_waiver
       outcome :outcome_work_y
     end
   end
