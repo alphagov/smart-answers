@@ -53,5 +53,15 @@ module SmartAnswer::Calculators
         refute @formatter.has_friendly_name?('antigua-and-barbuda')
       end
     end
+
+    context '#friendly_name' do
+      setup do
+        @formatter = CountryNameFormatter.new
+      end
+
+      should 'return the friendly name for the country' do
+        assert_equal 'Democratic Republic of Congo', @formatter.friendly_name('democratic-republic-of-congo')
+      end
+    end
   end
 end

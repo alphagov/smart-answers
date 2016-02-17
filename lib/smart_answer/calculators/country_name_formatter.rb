@@ -28,6 +28,10 @@ module SmartAnswer::Calculators
       FRIENDLY_COUNTRY_NAME.has_key?(country)
     end
 
+    def friendly_name(country)
+      FRIENDLY_COUNTRY_NAME[country]
+    end
+
     private
 
     def country_name(country)
