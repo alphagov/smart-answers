@@ -24,6 +24,10 @@ module SmartAnswer::Calculators
       COUNTRIES_WITH_DEFINITIVE_ARTICLES.include?(country)
     end
 
+    def has_friendly_name?(country)
+      FRIENDLY_COUNTRY_NAME.keys.include?(country)
+    end
+
     private
 
     def country_name(country)

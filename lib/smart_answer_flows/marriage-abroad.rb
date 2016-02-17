@@ -61,7 +61,7 @@ module SmartAnswer
         calculate :country_name_lowercase_prefix do
           if country_name_query.requires_definite_article?(calculator.ceremony_country)
             country_name_query.definitive_article(calculator.ceremony_country)
-          elsif country_name_query.class::FRIENDLY_COUNTRY_NAME.has_key?(calculator.ceremony_country)
+          elsif country_name_query.has_friendly_name?(calculator.ceremony_country)
             country_name_query.class::FRIENDLY_COUNTRY_NAME[calculator.ceremony_country].html_safe
           else
             ceremony_country_name
