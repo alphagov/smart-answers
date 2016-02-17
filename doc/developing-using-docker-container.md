@@ -1,4 +1,4 @@
-# Developing using a docker container
+# Developing with a docker container
 
 To run a docker container within MacOSx here are options to mention a few:
   * [Boot2Docker](http://boot2docker.io/)
