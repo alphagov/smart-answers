@@ -43,7 +43,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
     vb.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
     vb.customize ["modifyvm", :id, "--nictype1", "virtio"]
-    vb.name = "gfb-vm"
+    vb.name = "gds-vm"
   end
 
   # Bootstrap to Docker
