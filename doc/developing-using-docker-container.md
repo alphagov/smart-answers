@@ -136,6 +136,18 @@ This should listed in the list of running containers as smart-answers.
 docker ps
 ```
 
+To start and/or stop the smart-answers container:
+
+```bash
+docker stop smart-answers
+docker start smart-answers
+```
+
+To view and/or follow the container's logs:
+
+```bash
+docker logs -f smart-answers
+```
 To run tests:
 
 ```bash
