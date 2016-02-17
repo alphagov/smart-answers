@@ -650,7 +650,7 @@
   - oman
   - study
   - six_months_or_less
-  :next_node: :outcome_visit_waiver
+  :next_node: :outcome_study_waiver
   :outcome_node: true
 - :current_node: :staying_for_how_long?
   :responses:
