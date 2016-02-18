@@ -1335,7 +1335,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_other'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_consular_cni
-      assert_equal "British Embassy San Jose", current_state.organisation.title
+      assert_equal "British Embassy San Jose", current_state.calculator.fco_organisation.title
     end
 
     should "go to outcome_consular_cni_os_residing_in_third_country and suggest arranging CNI through the Embassy in Costa Rica" do
