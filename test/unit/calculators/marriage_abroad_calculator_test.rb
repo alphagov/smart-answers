@@ -431,6 +431,37 @@ module SmartAnswer
           assert_equal 'National of country-name-lowercase-prefix', @calculator.country_name_partner_residence
         end
       end
+
+      context '#embassy_or_consulate_ceremony_country' do
+        setup do
+          @registrations_data_query = stub
+          @registrations_data_query.quacks_like(RegistrationsDataQuery.new)
+          @registrations_data_query.stubs(:has_consulate?)
+          @registrations_data_query.stubs(:has_consulate_general?)
+
+          @calculator = MarriageAbroadCalculator.new(registrations_data_query: @registrations_data_query)
+          @calculator.ceremony_country = 'country-slug'
+        end
+
+        should 'return "consulate" if ceremony country has consulate' do
+          @registrations_data_query.stubs(:has_consulate?).with('country-slug').returns(true)
+
+          assert_equal 'consulate', @calculator.embassy_or_consulate_ceremony_country
+        end
+
+        should 'return "consulate" if ceremony country has consulate general' do
+          @registrations_data_query.stubs(:has_consulate_general?).with('country-slug').returns(true)
+
+          assert_equal 'consulate', @calculator.embassy_or_consulate_ceremony_country
+        end
+
+        should 'return "embassy" if ceremony country has neither consulate nor consulate general' do
+          @registrations_data_query.stubs(:has_consulate?).returns(false)
+          @registrations_data_query.stubs(:has_consulate_general?).returns(false)
+
+          assert_equal 'embassy', @calculator.embassy_or_consulate_ceremony_country
+        end
+      end
     end
   end
 end
