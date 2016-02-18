@@ -68,7 +68,7 @@
   <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: "have_documents_witnessed_to_get_cni.govspeak.erb",
                locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
+                 calculator: calculator
                } -%>
 
      CNIs issued in <%= country_name_lowercase_prefix %> are valid for 6 months.
