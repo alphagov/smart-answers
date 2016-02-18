@@ -108,5 +108,19 @@ module SmartAnswer::Calculators
     def country_name_uppercase_prefix
       @country_name_formatter.definitive_article(ceremony_country, true)
     end
+
+    def country_name_partner_residence
+      if @data_query.british_overseas_territories?(ceremony_country)
+        'British (overseas territories citizen)'
+      elsif @data_query.french_overseas_territories?(ceremony_country)
+        'French'
+      elsif @data_query.dutch_caribbean_islands?(ceremony_country)
+        'Dutch'
+      elsif %w(hong-kong macao).include?(ceremony_country)
+        'Chinese'
+      else
+        "National of #{country_name_lowercase_prefix}"
+      end
+    end
   end
 end
