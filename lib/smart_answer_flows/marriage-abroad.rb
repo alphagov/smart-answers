@@ -24,10 +24,6 @@ module SmartAnswer
           Calculators::MarriageAbroadCalculator.new
         end
 
-        calculate :marriage_and_partnership_phrases do
-          calculator.marriage_and_partnership_phrases
-        end
-
         calculate :ceremony_country_name do
           calculator.ceremony_country_name
         end
