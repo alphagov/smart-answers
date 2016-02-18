@@ -233,8 +233,7 @@
       <% else %>
         <%= render partial: 'contact_method.govspeak.erb',
                    locals: {
-                     calculator: calculator,
-                     country_name_lowercase_prefix: country_name_lowercase_prefix
+                     calculator: calculator
                    } %>
       <% end %>
     <% end %>
@@ -297,8 +296,7 @@
     <% if calculator.ceremony_country == 'japan' %>
       <%= render partial: 'contact_method.govspeak.erb',
                  locals: {
-                   calculator: calculator,
-                   country_name_lowercase_prefix: country_name_lowercase_prefix
+                   calculator: calculator
                  } %>
 
       ##Giving notice of marriage

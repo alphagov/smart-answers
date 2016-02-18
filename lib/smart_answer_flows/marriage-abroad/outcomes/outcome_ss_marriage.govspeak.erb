@@ -19,8 +19,7 @@
     <%= render partial: 'contact_to_make_appointment.govspeak.erb' %>
     <%= render partial: 'contact_method.govspeak.erb',
                locals: {
-                 calculator: calculator,
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
+                 calculator: calculator
                } %>
 
     <%= render partial: 'documents_needed_21_days_residency.govspeak.erb',
@@ -33,8 +32,7 @@
 
     <%= render partial: 'contact_method.govspeak.erb',
                locals: {
-                 calculator: calculator,
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
+                 calculator: calculator
                } %>
 
   <% elsif calculator.ceremony_country == 'vietnam' %>
@@ -48,7 +46,6 @@
     <%= render partial: 'contact_method.govspeak.erb',
                locals: {
                  calculator: calculator,
-                 country_name_lowercase_prefix: country_name_lowercase_prefix,
                  contact_message: "Contact the embassy or consulate to make an appointment."
                } %>
 
