@@ -53,7 +53,7 @@ module SmartAnswer
         end
 
         calculate :country_name_uppercase_prefix do
-          country_name_query.definitive_article(calculator.ceremony_country, true)
+          calculator.country_name_uppercase_prefix
         end
 
         calculate :country_name_partner_residence do
