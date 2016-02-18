@@ -24,10 +24,6 @@ module SmartAnswer
           Calculators::MarriageAbroadCalculator.new
         end
 
-        calculate :overseas_passports_embassies do
-          calculator.overseas_passports_embassies
-        end
-
         calculate :marriage_and_partnership_phrases do
           calculator.marriage_and_partnership_phrases
         end
