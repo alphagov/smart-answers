@@ -5,7 +5,6 @@
 <% content_for :body do %>
   <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
              locals: {
-               country_name_lowercase_prefix: country_name_lowercase_prefix,
                calculator: calculator
              } %>
 
@@ -13,7 +12,6 @@
 
   <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
              locals: {
-               country_name_lowercase_prefix: country_name_lowercase_prefix,
                calculator: calculator
              } %>
 
@@ -24,9 +22,7 @@
 
   <%= render partial: 'contact_method.govspeak.erb',
              locals: {
-               calculator: calculator,
-               overseas_passports_embassies: overseas_passports_embassies,
-               country_name_lowercase_prefix: country_name_lowercase_prefix
+               calculator: calculator
              } %>
 
   You’ll need to complete an [affidavit form](/government/publications/affidavit-form-oman) to prove you’re allowed to marry.
@@ -54,7 +50,6 @@
 
   <%= render partial: 'link_to_consular_fees.govspeak.erb',
     locals: {
-      country_name_lowercase_prefix: country_name_lowercase_prefix,
       calculator: calculator
     } %>
 

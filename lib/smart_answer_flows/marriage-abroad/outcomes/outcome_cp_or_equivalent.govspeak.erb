@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  Civil partnership in <%= country_name_lowercase_prefix %>
+  Civil partnership in <%= calculator.country_name_lowercase_prefix %>
 <% end %>
 
 <% content_for :body do %>
@@ -11,23 +11,22 @@
   <% end %>
 
   <% if calculator.ceremony_country == 'brazil' && calculator.partner_is_same_sex? && calculator.resident_outside_of_ceremony_country? %>
-    You should check the [travel advice for <%= country_name_lowercase_prefix %>](/foreign-travel-advice/<%= calculator.ceremony_country %>).
+    You should check the [travel advice for <%= calculator.country_name_lowercase_prefix %>](/foreign-travel-advice/<%= calculator.ceremony_country %>).
 
   <% elsif calculator.resident_of_uk? %>
     <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_cp.govspeak.erb',
                locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
+                 calculator: calculator
                } %>
   <% else %>
     <%= render partial: 'contact_local_authorities_in_country_cp.govspeak.erb',
                locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix,
                  calculator: calculator
                } %>
   <% end %>
 
   <% if calculator.resident_outside_of_ceremony_country? && calculator.ceremony_country != 'brazil' %>
-    You should also check the [travel advice for <%= country_name_lowercase_prefix %>](/foreign-travel-advice/<%= calculator.ceremony_country %>).
+    You should also check the [travel advice for <%= calculator.country_name_lowercase_prefix %>](/foreign-travel-advice/<%= calculator.ceremony_country %>).
 
   <% end %>
 
@@ -35,38 +34,36 @@
     <% if calculator.ceremony_country == 'brazil' && calculator.partner_is_same_sex? && calculator.resident_of_uk? %>
       ##What you need to do
 
-      You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to enter into a civil partnership or equivalent in <%= country_name_lowercase_prefix %>.
+      You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to enter into a civil partnership or equivalent in <%= calculator.country_name_lowercase_prefix %>.
 
       <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
 
       <%= render partial: 'cni_issued_locally_validity.govspeak.erb',
                  locals: {
-                   country_name_lowercase_prefix: country_name_lowercase_prefix
+                   calculator: calculator
                  } %>
 
       <%= render partial: 'legisation_and_translation_intro_uk.govspeak.erb',
                  locals: {
-                   country_name_lowercase_prefix: country_name_lowercase_prefix
+                   calculator: calculator
                  } %>
 
       <%= render partial: 'legalise_translate_and_check_with_authorities.govspeak.erb',
                  locals: {
-                   country_name_lowercase_prefix: country_name_lowercase_prefix
+                   calculator: calculator
                  } %>
 
       <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
     <% else %>
       ##What you need to do
 
-      You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to enter into a civil partnership or equivalent in <%= country_name_lowercase_prefix %>.
+      You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to enter into a civil partnership or equivalent in <%= calculator.country_name_lowercase_prefix %>.
 
       Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.
 
       <%= render partial: 'contact_method.govspeak.erb',
                  locals: {
-                   calculator: calculator,
-                   overseas_passports_embassies: overseas_passports_embassies,
-                   country_name_lowercase_prefix: country_name_lowercase_prefix
+                   calculator: calculator
                  } %>
     <% end %>
   <% end %>
@@ -84,7 +81,6 @@
   <% unless (calculator.ceremony_country == 'czech-republic' || data_query.countries_without_consular_facilities?(calculator.ceremony_country)) %>
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix,
                  calculator: calculator
                } %>
   <% end %>
@@ -92,12 +88,12 @@
   <% if %w(iceland slovenia).include?(calculator.ceremony_country) %>
     <%= render partial: 'pay_in_local_currency_ceremony_country_name.govspeak.erb',
                locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
+                 calculator: calculator
                } %>
   <% elsif calculator.ceremony_country == 'luxembourg' %>
     <%= render partial: 'pay_in_cash_visa_or_mastercard.govspeak.erb',
                locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
+                 calculator: calculator
                } %>
   <% elsif %w(czech-republic cote-d-ivoire).exclude?(calculator.ceremony_country) %>
     <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>

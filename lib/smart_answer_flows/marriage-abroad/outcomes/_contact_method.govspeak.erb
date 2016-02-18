@@ -155,7 +155,7 @@
   <% else %>
     <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb',
                locals: {
-                 overseas_passports_embassies: overseas_passports_embassies
+                 overseas_passports_embassies: calculator.overseas_passports_embassies
                } %>
   <% end %>
 <% elsif calculator.partner_is_same_sex? %>
@@ -163,7 +163,7 @@
   <% when 'albania' %>
     [Make an appointment at the embassy in Tirana.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-tirana/notice-of-marriage-or-civil-partnership/slot_picker)
   <% when 'australia' %>
-    Make an appointment at your nearest British embassy or consulate in <%= country_name_lowercase_prefix %>.
+    Make an appointment at your nearest British embassy or consulate in <%= calculator.country_name_lowercase_prefix %>.
 
     [Make an appointment at the British Consulate Brisbane.](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-brisbane/notice-of-marriage-or-civil-partnership/slot_picker)
 
@@ -205,7 +205,7 @@
     <% end %>
     <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb',
                locals: {
-                 overseas_passports_embassies: overseas_passports_embassies
+                 overseas_passports_embassies: calculator.overseas_passports_embassies
                } %>
   <% end %>
 <% end %>

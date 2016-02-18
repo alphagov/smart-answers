@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  Marriage in <%= country_name_lowercase_prefix %>
+  Marriage in <%= calculator.country_name_lowercase_prefix %>
 <% end %>
 
 <% content_for :body do %>
@@ -19,13 +19,12 @@
       <% else %>
         <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_marriage.govspeak.erb',
                    locals: {
-                     country_name_lowercase_prefix: country_name_lowercase_prefix
+                     calculator: calculator
                    } %>
       <% end %>
     <% else %>
       <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
                  locals: {
-                   country_name_lowercase_prefix: country_name_lowercase_prefix,
                    calculator: calculator
                  } %>
     <% end %>
@@ -33,12 +32,12 @@
   <% if %w(jordan oman qatar).include?(calculator.ceremony_country) %>
     <%= render partial: 'gulf_states_os_consular_cni.govspeak.erb',
                locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
+                 calculator: calculator
                } %>
     <% if calculator.resident_of_ceremony_country? %>
       <%= render partial: 'gulf_states_os_consular_cni_local_resident.govspeak.erb',
                  locals: {
-                   country_name_lowercase_prefix: country_name_lowercase_prefix
+                   calculator: calculator
                  } %>
 
     <% end %>
@@ -50,7 +49,6 @@
     <% else %>
       <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
                  locals: {
-                   country_name_lowercase_prefix: country_name_lowercase_prefix,
                    calculator: calculator
                  } %>
     <% end %>
@@ -68,7 +66,7 @@
     You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry. Contact the local notary public to check if you need a CNI.
 
   <% elsif calculator.ceremony_country == 'jordan' %>
-    You need to have been living in <%= country_name_lowercase_prefix %> for 21 days.
+    You need to have been living in <%= calculator.country_name_lowercase_prefix %> for 21 days.
 
     If you’re getting married at the Sharia Court, you’ll need to provide a [single declaration document](/government/publications/single-declaration-form-for-islamic-marriages-jordan) to prove you’re allowed to marry, or a [single divorced declaration document](/government/publications/single-declaration-form-for-islamic-marriages-if-you-are-divorced-jordan) if you’re divorced.
 
@@ -106,7 +104,7 @@
     <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
     <%= render partial: 'cni_issued_locally_validity.govspeak.erb',
                locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
+                 calculator: calculator
                } %>
     <% if cni_posted_after_14_days_countries.include?(calculator.ceremony_country) %>
       They’ll post your notice, and as long as nobody has registered an objection after 14 days, they’ll issue your CNI.
@@ -121,7 +119,7 @@
     <% elsif calculator.ceremony_country == 'germany' %>
       ###Translation
 
-      Check with the local authorities in <%= country_name_lowercase_prefix %> if you need to get your UK-issued CNI translated.
+      Check with the local authorities in <%= calculator.country_name_lowercase_prefix %> if you need to get your UK-issued CNI translated.
 
       [Find a translator abroad](/government/collections/list-of-lawyers), or in the UK through the [Institute of Linguists](http://www.iol.org.uk/linguist/translator1.asp?r=PCTXYL10046)
 
@@ -138,7 +136,7 @@
     <% elsif %w(finland kazakhstan kyrgyzstan).include?(calculator.ceremony_country) %>
       ###Legalisation and translation
 
-      You should check with the local authorities in <%= country_name_lowercase_prefix %> to see if your CNI needs to be:
+      You should check with the local authorities in <%= calculator.country_name_lowercase_prefix %> to see if your CNI needs to be:
 
 
     <% elsif calculator.ceremony_country == 'greece' %>
@@ -150,14 +148,14 @@
     <% else %>
       <%= render partial: 'legisation_and_translation_intro_uk.govspeak.erb',
                  locals: {
-                   country_name_lowercase_prefix: country_name_lowercase_prefix
+                   calculator: calculator
                  } %>
 
     <% end %>
     <% if %w(germany tunisia).exclude?(calculator.ceremony_country) %>
       <%= render partial: 'legalise_translate_and_check_with_authorities.govspeak.erb',
                  locals: {
-                   country_name_lowercase_prefix: country_name_lowercase_prefix
+                   calculator: calculator
                  } %>
     <% end %>
   <% end %>
@@ -168,7 +166,7 @@
 
       <%= render partial: "three_day_residency_requirement.govspeak.erb",
                  locals: {
-                   country_name_lowercase_prefix: country_name_lowercase_prefix
+                   country_name_lowercase_prefix: calculator.country_name_lowercase_prefix
                  } -%>
 
       You can then book an appointment at the embassy to give notice of your marriage. There’s a fee for this service (read the table on this page).
@@ -178,7 +176,7 @@
 
 
     <% elsif %w(germany kazakhstan macedonia russia).exclude?(calculator.ceremony_country) %>
-      To get a CNI, you must post notice of your intended marriage in <%= country_name_lowercase_prefix %>. You can do this at the British embassy or in front of a notary public.
+      To get a CNI, you must post notice of your intended marriage in <%= calculator.country_name_lowercase_prefix %>. You can do this at the British embassy or in front of a notary public.
 
 
     <% end %>
@@ -186,7 +184,7 @@
     <% if three_day_residency_handled_by_exception.exclude?(calculator.ceremony_country) && three_day_residency_requirement_applies.include?(calculator.ceremony_country) %>
       <%= render partial: "three_day_residency_requirement.govspeak.erb",
                  locals: {
-                   country_name_lowercase_prefix: country_name_lowercase_prefix
+                   country_name_lowercase_prefix: calculator.country_name_lowercase_prefix
                  } -%>
     <% end %>
 
@@ -234,9 +232,7 @@
       <% else %>
         <%= render partial: 'contact_method.govspeak.erb',
                    locals: {
-                     calculator: calculator,
-                     overseas_passports_embassies: overseas_passports_embassies,
-                     country_name_lowercase_prefix: country_name_lowercase_prefix
+                     calculator: calculator
                    } %>
       <% end %>
     <% end %>
@@ -299,9 +295,7 @@
     <% if calculator.ceremony_country == 'japan' %>
       <%= render partial: 'contact_method.govspeak.erb',
                  locals: {
-                   calculator: calculator,
-                   overseas_passports_embassies: overseas_passports_embassies,
-                   country_name_lowercase_prefix: country_name_lowercase_prefix
+                   calculator: calculator
                  } %>
 
       ##Giving notice of marriage
@@ -406,7 +400,7 @@
 
       The consulate will display your notice of marriage publicly for 7 days.
 
-      They’ll then send all of your documentation to the British embassy or consulate nearest to where you’re getting married in <%= country_name_lowercase_prefix %>, who will issue your CNI (as long as nobody has registered an objection).
+      They’ll then send all of your documentation to the British embassy or consulate nearest to where you’re getting married in <%= calculator.country_name_lowercase_prefix %>, who will issue your CNI (as long as nobody has registered an objection).
 
       There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
 
@@ -433,7 +427,7 @@
   <% if calculator.resident_outside_of_uk? && %w(germany).exclude?(calculator.ceremony_country) %>
     <%= render partial: 'check_if_cni_needs_to_be_legalised.govspeak.erb',
                locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
+                 calculator: calculator
                } %>
 
   <% end %>
@@ -481,7 +475,6 @@
     <% else %>
       <%= render partial: 'link_to_consular_fees.govspeak.erb',
                  locals: {
-                   country_name_lowercase_prefix: country_name_lowercase_prefix,
                    calculator: calculator
                  } %>
     <% end %>
@@ -491,7 +484,7 @@
     <% if %w(armenia bosnia-and-herzegovina cambodia iceland latvia slovenia tunisia tajikistan).include?(calculator.ceremony_country) %>
       <%= render partial: 'pay_in_local_currency_ceremony_country_name.govspeak.erb',
                  locals: {
-                   country_name_lowercase_prefix: country_name_lowercase_prefix
+                   calculator: calculator
                  } %>
     <% elsif %w(kazakhstan kyrgyzstan).include?(calculator.ceremony_country) %>
       ^You can only pay by cash in Kazakhstan. This must be in the local currency.^
@@ -499,7 +492,7 @@
     <% elsif calculator.ceremony_country == 'luxembourg' %>
       <%= render partial: 'pay_in_cash_visa_or_mastercard.govspeak.erb',
                  locals: {
-                   country_name_lowercase_prefix: country_name_lowercase_prefix
+                   calculator: calculator
                  } %>
     <% elsif calculator.ceremony_country == 'russia' %>
       You can only pay by MasterCard and Visa credit cards.

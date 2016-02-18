@@ -16,8 +16,6 @@ module SmartAnswer
       satisfies_need "101000"
 
       data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
-      country_name_query = SmartAnswer::Calculators::CountryNameFormatter.new
-      reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
       exclude_countries = %w(holy-see british-antarctic-territory the-occupied-palestinian-territories)
 
       # Q1
@@ -26,72 +24,16 @@ module SmartAnswer
           Calculators::MarriageAbroadCalculator.new
         end
 
-        calculate :pay_by_cash_or_credit_card_no_cheque do
-          nil
-        end
-
-        calculate :location do
-          loc = WorldLocation.find(calculator.ceremony_country)
-          raise InvalidResponse unless loc
-          loc
-        end
-        calculate :organisation do
-          location.fco_organisation
-        end
-        calculate :overseas_passports_embassies do
-          if organisation
-            organisation.offices_with_service 'Registrations of Marriage and Civil Partnerships'
-          else
-            []
-          end
-        end
-
-        calculate :marriage_and_partnership_phrases do
-          if data_query.ss_marriage_countries?(calculator.ceremony_country) || data_query.ss_marriage_countries_when_couple_british?(calculator.ceremony_country)
-            "ss_marriage"
-          elsif data_query.ss_marriage_and_partnership?(calculator.ceremony_country)
-            "ss_marriage_and_partnership"
-          end
-        end
-
-        calculate :ceremony_country_name do
-          location.name
-        end
-
-        calculate :country_name_lowercase_prefix do
-          if country_name_query.requires_definite_article?(calculator.ceremony_country)
-            country_name_query.definitive_article(calculator.ceremony_country)
-          elsif country_name_query.has_friendly_name?(calculator.ceremony_country)
-            country_name_query.friendly_name(calculator.ceremony_country).html_safe
-          else
-            ceremony_country_name
-          end
-        end
-
         calculate :country_name_uppercase_prefix do
-          country_name_query.definitive_article(calculator.ceremony_country, true)
+          calculator.country_name_uppercase_prefix
         end
 
         calculate :country_name_partner_residence do
-          if data_query.british_overseas_territories?(calculator.ceremony_country)
-            "British (overseas territories citizen)"
-          elsif data_query.french_overseas_territories?(calculator.ceremony_country)
-            "French"
-          elsif data_query.dutch_caribbean_islands?(calculator.ceremony_country)
-            "Dutch"
-          elsif %w(hong-kong macao).include?(calculator.ceremony_country)
-            "Chinese"
-          else
-            "National of #{country_name_lowercase_prefix}"
-          end
+          calculator.country_name_partner_residence
         end
 
         calculate :embassy_or_consulate_ceremony_country do
-          if reg_data_query.has_consulate?(calculator.ceremony_country) || reg_data_query.has_consulate_general?(calculator.ceremony_country)
-            "consulate"
-          else
-            "embassy"
-          end
+          calculator.embassy_or_consulate_ceremony_country
         end
 
         permitted_next_nodes = [
