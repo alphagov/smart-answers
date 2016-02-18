@@ -24,9 +24,6 @@ module SmartAnswer
           Calculators::MarriageAbroadCalculator.new
         end
 
-        calculate :organisation do
-          calculator.fco_organisation
-        end
         calculate :overseas_passports_embassies do
           calculator.overseas_passports_embassies
         end
