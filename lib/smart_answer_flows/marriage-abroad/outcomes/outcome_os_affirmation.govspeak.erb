@@ -10,8 +10,7 @@
 
   <%= render partial: 'os_affirmation/contact.govspeak.erb',
              locals: {
-               calculator: calculator,
-               country_name_lowercase_prefix: country_name_lowercase_prefix
+               calculator: calculator
              } -%>
 
   <% if %w(ecuador).exclude?(calculator.ceremony_country) %>
@@ -51,8 +50,7 @@
   <%= render partial: 'os_affirmation/fees.govspeak.erb',
              locals: {
                data_query: data_query,
-               calculator: calculator,
-               country_name_lowercase_prefix: country_name_lowercase_prefix
+               calculator: calculator
               } -%>
 
 <% end %>
