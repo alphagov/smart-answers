@@ -368,6 +368,20 @@ module SmartAnswer
           assert_equal 'country-name', @calculator.country_name_lowercase_prefix
         end
       end
+
+      context '#country_name_uppercase_prefix' do
+        setup do
+          @country_name_formatter = CountryNameFormatter.new
+          @calculator = MarriageAbroadCalculator.new(country_name_formatter: @country_name_formatter)
+          @calculator.ceremony_country = 'country-slug'
+        end
+
+        should 'return the ceremony country with upper case definite article' do
+          @country_name_formatter.stubs(:definitive_article).with('country-slug', true).returns('The-country-name')
+
+          assert_equal 'The-country-name', @calculator.country_name_uppercase_prefix
+        end
+      end
     end
   end
 end
