@@ -155,7 +155,7 @@
   <% else %>
     <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb',
                locals: {
-                 overseas_passports_embassies: overseas_passports_embassies
+                 overseas_passports_embassies: calculator.overseas_passports_embassies
                } %>
   <% end %>
 <% elsif calculator.partner_is_same_sex? %>
@@ -205,7 +205,7 @@
     <% end %>
     <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb',
                locals: {
-                 overseas_passports_embassies: overseas_passports_embassies
+                 overseas_passports_embassies: calculator.overseas_passports_embassies
                } %>
   <% end %>
 <% end %>
