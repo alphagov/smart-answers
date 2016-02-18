@@ -57,7 +57,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       should "give outcome ireland ss" do
         assert_current_node :outcome_ireland
         expected_location = WorldLocation.find('ireland')
-        assert_state_variable :location, expected_location
+        assert_equal expected_location, current_state.calculator.world_location
       end
     end
   end
@@ -98,7 +98,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
           should "give outcome opposite sex commonwealth" do
             assert_current_node :outcome_os_commonwealth
             expected_location = WorldLocation.find('bahamas')
-            assert_state_variable :location, expected_location
+            assert_equal expected_location, current_state.calculator.world_location
           end
         end
         context "same sex partner" do
@@ -136,7 +136,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
           should "give outcome opposite sex commonwealth" do
             assert_current_node :outcome_os_commonwealth
             expected_location = WorldLocation.find('bahamas')
-            assert_state_variable :location, expected_location
+            assert_equal expected_location, current_state.calculator.world_location
           end
         end
         context "same sex partner" do
@@ -174,7 +174,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
           should "give outcome opposite sex commonwealth" do
             assert_current_node :outcome_os_commonwealth
             expected_location = WorldLocation.find('bahamas')
-            assert_state_variable :location, expected_location
+            assert_equal expected_location, current_state.calculator.world_location
           end
         end
         context "same sex partner" do
@@ -200,7 +200,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "go to commonwealth os outcome" do
       assert_current_node :outcome_os_commonwealth
       expected_location = WorldLocation.find('australia')
-      assert_state_variable :location, expected_location
+      assert_equal expected_location, current_state.calculator.world_location
     end
   end
 
@@ -215,7 +215,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "go to commonwealth os outcome" do
       assert_current_node :outcome_os_commonwealth
       expected_location = WorldLocation.find('bahamas')
-      assert_state_variable :location, expected_location
+      assert_equal expected_location, current_state.calculator.world_location
     end
   end
 
