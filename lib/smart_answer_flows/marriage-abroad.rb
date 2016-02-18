@@ -24,10 +24,6 @@ module SmartAnswer
           Calculators::MarriageAbroadCalculator.new
         end
 
-        calculate :ceremony_country_name do
-          calculator.ceremony_country_name
-        end
-
         calculate :country_name_lowercase_prefix do
           calculator.country_name_lowercase_prefix
         end
