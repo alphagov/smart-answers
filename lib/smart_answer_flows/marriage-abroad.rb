@@ -24,9 +24,6 @@ module SmartAnswer
           Calculators::MarriageAbroadCalculator.new
         end
 
-        calculate :location do
-          calculator.world_location
-        end
         calculate :organisation do
           calculator.fco_organisation
         end
