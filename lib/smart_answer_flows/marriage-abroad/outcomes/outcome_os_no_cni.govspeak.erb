@@ -28,7 +28,7 @@
     <% elsif calculator.resident_of_uk? %>
       <%= render partial: 'contact_nearest_embassy_of_country.govspeak.erb',
                  locals: {
-                   country_name_lowercase_prefix: country_name_lowercase_prefix
+                   calculator: calculator
                  } %>
     <% end %>
   <% end %>
