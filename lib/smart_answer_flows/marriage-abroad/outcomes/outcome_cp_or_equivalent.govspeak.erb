@@ -88,7 +88,7 @@
   <% if %w(iceland slovenia).include?(calculator.ceremony_country) %>
     <%= render partial: 'pay_in_local_currency_ceremony_country_name.govspeak.erb',
                locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
+                 calculator: calculator
                } %>
   <% elsif calculator.ceremony_country == 'luxembourg' %>
     <%= render partial: 'pay_in_cash_visa_or_mastercard.govspeak.erb',
