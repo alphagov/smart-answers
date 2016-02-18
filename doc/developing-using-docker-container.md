@@ -1,5 +1,11 @@
 # Developing with a docker container
 
+## Motivations for using Docker (why?)
+* Setup development environment in an easy and repetitive way.
+* Define required native dependencies per project environment.
+* To isolate the project's stack.
+* Define sensible defaults and other team/project standards.
+
 To run a docker container within MacOSx here are options to mention a few:
   * [Boot2Docker](http://boot2docker.io/)
   * [Vagrant](http://www.vmware.com/uk/products/fusion)
