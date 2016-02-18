@@ -106,7 +106,7 @@
     <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
     <%= render partial: 'cni_issued_locally_validity.govspeak.erb',
                locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
+                 calculator: calculator
                } %>
     <% if cni_posted_after_14_days_countries.include?(calculator.ceremony_country) %>
       They’ll post your notice, and as long as nobody has registered an objection after 14 days, they’ll issue your CNI.
