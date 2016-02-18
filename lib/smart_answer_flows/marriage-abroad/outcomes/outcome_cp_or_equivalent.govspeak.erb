@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  Civil partnership in <%= country_name_lowercase_prefix %>
+  Civil partnership in <%= calculator.country_name_lowercase_prefix %>
 <% end %>
 
 <% content_for :body do %>
@@ -11,7 +11,7 @@
   <% end %>
 
   <% if calculator.ceremony_country == 'brazil' && calculator.partner_is_same_sex? && calculator.resident_outside_of_ceremony_country? %>
-    You should check the [travel advice for <%= country_name_lowercase_prefix %>](/foreign-travel-advice/<%= calculator.ceremony_country %>).
+    You should check the [travel advice for <%= calculator.country_name_lowercase_prefix %>](/foreign-travel-advice/<%= calculator.ceremony_country %>).
 
   <% elsif calculator.resident_of_uk? %>
     <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_cp.govspeak.erb',
@@ -26,7 +26,7 @@
   <% end %>
 
   <% if calculator.resident_outside_of_ceremony_country? && calculator.ceremony_country != 'brazil' %>
-    You should also check the [travel advice for <%= country_name_lowercase_prefix %>](/foreign-travel-advice/<%= calculator.ceremony_country %>).
+    You should also check the [travel advice for <%= calculator.country_name_lowercase_prefix %>](/foreign-travel-advice/<%= calculator.ceremony_country %>).
 
   <% end %>
 
@@ -34,7 +34,7 @@
     <% if calculator.ceremony_country == 'brazil' && calculator.partner_is_same_sex? && calculator.resident_of_uk? %>
       ##What you need to do
 
-      You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to enter into a civil partnership or equivalent in <%= country_name_lowercase_prefix %>.
+      You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to enter into a civil partnership or equivalent in <%= calculator.country_name_lowercase_prefix %>.
 
       <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
 
@@ -57,7 +57,7 @@
     <% else %>
       ##What you need to do
 
-      You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to enter into a civil partnership or equivalent in <%= country_name_lowercase_prefix %>.
+      You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to enter into a civil partnership or equivalent in <%= calculator.country_name_lowercase_prefix %>.
 
       Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.
 
