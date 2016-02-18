@@ -32,7 +32,7 @@
   <% if %w(jordan oman qatar).include?(calculator.ceremony_country) %>
     <%= render partial: 'gulf_states_os_consular_cni.govspeak.erb',
                locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
+                 calculator: calculator
                } %>
     <% if calculator.resident_of_ceremony_country? %>
       <%= render partial: 'gulf_states_os_consular_cni_local_resident.govspeak.erb',
