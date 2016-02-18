@@ -51,7 +51,7 @@
 
     ### Legalisation and translation
 
-    You must check with the local authorities in <%= country_name_lowercase_prefix %> to see if your UK-issued CNI needs to be:
+    You must check with the local authorities in <%= calculator.country_name_lowercase_prefix %> to see if your UK-issued CNI needs to be:
 
     <%= render partial: 'legalise_translate_and_check_with_authorities.govspeak.erb',
                locals: {
@@ -71,7 +71,7 @@
                  calculator: calculator
                } -%>
 
-     CNIs issued in <%= country_name_lowercase_prefix %> are valid for 6 months.
+     CNIs issued in <%= calculator.country_name_lowercase_prefix %> are valid for 6 months.
 
      <%= render partial: "three_day_residency_requirement.govspeak.erb",
                 locals: {

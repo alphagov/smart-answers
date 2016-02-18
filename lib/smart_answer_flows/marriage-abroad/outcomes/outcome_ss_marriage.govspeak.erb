@@ -1,18 +1,18 @@
 <% content_for :title do %>
   <% case calculator.marriage_and_partnership_phrases %>
   <% when 'ss_marriage' %>
-    Same-sex marriage in <%= country_name_lowercase_prefix %>
+    Same-sex marriage in <%= calculator.country_name_lowercase_prefix %>
   <% when 'ss_marriage_and_partnership' %>
-    Same-sex marriage and civil partnership in <%= country_name_lowercase_prefix %>
+    Same-sex marriage and civil partnership in <%= calculator.country_name_lowercase_prefix %>
   <% end %>
 <% end %>
 
 <% content_for :body do %>
   <% case calculator.marriage_and_partnership_phrases %>
   <% when 'ss_marriage' %>
-    You may be able to get married at the British embassy or consulate in <%= country_name_lowercase_prefix %>.
+    You may be able to get married at the British embassy or consulate in <%= calculator.country_name_lowercase_prefix %>.
   <% when 'ss_marriage_and_partnership' %>
-    You may be able to register a civil partnership or get married at the British embassy or consulate in <%= country_name_lowercase_prefix %>.
+    You may be able to register a civil partnership or get married at the British embassy or consulate in <%= calculator.country_name_lowercase_prefix %>.
   <% end %>
 
   <% if calculator.ceremony_country == 'japan' %>
@@ -108,7 +108,7 @@
   Once you’ve completed these and paid the registration fee, the embassy or consulate will display your notice publicly for 14 days.
 
   <% if calculator.ceremony_country == 'vietnam' %>
-    ^You must stay in <%= country_name_lowercase_prefix %> while your notice is posted.^
+    ^You must stay in <%= calculator.country_name_lowercase_prefix %> while your notice is posted.^
   <% end %>
 
   <% case calculator.marriage_and_partnership_phrases %>
