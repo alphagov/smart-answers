@@ -431,7 +431,7 @@
   <% if calculator.resident_outside_of_uk? && %w(germany).exclude?(calculator.ceremony_country) %>
     <%= render partial: 'check_if_cni_needs_to_be_legalised.govspeak.erb',
                locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
+                 calculator: calculator
                } %>
 
   <% end %>
