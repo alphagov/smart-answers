@@ -47,7 +47,7 @@
 
   <%= render partial: 'cni_os_consular_facilities_unavailable.govspeak.erb',
              locals: {
-               country_name_lowercase_prefix: country_name_lowercase_prefix
+               calculator: calculator
              } %>
 
   <% unless data_query.countries_without_consular_facilities?(calculator.ceremony_country) %>
