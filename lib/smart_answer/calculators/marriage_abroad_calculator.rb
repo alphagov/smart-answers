@@ -6,9 +6,10 @@ module SmartAnswer::Calculators
     attr_writer :sex_of_your_partner
     attr_writer :marriage_or_pacs
 
-    def initialize(data_query: nil, country_name_formatter: nil)
+    def initialize(data_query: nil, country_name_formatter: nil, registrations_data_query: nil)
       @data_query = data_query || MarriageAbroadDataQuery.new
       @country_name_formatter = country_name_formatter || CountryNameFormatter.new
+      @registrations_data_query = registrations_data_query || RegistrationsDataQuery.new
     end
 
     def partner_british?
@@ -120,6 +121,14 @@ module SmartAnswer::Calculators
         'Chinese'
       else
         "National of #{country_name_lowercase_prefix}"
+      end
+    end
+
+    def embassy_or_consulate_ceremony_country
+      if @registrations_data_query.has_consulate?(ceremony_country) || @registrations_data_query.has_consulate_general?(ceremony_country)
+        'consulate'
+      else
+        'embassy'
       end
     end
   end

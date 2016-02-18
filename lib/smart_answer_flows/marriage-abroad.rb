@@ -61,11 +61,7 @@ module SmartAnswer
         end
 
         calculate :embassy_or_consulate_ceremony_country do
-          if reg_data_query.has_consulate?(calculator.ceremony_country) || reg_data_query.has_consulate_general?(calculator.ceremony_country)
-            "consulate"
-          else
-            "embassy"
-          end
+          calculator.embassy_or_consulate_ceremony_country
         end
 
         permitted_next_nodes = [
