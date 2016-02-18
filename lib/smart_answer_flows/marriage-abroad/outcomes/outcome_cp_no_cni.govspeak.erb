@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  Civil partnership in <%= country_name_lowercase_prefix %>
+  Civil partnership in <%= calculator.country_name_lowercase_prefix %>
 <% end %>
 
 <% content_for :body do %>
@@ -47,7 +47,7 @@
      ^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.^
   <% else %>
     <% if calculator.resident_of_uk? %>
-      Contact your [nearest embassy or consulate](/government/publications/foreign-embassies-in-the-uk) representing <%= country_name_lowercase_prefix %> before making any plans to find out about local laws, including what documents you’ll need.
+      Contact your [nearest embassy or consulate](/government/publications/foreign-embassies-in-the-uk) representing <%= calculator.country_name_lowercase_prefix %> before making any plans to find out about local laws, including what documents you’ll need.
 
     <% else %>
       <%= render partial: 'contact_local_authorities_in_country_cp.govspeak.erb',
@@ -57,7 +57,7 @@
     <% end %>
   <% end %>
 
-  There aren’t any British consular facilities to register a same-sex relationship, or get legal documents to prove you’re eligible to enter into a same-sex relationship, in <%= country_name_lowercase_prefix %>.
+  There aren’t any British consular facilities to register a same-sex relationship, or get legal documents to prove you’re eligible to enter into a same-sex relationship, in <%= calculator.country_name_lowercase_prefix %>.
 
   <% if calculator.partner_not_british? %>
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
