@@ -124,7 +124,7 @@
   <%= render partial: 'provide_two_witnesses_ss_marriage_and_partnership.govspeak.erb' %>
   <%= render partial: 'pay_for_ss_registration_and_certificate.govspeak.erb',
              locals: {
-               marriage_and_partnership_phrases: marriage_and_partnership_phrases
+               calculator: calculator
              } %>
 
   <% if calculator.ceremony_country == 'australia' %>
