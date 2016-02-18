@@ -53,17 +53,7 @@ module SmartAnswer
         end
 
         calculate :country_name_partner_residence do
-          if data_query.british_overseas_territories?(calculator.ceremony_country)
-            "British (overseas territories citizen)"
-          elsif data_query.french_overseas_territories?(calculator.ceremony_country)
-            "French"
-          elsif data_query.dutch_caribbean_islands?(calculator.ceremony_country)
-            "Dutch"
-          elsif %w(hong-kong macao).include?(calculator.ceremony_country)
-            "Chinese"
-          else
-            "National of #{country_name_lowercase_prefix}"
-          end
+          calculator.country_name_partner_residence
         end
 
         calculate :embassy_or_consulate_ceremony_country do

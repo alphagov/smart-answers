@@ -382,6 +382,55 @@ module SmartAnswer
           assert_equal 'The-country-name', @calculator.country_name_uppercase_prefix
         end
       end
+
+      context '#country_name_partner_residence' do
+        setup do
+          @data_query = stub
+          @data_query.quacks_like(MarriageAbroadDataQuery.new)
+          @data_query.stubs(:british_overseas_territories?)
+          @data_query.stubs(:french_overseas_territories?)
+          @data_query.stubs(:dutch_caribbean_islands?)
+
+          @calculator = MarriageAbroadCalculator.new(data_query: @data_query)
+          @calculator.ceremony_country = 'country-slug'
+        end
+
+        should 'return "British (overseas territories citizen)" when ceremony country is British overseas territory' do
+          @data_query.stubs(:british_overseas_territories?).with('country-slug').returns(true)
+
+          assert_equal 'British (overseas territories citizen)', @calculator.country_name_partner_residence
+        end
+
+        should 'return "French" when ceremony country is French overseas territory' do
+          @data_query.stubs(:french_overseas_territories?).with('country-slug').returns(true)
+
+          assert_equal 'French', @calculator.country_name_partner_residence
+        end
+
+        should 'return "Dutch" when ceremony country is in the Dutch Caribbean islands' do
+          @data_query.stubs(:dutch_caribbean_islands?).with('country-slug').returns(true)
+
+          assert_equal 'Dutch', @calculator.country_name_partner_residence
+        end
+
+        should 'return "Chinese" when ceremony country is Hong Kong' do
+          @calculator.ceremony_country = 'hong-kong'
+
+          assert_equal 'Chinese', @calculator.country_name_partner_residence
+        end
+
+        should 'return "Chinese" when ceremony country is Macao' do
+          @calculator.ceremony_country = 'macao'
+
+          assert_equal 'Chinese', @calculator.country_name_partner_residence
+        end
+
+        should 'return "National of <country_name_lowercase_prefix>" in all other cases' do
+          @calculator.stubs(:country_name_lowercase_prefix).returns('country-name-lowercase-prefix')
+
+          assert_equal 'National of country-name-lowercase-prefix', @calculator.country_name_partner_residence
+        end
+      end
     end
   end
 end
