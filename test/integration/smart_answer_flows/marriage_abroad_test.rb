@@ -70,7 +70,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "ask your country of residence" do
       assert_current_node :legal_residency?
       assert_equal 'Bahamas', current_state.calculator.ceremony_country_name
-      assert_state_variable :country_name_lowercase_prefix, "the Bahamas"
+      assert_equal "the Bahamas", current_state.calculator.country_name_lowercase_prefix
     end
 
     context "resident in UK" do
@@ -81,7 +81,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       should "go to partner nationality question" do
         assert_current_node :what_is_your_partners_nationality?
         assert_equal 'Bahamas', current_state.calculator.ceremony_country_name
-        assert_state_variable :country_name_lowercase_prefix, "the Bahamas"
+        assert_equal "the Bahamas", current_state.calculator.country_name_lowercase_prefix
       end
 
       context "partner is british" do
@@ -1145,7 +1145,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to cp or equivalent outcome" do
       assert_current_node :outcome_cp_or_equivalent
-      assert_state_variable :country_name_lowercase_prefix, 'the Czech Republic'
+      assert_equal 'the Czech Republic', current_state.calculator.country_name_lowercase_prefix
     end
   end
 
@@ -1195,7 +1195,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'same_sex'
       assert_current_node :outcome_cp_no_cni
-      assert_state_variable :country_name_lowercase_prefix, 'the USA'
+      assert_equal 'the USA', current_state.calculator.country_name_lowercase_prefix
     end
 
     should "go to cp no cni required outcome and suggest legal advice to a US resident" do
@@ -1203,7 +1203,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'same_sex'
       assert_current_node :outcome_cp_no_cni
-      assert_state_variable :country_name_lowercase_prefix, 'the USA'
+      assert_equal 'the USA', current_state.calculator.country_name_lowercase_prefix
     end
   end
 
