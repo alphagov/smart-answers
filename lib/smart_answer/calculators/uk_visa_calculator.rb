@@ -120,6 +120,6 @@ module SmartAnswer::Calculators
 
     COUNTRY_GROUP_YOUTH_MOBILITY_SCHEME = %w(australia canada japan monaco new-zealand hong-kong south-korea taiwan)
 
-    COUNTRY_GROUP_ELECTRONIC_VISA_WAIVER = %w(oman qatar united-arab-emirates)
+    COUNTRY_GROUP_ELECTRONIC_VISA_WAIVER = %w(kuwait oman qatar united-arab-emirates)
   end
 end
