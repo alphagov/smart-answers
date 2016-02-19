@@ -6,7 +6,7 @@
   <% if data_query.dutch_caribbean_islands?(calculator.ceremony_country) %>
     <%= render partial: 'country_is_dutch_caribbean_island.govspeak.erb',
                locals: {
-                 country_name_uppercase_prefix: country_name_uppercase_prefix
+                 calculator: calculator
                } %>
     <% if calculator.resident_of_uk? %>
       Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121) before making any plans to find out about local marriage laws, including what documents you’ll need.
