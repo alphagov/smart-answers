@@ -37,8 +37,7 @@
   <%= render partial: 'os_affirmation/what_you_need_to_do.govspeak.erb',
              locals: {
                calculator: calculator,
-               data_query: data_query,
-               embassy_or_consulate_ceremony_country: embassy_or_consulate_ceremony_country
+               data_query: data_query
              } -%>
 
    <% if calculator.ceremony_country == 'united-arab-emirates' && calculator.resident_of_ceremony_country? %>
