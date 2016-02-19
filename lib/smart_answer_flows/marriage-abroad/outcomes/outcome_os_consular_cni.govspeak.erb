@@ -162,7 +162,7 @@
   <% if calculator.resident_of_ceremony_country? %>
     <% if calculator.ceremony_country == 'croatia' %>
 
-      ###Applying for a CNI from the <%= embassy_or_consulate_ceremony_country %>
+      ###Applying for a CNI from the <%= calculator.embassy_or_consulate_ceremony_country %>
 
       <%= render partial: "three_day_residency_requirement.govspeak.erb",
                  locals: {
@@ -205,7 +205,7 @@
       If you need a CNI, you’ll first need to give notice of your intended marriage (banns) at the British Embassy Office in Almaty.
 
     <% elsif calculator.ceremony_country == 'russia' %>
-      If you need a CNI, you’ll first need to give notice of your intended marriage at your nearest British <%= embassy_or_consulate_ceremony_country %>.
+      If you need a CNI, you’ll first need to give notice of your intended marriage at your nearest British <%= calculator.embassy_or_consulate_ceremony_country %>.
 
       ###Applying for a CNI from the consulate
 
@@ -258,7 +258,7 @@
 
       - your passport
       - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
-      - proof of residence, such as a residence certificate - check with the <%= embassy_or_consulate_ceremony_country %> or notary public to find out what you need
+      - proof of residence, such as a residence certificate - check with the <%= calculator.embassy_or_consulate_ceremony_country %> or notary public to find out what you need
       - equivalent documents for your partner
 
 
@@ -267,7 +267,7 @@
 
       - your passport
       - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
-      - proof of residence, such as a residence certificate - check with the <%= embassy_or_consulate_ceremony_country %> to find out what you need
+      - proof of residence, such as a residence certificate - check with the <%= calculator.embassy_or_consulate_ceremony_country %> to find out what you need
       - equivalent documents for your partner
 
 
@@ -275,7 +275,7 @@
       You’ll need to provide supporting documents, including:
 
       - your passport
-      - proof of residence, such as a residence certificate - check with the <%= embassy_or_consulate_ceremony_country %> or notary public to find out what you need
+      - proof of residence, such as a residence certificate - check with the <%= calculator.embassy_or_consulate_ceremony_country %> or notary public to find out what you need
       - equivalent documents for your partner
 
 
