@@ -347,7 +347,7 @@
     <% if calculator.ceremony_country == 'kazakhstan' %>
       <%= render partial: 'display_notice_of_marriage_7_days.govspeak.erb',
                  locals: {
-                   embassy_or_consulate_ceremony_country: embassy_or_consulate_ceremony_country
+                   calculator: calculator
                  } %>
 
     <% end %>
@@ -408,14 +408,14 @@
     <% elsif %w(germany).exclude?(calculator.ceremony_country) %>
       <%= render partial: 'display_notice_of_marriage_7_days.govspeak.erb',
                  locals: {
-                   embassy_or_consulate_ceremony_country: embassy_or_consulate_ceremony_country
+                   calculator: calculator
                  } %>
 
     <% end %>
   <% elsif data_query.requires_7_day_notice?(calculator.ceremony_country) %>
     <%= render partial: 'display_notice_of_marriage_7_days.govspeak.erb',
                locals: {
-                 embassy_or_consulate_ceremony_country: embassy_or_consulate_ceremony_country
+                 calculator: calculator
                } %>
 
   <% end %>
