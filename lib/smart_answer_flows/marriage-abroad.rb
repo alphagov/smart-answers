@@ -24,10 +24,6 @@ module SmartAnswer
           Calculators::MarriageAbroadCalculator.new
         end
 
-        calculate :country_name_partner_residence do
-          calculator.country_name_partner_residence
-        end
-
         calculate :embassy_or_consulate_ceremony_country do
           calculator.embassy_or_consulate_ceremony_country
         end
