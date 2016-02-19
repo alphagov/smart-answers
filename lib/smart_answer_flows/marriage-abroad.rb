@@ -24,10 +24,6 @@ module SmartAnswer
           Calculators::MarriageAbroadCalculator.new
         end
 
-        calculate :embassy_or_consulate_ceremony_country do
-          calculator.embassy_or_consulate_ceremony_country
-        end
-
         permitted_next_nodes = [
           :legal_residency?,
           :marriage_or_pacs?,
