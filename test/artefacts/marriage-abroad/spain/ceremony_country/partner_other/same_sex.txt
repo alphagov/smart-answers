@@ -8,7 +8,7 @@ The process for same-sex marriages in Spain is the same as for opposite-sex civi
 
 ##What you need to do
 
-You'll be asked to provide a [certificate of no impediment (CNI)](//www.gov.uk/government/publications/example-certificate-of-no-impediment-cni), [marital status](//www.gov.uk/government/publications/marital-status-example) certificate or both to prove you’re allowed to marry.
+You'll be asked to provide a [certificate of no impediment (CNI)](/government/publications/example-certificate-of-no-impediment-cni), [marital status](/government/publications/marital-status-example) certificate or both to prove you’re allowed to marry.
 
 ^Document requirements vary across Spain - check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC) where you’re getting married to find out what you’ll need.^
 
