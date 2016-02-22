@@ -2373,7 +2373,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'ceremony_country'
       add_response 'partner_local'
       add_response 'same_sex'
-      assert_current_node :outcome_ss_marriage
+      assert_current_node :outcome_ss_marriage_not_possible
     end
   end
 
