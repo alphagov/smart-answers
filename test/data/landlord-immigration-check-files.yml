@@ -2,9 +2,9 @@
 lib/smart_answer_flows/landlord-immigration-check.rb: c254f6b85c1b958ac2993665801690e7
 test/data/landlord-immigration-check-questions-and-responses.yml: d4b485131540c40211b26a50e071032d
 test/data/landlord-immigration-check-responses-and-expected-results.yml: 7982d80c9851bfa7e55dbee4661e70bc
-lib/smart_answer_flows/landlord-immigration-check/landlord_immigration_check.govspeak.erb: 2588f9941fcf6b35e472a843da7cc9e5
+lib/smart_answer_flows/landlord-immigration-check/landlord_immigration_check.govspeak.erb: 60507bfc657cf13a750b258017453743
 lib/smart_answer_flows/landlord-immigration-check/outcomes/_landlord_code_of_practice.govspeak.erb: cfb1261ac17c7aa40445173406459290
-lib/smart_answer_flows/landlord-immigration-check/outcomes/outcome_can_not_rent.govspeak.erb: b83670d3f12e65c9f343dfef98293f00
+lib/smart_answer_flows/landlord-immigration-check/outcomes/outcome_can_not_rent.govspeak.erb: e9854adbcd8bfc03d8751eeb6791a464
 lib/smart_answer_flows/landlord-immigration-check/outcomes/outcome_can_rent.govspeak.erb: f94250541ec614c4e22e2eda9a322237
 lib/smart_answer_flows/landlord-immigration-check/outcomes/outcome_can_rent_but_check_will_be_needed_again.govspeak.erb: b21dd02e88d391fb815869ea8c5cfc18
 lib/smart_answer_flows/landlord-immigration-check/outcomes/outcome_can_rent_for_12_months.govspeak.erb: adc44f085dc1778beaf0b6aa57f838af
