@@ -19,7 +19,7 @@
 
     <% end %>
   <% else %>
-    <% if calculator.resident_outside_of_uk? || data_query.ss_unknown_no_embassies?(calculator.ceremony_country) %>
+    <% if calculator.resident_outside_of_uk? || calculator.ceremony_country_unknown_or_has_no_embassies? %>
       <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
                  locals: {
                    calculator: calculator

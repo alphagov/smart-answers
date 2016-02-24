@@ -171,5 +171,9 @@ module SmartAnswer::Calculators
     def os_in_other_countries?
       @data_query.os_other_countries?(ceremony_country)
     end
+
+    def ceremony_country_unknown_or_has_no_embassies?
+      @data_query.ss_unknown_no_embassies?(ceremony_country)
+    end
   end
 end
