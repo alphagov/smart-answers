@@ -89,7 +89,7 @@ module SmartAnswer::Calculators
     end
 
     def marriage_and_partnership_phrases
-      if same_sex_marriage_country? || @data_query.ss_marriage_countries_when_couple_british?(ceremony_country)
+      if same_sex_marriage_country? || same_sex_marriage_country_when_couple_british?
         'ss_marriage'
       elsif @data_query.ss_marriage_and_partnership?(ceremony_country)
         'ss_marriage_and_partnership'
@@ -182,6 +182,10 @@ module SmartAnswer::Calculators
 
     def same_sex_marriage_country?
       @data_query.ss_marriage_countries?(ceremony_country)
+    end
+
+    def same_sex_marriage_country_when_couple_british?
+      @data_query.ss_marriage_countries_when_couple_british?(ceremony_country)
     end
   end
 end

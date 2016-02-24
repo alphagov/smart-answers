@@ -240,7 +240,7 @@ module SmartAnswer
               :outcome_cp_or_equivalent
             elsif calculator.same_sex_marriage_country? ||
                 (
-                  data_query.ss_marriage_countries_when_couple_british?(calculator.ceremony_country) &&
+                  calculator.same_sex_marriage_country_when_couple_british? &&
                   calculator.partner_british?
                 ) ||
                 data_query.ss_marriage_and_partnership?(calculator.ceremony_country)
