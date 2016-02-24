@@ -1,11 +1,11 @@
 <% content_for :title do %>
-  Civil partnership in <%= country_name_lowercase_prefix %>
+  Civil partnership in <%= calculator.country_name_lowercase_prefix %>
 <% end %>
 
 <% content_for :body do %>
   <% if calculator.ceremony_country == 'usa' %>
     You can get a same-sex relationship legally recognised in the USA.
-  <% elsif data_query.cp_cni_not_required_countries?(calculator.ceremony_country) %>
+  <% elsif calculator.same_sex_civil_partnership_without_cni? %>
     <%= render partial: 'synonyms_of_cp.govspeak.erb',
                locals: {
                  calculator: calculator
@@ -16,7 +16,6 @@
     <% else %>
      <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
                 locals: {
-                  country_name_lowercase_prefix: country_name_lowercase_prefix,
                   calculator: calculator
                 } %>
     <% end %>
@@ -28,7 +27,7 @@
   <% if calculator.ceremony_country == 'bonaire-st-eustatius-saba' %>
     <%= render partial: 'country_is_dutch_caribbean_island.govspeak.erb',
                locals: {
-                 country_name_uppercase_prefix: country_name_uppercase_prefix
+                 calculator: calculator
                } %>
     <% if calculator.resident_of_uk? %>
       Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121) before making any plans to find out about local laws, including what documents you’ll need.
@@ -36,32 +35,29 @@
     <% else %>
       <%= render partial: 'contact_local_authorities_in_country_cp.govspeak.erb',
                  locals: {
-                   country_name_lowercase_prefix: country_name_lowercase_prefix,
                    calculator: calculator
                  } %>
     <% end %>
   <% elsif calculator.ceremony_country == 'usa' %>
       <%= render partial: 'contact_local_authorities_in_country_cp.govspeak.erb',
                  locals: {
-                   country_name_lowercase_prefix: country_name_lowercase_prefix,
                    calculator: calculator
                  } %>
 
      ^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.^
   <% else %>
     <% if calculator.resident_of_uk? %>
-      Contact your [nearest embassy or consulate](/government/publications/foreign-embassies-in-the-uk) representing <%= country_name_lowercase_prefix %> before making any plans to find out about local laws, including what documents you’ll need.
+      Contact your [nearest embassy or consulate](/government/publications/foreign-embassies-in-the-uk) representing <%= calculator.country_name_lowercase_prefix %> before making any plans to find out about local laws, including what documents you’ll need.
 
     <% else %>
       <%= render partial: 'contact_local_authorities_in_country_cp.govspeak.erb',
                  locals: {
-                   country_name_lowercase_prefix: country_name_lowercase_prefix,
                    calculator: calculator
                  } %>
     <% end %>
   <% end %>
 
-  There aren’t any British consular facilities to register a same-sex relationship, or get legal documents to prove you’re eligible to enter into a same-sex relationship, in <%= country_name_lowercase_prefix %>.
+  There aren’t any British consular facilities to register a same-sex relationship, or get legal documents to prove you’re eligible to enter into a same-sex relationship, in <%= calculator.country_name_lowercase_prefix %>.
 
   <% if calculator.partner_not_british? %>
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
