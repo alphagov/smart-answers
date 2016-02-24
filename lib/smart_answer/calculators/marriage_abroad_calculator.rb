@@ -111,7 +111,7 @@ module SmartAnswer::Calculators
     end
 
     def country_name_partner_residence
-      if @data_query.british_overseas_territories?(ceremony_country)
+      if ceremony_country_is_british_overseas_territory?
         'British (overseas territories citizen)'
       elsif ceremony_country_is_french_overseas_territory?
         'French'
@@ -154,6 +154,10 @@ module SmartAnswer::Calculators
 
     def ceremony_country_in_the_commonwealth?
       @data_query.commonwealth_country?(ceremony_country)
+    end
+
+    def ceremony_country_is_british_overseas_territory?
+      @data_query.british_overseas_territories?(ceremony_country)
     end
   end
 end

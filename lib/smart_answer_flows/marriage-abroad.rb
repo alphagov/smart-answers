@@ -214,7 +214,7 @@ module SmartAnswer
             elsif calculator.ceremony_country_in_the_commonwealth? ||
                 calculator.ceremony_country == 'zimbabwe'
               :outcome_os_commonwealth
-            elsif data_query.british_overseas_territories?(calculator.ceremony_country)
+            elsif calculator.ceremony_country_is_british_overseas_territory?
               :outcome_os_bot
             elsif data_query.os_no_consular_cni_countries?(calculator.ceremony_country) ||
                 (
