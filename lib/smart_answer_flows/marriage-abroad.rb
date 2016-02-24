@@ -224,7 +224,7 @@ module SmartAnswer
               :outcome_os_no_cni
             elsif calculator.opposite_sex_marriage_via_local_authorities?
               :outcome_marriage_via_local_authorities
-            elsif data_query.os_other_countries?(calculator.ceremony_country)
+            elsif calculator.opposite_sex_in_other_countries?
               :outcome_os_other_countries
             end
           elsif calculator.partner_is_same_sex?
