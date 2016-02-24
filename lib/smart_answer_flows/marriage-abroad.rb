@@ -219,7 +219,7 @@ module SmartAnswer
               :outcome_os_no_cni
             elsif calculator.ceremony_country == "malta"
               :outcome_ss_marriage_malta
-            elsif data_query.ss_marriage_not_possible?(calculator.ceremony_country, calculator)
+            elsif calculator.same_sex_marriage_not_possible?
               :outcome_ss_marriage_not_possible
             elsif calculator.ceremony_country == "germany" && calculator.partner_is_national_of_ceremony_country?
               :outcome_cp_or_equivalent
