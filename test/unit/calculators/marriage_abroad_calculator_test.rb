@@ -601,6 +601,17 @@ module SmartAnswer
           assert_equal 'same-sex-marriage-not-possible', calculator.same_sex_marriage_not_possible?
         end
       end
+
+      context '#same_sex_marriage_country?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:ss_marriage_countries?).with('ceremony-country').returns('same-sex-marriage-country')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'same-sex-marriage-country', calculator.same_sex_marriage_country?
+        end
+      end
     end
   end
 end
