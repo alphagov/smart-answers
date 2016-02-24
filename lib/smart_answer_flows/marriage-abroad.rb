@@ -171,7 +171,7 @@ module SmartAnswer
               :outcome_os_japan
             elsif calculator.resident_of_third_country? &&
                 (
-                  data_query.os_consular_cni_countries?(calculator.ceremony_country) ||
+                  calculator.opposite_sex_consular_cni_country? ||
                   %w(kosovo).include?(calculator.ceremony_country) ||
                   data_query.os_consular_cni_in_nearby_country?(calculator.ceremony_country)
                 )
@@ -198,7 +198,7 @@ module SmartAnswer
               :outcome_os_poland
             elsif calculator.ceremony_country == 'slovenia'
               :outcome_os_slovenia
-            elsif data_query.os_consular_cni_countries?(calculator.ceremony_country) ||
+            elsif calculator.opposite_sex_consular_cni_country? ||
                 (
                   calculator.resident_of_uk? &&
                   data_query.os_no_marriage_related_consular_services?(calculator.ceremony_country)
