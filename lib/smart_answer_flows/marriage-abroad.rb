@@ -245,7 +245,7 @@ module SmartAnswer
                 ) ||
                 calculator.same_sex_marriage_and_civil_partnership?
               :outcome_ss_marriage
-            elsif data_query.cp_equivalent_countries?(calculator.ceremony_country)
+            elsif calculator.civil_partnership_equivalent_country?
               :outcome_cp_or_equivalent
             elsif data_query.cp_cni_not_required_countries?(calculator.ceremony_country)
               :outcome_cp_no_cni
