@@ -151,5 +151,9 @@ module SmartAnswer::Calculators
     def opposite_sex_affirmation_country?
       @data_query.os_affirmation_countries?(ceremony_country)
     end
+
+    def ceremony_country_in_the_commonwealth?
+      @data_query.commonwealth_country?(ceremony_country)
+    end
   end
 end
