@@ -247,7 +247,7 @@ module SmartAnswer
               :outcome_ss_marriage
             elsif calculator.civil_partnership_equivalent_country?
               :outcome_cp_or_equivalent
-            elsif data_query.cp_cni_not_required_countries?(calculator.ceremony_country)
+            elsif calculator.civil_partnership_cni_not_required_country?
               :outcome_cp_no_cni
             elsif %w(canada south-africa).include?(calculator.ceremony_country)
               :outcome_cp_commonwealth_countries
