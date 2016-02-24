@@ -77,6 +77,7 @@ module SmartAnswer
           :passing_through_uk_border_control?,
           :staying_for_how_long?
         ]
+        # rubocop:disable Style/IfUnlessModifier
         next_node(permitted: permitted_next_nodes) do |response|
           calculator.purpose_of_visit_answer = response
 
@@ -147,6 +148,7 @@ module SmartAnswer
             end
           end
         end
+        # rubocop:enable Style/IfUnlessModifier
       end
 
       #Q3
