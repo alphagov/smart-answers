@@ -163,5 +163,9 @@ module SmartAnswer::Calculators
     def os_consular_cni_not_available_in_ceremony_country?
       @data_query.os_no_consular_cni_countries?(ceremony_country)
     end
+
+    def os_marriage_via_local_authorities?
+      @data_query.os_marriage_via_local_authorities?(ceremony_country)
+    end
   end
 end

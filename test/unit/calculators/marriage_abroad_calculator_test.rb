@@ -557,6 +557,17 @@ module SmartAnswer
           assert_equal 'os-no-consular-cni-country', calculator.os_consular_cni_not_available_in_ceremony_country?
         end
       end
+
+      context '#os_marriage_via_local_authorities?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:os_marriage_via_local_authorities?).with('ceremony-country').returns('os-marriage-via-local-authorities')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'os-marriage-via-local-authorities', calculator.os_marriage_via_local_authorities?
+        end
+      end
     end
   end
 end
