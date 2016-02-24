@@ -69,7 +69,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "ask your country of residence" do
       assert_current_node :legal_residency?
-      assert_state_variable :ceremony_country, 'bahamas'
       assert_state_variable :ceremony_country_name, 'Bahamas'
       assert_state_variable :country_name_lowercase_prefix, "the Bahamas"
     end
@@ -81,10 +80,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
       should "go to partner nationality question" do
         assert_current_node :what_is_your_partners_nationality?
-        assert_state_variable :ceremony_country, 'bahamas'
         assert_state_variable :ceremony_country_name, 'Bahamas'
         assert_state_variable :country_name_lowercase_prefix, "the Bahamas"
-        assert_state_variable :resident_of, 'uk'
       end
 
       context "partner is british" do
@@ -93,7 +90,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         end
         should "ask what sex is your partner" do
           assert_current_node :partner_opposite_or_same_sex?
-          assert_state_variable :partner_nationality, 'partner_british'
         end
         context "opposite sex partner" do
           setup do
@@ -123,8 +119,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
       should "go to partner's nationality question" do
         assert_current_node :what_is_your_partners_nationality?
-        assert_state_variable :resident_of, 'ceremony_country'
-        assert_state_variable :ceremony_country, 'bahamas'
         assert_state_variable :ceremony_country_name, 'Bahamas'
       end
 
@@ -134,7 +128,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         end
         should "ask what sex is your partner" do
           assert_current_node :partner_opposite_or_same_sex?
-          assert_state_variable :partner_nationality, 'partner_local'
         end
         context "opposite sex partner" do
           setup do
@@ -164,8 +157,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
       should "go to partner's nationality question" do
         assert_current_node :what_is_your_partners_nationality?
-        assert_state_variable :resident_of, 'third_country'
-        assert_state_variable :ceremony_country, 'bahamas'
         assert_state_variable :ceremony_country_name, 'Bahamas'
       end
 
@@ -175,7 +166,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         end
         should "ask what sex is your partner" do
           assert_current_node :partner_opposite_or_same_sex?
-          assert_state_variable :partner_nationality, 'partner_local'
         end
         context "opposite sex partner" do
           setup do
@@ -1876,21 +1866,19 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       worldwide_api_has_organisations_for_location('belarus', read_fixture_file('worldwide/belarus_organisations.json'))
       add_response 'belarus'
     end
-    should "go to outcome_os_consular_cni and show correct address box for resident in Belarus country, opposite sex marriage" do
+    should "go to outcome_os_belarus and show correct link for appointments in Minsk, opposite sex marriage" do
       add_response 'ceremony_country'
       add_response 'partner_british'
       add_response 'opposite_sex'
-      assert_current_node :outcome_os_consular_cni
-      assert_match /37, Karl Marx Street/, outcome_body
+      assert_current_node :outcome_os_belarus
+      assert_match /Make an appointment at the embassy in Minsk/, outcome_body
     end
 
-    should "go to outcome_consular_cni_os_residing_in_third_country when in third country" do
+    should "go to outcome_os_belarus when in third country" do
       add_response 'third_country'
       add_response 'partner_british'
       add_response 'opposite_sex'
-      assert_current_node :outcome_consular_cni_os_residing_in_third_country
-      assert_state_variable :ceremony_country_residence_outcome_path, "/marriage-abroad/y/belarus/ceremony_country/partner_british/opposite_sex"
-      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/belarus/uk/partner_british/opposite_sex"
+      assert_current_node :outcome_os_belarus
     end
   end
 

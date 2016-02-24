@@ -279,6 +279,86 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     end
   end
 
+  context 'choose an EVW country' do
+    setup do
+      add_response 'oman'
+    end
+
+    should 'ask what are you comming to the UK to do' do
+      assert_current_node :purpose_of_visit?
+    end
+
+    context 'coming to the UK to work' do
+      setup do
+        add_response 'work'
+      end
+
+      should 'ask how long you intend to stay' do
+        assert_current_node :staying_for_how_long?
+      end
+
+      context '6 months or less' do
+        setup do
+          add_response 'six_months_or_less'
+        end
+
+        should 'take you to the outcome work_waiver' do
+          assert_current_node :outcome_work_waiver
+        end
+      end
+
+      context 'longer than 6 months' do
+        setup do
+          add_response 'longer_than_six_months'
+        end
+
+        should 'take you to the outcome work_y' do
+          assert_current_node :outcome_work_y
+        end
+      end
+    end
+
+    context 'coming to the UK to study' do
+      setup do
+        add_response 'study'
+      end
+
+      should 'ask how long you intend to stay' do
+        assert_current_node :staying_for_how_long?
+      end
+
+      context '6 months or less' do
+        setup do
+          add_response 'six_months_or_less'
+        end
+
+        should 'take you to the outcome work_waiver' do
+          assert_current_node :outcome_study_waiver
+        end
+      end
+
+      context 'longer than 6 months' do
+        setup do
+          add_response 'longer_than_six_months'
+        end
+
+        should 'take you to the outcome study_y' do
+          assert_current_node :outcome_study_y
+        end
+      end
+    end
+
+    context 'coming to the UK to visit a child in school' do
+      setup do
+        add_response 'school'
+      end
+
+      should 'take you to the outcome school_waiver' do
+        assert_current_node :outcome_school_waiver
+      end
+    end
+  end
+
   context "choose a DATV country" do
     setup do
       add_response 'yemen'
@@ -328,16 +408,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
       should "take you to school_y outcome" do
         assert_current_node :outcome_school_y
-      end
-      context "Oman passport" do
-        setup do
-          reset_responses
-          add_response "oman"
-          add_response "school"
-        end
-        should "take you to outcome_visit_waiver outcome" do
-          assert_current_node :outcome_visit_waiver
-        end
       end
     end
     context "getting married" do
@@ -546,18 +616,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
     end
   end #end armenia -  visa country
-
-  #testing venezuela - oman - qatar - UAE
-  context "testing venezuela special outcome - study - less or six months" do
-    setup do
-      add_response "oman"
-      add_response "study"
-      add_response "six_months_or_less"
-    end
-    should "take you to outcome_visit_waiver" do
-      assert_current_node :outcome_visit_waiver
-    end
-  end
 
   context "choose a Non-visa country and check for outcome_work_n" do
     setup do
