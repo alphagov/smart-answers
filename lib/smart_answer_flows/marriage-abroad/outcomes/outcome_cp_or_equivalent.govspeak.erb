@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if data_query.cp_equivalent_countries?(calculator.ceremony_country) %>
+  <% if calculator.civil_partnership_equivalent_country? %>
     <%= render partial: 'synonyms_of_cp.govspeak.erb',
                locals: { calculator: calculator } %>
   <% end %>

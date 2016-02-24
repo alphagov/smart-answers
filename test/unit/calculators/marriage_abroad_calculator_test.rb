@@ -634,6 +634,17 @@ module SmartAnswer
           assert_equal 'same-sex-marriage-and-civil-partnership', calculator.same_sex_marriage_and_civil_partnership?
         end
       end
+
+      context 'civil_partnership_equivalent_country?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:cp_equivalent_countries?).with('ceremony-country').returns('civil-partnership-equivalent-country')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'civil-partnership-equivalent-country', calculator.civil_partnership_equivalent_country?
+        end
+      end
     end
   end
 end
