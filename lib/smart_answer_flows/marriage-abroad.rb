@@ -36,7 +36,7 @@ module SmartAnswer
             :partner_opposite_or_same_sex?
           elsif %w(france monaco new-caledonia wallis-and-futuna).include?(calculator.ceremony_country)
             :marriage_or_pacs?
-          elsif data_query.french_overseas_territories?(calculator.ceremony_country)
+          elsif calculator.ceremony_country_in_french_overseas_territory?
             :outcome_os_france_or_fot
           else
             :legal_residency?
