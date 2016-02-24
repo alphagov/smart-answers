@@ -151,5 +151,9 @@ module SmartAnswer::Calculators
     def os_affirmation_required_by_ceremony_country?
       @data_query.os_affirmation_countries?(ceremony_country)
     end
+
+    def ceremony_country_in_the_commonwealth?
+      @data_query.commonwealth_country?(ceremony_country)
+    end
   end
 end

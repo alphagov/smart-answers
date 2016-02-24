@@ -524,6 +524,17 @@ module SmartAnswer
           assert_equal 'os-affirmation', calculator.os_affirmation_required_by_ceremony_country?
         end
       end
+
+      context '#ceremony_country_in_the_commonwealth' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:commonwealth_country?).with('ceremony-country').returns('commonwealth-country')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'commonwealth-country', calculator.ceremony_country_in_the_commonwealth?
+        end
+      end
     end
   end
 end
