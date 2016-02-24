@@ -211,7 +211,7 @@ module SmartAnswer
               :outcome_os_consular_cni
             elsif calculator.opposite_sex_affirmation_country?
               :outcome_os_affirmation
-            elsif data_query.commonwealth_country?(calculator.ceremony_country) ||
+            elsif calculator.ceremony_country_in_the_commonwealth? ||
                 calculator.ceremony_country == 'zimbabwe'
               :outcome_os_commonwealth
             elsif data_query.british_overseas_territories?(calculator.ceremony_country)
