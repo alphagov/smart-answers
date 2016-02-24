@@ -230,7 +230,7 @@ module SmartAnswer
           elsif calculator.partner_is_same_sex?
             if %w(belgium norway).include?(calculator.ceremony_country)
               :outcome_ss_affirmation
-            elsif data_query.ss_unknown_no_embassies?(calculator.ceremony_country)
+            elsif calculator.same_sex_ceremony_country_unknown_or_has_no_embassies?
               :outcome_os_no_cni
             elsif calculator.ceremony_country == "malta"
               :outcome_ss_marriage_malta
