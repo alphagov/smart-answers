@@ -535,6 +535,17 @@ module SmartAnswer
           assert_equal 'commonwealth-country', calculator.ceremony_country_in_the_commonwealth?
         end
       end
+
+      context '#ceremony_country_is_british_overseas_territory?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:british_overseas_territories?).with('ceremony-country').returns('british-overseas-territory')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'british-overseas-territory', calculator.ceremony_country_is_british_overseas_territory?
+        end
+      end
     end
   end
 end
