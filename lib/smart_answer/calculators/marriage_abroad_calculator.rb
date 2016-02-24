@@ -89,7 +89,7 @@ module SmartAnswer::Calculators
     end
 
     def marriage_and_partnership_phrases
-      if @data_query.ss_marriage_countries?(ceremony_country) || @data_query.ss_marriage_countries_when_couple_british?(ceremony_country)
+      if same_sex_marriage_possible? || @data_query.ss_marriage_countries_when_couple_british?(ceremony_country)
         'ss_marriage'
       elsif @data_query.ss_marriage_and_partnership?(ceremony_country)
         'ss_marriage_and_partnership'
@@ -178,6 +178,10 @@ module SmartAnswer::Calculators
 
     def same_sex_marriage_not_possible?
       @data_query.ss_marriage_not_possible?(ceremony_country, self)
+    end
+
+    def same_sex_marriage_possible?
+      @data_query.ss_marriage_countries?(ceremony_country)
     end
   end
 end
