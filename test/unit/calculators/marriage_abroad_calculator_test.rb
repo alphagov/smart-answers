@@ -491,6 +491,17 @@ module SmartAnswer
           assert_equal 'os-consular-cni-country', calculator.os_consular_cni_available_in_ceremony_country?
         end
       end
+
+      context '#os_consular_cni_available_nearby_to_ceremony_country?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:os_consular_cni_in_nearby_country?).with('ceremony-country').returns('os-consular-cni-in-nearby-country')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'os-consular-cni-in-nearby-country', calculator.os_consular_cni_available_nearby_to_ceremony_country?
+        end
+      end
     end
   end
 end

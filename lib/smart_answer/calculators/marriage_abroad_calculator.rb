@@ -139,5 +139,9 @@ module SmartAnswer::Calculators
     def os_consular_cni_available_in_ceremony_country?
       @data_query.os_consular_cni_countries?(ceremony_country)
     end
+
+    def os_consular_cni_available_nearby_to_ceremony_country?
+      @data_query.os_consular_cni_in_nearby_country?(ceremony_country)
+    end
   end
 end

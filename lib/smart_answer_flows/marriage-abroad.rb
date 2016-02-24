@@ -167,7 +167,7 @@ module SmartAnswer
               :outcome_os_belarus
             elsif calculator.ceremony_country == 'kuwait'
               :outcome_os_kuwait
-            elsif calculator.resident_of_third_country? && (calculator.os_consular_cni_available_in_ceremony_country? || %w(kosovo).include?(calculator.ceremony_country) || data_query.os_consular_cni_in_nearby_country?(calculator.ceremony_country))
+            elsif calculator.resident_of_third_country? && (calculator.os_consular_cni_available_in_ceremony_country? || %w(kosovo).include?(calculator.ceremony_country) || calculator.os_consular_cni_available_nearby_to_ceremony_country?)
               :outcome_consular_cni_os_residing_in_third_country
             elsif calculator.ceremony_country == 'norway' && calculator.resident_of_third_country?
               :outcome_consular_cni_os_residing_in_third_country
@@ -193,7 +193,7 @@ module SmartAnswer
               :outcome_os_poland
             elsif calculator.ceremony_country == 'slovenia'
               :outcome_os_slovenia
-            elsif calculator.os_consular_cni_available_in_ceremony_country? || (calculator.resident_of_uk? && data_query.os_no_marriage_related_consular_services?(calculator.ceremony_country)) || data_query.os_consular_cni_in_nearby_country?(calculator.ceremony_country)
+            elsif calculator.os_consular_cni_available_in_ceremony_country? || (calculator.resident_of_uk? && data_query.os_no_marriage_related_consular_services?(calculator.ceremony_country)) || calculator.os_consular_cni_available_nearby_to_ceremony_country?
               :outcome_os_consular_cni
             elsif calculator.ceremony_country == "finland" && calculator.resident_of_uk?
               :outcome_os_consular_cni
