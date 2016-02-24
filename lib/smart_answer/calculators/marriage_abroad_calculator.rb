@@ -135,5 +135,9 @@ module SmartAnswer::Calculators
     def ceremony_country_in_french_overseas_territory?
       @data_query.french_overseas_territories?(ceremony_country)
     end
+
+    def os_consular_cni_available_in_ceremony_country?
+      @data_query.os_consular_cni_countries?(ceremony_country)
+    end
   end
 end
