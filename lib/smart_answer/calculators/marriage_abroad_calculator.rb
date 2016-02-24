@@ -167,5 +167,9 @@ module SmartAnswer::Calculators
     def opposite_sex_marriage_via_local_authorities?
       @data_query.os_marriage_via_local_authorities?(ceremony_country)
     end
+
+    def opposite_sex_in_other_countries?
+      @data_query.os_other_countries?(ceremony_country)
+    end
   end
 end
