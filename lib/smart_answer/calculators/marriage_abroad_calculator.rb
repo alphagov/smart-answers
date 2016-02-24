@@ -199,5 +199,9 @@ module SmartAnswer::Calculators
     def civil_partnership_cni_not_required_country?
       @data_query.cp_cni_not_required_countries?(ceremony_country)
     end
+
+    def civil_partnership_consular_country?
+      @data_query.cp_consular_countries?(ceremony_country)
+    end
   end
 end

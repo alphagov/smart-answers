@@ -251,7 +251,7 @@ module SmartAnswer
               :outcome_cp_no_cni
             elsif %w(canada south-africa).include?(calculator.ceremony_country)
               :outcome_cp_commonwealth_countries
-            elsif data_query.cp_consular_countries?(calculator.ceremony_country)
+            elsif calculator.civil_partnership_consular_country?
               :outcome_cp_consular
             else
               :outcome_cp_all_other_countries
