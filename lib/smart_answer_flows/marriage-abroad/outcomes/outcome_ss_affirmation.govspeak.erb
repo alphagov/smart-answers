@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  Civil Partnership in <%= country_name_lowercase_prefix %>
+  Civil Partnership in <%= calculator.country_name_lowercase_prefix %>
 <% end %>
 
 <% content_for :body do %>
@@ -11,12 +11,11 @@
   <% if calculator.resident_of_uk? %>
     <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_cp.govspeak.erb',
                locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
+                 calculator: calculator
                } %>
   <% else %>
     <%= render partial: 'contact_local_authorities_in_country_cp.govspeak.erb',
                locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix,
                  calculator: calculator
                } %>
   <% end %>
@@ -26,7 +25,6 @@
   <% else %>
     <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
                locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix,
                  calculator: calculator
                } %>
   <% end %>
@@ -38,15 +36,13 @@
   <% else %>
     <%= render partial: 'appointment_for_affidavit.govspeak.erb',
                locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
+                 calculator: calculator
                } %>
   <% end %>
 
   <%= render partial: 'contact_method.govspeak.erb',
              locals: {
-               calculator: calculator,
-               overseas_passports_embassies: overseas_passports_embassies,
-               country_name_lowercase_prefix: country_name_lowercase_prefix
+               calculator: calculator
              } %>
 
   <% if calculator.ceremony_country == 'belgium' %>
@@ -60,7 +56,7 @@
   <% if calculator.ceremony_country == 'belgium' %>
     <%= render partial: 'required_supporting_documents.govspeak.erb',
                locals: {
-                 embassy_or_consulate_ceremony_country: embassy_or_consulate_ceremony_country
+                 calculator: calculator
                } %>
     <%= render partial: 'documents_guidance_belgium.govspeak.erb' %>
   <% end %>
@@ -89,7 +85,6 @@
   <%= render partial: 'fee_table_affirmation_55.govspeak.erb' %>
   <%= render partial: 'link_to_consular_fees.govspeak.erb',
              locals: {
-               country_name_lowercase_prefix: country_name_lowercase_prefix,
                calculator: calculator
              } %>
 

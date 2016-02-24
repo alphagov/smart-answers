@@ -16,52 +16,12 @@ module SmartAnswer
       satisfies_need "101000"
 
       data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
-      country_name_query = SmartAnswer::Calculators::CountryNameFormatter.new
-      reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
       exclude_countries = %w(holy-see british-antarctic-territory the-occupied-palestinian-territories)
 
       # Q1
       country_select :country_of_ceremony?, exclude_countries: exclude_countries do
         next_node_calculation :calculator do
           Calculators::MarriageAbroadCalculator.new
-        end
-
-        calculate :pay_by_cash_or_credit_card_no_cheque do
-          nil
-        end
-
-        calculate :location do
-          calculator.world_location
-        end
-        calculate :organisation do
-          calculator.fco_organisation
-        end
-        calculate :overseas_passports_embassies do
-          calculator.overseas_passports_embassies
-        end
-
-        calculate :marriage_and_partnership_phrases do
-          calculator.marriage_and_partnership_phrases
-        end
-
-        calculate :ceremony_country_name do
-          calculator.ceremony_country_name
-        end
-
-        calculate :country_name_lowercase_prefix do
-          calculator.country_name_lowercase_prefix
-        end
-
-        calculate :country_name_uppercase_prefix do
-          calculator.country_name_uppercase_prefix
-        end
-
-        calculate :country_name_partner_residence do
-          calculator.country_name_partner_residence
-        end
-
-        calculate :embassy_or_consulate_ceremony_country do
-          calculator.embassy_or_consulate_ceremony_country
         end
 
         permitted_next_nodes = [
