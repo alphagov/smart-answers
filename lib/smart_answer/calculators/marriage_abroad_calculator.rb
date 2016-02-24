@@ -175,5 +175,9 @@ module SmartAnswer::Calculators
     def same_sex_ceremony_country_unknown_or_has_no_embassies?
       @data_query.ss_unknown_no_embassies?(ceremony_country)
     end
+
+    def same_sex_marriage_not_possible?
+      @data_query.ss_marriage_not_possible?(ceremony_country, self)
+    end
   end
 end
