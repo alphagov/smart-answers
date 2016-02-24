@@ -513,6 +513,17 @@ module SmartAnswer
           assert_equal 'os-no-marriage-related-consular-servies', calculator.os_no_marriage_related_consular_services_in_ceremony_country?
         end
       end
+
+      context '#os_affirmation_required_by_ceremony_country?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:os_affirmation_countries?).with('ceremony-country').returns('os-affirmation')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'os-affirmation', calculator.os_affirmation_required_by_ceremony_country?
+        end
+      end
     end
   end
 end

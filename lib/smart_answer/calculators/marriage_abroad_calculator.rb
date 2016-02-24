@@ -147,5 +147,9 @@ module SmartAnswer::Calculators
     def os_no_marriage_related_consular_services_in_ceremony_country?
       @data_query.os_no_marriage_related_consular_services?(ceremony_country)
     end
+
+    def os_affirmation_required_by_ceremony_country?
+      @data_query.os_affirmation_countries?(ceremony_country)
+    end
   end
 end

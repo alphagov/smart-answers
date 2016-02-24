@@ -199,7 +199,7 @@ module SmartAnswer
               :outcome_os_consular_cni
             elsif calculator.ceremony_country == "norway" && calculator.resident_of_uk?
               :outcome_os_consular_cni
-            elsif data_query.os_affirmation_countries?(calculator.ceremony_country)
+            elsif calculator.os_affirmation_required_by_ceremony_country?
               :outcome_os_affirmation
             elsif data_query.commonwealth_country?(calculator.ceremony_country) || calculator.ceremony_country == 'zimbabwe'
               :outcome_os_commonwealth
