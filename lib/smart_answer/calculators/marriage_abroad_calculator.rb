@@ -159,5 +159,9 @@ module SmartAnswer::Calculators
     def ceremony_country_is_british_overseas_territory?
       @data_query.british_overseas_territories?(ceremony_country)
     end
+
+    def os_consular_cni_not_available_in_ceremony_country?
+      @data_query.os_no_consular_cni_countries?(ceremony_country)
+    end
   end
 end
