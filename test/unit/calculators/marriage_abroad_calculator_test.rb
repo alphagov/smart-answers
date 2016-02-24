@@ -656,6 +656,17 @@ module SmartAnswer
           assert_equal 'civil-partnership-cni-not-required-country', calculator.civil_partnership_cni_not_required_country?
         end
       end
+
+      context 'civil_partnership_consular_country?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:cp_consular_countries?).with('ceremony-country').returns('civil-partnership-consular-country')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'civil-partnership-consular-country', calculator.civil_partnership_consular_country?
+        end
+      end
     end
   end
 end
