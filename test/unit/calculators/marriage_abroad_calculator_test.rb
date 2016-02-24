@@ -469,6 +469,17 @@ module SmartAnswer
           assert_equal 'embassy', @calculator.embassy_or_consulate_ceremony_country
         end
       end
+
+      context '#ceremony_country_is_french_overseas_territory?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:french_overseas_territories?).with('ceremony-country').returns('french-overseas-territory')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'french-overseas-territory', calculator.ceremony_country_is_french_overseas_territory?
+        end
+      end
     end
   end
 end
