@@ -227,7 +227,7 @@ module SmartAnswer
                 (calculator.same_sex_marriage_possible_when_couple_british? && calculator.partner_british?) ||
                 (calculator.same_sex_marriage_and_civil_partnership_possible?)
               :outcome_ss_marriage
-            elsif data_query.cp_equivalent_countries?(calculator.ceremony_country)
+            elsif calculator.same_sex_civil_partnership?
               :outcome_cp_or_equivalent
             elsif data_query.cp_cni_not_required_countries?(calculator.ceremony_country)
               :outcome_cp_no_cni

@@ -191,5 +191,9 @@ module SmartAnswer::Calculators
     def same_sex_marriage_and_civil_partnership_possible?
       @data_query.ss_marriage_and_partnership?(ceremony_country)
     end
+
+    def same_sex_civil_partnership?
+      @data_query.cp_equivalent_countries?(ceremony_country)
+    end
   end
 end
