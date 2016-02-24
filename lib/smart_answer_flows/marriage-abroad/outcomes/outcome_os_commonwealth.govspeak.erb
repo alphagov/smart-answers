@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  Marriage in <%= country_name_lowercase_prefix %>
+  Marriage in <%= calculator.country_name_lowercase_prefix %>
 <% end %>
 
 <% content_for :body do %>
@@ -10,14 +10,13 @@
 
     <% else %>
 
-      Contact the [High Commission of <%= country_name_lowercase_prefix %>](/government/publications/foreign-embassies-in-the-uk) to find out about local marriage laws, including what documents you’ll need.
+      Contact the [High Commission of <%= calculator.country_name_lowercase_prefix %>](/government/publications/foreign-embassies-in-the-uk) to find out about local marriage laws, including what documents you’ll need.
 
     <% end %>
   <% else %>
 
     <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
                locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix,
                  calculator: calculator
                } %>
   <% end %>
@@ -27,7 +26,6 @@
   <% else %>
     <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
                locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix,
                  calculator: calculator
                } %>
   <% end %>
@@ -54,18 +52,14 @@
 
     <%= render partial: 'contact_method.govspeak.erb',
                locals: {
-                 calculator: calculator,
-                 overseas_passports_embassies: overseas_passports_embassies,
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
+                 calculator: calculator
                } %>
   <% when 'malaysia' %>
 
     The British High Commission in Malaysia can provide you with a letter explaining this position for a charge - see [consular fees for Malaysia](/government/publications/malaysia-consular-fees).
     <%= render partial: 'contact_method.govspeak.erb',
                locals: {
-                 calculator: calculator,
-                 overseas_passports_embassies: overseas_passports_embassies,
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
+                 calculator: calculator
                } -%>
     You’ll need to provide the following documents:
 
