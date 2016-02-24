@@ -143,5 +143,9 @@ module SmartAnswer::Calculators
     def opposite_sex_consular_cni_in_nearby_country?
       @data_query.os_consular_cni_in_nearby_country?(ceremony_country)
     end
+
+    def opposite_sex_no_marriage_related_consular_services_in_ceremony_country?
+      @data_query.os_no_marriage_related_consular_services?(ceremony_country)
+    end
   end
 end
