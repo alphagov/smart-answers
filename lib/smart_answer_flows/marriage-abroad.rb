@@ -222,7 +222,7 @@ module SmartAnswer
                   calculator.opposite_sex_no_marriage_related_consular_services_in_ceremony_country?
                 )
               :outcome_os_no_cni
-            elsif data_query.os_marriage_via_local_authorities?(calculator.ceremony_country)
+            elsif calculator.opposite_sex_marriage_via_local_authorities?
               :outcome_marriage_via_local_authorities
             elsif data_query.os_other_countries?(calculator.ceremony_country)
               :outcome_os_other_countries
