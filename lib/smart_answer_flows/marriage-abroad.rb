@@ -216,7 +216,7 @@ module SmartAnswer
               :outcome_os_commonwealth
             elsif calculator.ceremony_country_is_british_overseas_territory?
               :outcome_os_bot
-            elsif data_query.os_no_consular_cni_countries?(calculator.ceremony_country) ||
+            elsif calculator.opposite_sex_no_consular_cni_country? ||
                 (
                   calculator.resident_outside_of_uk? &&
                   calculator.opposite_sex_no_marriage_related_consular_services_in_ceremony_country?
