@@ -9,7 +9,7 @@
   <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
              locals: { calculator: calculator } %>
 
-  <% if data_query.os_no_marriage_related_consular_services?(calculator.ceremony_country) %>
+  <% if calculator.opposite_sex_no_marriage_related_consular_services_in_ceremony_country? %>
     <%= render partial: 'cni_os_consular_facilities_unavailable.govspeak.erb',
                locals: { calculator: calculator } %>
 

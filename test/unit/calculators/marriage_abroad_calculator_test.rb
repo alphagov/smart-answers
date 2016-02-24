@@ -502,6 +502,17 @@ module SmartAnswer
           assert_equal 'opposite-sex-consular-cni-in-nearby-country', calculator.opposite_sex_consular_cni_in_nearby_country?
         end
       end
+
+      context '#opposite_sex_no_marriage_related_consular_services_in_ceremony_country?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:os_no_marriage_related_consular_services?).with('ceremony-country').returns('opposite-sex-no-marriage-related-consular-servies')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'opposite-sex-no-marriage-related-consular-servies', calculator.opposite_sex_no_marriage_related_consular_services_in_ceremony_country?
+        end
+      end
     end
   end
 end

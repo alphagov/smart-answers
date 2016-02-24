@@ -201,7 +201,7 @@ module SmartAnswer
             elsif calculator.opposite_sex_consular_cni_country? ||
                 (
                   calculator.resident_of_uk? &&
-                  data_query.os_no_marriage_related_consular_services?(calculator.ceremony_country)
+                  calculator.opposite_sex_no_marriage_related_consular_services_in_ceremony_country?
                 ) ||
                 calculator.opposite_sex_consular_cni_in_nearby_country?
               :outcome_os_consular_cni
@@ -219,7 +219,7 @@ module SmartAnswer
             elsif data_query.os_no_consular_cni_countries?(calculator.ceremony_country) ||
                 (
                   calculator.resident_outside_of_uk? &&
-                  data_query.os_no_marriage_related_consular_services?(calculator.ceremony_country)
+                  calculator.opposite_sex_no_marriage_related_consular_services_in_ceremony_country?
                 )
               :outcome_os_no_cni
             elsif data_query.os_marriage_via_local_authorities?(calculator.ceremony_country)
