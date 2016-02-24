@@ -195,5 +195,9 @@ module SmartAnswer::Calculators
     def same_sex_civil_partnership?
       @data_query.cp_equivalent_countries?(ceremony_country)
     end
+
+    def same_sex_civil_partnership_without_cni?
+      @data_query.cp_cni_not_required_countries?(ceremony_country)
+    end
   end
 end
