@@ -1448,6 +1448,18 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         assert_current_node :outcome_os_japan
       end
     end
+
+    context "resident of third country" do
+      setup do
+        add_response 'third_country'
+        add_response 'partner_other'
+        add_response 'opposite_sex'
+      end
+
+      should "takes the user to a Japan specific outcome for opposite sex marriages" do
+        assert_current_node :outcome_os_japan
+      end
+    end
   end
 
   context 'Ceremony in Slovenia' do
