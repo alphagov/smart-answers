@@ -169,7 +169,12 @@ module SmartAnswer
               :outcome_os_kuwait
             elsif calculator.ceremony_country == 'japan'
               :outcome_os_japan
-            elsif calculator.resident_of_third_country? && (data_query.os_consular_cni_countries?(calculator.ceremony_country) || %w(kosovo).include?(calculator.ceremony_country) || data_query.os_consular_cni_in_nearby_country?(calculator.ceremony_country))
+            elsif calculator.resident_of_third_country? &&
+                (
+                  data_query.os_consular_cni_countries?(calculator.ceremony_country) ||
+                  %w(kosovo).include?(calculator.ceremony_country) ||
+                  data_query.os_consular_cni_in_nearby_country?(calculator.ceremony_country)
+                )
               :outcome_consular_cni_os_residing_in_third_country
             elsif calculator.ceremony_country == 'norway' && calculator.resident_of_third_country?
               :outcome_consular_cni_os_residing_in_third_country
@@ -193,7 +198,12 @@ module SmartAnswer
               :outcome_os_poland
             elsif calculator.ceremony_country == 'slovenia'
               :outcome_os_slovenia
-            elsif data_query.os_consular_cni_countries?(calculator.ceremony_country) || (calculator.resident_of_uk? && data_query.os_no_marriage_related_consular_services?(calculator.ceremony_country)) || data_query.os_consular_cni_in_nearby_country?(calculator.ceremony_country)
+            elsif data_query.os_consular_cni_countries?(calculator.ceremony_country) ||
+                (
+                  calculator.resident_of_uk? &&
+                  data_query.os_no_marriage_related_consular_services?(calculator.ceremony_country)
+                ) ||
+                data_query.os_consular_cni_in_nearby_country?(calculator.ceremony_country)
               :outcome_os_consular_cni
             elsif calculator.ceremony_country == "finland" && calculator.resident_of_uk?
               :outcome_os_consular_cni
@@ -201,11 +211,16 @@ module SmartAnswer
               :outcome_os_consular_cni
             elsif data_query.os_affirmation_countries?(calculator.ceremony_country)
               :outcome_os_affirmation
-            elsif data_query.commonwealth_country?(calculator.ceremony_country) || calculator.ceremony_country == 'zimbabwe'
+            elsif data_query.commonwealth_country?(calculator.ceremony_country) ||
+                calculator.ceremony_country == 'zimbabwe'
               :outcome_os_commonwealth
             elsif data_query.british_overseas_territories?(calculator.ceremony_country)
               :outcome_os_bot
-            elsif data_query.os_no_consular_cni_countries?(calculator.ceremony_country) || (calculator.resident_outside_of_uk? && data_query.os_no_marriage_related_consular_services?(calculator.ceremony_country))
+            elsif data_query.os_no_consular_cni_countries?(calculator.ceremony_country) ||
+                (
+                  calculator.resident_outside_of_uk? &&
+                  data_query.os_no_marriage_related_consular_services?(calculator.ceremony_country)
+                )
               :outcome_os_no_cni
             elsif data_query.os_marriage_via_local_authorities?(calculator.ceremony_country)
               :outcome_marriage_via_local_authorities
@@ -224,7 +239,10 @@ module SmartAnswer
             elsif calculator.ceremony_country == "germany" && calculator.partner_is_national_of_ceremony_country?
               :outcome_cp_or_equivalent
             elsif (data_query.ss_marriage_countries?(calculator.ceremony_country)) ||
-                (data_query.ss_marriage_countries_when_couple_british?(calculator.ceremony_country) && calculator.partner_british?) ||
+                (
+                  data_query.ss_marriage_countries_when_couple_british?(calculator.ceremony_country) &&
+                  calculator.partner_british?
+                ) ||
                 (data_query.ss_marriage_and_partnership?(calculator.ceremony_country))
               :outcome_ss_marriage
             elsif data_query.cp_equivalent_countries?(calculator.ceremony_country)
