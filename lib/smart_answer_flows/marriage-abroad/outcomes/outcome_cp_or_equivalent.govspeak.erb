@@ -5,9 +5,7 @@
 <% content_for :body do %>
   <% if data_query.cp_equivalent_countries?(calculator.ceremony_country) %>
     <%= render partial: 'synonyms_of_cp.govspeak.erb',
-               locals: {
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
   <% end %>
 
   <% if calculator.ceremony_country == 'brazil' && calculator.partner_is_same_sex? && calculator.resident_outside_of_ceremony_country? %>
@@ -15,14 +13,10 @@
 
   <% elsif calculator.resident_of_uk? %>
     <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_cp.govspeak.erb',
-               locals: {
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
   <% else %>
     <%= render partial: 'contact_local_authorities_in_country_cp.govspeak.erb',
-               locals: {
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
   <% end %>
 
   <% if calculator.resident_outside_of_ceremony_country? && calculator.ceremony_country != 'brazil' %>
@@ -39,19 +33,13 @@
       <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
 
       <%= render partial: 'cni_issued_locally_validity.govspeak.erb',
-                 locals: {
-                   calculator: calculator
-                 } %>
+                 locals: { calculator: calculator } %>
 
       <%= render partial: 'legisation_and_translation_intro_uk.govspeak.erb',
-                 locals: {
-                   calculator: calculator
-                 } %>
+                 locals: { calculator: calculator } %>
 
       <%= render partial: 'legalise_translate_and_check_with_authorities.govspeak.erb',
-                 locals: {
-                   calculator: calculator
-                 } %>
+                 locals: { calculator: calculator } %>
 
       <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
     <% else %>
@@ -62,9 +50,7 @@
       Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.
 
       <%= render partial: 'contact_method.govspeak.erb',
-                 locals: {
-                   calculator: calculator
-                 } %>
+                 locals: { calculator: calculator } %>
     <% end %>
   <% end %>
   <% if calculator.partner_not_british? %>
@@ -80,21 +66,15 @@
 
   <% unless (calculator.ceremony_country == 'czech-republic' || data_query.countries_without_consular_facilities?(calculator.ceremony_country)) %>
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
-               locals: {
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
   <% end %>
 
   <% if %w(iceland slovenia).include?(calculator.ceremony_country) %>
     <%= render partial: 'pay_in_local_currency_ceremony_country_name.govspeak.erb',
-               locals: {
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
   <% elsif calculator.ceremony_country == 'luxembourg' %>
     <%= render partial: 'pay_in_cash_visa_or_mastercard.govspeak.erb',
-               locals: {
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
   <% elsif %w(czech-republic cote-d-ivoire).exclude?(calculator.ceremony_country) %>
     <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
   <% end %>

@@ -6,21 +6,15 @@
 <% content_for :body do %>
   <% if calculator.resident_of_uk? %>
     <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_marriage.govspeak.erb',
-               locals: {
-                 calculator: calculator
-               } -%>
+               locals: { calculator: calculator } -%>
   <% else %>
     <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
-               locals: {
-                 calculator: calculator
-               } -%>
+               locals: { calculator: calculator } -%>
   <% end %>
 
 
   <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
-             locals: {
-               calculator: calculator
-             } -%>
+             locals: { calculator: calculator } -%>
 
 
   <%= render partial: 'what_you_need_to_do.govspeak.erb',
@@ -33,9 +27,7 @@
 
 
   <%= render partial: 'contact_method.govspeak.erb',
-             locals: {
-               calculator: calculator
-             } %>
+             locals: { calculator: calculator } %>
 
   <%= render partial: 'fee_and_required_supporting_documents_for_appointment.govspeak.erb' -%>
 
@@ -62,9 +54,7 @@
 
 
   <%= render partial: 'link_to_consular_fees.govspeak.erb',
-             locals: {
-               calculator: calculator
-             } -%>
+             locals: { calculator: calculator } -%>
 
 
   <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' -%>

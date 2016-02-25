@@ -10,9 +10,7 @@
 
 
       <%= render partial: 'contact_method.govspeak.erb',
-                 locals: {
-                   calculator: calculator
-                 } %>
+                 locals: { calculator: calculator } %>
   <% elsif calculator.ceremony_country == 'british-virgin-islands' %>
     The British Virgin Islands is a British overseas territory.
 
@@ -27,17 +25,13 @@
 
 
       <%= render partial: 'contact_method.govspeak.erb',
-                 locals: {
-                   calculator: calculator
-                 } %>
+                 locals: { calculator: calculator } %>
 
     <% if calculator.resident_of_ceremony_country? %>
       <%= render partial: 'get_legal_advice.govspeak.erb' %>
     <% else %>
       <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
-                 locals: {
-                   calculator: calculator
-                 } %>
+                 locals: { calculator: calculator } %>
     <% end %>
     <% unless calculator.partner_british? %>
 

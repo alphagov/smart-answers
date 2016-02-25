@@ -9,9 +9,7 @@
 <% content_for :body do %>
   <% if calculator.resident_outside_of_uk? %>
     <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
-               locals: {
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
   <% end %>
 
   <% if calculator.resident_outside_of_third_country? && calculator.partner_is_opposite_sex? %>
@@ -28,9 +26,7 @@
     <%= render partial: 'get_legal_advice.govspeak.erb' %>
   <% else %>
     <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
-               locals: {
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
 
     %There are certain legal restrictions on getting married in Spain if neither of you lives there. If you both live outside Spain, you must check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC) where you’re planning to get married to find out if this is allowed.%
 
@@ -149,9 +145,7 @@
 
     <%= render partial: 'consular_cni_os_fees_incl_null_osta_oath_consular_letter.govspeak.erb' %>
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
-               locals: {
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
     <%= render partial: 'pay_by_visas_or_mastercard.govspeak.erb' %>
   <% end %>
 

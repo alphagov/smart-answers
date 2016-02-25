@@ -5,9 +5,7 @@
 
 <% content_for :body do %>
   <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
-             locals: {
-               calculator: calculator
-             } %>
+             locals: { calculator: calculator } %>
 
 
   <% if calculator.partner_is_not_national_of_ceremony_country? %>
@@ -22,9 +20,7 @@
   Make an appointment at the British embassy or consulate in Cambodia to swear an affidavit (written statement of facts) that you’re free to marry.
 
   <%= render partial: 'contact_method.govspeak.erb',
-             locals: {
-               calculator: calculator
-             } %>
+             locals: { calculator: calculator } %>
 
   You’ll need to bring your passport, your partner’s passport (or Cambodian ID card) and pay a fee.
 

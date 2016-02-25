@@ -35,9 +35,7 @@
 
   <% end %>
   <%= render partial: 'contact_method.govspeak.erb',
-             locals: {
-               calculator: calculator
-             } %>
+             locals: { calculator: calculator } %>
 
   You’ll need to complete an ‘Affirmation of marital status’ form (non-religious) or an ‘Affidavit of marital status’ form (religious). Take this with you to your appointment.
 
@@ -62,15 +60,11 @@
 
 <% elsif calculator.ceremony_country == 'morocco' %>
   <%= render partial: 'appointment_for_affidavit_morocco.govspeak.erb',
-             locals: {
-               calculator: calculator
-             } %>
+             locals: { calculator: calculator } %>
 
 <% else %>
   <%= render partial: 'appointment_for_affidavit.govspeak.erb',
-             locals: {
-               calculator: calculator
-             } %>
+             locals: { calculator: calculator } %>
 <% end %>
 
 <% if calculator.ceremony_country == 'vietnam' %>
@@ -82,9 +76,7 @@
   <%= render partial: 'affirmation_os_translation_in_local_language_text.govspeak.erb' %>
 <% elsif %w(china turkey).exclude?(calculator.ceremony_country) %>
   <%= render partial: 'contact_method.govspeak.erb',
-             locals: {
-               calculator: calculator
-             } %>
+             locals: { calculator: calculator } %>
   <% if calculator.ceremony_country == 'south-korea' %>
     You’ll need to fill in an [‘Affidavit for Marriage’](/government/publications/south-korea-affidavit-of-eligibility-for-marriage-form) form stating that you’re free to marry. You can download and fill in (but not sign) the form in advance. You’ll need to take the form with you to your appointment.
 
@@ -104,9 +96,7 @@
     <%= render partial: 'partner_needs_affirmation.govspeak.erb' %>
 
     <%= render partial: 'required_supporting_documents.govspeak.erb',
-               locals: {
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
 
     <%= render partial: 'documents_guidance_belgium.govspeak.erb' %>
   <% end %>
@@ -187,9 +177,7 @@
 
 <% if calculator.ceremony_country == 'turkey' && calculator.resident_outside_of_uk? %>
   <%= render partial: 'contact_method.govspeak.erb',
-             locals: {
-               calculator: calculator
-             } %>
+             locals: { calculator: calculator } %>
 
 <% end %>
 <% if calculator.ceremony_country == 'turkey' %>

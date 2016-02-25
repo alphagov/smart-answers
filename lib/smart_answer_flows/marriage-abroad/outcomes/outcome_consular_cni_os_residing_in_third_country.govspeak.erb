@@ -4,20 +4,14 @@
 
 <% content_for :body do %>
   <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
-             locals: {
-               calculator: calculator
-             } %>
+             locals: { calculator: calculator } %>
 
   <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
-             locals: {
-               calculator: calculator
-             } %>
+             locals: { calculator: calculator } %>
 
   <% if data_query.os_no_marriage_related_consular_services?(calculator.ceremony_country) %>
     <%= render partial: 'cni_os_consular_facilities_unavailable.govspeak.erb',
-               locals: {
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
 
   <% end %>
   <%= render partial: 'what_you_need_to_do.govspeak.erb',
@@ -50,16 +44,12 @@
       <% elsif calculator.ceremony_country == 'italy' %>
       <% else %>
         <%= render partial: 'you_will_have_to_wait_to_get_married.govspeak.erb',
-                   locals: {
-                     calculator: calculator
-                   } %>
+                   locals: { calculator: calculator } %>
       <% end -%>
 
       <% if calculator.ceremony_country == 'poland' %>
         <%= render partial: 'check_if_uk_issued_cnis_accepted.govspeak.erb',
-                   locals: {
-                     calculator: calculator
-                   } -%>
+                   locals: { calculator: calculator } -%>
       <% end %>
     <% end %>
   <% end %>

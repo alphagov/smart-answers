@@ -18,27 +18,19 @@
 
       <% else %>
         <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_marriage.govspeak.erb',
-                   locals: {
-                     calculator: calculator
-                   } %>
+                   locals: { calculator: calculator } %>
       <% end %>
     <% else %>
       <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
-                 locals: {
-                   calculator: calculator
-                 } %>
+                 locals: { calculator: calculator } %>
     <% end %>
   <% end %>
   <% if %w(jordan oman qatar).include?(calculator.ceremony_country) %>
     <%= render partial: 'gulf_states_os_consular_cni.govspeak.erb',
-               locals: {
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
     <% if calculator.resident_of_ceremony_country? %>
       <%= render partial: 'gulf_states_os_consular_cni_local_resident.govspeak.erb',
-                 locals: {
-                   calculator: calculator
-                 } %>
+                 locals: { calculator: calculator } %>
 
     <% end %>
   <% end %>
@@ -48,9 +40,7 @@
       <%= render partial: 'get_legal_advice.govspeak.erb' %>
     <% else %>
       <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
-                 locals: {
-                   calculator: calculator
-                 } %>
+                 locals: { calculator: calculator } %>
     <% end %>
   <% end %>
 
@@ -103,9 +93,7 @@
   <% if calculator.resident_of_uk? %>
     <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
     <%= render partial: 'cni_issued_locally_validity.govspeak.erb',
-               locals: {
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
     <% if cni_posted_after_14_days_countries.include?(calculator.ceremony_country) %>
       They’ll post your notice, and as long as nobody has registered an objection after 14 days, they’ll issue your CNI.
 
@@ -147,16 +135,12 @@
 
     <% else %>
       <%= render partial: 'legisation_and_translation_intro_uk.govspeak.erb',
-                 locals: {
-                   calculator: calculator
-                 } %>
+                 locals: { calculator: calculator } %>
 
     <% end %>
     <% if %w(germany tunisia).exclude?(calculator.ceremony_country) %>
       <%= render partial: 'legalise_translate_and_check_with_authorities.govspeak.erb',
-                 locals: {
-                   calculator: calculator
-                 } %>
+                 locals: { calculator: calculator } %>
     <% end %>
   <% end %>
   <% if calculator.resident_of_ceremony_country? %>
@@ -231,9 +215,7 @@
 
       <% else %>
         <%= render partial: 'contact_method.govspeak.erb',
-                   locals: {
-                     calculator: calculator
-                   } %>
+                   locals: { calculator: calculator } %>
       <% end %>
     <% end %>
   <% end %>
@@ -281,9 +263,7 @@
 
     <% else %>
       <%= render partial: 'required_supporting_documents.govspeak.erb',
-                 locals: {
-                   calculator: calculator
-                 } %>
+                 locals: { calculator: calculator } %>
 
     <% end %>
     <% if calculator.ceremony_country == 'jordan' %>
@@ -294,9 +274,7 @@
   <% if calculator.resident_of_ceremony_country? %>
     <% if calculator.ceremony_country == 'japan' %>
       <%= render partial: 'contact_method.govspeak.erb',
-                 locals: {
-                   calculator: calculator
-                 } %>
+                 locals: { calculator: calculator } %>
 
       ##Giving notice of marriage
 
@@ -346,9 +324,7 @@
 
     <% if calculator.ceremony_country == 'kazakhstan' %>
       <%= render partial: 'display_notice_of_marriage_7_days.govspeak.erb',
-                 locals: {
-                   calculator: calculator
-                 } %>
+                 locals: { calculator: calculator } %>
 
     <% end %>
 
@@ -407,16 +383,12 @@
 
     <% elsif %w(germany).exclude?(calculator.ceremony_country) %>
       <%= render partial: 'display_notice_of_marriage_7_days.govspeak.erb',
-                 locals: {
-                   calculator: calculator
-                 } %>
+                 locals: { calculator: calculator } %>
 
     <% end %>
   <% elsif data_query.requires_7_day_notice?(calculator.ceremony_country) %>
     <%= render partial: 'display_notice_of_marriage_7_days.govspeak.erb',
-               locals: {
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
 
   <% end %>
   <% if calculator.resident_of_uk? && calculator.partner_is_neither_british_nor_a_national_of_ceremony_country? && "finland" == calculator.ceremony_country %>
@@ -426,9 +398,7 @@
 
   <% if calculator.resident_outside_of_uk? && %w(germany).exclude?(calculator.ceremony_country) %>
     <%= render partial: 'check_if_cni_needs_to_be_legalised.govspeak.erb',
-               locals: {
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
 
   <% end %>
   <% if calculator.resident_of_ceremony_country? %>
@@ -474,26 +444,20 @@
 
     <% else %>
       <%= render partial: 'link_to_consular_fees.govspeak.erb',
-                 locals: {
-                   calculator: calculator
-                 } %>
+                 locals: { calculator: calculator } %>
     <% end %>
   <% end %>
   <% unless data_query.countries_without_consular_facilities?(calculator.ceremony_country) %>
 
     <% if %w(armenia bosnia-and-herzegovina cambodia iceland latvia slovenia tunisia tajikistan).include?(calculator.ceremony_country) %>
       <%= render partial: 'pay_in_local_currency_ceremony_country_name.govspeak.erb',
-                 locals: {
-                   calculator: calculator
-                 } %>
+                 locals: { calculator: calculator } %>
     <% elsif %w(kazakhstan kyrgyzstan).include?(calculator.ceremony_country) %>
       ^You can only pay by cash in Kazakhstan. This must be in the local currency.^
 
     <% elsif calculator.ceremony_country == 'luxembourg' %>
       <%= render partial: 'pay_in_cash_visa_or_mastercard.govspeak.erb',
-                 locals: {
-                   calculator: calculator
-                 } %>
+                 locals: { calculator: calculator } %>
     <% elsif calculator.ceremony_country == 'russia' %>
       You can only pay by MasterCard and Visa credit cards.
 

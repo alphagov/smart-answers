@@ -18,9 +18,7 @@
     <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
 
     <%= render partial: 'cni_issued_locally_validity.govspeak.erb',
-               locals: {
-                 calculator: calculator
-               } -%>
+               locals: { calculator: calculator } -%>
 
     ###Getting a statutory declaration
     <% if calculator.partner_british? %>
@@ -56,9 +54,7 @@
     <% end %>
 
     <%= render partial: 'contact_method.govspeak.erb',
-               locals: {
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
 
     <% if calculator.resident_of_ceremony_country? %>
       <%= render partial: "three_day_residency_requirement.govspeak.erb",
@@ -120,9 +116,7 @@
 
 
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
-               locals: {
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
 
     <%= render partial: 'pay_in_euro_or_sterling_or_card.govspeak.erb' %>
   <% end %>

@@ -6,23 +6,17 @@
 <% content_for :body do %>
   <% if calculator.resident_outside_of_uk? || calculator.ceremony_country == 'usa' %>
     <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
-               locals: {
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
   <% else %>
     <%= render partial: 'contact_nearest_embassy_of_country.govspeak.erb',
-               locals: {
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
   <% end %>
 
   <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'get_legal_advice.govspeak.erb' %>
   <% else %>
     <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
-               locals: {
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
   <% end %>
 
   <% unless calculator.partner_british? %>
