@@ -25,7 +25,7 @@ module SmartAnswer
         end
 
         def on_send(node)
-          receiver_node, method_name, *arg_nodes = *node
+          _receiver_node, method_name, *arg_nodes = *node
           if method_name == :goto_node && arg_nodes.length == 1
             if arg_nodes[0].type == :sym
               @next_nodes += arg_nodes[0].to_a
