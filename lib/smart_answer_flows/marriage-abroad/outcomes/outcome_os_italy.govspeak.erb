@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  Marriage in <%= country_name_lowercase_prefix %>
+  Marriage in <%= calculator.country_name_lowercase_prefix %>
 <% end %>
 
 <% content_for :body do %>
@@ -18,9 +18,7 @@
     <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
 
     <%= render partial: 'cni_issued_locally_validity.govspeak.erb',
-               locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
-               } -%>
+               locals: { calculator: calculator } -%>
 
     ###Getting a statutory declaration
     <% if calculator.partner_british? %>
@@ -56,16 +54,12 @@
     <% end %>
 
     <%= render partial: 'contact_method.govspeak.erb',
-               locals: {
-                 calculator: calculator,
-                 overseas_passports_embassies: overseas_passports_embassies,
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
-               } %>
+               locals: { calculator: calculator } %>
 
     <% if calculator.resident_of_ceremony_country? %>
       <%= render partial: "three_day_residency_requirement.govspeak.erb",
                        locals: {
-                         country_name_lowercase_prefix: country_name_lowercase_prefix,
+                         country_name_lowercase_prefix: calculator.country_name_lowercase_prefix,
                          callout: true
                        } -%>
 
@@ -78,7 +72,7 @@
         - your passport
         - your partner’s ID document
         - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
-        - a utility bill, bank statement, official residency certificate, or driving license showing your name and Italian address (if you don’t normally live in <%= country_name_lowercase_prefix %> you can show a flight ticket or boarding pass with your date of entry or evidence of your hotel check-in)
+        - a utility bill, bank statement, official residency certificate, or driving license showing your name and Italian address (if you don’t normally live in <%= calculator.country_name_lowercase_prefix %> you can show a flight ticket or boarding pass with your date of entry or evidence of your hotel check-in)
         - evidence if you’ve changed your name by deed poll
 
     <% end %>
@@ -122,10 +116,7 @@
 
 
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
-               locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
 
     <%= render partial: 'pay_in_euro_or_sterling_or_card.govspeak.erb' %>
   <% end %>

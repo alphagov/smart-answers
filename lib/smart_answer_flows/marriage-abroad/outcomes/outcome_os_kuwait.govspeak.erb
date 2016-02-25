@@ -6,10 +6,7 @@
 <% content_for :body do %>
   <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
-                 locals: {
-                   country_name_lowercase_prefix: country_name_lowercase_prefix,
-                   calculator: calculator
-                 } %>
+                 locals: { calculator: calculator } %>
 
     <%= render partial: 'get_legal_advice.govspeak.erb' %>
 
@@ -17,19 +14,15 @@
 
     <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
 
-    To get a CNI, you must post notice of your intended marriage in <%= country_name_lowercase_prefix %>. You can do this at the British embassy.
+    To get a CNI, you must post notice of your intended marriage in <%= calculator.country_name_lowercase_prefix %>. You can do this at the British embassy.
 
     <%= render partial: "three_day_residency_requirement.govspeak.erb",
                locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
+                 country_name_lowercase_prefix: calculator.country_name_lowercase_prefix
                } -%>
 
     <%= render partial: 'contact_method.govspeak.erb',
-              locals: {
-                calculator: calculator,
-                overseas_passports_embassies: overseas_passports_embassies,
-                country_name_lowercase_prefix: country_name_lowercase_prefix
-              } %>
+              locals: { calculator: calculator } %>
 
     You’ll need to provide supporting documents, including:
 
@@ -61,34 +54,23 @@
     [Make an appointment to collect your CNI at the embassy in Kuwait City.](https://www.consular-appointments.service.gov.uk/fco#!/british-embassy-kuwait-city/certificate-of-no-impediment/slot_picker)
 
     <%= render partial: 'check_if_cni_needs_to_be_legalised.govspeak.erb',
-               locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
-               } %>
+               locals: { calculator: calculator } %>
 
     <%= render partial: 'you_dont_need_to_stay_in_country.govspeak.erb' %>
 
     <%= render partial: 'consular_cni_os_fees_incl_null_osta_oath_consular_letter.govspeak.erb' %>
 
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
-               locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
 
     <%= render partial: 'pay_by_cash_or_credit_card_no_cheque_nor_amex.govspeak.erb' %>
 
   <% elsif calculator.resident_of_third_country? %>
     <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
-                 locals: {
-                   country_name_lowercase_prefix: country_name_lowercase_prefix,
-                   calculator: calculator
-                 } %>
+                 locals: { calculator: calculator } %>
 
     <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
-               locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
 
     <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
 
@@ -97,24 +79,17 @@
     There are 2 ways you can get a CNI:
 
     - [go to the UK and post notice with a UK registrar](<%= uk_residence_outcome_path %>)
-    - [go to <%= country_name_lowercase_prefix %> and post notice at the embassy or consulate there](<%= ceremony_country_residence_outcome_path %>)
+    - [go to <%= calculator.country_name_lowercase_prefix %> and post notice at the embassy or consulate there](<%= ceremony_country_residence_outcome_path %>)
 
     <%= render partial: 'you_will_have_to_wait_to_get_married.govspeak.erb',
-               locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
-               } %>
+               locals: { calculator: calculator } %>
 
   <% elsif calculator.resident_of_uk? %>
     <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_marriage.govspeak.erb',
-               locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
-               } %>
+               locals: { calculator: calculator } %>
 
     <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
-               locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
 
     <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
 
@@ -122,19 +97,13 @@
     <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
 
     <%= render partial: 'cni_issued_locally_validity.govspeak.erb',
-               locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
-               } %>
+               locals: { calculator: calculator } %>
 
     <%= render partial: 'legisation_and_translation_intro_uk.govspeak.erb',
-               locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
-               } %>
+               locals: { calculator: calculator } %>
 
     <%= render partial: 'legalise_translate_and_check_with_authorities.govspeak.erb',
-               locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix
-               } %>
+               locals: { calculator: calculator } %>
 
     <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
 
@@ -145,10 +114,7 @@
     <%= render partial: 'consular_cni_os_fees_incl_null_osta_oath_consular_letter.govspeak.erb' %>
 
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
-               locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
 
     <%= render partial: 'pay_by_cash_or_credit_card_no_cheque_nor_amex.govspeak.erb' %>
   <% end %>

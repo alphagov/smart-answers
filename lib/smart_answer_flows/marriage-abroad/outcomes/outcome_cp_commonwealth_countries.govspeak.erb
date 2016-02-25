@@ -1,40 +1,28 @@
 <% content_for :title do %>
-  Civil Partnership in <%= country_name_lowercase_prefix %>
+  Civil Partnership in <%= calculator.country_name_lowercase_prefix %>
 <% end %>
 
 <% content_for :body do %>
   <%= render partial: 'synonyms_of_cp.govspeak.erb',
-             locals: {
-               calculator: calculator
-             } %>
+             locals: { calculator: calculator } %>
 
   <% if calculator.resident_of_uk? %>
-    Contact the [High Commission of <%= country_name_lowercase_prefix %>](/government/publications/foreign-embassies-in-the-uk) to find out about local laws, including what documents you’ll need.
+    Contact the [High Commission of <%= calculator.country_name_lowercase_prefix %>](/government/publications/foreign-embassies-in-the-uk) to find out about local laws, including what documents you’ll need.
 
   <% else %>
     <%= render partial: 'contact_local_authorities_in_country_cp.govspeak.erb',
-               locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
   <% end %>
 
   <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'get_legal_advice.govspeak.erb' %>
   <% else %>
     <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
-               locals: {
-                 country_name_lowercase_prefix: country_name_lowercase_prefix,
-                 calculator: calculator
-               } %>
+               locals: { calculator: calculator } %>
   <% end %>
 
   <%= render partial: 'contact_method.govspeak.erb',
-             locals: {
-               calculator: calculator,
-               overseas_passports_embassies: overseas_passports_embassies,
-               country_name_lowercase_prefix: country_name_lowercase_prefix
-             } %>
+             locals: { calculator: calculator } %>
 
   <% if calculator.partner_not_british? %>
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
