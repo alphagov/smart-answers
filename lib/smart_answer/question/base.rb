@@ -3,6 +3,12 @@ module SmartAnswer
     class Base < Node
       class NextNodeUndefined < StandardError; end
 
+      module GotoNodeMethods
+        def goto_node(key)
+          throw :goto_node, key
+        end
+      end
+
       def initialize(flow, name, options = {}, &block)
         @save_input_as = nil
         @validations ||= []
@@ -36,7 +42,9 @@ module SmartAnswer
 
       def next_node_for(current_state, input)
         validate!(current_state, input)
-        next_node = next_node_from_default_function(current_state, input)
+        next_node = catch :goto_node do
+          next_node_from_default_function(current_state, input)
+        end
         responses_and_input = current_state.responses + [input]
         raise NextNodeUndefined.new("Next node undefined. Node: #{current_state.current_node}. Responses: #{responses_and_input}") unless next_node
         unless @permitted_next_nodes.include?(next_node)
@@ -94,7 +102,7 @@ module SmartAnswer
       end
 
       def next_node_from_default_function(current_state, input)
-        current_state.instance_exec(input, &@default_next_node_function)
+        current_state.dup.extend(GotoNodeMethods).instance_exec(input, &@default_next_node_function)
       end
     end
   end
