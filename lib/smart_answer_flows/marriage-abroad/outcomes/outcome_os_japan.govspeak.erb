@@ -5,10 +5,13 @@
 
 <% content_for :body do %>
   <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
-             locals: { calculator: calculator } %>
-
-  ^You should [get legal advice](/government/publications/japan-list-of-lawyers) before making any plans.^
-
+             locals: { calculator: calculator } -%>
+  <% if calculator.resident_of_third_country? %>
+    <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
+               locals: { calculator: calculator } -%>
+  <% else %>
+    ^You should [get legal advice](/government/publications/japan-list-of-lawyers) before making any plans.^
+  <% end %>
 
   <%= render partial: 'what_you_need_to_do.govspeak.erb',
       locals: { calculator: calculator } -%>
@@ -25,7 +28,7 @@
 
   - your UK passport
   - proof of residence showing your current address, such as a residence card
-  - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
+  - your [full birth certificate](/order-copy-birth-death-marriage-certificate/)
   - evidence of parental consent if you’re below the age you can legally get married without consent in the country you’re from (eg 18 in England and Wales)
   - evidence if you’ve changed your name (eg by deed poll)
 
