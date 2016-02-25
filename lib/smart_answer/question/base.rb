@@ -17,12 +17,37 @@ module SmartAnswer
         super
       end
 
+      class NextNodeBlockProcessor < Parser::AST::Processor
+        attr_reader :next_nodes
+
+        def initialize
+          @next_nodes = []
+        end
+
+        def on_send(node)
+          receiver_node, method_name, *arg_nodes = *node
+          if method_name == :goto_node && arg_nodes.length == 1
+            if arg_nodes[0].type == :sym
+              @next_nodes += arg_nodes[0].to_a
+            end
+          end
+          super(node)
+        end
+      end
+
       def next_node(next_node = nil, permitted: [], &block)
         if block_given?
-          unless permitted.any?
-            raise "You must specify the permitted next nodes"
+          if permitted.any?
+            @permitted_next_nodes += permitted
+          else
+            ast = Parser::CurrentRuby.parse(block.source)
+            processor = NextNodeBlockProcessor.new
+            processor.process(ast)
+            unless processor.next_nodes.any?
+              raise "You must call goto_node at least once inside next_node block"
+            end
+            @permitted_next_nodes += processor.next_nodes
           end
-          @permitted_next_nodes += permitted
           @default_next_node_function = block
         elsif next_node
           @permitted_next_nodes = [next_node]
