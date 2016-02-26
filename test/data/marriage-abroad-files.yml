@@ -127,7 +127,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_other_countries.govsp
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_poland.govspeak.erb: c58d79b7eab27b73359d060352cf9747
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_slovenia.govspeak.erb: 3cc85d2b3adc3049b9adf439486cbd0e
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_portugal.govspeak.erb: 7928e930761d5d6d2f32491194004c15
-lib/smart_answer_flows/marriage-abroad/outcomes/outcome_spain.govspeak.erb: c3e53d39df81bb7b87d7f70b3d6dfd06
+lib/smart_answer_flows/marriage-abroad/outcomes/outcome_spain.govspeak.erb: c0679dfee2c3e04b8773fa6117e9df14
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ss_affirmation.govspeak.erb: 27cf6dd1f2f8602d40f46cb32970d308
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ss_marriage.govspeak.erb: 7e97841c8401304f56620f849d60c5f9
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ss_marriage_malta.govspeak.erb: b7450b569fc6fb92e671ca0dac196ce4
