@@ -64,6 +64,15 @@ class QuestionBaseTest < ActiveSupport::TestCase
     assert_equal :done_done, new_state.current_node
   end
 
+  test "Can define next_node by calling goto_node inside block, provided that next node is declared" do
+    q = SmartAnswer::Question::Base.new(nil, :example) {
+      next_node(permitted: [:done_done]) { goto_node :done_done }
+    }
+    initial_state = SmartAnswer::State.new(q.name)
+    new_state = q.transition(initial_state, :anything)
+    assert_equal :done_done, new_state.current_node
+  end
+
   test "next_node block can refer to state" do
     q = SmartAnswer::Question::Base.new(nil, :example) {
       permitted_next_nodes = [:was_red, :wasnt_red]
