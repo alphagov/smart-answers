@@ -812,6 +812,11 @@
   :outcome_node: true
 - :current_node: :what_passport_do_you_have?
   :responses:
+  - saint-barthelemy
+  :next_node: :outcome_no_visa_needed
+  :outcome_node: true
+- :current_node: :what_passport_do_you_have?
+  :responses:
   - stateless-or-refugee
   :next_node: :purpose_of_visit?
   :outcome_node: false
@@ -910,6 +915,11 @@
   - stateless-or-refugee
   - diplomatic
   :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :what_passport_do_you_have?
+  :responses:
+  - st-martin
+  :next_node: :outcome_no_visa_needed
   :outcome_node: true
 - :current_node: :what_passport_do_you_have?
   :responses:
