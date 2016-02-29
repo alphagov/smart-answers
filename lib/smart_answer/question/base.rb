@@ -22,7 +22,7 @@ module SmartAnswer
           @next_node_block = block
         elsif next_node
           @permitted_next_nodes = [next_node]
-          @next_node_block = proc { next_node }
+          @next_node_block = lambda { |_| next_node }
         else
           raise ArgumentError, 'You must specify a block or a single next node key'
         end
