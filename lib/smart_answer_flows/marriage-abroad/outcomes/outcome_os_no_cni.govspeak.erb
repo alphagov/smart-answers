@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if data_query.dutch_caribbean_islands?(calculator.ceremony_country) %>
+  <% if calculator.ceremony_country_is_dutch_caribbean_island? %>
     <%= render partial: 'country_is_dutch_caribbean_island.govspeak.erb',
                locals: { calculator: calculator } %>
     <% if calculator.resident_of_uk? %>
