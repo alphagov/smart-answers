@@ -711,6 +711,17 @@ module SmartAnswer
           assert_equal 'requires-7-day-notice', calculator.requires_7_day_notice?
         end
       end
+
+      context 'same_sex_alt_fees_table_country?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          data_query.stubs(:ss_alt_fees_table_country?).with('ceremony-country', calculator).returns('same-sex-alt-fees-table')
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'same-sex-alt-fees-table', calculator.same_sex_alt_fees_table_country?
+        end
+      end
     end
   end
 end

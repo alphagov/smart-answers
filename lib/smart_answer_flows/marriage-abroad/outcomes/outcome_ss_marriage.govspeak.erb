@@ -128,7 +128,7 @@
 
   <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 
-  <% if data_query.ss_alt_fees_table_country?(calculator.ceremony_country, calculator) %>
+  <% if calculator.same_sex_alt_fees_table_country? %>
     <% case calculator.marriage_and_partnership_phrases %>
     <% when 'ss_marriage' %>
       ##Fees
