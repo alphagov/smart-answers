@@ -115,7 +115,7 @@ module SmartAnswer::Calculators
         'British (overseas territories citizen)'
       elsif ceremony_country_is_french_overseas_territory?
         'French'
-      elsif @data_query.dutch_caribbean_islands?(ceremony_country)
+      elsif ceremony_country_is_dutch_caribbean_island?
         'Dutch'
       elsif %w(hong-kong macao).include?(ceremony_country)
         'Chinese'
@@ -210,6 +210,10 @@ module SmartAnswer::Calculators
 
     def opposite_sex_21_days_residency_required?
       @data_query.os_21_days_residency_required_countries?(ceremony_country)
+    end
+
+    def ceremony_country_is_dutch_caribbean_island?
+      @data_query.dutch_caribbean_islands?(ceremony_country)
     end
   end
 end

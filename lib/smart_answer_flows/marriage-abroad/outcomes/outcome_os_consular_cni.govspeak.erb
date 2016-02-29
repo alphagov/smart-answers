@@ -11,7 +11,7 @@
   <% end %>
   <% if %(japan).exclude?(calculator.ceremony_country) %>
     <% if calculator.resident_of_uk? %>
-      <% if data_query.dutch_caribbean_islands?(calculator.ceremony_country) %>
+      <% if calculator.ceremony_country_is_dutch_caribbean_island? %>
         <%= calculator.country_name_uppercase_prefix %> is one of the Dutch Caribbean islands.
 
         Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121) before making any plans to find out about local marriage laws, including what documents you’ll need

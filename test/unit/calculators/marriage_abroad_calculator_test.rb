@@ -689,6 +689,17 @@ module SmartAnswer
           assert_equal '21-days-residency-required', calculator.opposite_sex_21_days_residency_required?
         end
       end
+
+      context 'ceremony_country_is_dutch_caribbean_island?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:dutch_caribbean_islands?).with('ceremony-country').returns('dutch-caribbean-island')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'dutch-caribbean-island', calculator.ceremony_country_is_dutch_caribbean_island?
+        end
+      end
     end
   end
 end
