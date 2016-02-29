@@ -15,13 +15,33 @@ class QuestionBaseTest < ActiveSupport::TestCase
     assert_equal expected_message, exception.message
   end
 
-  test 'permitted next nodes can be supplied to next_node' do
+  test 'permitted next nodes must be supplied if next_node is called with block' do
+    e = assert_raises(ArgumentError) do
+      SmartAnswer::Question::Base.new(nil, :example) {
+        next_node do
+          :done
+        end
+      }
+    end
+    assert_equal 'You must specify at least one permitted next node', e.message
+  end
+
+  test 'permitted next nodes supplied to next_node are stored' do
     q = SmartAnswer::Question::Base.new(nil, :example) {
       next_node(permitted: [:done]) do
         :done
       end
     }
     assert_equal [:done], q.permitted_next_nodes
+  end
+
+  test 'single next node key must be supplied if next_node called without block' do
+    e = assert_raises(ArgumentError) do
+      SmartAnswer::Question::Base.new(nil, :example) {
+        next_node
+      }
+    end
+    assert_equal 'You must specify a block or a single next node key', e.message
   end
 
   test "State is carried over on a state transition" do

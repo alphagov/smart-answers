@@ -16,7 +16,7 @@ module SmartAnswer
       def next_node(next_node = nil, permitted: [], &block)
         if block_given?
           unless permitted.any?
-            raise "You must specify the permitted next nodes"
+            raise ArgumentError, 'You must specify at least one permitted next node'
           end
           @permitted_next_nodes += permitted
           @next_node_block = block
@@ -24,7 +24,7 @@ module SmartAnswer
           @permitted_next_nodes = [next_node]
           @next_node_block = proc { next_node }
         else
-          raise ArgumentError
+          raise ArgumentError, 'You must specify a block or a single next node key'
         end
       end
 
