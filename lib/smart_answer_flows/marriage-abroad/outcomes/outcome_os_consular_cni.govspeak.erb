@@ -438,7 +438,7 @@
     <%= render partial: 'consular_cni_os_fees_incl_null_osta_oath_consular_letter.govspeak.erb' %>
 
   <% end %>
-  <% unless data_query.countries_without_consular_facilities?(calculator.ceremony_country) || calculator.ceremony_country == 'cote-d-ivoire' %>
+  <% unless calculator.country_without_consular_facilities? || calculator.ceremony_country == 'cote-d-ivoire' %>
     <% if %w(kazakhstan kyrgyzstan).include?(calculator.ceremony_country) %>
       You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Kazakhstan](/government/publications/kazakhstan-kyrgyzstan-consular-fees).
 
@@ -447,7 +447,7 @@
                  locals: { calculator: calculator } %>
     <% end %>
   <% end %>
-  <% unless data_query.countries_without_consular_facilities?(calculator.ceremony_country) %>
+  <% unless calculator.country_without_consular_facilities? %>
 
     <% if %w(armenia bosnia-and-herzegovina cambodia iceland latvia slovenia tunisia tajikistan).include?(calculator.ceremony_country) %>
       <%= render partial: 'pay_in_local_currency_ceremony_country_name.govspeak.erb',

@@ -35,7 +35,7 @@
   <%= render partial: 'cni_os_consular_facilities_unavailable.govspeak.erb',
              locals: { calculator: calculator } %>
 
-  <% unless data_query.countries_without_consular_facilities?(calculator.ceremony_country) %>
+  <% unless calculator.country_without_consular_facilities? %>
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: { calculator: calculator } %>
     <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>

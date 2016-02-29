@@ -203,5 +203,9 @@ module SmartAnswer::Calculators
     def civil_partnership_consular_country?
       @data_query.cp_consular_countries?(ceremony_country)
     end
+
+    def country_without_consular_facilities?
+      @data_query.countries_without_consular_facilities?(ceremony_country)
+    end
   end
 end
