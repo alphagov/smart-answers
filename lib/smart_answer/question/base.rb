@@ -3,6 +3,8 @@ module SmartAnswer
     class Base < Node
       class NextNodeUndefined < StandardError; end
 
+      attr_reader :permitted_next_nodes
+
       def initialize(flow, name, options = {}, &block)
         @save_input_as = nil
         @validations ||= []
@@ -28,10 +30,6 @@ module SmartAnswer
 
       def validate(message = nil, &block)
         @validations << [message, block]
-      end
-
-      def permitted_next_nodes(*args)
-        @permitted_next_nodes += args
       end
 
       def next_node_for(current_state, input)
