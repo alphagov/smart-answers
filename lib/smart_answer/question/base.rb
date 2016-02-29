@@ -8,7 +8,7 @@ module SmartAnswer
       def initialize(flow, name, options = {}, &block)
         @save_input_as = nil
         @validations = []
-        @next_node_block = lambda {|_|}
+        @next_node_block = lambda { |_| nil }
         @permitted_next_nodes = []
         super
       end
