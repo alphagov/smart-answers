@@ -59,7 +59,7 @@
 
 
 <% end %>
-<% unless data_query.countries_without_consular_facilities?(calculator.ceremony_country) %>
+<% unless calculator.country_without_consular_facilities? %>
   <% if calculator.ceremony_country == 'vietnam' %>
     <%= render partial: 'consular_fees_in_cash_visa_master.govspeak.erb',
                locals: { calculator: calculator } -%>
