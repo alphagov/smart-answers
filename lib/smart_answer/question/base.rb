@@ -36,7 +36,9 @@ module SmartAnswer
         validate!(current_state, input)
         next_node = current_state.instance_exec(input, &@next_node_block)
         responses_and_input = current_state.responses + [input]
-        raise NextNodeUndefined.new("Next node undefined. Node: #{current_state.current_node}. Responses: #{responses_and_input}") unless next_node
+        unless next_node
+          raise NextNodeUndefined.new("Next node undefined. Node: #{current_state.current_node}. Responses: #{responses_and_input}")
+        end
         unless @permitted_next_nodes.include?(next_node)
           raise "Next node (#{next_node}) not in list of permitted next nodes (#{@permitted_next_nodes.to_sentence})"
         end
