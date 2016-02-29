@@ -386,7 +386,7 @@
                  locals: { calculator: calculator } %>
 
     <% end %>
-  <% elsif data_query.requires_7_day_notice?(calculator.ceremony_country) %>
+  <% elsif calculator.requires_7_day_notice? %>
     <%= render partial: 'display_notice_of_marriage_7_days.govspeak.erb',
                locals: { calculator: calculator } %>
 

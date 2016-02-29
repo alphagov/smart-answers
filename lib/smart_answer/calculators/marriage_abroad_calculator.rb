@@ -215,5 +215,9 @@ module SmartAnswer::Calculators
     def ceremony_country_is_dutch_caribbean_island?
       @data_query.dutch_caribbean_islands?(ceremony_country)
     end
+
+    def requires_7_day_notice?
+      @data_query.requires_7_day_notice?(ceremony_country)
+    end
   end
 end
