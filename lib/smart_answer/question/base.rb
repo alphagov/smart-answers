@@ -8,7 +8,7 @@ module SmartAnswer
       def initialize(flow, name, options = {}, &block)
         @save_input_as = nil
         @validations ||= []
-        @default_next_node_function ||= lambda {|_|}
+        @next_node_block ||= lambda {|_|}
         @permitted_next_nodes = []
         super
       end
@@ -19,10 +19,10 @@ module SmartAnswer
             raise "You must specify the permitted next nodes"
           end
           @permitted_next_nodes += permitted
-          @default_next_node_function = block
+          @next_node_block = block
         elsif next_node
           @permitted_next_nodes = [next_node]
-          @default_next_node_function = proc { next_node }
+          @next_node_block = proc { next_node }
         else
           raise ArgumentError
         end
@@ -34,7 +34,7 @@ module SmartAnswer
 
       def next_node_for(current_state, input)
         validate!(current_state, input)
-        next_node = next_node_from_default_function(current_state, input)
+        next_node = next_node_from_next_node_block(current_state, input)
         responses_and_input = current_state.responses + [input]
         raise NextNodeUndefined.new("Next node undefined. Node: #{current_state.current_node}. Responses: #{responses_and_input}") unless next_node
         unless @permitted_next_nodes.include?(next_node)
@@ -87,8 +87,8 @@ module SmartAnswer
         end
       end
 
-      def next_node_from_default_function(current_state, input)
-        current_state.instance_exec(input, &@default_next_node_function)
+      def next_node_from_next_node_block(current_state, input)
+        current_state.instance_exec(input, &@next_node_block)
       end
     end
   end
