@@ -207,5 +207,9 @@ module SmartAnswer::Calculators
     def country_without_consular_facilities?
       @data_query.countries_without_consular_facilities?(ceremony_country)
     end
+
+    def opposite_sex_21_days_residency_required?
+      @data_query.os_21_days_residency_required_countries?(ceremony_country)
+    end
   end
 end

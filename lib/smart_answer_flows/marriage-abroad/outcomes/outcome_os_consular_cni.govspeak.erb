@@ -67,7 +67,7 @@
     For non-Islamic marriages, you’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
 
 
-  <% elsif data_query.os_21_days_residency_required_countries?(calculator.ceremony_country) %>
+  <% elsif calculator.opposite_sex_21_days_residency_required? %>
     You need to have been living in the country where you intend to marry for 21 full days.
 
     <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
