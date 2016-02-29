@@ -14,11 +14,14 @@ module SmartAnswer
       end
 
       def next_node(next_node = nil, permitted: [], &block)
+        if @permitted_next_nodes.any?
+          raise 'Multiple calls to next_node are not allowed'
+        end
         if block_given?
           unless permitted.any?
             raise ArgumentError, 'You must specify at least one permitted next node'
           end
-          @permitted_next_nodes += permitted
+          @permitted_next_nodes = permitted
           @next_node_block = block
         elsif next_node
           @permitted_next_nodes = [next_node]

@@ -44,6 +44,16 @@ class QuestionBaseTest < ActiveSupport::TestCase
     assert_equal 'You must specify a block or a single next node key', e.message
   end
 
+  test 'multiple calls to next_node are not allowed' do
+    e = assert_raises do
+      SmartAnswer::Question::Base.new(nil, :example) {
+        next_node :outcome_one
+        next_node :outcome_two
+      }
+    end
+    assert_equal 'Multiple calls to next_node are not allowed', e.message
+  end
+
   test "State is carried over on a state transition" do
     q = SmartAnswer::Question::Base.new(nil, :example) {
       next_node :done
