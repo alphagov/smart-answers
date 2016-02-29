@@ -75,10 +75,6 @@ module SmartAnswer
       end
 
     private
-      def permitted_next_node?(next_node)
-        @permitted_next_nodes.include?(next_node)
-      end
-
       def validate!(current_state, input)
         @validations.each do |message, predicate|
           if !current_state.instance_exec(input, &predicate)
