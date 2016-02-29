@@ -327,7 +327,8 @@ class FlowTest < ActiveSupport::TestCase
   end
 
   test "should allow using shared logic" do
-    File.stubs(:read).with(Rails.root.join('lib', 'smart_answer_flows', 'shared_logic', "test_flow_logic.rb")).returns(<<-EOT)
+    path = Rails.root.join('lib', 'smart_answer_flows', 'shared_logic', "test_flow_logic.rb")
+    File.stubs(:read).with(path).returns(<<-EOT)
 multiple_choice :do_you_like_chocolate? do
   option :yes
   option :no
