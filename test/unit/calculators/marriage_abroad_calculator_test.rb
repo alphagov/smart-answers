@@ -469,6 +469,259 @@ module SmartAnswer
           assert_equal 'embassy', @calculator.embassy_or_consulate_ceremony_country
         end
       end
+
+      context '#ceremony_country_is_french_overseas_territory?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:french_overseas_territories?).with('ceremony-country').returns('french-overseas-territory')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'french-overseas-territory', calculator.ceremony_country_is_french_overseas_territory?
+        end
+      end
+
+      context '#opposite_sex_consular_cni_country' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:os_consular_cni_countries?).with('ceremony-country').returns('opposite-sex-consular-cni-country')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'opposite-sex-consular-cni-country', calculator.opposite_sex_consular_cni_country?
+        end
+      end
+
+      context '#opposite_sex_consular_cni_in_nearby_country?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:os_consular_cni_in_nearby_country?).with('ceremony-country').returns('opposite-sex-consular-cni-in-nearby-country')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'opposite-sex-consular-cni-in-nearby-country', calculator.opposite_sex_consular_cni_in_nearby_country?
+        end
+      end
+
+      context '#opposite_sex_no_marriage_related_consular_services_in_ceremony_country?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:os_no_marriage_related_consular_services?).with('ceremony-country').returns('opposite-sex-no-marriage-related-consular-servies')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'opposite-sex-no-marriage-related-consular-servies', calculator.opposite_sex_no_marriage_related_consular_services_in_ceremony_country?
+        end
+      end
+
+      context '#opposite_sex_affirmation_country?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:os_affirmation_countries?).with('ceremony-country').returns('opposite-sex-affirmation-country')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'opposite-sex-affirmation-country', calculator.opposite_sex_affirmation_country?
+        end
+      end
+
+      context '#ceremony_country_in_the_commonwealth' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:commonwealth_country?).with('ceremony-country').returns('commonwealth-country')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'commonwealth-country', calculator.ceremony_country_in_the_commonwealth?
+        end
+      end
+
+      context '#ceremony_country_is_british_overseas_territory?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:british_overseas_territories?).with('ceremony-country').returns('british-overseas-territory')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'british-overseas-territory', calculator.ceremony_country_is_british_overseas_territory?
+        end
+      end
+
+      context '#opposite_sex_no_consular_cni_country' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:os_no_consular_cni_countries?).with('ceremony-country').returns('opposite-sex-no-consular-cni-country')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'opposite-sex-no-consular-cni-country', calculator.opposite_sex_no_consular_cni_country?
+        end
+      end
+
+      context '#opposite_sex_marriage_via_local_authorities?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:os_marriage_via_local_authorities?).with('ceremony-country').returns('opposite-sex-marriage-via-local-authorities')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'opposite-sex-marriage-via-local-authorities', calculator.opposite_sex_marriage_via_local_authorities?
+        end
+      end
+
+      context '#opposite_sex_in_other_countries?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:os_other_countries?).with('ceremony-country').returns('opposite-sex-in-other-countries')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'opposite-sex-in-other-countries', calculator.opposite_sex_in_other_countries?
+        end
+      end
+
+      context '#same_sex_ceremony_country_unknown_or_has_no_embassies?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:ss_unknown_no_embassies?).with('ceremony-country').returns('unknown-or-no-embassies')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'unknown-or-no-embassies', calculator.same_sex_ceremony_country_unknown_or_has_no_embassies?
+        end
+      end
+
+      context '#same_sex_marriage_not_possible?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          data_query.stubs(:ss_marriage_not_possible?).with('ceremony-country', calculator).returns('same-sex-marriage-not-possible')
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'same-sex-marriage-not-possible', calculator.same_sex_marriage_not_possible?
+        end
+      end
+
+      context '#same_sex_marriage_country?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:ss_marriage_countries?).with('ceremony-country').returns('same-sex-marriage-country')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'same-sex-marriage-country', calculator.same_sex_marriage_country?
+        end
+      end
+
+      context '#same_sex_marriage_country_when_couple_british?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:ss_marriage_countries_when_couple_british?).with('ceremony-country').returns('same-sex-marriage-country-when-couple-british')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'same-sex-marriage-country-when-couple-british', calculator.same_sex_marriage_country_when_couple_british?
+        end
+      end
+
+      context '#same_sex_marriage_and_civil_partnership?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:ss_marriage_and_partnership?).with('ceremony-country').returns('same-sex-marriage-and-civil-partnership')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'same-sex-marriage-and-civil-partnership', calculator.same_sex_marriage_and_civil_partnership?
+        end
+      end
+
+      context 'civil_partnership_equivalent_country?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:cp_equivalent_countries?).with('ceremony-country').returns('civil-partnership-equivalent-country')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'civil-partnership-equivalent-country', calculator.civil_partnership_equivalent_country?
+        end
+      end
+
+      context 'civil_partnership_cni_not_required_country?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:cp_cni_not_required_countries?).with('ceremony-country').returns('civil-partnership-cni-not-required-country')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'civil-partnership-cni-not-required-country', calculator.civil_partnership_cni_not_required_country?
+        end
+      end
+
+      context 'civil_partnership_consular_country?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:cp_consular_countries?).with('ceremony-country').returns('civil-partnership-consular-country')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'civil-partnership-consular-country', calculator.civil_partnership_consular_country?
+        end
+      end
+
+      context 'country_without_consular_facilities?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:countries_without_consular_facilities?).with('ceremony-country').returns('country-without-consular-facilities')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'country-without-consular-facilities', calculator.country_without_consular_facilities?
+        end
+      end
+
+      context 'opposite_sex_21_days_residency_required?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:os_21_days_residency_required_countries?).with('ceremony-country').returns('21-days-residency-required')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal '21-days-residency-required', calculator.opposite_sex_21_days_residency_required?
+        end
+      end
+
+      context 'ceremony_country_is_dutch_caribbean_island?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:dutch_caribbean_islands?).with('ceremony-country').returns('dutch-caribbean-island')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'dutch-caribbean-island', calculator.ceremony_country_is_dutch_caribbean_island?
+        end
+      end
+
+      context 'requires_7_day_notice?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:requires_7_day_notice?).with('ceremony-country').returns('requires-7-day-notice')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'requires-7-day-notice', calculator.requires_7_day_notice?
+        end
+      end
+
+      context 'same_sex_alt_fees_table_country?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          data_query.stubs(:ss_alt_fees_table_country?).with('ceremony-country', calculator).returns('same-sex-alt-fees-table')
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'same-sex-alt-fees-table', calculator.same_sex_alt_fees_table_country?
+        end
+      end
     end
   end
 end

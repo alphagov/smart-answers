@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if data_query.cp_equivalent_countries?(calculator.ceremony_country) %>
+  <% if calculator.civil_partnership_equivalent_country? %>
     <%= render partial: 'synonyms_of_cp.govspeak.erb',
                locals: { calculator: calculator } %>
   <% end %>
@@ -64,7 +64,7 @@
     Issuing a CNI or equivalent | £65
   <% end %>
 
-  <% unless (calculator.ceremony_country == 'czech-republic' || data_query.countries_without_consular_facilities?(calculator.ceremony_country)) %>
+  <% unless (calculator.ceremony_country == 'czech-republic' || calculator.country_without_consular_facilities?) %>
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: { calculator: calculator } %>
   <% end %>
