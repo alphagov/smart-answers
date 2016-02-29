@@ -1,4 +1,3 @@
-require 'ostruct'
 require_relative '../test_helper'
 
 class QuestionBaseTest < ActiveSupport::TestCase
