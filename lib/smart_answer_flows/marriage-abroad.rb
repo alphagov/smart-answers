@@ -15,7 +15,6 @@ module SmartAnswer
       status :published
       satisfies_need "101000"
 
-      data_query = SmartAnswer::Calculators::MarriageAbroadDataQuery.new
       exclude_countries = %w(holy-see british-antarctic-territory the-occupied-palestinian-territories)
 
       # Q1
@@ -331,10 +330,6 @@ module SmartAnswer
       outcome :outcome_os_italy
 
       outcome :outcome_consular_cni_os_residing_in_third_country do
-        precalculate :data_query do
-          data_query
-        end
-
         precalculate :current_path do
           (['/marriage-abroad/y'] + responses).join('/')
         end
@@ -349,9 +344,6 @@ module SmartAnswer
       end
 
       outcome :outcome_os_consular_cni do
-        precalculate :data_query do
-          data_query
-        end
         precalculate :three_day_residency_requirement_applies do
           %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria chile croatia cuba democratic-republic-of-congo denmark dominican-republic el-salvador estonia ethiopia georgia greece guatemala honduras hungary iceland italy kazakhstan kosovo kuwait kyrgyzstan latvia lithuania luxembourg macedonia mexico moldova montenegro nepal panama romania russia serbia slovenia sudan sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
         end
@@ -388,40 +380,20 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_os_france_or_fot do
-        precalculate :data_query do
-          data_query
-        end
-      end
+      outcome :outcome_os_france_or_fot
 
-      outcome :outcome_os_affirmation do
-        precalculate :data_query do
-          data_query
-        end
-      end
+      outcome :outcome_os_affirmation
 
-      outcome :outcome_os_no_cni do
-        precalculate :data_query do
-          data_query
-        end
-      end
+      outcome :outcome_os_no_cni
 
       outcome :outcome_os_other_countries
 
       #CP outcomes
-      outcome :outcome_cp_or_equivalent do
-        precalculate :data_query do
-          data_query
-        end
-      end
+      outcome :outcome_cp_or_equivalent
 
       outcome :outcome_cp_france_pacs
 
-      outcome :outcome_cp_no_cni do
-        precalculate :data_query do
-          data_query
-        end
-      end
+      outcome :outcome_cp_no_cni
 
       outcome :outcome_cp_commonwealth_countries
 
@@ -437,11 +409,7 @@ module SmartAnswer
 
       outcome :outcome_cp_all_other_countries
 
-      outcome :outcome_ss_marriage do
-        precalculate :data_query do
-          data_query
-        end
-      end
+      outcome :outcome_ss_marriage
 
       outcome :outcome_ss_marriage_not_possible
 
