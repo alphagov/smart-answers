@@ -678,6 +678,17 @@ module SmartAnswer
           assert_equal 'country-without-consular-facilities', calculator.country_without_consular_facilities?
         end
       end
+
+      context 'opposite_sex_21_days_residency_required?' do
+        should 'delegate to the data query' do
+          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
+          data_query.stubs(:os_21_days_residency_required_countries?).with('ceremony-country').returns('21-days-residency-required')
+          calculator = MarriageAbroadCalculator.new(data_query: data_query)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal '21-days-residency-required', calculator.opposite_sex_21_days_residency_required?
+        end
+      end
     end
   end
 end
