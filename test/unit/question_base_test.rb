@@ -198,4 +198,19 @@ class QuestionBaseTest < ActiveSupport::TestCase
     expected_message = "Next node undefined. Node: #{question_name}. Responses: #{responses}"
     assert_equal expected_message, error.message
   end
+
+  test "error if next_node was not called for question" do
+    question_name = :example
+    responses = [:blue, :red]
+    q = SmartAnswer::Question::Base.new(nil, question_name) {
+      # no call to next_node
+    }
+    initial_state = SmartAnswer::State.new(q.name)
+    initial_state.responses << responses[0]
+    error = assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do
+      q.next_node_for(initial_state, responses[1])
+    end
+    expected_message = "Next node undefined. Node: #{question_name}. Responses: #{responses}"
+    assert_equal expected_message, error.message
+  end
 end
