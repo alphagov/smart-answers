@@ -371,7 +371,7 @@ end
       end
     end
 
-    line_number = source.split($/).index { |line| line =~ /SyntaxError/ }
+    line_number = source.split($/).index { |line| line =~ /SyntaxError/ } + 1
     assert_match "#{path}:#{line_number}", e.message
   end
 end
