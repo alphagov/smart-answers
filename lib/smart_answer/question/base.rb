@@ -8,13 +8,13 @@ module SmartAnswer
       def initialize(flow, name, options = {}, &block)
         @save_input_as = nil
         @validations = []
-        @next_node_block = lambda { |_| nil }
+        @default_next_node_block = lambda { |_| nil }
         @permitted_next_nodes = []
         super
       end
 
       def next_node(next_node = nil, permitted: [], &block)
-        if @permitted_next_nodes.any?
+        if @next_node_block.present?
           raise 'Multiple calls to next_node are not allowed'
         end
         if block_given?
@@ -37,7 +37,7 @@ module SmartAnswer
 
       def next_node_for(current_state, input)
         validate!(current_state, input)
-        next_node = current_state.instance_exec(input, &@next_node_block)
+        next_node = current_state.instance_exec(input, &next_node_block)
         responses_and_input = current_state.responses + [input]
         unless next_node
           raise NextNodeUndefined.new("Next node undefined. Node: #{current_state.current_node}. Responses: #{responses_and_input}")
@@ -80,6 +80,10 @@ module SmartAnswer
       end
 
     private
+      def next_node_block
+        @next_node_block || @default_next_node_block
+      end
+
       def validate!(current_state, input)
         @validations.each do |message, predicate|
           if !current_state.instance_exec(input, &predicate)
