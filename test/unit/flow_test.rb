@@ -327,8 +327,7 @@ class FlowTest < ActiveSupport::TestCase
   end
 
   test "should allow using shared logic" do
-    path = Rails.root.join('lib', 'smart_answer_flows', 'shared_logic', "test_flow_logic.rb")
-    File.stubs(:read).with(path).returns(<<-EOT)
+    File.stubs(:read).with(Rails.root.join('lib', 'smart_answer_flows', 'shared_logic', "test_flow_logic.rb")).returns(<<-EOT)
 multiple_choice :do_you_like_chocolate? do
   option :yes
   option :no
@@ -353,25 +352,5 @@ outcome :savoury_tooth
     assert_equal :do_you_like_chocolate?, s.questions.first.name
     assert_equal 2, s.outcomes.size
     assert_equal [:sweet_tooth, :savoury_tooth], s.outcomes.map(&:name)
-  end
-
-  test "should report file and line number of syntax error in shared logic" do
-    path = Rails.root.join('lib', 'smart_answer_flows', 'shared_logic', "test_flow_logic.rb")
-    source = <<-EOT
-multiple_choice :question_containing_syntax_error? do
-  1 + 1 = 2 # => SyntaxError
-end
-    EOT
-
-    File.stubs(:read).with(path).returns(source)
-
-    e = assert_raises(SyntaxError) do
-      SmartAnswer::Flow.new do
-        use_shared_logic 'test_flow_logic'
-      end
-    end
-
-    line_number = source.split($/).index { |line| line =~ /SyntaxError/ } + 1
-    assert_match "#{path}:#{line_number}", e.message
   end
 end
