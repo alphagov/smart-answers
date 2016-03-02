@@ -610,7 +610,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "not allow a day before the earliest linked end date" do
-      add_response (@earliest_linked_sickness_end_date - 1.day).to_s
+      add_response((@earliest_linked_sickness_end_date - 1.day).to_s)
       assert_current_node_is_error "must_be_within_eight_weeks"
     end
   end
