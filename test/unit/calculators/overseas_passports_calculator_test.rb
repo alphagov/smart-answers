@@ -68,6 +68,25 @@ module SmartAnswer
           refute @calculator.uk_visa_application_with_colour_pictures?
         end
       end
+
+
+      context '#non_uk_visa_application_with_colour_pictures?' do
+        setup do
+          @calculator = OverseasPassportsCalculator.new
+        end
+
+        should 'be true if current_location is in NON_UK_VISA_APPLICATION_WITH_COLOUR_PICTURES_COUNTRIES' do
+          OverseasPassportsCalculator::NON_UK_VISA_APPLICATION_WITH_COLOUR_PICTURES_COUNTRIES.each do |country|
+            @calculator.current_location = country
+            assert @calculator.non_uk_visa_application_with_colour_pictures?
+          end
+        end
+
+        should 'be false if current_location is not in NON_UK_VISA_APPLICATION_WITH_COLOUR_PICTURES_COUNTRIES' do
+          @calculator.current_location = 'antarctica'
+          refute @calculator.non_uk_visa_application_with_colour_pictures?
+        end
+      end
     end
   end
 end
