@@ -11,6 +11,13 @@ module SmartAnswer::Calculators
       ukraine uzbekistan western-sahara vietnam venezuela
     )
 
+    UK_VISA_APPLICATION_WITH_COLOUR_PICTURES_COUNTRIES = %w(
+      afghanistan azerbaijan algeria bangladesh belarus burma cambodia china
+      georgia india indonesia kazakhstan laos lebanon mauritania morocco nepal
+      pakistan tajikistan thailand turkmenistan ukraine uzbekistan russia
+      vietnam venezuela western-sahara
+    )
+
     attr_accessor :current_location
 
     def book_appointment_online?
@@ -19,6 +26,10 @@ module SmartAnswer::Calculators
 
     def uk_visa_application_centre?
       UK_VISA_APPLICATION_CENTRE_COUNTRIES.include?(current_location)
+    end
+
+    def uk_visa_application_with_colour_pictures?
+      UK_VISA_APPLICATION_WITH_COLOUR_PICTURES_COUNTRIES.include?(current_location)
     end
   end
 end
