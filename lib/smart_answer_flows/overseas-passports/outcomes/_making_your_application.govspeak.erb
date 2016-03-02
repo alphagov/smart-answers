@@ -1,4 +1,3 @@
-<% uk_visa_application_with_colour_pictures = %w(afghanistan azerbaijan algeria bangladesh belarus burma cambodia china georgia india indonesia kazakhstan laos lebanon mauritania morocco nepal pakistan tajikistan thailand turkmenistan ukraine uzbekistan russia vietnam venezuela western-sahara) %>
 <% non_uk_visa_application_with_colour_pictures = %w(burma cuba sudan tajikistan turkmenistan uzbekistan) %>
 
 <% if calculator.uk_visa_application_centre? %>
@@ -12,7 +11,7 @@
         <%= render partial: 'making_your_application/bring_passport_and_full_photocopy.govspeak.erb' %>
         <%= render partial: 'making_your_application/book_appointment_by_email.govspeak.erb' %>
 
-      <% elsif uk_visa_application_with_colour_pictures.include?(current_location) %>
+      <% elsif calculator.uk_visa_application_with_colour_pictures? %>
         ## Making your application
 
         <%= render partial: 'making_your_application/apply_in_person_or_via_proxy.govspeak.erb' %>
@@ -67,7 +66,7 @@
         <%= render partial: 'making_your_application/apply_in_person_or_via_proxy.govspeak.erb' %>
         <%= render partial: 'making_your_application/bring_originals_and_colour_copy.govspeak.erb' %>
         <%= render partial: 'making_your_application/book_appointment_by_email.govspeak.erb' %>
-      <% elsif uk_visa_application_with_colour_pictures.include?(current_location) %>
+      <% elsif calculator.uk_visa_application_with_colour_pictures? %>
         ## Making your application
 
         <%= render partial: 'making_your_application/apply_in_person_or_via_proxy.govspeak.erb' %>
