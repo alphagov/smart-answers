@@ -64,9 +64,9 @@ module SmartAnswer
         sick_start_date > value
       end
 
-      def within_eight_weeks_of_current_sickness_period?(value)
-        furthest_allowed_date = sick_start_date - 8.weeks
-        value > furthest_allowed_date
+      def within_eight_weeks_of_current_sickness_period?(previous_sickness_end_date)
+        earliest_allowed_date = sick_start_date - 8.weeks - 1.day
+        previous_sickness_end_date >= earliest_allowed_date
       end
 
       def at_least_1_day_before_first_sick_day?(value)
