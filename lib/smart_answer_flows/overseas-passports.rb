@@ -23,6 +23,12 @@ module SmartAnswer
           loc
         end
 
+        calculate :calculator do |response|
+          calculator = Calculators::OverseasPassportsCalculator.new
+          calculator.current_location = response
+          calculator
+        end
+
         calculate :birth_location do
           nil
         end

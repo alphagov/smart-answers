@@ -1,4 +1,3 @@
-<% book_appointment_online_countries = %w(kyrgyzstan tajikistan turkmenistan uzbekistan) %>
 <% uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan bangladesh belarus burundi burma cambodia china gaza georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan russia tajikistan thailand turkmenistan ukraine uzbekistan western-sahara vietnam venezuela) %>
 <% uk_visa_application_with_colour_pictures = %w(afghanistan azerbaijan algeria bangladesh belarus burma cambodia china georgia india indonesia kazakhstan laos lebanon mauritania morocco nepal pakistan tajikistan thailand turkmenistan ukraine uzbekistan russia vietnam venezuela western-sahara) %>
 <% non_uk_visa_application_with_colour_pictures = %w(burma cuba sudan tajikistan turkmenistan uzbekistan) %>
@@ -20,7 +19,7 @@
         <%= render partial: 'making_your_application/apply_in_person_or_via_proxy.govspeak.erb' %>
         <%= render partial: 'making_your_application/bring_originals_and_colour_copy.govspeak.erb' %>
         <%= render partial: 'making_your_application/bring_passport_and_full_photocopy.govspeak.erb' %>
-        <% unless book_appointment_online_countries.include?(current_location) %>
+        <% unless calculator.book_appointment_online? %>
           <%= render partial: 'making_your_application/book_appointment_by_email_with_3_dates.govspeak.erb' %>
         <% end %>
       <% else %>
@@ -29,11 +28,11 @@
         <%= render partial: 'making_your_application/apply_in_person.govspeak.erb' %>
         <%= render partial: 'making_your_application/bring_originals_and_copy.govspeak.erb' %>
         <%= render partial: 'making_your_application/bring_passport_and_full_photocopy.govspeak.erb' %>
-        <% unless book_appointment_online_countries.include?(current_location) %>
+        <% unless calculator.book_appointment_online? %>
           <%= render partial: 'making_your_application/book_appointment_by_email_with_3_dates.govspeak.erb' %>
         <% end %>
       <% end %>
-      <% unless book_appointment_online_countries.include?(current_location) %>
+      <% unless calculator.book_appointment_online? %>
         <%= render partial: 'making_your_application/send_application_address.govspeak.erb', locals: { current_location: current_location } %>
       <% else %>
         <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { current_location: current_location } %>
@@ -45,7 +44,7 @@
         <%= render partial: 'making_your_application/apply_in_person_or_via_proxy.govspeak.erb' %>
         <%= render partial: 'making_your_application/bring_originals_and_colour_copy.govspeak.erb' %>
         <%= render partial: 'making_your_application/bring_passport_and_full_photocopy.govspeak.erb' %>
-        <% unless book_appointment_online_countries.include?(current_location) %>
+        <% unless calculator.book_appointment_online? %>
           <%= render partial: 'making_your_application/book_appointment_by_email_with_3_dates.govspeak.erb' %>
         <% end %>
       <% else %>
@@ -55,7 +54,7 @@
         <%= render partial: 'making_your_application/bring_originals_and_copy.govspeak.erb' %>
         <%= render partial: 'making_your_application/bring_passport_and_full_photocopy.govspeak.erb' %>
       <% end %>
-      <% unless book_appointment_online_countries.include?(current_location) %>
+      <% unless calculator.book_appointment_online? %>
         <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
       <% else %>
         <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { current_location: current_location } %>
@@ -74,7 +73,7 @@
 
         <%= render partial: 'making_your_application/apply_in_person_or_via_proxy.govspeak.erb' %>
         <%= render partial: 'making_your_application/bring_originals_and_colour_copy.govspeak.erb' %>
-        <% unless book_appointment_online_countries.include?(current_location) %>
+        <% unless calculator.book_appointment_online? %>
           <%= render partial: 'making_your_application/book_appointment_by_email_with_3_dates.govspeak.erb' %>
         <% end %>
       <% else %>
@@ -82,11 +81,11 @@
 
         <%= render partial: 'making_your_application/apply_in_person.govspeak.erb' %>
         <%= render partial: 'making_your_application/bring_originals_and_copy.govspeak.erb' %>
-        <% unless book_appointment_online_countries.include?(current_location) %>
+        <% unless calculator.book_appointment_online? %>
           <%= render partial: 'making_your_application/book_appointment_by_email_with_3_dates.govspeak.erb' %>
         <% end %>
       <% end %>
-      <% unless book_appointment_online_countries.include?(current_location) %>
+      <% unless calculator.book_appointment_online? %>
         <%= render partial: 'making_your_application/send_application_address.govspeak.erb', locals: { current_location: current_location } %>
       <% else %>
         <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { current_location: current_location } %>
@@ -97,7 +96,7 @@
 
         <%= render partial: 'making_your_application/apply_in_person_or_via_proxy.govspeak.erb' %>
         <%= render partial: 'making_your_application/bring_originals_and_colour_copy.govspeak.erb' %>
-        <% unless book_appointment_online_countries.include?(current_location) %>
+        <% unless calculator.book_appointment_online? %>
           <%= render partial: 'making_your_application/book_appointment_by_email_with_3_dates.govspeak.erb' %>
         <% end %>
       <% else %>
@@ -106,7 +105,7 @@
         <%= render partial: 'making_your_application/apply_in_person.govspeak.erb' %>
         <%= render partial: 'making_your_application/bring_originals_and_copy.govspeak.erb' %>
       <% end %>
-      <% unless book_appointment_online_countries.include?(current_location) %>
+      <% unless calculator.book_appointment_online? %>
         <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
       <% else %>
         <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { current_location: current_location } %>
@@ -123,14 +122,14 @@
 
   You need to book an appointment - contact the embassy to arrange one.
 
-  <% unless book_appointment_online_countries.include?(current_location) %>
+  <% unless calculator.book_appointment_online? %>
     <%= render partial: 'making_your_application/send_application_address.govspeak.erb', locals: { current_location: current_location } %>
   <% else %>
     <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { current_location: current_location } %>
   <% end %>
 <% elsif general_action == 'renewing' and data_query.renewing_countries?(current_location) %>
   <% if passport_data['application_office'] %>
-    <% unless book_appointment_online_countries.include?(current_location) %>
+    <% unless calculator.book_appointment_online? %>
       <%= render partial: 'making_your_application/send_application_address.govspeak.erb', locals: { current_location: current_location } %>
     <% else %>
       <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { current_location: current_location } %>
@@ -142,14 +141,14 @@
       <%= render partial: 'making_your_application/apply_in_person_or_via_proxy.govspeak.erb' %>
       <%= render partial: 'making_your_application/bring_originals_and_colour_copy.govspeak.erb' %>
       <%= render partial: 'making_your_application/bring_passport_and_full_photocopy.govspeak.erb' %>
-      <% unless book_appointment_online_countries.include?(current_location) %>
+      <% unless calculator.book_appointment_online? %>
         <%= render partial: 'making_your_application/book_appointment_by_email_with_3_dates.govspeak.erb' %>
       <% end %>
     <% else %>
       <%= render partial: 'making_your_application/send_application_ips.govspeak.erb', locals: { ips_number: ips_number } %>
       <%= render partial: 'making_your_application/renewing_new_renewing_old.govspeak.erb' %>
     <% end %>
-    <% unless book_appointment_online_countries.include?(current_location) %>
+    <% unless calculator.book_appointment_online? %>
       <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
     <% else %>
       <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { current_location: current_location } %>
@@ -157,7 +156,7 @@
   <% end %>
 <% else %>
   <% if passport_data['application_office'] %>
-    <% unless book_appointment_online_countries.include?(current_location) %>
+    <% unless calculator.book_appointment_online? %>
       <%= render partial: 'making_your_application/send_application_address.govspeak.erb', locals: { current_location: current_location } %>
     <% else %>
       <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { current_location: current_location } %>
@@ -168,7 +167,7 @@
 
       <%= render partial: 'making_your_application/apply_in_person_or_via_proxy.govspeak.erb' %>
       <%= render partial: 'making_your_application/bring_originals_and_colour_copy.govspeak.erb' %>
-      <% unless book_appointment_online_countries.include?(current_location) %>
+      <% unless calculator.book_appointment_online? %>
         <%= render partial: 'making_your_application/book_appointment_by_email_with_3_dates.govspeak.erb' %>
       <% end %>
     <% else %>
@@ -181,7 +180,7 @@
       <%= render partial: 'making_your_application/send_application_address_st_helena_ascension_and_tristan_da_cunha.govspeak.erb' %>
     <% else %>
       <% if ips_number.to_i > 1 %>
-        <% unless book_appointment_online_countries.include?(current_location) %>
+        <% unless calculator.book_appointment_online? %>
           <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
         <% else %>
           <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { current_location: current_location } %>
