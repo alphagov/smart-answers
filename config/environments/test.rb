@@ -40,6 +40,9 @@ SmartAnswers::Application.configure do
   # Allow pass debug_assets=true as a query parameter to load pages with unpackaged assets
   config.assets.allow_debugging = true
 
+  # Disable checksum being created for assets in test
+  config.assets.digest = false
+
   if ENV["DISABLE_LOGGING_IN_TEST"]
     File.open(Rails.root.join("log", "test.log"), "a") do |file|
       file.puts "\n*NOTE* Disabling logging in an attempt to speed up the tests.\n\n"
