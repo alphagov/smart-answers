@@ -53,6 +53,7 @@
 
   <%= render partial: 'cost/payment_instructions.govspeak.erb', locals: { ips_number: ips_number } %>
 <% else %>
+  <%# TODO - this list does not match the one in OverseasPassportCalculator - have raised with FCO %>
   <% uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan bangladesh belarus burma cambodia china georgia india indonesia kazakhstan laos lebanon mauritania morocco nepal pakistan russia thailand ukraine venezuela vietnam western-sahara) %>
   <% pay_at_appointment_countries = %w(venezuela) %>
 

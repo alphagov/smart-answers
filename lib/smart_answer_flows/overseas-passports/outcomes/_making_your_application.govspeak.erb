@@ -1,8 +1,7 @@
-<% uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan bangladesh belarus burundi burma cambodia china gaza georgia india indonesia kazakhstan kyrgyzstan laos lebanon mauritania morocco nepal pakistan russia tajikistan thailand turkmenistan ukraine uzbekistan western-sahara vietnam venezuela) %>
 <% uk_visa_application_with_colour_pictures = %w(afghanistan azerbaijan algeria bangladesh belarus burma cambodia china georgia india indonesia kazakhstan laos lebanon mauritania morocco nepal pakistan tajikistan thailand turkmenistan ukraine uzbekistan russia vietnam venezuela western-sahara) %>
 <% non_uk_visa_application_with_colour_pictures = %w(burma cuba sudan tajikistan turkmenistan uzbekistan) %>
 
-<% if uk_visa_application_centre_countries.include?(current_location) %>
+<% if calculator.uk_visa_application_centre? %>
   <% if %w(renewing_new).include?(application_action) %>
     <% if passport_data['application_office'] %>
       <% if %w(laos vietnam).include?(current_location) %>
