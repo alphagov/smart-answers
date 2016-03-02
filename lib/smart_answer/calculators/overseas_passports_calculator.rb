@@ -18,6 +18,10 @@ module SmartAnswer::Calculators
       vietnam venezuela western-sahara
     )
 
+    NON_UK_VISA_APPLICATION_WITH_COLOUR_PICTURES_COUNTRIES = %w(
+      burma cuba sudan tajikistan turkmenistan uzbekistan
+    )
+
     attr_accessor :current_location
 
     def book_appointment_online?
@@ -30,6 +34,10 @@ module SmartAnswer::Calculators
 
     def uk_visa_application_with_colour_pictures?
       UK_VISA_APPLICATION_WITH_COLOUR_PICTURES_COUNTRIES.include?(current_location)
+    end
+
+    def non_uk_visa_application_with_colour_pictures?
+      NON_UK_VISA_APPLICATION_WITH_COLOUR_PICTURES_COUNTRIES.include?(current_location)
     end
   end
 end
