@@ -320,6 +320,40 @@ module SmartAnswer
             assert_equal [], @calculator.overseas_passports_embassies('location')
           end
         end
+
+        context '#general_action' do
+          setup do
+            @calculator = OverseasPassportsCalculator.new
+          end
+
+          context 'given application action is renewing_new' do
+            should 'equal renewing' do
+              @calculator.application_action = 'renewing_new'
+              assert_equal @calculator.general_action, 'renewing'
+            end
+          end
+
+          context 'given application action is renewing_old' do
+            should 'equal renewing' do
+              @calculator.application_action = 'renewing_old'
+              assert_equal @calculator.general_action, 'renewing'
+            end
+          end
+
+          context 'given application action is replacing' do
+            should 'equal replacing' do
+              @calculator.application_action = 'replacing'
+              assert_equal @calculator.general_action, 'replacing'
+            end
+          end
+
+          context 'given application action is applying' do
+            should 'equal applying' do
+              @calculator.application_action = 'applying'
+              assert_equal @calculator.general_action, 'applying'
+            end
+          end
+        end
       end
     end
   end

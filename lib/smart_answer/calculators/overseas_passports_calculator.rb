@@ -112,5 +112,9 @@ module SmartAnswer::Calculators
       organisation = fco_organisation(location)
       organisation ? organisation.offices_with_service('Overseas Passports Service') : []
     end
+
+    def general_action
+      application_action =~ /^renewing_/ ? 'renewing' : application_action
+    end
   end
 end

@@ -59,10 +59,6 @@ module SmartAnswer
         option :applying
         option :replacing
 
-        calculate :general_action do |response|
-          response =~ /^renewing_/ ? 'renewing' : response
-        end
-
         calculate :passport_data do
           data_query.find_passport_data(calculator.current_location)
         end
