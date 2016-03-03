@@ -12,21 +12,21 @@ module SmartAnswer
 
       # Q1
       country_select :which_country_are_you_in?, exclude_countries: exclude_countries do
-        save_input_as :current_location
+        next_node_calculation :calculator do
+          Calculators::OverseasPassportsCalculator.new
+        end
+
+        next_node_calculation :current_location do |response|
+          calculator.current_location = response
+        end
 
         calculate :location do
-          loc = WorldLocation.find(current_location)
-          if Calculators::PassportAndEmbassyDataQuery::ALT_EMBASSIES.has_key?(current_location)
-            loc = WorldLocation.find(Calculators::PassportAndEmbassyDataQuery::ALT_EMBASSIES[current_location])
+          loc = WorldLocation.find(calculator.current_location)
+          if Calculators::PassportAndEmbassyDataQuery::ALT_EMBASSIES.has_key?(calculator.current_location)
+            loc = WorldLocation.find(Calculators::PassportAndEmbassyDataQuery::ALT_EMBASSIES[calculator.current_location])
           end
           raise InvalidResponse unless loc
           loc
-        end
-
-        calculate :calculator do |response|
-          calculator = Calculators::OverseasPassportsCalculator.new
-          calculator.current_location = response
-          calculator
         end
 
         calculate :birth_location do
