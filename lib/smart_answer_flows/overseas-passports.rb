@@ -196,11 +196,7 @@ module SmartAnswer
       outcome :ips_application_result_online
 
       ## IPS Application Result
-      outcome :ips_application_result do
-        precalculate :data_query do
-          data_query
-        end
-      end
+      outcome :ips_application_result
 
       ## No-op outcome.
       outcome :cannot_apply
