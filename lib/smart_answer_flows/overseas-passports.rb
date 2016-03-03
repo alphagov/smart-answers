@@ -8,10 +8,8 @@ module SmartAnswer
 
       data_query = Calculators::PassportAndEmbassyDataQuery.new
 
-      exclude_countries = %w(holy-see british-antarctic-territory)
-
       # Q1
-      country_select :which_country_are_you_in?, exclude_countries: exclude_countries do
+      country_select :which_country_are_you_in?, exclude_countries: Calculators::OverseasPassportsCalculator::EXCLUDE_COUNTRIES do
         next_node_calculation :calculator do
           Calculators::OverseasPassportsCalculator.new
         end
@@ -171,7 +169,7 @@ module SmartAnswer
       end
 
       # Q4
-      country_select :country_of_birth?, include_uk: true, exclude_countries: exclude_countries do
+      country_select :country_of_birth?, include_uk: true, exclude_countries: Calculators::OverseasPassportsCalculator::EXCLUDE_COUNTRIES do
         save_input_as :birth_location
 
         calculate :application_group do |response|

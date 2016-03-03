@@ -18,6 +18,10 @@ module SmartAnswer::Calculators
       vietnam venezuela western-sahara
     )
 
+    EXCLUDE_COUNTRIES = %w(
+      holy-see british-antarctic-territory
+    )
+
     NON_UK_VISA_APPLICATION_WITH_COLOUR_PICTURES_COUNTRIES = %w(
       burma cuba sudan tajikistan turkmenistan uzbekistan
     )
