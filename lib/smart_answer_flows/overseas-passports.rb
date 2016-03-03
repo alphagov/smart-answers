@@ -37,10 +37,6 @@ module SmartAnswer
           nil
         end
 
-        next_node_calculation :apply_in_neighbouring_countries do |response|
-          %w(british-indian-ocean-territory north-korea south-georgia-and-south-sandwich-islands).include?(response)
-        end
-
         permitted_next_nodes = [
           :cannot_apply,
           :which_opt?,
@@ -52,7 +48,7 @@ module SmartAnswer
             :cannot_apply
           elsif response == 'the-occupied-palestinian-territories'
             :which_opt?
-          elsif apply_in_neighbouring_countries
+          elsif calculator.apply_in_neighbouring_countries?
             :apply_in_neighbouring_country
           else
             :renewing_replacing_applying?

@@ -1,5 +1,9 @@
 module SmartAnswer::Calculators
   class OverseasPassportsCalculator
+    APPLY_IN_NEIGHBOURING_COUNTRIES = %w(
+      british-indian-ocean-territory north-korea south-georgia-and-south-sandwich-islands
+    )
+
     BOOK_APPOINTMENT_ONLINE_COUNTRIES = %w(
       kyrgyzstan tajikistan turkmenistan uzbekistan
     )
@@ -50,6 +54,10 @@ module SmartAnswer::Calculators
 
     def ineligible_country?
       INELIGIBLE_COUNTRIES.include?(current_location)
+    end
+
+    def apply_in_neighbouring_countries?
+      APPLY_IN_NEIGHBOURING_COUNTRIES.include?(current_location)
     end
   end
 end
