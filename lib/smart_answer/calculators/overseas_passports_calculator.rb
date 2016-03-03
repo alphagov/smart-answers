@@ -35,6 +35,7 @@ module SmartAnswer::Calculators
     )
 
     attr_accessor :current_location
+    attr_accessor :birth_location
 
     def book_appointment_online?
       BOOK_APPOINTMENT_ONLINE_COUNTRIES.include?(current_location)
