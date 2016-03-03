@@ -176,6 +176,18 @@ module SmartAnswer
             end
           end
         end
+
+        context '#world_location_name' do
+          setup do
+            @calculator = OverseasPassportsCalculator.new
+          end
+
+          should 'return the name of the world location associated with the current_location' do
+            @calculator.stubs(:world_location).returns(OpenStruct.new(name: 'world_location_name'))
+
+            assert_equal 'world_location_name', @calculator.world_location_name
+          end
+        end
       end
     end
   end

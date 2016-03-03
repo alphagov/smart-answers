@@ -69,5 +69,9 @@ module SmartAnswer::Calculators
 
       WorldLocation.find(search_location) || raise(SmartAnswer::InvalidResponse)
     end
+
+    def world_location_name
+      world_location.name
+    end
   end
 end
