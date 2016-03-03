@@ -36,6 +36,7 @@ module SmartAnswer::Calculators
 
     attr_accessor :current_location
     attr_accessor :birth_location
+    attr_accessor :application_action
 
     def initialize(data_query: nil)
       @data_query = data_query || PassportAndEmbassyDataQuery.new

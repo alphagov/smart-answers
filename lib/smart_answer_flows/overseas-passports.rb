@@ -63,8 +63,6 @@ module SmartAnswer
         option :applying
         option :replacing
 
-        save_input_as :application_action
-
         calculate :overseas_passports_embassies do
           if calculator.fco_organisation
             calculator.fco_organisation.offices_with_service 'Overseas Passports Service'
@@ -116,15 +114,22 @@ module SmartAnswer
           end
         end
 
-        calculate :waiting_time do
-          passport_data[application_action]
+        calculate :waiting_time do |response|
+          passport_data[response]
         end
 
         calculate :optimistic_processing_time do
           passport_data['optimistic_processing_time?']
         end
 
-        next_node :child_or_adult_passport?
+        permitted_next_nodes = [
+          :child_or_adult_passport?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.application_action = response
+
+          :child_or_adult_passport?
+        end
       end
 
       # Q3
@@ -136,7 +141,7 @@ module SmartAnswer
 
         next_node(permitted: :auto) do
           if is_ips_application
-            if %w(applying renewing_old).include?(application_action)
+            if %w(applying renewing_old).include?(calculator.application_action)
               question :country_of_birth?
             elsif ips_result_type == :ips_application_result_online
               outcome :ips_application_result_online
