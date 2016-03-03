@@ -1,5 +1,5 @@
 <% if calculator.uk_visa_application_centre? %>
-  <% if %w(renewing_new).include?(calculator.application_action) %>
+  <% if calculator.renewing_new? %>
     <% if passport_data['application_office'] %>
       <% if %w(laos vietnam).include?(calculator.current_location) %>
         ## Making your application
@@ -170,7 +170,7 @@
       <%= render partial: 'making_your_application/send_application_ips.govspeak.erb', locals: { ips_number: ips_number } %>
     <% end %>
     <% if %w(st-helena-ascension-and-tristan-da-cunha).include?(calculator.current_location) %>
-      <% if %w(renewing_new).include?(calculator.application_action) %>
+      <% if calculator.renewing_new? %>
         <%= render partial: 'making_your_application/renewing_new_renewing_old.govspeak.erb' %>
       <% end %>
       <%= render partial: 'making_your_application/send_application_address_st_helena_ascension_and_tristan_da_cunha.govspeak.erb' %>

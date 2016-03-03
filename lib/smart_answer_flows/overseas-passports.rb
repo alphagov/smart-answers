@@ -155,7 +155,7 @@ module SmartAnswer
         ]
         next_node(permitted: permitted_next_nodes) do
           if is_ips_application
-            if %w(applying renewing_old).include?(calculator.application_action)
+            if calculator.applying? || calculator.renewing_old?
               :country_of_birth?
             elsif ips_result_type == :ips_application_result_online
               :ips_application_result_online
