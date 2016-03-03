@@ -59,11 +59,8 @@ module SmartAnswer
         option :applying
         option :replacing
 
-        calculate :passport_data do
-          data_query.find_passport_data(calculator.current_location)
-        end
         calculate :application_type do
-          passport_data['type']
+          calculator.passport_data['type']
         end
         calculate :is_ips_application do
           %w{ips_application_1 ips_application_2 ips_application_3}.include?(application_type)
@@ -73,15 +70,15 @@ module SmartAnswer
         end
 
         calculate :application_form do
-          passport_data['app_form']
+          calculator.passport_data['app_form']
         end
 
         calculate :supporting_documents do
-          passport_data['group']
+          calculator.passport_data['group']
         end
 
         calculate :application_address do
-          passport_data['address']
+          calculator.passport_data['address']
         end
 
         calculate :ips_docs_number do
@@ -89,7 +86,7 @@ module SmartAnswer
         end
 
         calculate :ips_result_type do
-          passport_data['online_application'] ? :ips_application_result_online : :ips_application_result
+          calculator.passport_data['online_application'] ? :ips_application_result_online : :ips_application_result
         end
 
         data_query.passport_costs.each do |k, v|
@@ -99,11 +96,11 @@ module SmartAnswer
         end
 
         calculate :waiting_time do |response|
-          passport_data[response]
+          calculator.passport_data[response]
         end
 
         calculate :optimistic_processing_time do
-          passport_data['optimistic_processing_time?']
+          calculator.passport_data['optimistic_processing_time?']
         end
 
         permitted_next_nodes = [
@@ -139,7 +136,7 @@ module SmartAnswer
       # Q4
       country_select :country_of_birth?, include_uk: true, exclude_countries: Calculators::OverseasPassportsCalculator::EXCLUDE_COUNTRIES do
         calculate :application_group do |response|
-          data_query.find_passport_data(response)['group']
+          calculator.passport_data(response)['group']
         end
 
         calculate :supporting_documents do |response|

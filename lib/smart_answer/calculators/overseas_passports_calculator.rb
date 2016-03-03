@@ -116,5 +116,9 @@ module SmartAnswer::Calculators
     def general_action
       application_action =~ /^renewing_/ ? 'renewing' : application_action
     end
+
+    def passport_data(location = current_location)
+      @data_query.find_passport_data(location)
+    end
   end
 end
