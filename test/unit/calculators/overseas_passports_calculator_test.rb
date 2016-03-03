@@ -345,6 +345,29 @@ module SmartAnswer
             end
           end
         end
+
+        context '#passport_data' do
+          should 'delegate to the data_query' do
+            data_query = PassportAndEmbassyDataQuery.new
+            data_query.stubs(:find_passport_data).with('antarctica').returns('passport-data')
+
+            @calculator = OverseasPassportsCalculator.new(data_query: data_query)
+            @calculator.current_location = 'antarctica'
+
+            assert_equal 'passport-data', @calculator.passport_data
+          end
+
+          context 'when receiving an argument value' do
+            should 'delegate to the data_query with the argument value' do
+              data_query = PassportAndEmbassyDataQuery.new
+              data_query.stubs(:find_passport_data).with('arctic').returns('passport-data')
+
+              @calculator = OverseasPassportsCalculator.new(data_query: data_query)
+
+              assert_equal 'passport-data', @calculator.passport_data('arctic')
+            end
+          end
+        end
       end
     end
   end
