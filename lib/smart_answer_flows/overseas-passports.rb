@@ -15,10 +15,9 @@ module SmartAnswer
         end
 
         calculate :location do |response|
-          loc = WorldLocation.find(response)
-          if Calculators::PassportAndEmbassyDataQuery::ALT_EMBASSIES.has_key?(response)
-            loc = WorldLocation.find(Calculators::PassportAndEmbassyDataQuery::ALT_EMBASSIES[response])
-          end
+          search_location = Calculators::PassportAndEmbassyDataQuery::ALT_EMBASSIES[response] || response
+
+          loc = WorldLocation.find(search_location)
           raise InvalidResponse unless loc
           loc
         end
