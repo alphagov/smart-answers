@@ -16,12 +16,10 @@ module SmartAnswer
           Calculators::OverseasPassportsCalculator.new
         end
 
-        save_input_as :current_location
-
-        calculate :location do
-          loc = WorldLocation.find(current_location)
-          if Calculators::PassportAndEmbassyDataQuery::ALT_EMBASSIES.has_key?(current_location)
-            loc = WorldLocation.find(Calculators::PassportAndEmbassyDataQuery::ALT_EMBASSIES[current_location])
+        calculate :location do |response|
+          loc = WorldLocation.find(response)
+          if Calculators::PassportAndEmbassyDataQuery::ALT_EMBASSIES.has_key?(response)
+            loc = WorldLocation.find(Calculators::PassportAndEmbassyDataQuery::ALT_EMBASSIES[response])
           end
           raise InvalidResponse unless loc
           loc
