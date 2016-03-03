@@ -22,6 +22,10 @@ module SmartAnswer::Calculators
       holy-see british-antarctic-territory
     )
 
+    INELIGIBLE_COUNTRIES = %w(
+      iran libya syria yemen
+    )
+
     NON_UK_VISA_APPLICATION_WITH_COLOUR_PICTURES_COUNTRIES = %w(
       burma cuba sudan tajikistan turkmenistan uzbekistan
     )
@@ -42,6 +46,10 @@ module SmartAnswer::Calculators
 
     def non_uk_visa_application_with_colour_pictures?
       NON_UK_VISA_APPLICATION_WITH_COLOUR_PICTURES_COUNTRIES.include?(current_location)
+    end
+
+    def ineligible_country?
+      INELIGIBLE_COUNTRIES.include?(current_location)
     end
   end
 end
