@@ -14,8 +14,8 @@ module SmartAnswer
           Calculators::OverseasPassportsCalculator.new
         end
 
-        calculate :location do |response|
-          raise InvalidResponse unless calculator.world_location(response)
+        validate do |response|
+          calculator.world_location(response)
         end
 
         calculate :overseas_passports_embassies do |response|
