@@ -51,7 +51,7 @@
         <%= render partial: 'making_your_application/bring_passport_and_full_photocopy.govspeak.erb' %>
       <% end %>
       <% unless calculator.book_appointment_online? %>
-        <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
+        <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: calculator.overseas_passports_embassies } %>
       <% else %>
         <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { current_location: calculator.current_location } %>
       <% end %>
@@ -102,7 +102,7 @@
         <%= render partial: 'making_your_application/bring_originals_and_copy.govspeak.erb' %>
       <% end %>
       <% unless calculator.book_appointment_online? %>
-        <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
+        <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: calculator.overseas_passports_embassies } %>
       <% else %>
         <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { current_location: calculator.current_location } %>
       <% end %>
@@ -145,7 +145,7 @@
       <%= render partial: 'making_your_application/renewing_new_renewing_old.govspeak.erb' %>
     <% end %>
     <% unless calculator.book_appointment_online? %>
-      <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
+      <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: calculator.overseas_passports_embassies } %>
     <% else %>
       <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { current_location: calculator.current_location } %>
     <% end %>
@@ -177,7 +177,7 @@
     <% else %>
       <% if ips_number.to_i > 1 %>
         <% unless calculator.book_appointment_online? %>
-          <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
+          <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: calculator.overseas_passports_embassies } %>
         <% else %>
           <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { current_location: calculator.current_location } %>
         <% end %>

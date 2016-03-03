@@ -72,14 +72,6 @@ module SmartAnswer
         option :applying
         option :replacing
 
-        calculate :overseas_passports_embassies do
-          if calculator.fco_organisation
-            calculator.fco_organisation.offices_with_service 'Overseas Passports Service'
-          else
-            []
-          end
-        end
-
         calculate :general_action do |response|
           response =~ /^renewing_/ ? 'renewing' : response
         end

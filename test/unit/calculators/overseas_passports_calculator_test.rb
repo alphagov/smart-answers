@@ -294,6 +294,27 @@ module SmartAnswer
             refute @calculator.replacing?
           end
         end
+
+        context '#overseas_passports_embassies' do
+          setup do
+            @calculator = OverseasPassportsCalculator.new
+          end
+
+          should 'return the offices that offer an overseas passport service' do
+            world_office = stub('World Office')
+            organisation = stub.quacks_like(WorldwideOrganisation.new({}))
+            organisation.stubs(:offices_with_service).with('Overseas Passports Service').returns([world_office])
+            @calculator.stubs(fco_organisation: organisation)
+
+            assert_equal [world_office], @calculator.overseas_passports_embassies
+          end
+
+          should 'return an empty array when there is no fco organisation' do
+            @calculator.stubs(fco_organisation: nil)
+
+            assert_equal [], @calculator.overseas_passports_embassies
+          end
+        end
       end
     end
   end
