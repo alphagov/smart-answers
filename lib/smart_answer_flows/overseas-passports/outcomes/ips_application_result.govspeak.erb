@@ -20,15 +20,13 @@
                calculator: calculator,
                child_or_adult: child_or_adult,
                ips_number: ips_number,
-               ips_docs_number: ips_docs_number,
-               current_location: current_location
+               ips_docs_number: ips_docs_number
              }
   -%>
 
   <%= render partial: 'how_to_apply.govspeak.erb',
              locals: {
                calculator: calculator,
-               current_location: current_location,
                passport_data: passport_data,
                application_form: application_form,
                supporting_documents: supporting_documents,
@@ -57,7 +55,6 @@
   <%= render partial: 'getting_your_passport.govspeak.erb',
              locals: {
                calculator: calculator,
-               current_location: current_location,
                ips_number: ips_number
              }
   -%>

@@ -46,7 +46,7 @@
 
   ## How to apply
 
-  <% if %w(hong-kong).include?(current_location) && %w(renewing replacing).include?(general_action) %>
+  <% if %w(hong-kong).include?(calculator.current_location) && %w(renewing replacing).include?(general_action) %>
     ^Read the information in [Cantonese](/government/publications/how-to-apply-for-a-british-national-overseas-passport-from-hong-kong).^
   <% end %>
 
@@ -89,7 +89,7 @@
   <% when 'spain' %>
     ^You must include your full birth certificate (‘certificación literal’) with your application - a photocopy won’t be accepted.^
   <% end %>
-  <% if %w(hong-kong).include?(current_location) %>
+  <% if %w(hong-kong).include?(calculator.current_location) %>
     ^You must provide a colour photocopy of your Hong Kong Permanent Identity Card with your application if you’re applying for a British National (Overseas) passport.^
   <% end %>
 

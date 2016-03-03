@@ -42,8 +42,6 @@ module SmartAnswer
         option :gaza
         option :"jerusalem-or-westbank"
 
-        save_input_as :current_location
-
         permitted_next_nodes = [
           :renewing_replacing_applying?
         ]
