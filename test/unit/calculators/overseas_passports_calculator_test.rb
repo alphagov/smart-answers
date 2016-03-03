@@ -130,6 +130,53 @@ module SmartAnswer
           assert_nil @calculator.alternate_embassy_location
         end
       end
+
+      context '#world_location' do
+        setup do
+          @calculator = OverseasPassportsCalculator.new
+          @calculator.current_location = 'some location'
+        end
+
+        context 'given alternate_embassy_location is nil' do
+          setup do
+            @calculator.stubs(:alternate_embassy_location).returns(nil)
+          end
+
+          should 'return the world location for current_location' do
+            WorldLocation.stubs(:find).with(@calculator.current_location).returns('world_location')
+
+            assert_equal 'world_location', @calculator.world_location
+          end
+
+          should 'raise an InvalidResponse exception if the world location cannot be found for the current_location' do
+            WorldLocation.stubs(:find).with(@calculator.current_location).returns(nil)
+
+            assert_raise(InvalidResponse) do
+              @calculator.world_location
+            end
+          end
+        end
+
+        context 'given alternate_embassy_location is not nil' do
+          setup do
+            @calculator.stubs(:alternate_embassy_location).returns('another location')
+          end
+
+          should 'return the world location for alternate_embassy_location' do
+            WorldLocation.stubs(:find).with(@calculator.alternate_embassy_location).returns('world_location')
+
+            assert_equal 'world_location', @calculator.world_location
+          end
+
+          should 'raise an InvalidResponse exception if the world location cannot be found for the alternate_embassy_location' do
+            WorldLocation.stubs(:find).with(@calculator.alternate_embassy_location).returns(nil)
+
+            assert_raise(InvalidResponse) do
+              @calculator.world_location
+            end
+          end
+        end
+      end
     end
   end
 end
