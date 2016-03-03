@@ -193,7 +193,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           add_response 'adult'
           assert_state_variable :supporting_documents, 'ips_documents_group_1'
           assert_current_node :ips_application_result_online
-          assert_state_variable :embassy_address, nil
         end
       end
     end # Replacing
@@ -277,7 +276,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           should "give the application result" do
             add_response "spain"
             assert_current_node :ips_application_result_online
-            assert_state_variable :embassy_address, nil
             assert_state_variable :supporting_documents, 'ips_documents_group_1'
           end
         end
@@ -285,7 +283,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           should "give the application result with the UK documents" do
             add_response "united-kingdom"
             assert_current_node :ips_application_result_online
-            assert_state_variable :embassy_address, nil
             assert_state_variable :supporting_documents, 'ips_documents_group_3'
           end
         end

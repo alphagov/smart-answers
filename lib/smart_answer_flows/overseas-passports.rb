@@ -22,9 +22,6 @@ module SmartAnswer
           calculator.overseas_passports_embassies(response)
         end
 
-        calculate :embassy_address do
-          nil
-        end
         calculate :send_colour_photocopy_bulletpoint do
           nil
         end
