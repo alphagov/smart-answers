@@ -123,6 +123,22 @@ module SmartAnswer
           refute @calculator.apply_in_neighbouring_countries?
         end
       end
+
+      context '#alternate_embassy_location' do
+        setup do
+          @calculator = OverseasPassportsCalculator.new
+        end
+
+        should 'return a alt location if the location is in PassportAndEmbassyDataQuery::ALT_EMBASSIES' do
+          PassportAndEmbassyDataQuery::ALT_EMBASSIES.each do |location, alternate_location|
+            assert_equal @calculator.alternate_embassy_location(location), alternate_location
+          end
+        end
+
+        should 'return nil if the location is not in PassportAndEmbassyDataQuery::ALT_EMBASSIES' do
+          assert_nil @calculator.alternate_embassy_location('antarctica')
+        end
+      end
     end
   end
 end

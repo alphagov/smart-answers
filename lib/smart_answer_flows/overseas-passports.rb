@@ -15,7 +15,7 @@ module SmartAnswer
         end
 
         calculate :location do |response|
-          search_location = Calculators::PassportAndEmbassyDataQuery::ALT_EMBASSIES[response] || response
+          search_location = calculator.alternate_embassy_location(response) || response
 
           loc = WorldLocation.find(search_location)
           raise InvalidResponse unless loc

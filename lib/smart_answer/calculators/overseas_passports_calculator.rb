@@ -59,5 +59,9 @@ module SmartAnswer::Calculators
     def apply_in_neighbouring_countries?
       APPLY_IN_NEIGHBOURING_COUNTRIES.include?(current_location)
     end
+
+    def alternate_embassy_location(location = current_location)
+      PassportAndEmbassyDataQuery::ALT_EMBASSIES[location]
+    end
   end
 end
