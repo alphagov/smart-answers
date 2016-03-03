@@ -22,12 +22,9 @@ module SmartAnswer
           calculator.overseas_passports_embassies(response)
         end
 
-        calculate :send_colour_photocopy_bulletpoint do
-          nil
-        end
-
         next_node(permitted: :auto) do |response|
           calculator.current_location = response
+          
           if calculator.ineligible_country?
             outcome :cannot_apply
           elsif response == 'the-occupied-palestinian-territories'

@@ -479,7 +479,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'renewing_new'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_state_variable :send_colour_photocopy_bulletpoint, nil
     end
   end # nepal (IPS3 with custom phrases)
 
@@ -490,7 +489,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'replacing'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_state_variable :send_colour_photocopy_bulletpoint, nil
     end
   end # nepal (IPS1 with custom phrases)
 
