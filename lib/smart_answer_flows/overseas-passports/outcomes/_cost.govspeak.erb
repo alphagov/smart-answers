@@ -78,7 +78,7 @@
 
   <%= render partial: 'cost/child_or_adult_passport.govspeak.erb', locals: { ips_number: ips_number, child_or_adult: child_or_adult } %>
 
-  <% if data_query.cash_only_countries?(current_location) %>
+  <% if calculator.cash_only_country? %>
     You must pay in cash using local currency - the prices above will be converted according to the exchange rate when you apply.
   <% elsif pay_at_appointment_countries.include?(current_location) %>
     You must pay at your scheduled appointment using a debit or credit card. American Express, Diner’s Club and Discovery cards aren’t accepted.
