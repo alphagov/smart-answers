@@ -107,5 +107,10 @@ module SmartAnswer::Calculators
     def replacing?
       application_action == 'replacing'
     end
+
+    def overseas_passports_embassies(location = current_location)
+      organisation = fco_organisation(location)
+      organisation ? organisation.offices_with_service('Overseas Passports Service') : []
+    end
   end
 end
