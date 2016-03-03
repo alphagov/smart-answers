@@ -779,7 +779,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       worldwide_api_has_organisations_for_location('british-indian-ocean-territory', read_fixture_file('worldwide/british-indian-ocean-territory_organisations.json'))
       add_response 'british-indian-ocean-territory'
       assert_current_node :apply_in_neighbouring_country
-      assert_state_variable :title_output, 'British Indian Ocean Territory'
     end
   end # british-indian-ocean-territory
 
