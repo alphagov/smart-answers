@@ -86,5 +86,9 @@ module SmartAnswer::Calculators
     def cash_only_country?
       @data_query.cash_only_countries?(current_location)
     end
+
+    def renewing_country?
+      @data_query.renewing_countries?(current_location)
+    end
   end
 end
