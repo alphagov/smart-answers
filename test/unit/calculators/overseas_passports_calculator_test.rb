@@ -181,6 +181,18 @@ module SmartAnswer
             assert_nil @calculator.world_location('another location')
           end
         end
+
+        context '#world_location_name' do
+          setup do
+            @calculator = OverseasPassportsCalculator.new
+          end
+
+          should 'return the name of the world location associated with the location' do
+            @calculator.stubs(:world_location).with('location').returns(stub(name: 'world-location-name'))
+
+            assert_equal 'world-location-name', @calculator.world_location_name('location')
+          end
+        end
       end
     end
   end

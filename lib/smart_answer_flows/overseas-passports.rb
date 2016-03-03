@@ -202,11 +202,7 @@ module SmartAnswer
       ## No-op outcome.
       outcome :cannot_apply
 
-      outcome :apply_in_neighbouring_country do
-        precalculate :title_output do
-          location.name
-        end
-      end
+      outcome :apply_in_neighbouring_country
     end
   end
 end

@@ -69,5 +69,9 @@ module SmartAnswer::Calculators
 
       WorldLocation.find(search_location)
     end
+
+    def world_location_name(location = current_location)
+      world_location(location).name
+    end
   end
 end
