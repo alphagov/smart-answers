@@ -91,5 +91,21 @@ module SmartAnswer::Calculators
     def renewing_country?
       @data_query.renewing_countries?(current_location)
     end
+
+    def renewing_new?
+      application_action == 'renewing_new'
+    end
+
+    def renewing_old?
+      application_action == 'renewing_old'
+    end
+
+    def applying?
+      application_action == 'applying'
+    end
+
+    def replacing?
+      application_action == 'replacing'
+    end
   end
 end
