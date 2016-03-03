@@ -63,5 +63,11 @@ module SmartAnswer::Calculators
     def alternate_embassy_location(location = current_location)
       PassportAndEmbassyDataQuery::ALT_EMBASSIES[location]
     end
+
+    def world_location(location = current_location)
+      search_location = alternate_embassy_location(location) || location
+
+      WorldLocation.find(search_location)
+    end
   end
 end
