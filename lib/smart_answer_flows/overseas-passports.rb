@@ -19,11 +19,7 @@ module SmartAnswer
         end
 
         calculate :location do
-          search_location = calculator.alternate_embassy_location || calculator.current_location
-
-          loc = WorldLocation.find(search_location)
-          raise InvalidResponse unless loc
-          loc
+          raise InvalidResponse unless calculator.world_location
         end
 
         calculate :birth_location do
