@@ -22,9 +22,6 @@ module SmartAnswer
           calculator.world_location
         end
 
-        calculate :embassy_address do
-          nil
-        end
         calculate :send_colour_photocopy_bulletpoint do
           nil
         end
