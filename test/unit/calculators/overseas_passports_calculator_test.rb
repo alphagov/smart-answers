@@ -230,6 +230,70 @@ module SmartAnswer
             assert @calculator.renewing_country?
           end
         end
+
+        context '#renewing_new?' do
+          setup do
+            @calculator = OverseasPassportsCalculator.new
+          end
+
+          should 'be true when renewing a new passport' do
+            @calculator.application_action = 'renewing_new'
+            assert @calculator.renewing_new?
+          end
+
+          should 'be false when not renewing a new passport' do
+            @calculator.application_action = nil
+            refute @calculator.renewing_new?
+          end
+        end
+
+        context '#renewing_old?' do
+          setup do
+            @calculator = OverseasPassportsCalculator.new
+          end
+
+          should 'be true when renewing an old passport' do
+            @calculator.application_action = 'renewing_old'
+            assert @calculator.renewing_old?
+          end
+
+          should 'be false when not renewing an old passport' do
+            @calculator.application_action = nil
+            refute @calculator.renewing_old?
+          end
+        end
+
+        context '#applying?' do
+          setup do
+            @calculator = OverseasPassportsCalculator.new
+          end
+
+          should 'be true when applying for a new passport' do
+            @calculator.application_action = 'applying'
+            assert @calculator.applying?
+          end
+
+          should 'be false when not applying for a new passport' do
+            @calculator.application_action = nil
+            refute @calculator.applying?
+          end
+        end
+
+        context '#replacing?' do
+          setup do
+            @calculator = OverseasPassportsCalculator.new
+          end
+
+          should 'be true when replacing a passport' do
+            @calculator.application_action = 'replacing'
+            assert @calculator.replacing?
+          end
+
+          should 'be false when not replacing a new passport' do
+            @calculator.application_action = nil
+            refute @calculator.replacing?
+          end
+        end
       end
     end
   end

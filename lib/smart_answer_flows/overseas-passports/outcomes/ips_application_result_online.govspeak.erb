@@ -2,7 +2,7 @@
   ## How long it takes
 
   <%= render partial: 'how_long.govspeak.erb', locals: { optimistic_processing_time: optimistic_processing_time, waiting_time: waiting_time } %>
-  <% if calculator.application_action == "replacing" %>
+  <% if calculator.replacing? %>
     If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your declaration form.
 
   <% end %>
@@ -17,7 +17,7 @@
 
   ## Cost
 
-  <% if calculator.application_action == 'replacing' and ips_number == '1' and ips_docs_number == '1' %>
+  <% if calculator.replacing? and ips_number == '1' and ips_docs_number == '1' %>
     You’ll have to pay a fee for your passport and a courier fee of £9.70. The courier fee pays for your passport to be sent back to you securely.
 
     <% case child_or_adult %>
