@@ -72,7 +72,15 @@ module SmartAnswer
         option :"jerusalem-or-westbank"
 
         save_input_as :current_location
-        next_node :renewing_replacing_applying?
+
+        permitted_next_nodes = [
+          :renewing_replacing_applying?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.current_location = response
+
+          :renewing_replacing_applying?
+        end
       end
 
       # Q2
@@ -101,7 +109,7 @@ module SmartAnswer
         end
 
         calculate :passport_data do
-          data_query.find_passport_data(current_location)
+          data_query.find_passport_data(calculator.current_location)
         end
         calculate :application_type do
           passport_data['type']
