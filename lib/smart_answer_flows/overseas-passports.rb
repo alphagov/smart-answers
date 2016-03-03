@@ -22,6 +22,10 @@ module SmartAnswer
           raise InvalidResponse unless calculator.world_location
         end
 
+        calculate :overseas_passports_embassies do
+          calculator.overseas_passports_embassies
+        end
+
         calculate :embassy_address do
           nil
         end
@@ -71,14 +75,6 @@ module SmartAnswer
         option :renewing_old
         option :applying
         option :replacing
-
-        calculate :overseas_passports_embassies do
-          if calculator.fco_organisation
-            calculator.fco_organisation.offices_with_service 'Overseas Passports Service'
-          else
-            []
-          end
-        end
 
         calculate :general_action do |response|
           response =~ /^renewing_/ ? 'renewing' : response
