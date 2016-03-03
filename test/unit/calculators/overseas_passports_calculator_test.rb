@@ -223,6 +223,18 @@ module SmartAnswer
             assert @calculator.cash_only_country?
           end
         end
+
+        context '#renewing_country?' do
+          should 'delegate to the data query' do
+            data_query = PassportAndEmbassyDataQuery.new
+            data_query.stubs(:renewing_countries?).with('antarctica').returns(true)
+
+            @calculator = OverseasPassportsCalculator.new(data_query: data_query)
+            @calculator.current_location = 'antarctica'
+
+            assert @calculator.renewing_country?
+          end
+        end
       end
     end
   end
