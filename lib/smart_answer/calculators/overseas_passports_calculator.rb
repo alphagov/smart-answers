@@ -4,6 +4,10 @@ module SmartAnswer::Calculators
       kyrgyzstan tajikistan turkmenistan uzbekistan
     )
 
+    EXCLUDE_COUNTRIES = %w(
+      holy-see british-antarctic-territory
+    )
+
     UK_VISA_APPLICATION_CENTRE_COUNTRIES = %w(
       afghanistan algeria azerbaijan bangladesh belarus burundi burma cambodia
       china gaza georgia india indonesia kazakhstan kyrgyzstan laos lebanon
