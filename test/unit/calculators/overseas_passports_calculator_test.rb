@@ -193,6 +193,24 @@ module SmartAnswer
             assert_equal 'world-location-name', @calculator.world_location_name('location')
           end
         end
+
+        context '#fco_organisation' do
+          setup do
+            @calculator = OverseasPassportsCalculator.new
+          end
+
+          should 'return the fco organisation for the world location with the location' do
+            @calculator.stubs(:world_location).with('location').returns(stub(fco_organisation: 'fco-organisation'))
+
+            assert_equal 'fco-organisation', @calculator.fco_organisation('location')
+          end
+
+          should "return nil if the world location doesn't have an fco organisation" do
+            @calculator.stubs(:world_location).with('location').returns(stub(fco_organisation: nil))
+
+            assert_nil @calculator.fco_organisation('location')
+          end
+        end
       end
     end
   end

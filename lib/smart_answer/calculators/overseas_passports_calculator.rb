@@ -73,5 +73,9 @@ module SmartAnswer::Calculators
     def world_location_name(location = current_location)
       world_location(location).name
     end
+
+    def fco_organisation(location = current_location)
+      world_location(location).fco_organisation
+    end
   end
 end
