@@ -77,13 +77,9 @@ module SmartAnswer
 
         save_input_as :application_action
 
-        precalculate :organisation do
-          location.fco_organisation
-        end
-
         calculate :overseas_passports_embassies do
-          if organisation
-            organisation.offices_with_service 'Overseas Passports Service'
+          if calculator.fco_organisation
+            calculator.fco_organisation.offices_with_service 'Overseas Passports Service'
           else
             []
           end
