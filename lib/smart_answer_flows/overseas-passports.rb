@@ -10,12 +10,10 @@ module SmartAnswer
 
       # Q1
       country_select :which_country_are_you_in?, exclude_countries: Calculators::OverseasPassportsCalculator::EXCLUDE_COUNTRIES do
-        next_node_calculation :calculator do
-          Calculators::OverseasPassportsCalculator.new
-        end
-
-        next_node_calculation :current_location do |response|
+        next_node_calculation :calculator do |response|
+          calculator = Calculators::OverseasPassportsCalculator.new
           calculator.current_location = response
+          calculator
         end
 
         calculate :location do
@@ -49,8 +47,6 @@ module SmartAnswer
       multiple_choice :which_opt? do
         option :gaza
         option :"jerusalem-or-westbank"
-
-        save_input_as :current_location
 
         permitted_next_nodes = [
           :renewing_replacing_applying?

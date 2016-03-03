@@ -27,7 +27,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
     should "ask if you are renewing, replacing or applying for a passport" do
       assert_current_node :renewing_replacing_applying?
-      assert_state_variable :current_location, 'afghanistan'
     end
     context "answer applying" do
       setup do
@@ -87,7 +86,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
     should "ask if you are renewing, replacing or applying for a passport" do
       assert_current_node :renewing_replacing_applying?
-      assert_state_variable :current_location, 'iraq'
     end
     context "answer applying" do
       setup do
@@ -138,7 +136,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
     should "ask if you are renewing, replacing or applying for a passport" do
       assert_current_node :renewing_replacing_applying?
-      assert_state_variable :current_location, 'austria'
     end
     context "answer applying" do
       setup do
@@ -254,7 +251,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
     should "ask if you are renewing, replacing or applying for a passport" do
       assert_current_node :renewing_replacing_applying?
-      assert_state_variable :current_location, 'albania'
     end
     context "answer applying" do
       setup do
@@ -298,7 +294,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
     should "ask if you are renewing, replacing or applying for a passport" do
       assert_current_node :renewing_replacing_applying?
-      assert_state_variable :current_location, 'azerbaijan'
     end
     context "answer replacing adult passport" do
       setup do

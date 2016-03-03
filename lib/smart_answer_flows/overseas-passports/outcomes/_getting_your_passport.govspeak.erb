@@ -9,9 +9,9 @@
 <% passport_delivered_by_courier_countries = %w(laos) %>
 <% named_embassy_countries = %w(tajikistan turkmenistan uzbekistan) %>
 
-<% if passport_delivered_by_courier_countries.include?(current_location) %>
+<% if passport_delivered_by_courier_countries.include?(calculator.current_location) %>
   Your passport will be delivered to you by courier.
-<% elsif uk_visa_application_centre_countries.include?(current_location) %>
+<% elsif uk_visa_application_centre_countries.include?(calculator.current_location) %>
   Your passport will be delivered to the UK Visa Application Centre where you applied - you must collect it in person.
   <% if calculator.renewing_new? %>
     <%= render partial: 'getting_your_passport/contact.govspeak.erb' %>
@@ -19,11 +19,11 @@
   <% else %>
     <%= render partial: 'getting_your_passport/contact_and_id.govspeak.erb' %>
   <% end %>
-<% elsif uk_visa_application_centre_variant_countries.include?(current_location) %>
-  <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { current_location: current_location } %>
+<% elsif uk_visa_application_centre_variant_countries.include?(calculator.current_location) %>
+  <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { current_location: calculator.current_location } %>
   They will contact you with details of where to collect your passport when it arrives, using the contact details you provided on your form.
   <% if calculator.renewing_new? %>
-    <% if collect_with_photo_id_countries.include?(current_location) %>
+    <% if collect_with_photo_id_countries.include?(calculator.current_location) %>
 
       You must bring photo ID with you.
     <% else %>
@@ -32,13 +32,13 @@
   <% else %>
     <%= render partial: 'getting_your_passport/id_apply_renew_old_replace.govspeak.erb' %>
   <% end %>
-<% elsif named_embassy_countries.include?(current_location) %>
-  <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { current_location: current_location } %>
-<% elsif collect_in_person_countries.include?(current_location) %>
-  <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { current_location: current_location } %>
+<% elsif named_embassy_countries.include?(calculator.current_location) %>
+  <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { current_location: calculator.current_location } %>
+<% elsif collect_in_person_countries.include?(calculator.current_location) %>
+  <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { current_location: calculator.current_location } %>
   <%= render partial: 'getting_your_passport/contact_and_id.govspeak.erb' %>
-<% elsif collect_in_person_variant_countries.include?(current_location) %>
-  <% if %w(burundi).include?(current_location) %>
+<% elsif collect_in_person_variant_countries.include?(calculator.current_location) %>
+  <% if %w(burundi).include?(calculator.current_location) %>
     <% if calculator.renewing_new? %>
       Your passport will be delivered to the British Embassy Liaison Office in Bujumbura, Burundi - you must collect it in person.
 
@@ -46,14 +46,14 @@
 
       You must bring your existing passport as photo ID.
     <% else %>
-      <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { current_location: current_location } %>
+      <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { current_location: calculator.current_location } %>
       <%= render partial: 'getting_your_passport/contact_and_id.govspeak.erb' %>
     <% end %>
   <% else %>
-    <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { current_location: current_location } %>
+    <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { current_location: calculator.current_location } %>
   <% end %>
-<% elsif collect_in_person_renewing_new_variant_countries.include?(current_location) %>
-  <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { current_location: current_location } %>
+<% elsif collect_in_person_renewing_new_variant_countries.include?(calculator.current_location) %>
+  <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { current_location: calculator.current_location } %>
   <%= render partial: 'getting_your_passport/contact.govspeak.erb' %>
   <% if calculator.renewing_new? %>
     <%= render partial: 'getting_your_passport/id_renew_new.govspeak.erb' %>
