@@ -123,7 +123,7 @@
   <% else %>
     <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { current_location: calculator.current_location } %>
   <% end %>
-<% elsif general_action == 'renewing' and data_query.renewing_countries?(calculator.current_location) %>
+<% elsif general_action == 'renewing' and calculator.renewing_country? %>
   <% if passport_data['application_office'] %>
     <% unless calculator.book_appointment_online? %>
       <%= render partial: 'making_your_application/send_application_address.govspeak.erb', locals: { current_location: calculator.current_location } %>
