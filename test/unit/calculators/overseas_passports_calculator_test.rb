@@ -94,6 +94,24 @@ module SmartAnswer
           refute @calculator.ineligible_country?
         end
       end
+
+      context '#apply_in_neighbouring_countries?' do
+        setup do
+          @calculator = OverseasPassportsCalculator.new
+        end
+
+        should 'be true if current_location is in APPLY_IN_NEIGHBOURING_COUNTRIES' do
+          OverseasPassportsCalculator::APPLY_IN_NEIGHBOURING_COUNTRIES.each do |country|
+            @calculator.current_location = country
+            assert @calculator.apply_in_neighbouring_countries?
+          end
+        end
+
+        should 'be false if current_location is not in APPLY_IN_NEIGHBOURING_COUNTRIES' do
+          @calculator.current_location = 'antarctica'
+          refute @calculator.apply_in_neighbouring_countries?
+        end
+      end
     end
   end
 end
