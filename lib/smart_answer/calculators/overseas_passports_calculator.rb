@@ -37,6 +37,10 @@ module SmartAnswer::Calculators
     attr_accessor :current_location
     attr_accessor :birth_location
 
+    def initialize(data_query: nil)
+      @data_query = data_query || PassportAndEmbassyDataQuery.new
+    end
+
     def book_appointment_online?
       BOOK_APPOINTMENT_ONLINE_COUNTRIES.include?(current_location)
     end
@@ -77,6 +81,10 @@ module SmartAnswer::Calculators
 
     def fco_organisation
       world_location.fco_organisation
+    end
+
+    def cash_only_country?
+      @data_query.cash_only_countries?(current_location)
     end
   end
 end

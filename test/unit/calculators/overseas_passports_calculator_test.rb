@@ -206,6 +206,18 @@ module SmartAnswer
             assert_nil @calculator.fco_organisation
           end
         end
+
+        context '#cash_only_country?' do
+          should 'delegate to the data_query' do
+            data_query = PassportAndEmbassyDataQuery.new
+            data_query.stubs(:cash_only_countries?).with('antarctica').returns(true)
+
+            @calculator = OverseasPassportsCalculator.new(data_query: data_query)
+            @calculator.current_location = 'antarctica'
+
+            assert @calculator.cash_only_country?
+          end
+        end
       end
     end
   end
