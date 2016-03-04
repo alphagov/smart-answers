@@ -415,6 +415,25 @@ module SmartAnswer
             refute @calculator.ips_application?
           end
         end
+
+        context '#ips_number' do
+          setup do
+            @calculator = OverseasPassportsCalculator.new
+          end
+
+          should 'return the IPS number when application_type is an IPS application' do
+            OverseasPassportsCalculator::IPS_APPLICATION_TYPES.each do |type|
+              @calculator.stubs(:application_type).returns(type)
+              assert_equal type.last, @calculator.ips_number
+            end
+          end
+
+          should 'return nil when application_type is not an IPS application' do
+            @calculator.stubs(:application_type).returns('application_type_x')
+
+            assert_nil @calculator.ips_number
+          end
+        end
       end
     end
   end

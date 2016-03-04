@@ -59,10 +59,6 @@ module SmartAnswer
         option :applying
         option :replacing
 
-        calculate :ips_number do
-          calculator.application_type.split("_")[2] if calculator.ips_application?
-        end
-
         calculate :application_form do
           calculator.passport_data['app_form']
         end
