@@ -387,6 +387,25 @@ module SmartAnswer
             assert_nil @calculator.application_type
           end
         end
+
+        context '#ips_application?' do
+          setup do
+            @calculator = OverseasPassportsCalculator.new
+          end
+
+          should 'be true when application_type is in IPS_APPLICATION_TYPES' do
+            OverseasPassportsCalculator::IPS_APPLICATION_TYPES.each do |type|
+              @calculator.stubs(:application_type).returns(type)
+              assert @calculator.ips_application?
+            end
+          end
+
+          should 'be false when application_type is not in IPS_APPLICATION_TYPES' do
+            @calculator.stubs(:application_type).returns('application_type_x')
+
+            refute @calculator.ips_application?
+          end
+        end
       end
     end
   end

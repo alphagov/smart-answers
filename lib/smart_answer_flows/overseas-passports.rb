@@ -65,11 +65,8 @@ module SmartAnswer
         option :applying
         option :replacing
 
-        calculate :is_ips_application do
-          %w{ips_application_1 ips_application_2 ips_application_3}.include?(calculator.application_type)
-        end
         calculate :ips_number do
-          calculator.application_type.split("_")[2] if is_ips_application
+          calculator.application_type.split("_")[2] if calculator.ips_application?
         end
 
         calculate :application_form do
@@ -85,7 +82,7 @@ module SmartAnswer
         end
 
         calculate :ips_docs_number do
-          supporting_documents.split("_")[3] if is_ips_application
+          supporting_documents.split("_")[3] if calculator.ips_application?
         end
 
         calculate :ips_result_type do
@@ -129,7 +126,7 @@ module SmartAnswer
           :ips_application_result
         ]
         next_node(permitted: permitted_next_nodes) do
-          if is_ips_application
+          if calculator.ips_application?
             if calculator.applying? || calculator.renewing_old?
               :country_of_birth?
             elsif ips_result_type == :ips_application_result_online
@@ -162,7 +159,7 @@ module SmartAnswer
         next_node(permitted: permitted_next_nodes) do |response|
           calculator.birth_location = response
 
-          if is_ips_application
+          if calculator.ips_application?
             if ips_result_type == :ips_application_result_online
               :ips_application_result_online
             else
