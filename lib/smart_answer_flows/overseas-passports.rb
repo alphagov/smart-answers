@@ -65,12 +65,6 @@ module SmartAnswer
         option :applying
         option :replacing
 
-        data_query.passport_costs.each do |k, v|
-          calculate "costs_#{k}".to_sym do
-            v
-          end
-        end
-
         permitted_next_nodes = [
           :child_or_adult_passport?
         ]
