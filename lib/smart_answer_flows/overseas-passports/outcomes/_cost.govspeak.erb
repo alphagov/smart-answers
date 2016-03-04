@@ -31,7 +31,7 @@
     | Child passport | £53.00 | £62.70 |
   <% end %>
 
-  <%= render partial: 'cost/payment_instructions.govspeak.erb', locals: { ips_number: calculator.ips_number } %>
+  <%= render partial: 'cost/payment_instructions.govspeak.erb', locals: { calculator: calculator } %>
 
 <% elsif %w(tajikistan turkmenistan uzbekistan).include?(calculator.current_location) %>
   <% case calculator.current_location %>
@@ -49,9 +49,9 @@
     The courier fee pays for your passport to be sent securely to the British Embassy in Tashkent for you to collect.
   <% end %>
 
-  <%= render partial: 'cost/child_or_adult_passport.govspeak.erb', locals: { ips_number: calculator.ips_number, child_or_adult: calculator.child_or_adult } %>
+  <%= render partial: 'cost/child_or_adult_passport.govspeak.erb', locals: { calculator: calculator } %>
 
-  <%= render partial: 'cost/payment_instructions.govspeak.erb', locals: { ips_number: calculator.ips_number } %>
+  <%= render partial: 'cost/payment_instructions.govspeak.erb', locals: { calculator: calculator } %>
 <% else %>
   <%# TODO - this list does not match the one in OverseasPassportCalculator - have raised with FCO %>
   <% uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan bangladesh belarus burma cambodia china georgia india indonesia kazakhstan laos lebanon mauritania morocco nepal pakistan russia thailand ukraine venezuela vietnam western-sahara) %>
@@ -77,13 +77,13 @@
     <% end %>
   <% end %>
 
-  <%= render partial: 'cost/child_or_adult_passport.govspeak.erb', locals: { ips_number: calculator.ips_number, child_or_adult: calculator.child_or_adult } %>
+  <%= render partial: 'cost/child_or_adult_passport.govspeak.erb', locals: { calculator: calculator } %>
 
   <% if calculator.cash_only_country? %>
     You must pay in cash using local currency - the prices above will be converted according to the exchange rate when you apply.
   <% elsif pay_at_appointment_countries.include?(calculator.current_location) %>
     You must pay at your scheduled appointment using a debit or credit card. American Express, Diner’s Club and Discovery cards aren’t accepted.
   <% else %>
-    <%= render partial: 'cost/payment_instructions.govspeak.erb', locals: { ips_number: calculator.ips_number } %>
+    <%= render partial: 'cost/payment_instructions.govspeak.erb', locals: { calculator: calculator } %>
   <% end %>
 <% end %>
