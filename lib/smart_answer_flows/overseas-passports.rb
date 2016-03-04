@@ -65,10 +65,6 @@ module SmartAnswer
           end
         end
 
-        calculate :waiting_time do |response|
-          calculator.passport_data[response]
-        end
-
         calculate :optimistic_processing_time do
           calculator.passport_data['optimistic_processing_time?']
         end

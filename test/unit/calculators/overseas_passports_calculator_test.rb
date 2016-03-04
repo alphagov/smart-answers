@@ -416,6 +416,28 @@ module SmartAnswer
           end
         end
 
+        context '#waiting_time' do
+          setup do
+            @calculator = OverseasPassportsCalculator.new
+          end
+
+          should 'returns the waiting time for an application action from passport_data' do
+            actions = { 'renewing_new' => 1, 'renewing_old' => 2, 'applying' => 3, 'replacing' => 4 }
+            @calculator.stubs(:passport_data).returns(actions)
+
+            actions.each do |action, time|
+              @calculator.application_action = action
+              assert time, @calculator.waiting_time
+            end
+          end
+
+          should 'return nil when passport_data is nil' do
+            @calculator.stubs(:passport_data).returns(nil)
+
+            assert_nil @calculator.waiting_time
+          end
+        end
+
         context '#application_address' do
           setup do
             @calculator = OverseasPassportsCalculator.new
