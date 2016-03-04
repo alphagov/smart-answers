@@ -407,6 +407,30 @@ module SmartAnswer
           end
         end
 
+        context '#application_office?' do
+          setup do
+            @calculator = OverseasPassportsCalculator.new
+          end
+
+          should 'be true when the passport_data application_office is present' do
+            @calculator.stubs(:passport_data).returns('application_office' => 'some office')
+
+            assert @calculator.application_office?
+          end
+
+          should 'be false when the passport_data application_office is blank' do
+            @calculator.stubs(:passport_data).returns('application_office' => nil)
+
+            refute @calculator.application_office?
+          end
+
+          should 'return nil when passport data is nil' do
+            @calculator.stubs(:passport_data).returns(nil)
+
+            refute @calculator.application_office?
+          end
+        end
+
         context '#optimistic_processing_time' do
           setup do
             @calculator = OverseasPassportsCalculator.new
