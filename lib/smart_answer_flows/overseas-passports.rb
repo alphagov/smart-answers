@@ -59,16 +59,8 @@ module SmartAnswer
         option :applying
         option :replacing
 
-        calculate :supporting_documents do
-          calculator.passport_data['group']
-        end
-
         calculate :application_address do
           calculator.passport_data['address']
-        end
-
-        calculate :ips_docs_number do
-          supporting_documents.split("_")[3] if calculator.ips_application?
         end
 
         calculate :ips_result_type do
@@ -121,14 +113,6 @@ module SmartAnswer
 
       # Q4
       country_select :country_of_birth?, include_uk: true, exclude_countries: Calculators::OverseasPassportsCalculator::EXCLUDE_COUNTRIES do
-        calculate :supporting_documents do |response|
-          response == 'united-kingdom' ? supporting_documents : calculator.application_group(response)
-        end
-
-        calculate :ips_docs_number do
-          supporting_documents.split("_")[3]
-        end
-
         next_node(permitted: :auto) do
           calculator.birth_location = response
 
@@ -143,10 +127,18 @@ module SmartAnswer
       end
 
       ## Online IPS Application Result
-      outcome :ips_application_result_online
+      outcome :ips_application_result_online do
+        precalculate :ips_docs_number do
+          calculator.supporting_documents.split("_")[3] if calculator.ips_application?
+        end
+      end
 
       ## IPS Application Result
-      outcome :ips_application_result
+      outcome :ips_application_result do
+        precalculate :ips_docs_number do
+          calculator.supporting_documents.split("_")[3] if calculator.ips_application?
+        end
+      end
 
       ## No-op outcome.
       outcome :cannot_apply

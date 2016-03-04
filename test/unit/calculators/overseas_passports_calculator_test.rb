@@ -435,6 +435,35 @@ module SmartAnswer
           end
         end
 
+        context '#supporting_documents' do
+          setup do
+            @calculator = OverseasPassportsCalculator.new
+          end
+
+          should 'return application_group for the current_location when birth_location is blank' do
+            @calculator.birth_location = nil
+            @calculator.current_location = 'current location'
+            @calculator.stubs(:application_group).with('current location').returns('supporting docs')
+
+            assert_equal 'supporting docs', @calculator.supporting_documents
+          end
+
+          should 'return application_group for current_location when birth location is united-kingdom' do
+            @calculator.birth_location = 'united kingdom'
+            @calculator.current_location = 'current location'
+            @calculator.stubs(:application_group).with('united kingdom').returns('supporting docs')
+
+            assert_equal 'supporting docs', @calculator.supporting_documents
+          end
+
+          should 'return application_group for birth_location when birth_location is present and not united-kingdom' do
+            @calculator.birth_location = 'birth location'
+            @calculator.current_location = 'current location'
+            @calculator.stubs(:application_group).with('birth location').returns('supporting docs')
+
+            assert_equal 'supporting docs', @calculator.supporting_documents
+          end
+        end
 
         context '#ips_application?' do
           setup do

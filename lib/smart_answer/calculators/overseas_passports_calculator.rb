@@ -143,6 +143,14 @@ module SmartAnswer::Calculators
       data ? data['group'] : nil
     end
 
+    def supporting_documents
+      if birth_location.blank? || birth_location == 'united_kingdom'
+        application_group(current_location)
+      else
+        application_group(birth_location)
+      end
+    end
+
     def ips_application?
       IPS_APPLICATION_TYPES.include?(application_type)
     end
