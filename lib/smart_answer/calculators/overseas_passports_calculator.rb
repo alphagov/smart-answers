@@ -175,6 +175,11 @@ module SmartAnswer::Calculators
       data && data['online_application']
     end
 
+    def application_office?
+      data = passport_data
+      data && data['application_office']
+    end
+
     def ips_number
       application_type.split("_")[2] if ips_application?
     end

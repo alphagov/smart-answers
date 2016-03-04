@@ -1,6 +1,6 @@
 <% if calculator.uk_visa_application_centre? %>
   <% if calculator.renewing_new? %>
-    <% if calculator.passport_data['application_office'] %>
+    <% if calculator.application_office? %>
       <% if %w(laos vietnam).include?(calculator.current_location) %>
         ## Making your application
 
@@ -57,7 +57,7 @@
       <% end %>
     <% end %>
   <% else %>
-    <% if calculator.passport_data['application_office'] %>
+    <% if calculator.application_office? %>
       <% if %w(laos vietnam).include?(calculator.current_location) %>
         ## Making your application
 
@@ -124,7 +124,7 @@
     <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { calculator: calculator } %>
   <% end %>
 <% elsif calculator.general_action == 'renewing' and calculator.renewing_country? %>
-  <% if calculator.passport_data['application_office'] %>
+  <% if calculator.application_office? %>
     <% unless calculator.book_appointment_online? %>
       <%= render partial: 'making_your_application/send_application_address.govspeak.erb', locals: { calculator: calculator } %>
     <% else %>
@@ -151,7 +151,7 @@
     <% end %>
   <% end %>
 <% else %>
-  <% if calculator.passport_data['application_office'] %>
+  <% if calculator.application_office? %>
     <% unless calculator.book_appointment_online? %>
       <%= render partial: 'making_your_application/send_application_address.govspeak.erb', locals: { calculator: calculator } %>
     <% else %>
