@@ -8,37 +8,16 @@ module SmartAnswer
 
       data_query = Calculators::PassportAndEmbassyDataQuery.new
 
-      exclude_countries = %w(holy-see british-antarctic-territory)
-
       # Q1
-      country_select :which_country_are_you_in?, exclude_countries: exclude_countries do
-        save_input_as :current_location
+      country_select :which_country_are_you_in?, exclude_countries: Calculators::OverseasPassportsCalculator::EXCLUDE_COUNTRIES do
+        next_node_calculation :calculator do |response|
+          calculator = Calculators::OverseasPassportsCalculator.new
+          calculator.current_location = response
+          calculator
+        end
 
         calculate :location do
-          loc = WorldLocation.find(current_location)
-          if Calculators::PassportAndEmbassyDataQuery::ALT_EMBASSIES.has_key?(current_location)
-            loc = WorldLocation.find(Calculators::PassportAndEmbassyDataQuery::ALT_EMBASSIES[current_location])
-          end
-          raise InvalidResponse unless loc
-          loc
-        end
-
-        calculate :birth_location do
-          nil
-        end
-        calculate :embassy_address do
-          nil
-        end
-        calculate :send_colour_photocopy_bulletpoint do
-          nil
-        end
-
-        next_node_calculation :ineligible_country do |response|
-          %w{iran libya syria yemen}.include?(response)
-        end
-
-        next_node_calculation :apply_in_neighbouring_countries do |response|
-          %w(british-indian-ocean-territory north-korea south-georgia-and-south-sandwich-islands).include?(response)
+          calculator.world_location
         end
 
         permitted_next_nodes = [
@@ -48,11 +27,11 @@ module SmartAnswer
           :renewing_replacing_applying?
         ]
         next_node(permitted: permitted_next_nodes) do |response|
-          if ineligible_country
+          if calculator.ineligible_country?
             :cannot_apply
           elsif response == 'the-occupied-palestinian-territories'
             :which_opt?
-          elsif apply_in_neighbouring_countries
+          elsif calculator.apply_in_neighbouring_countries?
             :apply_in_neighbouring_country
           else
             :renewing_replacing_applying?
@@ -65,8 +44,14 @@ module SmartAnswer
         option :gaza
         option :"jerusalem-or-westbank"
 
-        save_input_as :current_location
-        next_node :renewing_replacing_applying?
+        permitted_next_nodes = [
+          :renewing_replacing_applying?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.current_location = response
+
+          :renewing_replacing_applying?
+        end
       end
 
       # Q2
@@ -76,26 +61,8 @@ module SmartAnswer
         option :applying
         option :replacing
 
-        save_input_as :application_action
-
-        precalculate :organisation do
-          location.fco_organisation
-        end
-
-        calculate :overseas_passports_embassies do
-          if organisation
-            organisation.offices_with_service 'Overseas Passports Service'
-          else
-            []
-          end
-        end
-
-        calculate :general_action do |response|
-          response =~ /^renewing_/ ? 'renewing' : response
-        end
-
         calculate :passport_data do
-          data_query.find_passport_data(current_location)
+          data_query.find_passport_data(calculator.current_location)
         end
         calculate :application_type do
           passport_data['type']
@@ -133,15 +100,22 @@ module SmartAnswer
           end
         end
 
-        calculate :waiting_time do
-          passport_data[application_action]
+        calculate :waiting_time do |response|
+          passport_data[response]
         end
 
         calculate :optimistic_processing_time do
           passport_data['optimistic_processing_time?']
         end
 
-        next_node :child_or_adult_passport?
+        permitted_next_nodes = [
+          :child_or_adult_passport?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.application_action = response
+
+          :child_or_adult_passport?
+        end
       end
 
       # Q3
@@ -158,7 +132,7 @@ module SmartAnswer
         ]
         next_node(permitted: permitted_next_nodes) do
           if is_ips_application
-            if %w(applying renewing_old).include?(application_action)
+            if calculator.applying? || calculator.renewing_old?
               :country_of_birth?
             elsif ips_result_type == :ips_application_result_online
               :ips_application_result_online
@@ -170,9 +144,7 @@ module SmartAnswer
       end
 
       # Q4
-      country_select :country_of_birth?, include_uk: true, exclude_countries: exclude_countries do
-        save_input_as :birth_location
-
+      country_select :country_of_birth?, include_uk: true, exclude_countries: Calculators::OverseasPassportsCalculator::EXCLUDE_COUNTRIES do
         calculate :application_group do |response|
           data_query.find_passport_data(response)['group']
         end
@@ -189,7 +161,9 @@ module SmartAnswer
           :ips_application_result_online,
           :ips_application_result
         ]
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.birth_location = response
+
           if is_ips_application
             if ips_result_type == :ips_application_result_online
               :ips_application_result_online
@@ -201,31 +175,15 @@ module SmartAnswer
       end
 
       ## Online IPS Application Result
-      outcome :ips_application_result_online do
-        precalculate :birth_location do
-          birth_location
-        end
-      end
+      outcome :ips_application_result_online
 
       ## IPS Application Result
-      outcome :ips_application_result do
-        precalculate :data_query do
-          data_query
-        end
-
-        precalculate :birth_location do
-          birth_location
-        end
-      end
+      outcome :ips_application_result
 
       ## No-op outcome.
       outcome :cannot_apply
 
-      outcome :apply_in_neighbouring_country do
-        precalculate :title_output do
-          location.name
-        end
-      end
+      outcome :apply_in_neighbouring_country
     end
   end
 end

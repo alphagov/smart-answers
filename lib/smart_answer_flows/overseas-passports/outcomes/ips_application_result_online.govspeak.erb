@@ -2,7 +2,7 @@
   ## How long it takes
 
   <%= render partial: 'how_long.govspeak.erb', locals: { optimistic_processing_time: optimistic_processing_time, waiting_time: waiting_time } %>
-  <% if application_action == "replacing" %>
+  <% if calculator.replacing? %>
     If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your declaration form.
 
   <% end %>
@@ -17,7 +17,7 @@
 
   ## Cost
 
-  <% if application_action == 'replacing' and ips_number == '1' and ips_docs_number == '1' %>
+  <% if calculator.replacing? and ips_number == '1' and ips_docs_number == '1' %>
     You’ll have to pay a fee for your passport and a courier fee of £9.70. The courier fee pays for your passport to be sent back to you securely.
 
     <% case child_or_adult %>
@@ -46,13 +46,13 @@
 
   ## How to apply
 
-  <% if %w(hong-kong).include?(current_location) && %w(renewing replacing).include?(general_action) %>
+  <% if %w(hong-kong).include?(calculator.current_location) && %w(renewing replacing).include?(calculator.general_action) %>
     ^Read the information in [Cantonese](/government/publications/how-to-apply-for-a-british-national-overseas-passport-from-hong-kong).^
   <% end %>
 
   You must apply and pay for your passport online.
 
-  <% case general_action %>
+  <% case calculator.general_action %>
   <% when 'applying' %>
     Before you start you need:
 
@@ -83,13 +83,13 @@
   <% when '3' %>
     Read the [guidance notes](/government/publications/help-completing-the-online-passport-application-from-outside-the-uk) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-supporting-documents-group-3) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
   <% end %>
-  <% case birth_location %>
+  <% case calculator.birth_location %>
   <% when 'south-africa' %>
     ^You must include your Vault birth certificate with your application – a photocopy won’t be accepted.^
   <% when 'spain' %>
     ^You must include your full birth certificate (‘certificación literal’) with your application - a photocopy won’t be accepted.^
   <% end %>
-  <% if %w(hong-kong).include?(current_location) %>
+  <% if %w(hong-kong).include?(calculator.current_location) %>
     ^You must provide a colour photocopy of your Hong Kong Permanent Identity Card with your application if you’re applying for a British National (Overseas) passport.^
   <% end %>
 
