@@ -29,9 +29,9 @@
         <% end %>
       <% end %>
       <% unless calculator.book_appointment_online? %>
-        <%= render partial: 'making_your_application/send_application_address.govspeak.erb', locals: { current_location: calculator.current_location } %>
+        <%= render partial: 'making_your_application/send_application_address.govspeak.erb', locals: { calculator: calculator } %>
       <% else %>
-        <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { current_location: calculator.current_location } %>
+        <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { calculator: calculator } %>
       <% end %>
     <% else %>
       <% if %w(burundi gaza kyrgyzstan).include?(calculator.current_location) %>
@@ -53,7 +53,7 @@
       <% unless calculator.book_appointment_online? %>
         <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
       <% else %>
-        <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { current_location: calculator.current_location } %>
+        <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { calculator: calculator } %>
       <% end %>
     <% end %>
   <% else %>
@@ -82,9 +82,9 @@
         <% end %>
       <% end %>
       <% unless calculator.book_appointment_online? %>
-        <%= render partial: 'making_your_application/send_application_address.govspeak.erb', locals: { current_location: calculator.current_location } %>
+        <%= render partial: 'making_your_application/send_application_address.govspeak.erb', locals: { calculator: calculator } %>
       <% else %>
-        <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { current_location: calculator.current_location } %>
+        <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { calculator: calculator } %>
       <% end %>
     <% else %>
       <% if %w(burundi gaza kyrgyzstan).include?(calculator.current_location) %>
@@ -104,7 +104,7 @@
       <% unless calculator.book_appointment_online? %>
         <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
       <% else %>
-        <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { current_location: calculator.current_location } %>
+        <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { calculator: calculator } %>
       <% end %>
     <% end %>
   <% end %>
@@ -119,16 +119,16 @@
   You need to book an appointment - contact the embassy to arrange one.
 
   <% unless calculator.book_appointment_online? %>
-    <%= render partial: 'making_your_application/send_application_address.govspeak.erb', locals: { current_location: calculator.current_location } %>
+    <%= render partial: 'making_your_application/send_application_address.govspeak.erb', locals: { calculator: calculator } %>
   <% else %>
-    <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { current_location: calculator.current_location } %>
+    <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { calculator: calculator } %>
   <% end %>
 <% elsif calculator.general_action == 'renewing' and calculator.renewing_country? %>
   <% if calculator.passport_data['application_office'] %>
     <% unless calculator.book_appointment_online? %>
-      <%= render partial: 'making_your_application/send_application_address.govspeak.erb', locals: { current_location: calculator.current_location } %>
+      <%= render partial: 'making_your_application/send_application_address.govspeak.erb', locals: { calculator: calculator } %>
     <% else %>
-      <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { current_location: calculator.current_location } %>
+      <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { calculator: calculator } %>
     <% end %>
   <% else %>
     <% if calculator.non_uk_visa_application_with_colour_pictures? %>
@@ -141,21 +141,21 @@
         <%= render partial: 'making_your_application/book_appointment_by_email_with_3_dates.govspeak.erb' %>
       <% end %>
     <% else %>
-      <%= render partial: 'making_your_application/send_application_ips.govspeak.erb', locals: { ips_number: calculator.ips_number } %>
+      <%= render partial: 'making_your_application/send_application_ips.govspeak.erb', locals: { calculator: calculator } %>
       <%= render partial: 'making_your_application/renewing_new_renewing_old.govspeak.erb' %>
     <% end %>
     <% unless calculator.book_appointment_online? %>
       <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
     <% else %>
-      <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { current_location: calculator.current_location } %>
+      <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { calculator: calculator } %>
     <% end %>
   <% end %>
 <% else %>
   <% if calculator.passport_data['application_office'] %>
     <% unless calculator.book_appointment_online? %>
-      <%= render partial: 'making_your_application/send_application_address.govspeak.erb', locals: { current_location: calculator.current_location } %>
+      <%= render partial: 'making_your_application/send_application_address.govspeak.erb', locals: { calculator: calculator } %>
     <% else %>
-      <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { current_location: calculator.current_location } %>
+      <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { calculator: calculator } %>
     <% end %>
   <% else %>
     <% if calculator.non_uk_visa_application_with_colour_pictures? %>
@@ -167,7 +167,7 @@
         <%= render partial: 'making_your_application/book_appointment_by_email_with_3_dates.govspeak.erb' %>
       <% end %>
     <% else %>
-      <%= render partial: 'making_your_application/send_application_ips.govspeak.erb', locals: { ips_number: calculator.ips_number } %>
+      <%= render partial: 'making_your_application/send_application_ips.govspeak.erb', locals: { calculator: calculator } %>
     <% end %>
     <% if %w(st-helena-ascension-and-tristan-da-cunha).include?(calculator.current_location) %>
       <% if calculator.renewing_new? %>
@@ -179,7 +179,7 @@
         <% unless calculator.book_appointment_online? %>
           <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
         <% else %>
-          <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { current_location: calculator.current_location } %>
+          <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { calculator: calculator } %>
         <% end %>
       <% end %>
     <% end %>

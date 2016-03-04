@@ -20,7 +20,7 @@
     <%= render partial: 'getting_your_passport/contact_and_id.govspeak.erb' %>
   <% end %>
 <% elsif uk_visa_application_centre_variant_countries.include?(calculator.current_location) %>
-  <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { current_location: calculator.current_location } %>
+  <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { calculator: calculator } %>
   They will contact you with details of where to collect your passport when it arrives, using the contact details you provided on your form.
   <% if calculator.renewing_new? %>
     <% if collect_with_photo_id_countries.include?(calculator.current_location) %>
@@ -33,9 +33,9 @@
     <%= render partial: 'getting_your_passport/id_apply_renew_old_replace.govspeak.erb' %>
   <% end %>
 <% elsif named_embassy_countries.include?(calculator.current_location) %>
-  <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { current_location: calculator.current_location } %>
+  <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { calculator: calculator } %>
 <% elsif collect_in_person_countries.include?(calculator.current_location) %>
-  <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { current_location: calculator.current_location } %>
+  <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { calculator: calculator } %>
   <%= render partial: 'getting_your_passport/contact_and_id.govspeak.erb' %>
 <% elsif collect_in_person_variant_countries.include?(calculator.current_location) %>
   <% if %w(burundi).include?(calculator.current_location) %>
@@ -46,14 +46,14 @@
 
       You must bring your existing passport as photo ID.
     <% else %>
-      <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { current_location: calculator.current_location } %>
+      <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { calculator: calculator } %>
       <%= render partial: 'getting_your_passport/contact_and_id.govspeak.erb' %>
     <% end %>
   <% else %>
-    <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { current_location: calculator.current_location } %>
+    <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { calculator: calculator } %>
   <% end %>
 <% elsif collect_in_person_renewing_new_variant_countries.include?(calculator.current_location) %>
-  <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { current_location: calculator.current_location } %>
+  <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { calculator: calculator } %>
   <%= render partial: 'getting_your_passport/contact.govspeak.erb' %>
   <% if calculator.renewing_new? %>
     <%= render partial: 'getting_your_passport/id_renew_new.govspeak.erb' %>
@@ -61,5 +61,5 @@
     <%= render partial: 'getting_your_passport/id_apply_renew_old_replace.govspeak.erb' %>
   <% end %>
 <% else %>
-  <%= render partial: 'getting_your_passport/by_ips_number.govspeak.erb', locals: { ips_number: calculator.ips_number } %>
+  <%= render partial: 'getting_your_passport/by_ips_number.govspeak.erb', locals: { calculator: calculator } %>
 <% end %>

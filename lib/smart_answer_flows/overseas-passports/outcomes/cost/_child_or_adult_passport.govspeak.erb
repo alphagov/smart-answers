@@ -1,6 +1,6 @@
-<% case ips_number %>
+<% case calculator.ips_number %>
 <% when '1' %>
-  <% case child_or_adult %>
+  <% case calculator.child_or_adult %>
   <% when 'adult' %>
     | Passport type | Passport fee | Total to pay (including courier fee) |
     |---------------|--------------|--------------------------------------|
@@ -12,7 +12,7 @@
     | Child passport | £53.00 | £72.86 |
   <% end %>
 <% when '2' %>
-  <% case child_or_adult %>
+  <% case calculator.child_or_adult %>
   <% when 'adult' %>
     | Passport type | Passport fee | Total to pay (including courier fee) |
     |---------------|--------------|--------------------------------------|
@@ -24,7 +24,7 @@
     | Child passport | £53.00 | £77.72 |
   <% end %>
 <% when '3' %>
-  <% case child_or_adult %>
+  <% case calculator.child_or_adult %>
   <% when 'adult' %>
     | Passport type | Passport fee | Total to pay (including courier fee) |
     |---------------|--------------|--------------------------------------|
