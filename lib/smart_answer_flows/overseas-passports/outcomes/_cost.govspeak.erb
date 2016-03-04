@@ -3,7 +3,7 @@
 <% if %w(st-helena-ascension-and-tristan-da-cunha).include?(calculator.current_location) %>
   You’ll have to pay a fee for your passport.
 
-  <% case child_or_adult %>
+  <% case calculator.child_or_adult %>
   <% when 'adult' %>
     | Passport type | Passport fee |
     |---------------|--------------|
@@ -19,7 +19,7 @@
 <% elsif calculator.replacing? and calculator.ips_number == '1' and ips_docs_number == '1' %>
   You’ll have to pay a fee for your passport and a courier fee of £9.70. The courier fee pays for your passport to be sent back to you securely.
 
-  <% case child_or_adult %>
+  <% case calculator.child_or_adult %>
   <% when 'adult' %>
     | Passport type | Passport fee | Total to pay (including courier fee) |
     |---------------|--------------|--------------------------------------|
@@ -49,7 +49,7 @@
     The courier fee pays for your passport to be sent securely to the British Embassy in Tashkent for you to collect.
   <% end %>
 
-  <%= render partial: 'cost/child_or_adult_passport.govspeak.erb', locals: { ips_number: calculator.ips_number, child_or_adult: child_or_adult } %>
+  <%= render partial: 'cost/child_or_adult_passport.govspeak.erb', locals: { ips_number: calculator.ips_number, child_or_adult: calculator.child_or_adult } %>
 
   <%= render partial: 'cost/payment_instructions.govspeak.erb', locals: { ips_number: calculator.ips_number } %>
 <% else %>
@@ -77,7 +77,7 @@
     <% end %>
   <% end %>
 
-  <%= render partial: 'cost/child_or_adult_passport.govspeak.erb', locals: { ips_number: calculator.ips_number, child_or_adult: child_or_adult } %>
+  <%= render partial: 'cost/child_or_adult_passport.govspeak.erb', locals: { ips_number: calculator.ips_number, child_or_adult: calculator.child_or_adult } %>
 
   <% if calculator.cash_only_country? %>
     You must pay in cash using local currency - the prices above will be converted according to the exchange rate when you apply.

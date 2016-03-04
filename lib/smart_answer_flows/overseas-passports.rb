@@ -114,14 +114,14 @@ module SmartAnswer
         option :adult
         option :child
 
-        save_input_as :child_or_adult
-
         permitted_next_nodes = [
           :country_of_birth?,
           :ips_application_result_online,
           :ips_application_result
         ]
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: permitted_next_nodes) do |response|
+          calculator.child_or_adult = response
+
           if calculator.ips_application?
             if calculator.applying? || calculator.renewing_old?
               :country_of_birth?
