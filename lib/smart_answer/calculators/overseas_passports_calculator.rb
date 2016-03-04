@@ -160,6 +160,11 @@ module SmartAnswer::Calculators
       IPS_APPLICATION_TYPES.include?(application_type)
     end
 
+    def ips_online_application?
+      data = passport_data
+      data && data['online_application']
+    end
+
     def ips_number
       application_type.split("_")[2] if ips_application?
     end
