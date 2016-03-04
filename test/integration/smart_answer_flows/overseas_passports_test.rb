@@ -152,10 +152,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
             add_response 'greece'
           end
 
-          should "use the greek document group in the results" do
-            assert_state_variable :supporting_documents, 'ips_documents_group_2'
-          end
-
           should "give the result" do
             assert_current_node :ips_application_result_online
           end
@@ -182,7 +178,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       context "answer adult" do
         should "give the result and be done" do
           add_response 'adult'
-          assert_state_variable :supporting_documents, 'ips_documents_group_1'
           assert_current_node :ips_application_result_online
         end
       end
@@ -264,14 +259,12 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           should "give the application result" do
             add_response "spain"
             assert_current_node :ips_application_result_online
-            assert_state_variable :supporting_documents, 'ips_documents_group_1'
           end
         end
         context "answer UK" do
-          should "give the application result with the UK documents" do
+          should "give the application result" do
             add_response "united-kingdom"
             assert_current_node :ips_application_result_online
-            assert_state_variable :supporting_documents, 'ips_documents_group_3'
           end
         end
       end
