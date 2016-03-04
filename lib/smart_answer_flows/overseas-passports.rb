@@ -24,7 +24,7 @@ module SmartAnswer
 
         next_node(permitted: :auto) do |response|
           calculator.current_location = response
-          
+
           if calculator.ineligible_country?
             outcome :cannot_apply
           elsif response == 'the-occupied-palestinian-territories'
@@ -59,11 +59,8 @@ module SmartAnswer
         option :applying
         option :replacing
 
-        calculate :is_ips_application do
-          %w{ips_application_1 ips_application_2 ips_application_3}.include?(calculator.application_type)
-        end
         calculate :ips_number do
-          calculator.application_type.split("_")[2] if is_ips_application
+          calculator.application_type.split("_")[2] if calculator.ips_application?
         end
 
         calculate :application_form do
@@ -79,7 +76,7 @@ module SmartAnswer
         end
 
         calculate :ips_docs_number do
-          supporting_documents.split("_")[3] if is_ips_application
+          supporting_documents.split("_")[3] if calculator.ips_application?
         end
 
         calculate :ips_result_type do
@@ -118,7 +115,7 @@ module SmartAnswer
         save_input_as :child_or_adult
 
         next_node(permitted: :auto) do
-          if is_ips_application
+          if calculator.ips_application?
             if calculator.applying? || calculator.renewing_old?
               question :country_of_birth?
             elsif ips_result_type == :ips_application_result_online
@@ -147,7 +144,7 @@ module SmartAnswer
         next_node(permitted: :auto) do
           calculator.birth_location = response
 
-          if is_ips_application
+          if calculator.ips_application?
             if ips_result_type == :ips_application_result_online
               outcome :ips_application_result_online
             else
