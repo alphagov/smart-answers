@@ -416,6 +416,26 @@ module SmartAnswer
           end
         end
 
+        context '#application_group' do
+          setup do
+            @calculator = OverseasPassportsCalculator.new
+          end
+
+          should 'returns group from passport_data for the given location' do
+            application_group = 'application_group_data'
+            @calculator.stubs(:passport_data).with('test-location').returns('group' => 'application_group_data')
+
+            assert_equal application_group, @calculator.application_group('test-location')
+          end
+
+          should 'return nil when passport_data is nil' do
+            @calculator.stubs(:passport_data).with('test-location').returns(nil)
+
+            assert_nil @calculator.application_group('test-location')
+          end
+        end
+
+
         context '#ips_application?' do
           setup do
             @calculator = OverseasPassportsCalculator.new
