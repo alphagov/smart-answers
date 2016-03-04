@@ -138,7 +138,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         add_response 'applying'
       end
       should "ask if the passport is for an adult or a child" do
-        assert_state_variable :ips_number, "1"
         assert_current_node :child_or_adult_passport?
       end
       context "answer adult" do
@@ -253,7 +252,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       end
       should "ask if the passport is for an adult or a child" do
         assert_current_node :child_or_adult_passport?
-        assert_state_variable :ips_number, "1"
       end
       context "answer adult" do
         setup do
@@ -293,7 +291,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       setup do
         add_response 'replacing'
         add_response 'adult'
-        assert_state_variable :ips_number, "3"
       end
       should "give the IPS application result" do
         assert_current_node :ips_application_result

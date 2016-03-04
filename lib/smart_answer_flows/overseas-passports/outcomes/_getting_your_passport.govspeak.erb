@@ -61,5 +61,5 @@
     <%= render partial: 'getting_your_passport/id_apply_renew_old_replace.govspeak.erb' %>
   <% end %>
 <% else %>
-  <%= render partial: 'getting_your_passport/by_ips_number.govspeak.erb', locals: { ips_number: ips_number } %>
+  <%= render partial: 'getting_your_passport/by_ips_number.govspeak.erb', locals: { ips_number: calculator.ips_number } %>
 <% end %>

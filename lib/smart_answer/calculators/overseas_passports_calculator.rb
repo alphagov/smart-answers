@@ -135,5 +135,9 @@ module SmartAnswer::Calculators
     def ips_application?
       IPS_APPLICATION_TYPES.include?(application_type)
     end
+
+    def ips_number
+      application_type.split("_")[2] if ips_application?
+    end
   end
 end
