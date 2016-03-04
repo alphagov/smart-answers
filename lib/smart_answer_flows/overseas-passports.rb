@@ -59,10 +59,6 @@ module SmartAnswer
         option :applying
         option :replacing
 
-        calculate :application_form do
-          calculator.passport_data['app_form']
-        end
-
         calculate :supporting_documents do
           calculator.passport_data['group']
         end

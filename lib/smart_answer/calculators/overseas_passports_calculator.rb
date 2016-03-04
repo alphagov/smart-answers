@@ -133,6 +133,11 @@ module SmartAnswer::Calculators
       data ? data['type'] : nil
     end
 
+    def application_form
+      data = passport_data
+      data ? data['app_form'] : nil
+    end
+
     def ips_application?
       IPS_APPLICATION_TYPES.include?(application_type)
     end

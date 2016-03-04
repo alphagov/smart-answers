@@ -13,7 +13,7 @@
   <% if %w(pakistan).include?(calculator.current_location) %>
     5. You should fill in the [Applying for a passport from Pakistan form](https://www.gov.uk/government/publications/applying-for-a-passport-from-pakistan) if you are submitting supporting documents from the UK.
   <% end %>
-  <% case application_form %>
+  <% case calculator.application_form %>
   <% when 'hmpo_1_application_form' %>
     ^[Application form - applying for a British passport overseas](/government/publications/applying-for-a-passport-from-outside-the-uk-application-form)^
   <% when 'hmpo_2_application_form' %>
