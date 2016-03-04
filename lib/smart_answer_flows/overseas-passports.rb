@@ -65,14 +65,11 @@ module SmartAnswer
         option :applying
         option :replacing
 
-        calculate :application_type do
-          calculator.passport_data['type']
-        end
         calculate :is_ips_application do
-          %w{ips_application_1 ips_application_2 ips_application_3}.include?(application_type)
+          %w{ips_application_1 ips_application_2 ips_application_3}.include?(calculator.application_type)
         end
         calculate :ips_number do
-          application_type.split("_")[2] if is_ips_application
+          calculator.application_type.split("_")[2] if is_ips_application
         end
 
         calculate :application_form do
