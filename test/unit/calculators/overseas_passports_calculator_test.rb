@@ -388,6 +388,25 @@ module SmartAnswer
           end
         end
 
+        context '#application_form' do
+          setup do
+            @calculator = OverseasPassportsCalculator.new
+          end
+
+          should 'returns app_form from passport_data' do
+            application_form = 'application_form_1'
+            @calculator.stubs(:passport_data).returns('app_form' => 'application_form_1')
+
+            assert_equal application_form, @calculator.application_form
+          end
+
+          should 'return nil when passport_data is nil' do
+            @calculator.stubs(:passport_data).returns(nil)
+
+            assert_nil @calculator.application_form
+          end
+        end
+
         context '#ips_application?' do
           setup do
             @calculator = OverseasPassportsCalculator.new
