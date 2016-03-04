@@ -6,8 +6,6 @@ module SmartAnswer
       status :published
       satisfies_need "100131"
 
-      data_query = Calculators::PassportAndEmbassyDataQuery.new
-
       # Q1
       country_select :which_country_are_you_in?, exclude_countries: Calculators::OverseasPassportsCalculator::EXCLUDE_COUNTRIES do
         next_node_calculation :calculator do
