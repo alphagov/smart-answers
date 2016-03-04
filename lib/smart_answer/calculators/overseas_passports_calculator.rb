@@ -143,6 +143,11 @@ module SmartAnswer::Calculators
       data ? data['group'] : nil
     end
 
+    def application_address
+      data = passport_data
+      data ? data['address'] : nil
+    end
+
     def supporting_documents
       if birth_location.blank? || birth_location == 'united_kingdom'
         application_group(current_location)

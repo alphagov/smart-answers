@@ -513,7 +513,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_state_variable :application_address, 'durham'
       assert_match /Millburngate House/, outcome_body
     end
   end # Kenya (custom phrases)
@@ -526,7 +525,6 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_state_variable :application_address, 'durham'
       assert_match /Millburngate House/, outcome_body
     end
   end # Kenya (custom phrases)
