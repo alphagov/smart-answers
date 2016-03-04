@@ -127,18 +127,10 @@ module SmartAnswer
       end
 
       ## Online IPS Application Result
-      outcome :ips_application_result_online do
-        precalculate :ips_docs_number do
-          calculator.supporting_documents.split("_")[3] if calculator.ips_application?
-        end
-      end
+      outcome :ips_application_result_online
 
       ## IPS Application Result
-      outcome :ips_application_result do
-        precalculate :ips_docs_number do
-          calculator.supporting_documents.split("_")[3] if calculator.ips_application?
-        end
-      end
+      outcome :ips_application_result
 
       ## No-op outcome.
       outcome :cannot_apply

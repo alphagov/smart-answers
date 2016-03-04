@@ -17,7 +17,7 @@
 
   ## Cost
 
-  <% if calculator.replacing? and calculator.ips_number == '1' and ips_docs_number == '1' %>
+  <% if calculator.replacing? and calculator.ips_number == '1' and calculator.ips_docs_number == '1' %>
     You’ll have to pay a fee for your passport and a courier fee of £9.70. The courier fee pays for your passport to be sent back to you securely.
 
     <% case calculator.child_or_adult %>
@@ -75,7 +75,7 @@
     - a MasterCard, Visa, Visa Electron, Visa Debit or Maestro (UK Domestic) card - Maestro (International) cards aren’t accepted
   <% end %>
 
-  <% case ips_docs_number %>
+  <% case calculator.ips_docs_number %>
   <% when '1' %>
     Read the [guidance notes](/government/publications/help-completing-the-online-passport-application-from-outside-the-uk) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-applications-supporting-documents-guidance) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
   <% when '2' %>

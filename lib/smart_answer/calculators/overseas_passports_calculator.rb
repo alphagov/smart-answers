@@ -158,5 +158,9 @@ module SmartAnswer::Calculators
     def ips_number
       application_type.split("_")[2] if ips_application?
     end
+
+    def ips_docs_number
+      supporting_documents.split("_")[3] if ips_application?
+    end
   end
 end
