@@ -120,5 +120,10 @@ module SmartAnswer::Calculators
     def passport_data(location = current_location)
       @data_query.find_passport_data(location)
     end
+
+    def application_type
+      data = passport_data
+      data ? data['type'] : nil
+    end
   end
 end

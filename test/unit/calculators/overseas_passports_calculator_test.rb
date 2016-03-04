@@ -377,6 +377,25 @@ module SmartAnswer
             end
           end
         end
+
+        context '#application_type' do
+          setup do
+            @calculator = OverseasPassportsCalculator.new
+          end
+
+          should 'returns type from passport_data' do
+            application_type = 'application_type_x'
+            @calculator.stubs(:passport_data).returns('type' => 'application_type_x')
+
+            assert_equal application_type, @calculator.application_type
+          end
+
+          should 'return nil when passport_data is nil' do
+            @calculator.stubs(:passport_data).returns(nil)
+
+            assert_nil @calculator.application_type
+          end
+        end
       end
     end
   end
