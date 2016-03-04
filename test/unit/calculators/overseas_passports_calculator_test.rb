@@ -416,6 +416,24 @@ module SmartAnswer
           end
         end
 
+        context '#optimistic_processing_time' do
+          setup do
+            @calculator = OverseasPassportsCalculator.new
+          end
+
+          should 'return the optimistic_processing_time? from passport_data' do
+            @calculator.stubs(:passport_data).returns('optimistic_processing_time?' => 10)
+
+            assert_equal 10, @calculator.optimistic_processing_time
+          end
+
+          should 'return nil when passport data is nil' do
+            @calculator.stubs(:passport_data).returns(nil)
+
+            assert_nil @calculator.optimistic_processing_time
+          end
+        end
+
         context '#waiting_time' do
           setup do
             @calculator = OverseasPassportsCalculator.new
