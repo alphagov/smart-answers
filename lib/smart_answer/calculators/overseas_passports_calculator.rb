@@ -143,6 +143,11 @@ module SmartAnswer::Calculators
       data ? data['group'] : nil
     end
 
+    def optimistic_processing_time
+      data = passport_data
+      data ? data['optimistic_processing_time?'] : nil # pretty weird hash key
+    end
+
     def application_address
       data = passport_data
       data ? data['address'] : nil
