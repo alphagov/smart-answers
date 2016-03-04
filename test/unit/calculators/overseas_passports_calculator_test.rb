@@ -503,6 +503,30 @@ module SmartAnswer
           end
         end
 
+        context '#ips_online_application?' do
+          setup do
+            @calculator = OverseasPassportsCalculator.new
+          end
+
+          should 'be true when passport_data online_application is present' do
+            @calculator.stubs(:passport_data).returns('online_application' => 'apply online')
+
+            assert @calculator.ips_online_application?
+          end
+
+          should 'be false when passport_data is blank' do
+            @calculator.stubs(:passport_data).returns(nil)
+
+            refute @calculator.ips_online_application?
+          end
+
+          should 'be false when passport_data online_application is blank' do
+            @calculator.stubs(:passport_data).returns('online_application' => nil)
+
+            refute @calculator.ips_online_application?
+          end
+        end
+
         context '#ips_number' do
           setup do
             @calculator = OverseasPassportsCalculator.new

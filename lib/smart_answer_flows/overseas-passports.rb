@@ -59,10 +59,6 @@ module SmartAnswer
         option :applying
         option :replacing
 
-        calculate :ips_result_type do
-          calculator.passport_data['online_application'] ? :ips_application_result_online : :ips_application_result
-        end
-
         data_query.passport_costs.each do |k, v|
           calculate "costs_#{k}".to_sym do
             v
@@ -98,7 +94,7 @@ module SmartAnswer
           if calculator.ips_application?
             if calculator.applying? || calculator.renewing_old?
               question :country_of_birth?
-            elsif ips_result_type == :ips_application_result_online
+            elsif calculator.ips_online_application?
               outcome :ips_application_result_online
             else
               outcome :ips_application_result
@@ -113,7 +109,7 @@ module SmartAnswer
           calculator.birth_location = response
 
           if calculator.ips_application?
-            if ips_result_type == :ips_application_result_online
+            if calculator.ips_online_application?
               outcome :ips_application_result_online
             else
               outcome :ips_application_result
