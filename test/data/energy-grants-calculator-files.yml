@@ -9,7 +9,7 @@ lib/smart_answer_flows/energy-grants-calculator/outcomes/_header_boilers_and_ins
 lib/smart_answer_flows/energy-grants-calculator/outcomes/_header_heating.govspeak.erb: 88074867368be04f0cf2b73ed48555d1
 lib/smart_answer_flows/energy-grants-calculator/outcomes/_header_windows_and_doors.govspeak.erb: bc19c54dae7edcefa68af714f51c076c
 lib/smart_answer_flows/energy-grants-calculator/outcomes/_help_and_advice.govspeak.erb: c1ab52acfca58c09c7aae5631d30f440
-lib/smart_answer_flows/energy-grants-calculator/outcomes/_help_and_advice_body.govspeak.erb: 99323433a2534be87284b2688883b618
+lib/smart_answer_flows/energy-grants-calculator/outcomes/_help_and_advice_body.govspeak.erb: 8968e82b9200fda21ac007cc32c0607a
 lib/smart_answer_flows/energy-grants-calculator/outcomes/_may_qualify_for_affordable_warmth_obligation.govspeak.erb: 6aa8f277addf6cf6762c04f87ce394f3
 lib/smart_answer_flows/energy-grants-calculator/outcomes/_opt_better_heating_controls.govspeak.erb: 452fb619021106cba35e02932aa95182
 lib/smart_answer_flows/energy-grants-calculator/outcomes/_opt_biomass_boilers_heaters.govspeak.erb: 5e0f0fd9ae6f7a85861b47076d5f03a5

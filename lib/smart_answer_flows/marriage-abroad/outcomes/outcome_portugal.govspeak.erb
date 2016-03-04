@@ -1,8 +1,8 @@
 <% content_for :title do %>
-  <% if sex_of_your_partner == 'opposite_sex' %>
-    Marriage in <%= country_name_lowercase_prefix %>
+  <% if calculator.partner_is_opposite_sex? %>
+    Marriage in <%= calculator.country_name_lowercase_prefix %>
   <% else %>
-    Same-sex marriage in <%= country_name_lowercase_prefix %>
+    Same-sex marriage in <%= calculator.country_name_lowercase_prefix %>
   <% end %>
 <% end %>
 

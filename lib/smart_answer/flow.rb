@@ -23,7 +23,10 @@ module SmartAnswer
     end
 
     def use_shared_logic(filename)
-      eval File.read(Rails.root.join('lib', 'smart_answer_flows', 'shared_logic', "#{filename}.rb")), binding
+      path = Rails.root.join('lib', 'smart_answer_flows', 'shared_logic', "#{filename}.rb")
+      # rubocop:disable Lint/Eval
+      eval File.read(path), binding, path.to_s
+      # rubocop:enable Lint/Eval
     end
 
     def name(name = nil)

@@ -8,9 +8,9 @@
   :responses:
   - uk-full-time
   - apply-loans-grants
-  :next_node: :what_year?
+  :next_node: :what_year_full_time?
   :outcome_node: false
-- :current_node: :what_year?
+- :current_node: :what_year_full_time?
   :responses:
   - uk-full-time
   - apply-loans-grants
@@ -33,88 +33,88 @@
   - new-student
   :next_node: :outcome_uk_ft_1516_new
   :outcome_node: true
-- :current_node: :what_year?
+- :current_node: :what_year_full_time?
   :responses:
   - uk-full-time
   - apply-loans-grants
-  - year-1415
+  - year-1617
   :next_node: :continuing_student?
   :outcome_node: false
 - :current_node: :continuing_student?
   :responses:
   - uk-full-time
   - apply-loans-grants
-  - year-1415
+  - year-1617
   - continuing-student
-  :next_node: :outcome_uk_ft_1415_continuing
+  :next_node: :outcome_uk_ft_1617_continuing
   :outcome_node: true
 - :current_node: :continuing_student?
   :responses:
   - uk-full-time
   - apply-loans-grants
-  - year-1415
+  - year-1617
   - new-student
-  :next_node: :outcome_uk_ft_1415_new
+  :next_node: :outcome_uk_ft_1617_new
   :outcome_node: true
 - :current_node: :form_needed_for_1?
   :responses:
   - uk-full-time
   - proof-identity
-  :next_node: :what_year?
+  :next_node: :what_year_full_time?
   :outcome_node: false
-- :current_node: :what_year?
+- :current_node: :what_year_full_time?
   :responses:
   - uk-full-time
   - proof-identity
   - year-1516
   :next_node: :outcome_proof_identity_1516
   :outcome_node: true
-- :current_node: :what_year?
+- :current_node: :what_year_full_time?
   :responses:
   - uk-full-time
   - proof-identity
-  - year-1415
-  :next_node: :outcome_proof_identity_1415
+  - year-1617
+  :next_node: :outcome_proof_identity_1617
   :outcome_node: true
 - :current_node: :form_needed_for_1?
   :responses:
   - uk-full-time
   - income-details
-  :next_node: :what_year?
+  :next_node: :what_year_full_time?
   :outcome_node: false
-- :current_node: :what_year?
+- :current_node: :what_year_full_time?
   :responses:
   - uk-full-time
   - income-details
   - year-1516
   :next_node: :outcome_parent_partner_1516
   :outcome_node: true
-- :current_node: :what_year?
+- :current_node: :what_year_full_time?
   :responses:
   - uk-full-time
   - income-details
-  - year-1415
-  :next_node: :outcome_parent_partner_1415
+  - year-1617
+  :next_node: :outcome_parent_partner_1617
   :outcome_node: true
 - :current_node: :form_needed_for_1?
   :responses:
   - uk-full-time
   - apply-dsa
-  :next_node: :what_year?
+  :next_node: :what_year_full_time?
   :outcome_node: false
-- :current_node: :what_year?
+- :current_node: :what_year_full_time?
   :responses:
   - uk-full-time
   - apply-dsa
   - year-1516
   :next_node: :outcome_dsa_1516
   :outcome_node: true
-- :current_node: :what_year?
+- :current_node: :what_year_full_time?
   :responses:
   - uk-full-time
   - apply-dsa
-  - year-1415
-  :next_node: :outcome_dsa_1415
+  - year-1617
+  :next_node: :outcome_dsa_1617
   :outcome_node: true
 - :current_node: :form_needed_for_1?
   :responses:
@@ -126,21 +126,21 @@
   :responses:
   - uk-full-time
   - apply-ccg
-  :next_node: :what_year?
+  :next_node: :what_year_full_time?
   :outcome_node: false
-- :current_node: :what_year?
+- :current_node: :what_year_full_time?
   :responses:
   - uk-full-time
   - apply-ccg
   - year-1516
   :next_node: :outcome_ccg_1516
   :outcome_node: true
-- :current_node: :what_year?
+- :current_node: :what_year_full_time?
   :responses:
   - uk-full-time
   - apply-ccg
-  - year-1415
-  :next_node: :outcome_ccg_1415
+  - year-1617
+  :next_node: :outcome_ccg_1617
   :outcome_node: true
 - :current_node: :form_needed_for_1?
   :responses:
@@ -163,9 +163,9 @@
   :responses:
   - uk-part-time
   - apply-loans-grants
-  :next_node: :what_year?
+  :next_node: :what_year_part_time?
   :outcome_node: false
-- :current_node: :what_year?
+- :current_node: :what_year_part_time?
   :responses:
   - uk-part-time
   - apply-loans-grants
@@ -224,7 +224,7 @@
   - course-start-after-01092012
   :next_node: :outcome_uk_pt_1516_new
   :outcome_node: true
-- :current_node: :what_year?
+- :current_node: :what_year_part_time?
   :responses:
   - uk-part-time
   - apply-loans-grants
@@ -287,16 +287,16 @@
   :responses:
   - uk-part-time
   - proof-identity
-  :next_node: :what_year?
+  :next_node: :what_year_part_time?
   :outcome_node: false
-- :current_node: :what_year?
+- :current_node: :what_year_part_time?
   :responses:
   - uk-part-time
   - proof-identity
   - year-1516
   :next_node: :outcome_proof_identity_1516
   :outcome_node: true
-- :current_node: :what_year?
+- :current_node: :what_year_part_time?
   :responses:
   - uk-part-time
   - proof-identity
@@ -307,16 +307,16 @@
   :responses:
   - uk-part-time
   - apply-dsa
-  :next_node: :what_year?
+  :next_node: :what_year_part_time?
   :outcome_node: false
-- :current_node: :what_year?
+- :current_node: :what_year_part_time?
   :responses:
   - uk-part-time
   - apply-dsa
   - year-1516
   :next_node: :outcome_dsa_1516_pt
   :outcome_node: true
-- :current_node: :what_year?
+- :current_node: :what_year_part_time?
   :responses:
   - uk-part-time
   - apply-dsa
@@ -332,9 +332,9 @@
 - :current_node: :type_of_student?
   :responses:
   - eu-full-time
-  :next_node: :what_year?
+  :next_node: :what_year_full_time?
   :outcome_node: false
-- :current_node: :what_year?
+- :current_node: :what_year_full_time?
   :responses:
   - eu-full-time
   - year-1516
@@ -354,32 +354,32 @@
   - new-student
   :next_node: :outcome_eu_ft_1516_new
   :outcome_node: true
-- :current_node: :what_year?
+- :current_node: :what_year_full_time?
   :responses:
   - eu-full-time
-  - year-1415
+  - year-1617
   :next_node: :continuing_student?
   :outcome_node: false
 - :current_node: :continuing_student?
   :responses:
   - eu-full-time
-  - year-1415
+  - year-1617
   - continuing-student
-  :next_node: :outcome_eu_ft_1415_continuing
+  :next_node: :outcome_eu_ft_1617_continuing
   :outcome_node: true
 - :current_node: :continuing_student?
   :responses:
   - eu-full-time
-  - year-1415
+  - year-1617
   - new-student
-  :next_node: :outcome_eu_ft_1415_new
+  :next_node: :outcome_eu_ft_1617_new
   :outcome_node: true
 - :current_node: :type_of_student?
   :responses:
   - eu-part-time
-  :next_node: :what_year?
+  :next_node: :what_year_part_time?
   :outcome_node: false
-- :current_node: :what_year?
+- :current_node: :what_year_part_time?
   :responses:
   - eu-part-time
   - year-1516
@@ -399,7 +399,7 @@
   - new-student
   :next_node: :outcome_eu_pt_1516_new
   :outcome_node: true
-- :current_node: :what_year?
+- :current_node: :what_year_part_time?
   :responses:
   - eu-part-time
   - year-1415

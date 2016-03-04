@@ -17,7 +17,8 @@ module SmartAnswer
         permitted_next_nodes = [
           :form_needed_for_1?,
           :form_needed_for_2?,
-          :what_year?
+          :what_year_full_time?,
+          :what_year_part_time?
         ]
         next_node(permitted: permitted_next_nodes) do |response|
           case response
@@ -25,8 +26,10 @@ module SmartAnswer
             :form_needed_for_1?
           when 'uk-part-time'
             :form_needed_for_2?
-          when 'eu-full-time', 'eu-part-time'
-            :what_year?
+          when 'eu-full-time'
+            :what_year_full_time?
+          when 'eu-part-time'
+            :what_year_part_time?
           end
         end
       end
@@ -47,7 +50,7 @@ module SmartAnswer
           :outcome_ccg_expenses,
           :outcome_dsa_expenses,
           :outcome_travel,
-          :what_year?
+          :what_year_full_time?
         ]
         next_node(permitted: permitted_next_nodes) do |response|
           case response
@@ -58,7 +61,7 @@ module SmartAnswer
           when 'travel-grant'
             :outcome_travel
           else
-            :what_year?
+            :what_year_full_time?
           end
         end
       end
@@ -73,19 +76,77 @@ module SmartAnswer
 
         permitted_next_nodes = [
           :outcome_dsa_expenses,
-          :what_year?
+          :what_year_part_time?
         ]
         next_node(permitted: permitted_next_nodes) do |response|
           case response
           when 'dsa-expenses'
             :outcome_dsa_expenses
           else
-            :what_year?
+            :what_year_part_time?
           end
         end
       end
 
-      multiple_choice :what_year? do
+      multiple_choice :what_year_full_time? do
+        option 'year-1617'
+        option 'year-1516'
+
+        save_input_as :what_year
+
+        permitted_next_nodes = [
+          :continuing_student?,
+          :outcome_ccg_1516,
+          :outcome_ccg_1617,
+          :outcome_dsa_1516,
+          :outcome_dsa_1617,
+          :outcome_parent_partner_1516,
+          :outcome_parent_partner_1617,
+          :outcome_proof_identity_1516,
+          :outcome_proof_identity_1617
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case type_of_student
+          when 'eu-full-time'
+            :continuing_student?
+          when 'uk-full-time'
+            case form_needed_for_1
+            when 'proof-identity'
+              case response
+              when 'year-1516'
+                :outcome_proof_identity_1516
+              when 'year-1617'
+                :outcome_proof_identity_1617
+              end
+            when 'income-details'
+              case response
+              when 'year-1516'
+                :outcome_parent_partner_1516
+              when 'year-1617'
+                :outcome_parent_partner_1617
+              end
+            when 'apply-dsa'
+              case response
+              when 'year-1516'
+                :outcome_dsa_1516
+              when 'year-1617'
+                :outcome_dsa_1617
+              end
+            when 'apply-ccg'
+              case response
+              when 'year-1516'
+                :outcome_ccg_1516
+              when 'year-1617'
+                :outcome_ccg_1617
+              end
+            when 'apply-loans-grants'
+              :continuing_student?
+            end
+          end
+        end
+      end
+
+      multiple_choice :what_year_part_time? do
         option 'year-1516'
         option 'year-1415'
 
@@ -93,54 +154,15 @@ module SmartAnswer
 
         permitted_next_nodes = [
           :continuing_student?,
-          :outcome_ccg_1415,
-          :outcome_ccg_1516,
-          :outcome_dsa_1415,
           :outcome_dsa_1415_pt,
-          :outcome_dsa_1516,
           :outcome_dsa_1516_pt,
-          :outcome_parent_partner_1415,
-          :outcome_parent_partner_1516,
           :outcome_proof_identity_1415,
           :outcome_proof_identity_1516
         ]
         next_node(permitted: permitted_next_nodes) do |response|
           case type_of_student
-          when 'eu-full-time', 'eu-part-time'
+          when 'eu-part-time'
             :continuing_student?
-          when 'uk-full-time'
-            case form_needed_for_1
-            when 'proof-identity'
-              case response
-              when 'year-1415'
-                :outcome_proof_identity_1415
-              when 'year-1516'
-                :outcome_proof_identity_1516
-              end
-            when 'income-details'
-              case response
-              when 'year-1415'
-                :outcome_parent_partner_1415
-              when 'year-1516'
-                :outcome_parent_partner_1516
-              end
-            when 'apply-dsa'
-              case response
-              when 'year-1415'
-                :outcome_dsa_1415
-              when 'year-1516'
-                :outcome_dsa_1516
-              end
-            when 'apply-ccg'
-              case response
-              when 'year-1415'
-                :outcome_ccg_1415
-              when 'year-1516'
-                :outcome_ccg_1516
-              end
-            when 'apply-loans-grants'
-              :continuing_student?
-            end
           when 'uk-part-time'
             case form_needed_for_2
             when 'proof-identity'
@@ -171,37 +193,37 @@ module SmartAnswer
         save_input_as :continuing_student
 
         permitted_next_nodes = [
-          :outcome_eu_ft_1415_continuing,
-          :outcome_eu_ft_1415_new,
           :outcome_eu_ft_1516_continuing,
           :outcome_eu_ft_1516_new,
+          :outcome_eu_ft_1617_continuing,
+          :outcome_eu_ft_1617_new,
           :outcome_eu_pt_1415_continuing,
           :outcome_eu_pt_1415_new,
           :outcome_eu_pt_1516_continuing,
           :outcome_eu_pt_1516_new,
-          :outcome_uk_ft_1415_continuing,
-          :outcome_uk_ft_1415_new,
           :outcome_uk_ft_1516_continuing,
           :outcome_uk_ft_1516_new,
+          :outcome_uk_ft_1617_continuing,
+          :outcome_uk_ft_1617_new,
           :pt_course_start?
         ]
         next_node(permitted: permitted_next_nodes) do |response|
           case type_of_student
           when 'eu-full-time'
             case what_year
-            when 'year-1415'
-              case response
-              when 'continuing-student'
-                :outcome_eu_ft_1415_continuing
-              when 'new-student'
-                :outcome_eu_ft_1415_new
-              end
             when 'year-1516'
               case response
               when 'continuing-student'
                 :outcome_eu_ft_1516_continuing
               when 'new-student'
                 :outcome_eu_ft_1516_new
+              end
+            when 'year-1617'
+              case response
+              when 'continuing-student'
+                :outcome_eu_ft_1617_continuing
+              when 'new-student'
+                :outcome_eu_ft_1617_new
               end
             end
           when 'eu-part-time'
@@ -224,19 +246,19 @@ module SmartAnswer
           when 'uk-full-time'
             if form_needed_for_1 == 'apply-loans-grants'
               case what_year
-              when 'year-1415'
-                case response
-                when 'continuing-student'
-                  :outcome_uk_ft_1415_continuing
-                when 'new-student'
-                  :outcome_uk_ft_1415_new
-                end
               when 'year-1516'
                 case response
                 when 'continuing-student'
                   :outcome_uk_ft_1516_continuing
                 when 'new-student'
                   :outcome_uk_ft_1516_new
+                end
+              when 'year-1617'
+                case response
+                when 'continuing-student'
+                  :outcome_uk_ft_1617_continuing
+                when 'new-student'
+                  :outcome_uk_ft_1617_new
                 end
               end
             end
@@ -294,31 +316,32 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_ccg_1415
       outcome :outcome_ccg_1516
+      outcome :outcome_ccg_1617
       outcome :outcome_ccg_expenses
-      outcome :outcome_dsa_1415
       outcome :outcome_dsa_1415_pt
       outcome :outcome_dsa_1516
       outcome :outcome_dsa_1516_pt
+      outcome :outcome_dsa_1617
       outcome :outcome_dsa_expenses
-      outcome :outcome_eu_ft_1415_continuing
-      outcome :outcome_eu_ft_1415_new
       outcome :outcome_eu_ft_1516_continuing
       outcome :outcome_eu_ft_1516_new
+      outcome :outcome_eu_ft_1617_continuing
+      outcome :outcome_eu_ft_1617_new
       outcome :outcome_eu_pt_1415_continuing
       outcome :outcome_eu_pt_1415_new
       outcome :outcome_eu_pt_1516_continuing
       outcome :outcome_eu_pt_1516_new
-      outcome :outcome_parent_partner_1415
       outcome :outcome_parent_partner_1516
+      outcome :outcome_parent_partner_1617
       outcome :outcome_proof_identity_1415
       outcome :outcome_proof_identity_1516
+      outcome :outcome_proof_identity_1617
       outcome :outcome_travel
-      outcome :outcome_uk_ft_1415_continuing
-      outcome :outcome_uk_ft_1415_new
       outcome :outcome_uk_ft_1516_continuing
       outcome :outcome_uk_ft_1516_new
+      outcome :outcome_uk_ft_1617_continuing
+      outcome :outcome_uk_ft_1617_new
       outcome :outcome_uk_pt_1415_continuing
       outcome :outcome_uk_pt_1415_grant
       outcome :outcome_uk_pt_1415_new

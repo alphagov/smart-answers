@@ -10,8 +10,9 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
 
   setup do
     setup_for_testing_flow SmartAnswer::LandlordImmigrationCheckFlow
-    imminence_has_areas_for_postcode("WC2B%206SE", [])
-    imminence_has_areas_for_postcode("B1%201PW", [{ slug: "birmingham-city-council" }])
+
+    imminence_has_areas_for_postcode("PA3%202SW",   [{ slug: 'renfrewshire-council', country_name: 'Scotland' }])
+    imminence_has_areas_for_postcode("B1%201PW", [{ slug: "birmingham-city-council", country_name: 'England' }])
   end
 
   should "start by asking first question" do
@@ -19,7 +20,7 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
   end
 
   should "lead to outcome_check_not_needed" do
-    add_response "WC2B 6SE"
+    add_response "PA3 2SW"
     assert_current_node :outcome_check_not_needed
   end
 

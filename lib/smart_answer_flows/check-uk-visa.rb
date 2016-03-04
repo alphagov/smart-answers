@@ -69,6 +69,7 @@ module SmartAnswer
           :outcome_medical_y,
           :outcome_no_visa_needed,
           :outcome_school_n,
+          :outcome_school_waiver,
           :outcome_school_y,
           :outcome_standard_visit,
           :outcome_taiwan_exception,
@@ -81,46 +82,68 @@ module SmartAnswer
 
           if calculator.study_visit? || calculator.work_visit?
             next :staying_for_how_long?
-          elsif calculator.diplomatic_visit?
+          end
+
+          if calculator.diplomatic_visit?
             next :outcome_diplomatic_business
-          elsif calculator.medical_visit? || calculator.tourism_visit? || calculator.school_visit?
+          end
+
+          if calculator.school_visit?
+            if calculator.passport_country_in_electronic_visa_waiver_list?
+              next :outcome_school_waiver
+            elsif calculator.passport_country_is_taiwan?
+              next :outcome_taiwan_exception
+            elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
+              next :outcome_school_n
+            else
+              next :outcome_school_y
+            end
+          end
+
+          if calculator.medical_visit?
             if calculator.passport_country_in_electronic_visa_waiver_list?
               next :outcome_visit_waiver
             elsif calculator.passport_country_is_taiwan?
               next :outcome_taiwan_exception
-            end
-          end
-
-          if calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
-            if calculator.school_visit? || calculator.tourism_visit?
-              next :outcome_school_n
-            elsif calculator.medical_visit?
+            elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
               next :outcome_medical_n
+            else
+              next :outcome_medical_y
             end
           end
 
-          if calculator.school_visit?
-            :outcome_school_y
-          elsif calculator.tourism_visit?
-            :outcome_standard_visit
-          elsif calculator.marriage_visit?
-            :outcome_marriage
-          elsif calculator.medical_visit?
-            :outcome_medical_y
-          elsif calculator.transit_visit?
+          if calculator.tourism_visit?
+            if calculator.passport_country_in_electronic_visa_waiver_list?
+              next :outcome_visit_waiver
+            elsif calculator.passport_country_is_taiwan?
+              next :outcome_taiwan_exception
+            elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
+              next :outcome_school_n # outcome does not contain school specific content
+            else
+              next :outcome_standard_visit
+            end
+          end
+
+          if calculator.marriage_visit?
+            next :outcome_marriage
+          end
+
+          if calculator.transit_visit?
             if calculator.passport_country_in_datv_list? ||
                 calculator.passport_country_in_visa_national_list? || calculator.passport_country_is_taiwan? || calculator.passport_country_is_venezuela?
-              :passing_through_uk_border_control?
+              next :passing_through_uk_border_control?
             else
-              :outcome_no_visa_needed
+              next :outcome_no_visa_needed
             end
-          elsif calculator.family_visit?
+          end
+
+          if calculator.family_visit?
             if calculator.passport_country_in_ukot_list?
-              :outcome_joining_family_m
+              next :outcome_joining_family_m
             elsif calculator.passport_country_in_non_visa_national_list?
-              :outcome_joining_family_nvn
+              next :outcome_joining_family_nvn
             else
-              :outcome_joining_family_y
+              next :outcome_joining_family_y
             end
           end
         end
@@ -185,11 +208,12 @@ module SmartAnswer
         permitted_next_nodes = [
           :outcome_no_visa_needed,
           :outcome_study_m,
+          :outcome_study_waiver,
           :outcome_study_y,
           :outcome_taiwan_exception,
-          :outcome_visit_waiver,
           :outcome_work_m,
           :outcome_work_n,
+          :outcome_work_waiver,
           :outcome_work_y
         ]
         next_node(permitted: permitted_next_nodes) do |response|
@@ -203,7 +227,7 @@ module SmartAnswer
           when 'six_months_or_less'
             if calculator.study_visit?
               if calculator.passport_country_in_electronic_visa_waiver_list?
-                :outcome_visit_waiver #outcome 12 visit outcome_visit_waiver
+                :outcome_study_waiver
               elsif calculator.passport_country_is_taiwan?
                 :outcome_taiwan_exception
               elsif calculator.passport_country_in_datv_list? || calculator.passport_country_in_visa_national_list?
@@ -212,7 +236,9 @@ module SmartAnswer
                 :outcome_no_visa_needed #outcome 1 no visa needed
               end
             elsif calculator.work_visit?
-              if calculator.passport_country_in_ukot_list? ||
+              if calculator.passport_country_in_electronic_visa_waiver_list?
+                :outcome_work_waiver
+              elsif calculator.passport_country_in_ukot_list? ||
                   calculator.passport_country_is_taiwan? || calculator.passport_country_in_non_visa_national_list?
                 #outcome 5.5 work N no visa needed
                 :outcome_work_n
@@ -234,9 +260,11 @@ module SmartAnswer
       outcome :outcome_medical_y
       outcome :outcome_no_visa_needed
       outcome :outcome_school_n
+      outcome :outcome_school_waiver
       outcome :outcome_school_y
       outcome :outcome_standard_visit
       outcome :outcome_study_m
+      outcome :outcome_study_waiver
       outcome :outcome_study_y
       outcome :outcome_taiwan_exception
       outcome :outcome_transit_leaving_airport
@@ -249,6 +277,7 @@ module SmartAnswer
       outcome :outcome_visit_waiver
       outcome :outcome_work_m
       outcome :outcome_work_n
+      outcome :outcome_work_waiver
       outcome :outcome_work_y
     end
   end

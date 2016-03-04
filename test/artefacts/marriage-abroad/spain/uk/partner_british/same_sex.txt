@@ -10,15 +10,7 @@ The process for same-sex marriages in Spain is the same as for opposite-sex civi
 
 ##What you need to do
 
-You'll be asked to provide a certificate of no impediment (CNI), marital status certificate or both to prove you’re allowed to marry.
-
-$D
-[Download 'Certificate of no impediment' (PDF, 198KB)](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/315447/EXAMPLE_CERT_Certificate_of_No_Impediment_CNI__1_.pdf)
-$D
-
-$D
-[Download 'Marital status certificate' (PDF, 145KB)](https://www.gov.uk/government/publications/marital-status-example)
-$D
+You'll be asked to provide a [certificate of no impediment (CNI)](/government/publications/example-certificate-of-no-impediment-cni), a [marital status certificate](/government/publications/marital-status-example) or both to prove you’re allowed to marry.
 
 ^Document requirements vary across Spain - check with the [civil registry](http://www.mjusticia.gob.es/BUSCADIR/ServletControlador?apartado=buscadorGeneral&tipo=RC) where you’re getting married to find out what you’ll need.^
 
@@ -28,7 +20,7 @@ You must apply for all certificates at least 3 months before you get married.
 
 ## Getting a certificate of no impediment
 
-You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](https://www.gov.uk/register-offices), [Scotland](http://www.gro-scotland.gov.uk/files1/registration/reglist.pdf), [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm), [Isle of Man](http://www.gov.im/registries/general/civilregistry), [Jersey](http://www.gov.je/pages/contacts.aspx?contactId=71) or [Guernsey](http://www.guernseyroyalcourt.gg/article/1663/Contact-Us).
+You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](https://www.gov.uk/register-offices), [Scotland](http://www.nrscotland.gov.uk/files/registration/reglist.pdf), [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm), [Isle of Man](http://www.gov.im/registries/general/civilregistry), [Jersey](http://www.gov.je/pages/contacts.aspx?contactId=71) or [Guernsey](http://www.guernseyroyalcourt.gg/article/1663/Contact-Us).
 
 ^Your CNI will be valid for 3 months in Spain.^
 

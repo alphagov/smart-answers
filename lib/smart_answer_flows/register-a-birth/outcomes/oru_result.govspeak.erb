@@ -273,8 +273,6 @@
     The Overseas Registration Unit will contact you if they need more information or if they need to verify your documents. If this happens then it could take longer for the birth to be registered.
   <% elsif registration_country == 'north-korea' and born_in_lower_risk_country %>
     ^Registration can take up to 3 months - your application will be sent to the Foreign and Commonwealth Office in London where the birth will be registered.^
-  <% elsif registration_country.in?(%w[papua-new-guinea cambodia]) and born_in_lower_risk_country %>
-    Registration can take up to 3 months - your application will be sent to the local British embassy, consulate or high commission where your child was born to be registered there.
   <% else %>
     It usually takes 5 working days for the birth to be registered, once the Overseas Registration Unit has received your form and the right documents.
 
