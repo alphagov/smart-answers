@@ -108,9 +108,9 @@ module SmartAnswer
         option :adult
         option :child
 
-        save_input_as :child_or_adult
-
         next_node(permitted: :auto) do
+          calculator.child_or_adult = response
+
           if calculator.ips_application?
             if calculator.applying? || calculator.renewing_old?
               question :country_of_birth?
