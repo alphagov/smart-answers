@@ -4,15 +4,17 @@
   else
     fees_title = 'Fees | Total amount you’ll receive'
   end %>
-  Based on your answers the child maintenance payment is the flat rate of £<%= flat_rate_amount %> per week.
+  Based on your answers the child maintenance payment is the flat rate of £<%= flat_rate_amount %> per week. This is an estimate. The exact amount the Child Maintenance Service would calculate might be different.
 
   This is the total weekly amount, not the amount per child.
 
-  Depending on how child maintenance is arranged, fees may be added to this amount.
+  <% if paying_or_receiving == 'pay' %>
+    Depending on how child maintenance is arranged, fees may be added to this amount.
+  <% end %>
 
   Payment type | Weekly flat rate payment | <%= fees_title %> | Application fee  - you only pay this once
   - | -
-  [Collect and pay](/child-maintenance/how-to-pay) | £<%= flat_rate_amount %> | £<%= collect_fees %> | £<%= total_fees %> | £20.00
+  [Collect and Pay](/child-maintenance/how-to-pay) | £<%= flat_rate_amount %> | £<%= collect_fees %> | £<%= total_fees %> | £20.00
   [Direct pay](/child-maintenance/how-to-pay) | £<%= flat_rate_amount %> | No fees | £<%= flat_rate_amount %> | £20.00
   [Arranging child maintenance yourself](/arranging-child-maintenance-yourself) | £<%= flat_rate_amount %> | No fees | £<%= flat_rate_amount %> | No fee
 
@@ -25,7 +27,5 @@
     You may also have to pay an enforcement charge if you don’t make your full payments on time.
   <% end %>
 
-  The calculator gives an estimate. The exact amount the Child Maintenance Service would calculate might be different.
-
-  Read more about [how child maintenance is worked out.](/how-child-maintenance-is-worked-out/child-maintenance-rates)
+  Read more about [how child maintenance is worked out](/how-child-maintenance-is-worked-out/child-maintenance-rates).
 <% end %>

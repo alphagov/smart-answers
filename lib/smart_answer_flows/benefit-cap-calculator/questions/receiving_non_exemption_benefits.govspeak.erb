@@ -1,0 +1,26 @@
+<% content_for :title do %>
+  Do you or someone in your household get any of the following benefits:
+<% end %>
+
+<% options(
+  "bereavement": "Bereavement Allowance",
+  "carers": "Carer's Allowance",
+  "child_benefit": "Child Benefit",
+  "child_tax": "Child Tax Credit",
+  "esa": "Employment and Support Allowance",
+  "guardian": "Guardian's Allowance",
+  "incapacity": "Incapacity Benefit",
+  "income_support": "Income Support",
+  "jsa": "Jobseeker’s Allowance",
+  "maternity": "Maternity Allowance",
+  "sda": "Severe Disablement Allowance",
+  "widowed_mother": "Widowed Mother's Allowance",
+  "widowed_parent": "Widowed Parent's Allowance",
+  "widow_pension": "Widow's Pension",
+  "widows_aged": "Widow's Pension (age related)",
+  "none_above": "None of the above"
+) %>
+
+<% content_for :hint do %>
+  If you do not receive any of these click Next step.
+<% end %>

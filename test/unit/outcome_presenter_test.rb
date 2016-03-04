@@ -5,7 +5,7 @@ module SmartAnswer
     setup do
       outcome = Outcome.new(nil, :outcome_name)
       @renderer = stub('renderer')
-      @presenter = OutcomePresenter.new('i18n-prefix', outcome, state = nil, renderer: @renderer)
+      @presenter = OutcomePresenter.new(outcome, state = nil, renderer: @renderer)
     end
 
     test 'renderer is constructed using template name and directory obtained from outcome node' do
@@ -19,17 +19,11 @@ module SmartAnswer
         )
       )
 
-      OutcomePresenter.new('i18n-prefix', outcome)
+      OutcomePresenter.new(outcome)
     end
 
-    test '#title returns content rendered for title block with govspeak processing disabled' do
-      @renderer.stubs(:content_for).with(:title, html: false).returns('title-text')
-
-      assert_equal 'title-text', @presenter.title
-    end
-
-    test '#title removes trailing newline from rendered content' do
-      @renderer.stubs(:content_for).returns("title-text\n")
+    test '#title returns single line of content rendered for title block' do
+      @renderer.stubs(:single_line_of_content_for).with(:title).returns('title-text')
 
       assert_equal 'title-text', @presenter.title
     end

@@ -260,4 +260,10 @@ class WorldLocationTest < ActiveSupport::TestCase
       end
     end
   end
+
+  context "cache configuration" do
+    should "have capacity for 250 cache entries" do
+      assert_equal WorldLocation.cache.max_size, 250
+    end
+  end
 end

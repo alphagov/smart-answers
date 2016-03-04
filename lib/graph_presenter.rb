@@ -12,9 +12,6 @@ class GraphPresenter
       adjacency_list = {}
       @flow.questions.each do |node|
         adjacency_list[node.name] = []
-        node.next_node_function_chain.each do |(nextnode, predicates)|
-          adjacency_list[node.name] << [nextnode, predicates.map(&:label).compact.join(" AND\n")]
-        end
         node.permitted_next_nodes.each do |permitted_next_node|
           existing_next_nodes = adjacency_list[node.name].map(&:first)
           unless existing_next_nodes.include?(permitted_next_node)
@@ -74,34 +71,15 @@ private
     end * "\n"
   end
 
-  def allow_missing_interpolations(&block)
-    old = I18n.config.missing_interpolation_argument_handler
-    I18n.config.missing_interpolation_argument_handler = ->(key) { "((#{key}))" }
-    block.call
-  ensure
-    I18n.config.missing_interpolation_argument_handler = old
-  end
-
-  def i18n_prefix(node)
-    "flow.#{@flow.name}.#{node.name}"
+  module MethodMissingHelper
+    def method_missing(method, *args, &block)
+      MethodMissingObject.new(method)
+    end
   end
 
   def node_title(node)
-    allow_missing_interpolations do
-      I18n.translate!("#{i18n_prefix(node)}.title", {})
-    end
-  rescue I18n::MissingTranslationData
-    ""
-  end
-
-  def translate_option(node, option)
-    allow_missing_interpolations do
-      begin
-        I18n.translate!("flow.#{@flow.name}.options.#{option}")
-      rescue I18n::MissingTranslationData
-        I18n.translate("#{i18n_prefix(node)}.options.#{option}")
-      end
-    end
+    presenter = QuestionPresenter.new(node, {}, helpers: [MethodMissingHelper])
+    presenter.title
   end
 
   def presenter

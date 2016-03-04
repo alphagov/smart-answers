@@ -27,7 +27,11 @@ module SmartAnswer
         end
 
         precalculate :paying_or_receiving_hint do
-          PhraseList.new(:"#{paying_or_receiving}_hint")
+          if paying_or_receiving == "pay"
+            "Enter the total number of children - including children that you have family based arrangements for. They will be included in the calculation and you'll need to supply information about them when arranging Child Maintenance.".html_safe
+          else
+            "Enter children from 1 partner only and make a separate calculation for each partner."
+          end
         end
 
         calculate :number_of_children do |response|
@@ -45,22 +49,40 @@ module SmartAnswer
         option "no"
 
         precalculate :benefits_title do
-          PhraseList.new(:"#{paying_or_receiving}_benefits")
+          if paying_or_receiving == "pay"
+            "Do you get any of these benefits?"
+          else
+            "Does the parent paying child maintenance get any of these benefits?"
+          end
         end
 
         calculate :calculator do
           Calculators::ChildMaintenanceCalculator.new(number_of_children, benefits, paying_or_receiving)
         end
 
-        next_node_if(:how_many_nights_children_stay_with_payee?, responded_with('yes'))
-        next_node :gross_income_of_payee?
+        permitted_next_nodes = [
+          :how_many_nights_children_stay_with_payee?,
+          :gross_income_of_payee?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'yes'
+            :how_many_nights_children_stay_with_payee?
+          when 'no'
+            :gross_income_of_payee?
+          end
+        end
       end
 
       ## Q3
       money_question :gross_income_of_payee? do
 
         precalculate :income_title do
-          PhraseList.new(:"#{paying_or_receiving}_income")
+          if paying_or_receiving == "pay"
+            "What is your weekly gross income?"
+          else
+            "What is the weekly gross income of the parent paying child maintenance?"
+          end
         end
 
         next_node_calculation :rate_type do |response|
@@ -68,16 +90,32 @@ module SmartAnswer
           calculator.rate_type
         end
 
-        next_node_if(:nil_rate_result) { rate_type == :nil }
-        next_node_if(:flat_rate_result) { rate_type == :flat }
-        next_node :how_many_other_children_in_payees_household?
+        permitted_next_nodes = [
+          :nil_rate_result,
+          :flat_rate_result,
+          :how_many_other_children_in_payees_household?
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          case rate_type
+          when :nil
+            :nil_rate_result
+          when :flat
+            :flat_rate_result
+          else
+            :how_many_other_children_in_payees_household?
+          end
+        end
       end
 
       ## Q4
       value_question :how_many_other_children_in_payees_household?, parse: Integer do
 
         precalculate :number_of_children_title do
-          PhraseList.new(:"#{paying_or_receiving}_number_of_children")
+          if paying_or_receiving == "pay"
+            "How many other children live in your household?"
+          else
+            "How many other children live in the household of the parent paying child maintenance?"
+          end
         end
 
         calculate :calculator do |response|
@@ -96,7 +134,11 @@ module SmartAnswer
         option 4
 
         precalculate :how_many_nights_title do
-          PhraseList.new(:"#{paying_or_receiving}_how_many_nights")
+          if paying_or_receiving == "pay"
+            "On average, how many nights a year do the children stay over with you?"
+          else
+            "On average, how many nights a year do the children stay over with the parent paying child maintenance?"
+          end
         end
 
         calculate :child_maintenance_payment do |response|
@@ -109,9 +151,21 @@ module SmartAnswer
           calculator.rate_type
         end
 
-        next_node_if(:nil_rate_result) { rate_type == :nil }
-        next_node_if(:flat_rate_result) { rate_type == :flat }
-        next_node :reduced_and_basic_rates_result
+        permitted_next_nodes = [
+          :nil_rate_result,
+          :flat_rate_result,
+          :reduced_and_basic_rates_result
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          case rate_type
+          when :nil
+            :nil_rate_result
+          when :flat
+            :flat_rate_result
+          else
+            :reduced_and_basic_rates_result
+          end
+        end
       end
 
       outcome :nil_rate_result

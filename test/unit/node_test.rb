@@ -24,5 +24,10 @@ module SmartAnswer
 
       assert_equal @node.flow_name, @flow.name
     end
+
+    test '#filesystem_friendly_name returns name without trailing question mark' do
+      question = Question::Base.new(@flow, :how_much?)
+      assert_equal 'how_much', question.filesystem_friendly_name
+    end
   end
 end

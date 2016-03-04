@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
 
-ruby '2.2.3'
+ruby '2.2.4'
 
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.5.2'
 
-gem 'airbrake', '~> 3.1.17'
-gem 'extlib', '0.9.16'
+gem 'airbrake', '4.1.0'
+gem 'gds-api-adapters', '~> 25.1'
+gem 'govspeak', '~> 3.3.0'
 gem 'govuk-content-schema-test-helpers', '~> 1.3.0'
-gem 'govuk_frontend_toolkit', '3.1.0'
+gem 'govuk_frontend_toolkit', '4.8.0'
 gem 'htmlentities', '~> 4'
 gem 'json'
 gem 'logstasher', '0.4.8'
@@ -15,9 +16,9 @@ gem 'lrucache', '0.1.4'
 gem 'plek', '1.7.0'
 gem 'rack_strip_client_ip', '0.0.1'
 gem 'rails-i18n'
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 5.0.0'
+gem 'slimmer', '~> 9.0.1'
 gem 'tilt', '1.4.1'
-gem 'therubyracer', '~> 0.12.1'
 gem 'uglifier'
 gem 'uk_postcode', '~> 1.0.1'
 gem 'unicorn', '4.8.3'
@@ -44,26 +45,4 @@ group :test do
   gem 'simplecov-rcov', '~> 0.2.3', require: false
   gem 'timecop'
   gem 'webmock', '1.20.4', require: false
-end
-
-if ENV['API_DEV']
-  gem 'gds-api-adapters', path: '../gds-api-adapters'
-else
-  gem 'gds-api-adapters', '~> 25.1'
-end
-
-if ENV['GOVSPEAK_DEV']
-  gem 'govspeak', path: '../govspeak'
-else
-  gem 'govspeak', '~> 3.3.0'
-end
-
-if ENV['RUBY_DEBUG']
-  gem 'debugger', require: "ruby-debug"
-end
-
-if ENV['SLIMMER_DEV']
-  gem 'slimmer', path: '../slimmer'
-else
-  gem 'slimmer', '9.0.0'
 end

@@ -35,7 +35,6 @@ module SmartAnswer
       flows = registry.flows
       assert_kind_of Enumerable, flows
       assert_kind_of Flow, flows.first
-      assert_equal "flow-sample", flows.first.name
     end
 
     context "without preloaded flows" do

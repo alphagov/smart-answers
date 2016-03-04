@@ -1,29 +1,31 @@
 PACS in France
 
 
-Contact the ’tribunal d’instance’ in the town where you’re entering into a PACS to find out about local laws, including what documents you’ll need.
+Contact the [’tribunal d’instance’](http://www.annuaires.justice.gouv.fr/annuaires-12162/annuaire-des-tribunaux-dinstance-21775.html) in the town where you’re entering into a PACS to find out about local laws, including what documents you’ll need.
 
-If you’re not in France, [your closest French embassy](http://www.mfe.org/index.php/Annuaires/Ambassades-et-consulats-francais-a-l-etranger) may also be able to give you advice, or put you in touch with the relevant local authorities if you don’t know who to contact.
+If you’re not in France, [your closest French embassy](http://www.mfe.org/index.php/Annuaires/Ambassades-et-consulats-francais-a-l-etranger) may also be able to give you advice, or put you in touch with the relevant local authorities.
 
 ^You should [get legal advice](/government/publications/france-list-of-lawyers) before making any plans.^
 
 ##What you need to do
 
-You may be asked to provide a certificate of custom law (‘certificat de coutume’) if you’re entering into a PACS in France.
+You may be asked to provide a certificate of custom (‘certificat de coutume’) if you’re entering into a PACS in France.
 
 You should check with the tribunal d’instance to find out if you need one.
 
-If you need a certificate of custom law, you can get one from the [British Embassy in Paris](/government/world/organisations/british-embassy-paris).
+If you need a certificate of custom, you can get one from the [British Embassy in Paris](/government/world/organisations/british-embassy-paris).
 
 Some tribunals only accept a certificate of custom dated less than 6 months before the date of your PACS. You should check with them before you apply. If your certificate is refused because you applied too early, you will need to apply and pay again.
 
-###Applying for a certificate of custom law from the British Embassy
+###Applying for a certificate of custom from the British Embassy
 
-s1. Download the [certificate of custom law application form](/government/publications/application-form-for-certificate-of-custom-law-for-pacs-france)
+s1. Download the [certificate of custom application form](/government/publications/application-form-for-certificate-of-custom-law-for-pacs-france)
 s2. Make sure you’ve got all of the supporting documents you need - there’s a checklist on the form.
 s3. You’ll need to include a pre-paid self-addressed envelope and a registered letter slip (‘récépissé d’un envoi recommandé sans avis de réception’) with your name and address, or a €6.55 postage fee, if you want your documents to be returned.
-s4. Send your completed form to the British Embassy with your supporting documents and the correct fee. You’ll have to pay in Euros, as instructed on the payment slip attached to the form. See fee 11 on [consular fees for France](/government/publications/france-consular-fees) for the current cost.
-s5. The embassy will send your certificate and return your documents between 5 and 7 days after receiving your application.
+s4. Send your completed form to the British Embassy with your supporting documents and the correct fee. You’ll have to pay in euros, as instructed on the payment slip attached to the form. See fee 11 on [consular fees for France](/government/publications/france-consular-fees) for the current cost.
+s5. The embassy will send your certificate and documents between 5 and 7 days after receiving your application. Certificates are issued in French and don’t need to be legalised.
+
+^If you both need a certificate of custom, you can apply together, but each partner must provide a completed application form and supporting documents. You’ll have to pay 2 fees but only one return postage fee.^
 
 ###The certificate of celibacy
 

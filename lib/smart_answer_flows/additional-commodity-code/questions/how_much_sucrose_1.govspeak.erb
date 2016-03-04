@@ -1,0 +1,15 @@
+<% content_for :title do %>
+  How much sucrose, invert sugar or isoglucose does the product contain?
+<% end %>
+
+<% options(
+  "0": "0 - 4.99",
+  "5": "5 - 29.99",
+  "30": "30 - 49.99",
+  "50": "50 - 69.99",
+  "70": "70 or more"
+) %>
+
+<% content_for :hint do %>
+  The values represent % by weight
+<% end %>

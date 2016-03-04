@@ -1,46 +1,41 @@
 class QuestionPresenter < NodePresenter
-  extend Forwardable
-  delegate [
-    :translate!,
-    :translate_and_render,
-    :translate_option,
-    :value_for_interpolation,
-    :number_with_delimiter
-  ] => :@renderer
-
-  def initialize(i18n_prefix, node, state = nil, options = {})
-    super(i18n_prefix, node, state)
-    @renderer = options[:renderer] || SmartAnswer::I18nRenderer.new(
-      i18n_prefix: @i18n_prefix,
-      node: @node,
-      state: @state
+  def initialize(node, state = nil, options = {})
+    super(node, state)
+    @renderer = options[:renderer]
+    helpers = options[:helpers] || []
+    @renderer ||= SmartAnswer::ErbRenderer.new(
+      template_directory: @node.template_directory.join('questions'),
+      template_name: @node.filesystem_friendly_name,
+      locals: @state.to_hash,
+      helpers: [SmartAnswer::FormattingHelper] + helpers
     )
   end
 
   def title
-    translate!('title') || @node.name.to_s.humanize
+    @renderer.single_line_of_content_for(:title)
   end
 
   def error
     if @state.error.present?
-      translate!(@state.error.to_sym) || error_message || I18n.translate('flow.defaults.error_message')
+      error_message_for(@state.error) || error_message_for('error_message') || default_error_message
     end
   end
 
-  def error_message
-    translate!('error_message')
+  def error_message_for(key)
+    message = @renderer.single_line_of_content_for(key.to_sym)
+    message.blank? ? nil : message
   end
 
   def hint
-    translate!('hint')
+    @renderer.single_line_of_content_for(:hint)
   end
 
   def label
-    translate!('label')
+    @renderer.single_line_of_content_for(:label)
   end
 
   def suffix_label
-    translate!('suffix_label')
+    @renderer.single_line_of_content_for(:suffix_label)
   end
 
   def has_labels?
@@ -48,17 +43,21 @@ class QuestionPresenter < NodePresenter
   end
 
   def body(html: true)
-    translate_and_render('body', html: html)
+    @renderer.content_for(:body, html: html)
   end
 
   def post_body
-    translate_and_render('post_body', html: true)
+    @renderer.content_for(:post_body, html: true)
   end
 
   def options
     @node.options.map do |option|
-      OpenStruct.new(label: translate_option(option), value: option)
+      OpenStruct.new(label: render_option(option), value: option)
     end
+  end
+
+  def render_option(key)
+    @renderer.option_text(key.to_sym)
   end
 
   def to_response(input)
@@ -75,5 +74,9 @@ class QuestionPresenter < NodePresenter
 
   def multiple_responses?
     false
+  end
+
+  def default_error_message
+    "Please answer this question"
   end
 end

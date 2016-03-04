@@ -1,11 +1,6 @@
 ---
 - :current_node: :property?
   :responses:
-  - WC2B 6SE
-  :next_node: :outcome_check_not_needed
-  :outcome_node: true
-- :current_node: :property?
-  :responses:
   - B1 1PW
   :next_node: :main_home?
   :outcome_node: false
@@ -569,4 +564,9 @@
   - 'no'
   - 7_year_lease_property
   :next_node: :outcome_check_needed_if_break_clause
+  :outcome_node: true
+- :current_node: :property?
+  :responses:
+  - PA3 2SW
+  :next_node: :outcome_check_not_needed
   :outcome_node: true

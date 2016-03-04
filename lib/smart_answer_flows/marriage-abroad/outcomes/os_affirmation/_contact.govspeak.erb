@@ -1,0 +1,28 @@
+<% if calculator.resident_of_uk? %>
+  <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_marriage.govspeak.erb',
+             locals: { calculator: calculator } %>
+  <% if calculator.ceremony_country == 'morocco' %>
+    <%= render partial: 'contact_laadoul.govspeak.erb' %>
+  <% end %>
+<% elsif calculator.resident_of_ceremony_country? || calculator.ceremony_country == 'qatar' %>
+  <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
+             locals: { calculator: calculator } %>
+  <% if calculator.ceremony_country == 'qatar' %>
+    <%= render partial: 'gulf_states_os_consular_cni.govspeak.erb',
+               locals: { calculator: calculator } %>
+    <%= render partial: 'gulf_states_os_consular_cni_local_resident.govspeak.erb',
+               locals: { calculator: calculator } %>
+
+  <% end %>
+<% elsif calculator.resident_of_third_country? %>
+  <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
+             locals: { calculator: calculator } %>
+  <% if calculator.ceremony_country == 'morocco' %>
+    <%= render partial: 'contact_laadoul.govspeak.erb' %>
+  <% end %>
+
+<% elsif calculator.resident_of_ceremony_country && calculator.ceremony_country == 'thailand' %>
+  <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
+             locals: { calculator: calculator } %>
+
+<% end %>

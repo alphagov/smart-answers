@@ -9,6 +9,12 @@ flow = SmartAnswer::FlowRegistry.instance.find(flow_name)
 questions_and_responses = {}
 unknown_questions = []
 
+module MethodMissingHelper
+  def method_missing(method, *args, &block)
+    MethodMissingObject.new(method)
+  end
+end
+
 flow.questions.each do |question|
   if question.is_a?(SmartAnswer::Question::CountrySelect)
     questions_and_responses[question.name] = question.options.map(&:slug)
@@ -17,12 +23,7 @@ flow.questions.each do |question|
   else
     # Find the question text so that we can write it to the YAML file
     question_node = flow.node(question)
-    i18n_prefix = ['flow', flow_name].join('.')
-    begin
-      question_text = QuestionPresenter.new(i18n_prefix, question_node).title
-    rescue I18n::MissingInterpolationArgument => e
-      question_text = e.string
-    end
+    question_text = QuestionPresenter.new(question_node, {}, helpers: [MethodMissingHelper]).title
 
     questions_and_responses[question.name] = [
       "TODO: #{question_text}"

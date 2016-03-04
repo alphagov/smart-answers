@@ -1,0 +1,11 @@
+<% content_for :title do %>
+  Is the employee paid on the 1st, 2nd, 3rd, 4th or last <%= pay_day_in_week %>?
+<% end %>
+
+<% options(
+  "first": "1st",
+  "second": "2nd",
+  "third": "3rd",
+  "fourth": "4th",
+  "last": "last"
+) %>

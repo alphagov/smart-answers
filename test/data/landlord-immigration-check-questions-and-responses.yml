@@ -1,19 +1,14 @@
 ---
-:has_asylum_card?:
+:property?:
+- B1 1PW
+- WC2B 6SE
+- PA3 2SW
+:main_home?:
 - 'yes'
 - 'no'
-:has_documents?:
+:tenant_over_18?:
 - 'yes'
 - 'no'
-:has_other_documents?:
-- 'yes'
-- 'no'
-:immigration_application?:
-- 'yes'
-- 'no'
-:property:
-- WC2B 6SE # valid postcode outside valid areas
-- B1 1PW # valid postcode within the valid areas
 :property_type?:
 - holiday_accommodation
 - social_housing
@@ -23,28 +18,34 @@
 - employee_accommodation
 - student_accommodation
 - 7_year_lease_property
+:has_uk_passport?:
+- 'yes'
+- 'no'
+:right_to_abode?:
+- 'yes'
+- 'no'
 :has_certificate?:
-- 'yes'
-- 'no'
-:main_home?:
-- 'yes'
-- 'no'
-:has_residence_card_or_eu_eea_swiss_family_member?:
 - 'yes'
 - 'no'
 :tenant_country?:
 - eu_eea_switzerland
 - non_eea_but_with_eu_eea_switzerland_family_member
 - somewhere_else
-:tenant_over_18?:
+:has_documents?:
+- 'yes'
+- 'no'
+:has_other_documents?:
+- 'yes'
+- 'no'
+:has_asylum_card?:
 - 'yes'
 - 'no'
 :time_limited_to_remain?:
 - 'yes'
 - 'no'
-:right_to_abode?:
+:immigration_application?:
 - 'yes'
 - 'no'
-:has_uk_passport?:
+:has_residence_card_or_eu_eea_swiss_family_member?:
 - 'yes'
 - 'no'

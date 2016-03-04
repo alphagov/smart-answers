@@ -257,7 +257,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           add_response 'transit'
         end
         should "ask you if you're planning to leave the airport" do
-          assert_current_node :planning_to_leave_airport?
+          assert_current_node :passing_through_uk_border_control?
         end
         context "planning to leave airport" do
           setup do
@@ -275,6 +275,86 @@ class CheckUkVisaTest < ActiveSupport::TestCase
             assert_current_node :outcome_no_visa_needed
           end
         end
+      end
+    end
+  end
+
+  context 'choose an EVW country' do
+    setup do
+      add_response 'oman'
+    end
+
+    should 'ask what are you comming to the UK to do' do
+      assert_current_node :purpose_of_visit?
+    end
+
+    context 'coming to the UK to work' do
+      setup do
+        add_response 'work'
+      end
+
+      should 'ask how long you intend to stay' do
+        assert_current_node :staying_for_how_long?
+      end
+
+      context '6 months or less' do
+        setup do
+          add_response 'six_months_or_less'
+        end
+
+        should 'take you to the outcome work_waiver' do
+          assert_current_node :outcome_work_waiver
+        end
+      end
+
+      context 'longer than 6 months' do
+        setup do
+          add_response 'longer_than_six_months'
+        end
+
+        should 'take you to the outcome work_y' do
+          assert_current_node :outcome_work_y
+        end
+      end
+    end
+
+    context 'coming to the UK to study' do
+      setup do
+        add_response 'study'
+      end
+
+      should 'ask how long you intend to stay' do
+        assert_current_node :staying_for_how_long?
+      end
+
+      context '6 months or less' do
+        setup do
+          add_response 'six_months_or_less'
+        end
+
+        should 'take you to the outcome work_waiver' do
+          assert_current_node :outcome_study_waiver
+        end
+      end
+
+      context 'longer than 6 months' do
+        setup do
+          add_response 'longer_than_six_months'
+        end
+
+        should 'take you to the outcome study_y' do
+          assert_current_node :outcome_study_y
+        end
+      end
+    end
+
+    context 'coming to the UK to visit a child in school' do
+      setup do
+        add_response 'school'
+      end
+
+      should 'take you to the outcome school_waiver' do
+        assert_current_node :outcome_school_waiver
       end
     end
   end
@@ -329,16 +409,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       should "take you to school_y outcome" do
         assert_current_node :outcome_school_y
       end
-      context "Oman passport" do
-        setup do
-          reset_responses
-          add_response "oman"
-          add_response "school"
-        end
-        should "take you to outcome_visit_waiver outcome" do
-          assert_current_node :outcome_visit_waiver
-        end
-      end
     end
     context "getting married" do
       setup do
@@ -361,7 +431,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         add_response 'transit'
       end
       should " ask you if you're planning to leave the airport" do
-        assert_current_node :planning_to_leave_airport?
+        assert_current_node :passing_through_uk_border_control?
       end
       context "planning to leave airport" do
         setup do
@@ -386,7 +456,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           add_response "transit"
         end
         should "be asked if they are leaving the airport" do
-          assert_current_node :planning_to_leave_airport?
+          assert_current_node :passing_through_uk_border_control?
         end
         context "when leaving airport" do
           setup do
@@ -400,8 +470,8 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           setup do
             add_response "no"
           end
-          should "lead to outcome_visit_waiver" do
-            assert_current_node :outcome_visit_waiver
+          should "lead to outcome_transit_venezuela" do
+            assert_current_node :outcome_transit_venezuela
           end
         end
       end
@@ -448,7 +518,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     setup do
       add_response "croatia"
     end
-    should "takes you to outcome_no_visa_needed with croatia phraselist" do
+    should "takes you to outcome_no_visa_needed" do
       assert_current_node :outcome_no_visa_needed
     end
   end
@@ -547,18 +617,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     end
   end #end armenia -  visa country
 
-  #testing venezuela - oman - qatar - UAE
-  context "testing venezuela special outcome - study - less or six months" do
-    setup do
-      add_response "oman"
-      add_response "study"
-      add_response "six_months_or_less"
-    end
-    should "take you to outcome_visit_waiver" do
-      assert_current_node :outcome_visit_waiver
-    end
-  end
-
   context "choose a Non-visa country and check for outcome_work_n" do
     setup do
       add_response 'mexico'
@@ -616,22 +674,22 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       add_response 'transit'
     end
     should "take you to outcome taiwan exception" do
-      assert_current_node :planning_to_leave_airport?
+      assert_current_node :passing_through_uk_border_control?
     end
     context "leaving airport" do
       setup do
         add_response "yes"
       end
-      should "take you to the visit waiver outcome with leaving airport phraselist" do
-        assert_current_node :outcome_visit_waiver
+      should "take you to the transit taiwan outcome" do
+        assert_current_node :outcome_transit_taiwan
       end
     end
     context "leaving airport" do
       setup do
         add_response "no"
       end
-      should "take you to the visit waiver outcome with NOT leaving airport phraselist" do
-        assert_current_node :outcome_visit_waiver
+      should "take you to the transit taiwan outcome" do
+        assert_current_node :outcome_transit_taiwan
       end
     end
   end
@@ -653,7 +711,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       setup do
         add_response 'school'
       end
-      should "take you to school outcome without personalised phraselist" do
+      should "take you to :outcome_school_y outcome" do
         assert_current_node :outcome_school_y
       end
     end
@@ -661,7 +719,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       setup do
         add_response 'tourism'
       end
-      should "take you to tourism outcome without personalised phraselist" do
+      should "take you to :outcome_standard_visit outcome" do
         assert_current_node :outcome_standard_visit
       end
     end
@@ -670,7 +728,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         add_response 'study'
         add_response 'six_months_or_less'
       end
-      should "take you to study outcome without personalised phraselist" do
+      should "take you to :outcome_study_m outcome" do
         assert_current_node :outcome_study_m
       end
     end
@@ -678,7 +736,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       setup do
         add_response 'medical'
       end
-      should "take you to medical outcome without personalised phraselist" do
+      should "take you to :outcome_medical_y outcome" do
         assert_current_node :outcome_medical_y
       end
     end

@@ -23,7 +23,10 @@ module SmartAnswer
     end
 
     def use_shared_logic(filename)
-      eval File.read(Rails.root.join('lib', 'smart_answer_flows', 'shared_logic', "#{filename}.rb")), binding
+      path = Rails.root.join('lib', 'smart_answer_flows', 'shared_logic', "#{filename}.rb")
+      # rubocop:disable Lint/Eval
+      eval File.read(path), binding, path.to_s
+      # rubocop:enable Lint/Eval
     end
 
     def name(name = nil)
@@ -48,46 +51,36 @@ module SmartAnswer
       @status
     end
 
-    def section_slug(s = nil)
-      ActiveSupport::Deprecation.warn("Sections are no longer handled within smartanswers.", caller(1))
-      nil
-    end
-
-    def subsection_slug(s = nil)
-      ActiveSupport::Deprecation.warn("Sections are no longer handled within smartanswers.", caller(1))
-      nil
-    end
-
     def multiple_choice(name, options = {}, &block)
-      add_node Question::MultipleChoice.new(self, name, options, &block)
+      add_question(Question::MultipleChoice, name, options, &block)
     end
 
     def country_select(name, options = {}, &block)
-      add_node Question::CountrySelect.new(self, name, options, &block)
+      add_question(Question::CountrySelect, name, options, &block)
     end
 
-    def date_question(name, &block)
-      add_node Question::Date.new(self, name, &block)
+    def date_question(name, options = {}, &block)
+      add_question(Question::Date, name, options, &block)
     end
 
     def value_question(name, options = {}, &block)
-      add_node Question::Value.new(self, name, options, &block)
+      add_question(Question::Value, name, options, &block)
     end
 
-    def money_question(name, &block)
-      add_node Question::Money.new(self, name, &block)
+    def money_question(name, options = {}, &block)
+      add_question(Question::Money, name, options, &block)
     end
 
-    def salary_question(name, &block)
-      add_node Question::Salary.new(self, name, &block)
+    def salary_question(name, options = {}, &block)
+      add_question(Question::Salary, name, options, &block)
     end
 
-    def checkbox_question(name, &block)
-      add_node Question::Checkbox.new(self, name, &block)
+    def checkbox_question(name, options = {}, &block)
+      add_question(Question::Checkbox, name, options, &block)
     end
 
-    def postcode_question(name, &block)
-      add_node Question::Postcode.new(self, name, &block)
+    def postcode_question(name, options = {}, &block)
+      add_question(Question::Postcode, name, options, &block)
     end
 
     def outcome(name, &block)
@@ -140,9 +133,14 @@ module SmartAnswer
     class InvalidStatus < StandardError; end
 
     private
-      def add_node(node)
-        raise "Node #{node.name} already defined" if node_exists?(node)
-        @nodes << node
-      end
+
+    def add_question(klass, name, options = {}, &block)
+      add_node klass.new(self, name, options, &block)
+    end
+
+    def add_node(node)
+      raise "Node #{node.name} already defined" if node_exists?(node)
+      @nodes << node
+    end
   end
 end

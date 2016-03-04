@@ -1,0 +1,21 @@
+<% content_for :title do %>
+  How many days do you work per week?
+<% end %>
+
+<% options(
+  "7-days": "7 days per week",
+  "6-days": "6 days per week",
+  "5-days": "5 days per week",
+  "4-days": "4 days per week",
+  "3-days": "3 days per week",
+  "2-days": "2 days per week",
+  "1-day": "1 day per week"
+) %>
+
+<% content_for :body do %>
+  Include guaranteed overtime hours if:
+
+  - you have to work them as part of your contract
+  - you're paid for the time even if there’s no work for you to do
+
+<% end %>

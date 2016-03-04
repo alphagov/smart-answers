@@ -2,6 +2,7 @@
 :what_would_you_like_to_check?:
 - current_payment
 - past_payment
+- current_payment_april_2016
 :past_payment_date?:
 - '2014-10-01'
 - '2013-10-01'
@@ -15,6 +16,9 @@
 - apprentice_under_19
 - apprentice_over_19_first_year
 - apprentice_over_19_second_year_onwards
+:will_you_be_a_first_year_apprentice?:
+- 'no'
+- 'yes'
 :were_you_an_apprentice?:
 - 'no'
 - apprentice_under_19

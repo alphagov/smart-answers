@@ -14,12 +14,21 @@ module SmartAnswer
 
         save_input_as :date_of_birth
 
-        define_predicate(:too_young?) do |response|
+        next_node_calculation(:too_young) do |response|
           calculator.too_young?(response)
         end
 
-        next_node_if(:outcome_pension_age_not_reached, too_young?)
-        next_node :gender?
+        permitted_next_nodes = [
+          :gender?,
+          :outcome_pension_age_not_reached
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if too_young
+            :outcome_pension_age_not_reached
+          else
+            :gender?
+          end
+        end
       end
 
       #Q2
@@ -29,12 +38,21 @@ module SmartAnswer
 
         save_input_as :gender
 
-        define_predicate(:male_and_too_young?) do |response|
+        next_node_calculation(:male_and_too_young) do |response|
           calculator.too_young?(date_of_birth, response)
         end
 
-        next_node_if(:outcome_pension_age_not_reached, male_and_too_young?)
-        next_node :how_much_extra_per_week?
+        permitted_next_nodes = [
+          :how_much_extra_per_week?,
+          :outcome_pension_age_not_reached
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if male_and_too_young
+            :outcome_pension_age_not_reached
+          else
+            :how_much_extra_per_week?
+          end
+        end
       end
 
       #Q3

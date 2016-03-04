@@ -1,0 +1,16 @@
+<% content_for :title do %>
+  Do you already have a driving licence with any of the following entitlements on it:
+<% end %>
+
+<% options(
+  "no": "No",
+  "yes": "Yes"
+) %>
+
+<% content_for :body do %>
+  - C1+E (towing with a medium sized vehicle)
+  - C+E (towing with a large vehicle)
+  - D1+E (towing with a minibus)
+  - D+E (towing with a bus)
+
+<% end %>

@@ -5,13 +5,13 @@
 <% content_for :body do %>
   The visa you apply for depends on your circumstances.
 
-  <% if %w(turkey).include?(passport_country) %>
+  <% if calculator.passport_country_is_turkey? %>
     ###Turkish nationals
 
     You can apply for a [Turkish business person visa](/turkish-worker) if you want to come and set up a business in the UK.
   <% end %>
 
-  <%= render partial: 'stateless_or_refugee.govspeak.erb', locals: {passport_country: passport_country} -%>
+  <%= render partial: 'stateless_or_refugee.govspeak.erb', locals: {calculator: calculator} -%>
 
   ###Skilled workers
 
@@ -24,7 +24,7 @@
 
   ###Temporary workers
 
-  <% if %w(australia canada japan monaco new-zealand hong-kong south-korea taiwan).include?(passport_country) %>
+  <% if calculator.passport_country_in_youth_mobility_scheme_list? %>
     You can apply for the [‘youth mobility scheme’ visa](/tier-5-youth-mobility) if you want to live and work in the UK for up to 2 years.
   <% end %>
 

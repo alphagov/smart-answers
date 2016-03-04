@@ -24,14 +24,14 @@ module FlowTestHelper
 
   def current_question
     @current_question ||= begin
-      presenter = QuestionPresenter.new("flow.#{@flow.name}", @flow.node(current_state.current_node), current_state)
+      presenter = QuestionPresenter.new(@flow.node(current_state.current_node), current_state)
       presenter.title
     end
   end
 
   def outcome_body
     @outcome_body ||= begin
-      presenter = OutcomePresenter.new("flow.#{@flow.name}", @flow.node(current_state.current_node), current_state)
+      presenter = OutcomePresenter.new(@flow.node(current_state.current_node), current_state)
       Nokogiri::HTML::DocumentFragment.parse(presenter.body)
     end
   end
@@ -58,17 +58,5 @@ module FlowTestHelper
       actual = sprintf("%.#{options[:round_dp]}f", actual)
     end
     assert_equal expected, actual
-  end
-
-  def assert_phrase_list(variable_name, expected_keys)
-    phrase_list = current_state.send(variable_name)
-    assert phrase_list.is_a?(SmartAnswer::PhraseList), "State variable #{variable_name} is not a PhraseList"
-
-    missing_keys = expected_keys - phrase_list.phrase_keys
-    unexpected_keys = phrase_list.phrase_keys - expected_keys
-    message = ""
-    message += "Missing keys: #{missing_keys}\n" if missing_keys.present?
-    message += "Unexpected keys: #{unexpected_keys}" if unexpected_keys.present?
-    assert_equal expected_keys, phrase_list.phrase_keys, message
   end
 end

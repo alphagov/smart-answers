@@ -21,7 +21,16 @@ protected
     if exception and defined? Airbrake
       env["airbrake.error_id"] = notify_airbrake(exception)
     end
-    render status: status_code, text: "#{status_code} error"
+
+    error_message = "#{status_code} error"
+
+    # handle cases where exception occured during render
+    if performed?
+      response.status = status_code
+      response_body = error_message
+    else
+      render status: status_code, text: error_message
+    end
   end
 
   def set_analytics_headers

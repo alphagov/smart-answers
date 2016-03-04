@@ -19,7 +19,8 @@ module SmartAnswer
             @state = SmartAnswer::State.new(@question)
             @calculator = stub('calculator',
               :age= => nil,
-              :under_school_leaving_age? => nil
+              :under_school_leaving_age? => nil,
+              :what_to_check => nil
             )
             @state.calculator = @calculator
           end
@@ -191,6 +192,7 @@ module SmartAnswer
           setup do
             @question = @flow.node(accommodation_usage_question_name)
             @state = SmartAnswer::State.new(@question)
+            @state.accommodation_charge = nil
             @calculator = stub('calculator',
               accommodation_adjustment: nil,
               minimum_wage_or_above?: nil,

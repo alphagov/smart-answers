@@ -1,0 +1,15 @@
+<% content_for :title do %>
+  How much starch or glucose does the product contain?
+<% end %>
+
+<% options(
+  "0": "0 - 4.99",
+  "5": "5 - 24.99",
+  "25": "25 - 49.99",
+  "50": "50 - 74.99",
+  "75": "75 or more"
+) %>
+
+<% content_for :hint do %>
+  The values represent % by weight
+<% end %>

@@ -1,12 +1,12 @@
 class OutcomePresenter < NodePresenter
-  def initialize(i18n_prefix, node, state = nil, options = {})
-    super(i18n_prefix, node, state)
+  def initialize(node, state = nil, options = {})
+    super(node, state)
     @renderer = options[:renderer] || SmartAnswer::ErbRenderer.new(
       template_directory: @node.template_directory.join('outcomes'),
       template_name: @node.name.to_s,
       locals: @state.to_hash,
       helpers: [
-        SmartAnswer::OutcomeHelper,
+        SmartAnswer::FormattingHelper,
         SmartAnswer::OverseasPassportsHelper,
         SmartAnswer::MarriageAbroadHelper
       ]
@@ -14,8 +14,7 @@ class OutcomePresenter < NodePresenter
   end
 
   def title
-    title = @renderer.content_for(:title, html: false)
-    title && title.chomp
+    @renderer.single_line_of_content_for(:title)
   end
 
   def body(html: true)

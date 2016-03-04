@@ -60,10 +60,6 @@ module SmartAnswer::Calculators
       COMMONWEALTH_COUNTRIES.include?(country_slug)
     end
 
-    def responded_with_commonwealth_country?
-      SmartAnswer::Predicate::RespondedWith.new(COMMONWEALTH_COUNTRIES, "commonwealth country")
-    end
-
     def has_consulate?(country_slug)
       COUNTRIES_WITH_CONSULATES.include?(country_slug)
     end

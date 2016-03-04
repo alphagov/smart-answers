@@ -35,12 +35,6 @@ Generally, the larger and more complex the Smart Answer, the more likely there m
 
 This [pull request](https://github.com/alphagov/smart-answers/pull/1428) is a good example of removing this kind of Smart Answer.
 
-## Removing a Smartdown Smart Answer
-
-Smartdown flows can be found in `lib/smartdown_flows` and are mostly self contained in a single directory, by the name of the flow.
-
-There may also be a directory by the same name in `lib/smartdown_plugins`.
-
 ## Drafts
 
 Flows may have an active draft/V2 flow, which is a clone of the original flow but with a `-v2` suffix on all the files, so make sure this is removed as well.

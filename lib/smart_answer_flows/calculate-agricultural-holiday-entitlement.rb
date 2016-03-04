@@ -12,6 +12,10 @@ module SmartAnswer
         option "same-number-of-days"
         option "different-number-of-days"
 
+        calculate :days_worked_per_week do
+          nil
+        end
+
         permitted_next_nodes = [
           :how_many_days_per_week?,
           :what_date_does_holiday_start?

@@ -1,0 +1,16 @@
+<% content_for :title do %>
+  Were you or your partner born before 6 April 1935?
+<% end %>
+
+<% options(
+  "no": "No",
+  "yes": "Yes"
+) %>
+
+<% content_for :hint do %>
+  You must be married or in a civil partnership to qualify.
+<% end %>
+
+<% content_for :error_message do %>
+  Please choose 'Yes' or 'No'
+<% end %>

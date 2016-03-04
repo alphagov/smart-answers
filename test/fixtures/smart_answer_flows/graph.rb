@@ -15,15 +15,22 @@ module SmartAnswer
         option :a
         option :b
 
-        permitted_next_nodes = [:done_a, :done_b]
+        permitted_next_nodes = [:done_a, :q_with_interpolation?]
 
         next_node(permitted: permitted_next_nodes) do |response|
           if response == 'a'
             :done_a
           else
-            :done_b
+            :q_with_interpolation?
           end
         end
+      end
+
+      multiple_choice :q_with_interpolation? do
+        option :x
+        option :y
+
+        next_node :done_b
       end
 
       outcome :done_a

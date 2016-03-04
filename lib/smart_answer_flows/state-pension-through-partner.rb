@@ -38,8 +38,17 @@ module SmartAnswer
           "£#{rate}"
         end
 
-        next_node_if(:what_is_your_gender?, responded_with("divorced"))
-        next_node :when_will_you_reach_pension_age?
+        permitted_next_nodes = [
+          :what_is_your_gender?,
+          :when_will_you_reach_pension_age?
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          if response == 'divorced'
+            :what_is_your_gender?
+          else
+            :when_will_you_reach_pension_age?
+          end
+        end
       end
 
       # Q2
@@ -59,17 +68,28 @@ module SmartAnswer
           answers
         end
 
-        define_predicate(:widow_and_new_pension?) do |response|
+        next_node_calculation(:widow_and_new_pension) do |response|
           answers == [:widow] && response == "your_pension_age_after_specific_date"
         end
 
-        define_predicate(:widow_and_old_pension?) do |response|
+        next_node_calculation(:widow_and_old_pension) do |response|
           answers == [:widow] && response == "your_pension_age_before_specific_date"
         end
 
-        next_node_if(:what_is_your_gender?, widow_and_new_pension?)
-        next_node_if(:widow_and_old_pension_outcome, widow_and_old_pension?)
-        next_node :when_will_your_partner_reach_pension_age?
+        permitted_next_nodes = [
+          :what_is_your_gender?,
+          :when_will_your_partner_reach_pension_age?,
+          :widow_and_old_pension_outcome
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if widow_and_new_pension
+            :what_is_your_gender?
+          elsif widow_and_old_pension
+            :widow_and_old_pension_outcome
+          else
+            :when_will_your_partner_reach_pension_age?
+          end
+        end
       end
 
       #Q3
@@ -86,17 +106,28 @@ module SmartAnswer
           answers
         end
 
-        define_predicate(:current_rules_no_additional_pension?) {
+        next_node_calculation(:current_rules_no_additional_pension) {
           answers == [:old1, :old2, :old3] || answers == [:new1, :old2, :old3]
         }
 
-        define_predicate(:current_rules_national_insurance_no_state_pension?) {
+        next_node_calculation(:current_rules_national_insurance_no_state_pension) {
           answers == [:old1, :old2, :new3] || answers == [:new1, :old2, :new3]
         }
 
-        next_node_if(:current_rules_no_additional_pension_outcome, current_rules_no_additional_pension?)
-        next_node_if(:current_rules_national_insurance_no_state_pension_outcome, current_rules_national_insurance_no_state_pension?)
-        next_node :what_is_your_gender?
+        permitted_next_nodes = [
+          :current_rules_national_insurance_no_state_pension_outcome,
+          :current_rules_no_additional_pension_outcome,
+          :what_is_your_gender?
+        ]
+        next_node(permitted: permitted_next_nodes) do
+          if current_rules_no_additional_pension
+            :current_rules_no_additional_pension_outcome
+          elsif current_rules_national_insurance_no_state_pension
+            :current_rules_national_insurance_no_state_pension_outcome
+          else
+            :what_is_your_gender?
+          end
+        end
       end
 
       # Q4
@@ -106,14 +137,30 @@ module SmartAnswer
 
         save_input_as :gender
 
-        on_condition(responded_with("male_gender")) do
-          next_node_if(:impossibility_due_to_divorce_outcome, variable_matches(:marital_status, "divorced"))
-          next_node(:impossibility_to_increase_pension_outcome)
-        end
-        on_condition(responded_with("female_gender")) do
-          next_node_if(:age_dependent_pension_outcome, variable_matches(:marital_status, "divorced"))
-          next_node_if(:married_woman_and_state_pension_outcome, variable_matches(:marital_status, "widowed"))
-          next_node(:married_woman_no_state_pension_outcome)
+        permitted_next_nodes = [
+          :age_dependent_pension_outcome,
+          :impossibility_due_to_divorce_outcome,
+          :impossibility_to_increase_pension_outcome,
+          :married_woman_and_state_pension_outcome,
+          :married_woman_no_state_pension_outcome
+        ]
+        next_node(permitted: permitted_next_nodes) do |response|
+          case response
+          when 'male_gender'
+            if marital_status == 'divorced'
+              :impossibility_due_to_divorce_outcome
+            else
+              :impossibility_to_increase_pension_outcome
+            end
+          when 'female_gender'
+            if marital_status == 'divorced'
+              :age_dependent_pension_outcome
+            elsif marital_status == 'widowed'
+              :married_woman_and_state_pension_outcome
+            else
+              :married_woman_no_state_pension_outcome
+            end
+          end
         end
       end
 

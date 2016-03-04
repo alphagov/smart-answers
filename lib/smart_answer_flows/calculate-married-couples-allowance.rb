@@ -10,6 +10,16 @@ module SmartAnswer
         option :yes
         option :no
 
+        calculate :is_before_april_changes do
+          nil
+        end
+        calculate :gross_pension_contributions do
+          nil
+        end
+        calculate :net_pension_contributions do
+          nil
+        end
+
         calculate :age_related_allowance_chooser do
           rates = SmartAnswer::Calculators::RatesQuery.new('married_couples_allowance').rates
           AgeRelatedAllowanceChooser.new(

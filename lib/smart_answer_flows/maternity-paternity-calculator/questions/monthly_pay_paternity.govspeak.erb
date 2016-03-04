@@ -1,0 +1,15 @@
+<% content_for :title do %>
+  When in the month is the employee paid?
+<% end %>
+
+<% options(
+  "first_day_of_the_month": "First day of the month",
+  "last_day_of_the_month": "Last day of the month",
+  "specific_date_each_month": "Specific date each month",
+  "last_working_day_of_the_month": "Last working day of the month",
+  "a_certain_week_day_each_month": "A certain week day each month"
+) %>
+
+<% content_for :hint do %>
+  If the pay date is the 29th, 30th or 31st choose 'Last working day of the month'.
+<% end %>

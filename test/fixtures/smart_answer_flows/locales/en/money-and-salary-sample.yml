@@ -1,6 +1,0 @@
-en-GB:
-  flow:
-    money-and-salary-sample:
-
-      what_size_bonus_do_you_want?:
-        error_message: "%{error}"

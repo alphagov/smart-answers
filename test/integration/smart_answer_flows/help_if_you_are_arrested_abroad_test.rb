@@ -57,7 +57,7 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
           assert_current_node :answer_one_generic
         end
 
-        should "set up the country specific downloads phraselist" do
+        should "set up the country specific downloads" do
           assert_state_variable :has_extra_downloads, true
         end
       end
@@ -72,7 +72,7 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
           assert_current_node :answer_one_generic
         end
 
-        should "set up the country specific downloads phraselist" do
+        should "set up the country specific downloads" do
           assert_state_variable :has_extra_downloads, true
         end
       end

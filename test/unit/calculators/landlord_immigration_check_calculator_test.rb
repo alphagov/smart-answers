@@ -6,12 +6,13 @@ module SmartAnswer::Calculators
     include GdsApi::TestHelpers::Imminence
 
     setup do
-      imminence_has_areas_for_postcode("WC2B%206SE", [])
-      imminence_has_areas_for_postcode("B1%201EQ", [{ slug: "birmingham-city-council" }])
-      imminence_has_areas_for_postcode("B62%200BG", [{ slug: "dudley-city-council" }])
-      imminence_has_areas_for_postcode("B43%205AB", [{ slug: "sandwell-city-council" }])
-      imminence_has_areas_for_postcode("WV1%201ES", [{ slug: "wolverhampton-city-council" }])
-      imminence_has_areas_for_postcode("B43%207DG", [{ slug: "walsall-city-council" }, { slug: "london" }])
+      # Excluded countries
+      imminence_has_areas_for_postcode("PA3%202SW",   [{ slug: 'renfrewshire-council', country_name: 'Scotland' }])
+      imminence_has_areas_for_postcode("SA2%207JU",   [{ slug: 'swansea-council', country_name: 'Wales' }])
+      imminence_has_areas_for_postcode("BT29%204AB",  [{ slug: 'antrim-south-east', country_name: 'Northern Ireland' }])
+
+      # Included country
+      imminence_has_areas_for_postcode("RH6%200NP",   [{ slug: 'crawley-borough-council', country_name: 'England' }])
     end
 
     test "with an invalid postcode" do
@@ -25,16 +26,28 @@ module SmartAnswer::Calculators
       assert_empty response["results"]
     end
 
-    test "with a valid postcode outside valid areas" do
-      refute LandlordImmigrationCheckCalculator.valid_postcode("WC2B 6SE")
+    test "with a valid postcode in Scotland" do
+      calculator = LandlordImmigrationCheckCalculator.new("PA3 2SW")
+
+      refute calculator.included_country?
     end
 
-    test "with a valid postcode within the valid areas" do
-      assert LandlordImmigrationCheckCalculator.valid_postcode("B1 1EQ")
-      assert LandlordImmigrationCheckCalculator.valid_postcode("B62 0BG")
-      assert LandlordImmigrationCheckCalculator.valid_postcode("B43 5AB")
-      assert LandlordImmigrationCheckCalculator.valid_postcode("WV1 1ES")
-      assert LandlordImmigrationCheckCalculator.valid_postcode("B43 7DG")
+    test "with a valid postcode in Wales" do
+      calculator = LandlordImmigrationCheckCalculator.new("SA2 7JU")
+
+      refute calculator.included_country?
+    end
+
+    test "with a valid postcode in Northern Ireland" do
+      calculator = LandlordImmigrationCheckCalculator.new("BT29 4AB")
+
+      refute calculator.included_country?
+    end
+
+    test "with a valid postcode in England" do
+      calculator = LandlordImmigrationCheckCalculator.new("RH6 0NP")
+
+      assert calculator.included_country?
     end
   end
 end

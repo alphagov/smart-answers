@@ -21,6 +21,10 @@ module SmartAnswer
       name.to_s
     end
 
+    def filesystem_friendly_name
+      to_s.sub(/\?$/, '')
+    end
+
     def calculate(variable_name, &block)
       @calculations << Calculation.new(variable_name, &block)
     end

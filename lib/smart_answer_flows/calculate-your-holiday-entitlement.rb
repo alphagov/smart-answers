@@ -16,6 +16,16 @@ module SmartAnswer
         option "shift-worker"
         save_input_as :calculation_basis
 
+        calculate :leaving_date do
+          nil
+        end
+        calculate :leave_year_start_date do
+          nil
+        end
+        calculate :start_date do
+          nil
+        end
+
         permitted_next_nodes = [
           :calculation_period?,
           :casual_or_irregular_hours?,

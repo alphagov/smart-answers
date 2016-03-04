@@ -37,7 +37,7 @@
     ^Only the mother will be named on the local birth certificate if you aren’t married. To add the father’s name you must swear a paternity declaration in a Moroccan court and you may be ordered to get married.^
   <% end %>
 
-  You must send the original copies of:
+  You must send the original versions of:
 
   <% if reg_data_query.class::ORU_DOCUMENTS_VARIANT_COUNTRIES_BIRTH.include?(country_of_birth) %>
     <% if country_of_birth == 'united-arab-emirates' && paternity_declaration %>
@@ -113,7 +113,7 @@
         - the child's full local birth certificate
         - the hospital declaration of live birth (if the father isn't named on the birth certificate)
       <% when 'turkey' %>
-        - the child’s full local birth certificate - it must have both parents’ names
+        - the child’s full local birth certificate - called the ‘Formül A’
         - the hospital live birth report
       <% when 'uae_not_married' %>
         - both English and Arabic versions of your child’s full local birth certificate, attested by the Ministry of Foreign Affairs (email <birthregistrationenquiries@fco.gov.uk> if the local authorities will not provide a birth certificate)
@@ -137,8 +137,7 @@
   You must also send photocopies of:
 
   - the photo page of the child’s British passport if they have one
-  - the photo page of the parent’s current passport (for British parents)
-  - the birth certificate or the photo page of the parent’s current passport (for parents who aren’t British)
+  - the photo pages of both parents’ current passports regardless of nationality (if you don't have a passport, send a copy of another identity document that has a photo)
 
   <% if country_of_birth.in?(%w(philippines sierra-leone uganda)) %>
     If the child doesn't have a British passport you must also send the original copies of:
@@ -207,8 +206,8 @@
   Register a birth | £105
   Copy of a birth registration certificate | £65
 
-  <%= render partial: '../../shared/births_and_deaths_registration/document_return_fees.govspeak.erb', locals: { document_return_fees: document_return_fees } %>
-  <%= render partial: '../../data_partials/button.erb', locals: { button_data: button_data } %>
+  <%= render partial: 'shared/births_and_deaths_registration/document_return_fees.govspeak.erb', locals: { document_return_fees: document_return_fees } %>
+  <%= render partial: 'shared/births_and_deaths_registration/button.govspeak.erb', locals: { button_data: button_data } %>
 
   <% if country_of_birth == 'venezuela' && same_country %>
 
@@ -218,7 +217,7 @@
 
     Staff at the embassy will check your application and send it to the Overseas Registration Unit in the UK.
 
-    <%= render partial: '../../data_partials/overseas_passports_embassies.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
+    <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
   <% else %>
 
     ##4. Send your registration
@@ -274,8 +273,6 @@
     The Overseas Registration Unit will contact you if they need more information or if they need to verify your documents. If this happens then it could take longer for the birth to be registered.
   <% elsif registration_country == 'north-korea' and born_in_lower_risk_country %>
     ^Registration can take up to 3 months - your application will be sent to the Foreign and Commonwealth Office in London where the birth will be registered.^
-  <% elsif registration_country.in?(%w[papua-new-guinea cambodia]) and born_in_lower_risk_country %>
-    Registration can take up to 3 months - your application will be sent to the local British embassy, consulate or high commission where your child was born to be registered there.
   <% else %>
     It usually takes 5 working days for the birth to be registered, once the Overseas Registration Unit has received your form and the right documents.
 

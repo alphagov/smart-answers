@@ -10,14 +10,20 @@ We run Rubocop as part of the test suite executed on Jenkins (see jenkins.sh). R
 
 Testing for violations in the entire codebase:
 
-    $ govuk-lint-ruby
+```bash
+$ govuk-lint-ruby
+```
 
 Testing for violations in code committed locally that's not present in origin/master (useful to check code committed in a local branch):
 
-    $ govuk-lint-ruby --diff
+```bash
+$ govuk-lint-ruby --diff
+```
 
 Testing for violations in code staged and committed locally that's not present in origin/master:
 
-    $ govuk-lint-ruby --diff --cached
+```bash
+$ govuk-lint-ruby --diff --cached
+```
 
 NOTE. This is mostly useful for Jenkins as we first merge, but don't commit, changes from master before running the test suite.

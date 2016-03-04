@@ -9,11 +9,9 @@ class FlowContentItem
     {
       base_path: base_path,
       title: flow_presenter.title,
-      content_id: flow_presenter.content_id,
       format: 'placeholder_smart_answer',
       publishing_app: 'smartanswers',
       rendering_app: 'smartanswers',
-      update_type: 'minor', # This is not used, but required by the schema.
       locale: 'en',
       public_updated_at: Time.now.iso8601,
       routes: [

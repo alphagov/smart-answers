@@ -13,7 +13,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   end
 
   setup do
-    @location_slugs = %w(albania american-samoa anguilla argentina armenia aruba australia austria azerbaijan bahamas belarus belgium bonaire-st-eustatius-saba brazil british-indian-ocean-territory burma burundi cambodia canada china costa-rica cote-d-ivoire croatia colombia cyprus czech-republic democratic-republic-of-congo denmark ecuador egypt estonia finland france germany greece hong-kong indonesia iran ireland italy japan jordan kazakhstan kosovo kyrgyzstan laos latvia lebanon lithuania macao macedonia malta mayotte mexico monaco montenegro morocco netherlands nicaragua north-korea norway oman guatemala paraguay peru philippines poland portugal qatar russia rwanda saint-barthelemy san-marino saudi-arabia serbia seychelles slovakia south-africa st-maarten st-martin south-korea spain sweden switzerland thailand turkey turkmenistan ukraine united-arab-emirates usa uzbekistan vietnam wallis-and-futuna yemen zimbabwe).uniq
+    @location_slugs = %w(albania american-samoa anguilla argentina armenia aruba australia austria azerbaijan bahamas belarus belgium bonaire-st-eustatius-saba brazil british-indian-ocean-territory burma burundi cambodia canada china costa-rica cote-d-ivoire croatia colombia cyprus czech-republic democratic-republic-of-congo denmark ecuador egypt estonia finland france germany greece hong-kong indonesia iran ireland italy japan jordan kazakhstan kosovo kyrgyzstan laos latvia lebanon lithuania macao macedonia malta mayotte mexico monaco montenegro morocco netherlands nicaragua north-korea norway oman guatemala paraguay peru philippines poland portugal qatar russia rwanda saint-barthelemy san-marino saudi-arabia serbia seychelles slovakia slovenia south-africa st-maarten st-martin south-korea spain sweden switzerland thailand turkey turkmenistan ukraine united-arab-emirates usa uzbekistan vietnam wallis-and-futuna yemen zimbabwe).uniq
     worldwide_api_has_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::MarriageAbroadFlow
   end
@@ -57,7 +57,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       should "give outcome ireland ss" do
         assert_current_node :outcome_ireland
         expected_location = WorldLocation.find('ireland')
-        assert_state_variable :location, expected_location
+        assert_equal expected_location, current_state.calculator.world_location
       end
     end
   end
@@ -69,9 +69,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "ask your country of residence" do
       assert_current_node :legal_residency?
-      assert_state_variable :ceremony_country, 'bahamas'
-      assert_state_variable :ceremony_country_name, 'Bahamas'
-      assert_state_variable :country_name_lowercase_prefix, "the Bahamas"
+      assert_equal 'Bahamas', current_state.calculator.ceremony_country_name
+      assert_equal "the Bahamas", current_state.calculator.country_name_lowercase_prefix
     end
 
     context "resident in UK" do
@@ -81,10 +80,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
       should "go to partner nationality question" do
         assert_current_node :what_is_your_partners_nationality?
-        assert_state_variable :ceremony_country, 'bahamas'
-        assert_state_variable :ceremony_country_name, 'Bahamas'
-        assert_state_variable :country_name_lowercase_prefix, "the Bahamas"
-        assert_state_variable :resident_of, 'uk'
+        assert_equal 'Bahamas', current_state.calculator.ceremony_country_name
+        assert_equal "the Bahamas", current_state.calculator.country_name_lowercase_prefix
       end
 
       context "partner is british" do
@@ -93,7 +90,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         end
         should "ask what sex is your partner" do
           assert_current_node :partner_opposite_or_same_sex?
-          assert_state_variable :partner_nationality, 'partner_british'
         end
         context "opposite sex partner" do
           setup do
@@ -102,7 +98,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
           should "give outcome opposite sex commonwealth" do
             assert_current_node :outcome_os_commonwealth
             expected_location = WorldLocation.find('bahamas')
-            assert_state_variable :location, expected_location
+            assert_equal expected_location, current_state.calculator.world_location
           end
         end
         context "same sex partner" do
@@ -123,9 +119,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
       should "go to partner's nationality question" do
         assert_current_node :what_is_your_partners_nationality?
-        assert_state_variable :resident_of, 'ceremony_country'
-        assert_state_variable :ceremony_country, 'bahamas'
-        assert_state_variable :ceremony_country_name, 'Bahamas'
+        assert_equal 'Bahamas', current_state.calculator.ceremony_country_name
       end
 
       context "partner is local" do
@@ -134,7 +128,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         end
         should "ask what sex is your partner" do
           assert_current_node :partner_opposite_or_same_sex?
-          assert_state_variable :partner_nationality, 'partner_local'
         end
         context "opposite sex partner" do
           setup do
@@ -143,7 +136,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
           should "give outcome opposite sex commonwealth" do
             assert_current_node :outcome_os_commonwealth
             expected_location = WorldLocation.find('bahamas')
-            assert_state_variable :location, expected_location
+            assert_equal expected_location, current_state.calculator.world_location
           end
         end
         context "same sex partner" do
@@ -164,9 +157,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
       should "go to partner's nationality question" do
         assert_current_node :what_is_your_partners_nationality?
-        assert_state_variable :resident_of, 'third_country'
-        assert_state_variable :ceremony_country, 'bahamas'
-        assert_state_variable :ceremony_country_name, 'Bahamas'
+        assert_equal 'Bahamas', current_state.calculator.ceremony_country_name
       end
 
       context "partner is local" do
@@ -175,7 +166,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         end
         should "ask what sex is your partner" do
           assert_current_node :partner_opposite_or_same_sex?
-          assert_state_variable :partner_nationality, 'partner_local'
         end
         context "opposite sex partner" do
           setup do
@@ -184,7 +174,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
           should "give outcome opposite sex commonwealth" do
             assert_current_node :outcome_os_commonwealth
             expected_location = WorldLocation.find('bahamas')
-            assert_state_variable :location, expected_location
+            assert_equal expected_location, current_state.calculator.world_location
           end
         end
         context "same sex partner" do
@@ -210,7 +200,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "go to commonwealth os outcome" do
       assert_current_node :outcome_os_commonwealth
       expected_location = WorldLocation.find('australia')
-      assert_state_variable :location, expected_location
+      assert_equal expected_location, current_state.calculator.world_location
     end
   end
 
@@ -225,7 +215,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "go to commonwealth os outcome" do
       assert_current_node :outcome_os_commonwealth
       expected_location = WorldLocation.find('bahamas')
-      assert_state_variable :location, expected_location
+      assert_equal expected_location, current_state.calculator.world_location
     end
   end
 
@@ -432,7 +422,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
     end
     should "go to consular cni os outcome" do
-      assert_current_node :outcome_os_consular_cni
+      assert_current_node :outcome_os_germany
     end
   end
 
@@ -626,8 +616,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'opposite_sex'
     end
-    should "go to consular cni os outcome" do
-      assert_current_node :outcome_os_consular_cni
+    should "go to os poland outcome" do
+      assert_current_node :outcome_os_poland
     end
   end
 
@@ -811,8 +801,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'opposite_sex'
     end
-    should "go to os affirmation outcome" do
-      assert_current_node :outcome_os_consular_cni
+    should "go to os oman outcome" do
+      assert_current_node :outcome_os_oman
     end
   end
 
@@ -866,7 +856,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         add_response 'opposite_sex'
       end
       should "go to os affirmation outcome" do
-        assert_current_node :outcome_os_affirmation
+        assert_current_node :outcome_os_cambodia
       end
     end
 
@@ -1155,8 +1145,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to cp or equivalent outcome" do
       assert_current_node :outcome_cp_or_equivalent
-      assert_state_variable :country_name_lowercase_prefix, 'the Czech Republic'
-      assert_state_variable :pay_by_cash_or_credit_card_no_cheque, nil
+      assert_equal 'the Czech Republic', current_state.calculator.country_name_lowercase_prefix
     end
   end
 
@@ -1206,7 +1195,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'same_sex'
       assert_current_node :outcome_cp_no_cni
-      assert_state_variable :country_name_lowercase_prefix, 'the USA'
+      assert_equal 'the USA', current_state.calculator.country_name_lowercase_prefix
     end
 
     should "go to cp no cni required outcome and suggest legal advice to a US resident" do
@@ -1214,7 +1203,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'same_sex'
       assert_current_node :outcome_cp_no_cni
-      assert_state_variable :country_name_lowercase_prefix, 'the USA'
+      assert_equal 'the USA', current_state.calculator.country_name_lowercase_prefix
     end
   end
 
@@ -1280,7 +1269,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cni cp countries outcome" do
       assert_current_node :outcome_cp_or_equivalent
-      assert_state_variable :pay_by_cash_or_credit_card_no_cheque, nil
     end
   end
 
@@ -1347,7 +1335,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_other'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_consular_cni
-      assert_equal "British Embassy San Jose", current_state.organisation.title
+      assert_equal "British Embassy San Jose", current_state.calculator.fco_organisation.title
     end
 
     should "go to outcome_consular_cni_os_residing_in_third_country and suggest arranging CNI through the Embassy in Costa Rica" do
@@ -1429,7 +1417,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
       should "give a japan-specific outcome" do
         add_response 'opposite_sex'
-        assert_current_node :outcome_os_local_japan
+        assert_current_node :outcome_os_japan
       end
       should "give ss outcome with japan variants" do
         add_response 'same_sex'
@@ -1445,7 +1433,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       end
 
       should "have a japan-specific intro" do
-        assert_current_node :outcome_os_consular_cni
+        assert_current_node :outcome_os_japan
       end
     end
 
@@ -1457,7 +1445,38 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       end
 
       should "give CNI outcome when marrying to an opposite sex non-local partner" do
-        assert_current_node :outcome_os_consular_cni
+        assert_current_node :outcome_os_japan
+      end
+    end
+
+    context "resident of third country" do
+      setup do
+        add_response 'third_country'
+        add_response 'partner_other'
+        add_response 'opposite_sex'
+      end
+
+      should "takes the user to a Japan specific outcome for opposite sex marriages" do
+        assert_current_node :outcome_os_japan
+      end
+    end
+  end
+
+  context 'Ceremony in Slovenia' do
+    setup do
+      worldwide_api_has_organisations_for_location('slovenia', read_fixture_file('worldwide/slovenia_organisations.json'))
+      add_response 'slovenia'
+    end
+
+    context 'for opposite sex couples' do
+      setup do
+        add_response 'ceremony_country'
+        add_response 'partner_other'
+        add_response 'opposite_sex'
+      end
+
+      should 'give a Slovenia specific outcome' do
+        assert_current_node :outcome_os_slovenia
       end
     end
   end
@@ -1612,7 +1631,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   end
 
   context "south-korea new outcome" do
-    should "go to outcome os affirmation with new korea phraselist" do
+    should "go to :outcome_os_affirmation outcome" do
       worldwide_api_has_organisations_for_location('south-korea', read_fixture_file('worldwide/south-korea_organisations.json'))
       add_response 'south-korea'
       add_response 'uk'
@@ -1801,7 +1820,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_other'
       add_response 'opposite_sex'
     end
-    should "go to outcome_os_consular_cni and show specific phraselist" do
+    should "go to :outcome_os_consular_cni outcome" do
       assert_current_node :outcome_os_consular_cni
     end
   end
@@ -1811,14 +1830,14 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       worldwide_api_has_organisations_for_location('qatar', read_fixture_file('worldwide/croatia_organisations.json'))
       add_response 'qatar'
     end
-    should "go to outcome_os_consular_cni and show specific phraselist for OS marriage of local residents" do
+    should "go to :outcome_os_consular_cni outcome" do
       add_response 'ceremony_country'
       add_response 'partner_other'
       add_response 'opposite_sex'
       assert_current_node :outcome_os_affirmation
     end
 
-    should "go to outcome_os_consular_cni and show specific phraselist for OS marriage of residents in a 3rd country" do
+    should "go to outcome_os_affirmation outcome" do
       add_response 'third_country'
       add_response 'partner_other'
       add_response 'opposite_sex'
@@ -1857,25 +1876,23 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       worldwide_api_has_organisations_for_location('belarus', read_fixture_file('worldwide/belarus_organisations.json'))
       add_response 'belarus'
     end
-    should "go to outcome_os_consular_cni and show correct address box for resident in Belarus country, opposite sex marriage" do
+    should "go to outcome_os_belarus and show correct link for appointments in Minsk, opposite sex marriage" do
       add_response 'ceremony_country'
       add_response 'partner_british'
       add_response 'opposite_sex'
-      assert_current_node :outcome_os_consular_cni
-      assert_match /37, Karl Marx Street/, outcome_body
+      assert_current_node :outcome_os_belarus
+      assert_match /Make an appointment at the embassy in Minsk/, outcome_body
     end
 
-    should "go to outcome_consular_cni_os_residing_in_third_country when in third country" do
+    should "go to outcome_os_belarus when in third country" do
       add_response 'third_country'
       add_response 'partner_british'
       add_response 'opposite_sex'
-      assert_current_node :outcome_consular_cni_os_residing_in_third_country
-      assert_state_variable :ceremony_country_residence_outcome_path, "/marriage-abroad/y/belarus/ceremony_country/partner_british/opposite_sex"
-      assert_state_variable :uk_residence_outcome_path, "/marriage-abroad/y/belarus/uk/partner_british/opposite_sex"
+      assert_current_node :outcome_os_belarus
     end
   end
 
-  context "test morocco specific phraselists, living in the UK" do
+  context "test morocco specific, living in the UK" do
     setup do
       worldwide_api_has_organisations_for_location('morocco', read_fixture_file('worldwide/morocco_organisations.json'))
       add_response 'morocco'
@@ -1888,7 +1905,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "test morocco specific phraselists, living elsewhere" do
+  context "test morocco specific, living elsewhere" do
     setup do
       worldwide_api_has_organisations_for_location('morocco', read_fixture_file('worldwide/morocco_organisations.json'))
       add_response 'morocco'
@@ -2208,7 +2225,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_consular_cni_os_residing_in_third_country
     end
 
-    should "lead to a outcome_os_kosovo with uk resident phraselist when residing in the UK" do
+    should "lead to a :outcome_os_kosovo outcome for uk, partner_local and opposite_sex" do
       add_response 'uk'
       add_response 'partner_local'
       add_response 'opposite_sex'
@@ -2216,7 +2233,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_os_kosovo
     end
 
-    should "lead to a outcome_os_kosovo with local resident phraselist when residing in Kosovo" do
+    should "lead to a :outcome_os_kosovo outcome for ceremony_country, partner_local and opposite_sex" do
       add_response 'ceremony_country'
       add_response 'partner_local'
       add_response 'opposite_sex'
@@ -2366,7 +2383,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'ceremony_country'
       add_response 'partner_local'
       add_response 'same_sex'
-      assert_current_node :outcome_ss_marriage
+      assert_current_node :outcome_ss_marriage_not_possible
     end
   end
 

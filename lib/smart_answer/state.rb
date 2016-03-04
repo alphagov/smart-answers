@@ -3,7 +3,15 @@ require 'ostruct'
 module SmartAnswer
   class State < OpenStruct
     def initialize(start_node)
-      super(current_node: start_node, path: [], responses: [])
+      super(current_node: start_node, path: [], responses: [], response: nil, error: nil)
+    end
+
+    def method_missing(method_name, *args)
+      if method_name =~ /=$/
+        super
+      else
+        raise NoMethodError.new("undefined method '#{method_name}' for #{self.class}")
+      end
     end
 
     def transition_to(new_node, input, &blk)

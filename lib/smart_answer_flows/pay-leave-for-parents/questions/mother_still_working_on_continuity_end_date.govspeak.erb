@@ -1,0 +1,8 @@
+<% content_for :title do %>
+  Was the mother (or will she be) still working in that job on <%= format_date(continuity_end_date) %>?
+<% end %>
+
+<% options(
+  "yes": "Yes",
+  "no": "No"
+) %>

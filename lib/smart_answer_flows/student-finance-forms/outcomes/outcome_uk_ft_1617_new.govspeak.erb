@@ -1,0 +1,25 @@
+<% content_for :title do %>
+  Student finance - application form
+<% end %>
+
+<% content_for :body do %>
+
+  You should [apply online](/apply-online-for-student-finance) for help with your tuition and living costs.
+
+  If you can't apply online, use form PN1.
+
+  Academic Year | Form
+  - | -
+  2016 to 2017 | [apply online](/apply-online-for-student-finance)
+  2016 to 2017 | [PN1 - form (PDF, 494KB)](http://media.slc.co.uk/sfe/1617/ft/sfe_pn1_form_1617_d.pdf)
+  2016 to 2017 | [PN1 - guidance notes (PDF, 584KB)](http://media.slc.co.uk/sfe/1617/ft/sfe_pn1_notes_1617_d.pdf)
+  2016 to 2017 | [Tax return guide (PDF, 591KB)](http://media.slc.co.uk/sfe/1617/ft/sfe_paper_tax_return_guide_1617_d.pdf)
+
+  <%= render partial: 'when_you_can_apply.govspeak.erb' %>
+
+  <%= render partial: 'where_to_send_your_forms_uk.govspeak.erb' %>
+<% end %>
+
+<% content_for :next_steps do %>
+  [How to apply for student finance](/apply-for-student-finance)
+<% end %>

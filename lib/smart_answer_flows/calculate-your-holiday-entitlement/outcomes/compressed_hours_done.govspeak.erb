@@ -1,5 +1,5 @@
 <% content_for :body do %>
-  $!The statutory holiday entitlement is <%= holiday_entitlement_hours %> hours and <%= holiday_entitlement_minutes %> minutes holiday for the year. Rather than taking a day’s holiday it’s <%= hours_daily %> hours and <%= minutes_daily %> minutes holiday for each day otherwise worked.$!
+  $!The statutory holiday entitlement is <%= pluralize(holiday_entitlement_hours, 'hour') %> and <%= pluralize(holiday_entitlement_minutes, 'minute') %> holiday for the year. Rather than taking a day’s holiday it’s <%= pluralize(hours_daily, 'hour') %> and <%= pluralize(minutes_daily, 'minute') %> holiday for each day otherwise worked.$!
 
   <%= render partial: 'your_employer_with_rounding.govspeak.erb' -%>
 <% end %>

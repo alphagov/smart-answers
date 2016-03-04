@@ -1,0 +1,16 @@
+<% content_for :title do %>
+  How much milk proteins does the product contain?
+<% end %>
+
+<% options(
+  "0": "0 - 2.49",
+  "2": "2.5 - 5.99",
+  "6": "6 - 17.99",
+  "18": "18 - 29.99",
+  "30": "30 - 59.99",
+  "60": "60 or more"
+) %>
+
+<% content_for :hint do %>
+  The values represent % by weight
+<% end %>

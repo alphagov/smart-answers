@@ -174,7 +174,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
     end # Q1 not receving housing benefit at Outcome 2
 
     context "housing benefit less than 0.5" do
-      should "show dedicate phraselist" do
+      should "show :outcome_affected_greater_than_cap outcome" do
         add_response :yes
         add_response :no
         add_response :no

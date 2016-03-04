@@ -93,19 +93,5 @@ module SmartAnswer
         assert_equal [], @question.to_response('none')
       end
     end
-
-    context "predicate helper functions" do
-      setup do
-        @question = Question::Checkbox.new(nil, :something)
-      end
-
-      should "define response_has_all_of" do
-        assert @question.response_has_all_of([]).is_a?(SmartAnswer::Predicate::ResponseHasAllOf)
-      end
-
-      should "define response_is_one_of" do
-        assert @question.response_is_one_of([]).is_a?(SmartAnswer::Predicate::ResponseIsOneOf)
-      end
-    end
   end
 end

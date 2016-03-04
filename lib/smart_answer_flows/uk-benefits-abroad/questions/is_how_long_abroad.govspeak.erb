@@ -1,0 +1,13 @@
+<% content_for :title do %>
+  How long are you going abroad for?
+<% end %>
+
+<% options(
+  "is_under_a_year_medical": "Less than 1 year, to get medical treatment for you or your child",
+  "is_under_a_year_other": "Less than 1 year, for a different reason",
+  "is_more_than_a_year": "More than 1 year"
+) %>
+
+<% content_for :hint do %>
+  You can't apply for Income Support from abroad.
+<% end %>

@@ -1,8 +1,5 @@
 <div class="question">
   <h2>
-    <% if number %>
-      <span class="question-number"><%=number%> </span>
-    <% end %>
     <%= question.title %>
   </h2>
   <div class="question-body">
@@ -19,7 +16,7 @@
         </p>
       <% end %>
 
-      <%= render partial: question.partial_template_name, locals: { question: question, number: number } %>
+      <%= render partial: question.partial_template_name, locals: { question: question } %>
 
       <%= question.post_body %>
     </div>

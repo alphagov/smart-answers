@@ -1,0 +1,16 @@
+<% content_for :title do %>
+  Are you elderly, disabled, or do you have children?
+<% end %>
+
+<% options(
+  "disabled": "You or your partner are disabled.",
+  "disabled_child": "You have a disabled child.",
+  "child_under_5": "You have a child under 5.",
+  "child_under_16": "You have a child under 16 or under 20 if in full-time education.",
+  "pensioner_premium": "You (or your partner) get a ‘pensioner premium’.",
+  "work_support_esa": "You’re in the work-related or support group of ESA."
+) %>
+
+<% content_for :hint do %>
+  Choose all that apply to you. If none apply just click ‘Next step’.
+<% end %>
