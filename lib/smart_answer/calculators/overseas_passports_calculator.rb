@@ -16,6 +16,12 @@ module SmartAnswer::Calculators
       iran libya syria yemen
     )
 
+    IPS_APPLICATION_TYPES = %w(
+      ips_application_1
+      ips_application_2
+      ips_application_3
+    )
+
     UK_VISA_APPLICATION_CENTRE_COUNTRIES = %w(
       afghanistan algeria azerbaijan bangladesh belarus burundi burma cambodia
       china gaza georgia india indonesia kazakhstan kyrgyzstan laos lebanon
@@ -124,6 +130,10 @@ module SmartAnswer::Calculators
     def application_type
       data = passport_data
       data ? data['type'] : nil
+    end
+
+    def ips_application?
+      IPS_APPLICATION_TYPES.include?(application_type)
     end
   end
 end
