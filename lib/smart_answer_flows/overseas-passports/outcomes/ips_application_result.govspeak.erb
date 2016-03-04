@@ -27,10 +27,10 @@
              }
   -%>
 
-  <% if application_address %>
+  <% if calculator.application_address %>
     <%= render partial: 'sending_your_application.govspeak.erb',
                locals: {
-                 application_address: application_address
+                 calculator: calculator
                }
     -%>
   <% else %>
