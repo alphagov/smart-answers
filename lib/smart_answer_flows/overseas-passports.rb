@@ -132,12 +132,8 @@ module SmartAnswer
 
       # Q4
       country_select :country_of_birth?, include_uk: true, exclude_countries: Calculators::OverseasPassportsCalculator::EXCLUDE_COUNTRIES do
-        calculate :application_group do |response|
-          calculator.passport_data(response)['group']
-        end
-
         calculate :supporting_documents do |response|
-          response == 'united-kingdom' ? supporting_documents : application_group
+          response == 'united-kingdom' ? supporting_documents : calculator.application_group(response)
         end
 
         calculate :ips_docs_number do
