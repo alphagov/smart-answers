@@ -407,6 +407,25 @@ module SmartAnswer
           end
         end
 
+        context '#application_address' do
+          setup do
+            @calculator = OverseasPassportsCalculator.new
+          end
+
+          should 'returns address from passport_data' do
+            application_address = 'application_address_1'
+            @calculator.stubs(:passport_data).returns('address' => 'application_address_1')
+
+            assert_equal application_address, @calculator.application_address
+          end
+
+          should 'return nil when passport_data is nil' do
+            @calculator.stubs(:passport_data).returns(nil)
+
+            assert_nil @calculator.application_address
+          end
+        end
+
         context '#application_group' do
           setup do
             @calculator = OverseasPassportsCalculator.new

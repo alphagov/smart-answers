@@ -65,10 +65,6 @@ module SmartAnswer
         option :applying
         option :replacing
 
-        calculate :application_address do
-          calculator.passport_data['address']
-        end
-
         calculate :ips_result_type do
           calculator.passport_data['online_application'] ? :ips_application_result_online : :ips_application_result
         end
