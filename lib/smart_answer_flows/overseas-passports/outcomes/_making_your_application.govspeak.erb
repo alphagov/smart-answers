@@ -141,7 +141,7 @@
         <%= render partial: 'making_your_application/book_appointment_by_email_with_3_dates.govspeak.erb' %>
       <% end %>
     <% else %>
-      <%= render partial: 'making_your_application/send_application_ips.govspeak.erb', locals: { ips_number: ips_number } %>
+      <%= render partial: 'making_your_application/send_application_ips.govspeak.erb', locals: { ips_number: calculator.ips_number } %>
       <%= render partial: 'making_your_application/renewing_new_renewing_old.govspeak.erb' %>
     <% end %>
     <% unless calculator.book_appointment_online? %>
@@ -167,7 +167,7 @@
         <%= render partial: 'making_your_application/book_appointment_by_email_with_3_dates.govspeak.erb' %>
       <% end %>
     <% else %>
-      <%= render partial: 'making_your_application/send_application_ips.govspeak.erb', locals: { ips_number: ips_number } %>
+      <%= render partial: 'making_your_application/send_application_ips.govspeak.erb', locals: { ips_number: calculator.ips_number } %>
     <% end %>
     <% if %w(st-helena-ascension-and-tristan-da-cunha).include?(calculator.current_location) %>
       <% if calculator.renewing_new? %>
@@ -175,7 +175,7 @@
       <% end %>
       <%= render partial: 'making_your_application/send_application_address_st_helena_ascension_and_tristan_da_cunha.govspeak.erb' %>
     <% else %>
-      <% if ips_number.to_i > 1 %>
+      <% if calculator.ips_number.to_i > 1 %>
         <% unless calculator.book_appointment_online? %>
           <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
         <% else %>
