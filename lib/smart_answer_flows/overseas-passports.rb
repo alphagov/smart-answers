@@ -71,10 +71,6 @@ module SmartAnswer
           end
         end
 
-        calculate :optimistic_processing_time do
-          calculator.passport_data['optimistic_processing_time?']
-        end
-
         permitted_next_nodes = [
           :child_or_adult_passport?
         ]
