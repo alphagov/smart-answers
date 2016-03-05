@@ -40,7 +40,9 @@ module SmartAnswer
         next_node = current_state.instance_exec(input, &next_node_block)
         unless next_node
           responses_and_input = current_state.responses + [input]
-          raise NextNodeUndefined.new("Next node undefined. Node: #{current_state.current_node}. Responses: #{responses_and_input}")
+          message = "Next node undefined. Node: #{current_state.current_node}."
+          message << " Responses: #{responses_and_input}."
+          raise NextNodeUndefined.new(message)
         end
         unless @permitted_next_nodes.include?(next_node)
           raise "Next node (#{next_node}) not in list of permitted next nodes (#{@permitted_next_nodes.to_sentence})"

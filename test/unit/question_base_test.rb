@@ -205,7 +205,7 @@ class QuestionBaseTest < ActiveSupport::TestCase
     error = assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do
       q.next_node_for(initial_state, responses[1])
     end
-    expected_message = "Next node undefined. Node: #{question_name}. Responses: #{responses}"
+    expected_message = "Next node undefined. Node: #{question_name}. Responses: #{responses}."
     assert_equal expected_message, error.message
   end
 
@@ -220,7 +220,7 @@ class QuestionBaseTest < ActiveSupport::TestCase
     error = assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do
       q.next_node_for(initial_state, responses[1])
     end
-    expected_message = "Next node undefined. Node: #{question_name}. Responses: #{responses}"
+    expected_message = "Next node undefined. Node: #{question_name}. Responses: #{responses}."
     assert_equal expected_message, error.message
   end
 end
