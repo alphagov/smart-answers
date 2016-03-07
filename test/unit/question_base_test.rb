@@ -177,7 +177,8 @@ class QuestionBaseTest < ActiveSupport::TestCase
     should "raise an exception if next_node does not return a node key" do
       responses = [:blue, :red]
       @question.next_node(permitted: [:skipped]) do
-        :skipped if false
+        skip = false
+        :skipped if skip
       end
       initial_state = SmartAnswer::State.new(@question.name)
       initial_state.responses << responses[0]
