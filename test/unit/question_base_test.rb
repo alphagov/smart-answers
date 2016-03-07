@@ -94,7 +94,7 @@ class QuestionBaseTest < ActiveSupport::TestCase
         :done
       end
       initial_state = SmartAnswer::State.new(@question.name)
-      new_state = @question.transition(initial_state, 'something')
+      @question.transition(initial_state, 'something')
       assert_equal 'something', input_was
     end
 
