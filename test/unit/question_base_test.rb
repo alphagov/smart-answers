@@ -42,6 +42,13 @@ class QuestionBaseTest < ActiveSupport::TestCase
       }
       assert_equal [:done], q.permitted_next_nodes
     end
+
+    should 'return permitted next nodes if next_node called without block' do
+      q = SmartAnswer::Question::Base.new(nil, :example) {
+        next_node :done
+      }
+      assert_equal [:done], q.permitted_next_nodes
+    end
   end
 
   context '#transition' do
