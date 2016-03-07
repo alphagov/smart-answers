@@ -3,26 +3,31 @@ module SmartAnswer
     class Base < Node
       class NextNodeUndefined < StandardError; end
 
+      attr_reader :permitted_next_nodes
+
       def initialize(flow, name, options = {}, &block)
         @save_input_as = nil
-        @validations ||= []
-        @default_next_node_function ||= lambda {|_|}
+        @validations = []
+        @default_next_node_block = lambda { |_| nil }
         @permitted_next_nodes = []
         super
       end
 
       def next_node(next_node = nil, permitted: [], &block)
+        if @next_node_block.present?
+          raise 'Multiple calls to next_node are not allowed'
+        end
         if block_given?
           unless permitted.any?
-            raise "You must specify the permitted next nodes"
+            raise ArgumentError, 'You must specify at least one permitted next node'
           end
-          @permitted_next_nodes += permitted
-          @default_next_node_function = block
+          @permitted_next_nodes = permitted
+          @next_node_block = block
         elsif next_node
           @permitted_next_nodes = [next_node]
-          @default_next_node_function = proc { next_node }
+          @next_node_block = lambda { |_| next_node }
         else
-          raise ArgumentError
+          raise ArgumentError, 'You must specify a block or a single next node key'
         end
       end
 
@@ -30,15 +35,15 @@ module SmartAnswer
         @validations << [message, block]
       end
 
-      def permitted_next_nodes(*args)
-        @permitted_next_nodes += args
-      end
-
       def next_node_for(current_state, input)
         validate!(current_state, input)
-        next_node = next_node_from_default_function(current_state, input)
-        responses_and_input = current_state.responses + [input]
-        raise NextNodeUndefined.new("Next node undefined. Node: #{current_state.current_node}. Responses: #{responses_and_input}") unless next_node
+        next_node = current_state.instance_exec(input, &next_node_block)
+        unless next_node
+          responses_and_input = current_state.responses + [input]
+          message = "Next node undefined. Node: #{current_state.current_node}."
+          message << " Responses: #{responses_and_input}."
+          raise NextNodeUndefined.new(message)
+        end
         unless @permitted_next_nodes.include?(next_node)
           raise "Next node (#{next_node}) not in list of permitted next nodes (#{@permitted_next_nodes.to_sentence})"
         end
@@ -77,8 +82,8 @@ module SmartAnswer
       end
 
     private
-      def permitted_next_node?(next_node)
-        @permitted_next_nodes.include?(next_node)
+      def next_node_block
+        @next_node_block || @default_next_node_block
       end
 
       def validate!(current_state, input)
@@ -91,10 +96,6 @@ module SmartAnswer
             end
           end
         end
-      end
-
-      def next_node_from_default_function(current_state, input)
-        current_state.instance_exec(input, &@default_next_node_function)
       end
     end
   end

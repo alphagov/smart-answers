@@ -1,5 +1,3 @@
-
-require 'ostruct'
 require_relative '../test_helper'
 
 class QuestionBaseTest < ActiveSupport::TestCase
@@ -17,13 +15,43 @@ class QuestionBaseTest < ActiveSupport::TestCase
     assert_equal expected_message, exception.message
   end
 
-  test 'permitted next nodes can be supplied to next_node' do
+  test 'permitted next nodes must be supplied if next_node is called with block' do
+    e = assert_raises(ArgumentError) do
+      SmartAnswer::Question::Base.new(nil, :example) {
+        next_node do
+          :done
+        end
+      }
+    end
+    assert_equal 'You must specify at least one permitted next node', e.message
+  end
+
+  test 'permitted next nodes supplied to next_node are stored' do
     q = SmartAnswer::Question::Base.new(nil, :example) {
       next_node(permitted: [:done]) do
         :done
       end
     }
     assert_equal [:done], q.permitted_next_nodes
+  end
+
+  test 'single next node key must be supplied if next_node called without block' do
+    e = assert_raises(ArgumentError) do
+      SmartAnswer::Question::Base.new(nil, :example) {
+        next_node
+      }
+    end
+    assert_equal 'You must specify a block or a single next node key', e.message
+  end
+
+  test 'multiple calls to next_node are not allowed' do
+    e = assert_raises do
+      SmartAnswer::Question::Base.new(nil, :example) {
+        next_node :outcome_one
+        next_node :outcome_two
+      }
+    end
+    assert_equal 'Multiple calls to next_node are not allowed', e.message
   end
 
   test "State is carried over on a state transition" do
@@ -177,7 +205,22 @@ class QuestionBaseTest < ActiveSupport::TestCase
     error = assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do
       q.next_node_for(initial_state, responses[1])
     end
-    expected_message = "Next node undefined. Node: #{question_name}. Responses: #{responses}"
+    expected_message = "Next node undefined. Node: #{question_name}. Responses: #{responses}."
+    assert_equal expected_message, error.message
+  end
+
+  test "error if next_node was not called for question" do
+    question_name = :example
+    responses = [:blue, :red]
+    q = SmartAnswer::Question::Base.new(nil, question_name) {
+      # no call to next_node
+    }
+    initial_state = SmartAnswer::State.new(q.name)
+    initial_state.responses << responses[0]
+    error = assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do
+      q.next_node_for(initial_state, responses[1])
+    end
+    expected_message = "Next node undefined. Node: #{question_name}. Responses: #{responses}."
     assert_equal expected_message, error.message
   end
 end
