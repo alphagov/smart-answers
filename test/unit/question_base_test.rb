@@ -4,30 +4,30 @@ class QuestionBaseTest < ActiveSupport::TestCase
   context '#next_node' do
     should 'raise exception if called with block but no permitted next nodes' do
       e = assert_raises(ArgumentError) do
-        SmartAnswer::Question::Base.new(nil, :example) {
+        SmartAnswer::Question::Base.new(nil, :example) do
           next_node do
             :done
           end
-        }
+        end
       end
       assert_equal 'You must specify at least one permitted next node', e.message
     end
 
     should 'single next node key must be supplied if next_node called without block' do
       e = assert_raises(ArgumentError) do
-        SmartAnswer::Question::Base.new(nil, :example) {
+        SmartAnswer::Question::Base.new(nil, :example) do
           next_node
-        }
+        end
       end
       assert_equal 'You must specify a block or a single next node key', e.message
     end
 
     should 'raise exception if next_node is invoked multiple times' do
       e = assert_raises do
-        SmartAnswer::Question::Base.new(nil, :example) {
+        SmartAnswer::Question::Base.new(nil, :example) do
           next_node :outcome_one
           next_node :outcome_two
-        }
+        end
       end
       assert_equal 'Multiple calls to next_node are not allowed', e.message
     end
@@ -35,27 +35,27 @@ class QuestionBaseTest < ActiveSupport::TestCase
 
   context '#permitted_next_nodes' do
     should 'return permitted next nodes if next_node called with block' do
-      q = SmartAnswer::Question::Base.new(nil, :example) {
+      q = SmartAnswer::Question::Base.new(nil, :example) do
         next_node(permitted: [:done]) do
           :done
         end
-      }
+      end
       assert_equal [:done], q.permitted_next_nodes
     end
 
     should 'return permitted next nodes if next_node called without block' do
-      q = SmartAnswer::Question::Base.new(nil, :example) {
+      q = SmartAnswer::Question::Base.new(nil, :example) do
         next_node :done
-      }
+      end
       assert_equal [:done], q.permitted_next_nodes
     end
   end
 
   context '#transition' do
     should "copy values from initial state to new state" do
-      q = SmartAnswer::Question::Base.new(nil, :example) {
+      q = SmartAnswer::Question::Base.new(nil, :example) do
         next_node :done
-      }
+      end
       initial_state = SmartAnswer::State.new(q.name)
       initial_state.something_else = "Carried over"
       new_state = q.transition(initial_state, :yes)
@@ -63,9 +63,9 @@ class QuestionBaseTest < ActiveSupport::TestCase
     end
 
     should "set current_node to value returned from next_node_for" do
-      q = SmartAnswer::Question::Base.new(nil, :example) {
+      q = SmartAnswer::Question::Base.new(nil, :example) do
         next_node :done
-      }
+      end
       initial_state = SmartAnswer::State.new(q.name)
       q.stubs(:next_node_for).returns(:done)
       new_state = q.transition(initial_state, :anything)
@@ -73,30 +73,30 @@ class QuestionBaseTest < ActiveSupport::TestCase
     end
 
     should "set current_node to node key passed into next_node method" do
-      q = SmartAnswer::Question::Base.new(nil, :example) {
+      q = SmartAnswer::Question::Base.new(nil, :example) do
         next_node :done
-      }
+      end
       initial_state = SmartAnswer::State.new(q.name)
       new_state = q.transition(initial_state, :anything)
       assert_equal :done, new_state.current_node
     end
 
     should "set current_node to result of calling next_node block" do
-      q = SmartAnswer::Question::Base.new(nil, :example) {
+      q = SmartAnswer::Question::Base.new(nil, :example) do
         next_node(permitted: [:done_done]) { :done_done }
-      }
+      end
       initial_state = SmartAnswer::State.new(q.name)
       new_state = q.transition(initial_state, :anything)
       assert_equal :done_done, new_state.current_node
     end
 
     should "make state available to code in next_node block" do
-      q = SmartAnswer::Question::Base.new(nil, :example) {
+      q = SmartAnswer::Question::Base.new(nil, :example) do
         permitted_next_nodes = [:was_red, :wasnt_red]
         next_node(permitted: permitted_next_nodes) do
           colour == 'red' ? :was_red : :wasnt_red
         end
-      }
+      end
       initial_state = SmartAnswer::State.new(q.name)
       initial_state.colour = 'red'
       new_state = q.transition(initial_state, 'anything')
@@ -105,12 +105,12 @@ class QuestionBaseTest < ActiveSupport::TestCase
 
     should "pass input to next_node block" do
       input_was = nil
-      q = SmartAnswer::Question::Base.new(nil, :example) {
+      q = SmartAnswer::Question::Base.new(nil, :example) do
         next_node(permitted: [:done]) do |input|
           input_was = input
           :done
         end
-      }
+      end
       initial_state = SmartAnswer::State.new(q.name)
       new_state = q.transition(initial_state, 'something')
       assert_equal 'something', input_was
@@ -127,9 +127,9 @@ class QuestionBaseTest < ActiveSupport::TestCase
     end
 
     should "save input sequence on new state" do
-      q = SmartAnswer::Question::Base.new(nil, :favourite_colour?) {
+      q = SmartAnswer::Question::Base.new(nil, :favourite_colour?) do
         next_node :done
-      }
+      end
       initial_state = SmartAnswer::State.new(q.name)
       new_state = q.transition(initial_state, :red)
       assert_equal [:red], new_state.responses
@@ -193,10 +193,10 @@ class QuestionBaseTest < ActiveSupport::TestCase
 
   context '#next_node_for' do
     should "raise an exception if next_node returns key not in permitted_next_nodes" do
-      q = SmartAnswer::Question::Base.new(flow = nil, :question_name) {
+      q = SmartAnswer::Question::Base.new(flow = nil, :question_name) do
         permitted_next_nodes = [:allowed_next_node_1, :allowed_next_node_2]
         next_node(permitted: permitted_next_nodes) { :not_allowed_next_node }
-      }
+      end
       state = SmartAnswer::State.new(q.name)
 
       expected_message = "Next node (not_allowed_next_node) not in list of permitted next nodes (allowed_next_node_1 and allowed_next_node_2)"
@@ -209,11 +209,11 @@ class QuestionBaseTest < ActiveSupport::TestCase
     should "raise an exception if next_node does not return a node key" do
       question_name = :example
       responses = [:blue, :red]
-      q = SmartAnswer::Question::Base.new(nil, question_name) {
+      q = SmartAnswer::Question::Base.new(nil, question_name) do
         next_node(permitted: [:skipped]) do
           :skipped if false
         end
-      }
+      end
       initial_state = SmartAnswer::State.new(q.name)
       initial_state.responses << responses[0]
       error = assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do
@@ -226,9 +226,9 @@ class QuestionBaseTest < ActiveSupport::TestCase
     should "raise an exception if next_node was not called for question" do
       question_name = :example
       responses = [:blue, :red]
-      q = SmartAnswer::Question::Base.new(nil, question_name) {
+      q = SmartAnswer::Question::Base.new(nil, question_name) do
         # no call to next_node
-      }
+      end
       initial_state = SmartAnswer::State.new(q.name)
       initial_state.responses << responses[0]
       error = assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do
