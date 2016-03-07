@@ -1,15 +1,36 @@
 require_relative '../test_helper'
 
 class QuestionBaseTest < ActiveSupport::TestCase
-  should 'permitted next nodes must be supplied if next_node is called with block' do
-    e = assert_raises(ArgumentError) do
-      SmartAnswer::Question::Base.new(nil, :example) {
-        next_node do
-          :done
-        end
-      }
+  context '#next_node' do
+    should 'raise exception if called with block but no permitted next nodes' do
+      e = assert_raises(ArgumentError) do
+        SmartAnswer::Question::Base.new(nil, :example) {
+          next_node do
+            :done
+          end
+        }
+      end
+      assert_equal 'You must specify at least one permitted next node', e.message
     end
-    assert_equal 'You must specify at least one permitted next node', e.message
+
+    should 'single next node key must be supplied if next_node called without block' do
+      e = assert_raises(ArgumentError) do
+        SmartAnswer::Question::Base.new(nil, :example) {
+          next_node
+        }
+      end
+      assert_equal 'You must specify a block or a single next node key', e.message
+    end
+
+    should 'raise exception if next_node is invoked multiple times' do
+      e = assert_raises do
+        SmartAnswer::Question::Base.new(nil, :example) {
+          next_node :outcome_one
+          next_node :outcome_two
+        }
+      end
+      assert_equal 'Multiple calls to next_node are not allowed', e.message
+    end
   end
 
   should 'permitted next nodes supplied to next_node are stored' do
@@ -19,25 +40,6 @@ class QuestionBaseTest < ActiveSupport::TestCase
       end
     }
     assert_equal [:done], q.permitted_next_nodes
-  end
-
-  should 'single next node key must be supplied if next_node called without block' do
-    e = assert_raises(ArgumentError) do
-      SmartAnswer::Question::Base.new(nil, :example) {
-        next_node
-      }
-    end
-    assert_equal 'You must specify a block or a single next node key', e.message
-  end
-
-  should 'multiple calls to next_node are not allowed' do
-    e = assert_raises do
-      SmartAnswer::Question::Base.new(nil, :example) {
-        next_node :outcome_one
-        next_node :outcome_two
-      }
-    end
-    assert_equal 'Multiple calls to next_node are not allowed', e.message
   end
 
   context '#transition' do
