@@ -116,7 +116,6 @@ class QuestionBaseTest < ActiveSupport::TestCase
     should "save path on new state" do
       @question.next_node :done
       initial_state = SmartAnswer::State.new(@question.name)
-      initial_state.current_node = @question.name
       new_state = @question.transition(initial_state, :red)
       assert_equal [@question.name], new_state.path
     end
