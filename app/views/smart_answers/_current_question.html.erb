@@ -3,7 +3,9 @@
     <%= question.title %>
   </h2>
   <div class="question-body">
-    <%= question.body %>
+    <article role="article">
+      <%= question.body %>
+    </article>
 
     <% if question.hint.present? %>
       <p class="hint"><%= question.hint %></p>
