@@ -18,10 +18,14 @@ module SmartAnswer
           raise 'Multiple calls to next_node are not allowed'
         end
         if block_given?
-          unless permitted.any?
-            raise ArgumentError, 'You must specify at least one permitted next node'
+          if permitted == :auto
+            @permitted_next_nodes = []
+          else
+            unless permitted.any?
+              raise ArgumentError, 'You must specify at least one permitted next node'
+            end
+            @permitted_next_nodes = permitted
           end
-          @permitted_next_nodes = permitted
           @next_node_block = block
         elsif next_node
           @permitted_next_nodes = [next_node]

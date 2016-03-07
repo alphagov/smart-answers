@@ -43,6 +43,13 @@ class QuestionBaseTest < ActiveSupport::TestCase
       @question.next_node :done
       assert_equal [:done], @question.permitted_next_nodes
     end
+
+    should 'return empty array if next_node is called with `permitted: auto`' do
+      @question.next_node(permitted: :auto) do
+        :done
+      end
+      assert_equal [], @question.permitted_next_nodes
+    end
   end
 
   context '#transition' do
@@ -168,6 +175,17 @@ class QuestionBaseTest < ActiveSupport::TestCase
       state = SmartAnswer::State.new(@question.name)
 
       expected_message = "Next node (not_allowed_next_node) not in list of permitted next nodes (allowed_next_node_1 and allowed_next_node_2)"
+      exception = assert_raises do
+        @question.next_node_for(state, 'response')
+      end
+      assert_equal expected_message, exception.message
+    end
+
+    should "raise an exception if next_node was called with `permitted: :auto`" do
+      @question.next_node(permitted: :auto) { :not_allowed_next_node }
+      state = SmartAnswer::State.new(@question.name)
+
+      expected_message = "Next node (not_allowed_next_node) not in list of permitted next nodes ()"
       exception = assert_raises do
         @question.next_node_for(state, 'response')
       end
