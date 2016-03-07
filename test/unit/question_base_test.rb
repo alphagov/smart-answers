@@ -44,9 +44,24 @@ class QuestionBaseTest < ActiveSupport::TestCase
       assert_equal [:done], @question.permitted_next_nodes
     end
 
-    should 'return empty array if next_node is called with `permitted: auto`' do
-      @question.next_node(permitted: :auto) do
-        :done
+    should 'return nodes returned via syntactic sugar methods' do
+      @question.next_node(permitted: :auto) do |response|
+        if response == 'yes'
+          outcome :done
+        else
+          question :another_question
+        end
+      end
+      assert_equal [:done, :another_question], @question.permitted_next_nodes
+    end
+
+    should 'not return nodes not returned via syntactic sugar methods' do
+      @question.next_node(permitted: :auto) do |response|
+        if response == 'yes'
+          :done
+        else
+          :another_question
+        end
       end
       assert_equal [], @question.permitted_next_nodes
     end

@@ -19,7 +19,8 @@ module SmartAnswer
         end
         if block_given?
           if permitted == :auto
-            @permitted_next_nodes = []
+            parser = NextNodeBlock::Parser.new
+            @permitted_next_nodes = parser.possible_next_nodes(block)
           else
             unless permitted.any?
               raise ArgumentError, 'You must specify at least one permitted next node'
