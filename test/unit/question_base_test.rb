@@ -1,20 +1,6 @@
 require_relative '../test_helper'
 
 class QuestionBaseTest < ActiveSupport::TestCase
-  should "#next_node_for raises an exception when the next node isn't in the list of permitted next nodes" do
-    q = SmartAnswer::Question::Base.new(flow = nil, :question_name) {
-      permitted_next_nodes = [:allowed_next_node_1, :allowed_next_node_2]
-      next_node(permitted: permitted_next_nodes) { :not_allowed_next_node }
-    }
-    state = SmartAnswer::State.new(q.name)
-
-    expected_message = "Next node (not_allowed_next_node) not in list of permitted next nodes (allowed_next_node_1 and allowed_next_node_2)"
-    exception = assert_raises do
-      q.next_node_for(state, 'response')
-    end
-    assert_equal expected_message, exception.message
-  end
-
   should 'permitted next nodes must be supplied if next_node is called with block' do
     e = assert_raises(ArgumentError) do
       SmartAnswer::Question::Base.new(nil, :example) {
@@ -192,35 +178,51 @@ class QuestionBaseTest < ActiveSupport::TestCase
     assert_equal :done, new_state.current_node
   end
 
-  should "error if no conditional transitions found and no fallback" do
-    question_name = :example
-    responses = [:blue, :red]
-    q = SmartAnswer::Question::Base.new(nil, question_name) {
-      next_node(permitted: [:skipped]) do
-        :skipped if false
-      end
-    }
-    initial_state = SmartAnswer::State.new(q.name)
-    initial_state.responses << responses[0]
-    error = assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do
-      q.next_node_for(initial_state, responses[1])
-    end
-    expected_message = "Next node undefined. Node: #{question_name}. Responses: #{responses}."
-    assert_equal expected_message, error.message
-  end
+  context '#next_node_for' do
+    should "raise an exception if next_node returns key not in permitted_next_nodes" do
+      q = SmartAnswer::Question::Base.new(flow = nil, :question_name) {
+        permitted_next_nodes = [:allowed_next_node_1, :allowed_next_node_2]
+        next_node(permitted: permitted_next_nodes) { :not_allowed_next_node }
+      }
+      state = SmartAnswer::State.new(q.name)
 
-  should "error if next_node was not called for question" do
-    question_name = :example
-    responses = [:blue, :red]
-    q = SmartAnswer::Question::Base.new(nil, question_name) {
-      # no call to next_node
-    }
-    initial_state = SmartAnswer::State.new(q.name)
-    initial_state.responses << responses[0]
-    error = assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do
-      q.next_node_for(initial_state, responses[1])
+      expected_message = "Next node (not_allowed_next_node) not in list of permitted next nodes (allowed_next_node_1 and allowed_next_node_2)"
+      exception = assert_raises do
+        q.next_node_for(state, 'response')
+      end
+      assert_equal expected_message, exception.message
     end
-    expected_message = "Next node undefined. Node: #{question_name}. Responses: #{responses}."
-    assert_equal expected_message, error.message
+
+    should "raise an exception if next_node does not return a node key" do
+      question_name = :example
+      responses = [:blue, :red]
+      q = SmartAnswer::Question::Base.new(nil, question_name) {
+        next_node(permitted: [:skipped]) do
+          :skipped if false
+        end
+      }
+      initial_state = SmartAnswer::State.new(q.name)
+      initial_state.responses << responses[0]
+      error = assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do
+        q.next_node_for(initial_state, responses[1])
+      end
+      expected_message = "Next node undefined. Node: #{question_name}. Responses: #{responses}."
+      assert_equal expected_message, error.message
+    end
+
+    should "raise an exception if next_node was not called for question" do
+      question_name = :example
+      responses = [:blue, :red]
+      q = SmartAnswer::Question::Base.new(nil, question_name) {
+        # no call to next_node
+      }
+      initial_state = SmartAnswer::State.new(q.name)
+      initial_state.responses << responses[0]
+      error = assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do
+        q.next_node_for(initial_state, responses[1])
+      end
+      expected_message = "Next node undefined. Node: #{question_name}. Responses: #{responses}."
+      assert_equal expected_message, error.message
+    end
   end
 end
