@@ -40,142 +40,144 @@ class QuestionBaseTest < ActiveSupport::TestCase
     assert_equal 'Multiple calls to next_node are not allowed', e.message
   end
 
-  should "State is carried over on a state transition" do
-    q = SmartAnswer::Question::Base.new(nil, :example) {
-      next_node :done
-    }
-    initial_state = SmartAnswer::State.new(q.name)
-    initial_state.something_else = "Carried over"
-    new_state = q.transition(initial_state, :yes)
-    assert_equal "Carried over", new_state.something_else
-  end
-
-  should "Next node is taken from next_node_for method" do
-    q = SmartAnswer::Question::Base.new(nil, :example) {
-      next_node :done
-    }
-    initial_state = SmartAnswer::State.new(q.name)
-    q.stubs(:next_node_for).returns(:done)
-    new_state = q.transition(initial_state, :anything)
-    assert_equal :done, new_state.current_node
-  end
-
-  should "Can define next_node by passing a value" do
-    q = SmartAnswer::Question::Base.new(nil, :example) {
-      next_node :done
-    }
-    initial_state = SmartAnswer::State.new(q.name)
-    new_state = q.transition(initial_state, :anything)
-    assert_equal :done, new_state.current_node
-  end
-
-  should "Can define next_node by giving a block, provided that next node is declared" do
-    q = SmartAnswer::Question::Base.new(nil, :example) {
-      next_node(permitted: [:done_done]) { :done_done }
-    }
-    initial_state = SmartAnswer::State.new(q.name)
-    new_state = q.transition(initial_state, :anything)
-    assert_equal :done_done, new_state.current_node
-  end
-
-  should "next_node block can refer to state" do
-    q = SmartAnswer::Question::Base.new(nil, :example) {
-      permitted_next_nodes = [:was_red, :wasnt_red]
-      next_node(permitted: permitted_next_nodes) do
-        colour == 'red' ? :was_red : :wasnt_red
-      end
-    }
-    initial_state = SmartAnswer::State.new(q.name)
-    initial_state.colour = 'red'
-    new_state = q.transition(initial_state, 'anything')
-    assert_equal :was_red, new_state.current_node
-  end
-
-  should "next_node block is passed input" do
-    input_was = nil
-    q = SmartAnswer::Question::Base.new(nil, :example) {
-      next_node(permitted: [:done]) do |input|
-        input_was = input
-        :done
-      end
-    }
-    initial_state = SmartAnswer::State.new(q.name)
-    new_state = q.transition(initial_state, 'something')
-    assert_equal 'something', input_was
-  end
-
-  should "Input can be saved into the state" do
-    q = SmartAnswer::Question::Base.new(nil, :favourite_colour?) do
-      save_input_as :colour_preference
-      next_node :done
+  context '#transition' do
+    should "copy values from initial state to new state" do
+      q = SmartAnswer::Question::Base.new(nil, :example) {
+        next_node :done
+      }
+      initial_state = SmartAnswer::State.new(q.name)
+      initial_state.something_else = "Carried over"
+      new_state = q.transition(initial_state, :yes)
+      assert_equal "Carried over", new_state.something_else
     end
-    initial_state = SmartAnswer::State.new(q.name)
-    new_state = q.transition(initial_state, :red)
-    assert_equal :red, new_state.colour_preference
-  end
 
-  should "Input sequence is saved into responses" do
-    q = SmartAnswer::Question::Base.new(nil, :favourite_colour?) {
-      next_node :done
-    }
-    initial_state = SmartAnswer::State.new(q.name)
-    new_state = q.transition(initial_state, :red)
-    assert_equal [:red], new_state.responses
-  end
-
-  should "Node path is saved in state" do
-    q = SmartAnswer::Question::Base.new(nil, :favourite_colour?)
-    q.next_node :done
-    initial_state = SmartAnswer::State.new(q.name)
-    initial_state.current_node = q.name
-    new_state = q.transition(initial_state, :red)
-    assert_equal [:favourite_colour?], new_state.path
-  end
-
-  should "Can calculate other variables based on input" do
-    q = SmartAnswer::Question::Base.new(nil, :favourite_colour?) do
-      calculate :complementary_colour do |response|
-        response == :red ? :green : :red
-      end
-      next_node :done
+    should "set current_node to value returned from next_node_for" do
+      q = SmartAnswer::Question::Base.new(nil, :example) {
+        next_node :done
+      }
+      initial_state = SmartAnswer::State.new(q.name)
+      q.stubs(:next_node_for).returns(:done)
+      new_state = q.transition(initial_state, :anything)
+      assert_equal :done, new_state.current_node
     end
-    initial_state = SmartAnswer::State.new(q.name)
-    new_state = q.transition(initial_state, :red)
-    assert_equal :green, new_state.complementary_colour
-    assert new_state.frozen?
-  end
 
-  should "Can calculate other variables based on saved input" do
-    q = SmartAnswer::Question::Base.new(nil, :favourite_colour?) do
-      save_input_as :colour_preference
-      calculate :complementary_colour do
-        colour_preference == :red ? :green : :red
-      end
-      next_node :done
+    should "set current_node to node key passed into next_node method" do
+      q = SmartAnswer::Question::Base.new(nil, :example) {
+        next_node :done
+      }
+      initial_state = SmartAnswer::State.new(q.name)
+      new_state = q.transition(initial_state, :anything)
+      assert_equal :done, new_state.current_node
     end
-    initial_state = SmartAnswer::State.new(q.name)
-    new_state = q.transition(initial_state, :red)
-    assert_equal :green, new_state.complementary_colour
-    assert new_state.frozen?
-  end
 
-  should "Can perform next_node_calculation which is evaluated before next_node" do
-    q = SmartAnswer::Question::Base.new(nil, :favourite_colour?) do
-      next_node_calculation :complementary_colour do |response|
-        response == :red ? :green : :red
-      end
-      next_node_calculation :blah do
-        "blah"
-      end
-      next_node(permitted: [:done]) do
-        :done if complementary_colour == :green
-      end
+    should "set current_node to result of calling next_node block" do
+      q = SmartAnswer::Question::Base.new(nil, :example) {
+        next_node(permitted: [:done_done]) { :done_done }
+      }
+      initial_state = SmartAnswer::State.new(q.name)
+      new_state = q.transition(initial_state, :anything)
+      assert_equal :done_done, new_state.current_node
     end
-    initial_state = SmartAnswer::State.new(q.name)
-    new_state = q.transition(initial_state, :red)
-    assert_equal :green, new_state.complementary_colour
-    assert_equal "blah", new_state.blah
-    assert_equal :done, new_state.current_node
+
+    should "make state available to code in next_node block" do
+      q = SmartAnswer::Question::Base.new(nil, :example) {
+        permitted_next_nodes = [:was_red, :wasnt_red]
+        next_node(permitted: permitted_next_nodes) do
+          colour == 'red' ? :was_red : :wasnt_red
+        end
+      }
+      initial_state = SmartAnswer::State.new(q.name)
+      initial_state.colour = 'red'
+      new_state = q.transition(initial_state, 'anything')
+      assert_equal :was_red, new_state.current_node
+    end
+
+    should "pass input to next_node block" do
+      input_was = nil
+      q = SmartAnswer::Question::Base.new(nil, :example) {
+        next_node(permitted: [:done]) do |input|
+          input_was = input
+          :done
+        end
+      }
+      initial_state = SmartAnswer::State.new(q.name)
+      new_state = q.transition(initial_state, 'something')
+      assert_equal 'something', input_was
+    end
+
+    should "make save_input_as method available to code in next_node block" do
+      q = SmartAnswer::Question::Base.new(nil, :favourite_colour?) do
+        save_input_as :colour_preference
+        next_node :done
+      end
+      initial_state = SmartAnswer::State.new(q.name)
+      new_state = q.transition(initial_state, :red)
+      assert_equal :red, new_state.colour_preference
+    end
+
+    should "save input sequence on new state" do
+      q = SmartAnswer::Question::Base.new(nil, :favourite_colour?) {
+        next_node :done
+      }
+      initial_state = SmartAnswer::State.new(q.name)
+      new_state = q.transition(initial_state, :red)
+      assert_equal [:red], new_state.responses
+    end
+
+    should "save path on new state" do
+      q = SmartAnswer::Question::Base.new(nil, :favourite_colour?)
+      q.next_node :done
+      initial_state = SmartAnswer::State.new(q.name)
+      initial_state.current_node = q.name
+      new_state = q.transition(initial_state, :red)
+      assert_equal [:favourite_colour?], new_state.path
+    end
+
+    should "execute calculate block with response and save result on new state" do
+      q = SmartAnswer::Question::Base.new(nil, :favourite_colour?) do
+        calculate :complementary_colour do |response|
+          response == :red ? :green : :red
+        end
+        next_node :done
+      end
+      initial_state = SmartAnswer::State.new(q.name)
+      new_state = q.transition(initial_state, :red)
+      assert_equal :green, new_state.complementary_colour
+      assert new_state.frozen?
+    end
+
+    should "execute calculate block with saved input and save result on new state" do
+      q = SmartAnswer::Question::Base.new(nil, :favourite_colour?) do
+        save_input_as :colour_preference
+        calculate :complementary_colour do
+          colour_preference == :red ? :green : :red
+        end
+        next_node :done
+      end
+      initial_state = SmartAnswer::State.new(q.name)
+      new_state = q.transition(initial_state, :red)
+      assert_equal :green, new_state.complementary_colour
+      assert new_state.frozen?
+    end
+
+    should "execute next_node_calculation block before next_node" do
+      q = SmartAnswer::Question::Base.new(nil, :favourite_colour?) do
+        next_node_calculation :complementary_colour do |response|
+          response == :red ? :green : :red
+        end
+        next_node_calculation :blah do
+          "blah"
+        end
+        next_node(permitted: [:done]) do
+          :done if complementary_colour == :green
+        end
+      end
+      initial_state = SmartAnswer::State.new(q.name)
+      new_state = q.transition(initial_state, :red)
+      assert_equal :green, new_state.complementary_colour
+      assert_equal "blah", new_state.blah
+      assert_equal :done, new_state.current_node
+    end
   end
 
   context '#next_node_for' do
