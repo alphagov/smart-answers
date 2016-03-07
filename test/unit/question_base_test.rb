@@ -94,6 +94,17 @@ class QuestionBaseTest < ActiveSupport::TestCase
       assert_equal :was_red, new_state.current_node
     end
 
+    should "ensure state made available to code in next_node block is frozen" do
+      state_made_available = nil
+      @question.next_node(permitted: [:done]) do
+        state_made_available = self
+        :done
+      end
+      initial_state = SmartAnswer::State.new(@question.name)
+      @question.transition(initial_state, 'anything')
+      assert state_made_available.frozen?
+    end
+
     should "pass input to next_node block" do
       input_was = nil
       @question.next_node(permitted: [:done]) do |input|
@@ -212,6 +223,20 @@ class QuestionBaseTest < ActiveSupport::TestCase
       assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do
         @question.next_node_for(initial_state, :response)
       end
+    end
+
+    should "allow calls to #question syntactic sugar method" do
+      @question.next_node(permitted: [:another_question]) { question :another_question }
+      state = SmartAnswer::State.new(@question.name)
+      next_node = @question.next_node_for(state, 'response')
+      assert_equal :another_question, next_node
+    end
+
+    should "should allow calls to #outcome syntactic sugar method" do
+      @question.next_node(permitted: [:done]) { outcome :done }
+      state = SmartAnswer::State.new(@question.name)
+      next_node = @question.next_node_for(state, 'response')
+      assert_equal :done, next_node
     end
   end
 end

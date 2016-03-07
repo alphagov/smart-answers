@@ -41,7 +41,8 @@ module SmartAnswer
 
       def next_node_for(current_state, input)
         validate!(current_state, input)
-        next_node = current_state.instance_exec(input, &next_node_block)
+        state = current_state.dup.extend(NextNodeBlock::InstanceMethods).freeze
+        next_node = state.instance_exec(input, &next_node_block)
         unless next_node
           responses_and_input = current_state.responses + [input]
           message = "Next node undefined. Node: #{current_state.current_node}."
