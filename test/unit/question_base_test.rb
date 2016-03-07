@@ -33,13 +33,15 @@ class QuestionBaseTest < ActiveSupport::TestCase
     end
   end
 
-  should 'permitted next nodes supplied to next_node are stored' do
-    q = SmartAnswer::Question::Base.new(nil, :example) {
-      next_node(permitted: [:done]) do
-        :done
-      end
-    }
-    assert_equal [:done], q.permitted_next_nodes
+  context '#permitted_next_nodes' do
+    should 'return permitted next nodes if next_node called with block' do
+      q = SmartAnswer::Question::Base.new(nil, :example) {
+        next_node(permitted: [:done]) do
+          :done
+        end
+      }
+      assert_equal [:done], q.permitted_next_nodes
+    end
   end
 
   context '#transition' do
