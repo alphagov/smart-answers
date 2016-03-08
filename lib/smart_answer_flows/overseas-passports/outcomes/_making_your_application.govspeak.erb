@@ -64,7 +64,12 @@
       <%= render partial: 'making_your_application/send_application_address.govspeak.erb', locals: { current_location: current_location } %>
     <% else %>
       <% if %w(burundi gaza kyrgyzstan).include?(current_location) %>
-        <%= render partial: 'making_your_application/send_application_non_uk_visa_renew_new_colour.govspeak.erb' %>
+        ## Making your application
+
+        <%= render partial: 'making_your_application/apply_in_person_or_via_proxy.govspeak.erb' %>
+        <%= render partial: 'making_your_application/bring_originals_and_colour_copy.govspeak.erb' %>
+        <%= render partial: 'making_your_application/bring_passport_and_full_photocopy.govspeak.erb' %>
+        <%= render partial: 'making_your_application/book_appointment_by_email_with_3_dates.govspeak.erb' %>
       <% else %>
         ## Making your application
 
@@ -129,7 +134,12 @@
     <%= render partial: 'making_your_application/send_application_address.govspeak.erb', locals: { current_location: current_location } %>
   <% else %>
     <% if non_uk_visa_application_with_colour_pictures.include?(current_location) %>
-      <%= render partial: 'making_your_application/send_application_non_uk_visa_renew_new_colour.govspeak.erb' %>
+      ## Making your application
+
+      <%= render partial: 'making_your_application/apply_in_person_or_via_proxy.govspeak.erb' %>
+      <%= render partial: 'making_your_application/bring_originals_and_colour_copy.govspeak.erb' %>
+      <%= render partial: 'making_your_application/bring_passport_and_full_photocopy.govspeak.erb' %>
+      <%= render partial: 'making_your_application/book_appointment_by_email_with_3_dates.govspeak.erb' %>
     <% else %>
       <%= render partial: 'making_your_application/send_application_ips.govspeak.erb', locals: { ips_number: ips_number } %>
       <%= render partial: 'making_your_application/renewing_new_renewing_old.govspeak.erb' %>
