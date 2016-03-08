@@ -15,6 +15,15 @@ class QuestionBaseTest < ActiveSupport::TestCase
       assert_equal 'You must specify at least one permitted next node', e.message
     end
 
+    should 'raise exception if no nodes are returned via syntactic sugar methods and `permitted: :auto`' do
+      e = assert_raises(ArgumentError) do
+        @question.next_node(permitted: :auto) do
+          :done
+        end
+      end
+      assert_equal 'You must specify at least one permitted next node', e.message
+    end
+
     should 'single next node key must be supplied if next_node called without block' do
       e = assert_raises(ArgumentError) do
         @question.next_node
@@ -58,12 +67,13 @@ class QuestionBaseTest < ActiveSupport::TestCase
     should 'not return nodes not returned via syntactic sugar methods' do
       @question.next_node(permitted: :auto) do |response|
         if response == 'yes'
-          :done
+          outcome :done
         else
           :another_question
         end
       end
-      assert_equal [], @question.permitted_next_nodes
+      assert @question.permitted_next_nodes.include?(:done)
+      refute @question.permitted_next_nodes.include?(:another_question)
     end
   end
 
@@ -208,10 +218,13 @@ class QuestionBaseTest < ActiveSupport::TestCase
     end
 
     should "raise an exception if next_node was called with `permitted: :auto`" do
-      @question.next_node(permitted: :auto) { :not_allowed_next_node }
+      @question.next_node(permitted: :auto) do
+        outcome :another_outcome
+        :not_allowed_next_node
+      end
       state = SmartAnswer::State.new(@question.name)
 
-      expected_message = "Next node (not_allowed_next_node) not in list of permitted next nodes ()"
+      expected_message = "Next node (not_allowed_next_node) not in list of permitted next nodes (another_outcome)"
       exception = assert_raises do
         @question.next_node_for(state, 'response')
       end

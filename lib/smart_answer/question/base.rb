@@ -22,10 +22,10 @@ module SmartAnswer
             parser = NextNodeBlock::Parser.new
             @permitted_next_nodes = parser.possible_next_nodes(block)
           else
-            unless permitted.any?
-              raise ArgumentError, 'You must specify at least one permitted next node'
-            end
             @permitted_next_nodes = permitted
+          end
+          unless @permitted_next_nodes.any?
+            raise ArgumentError, 'You must specify at least one permitted next node'
           end
           @next_node_block = block
         elsif next_node
