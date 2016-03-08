@@ -15,15 +15,6 @@ class QuestionBaseTest < ActiveSupport::TestCase
       assert_equal 'You must specify at least one permitted next node', e.message
     end
 
-    should 'raise exception if no nodes are returned via syntactic sugar methods and `permitted: :auto`' do
-      e = assert_raises(ArgumentError) do
-        @question.next_node(permitted: :auto) do
-          :done
-        end
-      end
-      assert_equal 'You must specify at least one permitted next node', e.message
-    end
-
     should 'single next node key must be supplied if next_node called without block' do
       e = assert_raises(ArgumentError) do
         @question.next_node
