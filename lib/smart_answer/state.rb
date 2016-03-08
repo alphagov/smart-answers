@@ -7,7 +7,7 @@ module SmartAnswer
     end
 
     def method_missing(method_name, *args)
-      if method_name =~ /=$/
+      if respond_to_missing?(method_name)
         super
       else
         raise NoMethodError.new("undefined method '#{method_name}' for #{self.class}")
