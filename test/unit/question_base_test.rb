@@ -190,14 +190,10 @@ class QuestionBaseTest < ActiveSupport::TestCase
     end
 
     should "raise an exception if next_node was not called for question" do
-      responses = [:blue, :red]
       initial_state = SmartAnswer::State.new(@question.name)
-      initial_state.responses << responses[0]
-      error = assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do
-        @question.next_node_for(initial_state, responses[1])
+      assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do
+        @question.next_node_for(initial_state, :response)
       end
-      expected_message = "Next node undefined. Node: #{@question.name}. Responses: #{responses}."
-      assert_equal expected_message, error.message
     end
   end
 end
