@@ -51,10 +51,16 @@ module SmartAnswer
           message << " Responses: #{responses_and_input}."
           raise NextNodeUndefined.new(message)
         end
-        unless permitted_next_nodes.include?(next_node)
-          raise "Next node (#{next_node}) not in list of permitted next nodes (#{permitted_next_nodes.to_sentence})"
+        if @permitted_next_nodes == :auto
+          unless NextNodeBlock.permitted?(next_node)
+            raise "Next node (#{next_node}) not returned via question or outcome method"
+          end
+        else
+          unless @permitted_next_nodes.include?(next_node.to_sym)
+            raise "Next node (#{next_node}) not in list of permitted next nodes (#{@permitted_next_nodes.to_sentence})"
+          end
         end
-        next_node
+        next_node.to_sym
       end
 
       def save_input_as(variable_name)

@@ -3,13 +3,21 @@ require 'method_source'
 module SmartAnswer
   module Question
     module NextNodeBlock
+      class PermittedNodeKey < SimpleDelegator
+        delegate :nil?, to: :__getobj__
+      end
+
+      def self.permitted?(node)
+        PermittedNodeKey === node
+      end
+
       module InstanceMethods
         def question(key)
-          key
+          PermittedNodeKey.new(key)
         end
 
         def outcome(key)
-          key
+          PermittedNodeKey.new(key)
         end
 
         def self.methods_of_interest

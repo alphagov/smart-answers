@@ -208,14 +208,14 @@ class QuestionBaseTest < ActiveSupport::TestCase
       assert_equal expected_message, exception.message
     end
 
-    should "raise an exception if next_node was called with `permitted: :auto`" do
+    should "raise an exception if next_node does not return key via question or outcome method" do
       @question.next_node(permitted: :auto) do
         outcome :another_outcome
         :not_allowed_next_node
       end
       state = SmartAnswer::State.new(@question.name)
 
-      expected_message = "Next node (not_allowed_next_node) not in list of permitted next nodes (another_outcome)"
+      expected_message = "Next node (not_allowed_next_node) not returned via question or outcome method"
       exception = assert_raises do
         @question.next_node_for(state, 'response')
       end
