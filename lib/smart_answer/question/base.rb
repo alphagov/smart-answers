@@ -3,8 +3,6 @@ module SmartAnswer
     class Base < Node
       class NextNodeUndefined < StandardError; end
 
-      attr_reader :permitted_next_nodes
-
       def initialize(flow, name, options = {}, &block)
         @save_input_as = nil
         @validations = []
@@ -18,22 +16,25 @@ module SmartAnswer
           raise 'Multiple calls to next_node are not allowed'
         end
         if block_given?
-          if permitted == :auto
-            parser = NextNodeBlock::Parser.new
-            @permitted_next_nodes = parser.possible_next_nodes(block)
-          else
-            @permitted_next_nodes = permitted
-          end
-          unless @permitted_next_nodes.any?
+          @permitted_next_nodes = permitted
+          @next_node_block = block
+          unless permitted_next_nodes.any?
             raise ArgumentError, 'You must specify at least one permitted next node'
           end
-          @next_node_block = block
         elsif next_node
           @permitted_next_nodes = [next_node]
           @next_node_block = lambda { |_| next_node }
         else
           raise ArgumentError, 'You must specify a block or a single next node key'
         end
+      end
+
+      def permitted_next_nodes
+        if @permitted_next_nodes == :auto
+          parser = NextNodeBlock::Parser.new
+          @permitted_next_nodes = parser.possible_next_nodes(@next_node_block)
+        end
+        @permitted_next_nodes
       end
 
       def validate(message = nil, &block)
@@ -50,8 +51,8 @@ module SmartAnswer
           message << " Responses: #{responses_and_input}."
           raise NextNodeUndefined.new(message)
         end
-        unless @permitted_next_nodes.include?(next_node)
-          raise "Next node (#{next_node}) not in list of permitted next nodes (#{@permitted_next_nodes.to_sentence})"
+        unless permitted_next_nodes.include?(next_node)
+          raise "Next node (#{next_node}) not in list of permitted next nodes (#{permitted_next_nodes.to_sentence})"
         end
         next_node
       end
