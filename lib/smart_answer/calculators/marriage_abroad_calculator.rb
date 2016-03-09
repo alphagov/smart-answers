@@ -89,9 +89,9 @@ module SmartAnswer::Calculators
     end
 
     def marriage_and_partnership_phrases
-      if @data_query.ss_marriage_countries?(ceremony_country) || @data_query.ss_marriage_countries_when_couple_british?(ceremony_country)
+      if same_sex_marriage_country? || same_sex_marriage_country_when_couple_british?
         'ss_marriage'
-      elsif @data_query.ss_marriage_and_partnership?(ceremony_country)
+      elsif same_sex_marriage_and_civil_partnership?
         'ss_marriage_and_partnership'
       end
     end
@@ -111,11 +111,11 @@ module SmartAnswer::Calculators
     end
 
     def country_name_partner_residence
-      if @data_query.british_overseas_territories?(ceremony_country)
+      if ceremony_country_is_british_overseas_territory?
         'British (overseas territories citizen)'
-      elsif @data_query.french_overseas_territories?(ceremony_country)
+      elsif ceremony_country_is_french_overseas_territory?
         'French'
-      elsif @data_query.dutch_caribbean_islands?(ceremony_country)
+      elsif ceremony_country_is_dutch_caribbean_island?
         'Dutch'
       elsif %w(hong-kong macao).include?(ceremony_country)
         'Chinese'
@@ -130,6 +130,98 @@ module SmartAnswer::Calculators
       else
         'embassy'
       end
+    end
+
+    def ceremony_country_is_french_overseas_territory?
+      @data_query.french_overseas_territories?(ceremony_country)
+    end
+
+    def opposite_sex_consular_cni_country?
+      @data_query.os_consular_cni_countries?(ceremony_country)
+    end
+
+    def opposite_sex_consular_cni_in_nearby_country?
+      @data_query.os_consular_cni_in_nearby_country?(ceremony_country)
+    end
+
+    def opposite_sex_no_marriage_related_consular_services_in_ceremony_country?
+      @data_query.os_no_marriage_related_consular_services?(ceremony_country)
+    end
+
+    def opposite_sex_affirmation_country?
+      @data_query.os_affirmation_countries?(ceremony_country)
+    end
+
+    def ceremony_country_in_the_commonwealth?
+      @data_query.commonwealth_country?(ceremony_country)
+    end
+
+    def ceremony_country_is_british_overseas_territory?
+      @data_query.british_overseas_territories?(ceremony_country)
+    end
+
+    def opposite_sex_no_consular_cni_country?
+      @data_query.os_no_consular_cni_countries?(ceremony_country)
+    end
+
+    def opposite_sex_marriage_via_local_authorities?
+      @data_query.os_marriage_via_local_authorities?(ceremony_country)
+    end
+
+    def opposite_sex_in_other_countries?
+      @data_query.os_other_countries?(ceremony_country)
+    end
+
+    def same_sex_ceremony_country_unknown_or_has_no_embassies?
+      @data_query.ss_unknown_no_embassies?(ceremony_country)
+    end
+
+    def same_sex_marriage_not_possible?
+      @data_query.ss_marriage_not_possible?(ceremony_country, self)
+    end
+
+    def same_sex_marriage_country?
+      @data_query.ss_marriage_countries?(ceremony_country)
+    end
+
+    def same_sex_marriage_country_when_couple_british?
+      @data_query.ss_marriage_countries_when_couple_british?(ceremony_country)
+    end
+
+    def same_sex_marriage_and_civil_partnership?
+      @data_query.ss_marriage_and_partnership?(ceremony_country)
+    end
+
+    def civil_partnership_equivalent_country?
+      @data_query.cp_equivalent_countries?(ceremony_country)
+    end
+
+    def civil_partnership_cni_not_required_country?
+      @data_query.cp_cni_not_required_countries?(ceremony_country)
+    end
+
+    def civil_partnership_consular_country?
+      @data_query.cp_consular_countries?(ceremony_country)
+    end
+
+    def country_without_consular_facilities?
+      @data_query.countries_without_consular_facilities?(ceremony_country)
+    end
+
+    def opposite_sex_21_days_residency_required?
+      @data_query.os_21_days_residency_required_countries?(ceremony_country)
+    end
+
+    def ceremony_country_is_dutch_caribbean_island?
+      @data_query.dutch_caribbean_islands?(ceremony_country)
+    end
+
+    def requires_7_day_notice?
+      @data_query.requires_7_day_notice?(ceremony_country)
+    end
+
+    def same_sex_alt_fees_table_country?
+      @data_query.ss_alt_fees_table_country?(ceremony_country, self)
     end
   end
 end

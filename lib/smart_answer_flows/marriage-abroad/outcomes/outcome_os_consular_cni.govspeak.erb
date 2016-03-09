@@ -11,7 +11,7 @@
   <% end %>
   <% if %(japan).exclude?(calculator.ceremony_country) %>
     <% if calculator.resident_of_uk? %>
-      <% if data_query.dutch_caribbean_islands?(calculator.ceremony_country) %>
+      <% if calculator.ceremony_country_is_dutch_caribbean_island? %>
         <%= calculator.country_name_uppercase_prefix %> is one of the Dutch Caribbean islands.
 
         Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121) before making any plans to find out about local marriage laws, including what documents you’ll need
@@ -67,7 +67,7 @@
     For non-Islamic marriages, you’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
 
 
-  <% elsif data_query.os_21_days_residency_required_countries?(calculator.ceremony_country) %>
+  <% elsif calculator.opposite_sex_21_days_residency_required? %>
     You need to have been living in the country where you intend to marry for 21 full days.
 
     <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
@@ -386,7 +386,7 @@
                  locals: { calculator: calculator } %>
 
     <% end %>
-  <% elsif data_query.requires_7_day_notice?(calculator.ceremony_country) %>
+  <% elsif calculator.requires_7_day_notice? %>
     <%= render partial: 'display_notice_of_marriage_7_days.govspeak.erb',
                locals: { calculator: calculator } %>
 
@@ -438,7 +438,7 @@
     <%= render partial: 'consular_cni_os_fees_incl_null_osta_oath_consular_letter.govspeak.erb' %>
 
   <% end %>
-  <% unless data_query.countries_without_consular_facilities?(calculator.ceremony_country) || calculator.ceremony_country == 'cote-d-ivoire' %>
+  <% unless calculator.country_without_consular_facilities? || calculator.ceremony_country == 'cote-d-ivoire' %>
     <% if %w(kazakhstan kyrgyzstan).include?(calculator.ceremony_country) %>
       You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Kazakhstan](/government/publications/kazakhstan-kyrgyzstan-consular-fees).
 
@@ -447,7 +447,7 @@
                  locals: { calculator: calculator } %>
     <% end %>
   <% end %>
-  <% unless data_query.countries_without_consular_facilities?(calculator.ceremony_country) %>
+  <% unless calculator.country_without_consular_facilities? %>
 
     <% if %w(armenia bosnia-and-herzegovina cambodia iceland latvia slovenia tunisia tajikistan).include?(calculator.ceremony_country) %>
       <%= render partial: 'pay_in_local_currency_ceremony_country_name.govspeak.erb',
