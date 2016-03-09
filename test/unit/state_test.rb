@@ -31,5 +31,37 @@ module SmartAnswer
       state.new_attribute = 'new-attribute-value'
       assert_equal 'new-attribute-value', state.new_attribute
     end
+
+    should "respond_to reader method for attribute set in constructor" do
+      state = State.new(:start_node)
+      assert state.respond_to?(:current_node)
+    end
+
+    should "respond_to reader method for attribute that has previously been set" do
+      state = State.new(:start_node)
+      state.new_attribute = 'new-attribute-value'
+      assert state.respond_to?(:new_attribute)
+    end
+
+    should "not respond_to reader method for attribute that hasn't previously been set" do
+      state = State.new(:start_node)
+      refute state.respond_to?(:new_attribute)
+    end
+
+    should "respond_to writer method for attribute set in constructor" do
+      state = State.new(:start_node)
+      assert state.respond_to?(:current_node=)
+    end
+
+    should "respond_to writer method for attribute that has previously been set" do
+      state = State.new(:start_node)
+      state.new_attribute = 'new-attribute-value'
+      assert state.respond_to?(:new_attribute=)
+    end
+
+    should "respond_to writer method for attribute that hasn't previously been set" do
+      state = State.new(:start_node)
+      assert state.respond_to?(:new_attribute=)
+    end
   end
 end

@@ -14,6 +14,10 @@ module SmartAnswer
       end
     end
 
+    def respond_to_missing?(method_name, include_private = false)
+      method_name =~ /=$/ || super
+    end
+
     def transition_to(new_node, input, &blk)
       dup.tap { |new_state|
         new_state.path << self.current_node
