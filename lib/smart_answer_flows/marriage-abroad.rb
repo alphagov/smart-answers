@@ -254,9 +254,6 @@ module SmartAnswer
       outcome :outcome_consular_cni_os_residing_in_third_country
 
       outcome :outcome_os_consular_cni do
-        precalculate :three_day_residency_requirement_applies do
-          Calculators::MarriageAbroadDataQuery::THREE_DAY_RESIDENCY_REQUIREMENT_COUNTRIES
-        end
         precalculate :three_day_residency_handled_by_exception do
           Calculators::MarriageAbroadDataQuery::THREE_DAY_RESIDENCY_HANDLED_BY_EXCEPTION
         end

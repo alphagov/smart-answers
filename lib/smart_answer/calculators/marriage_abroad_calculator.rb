@@ -240,6 +240,10 @@ module SmartAnswer::Calculators
       outcome_path_when_resident_in('ceremony_country')
     end
 
+    def three_day_residency_requirement_applies?
+      MarriageAbroadDataQuery::THREE_DAY_RESIDENCY_REQUIREMENT_COUNTRIES.include?(ceremony_country)
+    end
+
   private
 
     def outcome_path_when_resident_in(uk_or_ceremony_country)
