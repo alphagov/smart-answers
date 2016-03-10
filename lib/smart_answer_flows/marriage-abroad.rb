@@ -264,7 +264,7 @@ module SmartAnswer
           Calculators::MarriageAbroadDataQuery::NO_BIRTH_CERT_REQUIREMENT
         end
         precalculate :cni_notary_public_countries do
-          %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg mexico moldova montenegro russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+          Calculators::MarriageAbroadDataQuery::CNI_NOTARY_PUBLIC_COUNTRIES
         end
         precalculate :no_document_download_link_if_os_resident_of_uk_countries do
           %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)

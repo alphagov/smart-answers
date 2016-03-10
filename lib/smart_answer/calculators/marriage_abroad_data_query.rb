@@ -58,6 +58,8 @@ module SmartAnswer::Calculators
 
     NO_BIRTH_CERT_REQUIREMENT = THREE_DAY_RESIDENCY_REQUIREMENT_COUNTRIES - ['italy']
 
+    CNI_NOTARY_PUBLIC_COUNTRIES = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg mexico moldova montenegro russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+
     def os_21_days_residency_required_countries?(country_slug)
       OS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES.include?(country_slug)
     end
