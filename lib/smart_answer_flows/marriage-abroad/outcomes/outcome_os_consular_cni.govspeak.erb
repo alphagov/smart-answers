@@ -3,22 +3,21 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if %(japan).exclude?(calculator.ceremony_country) %>
-    <% if calculator.resident_of_uk? %>
-      <% if calculator.ceremony_country_is_dutch_caribbean_island? %>
-        <%= calculator.country_name_uppercase_prefix %> is one of the Dutch Caribbean islands.
+  <% if calculator.resident_of_uk? %>
+    <% if calculator.ceremony_country_is_dutch_caribbean_island? %>
+      <%= calculator.country_name_uppercase_prefix %> is one of the Dutch Caribbean islands.
 
-        Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121) before making any plans to find out about local marriage laws, including what documents you’ll need
+      Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121) before making any plans to find out about local marriage laws, including what documents you’ll need
 
-      <% else %>
-        <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_marriage.govspeak.erb',
-                   locals: { calculator: calculator } %>
-      <% end %>
     <% else %>
-      <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
+      <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_marriage.govspeak.erb',
                  locals: { calculator: calculator } %>
     <% end %>
+  <% else %>
+    <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
+               locals: { calculator: calculator } %>
   <% end %>
+
   <% if %w(jordan oman qatar).include?(calculator.ceremony_country) %>
     <%= render partial: 'gulf_states_os_consular_cni.govspeak.erb',
                locals: { calculator: calculator } %>
@@ -28,14 +27,12 @@
 
     <% end %>
   <% end %>
-  <% if %(japan).exclude?(calculator.ceremony_country) %>
 
-    <% if calculator.resident_of_ceremony_country? %>
-      <%= render partial: 'get_legal_advice.govspeak.erb' %>
-    <% else %>
-      <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
-                 locals: { calculator: calculator } %>
-    <% end %>
+  <% if calculator.resident_of_ceremony_country? %>
+    <%= render partial: 'get_legal_advice.govspeak.erb' %>
+  <% else %>
+    <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
+               locals: { calculator: calculator } %>
   <% end %>
 
   <%= render partial: 'what_you_need_to_do.govspeak.erb',
@@ -344,7 +341,7 @@
 
       [Make an appointment to collect your CNI at the embassy in Athens](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-athens/certificate-of-no-impediment/slot_picker).
 
-    <% elsif cni_notary_public_countries.include?(calculator.ceremony_country) || calculator.ceremony_country == 'japan' %>
+    <% elsif cni_notary_public_countries.include?(calculator.ceremony_country) %>
       ###What happens next
 
       The embassy or notary public will charge a fee for taking the oath.
