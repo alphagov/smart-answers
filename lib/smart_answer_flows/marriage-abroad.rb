@@ -267,7 +267,7 @@ module SmartAnswer
           Calculators::MarriageAbroadDataQuery::CNI_NOTARY_PUBLIC_COUNTRIES
         end
         precalculate :no_document_download_link_if_os_resident_of_uk_countries do
-          %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+          Calculators::MarriageAbroadDataQuery::NO_DOCUMENT_DOWNLOAD_LINK_IF_OS_RESIDENT_OF_UK_COUNTRIES
         end
         precalculate :cni_posted_after_14_days_countries do
           %w(jordan qatar saudi-arabia united-arab-emirates yemen)
