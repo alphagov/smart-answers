@@ -270,7 +270,7 @@ module SmartAnswer
           Calculators::MarriageAbroadDataQuery::NO_DOCUMENT_DOWNLOAD_LINK_IF_OS_RESIDENT_OF_UK_COUNTRIES
         end
         precalculate :cni_posted_after_14_days_countries do
-          %w(jordan qatar saudi-arabia united-arab-emirates yemen)
+          Calculators::MarriageAbroadDataQuery::CNI_POSTED_AFTER_14_DAYS_COUNTRIES
         end
         precalculate :ceremony_and_residency_in_croatia do
           (calculator.ceremony_country == 'croatia' && calculator.resident_of_ceremony_country?)
