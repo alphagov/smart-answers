@@ -5,9 +5,9 @@ module SmartAnswer
       status :draft
 
       value_question :how_many_things_do_you_own? do
-        next_node(permitted: [:done]) do |response|
+        next_node(permitted: :auto) do |response|
           raise SmartAnswer::InvalidResponse, :custom_error unless response.to_i > 0
-          :done
+          outcome :done
         end
       end
 

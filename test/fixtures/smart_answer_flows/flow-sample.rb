@@ -9,16 +9,12 @@ module SmartAnswer
         option :hotter
         option :colder
 
-        permitted_next_nodes = [
-          :hot,
-          :frozen?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'hotter'
-            :hot
+            outcome :hot
           when 'colder'
-            :frozen?
+            question :frozen?
           end
         end
       end
@@ -27,16 +23,12 @@ module SmartAnswer
         option :yes
         option :no
 
-        permitted_next_nodes = [
-          :frozen,
-          :cold
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'yes'
-            :frozen
+            outcome :frozen
           when 'no'
-            :cold
+            outcome :cold
           end
         end
       end

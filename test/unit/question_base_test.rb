@@ -43,6 +43,29 @@ class QuestionBaseTest < ActiveSupport::TestCase
       @question.next_node :done
       assert_equal [:done], @question.permitted_next_nodes
     end
+
+    should 'return nodes returned via syntactic sugar methods' do
+      @question.next_node(permitted: :auto) do |response|
+        if response == 'yes'
+          outcome :done
+        else
+          question :another_question
+        end
+      end
+      assert_equal [:done, :another_question], @question.permitted_next_nodes
+    end
+
+    should 'not return nodes not returned via syntactic sugar methods' do
+      @question.next_node(permitted: :auto) do |response|
+        if response == 'yes'
+          outcome :done
+        else
+          :another_question
+        end
+      end
+      assert @question.permitted_next_nodes.include?(:done)
+      refute @question.permitted_next_nodes.include?(:another_question)
+    end
   end
 
   context '#transition' do
@@ -85,6 +108,17 @@ class QuestionBaseTest < ActiveSupport::TestCase
       initial_state.colour = 'red'
       new_state = @question.transition(initial_state, 'anything')
       assert_equal :was_red, new_state.current_node
+    end
+
+    should "ensure state made available to code in next_node block is frozen" do
+      state_made_available = nil
+      @question.next_node(permitted: [:done]) do
+        state_made_available = self
+        :done
+      end
+      initial_state = SmartAnswer::State.new(@question.name)
+      @question.transition(initial_state, 'anything')
+      assert state_made_available.frozen?
     end
 
     should "pass input to next_node block" do
@@ -174,6 +208,20 @@ class QuestionBaseTest < ActiveSupport::TestCase
       assert_equal expected_message, exception.message
     end
 
+    should "raise an exception if next_node does not return key via question or outcome method" do
+      @question.next_node(permitted: :auto) do
+        outcome :another_outcome
+        :not_allowed_next_node
+      end
+      state = SmartAnswer::State.new(@question.name)
+
+      expected_message = "Next node (not_allowed_next_node) not returned via question or outcome method"
+      exception = assert_raises do
+        @question.next_node_for(state, 'response')
+      end
+      assert_equal expected_message, exception.message
+    end
+
     should "raise an exception if next_node does not return a node key" do
       responses = [:blue, :red]
       @question.next_node(permitted: [:skipped]) do
@@ -194,6 +242,20 @@ class QuestionBaseTest < ActiveSupport::TestCase
       assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do
         @question.next_node_for(initial_state, :response)
       end
+    end
+
+    should "allow calls to #question syntactic sugar method" do
+      @question.next_node(permitted: [:another_question]) { question :another_question }
+      state = SmartAnswer::State.new(@question.name)
+      next_node = @question.next_node_for(state, 'response')
+      assert_equal :another_question, next_node
+    end
+
+    should "should allow calls to #outcome syntactic sugar method" do
+      @question.next_node(permitted: [:done]) { outcome :done }
+      state = SmartAnswer::State.new(@question.name)
+      next_node = @question.next_node_for(state, 'response')
+      assert_equal :done, next_node
     end
   end
 end

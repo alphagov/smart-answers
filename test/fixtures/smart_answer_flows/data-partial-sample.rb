@@ -8,16 +8,12 @@ module SmartAnswer
         option :data_partial_with_scalar
         option :data_partial_with_array
 
-        permitted_next_nodes = [
-          :done_scalar,
-          :done_array
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'data_partial_with_scalar'
-            :done_scalar
+            outcome :done_scalar
           when 'data_partial_with_array'
-            :done_array
+            outcome :done_array
           end
         end
       end

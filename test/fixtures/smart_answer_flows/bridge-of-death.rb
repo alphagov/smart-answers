@@ -14,15 +14,11 @@ module SmartAnswer
         option :to_rescue_the_princess
         option :dunno
 
-        permitted_next_nodes = [
-          :what_is_the_capital_of_assyria?,
-          :what_is_your_favorite_colour?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           if your_name =~ /robin/i and response == 'to_seek_the_holy_grail'
-            :what_is_the_capital_of_assyria?
+            question :what_is_the_capital_of_assyria?
           else
-            :what_is_your_favorite_colour?
+            question :what_is_your_favorite_colour?
           end
         end
       end
@@ -37,16 +33,12 @@ module SmartAnswer
         option :blue_no_yellow
         option :red
 
-        permitted_next_nodes = [
-          :auuuuuuuugh,
-          :done
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'blue', 'red'
-            :done
+            outcome :done
           when 'blue_no_yellow'
-            :auuuuuuuugh
+            outcome :auuuuuuuugh
           end
         end
       end

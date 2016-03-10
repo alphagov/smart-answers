@@ -3,8 +3,6 @@ module SmartAnswer
     class Base < Node
       class NextNodeUndefined < StandardError; end
 
-      attr_reader :permitted_next_nodes
-
       def initialize(flow, name, options = {}, &block)
         @save_input_as = nil
         @validations = []
@@ -18,11 +16,11 @@ module SmartAnswer
           raise 'Multiple calls to next_node are not allowed'
         end
         if block_given?
-          unless permitted.any?
-            raise ArgumentError, 'You must specify at least one permitted next node'
-          end
           @permitted_next_nodes = permitted
           @next_node_block = block
+          unless @permitted_next_nodes == :auto || @permitted_next_nodes.any?
+            raise ArgumentError, 'You must specify at least one permitted next node'
+          end
         elsif next_node
           @permitted_next_nodes = [next_node]
           @next_node_block = lambda { |_| next_node }
@@ -31,23 +29,38 @@ module SmartAnswer
         end
       end
 
+      def permitted_next_nodes
+        if @permitted_next_nodes == :auto
+          parser = NextNodeBlock::Parser.new
+          @permitted_next_nodes = parser.possible_next_nodes(@next_node_block)
+        end
+        @permitted_next_nodes
+      end
+
       def validate(message = nil, &block)
         @validations << [message, block]
       end
 
       def next_node_for(current_state, input)
         validate!(current_state, input)
-        next_node = current_state.instance_exec(input, &next_node_block)
-        unless next_node
+        state = current_state.dup.extend(NextNodeBlock::InstanceMethods).freeze
+        next_node = state.instance_exec(input, &next_node_block)
+        unless next_node.present?
           responses_and_input = current_state.responses + [input]
           message = "Next node undefined. Node: #{current_state.current_node}."
           message << " Responses: #{responses_and_input}."
           raise NextNodeUndefined.new(message)
         end
-        unless @permitted_next_nodes.include?(next_node)
-          raise "Next node (#{next_node}) not in list of permitted next nodes (#{@permitted_next_nodes.to_sentence})"
+        if @permitted_next_nodes == :auto
+          unless NextNodeBlock.permitted?(next_node)
+            raise "Next node (#{next_node}) not returned via question or outcome method"
+          end
+        else
+          unless @permitted_next_nodes.include?(next_node.to_sym)
+            raise "Next node (#{next_node}) not in list of permitted next nodes (#{@permitted_next_nodes.to_sentence})"
+          end
         end
-        next_node
+        next_node.to_sym
       end
 
       def save_input_as(variable_name)
