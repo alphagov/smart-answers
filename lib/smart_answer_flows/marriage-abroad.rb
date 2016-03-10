@@ -276,9 +276,7 @@ module SmartAnswer
           (calculator.ceremony_country == 'croatia' && calculator.resident_of_ceremony_country?)
         end
         precalculate :birth_cert_inclusion do
-          if no_birth_cert_requirement.exclude?(calculator.ceremony_country)
-            '_incl_birth_cert'
-          end
+          no_birth_cert_requirement.exclude?(calculator.ceremony_country)
         end
         precalculate :notary_public_inclusion do
           if cni_notary_public_countries.include?(calculator.ceremony_country) || %w(japan macedonia).include?(calculator.ceremony_country)
