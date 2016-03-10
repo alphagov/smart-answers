@@ -279,9 +279,7 @@ module SmartAnswer
           no_birth_cert_requirement.exclude?(calculator.ceremony_country)
         end
         precalculate :notary_public_inclusion do
-          if cni_notary_public_countries.include?(calculator.ceremony_country) || %w(japan macedonia).include?(calculator.ceremony_country)
-            '_notary_public'
-          end
+          cni_notary_public_countries.include?(calculator.ceremony_country) || %w(japan macedonia).include?(calculator.ceremony_country)
         end
       end
 
