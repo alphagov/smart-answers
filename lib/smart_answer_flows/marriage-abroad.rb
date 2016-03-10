@@ -258,7 +258,7 @@ module SmartAnswer
           Calculators::MarriageAbroadDataQuery::THREE_DAY_RESIDENCY_REQUIREMENT_COUNTRIES
         end
         precalculate :three_day_residency_handled_by_exception do
-          %w(croatia italy russia)
+          Calculators::MarriageAbroadDataQuery::THREE_DAY_RESIDENCY_HANDLED_BY_EXCEPTION
         end
         precalculate :no_birth_cert_requirement do
           three_day_residency_requirement_applies - ['italy']
