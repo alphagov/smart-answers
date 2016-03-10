@@ -3,12 +3,6 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if calculator.ceremony_country == 'japan' %>
-    Contact your [nearest embassy or consulate](http://www.mofa.go.jp/about/emb_cons/over/index.html) of Japan to find out about local marriage laws, including what documents you’ll need.
-
-    ^You should [get legal advice](/government/publications/japan-list-of-lawyers) and check the [travel advice for Japan](/foreign-travel-advice/japan) before making any plans.^
-
-  <% end %>
   <% if %(japan).exclude?(calculator.ceremony_country) %>
     <% if calculator.resident_of_uk? %>
       <% if calculator.ceremony_country_is_dutch_caribbean_island? %>
@@ -271,22 +265,7 @@
 
     <% end %>
   <% end %>
-  <% if calculator.resident_of_ceremony_country? %>
-    <% if calculator.ceremony_country == 'japan' %>
-      <%= render partial: 'contact_method.govspeak.erb',
-                 locals: { calculator: calculator } %>
 
-      ##Giving notice of marriage
-
-      You’ll need to provide supporting documents, including:
-
-      - your passport, showing that you’ve been in Japan for at least 3 days (if you’ve been outside of Japan for a short period and recently returned, a residence visa is normally acceptable)
-      - your [full birth certificate](/order-copy-birth-death-marriage-certificate) or [naturalisation certificate](/get-replacement-citizenship-certificate)
-      - evidence of parental consent if you’re below the age you can legally get married without consent in the country you’re from (eg 18 in England and Wales)
-      - equivalent documents for your partner
-
-    <% end %>
-  <% end %>
   <% if calculator.resident_of_ceremony_country? %>
     <% if calculator.ceremony_country == 'greece' %>
       You’ll need to fill in forms for your notice of marriage, and complete an affirmation (non-religious) or affidavit (religious) stating that you’re free to marry.
