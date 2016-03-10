@@ -47,7 +47,12 @@
   <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' -%>
 
 
-  <%= render partial: 'fee_table_oath_55.govspeak.erb' %>
+  <%= render partial: 'consular_fees_table.govspeak.erb',
+             locals: {
+               services: [
+                 :administering_oath_or_making_declaration,
+               ]
+             } %>
 
 
   <%= render partial: 'link_to_consular_fees.govspeak.erb',
