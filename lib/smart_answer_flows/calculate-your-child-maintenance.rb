@@ -60,16 +60,12 @@ module SmartAnswer
           Calculators::ChildMaintenanceCalculator.new(number_of_children, benefits, paying_or_receiving)
         end
 
-        permitted_next_nodes = [
-          :how_many_nights_children_stay_with_payee?,
-          :gross_income_of_payee?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'yes'
-            :how_many_nights_children_stay_with_payee?
+            question :how_many_nights_children_stay_with_payee?
           when 'no'
-            :gross_income_of_payee?
+            question :gross_income_of_payee?
           end
         end
       end
@@ -90,19 +86,14 @@ module SmartAnswer
           calculator.rate_type
         end
 
-        permitted_next_nodes = [
-          :nil_rate_result,
-          :flat_rate_result,
-          :how_many_other_children_in_payees_household?
-        ]
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: :auto) do
           case rate_type
           when :nil
-            :nil_rate_result
+            outcome :nil_rate_result
           when :flat
-            :flat_rate_result
+            outcome :flat_rate_result
           else
-            :how_many_other_children_in_payees_household?
+            outcome :how_many_other_children_in_payees_household?
           end
         end
       end
@@ -151,19 +142,14 @@ module SmartAnswer
           calculator.rate_type
         end
 
-        permitted_next_nodes = [
-          :nil_rate_result,
-          :flat_rate_result,
-          :reduced_and_basic_rates_result
-        ]
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: :auto) do
           case rate_type
           when :nil
-            :nil_rate_result
+            outcome :nil_rate_result
           when :flat
-            :flat_rate_result
+            outcome :flat_rate_result
           else
-            :reduced_and_basic_rates_result
+            outcome :reduced_and_basic_rates_result
           end
         end
       end
