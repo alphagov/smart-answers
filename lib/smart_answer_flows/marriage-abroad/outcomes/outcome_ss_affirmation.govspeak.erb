@@ -68,7 +68,12 @@
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
   <% end %>
 
-  <%= render partial: 'fee_table_affirmation_55.govspeak.erb' %>
+  <%= render partial: 'consular_fees_table.govspeak.erb',
+             locals: {
+               services: [
+                 :affidavit_or_affirmation_for_marriage,
+               ]
+             } %>
   <%= render partial: 'link_to_consular_fees.govspeak.erb',
              locals: { calculator: calculator } %>
 

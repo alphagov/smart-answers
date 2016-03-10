@@ -13,7 +13,12 @@
   Affidavit for marriage | £55
 
 <% elsif %w(belgium ecuador macao morocco norway).include?(calculator.ceremony_country) %>
-  <%= render partial: 'fee_table_affirmation_55.govspeak.erb' %>
+  <%= render partial: 'consular_fees_table.govspeak.erb',
+             locals: {
+               services: [
+                 :affidavit_or_affirmation_for_marriage,
+               ]
+             } %>
 <% elsif calculator.ceremony_country == 'finland' %>
   ##Fees
 
