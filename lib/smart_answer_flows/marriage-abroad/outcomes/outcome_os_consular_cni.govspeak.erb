@@ -192,7 +192,7 @@
 
 
     <% end %>
-    <% unless %w(germany japan).include?(calculator.ceremony_country) %>
+    <% unless %w(germany).include?(calculator.ceremony_country) %>
       <% if calculator.ceremony_country == 'macedonia' %>
         Contact a notary public or British Embassy in Macedonia to get advice:
 
@@ -225,7 +225,7 @@
     <%= render partial: 'required_supporting_documents_philippines.govspeak.erb' %>
   <% elsif calculator.resident_outside_of_uk? && calculator.ceremony_country == 'macao' %>
     <%= render partial: 'required_supporting_documents_macao.govspeak.erb' %>
-  <% elsif calculator.resident_of_ceremony_country? && %w(germany japan).exclude?(calculator.ceremony_country) %>
+  <% elsif calculator.resident_of_ceremony_country? && %w(germany).exclude?(calculator.ceremony_country) %>
     <% if birth_cert_inclusion && notary_public_inclusion %>
       You’ll need to provide supporting documents, including:
 
@@ -282,7 +282,7 @@
 
     <% end %>
   <% else %>
-    <% if calculator.partner_is_same_sex? || no_document_download_link_if_os_resident_of_uk_countries.exclude?(calculator.ceremony_country) && (cni_notary_public_countries + %w(japan macedonia) - %w(greece tunisia)).include?(calculator.ceremony_country) %>
+    <% if calculator.partner_is_same_sex? || no_document_download_link_if_os_resident_of_uk_countries.exclude?(calculator.ceremony_country) && (cni_notary_public_countries + %w(macedonia) - %w(greece tunisia)).include?(calculator.ceremony_country) %>
       <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
 
     <% end %>
