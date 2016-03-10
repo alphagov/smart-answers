@@ -760,6 +760,22 @@ module SmartAnswer
           assert_equal expected_path, calculator.outcome_path_when_resident_in_ceremony_country
         end
       end
+
+      context '#three_day_residency_requirement_applies?' do
+        should 'return true if ceremony country requires 3 day residency' do
+          calculator = MarriageAbroadCalculator.new
+          calculator.ceremony_country = 'albania'
+
+          assert calculator.three_day_residency_requirement_applies?
+        end
+
+        should 'return false if ceremony country does not require 3 days residency' do
+          calculator = MarriageAbroadCalculator.new
+          calculator.ceremony_country = 'country-not-requiring-three-day-residency'
+
+          refute calculator.three_day_residency_requirement_applies?
+        end
+      end
     end
   end
 end
