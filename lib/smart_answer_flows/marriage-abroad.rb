@@ -261,7 +261,7 @@ module SmartAnswer
           Calculators::MarriageAbroadDataQuery::THREE_DAY_RESIDENCY_HANDLED_BY_EXCEPTION
         end
         precalculate :no_birth_cert_requirement do
-          three_day_residency_requirement_applies - ['italy']
+          Calculators::MarriageAbroadDataQuery::NO_BIRTH_CERT_REQUIREMENT
         end
         precalculate :cni_notary_public_countries do
           %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg mexico moldova montenegro russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)

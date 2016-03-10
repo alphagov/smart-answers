@@ -56,6 +56,8 @@ module SmartAnswer::Calculators
 
     THREE_DAY_RESIDENCY_HANDLED_BY_EXCEPTION = %w(croatia italy russia)
 
+    NO_BIRTH_CERT_REQUIREMENT = THREE_DAY_RESIDENCY_REQUIREMENT_COUNTRIES - ['italy']
+
     def os_21_days_residency_required_countries?(country_slug)
       OS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES.include?(country_slug)
     end
