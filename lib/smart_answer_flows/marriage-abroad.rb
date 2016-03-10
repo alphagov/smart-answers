@@ -260,9 +260,6 @@ module SmartAnswer
         precalculate :three_day_residency_handled_by_exception do
           Calculators::MarriageAbroadDataQuery::THREE_DAY_RESIDENCY_HANDLED_BY_EXCEPTION
         end
-        precalculate :no_birth_cert_requirement do
-          Calculators::MarriageAbroadDataQuery::NO_BIRTH_CERT_REQUIREMENT
-        end
         precalculate :cni_notary_public_countries do
           Calculators::MarriageAbroadDataQuery::CNI_NOTARY_PUBLIC_COUNTRIES
         end
@@ -276,7 +273,7 @@ module SmartAnswer
           (calculator.ceremony_country == 'croatia' && calculator.resident_of_ceremony_country?)
         end
         precalculate :birth_cert_inclusion do
-          no_birth_cert_requirement.exclude?(calculator.ceremony_country)
+          Calculators::MarriageAbroadDataQuery::NO_BIRTH_CERT_REQUIREMENT.exclude?(calculator.ceremony_country)
         end
         precalculate :notary_public_inclusion do
           cni_notary_public_countries.include?(calculator.ceremony_country) || %w(japan macedonia).include?(calculator.ceremony_country)
