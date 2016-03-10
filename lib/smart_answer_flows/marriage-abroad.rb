@@ -255,7 +255,7 @@ module SmartAnswer
 
       outcome :outcome_os_consular_cni do
         precalculate :three_day_residency_requirement_applies do
-          %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria chile croatia cuba democratic-republic-of-congo denmark dominican-republic el-salvador estonia ethiopia georgia greece guatemala honduras hungary iceland italy kazakhstan kosovo kuwait kyrgyzstan latvia lithuania luxembourg macedonia mexico moldova montenegro nepal panama romania russia serbia slovenia sudan sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+          Calculators::MarriageAbroadDataQuery::THREE_DAY_RESIDENCY_REQUIREMENT_COUNTRIES
         end
         precalculate :three_day_residency_handled_by_exception do
           %w(croatia italy russia)
