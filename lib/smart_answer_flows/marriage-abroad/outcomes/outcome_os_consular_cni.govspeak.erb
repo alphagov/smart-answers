@@ -63,7 +63,7 @@
 
     <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
 
-  <% elsif ceremony_not_germany_or_not_resident_other %>
+  <% elsif (calculator.ceremony_country != 'germany' || calculator.resident_of_uk?) %>
     <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
 
   <% end %>

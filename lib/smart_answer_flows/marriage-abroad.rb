@@ -308,9 +308,6 @@ module SmartAnswer
         precalculate :cni_posted_after_14_days_countries do
           %w(jordan qatar saudi-arabia united-arab-emirates yemen)
         end
-        precalculate :ceremony_not_germany_or_not_resident_other do
-          (calculator.ceremony_country != 'germany' || calculator.resident_of_uk?)
-        end
         precalculate :ceremony_and_residency_in_croatia do
           (calculator.ceremony_country == 'croatia' && calculator.resident_of_ceremony_country?)
         end
