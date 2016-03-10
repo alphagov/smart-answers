@@ -172,22 +172,20 @@
 
 
     <% end %>
-    <% unless %w(germany).include?(calculator.ceremony_country) %>
-      <% if calculator.ceremony_country == 'macedonia' %>
-        Contact a notary public or British Embassy in Macedonia to get advice:
+    <% if calculator.ceremony_country == 'macedonia' %>
+      Contact a notary public or British Embassy in Macedonia to get advice:
 
-        $C
-        British Embassy Macedonia
-        Telephone: + 389 (2) 3299 299
-        <consular.skopje@fco.gov.uk>
-        $C
+      $C
+      British Embassy Macedonia
+      Telephone: + 389 (2) 3299 299
+      <consular.skopje@fco.gov.uk>
+      $C
 
-        %You can’t book an appointment to get advice at the embassy in person.%
+      %You can’t book an appointment to get advice at the embassy in person.%
 
-      <% else %>
-        <%= render partial: 'contact_method.govspeak.erb',
-                   locals: { calculator: calculator } %>
-      <% end %>
+    <% else %>
+      <%= render partial: 'contact_method.govspeak.erb',
+                 locals: { calculator: calculator } %>
     <% end %>
   <% end %>
   <% if calculator.resident_outside_of_uk? && calculator.ceremony_country == 'egypt' %>
@@ -268,9 +266,7 @@
     <% end %>
   <% end %>
 
-  <% if calculator.ceremony_country != 'germany'  || (calculator.ceremony_country == 'germany' && calculator.resident_of_uk?) %>
-    <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
-  <% end %>
+  <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
 
   <% if calculator.resident_of_ceremony_country? %>
 
@@ -299,11 +295,8 @@
 
       <% end %>
 
-      <% if %(germany).exclude?(calculator.ceremony_country) %>
-        ^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
+      ^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
 
-
-      <% end %>
     <% end %>
 
     <% if calculator.ceremony_country == 'greece' %>
