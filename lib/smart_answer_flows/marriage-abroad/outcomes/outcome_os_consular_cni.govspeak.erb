@@ -63,7 +63,7 @@
 
     <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
 
-  <% elsif (calculator.ceremony_country != 'germany' || calculator.resident_of_uk?) %>
+  <% else %>
     <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
 
   <% end %>
@@ -203,7 +203,7 @@
     <%= render partial: 'required_supporting_documents_philippines.govspeak.erb' %>
   <% elsif calculator.resident_outside_of_uk? && calculator.ceremony_country == 'macao' %>
     <%= render partial: 'required_supporting_documents_macao.govspeak.erb' %>
-  <% elsif calculator.resident_of_ceremony_country? && %w(germany).exclude?(calculator.ceremony_country) %>
+  <% elsif calculator.resident_of_ceremony_country? %>
     <% if birth_cert_inclusion && notary_public_inclusion %>
       You’ll need to provide supporting documents, including:
 
@@ -255,7 +255,7 @@
       $D
 
 
-    <% elsif %w(germany).exclude?(calculator.ceremony_country) %>
+    <% else %>
       <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
 
     <% end %>
@@ -290,7 +290,7 @@
         - a civil partnership dissolution or annulment certificate
         - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
 
-      <% elsif calculator.ceremony_country != 'germany' %>
+      <% else %>
         <%= render partial: 'consular_cni_os_not_uk_resident_ceremony_not_germany.govspeak.erb' %>
 
       <% end %>
@@ -330,7 +330,7 @@
       There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
 
 
-    <% elsif %w(germany).exclude?(calculator.ceremony_country) %>
+    <% else %>
       <%= render partial: 'display_notice_of_marriage_7_days.govspeak.erb',
                  locals: { calculator: calculator } %>
 
@@ -345,7 +345,7 @@
 
   <% end %>
 
-  <% if calculator.resident_outside_of_uk? && %w(germany).exclude?(calculator.ceremony_country) %>
+  <% if calculator.resident_outside_of_uk? %>
     <%= render partial: 'check_if_cni_needs_to_be_legalised.govspeak.erb',
                locals: { calculator: calculator } %>
 
