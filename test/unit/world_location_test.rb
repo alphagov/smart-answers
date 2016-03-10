@@ -111,7 +111,7 @@ class WorldLocationTest < ActiveSupport::TestCase
     end
 
     should "return nil if not found" do
-      worldwide_api_does_not_have_location('non-existent')
+      Services.worldwide_api.stubs(:world_location).returns(nil)
       assert_nil WorldLocation.find('non-existent')
     end
 
