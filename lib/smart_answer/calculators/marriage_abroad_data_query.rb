@@ -52,6 +52,8 @@ module SmartAnswer::Calculators
 
     SS_UNKNOWN_NO_EMBASSIES = %w(st-martin saint-barthelemy)
 
+    THREE_DAY_RESIDENCY_REQUIREMENT_COUNTRIES = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria chile croatia cuba democratic-republic-of-congo denmark dominican-republic el-salvador estonia ethiopia georgia greece guatemala honduras hungary iceland italy kazakhstan kosovo kuwait kyrgyzstan latvia lithuania luxembourg macedonia mexico moldova montenegro nepal panama romania russia serbia slovenia sudan sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+
     def os_21_days_residency_required_countries?(country_slug)
       OS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES.include?(country_slug)
     end
