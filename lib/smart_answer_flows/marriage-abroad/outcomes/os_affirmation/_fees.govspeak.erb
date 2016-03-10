@@ -30,12 +30,13 @@
              } %>
 
 <% elsif %w(philippines united-arab-emirates).include?(calculator.ceremony_country) %>
-  ##Fees
-
-  Service | Fee
-  -|-
-  Affirmation for freedom to marry in English | £55
-  Affirmation for freedom to marry in any other language | £70
+  <%= render partial: 'consular_fees_table.govspeak.erb',
+             locals: {
+               services: [
+                 :affirmation_for_freedom_to_marry_in_english,
+                 :affirmation_for_freedom_to_marry_in_other_language,
+               ]
+             } %>
 
 
 <% elsif calculator.ceremony_country == 'qatar' %>
@@ -72,12 +73,13 @@
   Affirmation or affidavit for freedom to marry | £55
 
 <% else %>
-  ##Fees
-
-  Service | Fee
-  -|-
-  Affirmation for freedom to marry in English | £55
-  Affirmation for freedom to marry in any other language | £70
+  <%= render partial: 'consular_fees_table.govspeak.erb',
+             locals: {
+               services: [
+                 :affirmation_for_freedom_to_marry_in_english,
+                 :affirmation_for_freedom_to_marry_in_other_language,
+               ]
+             } %>
 
 
 <% end %>
