@@ -3,10 +3,7 @@
 <% uk_visa_application_with_colour_pictures = %w(afghanistan azerbaijan algeria bangladesh belarus burma cambodia china georgia india indonesia kazakhstan laos lebanon mauritania morocco nepal pakistan tajikistan thailand turkmenistan ukraine uzbekistan russia vietnam venezuela western-sahara) %>
 <% non_uk_visa_application_with_colour_pictures = %w(burma cuba sudan tajikistan turkmenistan uzbekistan) %>
 
-<% if application_address %>
-  <% render partial: 'sending_your_application.govspeak.erb',
-            locals: { application_address: application_address } %>
-<% elsif uk_visa_application_centre_countries.include?(current_location) %>
+<% if uk_visa_application_centre_countries.include?(current_location) %>
   <% if %w(renewing_new).include?(application_action) %>
     <% if passport_data['application_office'] %>
       <% if %w(laos vietnam).include?(current_location) %>

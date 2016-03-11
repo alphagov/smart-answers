@@ -38,18 +38,25 @@
              }
   -%>
 
-  <%= render partial: 'making_your_application.govspeak.erb',
-             locals: {
-               application_address: application_address,
-               application_action: application_action,
-               current_location: current_location,
-               passport_data: passport_data,
-               general_action: general_action,
-               ips_number: ips_number,
-               data_query: data_query,
-               overseas_passports_embassies: overseas_passports_embassies
-             }
-  -%>
+  <% if application_address %>
+    <%= render partial: 'sending_your_application.govspeak.erb',
+               locals: {
+                 application_address: application_address
+               }
+    -%>
+  <% else %>
+    <%= render partial: 'making_your_application.govspeak.erb',
+               locals: {
+                 application_action: application_action,
+                 current_location: current_location,
+                 passport_data: passport_data,
+                 general_action: general_action,
+                 ips_number: ips_number,
+                 data_query: data_query,
+                 overseas_passports_embassies: overseas_passports_embassies
+               }
+    -%>
+  <% end %>
 
   <%= render partial: 'getting_your_passport.govspeak.erb',
              locals: {
