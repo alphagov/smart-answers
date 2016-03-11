@@ -51,11 +51,12 @@
 
 
 <% elsif calculator.ceremony_country == 'china' %>
-  ##Fees
-
-  Service | Fee
-  -|-
-  Affirmation or affidavit for freedom to marry in English & Chinese | £55
+  <%= render partial: 'consular_fees_table.govspeak.erb',
+             locals: {
+               services: [
+                 :affirmation_for_freedom_to_marry_in_english_and_chinese,
+               ]
+             } %>
 
 <% elsif calculator.ceremony_country == 'peru' %>
   ##Fees
