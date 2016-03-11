@@ -119,7 +119,6 @@ module SmartAnswer
           :outcome_os_colombia,
           :outcome_os_commonwealth,
           :outcome_os_consular_cni,
-          :outcome_os_germany,
           :outcome_os_hong_kong,
           :outcome_os_indonesia,
           :outcome_os_italy,
@@ -189,8 +188,6 @@ module SmartAnswer
           elsif calculator.partner_is_opposite_sex?
             if calculator.ceremony_country == 'hong-kong'
               :outcome_os_hong_kong
-            elsif calculator.ceremony_country == 'germany'
-              :outcome_os_germany
             elsif calculator.ceremony_country == 'oman'
               :outcome_os_oman
             elsif calculator.ceremony_country == 'belarus'
@@ -214,8 +211,6 @@ module SmartAnswer
               :outcome_os_cambodia
             elsif calculator.ceremony_country == "colombia"
               :outcome_os_colombia
-            elsif calculator.ceremony_country == 'germany'
-              :outcome_os_germany
             elsif calculator.ceremony_country == "kosovo"
               :outcome_os_kosovo
             elsif calculator.ceremony_country == "indonesia"
@@ -297,8 +292,6 @@ module SmartAnswer
       outcome :outcome_marriage_via_local_authorities
 
       outcome :outcome_portugal
-
-      outcome :outcome_os_germany
 
       outcome :outcome_os_kuwait do
         precalculate :current_path do
