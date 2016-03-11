@@ -60,11 +60,12 @@
              } %>
 
 <% elsif calculator.ceremony_country == 'peru' %>
-  ##Fees
-
-  Service | Fee
-  -|-
-  Affirmation or affidavit for freedom to marry | £55
+  <%= render partial: 'consular_fees_table.govspeak.erb',
+             locals: {
+               services: [
+                 :affirmation_or_affidavit_for_freedom_to_marry,
+               ]
+             } %>
 
 <% else %>
   <%= render partial: 'consular_fees_table.govspeak.erb',
