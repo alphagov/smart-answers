@@ -38,11 +38,12 @@
 
   <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
 
-  ##Fees
-
-  Service | Fee
-  -|-
-  Administering an oath or making a declaration | £55
+  <%= render partial: 'consular_fees_table.govspeak.erb',
+             locals: {
+               services: [
+                 :administering_oath_or_making_declaration,
+               ]
+             } %>
 
   <%= render partial: 'link_to_consular_fees.govspeak.erb',
              locals: { calculator: calculator } %>
