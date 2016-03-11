@@ -162,15 +162,67 @@ module SmartAnswer
           calculator.sex_of_your_partner = response
 
           if calculator.ceremony_country == 'germany'
-            outcome_components = [
-              'outcome',
-              calculator.ceremony_country,
-              calculator.instance_variable_get('@resident_of'),
-              calculator.instance_variable_get('@partner_nationality'),
-              calculator.instance_variable_get('@sex_of_your_partner')
-            ]
-            outcome_name = outcome_components.join('_')
-            next outcome_name
+            if calculator.resident_of_ceremony_country?
+              if calculator.partner_british?
+                if calculator.partner_is_opposite_sex?
+                  next :outcome_germany_ceremony_country_partner_british_opposite_sex
+                elsif calculator.partner_is_same_sex?
+                  next :outcome_germany_ceremony_country_partner_british_same_sex
+                end
+              elsif calculator.partner_is_national_of_ceremony_country?
+                if calculator.partner_is_opposite_sex?
+                  next :outcome_germany_ceremony_country_partner_local_opposite_sex
+                elsif calculator.partner_is_same_sex?
+                  next :outcome_germany_ceremony_country_partner_local_same_sex
+                end
+              elsif calculator.partner_is_neither_british_nor_a_national_of_ceremony_country?
+                if calculator.partner_is_opposite_sex?
+                  next :outcome_germany_ceremony_country_partner_other_opposite_sex
+                elsif calculator.partner_is_same_sex?
+                  next :outcome_germany_ceremony_country_partner_other_same_sex
+                end
+              end
+            elsif calculator.resident_of_third_country?
+              if calculator.partner_british?
+                if calculator.partner_is_opposite_sex?
+                  next :outcome_germany_third_country_partner_british_opposite_sex
+                elsif calculator.partner_is_same_sex?
+                  next :outcome_germany_third_country_partner_british_same_sex
+                end
+              elsif calculator.partner_is_national_of_ceremony_country?
+                if calculator.partner_is_opposite_sex?
+                  next :outcome_germany_third_country_partner_local_opposite_sex
+                elsif calculator.partner_is_same_sex?
+                  next :outcome_germany_third_country_partner_local_same_sex
+                end
+              elsif calculator.partner_is_neither_british_nor_a_national_of_ceremony_country?
+                if calculator.partner_is_opposite_sex?
+                  next :outcome_germany_third_country_partner_other_opposite_sex
+                elsif calculator.partner_is_same_sex?
+                  next :outcome_germany_third_country_partner_other_same_sex
+                end
+              end
+            elsif calculator.resident_of_uk?
+              if calculator.partner_british?
+                if calculator.partner_is_opposite_sex?
+                  next :outcome_germany_uk_partner_british_opposite_sex
+                elsif calculator.partner_is_same_sex?
+                  next :outcome_germany_uk_partner_british_same_sex
+                end
+              elsif calculator.partner_is_national_of_ceremony_country?
+                if calculator.partner_is_opposite_sex?
+                  next :outcome_germany_uk_partner_local_opposite_sex
+                elsif calculator.partner_is_same_sex?
+                  next :outcome_germany_uk_partner_local_same_sex
+                end
+              elsif calculator.partner_is_neither_british_nor_a_national_of_ceremony_country?
+                if calculator.partner_is_opposite_sex?
+                  next :outcome_germany_uk_partner_other_opposite_sex
+                elsif calculator.partner_is_same_sex?
+                  next :outcome_germany_uk_partner_other_same_sex
+                end
+              end
+            end
           end
 
           if calculator.ceremony_country == 'brazil' && calculator.resident_outside_of_uk?
