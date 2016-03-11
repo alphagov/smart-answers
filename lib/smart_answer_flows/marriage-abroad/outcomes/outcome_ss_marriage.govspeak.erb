@@ -147,13 +147,14 @@
   <% else %>
     <% case calculator.marriage_and_partnership_phrases %>
     <% when 'ss_marriage' %>
-      ##Fees
-
-      Service | Fee
-      -|-
-      Posting a marriage notice | £65
-      Performing a marriage ceremony | £140
-      Issuing a marriage certificate | £65
+      <%= render partial: 'consular_fees_table.govspeak.erb',
+                 locals: {
+                   services: [
+                     :posting_marriage_notice,
+                     :performing_marriage_ceremony,
+                     :issuing_marriage_certificate,
+                   ]
+                 } %>
 
     <% when 'ss_marriage_and_partnership' %>
       <%= render partial: 'consular_fees_table.govspeak.erb',
