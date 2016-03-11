@@ -12,6 +12,10 @@ module SmartAnswer
 
       # Q1
       country_select :which_country_are_you_in?, exclude_countries: exclude_countries do
+        next_node_calculation :calculator do
+          Calculators::OverseasPassportsCalculator.new
+        end
+
         save_input_as :current_location
 
         calculate :location do
@@ -42,6 +46,8 @@ module SmartAnswer
         end
 
         next_node(permitted: :auto) do |response|
+          calculator.current_location = response
+
           if ineligible_country
             outcome :cannot_apply
           elsif response == 'the-occupied-palestinian-territories'
