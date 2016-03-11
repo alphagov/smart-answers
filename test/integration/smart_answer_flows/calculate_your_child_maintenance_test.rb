@@ -162,6 +162,5 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
     should "ask how many children you're receiving maintenance for" do
       assert_current_node :how_many_children_paid_for?
     end
-
   end
 end
