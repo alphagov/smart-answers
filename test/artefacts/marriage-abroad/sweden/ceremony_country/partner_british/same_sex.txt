@@ -29,7 +29,7 @@ Email: <Stockholm@fco.gov.uk>
 
 $C
 
-##Fees
+## Fees
 
 Service | Fee
 -|-
