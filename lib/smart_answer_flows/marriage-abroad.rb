@@ -139,6 +139,7 @@ module SmartAnswer
           :outcome_ss_marriage_malta,
           :outcome_ss_marriage_not_possible,
           :outcome_switzerland,
+          :outcome_germany_uk_opposite_sex,
           :outcome_germany_ceremony_or_third_country_opposite_sex,
           :outcome_germany_ceremony_country_partner_british_same_sex,
           :outcome_germany_ceremony_country_partner_local_same_sex,
@@ -146,11 +147,8 @@ module SmartAnswer
           :outcome_germany_third_country_partner_british_same_sex,
           :outcome_germany_third_country_partner_local_same_sex,
           :outcome_germany_third_country_partner_other_same_sex,
-          :outcome_germany_uk_partner_british_opposite_sex,
           :outcome_germany_uk_partner_british_same_sex,
-          :outcome_germany_uk_partner_local_opposite_sex,
           :outcome_germany_uk_partner_local_same_sex,
-          :outcome_germany_uk_partner_other_opposite_sex,
           :outcome_germany_uk_partner_other_same_sex
         ]
         next_node(permitted: permitted_next_nodes) do |response|
@@ -200,19 +198,19 @@ module SmartAnswer
             elsif calculator.resident_of_uk?
               if calculator.partner_british?
                 if calculator.partner_is_opposite_sex?
-                  next :outcome_germany_uk_partner_british_opposite_sex
+                  next :outcome_germany_uk_opposite_sex
                 elsif calculator.partner_is_same_sex?
                   next :outcome_germany_uk_partner_british_same_sex
                 end
               elsif calculator.partner_is_national_of_ceremony_country?
                 if calculator.partner_is_opposite_sex?
-                  next :outcome_germany_uk_partner_local_opposite_sex
+                  next :outcome_germany_uk_opposite_sex
                 elsif calculator.partner_is_same_sex?
                   next :outcome_germany_uk_partner_local_same_sex
                 end
               elsif calculator.partner_is_neither_british_nor_a_national_of_ceremony_country?
                 if calculator.partner_is_opposite_sex?
-                  next :outcome_germany_uk_partner_other_opposite_sex
+                  next :outcome_germany_uk_opposite_sex
                 elsif calculator.partner_is_same_sex?
                   next :outcome_germany_uk_partner_other_same_sex
                 end
@@ -490,6 +488,7 @@ module SmartAnswer
 
       outcome :outcome_os_marriage_impossible_no_laos_locals
 
+      outcome :outcome_germany_uk_opposite_sex
       outcome :outcome_germany_ceremony_or_third_country_opposite_sex
       outcome :outcome_germany_ceremony_country_partner_british_same_sex
       outcome :outcome_germany_ceremony_country_partner_local_same_sex
@@ -497,11 +496,8 @@ module SmartAnswer
       outcome :outcome_germany_third_country_partner_british_same_sex
       outcome :outcome_germany_third_country_partner_local_same_sex
       outcome :outcome_germany_third_country_partner_other_same_sex
-      outcome :outcome_germany_uk_partner_british_opposite_sex
       outcome :outcome_germany_uk_partner_british_same_sex
-      outcome :outcome_germany_uk_partner_local_opposite_sex
       outcome :outcome_germany_uk_partner_local_same_sex
-      outcome :outcome_germany_uk_partner_other_opposite_sex
       outcome :outcome_germany_uk_partner_other_same_sex
     end
   end
