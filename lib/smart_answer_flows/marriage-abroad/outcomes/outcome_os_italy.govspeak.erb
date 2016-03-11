@@ -107,12 +107,13 @@
 
   <% end %>
   <% if calculator.resident_of_ceremony_country? %>
-    ##Fees
-
-    Service | Fee
-    -|-
-    Receiving a notice of marriage | £65
-    Issuing a CNI, Nulla Osta or equivalent | £65
+    <%= render partial: 'consular_fees_table.govspeak.erb',
+               locals: {
+                 services: [
+                   :receiving_notice_of_marriage,
+                   :issuing_cni_or_nulla_osta,
+                 ]
+               } %>
 
 
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
