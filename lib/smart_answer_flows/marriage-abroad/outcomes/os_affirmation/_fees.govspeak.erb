@@ -42,12 +42,13 @@
              } %>
 
 <% elsif calculator.ceremony_country == 'egypt' %>
-  ##Fees
-
-  Service | Fee
-  -|-
-  Marriage declaration | £55
-  Making an oath | £55
+  <%= render partial: 'consular_fees_table.govspeak.erb',
+             locals: {
+               services: [
+                 :marriage_declaration,
+                 :making_an_oath,
+               ]
+             } %>
 
 
 <% elsif calculator.ceremony_country == 'china' %>
