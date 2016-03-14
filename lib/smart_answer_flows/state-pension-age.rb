@@ -13,11 +13,8 @@ module SmartAnswer
 
         save_input_as :which_calculation
 
-        permitted_next_nodes = [
-          :dob_age?
-        ]
-        next_node(permitted: permitted_next_nodes) do
-          :dob_age?
+        next_node(permitted: :auto) do
+          question :dob_age?
         end
       end
 
@@ -27,20 +24,15 @@ module SmartAnswer
 
         validate { |response| response <= Date.today }
 
-        permitted_next_nodes = [
-          :bus_pass_result,
-          :gender?
-        ]
-
         calculate :calculator do |response|
           Calculators::StatePensionAgeCalculator.new(dob: response)
         end
 
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: :auto) do
           if which_calculation == 'age'
-            :gender?
+            question :gender?
           else
-            :bus_pass_result
+            outcome :bus_pass_result
           end
         end
       end
@@ -50,18 +42,13 @@ module SmartAnswer
         option :male
         option :female
 
-        permitted_next_nodes = [
-          :not_yet_reached_sp_age,
-          :has_reached_sp_age
-        ]
-
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           calculator.gender = response.to_sym
 
           if calculator.before_state_pension_date?
-            :not_yet_reached_sp_age
+            outcome :not_yet_reached_sp_age
           else
-            :has_reached_sp_age
+            outcome :has_reached_sp_age
           end
         end
       end
