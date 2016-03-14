@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  <% if (both_help && circumstances.include?('property')) || (circumstances.include?('permission') && circumstances.include?('pension_credit')) || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || (benefits_claimed & %w(esa child_tax_credit working_tax_credit)).any? %>
+  <% if qualified_for_help_from_energy_supplier %>
     <% render partial: 'title_energy_supplier.govspeak.erb' %>
   <% else %>
     <% render partial: 'title_under_green_deal.govspeak.erb' %>
