@@ -7,20 +7,15 @@ module SmartAnswer
       satisfies_need "102373"
 
       postcode_question :property? do
-        permitted_next_nodes = [
-          :main_home?,
-          :outcome_check_not_needed
-        ]
-
         next_node_calculation :calculator do |response|
           Calculators::LandlordImmigrationCheckCalculator.new(response)
         end
 
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           if calculator.included_country?
-            :main_home?
+            question :main_home?
           else
-            :outcome_check_not_needed
+            outcome :outcome_check_not_needed
           end
         end
       end
@@ -29,16 +24,12 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        permitted_next_nodes = [
-          :tenant_over_18?,
-          :property_type?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when "yes"
-            :tenant_over_18?
+            question :tenant_over_18?
           when "no"
-            :property_type?
+            question :property_type?
           end
         end
       end
@@ -47,16 +38,12 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        permitted_next_nodes = [
-          :has_uk_passport?,
-          :outcome_check_not_needed_when_under_18
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when "yes"
-            :has_uk_passport?
+            question :has_uk_passport?
           when "no"
-            :outcome_check_not_needed_when_under_18
+            outcome :outcome_check_not_needed_when_under_18
           end
         end
       end
@@ -71,34 +58,24 @@ module SmartAnswer
         option "student_accommodation"
         option "7_year_lease_property"
 
-        permitted_next_nodes = [
-          :outcome_check_not_needed_if_holiday_or_under_3_months,
-          :outcome_check_not_needed,
-          :outcome_check_not_needed_when_care_home,
-          :outcome_check_not_needed_when_hostel_refuge,
-          :outcome_check_not_needed_when_mobile_home,
-          :outcome_check_not_needed_when_employee_home,
-          :outcome_check_may_be_needed_when_student,
-          :outcome_check_needed_if_break_clause
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when "holiday_accommodation"
-            :outcome_check_not_needed_if_holiday_or_under_3_months
+            outcome :outcome_check_not_needed_if_holiday_or_under_3_months
           when "social_housing"
-            :outcome_check_not_needed
+            outcome :outcome_check_not_needed
           when "care_home"
-            :outcome_check_not_needed_when_care_home
+            outcome :outcome_check_not_needed_when_care_home
           when "hostel_or_refuge"
-            :outcome_check_not_needed_when_hostel_refuge
+            outcome :outcome_check_not_needed_when_hostel_refuge
           when "mobile_home"
-            :outcome_check_not_needed_when_mobile_home
+            outcome :outcome_check_not_needed_when_mobile_home
           when "employee_accommodation"
-            :outcome_check_not_needed_when_employee_home
+            outcome :outcome_check_not_needed_when_employee_home
           when "student_accommodation"
-            :outcome_check_may_be_needed_when_student
+            outcome :outcome_check_may_be_needed_when_student
           when "7_year_lease_property"
-            :outcome_check_needed_if_break_clause
+            outcome :outcome_check_needed_if_break_clause
           end
         end
       end
@@ -107,16 +84,12 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        permitted_next_nodes = [
-          :outcome_can_rent,
-          :right_to_abode?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when "yes"
-            :outcome_can_rent
+            outcome :outcome_can_rent
           when "no"
-            :right_to_abode?
+            question :right_to_abode?
           end
         end
       end
@@ -125,16 +98,12 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        permitted_next_nodes = [
-          :outcome_can_rent,
-          :has_certificate?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when "yes"
-            :outcome_can_rent
+            outcome :outcome_can_rent
           when "no"
-            :has_certificate?
+            question :has_certificate?
           end
         end
       end
@@ -143,16 +112,12 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        permitted_next_nodes = [
-          :outcome_can_rent,
-          :tenant_country?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when "yes"
-            :outcome_can_rent
+            outcome :outcome_can_rent
           when "no"
-            :tenant_country?
+            question :tenant_country?
           end
         end
       end
@@ -162,19 +127,14 @@ module SmartAnswer
         option "non_eea_but_with_eu_eea_switzerland_family_member"
         option "somewhere_else"
 
-        permitted_next_nodes = [
-          :has_documents?,
-          :has_residence_card_or_eu_eea_swiss_family_member?,
-          :has_other_documents?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when "eu_eea_switzerland"
-            :has_documents?
+            question :has_documents?
           when "non_eea_but_with_eu_eea_switzerland_family_member"
-            :has_residence_card_or_eu_eea_swiss_family_member?
+            question :has_residence_card_or_eu_eea_swiss_family_member?
           when "somewhere_else"
-            :has_other_documents?
+            question :has_other_documents?
           end
         end
       end
@@ -183,16 +143,12 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        permitted_next_nodes = [
-          :outcome_can_rent,
-          :has_other_documents?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when "yes"
-            :outcome_can_rent
+            outcome :outcome_can_rent
           when "no"
-            :has_other_documents?
+            question :has_other_documents?
           end
         end
       end
@@ -201,16 +157,12 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        permitted_next_nodes = [
-          :outcome_can_rent,
-          :time_limited_to_remain?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when "yes"
-            :outcome_can_rent
+            outcome :outcome_can_rent
           when "no"
-            :time_limited_to_remain?
+            question :time_limited_to_remain?
           end
         end
       end
@@ -219,16 +171,12 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        permitted_next_nodes = [
-          :outcome_can_rent_for_12_months,
-          :immigration_application?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when "yes"
-            :outcome_can_rent_for_12_months
+            outcome :outcome_can_rent_for_12_months
           when "no"
-            :immigration_application?
+            question :immigration_application?
           end
         end
       end
@@ -237,16 +185,12 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        permitted_next_nodes = [
-          :outcome_can_rent_but_check_will_be_needed_again,
-          :has_residence_card_or_eu_eea_swiss_family_member?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when "yes"
-            :outcome_can_rent_but_check_will_be_needed_again
+            outcome :outcome_can_rent_but_check_will_be_needed_again
           when "no"
-            :has_residence_card_or_eu_eea_swiss_family_member?
+            question :has_residence_card_or_eu_eea_swiss_family_member?
           end
         end
       end
@@ -255,16 +199,12 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        permitted_next_nodes = [
-          :outcome_can_rent_for_12_months,
-          :outcome_can_not_rent
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when "yes"
-            :outcome_can_rent_for_12_months
+            outcome :outcome_can_rent_for_12_months
           when "no"
-            :outcome_can_not_rent
+            outcome :outcome_can_not_rent
           end
         end
       end
@@ -273,16 +213,12 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        permitted_next_nodes = [
-          :outcome_can_rent,
-          :has_asylum_card?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when "yes"
-            :outcome_can_rent
+            outcome :outcome_can_rent
           when "no"
-            :has_asylum_card?
+            question :has_asylum_card?
           end
         end
       end
