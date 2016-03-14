@@ -19,16 +19,12 @@ module SmartAnswer
         option :northern_ireland
         option :overseas
 
-        permitted_next_nodes = [
-          :did_the_person_die_at_home_hospital?,
-          :which_country?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'england_wales', 'scotland', 'northern_ireland'
-            :did_the_person_die_at_home_hospital?
+            question :did_the_person_die_at_home_hospital?
           when 'overseas'
-            :which_country?
+            question :which_country?
           end
         end
       end
@@ -79,18 +75,13 @@ module SmartAnswer
           Calculators::RegistrationsDataQuery::COMMONWEALTH_COUNTRIES.include?(response)
         end
 
-        permitted_next_nodes = [
-          :commonwealth_result,
-          :no_embassy_result,
-          :where_are_you_now?
-        ]
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: :auto) do
           if responded_with_commonwealth_country
-            :commonwealth_result
+            outcome :commonwealth_result
           elsif country_has_no_embassy
-            :no_embassy_result
+            outcome :no_embassy_result
           else
-            :where_are_you_now?
+            question :where_are_you_now?
           end
         end
       end
@@ -113,18 +104,13 @@ module SmartAnswer
           country_of_death == 'north-korea'
         }
 
-        permitted_next_nodes = [
-          :north_korea_result,
-          :oru_result,
-          :which_country_are_you_in_now?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           if response == 'same_country' && died_in_north_korea
-            :north_korea_result
+            outcome :north_korea_result
           elsif response == 'another_country'
-            :which_country_are_you_in_now?
+            question :which_country_are_you_in_now?
           else
-            :oru_result
+            outcome :oru_result
           end
         end
       end
@@ -143,15 +129,11 @@ module SmartAnswer
           response == 'north-korea'
         }
 
-        permitted_next_nodes = [
-          :north_korea_result,
-          :oru_result
-        ]
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: :auto) do
           if currently_in_north_korea
-            :north_korea_result
+            outcome :north_korea_result
           else
-            :oru_result
+            outcome :oru_result
           end
         end
       end
