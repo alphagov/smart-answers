@@ -38,19 +38,14 @@ module SmartAnswer
           Money.new(response)
         end
 
-        permitted_next_nodes = [
-          :where_will_you_live_while_studying?,
-          :do_any_of_the_following_apply_all_uk_students?,
-          :outcome_eu_students
-        ]
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: :auto) do
           case course_type
           when 'uk-full-time'
-            :where_will_you_live_while_studying?
+            question :where_will_you_live_while_studying?
           when 'uk-part-time'
-            :do_any_of_the_following_apply_all_uk_students?
+            question :do_any_of_the_following_apply_all_uk_students?
           when 'eu-full-time', 'eu-part-time'
-            :outcome_eu_students
+            outcome :outcome_eu_students
           end
         end
 
@@ -124,19 +119,14 @@ module SmartAnswer
 
         save_input_as :course_studied
 
-        permitted_next_nodes = [
-          :outcome_uk_full_time_students,
-          :outcome_uk_all_students,
-          :outcome_eu_students
-        ]
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: :auto) do
           case course_type
           when 'uk-full-time'
-            :outcome_uk_full_time_students
+            outcome :outcome_uk_full_time_students
           when 'uk-part-time'
-            :outcome_uk_all_students
+            outcome :outcome_uk_all_students
           else
-            :outcome_eu_students
+            outcome :outcome_eu_students
           end
         end
 
