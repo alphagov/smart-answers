@@ -49,15 +49,11 @@ value_question :years_employed?, parse: Float do
     raise InvalidResponse if ye.to_i > years_available
     ye
   end
-  permitted_next_nodes = [
-    :done_no_statutory,
-    :weekly_pay_before_tax?
-  ]
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     if response.floor < 2
-      :done_no_statutory
+      outcome :done_no_statutory
     else
-      :weekly_pay_before_tax?
+      question :weekly_pay_before_tax?
     end
   end
 end
@@ -83,15 +79,11 @@ money_question :weekly_pay_before_tax? do
     calculator.number_of_weeks_entitlement
   end
 
-  permitted_next_nodes = [
-    :done_no_statutory,
-    :done
-  ]
-  next_node(permitted: permitted_next_nodes) do
+  next_node(permitted: :auto) do
     if years_employed < 2
-      :done_no_statutory
+      outcome :done_no_statutory
     else
-      :done
+      outcome :done
     end
   end
 end
