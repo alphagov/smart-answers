@@ -41,21 +41,15 @@ module SmartAnswer
           %w(british-indian-ocean-territory north-korea south-georgia-and-south-sandwich-islands).include?(response)
         end
 
-        permitted_next_nodes = [
-          :cannot_apply,
-          :which_opt?,
-          :apply_in_neighbouring_country,
-          :renewing_replacing_applying?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           if ineligible_country
-            :cannot_apply
+            outcome :cannot_apply
           elsif response == 'the-occupied-palestinian-territories'
-            :which_opt?
+            question :which_opt?
           elsif apply_in_neighbouring_countries
-            :apply_in_neighbouring_country
+            outcome :apply_in_neighbouring_country
           else
-            :renewing_replacing_applying?
+            question :renewing_replacing_applying?
           end
         end
       end
@@ -151,19 +145,14 @@ module SmartAnswer
 
         save_input_as :child_or_adult
 
-        permitted_next_nodes = [
-          :country_of_birth?,
-          :ips_application_result_online,
-          :ips_application_result
-        ]
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: :auto) do
           if is_ips_application
             if %w(applying renewing_old).include?(application_action)
-              :country_of_birth?
+              question :country_of_birth?
             elsif ips_result_type == :ips_application_result_online
-              :ips_application_result_online
+              outcome :ips_application_result_online
             else
-              :ips_application_result
+              outcome :ips_application_result
             end
           end
         end
@@ -185,16 +174,12 @@ module SmartAnswer
           supporting_documents.split("_")[3]
         end
 
-        permitted_next_nodes = [
-          :ips_application_result_online,
-          :ips_application_result
-        ]
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: :auto) do
           if is_ips_application
             if ips_result_type == :ips_application_result_online
-              :ips_application_result_online
+              outcome :ips_application_result_online
             else
-              :ips_application_result
+              outcome :ips_application_result
             end
           end
         end
