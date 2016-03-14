@@ -34,7 +34,7 @@ module SmartAnswer
           parser = NextNodeBlock::Parser.new
           @permitted_next_nodes = parser.possible_next_nodes(@next_node_block)
         end
-        @permitted_next_nodes
+        @permitted_next_nodes.uniq
       end
 
       def validate(message = nil, &block)

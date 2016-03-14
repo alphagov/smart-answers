@@ -32,39 +32,63 @@ class QuestionBaseTest < ActiveSupport::TestCase
   end
 
   context '#permitted_next_nodes' do
-    should 'return permitted next nodes if next_node called with block' do
-      @question.next_node(permitted: [:done]) do
-        :done
+    context 'next_node called without block' do
+      should 'return the one node passed to next_node' do
+        @question.next_node :done
+        assert_equal [:done], @question.permitted_next_nodes
       end
-      assert_equal [:done], @question.permitted_next_nodes
     end
 
-    should 'return permitted next nodes if next_node called without block' do
-      @question.next_node :done
-      assert_equal [:done], @question.permitted_next_nodes
-    end
-
-    should 'return nodes returned via syntactic sugar methods' do
-      @question.next_node(permitted: :auto) do |response|
-        if response == 'yes'
-          outcome :done
-        else
-          question :another_question
+    context 'next_node called with block specifying permitted next nodes' do
+      should 'return the specified permitted next nodes' do
+        @question.next_node(permitted: [:done]) do
+          :done
         end
+        assert_equal [:done], @question.permitted_next_nodes
       end
-      assert_equal [:done, :another_question], @question.permitted_next_nodes
+
+      should 'not return duplicate permitted next nodes' do
+        @question.next_node(permitted: [:done, :done]) do
+          :done
+        end
+        assert_equal [:done], @question.permitted_next_nodes
+      end
     end
 
-    should 'not return nodes not returned via syntactic sugar methods' do
-      @question.next_node(permitted: :auto) do |response|
-        if response == 'yes'
-          outcome :done
-        else
-          :another_question
+    context 'next_node called with block set to auto-detect permitted next nodes' do
+      should 'return nodes returned via syntactic sugar methods' do
+        @question.next_node(permitted: :auto) do |response|
+          if response == 'yes'
+            outcome :done
+          else
+            question :another_question
+          end
         end
+        assert_equal [:done, :another_question], @question.permitted_next_nodes
       end
-      assert @question.permitted_next_nodes.include?(:done)
-      refute @question.permitted_next_nodes.include?(:another_question)
+
+      should 'not return nodes not returned via syntactic sugar methods' do
+        @question.next_node(permitted: :auto) do |response|
+          if response == 'yes'
+            outcome :done
+          else
+            :another_question
+          end
+        end
+        assert @question.permitted_next_nodes.include?(:done)
+        refute @question.permitted_next_nodes.include?(:another_question)
+      end
+
+      should 'not return duplicate permitted next nodes' do
+        @question.next_node(permitted: :auto) do |response|
+          if response == 'yes'
+            outcome :done
+          else
+            outcome :done
+          end
+        end
+        assert_equal [:done], @question.permitted_next_nodes
+      end
     end
   end
 
