@@ -162,8 +162,7 @@ module SmartAnswer
           :outcome_transit_refugee_not_leaving_airport,
           :outcome_transit_taiwan,
           :outcome_transit_taiwan_through_border_control,
-          :outcome_transit_venezuela,
-          :outcome_visit_waiver
+          :outcome_transit_venezuela
         ]
         next_node(permitted: permitted_next_nodes) do |response|
           calculator.passing_through_uk_border_control_answer = response
