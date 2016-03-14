@@ -7,6 +7,9 @@
 <% end %>
 
 <% content_for :body do %>
+  <% unless qualified_for_help_from_energy_supplier %>
+    <%= render partial: 'callout_under_green_deal.govspeak.erb' %>
+  <% end %>
   <% if both_help %>
     <% if age_variant == :winter_fuel_payment %>
       <%= render partial: 'winter_fuel_payments.govspeak.erb' %>
