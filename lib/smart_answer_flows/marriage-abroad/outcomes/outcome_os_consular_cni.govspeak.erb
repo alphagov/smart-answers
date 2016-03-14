@@ -156,8 +156,11 @@
       ^You may be able to get married without a CNI if you have a permanent address in Estonia and have a 6 month residence permit - contact the local authorities to find out.^
 
     <% end %>
-    <% if %w(kazakhstan kyrgyzstan).include?(calculator.ceremony_country) %>
-      If you need a CNI, you’ll first need to give notice of your intended marriage (banns) at the British Embassy Office in Almaty.
+    <% if calculator.ceremony_country == 'kyrgyzstan' %>
+      If you need a CNI, you’ll first need to give notice of your intended marriage (banns) at the British Embassy Office in Bishkek.
+
+    <% elsif calculator.ceremony_country == 'kazakhstan' %>
+      If you need a CNI, you’ll first need to give notice of your intended marriage (banns) at the British Embassy Office in Astana.
 
     <% elsif calculator.ceremony_country == 'russia' %>
       If you need a CNI, you’ll first need to give notice of your intended marriage at your nearest British <%= calculator.embassy_or_consulate_ceremony_country %>.
