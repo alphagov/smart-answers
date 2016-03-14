@@ -11,7 +11,7 @@ module SmartAnswer
           Calculators::LandlordImmigrationCheckCalculator.new(response)
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node(permitted: :auto) do
           if calculator.included_country?
             question :main_home?
           else

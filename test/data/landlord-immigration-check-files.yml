@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/landlord-immigration-check.rb: 484295a5969844e7a17ee3b6c4b8e326
+lib/smart_answer_flows/landlord-immigration-check.rb: d5faad347f31d56b96893f9114c9797c
 test/data/landlord-immigration-check-questions-and-responses.yml: d4b485131540c40211b26a50e071032d
 test/data/landlord-immigration-check-responses-and-expected-results.yml: 7982d80c9851bfa7e55dbee4661e70bc
 lib/smart_answer_flows/landlord-immigration-check/landlord_immigration_check.govspeak.erb: 60507bfc657cf13a750b258017453743
