@@ -19,17 +19,12 @@ module SmartAnswer
           nil
         end
 
-        permitted_next_nodes = [
-          :are_you_an_apprentice?,
-          :past_payment_date?
-        ]
-
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'current_payment'
-            :are_you_an_apprentice?
+            question :are_you_an_apprentice?
           when 'past_payment'
-            :past_payment_date?
+            question :past_payment_date?
           end
         end
       end
@@ -44,17 +39,12 @@ module SmartAnswer
           calculator.valid_age?(response)
         end
 
-        permitted_next_nodes = [
-          :under_school_leaving_age,
-          :how_often_do_you_get_paid?
-        ]
-
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           calculator.age = response
           if calculator.under_school_leaving_age?
-            :under_school_leaving_age
+            outcome :under_school_leaving_age
           else
-            :how_often_do_you_get_paid?
+            question :how_often_do_you_get_paid?
           end
         end
       end

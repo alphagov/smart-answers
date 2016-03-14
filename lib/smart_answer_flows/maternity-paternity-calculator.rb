@@ -47,19 +47,14 @@ module SmartAnswer
           nil
         end
 
-        permitted_next_nodes = [
-          :baby_due_date_maternity?,
-          :leave_or_pay_for_adoption?,
-          :taking_paternity_leave_for_adoption?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'maternity'
-            :baby_due_date_maternity?
+            question :baby_due_date_maternity?
           when 'paternity'
-            :leave_or_pay_for_adoption?
+            question :leave_or_pay_for_adoption?
           when 'adoption'
-            :taking_paternity_leave_for_adoption?
+            question :taking_paternity_leave_for_adoption?
           end
         end
       end

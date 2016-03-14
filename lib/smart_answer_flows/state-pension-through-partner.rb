@@ -38,15 +38,11 @@ module SmartAnswer
           "£#{rate}"
         end
 
-        permitted_next_nodes = [
-          :what_is_your_gender?,
-          :when_will_you_reach_pension_age?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           if response == 'divorced'
-            :what_is_your_gender?
+            question :what_is_your_gender?
           else
-            :when_will_you_reach_pension_age?
+            question :when_will_you_reach_pension_age?
           end
         end
       end
@@ -76,18 +72,13 @@ module SmartAnswer
           answers == [:widow] && response == "your_pension_age_before_specific_date"
         end
 
-        permitted_next_nodes = [
-          :what_is_your_gender?,
-          :when_will_your_partner_reach_pension_age?,
-          :widow_and_old_pension_outcome
-        ]
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: :auto) do
           if widow_and_new_pension
-            :what_is_your_gender?
+            question :what_is_your_gender?
           elsif widow_and_old_pension
-            :widow_and_old_pension_outcome
+            outcome :widow_and_old_pension_outcome
           else
-            :when_will_your_partner_reach_pension_age?
+            question :when_will_your_partner_reach_pension_age?
           end
         end
       end
@@ -114,18 +105,13 @@ module SmartAnswer
           answers == [:old1, :old2, :new3] || answers == [:new1, :old2, :new3]
         }
 
-        permitted_next_nodes = [
-          :current_rules_national_insurance_no_state_pension_outcome,
-          :current_rules_no_additional_pension_outcome,
-          :what_is_your_gender?
-        ]
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: :auto) do
           if current_rules_no_additional_pension
-            :current_rules_no_additional_pension_outcome
+            outcome :current_rules_no_additional_pension_outcome
           elsif current_rules_national_insurance_no_state_pension
-            :current_rules_national_insurance_no_state_pension_outcome
+            outcome :current_rules_national_insurance_no_state_pension_outcome
           else
-            :what_is_your_gender?
+            question :what_is_your_gender?
           end
         end
       end
@@ -137,28 +123,21 @@ module SmartAnswer
 
         save_input_as :gender
 
-        permitted_next_nodes = [
-          :age_dependent_pension_outcome,
-          :impossibility_due_to_divorce_outcome,
-          :impossibility_to_increase_pension_outcome,
-          :married_woman_and_state_pension_outcome,
-          :married_woman_no_state_pension_outcome
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'male_gender'
             if marital_status == 'divorced'
-              :impossibility_due_to_divorce_outcome
+              outcome :impossibility_due_to_divorce_outcome
             else
-              :impossibility_to_increase_pension_outcome
+              outcome :impossibility_to_increase_pension_outcome
             end
           when 'female_gender'
             if marital_status == 'divorced'
-              :age_dependent_pension_outcome
+              outcome :age_dependent_pension_outcome
             elsif marital_status == 'widowed'
-              :married_woman_and_state_pension_outcome
+              outcome :married_woman_and_state_pension_outcome
             else
-              :married_woman_no_state_pension_outcome
+              outcome :married_woman_no_state_pension_outcome
             end
           end
         end

@@ -37,31 +37,22 @@ module SmartAnswer
           calculator.funds_received_by.strftime("%e %B %Y").strip
         end
 
-        permitted_next_nodes = [
-          :result_direct_debit,
-          :result_online_telephone_banking,
-          :result_online_debit_credit_card,
-          :result_bacs_direct_credit,
-          :result_bank_giro,
-          :result_chaps,
-          :result_cheque
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'direct-debit'
-            :result_direct_debit
+            outcome :result_direct_debit
           when 'online-telephone-banking'
-            :result_online_telephone_banking
+            outcome :result_online_telephone_banking
           when 'online-debit-credit-card'
-            :result_online_debit_credit_card
+            outcome :result_online_debit_credit_card
           when 'bacs-direct-credit'
-            :result_bacs_direct_credit
+            outcome :result_bacs_direct_credit
           when 'bank-giro'
-            :result_bank_giro
+            outcome :result_bank_giro
           when 'chaps'
-            :result_chaps
+            outcome :result_chaps
           when 'cheque'
-            :result_cheque
+            outcome :result_cheque
           end
         end
       end

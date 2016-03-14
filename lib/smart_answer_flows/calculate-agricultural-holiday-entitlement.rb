@@ -16,16 +16,12 @@ module SmartAnswer
           nil
         end
 
-        permitted_next_nodes = [
-          :how_many_days_per_week?,
-          :what_date_does_holiday_start?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'same-number-of-days'
-            :how_many_days_per_week?
+            question :how_many_days_per_week?
           when 'different-number-of-days'
-            :what_date_does_holiday_start?
+            question :what_date_does_holiday_start?
           end
         end
       end
@@ -77,16 +73,12 @@ module SmartAnswer
           end
         end
 
-        permitted_next_nodes = [
-          :done,
-          :how_many_weeks_at_current_employer?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'same-employer'
-            :done
+            outcome :done
           when 'multiple-employers'
-            :how_many_weeks_at_current_employer?
+            question :how_many_weeks_at_current_employer?
           end
         end
       end

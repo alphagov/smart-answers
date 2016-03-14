@@ -77,18 +77,13 @@ module SmartAnswer
           links
         end
 
-        permitted_next_nodes = [
-          :answer_two_iran,
-          :answer_three_syria,
-          :answer_one_generic
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           if response == "iran"
-            :answer_two_iran
+            outcome :answer_two_iran
           elsif response == "syria"
-            :answer_three_syria
+            outcome :answer_three_syria
           else
-            :answer_one_generic
+            outcome :answer_one_generic
           end
         end
 
