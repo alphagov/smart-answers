@@ -433,8 +433,8 @@ module SmartAnswer
         precalculate :flat_type do
           flat_type
         end
-        precalculate :qualified_for_help_from_energy_supplier do
-          (both_help && circumstances.include?('property')) || (circumstances.include?('permission') && circumstances.include?('pension_credit')) || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || (benefits_claimed & %w(esa child_tax_credit working_tax_credit)).any?
+        precalculate :under_green_deal do
+          !((both_help && circumstances.include?('property')) || (circumstances.include?('permission') && circumstances.include?('pension_credit')) || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || (benefits_claimed & %w(esa child_tax_credit working_tax_credit)).any?)
         end
       end
 

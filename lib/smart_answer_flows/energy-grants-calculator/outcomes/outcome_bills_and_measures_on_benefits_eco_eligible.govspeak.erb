@@ -1,13 +1,13 @@
 <% content_for :title do %>
-  <% if qualified_for_help_from_energy_supplier %>
-    <% render partial: 'title_energy_supplier.govspeak.erb' %>
-  <% else %>
+  <% if under_green_deal %>
     <% render partial: 'title_under_green_deal.govspeak.erb' %>
+  <% else %>
+    <% render partial: 'title_energy_supplier.govspeak.erb' %>
   <% end %>
 <% end %>
 
 <% content_for :body do %>
-  <% unless qualified_for_help_from_energy_supplier %>
+  <% if under_green_deal %>
     <%= render partial: 'callout_under_green_deal.govspeak.erb' %>
   <% end %>
   <% if both_help %>
