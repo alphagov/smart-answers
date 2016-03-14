@@ -119,7 +119,6 @@ module SmartAnswer
           :outcome_os_colombia,
           :outcome_os_commonwealth,
           :outcome_os_consular_cni,
-          :outcome_os_germany,
           :outcome_os_hong_kong,
           :outcome_os_indonesia,
           :outcome_os_italy,
@@ -139,10 +138,62 @@ module SmartAnswer
           :outcome_ss_marriage,
           :outcome_ss_marriage_malta,
           :outcome_ss_marriage_not_possible,
-          :outcome_switzerland
+          :outcome_switzerland,
+          :outcome_germany_uk_opposite_sex,
+          :outcome_germany_ceremony_or_third_country_opposite_sex,
+          :outcome_germany_ceremony_country_partner_british_same_sex,
+          :outcome_germany_ceremony_country_partner_local_same_sex,
+          :outcome_germany_ceremony_country_partner_other_same_sex,
+          :outcome_germany_third_country_partner_british_same_sex,
+          :outcome_germany_third_country_partner_local_same_sex,
+          :outcome_germany_third_country_partner_other_same_sex,
+          :outcome_germany_uk_partner_british_same_sex,
+          :outcome_germany_uk_partner_local_same_sex,
+          :outcome_germany_uk_partner_other_same_sex
         ]
         next_node(permitted: permitted_next_nodes) do |response|
           calculator.sex_of_your_partner = response
+
+          if calculator.ceremony_country == 'germany'
+            if calculator.resident_of_ceremony_country?
+              if calculator.partner_is_opposite_sex?
+                next :outcome_germany_ceremony_or_third_country_opposite_sex
+              elsif calculator.partner_is_same_sex?
+                if calculator.partner_british?
+                  next :outcome_germany_ceremony_country_partner_british_same_sex
+                elsif calculator.partner_is_national_of_ceremony_country?
+                  next :outcome_germany_ceremony_country_partner_local_same_sex
+                elsif calculator.partner_is_neither_british_nor_a_national_of_ceremony_country?
+                  next :outcome_germany_ceremony_country_partner_other_same_sex
+                end
+              end
+            elsif calculator.resident_of_third_country?
+              if calculator.partner_is_opposite_sex?
+                next :outcome_germany_ceremony_or_third_country_opposite_sex
+              elsif calculator.partner_is_same_sex?
+                if calculator.partner_british?
+                  next :outcome_germany_third_country_partner_british_same_sex
+                elsif calculator.partner_is_national_of_ceremony_country?
+                  next :outcome_germany_third_country_partner_local_same_sex
+                elsif calculator.partner_is_neither_british_nor_a_national_of_ceremony_country?
+                  next :outcome_germany_third_country_partner_other_same_sex
+                end
+              end
+            elsif calculator.resident_of_uk?
+              if calculator.partner_is_opposite_sex?
+                next :outcome_germany_uk_opposite_sex
+              elsif calculator.partner_is_same_sex?
+                if calculator.partner_british?
+                  next :outcome_germany_uk_partner_british_same_sex
+                elsif calculator.partner_is_national_of_ceremony_country?
+                  next :outcome_germany_uk_partner_local_same_sex
+                elsif calculator.partner_is_neither_british_nor_a_national_of_ceremony_country?
+                  next :outcome_germany_uk_partner_other_same_sex
+                end
+              end
+            end
+          end
+
           if calculator.ceremony_country == 'brazil' && calculator.resident_outside_of_uk?
             :outcome_brazil_not_living_in_the_uk
           elsif calculator.ceremony_country == "netherlands"
@@ -158,8 +209,6 @@ module SmartAnswer
           elsif calculator.partner_is_opposite_sex?
             if calculator.ceremony_country == 'hong-kong'
               :outcome_os_hong_kong
-            elsif calculator.ceremony_country == 'germany'
-              :outcome_os_germany
             elsif calculator.ceremony_country == 'oman'
               :outcome_os_oman
             elsif calculator.ceremony_country == 'belarus'
@@ -183,8 +232,6 @@ module SmartAnswer
               :outcome_os_cambodia
             elsif calculator.ceremony_country == "colombia"
               :outcome_os_colombia
-            elsif calculator.ceremony_country == 'germany'
-              :outcome_os_germany
             elsif calculator.ceremony_country == "kosovo"
               :outcome_os_kosovo
             elsif calculator.ceremony_country == "indonesia"
@@ -266,8 +313,6 @@ module SmartAnswer
       outcome :outcome_marriage_via_local_authorities
 
       outcome :outcome_portugal
-
-      outcome :outcome_os_germany
 
       outcome :outcome_os_kuwait do
         precalculate :current_path do
@@ -418,6 +463,18 @@ module SmartAnswer
       outcome :outcome_ss_affirmation
 
       outcome :outcome_os_marriage_impossible_no_laos_locals
+
+      outcome :outcome_germany_uk_opposite_sex
+      outcome :outcome_germany_ceremony_or_third_country_opposite_sex
+      outcome :outcome_germany_ceremony_country_partner_british_same_sex
+      outcome :outcome_germany_ceremony_country_partner_local_same_sex
+      outcome :outcome_germany_ceremony_country_partner_other_same_sex
+      outcome :outcome_germany_third_country_partner_british_same_sex
+      outcome :outcome_germany_third_country_partner_local_same_sex
+      outcome :outcome_germany_third_country_partner_other_same_sex
+      outcome :outcome_germany_uk_partner_british_same_sex
+      outcome :outcome_germany_uk_partner_local_same_sex
+      outcome :outcome_germany_uk_partner_other_same_sex
     end
   end
 end
