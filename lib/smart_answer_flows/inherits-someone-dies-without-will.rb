@@ -31,21 +31,17 @@ module SmartAnswer
 
         save_input_as :partner
 
-        permitted_next_nodes = [
-          :children?,
-          :estate_over_250000?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case region
           when 'england-and-wales', 'northern-ireland'
             case response
             when 'yes'
-              :estate_over_250000?
+              question :estate_over_250000?
             when 'no'
-              :children?
+              question :children?
             end
           when 'scotland'
-            :children?
+            question :children?
           end
         end
       end
@@ -65,26 +61,21 @@ module SmartAnswer
           end
         end
 
-        permitted_next_nodes = [
-          :outcome_1,
-          :outcome_60,
-          :children?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case region
           when 'england-and-wales'
             case response
             when 'yes'
-              :children?
+              question :children?
             when 'no'
-              :outcome_1
+              outcome :outcome_1
             end
           when 'northern-ireland'
             case response
             when 'yes'
-              :children?
+              question :children?
             when 'no'
-              :outcome_60
+              outcome :outcome_60
             end
           end
         end
@@ -97,32 +88,23 @@ module SmartAnswer
 
         save_input_as :children
 
-        permitted_next_nodes = [
-          :outcome_1,
-          :outcome_2,
-          :outcome_20,
-          :outcome_40,
-          :outcome_66,
-          :more_than_one_child?,
-          :parents?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case region
           when 'england-and-wales'
             case partner
             when 'yes'
               case response
               when 'yes'
-                :outcome_20
+                outcome :outcome_20
               when 'no'
-                :outcome_1
+                outcome :outcome_1
               end
             when 'no'
               case response
               when 'yes'
-                :outcome_2
+                outcome :outcome_2
               when 'no'
-                :parents?
+                question :parents?
               end
             end
           when 'scotland'
@@ -130,16 +112,16 @@ module SmartAnswer
             when 'yes'
               case response
               when 'yes'
-                :outcome_40
+                outcome :outcome_40
               when 'no'
-                :parents?
+                question :parents?
               end
             when 'no'
               case response
               when 'yes'
-                :outcome_2
+                outcome :outcome_2
               when 'no'
-                :parents?
+                question :parents?
               end
             end
           when 'northern-ireland'
@@ -147,16 +129,16 @@ module SmartAnswer
             when 'yes'
               case response
               when 'yes'
-                :more_than_one_child?
+                question :more_than_one_child?
               when 'no'
-                :parents?
+                question :parents?
               end
             when 'no'
               case response
               when 'yes'
-                :outcome_66
+                outcome :outcome_66
               when 'no'
-                :parents?
+                question :parents?
               end
             end
           end
@@ -170,38 +152,32 @@ module SmartAnswer
 
         save_input_as :parents
 
-        permitted_next_nodes = [
-          :outcome_3,
-          :outcome_63,
-          :siblings?,
-          :siblings_including_mixed_parents?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case region
           when 'england-and-wales'
             case response
             when 'yes'
-              :outcome_3
+              outcome :outcome_3
             when 'no'
-              :siblings?
+              question :siblings?
             end
           when 'scotland'
-            :siblings?
+            question :siblings?
           when 'northern-ireland'
             case partner
             when 'yes'
               case response
               when 'yes'
-                :outcome_63
+                outcome :outcome_63
               when 'no'
-                :siblings_including_mixed_parents?
+                question :siblings_including_mixed_parents?
               end
             when 'no'
               case response
               when 'yes'
-                :outcome_3
+                outcome :outcome_3
               when 'no'
-                :siblings?
+                question :siblings?
               end
             end
           end
@@ -215,26 +191,14 @@ module SmartAnswer
 
         save_input_as :siblings
 
-        permitted_next_nodes = [
-          :outcome_1,
-          :outcome_3,
-          :outcome_4,
-          :outcome_41,
-          :outcome_42,
-          :outcome_43,
-          :outcome_44,
-          :aunts_or_uncles?,
-          :grandparents?,
-          :half_siblings?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case region
           when 'england-and-wales'
             case response
             when 'yes'
-              :outcome_4
+              outcome :outcome_4
             when 'no'
-              :half_siblings?
+              question :half_siblings?
             end
           when 'scotland'
             case partner
@@ -243,16 +207,16 @@ module SmartAnswer
               when 'yes'
                 case response
                 when 'yes'
-                  :outcome_43
+                  outcome :outcome_43
                 when 'no'
-                  :outcome_42
+                  outcome :outcome_42
                 end
               when 'no'
                 case response
                 when 'yes'
-                  :outcome_41
+                  outcome :outcome_41
                 when 'no'
-                  :outcome_1
+                  outcome :outcome_1
                 end
               end
             when 'no'
@@ -260,25 +224,25 @@ module SmartAnswer
               when 'yes'
                 case response
                 when 'yes'
-                  :outcome_44
+                  outcome :outcome_44
                 when 'no'
-                  :outcome_3
+                  outcome :outcome_3
                 end
               when 'no'
                 case response
                 when 'yes'
-                  :outcome_4
+                  outcome :outcome_4
                 when 'no'
-                  :aunts_or_uncles?
+                  question :aunts_or_uncles?
                 end
               end
             end
           when 'northern-ireland'
             case response
             when 'yes'
-              :outcome_4
+              outcome :outcome_4
             when 'no'
-              :grandparents?
+              question :grandparents?
             end
           end
         end
@@ -291,16 +255,12 @@ module SmartAnswer
 
         save_input_as :siblings
 
-        permitted_next_nodes = [
-          :outcome_64,
-          :outcome_65
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'yes'
-            :outcome_64
+            outcome :outcome_64
           when 'no'
-            :outcome_65
+            outcome :outcome_65
           end
         end
       end
@@ -312,33 +272,28 @@ module SmartAnswer
 
         save_input_as :grandparents
 
-        permitted_next_nodes = [
-          :outcome_5,
-          :aunts_or_uncles?,
-          :great_aunts_or_uncles?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case region
           when 'england-and-wales'
             case response
             when 'yes'
-              :outcome_5
+              outcome :outcome_5
             when 'no'
-              :aunts_or_uncles?
+              question :aunts_or_uncles?
             end
           when 'scotland'
             case response
             when 'yes'
-              :outcome_5
+              outcome :outcome_5
             when 'no'
-              :great_aunts_or_uncles?
+              question :great_aunts_or_uncles?
             end
           when 'northern-ireland'
             case response
             when 'yes'
-              :outcome_5
+              outcome :outcome_5
             when 'no'
-              :aunts_or_uncles?
+              question :aunts_or_uncles?
             end
           end
         end
@@ -351,34 +306,28 @@ module SmartAnswer
 
         save_input_as :aunts_or_uncles
 
-        permitted_next_nodes = [
-          :outcome_6,
-          :outcome_67,
-          :grandparents?,
-          :half_aunts_or_uncles?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case region
           when 'england-and-wales'
             case response
             when 'yes'
-              :outcome_6
+              outcome :outcome_6
             when 'no'
-              :half_aunts_or_uncles?
+              question :half_aunts_or_uncles?
             end
           when 'scotland'
             case response
             when 'yes'
-              :outcome_6
+              outcome :outcome_6
             when 'no'
-              :grandparents?
+              question :grandparents?
             end
           when 'northern-ireland'
             case response
             when 'yes'
-              :outcome_6
+              outcome :outcome_6
             when 'no'
-              :outcome_67
+              outcome :outcome_67
             end
           end
         end
@@ -391,16 +340,12 @@ module SmartAnswer
 
         save_input_as :half_siblings
 
-        permitted_next_nodes = [
-          :outcome_23,
-          :grandparents?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'yes'
-            :outcome_23
+            outcome :outcome_23
           when 'no'
-            :grandparents?
+            question :grandparents?
           end
         end
       end
@@ -412,16 +357,12 @@ module SmartAnswer
 
         save_input_as :half_aunts_or_uncles
 
-        permitted_next_nodes = [
-          :outcome_24,
-          :outcome_25
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'yes'
-            :outcome_24
+            outcome :outcome_24
           when 'no'
-            :outcome_25
+            outcome :outcome_25
           end
         end
       end
@@ -433,16 +374,12 @@ module SmartAnswer
 
         save_input_as :great_aunts_or_uncles
 
-        permitted_next_nodes = [
-          :outcome_45,
-          :outcome_46
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'yes'
-            :outcome_45
+            outcome :outcome_45
           when 'no'
-            :outcome_46
+            outcome :outcome_46
           end
         end
       end
@@ -454,16 +391,12 @@ module SmartAnswer
 
         save_input_as :more_than_one_child
 
-        permitted_next_nodes = [
-          :outcome_61,
-          :outcome_62
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'yes'
-            :outcome_61
+            outcome :outcome_61
           when 'no'
-            :outcome_62
+            outcome :outcome_62
           end
         end
       end
