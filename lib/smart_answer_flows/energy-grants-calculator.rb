@@ -421,6 +421,9 @@ module SmartAnswer
         precalculate :flat_type do
           flat_type
         end
+        precalculate :under_green_deal do
+          both_help && !circumstances.include?('benefits')
+        end
       end
 
       outcome :outcome_bills_and_measures_on_benefits_eco_eligible do

@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  <% if both_help && !circumstances.include?('benefits') %>
+  <% if under_green_deal %>
     <% render partial: 'title_under_green_deal.govspeak.erb' %>
   <% else %>
     <% render partial: 'title_energy_supplier.govspeak.erb' %>
