@@ -46,6 +46,13 @@ class QuestionBaseTest < ActiveSupport::TestCase
         end
         assert_equal [:done], @question.permitted_next_nodes
       end
+
+      should 'not return duplicate permitted next nodes' do
+        @question.next_node(permitted: [:done, :done]) do
+          :done
+        end
+        assert_equal [:done], @question.permitted_next_nodes
+      end
     end
 
     context 'next_node called with block set to auto-detect permitted next nodes' do
@@ -70,6 +77,17 @@ class QuestionBaseTest < ActiveSupport::TestCase
         end
         assert @question.permitted_next_nodes.include?(:done)
         refute @question.permitted_next_nodes.include?(:another_question)
+      end
+
+      should 'not return duplicate permitted next nodes' do
+        @question.next_node(permitted: :auto) do |response|
+          if response == 'yes'
+            outcome :done
+          else
+            outcome :done
+          end
+        end
+        assert_equal [:done], @question.permitted_next_nodes
       end
     end
   end
