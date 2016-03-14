@@ -15,7 +15,6 @@ class CalculateEmployeeRedundancyPayTest < ActiveSupport::TestCase
   end
 
   context "answer before 1 Feb 2013" do
-
     setup do
       add_response '2013-01-31'
     end
@@ -118,7 +117,6 @@ class CalculateEmployeeRedundancyPayTest < ActiveSupport::TestCase
           should "give me the number of weeks entitlement" do
             assert_state_variable :number_of_weeks_entitlement, 2.0
           end
-
         end
 
         context "weekly salary of under 430 before tax" do

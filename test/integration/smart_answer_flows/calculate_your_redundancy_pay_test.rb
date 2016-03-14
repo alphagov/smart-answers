@@ -15,7 +15,6 @@ class CalculateYourRedundancyPayTest < ActiveSupport::TestCase
   end
 
   context "answer before 1 Feb 2013" do
-
     setup do
       add_response '2013-01-31'
     end
