@@ -14,16 +14,12 @@ module SmartAnswer
 
         save_input_as :location
 
-        permitted_next_nodes = [
-          :complete_LS01_form,
-          :which_country?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'in_the_uk'
-            :complete_LS01_form
+            outcome :complete_LS01_form
           when 'abroad'
-            :which_country?
+            question :which_country?
           end
         end
       end
@@ -42,15 +38,11 @@ module SmartAnswer
 
         end
 
-        permitted_next_nodes = [
-          :contact_the_embassy,
-          :contact_the_embassy_canada
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           if response == 'canada'
-            :contact_the_embassy_canada
+            outcome :contact_the_embassy_canada
           else
-            :contact_the_embassy
+            outcome :contact_the_embassy
           end
         end
       end
