@@ -1,8 +1,8 @@
 <% content_for :title do %>
-  <% unless both_help && age_variant == :over_60 && (benefits_claimed & %w(esa child_tax_credit working_tax_credit) || incomesupp_jobseekers_1 || incomesupp_jobseekers_2) %>
-    <% render partial: 'title_energy_supplier.govspeak.erb' %>
-  <% else %>
+  <% if under_green_deal  %>
     <% render partial: 'title_under_green_deal.govspeak.erb' %>
+  <% else %>
+    <% render partial: 'title_energy_supplier.govspeak.erb' %>
   <% end %>
 <% end %>
 

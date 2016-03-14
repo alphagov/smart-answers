@@ -451,6 +451,9 @@ module SmartAnswer
         precalculate :flat_type do
           flat_type
         end
+        precalculate :under_green_deal do
+          both_help && age_variant == :over_60 && (benefits_claimed & %w(esa child_tax_credit working_tax_credit) || incomesupp_jobseekers_1 || incomesupp_jobseekers_2)
+        end
       end
 
       outcome :outcome_no_green_deal_no_energy_measures
