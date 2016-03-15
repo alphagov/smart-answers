@@ -68,11 +68,10 @@ module SmartAnswer
         option :widow_pension
         option :widows_aged
 
-        calculate :benefit_related_questions do |response|
+        next_node_calculation :benefit_related_questions do |response|
           questions = response.split(",").map { |r| :"#{r}_amount?" }
           questions << :housing_benefit_amount? if housing_benefit == 'yes'
           questions << :single_couple_lone_parent?
-          questions.shift
           questions
         end
 
@@ -106,11 +105,10 @@ module SmartAnswer
         ]
 
         next_node(permitted: permitted_next_nodes) do |response|
-          first_value = response.split(",").first
           if response == "none"
             :outcome_not_affected
           else
-            :"#{first_value}_amount?"
+            benefit_related_questions.shift
           end
         end
       end
