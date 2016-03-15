@@ -64,7 +64,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
 
             #Q5f
             should "ask how much for guardian allowance benefit" do
-              assert_state_variable :benefit_related_questions, [:sda_amount?, :housing_benefit_amount?, :single_couple_lone_parent?]
+              assert_state_variable :benefit_types, [:sda]
               assert_current_node :guardian_amount?
               assert_state_variable :total_benefits, 0
             end
@@ -74,7 +74,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
 
               #Q5k
               should "ask how much for severe disability allowance" do
-                assert_state_variable :benefit_related_questions, [:housing_benefit_amount?, :single_couple_lone_parent?]
+                assert_state_variable :benefit_types, []
                 assert_current_node :sda_amount?
                 assert_state_variable :total_benefits, 300
               end
@@ -84,7 +84,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
 
                 #Q5p
                 should "ask how much for housing benefit" do
-                  assert_state_variable :benefit_related_questions, [:single_couple_lone_parent?]
+                  assert_state_variable :benefit_types, []
                   assert_state_variable :total_benefits, 600
                   assert_current_node :housing_benefit_amount?
                 end
@@ -113,7 +113,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
             setup { add_response 'esa,maternity' }
 
             should "ask ask how much for esa benefit" do
-              assert_state_variable :benefit_related_questions, [:maternity_amount?, :housing_benefit_amount?, :single_couple_lone_parent?]
+              assert_state_variable :benefit_types, [:maternity]
               assert_current_node :esa_amount?
             end
 
@@ -121,7 +121,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
               setup { add_response "10" }
 
               should "ask how much for maternity benefits" do
-                assert_state_variable :benefit_related_questions, [:housing_benefit_amount?, :single_couple_lone_parent?]
+                assert_state_variable :benefit_types, []
                 assert_current_node :maternity_amount?
               end
 
@@ -129,7 +129,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
                 setup { add_response "10" }
 
                 should "ask how much for housing benefits" do
-                  assert_state_variable :benefit_related_questions, [:single_couple_lone_parent?]
+                  assert_state_variable :benefit_types, []
                   assert_current_node :housing_benefit_amount?
                 end
 
