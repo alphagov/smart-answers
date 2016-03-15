@@ -93,7 +93,7 @@ module SmartAnswer
           when :flat
             outcome :flat_rate_result
           else
-            outcome :how_many_other_children_in_payees_household?
+            question :how_many_other_children_in_payees_household?
           end
         end
       end
