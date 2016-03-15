@@ -233,7 +233,7 @@ module SmartAnswer
                 when 'yes'
                   outcome :outcome_4
                 when 'no'
-                  outcome :aunts_or_uncles?
+                  question :aunts_or_uncles?
                 end
               end
             end
