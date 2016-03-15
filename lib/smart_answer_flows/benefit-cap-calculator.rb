@@ -17,7 +17,7 @@ module SmartAnswer
           if response == 'yes'
             question :working_tax_credit?
           else
-            question :outcome_not_affected_no_housing_benefit
+            outcome :outcome_not_affected_no_housing_benefit
           end
         end
       end
