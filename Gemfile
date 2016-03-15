@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 
-ruby '2.2.4'
+ruby '2.3.0'
 
-gem 'rails', '4.2.5.2'
+gem 'rails', '4.2.6'
 
 gem 'airbrake', '4.1.0'
+gem 'ast'
 gem 'gds-api-adapters', '~> 25.1'
 gem 'govspeak', '~> 3.3.0'
 gem 'govuk-content-schema-test-helpers', '~> 1.3.0'
@@ -13,6 +14,8 @@ gem 'htmlentities', '~> 4'
 gem 'json'
 gem 'logstasher', '0.4.8'
 gem 'lrucache', '0.1.4'
+gem 'method_source'
+gem 'parser'
 gem 'plek', '1.7.0'
 gem 'rack_strip_client_ip', '0.0.1'
 gem 'rails-i18n'

@@ -1,7 +1,7 @@
 <% if %w(turkey egypt china).include?(calculator.ceremony_country) %>
   <%= render partial: 'what_you_need_to_do.govspeak.erb',
       locals: { calculator: calculator } %>
-<% elsif data_query.os_21_days_residency_required_countries?(calculator.ceremony_country) %>
+<% elsif calculator.opposite_sex_21_days_residency_required? %>
   ##What you need to do
 
   You need to have been living in <%= calculator.country_name_lowercase_prefix %> for 21 days.

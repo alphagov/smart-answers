@@ -7,11 +7,15 @@ module SmartAnswer
     end
 
     def method_missing(method_name, *args)
-      if method_name =~ /=$/
+      if respond_to_missing?(method_name)
         super
       else
         raise NoMethodError.new("undefined method '#{method_name}' for #{self.class}")
       end
+    end
+
+    def respond_to_missing?(method_name, include_private = false)
+      method_name =~ /=$/ || super
     end
 
     def transition_to(new_node, input, &blk)

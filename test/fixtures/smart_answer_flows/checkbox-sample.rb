@@ -12,20 +12,15 @@ module SmartAnswer
 
         save_input_as :toppings
 
-        permitted_next_nodes = [
-          :margherita,
-          :no_way,
-          :on_its_way
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           if response == 'none'
-            :margherita
+            outcome :margherita
           else
             toppings = response.split(',')
             if toppings.include?('ice_cream')
-              :no_way
+              outcome :no_way
             else
-              :on_its_way
+              outcome :on_its_way
             end
           end
         end

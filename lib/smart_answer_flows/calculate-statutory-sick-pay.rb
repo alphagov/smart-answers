@@ -306,7 +306,6 @@ module SmartAnswer
           :not_earned_enough,
           :maximum_entitlement_reached,
           :entitled_to_sick_pay,
-          :maximum_entitlement_reached,
           :not_entitled_3_days_not_paid
         ]
         next_node(permitted: permitted_next_nodes) do |response|
