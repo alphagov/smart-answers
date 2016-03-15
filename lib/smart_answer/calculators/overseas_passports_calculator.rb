@@ -11,7 +11,12 @@ module SmartAnswer::Calculators
       ukraine uzbekistan western-sahara vietnam venezuela
     )
 
-    UK_VISA_APPLICATION_WITH_COLOUR_PICTURES_COUNTRIES = %w(afghanistan azerbaijan algeria bangladesh belarus burma cambodia china georgia india indonesia kazakhstan laos lebanon mauritania morocco nepal pakistan tajikistan thailand turkmenistan ukraine uzbekistan russia vietnam venezuela western-sahara)
+    UK_VISA_APPLICATION_WITH_COLOUR_PICTURES_COUNTRIES = %w(
+      afghanistan azerbaijan algeria bangladesh belarus burma cambodia china
+      georgia india indonesia kazakhstan laos lebanon mauritania morocco nepal
+      pakistan tajikistan thailand turkmenistan ukraine uzbekistan russia
+      vietnam venezuela western-sahara
+    )
 
     attr_accessor :current_location
 
