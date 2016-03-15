@@ -47,7 +47,7 @@ module SmartAnswer
           elsif response == 'the-occupied-palestinian-territories'
             question :which_opt?
           elsif apply_in_neighbouring_countries
-            question :apply_in_neighbouring_country
+            outcome :apply_in_neighbouring_country
           else
             question :renewing_replacing_applying?
           end
