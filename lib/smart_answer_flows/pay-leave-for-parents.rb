@@ -127,7 +127,6 @@ module SmartAnswer
           :outcome_mat_pay,
           :partner_started_working_before_continuity_start_date,
           :partner_worked_at_least_26_weeks,
-          :outcome_mat_leave_mat_pay,
           :mother_worked_at_least_26_weeks
         ]
         next_node(permitted: permitted_next_nodes) do |response|
