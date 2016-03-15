@@ -242,7 +242,7 @@ module SmartAnswer
             when 'yes'
               outcome :outcome_4
             when 'no'
-              outcome :grandparents?
+              question :grandparents?
             end
           end
         end
