@@ -130,9 +130,9 @@ module SmartAnswer
                   question :partner_worked_at_least_26_weeks
                 elsif due_date < Date.parse('2015-04-05')
                   if employment_status_of_mother == 'employee'
-                    question :outcome_mat_leave_mat_pay
+                    outcome :outcome_mat_leave_mat_pay
                   elsif employment_status_of_mother == 'worker'
-                    question :outcome_mat_pay
+                    outcome :outcome_mat_pay
                   end
                 end
               end
