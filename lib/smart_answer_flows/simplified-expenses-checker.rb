@@ -245,7 +245,7 @@ module SmartAnswer
           elsif list_of_expenses.include?("live_on_business_premises")
             question :deduct_from_premises?
           else
-            question :you_can_use_result
+            outcome :you_can_use_result
           end
         end
       end
