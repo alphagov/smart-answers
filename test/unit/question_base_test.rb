@@ -15,7 +15,7 @@ class QuestionBaseTest < ActiveSupport::TestCase
       assert_equal 'You must specify at least one permitted next node', e.message
     end
 
-    should 'single next node key must be supplied if next_node called without block' do
+    should 'ensure single next node key is supplied if next_node called without block' do
       e = assert_raises(ArgumentError) do
         @question.next_node
       end
