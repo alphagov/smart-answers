@@ -16,7 +16,7 @@ module SmartAnswer
         option "minibus"
         option "bus"
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'car-or-light-vehicle'
             question :existing_towing_entitlements? #Q2
@@ -37,7 +37,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             question :how_long_entitlements? #Q2A
@@ -52,7 +52,7 @@ module SmartAnswer
         option "before-19-Jan-2013"
         option "after-19-Jan-2013"
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'before-19-Jan-2013'
             outcome :car_light_vehicle_entitlement #A3
@@ -67,7 +67,7 @@ module SmartAnswer
         option "licence-issued-before-19-Jan-2013"
         option "licence-issued-after-19-Jan-2013"
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'licence-issued-before-19-Jan-2013'
             outcome :limited_trailer_entitlement #A6
@@ -84,7 +84,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             question :how_old_are_you_msv? #Q9
@@ -99,7 +99,7 @@ module SmartAnswer
         option "under-21"
         option "21-or-over"
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'under-21'
             outcome :limited_conditional_trailer_entitlement_msv #A10
@@ -114,7 +114,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             outcome :included_entitlement_msv #A13
@@ -129,7 +129,7 @@ module SmartAnswer
         option "before-jan-1997"
         option "from-jan-1997"
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'before-jan-1997'
             outcome :full_entitlement_msv #A15
@@ -145,7 +145,7 @@ module SmartAnswer
         option "under-21"
         option "21-or-over"
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'under-18'
             outcome :too_young_msv #A17
@@ -164,7 +164,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             outcome :full_cat_c_entitlement #A21
@@ -179,7 +179,7 @@ module SmartAnswer
         option "under-21"
         option "21-or-over"
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'under-21'
             outcome :not_old_enough_lv #A23
@@ -196,7 +196,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             outcome :full_entitlement_minibus #A26
@@ -211,7 +211,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             outcome :included_entitlement_minibus #A28
@@ -226,7 +226,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             outcome :limited_towing_entitlement_minibus #A30
@@ -241,7 +241,7 @@ module SmartAnswer
         option "under-21"
         option "21-or-over"
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'under-21'
             outcome :not_old_enough_minibus #A32
@@ -258,7 +258,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             outcome :full_entitlement_bus #A37
@@ -273,7 +273,7 @@ module SmartAnswer
         option "under-21"
         option "21-or-over"
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'under-21'
             outcome :not_old_enough_bus #A39
