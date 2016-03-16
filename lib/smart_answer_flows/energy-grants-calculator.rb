@@ -41,7 +41,7 @@ module SmartAnswer
         end
 
         calculate :warm_home_discount_amount do
-          ''
+          140
         end
 
         next_node(permitted: :auto) do |response|
