@@ -38,7 +38,7 @@ module SmartAnswer
           "£#{rate}"
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if response == 'divorced'
             question :what_is_your_gender?
           else
@@ -72,7 +72,7 @@ module SmartAnswer
           answers == [:widow] && response == "your_pension_age_before_specific_date"
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           if widow_and_new_pension
             question :what_is_your_gender?
           elsif widow_and_old_pension
@@ -105,7 +105,7 @@ module SmartAnswer
           answers == [:old1, :old2, :new3] || answers == [:new1, :old2, :new3]
         }
 
-        next_node(permitted: :auto) do
+        next_node do
           if current_rules_no_additional_pension
             outcome :current_rules_no_additional_pension_outcome
           elsif current_rules_national_insurance_no_state_pension
@@ -123,7 +123,7 @@ module SmartAnswer
 
         save_input_as :gender
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'male_gender'
             if marital_status == 'divorced'

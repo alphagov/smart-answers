@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/state-pension-through-partner.rb: 8ebe38885033b83687a0805519cf33c7
+lib/smart_answer_flows/state-pension-through-partner.rb: 7bbbf44609e203688f3e81cebab2f7c7
 test/data/state-pension-through-partner-questions-and-responses.yml: 256f0f1136d388a674a0732173da6c1a
 test/data/state-pension-through-partner-responses-and-expected-results.yml: fcf56e5687c592c8693f62f529bc939e
 lib/smart_answer_flows/state-pension-through-partner/outcomes/_increase_retirement_income.govspeak.erb: 2391bf6e80d1aa4d0d4258030b4f4e00
