@@ -38,7 +38,7 @@ module SmartAnswer
           Money.new(response)
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           case course_type
           when 'uk-full-time'
             question :where_will_you_live_while_studying?
@@ -119,7 +119,7 @@ module SmartAnswer
 
         save_input_as :course_studied
 
-        next_node(permitted: :auto) do
+        next_node do
           case course_type
           when 'uk-full-time'
             outcome :outcome_uk_full_time_students
