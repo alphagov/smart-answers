@@ -26,7 +26,7 @@ module SmartAnswer
           nil
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'days-worked-per-week', 'hours-worked-per-week'
             question :calculation_period?
@@ -50,7 +50,7 @@ module SmartAnswer
         option "starting-and-leaving"
         save_input_as :holiday_period
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when "starting", "starting-and-leaving"
             question :what_is_your_starting_date?
@@ -82,7 +82,7 @@ module SmartAnswer
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
         save_input_as :start_date
 
-        next_node(permitted: :auto) do
+        next_node do
           if holiday_period == "starting-and-leaving"
             question :what_is_your_leaving_date?
           else
@@ -97,7 +97,7 @@ module SmartAnswer
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
         save_input_as :leaving_date
 
-        next_node(permitted: :auto) do
+        next_node do
           if holiday_period == "starting-and-leaving"
             case calculation_basis
             when "days-worked-per-week"
@@ -119,7 +119,7 @@ module SmartAnswer
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
         save_input_as :leave_year_start_date
 
-        next_node(permitted: :auto) do
+        next_node do
           case calculation_basis
           when "days-worked-per-week"
             question :how_many_days_per_week?
@@ -184,7 +184,7 @@ module SmartAnswer
         option "starting-and-leaving"
         save_input_as :holiday_period
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'full-year'
             question :shift_worker_hours_per_shift?
