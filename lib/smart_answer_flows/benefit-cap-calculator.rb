@@ -13,7 +13,7 @@ module SmartAnswer
 
         save_input_as :housing_benefit
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if response == 'yes'
             question :working_tax_credit?
           else
@@ -27,7 +27,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if response == 'yes'
             outcome :outcome_not_affected_exemptions
           else
@@ -41,7 +41,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if response == 'yes'
             outcome :outcome_not_affected_exemptions
           else
@@ -80,7 +80,7 @@ module SmartAnswer
           0
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if response == "none"
             outcome :outcome_not_affected
           else
@@ -118,7 +118,7 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           case benefit_types.shift
           when :carers then question :carers_amount?
           when :child_benefit then question :child_benefit_amount?
@@ -151,7 +151,7 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           case benefit_types.shift
           when :child_benefit then question :child_benefit_amount?
           when :child_tax then question :child_tax_amount?
@@ -183,7 +183,7 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           case benefit_types.shift
           when :child_tax then question :child_tax_amount?
           when :esa then question :esa_amount?
@@ -214,7 +214,7 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           case benefit_types.shift
           when :esa then question :esa_amount?
           when :guardian then question :guardian_amount?
@@ -244,7 +244,7 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           case benefit_types.shift
           when :guardian then question :guardian_amount?
           when :incapacity then question :incapacity_amount?
@@ -273,7 +273,7 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           case benefit_types.shift
           when :incapacity then question :incapacity_amount?
           when :income_support then question :income_support_amount?
@@ -301,7 +301,7 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           case benefit_types.shift
           when :income_support then question :income_support_amount?
           when :jsa then question :jsa_amount?
@@ -328,7 +328,7 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           case benefit_types.shift
           when :jsa then question :jsa_amount?
           when :maternity then question :maternity_amount?
@@ -354,7 +354,7 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           case benefit_types.shift
           when :maternity then question :maternity_amount?
           when :sda then question :sda_amount?
@@ -379,7 +379,7 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           case benefit_types.shift
           when :sda then question :sda_amount?
           when :widowed_mother then question :widowed_mother_amount?
@@ -403,7 +403,7 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           case benefit_types.shift
           when :widowed_mother then question :widowed_mother_amount?
           when :widowed_parent then question :widowed_parent_amount?
@@ -426,7 +426,7 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           case benefit_types.shift
           when :widowed_mother then question :widowed_mother_amount?
           when :widowed_parent then question :widowed_parent_amount?
@@ -448,7 +448,7 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           case benefit_types.shift
           when :widowed_parent then question :widowed_parent_amount?
           when :widows_aged then question :widows_aged_amount?
@@ -469,7 +469,7 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           case benefit_types.shift
           when :widows_aged then question :widows_aged_amount?
           else
@@ -489,7 +489,7 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           if housing_benefit == 'yes'
             question :housing_benefit_amount?
           else
@@ -507,7 +507,7 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           question :single_couple_lone_parent?
         end
       end
@@ -527,7 +527,7 @@ module SmartAnswer
           sprintf("%.2f", benefit_cap)
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if response == 'single'
             cap = 350
           else
