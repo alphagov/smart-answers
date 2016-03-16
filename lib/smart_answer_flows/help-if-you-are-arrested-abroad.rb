@@ -77,7 +77,7 @@ module SmartAnswer
           links
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if response == "iran"
             outcome :answer_two_iran
           elsif response == "syria"
