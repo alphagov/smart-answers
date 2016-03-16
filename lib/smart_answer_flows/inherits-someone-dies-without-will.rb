@@ -31,7 +31,7 @@ module SmartAnswer
 
         save_input_as :partner
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case region
           when 'england-and-wales', 'northern-ireland'
             case response
@@ -61,7 +61,7 @@ module SmartAnswer
           end
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case region
           when 'england-and-wales'
             case response
@@ -88,7 +88,7 @@ module SmartAnswer
 
         save_input_as :children
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case region
           when 'england-and-wales'
             case partner
@@ -152,7 +152,7 @@ module SmartAnswer
 
         save_input_as :parents
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case region
           when 'england-and-wales'
             case response
@@ -191,7 +191,7 @@ module SmartAnswer
 
         save_input_as :siblings
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case region
           when 'england-and-wales'
             case response
@@ -255,7 +255,7 @@ module SmartAnswer
 
         save_input_as :siblings
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             outcome :outcome_64
@@ -272,7 +272,7 @@ module SmartAnswer
 
         save_input_as :grandparents
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case region
           when 'england-and-wales'
             case response
@@ -306,7 +306,7 @@ module SmartAnswer
 
         save_input_as :aunts_or_uncles
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case region
           when 'england-and-wales'
             case response
@@ -340,7 +340,7 @@ module SmartAnswer
 
         save_input_as :half_siblings
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             outcome :outcome_23
@@ -357,7 +357,7 @@ module SmartAnswer
 
         save_input_as :half_aunts_or_uncles
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             outcome :outcome_24
@@ -374,7 +374,7 @@ module SmartAnswer
 
         save_input_as :great_aunts_or_uncles
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             outcome :outcome_45
@@ -391,7 +391,7 @@ module SmartAnswer
 
         save_input_as :more_than_one_child
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             outcome :outcome_61
