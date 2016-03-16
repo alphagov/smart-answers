@@ -15,7 +15,7 @@ module SmartAnswer
           nil
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             question :have_costs_changed? #Q3
@@ -31,7 +31,7 @@ module SmartAnswer
         option :regularly_more_than_year
         option :only_short_while
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'regularly_less_than_year'
             question :how_often_pay_1? #Q4
@@ -48,7 +48,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             question :how_often_pay_2? #Q5
@@ -66,7 +66,7 @@ module SmartAnswer
         option :monthly_diff_amount
         option :other
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'weekly_same_amount'
             question :round_up_weekly #O3
@@ -88,7 +88,7 @@ module SmartAnswer
         option :monthly_diff_amount
         option :other
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'weekly_same_amount'
             question :new_weekly_costs? #Q17
@@ -124,7 +124,7 @@ module SmartAnswer
           SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(response)
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           amount = Money.new(response)
           amount == 0 ? outcome(:no_longer_paying) : question(:old_weekly_amount_1?)
         end
@@ -136,7 +136,7 @@ module SmartAnswer
           SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(response)
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           amount = Money.new(response)
           amount == 0 ? outcome(:no_longer_paying) : question(:old_weekly_amount_1?)
         end
@@ -155,7 +155,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             question :how_often_pay_providers? #Q12
@@ -175,7 +175,7 @@ module SmartAnswer
         option :yearly
         option :other
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'weekly'
             outcome :round_up_weekly #O3
@@ -232,7 +232,7 @@ module SmartAnswer
           Float(response).ceil
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           amount = Money.new(response)
           amount == 0 ? outcome(:no_longer_paying) : question(:old_weekly_amount_2?)
         end
@@ -263,7 +263,7 @@ module SmartAnswer
           SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost_from_monthly(response)
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           amount = Money.new(response)
           amount == 0 ? outcome(:no_longer_paying) : question(:old_weekly_amount_3?)
         end
