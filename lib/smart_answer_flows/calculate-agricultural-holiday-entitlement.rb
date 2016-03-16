@@ -16,7 +16,7 @@ module SmartAnswer
           nil
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'same-number-of-days'
             question :how_many_days_per_week?
@@ -73,7 +73,7 @@ module SmartAnswer
           end
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'same-employer'
             outcome :done
