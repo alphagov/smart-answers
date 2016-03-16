@@ -44,7 +44,7 @@ module SmartAnswer
           ''
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'help_with_fuel_bill'
             question :what_are_your_circumstances? # Q2
@@ -97,7 +97,7 @@ module SmartAnswer
           %w(help_energy_efficiency help_boiler_measure).include?(which_help)
         }
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if both_help
             question :date_of_birth?
           elsif measure
@@ -123,7 +123,7 @@ module SmartAnswer
           end
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           if circumstances.include?('benefits')
             question :which_benefits?
           elsif bills_help
@@ -166,7 +166,7 @@ module SmartAnswer
             %w{child_tax_credit esa jsa pension_credit}.all? {|key| response.include? key}
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if %w{pension_credit child_tax_credit}.include?(response)
             if bills_help
               outcome :outcome_help_with_bills # outcome 1
@@ -213,7 +213,7 @@ module SmartAnswer
           response != 'none' && benefits_claimed.include?('universal_credit')
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           if bills_help
             outcome :outcome_help_with_bills # outcome 1
           else
@@ -248,7 +248,7 @@ module SmartAnswer
         option :flat
         save_input_as :property_type
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'house'
             if modern
@@ -270,7 +270,7 @@ module SmartAnswer
         option :ground_floor
         save_input_as :flat_type
 
-        next_node(permitted: :auto) do
+        next_node do
           if modern
             question :home_features_modern?
           elsif older
@@ -306,7 +306,7 @@ module SmartAnswer
           (circumstances & %w(property permission)).any? and ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2)
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           if modern_and_gas_and_electric_heating
             outcome :outcome_no_green_deal_no_energy_measures
           elsif measure_help_and_property_permission_circumstance
@@ -346,7 +346,7 @@ module SmartAnswer
           (circumstances & %w(property permission)).any? and ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2)
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           if measure_help_and_property_permission_circumstance
             outcome :outcome_measures_help_green_deal
           elsif no_benefits
@@ -385,7 +385,7 @@ module SmartAnswer
           (circumstances & %w(property permission)).any? and ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? or incomesupp_jobseekers_1 or incomesupp_jobseekers_2)
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           if measure_help_and_property_permission_circumstance
             outcome :outcome_measures_help_green_deal
           elsif no_benefits
