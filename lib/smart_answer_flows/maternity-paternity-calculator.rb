@@ -47,7 +47,7 @@ module SmartAnswer
           nil
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'maternity'
             question :baby_due_date_maternity?
