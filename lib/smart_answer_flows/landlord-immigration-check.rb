@@ -11,7 +11,7 @@ module SmartAnswer
           Calculators::LandlordImmigrationCheckCalculator.new(response)
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           if calculator.included_country?
             question :main_home?
           else
@@ -24,7 +24,7 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when "yes"
             question :tenant_over_18?
@@ -38,7 +38,7 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when "yes"
             question :has_uk_passport?
@@ -58,7 +58,7 @@ module SmartAnswer
         option "student_accommodation"
         option "7_year_lease_property"
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when "holiday_accommodation"
             outcome :outcome_check_not_needed_if_holiday_or_under_3_months
@@ -84,7 +84,7 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when "yes"
             outcome :outcome_can_rent
@@ -98,7 +98,7 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when "yes"
             outcome :outcome_can_rent
@@ -112,7 +112,7 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when "yes"
             outcome :outcome_can_rent
@@ -127,7 +127,7 @@ module SmartAnswer
         option "non_eea_but_with_eu_eea_switzerland_family_member"
         option "somewhere_else"
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when "eu_eea_switzerland"
             question :has_documents?
@@ -143,7 +143,7 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when "yes"
             outcome :outcome_can_rent
@@ -157,7 +157,7 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when "yes"
             outcome :outcome_can_rent
@@ -171,7 +171,7 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when "yes"
             outcome :outcome_can_rent_for_12_months
@@ -185,7 +185,7 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when "yes"
             outcome :outcome_can_rent_but_check_will_be_needed_again
@@ -199,7 +199,7 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when "yes"
             outcome :outcome_can_rent_for_12_months
@@ -213,7 +213,7 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when "yes"
             outcome :outcome_can_rent
