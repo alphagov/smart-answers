@@ -77,7 +77,7 @@ module SmartAnswer
           end
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if %w{winter_fuel_payment maternity_benefits child_benefit ssp bereavement_benefits}.include?(response)
             question :which_country?
           elsif response == 'iidb'
@@ -142,7 +142,7 @@ module SmartAnswer
           %w(barbados bermuda canada guernsey jersey israel jamaica mauritius new-zealand philippines turkey usa)).include?(response)
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case benefit
           when 'jsa'
             if already_abroad && responded_with_eea_country
@@ -275,7 +275,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             question :eligible_for_smp? # Q9 going_abroad and Q8 already_abroad
@@ -290,7 +290,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             outcome :maternity_benefits_eea_entitled_outcome # A11 going_abroad and A9 already_abroad
@@ -305,7 +305,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           # SSP benefits
           if benefit == 'ssp'
             if going_abroad
@@ -343,7 +343,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             outcome :child_benefit_entitled_outcome # A17 going_abroad and A15 already_abroad
@@ -358,7 +358,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if going_abroad
             if response == 'yes'
               outcome :ssp_going_abroad_entitled_outcome # A19 going_abroad
@@ -381,7 +381,7 @@ module SmartAnswer
         option :cross_border_worker
         option :none_of_the_above
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'crown_servant'
             outcome :tax_credits_crown_servant_outcome # A19 already_abroad
@@ -398,7 +398,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             question :which_country? # Q17
@@ -413,7 +413,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             outcome :tax_credits_eea_entitled_outcome # A22 already_abroad and A24 going_abroad
@@ -429,7 +429,7 @@ module SmartAnswer
         option :tax_credits_medical_treatment
         option :tax_credits_death
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'tax_credits_holiday'
             outcome :tax_credits_holiday_outcome # A23 already_abroad and A25 going_abroad and A26 going_abroad
@@ -444,7 +444,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             question :which_country? # Shared question
@@ -459,7 +459,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if going_abroad
             if response == 'yes'
               outcome :db_going_abroad_eea_outcome # A37 going_abroad
@@ -481,7 +481,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             outcome :is_claiming_benefits_outcome # A43 going_abroad
@@ -496,7 +496,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             question :is_abroad_for_treatment? # Q35 going_abroad
@@ -511,7 +511,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             outcome :is_abroad_for_treatment_outcome # A44 going_abroad
@@ -526,7 +526,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             outcome :is_abroad_for_treatment_outcome # A44 going_abroad
@@ -541,7 +541,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             outcome :is_not_eligible_outcome # A45 going_abroad
@@ -560,7 +560,7 @@ module SmartAnswer
 
         save_input_as :how_long_abroad_jsa
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'less_than_a_year_medical'
             outcome :jsa_less_than_a_year_medical_outcome # A3 going_abroad
@@ -576,7 +576,7 @@ module SmartAnswer
         option :tax_credits_up_to_a_year
         option :tax_credits_more_than_a_year
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'tax_credits_up_to_a_year'
             question :tax_credits_why_going_abroad? #Q23 going_abroad and Q22 already_abroad
@@ -592,7 +592,7 @@ module SmartAnswer
         option :esa_under_a_year_other
         option :esa_more_than_a_year
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if going_abroad && response == 'esa_under_a_year_medical'
             outcome :esa_going_abroad_under_a_year_medical_outcome # A27 going_abroad
           elsif going_abroad && response == 'esa_under_a_year_other'
@@ -612,7 +612,7 @@ module SmartAnswer
         option :temporary
         option :permanent
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if response == 'permanent'
             question :which_country? # Q25
           elsif going_abroad
@@ -629,7 +629,7 @@ module SmartAnswer
         option :is_under_a_year_other
         option :is_more_than_a_year
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'is_under_a_year_medical'
             outcome :is_under_a_year_medical_outcome # A42 going_abroad
