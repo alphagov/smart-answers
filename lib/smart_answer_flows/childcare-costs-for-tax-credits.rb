@@ -15,16 +15,12 @@ module SmartAnswer
           nil
         end
 
-        permitted_next_nodes = [
-          :have_costs_changed?,
-          :how_often_use_childcare?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'yes'
-            :have_costs_changed? #Q3
+            question :have_costs_changed? #Q3
           when 'no'
-            :how_often_use_childcare? #Q2
+            question :how_often_use_childcare? #Q2
           end
         end
       end
@@ -35,19 +31,14 @@ module SmartAnswer
         option :regularly_more_than_year
         option :only_short_while
 
-        permitted_next_nodes = [
-          :how_often_pay_1?,
-          :pay_same_each_time?,
-          :call_helpline_detailed
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'regularly_less_than_year'
-            :how_often_pay_1? #Q4
+            question :how_often_pay_1? #Q4
           when 'regularly_more_than_year'
-            :pay_same_each_time? #Q11
+            question :pay_same_each_time? #Q11
           when 'only_short_while'
-            :call_helpline_detailed #O1
+            outcome :call_helpline_detailed #O1
           end
         end
       end
@@ -57,16 +48,12 @@ module SmartAnswer
         option :yes
         option :no
 
-        permitted_next_nodes = [
-          :how_often_pay_2?,
-          :no_change
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'yes'
-            :how_often_pay_2? #Q5
+            question :how_often_pay_2? #Q5
           when 'no'
-            :no_change #O2
+            outcome :no_change #O2
           end
         end
       end
@@ -79,22 +66,16 @@ module SmartAnswer
         option :monthly_diff_amount
         option :other
 
-        permitted_next_nodes = [
-          :round_up_weekly,
-          :how_much_52_weeks_1?,
-          :how_much_each_month?,
-          :how_much_12_months_1?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'weekly_same_amount'
-            :round_up_weekly #O3
+            question :round_up_weekly #O3
           when 'weekly_diff_amount'
-            :how_much_52_weeks_1? #Q7
+            question :how_much_52_weeks_1? #Q7
           when 'monthly_same_amount'
-            :how_much_each_month? #Q10
+            question :how_much_each_month? #Q10
           when 'monthly_diff_amount', 'other'
-            :how_much_12_months_1? #Q6
+            question :how_much_12_months_1? #Q6
           end
         end
       end
@@ -107,22 +88,16 @@ module SmartAnswer
         option :monthly_diff_amount
         option :other
 
-        permitted_next_nodes = [
-          :new_weekly_costs?,
-          :how_much_52_weeks_2?,
-          :new_monthly_cost?,
-          :how_much_12_months_2?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'weekly_same_amount'
-            :new_weekly_costs? #Q17
+            question :new_weekly_costs? #Q17
           when 'weekly_diff_amount', 'other'
-            :how_much_52_weeks_2? #Q8
+            question :how_much_52_weeks_2? #Q8
           when 'monthly_same_amount'
-            :new_monthly_cost? #Q19
+            question :new_monthly_cost? #Q19
           when 'monthly_diff_amount'
-            :how_much_12_months_2? #Q9
+            question :how_much_12_months_2? #Q9
           end
         end
       end
@@ -149,13 +124,9 @@ module SmartAnswer
           SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(response)
         end
 
-        permitted_next_nodes = [
-          :no_longer_paying,
-          :old_weekly_amount_1?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           amount = Money.new(response)
-          amount == 0 ? :no_longer_paying : :old_weekly_amount_1?
+          amount == 0 ? outcome(:no_longer_paying) : question(:old_weekly_amount_1?)
         end
       end
 
@@ -165,13 +136,9 @@ module SmartAnswer
           SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(response)
         end
 
-        permitted_next_nodes = [
-          :no_longer_paying,
-          :old_weekly_amount_1?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           amount = Money.new(response)
-          amount == 0 ? :no_longer_paying : :old_weekly_amount_1?
+          amount == 0 ? outcome(:no_longer_paying) : question(:old_weekly_amount_1?)
         end
       end
 
@@ -188,16 +155,12 @@ module SmartAnswer
         option :yes
         option :no
 
-        permitted_next_nodes = [
-          :how_often_pay_providers?,
-          :how_much_spent_last_12_months?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'yes'
-            :how_often_pay_providers? #Q12
+            question :how_often_pay_providers? #Q12
           when 'no'
-            :how_much_spent_last_12_months? #Q16
+            question :how_much_spent_last_12_months? #Q16
           end
         end
       end
@@ -212,28 +175,20 @@ module SmartAnswer
         option :yearly
         option :other
 
-        permitted_next_nodes = [
-          :round_up_weekly,
-          :how_much_fortnightly?,
-          :how_much_4_weeks?,
-          :how_much_each_month?,
-          :call_helpline_plain,
-          :how_much_yearly?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'weekly'
-            :round_up_weekly #O3
+            outcome :round_up_weekly #O3
           when 'fortnightly'
-            :how_much_fortnightly? #Q13
+            question :how_much_fortnightly? #Q13
           when 'every_4_weeks'
-            :how_much_4_weeks? #Q14
+            question :how_much_4_weeks? #Q14
           when 'every_month'
-            :how_much_each_month? #Q10
+            question :how_much_each_month? #Q10
           when 'termly', 'other'
-            :call_helpline_plain #O5
+            outcome :call_helpline_plain #O5
           when 'yearly'
-            :how_much_yearly? #Q15
+            question :how_much_yearly? #Q15
           end
         end
       end
@@ -277,13 +232,9 @@ module SmartAnswer
           Float(response).ceil
         end
 
-        permitted_next_nodes = [
-          :no_longer_paying,
-          :old_weekly_amount_2?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           amount = Money.new(response)
-          amount == 0 ? :no_longer_paying : :old_weekly_amount_2?
+          amount == 0 ? outcome(:no_longer_paying) : question(:old_weekly_amount_2?)
         end
       end
 
@@ -312,13 +263,9 @@ module SmartAnswer
           SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost_from_monthly(response)
         end
 
-        permitted_next_nodes = [
-          :no_longer_paying,
-          :old_weekly_amount_3?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           amount = Money.new(response)
-          amount == 0 ? :no_longer_paying : :old_weekly_amount_3?
+          amount == 0 ? outcome(:no_longer_paying) : question(:old_weekly_amount_3?)
         end
       end
 

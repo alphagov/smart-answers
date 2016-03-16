@@ -31,18 +31,13 @@ module SmartAnswer
           Calculators::RegistrationsDataQuery::COMMONWEALTH_COUNTRIES.include?(response)
         end
 
-        permitted_next_nodes = [
-          :commonwealth_result,
-          :no_embassy_result,
-          :who_has_british_nationality?
-        ]
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: :auto) do
           if country_has_no_embassy
-            :no_embassy_result
+            outcome :no_embassy_result
           elsif responded_with_commonwealth_country
-            :commonwealth_result
+            outcome :commonwealth_result
           else
-            :who_has_british_nationality?
+            question :who_has_british_nationality?
           end
         end
       end
@@ -56,16 +51,12 @@ module SmartAnswer
 
         save_input_as :british_national_parent
 
-        permitted_next_nodes = [
-          :married_couple_or_civil_partnership?,
-          :no_registration_result
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'mother', 'father', 'mother_and_father'
-            :married_couple_or_civil_partnership?
+            question :married_couple_or_civil_partnership?
           when 'neither'
-            :no_registration_result
+            outcome :no_registration_result
           end
         end
       end
@@ -79,15 +70,11 @@ module SmartAnswer
           response == 'no'
         end
 
-        permitted_next_nodes = [
-          :childs_date_of_birth?,
-          :where_are_you_now?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           if response == 'no' && british_national_parent == 'father'
-            :childs_date_of_birth?
+            question :childs_date_of_birth?
           else
-            :where_are_you_now?
+            question :where_are_you_now?
           end
         end
       end
@@ -101,15 +88,11 @@ module SmartAnswer
           Date.new(2006, 07, 01) > response
         end
 
-        permitted_next_nodes = [
-          :homeoffice_result,
-          :where_are_you_now?
-        ]
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: :auto) do
           if before_july_2006
-            :homeoffice_result
+            outcome :homeoffice_result
           else
-            :where_are_you_now?
+            question :where_are_you_now?
           end
         end
       end
@@ -140,21 +123,15 @@ module SmartAnswer
           country_of_birth == 'north-korea'
         }
 
-        permitted_next_nodes = [
-          :no_birth_certificate_result,
-          :north_korea_result,
-          :oru_result,
-          :which_country?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           if no_birth_certificate_exception
-            :no_birth_certificate_result
+            outcome :no_birth_certificate_result
           elsif response == 'another_country'
-            :which_country?
+            question :which_country?
           elsif response == 'same_country' && born_in_north_korea
-            :north_korea_result
+            outcome :north_korea_result
           else
-            :oru_result
+            outcome :oru_result
           end
         end
       end
@@ -173,15 +150,11 @@ module SmartAnswer
           response == 'north-korea'
         }
 
-        permitted_next_nodes = [
-          :north_korea_result,
-          :oru_result
-        ]
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: :auto) do
           if currently_in_north_korea
-            :north_korea_result
+            outcome :north_korea_result
           else
-            :oru_result
+            outcome :oru_result
           end
         end
       end

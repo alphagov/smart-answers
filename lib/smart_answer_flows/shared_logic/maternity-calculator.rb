@@ -74,16 +74,12 @@ multiple_choice :did_the_employee_work_for_you? do
     response == 'no' ? :not_worked_long_enough : nil
   end
 
-  permitted_next_nodes = [
-    :is_the_employee_on_your_payroll?,
-    :maternity_leave_and_pay_result
-  ]
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     case response
     when 'yes'
-      :is_the_employee_on_your_payroll?
+      question :is_the_employee_on_your_payroll?
     when 'no'
-      :maternity_leave_and_pay_result
+      outcome :maternity_leave_and_pay_result
     end
   end
 end
@@ -105,16 +101,12 @@ multiple_choice :is_the_employee_on_your_payroll? do
     calculator.format_date_day to_saturday
   end
 
-  permitted_next_nodes = [
-    :last_normal_payday?,
-    :maternity_leave_and_pay_result
-  ]
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     case response
     when 'yes'
-      :last_normal_payday? # NOTE: goes to shared questions
+      question :last_normal_payday? # NOTE: goes to shared questions
     when 'no'
-      :maternity_leave_and_pay_result
+      outcome :maternity_leave_and_pay_result
     end
   end
 end
@@ -189,20 +181,15 @@ multiple_choice :how_do_you_want_the_smp_calculated? do
 
   save_input_as :smp_calculation_method
 
-  permitted_next_nodes = [
-    :maternity_leave_and_pay_result,
-    :when_in_the_month_is_the_employee_paid?,
-    :when_is_your_employees_next_pay_day?
-  ]
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     if response == 'usual_paydates'
       if pay_pattern == 'monthly'
-        :when_in_the_month_is_the_employee_paid?
+        question :when_in_the_month_is_the_employee_paid?
       else
-        :when_is_your_employees_next_pay_day?
+        question :when_is_your_employees_next_pay_day?
       end
     else
-      :maternity_leave_and_pay_result
+      outcome :maternity_leave_and_pay_result
     end
   end
 end
@@ -227,22 +214,16 @@ multiple_choice :when_in_the_month_is_the_employee_paid? do
 
   save_input_as :monthly_pay_method
 
-  permitted_next_nodes = [
-    :maternity_leave_and_pay_result,
-    :what_specific_date_each_month_is_the_employee_paid?,
-    :what_days_does_the_employee_work?,
-    :what_particular_day_of_the_month_is_the_employee_paid?
-  ]
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     case response
     when 'first_day_of_the_month', 'last_day_of_the_month'
-      :maternity_leave_and_pay_result
+      outcome :maternity_leave_and_pay_result
     when 'specific_date_each_month'
-      :what_specific_date_each_month_is_the_employee_paid?
+      question :what_specific_date_each_month_is_the_employee_paid?
     when 'last_working_day_of_the_month'
-      :what_days_does_the_employee_work?
+      question :what_days_does_the_employee_work?
     when 'a_certain_week_day_each_month'
-      :what_particular_day_of_the_month_is_the_employee_paid?
+      question :what_particular_day_of_the_month_is_the_employee_paid?
     end
   end
 end

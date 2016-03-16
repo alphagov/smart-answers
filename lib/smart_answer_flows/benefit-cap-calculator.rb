@@ -13,16 +13,11 @@ module SmartAnswer
 
         save_input_as :housing_benefit
 
-        permitted_next_nodes = [
-          :working_tax_credit?,
-          :outcome_not_affected_no_housing_benefit
-        ]
-
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           if response == 'yes'
-            :working_tax_credit?
+            question :working_tax_credit?
           else
-            :outcome_not_affected_no_housing_benefit
+            outcome :outcome_not_affected_no_housing_benefit
           end
         end
       end
@@ -32,16 +27,11 @@ module SmartAnswer
         option :yes
         option :no
 
-        permitted_next_nodes = [
-          :outcome_not_affected_exemptions,
-          :receiving_exemption_benefits?
-        ]
-
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           if response == 'yes'
-            :outcome_not_affected_exemptions
+            outcome :outcome_not_affected_exemptions
           else
-            :receiving_exemption_benefits?
+            question :receiving_exemption_benefits?
           end
         end
       end
@@ -51,16 +41,11 @@ module SmartAnswer
         option :yes
         option :no
 
-        permitted_next_nodes = [
-          :outcome_not_affected_exemptions,
-          :receiving_non_exemption_benefits?
-        ]
-
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           if response == 'yes'
-            :outcome_not_affected_exemptions
+            outcome :outcome_not_affected_exemptions
           else
-            :receiving_non_exemption_benefits?
+            question :receiving_non_exemption_benefits?
           end
         end
       end
@@ -521,12 +506,7 @@ module SmartAnswer
           sprintf("%.2f", benefit_cap)
         end
 
-        permitted_next_nodes = [
-          :outcome_affected_greater_than_cap,
-          :outcome_not_affected_less_than_cap
-        ]
-
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           if response == 'single'
             cap = 350
           else
@@ -534,9 +514,9 @@ module SmartAnswer
           end
 
           if total_benefits > cap
-            :outcome_affected_greater_than_cap
+            outcome :outcome_affected_greater_than_cap
           else
-            :outcome_not_affected_less_than_cap
+            outcome :outcome_not_affected_less_than_cap
           end
         end
       end
