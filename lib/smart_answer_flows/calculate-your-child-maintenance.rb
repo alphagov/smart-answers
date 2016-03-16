@@ -60,7 +60,7 @@ module SmartAnswer
           Calculators::ChildMaintenanceCalculator.new(number_of_children, benefits, paying_or_receiving)
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             question :how_many_nights_children_stay_with_payee?
@@ -86,7 +86,7 @@ module SmartAnswer
           calculator.rate_type
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           case rate_type
           when :nil
             outcome :nil_rate_result
@@ -142,7 +142,7 @@ module SmartAnswer
           calculator.rate_type
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           case rate_type
           when :nil
             outcome :nil_rate_result
