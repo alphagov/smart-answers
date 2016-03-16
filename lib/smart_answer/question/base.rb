@@ -11,7 +11,7 @@ module SmartAnswer
         super
       end
 
-      def next_node(next_node = nil, permitted: [], &block)
+      def next_node(next_node = nil, permitted: :auto, &block)
         if @next_node_block.present?
           raise 'Multiple calls to next_node are not allowed'
         end

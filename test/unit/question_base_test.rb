@@ -8,7 +8,7 @@ class QuestionBaseTest < ActiveSupport::TestCase
   context '#next_node' do
     should 'raise exception if called with block but no permitted next nodes' do
       e = assert_raises(ArgumentError) do
-        @question.next_node do
+        @question.next_node(permitted: []) do
           :done
         end
       end
@@ -88,6 +88,19 @@ class QuestionBaseTest < ActiveSupport::TestCase
           end
         end
         assert_equal [:done], @question.permitted_next_nodes
+      end
+    end
+
+    context 'next_node called with block but no permitted option specified' do
+      should 'return any node keys which are defined using #question or #outcome' do
+        @question.next_node do |response|
+          if response == 'yes'
+            outcome :done
+          else
+            question :another_question
+          end
+        end
+        assert_equal [:done, :another_question], @question.permitted_next_nodes
       end
     end
   end
