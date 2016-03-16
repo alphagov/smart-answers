@@ -33,7 +33,7 @@ module SmartAnswer
           Calculators::MarriedCouplesAllowanceCalculator.new(validate_income: false)
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             question :did_you_marry_or_civil_partner_before_5_december_2005?
@@ -58,7 +58,7 @@ module SmartAnswer
           end
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             question :whats_the_husbands_date_of_birth?
@@ -89,7 +89,7 @@ module SmartAnswer
 
         validate { |response| response > 0 }
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           limit = (is_before_april_changes ? 26100.0 : 27000.0)
           if response.to_f >= limit
             question :paying_into_a_pension?
@@ -104,7 +104,7 @@ module SmartAnswer
 
         validate { |response| response > 0 }
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           limit = (is_before_april_changes ? 26100.0 : 27000.0)
           if response.to_f >= limit
             question :paying_into_a_pension?
@@ -118,7 +118,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             question :how_much_expected_contributions_before_tax?
@@ -145,7 +145,7 @@ module SmartAnswer
           calculator.calculate_adjusted_net_income(income.to_f, (gross_pension_contributions.to_f || 0), (net_pension_contributions.to_f || 0), response)
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           if income_measure == "husband"
             outcome :husband_done
           else
