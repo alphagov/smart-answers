@@ -19,13 +19,12 @@ module SmartAnswer
           Calculators::StatutorySickPayCalculator.new
         end
 
-        permitted_next_nodes = [:employee_tell_within_limit?, :already_getting_maternity]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           calculator.other_pay_types_received = response.split(",")
           if calculator.already_getting_maternity_pay?
-            :already_getting_maternity
+            outcome :already_getting_maternity
           else
-            :employee_tell_within_limit?
+            question :employee_tell_within_limit?
           end
         end
       end
@@ -35,13 +34,13 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: [:employee_work_different_days?]) do |response|
+        next_node(permitted: :auto) do |response|
           if response == 'yes'
             calculator.enough_notice_of_absence = true
           else
             calculator.enough_notice_of_absence = false
           end
-          :employee_work_different_days?
+          question :employee_work_different_days?
         end
       end
 
@@ -50,16 +49,12 @@ module SmartAnswer
         option :yes
         option :no
 
-        permitted_next_nodes = [
-          :not_regular_schedule,
-          :first_sick_day?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'yes'
-            :not_regular_schedule # Answer 4
+            outcome :not_regular_schedule # Answer 4
           when 'no'
-            :first_sick_day? # Question 4
+            question :first_sick_day? # Question 4
           end
         end
       end
@@ -70,9 +65,9 @@ module SmartAnswer
         to { Date.today.end_of_year }
         validate_in_range
 
-        next_node(permitted: [:last_sick_day?]) do |response|
+        next_node(permitted: :auto) do |response|
           calculator.sick_start_date = response
-          :last_sick_day?
+          question :last_sick_day?
         end
       end
 
@@ -86,13 +81,12 @@ module SmartAnswer
           calculator.valid_last_sick_day?(response)
         end
 
-        permitted_next_nodes = [:has_linked_sickness?, :must_be_sick_for_4_days]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           calculator.sick_end_date = response
           if calculator.valid_period_of_incapacity_for_work?
-            :has_linked_sickness?
+            question :has_linked_sickness?
           else
-            :must_be_sick_for_4_days
+            outcome :must_be_sick_for_4_days
           end
         end
       end
@@ -102,18 +96,14 @@ module SmartAnswer
         option :yes
         option :no
 
-        permitted_next_nodes = [
-          :linked_sickness_start_date?,
-          :paid_at_least_8_weeks?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'yes'
             calculator.has_linked_sickness = true
-            :linked_sickness_start_date?
+            question :linked_sickness_start_date?
           when 'no'
             calculator.has_linked_sickness = false
-            :paid_at_least_8_weeks?
+            question :paid_at_least_8_weeks?
           end
         end
       end
@@ -128,9 +118,9 @@ module SmartAnswer
           calculator.valid_linked_sickness_start_date?(response)
         end
 
-        next_node(permitted: [:linked_sickness_end_date?]) do |response|
+        next_node(permitted: :auto) do |response|
           calculator.linked_sickness_start_date = response
-          :linked_sickness_end_date?
+          question :linked_sickness_end_date?
         end
       end
 
@@ -152,9 +142,9 @@ module SmartAnswer
           calculator.valid_linked_period_of_incapacity_for_work?(response)
         end
 
-        next_node(permitted: [:paid_at_least_8_weeks?]) do |response|
+        next_node(permitted: :auto) do |response|
           calculator.linked_sickness_end_date = response
-          :paid_at_least_8_weeks?
+          question :paid_at_least_8_weeks?
         end
       end
 
@@ -168,18 +158,14 @@ module SmartAnswer
           calculator.sick_start_date_for_awe
         end
 
-        permitted_next_nodes = [
-          :how_often_pay_employee_pay_patterns?,
-          :total_earnings_before_sick_period?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           calculator.eight_weeks_earnings = response
           if calculator.paid_at_least_8_weeks_of_earnings?
-            :how_often_pay_employee_pay_patterns? # Question 7.2
+            question :how_often_pay_employee_pay_patterns? # Question 7.2
           elsif calculator.paid_less_than_8_weeks_of_earnings?
-            :total_earnings_before_sick_period? # Question 10
+            question :total_earnings_before_sick_period? # Question 10
           elsif calculator.fell_sick_before_payday?
-            :how_often_pay_employee_pay_patterns? # Question 7.2
+            question :how_often_pay_employee_pay_patterns? # Question 7.2
           end
         end
       end
@@ -192,16 +178,12 @@ module SmartAnswer
         option :monthly
         option :irregularly
 
-        permitted_next_nodes = [
-          :last_payday_before_sickness?,
-          :pay_amount_if_not_sick?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           calculator.pay_pattern = response
           if calculator.paid_at_least_8_weeks_of_earnings?
-            :last_payday_before_sickness? # Question 8
+            question :last_payday_before_sickness? # Question 8
           else
-            :pay_amount_if_not_sick? # Question 9
+            question :pay_amount_if_not_sick? # Question 9
           end
         end
       end
@@ -220,9 +202,9 @@ module SmartAnswer
           calculator.valid_last_payday_before_sickness?(response)
         end
 
-        next_node(permitted: [:last_payday_before_offset?]) do |response|
+        next_node(permitted: :auto) do |response|
           calculator.relevant_period_to = response
-          :last_payday_before_offset?
+          question :last_payday_before_offset?
         end
       end
 
@@ -240,9 +222,9 @@ module SmartAnswer
           calculator.valid_last_payday_before_offset?(response)
         end
 
-        next_node(permitted: [:total_employee_earnings?]) do |response|
+        next_node(permitted: :auto) do |response|
           calculator.relevant_period_from = response + 1.day
-          :total_employee_earnings?
+          question :total_employee_earnings?
         end
       end
 
@@ -256,9 +238,9 @@ module SmartAnswer
           calculator.relevant_period_to
         end
 
-        next_node(permitted: [:usual_work_days?]) do |response|
+        next_node(permitted: :auto) do |response|
           calculator.total_employee_earnings = response
-          :usual_work_days?
+          question :usual_work_days?
         end
       end
 
@@ -268,33 +250,33 @@ module SmartAnswer
           calculator.sick_start_date_for_awe
         end
 
-        next_node(permitted: [:contractual_days_covered_by_earnings?]) do |response|
+        next_node(permitted: :auto) do |response|
           calculator.relevant_contractual_pay = response
-          :contractual_days_covered_by_earnings?
+          question :contractual_days_covered_by_earnings?
         end
       end
 
       # Question 9.1
       value_question :contractual_days_covered_by_earnings? do
-        next_node(permitted: [:usual_work_days?]) do |response|
+        next_node(permitted: :auto) do |response|
           calculator.contractual_days_covered_by_earnings = response
-          :usual_work_days?
+          question :usual_work_days?
         end
       end
 
       # Question 10
       money_question :total_earnings_before_sick_period? do
-        next_node(permitted: [:days_covered_by_earnings?]) do |response|
+        next_node(permitted: :auto) do |response|
           calculator.total_earnings_before_sick_period = response
-          :days_covered_by_earnings?
+          question :days_covered_by_earnings?
         end
       end
 
       # Question 10.1
       value_question :days_covered_by_earnings? do
-        next_node(permitted: [:usual_work_days?]) do |response|
+        next_node(permitted: :auto) do |response|
           calculator.days_covered_by_earnings = response.to_i
-          :usual_work_days?
+          question :usual_work_days?
         end
       end
 
@@ -302,24 +284,18 @@ module SmartAnswer
       checkbox_question :usual_work_days? do
         %w{1 2 3 4 5 6 0}.each { |n| option n.to_s }
 
-        permitted_next_nodes = [
-          :not_earned_enough,
-          :maximum_entitlement_reached,
-          :entitled_to_sick_pay,
-          :not_entitled_3_days_not_paid
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           calculator.days_of_the_week_worked = response.split(",")
           if calculator.not_earned_enough?
-            :not_earned_enough
+            outcome :not_earned_enough
           elsif calculator.maximum_entitlement_reached?
-            :maximum_entitlement_reached # Answer 8
+            outcome :maximum_entitlement_reached # Answer 8
           elsif calculator.entitled_to_sick_pay?
-            :entitled_to_sick_pay # Answer 6
+            outcome :entitled_to_sick_pay # Answer 6
           elsif calculator.maximum_entitlement_reached_v2?
-            :maximum_entitlement_reached # Answer 8
+            outcome :maximum_entitlement_reached # Answer 8
           else
-            :not_entitled_3_days_not_paid # Answer 7
+            outcome :not_entitled_3_days_not_paid # Answer 7
           end
         end
       end

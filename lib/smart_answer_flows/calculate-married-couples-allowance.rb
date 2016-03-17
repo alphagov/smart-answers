@@ -33,16 +33,12 @@ module SmartAnswer
           Calculators::MarriedCouplesAllowanceCalculator.new(validate_income: false)
         end
 
-        permitted_next_nodes = [
-          :did_you_marry_or_civil_partner_before_5_december_2005?,
-          :sorry
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'yes'
-            :did_you_marry_or_civil_partner_before_5_december_2005?
+            question :did_you_marry_or_civil_partner_before_5_december_2005?
           when 'no'
-            :sorry
+            outcome :sorry
           end
         end
       end
@@ -62,16 +58,12 @@ module SmartAnswer
           end
         end
 
-        permitted_next_nodes = [
-          :whats_the_husbands_date_of_birth?,
-          :whats_the_highest_earners_date_of_birth?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'yes'
-            :whats_the_husbands_date_of_birth?
+            question :whats_the_husbands_date_of_birth?
           when 'no'
-            :whats_the_highest_earners_date_of_birth?
+            question :whats_the_highest_earners_date_of_birth?
           end
         end
       end
@@ -97,16 +89,12 @@ module SmartAnswer
 
         validate { |response| response > 0 }
 
-        permitted_next_nodes = [
-          :paying_into_a_pension?,
-          :husband_done
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           limit = (is_before_april_changes ? 26100.0 : 27000.0)
           if response.to_f >= limit
-            :paying_into_a_pension?
+            question :paying_into_a_pension?
           else
-            :husband_done
+            outcome :husband_done
           end
         end
       end
@@ -116,16 +104,12 @@ module SmartAnswer
 
         validate { |response| response > 0 }
 
-        permitted_next_nodes = [
-          :paying_into_a_pension?,
-          :highest_earner_done
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           limit = (is_before_april_changes ? 26100.0 : 27000.0)
           if response.to_f >= limit
-            :paying_into_a_pension?
+            question :paying_into_a_pension?
           else
-            :highest_earner_done
+            outcome :highest_earner_done
           end
         end
       end
@@ -134,16 +118,12 @@ module SmartAnswer
         option :yes
         option :no
 
-        permitted_next_nodes = [
-          :how_much_expected_contributions_before_tax?,
-          :how_much_expected_gift_aided_donations?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response
           when 'yes'
-            :how_much_expected_contributions_before_tax?
+            question :how_much_expected_contributions_before_tax?
           when 'no'
-            :how_much_expected_gift_aided_donations?
+            question :how_much_expected_gift_aided_donations?
           end
         end
       end
@@ -165,15 +145,11 @@ module SmartAnswer
           calculator.calculate_adjusted_net_income(income.to_f, (gross_pension_contributions.to_f || 0), (net_pension_contributions.to_f || 0), response)
         end
 
-        permitted_next_nodes = [
-          :husband_done,
-          :highest_earner_done
-        ]
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: :auto) do
           if income_measure == "husband"
-            :husband_done
+            outcome :husband_done
           else
-            :highest_earner_done
+            outcome :highest_earner_done
           end
         end
       end

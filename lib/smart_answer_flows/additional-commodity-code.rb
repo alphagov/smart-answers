@@ -21,23 +21,16 @@ module SmartAnswer
           nil
         end
 
-        permitted_next_nodes = [
-          :how_much_sucrose_1?,
-          :how_much_sucrose_2?,
-          :how_much_sucrose_3?,
-          :how_much_sucrose_4?
-        ]
-
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response.to_i
           when 25
-            :how_much_sucrose_2?
+            question :how_much_sucrose_2?
           when 50
-            :how_much_sucrose_3?
+            question :how_much_sucrose_3?
           when 75
-            :how_much_sucrose_4?
+            question :how_much_sucrose_4?
           else
-            :how_much_sucrose_1?
+            question :how_much_sucrose_1?
           end
         end
       end
@@ -101,29 +94,20 @@ module SmartAnswer
 
         save_input_as :milk_fat_weight
 
-        permitted_next_nodes = [
-          :commodity_code_result,
-          :how_much_milk_protein_ab?,
-          :how_much_milk_protein_c?,
-          :how_much_milk_protein_d?,
-          :how_much_milk_protein_ef?,
-          :how_much_milk_protein_gh?
-        ]
-
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           case response.to_i
           when 0, 1
-            :how_much_milk_protein_ab?
+            question :how_much_milk_protein_ab?
           when 3
-            :how_much_milk_protein_c?
+            question :how_much_milk_protein_c?
           when 6
-            :how_much_milk_protein_d?
+            question :how_much_milk_protein_d?
           when 9, 12
-            :how_much_milk_protein_ef?
+            question :how_much_milk_protein_ef?
           when 18, 26
-            :how_much_milk_protein_gh?
+            question :how_much_milk_protein_gh?
           else
-            :commodity_code_result
+            outcome :commodity_code_result
           end
         end
       end

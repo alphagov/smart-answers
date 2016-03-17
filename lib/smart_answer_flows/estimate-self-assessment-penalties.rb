@@ -75,12 +75,11 @@ module SmartAnswer
           filing_date.strftime("%e %B %Y")
         end
 
-        permitted_next_nodes = [:when_paid?]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           if response < start_of_next_tax_year
             raise SmartAnswer::InvalidResponse
           else
-            :when_paid?
+            question :when_paid?
           end
         end
       end
@@ -91,11 +90,7 @@ module SmartAnswer
 
         save_input_as :payment_date
 
-        permitted_next_nodes = [
-          :filed_and_paid_on_time,
-          :how_much_tax?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           if filing_date > response
             raise SmartAnswer::InvalidResponse
           else
@@ -107,9 +102,9 @@ module SmartAnswer
               tax_year: tax_year
             )
             if calculator.paid_on_time?
-              :filed_and_paid_on_time
+              outcome :filed_and_paid_on_time
             else
-              :how_much_tax?
+              question :how_much_tax?
             end
           end
         end

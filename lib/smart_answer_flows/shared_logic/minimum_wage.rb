@@ -8,11 +8,9 @@ multiple_choice :past_payment_date? do
   option "2009-10-01"
   option "2008-10-01"
 
-  permitted_next_nodes = [:were_you_an_apprentice?]
-
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     calculator.date = Date.parse(response)
-    :were_you_an_apprentice?
+    question :were_you_an_apprentice?
   end
 end
 
@@ -23,19 +21,14 @@ multiple_choice :are_you_an_apprentice? do
   option "apprentice_over_19_first_year"
   option "apprentice_over_19_second_year_onwards"
 
-  permitted_next_nodes = [
-    :how_old_are_you?,
-    :how_often_do_you_get_paid?
-  ]
-
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     case response
     when 'not_an_apprentice', 'apprentice_over_19_second_year_onwards'
       calculator.is_apprentice = false
-      :how_old_are_you?
+      question :how_old_are_you?
     when 'apprentice_under_19', 'apprentice_over_19_first_year'
       calculator.is_apprentice = true
-      :how_often_do_you_get_paid?
+      question :how_often_do_you_get_paid?
     end
   end
 end
@@ -46,23 +39,17 @@ multiple_choice :were_you_an_apprentice? do
   option "apprentice_under_19"
   option "apprentice_over_19"
 
-  permitted_next_nodes = [
-    :how_old_were_you?,
-    :how_often_did_you_get_paid?,
-    :does_not_apply_to_historical_apprentices
-  ]
-
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     case response
     when "no"
       calculator.is_apprentice = false
-      :how_old_were_you?
+      question :how_old_were_you?
     else
       calculator.is_apprentice = true
       if calculator.apprentice_eligible_for_minimum_wage?
-        :how_often_did_you_get_paid?
+        question :how_often_did_you_get_paid?
       else
-        :does_not_apply_to_historical_apprentices
+        outcome :does_not_apply_to_historical_apprentices
       end
     end
   end
@@ -74,17 +61,12 @@ value_question :how_old_were_you?, parse: Integer do
     calculator.valid_age?(response)
   end
 
-  permitted_next_nodes = [
-    :under_school_leaving_age_past,
-    :how_often_did_you_get_paid?
-  ]
-
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     calculator.age = response
     if calculator.under_school_leaving_age?
-      :under_school_leaving_age_past
+      outcome :under_school_leaving_age_past
     else
-      :how_often_did_you_get_paid?
+      question :how_often_did_you_get_paid?
     end
   end
 end
@@ -95,11 +77,9 @@ value_question :how_often_do_you_get_paid?, parse: :to_i do
     calculator.valid_pay_frequency?(response)
   end
 
-  permitted_next_nodes = [:how_many_hours_do_you_work?]
-
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     calculator.pay_frequency = response
-    :how_many_hours_do_you_work?
+    question :how_many_hours_do_you_work?
   end
 end
 
@@ -109,11 +89,9 @@ value_question :how_often_did_you_get_paid?, parse: :to_i do
     calculator.valid_pay_frequency?(response)
   end
 
-  permitted_next_nodes = [:how_many_hours_did_you_work?]
-
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     calculator.pay_frequency = response
-    :how_many_hours_did_you_work?
+    question :how_many_hours_did_you_work?
   end
 end
 
@@ -123,11 +101,9 @@ value_question :how_many_hours_do_you_work?, parse: Float do
     calculator.valid_hours_worked?(response)
   end
 
-  permitted_next_nodes = [:how_much_are_you_paid_during_pay_period?]
-
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     calculator.basic_hours = response
-    :how_much_are_you_paid_during_pay_period?
+    question :how_much_are_you_paid_during_pay_period?
   end
 end
 
@@ -137,31 +113,25 @@ value_question :how_many_hours_did_you_work?, parse: Float do
     calculator.valid_hours_worked?(response)
   end
 
-  permitted_next_nodes = [:how_much_were_you_paid_during_pay_period?]
-
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     calculator.basic_hours = response
-    :how_much_were_you_paid_during_pay_period?
+    question :how_much_were_you_paid_during_pay_period?
   end
 end
 
 # Q6
 money_question :how_much_are_you_paid_during_pay_period? do
-  permitted_next_nodes = [:how_many_hours_overtime_do_you_work?]
-
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     calculator.basic_pay = Float(response)
-    :how_many_hours_overtime_do_you_work?
+    question :how_many_hours_overtime_do_you_work?
   end
 end
 
 # Q6 Past
 money_question :how_much_were_you_paid_during_pay_period? do
-  permitted_next_nodes = [:how_many_hours_overtime_did_you_work?]
-
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     calculator.basic_pay = Float(response)
-    :how_many_hours_overtime_did_you_work?
+    question :how_many_hours_overtime_did_you_work?
   end
 end
 
@@ -171,17 +141,12 @@ value_question :how_many_hours_overtime_do_you_work?, parse: Float do
     calculator.valid_overtime_hours_worked?(response)
   end
 
-  permitted_next_nodes = [
-    :what_is_overtime_pay_per_hour?,
-    :is_provided_with_accommodation?
-  ]
-
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     calculator.overtime_hours = response
     if calculator.any_overtime_hours_worked?
-      :what_is_overtime_pay_per_hour?
+      question :what_is_overtime_pay_per_hour?
     else
-      :is_provided_with_accommodation?
+      question :is_provided_with_accommodation?
     end
   end
 end
@@ -192,38 +157,29 @@ value_question :how_many_hours_overtime_did_you_work?, parse: Float do
     calculator.valid_overtime_hours_worked?(response)
   end
 
-  permitted_next_nodes = [
-    :what_was_overtime_pay_per_hour?,
-    :was_provided_with_accommodation?
-  ]
-
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     calculator.overtime_hours = response
     if calculator.any_overtime_hours_worked?
-      :what_was_overtime_pay_per_hour?
+      question :what_was_overtime_pay_per_hour?
     else
-      :was_provided_with_accommodation?
+      question :was_provided_with_accommodation?
     end
   end
 end
 
 # Q8
 money_question :what_is_overtime_pay_per_hour? do
-  permitted_next_nodes = [:is_provided_with_accommodation?]
-
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     calculator.overtime_hourly_rate = Float(response)
-    :is_provided_with_accommodation?
+    question :is_provided_with_accommodation?
   end
 end
 
 # Q8 Past
 money_question :what_was_overtime_pay_per_hour? do
-  permitted_next_nodes = [:was_provided_with_accommodation?]
-
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     calculator.overtime_hourly_rate = Float(response)
-    :was_provided_with_accommodation?
+    question :was_provided_with_accommodation?
   end
 end
 
@@ -233,24 +189,17 @@ multiple_choice :is_provided_with_accommodation? do
   option "yes_free"
   option "yes_charged"
 
-  permitted_next_nodes = [
-    :current_accommodation_usage?,
-    :current_accommodation_charge?,
-    :current_payment_above,
-    :current_payment_below
-  ]
-
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     case response
     when "yes_free"
-      :current_accommodation_usage?
+      question :current_accommodation_usage?
     when "yes_charged"
-      :current_accommodation_charge?
+      question :current_accommodation_charge?
     else
       if calculator.minimum_wage_or_above?
-        :current_payment_above
+        outcome :current_payment_above
       else
-        :current_payment_below
+        outcome :current_payment_below
       end
     end
   end
@@ -262,24 +211,17 @@ multiple_choice :was_provided_with_accommodation? do
   option "yes_free"
   option "yes_charged"
 
-  permitted_next_nodes = [
-    :past_accommodation_usage?,
-    :past_accommodation_charge?,
-    :past_payment_above,
-    :past_payment_below
-  ]
-
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     case response
     when "yes_free"
-      :past_accommodation_usage?
+      question :past_accommodation_usage?
     when "yes_charged"
-      :past_accommodation_charge?
+      question :past_accommodation_charge?
     else
       if calculator.minimum_wage_or_above?
-        :past_payment_above
+        outcome :past_payment_above
       else
-        :past_payment_below
+        outcome :past_payment_below
       end
     end
   end
@@ -313,17 +255,12 @@ value_question :current_accommodation_usage?, parse: Integer do
     calculator.valid_accommodation_usage?(response)
   end
 
-  permitted_next_nodes = [
-    :current_payment_above,
-    :current_payment_below
-  ]
-
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     calculator.accommodation_adjustment(accommodation_charge, response)
     if calculator.minimum_wage_or_above?
-      :current_payment_above
+      outcome :current_payment_above
     else
-      :current_payment_below
+      outcome :current_payment_below
     end
   end
 end
@@ -334,17 +271,12 @@ value_question :past_accommodation_usage?, parse: Integer do
     calculator.valid_accommodation_usage?(response)
   end
 
-  permitted_next_nodes = [
-    :past_payment_above,
-    :past_payment_below
-  ]
-
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     calculator.accommodation_adjustment(accommodation_charge, response)
     if calculator.historically_receiving_minimum_wage?
-      :past_payment_above
+      outcome :past_payment_above
     else
-      :past_payment_below
+      outcome :past_payment_below
     end
   end
 end

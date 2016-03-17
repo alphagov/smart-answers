@@ -3,16 +3,12 @@ multiple_choice :taking_paternity_leave_for_adoption? do
   option :yes
   option :no
 
-  permitted_next_nodes = [
-    :employee_date_matched_paternity_adoption?,
-    :date_of_adoption_match?
-  ]
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     case response
     when 'yes'
-      :employee_date_matched_paternity_adoption? #QAP1
+      question :employee_date_matched_paternity_adoption? #QAP1
     when 'no'
-      :date_of_adoption_match? # QA1
+      question :date_of_adoption_match? # QA1
     end
   end
 end
@@ -62,16 +58,12 @@ multiple_choice :adoption_did_the_employee_work_for_you? do
   option :yes
   option :no
 
-  permitted_next_nodes = [
-    :adoption_employment_contract?,
-    :adoption_not_entitled_to_leave_or_pay
-  ]
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     case response
     when 'yes'
-      :adoption_employment_contract?
+      question :adoption_employment_contract?
     when 'no'
-      :adoption_not_entitled_to_leave_or_pay
+      outcome :adoption_not_entitled_to_leave_or_pay
     end
   end
 end
@@ -105,15 +97,11 @@ multiple_choice :adoption_is_the_employee_on_your_payroll? do
     employee_has_contract_adoption == 'no' && response == 'no'
   end
 
-  permitted_next_nodes = [
-    :adoption_date_leave_starts?,
-    :adoption_not_entitled_to_leave_or_pay
-  ]
-  next_node(permitted: permitted_next_nodes) do
+  next_node(permitted: :auto) do
     if no_contract_not_on_payroll
-      :adoption_not_entitled_to_leave_or_pay
+      outcome :adoption_not_entitled_to_leave_or_pay
     else
-      :adoption_date_leave_starts?
+      question :adoption_date_leave_starts?
     end
   end
 end
@@ -150,15 +138,11 @@ date_question :adoption_date_leave_starts? do
     employee_has_contract_adoption == 'yes' && on_payroll == 'no'
   end
 
-  permitted_next_nodes = [
-    :adoption_leave_and_pay,
-    :last_normal_payday_adoption?
-  ]
-  next_node(permitted: permitted_next_nodes) do
+  next_node(permitted: :auto) do
     if has_contract_not_on_payroll
-      :adoption_leave_and_pay
+      outcome :adoption_leave_and_pay
     else
-      :last_normal_payday_adoption?
+      question :last_normal_payday_adoption?
     end
   end
 end
@@ -243,15 +227,11 @@ money_question :earnings_for_pay_period_adoption? do
     calculator.average_weekly_earnings < calculator.lower_earning_limit
   end
 
-  permitted_next_nodes = [
-    :adoption_leave_and_pay,
-    :how_do_you_want_the_sap_calculated?
-  ]
-  next_node(permitted: permitted_next_nodes) do
+  next_node(permitted: :auto) do
     if average_weekly_earnings_under_lower_earning_limit
-      :adoption_leave_and_pay
+      outcome :adoption_leave_and_pay
     else
-      :how_do_you_want_the_sap_calculated?
+      question :how_do_you_want_the_sap_calculated?
     end
   end
 end
@@ -263,18 +243,13 @@ multiple_choice :how_do_you_want_the_sap_calculated? do
 
   save_input_as :sap_calculation_method
 
-  permitted_next_nodes = [
-    :adoption_leave_and_pay,
-    :monthly_pay_paternity?,
-    :next_pay_day_paternity?
-  ]
-  next_node(permitted: permitted_next_nodes) do |response|
+  next_node(permitted: :auto) do |response|
     if response == 'weekly_starting'
-      :adoption_leave_and_pay
+      outcome :adoption_leave_and_pay
     elsif pay_pattern == 'monthly'
-      :monthly_pay_paternity?
+      question :monthly_pay_paternity?
     else
-      :next_pay_day_paternity?
+      question :next_pay_day_paternity?
     end
   end
 end

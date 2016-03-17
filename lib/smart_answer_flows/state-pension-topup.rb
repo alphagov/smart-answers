@@ -18,15 +18,11 @@ module SmartAnswer
           calculator.too_young?(response)
         end
 
-        permitted_next_nodes = [
-          :gender?,
-          :outcome_pension_age_not_reached
-        ]
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: :auto) do
           if too_young
-            :outcome_pension_age_not_reached
+            outcome :outcome_pension_age_not_reached
           else
-            :gender?
+            question :gender?
           end
         end
       end
@@ -42,15 +38,11 @@ module SmartAnswer
           calculator.too_young?(date_of_birth, response)
         end
 
-        permitted_next_nodes = [
-          :how_much_extra_per_week?,
-          :outcome_pension_age_not_reached
-        ]
-        next_node(permitted: permitted_next_nodes) do
+        next_node(permitted: :auto) do
           if male_and_too_young
-            :outcome_pension_age_not_reached
+            outcome :outcome_pension_age_not_reached
           else
-            :how_much_extra_per_week?
+            question :how_much_extra_per_week?
           end
         end
       end
