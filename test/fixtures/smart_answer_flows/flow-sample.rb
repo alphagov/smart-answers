@@ -9,7 +9,7 @@ module SmartAnswer
         option :hotter
         option :colder
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'hotter'
             outcome :hot
@@ -23,7 +23,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             outcome :frozen
