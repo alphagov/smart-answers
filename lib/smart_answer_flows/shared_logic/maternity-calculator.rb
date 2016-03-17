@@ -74,7 +74,7 @@ multiple_choice :did_the_employee_work_for_you? do
     response == 'no' ? :not_worked_long_enough : nil
   end
 
-  next_node(permitted: :auto) do |response|
+  next_node do |response|
     case response
     when 'yes'
       question :is_the_employee_on_your_payroll?
@@ -101,7 +101,7 @@ multiple_choice :is_the_employee_on_your_payroll? do
     calculator.format_date_day to_saturday
   end
 
-  next_node(permitted: :auto) do |response|
+  next_node do |response|
     case response
     when 'yes'
       question :last_normal_payday? # NOTE: goes to shared questions
@@ -181,7 +181,7 @@ multiple_choice :how_do_you_want_the_smp_calculated? do
 
   save_input_as :smp_calculation_method
 
-  next_node(permitted: :auto) do |response|
+  next_node do |response|
     if response == 'usual_paydates'
       if pay_pattern == 'monthly'
         question :when_in_the_month_is_the_employee_paid?
@@ -214,7 +214,7 @@ multiple_choice :when_in_the_month_is_the_employee_paid? do
 
   save_input_as :monthly_pay_method
 
-  next_node(permitted: :auto) do |response|
+  next_node do |response|
     case response
     when 'first_day_of_the_month', 'last_day_of_the_month'
       outcome :maternity_leave_and_pay_result
