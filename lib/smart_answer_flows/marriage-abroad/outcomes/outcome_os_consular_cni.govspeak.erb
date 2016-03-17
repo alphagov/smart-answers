@@ -398,20 +398,30 @@
   <% end -%>
 
   <% if calculator.ceremony_country == 'croatia' && calculator.resident_of_ceremony_country? %>
-    ##Fees
-
-    Service | Fee
-    -|-
-    Receiving a notice of marriage | £65
-    Issuing a CNI, Nulla Osta or equivalent | £65
-    Issuing any other consular letter or certificate in English | £45
-    Issuing any other consular letter or certificate in any other language | £70
-    Administering an oath or making a declaration | £55
-    Issuing a certificate of custom and law | £65
+    <%= render partial: 'consular_fees_table.govspeak.erb',
+               locals: {
+                 services: [
+                   :receiving_notice_of_marriage,
+                   :issuing_cni_or_nulla_osta,
+                   :issuing_letter_or_certificate_english,
+                   :issuing_letter_or_certificate_other_language,
+                   :administering_oath_or_making_declaration,
+                   :issuing_custom_and_law_certificate,
+                 ]
+               } %>
 
 
   <% else %>
-    <%= render partial: 'consular_cni_os_fees_incl_null_osta_oath_consular_letter.govspeak.erb' %>
+    <%= render partial: 'consular_fees_table.govspeak.erb',
+               locals: {
+                 services: [
+                   :receiving_notice_of_marriage,
+                   :issuing_cni_or_nulla_osta,
+                   :issuing_letter_or_certificate_english,
+                   :issuing_letter_or_certificate_other_language,
+                   :administering_oath_or_making_declaration,
+                 ]
+              } %>
 
   <% end %>
   <% unless calculator.country_without_consular_facilities? || calculator.ceremony_country == 'cote-d-ivoire' %>

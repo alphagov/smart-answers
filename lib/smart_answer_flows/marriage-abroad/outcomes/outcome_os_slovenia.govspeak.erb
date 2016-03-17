@@ -33,7 +33,12 @@
 
   <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
 
-  <%= render partial: 'fee_table_affidavit_55.govspeak.erb' %>
+  <%= render partial: 'consular_fees_table.govspeak.erb',
+             locals: {
+               services: [
+                 :affidavit_for_marriage,
+               ]
+             } %>
 
   <%= render partial: 'link_to_consular_fees.govspeak.erb',
              locals: { calculator: calculator } %>

@@ -134,28 +134,38 @@
   <% if calculator.same_sex_alt_fees_table_country? %>
     <% case calculator.marriage_and_partnership_phrases %>
     <% when 'ss_marriage' %>
-      ##Fees
-
-      Service | Fee
-      -|-
-      Receiving a notice of registration  | £65
-      Registering a marriage | £140
-      Issuing a marriage certificate | £65
+      <%= render partial: 'consular_fees_table.govspeak.erb',
+                 locals: {
+                   services: [
+                     :receiving_notice_of_registration,
+                     :registering_marriage,
+                     :issuing_marriage_certificate,
+                   ]
+                 } %>
 
     <% end %>
   <% else %>
     <% case calculator.marriage_and_partnership_phrases %>
     <% when 'ss_marriage' %>
-      ##Fees
-
-      Service | Fee
-      -|-
-      Posting a marriage notice | £65
-      Performing a marriage ceremony | £140
-      Issuing a marriage certificate | £65
+      <%= render partial: 'consular_fees_table.govspeak.erb',
+                 locals: {
+                   services: [
+                     :posting_marriage_notice,
+                     :performing_marriage_ceremony,
+                     :issuing_marriage_certificate,
+                   ]
+                 } %>
 
     <% when 'ss_marriage_and_partnership' %>
-      <%= render partial: 'fees_table_ss_marriage_and_partnership.govspeak.erb' %>
+      <%= render partial: 'consular_fees_table.govspeak.erb',
+                 locals: {
+                   services: [
+                     :receiving_notice_of_registration,
+                     :registering_marriage_or_civil_partnership,
+                     :issuing_marriage_or_civil_partnership_certificate,
+                   ]
+                 } %>
+
     <% end %>
   <% end %>
 

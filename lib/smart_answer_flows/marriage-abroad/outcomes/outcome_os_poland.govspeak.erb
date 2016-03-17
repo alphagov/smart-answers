@@ -141,7 +141,16 @@
 
   You will be asked to provide a copy of your birth certificate. Make sure you send a [certified copy](/order-copy-birth-death-marriage-certificate) as you won’t get it back.
 
-  <%= render partial: 'consular_cni_os_fees_incl_null_osta_oath_consular_letter.govspeak.erb' %>
+  <%= render partial: 'consular_fees_table.govspeak.erb',
+             locals: {
+               services: [
+                 :receiving_notice_of_marriage,
+                 :issuing_cni_or_nulla_osta,
+                 :issuing_letter_or_certificate_english,
+                 :issuing_letter_or_certificate_other_language,
+                 :administering_oath_or_making_declaration,
+               ]
+            } %>
   <%= render partial: 'link_to_consular_fees.govspeak.erb',
              locals: { calculator: calculator } -%>
 

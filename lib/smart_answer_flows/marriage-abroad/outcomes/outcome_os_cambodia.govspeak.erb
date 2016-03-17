@@ -51,7 +51,12 @@
 
   You’ll need to take the approval letters to your local Sangkat for the marriage registration.
 
-  <%= render partial: 'fee_table_affirmation_55.govspeak.erb' %>
+  <%= render partial: 'consular_fees_table.govspeak.erb',
+             locals: {
+               services: [
+                 :affidavit_or_affirmation_for_marriage,
+               ]
+             } %>
 
   <%= render partial: 'pay_by_cash_or_us_dollars_only.govspeak.erb' %>
 

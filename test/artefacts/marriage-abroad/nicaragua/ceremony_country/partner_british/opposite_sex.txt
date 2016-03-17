@@ -57,7 +57,7 @@ You should check if your CNI needs to be legalised (certified as genuine) by the
 
 ^You don't need to stay in the country while your notice is posted.^
 
-##Fees
+## Fees
 
 Service | Fee
 -|-
