@@ -3,7 +3,7 @@ multiple_choice :taking_paternity_leave_for_adoption? do
   option :yes
   option :no
 
-  next_node(permitted: :auto) do |response|
+  next_node do |response|
     case response
     when 'yes'
       question :employee_date_matched_paternity_adoption? #QAP1
@@ -58,7 +58,7 @@ multiple_choice :adoption_did_the_employee_work_for_you? do
   option :yes
   option :no
 
-  next_node(permitted: :auto) do |response|
+  next_node do |response|
     case response
     when 'yes'
       question :adoption_employment_contract?
@@ -97,7 +97,7 @@ multiple_choice :adoption_is_the_employee_on_your_payroll? do
     employee_has_contract_adoption == 'no' && response == 'no'
   end
 
-  next_node(permitted: :auto) do
+  next_node do
     if no_contract_not_on_payroll
       outcome :adoption_not_entitled_to_leave_or_pay
     else
@@ -138,7 +138,7 @@ date_question :adoption_date_leave_starts? do
     employee_has_contract_adoption == 'yes' && on_payroll == 'no'
   end
 
-  next_node(permitted: :auto) do
+  next_node do
     if has_contract_not_on_payroll
       outcome :adoption_leave_and_pay
     else
@@ -227,7 +227,7 @@ money_question :earnings_for_pay_period_adoption? do
     calculator.average_weekly_earnings < calculator.lower_earning_limit
   end
 
-  next_node(permitted: :auto) do
+  next_node do
     if average_weekly_earnings_under_lower_earning_limit
       outcome :adoption_leave_and_pay
     else
@@ -243,7 +243,7 @@ multiple_choice :how_do_you_want_the_sap_calculated? do
 
   save_input_as :sap_calculation_method
 
-  next_node(permitted: :auto) do |response|
+  next_node do |response|
     if response == 'weekly_starting'
       outcome :adoption_leave_and_pay
     elsif pay_pattern == 'monthly'
