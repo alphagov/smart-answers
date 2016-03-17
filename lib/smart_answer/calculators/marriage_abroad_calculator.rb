@@ -231,5 +231,13 @@ module SmartAnswer::Calculators
         'British embassy or consulate'
       end
     end
+
+    def outcome_path_when_resident_in_uk
+      [
+        '', 'marriage-abroad', 'y',
+        @ceremony_country, 'uk',
+        @partner_nationality, @sex_of_your_partner
+      ].join('/')
+    end
   end
 end
