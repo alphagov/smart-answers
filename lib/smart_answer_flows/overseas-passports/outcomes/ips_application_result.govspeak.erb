@@ -1,8 +1,8 @@
 <% content_for :body do %>
   ## How long it takes
 
-  <%= render partial: 'how_long.govspeak.erb', locals: { calculator: calculator } %>
-  <% if calculator.replacing? %>
+  <%= render partial: 'how_long.govspeak.erb', locals: { optimistic_processing_time: optimistic_processing_time, waiting_time: waiting_time } %>
+  <% if application_action == "replacing" %>
     If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your passport application.
 
   <% end %>
@@ -17,34 +17,45 @@
 
   <%= render partial: 'cost.govspeak.erb',
              locals: {
-               calculator: calculator
+               data_query: data_query,
+               child_or_adult: child_or_adult,
+               ips_number: ips_number,
+               ips_docs_number: ips_docs_number,
+               current_location: current_location,
+               application_action: application_action
              }
   -%>
 
   <%= render partial: 'how_to_apply.govspeak.erb',
              locals: {
-               calculator: calculator
+               current_location: current_location,
+               passport_data: passport_data,
+               application_form: application_form,
+               supporting_documents: supporting_documents,
+               birth_location: birth_location,
+               child_or_adult: child_or_adult,
+               application_action: application_action
              }
   -%>
 
-  <% if calculator.application_address %>
-    <%= render partial: 'sending_your_application.govspeak.erb',
-               locals: {
-                 calculator: calculator
-               }
-    -%>
-  <% else %>
-    <%= render partial: 'making_your_application.govspeak.erb',
-               locals: {
-                 calculator: calculator,
-                 overseas_passports_embassies: overseas_passports_embassies
-               }
-    -%>
-  <% end %>
+  <%= render partial: 'making_your_application.govspeak.erb',
+             locals: {
+               application_address: application_address,
+               application_action: application_action,
+               current_location: current_location,
+               passport_data: passport_data,
+               general_action: general_action,
+               ips_number: ips_number,
+               data_query: data_query,
+               overseas_passports_embassies: overseas_passports_embassies
+             }
+  -%>
 
   <%= render partial: 'getting_your_passport.govspeak.erb',
              locals: {
-               calculator: calculator
+               application_action: application_action,
+               current_location: current_location,
+               ips_number: ips_number
              }
   -%>
 
