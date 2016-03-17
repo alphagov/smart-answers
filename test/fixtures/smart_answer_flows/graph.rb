@@ -15,7 +15,7 @@ module SmartAnswer
         option :a
         option :b
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if response == 'a'
             outcome :done_a
           else
