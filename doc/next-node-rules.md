@@ -1,8 +1,20 @@
 # Next node rules
 
-The `next_node` method takes a block that should return the name of the next node (question or outcome) to send the user to.
+The `next_node` method takes a block that should return the next node (question or outcome) to send the user to. The relevant node key must be returned via the `question` or `outcome` method.
 
-We define the permitted next nodes so that we can visualise the Smart Answer flows.
+```ruby
+next_node do |response|
+  if response == 'green'
+    question :green? # Go to the :green question node
+  else
+    outcome :red # Go to the :red outcome node
+  end
+end
+```
+
+## Explicitly setting permitted next nodes
+
+This approach is deprecated.
 
 ```ruby
 permitted_next_nodes = [
@@ -14,20 +26,6 @@ next_node(permitted: permitted_next_nodes) do |response|
     :green # Go to the :green node
   else
     :red   # Go to the :red node
-  end
-end
-```
-
-## Automatic detection of permitted next nodes
-
-Setting `permitted: :auto` means we don't have to explicitly specify the permitted next nodes. They will be automatically detected as long as we return the key via the `question` or `outcome` method. This is now the preferred approach - we will be converting existing flows over to this style shortly.
-
-```ruby
-next_node(permitted: :auto) do |response|
-  if response == 'green'
-    question :green? # Go to the :green question node
-  else
-    outcome :red # Go to the :red outcome node
   end
 end
 ```
