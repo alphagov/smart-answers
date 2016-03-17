@@ -216,10 +216,6 @@ module SmartAnswer
       outcome :outcome_os_germany
 
       outcome :outcome_os_kuwait do
-        precalculate :uk_residence_outcome_path do
-          calculator.outcome_path_when_resident_in_uk
-        end
-
         precalculate :ceremony_country_residence_outcome_path do
           calculator.outcome_path_when_resident_in_ceremony_country
         end
@@ -250,10 +246,6 @@ module SmartAnswer
       outcome :outcome_monaco
 
       outcome :outcome_spain do
-        precalculate :uk_residence_outcome_path do
-          calculator.outcome_path_when_resident_in_uk
-        end
-
         precalculate :ceremony_country_residence_outcome_path do
           calculator.outcome_path_when_resident_in_ceremony_country
         end
@@ -268,10 +260,6 @@ module SmartAnswer
       outcome :outcome_os_italy
 
       outcome :outcome_consular_cni_os_residing_in_third_country do
-        precalculate :uk_residence_outcome_path do
-          calculator.outcome_path_when_resident_in_uk
-        end
-
         precalculate :ceremony_country_residence_outcome_path do
           calculator.outcome_path_when_resident_in_ceremony_country
         end
