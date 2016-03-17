@@ -12,7 +12,7 @@ module SmartAnswer
 
         save_input_as :toppings
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if response == 'none'
             outcome :margherita
           else
