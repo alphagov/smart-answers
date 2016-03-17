@@ -27,6 +27,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
     should "ask if you are renewing, replacing or applying for a passport" do
       assert_current_node :renewing_replacing_applying?
+      assert_state_variable :current_location, 'afghanistan'
     end
     context "answer applying" do
       setup do
@@ -39,6 +40,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         should "give the result and be done" do
           add_response 'adult'
           add_response 'afghanistan'
+          assert_state_variable :application_type, 'ips_application_3'
           assert_current_node :ips_application_result
         end
       end
@@ -54,6 +56,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       context "answer adult" do
         should "give the result and be done" do
           add_response 'adult'
+          assert_state_variable :application_type, 'ips_application_3'
           assert_current_node :ips_application_result
         end
       end
@@ -69,6 +72,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       context "answer adult" do
         should "give the result and be done" do
           add_response 'adult'
+          assert_state_variable :application_type, 'ips_application_3'
           assert_current_node :ips_application_result
         end
       end
@@ -83,6 +87,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
     should "ask if you are renewing, replacing or applying for a passport" do
       assert_current_node :renewing_replacing_applying?
+      assert_state_variable :current_location, 'iraq'
     end
     context "answer applying" do
       setup do
@@ -90,6 +95,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       end
       should "ask if the passport is for an adult or a child" do
         assert_current_node :child_or_adult_passport?
+        assert_state_variable :application_type, 'ips_application_1'
       end
       context "answer adult" do
         setup do
@@ -132,12 +138,15 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
     should "ask if you are renewing, replacing or applying for a passport" do
       assert_current_node :renewing_replacing_applying?
+      assert_state_variable :current_location, 'austria'
     end
     context "answer applying" do
       setup do
         add_response 'applying'
       end
       should "ask if the passport is for an adult or a child" do
+        assert_state_variable :application_type, 'ips_application_1'
+        assert_state_variable :ips_number, "1"
         assert_current_node :child_or_adult_passport?
       end
       context "answer adult" do
@@ -150,6 +159,10 @@ class OverseasPassportsTest < ActiveSupport::TestCase
         context "answer Greece" do
           setup do
             add_response 'greece'
+          end
+
+          should "use the greek document group in the results" do
+            assert_state_variable :supporting_documents, 'ips_documents_group_2'
           end
 
           should "give the result" do
@@ -178,7 +191,9 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       context "answer adult" do
         should "give the result and be done" do
           add_response 'adult'
+          assert_state_variable :supporting_documents, 'ips_documents_group_1'
           assert_current_node :ips_application_result_online
+          assert_state_variable :embassy_address, nil
         end
       end
     end # Replacing
@@ -240,6 +255,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
     should "ask if you are renewing, replacing or applying for a passport" do
       assert_current_node :renewing_replacing_applying?
+      assert_state_variable :current_location, 'albania'
     end
     context "answer applying" do
       setup do
@@ -247,6 +263,8 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       end
       should "ask if the passport is for an adult or a child" do
         assert_current_node :child_or_adult_passport?
+        assert_state_variable :application_type, 'ips_application_1'
+        assert_state_variable :ips_number, "1"
       end
       context "answer adult" do
         setup do
@@ -259,12 +277,16 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           should "give the application result" do
             add_response "spain"
             assert_current_node :ips_application_result_online
+            assert_state_variable :embassy_address, nil
+            assert_state_variable :supporting_documents, 'ips_documents_group_1'
           end
         end
         context "answer UK" do
-          should "give the application result" do
+          should "give the application result with the UK documents" do
             add_response "united-kingdom"
             assert_current_node :ips_application_result_online
+            assert_state_variable :embassy_address, nil
+            assert_state_variable :supporting_documents, 'ips_documents_group_3'
           end
         end
       end
@@ -279,11 +301,14 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
     should "ask if you are renewing, replacing or applying for a passport" do
       assert_current_node :renewing_replacing_applying?
+      assert_state_variable :current_location, 'azerbaijan'
     end
     context "answer replacing adult passport" do
       setup do
         add_response 'replacing'
         add_response 'adult'
+        assert_state_variable :application_type, 'ips_application_3'
+        assert_state_variable :ips_number, "3"
       end
       should "give the IPS application result" do
         assert_current_node :ips_application_result
@@ -457,6 +482,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'renewing_new'
       add_response 'adult'
       assert_current_node :ips_application_result
+      assert_state_variable :send_colour_photocopy_bulletpoint, nil
     end
   end # nepal (IPS3 with custom phrases)
 
@@ -467,6 +493,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'replacing'
       add_response 'adult'
       assert_current_node :ips_application_result
+      assert_state_variable :send_colour_photocopy_bulletpoint, nil
     end
   end # nepal (IPS1 with custom phrases)
 
@@ -513,6 +540,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
+      assert_state_variable :application_address, 'durham'
       assert_match /Millburngate House/, outcome_body
     end
   end # Kenya (custom phrases)
@@ -525,6 +553,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
+      assert_state_variable :application_address, 'durham'
       assert_match /Millburngate House/, outcome_body
     end
   end # Kenya (custom phrases)
@@ -750,6 +779,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       worldwide_api_has_organisations_for_location('british-indian-ocean-territory', read_fixture_file('worldwide/british-indian-ocean-territory_organisations.json'))
       add_response 'british-indian-ocean-territory'
       assert_current_node :apply_in_neighbouring_country
+      assert_state_variable :title_output, 'British Indian Ocean Territory'
     end
   end # british-indian-ocean-territory
 
