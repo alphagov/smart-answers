@@ -342,11 +342,7 @@ module SmartAnswer
 
       outcome :outcome_cp_consular do
         precalculate :institution_name do
-          if calculator.ceremony_country == 'cyprus'
-            "High Commission"
-          else
-            "British embassy or consulate"
-          end
+          calculator.civil_partnership_institution_name
         end
       end
 

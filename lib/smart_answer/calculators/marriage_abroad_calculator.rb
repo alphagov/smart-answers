@@ -223,5 +223,13 @@ module SmartAnswer::Calculators
     def same_sex_alt_fees_table_country?
       @data_query.ss_alt_fees_table_country?(ceremony_country, self)
     end
+
+    def civil_partnership_institution_name
+      if ceremony_country == 'cyprus'
+        'High Commission'
+      else
+        'British embassy or consulate'
+      end
+    end
   end
 end
