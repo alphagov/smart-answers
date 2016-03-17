@@ -40,13 +40,10 @@ module SmartAnswer
         option :gaza
         option :"jerusalem-or-westbank"
 
-        permitted_next_nodes = [
-          :renewing_replacing_applying?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           calculator.current_location = response
 
-          :renewing_replacing_applying?
+          question :renewing_replacing_applying?
         end
       end
 
@@ -57,13 +54,10 @@ module SmartAnswer
         option :applying
         option :replacing
 
-        permitted_next_nodes = [
-          :child_or_adult_passport?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           calculator.application_action = response
 
-          :child_or_adult_passport?
+          question :child_or_adult_passport?
         end
       end
 
@@ -72,7 +66,7 @@ module SmartAnswer
         option :adult
         option :child
 
-        next_node(permitted: :auto) do
+        next_node(permitted: :auto) do |response|
           calculator.child_or_adult = response
 
           if calculator.ips_application?
@@ -89,7 +83,7 @@ module SmartAnswer
 
       # Q4
       country_select :country_of_birth?, include_uk: true, exclude_countries: Calculators::OverseasPassportsCalculator::EXCLUDE_COUNTRIES do
-        next_node(permitted: :auto) do
+        next_node(permitted: :auto) do |response|
           calculator.birth_location = response
 
           if calculator.ips_application?
