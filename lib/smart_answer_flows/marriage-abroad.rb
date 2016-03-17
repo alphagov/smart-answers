@@ -216,10 +216,6 @@ module SmartAnswer
       outcome :outcome_os_germany
 
       outcome :outcome_os_kuwait do
-        precalculate :current_path do
-          (['/marriage-abroad/y'] + responses).join('/')
-        end
-
         precalculate :uk_residence_outcome_path do
           calculator.outcome_path_when_resident_in_uk
         end
@@ -254,10 +250,6 @@ module SmartAnswer
       outcome :outcome_monaco
 
       outcome :outcome_spain do
-        precalculate :current_path do
-          (['/marriage-abroad/y'] + responses).join('/')
-        end
-
         precalculate :uk_residence_outcome_path do
           calculator.outcome_path_when_resident_in_uk
         end
@@ -276,10 +268,6 @@ module SmartAnswer
       outcome :outcome_os_italy
 
       outcome :outcome_consular_cni_os_residing_in_third_country do
-        precalculate :current_path do
-          (['/marriage-abroad/y'] + responses).join('/')
-        end
-
         precalculate :uk_residence_outcome_path do
           calculator.outcome_path_when_resident_in_uk
         end
