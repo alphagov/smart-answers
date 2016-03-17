@@ -72,7 +72,7 @@ module SmartAnswer
         option :adult
         option :child
 
-        next_node(permitted: :auto) do
+        next_node(permitted: :auto) do |response|
           calculator.child_or_adult = response
 
           if calculator.ips_application?
