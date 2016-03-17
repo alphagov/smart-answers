@@ -40,13 +40,10 @@ module SmartAnswer
         option :gaza
         option :"jerusalem-or-westbank"
 
-        permitted_next_nodes = [
-          :renewing_replacing_applying?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           calculator.current_location = response
 
-          :renewing_replacing_applying?
+          question :renewing_replacing_applying?
         end
       end
 
