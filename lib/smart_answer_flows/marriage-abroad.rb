@@ -340,11 +340,7 @@ module SmartAnswer
 
       outcome :outcome_cp_commonwealth_countries
 
-      outcome :outcome_cp_consular do
-        precalculate :institution_name do
-          calculator.civil_partnership_institution_name
-        end
-      end
+      outcome :outcome_cp_consular
 
       outcome :outcome_cp_all_other_countries
 

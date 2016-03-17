@@ -287,7 +287,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to consular cp outcome" do
       assert_current_node :outcome_cp_consular
-      assert_state_variable :institution_name, "High Commission"
     end
   end
 
@@ -493,7 +492,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "go to outcome_cp_consular outcome for same sex marriage" do
       add_response 'same_sex'
       assert_current_node :outcome_cp_consular
-      assert_state_variable :institution_name, "British embassy or consulate"
     end
   end
   #variant for local resident, ceremony not in italy or germany
