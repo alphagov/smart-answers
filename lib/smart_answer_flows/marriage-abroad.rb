@@ -221,7 +221,7 @@ module SmartAnswer
         end
 
         precalculate :uk_residence_outcome_path do
-          current_path.gsub('third_country', 'uk')
+          calculator.outcome_path_when_resident_in_uk
         end
 
         precalculate :ceremony_country_residence_outcome_path do
@@ -259,7 +259,7 @@ module SmartAnswer
         end
 
         precalculate :uk_residence_outcome_path do
-          current_path.gsub('third_country', 'uk')
+          calculator.outcome_path_when_resident_in_uk
         end
 
         precalculate :ceremony_country_residence_outcome_path do
@@ -281,7 +281,7 @@ module SmartAnswer
         end
 
         precalculate :uk_residence_outcome_path do
-          current_path.gsub('third_country', 'uk')
+          calculator.outcome_path_when_resident_in_uk
         end
 
         precalculate :ceremony_country_residence_outcome_path do

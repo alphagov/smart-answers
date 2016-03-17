@@ -722,6 +722,18 @@ module SmartAnswer
           assert_equal 'same-sex-alt-fees-table', calculator.same_sex_alt_fees_table_country?
         end
       end
+
+      context '#outcome_path_when_resident_in_uk' do
+        should 'build the path' do
+          calculator = MarriageAbroadCalculator.new
+          calculator.ceremony_country = 'ceremony-country'
+          calculator.partner_nationality = 'partner-nationality'
+          calculator.sex_of_your_partner = 'sex-of-your-partner'
+
+          expected_path = '/marriage-abroad/y/ceremony-country/uk/partner-nationality/sex-of-your-partner'
+          assert_equal expected_path, calculator.outcome_path_when_resident_in_uk
+        end
+      end
     end
   end
 end

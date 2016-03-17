@@ -223,5 +223,13 @@ module SmartAnswer::Calculators
     def same_sex_alt_fees_table_country?
       @data_query.ss_alt_fees_table_country?(ceremony_country, self)
     end
+
+    def outcome_path_when_resident_in_uk
+      [
+        '', 'marriage-abroad', 'y',
+        @ceremony_country, 'uk',
+        @partner_nationality, @sex_of_your_partner
+      ].join('/')
+    end
   end
 end
