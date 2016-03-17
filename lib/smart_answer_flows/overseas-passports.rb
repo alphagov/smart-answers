@@ -54,13 +54,10 @@ module SmartAnswer
         option :applying
         option :replacing
 
-        permitted_next_nodes = [
-          :child_or_adult_passport?
-        ]
-        next_node(permitted: permitted_next_nodes) do |response|
+        next_node(permitted: :auto) do |response|
           calculator.application_action = response
 
-          :child_or_adult_passport?
+          question :child_or_adult_passport?
         end
       end
 
