@@ -89,7 +89,7 @@ module SmartAnswer
 
       # Q4
       country_select :country_of_birth?, include_uk: true, exclude_countries: Calculators::OverseasPassportsCalculator::EXCLUDE_COUNTRIES do
-        next_node(permitted: :auto) do
+        next_node(permitted: :auto) do |response|
           calculator.birth_location = response
 
           if calculator.ips_application?
