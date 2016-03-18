@@ -244,6 +244,10 @@ module SmartAnswer::Calculators
       MarriageAbroadDataQuery::THREE_DAY_RESIDENCY_REQUIREMENT_COUNTRIES.include?(ceremony_country)
     end
 
+    def cni_posted_after_14_days?
+      MarriageAbroadDataQuery::CNI_POSTED_AFTER_14_DAYS_COUNTRIES.include?(ceremony_country)
+    end
+
   private
 
     def outcome_path_when_resident_in(uk_or_ceremony_country)

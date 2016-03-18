@@ -260,9 +260,6 @@ module SmartAnswer
         precalculate :no_document_download_link_if_os_resident_of_uk_countries do
           Calculators::MarriageAbroadDataQuery::NO_DOCUMENT_DOWNLOAD_LINK_IF_OS_RESIDENT_OF_UK_COUNTRIES
         end
-        precalculate :cni_posted_after_14_days_countries do
-          Calculators::MarriageAbroadDataQuery::CNI_POSTED_AFTER_14_DAYS_COUNTRIES
-        end
         precalculate :ceremony_and_residency_in_croatia do
           (calculator.ceremony_country == 'croatia' && calculator.resident_of_ceremony_country?)
         end

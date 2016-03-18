@@ -776,6 +776,22 @@ module SmartAnswer
           refute calculator.three_day_residency_requirement_applies?
         end
       end
+
+      context '#cni_posted_after_14_days?' do
+        should 'return true if ceremony country will post notice after 14 days' do
+          calculator = MarriageAbroadCalculator.new
+          calculator.ceremony_country = 'jordan'
+
+          assert calculator.cni_posted_after_14_days?
+        end
+
+        should 'return false if ceremony country will not post notice after 14 days' do
+          calculator = MarriageAbroadCalculator.new
+          calculator.ceremony_country = 'ceremony-country-not-posting-notice-after-14-days'
+
+          refute calculator.cni_posted_after_14_days?
+        end
+      end
     end
   end
 end
