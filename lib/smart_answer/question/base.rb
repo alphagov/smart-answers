@@ -6,7 +6,7 @@ module SmartAnswer
       def initialize(flow, name, options = {}, &block)
         @validations = []
         @default_next_node_block = lambda { |_| nil }
-        @permitted_next_nodes = []
+        @permitted_next_nodes = nil
         super
       end
 
@@ -15,7 +15,6 @@ module SmartAnswer
           raise 'Multiple calls to next_node are not allowed'
         end
         if block_given?
-          @permitted_next_nodes = :auto
           @next_node_block = block
         else
           raise ArgumentError, 'You must specify a block'
@@ -23,11 +22,10 @@ module SmartAnswer
       end
 
       def permitted_next_nodes
-        if @permitted_next_nodes == :auto
+        @permitted_next_nodes ||= begin
           parser = NextNodeBlock::Parser.new
-          @permitted_next_nodes = parser.possible_next_nodes(@next_node_block)
+          parser.possible_next_nodes(@next_node_block).uniq
         end
-        @permitted_next_nodes.uniq
       end
 
       def validate(message = nil, &block)
