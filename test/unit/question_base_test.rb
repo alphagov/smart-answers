@@ -23,40 +23,38 @@ class QuestionBaseTest < ActiveSupport::TestCase
   end
 
   context '#permitted_next_nodes' do
-    context 'next_node called with block' do
-      should 'return nodes returned via syntactic sugar methods' do
-        @question.next_node do |response|
-          if response == 'yes'
-            outcome :done
-          else
-            question :another_question
-          end
+    should 'return nodes returned via syntactic sugar methods' do
+      @question.next_node do |response|
+        if response == 'yes'
+          outcome :done
+        else
+          question :another_question
         end
-        assert_equal [:done, :another_question], @question.permitted_next_nodes
       end
+      assert_equal [:done, :another_question], @question.permitted_next_nodes
+    end
 
-      should 'not return nodes not returned via syntactic sugar methods' do
-        @question.next_node do |response|
-          if response == 'yes'
-            outcome :done
-          else
-            :another_question
-          end
+    should 'not return nodes not returned via syntactic sugar methods' do
+      @question.next_node do |response|
+        if response == 'yes'
+          outcome :done
+        else
+          :another_question
         end
-        assert @question.permitted_next_nodes.include?(:done)
-        refute @question.permitted_next_nodes.include?(:another_question)
       end
+      assert @question.permitted_next_nodes.include?(:done)
+      refute @question.permitted_next_nodes.include?(:another_question)
+    end
 
-      should 'not return duplicate permitted next nodes' do
-        @question.next_node do |response|
-          if response == 'yes'
-            outcome :done
-          else
-            outcome :done
-          end
+    should 'not return duplicate permitted next nodes' do
+      @question.next_node do |response|
+        if response == 'yes'
+          outcome :done
+        else
+          outcome :done
         end
-        assert_equal [:done], @question.permitted_next_nodes
       end
+      assert_equal [:done], @question.permitted_next_nodes
     end
   end
 
