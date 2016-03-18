@@ -11,12 +11,12 @@ module SmartAnswer
         super
       end
 
-      def next_node(next_node = nil, permitted: :auto, &block)
+      def next_node(next_node = nil, &block)
         if @next_node_block.present?
           raise 'Multiple calls to next_node are not allowed'
         end
         if block_given?
-          @permitted_next_nodes = permitted
+          @permitted_next_nodes = :auto
           @next_node_block = block
           unless @permitted_next_nodes == :auto || @permitted_next_nodes.any?
             raise ArgumentError, 'You must specify at least one permitted next node'
