@@ -53,7 +53,9 @@ module SmartAnswer
             Date.new(2016, 2, 01)
           end
         end
-        next_node :how_submitted?
+        next_node do
+          question :how_submitted?
+        end
       end
 
       multiple_choice :how_submitted? do
@@ -62,7 +64,9 @@ module SmartAnswer
 
         save_input_as :submission_method
 
-        next_node :when_submitted?
+        next_node do
+          question :when_submitted?
+        end
       end
 
       date_question :when_submitted? do
@@ -113,7 +117,9 @@ module SmartAnswer
       money_question :how_much_tax? do
         save_input_as :estimated_bill
 
-        next_node :late
+        next_node do
+          outcome :late
+        end
       end
 
       outcome :late do
