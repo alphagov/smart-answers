@@ -7,7 +7,9 @@ module SmartAnswer
       postcode_question :user_input? do
         save_input_as :user_input
 
-        next_node :outcome
+        next_node do
+          outcome :outcome
+        end
       end
 
       outcome :outcome
