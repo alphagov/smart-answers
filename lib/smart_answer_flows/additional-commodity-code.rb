@@ -44,7 +44,9 @@ module SmartAnswer
         option 70
 
         save_input_as :sucrose_weight
-        next_node :how_much_milk_fat?
+        next_node do
+          question :how_much_milk_fat?
+        end
       end
 
       # Q2c
@@ -55,7 +57,9 @@ module SmartAnswer
         option 50
 
         save_input_as :sucrose_weight
-        next_node :how_much_milk_fat?
+        next_node do
+          question :how_much_milk_fat?
+        end
       end
 
       # Q2d
@@ -65,7 +69,9 @@ module SmartAnswer
         option 30
 
         save_input_as :sucrose_weight
-        next_node :how_much_milk_fat?
+        next_node do
+          question :how_much_milk_fat?
+        end
       end
 
       # Q2e
@@ -74,7 +80,9 @@ module SmartAnswer
         option 5
 
         save_input_as :sucrose_weight
-        next_node :how_much_milk_fat?
+        next_node do
+          question :how_much_milk_fat?
+        end
       end
 
       # Q3
@@ -123,7 +131,9 @@ module SmartAnswer
 
         save_input_as :milk_protein_weight
 
-        next_node :commodity_code_result
+        next_node do
+          outcome :commodity_code_result
+        end
       end
 
       # Q3c
@@ -134,7 +144,9 @@ module SmartAnswer
 
         save_input_as :milk_protein_weight
 
-        next_node :commodity_code_result
+        next_node do
+          outcome :commodity_code_result
+        end
       end
 
       # Q3d
@@ -145,7 +157,9 @@ module SmartAnswer
 
         save_input_as :milk_protein_weight
 
-        next_node :commodity_code_result
+        next_node do
+          outcome :commodity_code_result
+        end
       end
 
       # Q3ef
@@ -156,7 +170,9 @@ module SmartAnswer
 
         save_input_as :milk_protein_weight
 
-        next_node :commodity_code_result
+        next_node do
+          outcome :commodity_code_result
+        end
       end
 
       # Q3gh
@@ -166,7 +182,9 @@ module SmartAnswer
 
         save_input_as :milk_protein_weight
 
-        next_node :commodity_code_result
+        next_node do
+          outcome :commodity_code_result
+        end
       end
 
       outcome :commodity_code_result do
