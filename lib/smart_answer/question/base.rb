@@ -18,9 +18,6 @@ module SmartAnswer
         if block_given?
           @permitted_next_nodes = :auto
           @next_node_block = block
-          unless @permitted_next_nodes == :auto || @permitted_next_nodes.any?
-            raise ArgumentError, 'You must specify at least one permitted next node'
-          end
         elsif next_node
           @permitted_next_nodes = [next_node]
           @next_node_block = lambda { |_| next_node }
