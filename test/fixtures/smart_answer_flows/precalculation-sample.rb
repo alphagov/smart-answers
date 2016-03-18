@@ -7,13 +7,17 @@ module SmartAnswer
       value_question :how_much_wood_would_a_woodchuck_chuck_if_a_woodchuck_could_chuck_wood? do
         save_input_as :woodchuck_capacity
 
-        next_node :how_many_woodchucks_do_you_have?
+        next_node do
+          question :how_many_woodchucks_do_you_have?
+        end
       end
 
       value_question :how_many_woodchucks_do_you_have? do
         save_input_as :number_of_woodchucks
 
-        next_node :done
+        next_node do
+          outcome :done
+        end
       end
 
       outcome :done do
