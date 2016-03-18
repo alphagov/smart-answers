@@ -248,6 +248,10 @@ module SmartAnswer::Calculators
       MarriageAbroadDataQuery::CNI_POSTED_AFTER_14_DAYS_COUNTRIES.include?(ceremony_country)
     end
 
+    def birth_certificate_required_as_supporting_document?
+      MarriageAbroadDataQuery::NO_BIRTH_CERT_REQUIREMENT.exclude?(ceremony_country)
+    end
+    
   private
 
     def outcome_path_when_resident_in(uk_or_ceremony_country)

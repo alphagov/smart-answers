@@ -260,9 +260,6 @@ module SmartAnswer
         precalculate :no_document_download_link_if_os_resident_of_uk_countries do
           Calculators::MarriageAbroadDataQuery::NO_DOCUMENT_DOWNLOAD_LINK_IF_OS_RESIDENT_OF_UK_COUNTRIES
         end
-        precalculate :birth_cert_inclusion do
-          Calculators::MarriageAbroadDataQuery::NO_BIRTH_CERT_REQUIREMENT.exclude?(calculator.ceremony_country)
-        end
         precalculate :notary_public_inclusion do
           cni_notary_public_countries.include?(calculator.ceremony_country) || %w(japan macedonia).include?(calculator.ceremony_country)
         end

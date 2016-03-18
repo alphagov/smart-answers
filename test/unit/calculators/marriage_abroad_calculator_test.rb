@@ -792,6 +792,22 @@ module SmartAnswer
           refute calculator.cni_posted_after_14_days?
         end
       end
+
+      context '#birth_certificate_required_as_supporting_document?' do
+        should 'return true when a birth certificate is required' do
+          calculator = MarriageAbroadCalculator.new
+          calculator.ceremony_country = 'ceremony-country-requiring-birth-certificate'
+
+          assert calculator.birth_certificate_required_as_supporting_document?
+        end
+
+        should 'return false when no birth certificate is required' do
+          calculator = MarriageAbroadCalculator.new
+          calculator.ceremony_country = 'albania'
+
+          refute calculator.birth_certificate_required_as_supporting_document?
+        end
+      end
     end
   end
 end
