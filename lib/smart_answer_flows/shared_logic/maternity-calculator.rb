@@ -9,7 +9,9 @@ date_question :baby_due_date_maternity? do
   calculate :calculator do |response|
     Calculators::MaternityPaternityCalculator.new(response)
   end
-  next_node :employment_contract?
+  next_node do
+    question :employment_contract?
+  end
 end
 
 ## QM2
@@ -19,7 +21,9 @@ multiple_choice :employment_contract? do
 
   save_input_as :has_employment_contract
 
-  next_node :date_leave_starts?
+  next_node do
+    question :date_leave_starts?
+  end
 end
 
 ## QM3
@@ -63,7 +67,9 @@ date_question :date_leave_starts? do
   calculate :ssp_stop do
     calculator.ssp_stop
   end
-  next_node :did_the_employee_work_for_you?
+  next_node do
+    question :did_the_employee_work_for_you?
+  end
 end
 
 ## QM4
@@ -121,7 +127,9 @@ date_question :last_normal_payday? do
     raise SmartAnswer::InvalidResponse if calculator.last_payday > to_saturday
     calculator.last_payday
   end
-  next_node :payday_eight_weeks?
+  next_node do
+    question :payday_eight_weeks?
+  end
 end
 
 ## QM7
@@ -148,7 +156,9 @@ date_question :payday_eight_weeks? do
     calculator.formatted_relevant_period
   end
 
-  next_node :pay_frequency?
+  next_node do
+    question :pay_frequency?
+  end
 end
 
 ## QM8
@@ -159,7 +169,9 @@ multiple_choice :pay_frequency? do
   option :every_4_weeks
   option :monthly
 
-  next_node(:earnings_for_pay_period?)
+  next_node do
+    question :earnings_for_pay_period?
+  end
 end
 
 ## QM9 Maternity only onwards
@@ -171,7 +183,9 @@ money_question :earnings_for_pay_period? do
   calculate :average_weekly_earnings do
     calculator.average_weekly_earnings
   end
-  next_node :how_do_you_want_the_smp_calculated?
+  next_node do
+    question :how_do_you_want_the_smp_calculated?
+  end
 end
 
 ## QM10
@@ -201,7 +215,9 @@ date_question :when_is_your_employees_next_pay_day? do
     calculator.pay_date
   end
 
-  next_node :maternity_leave_and_pay_result
+  next_node do
+    outcome :maternity_leave_and_pay_result
+  end
 end
 
 ## QM12
@@ -236,7 +252,9 @@ value_question :what_specific_date_each_month_is_the_employee_paid?, parse: :to_
     calculator.pay_day_in_month = day
   end
 
-  next_node :maternity_leave_and_pay_result
+  next_node do
+    outcome :maternity_leave_and_pay_result
+  end
 end
 
 ## QM14
@@ -247,7 +265,9 @@ checkbox_question :what_days_does_the_employee_work? do
     calculator.work_days = response.split(",").map(&:to_i)
     calculator.pay_day_in_week = response.split(",").sort.last.to_i
   end
-  next_node :maternity_leave_and_pay_result
+  next_node do
+    outcome :maternity_leave_and_pay_result
+  end
 end
 
 ## QM15
@@ -258,7 +278,9 @@ multiple_choice :what_particular_day_of_the_month_is_the_employee_paid? do
     calculator.pay_day_in_week = days_of_the_week.index(response)
     response
   end
-  next_node :which_week_in_month_is_the_employee_paid?
+  next_node do
+    question :which_week_in_month_is_the_employee_paid?
+  end
 end
 
 ## QM16
@@ -272,7 +294,9 @@ multiple_choice :which_week_in_month_is_the_employee_paid? do
   calculate :pay_week_in_month do |response|
     calculator.pay_week_in_month = response
   end
-  next_node :maternity_leave_and_pay_result
+  next_node do
+    outcome :maternity_leave_and_pay_result
+  end
 end
 
 ## Maternity outcomes
