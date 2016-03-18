@@ -36,7 +36,9 @@ module SmartAnswer
         calculate :died_at_home_hospital do |response|
           response == 'at_home_hospital'
         end
-        next_node :was_death_expected?
+        next_node do
+          question :was_death_expected?
+        end
       end
 
       # Q3
@@ -48,7 +50,9 @@ module SmartAnswer
           response == 'yes'
         end
 
-        next_node :uk_result
+        next_node do
+          outcome :uk_result
+        end
       end
 
       # Q4
