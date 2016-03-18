@@ -14,7 +14,7 @@ module SmartAnswer
 
         save_input_as :location
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'in_the_uk'
             outcome :complete_LS01_form
@@ -38,7 +38,7 @@ module SmartAnswer
 
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if response == 'canada'
             outcome :contact_the_embassy_canada
           else

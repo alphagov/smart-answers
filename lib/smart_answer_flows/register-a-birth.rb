@@ -31,7 +31,7 @@ module SmartAnswer
           Calculators::RegistrationsDataQuery::COMMONWEALTH_COUNTRIES.include?(response)
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           if country_has_no_embassy
             outcome :no_embassy_result
           elsif responded_with_commonwealth_country
@@ -51,7 +51,7 @@ module SmartAnswer
 
         save_input_as :british_national_parent
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'mother', 'father', 'mother_and_father'
             question :married_couple_or_civil_partnership?
@@ -70,7 +70,7 @@ module SmartAnswer
           response == 'no'
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if response == 'no' && british_national_parent == 'father'
             question :childs_date_of_birth?
           else
@@ -88,7 +88,7 @@ module SmartAnswer
           Date.new(2006, 07, 01) > response
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           if before_july_2006
             outcome :homeoffice_result
           else
@@ -123,7 +123,7 @@ module SmartAnswer
           country_of_birth == 'north-korea'
         }
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if no_birth_certificate_exception
             outcome :no_birth_certificate_result
           elsif response == 'another_country'
@@ -150,7 +150,7 @@ module SmartAnswer
           response == 'north-korea'
         }
 
-        next_node(permitted: :auto) do
+        next_node do
           if currently_in_north_korea
             outcome :north_korea_result
           else

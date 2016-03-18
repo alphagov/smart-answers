@@ -49,7 +49,7 @@ value_question :years_employed?, parse: Float do
     raise InvalidResponse if ye.to_i > years_available
     ye
   end
-  next_node(permitted: :auto) do |response|
+  next_node do |response|
     if response.floor < 2
       outcome :done_no_statutory
     else
@@ -79,7 +79,7 @@ money_question :weekly_pay_before_tax? do
     calculator.number_of_weeks_entitlement
   end
 
-  next_node(permitted: :auto) do
+  next_node do
     if years_employed < 2
       outcome :done_no_statutory
     else

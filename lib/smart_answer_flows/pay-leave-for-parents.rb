@@ -33,7 +33,7 @@ module SmartAnswer
 
         save_input_as :employment_status_of_mother
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if two_carers == 'no'
             case response
             when 'employee', 'worker'
@@ -55,7 +55,7 @@ module SmartAnswer
 
         save_input_as :employment_status_of_partner
 
-        next_node(permitted: :auto) do
+        next_node do
           case employment_status_of_mother
           when 'employee', 'worker'
             question :mother_started_working_before_continuity_start_date
@@ -113,7 +113,7 @@ module SmartAnswer
           calculator.lower_earnings_end_date(due_date)
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if calculator.continuity(mother_started_working_before_continuity_start_date, mother_still_working_on_continuity_end_date) && calculator.lower_earnings(response)
             if two_carers == 'no'
               if employment_status_of_mother == 'employee'
@@ -174,7 +174,7 @@ module SmartAnswer
           calculator.earnings_employment_end_date(due_date)
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if two_carers == 'no'
             if calculator.earnings_employment(response, mother_worked_at_least_26_weeks)
               question :salary_1_66_weeks
@@ -226,7 +226,7 @@ module SmartAnswer
           calculator.earnings_employment_end_date(due_date)
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           if two_carers == 'no'
             if employment_status_of_mother == 'employee'
               if mother_still_working_on_continuity_end_date == 'yes'
@@ -307,7 +307,7 @@ module SmartAnswer
           calculator.lower_earnings_end_date(due_date)
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if employment_status_of_partner == 'employee'
             if calculator.continuity(partner_started_working_before_continuity_start_date, partner_still_working_on_continuity_end_date) && calculator.lower_earnings(response)
               if employment_status_of_mother == 'employee'
@@ -735,7 +735,7 @@ module SmartAnswer
           calculator.earnings_employment_end_date(due_date)
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if employment_status_of_mother == 'employee'
             if calculator.continuity(mother_started_working_before_continuity_start_date, mother_still_working_on_continuity_end_date) && calculator.lower_earnings(mother_earned_more_than_lower_earnings_limit)
               if employment_status_of_partner == 'employee'

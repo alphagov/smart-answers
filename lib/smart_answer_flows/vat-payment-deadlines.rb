@@ -37,7 +37,7 @@ module SmartAnswer
           calculator.funds_received_by.strftime("%e %B %Y").strip
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'direct-debit'
             outcome :result_direct_debit

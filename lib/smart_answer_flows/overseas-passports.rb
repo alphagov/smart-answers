@@ -20,7 +20,7 @@ module SmartAnswer
           calculator.overseas_passports_embassies(response)
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           calculator.current_location = response
 
           if calculator.ineligible_country?
@@ -66,7 +66,7 @@ module SmartAnswer
         option :adult
         option :child
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           calculator.child_or_adult = response
 
           if calculator.ips_application?
@@ -83,7 +83,7 @@ module SmartAnswer
 
       # Q4
       country_select :country_of_birth?, include_uk: true, exclude_countries: Calculators::OverseasPassportsCalculator::EXCLUDE_COUNTRIES do
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           calculator.birth_location = response
 
           if calculator.ips_application?

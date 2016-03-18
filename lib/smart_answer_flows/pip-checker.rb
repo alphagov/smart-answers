@@ -27,7 +27,7 @@ module SmartAnswer
       date_question :what_is_your_dob? do
         date_of_birth_defaults
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           calculator.dob = response
           if getting_dla
             if calculator.in_group_65?

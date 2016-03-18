@@ -19,7 +19,7 @@ module SmartAnswer
         option :northern_ireland
         option :overseas
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'england_wales', 'scotland', 'northern_ireland'
             question :did_the_person_die_at_home_hospital?
@@ -75,7 +75,7 @@ module SmartAnswer
           Calculators::RegistrationsDataQuery::COMMONWEALTH_COUNTRIES.include?(response)
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           if responded_with_commonwealth_country
             outcome :commonwealth_result
           elsif country_has_no_embassy
@@ -104,7 +104,7 @@ module SmartAnswer
           country_of_death == 'north-korea'
         }
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if response == 'same_country' && died_in_north_korea
             outcome :north_korea_result
           elsif response == 'another_country'
@@ -129,7 +129,7 @@ module SmartAnswer
           response == 'north-korea'
         }
 
-        next_node(permitted: :auto) do
+        next_node do
           if currently_in_north_korea
             outcome :north_korea_result
           else

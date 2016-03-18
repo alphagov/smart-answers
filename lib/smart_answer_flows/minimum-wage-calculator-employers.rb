@@ -19,7 +19,7 @@ module SmartAnswer
           nil
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'current_payment'
             question :are_you_an_apprentice?
@@ -39,7 +39,7 @@ module SmartAnswer
           calculator.valid_age?(response)
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           calculator.age = response
           if calculator.under_school_leaving_age?
             outcome :under_school_leaving_age

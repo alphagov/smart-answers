@@ -23,7 +23,7 @@ module SmartAnswer
           Calculators::MarriageAbroadCalculator.new
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           calculator.ceremony_country = response
           if calculator.ceremony_country == 'ireland'
             question :partner_opposite_or_same_sex?
@@ -43,7 +43,7 @@ module SmartAnswer
         option :ceremony_country
         option :third_country
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           calculator.resident_of = response
           if calculator.ceremony_country == 'switzerland'
             question :partner_opposite_or_same_sex?
@@ -58,7 +58,7 @@ module SmartAnswer
         option :marriage
         option :pacs
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           calculator.marriage_or_pacs = response
           if calculator.ceremony_country == 'monaco'
             outcome :outcome_monaco
@@ -76,7 +76,7 @@ module SmartAnswer
         option :partner_local
         option :partner_other
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           calculator.partner_nationality = response
           question :partner_opposite_or_same_sex?
         end
@@ -87,7 +87,7 @@ module SmartAnswer
         option :opposite_sex
         option :same_sex
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           calculator.sex_of_your_partner = response
           if calculator.ceremony_country == 'brazil' && calculator.resident_outside_of_uk?
             outcome :outcome_brazil_not_living_in_the_uk

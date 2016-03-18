@@ -21,7 +21,7 @@ module SmartAnswer
           nil
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response.to_i
           when 25
             question :how_much_sucrose_2?
@@ -94,7 +94,7 @@ module SmartAnswer
 
         save_input_as :milk_fat_weight
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response.to_i
           when 0, 1
             question :how_much_milk_protein_ab?

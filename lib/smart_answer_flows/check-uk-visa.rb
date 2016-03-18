@@ -18,7 +18,7 @@ module SmartAnswer
           nil
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           calculator.passport_country = response
           if calculator.passport_country_is_israel?
             question :israeli_document_type?
@@ -35,7 +35,7 @@ module SmartAnswer
         option :"full-passport"
         option :"provisional-passport"
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           calculator.passport_country = 'israel-provisional-passport' if response == 'provisional-passport'
           question :purpose_of_visit?
         end
@@ -53,7 +53,7 @@ module SmartAnswer
         option :medical
         option :diplomatic
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           calculator.purpose_of_visit_answer = response
 
           if calculator.study_visit? || calculator.work_visit?
@@ -130,7 +130,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           calculator.passing_through_uk_border_control_answer = response
 
           if calculator.passing_through_uk_border_control?
@@ -170,7 +170,7 @@ module SmartAnswer
           end
         end
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'longer_than_six_months'
             if calculator.study_visit?

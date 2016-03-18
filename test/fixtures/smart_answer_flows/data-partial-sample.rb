@@ -8,7 +8,7 @@ module SmartAnswer
         option :data_partial_with_scalar
         option :data_partial_with_array
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'data_partial_with_scalar'
             outcome :done_scalar

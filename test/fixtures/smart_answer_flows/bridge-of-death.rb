@@ -14,7 +14,7 @@ module SmartAnswer
         option :to_rescue_the_princess
         option :dunno
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           if your_name =~ /robin/i and response == 'to_seek_the_holy_grail'
             question :what_is_the_capital_of_assyria?
           else
@@ -33,7 +33,7 @@ module SmartAnswer
         option :blue_no_yellow
         option :red
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'blue', 'red'
             outcome :done

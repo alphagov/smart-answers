@@ -14,7 +14,7 @@ module SmartAnswer
 
         save_input_as :type_of_student
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'uk-full-time'
             question :form_needed_for_1?
@@ -40,7 +40,7 @@ module SmartAnswer
 
         save_input_as :form_needed_for_1
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'dsa-expenses'
             outcome :outcome_dsa_expenses
@@ -62,7 +62,7 @@ module SmartAnswer
 
         save_input_as :form_needed_for_2
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'dsa-expenses'
             outcome :outcome_dsa_expenses
@@ -78,7 +78,7 @@ module SmartAnswer
 
         save_input_as :what_year
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case type_of_student
           when 'eu-full-time'
             question :continuing_student?
@@ -125,7 +125,7 @@ module SmartAnswer
 
         save_input_as :what_year
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case type_of_student
           when 'eu-part-time'
             question :continuing_student?
@@ -158,7 +158,7 @@ module SmartAnswer
 
         save_input_as :continuing_student
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case type_of_student
           when 'eu-full-time'
             case what_year
@@ -223,7 +223,7 @@ module SmartAnswer
         option 'course-start-before-01092012'
         option 'course-start-after-01092012'
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case what_year
           when 'year-1415'
             case response

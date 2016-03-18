@@ -13,7 +13,7 @@ module SmartAnswer
 
         save_input_as :which_calculation
 
-        next_node(permitted: :auto) do
+        next_node do
           question :dob_age?
         end
       end
@@ -28,7 +28,7 @@ module SmartAnswer
           Calculators::StatePensionAgeCalculator.new(dob: response)
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           if which_calculation == 'age'
             question :gender?
           else
@@ -42,7 +42,7 @@ module SmartAnswer
         option :male
         option :female
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           calculator.gender = response.to_sym
 
           if calculator.before_state_pension_date?

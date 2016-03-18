@@ -18,7 +18,7 @@ module SmartAnswer
           calculator.too_young?(response)
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           if too_young
             outcome :outcome_pension_age_not_reached
           else
@@ -38,7 +38,7 @@ module SmartAnswer
           calculator.too_young?(date_of_birth, response)
         end
 
-        next_node(permitted: :auto) do
+        next_node do
           if male_and_too_young
             outcome :outcome_pension_age_not_reached
           else

@@ -8,7 +8,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             outcome :you_have_a_sweet_tooth
@@ -22,7 +22,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           case response
           when 'yes'
             outcome :you_have_a_sweet_tooth

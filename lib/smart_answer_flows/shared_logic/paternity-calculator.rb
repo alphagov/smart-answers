@@ -5,7 +5,7 @@ multiple_choice :leave_or_pay_for_adoption? do
   option :yes
   option :no
 
-  next_node(permitted: :auto) do |response|
+  next_node do |response|
     case response
     when 'yes'
       question :employee_date_matched_paternity_adoption?
@@ -106,7 +106,7 @@ multiple_choice :employee_responsible_for_upbringing? do
     calculator.notice_of_leave_deadline
   end
 
-  next_node(permitted: :auto) do |response|
+  next_node do |response|
     case response
     when 'yes'
       question :employee_work_before_employment_start?
@@ -134,7 +134,7 @@ multiple_choice :padoption_employee_responsible_for_upbringing? do
     calculator.qualifying_week.first
   end
 
-  next_node(permitted: :auto) do |response|
+  next_node do |response|
     case response
     when 'yes'
       question :employee_work_before_employment_start? # Combined flow
@@ -150,7 +150,7 @@ multiple_choice :employee_work_before_employment_start? do
   option :no
   save_input_as :paternity_employment_start ## Needed only in outcome
 
-  next_node(permitted: :auto) do |response|
+  next_node do |response|
     case response
     when 'yes'
       question :employee_has_contract_paternity?
@@ -201,7 +201,7 @@ multiple_choice :employee_on_payroll_paternity? do
     paternity_adoption ? ap_adoption_date_formatted : date_of_birth
   end
 
-  next_node(permitted: :auto) do |response|
+  next_node do |response|
     if response == 'yes'
       question :employee_still_employed_on_birth_date?
     elsif has_contract == 'no'
@@ -218,7 +218,7 @@ multiple_choice :employee_still_employed_on_birth_date? do
   option :no
   save_input_as :employed_dob
 
-  next_node(permitted: :auto) do |response|
+  next_node do |response|
     if has_contract == 'no' && response == 'no'
       outcome :paternity_not_entitled_to_leave_or_pay
     else
@@ -262,7 +262,7 @@ multiple_choice :employee_paternity_length? do
     calculator.pay_end_date
   end
 
-  next_node(permitted: :auto) do
+  next_node do
     if has_contract == 'yes' && (on_payroll == 'no' || employed_dob == 'no')
       outcome :paternity_not_entitled_to_leave_or_pay
     else
@@ -341,7 +341,7 @@ money_question :earnings_for_pay_period_paternity? do
     calculator.average_weekly_earnings < calculator.lower_earning_limit
   end
 
-  next_node(permitted: :auto) do
+  next_node do
     if average_weekly_earnings_under_lower_earning_limit
       outcome :paternity_leave_and_pay
     else
@@ -357,7 +357,7 @@ multiple_choice :how_do_you_want_the_spp_calculated? do
 
   save_input_as :spp_calculation_method
 
-  next_node(permitted: :auto) do |response|
+  next_node do |response|
     if response == 'weekly_starting'
       outcome :paternity_leave_and_pay
     elsif pay_pattern == 'monthly'
@@ -391,7 +391,7 @@ multiple_choice :monthly_pay_paternity? do
 
   save_input_as :monthly_pay_method
 
-  next_node(permitted: :auto) do |response|
+  next_node do |response|
     if response == 'specific_date_each_month'
       question :specific_date_each_month_paternity?
     elsif response == 'last_working_day_of_the_month'
@@ -415,7 +415,7 @@ value_question :specific_date_each_month_paternity?, parse: :to_i do
     calculator.pay_day_in_month = day
   end
 
-  next_node(permitted: :auto) do
+  next_node do
     if leave_type == 'adoption'
       outcome :adoption_leave_and_pay
     else
@@ -433,7 +433,7 @@ checkbox_question :days_of_the_week_paternity? do
     calculator.pay_day_in_week = response.split(",").sort.last.to_i
   end
 
-  next_node(permitted: :auto) do
+  next_node do
     if leave_type == 'adoption'
       outcome :adoption_leave_and_pay
     else
@@ -472,7 +472,7 @@ multiple_choice :pay_date_options_paternity? do
     calculator.pay_week_in_month = response
   end
 
-  next_node(permitted: :auto) do
+  next_node do
     if leave_type == 'adoption'
       outcome :adoption_leave_and_pay
     else
