@@ -45,7 +45,9 @@ module SmartAnswer
           " or permanently" if already_abroad
         end
 
-        next_node :which_benefit?
+        next_node do
+          question :which_benefit?
+        end
       end
 
       # Q2 going_abroad and Q3 already_abroad
