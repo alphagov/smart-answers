@@ -16,13 +16,17 @@ module SmartAnswer
           Calculators::PayLeaveForParentsCalculator.new
         end
 
-        next_node :due_date
+        next_node do
+          outcome :due_date
+        end
       end
 
       date_question :due_date do
         save_input_as :due_date
 
-        next_node :employment_status_of_mother
+        next_node do
+          outcome :employment_status_of_mother
+        end
       end
 
       multiple_choice :employment_status_of_mother do
@@ -75,7 +79,9 @@ module SmartAnswer
           calculator.continuity_start_date(due_date)
         end
 
-        next_node :mother_still_working_on_continuity_end_date
+        next_node do
+          outcome :mother_still_working_on_continuity_end_date
+        end
       end
 
       multiple_choice :mother_still_working_on_continuity_end_date do
@@ -88,11 +94,15 @@ module SmartAnswer
           calculator.continuity_end_date(due_date)
         end
 
-        next_node :mother_salary
+        next_node do
+          outcome :mother_salary
+        end
       end
 
       salary_question :mother_salary do
-        next_node :mother_earned_more_than_lower_earnings_limit
+        next_node do
+          outcome :mother_earned_more_than_lower_earnings_limit
+        end
       end
 
       multiple_choice :mother_earned_more_than_lower_earnings_limit do
@@ -157,7 +167,9 @@ module SmartAnswer
           calculator.earnings_employment_end_date(due_date)
         end
 
-        next_node :mother_earned_at_least_390
+        next_node do
+          outcome :mother_earned_at_least_390
+        end
       end
 
       multiple_choice :mother_earned_at_least_390 do
@@ -267,7 +279,9 @@ module SmartAnswer
           calculator.continuity_start_date(due_date)
         end
 
-        next_node :partner_still_working_on_continuity_end_date
+        next_node do
+          outcome :partner_still_working_on_continuity_end_date
+        end
       end
 
       multiple_choice :partner_still_working_on_continuity_end_date do
@@ -280,13 +294,17 @@ module SmartAnswer
           calculator.continuity_end_date(due_date)
         end
 
-        next_node :partner_salary
+        next_node do
+          outcome :partner_salary
+        end
       end
 
       salary_question :partner_salary do
         save_input_as :partner_salary
 
-        next_node :partner_earned_more_than_lower_earnings_limit
+        next_node do
+          outcome :partner_earned_more_than_lower_earnings_limit
+        end
       end
 
       multiple_choice :partner_earned_more_than_lower_earnings_limit do
@@ -718,7 +736,9 @@ module SmartAnswer
           calculator.earnings_employment_end_date(due_date)
         end
 
-        next_node :partner_earned_at_least_390
+        next_node do
+          outcome :partner_earned_at_least_390
+        end
       end
 
       multiple_choice :partner_earned_at_least_390 do
