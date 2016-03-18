@@ -11,16 +11,13 @@ module SmartAnswer
         super
       end
 
-      def next_node(next_node = nil, permitted: :auto, &block)
+      def next_node(next_node = nil, &block)
         if @next_node_block.present?
           raise 'Multiple calls to next_node are not allowed'
         end
         if block_given?
-          @permitted_next_nodes = permitted
+          @permitted_next_nodes = :auto
           @next_node_block = block
-          unless @permitted_next_nodes == :auto || @permitted_next_nodes.any?
-            raise ArgumentError, 'You must specify at least one permitted next node'
-          end
         elsif next_node
           @permitted_next_nodes = [next_node]
           @next_node_block = lambda { |_| next_node }
@@ -54,10 +51,6 @@ module SmartAnswer
         if @permitted_next_nodes == :auto
           unless NextNodeBlock.permitted?(next_node)
             raise "Next node (#{next_node}) not returned via question or outcome method"
-          end
-        else
-          unless @permitted_next_nodes.include?(next_node.to_sym)
-            raise "Next node (#{next_node}) not in list of permitted next nodes (#{@permitted_next_nodes.to_sentence})"
           end
         end
         next_node.to_sym

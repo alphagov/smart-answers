@@ -6,15 +6,6 @@ class QuestionBaseTest < ActiveSupport::TestCase
   end
 
   context '#next_node' do
-    should 'raise exception if called with block but no permitted next nodes' do
-      e = assert_raises(ArgumentError) do
-        @question.next_node(permitted: []) do
-          :done
-        end
-      end
-      assert_equal 'You must specify at least one permitted next node', e.message
-    end
-
     should 'ensure single next node key is supplied if next_node called without block' do
       e = assert_raises(ArgumentError) do
         @question.next_node
@@ -39,25 +30,9 @@ class QuestionBaseTest < ActiveSupport::TestCase
       end
     end
 
-    context 'next_node called with block specifying permitted next nodes' do
-      should 'return the specified permitted next nodes' do
-        @question.next_node(permitted: [:done]) do
-          :done
-        end
-        assert_equal [:done], @question.permitted_next_nodes
-      end
-
-      should 'not return duplicate permitted next nodes' do
-        @question.next_node(permitted: [:done, :done]) do
-          :done
-        end
-        assert_equal [:done], @question.permitted_next_nodes
-      end
-    end
-
-    context 'next_node called with block set to auto-detect permitted next nodes' do
+    context 'next_node called with block' do
       should 'return nodes returned via syntactic sugar methods' do
-        @question.next_node(permitted: :auto) do |response|
+        @question.next_node do |response|
           if response == 'yes'
             outcome :done
           else
@@ -68,7 +43,7 @@ class QuestionBaseTest < ActiveSupport::TestCase
       end
 
       should 'not return nodes not returned via syntactic sugar methods' do
-        @question.next_node(permitted: :auto) do |response|
+        @question.next_node do |response|
           if response == 'yes'
             outcome :done
           else
@@ -80,7 +55,7 @@ class QuestionBaseTest < ActiveSupport::TestCase
       end
 
       should 'not return duplicate permitted next nodes' do
-        @question.next_node(permitted: :auto) do |response|
+        @question.next_node do |response|
           if response == 'yes'
             outcome :done
           else
@@ -88,19 +63,6 @@ class QuestionBaseTest < ActiveSupport::TestCase
           end
         end
         assert_equal [:done], @question.permitted_next_nodes
-      end
-    end
-
-    context 'next_node called with block but no permitted option specified' do
-      should 'return any node keys which are defined using #question or #outcome' do
-        @question.next_node do |response|
-          if response == 'yes'
-            outcome :done
-          else
-            question :another_question
-          end
-        end
-        assert_equal [:done, :another_question], @question.permitted_next_nodes
       end
     end
   end
@@ -130,16 +92,15 @@ class QuestionBaseTest < ActiveSupport::TestCase
     end
 
     should "set current_node to result of calling next_node block" do
-      @question.next_node(permitted: [:done_done]) { :done_done }
+      @question.next_node { outcome :done_done }
       initial_state = SmartAnswer::State.new(@question.name)
       new_state = @question.transition(initial_state, :anything)
       assert_equal :done_done, new_state.current_node
     end
 
     should "make state available to code in next_node block" do
-      permitted_next_nodes = [:was_red, :wasnt_red]
-      @question.next_node(permitted: permitted_next_nodes) do
-        colour == 'red' ? :was_red : :wasnt_red
+      @question.next_node do
+        colour == 'red' ? outcome(:was_red) : outcome(:wasnt_red)
       end
       initial_state = SmartAnswer::State.new(@question.name)
       initial_state.colour = 'red'
@@ -149,9 +110,9 @@ class QuestionBaseTest < ActiveSupport::TestCase
 
     should "ensure state made available to code in next_node block is frozen" do
       state_made_available = nil
-      @question.next_node(permitted: [:done]) do
+      @question.next_node do
         state_made_available = self
-        :done
+        outcome :done
       end
       initial_state = SmartAnswer::State.new(@question.name)
       @question.transition(initial_state, 'anything')
@@ -160,9 +121,9 @@ class QuestionBaseTest < ActiveSupport::TestCase
 
     should "pass input to next_node block" do
       input_was = nil
-      @question.next_node(permitted: [:done]) do |input|
+      @question.next_node do |input|
         input_was = input
-        :done
+        outcome :done
       end
       initial_state = SmartAnswer::State.new(@question.name)
       @question.transition(initial_state, 'something')
@@ -221,8 +182,8 @@ class QuestionBaseTest < ActiveSupport::TestCase
       @question.next_node_calculation :blah do
         "blah"
       end
-      @question.next_node(permitted: [:done]) do
-        :done if complementary_colour == :green
+      @question.next_node do
+        outcome :done if complementary_colour == :green
       end
       initial_state = SmartAnswer::State.new(@question.name)
       new_state = @question.transition(initial_state, :red)
@@ -233,20 +194,8 @@ class QuestionBaseTest < ActiveSupport::TestCase
   end
 
   context '#next_node_for' do
-    should "raise an exception if next_node returns key not in permitted_next_nodes" do
-      permitted_next_nodes = [:allowed_next_node_1, :allowed_next_node_2]
-      @question.next_node(permitted: permitted_next_nodes) { :not_allowed_next_node }
-      state = SmartAnswer::State.new(@question.name)
-
-      expected_message = "Next node (not_allowed_next_node) not in list of permitted next nodes (allowed_next_node_1 and allowed_next_node_2)"
-      exception = assert_raises do
-        @question.next_node_for(state, 'response')
-      end
-      assert_equal expected_message, exception.message
-    end
-
     should "raise an exception if next_node does not return key via question or outcome method" do
-      @question.next_node(permitted: :auto) do
+      @question.next_node do
         outcome :another_outcome
         :not_allowed_next_node
       end
@@ -261,9 +210,9 @@ class QuestionBaseTest < ActiveSupport::TestCase
 
     should "raise an exception if next_node does not return a node key" do
       responses = [:blue, :red]
-      @question.next_node(permitted: [:skipped]) do
+      @question.next_node do
         skip = false
-        :skipped if skip
+        outcome :skipped if skip
       end
       initial_state = SmartAnswer::State.new(@question.name)
       initial_state.responses << responses[0]
@@ -282,14 +231,14 @@ class QuestionBaseTest < ActiveSupport::TestCase
     end
 
     should "allow calls to #question syntactic sugar method" do
-      @question.next_node(permitted: [:another_question]) { question :another_question }
+      @question.next_node { question :another_question }
       state = SmartAnswer::State.new(@question.name)
       next_node = @question.next_node_for(state, 'response')
       assert_equal :another_question, next_node
     end
 
     should "should allow calls to #outcome syntactic sugar method" do
-      @question.next_node(permitted: [:done]) { outcome :done }
+      @question.next_node { outcome :done }
       state = SmartAnswer::State.new(@question.name)
       next_node = @question.next_node_for(state, 'response')
       assert_equal :done, next_node

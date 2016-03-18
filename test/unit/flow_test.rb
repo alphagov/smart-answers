@@ -43,10 +43,10 @@ class FlowTest < ActiveSupport::TestCase
       multiple_choice :do_you_like_chocolate? do
         option :yes
         option :no
-        next_node(permitted: [:sweet_tooth, :savoury_tooth]) do |response|
+        next_node do |response|
           case response
-          when 'yes' then :sweet_tooth
-          when 'no' then :savoury_tooth
+          when 'yes' then outcome :sweet_tooth
+          when 'no' then outcome :savoury_tooth
           end
         end
       end
@@ -190,10 +190,10 @@ class FlowTest < ActiveSupport::TestCase
         multiple_choice :do_you_like_chocolate? do
           option :yes
           option :no
-          next_node(permitted: [:sweet, :do_you_like_jam?]) do |response|
+          next_node do |response|
             case response
-            when 'yes' then :sweet
-            when 'no' then :do_you_like_jam?
+            when 'yes' then outcome :sweet
+            when 'no' then question :do_you_like_jam?
             end
           end
         end
@@ -201,10 +201,10 @@ class FlowTest < ActiveSupport::TestCase
         multiple_choice :do_you_like_jam? do
           option :yes
           option :no
-          next_node(permitted: [:sweet, :savoury]) do |response|
+          next_node do |response|
             case response
-            when 'yes' then :sweet
-            when 'no' then :savoury
+            when 'yes' then outcome :sweet
+            when 'no' then outcome :savoury
             end
           end
         end
@@ -263,10 +263,10 @@ class FlowTest < ActiveSupport::TestCase
         option :red
         option :blue
 
-        next_node(permitted: [:when?, :blue]) do |response|
+        next_node do |response|
           case response
-          when 'red' then :when?
-          when 'blue' then :blue
+          when 'red' then question :when?
+          when 'blue' then outcome :blue
           end
         end
       end
@@ -332,10 +332,10 @@ class FlowTest < ActiveSupport::TestCase
 multiple_choice :do_you_like_chocolate? do
   option :yes
   option :no
-  next_node(permitted: [:sweet_tooth, :savoury_tooth]) do |response|
+  next_node do |response|
     case response
-    when 'yes' then :sweet_tooth
-    when 'no' then :savoury_tooth
+    when 'yes' then outcome :sweet_tooth
+    when 'no' then outcome :savoury_tooth
     end
   end
 end
