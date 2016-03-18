@@ -63,22 +63,12 @@
 
     <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
 
-  <% elsif ceremony_not_germany_or_not_resident_other %>
+  <% else %>
     <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
 
   <% end %>
   <% if calculator.ceremony_country == 'denmark' %>
     ^You don’t need a CNI if you’re getting married in the main town hall in Copenhagen.^
-
-  <% elsif calculator.ceremony_country == 'germany' && calculator.resident_outside_of_uk? %>
-    You don’t need a certificate of no impediment (CNI) to prove you’re allowed to marry if you’re a British national resident outside of the UK. However, you’ll need to apply for an exemption (‘Befreiung von der Beibringung des Ehefähigkeitszeugnisses’).
-
-    The local registry office (‘Standesamt’) where you’re getting married should tell you what to do.
-
-    If the Standesamt does ask you for a CNI (‘Ehefähigkeitszeugnis’), refer them to the relevant part of the [German Civil Code](http://www.gesetze-im-internet.de/bgb/__1309.html) (‘Bürgerliches Gesetzbuch’). This is published on the Stuttgart Higher Regional Court (‘Oberlandesgericht’) website, but it applies to the whole of Germany.
-
-    Check with the Higher Regional Court where you’re getting married if they don’t accept this.
-
 
   <% end %>
   <% if calculator.resident_of_uk? %>
@@ -94,16 +84,6 @@
 
     <% if calculator.ceremony_country == 'tunisia' %>
       You’ll need to exchange your UK-issued CNI for one that’s valid in Tunisia at the nearest British embassy to where you’re getting married.
-
-    <% elsif calculator.ceremony_country == 'germany' %>
-      ###Translation
-
-      Check with the local authorities in <%= calculator.country_name_lowercase_prefix %> if you need to get your UK-issued CNI translated.
-
-      [Find a translator abroad](/government/collections/list-of-lawyers), or in the UK through the [Institute of Linguists](http://www.ciol.org.uk)
-
-      You should also check with the local authorities if you need to provide [legalised](/get-document-legalised) and translated copies of any other documents.
-
 
     <% elsif calculator.ceremony_country == 'montenegro' %>
       ###Getting a Montenegrin version of your CNI
@@ -129,7 +109,7 @@
                  locals: { calculator: calculator } %>
 
     <% end %>
-    <% if %w(germany tunisia).exclude?(calculator.ceremony_country) %>
+    <% if %w(tunisia).exclude?(calculator.ceremony_country) %>
       <%= render partial: 'legalise_translate_and_check_with_authorities.govspeak.erb',
                  locals: { calculator: calculator } %>
     <% end %>
@@ -150,7 +130,7 @@
       If you need a CNI, you must arrange this through the British Embassy in Costa Rica because there aren’t any British consular facilities in Nicaragua.
 
 
-    <% elsif %w(germany kazakhstan macedonia russia).exclude?(calculator.ceremony_country) %>
+    <% elsif %w(kazakhstan macedonia russia).exclude?(calculator.ceremony_country) %>
       To get a CNI, you must post notice of your intended marriage in <%= calculator.country_name_lowercase_prefix %>. You can do this at the British embassy or in front of a notary public.
 
 
@@ -192,22 +172,20 @@
 
 
     <% end %>
-    <% unless %w(germany).include?(calculator.ceremony_country) %>
-      <% if calculator.ceremony_country == 'macedonia' %>
-        Contact a notary public or British Embassy in Macedonia to get advice:
+    <% if calculator.ceremony_country == 'macedonia' %>
+      Contact a notary public or British Embassy in Macedonia to get advice:
 
-        $C
-        British Embassy Macedonia
-        Telephone: + 389 (2) 3299 299
-        <consular.skopje@fco.gov.uk>
-        $C
+      $C
+      British Embassy Macedonia
+      Telephone: + 389 (2) 3299 299
+      <consular.skopje@fco.gov.uk>
+      $C
 
-        %You can’t book an appointment to get advice at the embassy in person.%
+      %You can’t book an appointment to get advice at the embassy in person.%
 
-      <% else %>
-        <%= render partial: 'contact_method.govspeak.erb',
-                   locals: { calculator: calculator } %>
-      <% end %>
+    <% else %>
+      <%= render partial: 'contact_method.govspeak.erb',
+                 locals: { calculator: calculator } %>
     <% end %>
   <% end %>
   <% if calculator.resident_outside_of_uk? && calculator.ceremony_country == 'egypt' %>
@@ -225,7 +203,7 @@
     <%= render partial: 'required_supporting_documents_philippines.govspeak.erb' %>
   <% elsif calculator.resident_outside_of_uk? && calculator.ceremony_country == 'macao' %>
     <%= render partial: 'required_supporting_documents_macao.govspeak.erb' %>
-  <% elsif calculator.resident_of_ceremony_country? && %w(germany).exclude?(calculator.ceremony_country) %>
+  <% elsif calculator.resident_of_ceremony_country? %>
     <% if birth_cert_inclusion && notary_public_inclusion %>
       You’ll need to provide supporting documents, including:
 
@@ -277,7 +255,7 @@
       $D
 
 
-    <% elsif %w(germany).exclude?(calculator.ceremony_country) %>
+    <% else %>
       <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
 
     <% end %>
@@ -288,13 +266,11 @@
     <% end %>
   <% end %>
 
-  <% if calculator.ceremony_country != 'germany'  || (calculator.ceremony_country == 'germany' && calculator.resident_of_uk?) %>
-    <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
-  <% end %>
+  <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
 
   <% if calculator.resident_of_ceremony_country? %>
 
-    <% if calculator.partner_british? && %w(germany finland).exclude?(calculator.ceremony_country) %>
+    <% if calculator.partner_british? && %w(finland).exclude?(calculator.ceremony_country) %>
       ^Your partner will need to follow the same process and pay the fees to get their own CNI.^
     <% end %>
 
@@ -314,16 +290,13 @@
         - a civil partnership dissolution or annulment certificate
         - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
 
-      <% elsif calculator.ceremony_country != 'germany' %>
+      <% else %>
         <%= render partial: 'consular_cni_os_not_uk_resident_ceremony_not_germany.govspeak.erb' %>
 
       <% end %>
 
-      <% if %(germany).exclude?(calculator.ceremony_country) %>
-        ^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
+      ^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
 
-
-      <% end %>
     <% end %>
 
     <% if calculator.ceremony_country == 'greece' %>
@@ -357,7 +330,7 @@
       There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
 
 
-    <% elsif %w(germany).exclude?(calculator.ceremony_country) %>
+    <% else %>
       <%= render partial: 'display_notice_of_marriage_7_days.govspeak.erb',
                  locals: { calculator: calculator } %>
 
@@ -372,7 +345,7 @@
 
   <% end %>
 
-  <% if calculator.resident_outside_of_uk? && %w(germany).exclude?(calculator.ceremony_country) %>
+  <% if calculator.resident_outside_of_uk? %>
     <%= render partial: 'check_if_cni_needs_to_be_legalised.govspeak.erb',
                locals: { calculator: calculator } %>
 
