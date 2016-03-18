@@ -19,7 +19,9 @@ module SmartAnswer
       name 'example-smart-answer'
 
       value_question :question_1 do
-        next_node :outcome_1
+        next_node do
+          outcome :outcome_1
+        end:
       end
 
       outcome :outcome_1
