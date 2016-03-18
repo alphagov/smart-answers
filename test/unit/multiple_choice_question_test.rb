@@ -26,7 +26,7 @@ module SmartAnswer
       q = Question::MultipleChoice.new(nil, :example) do
         option :yes
         option :no
-        next_node :fred
+        next_node { outcome :fred }
       end
 
       current_state = State.new(:example)
