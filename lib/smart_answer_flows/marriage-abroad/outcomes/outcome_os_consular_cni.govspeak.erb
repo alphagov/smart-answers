@@ -263,7 +263,7 @@
     <% if calculator.partner_is_same_sex? ||
       (
         no_document_download_link_if_os_resident_of_uk_countries.exclude?(calculator.ceremony_country) &&
-        (cni_notary_public_countries + %w(macedonia)).include?(calculator.ceremony_country) &&
+        (notary_public_inclusion || %w(macedonia).include?(calculator.ceremony_country)) &&
         %w(greece tunisia).exclude?(calculator.ceremony_country)
       ) %>
       <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
@@ -319,7 +319,7 @@
 
       [Make an appointment to collect your CNI at the embassy in Athens](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-athens/certificate-of-no-impediment/slot_picker).
 
-    <% elsif cni_notary_public_countries.include?(calculator.ceremony_country) %>
+    <% elsif notary_public_inclusion %>
       ###What happens next
 
       The embassy or notary public will charge a fee for taking the oath.
