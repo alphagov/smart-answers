@@ -254,14 +254,11 @@ module SmartAnswer
       outcome :outcome_consular_cni_os_residing_in_third_country
 
       outcome :outcome_os_consular_cni do
-        precalculate :cni_notary_public_countries do
-          Calculators::MarriageAbroadDataQuery::CNI_NOTARY_PUBLIC_COUNTRIES
-        end
         precalculate :no_document_download_link_if_os_resident_of_uk_countries do
           Calculators::MarriageAbroadDataQuery::NO_DOCUMENT_DOWNLOAD_LINK_IF_OS_RESIDENT_OF_UK_COUNTRIES
         end
         precalculate :notary_public_inclusion do
-          cni_notary_public_countries.include?(calculator.ceremony_country)
+          Calculators::MarriageAbroadDataQuery::CNI_NOTARY_PUBLIC_COUNTRIES.include?(calculator.ceremony_country)
         end
       end
 
