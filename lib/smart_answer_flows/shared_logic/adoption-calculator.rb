@@ -22,7 +22,9 @@ date_question :date_of_adoption_match? do
     Calculators::MaternityPaternityCalculator.new(match_date, "adoption")
   end
 
-  next_node :date_of_adoption_placement?
+  next_node do
+    question :date_of_adoption_placement?
+  end
 end
 
 ## QA2
@@ -50,7 +52,9 @@ date_question :date_of_adoption_placement? do
     calculator.qualifying_week.first
   end
 
-  next_node :adoption_did_the_employee_work_for_you?
+  next_node do
+    question :adoption_did_the_employee_work_for_you?
+  end
 end
 
 ## QA3
@@ -75,7 +79,9 @@ multiple_choice :adoption_employment_contract? do
 
   save_input_as :employee_has_contract_adoption
 
-  next_node :adoption_is_the_employee_on_your_payroll?
+  next_node do
+    question :adoption_is_the_employee_on_your_payroll?
+  end
 end
 
 ## QA5
@@ -157,7 +163,9 @@ date_question :last_normal_payday_adoption? do
     raise SmartAnswer::InvalidResponse if calculator.last_payday > to_saturday
     calculator.last_payday
   end
-  next_node :payday_eight_weeks_adoption?
+  next_node do
+    question :payday_eight_weeks_adoption?
+  end
 end
 
 # QA8
@@ -184,7 +192,9 @@ date_question :payday_eight_weeks_adoption? do
     calculator.formatted_relevant_period
   end
 
-  next_node :pay_frequency_adoption?
+  next_node do
+    question :pay_frequency_adoption?
+  end
 end
 
 # QA9
@@ -200,7 +210,9 @@ multiple_choice :pay_frequency_adoption? do
     calculator
   end
 
-  next_node :earnings_for_pay_period_adoption?
+  next_node do
+    question :earnings_for_pay_period_adoption?
+  end
 end
 
 ## QA10
