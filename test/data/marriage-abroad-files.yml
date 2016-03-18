@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/marriage-abroad.rb: 936669f936e6f8d0592e170ad8812fd7
+lib/smart_answer_flows/marriage-abroad.rb: ed2aff846cd31fbdc8cdad871069f758
 test/data/marriage-abroad-questions-and-responses.yml: 87f39a00d77fe0566a79e5cddbca765e
 test/data/marriage-abroad-responses-and-expected-results.yml: c388fc820b41309bb7594e9ef908a70e
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
@@ -92,7 +92,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/outcome_brazil_not_living_in_the
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_consular_cni_os_residing_in_third_country.govspeak.erb: 611b13466b903e147bf7c6d4bd9442e2
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_cp_all_other_countries.govspeak.erb: 7e4e34579ba21e10c2a36b0a11241c24
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_cp_commonwealth_countries.govspeak.erb: 19bb1b2a9333666a3cc254bfbc863ee2
-lib/smart_answer_flows/marriage-abroad/outcomes/outcome_cp_consular.govspeak.erb: 501fc24c313947ce7c541d785b0fe7cb
+lib/smart_answer_flows/marriage-abroad/outcomes/outcome_cp_consular.govspeak.erb: ea8d9a8a82daae843679eff7d942a627
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_cp_france_pacs.govspeak.erb: 71ed894fbccf1cd2249915ceca553bf4
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_cp_no_cni.govspeak.erb: d016ac758c0f76f20f0fc2de524b7065
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_cp_or_equivalent.govspeak.erb: 4f8a188718b127da5d74371b6563941f
@@ -133,7 +133,7 @@ lib/smart_answer_flows/marriage-abroad/questions/legal_residency.govspeak.erb: 7
 lib/smart_answer_flows/marriage-abroad/questions/marriage_or_pacs.govspeak.erb: a51aecfac697188f90ca9efefcb2e0ea
 lib/smart_answer_flows/marriage-abroad/questions/partner_opposite_or_same_sex.govspeak.erb: 40d0c99a5be50f0625c6562f06fe4afd
 lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationality.govspeak.erb: 80e04f36c75c232bede1a244d621471e
-lib/smart_answer/calculators/marriage_abroad_calculator.rb: a6a7bcf0ca3c850249e972a752d1a68a
+lib/smart_answer/calculators/marriage_abroad_calculator.rb: 1805a4e2e55cbd297c4eea99aaa435e8
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 2f521bae99c2f48b49d07bcb283a8063
 lib/smart_answer/calculators/marriage_abroad_data_query.rb: 80043ce123ab86befc4def86361abb81
 lib/smart_answer/calculators/country_name_formatter.rb: 69a0726640385f42de50b80fdb144ff8
