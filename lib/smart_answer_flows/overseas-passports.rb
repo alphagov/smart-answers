@@ -40,7 +40,7 @@ module SmartAnswer
         option :gaza
         option :"jerusalem-or-westbank"
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           calculator.current_location = response
 
           question :renewing_replacing_applying?
@@ -54,7 +54,7 @@ module SmartAnswer
         option :applying
         option :replacing
 
-        next_node(permitted: :auto) do |response|
+        next_node do |response|
           calculator.application_action = response
 
           question :child_or_adult_passport?
