@@ -44,10 +44,8 @@ module SmartAnswer
           message << " Responses: #{responses_and_input}."
           raise NextNodeUndefined.new(message)
         end
-        if @permitted_next_nodes == :auto
-          unless NextNodeBlock.permitted?(next_node)
-            raise "Next node (#{next_node}) not returned via question or outcome method"
-          end
+        unless NextNodeBlock.permitted?(next_node)
+          raise "Next node (#{next_node}) not returned via question or outcome method"
         end
         next_node.to_sym
       end
