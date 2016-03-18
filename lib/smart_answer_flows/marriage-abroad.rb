@@ -261,7 +261,7 @@ module SmartAnswer
           Calculators::MarriageAbroadDataQuery::NO_DOCUMENT_DOWNLOAD_LINK_IF_OS_RESIDENT_OF_UK_COUNTRIES
         end
         precalculate :notary_public_inclusion do
-          cni_notary_public_countries.include?(calculator.ceremony_country) || %w(macedonia).include?(calculator.ceremony_country)
+          cni_notary_public_countries.include?(calculator.ceremony_country)
         end
       end
 
