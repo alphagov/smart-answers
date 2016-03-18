@@ -123,7 +123,7 @@ module SmartAnswer
     test "dates are parsed from Hash into Date before being saved" do
       q = Question::Date.new(nil, :example) do
         save_input_as :date
-        next_node :done
+        next_node { outcome :done }
       end
 
       new_state = q.transition(@initial_state, {year: "2011", month: '2', day: '1'})
@@ -133,7 +133,7 @@ module SmartAnswer
     test "incomplete dates raise an error" do
       q = Question::Date.new(nil, :example) do
         save_input_as :date
-        next_node :done
+        next_node { outcome :done }
       end
 
       assert_raise SmartAnswer::InvalidResponse do
@@ -163,7 +163,7 @@ module SmartAnswer
     test "define allowable range of dates" do
       q = Question::Date.new(nil, :example) do
         save_input_as :date
-        next_node :done
+        next_node { outcome :done }
         from { Date.parse('2011-01-01') }
         to { Date.parse('2011-01-03') }
       end
@@ -195,7 +195,7 @@ module SmartAnswer
     test "do not complain when the input is within the allowed range when the dates are in descending order" do
       q = Question::Date.new(nil, :example) do
         save_input_as :date
-        next_node :done
+        next_node { outcome :done }
         from { Date.parse('2011-01-03') }
         to { Date.parse('2011-01-01') }
         validate_in_range
@@ -231,7 +231,7 @@ module SmartAnswer
         default_month { 2 }
         default_year { 2013 }
         save_input_as :date
-        next_node :done
+        next_node { outcome :done }
       end
 
       new_state = q.transition(@initial_state, {year: "", month: "", day: ""})
@@ -242,7 +242,7 @@ module SmartAnswer
       q = Question::Date.new(nil, :example) do
         default_day { -1 }
         save_input_as :date
-        next_node :done
+        next_node { outcome :done }
       end
 
       incomplete_date = {year: "2013", month: "2", day: ""}
@@ -272,7 +272,7 @@ module SmartAnswer
     def date_question_2011
       Question::Date.new(nil, :example) do
         save_input_as :date
-        next_node :done
+        next_node { outcome :done }
         from { Date.parse('2011-01-01') }
         to { Date.parse('2011-12-31') }
         validate_in_range
@@ -283,7 +283,7 @@ module SmartAnswer
       Question::Date.new(nil, :example) do
         date_of_birth_defaults
         save_input_as :date
-        next_node :done
+        next_node { outcome :done }
       end
     end
   end
