@@ -13,7 +13,9 @@ module SmartAnswer
 
         save_input_as :paying_or_receiving
 
-        next_node :how_many_children_paid_for?
+        next_node do
+          question :how_many_children_paid_for?
+        end
       end
 
       ## Q1
@@ -39,7 +41,9 @@ module SmartAnswer
           response.to_i
         end
 
-        next_node :gets_benefits?
+        next_node do
+          question :gets_benefits?
+        end
       end
 
       ## Q2
@@ -113,7 +117,9 @@ module SmartAnswer
           calculator.number_of_other_children = response
           calculator
         end
-        next_node :how_many_nights_children_stay_with_payee?
+        next_node do
+          question :how_many_nights_children_stay_with_payee?
+        end
       end
 
       ## Q5
