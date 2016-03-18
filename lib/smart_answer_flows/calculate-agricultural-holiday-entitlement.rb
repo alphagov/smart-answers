@@ -41,7 +41,9 @@ module SmartAnswer
           response.to_i
         end
 
-        next_node :worked_for_same_employer?
+        next_node do
+          question :worked_for_same_employer?
+        end
       end
 
       date_question :what_date_does_holiday_start? do
@@ -52,7 +54,9 @@ module SmartAnswer
           calculator.weeks_worked(response)
         end
 
-        next_node :how_many_total_days?
+        next_node do
+          question :how_many_total_days?
+        end
       end
 
       multiple_choice :worked_for_same_employer? do
@@ -95,11 +99,15 @@ module SmartAnswer
           response
         end
 
-        next_node :worked_for_same_employer?
+        next_node do
+          question :worked_for_same_employer?
+        end
       end
 
       value_question :how_many_weeks_at_current_employer?, parse: Integer do
-        next_node :done
+        next_node do
+          outcome :done
+        end
 
         #Has to be less than a full year
         validate { |response| response < 52 }
