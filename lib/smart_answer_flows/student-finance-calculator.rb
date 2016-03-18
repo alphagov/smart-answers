@@ -12,7 +12,9 @@ module SmartAnswer
         option :"2016-2017"
 
         save_input_as :start_date
-        next_node :what_type_of_student_are_you?
+        next_node do
+          question :what_type_of_student_are_you?
+        end
       end
 
       #Q2
@@ -23,7 +25,9 @@ module SmartAnswer
         option :"eu-part-time"
 
         save_input_as :course_type
-        next_node :how_much_are_your_tuition_fees_per_year?
+        next_node do
+          question :how_much_are_your_tuition_fees_per_year?
+        end
       end
 
       #Q3
@@ -57,7 +61,9 @@ module SmartAnswer
         option :'away-in-london'
 
         save_input_as :where_living
-        next_node :whats_your_household_income?
+        next_node do
+          question :whats_your_household_income?
+        end
       end
 
       #Q5
@@ -79,7 +85,9 @@ module SmartAnswer
           calculator.maintenance_loan_amount
         end
 
-        next_node :do_any_of_the_following_apply_uk_full_time_students_only?
+        next_node do
+          question :do_any_of_the_following_apply_uk_full_time_students_only?
+        end
       end
 
       #Q6a uk full-time students
@@ -94,7 +102,9 @@ module SmartAnswer
           response.split(',')
         end
 
-        next_node :what_course_are_you_studying?
+        next_node do
+          question :what_course_are_you_studying?
+        end
       end
 
       #Q6b uk students
@@ -107,7 +117,9 @@ module SmartAnswer
           response.split(',')
         end
 
-        next_node :what_course_are_you_studying?
+        next_node do
+          question :what_course_are_you_studying?
+        end
       end
 
       #Q7
