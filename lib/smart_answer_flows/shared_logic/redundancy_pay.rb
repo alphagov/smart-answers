@@ -27,7 +27,9 @@ date_question :date_of_redundancy? do
     ni_rates.max
   end
 
-  next_node :age_of_employee?
+  next_node do
+    question :age_of_employee?
+  end
 end
 
 value_question :age_of_employee?, parse: :to_i do
@@ -39,7 +41,9 @@ value_question :age_of_employee?, parse: :to_i do
   calculate :years_available do
     employee_age - 15
   end
-  next_node :years_employed?
+  next_node do
+    question :years_employed?
+  end
 end
 
 value_question :years_employed?, parse: Float do
