@@ -8,8 +8,13 @@
 
 <% content_for :body do %>
   <% if calculator.partner_is_opposite_sex? %>
-    <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
+    <% if calculator.resident_of_uk? %>
+      Contact the [Embassy of the Dominican Republic](https://www.gov.uk/government/publications/foreign-embassies-in-the-uk)
+      before making any plans tofind out about local marriage laws, including what documents you’ll need.
+    <% else %>
+      <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
              locals: { calculator: calculator } %>
+    <% end %>
     <% if calculator.resident_outside_of_uk? %>
       ^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.^
     <% else %>
