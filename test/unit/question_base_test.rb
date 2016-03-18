@@ -6,11 +6,11 @@ class QuestionBaseTest < ActiveSupport::TestCase
   end
 
   context '#next_node' do
-    should 'ensure single next node key is supplied if next_node called without block' do
+    should 'raise exception if next_node is called without a block' do
       e = assert_raises(ArgumentError) do
         @question.next_node
       end
-      assert_equal 'You must specify a block or a single next node key', e.message
+      assert_equal 'You must specify a block', e.message
     end
 
     should 'raise exception if next_node is invoked multiple times' do
@@ -23,13 +23,6 @@ class QuestionBaseTest < ActiveSupport::TestCase
   end
 
   context '#permitted_next_nodes' do
-    context 'next_node called without block' do
-      should 'return the one node passed to next_node' do
-        @question.next_node :done
-        assert_equal [:done], @question.permitted_next_nodes
-      end
-    end
-
     context 'next_node called with block' do
       should 'return nodes returned via syntactic sugar methods' do
         @question.next_node do |response|
@@ -80,13 +73,6 @@ class QuestionBaseTest < ActiveSupport::TestCase
       @question.next_node { outcome :done }
       initial_state = SmartAnswer::State.new(@question.name)
       @question.stubs(:next_node_for).returns(:done)
-      new_state = @question.transition(initial_state, :anything)
-      assert_equal :done, new_state.current_node
-    end
-
-    should "set current_node to node key passed into next_node method" do
-      @question.next_node :done
-      initial_state = SmartAnswer::State.new(@question.name)
       new_state = @question.transition(initial_state, :anything)
       assert_equal :done, new_state.current_node
     end

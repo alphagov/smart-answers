@@ -10,18 +10,15 @@ module SmartAnswer
         super
       end
 
-      def next_node(next_node = nil, &block)
+      def next_node(&block)
         if @next_node_block.present?
           raise 'Multiple calls to next_node are not allowed'
         end
         if block_given?
           @permitted_next_nodes = :auto
           @next_node_block = block
-        elsif next_node
-          @permitted_next_nodes = [next_node]
-          @next_node_block = lambda { |_| next_node }
         else
-          raise ArgumentError, 'You must specify a block or a single next node key'
+          raise ArgumentError, 'You must specify a block'
         end
       end
 
