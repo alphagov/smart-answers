@@ -257,9 +257,6 @@ module SmartAnswer
         precalculate :no_document_download_link_if_os_resident_of_uk_countries do
           Calculators::MarriageAbroadDataQuery::NO_DOCUMENT_DOWNLOAD_LINK_IF_OS_RESIDENT_OF_UK_COUNTRIES
         end
-        precalculate :notary_public_inclusion do
-          Calculators::MarriageAbroadDataQuery::CNI_NOTARY_PUBLIC_COUNTRIES.include?(calculator.ceremony_country)
-        end
       end
 
       outcome :outcome_os_france_or_fot
