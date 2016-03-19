@@ -253,11 +253,7 @@ module SmartAnswer
 
       outcome :outcome_consular_cni_os_residing_in_third_country
 
-      outcome :outcome_os_consular_cni do
-        precalculate :no_document_download_link_if_os_resident_of_uk_countries do
-          Calculators::MarriageAbroadDataQuery::NO_DOCUMENT_DOWNLOAD_LINK_IF_OS_RESIDENT_OF_UK_COUNTRIES
-        end
-      end
+      outcome :outcome_os_consular_cni
 
       outcome :outcome_os_france_or_fot
 
