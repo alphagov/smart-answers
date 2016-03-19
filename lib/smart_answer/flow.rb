@@ -13,7 +13,6 @@ module SmartAnswer
 
     def initialize(&block)
       @nodes = []
-      @state = nil
       instance_eval(&block) if block_given?
     end
 
