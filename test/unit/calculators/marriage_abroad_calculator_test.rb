@@ -824,6 +824,22 @@ module SmartAnswer
           refute calculator.notary_public_ceremony_country?
         end
       end
+
+      context '#document_download_link_if_opposite_sex_resident_of_uk_countries?' do
+        should 'return true if you can download forms' do
+          calculator = MarriageAbroadCalculator.new
+          calculator.ceremony_country = 'country-allowing-you-to-download-forms'
+
+          assert calculator.document_download_link_if_opposite_sex_resident_of_uk_countries?
+        end
+
+        should "return false if you can't download forms" do
+          calculator = MarriageAbroadCalculator.new
+          calculator.ceremony_country = 'albania'
+
+          refute calculator.document_download_link_if_opposite_sex_resident_of_uk_countries?
+        end
+      end
     end
   end
 end

@@ -256,6 +256,10 @@ module SmartAnswer::Calculators
       MarriageAbroadDataQuery::CNI_NOTARY_PUBLIC_COUNTRIES.include?(ceremony_country)
     end
 
+    def document_download_link_if_opposite_sex_resident_of_uk_countries?
+      MarriageAbroadDataQuery::NO_DOCUMENT_DOWNLOAD_LINK_IF_OS_RESIDENT_OF_UK_COUNTRIES.exclude?(ceremony_country)
+    end
+
   private
 
     def outcome_path_when_resident_in(uk_or_ceremony_country)
