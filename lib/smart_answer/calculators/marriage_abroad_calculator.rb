@@ -251,7 +251,11 @@ module SmartAnswer::Calculators
     def birth_certificate_required_as_supporting_document?
       MarriageAbroadDataQuery::NO_BIRTH_CERT_REQUIREMENT.exclude?(ceremony_country)
     end
-    
+
+    def notary_public_ceremony_country?
+      MarriageAbroadDataQuery::CNI_NOTARY_PUBLIC_COUNTRIES.include?(ceremony_country)
+    end
+
   private
 
     def outcome_path_when_resident_in(uk_or_ceremony_country)

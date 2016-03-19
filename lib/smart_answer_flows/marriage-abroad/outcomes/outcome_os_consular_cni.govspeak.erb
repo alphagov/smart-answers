@@ -247,7 +247,7 @@
   <% elsif calculator.resident_outside_of_uk? && calculator.ceremony_country == 'macao' %>
     <%= render partial: 'required_supporting_documents_macao.govspeak.erb' %>
   <% elsif calculator.resident_of_ceremony_country? %>
-    <% if calculator.birth_certificate_required_as_supporting_document? && (notary_public_inclusion || %w(japan macedonia).include?(calculator.ceremony_country)) %>
+    <% if calculator.birth_certificate_required_as_supporting_document? && (calculator.notary_public_ceremony_country? || %w(japan macedonia).include?(calculator.ceremony_country)) %>
       You’ll need to provide supporting documents, including:
 
       - your passport
@@ -265,7 +265,7 @@
       - equivalent documents for your partner
 
 
-    <% elsif (notary_public_inclusion || %w(japan macedonia).include?(calculator.ceremony_country)) %>
+    <% elsif (calculator.notary_public_ceremony_country? || %w(japan macedonia).include?(calculator.ceremony_country)) %>
       You’ll need to provide supporting documents, including:
 
       - your passport
@@ -306,7 +306,7 @@
     <% if calculator.partner_is_same_sex? ||
       (
         no_document_download_link_if_os_resident_of_uk_countries.exclude?(calculator.ceremony_country) &&
-        (notary_public_inclusion || %w(macedonia).include?(calculator.ceremony_country)) &&
+        (calculator.notary_public_ceremony_country? || %w(macedonia).include?(calculator.ceremony_country)) &&
         %w(greece tunisia).exclude?(calculator.ceremony_country)
       ) %>
       <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
@@ -362,7 +362,7 @@
 
       [Make an appointment to collect your CNI at the embassy in Athens](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-athens/certificate-of-no-impediment/slot_picker).
 
-    <% elsif notary_public_inclusion %>
+    <% elsif calculator.notary_public_ceremony_country? %>
       ###What happens next
 
       The embassy or notary public will charge a fee for taking the oath.

@@ -808,6 +808,22 @@ module SmartAnswer
           refute calculator.birth_certificate_required_as_supporting_document?
         end
       end
+
+      context '#notary_public_ceremony_country?' do
+        should 'return true if country has a notary public' do
+          calculator = MarriageAbroadCalculator.new
+          calculator.ceremony_country = 'albania'
+
+          assert calculator.notary_public_ceremony_country?
+        end
+
+        should 'return false if country has no notary public' do
+          calculator = MarriageAbroadCalculator.new
+          calculator.ceremony_country = 'country-without-notary-public'
+
+          refute calculator.notary_public_ceremony_country?
+        end
+      end
     end
   end
 end
