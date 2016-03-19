@@ -32,8 +32,6 @@ class FlowRegistrationPresenter
     start_node.meta_description
   end
 
-  NODE_PRESENTER_METHODS = [:title, :body, :hint]
-
   module MethodMissingHelper
     def method_missing(method, *args, &block)
       MethodMissingObject.new(method, parent_method = nil, blank_to_s = true)
@@ -42,11 +40,19 @@ class FlowRegistrationPresenter
 
   def indexable_content
     HTMLEntities.new.decode(
-      text = @flow.questions.inject([start_node.body]) { |acc, node|
-        pres = QuestionPresenter.new(node, nil, helpers: [MethodMissingHelper])
-        acc.concat(NODE_PRESENTER_METHODS.map { |method|
-          pres.send(method)
-        })
+      text = @flow.nodes.inject([start_node.body]) { |acc, node|
+        case node
+        when SmartAnswer::Question::Base
+          pres = QuestionPresenter.new(node, nil, helpers: [MethodMissingHelper])
+          acc.concat([:title, :body, :hint].map { |method|
+            pres.send(method)
+          })
+        when SmartAnswer::Outcome
+          pres = OutcomePresenter.new(node, nil, helpers: [MethodMissingHelper])
+          acc.concat([:title, :body].map { |method|
+            pres.send(method)
+          })
+        end
       }.compact.join(" ").gsub(/(?:<[^>]+>|\s)+/, " ")
     )
   end
