@@ -215,19 +215,7 @@ module SmartAnswer
 
       outcome :outcome_os_germany
 
-      outcome :outcome_os_kuwait do
-        precalculate :current_path do
-          (['/marriage-abroad/y'] + responses).join('/')
-        end
-
-        precalculate :uk_residence_outcome_path do
-          current_path.gsub('third_country', 'uk')
-        end
-
-        precalculate :ceremony_country_residence_outcome_path do
-          current_path.gsub('third_country', 'ceremony_country')
-        end
-      end
+      outcome :outcome_os_kuwait
 
       outcome :outcome_os_indonesia
 
@@ -253,19 +241,7 @@ module SmartAnswer
 
       outcome :outcome_monaco
 
-      outcome :outcome_spain do
-        precalculate :current_path do
-          (['/marriage-abroad/y'] + responses).join('/')
-        end
-
-        precalculate :uk_residence_outcome_path do
-          current_path.gsub('third_country', 'uk')
-        end
-
-        precalculate :ceremony_country_residence_outcome_path do
-          current_path.gsub('third_country', 'ceremony_country')
-        end
-      end
+      outcome :outcome_spain
 
       outcome :outcome_os_commonwealth
 
@@ -275,19 +251,7 @@ module SmartAnswer
 
       outcome :outcome_os_italy
 
-      outcome :outcome_consular_cni_os_residing_in_third_country do
-        precalculate :current_path do
-          (['/marriage-abroad/y'] + responses).join('/')
-        end
-
-        precalculate :uk_residence_outcome_path do
-          current_path.gsub('third_country', 'uk')
-        end
-
-        precalculate :ceremony_country_residence_outcome_path do
-          current_path.gsub('third_country', 'ceremony_country')
-        end
-      end
+      outcome :outcome_consular_cni_os_residing_in_third_country
 
       outcome :outcome_os_consular_cni do
         precalculate :three_day_residency_requirement_applies do
