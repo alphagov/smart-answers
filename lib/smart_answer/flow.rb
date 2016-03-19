@@ -3,7 +3,7 @@ require 'ostruct'
 module SmartAnswer
   class Flow
     attr_reader :nodes, :outcomes
-    attr_accessor :state, :status, :need_id
+    attr_accessor :status, :need_id
 
     def self.build
       new.tap do |flow|
