@@ -103,7 +103,7 @@ module SmartAnswer
             outcome :outcome_spain
           elsif calculator.partner_is_opposite_sex?
             if calculator.ceremony_country == 'hong-kong'
-              outcome :outcome_os_hong_kong
+              outcome :outcome_opposite_sex_marriage_hong_kong
             elsif calculator.ceremony_country == 'germany'
               outcome :outcome_opposite_sex_marriage_germany
             elsif calculator.ceremony_country == 'oman'
@@ -223,7 +223,7 @@ module SmartAnswer
 
       outcome :outcome_opposite_sex_marriage_japan
 
-      outcome :outcome_os_hong_kong
+      outcome :outcome_opposite_sex_marriage_hong_kong
 
       outcome :outcome_os_kosovo
 
