@@ -1458,7 +1458,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       end
 
       should 'give a Slovenia specific outcome' do
-        assert_current_node :outcome_os_slovenia
+        assert_current_node :outcome_opposite_sex_marriage_slovenia_residing_in_uk_or_ceremony_country
       end
     end
   end
