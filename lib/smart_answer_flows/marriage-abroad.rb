@@ -140,7 +140,7 @@ module SmartAnswer
             elsif calculator.ceremony_country == "laos" && calculator.partner_is_not_national_of_ceremony_country?
               outcome :outcome_os_marriage_impossible_no_laos_locals
             elsif calculator.ceremony_country == "laos"
-              outcome :outcome_os_laos
+              outcome :outcome_opposite_sex_marriage_in_laos_with_lao_national
             elsif calculator.ceremony_country == 'poland'
               outcome :outcome_os_poland
             elsif calculator.ceremony_country == 'slovenia'
@@ -221,7 +221,7 @@ module SmartAnswer
 
       outcome :outcome_opposite_sex_marriage_in_indonesia
 
-      outcome :outcome_os_laos
+      outcome :outcome_opposite_sex_marriage_in_laos_with_lao_national
 
       outcome :outcome_os_japan
 
