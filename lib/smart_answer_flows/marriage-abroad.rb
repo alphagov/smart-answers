@@ -168,7 +168,7 @@ module SmartAnswer
                   calculator.resident_outside_of_uk? &&
                   calculator.opposite_sex_no_marriage_related_consular_services_in_ceremony_country?
                 )
-              outcome :outcome_os_no_cni
+              outcome :outcome_opposite_sex_in_no_cni_countries_when_residing_in_ceremony_or_third_country
             elsif calculator.opposite_sex_marriage_via_local_authorities?
               outcome :outcome_marriage_via_local_authorities
             elsif calculator.opposite_sex_in_other_countries?
@@ -178,7 +178,7 @@ module SmartAnswer
             if %w(belgium norway).include?(calculator.ceremony_country)
               outcome :outcome_ss_affirmation
             elsif calculator.same_sex_ceremony_country_unknown_or_has_no_embassies?
-              outcome :outcome_os_no_cni
+              outcome :outcome_opposite_sex_in_no_cni_countries_when_residing_in_ceremony_or_third_country
             elsif calculator.ceremony_country == "malta"
               outcome :outcome_ss_marriage_malta
             elsif calculator.same_sex_marriage_not_possible?
@@ -261,7 +261,7 @@ module SmartAnswer
 
       outcome :outcome_opposite_sex_marriage_in_affirmation_countries
 
-      outcome :outcome_os_no_cni
+      outcome :outcome_opposite_sex_in_no_cni_countries_when_residing_in_ceremony_or_third_country
 
       outcome :outcome_os_other_countries
 
