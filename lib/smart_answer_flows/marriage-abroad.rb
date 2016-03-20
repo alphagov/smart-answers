@@ -120,9 +120,9 @@ module SmartAnswer
                   %w(kosovo).include?(calculator.ceremony_country) ||
                   calculator.opposite_sex_consular_cni_in_nearby_country?
                 )
-              outcome :outcome_consular_cni_os_residing_in_third_country
+              outcome :outcome_opposite_sex_marriage_consular_cni_residing_in_third_country
             elsif calculator.ceremony_country == 'norway' && calculator.resident_of_third_country?
-              outcome :outcome_consular_cni_os_residing_in_third_country
+              outcome :outcome_opposite_sex_marriage_consular_cni_residing_in_third_country
             elsif calculator.ceremony_country == 'italy'
               outcome :outcome_opposite_sex_marriage_italy_residing_in_uk_or_italy
             elsif calculator.ceremony_country == 'cambodia'
@@ -251,7 +251,7 @@ module SmartAnswer
 
       outcome :outcome_opposite_sex_marriage_italy_residing_in_uk_or_italy
 
-      outcome :outcome_consular_cni_os_residing_in_third_country
+      outcome :outcome_opposite_sex_marriage_consular_cni_residing_in_third_country
 
       outcome :outcome_os_consular_cni
 
