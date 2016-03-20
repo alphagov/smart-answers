@@ -2308,7 +2308,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'opposite_sex'
 
-      assert_current_node :outcome_os_hong_kong
+      assert_current_node :outcome_opposite_sex_marriage_in_hong_kong
     end
   end
 
