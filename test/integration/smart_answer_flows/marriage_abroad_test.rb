@@ -696,7 +696,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'mayotte'
     end
     should "go to marriage in france or fot outcome" do
-      assert_current_node :outcome_os_france_or_fot
+      assert_current_node :outcome_marriage_in_france_or_french_overseas_territory
     end
   end
 
@@ -707,7 +707,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'marriage'
     end
     should "go to france or fot marriage outcome" do
-      assert_current_node :outcome_os_france_or_fot
+      assert_current_node :outcome_marriage_in_france_or_french_overseas_territory
     end
   end
 
