@@ -605,7 +605,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
     end
     should "go to os poland outcome" do
-      assert_current_node :outcome_os_poland
+      assert_current_node :outcome_opposite_sex_marriage_in_poland_when_residing_in_uk_or_poland
     end
   end
 
