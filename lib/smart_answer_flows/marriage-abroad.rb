@@ -149,11 +149,11 @@ module SmartAnswer
                   calculator.opposite_sex_no_marriage_related_consular_services_in_ceremony_country?
                 ) ||
                 calculator.opposite_sex_consular_cni_in_nearby_country?
-              outcome :outcome_os_consular_cni
+              outcome :outcome_opposite_sex_marriage_consular_cni_residing_in_uk_or_ceremony_country
             elsif calculator.ceremony_country == "finland" && calculator.resident_of_uk?
-              outcome :outcome_os_consular_cni
+              outcome :outcome_opposite_sex_marriage_consular_cni_residing_in_uk_or_ceremony_country
             elsif calculator.ceremony_country == "norway" && calculator.resident_of_uk?
-              outcome :outcome_os_consular_cni
+              outcome :outcome_opposite_sex_marriage_consular_cni_residing_in_uk_or_ceremony_country
             elsif calculator.opposite_sex_affirmation_country?
               outcome :outcome_os_affirmation
             elsif calculator.ceremony_country_in_the_commonwealth? ||
@@ -253,7 +253,7 @@ module SmartAnswer
 
       outcome :outcome_opposite_sex_marriage_consular_cni_residing_in_third_country
 
-      outcome :outcome_os_consular_cni
+      outcome :outcome_opposite_sex_marriage_consular_cni_residing_in_uk_or_ceremony_country
 
       outcome :outcome_os_france_or_fot
 
