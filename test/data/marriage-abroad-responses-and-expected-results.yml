@@ -7604,7 +7604,7 @@
   :responses:
   - france
   - pacs
-  :next_node: :outcome_cp_france_pacs
+  :next_node: :outcome_civil_partnership_france_or_french_overseas_territory
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:
@@ -22215,7 +22215,7 @@
   :responses:
   - wallis-and-futuna
   - pacs
-  :next_node: :outcome_cp_france_pacs
+  :next_node: :outcome_civil_partnership_france_or_french_overseas_territory
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:

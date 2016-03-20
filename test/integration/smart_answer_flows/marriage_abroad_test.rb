@@ -1151,7 +1151,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'pacs'
     end
     should "go to fran ce ot fot PACS outcome" do
-      assert_current_node :outcome_cp_france_pacs
+      assert_current_node :outcome_civil_partnership_france_or_french_overseas_territory
     end
   end
 
@@ -1162,7 +1162,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'pacs'
     end
     should "go to france or fot pacs outcome" do
-      assert_current_node :outcome_cp_france_pacs
+      assert_current_node :outcome_civil_partnership_france_or_french_overseas_territory
     end
   end
 
