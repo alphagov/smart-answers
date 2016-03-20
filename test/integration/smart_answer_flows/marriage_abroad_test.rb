@@ -106,7 +106,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
             add_response 'same_sex'
           end
           should "give outcome same sex all other countries" do
-            assert_current_node :outcome_cp_all_other_countries
+            assert_current_node :outcome_same_sex_marriage_and_civil_partnership_other_countries
           end
         end
       end
@@ -144,7 +144,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
             add_response 'same_sex'
           end
           should "give outcome all other countries" do
-            assert_current_node :outcome_cp_all_other_countries
+            assert_current_node :outcome_same_sex_marriage_and_civil_partnership_other_countries
           end
         end
       end
@@ -182,7 +182,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
             add_response 'same_sex'
           end
           should "give outcome all other countries" do
-            assert_current_node :outcome_cp_all_other_countries
+            assert_current_node :outcome_same_sex_marriage_and_civil_partnership_other_countries
           end
         end
       end
@@ -1276,7 +1276,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to all other countries outcome" do
-      assert_current_node :outcome_cp_all_other_countries
+      assert_current_node :outcome_same_sex_marriage_and_civil_partnership_other_countries
     end
   end
 
@@ -1847,7 +1847,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to outcome 'no same sex marriage allowed' because partner is not british" do
-      assert_current_node :outcome_cp_all_other_countries
+      assert_current_node :outcome_same_sex_marriage_and_civil_partnership_other_countries
     end
   end
 
@@ -2179,7 +2179,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'same_sex'
 
-      assert_current_node :outcome_cp_all_other_countries
+      assert_current_node :outcome_same_sex_marriage_and_civil_partnership_other_countries
     end
   end
 

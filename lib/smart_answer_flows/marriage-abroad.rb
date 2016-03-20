@@ -199,7 +199,7 @@ module SmartAnswer
             elsif calculator.civil_partnership_consular_country?
               outcome :outcome_same_sex_civil_partnership_consular
             else
-              outcome :outcome_cp_all_other_countries
+              outcome :outcome_same_sex_marriage_and_civil_partnership_other_countries
             end
           end
         end
@@ -274,7 +274,7 @@ module SmartAnswer
 
       outcome :outcome_same_sex_civil_partnership_consular
 
-      outcome :outcome_cp_all_other_countries
+      outcome :outcome_same_sex_marriage_and_civil_partnership_other_countries
 
       outcome :outcome_ss_marriage
 
