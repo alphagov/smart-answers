@@ -1176,7 +1176,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'uk'
       add_response 'partner_local'
       add_response 'same_sex'
-      assert_current_node :outcome_cp_no_cni
+      assert_current_node :outcome_same_sex_civil_partnership_no_cni
       assert_equal 'the USA', current_state.calculator.country_name_lowercase_prefix
     end
 
@@ -1184,7 +1184,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'ceremony_country'
       add_response 'partner_local'
       add_response 'same_sex'
-      assert_current_node :outcome_cp_no_cni
+      assert_current_node :outcome_same_sex_civil_partnership_no_cni
       assert_equal 'the USA', current_state.calculator.country_name_lowercase_prefix
     end
   end
@@ -1198,7 +1198,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to cp no cni required outcome" do
-      assert_current_node :outcome_cp_no_cni
+      assert_current_node :outcome_same_sex_civil_partnership_no_cni
     end
   end
 
@@ -1211,7 +1211,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to cp no cni required outcome" do
-      assert_current_node :outcome_cp_no_cni
+      assert_current_node :outcome_same_sex_civil_partnership_no_cni
     end
   end
 
@@ -1224,7 +1224,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to cp no cni required outcome" do
-      assert_current_node :outcome_cp_no_cni
+      assert_current_node :outcome_same_sex_civil_partnership_no_cni
     end
   end
 
