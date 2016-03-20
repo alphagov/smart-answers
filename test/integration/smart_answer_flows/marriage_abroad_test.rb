@@ -96,7 +96,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
             add_response 'opposite_sex'
           end
           should "give outcome opposite sex commonwealth" do
-            assert_current_node :outcome_os_commonwealth
+            assert_current_node :outcome_opposite_sex_marriage_in_commonwealth_countries
             expected_location = WorldLocation.find('bahamas')
             assert_equal expected_location, current_state.calculator.world_location
           end
@@ -134,7 +134,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
             add_response 'opposite_sex'
           end
           should "give outcome opposite sex commonwealth" do
-            assert_current_node :outcome_os_commonwealth
+            assert_current_node :outcome_opposite_sex_marriage_in_commonwealth_countries
             expected_location = WorldLocation.find('bahamas')
             assert_equal expected_location, current_state.calculator.world_location
           end
@@ -172,7 +172,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
             add_response 'opposite_sex'
           end
           should "give outcome opposite sex commonwealth" do
-            assert_current_node :outcome_os_commonwealth
+            assert_current_node :outcome_opposite_sex_marriage_in_commonwealth_countries
             expected_location = WorldLocation.find('bahamas')
             assert_equal expected_location, current_state.calculator.world_location
           end
@@ -198,7 +198,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
     end
     should "go to commonwealth os outcome" do
-      assert_current_node :outcome_os_commonwealth
+      assert_current_node :outcome_opposite_sex_marriage_in_commonwealth_countries
       expected_location = WorldLocation.find('australia')
       assert_equal expected_location, current_state.calculator.world_location
     end
@@ -213,7 +213,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
     end
     should "go to commonwealth os outcome" do
-      assert_current_node :outcome_os_commonwealth
+      assert_current_node :outcome_opposite_sex_marriage_in_commonwealth_countries
       expected_location = WorldLocation.find('bahamas')
       assert_equal expected_location, current_state.calculator.world_location
     end
@@ -228,7 +228,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
     end
     should "go to commonwealth os outcome" do
-      assert_current_node :outcome_os_commonwealth
+      assert_current_node :outcome_opposite_sex_marriage_in_commonwealth_countries
     end
   end
 
@@ -241,13 +241,13 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'uk'
       add_response 'partner_british'
       add_response 'opposite_sex'
-      assert_current_node :outcome_os_commonwealth
+      assert_current_node :outcome_opposite_sex_marriage_in_commonwealth_countries
     end
     should "go to commonwealth os outcome for non-uk resident" do
       add_response 'ceremony_country'
       add_response 'partner_local'
       add_response 'opposite_sex'
-      assert_current_node :outcome_os_commonwealth
+      assert_current_node :outcome_opposite_sex_marriage_in_commonwealth_countries
     end
   end
 
@@ -260,7 +260,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
     end
     should "go to commonwealth os outcome" do
-      assert_current_node :outcome_os_commonwealth
+      assert_current_node :outcome_opposite_sex_marriage_in_commonwealth_countries
     end
   end
 
@@ -273,7 +273,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
     end
     should "go to commonwealth os outcome" do
-      assert_current_node :outcome_os_commonwealth
+      assert_current_node :outcome_opposite_sex_marriage_in_commonwealth_countries
     end
   end
 
@@ -1988,7 +1988,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
     end
     should "show 7 day notice" do
-      assert_current_node :outcome_os_commonwealth
+      assert_current_node :outcome_opposite_sex_marriage_in_commonwealth_countries
     end
   end
 
@@ -2040,7 +2040,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
     end
     should "do not allow marriage" do
-      assert_current_node :outcome_os_commonwealth
+      assert_current_node :outcome_opposite_sex_marriage_in_commonwealth_countries
     end
   end
 
