@@ -160,7 +160,7 @@ module SmartAnswer
                 calculator.ceremony_country == 'zimbabwe'
               outcome :outcome_opposite_sex_marriage_commonwealth
             elsif calculator.ceremony_country_is_british_overseas_territory?
-              outcome :outcome_os_bot
+              outcome :outcome_opposite_sex_marriage_british_overseas_territory
             elsif calculator.opposite_sex_no_consular_cni_country? ||
                 (
                   calculator.resident_outside_of_uk? &&
@@ -245,7 +245,7 @@ module SmartAnswer
 
       outcome :outcome_opposite_sex_marriage_commonwealth
 
-      outcome :outcome_os_bot
+      outcome :outcome_opposite_sex_marriage_british_overseas_territory
 
       outcome :outcome_os_belarus
 
