@@ -417,7 +417,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
     end
     should "go to consular cni os outcome" do
-      assert_current_node :outcome_os_germany
+      assert_current_node :outcome_opposite_sex_marriage_in_germany
     end
   end
 
