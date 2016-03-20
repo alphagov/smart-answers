@@ -286,7 +286,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to consular cp outcome" do
-      assert_current_node :outcome_cp_consular
+      assert_current_node :outcome_same_sex_civil_partnership_in_consular_countries
     end
   end
 
@@ -485,9 +485,9 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk_or_ceremony_country
     end
 
-    should "go to outcome_cp_consular outcome for same sex marriage" do
+    should "go to outcome_same_sex_civil_partnership_in_consular_countries outcome for same sex marriage" do
       add_response 'same_sex'
-      assert_current_node :outcome_cp_consular
+      assert_current_node :outcome_same_sex_civil_partnership_in_consular_countries
     end
   end
   #variant for local resident, ceremony not in italy or germany
