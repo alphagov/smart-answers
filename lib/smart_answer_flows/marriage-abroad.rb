@@ -195,7 +195,7 @@ module SmartAnswer
             elsif calculator.civil_partnership_equivalent_country?
               outcome :outcome_same_sex_civil_partnership
             elsif calculator.civil_partnership_cni_not_required_country?
-              outcome :outcome_cp_no_cni
+              outcome :outcome_same_sex_civil_partnership_in_no_cni_countries
             elsif %w(canada south-africa).include?(calculator.ceremony_country)
               outcome :outcome_cp_commonwealth_countries
             elsif calculator.civil_partnership_consular_country?
@@ -270,7 +270,7 @@ module SmartAnswer
 
       outcome :outcome_civil_partnership_in_france_or_french_overseas_territory
 
-      outcome :outcome_cp_no_cni
+      outcome :outcome_same_sex_civil_partnership_in_no_cni_countries
 
       outcome :outcome_cp_commonwealth_countries
 
