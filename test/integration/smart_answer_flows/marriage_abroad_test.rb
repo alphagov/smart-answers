@@ -2027,7 +2027,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "do not allow marriage" do
-      assert_current_node :outcome_ss_marriage_malta
+      assert_current_node :outcome_same_sex_marriage_and_civil_partnership_malta
     end
   end
 

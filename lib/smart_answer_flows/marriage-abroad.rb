@@ -178,7 +178,7 @@ module SmartAnswer
             elsif calculator.same_sex_ceremony_country_unknown_or_has_no_embassies?
               outcome :outcome_opposite_sex_no_cni_residing_in_ceremony_or_third_country
             elsif calculator.ceremony_country == "malta"
-              outcome :outcome_ss_marriage_malta
+              outcome :outcome_same_sex_marriage_and_civil_partnership_malta
             elsif calculator.same_sex_marriage_not_possible?
               outcome :outcome_same_sex_marriage_and_civil_partnership_not_possible
             elsif calculator.ceremony_country == "germany" && calculator.partner_is_national_of_ceremony_country?
@@ -280,7 +280,7 @@ module SmartAnswer
 
       outcome :outcome_same_sex_marriage_and_civil_partnership_not_possible
 
-      outcome :outcome_ss_marriage_malta
+      outcome :outcome_same_sex_marriage_and_civil_partnership_malta
 
       outcome :outcome_ss_affirmation
 
