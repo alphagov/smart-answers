@@ -111,7 +111,7 @@ module SmartAnswer
             elsif calculator.ceremony_country == 'oman'
               outcome :outcome_opposite_sex_marriage_in_oman
             elsif calculator.ceremony_country == 'belarus'
-              outcome :outcome_os_belarus
+              outcome :outcome_opposite_sex_marriage_in_belarus
             elsif calculator.ceremony_country == 'kuwait'
               outcome :outcome_opposite_sex_marriage_in_kuwait
             elsif calculator.ceremony_country == 'japan'
@@ -249,7 +249,7 @@ module SmartAnswer
 
       outcome :outcome_opposite_sex_marriage_in_british_overseas_territory
 
-      outcome :outcome_os_belarus
+      outcome :outcome_opposite_sex_marriage_in_belarus
 
       outcome :outcome_os_italy
 
