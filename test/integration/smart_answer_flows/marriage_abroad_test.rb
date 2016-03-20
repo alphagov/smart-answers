@@ -1399,7 +1399,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
       should "give a japan-specific outcome" do
         add_response 'opposite_sex'
-        assert_current_node :outcome_os_japan
+        assert_current_node :outcome_opposite_sex_marriage_japan
       end
       should "give ss outcome with japan variants" do
         add_response 'same_sex'
@@ -1415,7 +1415,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       end
 
       should "have a japan-specific intro" do
-        assert_current_node :outcome_os_japan
+        assert_current_node :outcome_opposite_sex_marriage_japan
       end
     end
 
@@ -1427,7 +1427,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       end
 
       should "give CNI outcome when marrying to an opposite sex non-local partner" do
-        assert_current_node :outcome_os_japan
+        assert_current_node :outcome_opposite_sex_marriage_japan
       end
     end
 
@@ -1439,7 +1439,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       end
 
       should "takes the user to a Japan specific outcome for opposite sex marriages" do
-        assert_current_node :outcome_os_japan
+        assert_current_node :outcome_opposite_sex_marriage_japan
       end
     end
   end
