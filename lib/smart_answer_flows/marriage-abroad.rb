@@ -182,7 +182,7 @@ module SmartAnswer
             elsif calculator.same_sex_marriage_not_possible?
               outcome :outcome_ss_marriage_not_possible
             elsif calculator.ceremony_country == "germany" && calculator.partner_is_national_of_ceremony_country?
-              outcome :outcome_cp_or_equivalent
+              outcome :outcome_same_sex_civil_partnership_or_equivalent
             elsif calculator.same_sex_marriage_country? ||
                 (
                   calculator.same_sex_marriage_country_when_couple_british? &&
@@ -191,7 +191,7 @@ module SmartAnswer
                 calculator.same_sex_marriage_and_civil_partnership?
               outcome :outcome_ss_marriage
             elsif calculator.civil_partnership_equivalent_country?
-              outcome :outcome_cp_or_equivalent
+              outcome :outcome_same_sex_civil_partnership_or_equivalent
             elsif calculator.civil_partnership_cni_not_required_country?
               outcome :outcome_cp_no_cni
             elsif %w(canada south-africa).include?(calculator.ceremony_country)
@@ -264,7 +264,7 @@ module SmartAnswer
       outcome :outcome_opposite_sex_marriage_other_countries
 
       #CP outcomes
-      outcome :outcome_cp_or_equivalent
+      outcome :outcome_same_sex_civil_partnership_or_equivalent
 
       outcome :outcome_cp_france_pacs
 

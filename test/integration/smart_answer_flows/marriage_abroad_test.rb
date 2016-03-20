@@ -430,7 +430,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to cp or equivalent outcome" do
-      assert_current_node :outcome_cp_or_equivalent
+      assert_current_node :outcome_same_sex_civil_partnership_or_equivalent
     end
   end
 
@@ -1113,7 +1113,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to cp or equivalent outcome" do
-      assert_current_node :outcome_cp_or_equivalent
+      assert_current_node :outcome_same_sex_civil_partnership_or_equivalent
     end
   end
 
@@ -1126,7 +1126,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to cp or equivalent outcome" do
-      assert_current_node :outcome_cp_or_equivalent
+      assert_current_node :outcome_same_sex_civil_partnership_or_equivalent
       assert_equal 'the Czech Republic', current_state.calculator.country_name_lowercase_prefix
     end
   end
@@ -1140,7 +1140,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to cp or equivalent os outcome" do
-      assert_current_node :outcome_cp_or_equivalent
+      assert_current_node :outcome_same_sex_civil_partnership_or_equivalent
     end
   end
 
@@ -1250,7 +1250,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to consular cni cp countries outcome" do
-      assert_current_node :outcome_cp_or_equivalent
+      assert_current_node :outcome_same_sex_civil_partnership_or_equivalent
     end
   end
 
@@ -1608,7 +1608,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to affirmation outcome with specific fee table" do
-      assert_current_node :outcome_cp_or_equivalent
+      assert_current_node :outcome_same_sex_civil_partnership_or_equivalent
     end
   end
 
