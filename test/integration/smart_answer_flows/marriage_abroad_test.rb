@@ -2197,20 +2197,20 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_consular_cni_os_residing_in_third_country
     end
 
-    should "lead to a :outcome_os_kosovo outcome for uk, partner_local and opposite_sex" do
+    should "lead to a :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_uk_or_kosovo outcome for uk, partner_local and opposite_sex" do
       add_response 'uk'
       add_response 'partner_local'
       add_response 'opposite_sex'
 
-      assert_current_node :outcome_os_kosovo
+      assert_current_node :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_uk_or_kosovo
     end
 
-    should "lead to a :outcome_os_kosovo outcome for ceremony_country, partner_local and opposite_sex" do
+    should "lead to a :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_uk_or_kosovo outcome for ceremony_country, partner_local and opposite_sex" do
       add_response 'ceremony_country'
       add_response 'partner_local'
       add_response 'opposite_sex'
 
-      assert_current_node :outcome_os_kosovo
+      assert_current_node :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_uk_or_kosovo
     end
   end
 
