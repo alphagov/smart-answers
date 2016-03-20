@@ -170,7 +170,7 @@ module SmartAnswer
             elsif calculator.opposite_sex_marriage_via_local_authorities?
               outcome :outcome_marriage_via_local_authorities
             elsif calculator.opposite_sex_in_other_countries?
-              outcome :outcome_os_other_countries
+              outcome :outcome_opposite_sex_marriage_other_countries
             end
           elsif calculator.partner_is_same_sex?
             if %w(belgium norway).include?(calculator.ceremony_country)
@@ -261,7 +261,7 @@ module SmartAnswer
 
       outcome :outcome_opposite_sex_no_cni_residing_in_ceremony_or_third_country
 
-      outcome :outcome_os_other_countries
+      outcome :outcome_opposite_sex_marriage_other_countries
 
       #CP outcomes
       outcome :outcome_cp_or_equivalent
