@@ -253,39 +253,7 @@ module SmartAnswer
 
       outcome :outcome_consular_cni_os_residing_in_third_country
 
-      outcome :outcome_os_consular_cni do
-        precalculate :three_day_residency_requirement_applies do
-          %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria chile croatia cuba democratic-republic-of-congo denmark dominican-republic el-salvador estonia ethiopia georgia greece guatemala honduras hungary iceland italy kazakhstan kosovo kuwait kyrgyzstan latvia lithuania luxembourg macedonia mexico moldova montenegro nepal panama romania russia serbia slovenia sudan sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
-        end
-        precalculate :three_day_residency_handled_by_exception do
-          %w(croatia italy russia)
-        end
-        precalculate :no_birth_cert_requirement do
-          three_day_residency_requirement_applies - ['italy']
-        end
-        precalculate :cni_notary_public_countries do
-          %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg mexico moldova montenegro russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
-        end
-        precalculate :no_document_download_link_if_os_resident_of_uk_countries do
-          %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland italy japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua russia serbia sweden tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
-        end
-        precalculate :cni_posted_after_14_days_countries do
-          %w(jordan qatar saudi-arabia united-arab-emirates yemen)
-        end
-        precalculate :ceremony_and_residency_in_croatia do
-          (calculator.ceremony_country == 'croatia' && calculator.resident_of_ceremony_country?)
-        end
-        precalculate :birth_cert_inclusion do
-          if no_birth_cert_requirement.exclude?(calculator.ceremony_country)
-            '_incl_birth_cert'
-          end
-        end
-        precalculate :notary_public_inclusion do
-          if cni_notary_public_countries.include?(calculator.ceremony_country) || %w(japan macedonia).include?(calculator.ceremony_country)
-            '_notary_public'
-          end
-        end
-      end
+      outcome :outcome_os_consular_cni
 
       outcome :outcome_os_france_or_fot
 

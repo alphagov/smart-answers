@@ -240,6 +240,26 @@ module SmartAnswer::Calculators
       outcome_path_when_resident_in('ceremony_country')
     end
 
+    def three_day_residency_requirement_applies?
+      MarriageAbroadDataQuery::THREE_DAY_RESIDENCY_REQUIREMENT_COUNTRIES.include?(ceremony_country)
+    end
+
+    def cni_posted_after_14_days?
+      MarriageAbroadDataQuery::CNI_POSTED_AFTER_14_DAYS_COUNTRIES.include?(ceremony_country)
+    end
+
+    def birth_certificate_required_as_supporting_document?
+      MarriageAbroadDataQuery::NO_BIRTH_CERT_REQUIREMENT.exclude?(ceremony_country)
+    end
+
+    def notary_public_ceremony_country?
+      MarriageAbroadDataQuery::CNI_NOTARY_PUBLIC_COUNTRIES.include?(ceremony_country)
+    end
+
+    def document_download_link_if_opposite_sex_resident_of_uk_countries?
+      MarriageAbroadDataQuery::NO_DOCUMENT_DOWNLOAD_LINK_IF_OS_RESIDENT_OF_UK_COUNTRIES.exclude?(ceremony_country)
+    end
+
   private
 
     def outcome_path_when_resident_in(uk_or_ceremony_country)
