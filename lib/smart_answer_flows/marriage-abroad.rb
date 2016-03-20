@@ -180,7 +180,7 @@ module SmartAnswer
             elsif calculator.ceremony_country == "malta"
               outcome :outcome_ss_marriage_malta
             elsif calculator.same_sex_marriage_not_possible?
-              outcome :outcome_ss_marriage_not_possible
+              outcome :outcome_same_sex_marriage_and_civil_partnership_not_possible
             elsif calculator.ceremony_country == "germany" && calculator.partner_is_national_of_ceremony_country?
               outcome :outcome_same_sex_civil_partnership_or_equivalent
             elsif calculator.same_sex_marriage_country? ||
@@ -278,7 +278,7 @@ module SmartAnswer
 
       outcome :outcome_ss_marriage
 
-      outcome :outcome_ss_marriage_not_possible
+      outcome :outcome_same_sex_marriage_and_civil_partnership_not_possible
 
       outcome :outcome_ss_marriage_malta
 
