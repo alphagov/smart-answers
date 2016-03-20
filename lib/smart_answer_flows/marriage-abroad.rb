@@ -126,7 +126,7 @@ module SmartAnswer
             elsif calculator.ceremony_country == 'norway' && calculator.resident_of_third_country?
               outcome :outcome_consular_cni_os_residing_in_third_country
             elsif calculator.ceremony_country == 'italy'
-              outcome :outcome_os_italy
+              outcome :outcome_opposite_sex_marriage_in_italy_when_residing_in_uk_or_italy
             elsif calculator.ceremony_country == 'cambodia'
               outcome :outcome_opposite_sex_marriage_in_cambodia
             elsif calculator.ceremony_country == "colombia"
@@ -251,7 +251,7 @@ module SmartAnswer
 
       outcome :outcome_opposite_sex_marriage_in_belarus
 
-      outcome :outcome_os_italy
+      outcome :outcome_opposite_sex_marriage_in_italy_when_residing_in_uk_or_italy
 
       outcome :outcome_consular_cni_os_residing_in_third_country
 
