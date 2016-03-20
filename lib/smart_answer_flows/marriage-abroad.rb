@@ -189,7 +189,7 @@ module SmartAnswer
                   calculator.partner_british?
                 ) ||
                 calculator.same_sex_marriage_and_civil_partnership?
-              outcome :outcome_ss_marriage
+              outcome :outcome_same_sex_marriage_and_civil_partnership
             elsif calculator.civil_partnership_equivalent_country?
               outcome :outcome_same_sex_civil_partnership_or_equivalent
             elsif calculator.civil_partnership_cni_not_required_country?
@@ -276,7 +276,7 @@ module SmartAnswer
 
       outcome :outcome_same_sex_marriage_and_civil_partnership_other_countries
 
-      outcome :outcome_ss_marriage
+      outcome :outcome_same_sex_marriage_and_civil_partnership
 
       outcome :outcome_same_sex_marriage_and_civil_partnership_not_possible
 

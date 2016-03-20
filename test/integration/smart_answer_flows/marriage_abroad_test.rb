@@ -443,7 +443,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to ss marriage" do
-      assert_current_node :outcome_ss_marriage
+      assert_current_node :outcome_same_sex_marriage_and_civil_partnership
     end
   end
   #variants for uk residency (again)
@@ -850,8 +850,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         add_response 'partner_other'
         add_response 'same_sex'
       end
-      should "go to outcome_ss_marriage" do
-        assert_current_node :outcome_ss_marriage
+      should "go to outcome_same_sex_marriage_and_civil_partnership" do
+        assert_current_node :outcome_same_sex_marriage_and_civil_partnership
       end
     end
   end
@@ -1289,7 +1289,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to consular cni cp countries outcome" do
-      assert_current_node :outcome_ss_marriage
+      assert_current_node :outcome_same_sex_marriage_and_civil_partnership
     end
   end
 
@@ -1302,7 +1302,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to cp all other countries outcome" do
-      assert_current_node :outcome_ss_marriage
+      assert_current_node :outcome_same_sex_marriage_and_civil_partnership
     end
   end
 
@@ -1336,8 +1336,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'same_sex'
     end
-    should "go to outcome_ss_marriage" do
-      assert_current_node :outcome_ss_marriage
+    should "go to outcome_same_sex_marriage_and_civil_partnership" do
+      assert_current_node :outcome_same_sex_marriage_and_civil_partnership
     end
   end
 
@@ -1348,7 +1348,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'ceremony_country'
       add_response 'partner_british'
       add_response 'same_sex'
-      assert_current_node :outcome_ss_marriage
+      assert_current_node :outcome_same_sex_marriage_and_civil_partnership
     end
   end
 
@@ -1370,7 +1370,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'uk'
       add_response 'partner_other'
       add_response 'same_sex'
-      assert_current_node :outcome_ss_marriage
+      assert_current_node :outcome_same_sex_marriage_and_civil_partnership
     end
   end
 
@@ -1403,7 +1403,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       end
       should "give ss outcome with japan variants" do
         add_response 'same_sex'
-        assert_current_node :outcome_ss_marriage
+        assert_current_node :outcome_same_sex_marriage_and_civil_partnership
       end
     end
 
@@ -1521,7 +1521,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'uk'
       add_response 'partner_british'
       add_response 'same_sex'
-      assert_current_node :outcome_ss_marriage
+      assert_current_node :outcome_same_sex_marriage_and_civil_partnership
     end
   end
 
@@ -1709,8 +1709,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_other'
       add_response 'same_sex'
     end
-    should "go to outcome_ss_marriage" do
-      assert_current_node :outcome_ss_marriage
+    should "go to outcome_same_sex_marriage_and_civil_partnership" do
+      assert_current_node :outcome_same_sex_marriage_and_civil_partnership
     end
   end
 
@@ -1723,7 +1723,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to ss outcome" do
-      assert_current_node :outcome_ss_marriage
+      assert_current_node :outcome_same_sex_marriage_and_civil_partnership
     end
   end
 
@@ -1833,8 +1833,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'same_sex'
     end
-    should "go to outcome_ss_marriage" do
-      assert_current_node :outcome_ss_marriage
+    should "go to outcome_same_sex_marriage_and_civil_partnership" do
+      assert_current_node :outcome_same_sex_marriage_and_civil_partnership
     end
   end
 
@@ -2167,7 +2167,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'same_sex'
 
-      assert_current_node :outcome_ss_marriage
+      assert_current_node :outcome_same_sex_marriage_and_civil_partnership
     end
   end
 
@@ -2221,10 +2221,10 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'ceremony_country'
     end
 
-    should "lead to outcome_ss_marriage when both partners are same sex british" do
+    should "lead to outcome_same_sex_marriage_and_civil_partnership when both partners are same sex british" do
       add_response 'partner_british'
       add_response 'same_sex'
-      assert_current_node :outcome_ss_marriage
+      assert_current_node :outcome_same_sex_marriage_and_civil_partnership
     end
 
     should "lead to outcome_same_sex_marriage_and_civil_partnership_not_possible when both partners are same sex not british" do
@@ -2349,7 +2349,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   end
 
   context "Seychelles" do
-    should "lead to outcome_ss_marriage for same sex marriages" do
+    should "lead to outcome_same_sex_marriage_and_civil_partnership for same sex marriages" do
       worldwide_api_has_organisations_for_location('seychelles', read_fixture_file('worldwide/seychelles_organisations.json'))
       add_response 'seychelles'
       add_response 'ceremony_country'
