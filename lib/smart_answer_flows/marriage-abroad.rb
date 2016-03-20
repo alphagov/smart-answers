@@ -30,7 +30,7 @@ module SmartAnswer
           elsif %w(france monaco new-caledonia wallis-and-futuna).include?(calculator.ceremony_country)
             question :marriage_or_pacs?
           elsif calculator.ceremony_country_is_french_overseas_territory?
-            outcome :outcome_os_france_or_fot
+            outcome :outcome_marriage_france_or_french_overseas_territory
           else
             question :legal_residency?
           end
@@ -63,7 +63,7 @@ module SmartAnswer
           if calculator.ceremony_country == 'monaco'
             outcome :outcome_monaco
           elsif calculator.want_to_get_married?
-            outcome :outcome_os_france_or_fot
+            outcome :outcome_marriage_france_or_french_overseas_territory
           else
             outcome :outcome_cp_france_pacs
           end
@@ -255,7 +255,7 @@ module SmartAnswer
 
       outcome :outcome_opposite_sex_marriage_consular_cni_residing_in_uk_or_ceremony_country
 
-      outcome :outcome_os_france_or_fot
+      outcome :outcome_marriage_france_or_french_overseas_territory
 
       outcome :outcome_os_affirmation
 

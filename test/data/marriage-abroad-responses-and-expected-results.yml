@@ -7598,7 +7598,7 @@
   :responses:
   - france
   - marriage
-  :next_node: :outcome_os_france_or_fot
+  :next_node: :outcome_marriage_france_or_french_overseas_territory
   :outcome_node: true
 - :current_node: :marriage_or_pacs?
   :responses:
@@ -13146,7 +13146,7 @@
 - :current_node: :country_of_ceremony?
   :responses:
   - mayotte
-  :next_node: :outcome_os_france_or_fot
+  :next_node: :outcome_marriage_france_or_french_overseas_territory
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:
@@ -22209,7 +22209,7 @@
   :responses:
   - wallis-and-futuna
   - marriage
-  :next_node: :outcome_os_france_or_fot
+  :next_node: :outcome_marriage_france_or_french_overseas_territory
   :outcome_node: true
 - :current_node: :marriage_or_pacs?
   :responses:
