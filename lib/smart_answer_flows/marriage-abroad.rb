@@ -65,7 +65,7 @@ module SmartAnswer
           elsif calculator.want_to_get_married?
             outcome :outcome_marriage_in_france_or_french_overseas_territory
           else
-            outcome :outcome_cp_france_pacs
+            outcome :outcome_civil_partnership_in_france_or_french_overseas_territory
           end
         end
       end
@@ -268,7 +268,7 @@ module SmartAnswer
       #CP outcomes
       outcome :outcome_same_sex_civil_partnership
 
-      outcome :outcome_cp_france_pacs
+      outcome :outcome_civil_partnership_in_france_or_french_overseas_territory
 
       outcome :outcome_cp_no_cni
 
