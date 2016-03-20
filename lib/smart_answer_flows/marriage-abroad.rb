@@ -130,7 +130,7 @@ module SmartAnswer
             elsif calculator.ceremony_country == 'cambodia'
               outcome :outcome_opposite_sex_marriage_in_cambodia
             elsif calculator.ceremony_country == "colombia"
-              outcome :outcome_os_colombia
+              outcome :outcome_opposite_sex_marriage_in_colombia
             elsif calculator.ceremony_country == 'germany'
               outcome :outcome_opposite_sex_marriage_in_germany
             elsif calculator.ceremony_country == "kosovo"
@@ -233,7 +233,7 @@ module SmartAnswer
 
       outcome :outcome_opposite_sex_marriage_in_cambodia
 
-      outcome :outcome_os_colombia
+      outcome :outcome_opposite_sex_marriage_in_colombia
 
       outcome :outcome_os_oman
 
