@@ -1263,7 +1263,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to all other countries outcome" do
-      assert_current_node :outcome_ss_marriage_not_possible
+      assert_current_node :outcome_same_sex_marriage_and_civil_partnership_not_possible
     end
   end
 
@@ -1735,8 +1735,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_other'
       add_response 'same_sex'
     end
-    should "go to outcome_ss_marriage_not_possible" do
-      assert_current_node :outcome_ss_marriage_not_possible
+    should "go to outcome_same_sex_marriage_and_civil_partnership_not_possible" do
+      assert_current_node :outcome_same_sex_marriage_and_civil_partnership_not_possible
     end
   end
 
@@ -2014,7 +2014,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "do not allow marriage" do
-      assert_current_node :outcome_ss_marriage_not_possible
+      assert_current_node :outcome_same_sex_marriage_and_civil_partnership_not_possible
     end
   end
 
@@ -2227,10 +2227,10 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_ss_marriage
     end
 
-    should "lead to outcome_ss_marriage_not_possible when both partners are same sex not british" do
+    should "lead to outcome_same_sex_marriage_and_civil_partnership_not_possible when both partners are same sex not british" do
       add_response 'partner_local'
       add_response 'same_sex'
-      assert_current_node :outcome_ss_marriage_not_possible
+      assert_current_node :outcome_same_sex_marriage_and_civil_partnership_not_possible
     end
   end
 
@@ -2355,7 +2355,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'ceremony_country'
       add_response 'partner_local'
       add_response 'same_sex'
-      assert_current_node :outcome_ss_marriage_not_possible
+      assert_current_node :outcome_same_sex_marriage_and_civil_partnership_not_possible
     end
   end
 
