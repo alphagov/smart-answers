@@ -879,7 +879,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
     end
     should "go to consular cni os outcome" do
-      assert_current_node :outcome_os_no_cni
+      assert_current_node :outcome_opposite_sex_no_cni_residing_in_ceremony_or_third_country
     end
   end
 
@@ -892,7 +892,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
     end
     should "go to consular cni os outcome" do
-      assert_current_node :outcome_os_no_cni
+      assert_current_node :outcome_opposite_sex_no_cni_residing_in_ceremony_or_third_country
     end
   end
 
@@ -1009,7 +1009,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
     end
     should "go to consular cni os outcome" do
-      assert_current_node :outcome_os_no_cni
+      assert_current_node :outcome_opposite_sex_no_cni_residing_in_ceremony_or_third_country
     end
   end
 
@@ -2001,7 +2001,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
     end
     should "show 7 day notice" do
-      assert_current_node :outcome_os_no_cni
+      assert_current_node :outcome_opposite_sex_no_cni_residing_in_ceremony_or_third_country
     end
   end
 
@@ -2246,13 +2246,13 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "suggest to contact local authorities even if the user is in third country for OS (because they don't have many embassies)" do
       add_response 'opposite_sex'
 
-      assert_current_node :outcome_os_no_cni
+      assert_current_node :outcome_opposite_sex_no_cni_residing_in_ceremony_or_third_country
     end
 
     should "suggest to contact local authorities even if the user is in third country for SS (because they don't have many embassies)" do
       add_response 'same_sex'
 
-      assert_current_node :outcome_os_no_cni
+      assert_current_node :outcome_opposite_sex_no_cni_residing_in_ceremony_or_third_country
     end
   end
 
@@ -2268,13 +2268,13 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     should "suggest to contact local authorities even if the user is in third country for OS (because they don't have many embassies)" do
       add_response 'opposite_sex'
 
-      assert_current_node :outcome_os_no_cni
+      assert_current_node :outcome_opposite_sex_no_cni_residing_in_ceremony_or_third_country
     end
 
     should "suggest to contact local authorities even if the user is in third country for SS (because they don't have many embassies)" do
       add_response 'same_sex'
 
-      assert_current_node :outcome_os_no_cni
+      assert_current_node :outcome_opposite_sex_no_cni_residing_in_ceremony_or_third_country
     end
   end
 
