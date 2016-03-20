@@ -2120,8 +2120,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         add_response 'partner_local'
         add_response 'opposite_sex'
       end
-      should "lead to outcome_os_laos" do
-        assert_current_node :outcome_os_laos
+      should "lead to outcome_opposite_sex_marriage_laos_with_lao_national" do
+        assert_current_node :outcome_opposite_sex_marriage_laos_with_lao_national
       end
     end
 
@@ -2131,8 +2131,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         add_response 'partner_local'
         add_response 'opposite_sex'
       end
-      should "lead to outcome_os_laos" do
-        assert_current_node :outcome_os_laos
+      should "lead to outcome_opposite_sex_marriage_laos_with_lao_national" do
+        assert_current_node :outcome_opposite_sex_marriage_laos_with_lao_national
       end
     end
 
@@ -2142,8 +2142,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         add_response 'partner_local'
         add_response 'opposite_sex'
       end
-      should "lead to outcome_os_laos" do
-        assert_current_node :outcome_os_laos
+      should "lead to outcome_opposite_sex_marriage_laos_with_lao_national" do
+        assert_current_node :outcome_opposite_sex_marriage_laos_with_lao_national
       end
     end
 
