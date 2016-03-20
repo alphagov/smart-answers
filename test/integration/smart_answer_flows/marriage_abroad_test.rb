@@ -1237,7 +1237,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to cp commonwealth countries outcome" do
-      assert_current_node :outcome_cp_commonwealth_countries
+      assert_current_node :outcome_same_sex_civil_partnership_in_commonwealth_countries
     end
   end
 
