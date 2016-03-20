@@ -2153,8 +2153,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         add_response 'partner_other'
         add_response 'opposite_sex'
       end
-      should "lead to outcome_os_marriage_impossible_no_laos_locals" do
-        assert_current_node :outcome_os_marriage_impossible_no_laos_locals
+      should "lead to outcome_opposite_sex_marriage_laos_with_no_lao_national" do
+        assert_current_node :outcome_opposite_sex_marriage_laos_with_no_lao_national
       end
     end
   end
