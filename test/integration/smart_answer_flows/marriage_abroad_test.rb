@@ -661,18 +661,18 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_opposite_sex_marriage_affirmation
     end
 
-    should "go to outcome_ss_affirmation for same sex marriages for residents in a third country" do
+    should "go to outcome_same_sex_civil_partnership_affirmation for same sex marriages for residents in a third country" do
       add_response 'third_country'
       add_response 'partner_british'
       add_response 'same_sex'
-      assert_current_node :outcome_ss_affirmation
+      assert_current_node :outcome_same_sex_civil_partnership_affirmation
     end
 
-    should "go to outcome_ss_affirmation for same sex marriages for residents in Belgium" do
+    should "go to outcome_same_sex_civil_partnership_affirmation for same sex marriages for residents in Belgium" do
       add_response 'ceremony_country'
       add_response 'partner_british'
       add_response 'same_sex'
-      assert_current_node :outcome_ss_affirmation
+      assert_current_node :outcome_same_sex_civil_partnership_affirmation
     end
   end
 
@@ -2344,7 +2344,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'same_sex'
 
-      assert_current_node :outcome_ss_affirmation
+      assert_current_node :outcome_same_sex_civil_partnership_affirmation
     end
   end
 
