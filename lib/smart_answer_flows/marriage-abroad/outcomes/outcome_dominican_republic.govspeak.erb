@@ -26,7 +26,7 @@
 
     <%= render partial: 'contact_method.govspeak.erb',
            locals: { calculator: calculator } %>
-           
+
     <%= render partial: 'documents_needed_21_days_residency.govspeak.erb',
            locals: { calculator: calculator } %>
 
@@ -55,12 +55,14 @@
 
     ##Fees
 
-    Service | Fee
-    -|-
-    Receiving a notice of registration  | £65
-    Registering a marriage | £140
-    Issuing a marriage certificate | £65
-
+    <%= render partial: 'consular_fees_table.govspeak.erb',
+               locals: {
+                 services: [
+                   :receiving_notice_of_registration,
+                   :registering_marriage,
+                   :issuing_marriage_certificate,
+                 ]
+               } %>
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: { calculator: calculator } %>
 
