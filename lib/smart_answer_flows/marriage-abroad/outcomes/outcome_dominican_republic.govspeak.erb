@@ -24,8 +24,9 @@
   <% elsif calculator.partner_is_same_sex? %>
     You may be able to get married at the British embassy or consulate in the Dominican Republic.
 
-    [Make an appointment at the embassy in Santo Domingo.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-santo-domingo/notice-of-marriage-or-civil-partnership/slot_picker)
-
+    <%= render partial: 'contact_method.govspeak.erb',
+           locals: { calculator: calculator } %>
+           
     <%= render partial: 'documents_needed_21_days_residency.govspeak.erb',
            locals: { calculator: calculator } %>
 
