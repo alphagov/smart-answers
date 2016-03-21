@@ -10,14 +10,13 @@ module SmartAnswer
       end
 
       def next_node(&block)
+        unless block_given?
+          raise ArgumentError, 'You must specify a block'
+        end
         if @next_node_block.present?
           raise 'Multiple calls to next_node are not allowed'
         end
-        if block_given?
-          @next_node_block = block
-        else
-          raise ArgumentError, 'You must specify a block'
-        end
+        @next_node_block = block
       end
 
       def permitted_next_nodes
