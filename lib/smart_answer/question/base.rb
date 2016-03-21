@@ -4,7 +4,6 @@ module SmartAnswer
       class NextNodeUndefined < StandardError; end
 
       def initialize(flow, name, options = {}, &block)
-        @save_input_as = nil
         @validations = []
         @default_next_node_block = lambda { |_| nil }
         @permitted_next_nodes = []
