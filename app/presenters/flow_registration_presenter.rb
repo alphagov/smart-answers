@@ -40,7 +40,7 @@ class FlowRegistrationPresenter
 
   def indexable_content
     HTMLEntities.new.decode(
-      text = @flow.nodes.inject([start_node.body]) { |acc, node|
+      @flow.nodes.inject([start_node.body]) { |acc, node|
         case node
         when SmartAnswer::Question::Base
           pres = QuestionPresenter.new(node, nil, helpers: [MethodMissingHelper])
