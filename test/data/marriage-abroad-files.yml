@@ -26,7 +26,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/_contact_laadoul.govspeak.erb: 1
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_local_authorities.govspeak.erb: f8d276a3b65ce8160406b5c341c7d783
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_local_authorities_in_country_cp.govspeak.erb: c00842169aab58b455815258621a32a7
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_local_authorities_in_country_marriage.govspeak.erb: 033f28531a65164876ce6d6976de0ec1
-lib/smart_answer_flows/marriage-abroad/outcomes/_contact_method.govspeak.erb: 78b2e6b331f9da234638c3576c06bbe7
+lib/smart_answer_flows/marriage-abroad/outcomes/_contact_method.govspeak.erb: 0fc36af74c89444fa40d15e1122a7a9c
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_nearest_embassy_of_country.govspeak.erb: e12d9c675e88c6efb49d9fcf54cb4570
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_to_make_appointment.govspeak.erb: a7e4a184e974b3989a697578277b3b7a
 lib/smart_answer_flows/marriage-abroad/outcomes/_convert_cc_to_ss_marriage.govspeak.erb: 38e1be8bb7bdd80ef0c4c6c3af8f7f04
@@ -105,7 +105,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_bot.govspeak.erb: f9c
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_cambodia.govspeak.erb: b693e25f4030a1d19c6acd7cf1b3debe
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_colombia.govspeak.erb: a0860f0581acfa1e5533f3114569301c
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_commonwealth.govspeak.erb: 8709a00e420b96ca7378b89053e638f1
-lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_consular_cni.govspeak.erb: 26c1d35f0d5ff849a63adc236cddd44d
+lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_consular_cni.govspeak.erb: 19f8d618dbd8323785fadf78c382d758
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_france_or_fot.govspeak.erb: 71d74db77499d680423d7586ba9e0e61
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_germany.govspeak.erb: e5e8a3e5209c68f513e9dbe145a5b671
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_os_hong_kong.govspeak.erb: 9c1686c0a3ba24dff0297e4e04f2fae6
