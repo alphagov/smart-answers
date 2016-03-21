@@ -4,10 +4,10 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if calculator.partner_is_opposite_sex? %>
-    The General Register Office of Ireland’s website explains what you need to do if you want to [get married in Ireland](http://www.groireland.ie/getting_married.htm).
-  <% else %>
-    The General Register Office of Ireland’s website explains what you need to do if you want to [enter into a civil partnership in Ireland](http://www.groireland.ie/civil_partnership.htm).
-  <% end %>
-
+  The General Register Office of Ireland’s website explains what you need to do if you want to
+  <% if calculator.partner_is_opposite_sex? -%>
+    [get married in Ireland](http://www.welfare.ie/en/Pages/General-Register-Office.aspx).
+  <% else -%>
+    [enter into a civil partnership in Ireland](http://www.welfare.ie/en/Pages/General-Register-Office.aspx).
+  <% end -%>
 <% end %>
