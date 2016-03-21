@@ -205,86 +205,46 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_ireland
-
-      outcome :outcome_switzerland
-
-      outcome :outcome_marriage_via_local_authorities
-
-      outcome :outcome_portugal
-
-      outcome :outcome_opposite_sex_marriage_germany
-
-      outcome :outcome_opposite_sex_marriage_kuwait
-
-      outcome :outcome_opposite_sex_marriage_indonesia
-
-      outcome :outcome_opposite_sex_marriage_laos_with_lao_national
-
-      outcome :outcome_opposite_sex_marriage_japan
-
-      outcome :outcome_opposite_sex_marriage_hong_kong
-
-      outcome :outcome_opposite_sex_marriage_kosovo_residing_in_uk_or_ceremony_country
-
       outcome :outcome_brazil_not_living_in_the_uk
-
-      outcome :outcome_opposite_sex_marriage_cambodia
-
-      outcome :outcome_opposite_sex_marriage_colombia
-
-      outcome :outcome_opposite_sex_marriage_oman
-
-      outcome :outcome_opposite_sex_marriage_poland_residing_in_uk_or_ceremony_country
-
-      outcome :outcome_opposite_sex_marriage_slovenia_residing_in_uk_or_ceremony_country
-
-      outcome :outcome_monaco
-
-      outcome :outcome_spain
-
-      outcome :outcome_opposite_sex_marriage_commonwealth
-
-      outcome :outcome_opposite_sex_marriage_british_overseas_territory
-
-      outcome :outcome_opposite_sex_marriage_belarus
-
-      outcome :outcome_opposite_sex_marriage_italy_residing_in_uk_or_italy
-
-      outcome :outcome_opposite_sex_marriage_consular_cni_residing_in_third_country
-
-      outcome :outcome_opposite_sex_marriage_consular_cni_residing_in_uk_or_ceremony_country
-
-      outcome :outcome_marriage_france_or_french_overseas_territory
-
-      outcome :outcome_opposite_sex_marriage_affirmation
-
-      outcome :outcome_opposite_sex_no_cni_residing_in_ceremony_or_third_country
-
-      outcome :outcome_opposite_sex_marriage_other_countries
-
-      #CP outcomes
-      outcome :outcome_same_sex_civil_partnership_or_equivalent
-
       outcome :outcome_civil_partnership_france_or_french_overseas_territory
-
-      outcome :outcome_same_sex_civil_partnership_no_cni
-
-      outcome :outcome_same_sex_civil_partnership_commonwealth_countries
-
-      outcome :outcome_same_sex_civil_partnership_consular
-
-      outcome :outcome_same_sex_marriage_and_civil_partnership_other_countries
-
-      outcome :outcome_same_sex_marriage_and_civil_partnership
-
-      outcome :outcome_same_sex_marriage_and_civil_partnership_not_possible
-
-      outcome :outcome_same_sex_marriage_and_civil_partnership_malta
-
-      outcome :outcome_same_sex_civil_partnership_affirmation
-
+      outcome :outcome_ireland
+      outcome :outcome_marriage_france_or_french_overseas_territory
+      outcome :outcome_marriage_via_local_authorities
+      outcome :outcome_monaco
+      outcome :outcome_opposite_sex_marriage_affirmation
+      outcome :outcome_opposite_sex_marriage_belarus
+      outcome :outcome_opposite_sex_marriage_british_overseas_territory
+      outcome :outcome_opposite_sex_marriage_cambodia
+      outcome :outcome_opposite_sex_marriage_colombia
+      outcome :outcome_opposite_sex_marriage_commonwealth
+      outcome :outcome_opposite_sex_marriage_consular_cni_residing_in_third_country
+      outcome :outcome_opposite_sex_marriage_consular_cni_residing_in_uk_or_ceremony_country
+      outcome :outcome_opposite_sex_marriage_germany
+      outcome :outcome_opposite_sex_marriage_hong_kong
+      outcome :outcome_opposite_sex_marriage_indonesia
+      outcome :outcome_opposite_sex_marriage_italy_residing_in_uk_or_italy
+      outcome :outcome_opposite_sex_marriage_japan
+      outcome :outcome_opposite_sex_marriage_kosovo_residing_in_uk_or_ceremony_country
+      outcome :outcome_opposite_sex_marriage_kuwait
+      outcome :outcome_opposite_sex_marriage_laos_with_lao_national
       outcome :outcome_opposite_sex_marriage_laos_with_no_lao_national
+      outcome :outcome_opposite_sex_marriage_oman
+      outcome :outcome_opposite_sex_marriage_other_countries
+      outcome :outcome_opposite_sex_marriage_poland_residing_in_uk_or_ceremony_country
+      outcome :outcome_opposite_sex_marriage_slovenia_residing_in_uk_or_ceremony_country
+      outcome :outcome_opposite_sex_no_cni_residing_in_ceremony_or_third_country
+      outcome :outcome_portugal
+      outcome :outcome_same_sex_civil_partnership_affirmation
+      outcome :outcome_same_sex_civil_partnership_commonwealth_countries
+      outcome :outcome_same_sex_civil_partnership_consular
+      outcome :outcome_same_sex_civil_partnership_no_cni
+      outcome :outcome_same_sex_civil_partnership_or_equivalent
+      outcome :outcome_same_sex_marriage_and_civil_partnership
+      outcome :outcome_same_sex_marriage_and_civil_partnership_malta
+      outcome :outcome_same_sex_marriage_and_civil_partnership_not_possible
+      outcome :outcome_same_sex_marriage_and_civil_partnership_other_countries
+      outcome :outcome_spain
+      outcome :outcome_switzerland
     end
   end
 end
