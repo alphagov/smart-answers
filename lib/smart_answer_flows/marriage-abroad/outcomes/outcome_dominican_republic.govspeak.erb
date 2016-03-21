@@ -10,7 +10,7 @@
   <% if calculator.partner_is_opposite_sex? %>
     <% if calculator.resident_of_uk? %>
       Contact the [Embassy of the Dominican Republic](https://www.gov.uk/government/publications/foreign-embassies-in-the-uk)
-      before making any plans tofind out about local marriage laws, including what documents you’ll need.
+      before making any plans to find out about local marriage laws, including what documents you’ll need.
     <% else %>
       <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
              locals: { calculator: calculator } %>
