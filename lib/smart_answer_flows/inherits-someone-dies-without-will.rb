@@ -21,7 +21,9 @@ module SmartAnswer
           [:wills_link, :inheritance_link]
         end
 
-        next_node :partner?
+        next_node do
+          question :partner?
+        end
       end
 
       # Q2

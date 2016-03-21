@@ -11,7 +11,7 @@ module SmartAnswer
     should "save value as a String by default" do
       q = Question::Value.new(nil, :example) do
         save_input_as :myval
-        next_node :done
+        next_node { outcome :done }
       end
 
       new_state = q.transition(@initial_state, "123")
@@ -22,7 +22,7 @@ module SmartAnswer
       setup do
         @q = Question::Value.new(nil, :example, parse: Integer) do
           save_input_as :myval
-          next_node :done
+          next_node { outcome :done }
         end
       end
 
@@ -48,7 +48,7 @@ module SmartAnswer
       setup do
         @q = Question::Value.new(nil, :example, parse: :to_i) do
           save_input_as :myval
-          next_node :done
+          next_node { outcome :done }
         end
       end
 
@@ -67,12 +67,12 @@ module SmartAnswer
         assert_equal 0, new_state.myval
       end
     end
-    
+
     context "when parse option is Float" do
       setup do
         @q = Question::Value.new(nil, :example, parse: Float) do
           save_input_as :myval
-          next_node :done
+          next_node { outcome :done }
         end
       end
 
@@ -93,12 +93,12 @@ module SmartAnswer
         assert_raises(InvalidResponse) { @q.transition(@initial_state, nil) }
       end
     end
-    
+
     context "when parse option is :to_f" do
       setup do
         @q = Question::Value.new(nil, :example, parse: :to_f) do
           save_input_as :myval
-          next_node :done
+          next_node { outcome :done }
         end
       end
 
@@ -121,7 +121,7 @@ module SmartAnswer
     test "Value is saved as a String if parse option specifies unknown type" do
       q = Question::Value.new(nil, :example, parse: BigDecimal) do
         save_input_as :myval
-        next_node :done
+        next_node { outcome :done }
       end
 
       new_state = q.transition(@initial_state, "123")

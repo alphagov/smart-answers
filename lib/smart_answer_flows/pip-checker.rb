@@ -20,7 +20,9 @@ module SmartAnswer
           response == 'yes'
         end
 
-        next_node :what_is_your_dob?
+        next_node do
+          question :what_is_your_dob?
+        end
       end
 
       ## Q2

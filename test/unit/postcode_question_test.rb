@@ -6,7 +6,7 @@ module SmartAnswer
       @initial_state = State.new(:example)
       @question = Question::Postcode.new(nil, :example) do
         save_input_as :my_postcode
-        next_node :done
+        next_node { outcome :done }
       end
     end
 

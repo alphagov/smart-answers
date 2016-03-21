@@ -31,7 +31,9 @@ The flow below illustrates the data available to the different Question node met
 multiple_choice :question_1 do
   option :q1_option
 
-  next_node :question_2
+  next_node do
+    question :question_2
+  end:
 
   calculate :q1_calculated_answer do
     'q1-calculated-answer'

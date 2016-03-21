@@ -73,7 +73,9 @@ module SmartAnswer
         to { Date.parse('1 Jan 1896') }
 
         save_input_as :birth_date
-        next_node :whats_the_husbands_income?
+        next_node do
+          question :whats_the_husbands_income?
+        end
       end
 
       date_question :whats_the_highest_earners_date_of_birth? do
@@ -81,7 +83,9 @@ module SmartAnswer
         from { Date.today.end_of_year }
 
         save_input_as :birth_date
-        next_node :whats_the_highest_earners_income?
+        next_node do
+          question :whats_the_highest_earners_income?
+        end
       end
 
       money_question :whats_the_husbands_income? do
@@ -131,13 +135,17 @@ module SmartAnswer
       money_question :how_much_expected_contributions_before_tax? do
         save_input_as :gross_pension_contributions
 
-        next_node :how_much_expected_contributions_with_tax_relief?
+        next_node do
+          question :how_much_expected_contributions_with_tax_relief?
+        end
       end
 
       money_question :how_much_expected_contributions_with_tax_relief? do
         save_input_as :net_pension_contributions
 
-        next_node :how_much_expected_gift_aided_donations?
+        next_node do
+          question :how_much_expected_gift_aided_donations?
+        end
       end
 
       money_question :how_much_expected_gift_aided_donations? do

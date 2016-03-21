@@ -58,7 +58,9 @@ module SmartAnswer
           end
         end
 
-        next_node :outcome_topup_calculations
+        next_node do
+          outcome :outcome_topup_calculations
+        end
       end
 
       #A1

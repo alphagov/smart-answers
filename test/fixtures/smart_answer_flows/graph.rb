@@ -8,7 +8,9 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node :q2?
+        next_node do
+          question :q2?
+        end
       end
 
       multiple_choice :q2? do
@@ -28,7 +30,9 @@ module SmartAnswer
         option :x
         option :y
 
-        next_node :done_b
+        next_node do
+          outcome :done_b
+        end
       end
 
       outcome :done_a

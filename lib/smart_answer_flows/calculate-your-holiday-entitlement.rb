@@ -73,7 +73,9 @@ module SmartAnswer
           raise InvalidResponse if days_per_week <= 0 or days_per_week > 7
           days_per_week
         end
-        next_node :days_per_week_done
+        next_node do
+          outcome :days_per_week_done
+        end
       end
 
       # Q4
@@ -135,7 +137,9 @@ module SmartAnswer
       value_question :how_many_hours_per_week?, parse: Float do
         save_input_as :hours_per_week
 
-        next_node :hours_per_week_done
+        next_node do
+          outcome :hours_per_week_done
+        end
       end
 
       value_question :casual_or_irregular_hours?, parse: Float do
@@ -145,7 +149,9 @@ module SmartAnswer
           hours
         end
 
-        next_node :casual_or_irregular_hours_done
+        next_node do
+          outcome :casual_or_irregular_hours_done
+        end
       end
 
       value_question :annualised_hours?, parse: Float do
@@ -155,7 +161,9 @@ module SmartAnswer
           hours
         end
 
-        next_node :annualised_hours_done
+        next_node do
+          outcome :annualised_hours_done
+        end
       end
 
       value_question :compressed_hours_how_many_hours_per_week?, parse: Float do
@@ -164,7 +172,9 @@ module SmartAnswer
           raise InvalidResponse if hours <= 0 or hours > 168
           hours
         end
-        next_node :compressed_hours_how_many_days_per_week?
+        next_node do
+          question :compressed_hours_how_many_days_per_week?
+        end
       end
 
       value_question :compressed_hours_how_many_days_per_week?, parse: Float do
@@ -174,7 +184,9 @@ module SmartAnswer
           days
         end
 
-        next_node :compressed_hours_done
+        next_node do
+          outcome :compressed_hours_done
+        end
       end
 
       multiple_choice :shift_worker_basis? do
@@ -202,7 +214,9 @@ module SmartAnswer
           raise InvalidResponse if hours_per_shift <= 0
           hours_per_shift
         end
-        next_node :shift_worker_shifts_per_shift_pattern?
+        next_node do
+          question :shift_worker_shifts_per_shift_pattern?
+        end
       end
 
       value_question :shift_worker_shifts_per_shift_pattern?, parse: Integer do
@@ -211,7 +225,9 @@ module SmartAnswer
           raise InvalidResponse if shifts <= 0
           shifts
         end
-        next_node :shift_worker_days_per_shift_pattern?
+        next_node do
+          question :shift_worker_days_per_shift_pattern?
+        end
       end
 
       value_question :shift_worker_days_per_shift_pattern?, parse: Float do
@@ -221,7 +237,9 @@ module SmartAnswer
           days
         end
 
-        next_node :shift_worker_done
+        next_node do
+          outcome :shift_worker_done
+        end
       end
 
       outcome :shift_worker_done do

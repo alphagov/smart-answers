@@ -8,7 +8,9 @@ module SmartAnswer
 
       date_question :when_does_your_vat_accounting_period_end? do
         default_day { -1 }
-        next_node :how_do_you_want_to_pay?
+        next_node do
+          question :how_do_you_want_to_pay?
+        end
 
         calculate :period_end_date do |response|
           date = response

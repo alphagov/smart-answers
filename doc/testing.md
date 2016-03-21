@@ -24,21 +24,27 @@ multiple_choice :question_1 do
   option :A
   option :B
 
-  next_node :question_2
+  next_node do
+    question :question_2
+  end
 end
 
 multiple_choice :question_2 do
   option :C
   option :D
 
-  next_node :question_3
+  next_node do
+    question :question_3
+  end
 end
 
 multiple_choice :question_3 do
   option :E
   option :F
 
-  next_node :outcome_1
+  next_node do
+    outcome :outcome_1
+  end
 end
 
 outcome :outcome_1 do

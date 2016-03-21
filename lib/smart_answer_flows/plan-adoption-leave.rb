@@ -9,7 +9,9 @@ module SmartAnswer
       date_question :child_match_date? do
         save_input_as :match_date
 
-        next_node :child_arrival_date?
+        next_node do
+          question :child_arrival_date?
+        end
       end
 
       date_question :child_arrival_date? do
@@ -18,7 +20,9 @@ module SmartAnswer
           response
         end
 
-        next_node :leave_start?
+        next_node do
+          question :leave_start?
+        end
       end
 
       date_question :leave_start? do
@@ -35,7 +39,9 @@ module SmartAnswer
             start_date: start_date)
         end
 
-        next_node :adoption_leave_details
+        next_node do
+          outcome :adoption_leave_details
+        end
       end
 
       outcome :adoption_leave_details do

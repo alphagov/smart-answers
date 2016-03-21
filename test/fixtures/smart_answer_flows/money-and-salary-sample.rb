@@ -9,7 +9,9 @@ module SmartAnswer
         calculate :annual_salary do
           Money.new(salary.per_week * 52)
         end
-        next_node :what_size_bonus_do_you_want?
+        next_node do
+          question :what_size_bonus_do_you_want?
+        end
       end
 
       money_question :what_size_bonus_do_you_want? do
@@ -20,7 +22,9 @@ module SmartAnswer
           end
           value
         end
-        next_node :ok
+        next_node do
+          outcome :ok
+        end
       end
 
       outcome :ok

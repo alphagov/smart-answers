@@ -6,7 +6,9 @@ module SmartAnswer
 
       value_question :what_is_your_name? do
         save_input_as :your_name
-        next_node :what_is_your_quest?
+        next_node do
+          question :what_is_your_quest?
+        end
       end
 
       multiple_choice :what_is_your_quest? do
@@ -25,7 +27,9 @@ module SmartAnswer
 
       value_question :what_is_the_capital_of_assyria? do
         save_input_as :capital_of_assyria
-        next_node :auuuuuuuugh
+        next_node do
+          outcome :auuuuuuuugh
+        end
       end
 
       multiple_choice :what_is_your_favorite_colour? do

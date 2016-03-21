@@ -25,7 +25,9 @@ date_question :baby_due_date_paternity? do
     Calculators::MaternityPaternityCalculator.new(due_date, 'paternity')
   end
 
-  next_node :baby_birth_date_paternity?
+  next_node do
+    question :baby_birth_date_paternity?
+  end
 end
 
 ## QAP1 - Paternity Adoption
@@ -46,7 +48,9 @@ date_question :employee_date_matched_paternity_adoption? do
     leave_type == 'paternity_adoption'
   end
 
-  next_node :padoption_date_of_adoption_placement?
+  next_node do
+    question :padoption_date_of_adoption_placement?
+  end
 end
 
 ## QP2
@@ -60,7 +64,9 @@ date_question :baby_birth_date_paternity? do
     calculator
   end
 
-  next_node :employee_responsible_for_upbringing?
+  next_node do
+    question :employee_responsible_for_upbringing?
+  end
 end
 
 ## QAP2 - Paternity Adoption
@@ -81,7 +87,9 @@ date_question :padoption_date_of_adoption_placement? do
     calculator.format_date_day matched_date
   end
 
-  next_node :padoption_employee_responsible_for_upbringing?
+  next_node do
+    question :padoption_employee_responsible_for_upbringing?
+  end
 end
 
 ## QP3
@@ -166,7 +174,9 @@ multiple_choice :employee_has_contract_paternity? do
   option :no
   save_input_as :has_contract
 
-  next_node :employee_on_payroll_paternity?
+  next_node do
+    question :employee_on_payroll_paternity?
+  end
 end
 
 ## QP6
@@ -248,7 +258,9 @@ date_question :employee_start_paternity? do
     calculator.notice_of_leave_deadline
   end
 
-  next_node :employee_paternity_length?
+  next_node do
+    question :employee_paternity_length?
+  end
 end
 
 ## QP9
@@ -282,7 +294,9 @@ date_question :last_normal_payday_paternity? do
     calculator
   end
 
-  next_node :payday_eight_weeks_paternity?
+  next_node do
+    question :payday_eight_weeks_paternity?
+  end
 end
 
 ## QP11
@@ -309,7 +323,9 @@ date_question :payday_eight_weeks_paternity? do
     calculator.formatted_relevant_period
   end
 
-  next_node :pay_frequency_paternity?
+  next_node do
+    question :pay_frequency_paternity?
+  end
 end
 
 ## QP12
@@ -325,7 +341,9 @@ multiple_choice :pay_frequency_paternity? do
     calculator
   end
 
-  next_node :earnings_for_pay_period_paternity?
+  next_node do
+    question :earnings_for_pay_period_paternity?
+  end
 end
 
 ## QP13
@@ -378,7 +396,9 @@ date_question :next_pay_day_paternity? do
     calculator.pay_date = response
     calculator
   end
-  next_node :paternity_leave_and_pay
+  next_node do
+    outcome :paternity_leave_and_pay
+  end
 end
 
 ## QP16
@@ -457,7 +477,9 @@ multiple_choice :day_of_the_month_paternity? do
     days_of_the_week[response.to_i]
   end
 
-  next_node :pay_date_options_paternity?
+  next_node do
+    question :pay_date_options_paternity?
+  end
 end
 
 ## QP20

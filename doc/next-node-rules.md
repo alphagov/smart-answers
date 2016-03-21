@@ -12,15 +12,6 @@ next_node do |response|
 end
 ```
 
-## Shortcut
-
-If the next node for a question is always the same then you can call `next_node` with a single node key. This will automatically add the specified node key to the list of permitted next nodes i.e. there is no need to specify the `:permitted` option.
-
-```ruby
-# For example
-next_node :red
-```
-
 ## Errors
 
 ### Multiple calls to next_node are not allowed
@@ -29,13 +20,17 @@ Occurs if `next_node` is called more than once within a single question block.
 
 ```ruby
 # For example
-next_node :red
-next_node :green
+next_node do
+  outcome :red
+end
+next_node do
+  outcome :green
+end
 ```
 
-### ArgumentError: You must specify a block or a single next node key
+### ArgumentError: You must specify a block
 
-Occurs if `next_node` is called without a block and with no arguments.
+Occurs if `next_node` is called without a block.
 
 ```ruby
 # For example
@@ -60,7 +55,7 @@ This is similar to the previous error, but for `next_node` blocks where `permitt
 ```ruby
 # For example
 next_node do
-  :green
+  outcome :green
 end
 ```
 

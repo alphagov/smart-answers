@@ -6,70 +6,61 @@ class QuestionBaseTest < ActiveSupport::TestCase
   end
 
   context '#next_node' do
-    should 'ensure single next node key is supplied if next_node called without block' do
+    should 'raise exception if next_node is called without a block' do
       e = assert_raises(ArgumentError) do
         @question.next_node
       end
-      assert_equal 'You must specify a block or a single next node key', e.message
+      assert_equal 'You must specify a block', e.message
     end
 
     should 'raise exception if next_node is invoked multiple times' do
       e = assert_raises do
-        @question.next_node :outcome_one
-        @question.next_node :outcome_two
+        @question.next_node { outcome :one }
+        @question.next_node { outcome :two }
       end
       assert_equal 'Multiple calls to next_node are not allowed', e.message
     end
   end
 
   context '#permitted_next_nodes' do
-    context 'next_node called without block' do
-      should 'return the one node passed to next_node' do
-        @question.next_node :done
-        assert_equal [:done], @question.permitted_next_nodes
+    should 'return nodes returned via syntactic sugar methods' do
+      @question.next_node do |response|
+        if response == 'yes'
+          outcome :done
+        else
+          question :another_question
+        end
       end
+      assert_equal [:done, :another_question], @question.permitted_next_nodes
     end
 
-    context 'next_node called with block' do
-      should 'return nodes returned via syntactic sugar methods' do
-        @question.next_node do |response|
-          if response == 'yes'
-            outcome :done
-          else
-            question :another_question
-          end
+    should 'not return nodes not returned via syntactic sugar methods' do
+      @question.next_node do |response|
+        if response == 'yes'
+          outcome :done
+        else
+          :another_question
         end
-        assert_equal [:done, :another_question], @question.permitted_next_nodes
       end
+      assert @question.permitted_next_nodes.include?(:done)
+      refute @question.permitted_next_nodes.include?(:another_question)
+    end
 
-      should 'not return nodes not returned via syntactic sugar methods' do
-        @question.next_node do |response|
-          if response == 'yes'
-            outcome :done
-          else
-            :another_question
-          end
+    should 'not return duplicate permitted next nodes' do
+      @question.next_node do |response|
+        if response == 'yes'
+          outcome :done
+        else
+          outcome :done
         end
-        assert @question.permitted_next_nodes.include?(:done)
-        refute @question.permitted_next_nodes.include?(:another_question)
       end
-
-      should 'not return duplicate permitted next nodes' do
-        @question.next_node do |response|
-          if response == 'yes'
-            outcome :done
-          else
-            outcome :done
-          end
-        end
-        assert_equal [:done], @question.permitted_next_nodes
-      end
+      assert_equal [:done], @question.permitted_next_nodes
     end
   end
 
   context '#transition' do
     should "copy values from initial state to new state" do
-      @question.next_node :done
+      @question.next_node { outcome :done }
       initial_state = SmartAnswer::State.new(@question.name)
       initial_state.something_else = "Carried over"
       new_state = @question.transition(initial_state, :yes)
@@ -77,16 +68,9 @@ class QuestionBaseTest < ActiveSupport::TestCase
     end
 
     should "set current_node to value returned from next_node_for" do
-      @question.next_node :done
+      @question.next_node { outcome :done }
       initial_state = SmartAnswer::State.new(@question.name)
       @question.stubs(:next_node_for).returns(:done)
-      new_state = @question.transition(initial_state, :anything)
-      assert_equal :done, new_state.current_node
-    end
-
-    should "set current_node to node key passed into next_node method" do
-      @question.next_node :done
-      initial_state = SmartAnswer::State.new(@question.name)
       new_state = @question.transition(initial_state, :anything)
       assert_equal :done, new_state.current_node
     end
@@ -132,21 +116,21 @@ class QuestionBaseTest < ActiveSupport::TestCase
 
     should "make save_input_as method available to code in next_node block" do
       @question.save_input_as :colour_preference
-      @question.next_node :done
+      @question.next_node { outcome :done }
       initial_state = SmartAnswer::State.new(@question.name)
       new_state = @question.transition(initial_state, :red)
       assert_equal :red, new_state.colour_preference
     end
 
     should "save input sequence on new state" do
-      @question.next_node :done
+      @question.next_node { outcome :done }
       initial_state = SmartAnswer::State.new(@question.name)
       new_state = @question.transition(initial_state, :red)
       assert_equal [:red], new_state.responses
     end
 
     should "save path on new state" do
-      @question.next_node :done
+      @question.next_node { outcome :done }
       initial_state = SmartAnswer::State.new(@question.name)
       new_state = @question.transition(initial_state, :red)
       assert_equal [@question.name], new_state.path
@@ -156,7 +140,7 @@ class QuestionBaseTest < ActiveSupport::TestCase
       @question.calculate :complementary_colour do |response|
         response == :red ? :green : :red
       end
-      @question.next_node :done
+      @question.next_node { outcome :done }
       initial_state = SmartAnswer::State.new(@question.name)
       new_state = @question.transition(initial_state, :red)
       assert_equal :green, new_state.complementary_colour
@@ -168,7 +152,7 @@ class QuestionBaseTest < ActiveSupport::TestCase
       @question.calculate :complementary_colour do
         colour_preference == :red ? :green : :red
       end
-      @question.next_node :done
+      @question.next_node { outcome :done }
       initial_state = SmartAnswer::State.new(@question.name)
       new_state = @question.transition(initial_state, :red)
       assert_equal :green, new_state.complementary_colour

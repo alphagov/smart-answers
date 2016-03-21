@@ -233,7 +233,9 @@ money_question :current_accommodation_charge? do
     calculator.valid_accommodation_charge?(response)
   end
 
-  next_node :current_accommodation_usage?
+  next_node do
+    question :current_accommodation_usage?
+  end
 
   save_input_as :accommodation_charge
 end
@@ -244,7 +246,9 @@ money_question :past_accommodation_charge? do
     calculator.valid_accommodation_charge?(response)
   end
 
-  next_node :past_accommodation_usage?
+  next_node do
+    question :past_accommodation_usage?
+  end
 
   save_input_as :accommodation_charge
 end

@@ -6,31 +6,24 @@ module SmartAnswer
       def initialize(flow, name, options = {}, &block)
         @validations = []
         @default_next_node_block = lambda { |_| nil }
-        @permitted_next_nodes = []
         super
       end
 
-      def next_node(next_node = nil, &block)
+      def next_node(&block)
+        unless block_given?
+          raise ArgumentError, 'You must specify a block'
+        end
         if @next_node_block.present?
           raise 'Multiple calls to next_node are not allowed'
         end
-        if block_given?
-          @permitted_next_nodes = :auto
-          @next_node_block = block
-        elsif next_node
-          @permitted_next_nodes = [next_node]
-          @next_node_block = lambda { |_| next_node }
-        else
-          raise ArgumentError, 'You must specify a block or a single next node key'
-        end
+        @next_node_block = block
       end
 
       def permitted_next_nodes
-        if @permitted_next_nodes == :auto
+        @permitted_next_nodes ||= begin
           parser = NextNodeBlock::Parser.new
-          @permitted_next_nodes = parser.possible_next_nodes(@next_node_block)
+          parser.possible_next_nodes(@next_node_block).uniq
         end
-        @permitted_next_nodes.uniq
       end
 
       def validate(message = nil, &block)
@@ -47,10 +40,8 @@ module SmartAnswer
           message << " Responses: #{responses_and_input}."
           raise NextNodeUndefined.new(message)
         end
-        if @permitted_next_nodes == :auto
-          unless NextNodeBlock.permitted?(next_node)
-            raise "Next node (#{next_node}) not returned via question or outcome method"
-          end
+        unless NextNodeBlock.permitted?(next_node)
+          raise "Next node (#{next_node}) not returned via question or outcome method"
         end
         next_node.to_sym
       end

@@ -127,7 +127,7 @@ class FlowTest < ActiveSupport::TestCase
     s = SmartAnswer::Flow.new do
       checkbox_question :choose_some do
         option :foo
-        next_node :done
+        next_node { outcome :done }
       end
       outcome :done
     end
@@ -271,7 +271,7 @@ class FlowTest < ActiveSupport::TestCase
         end
       end
       date_question :when? do
-        next_node :blue
+        next_node { outcome :blue }
       end
       outcome :blue
     end
@@ -284,7 +284,7 @@ class FlowTest < ActiveSupport::TestCase
   should "perform calculations on saved inputs" do
     flow = SmartAnswer::Flow.new do
       money_question :how_much? do
-        next_node :done
+        next_node { outcome :done }
         save_input_as :price
         calculate :double do
           price.value * 2
@@ -301,7 +301,7 @@ class FlowTest < ActiveSupport::TestCase
   should "perform precalculations on saved inputs" do
     flow = SmartAnswer::Flow.new do
       money_question :how_much? do
-        next_node :done
+        next_node { outcome :done }
         save_input_as :price
       end
       outcome :done do

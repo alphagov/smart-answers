@@ -74,7 +74,9 @@ module SmartAnswer
         validate(:error_perm_prop) { |r| ! r.include?('permission,property') }
         validate(:error_perm_house) { |r| ! r.include?('permission,social_housing')}
 
-        next_node(:date_of_birth?) # Q3
+        next_node do
+          question :date_of_birth? # Q3
+        end
       end
 
       # Q2A
@@ -239,7 +241,9 @@ module SmartAnswer
           %w(before-1940).include?(response)
         end
 
-        next_node :type_of_property?
+        next_node do
+          question :type_of_property?
+        end
       end
 
       # Q7a

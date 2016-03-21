@@ -107,7 +107,9 @@ module SmartAnswer
         calculate :weekly_cost do |response|
           SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(response)
         end
-        next_node :weekly_costs_are_x #O4
+        next_node do
+          outcome :weekly_costs_are_x #O4
+        end
       end
 
       #Q7
@@ -115,7 +117,9 @@ module SmartAnswer
         calculate :weekly_cost do |response|
           SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(response)
         end
-        next_node :weekly_costs_are_x #O4
+        next_node do
+          outcome :weekly_costs_are_x #O4
+        end
       end
 
       #Q8
@@ -147,7 +151,9 @@ module SmartAnswer
         calculate :weekly_cost do |response|
           SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost_from_monthly(response)
         end
-        next_node :weekly_costs_are_x #O4
+        next_node do
+          outcome :weekly_costs_are_x #O4
+        end
       end
 
       #Q11
@@ -199,7 +205,9 @@ module SmartAnswer
           SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost_from_fortnightly(response)
         end
 
-        next_node :weekly_costs_are_x #O4
+        next_node do
+          outcome :weekly_costs_are_x #O4
+        end
       end
 
       #Q14
@@ -207,7 +215,9 @@ module SmartAnswer
         calculate :weekly_cost do |response|
           SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost_from_four_weekly(response)
         end
-        next_node :weekly_costs_are_x #04
+        next_node do
+          outcome :weekly_costs_are_x #04
+        end
       end
 
       #Q15
@@ -215,7 +225,9 @@ module SmartAnswer
         calculate :weekly_cost do |response|
           SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(response)
         end
-        next_node :weekly_costs_are_x #O4
+        next_node do
+          outcome :weekly_costs_are_x #O4
+        end
       end
 
       #Q16
@@ -223,7 +235,9 @@ module SmartAnswer
         calculate :weekly_cost do |response|
           SmartAnswer::Calculators::ChildcareCostCalculator.weekly_cost(response)
         end
-        next_node :weekly_costs_are_x #O4
+        next_node do
+          outcome :weekly_costs_are_x #O4
+        end
       end
 
       #Q17
@@ -254,7 +268,9 @@ module SmartAnswer
           weekly_difference.abs
         end
 
-        next_node :cost_changed
+        next_node do
+          outcome :cost_changed
+        end
       end
 
       #Q19
@@ -285,7 +301,9 @@ module SmartAnswer
 
         calculate :cost_change_4_weeks do true end
 
-        next_node :cost_changed
+        next_node do
+          outcome :cost_changed
+        end
       end
 
       #Q21
@@ -302,7 +320,9 @@ module SmartAnswer
           weekly_difference.abs
         end
 
-        next_node :cost_changed
+        next_node do
+          outcome :cost_changed
+        end
       end
 
       ### Outcomes
