@@ -1557,7 +1557,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to cni outcome" do
       assert_current_node :outcome_opposite_sex_marriage_consular_cni_residing_in_uk_or_ceremony_country
-     end
+    end
   end
 
   context "ceremony in finland, resident in the UK, partner local" do
@@ -1570,7 +1570,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to cni outcome" do
       assert_current_node :outcome_opposite_sex_marriage_consular_cni_residing_in_uk_or_ceremony_country
-     end
+    end
   end
 
   context "ceremony in finland, resident in Australia, partner other" do
