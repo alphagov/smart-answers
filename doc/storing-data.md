@@ -28,11 +28,11 @@ __NOTE.__ `precalculate` blocks are not evaluated in the first question. This is
 The flow below illustrates the data available to the different Question node methods.
 
 ```ruby
-multiple_choice :question_1 do
+multiple_choice :question_1? do
   option :q1_option
 
   next_node do
-    question :question_2
+    question :question_2?
   end:
 
   calculate :q1_calculated_answer do
@@ -40,7 +40,7 @@ multiple_choice :question_1 do
   end
 end
 
-multiple_choice :question_2 do
+multiple_choice :question_2? do
   option :q2_option
 
   precalculate :q2_precalculated_answer do

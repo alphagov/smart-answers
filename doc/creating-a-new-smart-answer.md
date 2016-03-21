@@ -18,7 +18,7 @@ module SmartAnswer
     def define
       name 'example-smart-answer'
 
-      value_question :question_1 do
+      value_question :question_1? do
         next_node do
           outcome :outcome_1
         end:
@@ -30,7 +30,7 @@ module SmartAnswer
 end
 ```
 
-This flow contains a single question and a single outcome. Any non-empty response to `:question_1` will send you to `:outcome_1`.
+This flow contains a single question and a single outcome. Any non-empty response to `:question_1?` will send you to `:outcome_1`.
 
 If you were to run `rails server` and visit http://localhost:3000/example-smart-answer at this point, you'd see an error that indicates that we need to add a landing page template.
 

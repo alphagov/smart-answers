@@ -5,7 +5,7 @@ The `next_node` method takes a block that should return the next node (question 
 ```ruby
 next_node do |response|
   if response == 'green'
-    question :green? # Go to the :green question node
+    question :green? # Go to the :green? question node
   else
     outcome :red # Go to the :red outcome node
   end
@@ -24,7 +24,7 @@ next_node do
   outcome :red
 end
 next_node do
-  outcome :green
+  question :green?
 end
 ```
 
@@ -50,12 +50,13 @@ end
 
 ### Next node not returned via question or outcome method
 
-This is similar to the previous error, but for `next_node` blocks where `permitted: :auto` has been specified.
+Occurs if the `next_node` block returns something which was not returned by a
+call to `#question` or `#outcome`.
 
 ```ruby
 # For example
 next_node do
-  outcome :green
+  :green?
 end
 ```
 
@@ -68,5 +69,5 @@ Occurs if the `next_node` blocks returns a value that isn't defined as a questio
 next_node do
   outcome :red
 end
-outcome :green
+outcome :blue
 ```
