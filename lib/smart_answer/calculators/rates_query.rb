@@ -5,13 +5,12 @@ module SmartAnswer::Calculators
     end
 
     def rates(relevant_date = Date.today)
-      return @rates if @rates
       relevant_rates = data.find do |rates_hash|
         rates_hash[:start_date] <= relevant_date && rates_hash[:end_date] >= relevant_date
       end
       relevant_rates ||= data.last
 
-      @rates = OpenStruct.new(relevant_rates)
+      OpenStruct.new(relevant_rates)
     end
 
   private

@@ -21,6 +21,18 @@ module SmartAnswer::Calculators
           test_rate.stubs(:load_path).returns(File.join("test", "fixtures", "rates"))
           assert_equal 2, test_rate.rates(Date.parse('2113-03-12')).rate
         end
+
+        context 'given a rate has been loaded for one date' do
+          setup do
+            @test_rate = SmartAnswer::Calculators::RatesQuery.new('exact_date_rates')
+            @test_rate.stubs(:load_path).returns(File.join("test", "fixtures", "rates"))
+            @test_rate.rates(Date.parse('2013-01-31')).rate
+          end
+
+          should 'return the correct rate for a different date' do
+            assert_equal 2, @test_rate.rates(Date.parse("2013-02-01")).rate
+          end
+        end
       end
 
       context "Married couples allowance" do
