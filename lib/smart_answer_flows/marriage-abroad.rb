@@ -96,7 +96,7 @@ module SmartAnswer
           elsif calculator.ceremony_country == "portugal"
             outcome :outcome_portugal
           elsif calculator.ceremony_country == "ireland"
-            outcome :outcome_ireland
+            outcome :outcome_ceremonies_in_ireland
           elsif calculator.ceremony_country == "switzerland"
             outcome :outcome_switzerland
           elsif calculator.ceremony_country == "spain"
@@ -207,7 +207,7 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_ireland
+      outcome :outcome_ceremonies_in_ireland
 
       outcome :outcome_switzerland
 

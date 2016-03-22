@@ -47,7 +47,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         add_response 'opposite_sex'
       end
       should "give outcome ireland os" do
-        assert_current_node :outcome_ireland
+        assert_current_node :outcome_ceremonies_in_ireland
       end
     end
     context "partner is same sex" do
@@ -55,7 +55,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         add_response 'same_sex'
       end
       should "give outcome ireland ss" do
-        assert_current_node :outcome_ireland
+        assert_current_node :outcome_ceremonies_in_ireland
         expected_location = WorldLocation.find('ireland')
         assert_equal expected_location, current_state.calculator.world_location
       end
