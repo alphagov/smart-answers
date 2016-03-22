@@ -100,7 +100,7 @@ module SmartAnswer
           elsif calculator.ceremony_country == "switzerland"
             outcome :outcome_ceremonies_in_switzerland
           elsif calculator.ceremony_country == "spain"
-            outcome :outcome_spain
+            outcome :outcome_ceremonies_in_spain
           elsif calculator.ceremony_country == 'dominican-republic'
             outcome :outcome_dominican_republic
           elsif calculator.partner_is_opposite_sex?
@@ -243,7 +243,7 @@ module SmartAnswer
 
       outcome :outcome_ceremonies_in_monaco
 
-      outcome :outcome_spain
+      outcome :outcome_ceremonies_in_spain
 
       outcome :outcome_opposite_sex_marriage_in_commonwealth_countries
 

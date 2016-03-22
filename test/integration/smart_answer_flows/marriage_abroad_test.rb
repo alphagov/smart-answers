@@ -543,8 +543,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         add_response 'partner_british'
         add_response 'opposite_sex'
       end
-      should "go to outcome_spain with UK/OS specific phrases" do
-        assert_current_node :outcome_spain
+      should "go to outcome_ceremonies_in_spain with UK/OS specific phrases" do
+        assert_current_node :outcome_ceremonies_in_spain
       end
     end
 
@@ -554,8 +554,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         add_response 'partner_local'
         add_response 'opposite_sex'
       end
-      should "go to outcome_spain with ceremony country OS specific phrases" do
-        assert_current_node :outcome_spain
+      should "go to outcome_ceremonies_in_spain with ceremony country OS specific phrases" do
+        assert_current_node :outcome_ceremonies_in_spain
       end
     end
 
@@ -566,8 +566,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         add_response 'opposite_sex'
       end
 
-      should "go to outcome_spain with third country OS specific phrases" do
-        assert_current_node :outcome_spain
+      should "go to outcome_ceremonies_in_spain with third country OS specific phrases" do
+        assert_current_node :outcome_ceremonies_in_spain
       end
     end
 
@@ -578,8 +578,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         add_response 'same_sex'
       end
 
-      should "go to outcome_spain with UK/SS specific phrases" do
-        assert_current_node :outcome_spain
+      should "go to outcome_ceremonies_in_spain with UK/SS specific phrases" do
+        assert_current_node :outcome_ceremonies_in_spain
       end
     end
 
@@ -590,8 +590,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         add_response 'same_sex'
       end
 
-      should "go to outcome_spain with third country SS specific phrases" do
-        assert_current_node :outcome_spain
+      should "go to outcome_ceremonies_in_spain with third country SS specific phrases" do
+        assert_current_node :outcome_ceremonies_in_spain
       end
     end
   end
