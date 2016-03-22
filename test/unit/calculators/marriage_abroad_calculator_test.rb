@@ -760,6 +760,86 @@ module SmartAnswer
           assert_equal expected_path, calculator.outcome_path_when_resident_in_ceremony_country
         end
       end
+
+      context '#three_day_residency_requirement_applies?' do
+        should 'return true if ceremony country requires 3 day residency' do
+          calculator = MarriageAbroadCalculator.new
+          calculator.ceremony_country = 'albania'
+
+          assert calculator.three_day_residency_requirement_applies?
+        end
+
+        should 'return false if ceremony country does not require 3 days residency' do
+          calculator = MarriageAbroadCalculator.new
+          calculator.ceremony_country = 'country-not-requiring-three-day-residency'
+
+          refute calculator.three_day_residency_requirement_applies?
+        end
+      end
+
+      context '#cni_posted_after_14_days?' do
+        should 'return true if ceremony country will post notice after 14 days' do
+          calculator = MarriageAbroadCalculator.new
+          calculator.ceremony_country = 'jordan'
+
+          assert calculator.cni_posted_after_14_days?
+        end
+
+        should 'return false if ceremony country will not post notice after 14 days' do
+          calculator = MarriageAbroadCalculator.new
+          calculator.ceremony_country = 'ceremony-country-not-posting-notice-after-14-days'
+
+          refute calculator.cni_posted_after_14_days?
+        end
+      end
+
+      context '#birth_certificate_required_as_supporting_document?' do
+        should 'return true when a birth certificate is required' do
+          calculator = MarriageAbroadCalculator.new
+          calculator.ceremony_country = 'ceremony-country-requiring-birth-certificate'
+
+          assert calculator.birth_certificate_required_as_supporting_document?
+        end
+
+        should 'return false when no birth certificate is required' do
+          calculator = MarriageAbroadCalculator.new
+          calculator.ceremony_country = 'albania'
+
+          refute calculator.birth_certificate_required_as_supporting_document?
+        end
+      end
+
+      context '#notary_public_ceremony_country?' do
+        should 'return true if country has a notary public' do
+          calculator = MarriageAbroadCalculator.new
+          calculator.ceremony_country = 'albania'
+
+          assert calculator.notary_public_ceremony_country?
+        end
+
+        should 'return false if country has no notary public' do
+          calculator = MarriageAbroadCalculator.new
+          calculator.ceremony_country = 'country-without-notary-public'
+
+          refute calculator.notary_public_ceremony_country?
+        end
+      end
+
+      context '#document_download_link_if_opposite_sex_resident_of_uk_countries?' do
+        should 'return true if you can download forms' do
+          calculator = MarriageAbroadCalculator.new
+          calculator.ceremony_country = 'country-allowing-you-to-download-forms'
+
+          assert calculator.document_download_link_if_opposite_sex_resident_of_uk_countries?
+        end
+
+        should "return false if you can't download forms" do
+          calculator = MarriageAbroadCalculator.new
+          calculator.ceremony_country = 'albania'
+
+          refute calculator.document_download_link_if_opposite_sex_resident_of_uk_countries?
+        end
+      end
     end
   end
 end
