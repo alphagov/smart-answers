@@ -32,7 +32,7 @@ class GraphvizPresenter < GraphPresenter
           style: "filled"
         )
       end
-      attribute_clause = attrs.map {|k, v| "#{k}=\"#{v}\""}.join(' ')
+      attribute_clause = attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(' ')
       %Q{#{normalize_name(name)} [#{attribute_clause}]}
     end
   end

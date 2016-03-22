@@ -4,7 +4,7 @@ class GraphPresenter
   end
 
   def labels
-    Hash[@flow.nodes.map { |node| [node.name, graph_label_text(node)]}]
+    Hash[@flow.nodes.map { |node| [node.name, graph_label_text(node)] }]
   end
 
   def adjacency_list

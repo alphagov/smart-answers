@@ -22,7 +22,7 @@ module SmartAnswer
       end
 
       def valid_option?(option)
-        options.map {|v| v.slug}.include? (option.to_s)
+        options.map { |v| v.slug }.include? (option.to_s)
       end
 
       def parse_input(raw_input)
@@ -41,7 +41,7 @@ module SmartAnswer
           countries = countries.reject { |c| @exclude_countries.include?(c.slug) }
         end
         if @additional_countries
-          countries = (countries + @additional_countries).sort {|a, b| a.name <=> b.name }
+          countries = (countries + @additional_countries).sort { |a, b| a.name <=> b.name }
         end
         countries
       end

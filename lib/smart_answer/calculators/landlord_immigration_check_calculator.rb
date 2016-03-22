@@ -16,7 +16,7 @@ module SmartAnswer::Calculators
   private
 
     def postcode_within?(included_areas, key_name)
-      areas_for_postcode.select {|a| included_areas.include?(a[key_name]) }.any?
+      areas_for_postcode.select { |a| included_areas.include?(a[key_name]) }.any?
     end
 
     def areas_for_postcode

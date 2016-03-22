@@ -40,7 +40,7 @@ namespace :version do
       replacements.each do |regex, replacement|
         text.gsub!(regex, replacement)
       end
-      File.open(filepath, "w") {|file| file.puts text}
+      File.open(filepath, "w") { |file| file.puts text }
     end
   end
 
@@ -120,7 +120,7 @@ namespace :version do
     calculators = flow_data.scan(/(Calculators::[aA-zZ]+(Calculator|DataQuery))/).map(&:first).uniq
     process_calculators(calculators, true)
 
-    File.open(flow_path(flow), "w") {|file| file.puts flow_data}
+    File.open(flow_path(flow), "w") { |file| file.puts flow_data }
 
     puts `git status`
   end
@@ -149,7 +149,7 @@ namespace :version do
     flow_data, calculators = version_flow_dependencies(flow_data)
     process_calculators(calculators)
 
-    File.open(flow_path(flow, 'v2'), "w") {|file| file.puts flow_data}
+    File.open(flow_path(flow, 'v2'), "w") { |file| file.puts flow_data }
 
     # Replace yml key
     replace_in_file(yml_path(flow, 'v2'), { Regexp.new("#{flow}:") => "#{flow}-v2:" })
@@ -161,7 +161,7 @@ namespace :version do
     test_data.gsub!(flow, "#{flow}-v2")
     puts "Renamed test class and setup flow"
 
-    File.open(flow_test_path(flow, 'v2'), "w") {|file| file.puts test_data}
+    File.open(flow_test_path(flow, 'v2'), "w") { |file| file.puts test_data }
 
     puts `git status`
   end
