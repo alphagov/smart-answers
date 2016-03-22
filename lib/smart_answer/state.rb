@@ -36,7 +36,7 @@ module SmartAnswer
       __send__ "#{name}=", responses.last
     end
 
-    private
+  private
 
     def initialize_copy(orig)
       super

@@ -82,7 +82,7 @@ class SmartAnswerFilesTest < ActiveSupport::TestCase
     end
   end
 
-  private
+private
 
   def with_temporary_file_in_project
     begin

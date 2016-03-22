@@ -80,7 +80,7 @@ module SmartAnswer::Calculators
       end
     end
 
-    private
+  private
     def overdue_filing_days
       (filing_date - filing_deadline).to_i
     end

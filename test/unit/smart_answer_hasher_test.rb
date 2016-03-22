@@ -31,7 +31,7 @@ class SmartAnswerHasherTest < ActiveSupport::TestCase
     end
   end
 
-  private
+private
 
   def with_smart_answer_flow_files(flow_files_content)
     begin

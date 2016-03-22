@@ -32,7 +32,7 @@ module SmartAnswer::Calculators
       FRIENDLY_COUNTRY_NAME[country]
     end
 
-    private
+  private
 
     def country_name(country)
       WorldLocation.find(country).name

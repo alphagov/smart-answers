@@ -13,7 +13,7 @@ module SmartAnswer::Calculators
       postcode_within?(VALID_COUNTRIES, 'country_name')
     end
 
-    private
+  private
 
     def postcode_within?(included_areas, key_name)
       areas_for_postcode.select {|a| included_areas.include?(a[key_name]) }.any?

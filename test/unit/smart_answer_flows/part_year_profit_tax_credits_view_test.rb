@@ -222,7 +222,7 @@ module SmartAnswer
       end
     end
 
-    private
+  private
 
     def values_vs_labels(options)
       options.inject({}) { |h, o| h[o.value] = o.label; h }
