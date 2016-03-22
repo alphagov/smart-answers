@@ -94,7 +94,7 @@ module SmartAnswer
           elsif calculator.ceremony_country == "netherlands"
             outcome :outcome_marriage_via_local_authorities
           elsif calculator.ceremony_country == "portugal"
-            outcome :outcome_portugal
+            outcome :outcome_ceremonies_in_portugal
           elsif calculator.ceremony_country == "ireland"
             outcome :outcome_ceremonies_in_ireland
           elsif calculator.ceremony_country == "switzerland"
@@ -213,7 +213,7 @@ module SmartAnswer
 
       outcome :outcome_marriage_via_local_authorities
 
-      outcome :outcome_portugal
+      outcome :outcome_ceremonies_in_portugal
 
       outcome :outcome_opposite_sex_marriage_in_germany
 
