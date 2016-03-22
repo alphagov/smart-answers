@@ -61,7 +61,7 @@ module SmartAnswer
         next_node do |response|
           calculator.marriage_or_pacs = response
           if calculator.ceremony_country == 'monaco'
-            outcome :outcome_monaco
+            outcome :outcome_ceremonies_in_monaco
           elsif calculator.want_to_get_married?
             outcome :outcome_marriage_in_france_or_french_overseas_territory
           else
@@ -241,7 +241,7 @@ module SmartAnswer
 
       outcome :outcome_opposite_sex_marriage_in_slovenia_when_residing_in_uk_or_slovenia
 
-      outcome :outcome_monaco
+      outcome :outcome_ceremonies_in_monaco
 
       outcome :outcome_spain
 

@@ -924,7 +924,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'marriage'
     end
     should "go to consular cni os outcome" do
-      assert_current_node :outcome_monaco
+      assert_current_node :outcome_ceremonies_in_monaco
     end
   end
 
@@ -935,7 +935,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'pacs'
     end
     should "go to consular cni os outcome" do
-      assert_current_node :outcome_monaco
+      assert_current_node :outcome_ceremonies_in_monaco
     end
   end
 
