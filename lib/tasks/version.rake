@@ -19,17 +19,17 @@ namespace :version do
     raise_error(NO_FLOW_NAME_ERR_MSG)
   end
 
-  def flow_path(flow, version='')
+  def flow_path(flow, version = '')
     version = "-#{version}" unless version.empty?
     "#{FLOWS_PATH}#{flow}#{version}.rb"
   end
 
-  def yml_path(flow, version='')
+  def yml_path(flow, version = '')
     version = "-#{version}" unless version.empty?
     "#{LOCALES_PATH}#{flow}#{version}.yml"
   end
 
-  def flow_test_path(flow, version='')
+  def flow_test_path(flow, version = '')
     version = "_#{version}" unless version.empty?
     "#{FLOWS_TEST_PATH}#{flow.gsub('-','_')}#{version}_test.rb"
   end
@@ -57,7 +57,7 @@ namespace :version do
     [flow_data, calculators]
   end
 
-  def process_calculators(calculators, publish=false)
+  def process_calculators(calculators, publish = false)
     calculators.uniq.each do |calc|
       class_name = calc.split("::").last
       filename = class_name.underscore
