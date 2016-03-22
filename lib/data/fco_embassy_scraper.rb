@@ -25,17 +25,17 @@ class FCOEmbassyScraper
         country_name = e.delete("country")
         country = case country_name
                   when "Côte d'Ivoire"
-                    {slug: "cote-d_ivoire-(ivory-coast)"}
+                    { slug: "cote-d_ivoire-(ivory-coast)" }
                   when "Dominica"
-                    {slug: "dominica,-commonwealth-of"}
+                    { slug: "dominica,-commonwealth-of" }
                   when "Equatorial Guinea - BHC Yaoundé"
-                    {slug: "equatorial-guinea"}
+                    { slug: "equatorial-guinea" }
                   when "Kyrgystan"
-                    {slug: "kyrgyzstan"}
+                    { slug: "kyrgyzstan" }
                   when "Niger - British High Commission"
-                    {slug: "niger"}
+                    { slug: "niger" }
                   when "Pitcairn Henderson Ducie & Oeno Islands"
-                    {slug: "pitcairn"}
+                    { slug: "pitcairn" }
                   else
                     @countries.select { |c| c[:name].downcase == country_name.downcase }.first
                   end
@@ -64,7 +64,7 @@ class FCOEmbassyScraper
     page_title = page.at_css('h1').text.strip
     country = page_title.split(',').first
     raise "Strange country name: #{country}" if country == "Access denied"
-    embassy = {"country" => country}
+    embassy = { "country" => country }
     page.css('table.Embassy tr').each do |row|
       items = row.css('td')
       key = items.first.text.strip

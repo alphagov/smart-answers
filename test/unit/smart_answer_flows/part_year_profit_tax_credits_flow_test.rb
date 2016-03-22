@@ -51,7 +51,7 @@ module SmartAnswer
       setup do
         setup_states_for_question(:what_date_do_your_accounts_go_up_to?,
           responding_with: '0000-04-06',
-          initial_state: {calculator: @calculator})
+          initial_state: { calculator: @calculator })
       end
 
       should 'store parsed response on calculator as accounts_end_month_and_day' do
@@ -69,7 +69,7 @@ module SmartAnswer
         setup do
           setup_states_for_question(:have_you_stopped_trading?,
             responding_with: 'yes',
-            initial_state: {calculator: @calculator})
+            initial_state: { calculator: @calculator })
         end
 
         should 'set stopped_trading to true on the calculator' do
@@ -86,7 +86,7 @@ module SmartAnswer
         setup do
           setup_states_for_question(:have_you_stopped_trading?,
             responding_with: 'no',
-            initial_state: {calculator: @calculator})
+            initial_state: { calculator: @calculator })
         end
 
         should 'set stopped_trading to false on the calculator' do
@@ -107,7 +107,7 @@ module SmartAnswer
         question = :did_you_start_trading_before_the_relevant_accounting_year?
         setup_states_for_question(question,
           responding_with: 'yes',
-          initial_state: {calculator: @calculator})
+          initial_state: { calculator: @calculator })
       end
 
       should 'make accounting_year_begins_on available for interpolation in question title' do
@@ -119,7 +119,7 @@ module SmartAnswer
           question = :did_you_start_trading_before_the_relevant_accounting_year?
           setup_states_for_question(question,
             responding_with: 'yes',
-            initial_state: {calculator: @calculator})
+            initial_state: { calculator: @calculator })
         end
 
         should 'go to when_did_you_stop_trading? question' do
@@ -133,7 +133,7 @@ module SmartAnswer
           question = :did_you_start_trading_before_the_relevant_accounting_year?
           setup_states_for_question(question,
             responding_with: 'no',
-            initial_state: {calculator: @calculator})
+            initial_state: { calculator: @calculator })
         end
 
         should 'go to when_did_you_start_trading question' do
@@ -152,7 +152,7 @@ module SmartAnswer
         @calculator.stubs(:award_period).returns(award_period)
         setup_states_for_question(:when_did_you_start_trading?,
           responding_with: '2015-02-01',
-          initial_state: {calculator: @calculator})
+          initial_state: { calculator: @calculator })
       end
 
       should 'set the from date of the date select to constant defined in the calculator' do
@@ -182,7 +182,7 @@ module SmartAnswer
           exception = assert_raise(SmartAnswer::InvalidResponse) do
             setup_states_for_question(:when_did_you_start_trading?,
               responding_with: '0000-01-01',
-              initial_state: {calculator: @calculator})
+              initial_state: { calculator: @calculator })
           end
           assert_equal 'invalid_start_trading_date', exception.message
         end
@@ -193,7 +193,7 @@ module SmartAnswer
           @calculator.stopped_trading = true
           setup_states_for_question(:when_did_you_start_trading?,
             responding_with: '0000-01-01',
-            initial_state: {calculator: @calculator})
+            initial_state: { calculator: @calculator })
         end
 
         should 'go to when_did_you_stop_trading? question' do
@@ -207,7 +207,7 @@ module SmartAnswer
           @calculator.stopped_trading = false
           setup_states_for_question(:when_did_you_start_trading?,
             responding_with: '0000-01-01',
-            initial_state: {calculator: @calculator})
+            initial_state: { calculator: @calculator })
         end
 
         should 'go to when_did_you_stop_trading? question' do
@@ -223,7 +223,7 @@ module SmartAnswer
         @calculator.stubs(tax_year: tax_year)
         setup_states_for_question(:when_did_you_stop_trading?,
           responding_with: '2015-06-01',
-          initial_state: {calculator: @calculator})
+          initial_state: { calculator: @calculator })
       end
 
       should 'set the from date of the date select to the constant defined in the calculator' do
@@ -262,7 +262,7 @@ module SmartAnswer
           exception = assert_raise(SmartAnswer::InvalidResponse) do
             setup_states_for_question(:when_did_you_stop_trading?,
               responding_with: '0000-01-01',
-              initial_state: {calculator: @calculator})
+              initial_state: { calculator: @calculator })
           end
           assert_equal 'not_in_tax_year_error', exception.message
         end
@@ -276,7 +276,7 @@ module SmartAnswer
           @calculator.stubs(:accounting_year).returns(accounting_year)
           setup_states_for_question(:do_your_accounts_cover_a_12_month_period?,
             responding_with: 'yes',
-            initial_state: {calculator: @calculator})
+            initial_state: { calculator: @calculator })
         end
 
         should 'go to what_is_your_taxable_profit? question' do
@@ -291,7 +291,7 @@ module SmartAnswer
           @calculator.stubs(:accounting_year).returns(accounting_year)
           setup_states_for_question(:do_your_accounts_cover_a_12_month_period?,
             responding_with: 'no',
-            initial_state: {calculator: @calculator})
+            initial_state: { calculator: @calculator })
         end
 
         should 'go to when_did_you_start_trading question' do
@@ -307,7 +307,7 @@ module SmartAnswer
         @calculator.stubs(basis_period: basis_period)
         setup_states_for_question(:what_is_your_taxable_profit?,
           responding_with: '15000',
-          initial_state: {calculator: @calculator})
+          initial_state: { calculator: @calculator })
       end
 
       should 'make basis_period_begins_on available for interpolation in question title' do

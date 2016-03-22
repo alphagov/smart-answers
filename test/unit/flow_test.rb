@@ -278,7 +278,7 @@ class FlowTest < ActiveSupport::TestCase
 
     assert_equal [], flow.process([]).responses
     assert_equal ['red'], flow.process(['red']).responses
-    assert_equal ['red', Date.parse('2011-02-01')], flow.process(['red', {year: 2011, month: 2, day: 1}]).responses
+    assert_equal ['red', Date.parse('2011-02-01')], flow.process(['red', { year: 2011, month: 2, day: 1 }]).responses
   end
 
   should "perform calculations on saved inputs" do
