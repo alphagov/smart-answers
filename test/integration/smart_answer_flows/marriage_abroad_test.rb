@@ -1480,7 +1480,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'switzerland'
       add_response 'uk'
       add_response 'opposite_sex'
-      assert_current_node :outcome_switzerland
+      assert_current_node :outcome_ceremonies_in_switzerland
     end
   end
 
@@ -1490,7 +1490,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'switzerland'
       add_response 'ceremony_country'
       add_response 'same_sex'
-      assert_current_node :outcome_switzerland
+      assert_current_node :outcome_ceremonies_in_switzerland
     end
   end
 
@@ -1500,7 +1500,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'switzerland'
       add_response 'uk'
       add_response 'same_sex'
-      assert_current_node :outcome_switzerland
+      assert_current_node :outcome_ceremonies_in_switzerland
     end
   end
 
@@ -1510,7 +1510,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'switzerland'
       add_response 'third_country'
       add_response 'opposite_sex'
-      assert_current_node :outcome_switzerland
+      assert_current_node :outcome_ceremonies_in_switzerland
     end
   end
 
