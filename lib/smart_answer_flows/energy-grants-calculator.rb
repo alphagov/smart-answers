@@ -72,7 +72,7 @@ module SmartAnswer
         validate(:error_perm_prop_house) { |r| ! r.include?('permission,property,social_housing') }
         validate(:error_prop_house) { |r| ! r.include?('property,social_housing') }
         validate(:error_perm_prop) { |r| ! r.include?('permission,property') }
-        validate(:error_perm_house) { |r| ! r.include?('permission,social_housing')}
+        validate(:error_perm_house) { |r| ! r.include?('permission,social_housing') }
 
         next_node do
           question :date_of_birth? # Q3
@@ -163,9 +163,9 @@ module SmartAnswer
             response == 'esa' ||
             response == 'working_tax_credit' ||
             response.include?('universal_credit') ||
-            %w{child_tax_credit esa income_support jsa pension_credit}.all? {|key| response.include? key} ||
-            %w{child_tax_credit esa income_support pension_credit}.all? {|key| response.include? key} ||
-            %w{child_tax_credit esa jsa pension_credit}.all? {|key| response.include? key}
+            %w{child_tax_credit esa income_support jsa pension_credit}.all? { |key| response.include? key } ||
+            %w{child_tax_credit esa income_support pension_credit}.all? { |key| response.include? key } ||
+            %w{child_tax_credit esa jsa pension_credit}.all? { |key| response.include? key }
         end
 
         next_node do |response|

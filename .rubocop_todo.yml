@@ -466,12 +466,6 @@ Style/SpaceBeforeComma:
   Exclude:
     - 'lib/smart_answer/calculators/maternity_paternity_calculator.rb'
 
-# Offense count: 43
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, EnforcedStyleForEmptyBraces, SpaceBeforeBlockParameters.
-Style/SpaceInsideBlockBraces:
-  Enabled: false
-
 # Offense count: 104
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces, SupportedStyles.

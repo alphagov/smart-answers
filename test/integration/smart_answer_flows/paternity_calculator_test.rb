@@ -243,7 +243,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                                 end #QP13 end earings above 109 between relevant period
 
                                 context "answer less than 109 a week for 8 weeks" do
-                                  setup { add_response "10"}
+                                  setup { add_response "10" }
 
                                   should "go to outcome" do
 
@@ -316,7 +316,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                       end
 
                       context "answer 2 weeks" do
-                        setup { add_response 'two_weeks'}
+                        setup { add_response 'two_weeks' }
 
                         should "go to outcome" do
                           assert_current_node :paternity_not_entitled_to_leave_or_pay

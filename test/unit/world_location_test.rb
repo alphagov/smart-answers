@@ -15,7 +15,7 @@ class WorldLocationTest < ActiveSupport::TestCase
     end
 
     should "load multiple pages of locations" do
-      @location_slugs = (1..30).map {|n| "location-#{n}" }
+      @location_slugs = (1..30).map { |n| "location-#{n}" }
       worldwide_api_has_locations(@location_slugs)
 
       results = WorldLocation.all
@@ -48,7 +48,7 @@ class WorldLocationTest < ActiveSupport::TestCase
 
     context "caching the results" do
       setup do
-        @location_slugs = (1..30).map {|n| "location-#{n}" }
+        @location_slugs = (1..30).map { |n| "location-#{n}" }
         worldwide_api_has_locations(@location_slugs)
       end
 
