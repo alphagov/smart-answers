@@ -15,5 +15,5 @@ lib/smart_answer_flows/additional-commodity-code/questions/how_much_sucrose_1.go
 lib/smart_answer_flows/additional-commodity-code/questions/how_much_sucrose_2.govspeak.erb: 69fa5acf376f4936de63f1bfb5775318
 lib/smart_answer_flows/additional-commodity-code/questions/how_much_sucrose_3.govspeak.erb: 6b3c81896c9981224fddf7996495ee40
 lib/smart_answer_flows/additional-commodity-code/questions/how_much_sucrose_4.govspeak.erb: 46ad361a17576dba3aa9041c7857d2bb
-lib/smart_answer/calculators/commodity_code_calculator.rb: b5ac25b42276e8f2b74a1549282da752
+lib/smart_answer/calculators/commodity_code_calculator.rb: c2424451f484fc9202c8793049cb5903
 lib/data/commodity_codes_data.yml: e18434a8a7b02f644e69ebe45f518772
