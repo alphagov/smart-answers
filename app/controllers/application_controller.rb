@@ -26,8 +26,8 @@ protected
 
     # handle cases where exception occured during render
     if performed?
-      response.status = status_code
-      response_body = error_message
+      self.status = status_code
+      self.response_body = error_message
     else
       render status: status_code, text: error_message
     end
