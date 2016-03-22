@@ -12,5 +12,5 @@ lib/smart_answer_flows/vat-payment-deadlines/outcomes/result_online_telephone_ba
 lib/smart_answer_flows/vat-payment-deadlines/questions/how_do_you_want_to_pay.govspeak.erb: 5dec0d325b32ea563b4e25dff8675244
 lib/smart_answer_flows/vat-payment-deadlines/questions/when_does_your_vat_accounting_period_end.govspeak.erb: 217f9782f9f2d669080270a463b04028
 lib/smart_answer_flows/vat-payment-deadlines/vat_payment_deadlines.govspeak.erb: 3f4ae8b59119f2eb094f1ece2cb4329b
-lib/smart_answer/calculators/vat_payment_deadlines.rb: e1e95cce94754c307eb521a439f49e3a
-lib/working_days.rb: cb61b2a6ae8644542cd7574f5b7383c8
+lib/smart_answer/calculators/vat_payment_deadlines.rb: 508ec06026cd700543c551366c31a550
+lib/working_days.rb: 1e140735e95cc9b4e741e15cbee02abd
