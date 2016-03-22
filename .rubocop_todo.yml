@@ -427,12 +427,6 @@ Style/MethodCalledOnDoEndBlock:
     - 'lib/smart_answer_flows/shared_logic/maternity-calculator.rb'
     - 'lib/smart_answer_flows/shared_logic/paternity-calculator.rb'
 
-# Offense count: 20
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/MultilineOperationIndentation:
-  Enabled: false
-
 # Offense count: 1
 Style/MultilineTernaryOperator:
   Exclude:

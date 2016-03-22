@@ -36,14 +36,14 @@ class SmartAnswerTestHelper
 
   def run_regression_tests?
     explicitly_run_all_regression_tests? ||
-    explicitly_run_this_regression_test? ||
-    files_checksum_data_needs_updating?
+      explicitly_run_this_regression_test? ||
+      files_checksum_data_needs_updating?
   end
 
   def files_checksum_data_needs_updating?
     !files_checksum_data_exists? ||
-    source_files_have_changed? ||
-    source_files_have_been_added?
+      source_files_have_changed? ||
+      source_files_have_been_added?
   end
 
   def question_and_responses_path
