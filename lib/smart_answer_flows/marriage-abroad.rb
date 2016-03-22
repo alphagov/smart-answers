@@ -90,7 +90,7 @@ module SmartAnswer
         next_node do |response|
           calculator.sex_of_your_partner = response
           if calculator.ceremony_country == 'brazil' && calculator.resident_outside_of_uk?
-            outcome :outcome_brazil_not_living_in_the_uk
+            outcome :outcome_marriage_in_brazil_when_residing_in_brazil_or_third_country
           elsif calculator.ceremony_country == "netherlands"
             outcome :outcome_marriage_via_local_authorities
           elsif calculator.ceremony_country == "portugal"
@@ -229,7 +229,7 @@ module SmartAnswer
 
       outcome :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_uk_or_kosovo
 
-      outcome :outcome_brazil_not_living_in_the_uk
+      outcome :outcome_marriage_in_brazil_when_residing_in_brazil_or_third_country
 
       outcome :outcome_opposite_sex_marriage_in_cambodia
 
