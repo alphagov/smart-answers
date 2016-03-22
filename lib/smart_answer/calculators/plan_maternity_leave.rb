@@ -54,7 +54,7 @@ module SmartAnswer::Calculators
       period_of_ordinary_leave && weeks_later(period_of_ordinary_leave, 26)
     end
 
-    private
+  private
       def weeks_later(range, weeks)
         (range.first + weeks * 7) .. (range.last + weeks * 7)
       end

@@ -92,7 +92,7 @@ class SmartAnswerTestHelper
     FileUtils.rm_rf(path)
   end
 
-  private
+private
 
   def files_checksum_filename
     "#{@flow_name}-files.yml"

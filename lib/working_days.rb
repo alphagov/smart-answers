@@ -31,7 +31,7 @@ class WorkingDays
     WEEKDAYS.include?(date.wday) and !bank_holidays.include?(date)
   end
 
-  private
+private
 
   def workday?(date)
     self.class.workday?(date)

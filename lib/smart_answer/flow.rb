@@ -131,7 +131,7 @@ module SmartAnswer
 
     class InvalidStatus < StandardError; end
 
-    private
+  private
 
     def add_question(klass, name, options = {}, &block)
       add_node klass.new(self, name, options, &block)

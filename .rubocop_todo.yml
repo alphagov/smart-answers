@@ -162,12 +162,6 @@ Performance/StringReplacement:
     - 'lib/smart_answer_flows/simplified-expenses-checker.rb'
     - 'lib/tasks/version.rake'
 
-# Offense count: 24
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/AccessModifierIndentation:
-  Enabled: false
-
 # Offense count: 21
 # Cop supports --auto-correct.
 Style/AlignArray:

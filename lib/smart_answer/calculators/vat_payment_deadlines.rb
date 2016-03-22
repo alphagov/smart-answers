@@ -51,7 +51,7 @@ module SmartAnswer::Calculators
       end
     end
 
-    private
+  private
 
     def end_of_month_after(date)
       1.month.since(date).end_of_month

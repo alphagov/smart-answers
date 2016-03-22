@@ -92,7 +92,7 @@ module SmartAnswer::Calculators
       (Date.new(2015, 05, 06)..Date.new(2016, 05, 05)).cover?(date)
     end
 
-    private
+  private
 
     def saturday_before(date)
       (date - date.wday) - 1.day

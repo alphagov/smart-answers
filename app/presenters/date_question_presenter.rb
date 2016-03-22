@@ -17,7 +17,7 @@ class DateQuestionPresenter < QuestionPresenter
     @node.range == false ? 3.years.from_now : @node.range.end
   end
 
-  private
+private
 
   def only_display_day_and_month?(value)
     value.year.zero?

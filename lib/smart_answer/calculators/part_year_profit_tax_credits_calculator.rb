@@ -60,7 +60,7 @@ module SmartAnswer
         (profit_per_day * award_period.number_of_days).floor
       end
 
-      private
+    private
 
       def accounting_year_end_date_in_the_tax_year_that_tax_credits_award_ends
         accounting_date = accounts_end_month_and_day.change(year: tax_year.begins_on.year)
