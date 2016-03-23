@@ -59,6 +59,7 @@
   <% unless calculator.ceremony_country == 'czech-republic' && calculator.partner_is_same_sex? %>
     <%= render partial: 'consular_fees_table.govspeak.erb',
                locals: {
+                 calculator: calculator,
                  services: [
                    :issuing_cni_or_equivalent,
                  ]
