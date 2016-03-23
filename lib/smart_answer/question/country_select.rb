@@ -5,7 +5,6 @@ module SmartAnswer
         @exclude_countries = options.delete(:exclude_countries)
         @include_uk = options.delete(:include_uk)
         @additional_countries = options.delete(:additional_countries)
-        @use_legacy_data = options.delete(:use_legacy_data)
         super
       end
 
@@ -33,7 +32,7 @@ module SmartAnswer
     private
 
       def load_countries
-        countries = @use_legacy_data ? LegacyCountry.all : WorldLocation.all
+        countries = WorldLocation.all
         unless @include_uk
           countries = countries.reject { |c| c.slug == 'united-kingdom' }
         end
