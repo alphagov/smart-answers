@@ -1,6 +1,7 @@
 <% if %w(south-korea thailand turkey vietnam).include?(calculator.ceremony_country) %>
   <%= render partial: 'consular_fees_table.govspeak.erb',
              locals: {
+               calculator: calculator,
                services: [
                  :affidavit_for_marriage,
                ]
@@ -9,6 +10,7 @@
 <% elsif %w(belgium ecuador macao morocco norway).include?(calculator.ceremony_country) %>
   <%= render partial: 'consular_fees_table.govspeak.erb',
              locals: {
+               calculator: calculator,
                services: [
                  :affidavit_or_affirmation_for_marriage,
                ]
@@ -16,6 +18,7 @@
 <% elsif calculator.ceremony_country == 'finland' %>
   <%= render partial: 'consular_fees_table.govspeak.erb',
              locals: {
+               calculator: calculator,
                services: [
                  :affirmation_for_marriage,
                ]
@@ -24,6 +27,7 @@
 <% elsif %w(philippines united-arab-emirates).include?(calculator.ceremony_country) %>
   <%= render partial: 'consular_fees_table.govspeak.erb',
              locals: {
+               calculator: calculator,
                services: [
                  :affirmation_for_freedom_to_marry_in_english,
                  :affirmation_for_freedom_to_marry_in_other_language,
@@ -34,6 +38,7 @@
 <% elsif calculator.ceremony_country == 'qatar' %>
   <%= render partial: 'consular_fees_table.govspeak.erb',
              locals: {
+               calculator: calculator,
                services: [
                  :issuing_letter_or_certificate_english,
                  :issuing_letter_or_certificate_other_language,
@@ -44,6 +49,7 @@
 <% elsif calculator.ceremony_country == 'egypt' %>
   <%= render partial: 'consular_fees_table.govspeak.erb',
              locals: {
+               calculator: calculator,
                services: [
                  :marriage_declaration,
                  :making_an_oath,
@@ -54,6 +60,7 @@
 <% elsif calculator.ceremony_country == 'china' %>
   <%= render partial: 'consular_fees_table.govspeak.erb',
              locals: {
+               calculator: calculator,
                services: [
                  :affirmation_for_freedom_to_marry_in_english_and_chinese,
                ]
@@ -62,6 +69,7 @@
 <% elsif calculator.ceremony_country == 'peru' %>
   <%= render partial: 'consular_fees_table.govspeak.erb',
              locals: {
+               calculator: calculator,
                services: [
                  :affirmation_or_affidavit_for_freedom_to_marry,
                ]
@@ -70,6 +78,7 @@
 <% else %>
   <%= render partial: 'consular_fees_table.govspeak.erb',
              locals: {
+               calculator: calculator,
                services: [
                  :affirmation_for_freedom_to_marry_in_english,
                  :affirmation_for_freedom_to_marry_in_other_language,

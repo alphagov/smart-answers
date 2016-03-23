@@ -60,6 +60,7 @@
 
     <%= render partial: 'consular_fees_table.govspeak.erb',
                locals: {
+                 calculator: calculator,
                  services: [
                    :receiving_notice_of_marriage,
                    :issuing_cni_or_nulla_osta,
@@ -122,6 +123,7 @@
 
     <%= render partial: 'consular_fees_table.govspeak.erb',
                locals: {
+                 calculator: calculator,
                  services: [
                    :receiving_notice_of_marriage,
                    :issuing_cni_or_nulla_osta,

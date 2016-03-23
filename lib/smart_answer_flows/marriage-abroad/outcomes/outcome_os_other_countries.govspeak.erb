@@ -82,6 +82,7 @@
       <% end %>
       <%= render partial: 'consular_fees_table.govspeak.erb',
                  locals: {
+                   calculator: calculator,
                    services: [
                      :posting_marriage_notice,
                      :performing_marriage_ceremony,
