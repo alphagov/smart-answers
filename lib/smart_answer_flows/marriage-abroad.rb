@@ -205,7 +205,7 @@ module SmartAnswer
               outcome :outcome_opposite_sex_marriage_in_yemen
             elsif calculator.ceremony_country == 'saudi-arabia'
               outcome :outcome_opposite_sex_marriage_in_saudi_arabia
-            elsif calculator.opposite_sex_in_other_countries?
+            elsif %w(iran somalia syria).include?(calculator.ceremony_country)
               outcome :outcome_opposite_sex_marriage_in_other_countries
             end
           elsif calculator.partner_is_same_sex?
