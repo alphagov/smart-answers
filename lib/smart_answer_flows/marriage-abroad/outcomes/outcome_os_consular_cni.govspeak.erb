@@ -242,6 +242,8 @@
     - equivalent documents for your partner
 
 
+  <% elsif calculator.resident_of_ceremony_country? && calculator.ceremony_country == 'bulgaria' %>
+    <%= render partial: 'required_supporting_documents_bulgaria.govspeak.erb' %>
   <% elsif calculator.resident_outside_of_uk? && calculator.ceremony_country == 'philippines' %>
     <%= render partial: 'required_supporting_documents_philippines.govspeak.erb' %>
   <% elsif calculator.resident_outside_of_uk? && calculator.ceremony_country == 'macao' %>
@@ -397,7 +399,20 @@
     <%= render partial: 'check_if_cni_needs_to_be_legalised.govspeak.erb',
                locals: { calculator: calculator } %>
 
+  <% elsif calculator.ceremony_country == 'bulgaria' %>
+    You must then contact the Bulgarian Ministry of Foreign Affairs (MFA) to get your CNI legalised (certified as genuine).
+
+    $A
+    2 Alfred Nobel Street
+    Sofia
+    Bulgaria
+    $A
+
+    $C
+    Telephone: (+359) 2 807 64 23,  (+359) 2 807 64 28 or (+359) 2 807 64 26
+    $C
   <% end %>
+
   <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'you_dont_need_to_stay_in_country.govspeak.erb' %>
 
@@ -470,6 +485,10 @@
 
     <% elsif calculator.ceremony_country == 'finland' %>
       <%= render partial: 'pay_in_euros_or_visa_electron.govspeak.erb' %>
+
+    <% elsif calculator.ceremony_country == 'bulgaria' %>
+      <%= render partial: 'pay_by_debit_or_credit_card_no_cheque.govspeak.erb' %>
+      You can only pay by cash in exceptional circumstances.
 
     <% elsif %w(cote-d-ivoire burundi).exclude?(calculator.ceremony_country) %>
       <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>

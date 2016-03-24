@@ -14,6 +14,7 @@ module SmartAnswer
 
     def specific_local_authorities(country_slug)
       {
+        "bulgaria" => " (the local municipality or town hall, ‘obshtina’)",
         "cambodia" => " (the local district office, ‘Sangkat’, and the Ministry of Foreign Affairs)",
         "germany"  => " (registry office ‘standesamt’ or church) ",
         "greece"   => " (the town hall or the local priest)",
