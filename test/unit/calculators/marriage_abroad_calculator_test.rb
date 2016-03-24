@@ -579,17 +579,6 @@ module SmartAnswer
         end
       end
 
-      context '#opposite_sex_in_other_countries?' do
-        should 'delegate to the data query' do
-          data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
-          data_query.stubs(:os_other_countries?).with('ceremony-country').returns('opposite-sex-in-other-countries')
-          calculator = MarriageAbroadCalculator.new(data_query: data_query)
-          calculator.ceremony_country = 'ceremony-country'
-
-          assert_equal 'opposite-sex-in-other-countries', calculator.opposite_sex_in_other_countries?
-        end
-      end
-
       context '#same_sex_ceremony_country_unknown_or_has_no_embassies?' do
         should 'delegate to the data query' do
           data_query = stub.quacks_like(MarriageAbroadDataQuery.new)
