@@ -28,7 +28,7 @@ $A
 British Embassy Amman, main locality
 British Embassy
 (PO Box 87) Abdoun
-11118 
+11118 Amman
 Jordan
 $A
 
@@ -39,6 +39,7 @@ Fax Political: +962 (6) 590 921
 
 Email: <Amman.enquiries@fco.gov.uk>
 
+[British Embassy Amman, main locality - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-amman/office/british-embassy-amman-main-locality)
 $C
 
 You’ll need to provide supporting documents, including:
