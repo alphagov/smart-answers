@@ -7,6 +7,7 @@ module SmartAnswer
     def initialize(flow, name, options = {}, &block)
       @flow = flow
       @name = name
+      @on_response_blocks = []
       @calculations = []
       @next_node_calculations = []
       @precalculations = []
@@ -31,6 +32,10 @@ module SmartAnswer
 
     def next_node_calculation(variable_name, &block)
       @next_node_calculations << Calculation.new(variable_name, &block)
+    end
+
+    def on_response(&block)
+      @on_response_blocks << Block.new(&block)
     end
 
     def precalculate(variable_name, &block)
