@@ -55,39 +55,39 @@ module SmartAnswer
         period.number_of_days
       end
 
-      def valid_last_sick_day?(value)
-        period = DateRange.new(begins_on: sick_start_date, ends_on: value)
+      def valid_last_sick_day?
+        period = DateRange.new(begins_on: sick_start_date, ends_on: sick_end_date)
         period.number_of_days >= 1
       end
 
-      def valid_linked_sickness_start_date?(value)
-        sick_start_date > value
+      def valid_linked_sickness_start_date?
+        sick_start_date > linked_sickness_start_date
       end
 
-      def within_eight_weeks_of_current_sickness_period?(previous_sickness_end_date)
+      def within_eight_weeks_of_current_sickness_period?
         earliest_allowed_date = sick_start_date - 8.weeks - 1.day
-        previous_sickness_end_date >= earliest_allowed_date
+        linked_sickness_end_date >= earliest_allowed_date
       end
 
-      def at_least_1_day_before_first_sick_day?(value)
-        value < sick_start_date - 1
+      def at_least_1_day_before_first_sick_day?
+        linked_sickness_end_date < sick_start_date - 1
       end
 
       def valid_period_of_incapacity_for_work?
         days_sick >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
       end
 
-      def valid_linked_period_of_incapacity_for_work?(value)
-        period = DateRange.new(begins_on: linked_sickness_start_date, ends_on: value)
+      def valid_linked_period_of_incapacity_for_work?
+        period = DateRange.new(begins_on: linked_sickness_start_date, ends_on: linked_sickness_end_date)
         period.number_of_days >= MINIMUM_NUMBER_OF_DAYS_IN_PERIOD_OF_INCAPACITY_TO_WORK
       end
 
-      def valid_last_payday_before_sickness?(value)
-        value < sick_start_date
+      def valid_last_payday_before_sickness?
+        relevant_period_to < sick_start_date
       end
 
-      def valid_last_payday_before_offset?(value)
-        value <= pay_day_offset
+      def valid_last_payday_before_offset?
+        relevant_period_from <= pay_day_offset + 1.day
       end
 
       def sick_start_date_for_awe

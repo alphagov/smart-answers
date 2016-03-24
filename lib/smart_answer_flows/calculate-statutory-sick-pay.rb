@@ -92,8 +92,8 @@ module SmartAnswer
 
         validate_in_range
 
-        validate do |response|
-          calculator.valid_last_sick_day?(response)
+        validate do
+          calculator.valid_last_sick_day?
         end
 
         next_node do
@@ -139,8 +139,8 @@ module SmartAnswer
 
         validate_in_range
 
-        validate :linked_sickness_must_be_before do |response|
-          calculator.valid_linked_sickness_start_date?(response)
+        validate :linked_sickness_must_be_before do
+          calculator.valid_linked_sickness_start_date?
         end
 
         next_node do
@@ -159,16 +159,16 @@ module SmartAnswer
 
         validate_in_range
 
-        validate :must_be_within_eight_weeks do |response|
-          calculator.within_eight_weeks_of_current_sickness_period?(response)
+        validate :must_be_within_eight_weeks do
+          calculator.within_eight_weeks_of_current_sickness_period?
         end
 
-        validate :must_be_at_least_1_day_before_first_sick_day do |response|
-          calculator.at_least_1_day_before_first_sick_day?(response)
+        validate :must_be_at_least_1_day_before_first_sick_day do
+          calculator.at_least_1_day_before_first_sick_day?
         end
 
-        validate :must_be_valid_period_of_incapacity_for_work do |response|
-          calculator.valid_linked_period_of_incapacity_for_work?(response)
+        validate :must_be_valid_period_of_incapacity_for_work do
+          calculator.valid_linked_period_of_incapacity_for_work?
         end
 
         next_node do
@@ -236,8 +236,8 @@ module SmartAnswer
           calculator.relevant_period_to = response
         end
 
-        validate do |response|
-          calculator.valid_last_payday_before_sickness?(response)
+        validate do
+          calculator.valid_last_payday_before_sickness?
         end
 
         next_node do
@@ -259,8 +259,8 @@ module SmartAnswer
           calculator.relevant_period_from = response + 1.day
         end
 
-        validate do |response|
-          calculator.valid_last_payday_before_offset?(response)
+        validate do
+          calculator.valid_last_payday_before_offset?
         end
 
         next_node do
