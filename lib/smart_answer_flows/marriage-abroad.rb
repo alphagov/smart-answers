@@ -197,6 +197,8 @@ module SmartAnswer
               outcome :outcome_opposite_sex_in_no_cni_countries_when_residing_in_ceremony_or_third_country
             elsif calculator.opposite_sex_marriage_via_local_authorities?
               outcome :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
+            elsif calculator.ceremony_country == 'burma'
+              outcome :outcome_opposite_sex_marriage_in_burma
             elsif calculator.opposite_sex_in_other_countries?
               outcome :outcome_opposite_sex_marriage_in_other_countries
             end
@@ -249,6 +251,7 @@ module SmartAnswer
       outcome :outcome_opposite_sex_marriage_in_affirmation_countries
       outcome :outcome_opposite_sex_marriage_in_belarus
       outcome :outcome_opposite_sex_marriage_in_british_overseas_territory
+      outcome :outcome_opposite_sex_marriage_in_burma
       outcome :outcome_opposite_sex_marriage_in_cambodia
       outcome :outcome_opposite_sex_marriage_in_colombia
       outcome :outcome_opposite_sex_marriage_in_commonwealth_countries
