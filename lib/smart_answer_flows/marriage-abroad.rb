@@ -101,6 +101,8 @@ module SmartAnswer
             outcome :outcome_switzerland
           elsif calculator.ceremony_country == "spain"
             outcome :outcome_spain
+          elsif calculator.ceremony_country == 'dominican-republic'
+            outcome :outcome_dominican_republic
           elsif calculator.partner_is_opposite_sex?
             if calculator.ceremony_country == 'hong-kong'
               outcome :outcome_os_hong_kong
@@ -285,6 +287,8 @@ module SmartAnswer
       outcome :outcome_ss_affirmation
 
       outcome :outcome_os_marriage_impossible_no_laos_locals
+
+      outcome :outcome_dominican_republic
     end
   end
 end
