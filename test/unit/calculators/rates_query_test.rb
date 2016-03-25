@@ -67,6 +67,20 @@ module SmartAnswer::Calculators
             assert_equal 65, rates_query.rates(sixth_april_2015).copy_of_birth_registration_certificate
           end
         end
+
+        context 'for 2016/17' do
+          should 'be £150 for registering a birth' do
+            rates_query = SmartAnswer::Calculators::RatesQuery.new('register_a_birth')
+            sixth_april_2015 = Date.parse('2016-04-06')
+            assert_equal 150, rates_query.rates(sixth_april_2015).register_a_birth
+          end
+
+          should 'be £50 for a copy of the birth registration certificate' do
+            rates_query = SmartAnswer::Calculators::RatesQuery.new('register_a_birth')
+            sixth_april_2015 = Date.parse('2016-04-06')
+            assert_equal 50, rates_query.rates(sixth_april_2015).copy_of_birth_registration_certificate
+          end
+        end
       end
     end
   end
