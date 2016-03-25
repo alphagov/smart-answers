@@ -102,7 +102,7 @@ module SmartAnswer
           elsif calculator.ceremony_country == "spain"
             outcome :outcome_ceremonies_in_spain
           elsif calculator.ceremony_country == 'dominican-republic'
-            outcome :outcome_dominican_republic
+            outcome :outcome_ceremonies_in_dominican_republic
           elsif calculator.partner_is_opposite_sex?
             if calculator.ceremony_country == 'hong-kong'
               outcome :outcome_opposite_sex_marriage_in_hong_kong
@@ -288,7 +288,7 @@ module SmartAnswer
 
       outcome :outcome_opposite_sex_marriage_in_laos_without_lao_national
 
-      outcome :outcome_dominican_republic
+      outcome :outcome_ceremonies_in_dominican_republic
     end
   end
 end
