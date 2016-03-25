@@ -138,4 +138,4 @@ lib/smart_answer/calculators/marriage_abroad_calculator.rb: 6329b517874ecf732cf3
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 2f521bae99c2f48b49d07bcb283a8063
 lib/smart_answer/calculators/marriage_abroad_data_query.rb: 1d222b16a790bcf3f7b02c97b0e0b5b0
 lib/smart_answer/calculators/country_name_formatter.rb: 69a0726640385f42de50b80fdb144ff8
-lib/smart_answer/calculators/registrations_data_query.rb: 563c5db7d7272bc07bd636a92b40f3ce
+lib/smart_answer/calculators/registrations_data_query.rb: 1acf8d5cb091afd13cc510bbe99f4973
