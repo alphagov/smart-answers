@@ -136,6 +136,44 @@ class QuestionBaseTest < ActiveSupport::TestCase
       assert_equal [@question.name], new_state.path
     end
 
+    should "execute on_response block with response" do
+      @question.on_response do |response|
+        self.my_responses << response
+      end
+      @question.next_node { outcome :done }
+      initial_state = SmartAnswer::State.new(@question.name)
+      initial_state.my_responses = []
+      new_state = @question.transition(initial_state, :red)
+      assert_equal [:red], new_state.my_responses
+    end
+
+    should "execute on_response block before next_node_calculation" do
+      @question.on_response do
+        self.foo = :value_from_on_response_block
+      end
+      @question.next_node_calculation(:bar) do
+        foo
+      end
+      @question.next_node { outcome :done }
+      initial_state = SmartAnswer::State.new(@question.name)
+      new_state = @question.transition(initial_state, :red)
+      assert_equal :value_from_on_response_block, new_state.bar
+    end
+
+    should "execute on_response block before validation" do
+      @question.on_response do
+        self.foo = :value_from_on_response_block
+      end
+      @question.validate do
+        foo != :value_from_on_response_block
+      end
+      @question.next_node { outcome :done }
+      initial_state = SmartAnswer::State.new(@question.name)
+      assert_raises(SmartAnswer::InvalidResponse) do
+        @question.transition(initial_state, :red)
+      end
+    end
+
     should "execute calculate block with response and save result on new state" do
       @question.calculate :complementary_colour do |response|
         response == :red ? :green : :red

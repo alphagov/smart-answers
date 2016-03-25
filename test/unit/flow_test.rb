@@ -288,6 +288,21 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal ['red', Date.parse('2011-02-01')], flow.process(['red', { year: 2011, month: 2, day: 1 }]).responses
   end
 
+  should "evaluate on_response block" do
+    flow = SmartAnswer::Flow.new do
+      money_question :how_much? do
+        on_response do |response|
+          self.price = response
+        end
+        next_node { outcome :done }
+      end
+      outcome :done
+    end
+
+    state = flow.process(["1"])
+    assert_equal SmartAnswer::Money.new('1'), state.price
+  end
+
   should "perform calculations on saved inputs" do
     flow = SmartAnswer::Flow.new do
       money_question :how_much? do
