@@ -8,8 +8,9 @@ module SmartAnswer
 
       # Q1
       country_select :which_country_are_you_in?, exclude_countries: Calculators::OverseasPassportsCalculator::EXCLUDE_COUNTRIES do
-        next_node_calculation :calculator do
-          Calculators::OverseasPassportsCalculator.new
+        on_response do |response|
+          self.calculator = Calculators::OverseasPassportsCalculator.new
+          calculator.current_location = response
         end
 
         validate do |response|
@@ -20,12 +21,10 @@ module SmartAnswer
           calculator.overseas_passports_embassies(response)
         end
 
-        next_node do |response|
-          calculator.current_location = response
-
+        next_node do
           if calculator.ineligible_country?
             outcome :cannot_apply
-          elsif response == 'the-occupied-palestinian-territories'
+          elsif calculator.current_location == 'the-occupied-palestinian-territories'
             question :which_opt?
           elsif calculator.apply_in_neighbouring_countries?
             outcome :apply_in_neighbouring_country
@@ -40,9 +39,11 @@ module SmartAnswer
         option :gaza
         option :"jerusalem-or-westbank"
 
-        next_node do |response|
+        on_response do |response|
           calculator.current_location = response
+        end
 
+        next_node do
           question :renewing_replacing_applying?
         end
       end
@@ -54,9 +55,11 @@ module SmartAnswer
         option :applying
         option :replacing
 
-        next_node do |response|
+        on_response do |response|
           calculator.application_action = response
+        end
 
+        next_node do
           question :child_or_adult_passport?
         end
       end
@@ -66,9 +69,11 @@ module SmartAnswer
         option :adult
         option :child
 
-        next_node do |response|
+        on_response do |response|
           calculator.child_or_adult = response
+        end
 
+        next_node do
           if calculator.ips_application?
             if calculator.applying? || calculator.renewing_old?
               question :country_of_birth?
@@ -83,9 +88,11 @@ module SmartAnswer
 
       # Q4
       country_select :country_of_birth?, include_uk: true, exclude_countries: Calculators::OverseasPassportsCalculator::EXCLUDE_COUNTRIES do
-        next_node do |response|
+        on_response do |response|
           calculator.birth_location = response
+        end
 
+        next_node do
           if calculator.ips_application?
             if calculator.ips_online_application?
               outcome :ips_application_result_online
