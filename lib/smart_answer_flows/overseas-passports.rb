@@ -13,8 +13,8 @@ module SmartAnswer
           calculator.current_location = response
         end
 
-        validate do |response|
-          calculator.world_location(response)
+        validate do
+          calculator.valid_current_location?
         end
 
         calculate :overseas_passports_embassies do |response|
