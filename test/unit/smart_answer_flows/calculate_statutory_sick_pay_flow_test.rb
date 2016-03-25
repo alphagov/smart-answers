@@ -60,7 +60,8 @@ module SmartAnswer
 
         should 'raise an exception' do
           exception = assert_raise(SmartAnswer::InvalidResponse) do
-            setup_states_for_question(:linked_sickness_end_date?,
+            setup_states_for_question(
+              :linked_sickness_end_date?,
               responding_with: '2015-01-07',
               initial_state: { calculator: @calculator }
             )
@@ -76,7 +77,8 @@ module SmartAnswer
 
         should 'raise an exception' do
           exception = assert_raise(SmartAnswer::InvalidResponse) do
-            setup_states_for_question(:linked_sickness_end_date?,
+            setup_states_for_question(
+              :linked_sickness_end_date?,
               responding_with: '2015-01-31',
               initial_state: { calculator: @calculator }
             )
@@ -92,7 +94,8 @@ module SmartAnswer
 
         should 'raise an exception' do
           exception = assert_raise(SmartAnswer::InvalidResponse) do
-            setup_states_for_question(:linked_sickness_end_date?,
+            setup_states_for_question(
+              :linked_sickness_end_date?,
               responding_with: '2015-01-03',
               initial_state: { calculator: @calculator }
             )
