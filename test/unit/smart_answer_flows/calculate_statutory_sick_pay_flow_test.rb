@@ -45,15 +45,19 @@ module SmartAnswer
     end
 
     context 'when answering linked_sickness_end_date? question' do
+      setup do
+        @calculator.linked_sickness_start_date = Date.parse('2015-01-01')
+        @calculator.days_of_the_week_worked = %w(1 2 3 4 5)
+        @calculator.stubs(
+          within_eight_weeks_of_current_sickness_period?: true,
+          at_least_1_day_before_first_sick_day?: true,
+          valid_linked_period_of_incapacity_for_work?: true
+        )
+      end
+
       context 'and linked sickness ends more than 8 weeks before sickness starts' do
         setup do
-          @calculator.linked_sickness_start_date = Date.parse('2015-01-01')
-          @calculator.days_of_the_week_worked = %w(1 2 3 4 5)
-          @calculator.stubs(
-            within_eight_weeks_of_current_sickness_period?: false,
-            at_least_1_day_before_first_sick_day?: true,
-            valid_linked_period_of_incapacity_for_work?: true
-          )
+          @calculator.stubs(within_eight_weeks_of_current_sickness_period?: false)
         end
 
         should 'raise an exception' do
@@ -69,13 +73,7 @@ module SmartAnswer
 
       context 'and linked sickness ends the day before sickness starts' do
         setup do
-          @calculator.linked_sickness_start_date = Date.parse('2015-01-01')
-          @calculator.days_of_the_week_worked = %w(1 2 3 4 5)
-          @calculator.stubs(
-            within_eight_weeks_of_current_sickness_period?: true,
-            at_least_1_day_before_first_sick_day?: false,
-            valid_linked_period_of_incapacity_for_work?: true
-          )
+          @calculator.stubs(at_least_1_day_before_first_sick_day?: false)
         end
 
         should 'raise an exception' do
@@ -92,13 +90,7 @@ module SmartAnswer
       context 'and linked sickness period is less than 4 calendar days long' do
         setup do
           @calculator.sick_start_date = Date.parse('2015-02-01')
-          @calculator.linked_sickness_start_date = Date.parse('2015-01-01')
-          @calculator.days_of_the_week_worked = %w(1 2 3 4 5)
-          @calculator.stubs(
-            within_eight_weeks_of_current_sickness_period?: true,
-            at_least_1_day_before_first_sick_day?: true,
-            valid_linked_period_of_incapacity_for_work?: false
-          )
+          @calculator.stubs(valid_linked_period_of_incapacity_for_work?: false)
         end
 
         should 'raise an exception' do
