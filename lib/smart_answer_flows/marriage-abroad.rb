@@ -92,7 +92,7 @@ module SmartAnswer
           if calculator.ceremony_country == 'brazil' && calculator.resident_outside_of_uk?
             outcome :outcome_marriage_in_brazil_when_residing_in_brazil_or_third_country
           elsif calculator.ceremony_country == "netherlands"
-            outcome :outcome_marriage_via_local_authorities
+            outcome :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
           elsif calculator.ceremony_country == "portugal"
             outcome :outcome_ceremonies_in_portugal
           elsif calculator.ceremony_country == "ireland"
@@ -170,7 +170,7 @@ module SmartAnswer
                 )
               outcome :outcome_opposite_sex_in_no_cni_countries_when_residing_in_ceremony_or_third_country
             elsif calculator.opposite_sex_marriage_via_local_authorities?
-              outcome :outcome_marriage_via_local_authorities
+              outcome :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
             elsif calculator.opposite_sex_in_other_countries?
               outcome :outcome_opposite_sex_marriage_in_other_countries
             end
@@ -211,7 +211,7 @@ module SmartAnswer
 
       outcome :outcome_ceremonies_in_switzerland
 
-      outcome :outcome_marriage_via_local_authorities
+      outcome :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
 
       outcome :outcome_ceremonies_in_portugal
 

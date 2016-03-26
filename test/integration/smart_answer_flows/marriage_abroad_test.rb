@@ -902,18 +902,18 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'cote-d-ivoire'
     end
 
-    should "lead to outcome_marriage_via_local_authorities when in the UK" do
+    should "lead to outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries when in the UK" do
       add_response 'uk'
       add_response 'partner_british'
       add_response 'opposite_sex'
-      assert_current_node :outcome_marriage_via_local_authorities
+      assert_current_node :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
     end
 
-    should "lead to outcome_marriage_via_local_authorities when in a third country" do
+    should "lead to outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries when in a third country" do
       add_response 'third_country'
       add_response 'partner_british'
       add_response 'opposite_sex'
-      assert_current_node :outcome_marriage_via_local_authorities
+      assert_current_node :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
     end
   end
 
@@ -966,24 +966,24 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   end
 
   context "ceremony in usa, lives elsewhere, partner other" do
-    should "go to outcome_marriage_via_local_authorities" do
+    should "go to outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries" do
       worldwide_api_has_organisations_for_location('usa', read_fixture_file('worldwide/usa_organisations.json'))
       add_response 'usa'
       add_response 'third_country'
       add_response 'partner_other'
       add_response 'opposite_sex'
-      assert_current_node :outcome_marriage_via_local_authorities
+      assert_current_node :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
     end
   end
 
   context "ceremony in argentina, lives elsewhere, partner other" do
-    should "go to outcome_marriage_via_local_authorities" do
+    should "go to outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries" do
       worldwide_api_has_organisations_for_location('argentina', read_fixture_file('worldwide/argentina_organisations.json'))
       add_response 'argentina'
       add_response 'third_country'
       add_response 'partner_other'
       add_response 'opposite_sex'
-      assert_current_node :outcome_marriage_via_local_authorities
+      assert_current_node :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
     end
   end
 
@@ -1637,35 +1637,35 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   end
 
   context "Slovakia" do
-    should "lead to outcome_marriage_via_local_authorities" do
+    should "lead to outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries" do
       worldwide_api_has_organisations_for_location('slovakia', read_fixture_file('worldwide/slovakia_organisations.json'))
       add_response 'slovakia'
       add_response 'uk'
       add_response 'partner_british'
       add_response 'opposite_sex'
-      assert_current_node :outcome_marriage_via_local_authorities
+      assert_current_node :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
     end
   end
 
   context "Ukraine" do
-    should "lead to outcome_marriage_via_local_authorities" do
+    should "lead to outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries" do
       worldwide_api_has_organisations_for_location('ukraine', read_fixture_file('worldwide/ukraine_organisations.json'))
       add_response 'ukraine'
       add_response 'uk'
       add_response 'partner_british'
       add_response 'opposite_sex'
-      assert_current_node :outcome_marriage_via_local_authorities
+      assert_current_node :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
     end
   end
 
   context "Netherlands" do
-    should "bring you to outcome_marriage_via_local_authorities" do
+    should "bring you to outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries" do
       worldwide_api_has_organisations_for_location('netherlands', read_fixture_file('worldwide/netherlands_organisations.json'))
       add_response 'netherlands'
       add_response 'uk'
       add_response 'partner_british'
       add_response 'opposite_sex'
-      assert_current_node :outcome_marriage_via_local_authorities
+      assert_current_node :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
     end
   end
 
