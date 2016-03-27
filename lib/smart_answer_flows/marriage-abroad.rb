@@ -30,7 +30,7 @@ module SmartAnswer
           elsif %w(france monaco new-caledonia wallis-and-futuna).include?(calculator.ceremony_country)
             question :marriage_or_pacs?
           elsif calculator.ceremony_country_is_french_overseas_territory?
-            outcome :outcome_os_france_or_fot
+            outcome :outcome_marriage_in_france_or_french_overseas_territory
           else
             question :legal_residency?
           end
@@ -61,11 +61,11 @@ module SmartAnswer
         next_node do |response|
           calculator.marriage_or_pacs = response
           if calculator.ceremony_country == 'monaco'
-            outcome :outcome_monaco
+            outcome :outcome_ceremonies_in_monaco
           elsif calculator.want_to_get_married?
-            outcome :outcome_os_france_or_fot
+            outcome :outcome_marriage_in_france_or_french_overseas_territory
           else
-            outcome :outcome_cp_france_pacs
+            outcome :outcome_civil_partnership_in_france_or_french_overseas_territory
           end
         end
       end
@@ -90,205 +90,164 @@ module SmartAnswer
         next_node do |response|
           calculator.sex_of_your_partner = response
           if calculator.ceremony_country == 'brazil' && calculator.resident_outside_of_uk?
-            outcome :outcome_brazil_not_living_in_the_uk
+            outcome :outcome_marriage_in_brazil_when_residing_in_brazil_or_third_country
           elsif calculator.ceremony_country == "netherlands"
-            outcome :outcome_marriage_via_local_authorities
+            outcome :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
           elsif calculator.ceremony_country == "portugal"
-            outcome :outcome_portugal
+            outcome :outcome_ceremonies_in_portugal
           elsif calculator.ceremony_country == "ireland"
-            outcome :outcome_ireland
+            outcome :outcome_ceremonies_in_ireland
           elsif calculator.ceremony_country == "switzerland"
-            outcome :outcome_switzerland
+            outcome :outcome_ceremonies_in_switzerland
           elsif calculator.ceremony_country == "spain"
-            outcome :outcome_spain
+            outcome :outcome_ceremonies_in_spain
           elsif calculator.ceremony_country == 'dominican-republic'
-            outcome :outcome_dominican_republic
+            outcome :outcome_ceremonies_in_dominican_republic
           elsif calculator.partner_is_opposite_sex?
             if calculator.ceremony_country == 'hong-kong'
-              outcome :outcome_os_hong_kong
+              outcome :outcome_opposite_sex_marriage_in_hong_kong
             elsif calculator.ceremony_country == 'germany'
-              outcome :outcome_os_germany
+              outcome :outcome_opposite_sex_marriage_in_germany
             elsif calculator.ceremony_country == 'oman'
-              outcome :outcome_os_oman
+              outcome :outcome_opposite_sex_marriage_in_oman
             elsif calculator.ceremony_country == 'belarus'
-              outcome :outcome_os_belarus
+              outcome :outcome_opposite_sex_marriage_in_belarus
             elsif calculator.ceremony_country == 'kuwait'
-              outcome :outcome_os_kuwait
+              outcome :outcome_opposite_sex_marriage_in_kuwait
             elsif calculator.ceremony_country == 'japan'
-              outcome :outcome_os_japan
+              outcome :outcome_opposite_sex_marriage_in_japan
             elsif calculator.resident_of_third_country? &&
                 (
                   calculator.opposite_sex_consular_cni_country? ||
                   %w(kosovo).include?(calculator.ceremony_country) ||
                   calculator.opposite_sex_consular_cni_in_nearby_country?
                 )
-              outcome :outcome_consular_cni_os_residing_in_third_country
+              outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
             elsif calculator.ceremony_country == 'norway' && calculator.resident_of_third_country?
-              outcome :outcome_consular_cni_os_residing_in_third_country
+              outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
             elsif calculator.ceremony_country == 'italy'
-              outcome :outcome_os_italy
+              outcome :outcome_opposite_sex_marriage_in_italy_when_residing_in_uk_or_italy
             elsif calculator.ceremony_country == 'cambodia'
-              outcome :outcome_os_cambodia
+              outcome :outcome_opposite_sex_marriage_in_cambodia
             elsif calculator.ceremony_country == "colombia"
-              outcome :outcome_os_colombia
+              outcome :outcome_opposite_sex_marriage_in_colombia
             elsif calculator.ceremony_country == 'germany'
-              outcome :outcome_os_germany
+              outcome :outcome_opposite_sex_marriage_in_germany
             elsif calculator.ceremony_country == "kosovo"
-              outcome :outcome_os_kosovo
+              outcome :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_uk_or_kosovo
             elsif calculator.ceremony_country == "indonesia"
-              outcome :outcome_os_indonesia
+              outcome :outcome_opposite_sex_marriage_in_indonesia
             elsif calculator.ceremony_country == "laos" && calculator.partner_is_not_national_of_ceremony_country?
-              outcome :outcome_os_marriage_impossible_no_laos_locals
+              outcome :outcome_opposite_sex_marriage_in_laos_without_lao_national
             elsif calculator.ceremony_country == "laos"
-              outcome :outcome_os_laos
+              outcome :outcome_opposite_sex_marriage_in_laos_with_lao_national
             elsif calculator.ceremony_country == 'poland'
-              outcome :outcome_os_poland
+              outcome :outcome_opposite_sex_marriage_in_poland_when_residing_in_uk_or_poland
             elsif calculator.ceremony_country == 'slovenia'
-              outcome :outcome_os_slovenia
+              outcome :outcome_opposite_sex_marriage_in_slovenia_when_residing_in_uk_or_slovenia
             elsif calculator.opposite_sex_consular_cni_country? ||
                 (
                   calculator.resident_of_uk? &&
                   calculator.opposite_sex_no_marriage_related_consular_services_in_ceremony_country?
                 ) ||
                 calculator.opposite_sex_consular_cni_in_nearby_country?
-              outcome :outcome_os_consular_cni
+              outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk_or_ceremony_country
             elsif calculator.ceremony_country == "finland" && calculator.resident_of_uk?
-              outcome :outcome_os_consular_cni
+              outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk_or_ceremony_country
             elsif calculator.ceremony_country == "norway" && calculator.resident_of_uk?
-              outcome :outcome_os_consular_cni
+              outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk_or_ceremony_country
             elsif calculator.opposite_sex_affirmation_country?
-              outcome :outcome_os_affirmation
+              outcome :outcome_opposite_sex_marriage_in_affirmation_countries
             elsif calculator.ceremony_country_in_the_commonwealth? ||
                 calculator.ceremony_country == 'zimbabwe'
-              outcome :outcome_os_commonwealth
+              outcome :outcome_opposite_sex_marriage_in_commonwealth_countries
             elsif calculator.ceremony_country_is_british_overseas_territory?
-              outcome :outcome_os_bot
+              outcome :outcome_opposite_sex_marriage_in_british_overseas_territory
             elsif calculator.opposite_sex_no_consular_cni_country? ||
                 (
                   calculator.resident_outside_of_uk? &&
                   calculator.opposite_sex_no_marriage_related_consular_services_in_ceremony_country?
                 )
-              outcome :outcome_os_no_cni
+              outcome :outcome_opposite_sex_in_no_cni_countries_when_residing_in_ceremony_or_third_country
             elsif calculator.opposite_sex_marriage_via_local_authorities?
-              outcome :outcome_marriage_via_local_authorities
+              outcome :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
             elsif calculator.opposite_sex_in_other_countries?
-              outcome :outcome_os_other_countries
+              outcome :outcome_opposite_sex_marriage_in_other_countries
             end
           elsif calculator.partner_is_same_sex?
             if %w(belgium norway).include?(calculator.ceremony_country)
-              outcome :outcome_ss_affirmation
+              outcome :outcome_same_sex_civil_partnership_in_affirmation_countries
             elsif calculator.same_sex_ceremony_country_unknown_or_has_no_embassies?
-              outcome :outcome_os_no_cni
+              outcome :outcome_opposite_sex_in_no_cni_countries_when_residing_in_ceremony_or_third_country
             elsif calculator.ceremony_country == "malta"
-              outcome :outcome_ss_marriage_malta
+              outcome :outcome_same_sex_marriage_and_civil_partnership_in_malta
             elsif calculator.same_sex_marriage_not_possible?
-              outcome :outcome_ss_marriage_not_possible
+              outcome :outcome_same_sex_marriage_and_civil_partnership_not_possible
             elsif calculator.ceremony_country == "germany" && calculator.partner_is_national_of_ceremony_country?
-              outcome :outcome_cp_or_equivalent
+              outcome :outcome_same_sex_civil_partnership
             elsif calculator.same_sex_marriage_country? ||
                 (
                   calculator.same_sex_marriage_country_when_couple_british? &&
                   calculator.partner_british?
                 ) ||
                 calculator.same_sex_marriage_and_civil_partnership?
-              outcome :outcome_ss_marriage
+              outcome :outcome_same_sex_marriage_and_civil_partnership
             elsif calculator.civil_partnership_equivalent_country?
-              outcome :outcome_cp_or_equivalent
+              outcome :outcome_same_sex_civil_partnership
             elsif calculator.civil_partnership_cni_not_required_country?
-              outcome :outcome_cp_no_cni
+              outcome :outcome_same_sex_civil_partnership_in_no_cni_countries
             elsif %w(canada south-africa).include?(calculator.ceremony_country)
-              outcome :outcome_cp_commonwealth_countries
+              outcome :outcome_same_sex_civil_partnership_in_commonwealth_countries
             elsif calculator.civil_partnership_consular_country?
-              outcome :outcome_cp_consular
+              outcome :outcome_same_sex_civil_partnership_in_consular_countries
             else
-              outcome :outcome_cp_all_other_countries
+              outcome :outcome_same_sex_marriage_and_civil_partnership_in_other_countries
             end
           end
         end
       end
 
-      outcome :outcome_ireland
-
-      outcome :outcome_switzerland
-
-      outcome :outcome_marriage_via_local_authorities
-
-      outcome :outcome_portugal
-
-      outcome :outcome_os_germany
-
-      outcome :outcome_os_kuwait
-
-      outcome :outcome_os_indonesia
-
-      outcome :outcome_os_laos
-
-      outcome :outcome_os_japan
-
-      outcome :outcome_os_hong_kong
-
-      outcome :outcome_os_kosovo
-
-      outcome :outcome_brazil_not_living_in_the_uk
-
-      outcome :outcome_os_cambodia
-
-      outcome :outcome_os_colombia
-
-      outcome :outcome_os_oman
-
-      outcome :outcome_os_poland
-
-      outcome :outcome_os_slovenia
-
-      outcome :outcome_monaco
-
-      outcome :outcome_spain
-
-      outcome :outcome_os_commonwealth
-
-      outcome :outcome_os_bot
-
-      outcome :outcome_os_belarus
-
-      outcome :outcome_os_italy
-
-      outcome :outcome_consular_cni_os_residing_in_third_country
-
-      outcome :outcome_os_consular_cni
-
-      outcome :outcome_os_france_or_fot
-
-      outcome :outcome_os_affirmation
-
-      outcome :outcome_os_no_cni
-
-      outcome :outcome_os_other_countries
-
-      #CP outcomes
-      outcome :outcome_cp_or_equivalent
-
-      outcome :outcome_cp_france_pacs
-
-      outcome :outcome_cp_no_cni
-
-      outcome :outcome_cp_commonwealth_countries
-
-      outcome :outcome_cp_consular
-
-      outcome :outcome_cp_all_other_countries
-
-      outcome :outcome_ss_marriage
-
-      outcome :outcome_ss_marriage_not_possible
-
-      outcome :outcome_ss_marriage_malta
-
-      outcome :outcome_ss_affirmation
-
-      outcome :outcome_os_marriage_impossible_no_laos_locals
-
-      outcome :outcome_dominican_republic
+      outcome :outcome_ceremonies_in_dominican_republic
+      outcome :outcome_ceremonies_in_ireland
+      outcome :outcome_ceremonies_in_monaco
+      outcome :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
+      outcome :outcome_ceremonies_in_portugal
+      outcome :outcome_ceremonies_in_spain
+      outcome :outcome_ceremonies_in_switzerland
+      outcome :outcome_civil_partnership_in_france_or_french_overseas_territory
+      outcome :outcome_marriage_in_brazil_when_residing_in_brazil_or_third_country
+      outcome :outcome_marriage_in_france_or_french_overseas_territory
+      outcome :outcome_opposite_sex_in_no_cni_countries_when_residing_in_ceremony_or_third_country
+      outcome :outcome_opposite_sex_marriage_in_affirmation_countries
+      outcome :outcome_opposite_sex_marriage_in_belarus
+      outcome :outcome_opposite_sex_marriage_in_british_overseas_territory
+      outcome :outcome_opposite_sex_marriage_in_cambodia
+      outcome :outcome_opposite_sex_marriage_in_colombia
+      outcome :outcome_opposite_sex_marriage_in_commonwealth_countries
+      outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
+      outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk_or_ceremony_country
+      outcome :outcome_opposite_sex_marriage_in_germany
+      outcome :outcome_opposite_sex_marriage_in_hong_kong
+      outcome :outcome_opposite_sex_marriage_in_indonesia
+      outcome :outcome_opposite_sex_marriage_in_italy_when_residing_in_uk_or_italy
+      outcome :outcome_opposite_sex_marriage_in_japan
+      outcome :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_uk_or_kosovo
+      outcome :outcome_opposite_sex_marriage_in_kuwait
+      outcome :outcome_opposite_sex_marriage_in_laos_with_lao_national
+      outcome :outcome_opposite_sex_marriage_in_laos_without_lao_national
+      outcome :outcome_opposite_sex_marriage_in_oman
+      outcome :outcome_opposite_sex_marriage_in_other_countries
+      outcome :outcome_opposite_sex_marriage_in_poland_when_residing_in_uk_or_poland
+      outcome :outcome_opposite_sex_marriage_in_slovenia_when_residing_in_uk_or_slovenia
+      outcome :outcome_same_sex_civil_partnership
+      outcome :outcome_same_sex_civil_partnership_in_affirmation_countries
+      outcome :outcome_same_sex_civil_partnership_in_commonwealth_countries
+      outcome :outcome_same_sex_civil_partnership_in_consular_countries
+      outcome :outcome_same_sex_civil_partnership_in_no_cni_countries
+      outcome :outcome_same_sex_marriage_and_civil_partnership
+      outcome :outcome_same_sex_marriage_and_civil_partnership_in_malta
+      outcome :outcome_same_sex_marriage_and_civil_partnership_in_other_countries
+      outcome :outcome_same_sex_marriage_and_civil_partnership_not_possible
     end
   end
 end
