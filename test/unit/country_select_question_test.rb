@@ -48,22 +48,5 @@ module SmartAnswer
         assert ! @question.valid_option?("united-kingdom")
       end
     end
-
-    context "using the legacy data" do
-      setup do
-        @question = Question::CountrySelect.new(nil, :example, use_legacy_data: true)
-      end
-
-      should "be able to list options" do
-        assert @question.options.include?(LegacyCountry.new(slug: "azerbaijan", name: "Azerbaijan"))
-        assert @question.options.include?(LegacyCountry.new(slug: "greece", name: "Greece"))
-      end
-
-      should "validate a provided option" do
-        assert @question.valid_option?("azerbaijan")
-        assert @question.valid_option?("greece")
-        assert ! @question.valid_option?("fooey")
-      end
-    end
   end
 end
