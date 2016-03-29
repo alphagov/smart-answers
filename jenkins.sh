@@ -26,7 +26,6 @@ export DISPLAY=:99
 
 if [ -z "$RUN_REGRESSION_TESTS" ]; then
   bundle exec govuk-lint-ruby \
-    --diff --cached \
     --format clang
 
   RAILS_ENV=test TEST_COVERAGE=true bundle exec rake test

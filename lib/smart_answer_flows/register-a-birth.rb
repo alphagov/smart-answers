@@ -189,7 +189,7 @@ module SmartAnswer
         end
 
         precalculate :button_data do
-          {text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start"}
+          { text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start" }
         end
 
         precalculate :custom_waiting_time do

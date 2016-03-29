@@ -95,11 +95,11 @@ module SmartAnswer
     end
 
     def node_exists?(node_or_name)
-      @nodes.any? {|n| n.name == node_or_name.to_sym }
+      @nodes.any? { |n| n.name == node_or_name.to_sym }
     end
 
     def node(node_or_name)
-      @nodes.find {|n| n.name == node_or_name.to_sym } or raise "Node '#{node_or_name}' does not exist"
+      @nodes.find { |n| n.name == node_or_name.to_sym } or raise "Node '#{node_or_name}' does not exist"
     end
 
     def start_state
@@ -131,7 +131,7 @@ module SmartAnswer
 
     class InvalidStatus < StandardError; end
 
-    private
+  private
 
     def add_question(klass, name, options = {}, &block)
       add_node klass.new(self, name, options, &block)

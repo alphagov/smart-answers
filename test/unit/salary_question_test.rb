@@ -14,7 +14,7 @@ module SmartAnswer
         next_node { outcome :done }
       end
 
-      new_state = q.transition(@initial_state, {amount: "123.0"})
+      new_state = q.transition(@initial_state, { amount: "123.0" })
       assert_equal Salary.new("123.0", "week"), new_state.my_cash
       assert new_state.my_cash.is_a?(Salary)
     end
@@ -25,7 +25,7 @@ module SmartAnswer
         next_node { outcome :done }
       end
 
-      new_state = q.transition(@initial_state, {amount: "123.0", period: "month"})
+      new_state = q.transition(@initial_state, { amount: "123.0", period: "month" })
       assert_equal Salary.new("123.0", "month"), new_state.my_cash
     end
 
@@ -35,7 +35,7 @@ module SmartAnswer
       end
 
       assert_raises InvalidResponse do
-        new_state = q.transition(@initial_state, {amount: "bad"})
+        new_state = q.transition(@initial_state, { amount: "bad" })
       end
     end
   end

@@ -38,7 +38,7 @@ module SmartAnswer
       @template_directory.join(erb_template_name)
     end
 
-    private
+  private
 
     def erb_template_name
       "#{@template_name}.govspeak.erb"

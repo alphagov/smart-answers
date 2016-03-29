@@ -18,7 +18,7 @@ class SmartAnswerFiles
     existing_paths.empty?
   end
 
-  private
+private
 
   def relative_paths
     @relative_paths ||= all_paths.collect do |path|

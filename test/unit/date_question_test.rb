@@ -102,7 +102,7 @@ module SmartAnswer
       q = Question::Date.new(nil, :example)
       q.stubs(:parse_input).with('valid-date').returns(valid_date)
 
-      expected_hash = {day: 1, month: 2, year: 2015}
+      expected_hash = { day: 1, month: 2, year: 2015 }
       assert_equal expected_hash, q.to_response('valid-date')
     end
 
@@ -126,7 +126,7 @@ module SmartAnswer
         next_node { outcome :done }
       end
 
-      new_state = q.transition(@initial_state, {year: "2011", month: '2', day: '1'})
+      new_state = q.transition(@initial_state, { year: "2011", month: '2', day: '1' })
       assert_equal Date.parse('2011-02-01'), new_state.date
     end
 
@@ -137,7 +137,7 @@ module SmartAnswer
       end
 
       assert_raise SmartAnswer::InvalidResponse do
-        q.transition(@initial_state, {year: "", month: '2', day: '1'})
+        q.transition(@initial_state, { year: "", month: '2', day: '1' })
       end
     end
 
@@ -234,7 +234,7 @@ module SmartAnswer
         next_node { outcome :done }
       end
 
-      new_state = q.transition(@initial_state, {year: "", month: "", day: ""})
+      new_state = q.transition(@initial_state, { year: "", month: "", day: "" })
       assert_equal Date.parse('2013-02-11'), new_state.date
     end
 
@@ -245,7 +245,7 @@ module SmartAnswer
         next_node { outcome :done }
       end
 
-      incomplete_date = {year: "2013", month: "2", day: ""}
+      incomplete_date = { year: "2013", month: "2", day: "" }
       new_state = q.transition(@initial_state, incomplete_date)
       assert_equal Date.parse('2013-02-28'), new_state.date
     end

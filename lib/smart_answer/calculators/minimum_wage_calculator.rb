@@ -190,7 +190,7 @@ module SmartAnswer::Calculators
       overtime_hours > 0
     end
 
-    protected
+  protected
 
     def weekly_multiplier
       (@pay_frequency.to_f / 7).round(3)
