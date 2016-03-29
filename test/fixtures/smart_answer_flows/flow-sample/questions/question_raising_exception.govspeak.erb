@@ -1,0 +1,11 @@
+<% content_for :title do %>
+  QUESTION_RAISING_EXCEPTION_TITLE
+<% end %>
+
+<% content_for :hint do %>
+  QUESTION_RAISING_EXCEPTION_HINT
+<% end %>
+
+<% content_for :body do %>
+  <% raise 'exception' %>
+<% end %>

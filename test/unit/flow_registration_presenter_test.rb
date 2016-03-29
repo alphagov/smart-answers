@@ -114,6 +114,15 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
       assert_match %r{QUESTION_WITH_INTERPOLATION_BODY}, @content
       assert_match %r{OUTCOME_WITH_INTERPOLATION_BODY}, @content
     end
+
+    should "ignore any exceptions in rendering nodes" do
+      @flow.multiple_choice(:question_raising_exception)
+      @flow.outcome(:outcome_raising_exception)
+      @content = @presenter.indexable_content
+      assert_match %r{FLOW_BODY}, @content
+      assert_match %r{QUESTION_1_BODY}, @content
+      assert_match %r{OUTCOME_1_BODY}, @content
+    end
   end
 
   context "state" do
