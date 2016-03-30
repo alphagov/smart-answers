@@ -13,9 +13,9 @@ module SmartAnswer::Calculators
       @data = rates_data
     end
 
-    def rates(relevant_date = Date.today)
+    def rates(date = Date.today)
       relevant_rates = data.find do |rates_hash|
-        rates_hash[:start_date] <= relevant_date && rates_hash[:end_date] >= relevant_date
+        rates_hash[:start_date] <= date && rates_hash[:end_date] >= date
       end
       relevant_rates ||= data.last
 
