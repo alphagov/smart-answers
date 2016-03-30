@@ -32,7 +32,7 @@ module SmartAnswer::Calculators
           setup do
             today = Date.today
             @yesterday = today - 1.day
-            tomorrow = today + 1.day
+            @tomorrow = today + 1.day
 
             yesterdays_rates = {
               start_date: @yesterday,
@@ -45,8 +45,8 @@ module SmartAnswer::Calculators
               rate: 2
             }
             tomorrows_rates = {
-              start_date: tomorrow,
-              end_date: tomorrow,
+              start_date: @tomorrow,
+              end_date: @tomorrow,
               rate: 1
             }
             rates = [yesterdays_rates, todays_rates, tomorrows_rates]
@@ -55,6 +55,16 @@ module SmartAnswer::Calculators
 
           should "return rate for date specified when calling the method" do
             assert_equal 3, @rates_query.rates(@yesterday).rate
+          end
+
+          should "return rate for date specified in RATES_QUERY_DATE environment variable if set" do
+            begin
+              ENV['RATES_QUERY_DATE'] = @tomorrow.to_s
+
+              assert_equal 1, @rates_query.rates.rate
+            ensure
+              ENV['RATES_QUERY_DATE'] = nil
+            end
           end
 
           should "return rate for today when no date is specified" do
