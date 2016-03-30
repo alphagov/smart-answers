@@ -1,14 +1,16 @@
 module SmartAnswer::Calculators
   class RatesQuery
     def self.from_file(rates_filename, load_path: nil)
-      new(rates_filename, load_path: load_path)
+      load_path ||= File.join("lib", "data", "rates")
+      rates_data_path = Rails.root.join(load_path, "#{rates_filename}.yml")
+      rates_data = YAML.load_file(rates_data_path).map(&:with_indifferent_access)
+      new(rates_data)
     end
 
-    attr_reader :load_path
+    attr_reader :data
 
-    def initialize(rates_filename, load_path: nil)
-      @load_path = load_path || File.join("lib", "data", "rates")
-      @rates_filename = rates_filename
+    def initialize(rates_data)
+      @data = rates_data
     end
 
     def rates(relevant_date = Date.today)
@@ -18,12 +20,6 @@ module SmartAnswer::Calculators
       relevant_rates ||= data.last
 
       OpenStruct.new(relevant_rates)
-    end
-
-  private
-
-    def data
-      @data ||= YAML.load_file(Rails.root.join(load_path, "#{@rates_filename}.yml")).map(&:with_indifferent_access)
     end
   end
 end
