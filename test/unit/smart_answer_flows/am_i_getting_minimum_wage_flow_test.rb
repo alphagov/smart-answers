@@ -19,8 +19,7 @@ module SmartAnswer
             @state = SmartAnswer::State.new(@question)
             @calculator = stub('calculator',
               :age= => nil,
-              :under_school_leaving_age? => nil,
-              :what_to_check => nil
+              :under_school_leaving_age? => nil
             )
             @state.calculator = @calculator
           end
