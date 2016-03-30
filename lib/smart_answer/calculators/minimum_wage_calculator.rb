@@ -73,7 +73,11 @@ module SmartAnswer::Calculators
       if @is_apprentice
         @minimum_wage_data[:apprentice_rate]
       else
-        per_hour_minimum_wage
+        if eligible_for_living_wage?
+          national_living_wage_rate
+        else
+          per_hour_minimum_wage
+        end
       end
     end
 
