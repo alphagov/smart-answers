@@ -1,5 +1,9 @@
 module SmartAnswer::Calculators
   class RatesQuery
+    def self.from_file(rates_filename, load_path: nil)
+      new(rates_filename, load_path: load_path)
+    end
+
     attr_reader :load_path
 
     def initialize(rates_filename, load_path: nil)

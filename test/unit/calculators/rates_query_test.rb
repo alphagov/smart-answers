@@ -6,21 +6,21 @@ module SmartAnswer::Calculators
       context "#rates" do
         should "be 1 for 2013-01-31" do
           load_path = File.join("test", "fixtures", "rates")
-          test_rate = RatesQuery.new('exact_date_rates', load_path: load_path)
+          test_rate = RatesQuery.from_file('exact_date_rates', load_path: load_path)
 
           assert_equal 1, test_rate.rates(Date.parse('2013-01-31')).rate
         end
 
         should "be 2 for 2013-02-01" do
           load_path = File.join("test", "fixtures", "rates")
-          test_rate = RatesQuery.new('exact_date_rates', load_path: load_path)
+          test_rate = RatesQuery.from_file('exact_date_rates', load_path: load_path)
 
           assert_equal 2, test_rate.rates(Date.parse('2013-02-01')).rate
         end
 
         should "be the latest known rate (2) for uncovered future dates" do
           load_path = File.join("test", "fixtures", "rates")
-          test_rate = RatesQuery.new('exact_date_rates', load_path: load_path)
+          test_rate = RatesQuery.from_file('exact_date_rates', load_path: load_path)
 
           assert_equal 2, test_rate.rates(Date.parse('2113-03-12')).rate
         end
@@ -28,7 +28,7 @@ module SmartAnswer::Calculators
         context 'given a rate has been loaded for one date' do
           setup do
             load_path = File.join("test", "fixtures", "rates")
-            @test_rate = RatesQuery.new('exact_date_rates', load_path: load_path)
+            @test_rate = RatesQuery.from_file('exact_date_rates', load_path: load_path)
             @test_rate.rates(Date.parse('2013-01-31')).rate
           end
 
@@ -40,7 +40,7 @@ module SmartAnswer::Calculators
 
       context "Married couples allowance" do
         setup do
-          @query = RatesQuery.new('married_couples_allowance')
+          @query = RatesQuery.from_file('married_couples_allowance')
         end
 
         should "have all required rates defined for the current fiscal year" do
