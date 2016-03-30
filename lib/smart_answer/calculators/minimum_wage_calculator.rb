@@ -4,14 +4,13 @@ module SmartAnswer::Calculators
     attr_accessor :age, :pay_frequency, :basic_hours, :basic_pay, :is_apprentice,
       :overtime_hours, :overtime_hourly_rate, :accommodation_cost
 
-    attr_reader :date, :what_to_check
+    attr_reader :date
 
     def initialize(params = {})
       @age = params[:age]
       @date = (params[:date].nil? ? Date.today : params[:date])
       @basic_hours = params[:basic_hours].to_f
       @basic_pay = params[:basic_pay].to_f
-      @what_to_check = params[:what_to_check]
       @is_apprentice = params[:is_apprentice]
       @pay_frequency = params[:pay_frequency] || 7
       @overtime_hours = params[:overtime_hours].to_i || 0
@@ -74,7 +73,11 @@ module SmartAnswer::Calculators
       if @is_apprentice
         @minimum_wage_data[:apprentice_rate]
       else
-        per_hour_minimum_wage
+        if eligible_for_living_wage?
+          national_living_wage_rate
+        else
+          per_hour_minimum_wage
+        end
       end
     end
 
