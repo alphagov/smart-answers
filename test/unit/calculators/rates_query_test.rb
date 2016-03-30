@@ -5,27 +5,30 @@ module SmartAnswer::Calculators
     context RatesQuery do
       context "#rates" do
         should "be 1 for 2013-01-31" do
-          test_rate = RatesQuery.new('exact_date_rates')
-          test_rate.stubs(:load_path).returns(File.join("test", "fixtures", "rates"))
+          load_path = File.join("test", "fixtures", "rates")
+          test_rate = RatesQuery.new('exact_date_rates', load_path: load_path)
+
           assert_equal 1, test_rate.rates(Date.parse('2013-01-31')).rate
         end
 
         should "be 2 for 2013-02-01" do
-          test_rate = RatesQuery.new('exact_date_rates')
-          test_rate.stubs(:load_path).returns(File.join("test", "fixtures", "rates"))
+          load_path = File.join("test", "fixtures", "rates")
+          test_rate = RatesQuery.new('exact_date_rates', load_path: load_path)
+
           assert_equal 2, test_rate.rates(Date.parse('2013-02-01')).rate
         end
 
         should "be the latest known rate (2) for uncovered future dates" do
-          test_rate = RatesQuery.new('exact_date_rates')
-          test_rate.stubs(:load_path).returns(File.join("test", "fixtures", "rates"))
+          load_path = File.join("test", "fixtures", "rates")
+          test_rate = RatesQuery.new('exact_date_rates', load_path: load_path)
+
           assert_equal 2, test_rate.rates(Date.parse('2113-03-12')).rate
         end
 
         context 'given a rate has been loaded for one date' do
           setup do
-            @test_rate = RatesQuery.new('exact_date_rates')
-            @test_rate.stubs(:load_path).returns(File.join("test", "fixtures", "rates"))
+            load_path = File.join("test", "fixtures", "rates")
+            @test_rate = RatesQuery.new('exact_date_rates', load_path: load_path)
             @test_rate.rates(Date.parse('2013-01-31')).rate
           end
 

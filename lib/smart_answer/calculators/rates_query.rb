@@ -1,6 +1,9 @@
 module SmartAnswer::Calculators
   class RatesQuery
-    def initialize(rates_filename)
+    attr_reader :load_path
+
+    def initialize(rates_filename, load_path: nil)
+      @load_path = load_path || File.join("lib", "data", "rates")
       @rates_filename = rates_filename
     end
 
@@ -14,10 +17,6 @@ module SmartAnswer::Calculators
     end
 
   private
-
-    def load_path
-      @load_path ||= File.join("lib", "data", "rates")
-    end
 
     def data
       @data ||= YAML.load_file(Rails.root.join(load_path, "#{@rates_filename}.yml")).map(&:with_indifferent_access)
