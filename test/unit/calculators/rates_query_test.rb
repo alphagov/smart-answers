@@ -29,10 +29,10 @@ module SmartAnswer::Calculators
           setup do
             load_path = File.join("test", "fixtures", "rates")
             @test_rate = RatesQuery.from_file('exact_date_rates', load_path: load_path)
-            @test_rate.rates(Date.parse('2013-01-31')).rate
           end
 
           should 'return the correct rate for a different date' do
+            assert_equal 1, @test_rate.rates(Date.parse('2013-01-31')).rate
             assert_equal 2, @test_rate.rates(Date.parse("2013-02-01")).rate
           end
         end
