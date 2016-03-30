@@ -27,6 +27,40 @@ module SmartAnswer::Calculators
             assert_equal 2, @test_rate.rates(Date.parse("2013-02-01")).rate
           end
         end
+
+        context 'with various dates' do
+          setup do
+            today = Date.today
+            @yesterday = today - 1.day
+            tomorrow = today + 1.day
+
+            yesterdays_rates = {
+              start_date: @yesterday,
+              end_date: @yesterday,
+              rate: 3
+            }
+            todays_rates = {
+              start_date: today,
+              end_date: today,
+              rate: 2
+            }
+            tomorrows_rates = {
+              start_date: tomorrow,
+              end_date: tomorrow,
+              rate: 1
+            }
+            rates = [yesterdays_rates, todays_rates, tomorrows_rates]
+            @rates_query = RatesQuery.new(rates)
+          end
+
+          should "return rate for date specified when calling the method" do
+            assert_equal 3, @rates_query.rates(@yesterday).rate
+          end
+
+          should "return rate for today when no date is specified" do
+            assert_equal 2, @rates_query.rates.rate
+          end
+        end
       end
 
       context "Married couples allowance" do
