@@ -47,7 +47,7 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       end
 
       context "male" do
-        setup { add_response "male_gender"}
+        setup { add_response "male_gender" }
         should "go to impossibility_to_increase_pension_outcome" do
           assert_current_node :impossibility_to_increase_pension_outcome
         end

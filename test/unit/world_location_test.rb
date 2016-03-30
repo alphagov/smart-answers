@@ -15,7 +15,7 @@ class WorldLocationTest < ActiveSupport::TestCase
     end
 
     should "load multiple pages of locations" do
-      @location_slugs = (1..30).map {|n| "location-#{n}" }
+      @location_slugs = (1..30).map { |n| "location-#{n}" }
       worldwide_api_has_locations(@location_slugs)
 
       results = WorldLocation.all
@@ -37,7 +37,7 @@ class WorldLocationTest < ActiveSupport::TestCase
       loc3 = world_location_details_for_slug('location-3')
       loc3["details"]["slug"] = ""
       loc4 = world_location_details_for_slug('location-4')
-      details = {"results" => [loc1, loc2, loc3, loc4]}
+      details = { "results" => [loc1, loc2, loc3, loc4] }
       response = GdsApi::ListResponse.new(stub(body: details.to_json, headers: {}), nil)
 
       Services.worldwide_api.stubs(:world_locations).returns(response)
@@ -48,7 +48,7 @@ class WorldLocationTest < ActiveSupport::TestCase
 
     context "caching the results" do
       setup do
-        @location_slugs = (1..30).map {|n| "location-#{n}" }
+        @location_slugs = (1..30).map { |n| "location-#{n}" }
         worldwide_api_has_locations(@location_slugs)
       end
 

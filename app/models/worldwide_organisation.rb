@@ -20,7 +20,7 @@ class WorldwideOrganisation
   end
 
   def fco_sponsored?
-    @data.sponsors.any? {|s| s.details.acronym == "FCO" }
+    @data.sponsors.any? { |s| s.details.acronym == "FCO" }
   end
 
   def offices_with_service(service_title)

@@ -4,7 +4,7 @@ module SmartAnswer::Calculators
   class VatPaymentDeadlinesTest < ActiveSupport::TestCase
     setup do
       WebMock.stub_request(:get, WorkingDays::BANK_HOLIDAYS_URL).
- to_return(body: File.open(fixture_file('bank_holidays.json')))
+        to_return(body: File.open(fixture_file('bank_holidays.json')))
     end
 
     context "payment dates for direct-debit" do

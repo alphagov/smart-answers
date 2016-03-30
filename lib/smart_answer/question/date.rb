@@ -52,23 +52,25 @@ module SmartAnswer
       end
 
       def parse_input(input)
-        date = case input
+        date = begin
+          case input
           when Hash, ActiveSupport::HashWithIndifferentAccess
-           input = input.symbolize_keys
-           year_month_and_day = [
-             default_year || input[:year],
-             default_month || input[:month],
-             default_day || input[:day],
-           ]
-           raise InvalidResponse unless year_month_and_day.all?(&:present?)
-           ::Date.new(*year_month_and_day.map(&:to_i))
+            input = input.symbolize_keys
+            year_month_and_day = [
+              default_year || input[:year],
+              default_month || input[:month],
+              default_day || input[:day],
+            ]
+            raise InvalidResponse unless year_month_and_day.all?(&:present?)
+            ::Date.new(*year_month_and_day.map(&:to_i))
           when String
-           ::Date.parse(input)
+            ::Date.parse(input)
           when ::Date
-           input
+            input
           else
-           raise InvalidResponse, "Bad date", caller
+            raise InvalidResponse, "Bad date", caller
           end
+        end
         validate_input(date) if @validate_in_range
         date
       rescue ArgumentError => e

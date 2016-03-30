@@ -11,7 +11,7 @@ class SmartAnswerHasher
     io.puts(@checksum_data.to_yaml)
   end
 
-  private
+private
 
   def ensure_all_files_exist
     @flow_file_paths.each do |path|

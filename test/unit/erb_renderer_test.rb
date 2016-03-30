@@ -233,7 +233,7 @@ Hello world
       end
     end
 
-    private
+  private
 
     def content_for(key, template)
       "<% content_for #{key.inspect} do %>\n#{template}\n<% end %>"

@@ -137,7 +137,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
     end
   end
 
-  private
+private
 
   def assert_no_output_diff(path_to_output)
     diff_output = `git diff -- "#{path_to_output}"`

@@ -22,7 +22,7 @@ module SmartAnswer::Calculators
       commodity_code != 'X'
     end
 
-    private
+  private
 
     def glucose_sucrose_index
       starch_glucose_to_sucrose[@starch_glucose_weight][@sucrose_weight]

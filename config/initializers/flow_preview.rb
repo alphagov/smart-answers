@@ -3,7 +3,7 @@
 if Rails.env.production?
   FLOW_REGISTRY_OPTIONS = {}
 else
-  FLOW_REGISTRY_OPTIONS = {show_drafts: true}
+  FLOW_REGISTRY_OPTIONS = { show_drafts: true }
 end
 
 # Uncomment the following to run smartanswers with the test flows instead of the real ones
