@@ -21,7 +21,7 @@ module SmartAnswer
       value_question :question_1? do
         next_node do
           outcome :outcome_1
-        end:
+        end
       end
 
       outcome :outcome_1
