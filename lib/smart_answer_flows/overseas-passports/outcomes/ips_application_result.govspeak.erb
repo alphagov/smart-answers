@@ -19,34 +19,34 @@
              locals: {
                calculator: calculator
              }
-  -%>
+  %>
 
   <%= render partial: 'how_to_apply.govspeak.erb',
              locals: {
                calculator: calculator
              }
-  -%>
+  %>
 
   <% if calculator.application_address %>
     <%= render partial: 'sending_your_application.govspeak.erb',
                locals: {
                  calculator: calculator
                }
-    -%>
+    %>
   <% else %>
     <%= render partial: 'making_your_application.govspeak.erb',
                locals: {
                  calculator: calculator,
                  overseas_passports_embassies: overseas_passports_embassies
                }
-    -%>
+    %>
   <% end %>
 
   <%= render partial: 'getting_your_passport.govspeak.erb',
              locals: {
                calculator: calculator
              }
-  -%>
+  %>
 
   <%= render partial: 'passport_adviceline_contacts.govspeak.erb' %>
 <% end %>
