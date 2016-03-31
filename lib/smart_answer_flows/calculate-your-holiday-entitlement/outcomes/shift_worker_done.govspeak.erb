@@ -1,5 +1,5 @@
 <% content_for :body do %>
   $!The statutory holiday entitlement is <%= pluralize(holiday_entitlement_shifts, 'shift') %> for the year. Each shift being <%= pluralize(hours_per_shift, 'hour') %>.$!
 
-  <%= render partial: 'your_employer_with_rounding.govspeak.erb' -%>
+  <%= render partial: 'your_employer_with_rounding.govspeak.erb' %>
 <% end %>
