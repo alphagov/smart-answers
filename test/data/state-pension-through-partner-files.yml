@@ -16,5 +16,5 @@ lib/smart_answer_flows/state-pension-through-partner/questions/what_is_your_gend
 lib/smart_answer_flows/state-pension-through-partner/questions/what_is_your_marital_status.govspeak.erb: 86b0f4cdedffd735114360c21248ff05
 lib/smart_answer_flows/state-pension-through-partner/questions/when_will_you_reach_pension_age.govspeak.erb: 91c30ae0ee8202f5725fcf71f476babf
 lib/smart_answer_flows/state-pension-through-partner/questions/when_will_your_partner_reach_pension_age.govspeak.erb: d2f06f49adaa0f29f0c3ae9438dd55c7
-lib/smart_answer_flows/state-pension-through-partner/state_pension_through_partner.govspeak.erb: 41e4a83090d6e6626d0ec1042ea9fbbd
+lib/smart_answer_flows/state-pension-through-partner/state_pension_through_partner.govspeak.erb: e2cf8de591cf0cf42f296640eb1fe819
 lib/data/rates/state_pension.yml: 7e97e88500fb698038c49332b48b82bf
