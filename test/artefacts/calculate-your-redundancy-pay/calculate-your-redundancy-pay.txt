@@ -4,3 +4,5 @@ Calculate how much statutory redundancy you can get. It’s based on age, weekly
 
 You only qualify for statutory redundancy pay if you’ve worked for your employer for at least 2 years.
 
+
+
