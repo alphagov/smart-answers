@@ -9,8 +9,9 @@ If a flow needs to be removed urgently then it be can archived quickly by changi
 Once a flow has been removed the artefact will no longer register itself when the Smart Answers application is released.
 
 You will then need to:
-1. Archive the artefact in Panopticon (same process as other types of content)
-2. Add a redirect `router-data` for the artefact slub. This should be a `prefix` route, so all parts of the Smart Answer URL are matched and preserved. ([This is a good example](https://github.gds/gds/router-data/blob/master/data/slug-changes.csv#L623))
+
+1. Archive the artefact in [Panopticon](https://github.com/alphagov/panopticon) (same process as other types of content)
+2. Add a redirect in [router-data](https://github.gds/gds/router-data) for the artefact slug. This should be a `prefix` route, so all parts of the Smart Answer URL are matched and preserved. ([This is a good example](https://github.gds/gds/router-data/blob/master/data/slug-changes.csv#L623))
 
 ## Flow file naming convention
 
