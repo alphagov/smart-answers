@@ -254,6 +254,30 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       end # Age
 
       # Scenario 8
+      context "24 year old" do
+        setup do
+          add_response 24
+          add_response 7
+          add_response 35
+          add_response 350
+          add_response 10
+          add_response 12
+          add_response :yes_charged
+          add_response 30
+          add_response 7
+        end
+        should "be below the minimum wage" do
+          assert_current_node :current_payment_below
+        end
+        should "make outcome calculations" do
+          assert_equal 45, current_state.calculator.total_hours
+          assert_equal 6.50, current_state.calculator.minimum_hourly_rate
+          assert_equal 6.12, current_state.calculator.total_hourly_rate
+          assert_equal false, current_state.calculator.minimum_wage_or_above?
+        end
+      end
+
+      # Scenario 9
       context "25 year old" do
         setup do
           add_response 25
@@ -271,7 +295,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         end
         should "make outcome calculations" do
           assert_equal 45, current_state.calculator.total_hours
-          assert_equal 6.50, current_state.calculator.minimum_hourly_rate
+          assert_equal 7.20, current_state.calculator.minimum_hourly_rate
           assert_equal 6.12, current_state.calculator.total_hourly_rate
           assert_equal false, current_state.calculator.minimum_wage_or_above?
         end
@@ -622,7 +646,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       add_response 'no'
 
       assert_current_node :how_old_were_you?
-      add_response '25'
+      add_response '24'
 
       assert_current_node :how_often_did_you_get_paid?
       add_response '7'
