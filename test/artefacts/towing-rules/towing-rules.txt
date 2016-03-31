@@ -6,3 +6,5 @@ This tool assumes that you already have the minimum of a full car driving licenc
 
 ^A full car licence already lets you tow trailers weighing no more than 750kg. You can also tow heavier trailers with a car as long as the total weight of vehicle and trailer isn’t more than 3,500kg.^
 
+
+
