@@ -10,7 +10,6 @@ module SmartAnswer
       multiple_choice :what_would_you_like_to_check? do
         option "current_payment"
         option "past_payment"
-        option "current_payment_april_2016"
 
         calculate :calculator do |response|
           Calculators::MinimumWageCalculator.new(what_to_check: response)
