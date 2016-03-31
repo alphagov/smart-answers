@@ -11,8 +11,8 @@ module SmartAnswer
         option "current_payment"
         option "past_payment"
 
-        calculate :calculator do |response|
-          Calculators::MinimumWageCalculator.new(what_to_check: response)
+        calculate :calculator do
+          Calculators::MinimumWageCalculator.new
         end
 
         calculate :accommodation_charge do
