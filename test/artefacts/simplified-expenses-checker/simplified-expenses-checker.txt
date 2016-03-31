@@ -9,3 +9,5 @@ Use this checker to work out which method is best for you.
 - this checker doesn’t give exact figures to use in your tax return, it gives you an idea of which way of calculating your expenses might be best for you
 - limited companies aren’t eligible
 
+
+
