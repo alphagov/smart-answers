@@ -9,7 +9,7 @@
   <% end %>
 
   <%= render partial: 'os_affirmation/contact.govspeak.erb',
-             locals: { calculator: calculator } -%>
+             locals: { calculator: calculator } %>
 
   <% if %w(ecuador).exclude?(calculator.ceremony_country) %>
     <% if calculator.resident_of_ceremony_country? %>
@@ -31,7 +31,7 @@
   <% end %>
 
   <%= render partial: 'os_affirmation/what_you_need_to_do.govspeak.erb',
-             locals: { calculator: calculator } -%>
+             locals: { calculator: calculator } %>
 
    <% if calculator.ceremony_country == 'united-arab-emirates' && calculator.resident_of_ceremony_country? %>
      You may be able to get married at the British Embassy if you’re both resident in the United Arab Emirates and can prove that there are no other suitable facilities to get married locally.
@@ -40,6 +40,6 @@
    <% end %>
 
   <%= render partial: 'os_affirmation/fees.govspeak.erb',
-             locals: { calculator: calculator } -%>
+             locals: { calculator: calculator } %>
 
 <% end %>

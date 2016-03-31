@@ -18,7 +18,7 @@
     <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
 
     <%= render partial: 'cni_issued_locally_validity.govspeak.erb',
-               locals: { calculator: calculator } -%>
+               locals: { calculator: calculator } %>
 
     ###Getting a statutory declaration
     <% if calculator.partner_british? %>
@@ -61,7 +61,7 @@
                        locals: {
                          country_name_lowercase_prefix: calculator.country_name_lowercase_prefix,
                          callout: true
-                       } -%>
+                       } %>
 
       ###Applying for a Nulla Osta
 
@@ -95,7 +95,7 @@
   <% end %>
 
 
-  <%= render partial: 'names_on_documents_must_match.govspeak.erb' -%>
+  <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
 
   <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'you_dont_need_to_stay_in_country.govspeak.erb' %>
