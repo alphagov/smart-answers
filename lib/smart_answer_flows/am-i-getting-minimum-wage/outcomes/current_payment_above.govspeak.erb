@@ -8,14 +8,12 @@
   $C
 
   <% if calculator.eligible_for_living_wage? %>
-    The national living wage per hour for your age will be | Your actual pay
-  <% else %>
-    The National Minimum Wage per hour for your age | Your actual pay
-  <% end %>
+    The National Living Wage per hour for your age | Your actual pay
     - | -
-  <% if calculator.eligible_for_living_wage? %>
     <%= format_money(calculator.national_living_wage_rate) %> | <%= format_money(calculator.total_hourly_rate) %>
   <% else %>
+    The National Minimum Wage per hour for your age | Your actual pay
+    - | -
     <%= format_money(calculator.minimum_hourly_rate) %> | <%= format_money(calculator.total_hourly_rate) %>
   <% end %>
 
