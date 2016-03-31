@@ -6,7 +6,7 @@ Check if:
 - you’re getting paid the National Living Wage
 - your employer owes you past payments from past years
 
-^You must be at least 25 years old to get the national living wage.^
+^You must be at least 25 years old to get the National Living Wage.^
 
 
 

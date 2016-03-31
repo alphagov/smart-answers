@@ -22,7 +22,7 @@ lib/smart_answer_flows/am-i-getting-minimum-wage/questions/how_much_are_you_paid
 lib/smart_answer_flows/am-i-getting-minimum-wage/questions/how_much_were_you_paid_during_pay_period.govspeak.erb: c6abaebfaae248fd3693ba2e1beab5d3
 lib/smart_answer_flows/am-i-getting-minimum-wage/questions/how_often_did_you_get_paid.govspeak.erb: 868f39331c513af521803a73a44d61ad
 lib/smart_answer_flows/am-i-getting-minimum-wage/questions/how_often_do_you_get_paid.govspeak.erb: 7c8cfebb76f688bfb03c3625cd413a24
-lib/smart_answer_flows/am-i-getting-minimum-wage/questions/how_old_are_you.govspeak.erb: 63448299e27159f03d1d91b90aff86c1
+lib/smart_answer_flows/am-i-getting-minimum-wage/questions/how_old_are_you.govspeak.erb: 9d71f5503c82bb150961f8537453cce5
 lib/smart_answer_flows/am-i-getting-minimum-wage/questions/how_old_were_you.govspeak.erb: bfd909f04f6d523614226a0f9b8e7ea5
 lib/smart_answer_flows/am-i-getting-minimum-wage/questions/is_provided_with_accommodation.govspeak.erb: 083f1e522ae617d0aacf6851479ef28c
 lib/smart_answer_flows/am-i-getting-minimum-wage/questions/past_accommodation_charge.govspeak.erb: 9278d1a8b2bf2d3979fb744902c8e9ef
