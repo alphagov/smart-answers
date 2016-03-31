@@ -32,11 +32,7 @@ module SmartAnswer
       # Q3
       value_question :how_old_are_you?, parse: Integer do
         precalculate :age_title do
-          if calculator.what_to_check == 'current_payment_april_2016'
-            "How old will you be on 1 April 2016?"
-          else
-            "How old are you?"
-          end
+          "How old are you?"
         end
 
         validate do |response|
