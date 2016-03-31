@@ -39,14 +39,6 @@ module SmartAnswer
           calculator.valid_age?(response)
         end
 
-        validate :valid_age_for_living_wage? do |response|
-          if calculator.what_to_check == 'current_payment_april_2016'
-            calculator.valid_age_for_living_wage?(response)
-          else
-            true
-          end
-        end
-
         next_node do |response|
           calculator.age = response
           if calculator.under_school_leaving_age?
