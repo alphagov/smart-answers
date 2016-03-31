@@ -50,8 +50,6 @@ module SmartAnswer
       end
 
       use_shared_logic "minimum_wage"
-
-      outcome :does_not_apply_to_first_year_apprentices
     end
   end
 end
