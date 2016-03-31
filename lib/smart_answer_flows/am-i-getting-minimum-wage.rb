@@ -23,26 +23,8 @@ module SmartAnswer
           case response
           when 'current_payment'
             question :are_you_an_apprentice?
-          when 'current_payment_april_2016'
-            question :will_you_be_a_first_year_apprentice?
           when 'past_payment'
             question :past_payment_date?
-          end
-        end
-      end
-
-      # Q2 - April 2016
-      multiple_choice :will_you_be_a_first_year_apprentice? do
-        option :yes
-        option :no
-
-        next_node do |response|
-          case response
-          when 'yes'
-            calculator.is_apprentice = true
-            outcome :does_not_apply_to_first_year_apprentices
-          when 'no'
-            question :how_old_are_you? #Q3
           end
         end
       end
