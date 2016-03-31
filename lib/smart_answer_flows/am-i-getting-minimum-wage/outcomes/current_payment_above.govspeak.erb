@@ -1,11 +1,7 @@
 <% content_for :body do %>
   $C
   <% if calculator.eligible_for_living_wage? %>
-    <% if calculator.living_wage_or_above? %>
-      You will be getting the national living wage
-    <% else %>
-      You are getting the National Minimum wage but your pay should be increased to at least the national living wage from 1 April 2016.
-    <% end %>
+    You are getting the National Living Wage.
   <% else %>
     You are getting the National Minimum Wage.
   <% end %>
