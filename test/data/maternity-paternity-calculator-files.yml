@@ -73,6 +73,6 @@ lib/smart_answer_flows/maternity-paternity-calculator/questions/which_week_in_mo
 lib/smart_answer_flows/shared_logic/adoption-calculator.rb: 022dbc4053c89002b652506378fdcdf3
 lib/smart_answer_flows/shared_logic/maternity-calculator.rb: 0c248c921668eb519524fb3dbfb24b77
 lib/smart_answer_flows/shared_logic/paternity-calculator.rb: 42fddc7f33ee8aadbc0eca4bd56f774b
-lib/smart_answer/calculators/maternity_paternity_calculator.rb: 24de99189c23e9a7cc048871a817bb3c
+lib/smart_answer/calculators/maternity_paternity_calculator.rb: def054503513f72d77a21fc12bf2bfc6
 lib/data/rates/maternity_paternity_birth.yml: 3eef956f1020576a9343647fec34dd01
 lib/data/rates/maternity_paternity_adoption.yml: 453c4d90b6fd9ffe1556782665f313fc

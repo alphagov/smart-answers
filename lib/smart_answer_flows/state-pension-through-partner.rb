@@ -30,11 +30,11 @@ module SmartAnswer
         end
 
         calculate :lower_basic_state_pension_rate do
-          rate = SmartAnswer::Calculators::RatesQuery.new('state_pension').rates.lower_weekly_rate
+          rate = SmartAnswer::Calculators::RatesQuery.from_file('state_pension').rates.lower_weekly_rate
           "£#{rate}"
         end
         calculate :higher_basic_state_pension_rate do
-          rate = SmartAnswer::Calculators::RatesQuery.new('state_pension').rates.weekly_rate
+          rate = SmartAnswer::Calculators::RatesQuery.from_file('state_pension').rates.weekly_rate
           "£#{rate}"
         end
 

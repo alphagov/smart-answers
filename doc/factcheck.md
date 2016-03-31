@@ -20,6 +20,16 @@ Once deployed you'll need to use the standard `git push` mechanism to deploy you
 ./startup_heroku.sh
 ```
 
+### Displaying rates for a specific date
+
+The `RatesQuery` object is responsible for looking up the correct rates (in lib/data/rates) to display. By default, it'll lookup the rates for today but that can be overridden by setting the `RATES_QUERY_DATE` environment variable.
+
+This is useful for previewing future rates on Heroku, e.g. when rates are being changed in the new tax year.
+
+```bash
+$ heroku config:set RATES_QUERY_DATE=<yyyy-mm-dd>
+```
+
 ## Historical v2 workflow
 
 __This is for reference only. This method is no longer used.__

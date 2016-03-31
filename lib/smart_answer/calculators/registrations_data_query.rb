@@ -81,7 +81,7 @@ module SmartAnswer::Calculators
     end
 
     def document_return_fees
-      SmartAnswer::Calculators::RatesQuery.new('births_and_deaths_document_return_fees').rates
+      SmartAnswer::Calculators::RatesQuery.from_file('births_and_deaths_document_return_fees').rates
     end
 
     def self.registration_data
