@@ -415,15 +415,6 @@ Style/RedundantReturn:
   Exclude:
     - 'lib/smart_answer/salary.rb'
 
-# Offense count: 8
-# Cop supports --auto-correct.
-Style/SpaceInsideRangeLiteral:
-  Exclude:
-    - 'lib/smart_answer/calculators/birth_calculator.rb'
-    - 'lib/smart_answer/calculators/maternity_paternity_calculator.rb'
-    - 'lib/smart_answer/calculators/plan_adoption_leave.rb'
-    - 'lib/smart_answer/calculators/plan_maternity_leave.rb'
-
 # Offense count: 4
 Style/StructInheritance:
   Exclude:
