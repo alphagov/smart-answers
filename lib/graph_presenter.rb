@@ -45,6 +45,7 @@ class GraphPresenter
   end
 
 private
+
   def graph_label_text(node)
     text = node.class.to_s.split("::").last + "\n-\n"
     case node

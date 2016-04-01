@@ -81,6 +81,7 @@ module SmartAnswer
       end
 
     private
+
       def next_node_block
         @next_node_block || @default_next_node_block
       end
