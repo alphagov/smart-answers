@@ -197,11 +197,11 @@ module SmartAnswer
           response
         end
         calculate :green_vehicle_write_off do
-          vehicle_is_green ? Money.new(green_vehicle_price * ( business_use_percent / 100)) : nil
+          vehicle_is_green ? Money.new(green_vehicle_price * (business_use_percent / 100)) : nil
         end
 
         calculate :dirty_vehicle_write_off do
-          vehicle_is_green ? nil : Money.new(dirty_vehicle_price * ( business_use_percent / 100))
+          vehicle_is_green ? nil : Money.new(dirty_vehicle_price * (business_use_percent / 100))
         end
 
         next_node do |response|

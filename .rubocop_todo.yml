@@ -415,12 +415,6 @@ Style/RedundantReturn:
   Exclude:
     - 'lib/smart_answer/salary.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/SpaceInsideParens:
-  Exclude:
-    - 'lib/smart_answer_flows/simplified-expenses-checker.rb'
-
 # Offense count: 8
 # Cop supports --auto-correct.
 Style/SpaceInsideRangeLiteral:
