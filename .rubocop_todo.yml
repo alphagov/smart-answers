@@ -234,51 +234,6 @@ Style/EmptyElse:
   Exclude:
     - 'lib/smart_answer_flows/calculate-agricultural-holiday-entitlement.rb'
 
-# Offense count: 106
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/EmptyLinesAroundBlockBody:
-  Exclude:
-    - 'lib/smart_answer_flows/benefit-cap-calculator.rb'
-    - 'lib/smart_answer_flows/calculate-agricultural-holiday-entitlement.rb'
-    - 'lib/smart_answer_flows/calculate-your-child-maintenance.rb'
-    - 'lib/smart_answer_flows/help-if-you-are-arrested-abroad.rb'
-    - 'lib/smart_answer_flows/legalisation-document-checker.rb'
-    - 'lib/smart_answer_flows/register-a-birth.rb'
-    - 'lib/smart_answer_flows/report-a-lost-or-stolen-passport.rb'
-    - 'lib/smart_answer_flows/shared_logic/adoption-calculator.rb'
-    - 'lib/smart_answer_flows/shared_logic/maternity-calculator.rb'
-    - 'lib/smart_answer_flows/shared_logic/paternity-calculator.rb'
-    - 'lib/smart_answer_flows/simplified-expenses-checker.rb'
-    - 'lib/smart_answer_flows/student-finance-calculator.rb'
-    - 'lib/smart_answer_flows/uk-benefits-abroad.rb'
-    - 'test/integration/engine/input_validation_test.rb'
-    - 'test/integration/smart_answer_flows/am_i_getting_minimum_wage_test.rb'
-    - 'test/integration/smart_answer_flows/benefit_cap_calculator_test.rb'
-    - 'test/integration/smart_answer_flows/calculate_agricultural_holiday_entitlement_test.rb'
-    - 'test/integration/smart_answer_flows/calculate_statutory_sick_pay_test.rb'
-    - 'test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb'
-    - 'test/integration/smart_answer_flows/childcare_costs_for_tax_credits_test.rb'
-    - 'test/integration/smart_answer_flows/energy_grants_calculator_test.rb'
-    - 'test/integration/smart_answer_flows/estimate_self_assessment_penalties_test.rb'
-    - 'test/integration/smart_answer_flows/help_if_you_are_arrested_abroad_test.rb'
-    - 'test/integration/smart_answer_flows/maternity_calculator_test.rb'
-    - 'test/integration/smart_answer_flows/paternity_calculator_test.rb'
-    - 'test/integration/smart_answer_flows/plan_adoption_leave_test.rb'
-    - 'test/integration/smart_answer_flows/register_a_death_test.rb'
-    - 'test/integration/smart_answer_flows/state_pension_topup_test.rb'
-    - 'test/integration/smart_answer_flows/uk_benefits_abroad_test.rb'
-    - 'test/integration_test_helper.rb'
-    - 'test/unit/calculators/arrested_abroad_calculator_test.rb'
-    - 'test/unit/calculators/maternity_paternity_calculator_test.rb'
-    - 'test/unit/calculators/minimum_wage_calculator_test.rb'
-    - 'test/unit/calculators/passport_and_embassy_data_query_test.rb'
-    - 'test/unit/calculators/pip_dates_test.rb'
-    - 'test/unit/calculators/plan_adoption_leave_test.rb'
-    - 'test/unit/calculators/redundancy_calculator_test.rb'
-    - 'test/unit/calculators/vat_payment_deadlines_test.rb'
-    - 'test/unit/state_test.rb'
-
 # Offense count: 47
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.

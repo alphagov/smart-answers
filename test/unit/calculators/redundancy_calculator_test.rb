@@ -47,7 +47,6 @@ module SmartAnswer::Calculators
       end
     end
     context "use correct weekly pay and number of years limits" do
-
       # Aged 45, 12 years service, 350 per week
       should "be 4900" do
         @calculator = RedundancyCalculator.new(430, "45", 12, 350)

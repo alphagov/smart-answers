@@ -26,7 +26,6 @@ module SmartAnswer::Calculators
         should "distance from start (days 05)" do
           assert_equal "5 days", @calculator.distance_start
         end
-
       end
       context "formatted dates (start_date 2 weeks)" do
         setup do

@@ -32,7 +32,6 @@ module SmartAnswer
 
       #Q3
       money_question :how_much_are_your_tuition_fees_per_year? do
-
         calculate :tuition_fee_amount do |response|
           if course_type == "uk-full-time" or course_type == 'eu-full-time'
             raise SmartAnswer::InvalidResponse if response > 9000
@@ -52,7 +51,6 @@ module SmartAnswer
             outcome :outcome_eu_students
           end
         end
-
       end
       #Q4
       multiple_choice :where_will_you_live_while_studying? do
@@ -141,7 +139,6 @@ module SmartAnswer
             outcome :outcome_eu_students
           end
         end
-
       end
 
       outcome :outcome_uk_full_time_students

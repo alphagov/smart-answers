@@ -217,7 +217,6 @@ end
 
 ## QA10
 money_question :earnings_for_pay_period_adoption? do
-
   calculate :lower_earning_limit do
     sprintf("%.2f", calculator.lower_earning_limit)
   end

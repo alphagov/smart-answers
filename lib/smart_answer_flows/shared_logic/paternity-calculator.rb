@@ -71,7 +71,6 @@ end
 
 ## QAP2 - Paternity Adoption
 date_question :padoption_date_of_adoption_placement? do
-
   calculate :ap_adoption_date do |response|
     placement_date = response
     raise SmartAnswer::InvalidResponse if placement_date < matched_date
@@ -428,7 +427,6 @@ end
 
 ## QP17
 value_question :specific_date_each_month_paternity?, parse: :to_i do
-
   calculate :pay_day_in_month do |response|
     day = response
     raise InvalidResponse unless day > 0 and day < 32
@@ -562,7 +560,6 @@ outcome :paternity_leave_and_pay do
   precalculate :average_weekly_earnings do
     sprintf("%.2f", calculator.average_weekly_earnings)
   end
-
 end
 
 outcome :paternity_not_entitled_to_leave_or_pay do

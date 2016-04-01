@@ -301,7 +301,6 @@ end
 
 ## Maternity outcomes
 outcome :maternity_leave_and_pay_result do
-
   precalculate :pay_method do
     calculator.pay_method = (
       if monthly_pay_method
