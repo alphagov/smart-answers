@@ -2,13 +2,13 @@
 
 ## Integration
 
-This happens automatically as a post build action when the govuk_smart_answers build passes on CI.
+This happens automatically as a post build action when the [govuk_smart_answers](https://ci.dev.publishing.service.gov.uk/job/govuk_smart_answers/) build passes on CI.
 
 ### Manually
 
 If you have sufficient permissions, you can use the [Integration Deploy App](https://deploy.integration.publishing.service.gov.uk/job/Deploy_App/). Click the "Build with Parameters" link and enter "release" as the "TAG".
 
-If you do not have sufficient permissions, you can either kick the main CI build in Jenkins or commit & push something to the `master` branch.
+If you do not have sufficient permissions, you can either kick the [main CI build](continuous-integration.md#main) in Jenkins or commit & push something to the `master` branch.
 
 ## Production
 
