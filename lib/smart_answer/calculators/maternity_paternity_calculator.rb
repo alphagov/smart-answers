@@ -322,7 +322,7 @@ module SmartAnswer::Calculators
     end
 
     def uprating_date(year)
-      date = first_sunday_in_month(4 , year)
+      date = first_sunday_in_month(4, year)
       date += leave_start_date.wday if leave_start_date
       date
     end
