@@ -201,7 +201,7 @@ module SmartAnswer
             elsif calculator.civil_partnership_consular_country?
               outcome :outcome_same_sex_civil_partnership_in_consular_countries
             else
-              outcome :outcome_same_sex_marriage_and_civil_partnership_in_other_countries
+              outcome :outcome_same_sex_marriage_and_civil_partnership_not_possible
             end
           end
         end
@@ -246,7 +246,6 @@ module SmartAnswer
       outcome :outcome_same_sex_civil_partnership_in_no_cni_countries
       outcome :outcome_same_sex_marriage_and_civil_partnership
       outcome :outcome_same_sex_marriage_and_civil_partnership_in_malta
-      outcome :outcome_same_sex_marriage_and_civil_partnership_in_other_countries
       outcome :outcome_same_sex_marriage_and_civil_partnership_not_possible
     end
   end
