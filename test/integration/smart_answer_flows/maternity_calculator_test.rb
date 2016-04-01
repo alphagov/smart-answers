@@ -70,7 +70,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
         setup do
           @dd = Date.parse("21 November 2012")
           #FIXME qw should be 15 weeks before due date...
-   @qw = 15.weeks.ago(@dd - @dd.wday)..15.weeks.ago((@dd - @dd.wday) + 6)
+          @qw = 15.weeks.ago(@dd - @dd.wday)..15.weeks.ago((@dd - @dd.wday) + 6)
           add_response @dd
         end
         ## QM2
@@ -570,15 +570,15 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
     context "check for correct LEL Saturday, 12 April 2014 monthly" do
       setup do
         add_response Date.parse("2014-07-26")
-          add_response :yes
-          add_response Date.parse("2014-06-29")
-          add_response :yes
-          add_response :yes
-          add_response Date.parse("2014-04-06")
-          add_response Date.parse("2014-02-07")
-          add_response :monthly
-          add_response 956
-          add_response "weekly_starting"
+        add_response :yes
+        add_response Date.parse("2014-06-29")
+        add_response :yes
+        add_response :yes
+        add_response Date.parse("2014-04-06")
+        add_response Date.parse("2014-02-07")
+        add_response :monthly
+        add_response 956
+        add_response "weekly_starting"
       end
 
       should "have LEL of 111" do
@@ -591,15 +591,15 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
     context "check for correct LEL Saturday, 05 April 2014 monthly" do
       setup do
         add_response Date.parse("2014-07-19")
-          add_response :yes
-          add_response Date.parse("2014-06-22")
-          add_response :yes
-          add_response :yes
-          add_response Date.parse("2014-03-31")
-          add_response Date.parse("2014-02-03")
-          add_response :monthly
-          add_response 956
-          add_response "weekly_starting"
+        add_response :yes
+        add_response Date.parse("2014-06-22")
+        add_response :yes
+        add_response :yes
+        add_response Date.parse("2014-03-31")
+        add_response Date.parse("2014-02-03")
+        add_response :monthly
+        add_response 956
+        add_response "weekly_starting"
       end
 
       should "have LEL of 109" do
@@ -612,15 +612,15 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
     context "check for correct LEL Saturday, 05 April 2014 weekly_starting" do
       setup do
         add_response Date.parse("2014-07-19")
-          add_response :yes
-          add_response Date.parse("2014-06-22")
-          add_response :yes
-          add_response :yes
-          add_response Date.parse("2014-04-04")
-          add_response Date.parse("2014-02-07")
-          add_response :weekly
-          add_response 880
-          add_response "weekly_starting"
+        add_response :yes
+        add_response Date.parse("2014-06-22")
+        add_response :yes
+        add_response :yes
+        add_response Date.parse("2014-04-04")
+        add_response Date.parse("2014-02-07")
+        add_response :weekly
+        add_response 880
+        add_response "weekly_starting"
       end
 
       should "have LEL of 109" do
@@ -633,16 +633,16 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
     context "check for correct LEL Saturday, 05 April 2014 usual_paydates" do
       setup do
         add_response Date.parse("2014-07-19")
-          add_response :yes
-          add_response Date.parse("2014-06-22")
-          add_response :yes
-          add_response :yes
-          add_response Date.parse("2014-04-04")
-          add_response Date.parse("2014-02-07")
-          add_response :weekly
-          add_response 880
-          add_response "usual_paydates"
-          add_response Date.parse('2014-06-27')
+        add_response :yes
+        add_response Date.parse("2014-06-22")
+        add_response :yes
+        add_response :yes
+        add_response Date.parse("2014-04-04")
+        add_response Date.parse("2014-02-07")
+        add_response :weekly
+        add_response 880
+        add_response "usual_paydates"
+        add_response Date.parse('2014-06-27')
       end
 
       should "have LEL of 109" do
@@ -655,16 +655,16 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
     context "check for correct LEL Saturday, 21 December 2013" do
       setup do
         add_response Date.parse("2014-04-05")
-          add_response :yes
-          add_response Date.parse("2014-01-12")
-          add_response :yes
-          add_response :yes
-          add_response Date.parse("2013-12-20")
-          add_response Date.parse("2013-10-25")
-          add_response :every_2_weeks
-          add_response 880
-          add_response "usual_paydates"
-          add_response Date.parse('2014-01-17')
+        add_response :yes
+        add_response Date.parse("2014-01-12")
+        add_response :yes
+        add_response :yes
+        add_response Date.parse("2013-12-20")
+        add_response Date.parse("2013-10-25")
+        add_response :every_2_weeks
+        add_response 880
+        add_response "usual_paydates"
+        add_response Date.parse('2014-01-17')
       end
 
       should "have LEL of 109" do
@@ -677,15 +677,15 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
     context "check for correct LEL Saturday, 30 March 2013" do
       setup do
         add_response Date.parse("2013-07-11")
-          add_response :yes
-          add_response Date.parse("2013-06-13")
-          add_response :yes
-          add_response :yes
-          add_response Date.parse("2013-03-29")
-          add_response Date.parse("2013-02-01")
-          add_response :weekly
-          add_response 864
-          add_response "weekly_starting"
+        add_response :yes
+        add_response Date.parse("2013-06-13")
+        add_response :yes
+        add_response :yes
+        add_response Date.parse("2013-03-29")
+        add_response Date.parse("2013-02-01")
+        add_response :weekly
+        add_response 864
+        add_response "weekly_starting"
       end
 
       should "have LEL of 107" do

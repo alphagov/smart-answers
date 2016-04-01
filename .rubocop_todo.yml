@@ -382,25 +382,6 @@ Style/FirstParameterIndentation:
     - 'test/unit/calculators/minimum_wage_calculator_test.rb'
     - 'test/unit/calculators/night_work_hours_test.rb'
 
-# Offense count: 99
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/IndentationConsistency:
-  Exclude:
-    - 'lib/smart_answer/calculators/plan_adoption_leave.rb'
-    - 'lib/smart_answer/calculators/plan_maternity_leave.rb'
-    - 'test/integration/engine/changing_answer_test.rb'
-    - 'test/integration/engine/data_partials_test.rb'
-    - 'test/integration/smart_answer_flows/am_i_getting_minimum_wage_test.rb'
-    - 'test/integration/smart_answer_flows/check_uk_visa_test.rb'
-    - 'test/integration/smart_answer_flows/maternity_calculator_test.rb'
-    - 'test/integration/smart_answer_flows/plan_adoption_leave_test.rb'
-    - 'test/unit/age_related_allowance_chooser_test.rb'
-    - 'test/unit/calculators/holiday_entitlement_test.rb'
-    - 'test/unit/calculators/maternity_benefits_calculator_test.rb'
-    - 'test/unit/country_select_question_test.rb'
-    - 'test/unit/world_location_test.rb'
-
 # Offense count: 3
 # Cop supports --auto-correct.
 # Configuration parameters: Width.
