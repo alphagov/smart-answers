@@ -1,12 +1,15 @@
 <% content_for :title do %>
-  <% if (both_help && circumstances.include?('property')) || (circumstances.include?('permission') && circumstances.include?('pension_credit')) || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || (benefits_claimed & %w(esa child_tax_credit working_tax_credit)).any? %>
-    <% render partial: 'title_energy_supplier.govspeak.erb' %>
-  <% else %>
+  <% if under_green_deal %>
     <% render partial: 'title_under_green_deal.govspeak.erb' %>
+  <% else %>
+    <% render partial: 'title_energy_supplier.govspeak.erb' %>
   <% end %>
 <% end %>
 
 <% content_for :body do %>
+  <% if under_green_deal %>
+    <%= render partial: 'callout_under_green_deal.govspeak.erb' %>
+  <% end %>
   <% if both_help %>
     <% if age_variant == :winter_fuel_payment %>
       <%= render partial: 'winter_fuel_payments.govspeak.erb' %>

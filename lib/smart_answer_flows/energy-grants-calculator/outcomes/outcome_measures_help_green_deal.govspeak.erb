@@ -1,8 +1,9 @@
 <% content_for :title do %>
-  Under the Green Deal you could get some of these improvements without having to pay all the cost upfront:
+  <%= render partial: 'title_under_green_deal.govspeak.erb' %>
 <% end %>
 
 <% content_for :body do %>
+  <%= render partial: 'callout_under_green_deal.govspeak.erb' %>
   <%= render partial: 'header_boilers_and_insulation.govspeak.erb' %>
 
   <% unless (features & %w(modern_boiler)).any? %>

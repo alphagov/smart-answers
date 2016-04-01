@@ -421,6 +421,9 @@ module SmartAnswer
         precalculate :flat_type do
           flat_type
         end
+        precalculate :under_green_deal do
+          both_help && !circumstances.include?('benefits')
+        end
       end
 
       outcome :outcome_bills_and_measures_on_benefits_eco_eligible do
@@ -433,6 +436,9 @@ module SmartAnswer
         precalculate :flat_type do
           flat_type
         end
+        precalculate :under_green_deal do
+          !((both_help && circumstances.include?('property')) || (circumstances.include?('permission') && circumstances.include?('pension_credit')) || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || (benefits_claimed & %w(esa child_tax_credit working_tax_credit)).any?)
+        end
       end
 
       outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible do
@@ -444,6 +450,9 @@ module SmartAnswer
         end
         precalculate :flat_type do
           flat_type
+        end
+        precalculate :under_green_deal do
+          both_help && age_variant == :over_60 && (benefits_claimed & %w(esa child_tax_credit working_tax_credit) || incomesupp_jobseekers_1 || incomesupp_jobseekers_2)
         end
       end
 
