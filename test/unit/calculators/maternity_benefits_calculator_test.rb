@@ -51,8 +51,8 @@ module SmartAnswer::Calculators
         end
 
         should "have an smp_lel of 135.45" do
-                 assert_equal 107, @calculator.smp_lel
-               end
+          assert_equal 107, @calculator.smp_lel
+        end
       end
 
       context "after 7th April 2013" do
@@ -75,8 +75,8 @@ module SmartAnswer::Calculators
         end
 
         should "have an smp_lel of 109" do
-                 assert_equal 109, @calculator.smp_lel
-               end
+          assert_equal 109, @calculator.smp_lel
+        end
       end
 
       context "after 6 April 2014" do
@@ -85,10 +85,10 @@ module SmartAnswer::Calculators
         end
 
         should "have smp_rate and ma_rate of 138.18 and smp_lel of 111" do
-                 assert_equal 138.18, @calculator.smp_rate
-                 assert_equal 138.18, @calculator.ma_rate
-                 assert_equal 111, @calculator.smp_lel
-               end
+          assert_equal 138.18, @calculator.smp_rate
+          assert_equal 138.18, @calculator.ma_rate
+          assert_equal 111, @calculator.smp_lel
+        end
       end
     end
 

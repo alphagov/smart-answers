@@ -33,16 +33,6 @@ Lint/AssignmentInCondition:
     - 'script/generate-responses-and-expected-results-for-smart-answer.rb'
     - 'script/update-worldwide-location-organisations.rb'
 
-# Offense count: 17
-# Cop supports --auto-correct.
-Lint/BlockAlignment:
-  Exclude:
-    - 'lib/graph_presenter.rb'
-    - 'test/integration/smart_answer_flows/check_uk_visa_test.rb'
-    - 'test/integration/smart_answer_flows/marriage_abroad_test.rb'
-    - 'test/unit/age_related_allowance_chooser_test.rb'
-    - 'test/unit/calculators/maternity_benefits_calculator_test.rb'
-
 # Offense count: 10
 # Cop supports --auto-correct.
 Lint/DeprecatedClassMethods:
