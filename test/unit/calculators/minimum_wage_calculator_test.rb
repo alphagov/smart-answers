@@ -241,6 +241,12 @@ module SmartAnswer::Calculators
         should "be the minimum wage per hour for the age and year" do
           assert_equal 4.92, @calculator.minimum_hourly_rate
         end
+        context "when eligible for living wage?" do
+          should "return the national living wage rate" do
+            @calculator = MinimumWageCalculator.new(age: 25)
+            assert_equal 7.2, @calculator.minimum_hourly_rate
+          end
+        end
       end
 
       context "total hours" do
@@ -342,12 +348,12 @@ module SmartAnswer::Calculators
       # for various scenarios.
       #
       # Scenario 1
-      context "minimum wage calculator for a 25 yr old low hourly rate" do
+      context "minimum wage calculator for a 24 yr old low hourly rate" do
         setup do
           # NOTE: test_date included as all minimum wage calculations are date sensitive
           test_date = Date.parse("2012-08-01")
           @calculator = MinimumWageCalculator.new(
-            age: 25, pay_frequency: 7, basic_pay: 168, basic_hours: 40, date: test_date)
+            age: 24, pay_frequency: 7, basic_pay: 168, basic_hours: 40, date: test_date)
         end
 
         should "have a total hourly rate of 4.20" do
@@ -439,10 +445,10 @@ module SmartAnswer::Calculators
       end
 
       # Scenario 3
-      context "25 y/o with a low hourly rate" do
+      context "24 y/o with a low hourly rate" do
         setup do
           @calculator = MinimumWageCalculator.new(
-            age: 25, date: Date.parse('2011-10-01'), pay_frequency: 7, basic_pay: 100, basic_hours: 40)
+            age: 24, date: Date.parse('2011-10-01'), pay_frequency: 7, basic_pay: 100, basic_hours: 40)
         end
 
         should "calculate total hourly rate" do
@@ -476,10 +482,10 @@ module SmartAnswer::Calculators
       end
 
       # Scenario 4
-      context "25 y/o in 2011, no accommodation, varying overtime" do
+      context "24 y/o in 2011, no accommodation, varying overtime" do
         setup do
           @calculator = MinimumWageCalculator.new(
-            age: 25, date: Date.parse('2011-10-01'), pay_frequency: 7, basic_pay: 100, basic_hours: 40)
+            age: 24, date: Date.parse('2011-10-01'), pay_frequency: 7, basic_pay: 100, basic_hours: 40)
           @calculator.overtime_hours = 10
         end
 
@@ -574,10 +580,10 @@ module SmartAnswer::Calculators
       end
 
       # Scenario 6
-      context "25 y/o 2008-2009 with accommodation and overtime variations." do
+      context "24 y/o 2008-2009 with accommodation and overtime variations." do
         setup do
           @calculator = MinimumWageCalculator.new(
-            age: 25, date: Date.parse('2008-10-01'), pay_frequency: 7, basic_pay: 168, basic_hours: 40)
+            age: 24, date: Date.parse('2008-10-01'), pay_frequency: 7, basic_pay: 168, basic_hours: 40)
           @calculator.overtime_hours = 7
           @calculator.overtime_hourly_rate = 5.7
         end
@@ -639,10 +645,10 @@ module SmartAnswer::Calculators
       end
 
       # Scenario 8
-      context "25 y/o 2011-12 with high accommodation charge variations." do
+      context "24 y/o 2011-12 with high accommodation charge variations." do
         setup do
           @calculator = MinimumWageCalculator.new(
-            age: 25, date: Date.parse('2012-08-21'), pay_frequency: 7, basic_pay: 350, basic_hours: 35)
+            age: 24, date: Date.parse('2012-08-21'), pay_frequency: 7, basic_pay: 350, basic_hours: 35)
           @calculator.overtime_hours = 10
           @calculator.overtime_hourly_rate = 12
         end
@@ -855,7 +861,7 @@ module SmartAnswer::Calculators
     context "non-historical minimum wage" do
       should "return today's minimum wage rate for 25 year old" do
         @calculator = MinimumWageCalculator.new(
-          age: 25, pay_frequency: 7, basic_pay: 312, basic_hours: 39, date: Date.parse("5 Aug 2012"))
+          age: 24, pay_frequency: 7, basic_pay: 312, basic_hours: 39, date: Date.parse("5 Aug 2012"))
         assert_equal 6.08, @calculator.minimum_hourly_rate
       end
       should "return today's minimum wage rate for 19 year old" do
@@ -873,7 +879,7 @@ module SmartAnswer::Calculators
     context "non-historical total entitlement and underpayment test" do
       setup do
         @calculator = MinimumWageCalculator.new(
-          age: 25, pay_frequency: 7, basic_pay: 100, basic_hours: 39, date: Date.parse("5 Aug 2012")
+          age: 24, pay_frequency: 7, basic_pay: 100, basic_hours: 39, date: Date.parse("5 Aug 2012")
           )
       end
       should "return total_entitlement" do
@@ -919,7 +925,7 @@ module SmartAnswer::Calculators
       end
       should "below minimum_wage_or_above (200)" do
         @calculator = MinimumWageCalculator.new(
-          age: 25,
+          age: 24,
           pay_frequency: 7,
           basic_pay: 200,
           basic_hours: 40,
@@ -936,7 +942,7 @@ module SmartAnswer::Calculators
       # Test URL: /am-i-getting-minimum-wage/y/past_payment/2007-10-01/no/25/7/40/100.0/0/no
       should "historical_adjustment test: hours: 40; pay: 100; date: 5 Aug 2008" do
         @calculator = MinimumWageCalculator.new(
-          age: 25,
+          age: 24,
           pay_frequency: 7,
           basic_pay: 100,
           basic_hours: 40,
@@ -950,7 +956,7 @@ module SmartAnswer::Calculators
       # Test URL: /am-i-getting-minimum-wage/y/past_payment/2008-10-01/no/25/7/40/100.0/0/no
       should "historical_adjustment test: hours: 40; pay: 100; date: 5 Aug 2009" do
         @calculator = MinimumWageCalculator.new(
-          age: 25,
+          age: 24,
           pay_frequency: 7,
           basic_pay: 100,
           basic_hours: 40,
@@ -964,7 +970,7 @@ module SmartAnswer::Calculators
       # Test URL: /am-i-getting-minimum-wage/y/past_payment/2008-10-01/no/25/7/40/40.0/0/no
       should "historical_adjustment test: hours: 40; pay: 40" do
         @calculator = MinimumWageCalculator.new(
-          age: 25,
+          age: 24,
           pay_frequency: 7,
           basic_pay: 40,
           basic_hours: 40,
@@ -978,7 +984,7 @@ module SmartAnswer::Calculators
       # Test URL: /am-i-getting-minimum-wage/y/past_payment/2007-10-01/no/25/28/147/741.0/0/no
       should "historical_adjustment test: hours: 147; pay: 741" do
         @calculator = MinimumWageCalculator.new(
-          age: 25,
+          age: 24,
           pay_frequency: 28,
           basic_pay: 741,
           basic_hours: 147,
@@ -992,7 +998,7 @@ module SmartAnswer::Calculators
       # Test URL: /am-i-getting-minimum-wage/y/past_payment/2007-10-01/no/25/28/147/696.0/0/no
       should "historical_adjustment test: hours: 147; pay: 696" do
         @calculator = MinimumWageCalculator.new(
-          age: 25,
+          age: 24,
           pay_frequency: 28,
           basic_pay: 696,
           basic_hours: 147,
@@ -1006,7 +1012,7 @@ module SmartAnswer::Calculators
       # Test URL: /am-i-getting-minimum-wage/y/past_payment/2007-10-01/no/25/28/147/661.0/0/no
       should "historical_adjustment test: hours: 147; pay: 661" do
         @calculator = MinimumWageCalculator.new(
-          age: 25,
+          age: 24,
           pay_frequency: 28,
           basic_pay: 661,
           basic_hours: 147,
