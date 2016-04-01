@@ -1,5 +1,4 @@
 module FriendlyTimeDiff
-
   def friendly_time_diff(from_time, to_time)
     FriendlyDateDiff.new(from_time.to_date, to_time.to_date).describe
   end
