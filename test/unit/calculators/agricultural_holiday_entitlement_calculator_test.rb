@@ -17,7 +17,7 @@ module SmartAnswer::Calculators
       context "calculation_period" do
         should "divide the year on 1st Oct and return the relevant calculation start date" do
           Timecop.travel(Date.civil(Date.today.year, 6, 1))
-          assert_equal Date.civil(Date.today.year - 1, 10, 1),  @calc.calculation_period
+          assert_equal Date.civil(Date.today.year - 1, 10, 1), @calc.calculation_period
           Timecop.travel(Date.civil(Date.today.year, 10, 2))
           assert_equal Date.civil(Date.today.year, 10, 1), @calc.calculation_period
         end

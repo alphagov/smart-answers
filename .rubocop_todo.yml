@@ -234,23 +234,6 @@ Style/EmptyElse:
   Exclude:
     - 'lib/smart_answer_flows/calculate-agricultural-holiday-entitlement.rb'
 
-# Offense count: 19
-# Cop supports --auto-correct.
-# Configuration parameters: AllowForAlignment.
-Style/ExtraSpacing:
-  Exclude:
-    - 'bin/setup'
-    - 'config.ru'
-    - 'config/environments/test.rb'
-    - 'config/initializers/airbrake.rb'
-    - 'script/rails'
-    - 'test/integration/smart_answer_flows/am_i_getting_minimum_wage_test.rb'
-    - 'test/integration/smart_answer_flows/paternity_calculator_test.rb'
-    - 'test/integration/smart_answer_flows/register_a_birth_test.rb'
-    - 'test/integration/smart_answer_flows/state_pension_through_partner_test.rb'
-    - 'test/unit/calculators/agricultural_holiday_entitlement_calculator_test.rb'
-    - 'test/unit/calculators/maternity_paternity_calculator_test.rb'
-
 # Offense count: 5
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.

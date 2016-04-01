@@ -251,7 +251,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                                     assert_current_node :paternity_leave_and_pay
                                   end
                                 end #QP 13 end earnings less than 109 between relevant period
-                              end  #QP12 end pay freqency
+                              end #QP12 end pay freqency
 
                               context "answer weekly" do
                                 should "flow though usual pay date weekly" do
@@ -266,7 +266,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                               end
                             end #QP11 end 8 weeks before
                           end #QP10 end last normal payday
-                        end  #QP9 end paternity length
+                        end #QP9 end paternity length
                       end #QP8 end paternity start date
                     end #QP7 end still employed on birthdate
 
@@ -295,7 +295,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                         end # QP9 leave length
                       end #QP 8 leave start
                     end #QP7 end not employed on date of birth
-                  end  # yes - QP6 on payroll
+                  end # yes - QP6 on payroll
 
                   context "answer no" do
                     setup { add_response :no }

@@ -647,7 +647,7 @@ module SmartAnswer::Calculators
         end
 
         should "produce 2 weeks of pay dates and pay at 90% of wage" do
-          paydates_and_pay =  @calculator.paydates_and_pay
+          paydates_and_pay = @calculator.paydates_and_pay
           assert_equal '2014-05-07', paydates_and_pay.first[:date].to_s
           assert_equal 112.5, paydates_and_pay.first[:pay]
           assert_equal '2014-05-14', paydates_and_pay.last[:date].to_s
@@ -666,7 +666,7 @@ module SmartAnswer::Calculators
         end
 
         should "produce 1 week of pay dates and pay at maximum amount" do
-          paydates_and_pay =  @calculator.paydates_and_pay
+          paydates_and_pay = @calculator.paydates_and_pay
           assert_equal '2014-05-31', paydates_and_pay.first[:date].to_s
           assert_equal 276.36, paydates_and_pay.first[:pay]
         end
@@ -682,7 +682,7 @@ module SmartAnswer::Calculators
         end
 
         should "produce 1 week of pay dates and pay at maximum amount" do
-          paydates_and_pay =  @calculator.paydates_and_pay
+          paydates_and_pay = @calculator.paydates_and_pay
           assert_equal '2014-05-31', paydates_and_pay.first[:date].to_s
           assert_equal 276.36, paydates_and_pay.first[:pay]
         end
@@ -699,7 +699,7 @@ module SmartAnswer::Calculators
         end
 
         should "produce 1 week of pay dates and pay at maximum amount" do
-          paydates_and_pay =  @calculator.paydates_and_pay
+          paydates_and_pay = @calculator.paydates_and_pay
           assert_equal '2015-05-31', paydates_and_pay.first[:date].to_s
           assert_equal (139.58 * 2), paydates_and_pay.first[:pay]
         end
