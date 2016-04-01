@@ -47,7 +47,6 @@ module SmartAnswer::Calculators
         calc = VatPaymentDeadlines.new(Date.parse('2013-04-30'), 'direct-debit')
         assert_equal Date.parse('2013-06-05'), calc.last_payment_date
         assert_equal Date.parse('2013-06-12'), calc.funds_received_by
-
       end
 
       should "calculate funds_received_by as end_of_month_after(end_date) + 7 calendar days + 3 working days where end_of_month_after(end_date) is not a work day" do

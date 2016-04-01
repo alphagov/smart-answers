@@ -44,7 +44,6 @@ class CalculateAgriculturalHolidayEntitlementTest < ActiveSupport::TestCase
         should "have 38 days holiday" do
           assert_state_variable :holiday_entitlement_days, 38
         end
-
       end
 
       context "several employers" do

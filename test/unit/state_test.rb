@@ -5,7 +5,6 @@ module SmartAnswer
   class StateTest < ActiveSupport::TestCase
 
     context "transitioning to a new state" do
-
       should "not modify the existing state" do
         old_state = State.new(:state2)
         old_state.path << :state1

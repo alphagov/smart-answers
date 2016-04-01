@@ -229,7 +229,6 @@ module SmartAnswer
       outcome :no_embassy_result
       outcome :homeoffice_result
       outcome :no_birth_certificate_result do
-
         precalculate :location do
           loc = WorldLocation.find(country_of_birth)
           raise InvalidResponse unless loc

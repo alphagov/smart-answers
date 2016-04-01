@@ -74,7 +74,6 @@ module SmartAnswer::Calculators
         @calc.dob = Date.parse('1997-10-08')
         assert ! @calc.turning_16_before_oct_2013?
       end
-
     end
 
     context "is_65_or_over?" do

@@ -380,7 +380,6 @@ module SmartAnswer::Calculators
         end
 
         context "working 7 hours overtime @ 5.70" do
-
           setup do
             @calculator.overtime_hours = 7
             @calculator.overtime_hourly_rate = 5.7
@@ -407,9 +406,7 @@ module SmartAnswer::Calculators
             assert_equal 0, @calculator.accommodation_cost
             assert_equal 4.2, @calculator.total_hourly_rate
           end
-
         end
-
       end
 
       # Scenario 2
@@ -425,7 +422,6 @@ module SmartAnswer::Calculators
         end
 
         context "working overtime" do
-
           setup do
             @calculator.overtime_hours = 2
             @calculator.overtime_hourly_rate = 8
@@ -456,9 +452,7 @@ module SmartAnswer::Calculators
             assert_equal 6, @calculator.total_hourly_rate
             assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
           end
-
         end
-
       end
 
       # Scenario 3
@@ -495,7 +489,6 @@ module SmartAnswer::Calculators
           assert_equal 2.50, @calculator.total_hourly_rate
           assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
-
       end
 
       # Scenario 4
@@ -521,7 +514,6 @@ module SmartAnswer::Calculators
           assert_equal 2.5, @calculator.total_hourly_rate
           assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
-
       end
 
       # Scenario 5
@@ -591,9 +583,7 @@ module SmartAnswer::Calculators
             assert_equal 314.15, @calculator.total_pay
             assert_equal 4.83, @calculator.total_hourly_rate
           end
-
         end
-
       end
 
       # Scenario 6
@@ -625,7 +615,6 @@ module SmartAnswer::Calculators
           assert_equal 3.75, @calculator.total_hourly_rate
           assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
-
       end
 
       # Scenario 7
@@ -658,7 +647,6 @@ module SmartAnswer::Calculators
           assert_equal 537.20, @calculator.historical_entitlement
           assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
-
       end
 
       # Scenario 8
@@ -690,7 +678,6 @@ module SmartAnswer::Calculators
           assert_equal 6.07, @calculator.total_hourly_rate
           assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
-
       end
 
       # Scenario 12
@@ -725,9 +712,7 @@ module SmartAnswer::Calculators
           assert_equal 70.38, @calculator.historical_adjustment
           assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
-
       end
-
     end
     # Test URL: /am-i-getting-minimum-wage/y/past_payment/2010-10-01/apprentice_under_19/7/35/78.0/0/no
     context "Historical adjustment for apprentices (hours:35, pay:78)" do
@@ -749,7 +734,6 @@ module SmartAnswer::Calculators
     end
 
     context "per hour minimum wage" do
-
       should "give the minimum wage for this year (2011-2012) for a given age" do
         test_date = Date.parse("2012-08-01")
         @calculator = MinimumWageCalculator.new age: 17, date: test_date
@@ -1100,7 +1084,6 @@ module SmartAnswer::Calculators
         assert_equal 4.5, @calculator.total_hourly_rate
         assert_equal 145.15, @calculator.historical_adjustment
       end
-
     end
     context "Zero overtime rate" do
       # Bug 436728 overtime_hourly_rate should not affect basic_rate when 0

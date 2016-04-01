@@ -76,7 +76,6 @@ module SmartAnswer
 
       ## Q3
       money_question :gross_income_of_payee? do
-
         precalculate :income_title do
           if paying_or_receiving == "pay"
             "What is your weekly gross income?"
@@ -104,7 +103,6 @@ module SmartAnswer
 
       ## Q4
       value_question :how_many_other_children_in_payees_household?, parse: Integer do
-
         precalculate :number_of_children_title do
           if paying_or_receiving == "pay"
             "How many other children live in your household?"
@@ -198,7 +196,6 @@ module SmartAnswer
         precalculate :total_yearly_fees do
           sprintf('%.2f', calculator.total_yearly_fees(collect_fees))
         end
-
       end
     end
   end

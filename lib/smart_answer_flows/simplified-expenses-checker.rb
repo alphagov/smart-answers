@@ -102,7 +102,6 @@ module SmartAnswer
             end
           end
         end
-
       end
 
       #Q4 - capital allowances claimed?
@@ -136,7 +135,6 @@ module SmartAnswer
             question :how_much_expect_to_claim?
           end
         end
-
       end
 
       #Q5 - claim vehicle expenses
@@ -258,7 +256,6 @@ module SmartAnswer
 
       #Q11 - hours for home work
       value_question :hours_work_home? do
-
         calculate :hours_worked_home do |response|
           response.gsub(",", "").to_f
         end
@@ -292,7 +289,6 @@ module SmartAnswer
         next_node do
           list_of_expenses.include?("live_on_business_premises") ? question(:deduct_from_premises?) : outcome(:you_can_use_result)
         end
-
       end
 
       #Q13 = how much do you deduct from premises for private use?

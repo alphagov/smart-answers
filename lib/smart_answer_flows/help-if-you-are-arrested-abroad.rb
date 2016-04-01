@@ -86,7 +86,6 @@ module SmartAnswer
             outcome :answer_one_generic
           end
         end
-
       end
 
       outcome :answer_one_generic do

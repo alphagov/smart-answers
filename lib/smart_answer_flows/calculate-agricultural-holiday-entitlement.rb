@@ -88,7 +88,6 @@ module SmartAnswer
       end
 
       value_question :how_many_total_days?, parse: Integer do
-
         precalculate :available_days do
           calculator.available_days
         end

@@ -106,7 +106,6 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
             end
           end
         end #end testing paid late but less than 3 months after
-
       end
     end
   end
