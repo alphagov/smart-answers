@@ -34,6 +34,7 @@ module SmartAnswer
     end
 
   private
+
     def find_by_name(name)
       flow = @preloaded ? preloaded(name) : build_flow(name)
       return nil if flow && flow.draft? && !@show_drafts

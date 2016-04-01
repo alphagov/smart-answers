@@ -234,18 +234,6 @@ Style/EmptyElse:
   Exclude:
     - 'lib/smart_answer_flows/calculate-agricultural-holiday-entitlement.rb'
 
-# Offense count: 8
-# Cop supports --auto-correct.
-Style/EmptyLinesAroundAccessModifier:
-  Exclude:
-    - 'lib/friendly_time_diff.rb'
-    - 'lib/graph_presenter.rb'
-    - 'lib/smart_answer/calculators/plan_adoption_leave.rb'
-    - 'lib/smart_answer/calculators/plan_maternity_leave.rb'
-    - 'lib/smart_answer/calculators/self_assessment_penalties.rb'
-    - 'lib/smart_answer/flow_registry.rb'
-    - 'lib/smart_answer/question/base.rb'
-
 # Offense count: 106
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.

@@ -60,6 +60,7 @@ module SmartAnswer::Calculators
     end
 
   private
+
     def weeks_later(range, weeks)
       (range.first + weeks * 7)..(range.last + weeks * 7)
     end
