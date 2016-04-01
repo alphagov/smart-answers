@@ -52,14 +52,14 @@ private
       text << word_wrap(node_title(node))
       text << "\n\n"
       text << node.permitted_options.map do |option|
-          "( ) #{option}"
-        end.join("\n")
+        "( ) #{option}"
+      end.join("\n")
     when SmartAnswer::Question::Checkbox
       text << word_wrap(node_title(node))
       text << "\n\n"
       text << node.options.map do |option|
-          "[ ] #{option}"
-        end.join("\n")
+        "[ ] #{option}"
+      end.join("\n")
     when SmartAnswer::Question::Base
       text << word_wrap(node_title(node))
     when SmartAnswer::Outcome
