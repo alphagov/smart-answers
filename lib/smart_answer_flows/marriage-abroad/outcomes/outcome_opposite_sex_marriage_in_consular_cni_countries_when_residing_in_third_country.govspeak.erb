@@ -45,11 +45,11 @@
       <% else %>
         <%= render partial: 'you_will_have_to_wait_to_get_married.govspeak.erb',
                    locals: { calculator: calculator } %>
-      <% end -%>
+      <% end %>
 
       <% if calculator.ceremony_country == 'poland' %>
         <%= render partial: 'check_if_uk_issued_cnis_accepted.govspeak.erb',
-                   locals: { calculator: calculator } -%>
+                   locals: { calculator: calculator } %>
       <% end %>
     <% end %>
   <% end %>

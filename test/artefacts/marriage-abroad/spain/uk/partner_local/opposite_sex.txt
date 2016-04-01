@@ -84,3 +84,5 @@ You can pay by credit card (Visa, Visa Electron or MasterCard), but not by perso
 
 *[CNI]:certificate of no impediment
 
+
+

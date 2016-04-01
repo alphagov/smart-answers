@@ -1,5 +1,5 @@
 <% content_for :body do %>
   $!The statutory holiday entitlement is <%= pluralize(holiday_entitlement_hours, 'hour') %> and <%= pluralize(holiday_entitlement_minutes, 'minute') %> for the time that’s been worked.$!
 
-  <%= render partial: 'your_employer_with_rounding.govspeak.erb' -%>
+  <%= render partial: 'your_employer_with_rounding.govspeak.erb' %>
 <% end %>

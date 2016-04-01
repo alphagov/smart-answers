@@ -173,7 +173,7 @@
     <%= render partial: 'pay_by_cash_or_us_dollars_only.govspeak.erb' %>
   <% elsif calculator.ceremony_country == 'vietnam' %>
     <%= render partial: 'consular_fees_in_cash_visa_master.govspeak.erb',
-               locals: { calculator: calculator } -%>
+               locals: { calculator: calculator } %>
   <% else %>
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: { calculator: calculator } %>

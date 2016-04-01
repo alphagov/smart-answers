@@ -7,6 +7,7 @@ Calculate how much you’ll need to contribute. You must be:
 - a man born before 6 April 1951
 - a woman born before 6 April 1953
 
+
 ###What you need to know
 
 You can choose to top up your State Pension by between £1 and £25 per week. How much you’ll need to contribute depends on:
@@ -25,3 +26,4 @@ $E
 
 ###Eligibility
 You must be entitled to the basic State Pension or Additional State Pension before 6 April 2016.
+

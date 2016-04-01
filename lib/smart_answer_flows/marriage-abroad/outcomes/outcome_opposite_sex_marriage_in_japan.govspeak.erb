@@ -5,16 +5,16 @@
 
 <% content_for :body do %>
   <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
-             locals: { calculator: calculator } -%>
+             locals: { calculator: calculator } %>
   <% if calculator.resident_of_third_country? %>
     <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
-               locals: { calculator: calculator } -%>
+               locals: { calculator: calculator } %>
   <% else %>
     ^You should [get legal advice](/government/publications/japan-list-of-lawyers) before making any plans.^
   <% end %>
 
   <%= render partial: 'what_you_need_to_do.govspeak.erb',
-      locals: { calculator: calculator } -%>
+      locals: { calculator: calculator } %>
 
 
   Make an appointment at the British embassy in Tokyo or British Consulate General in Osaka to swear an affirmation/affidavit (written statement of facts) that you’re free to marry.
@@ -33,7 +33,7 @@
   - evidence if you’ve changed your name (eg by deed poll)
 
 
-  <%= render partial: 'consular_cni_os_not_uk_resident_ceremony_not_germany.govspeak.erb' -%>
+  <%= render partial: 'consular_cni_os_not_uk_resident_ceremony_not_germany.govspeak.erb' %>
 
 
   ###What happens next
@@ -41,10 +41,10 @@
   The embassy will charge a fee for taking the oath, and then give you the completed affirmation/affidavit. You should take this to the local authorities where you’re getting married. You’ll need to bring your passport and full birth certificate.
 
 
-  <%= render partial: 'names_on_documents_must_match.govspeak.erb' -%>
+  <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
 
 
-  <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' -%>
+  <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 
 
   <%= render partial: 'consular_fees_table.govspeak.erb',
@@ -56,7 +56,7 @@
 
 
   <%= render partial: 'link_to_consular_fees.govspeak.erb',
-             locals: { calculator: calculator } -%>
+             locals: { calculator: calculator } %>
 
 
   You can pay by credit card, but not by personal cheque. The embassy in Tokyo will also accept cash.

@@ -32,4 +32,6 @@ Date | SAP amount
 %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
 
 
+
 Read the [guide to Statutory Adoption Pay and Leave](/adoption-leave-pay-employees)
+

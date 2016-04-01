@@ -1,15 +1,15 @@
 <tr class="section">
   <td class="previous-question-title"><%= question.title %></td>
-  <%- if question.multiple_responses? -%>
+  <% if question.multiple_responses? %>
     <td class="previous-question-body"><ul>
-    <%- question.response_labels(@presenter.accepted_responses[number_questions_so_far]).each do |label| -%>
+    <% question.response_labels(@presenter.accepted_responses[number_questions_so_far]).each do |label| %>
       <li><%= label %></li>
-    <%- end -%>
+    <% end %>
     </ul></td>
-  <%- else -%>
+  <% else %>
     <td class="previous-question-body">
     <%= question.response_label(@presenter.accepted_responses[number_questions_so_far]) %></td>
-  <%- end -%>
+  <% end %>
 
   <td class="link-right">
     <%= link_to @presenter.change_collapsed_question_link(number_questions_so_far + 1) do %>
