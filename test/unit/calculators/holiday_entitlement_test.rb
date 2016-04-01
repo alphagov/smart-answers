@@ -109,7 +109,7 @@ module SmartAnswer::Calculators
 
             should "return the fraction of a year in a leap year" do
               calc = HolidayEntitlement.new(start_date: Date.parse('2012-02-21'), leave_year_start_date: Date.parse('2012-02-01'))
-               assert_equal '0.9454', sprintf('%.4f', calc.fraction_of_year)
+              assert_equal '0.9454', sprintf('%.4f', calc.fraction_of_year)
             end
 
             should "return the fraction of a year in a leap year not covering Feb 29th" do

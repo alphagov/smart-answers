@@ -129,8 +129,8 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       within '.current-question .question-body' do
         assert page.has_checked_field? "To seek the Holy Grail"
-         assert page.has_unchecked_field? "To rescue the princess"
-         assert page.has_unchecked_field? "I dunno"
+        assert page.has_unchecked_field? "To rescue the princess"
+        assert page.has_unchecked_field? "I dunno"
       end
 
       choose "To rescue the princess"
