@@ -313,13 +313,6 @@ Style/SymbolProc:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/TrailingBlankLines:
-  Exclude:
-    - 'test/support/fixture_methods.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
 # Configuration parameters: ExactNameMatch, AllowPredicates, AllowDSLWriters, IgnoreClassMethods, Whitelist.
 Style/TrivialAccessors:
   Exclude:
