@@ -372,14 +372,6 @@ Style/FirstParameterIndentation:
     - 'test/unit/calculators/minimum_wage_calculator_test.rb'
     - 'test/unit/calculators/night_work_hours_test.rb'
 
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: Width.
-Style/IndentationWidth:
-  Exclude:
-    - 'test/integration/smart_answer_flows/marriage_abroad_test.rb'
-    - 'test/unit/calculators/maternity_paternity_calculator_test.rb'
-
 # Offense count: 2
 # Cop supports --auto-correct.
 Style/MethodCallParentheses:
