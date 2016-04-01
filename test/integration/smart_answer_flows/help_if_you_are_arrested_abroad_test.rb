@@ -95,5 +95,4 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
       assert_current_node :answer_three_syria
     end
   end
-
 end

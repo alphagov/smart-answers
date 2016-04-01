@@ -2,7 +2,6 @@ require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class PlanAdoptionLeaveTest < ActiveSupport::TestCase
-
     context PlanAdoptionLeave do
       setup do
         @match_date = Date.parse("2012-06-25")

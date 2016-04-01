@@ -3,7 +3,6 @@ require_relative '../test_helper'
 
 module SmartAnswer
   class MultipleChoiceQuestionTest < ActiveSupport::TestCase
-
     test "Can list options" do
       q = Question::MultipleChoice.new(nil, :example) do
         option :yes
@@ -56,6 +55,5 @@ module SmartAnswer
         new_state = q.transition(current_state, :invalid)
       end
     end
-
   end
 end

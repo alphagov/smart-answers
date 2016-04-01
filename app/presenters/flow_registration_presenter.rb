@@ -1,5 +1,4 @@
 class FlowRegistrationPresenter
-
   def initialize(flow)
     @flow = flow
   end
