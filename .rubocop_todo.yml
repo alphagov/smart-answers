@@ -415,14 +415,6 @@ Style/RedundantReturn:
   Exclude:
     - 'lib/smart_answer/salary.rb'
 
-# Offense count: 5
-# Cop supports --auto-correct.
-Style/SpaceAfterComma:
-  Exclude:
-    - 'lib/smart_answer_flows/uk-benefits-abroad.rb'
-    - 'lib/tasks/links.rake'
-    - 'lib/tasks/version.rake'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/SpaceBeforeComma:

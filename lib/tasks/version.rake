@@ -31,7 +31,7 @@ namespace :version do
 
   def flow_test_path(flow, version = '')
     version = "_#{version}" unless version.empty?
-    "#{FLOWS_TEST_PATH}#{flow.gsub('-','_')}#{version}_test.rb"
+    "#{FLOWS_TEST_PATH}#{flow.gsub('-', '_')}#{version}_test.rb"
   end
 
   def replace_in_file(filepath, replacements)
@@ -61,8 +61,8 @@ namespace :version do
     calculators.uniq.each do |calc|
       class_name = calc.split("::").last
       filename = class_name.underscore
-      filepath = File.join(CALCULATORS_PATH,"#{filename}.rb")
-      v2_filepath = File.join(CALCULATORS_PATH,"#{filename}_v2.rb")
+      filepath = File.join(CALCULATORS_PATH, "#{filename}.rb")
+      v2_filepath = File.join(CALCULATORS_PATH, "#{filename}_v2.rb")
       test_filepath = File.join(UNIT_TEST_PATH, "#{filename}_test.rb")
       v2_test_filepath = File.join(UNIT_TEST_PATH, "#{filename}_v2_test.rb")
 

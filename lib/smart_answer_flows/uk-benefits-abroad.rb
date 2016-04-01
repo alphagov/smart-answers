@@ -111,7 +111,7 @@ module SmartAnswer
       end
 
       ## Country Question - Shared
-      country_select :which_country?,additional_countries: additional_countries, exclude_countries: exclude_countries do
+      country_select :which_country?, additional_countries: additional_countries, exclude_countries: exclude_countries do
 
         save_input_as :country
 
