@@ -88,6 +88,10 @@ module SmartAnswer::Calculators
       RatesQuery.from_file('register_a_birth').rates
     end
 
+    def register_a_death_fees
+      RatesQuery.from_file('register_a_death').rates
+    end
+
     def self.registration_data
       @embassy_data ||= YAML.load_file(Rails.root.join("lib", "data", "registrations.yml"))
     end

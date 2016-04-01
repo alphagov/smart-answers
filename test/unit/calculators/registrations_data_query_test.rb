@@ -77,6 +77,15 @@ module SmartAnswer::Calculators
           assert_equal 'register-a-birth-rates', RegistrationsDataQuery.new.register_a_birth_fees
         end
       end
+
+      context '#register_a_death_fees' do
+        should 'instantiate RatesQuery using register_a_death data' do
+          rates_query = stub(rates: 'register-a-death-rates')
+          RatesQuery.stubs(:from_file).with('register_a_death').returns(rates_query)
+
+          assert_equal 'register-a-death-rates', RegistrationsDataQuery.new.register_a_death_fees
+        end
+      end
     end
   end
 end

@@ -1,0 +1,9 @@
+---
+- start_date: 2015-01-01
+  end_date: 2016-04-05
+  register_a_death: 105.00
+  copy_of_death_registration_certificate: 65.00
+- start_date: 2016-04-06
+  end_date: 2017-04-05
+  register_a_death: 150.00
+  copy_of_death_registration_certificate: 50.00
