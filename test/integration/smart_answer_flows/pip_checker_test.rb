@@ -82,5 +82,4 @@ class PIPCheckerTest < ActiveSupport::TestCase
       assert_current_node :result_7
     end
   end # getting DLA
-
 end

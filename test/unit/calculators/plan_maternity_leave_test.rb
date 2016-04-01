@@ -2,7 +2,6 @@ require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class PlanMaternityLeaveTest < ActiveSupport::TestCase
-
     context PlanMaternityLeave do
       setup do
         @due_date = "2013-01-02"

@@ -2,7 +2,6 @@ require_relative '../../test_helper'
 
 module SmartAnswer::Calculators
   class MarriedCouplesAllowanceCalculatorTest < ActiveSupport::TestCase
-
     setup do
       @income_limit = 27000
       @age_related_allowance = 12000
@@ -144,6 +143,5 @@ module SmartAnswer::Calculators
         assert_equal 3220, calculator.minimum_mca
       end
     end
-
   end
 end

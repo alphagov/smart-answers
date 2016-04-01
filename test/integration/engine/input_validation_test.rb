@@ -1,7 +1,6 @@
 require_relative 'engine_test_helper'
 
 class InputValidationTest < EngineIntegrationTest
-
   with_and_without_javascript do
     should "validate input and display errors" do
       visit "/money-and-salary-sample/y"

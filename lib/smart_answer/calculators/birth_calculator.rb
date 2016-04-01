@@ -21,6 +21,5 @@ module SmartAnswer::Calculators
     def employment_start
       25.weeks.ago(qualifying_week.last)
     end
-
   end
 end

@@ -1,6 +1,5 @@
 module SmartAnswer::Calculators
   class LegalisationDocumentsDataQuery
-
     attr_reader :legalisation_document_data, :data
 
     def initialize
@@ -15,6 +14,5 @@ module SmartAnswer::Calculators
     def self.legalisation_document_data
       @legalisation_document_data ||= YAML.load_file(Rails.root.join("lib", "data", "legalisation_documents_data.yml"))
     end
-
   end
 end

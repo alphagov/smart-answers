@@ -1,5 +1,4 @@
 class GovspeakPresenter
-
   def initialize(markup)
     @markup = markup
   end

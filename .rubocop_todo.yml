@@ -234,54 +234,6 @@ Style/EmptyElse:
   Exclude:
     - 'lib/smart_answer_flows/calculate-agricultural-holiday-entitlement.rb'
 
-# Offense count: 47
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/EmptyLinesAroundClassBody:
-  Exclude:
-    - 'app/presenters/flow_registration_presenter.rb'
-    - 'app/presenters/govspeak_presenter.rb'
-    - 'lib/smart_answer/age_related_allowance_chooser.rb'
-    - 'lib/smart_answer/calculators/birth_calculator.rb'
-    - 'lib/smart_answer/calculators/child_maintenance_calculator.rb'
-    - 'lib/smart_answer/calculators/commodity_code_calculator.rb'
-    - 'lib/smart_answer/calculators/country_name_formatter.rb'
-    - 'lib/smart_answer/calculators/landlord_immigration_check_calculator.rb'
-    - 'lib/smart_answer/calculators/legalisation_documents_data_query.rb'
-    - 'lib/smart_answer/calculators/minimum_wage_calculator.rb'
-    - 'lib/smart_answer/calculators/night_work_hours.rb'
-    - 'lib/smart_answer/calculators/pip_dates.rb'
-    - 'lib/smart_answer/calculators/plan_adoption_leave.rb'
-    - 'lib/smart_answer/calculators/plan_maternity_leave.rb'
-    - 'lib/smart_answer/calculators/registrations_data_query.rb'
-    - 'lib/smart_answer/calculators/state_pension_topup_calculator.rb'
-    - 'lib/smart_answer/calculators/state_pension_topup_data_query.rb'
-    - 'lib/smart_answer/calculators/workplace_pension_calculator.rb'
-    - 'test/integration/engine/checkbox_questions_test.rb'
-    - 'test/integration/engine/data_partials_test.rb'
-    - 'test/integration/engine/input_validation_test.rb'
-    - 'test/integration/engine/money_and_salary_questions_test.rb'
-    - 'test/integration/engine/precalculations_test.rb'
-    - 'test/integration/smart_answer_flows/help_if_you_are_arrested_abroad_test.rb'
-    - 'test/integration/smart_answer_flows/pip_checker_test.rb'
-    - 'test/integration/smart_answer_flows/simplified_expenses_checker_test.rb'
-    - 'test/unit/age_related_allowance_chooser_test.rb'
-    - 'test/unit/calculators/child_maintenance_calculator_test.rb'
-    - 'test/unit/calculators/holiday_entitlement_test.rb'
-    - 'test/unit/calculators/married_couple_allowance_calculator_test.rb'
-    - 'test/unit/calculators/night_work_hours_test.rb'
-    - 'test/unit/calculators/passport_and_embassy_data_query_test.rb'
-    - 'test/unit/calculators/pip_dates_test.rb'
-    - 'test/unit/calculators/plan_adoption_leave_test.rb'
-    - 'test/unit/calculators/plan_maternity_leave_test.rb'
-    - 'test/unit/calculators/redundancy_calculator_test.rb'
-    - 'test/unit/calculators/statutory_sick_pay_calculator_test.rb'
-    - 'test/unit/calculators/workplace_pension_calculator_test.rb'
-    - 'test/unit/multiple_choice_question_test.rb'
-    - 'test/unit/state_pension_date_query_test.rb'
-    - 'test/unit/state_test.rb'
-    - 'test/unit/test_helpers/flow_test_helper_test.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.

@@ -2,7 +2,6 @@ require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class RedundancyCalculatorTest < ActiveSupport::TestCase
-
     context "7 day work cycle" do
       setup do
         @calc = NightWorkHours.new(

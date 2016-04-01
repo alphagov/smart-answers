@@ -3,7 +3,6 @@ require_relative "../../test_helper"
 module SmartAnswer
   module Calculators
     class StatutorySickPayCalculatorTest < ActiveSupport::TestCase
-
       context ".dates_matching_pattern" do
         should "return dates maching working days pattern" do
           working_days = %w(Sunday Tuesday Thursday).map { |d| Date::DAYNAMES.index(d).to_s }

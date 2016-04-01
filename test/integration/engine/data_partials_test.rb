@@ -1,7 +1,6 @@
 require_relative 'engine_test_helper'
 
 class DataPartialsTest < EngineIntegrationTest
-
   should "output data partials correctly" do
     visit "/data-partial-sample/y/data_partial_with_scalar"
 

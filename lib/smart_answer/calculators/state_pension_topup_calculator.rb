@@ -1,6 +1,5 @@
 module SmartAnswer::Calculators
   class StatePensionTopupCalculator
-
     FEMALE_YOUNGEST_DOB = Date.parse('1953-04-05')
     MALE_YOUNGEST_DOB = Date.parse('1951-04-05')
     TOPUP_START_DATE = Date.parse('2015-10-12')

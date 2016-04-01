@@ -2,7 +2,6 @@ require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class PIPDatesTest < ActiveSupport::TestCase
-
     context "in_group_65?" do
       setup do
         @calc = PIPDates.new
