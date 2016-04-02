@@ -2,6 +2,11 @@
 
 Service | Fee
 -|-
+<%
+  if calculator.services.any?
+    services = calculator.services
+  end
+%>
 <%= render partial: 'consular_fees_table_items.govspeak.erb',
            collection: services,
            as: :service,

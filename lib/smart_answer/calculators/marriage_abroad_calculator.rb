@@ -6,11 +6,13 @@ module SmartAnswer::Calculators
     attr_writer :sex_of_your_partner
     attr_writer :marriage_or_pacs
 
-    def initialize(data_query: nil, rates_query: nil, country_name_formatter: nil, registrations_data_query: nil)
+    def initialize(data_query: nil, rates_query: nil, country_name_formatter: nil, registrations_data_query: nil, services_data: nil)
       @data_query = data_query || MarriageAbroadDataQuery.new
       @rates_query = rates_query || RatesQuery.from_file('marriage_abroad_consular_fees')
       @country_name_formatter = country_name_formatter || CountryNameFormatter.new
       @registrations_data_query = registrations_data_query || RegistrationsDataQuery.new
+      services_data_file = Rails.root.join('lib', 'data', 'marriage_abroad_services.yml')
+      @services_data = services_data || YAML.load_file(services_data_file)
     end
 
     def partner_british?
@@ -265,7 +267,53 @@ module SmartAnswer::Calculators
       @rates_query.rates[service]
     end
 
+    def services
+      if services_for_country_and_partner_sex_and_residency_and_partner_nationality?
+        @services_data[ceremony_country][@sex_of_your_partner][@resident_of][@partner_nationality]
+      elsif services_for_country_and_partner_sex_and_default_residency_and_partner_nationality?
+        @services_data[ceremony_country][@sex_of_your_partner]['default'][@partner_nationality]
+      elsif services_for_country_and_partner_sex_and_residency_and_default_partner_nationality?
+        @services_data[ceremony_country][@sex_of_your_partner][@resident_of]['default']
+      elsif services_for_country_and_partner_sex_and_default_residency_and_default_nationality?
+        @services_data[ceremony_country][@sex_of_your_partner]['default']['default']
+      else
+        []
+      end
+    end
+
   private
+
+    def services_for_country_and_partner_sex_and_residency_and_partner_nationality?
+      services_data_for_country_and_partner_sex_and_residency? &&
+        @services_data[ceremony_country][@sex_of_your_partner][@resident_of].has_key?(@partner_nationality)
+    end
+
+    def services_for_country_and_partner_sex_and_default_residency_and_partner_nationality?
+      services_data_for_country_and_partner_sex? &&
+        @services_data[ceremony_country][@sex_of_your_partner].has_key?('default') &&
+        @services_data[ceremony_country][@sex_of_your_partner]['default'].has_key?(@partner_nationality)
+    end
+
+    def services_for_country_and_partner_sex_and_residency_and_default_partner_nationality?
+      services_data_for_country_and_partner_sex_and_residency? &&
+        @services_data[ceremony_country][@sex_of_your_partner][@resident_of].has_key?('default')
+    end
+
+    def services_for_country_and_partner_sex_and_default_residency_and_default_nationality?
+      services_data_for_country_and_partner_sex? &&
+        @services_data[ceremony_country][@sex_of_your_partner].has_key?('default') &&
+        @services_data[ceremony_country][@sex_of_your_partner]['default'].has_key?('default')
+    end
+
+    def services_data_for_country_and_partner_sex_and_residency?
+      services_data_for_country_and_partner_sex? &&
+        @services_data[ceremony_country][@sex_of_your_partner].has_key?(@resident_of)
+    end
+
+    def services_data_for_country_and_partner_sex?
+      @services_data.has_key?(ceremony_country) &&
+        @services_data[ceremony_country].has_key?(@sex_of_your_partner)
+    end
 
     def outcome_path_when_resident_in(uk_or_ceremony_country)
       [
