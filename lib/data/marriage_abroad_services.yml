@@ -1307,3 +1307,8 @@ germany:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+indonesia:
+  opposite_sex:
+    default:
+      default:
+      - :affidavit_or_affirmation_for_marriage
