@@ -99,3 +99,10 @@ vietnam:
     default:
       default:
       - :affidavit_for_marriage
+dominican-republic:
+  same_sex:
+    default:
+      default:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
