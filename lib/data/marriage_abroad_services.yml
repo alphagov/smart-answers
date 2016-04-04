@@ -1,1 +1,101 @@
---- {}
+---
+belgium:
+  opposite_sex:
+    default:
+      default:
+      - :affidavit_or_affirmation_for_marriage
+china:
+  opposite_sex:
+    default:
+      default:
+      - :affirmation_for_freedom_to_marry_in_english_and_chinese
+ecuador:
+  opposite_sex:
+    default:
+      default:
+      - :affidavit_or_affirmation_for_marriage
+egypt:
+  opposite_sex:
+    default:
+      default:
+      - :marriage_declaration
+      - :making_an_oath
+finland:
+  opposite_sex:
+    ceremony_country:
+      default:
+      - :affirmation_for_marriage
+    third_country:
+      default:
+      - :affirmation_for_marriage
+lebanon:
+  opposite_sex:
+    default:
+      default:
+      - :affirmation_for_freedom_to_marry_in_english
+      - :affirmation_for_freedom_to_marry_in_other_language
+macao:
+  opposite_sex:
+    default:
+      default:
+      - :affidavit_or_affirmation_for_marriage
+mongolia:
+  opposite_sex:
+    default:
+      default:
+      - :affirmation_for_freedom_to_marry_in_english
+      - :affirmation_for_freedom_to_marry_in_other_language
+morocco:
+  opposite_sex:
+    default:
+      default:
+      - :affidavit_or_affirmation_for_marriage
+norway:
+  opposite_sex:
+    ceremony_country:
+      default:
+      - :affidavit_or_affirmation_for_marriage
+peru:
+  opposite_sex:
+    default:
+      default:
+      - :affirmation_or_affidavit_for_freedom_to_marry
+philippines:
+  opposite_sex:
+    default:
+      default:
+      - :affirmation_for_freedom_to_marry_in_english
+      - :affirmation_for_freedom_to_marry_in_other_language
+qatar:
+  opposite_sex:
+    default:
+      default:
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :affidavit_for_marriage
+south-korea:
+  opposite_sex:
+    default:
+      default:
+      - :affidavit_for_marriage
+thailand:
+  opposite_sex:
+    default:
+      default:
+      - :affidavit_for_marriage
+turkey:
+  opposite_sex:
+    default:
+      default:
+      - :affidavit_for_marriage
+united-arab-emirates:
+  opposite_sex:
+    default:
+      default:
+      - :affirmation_for_freedom_to_marry_in_english
+      - :affirmation_for_freedom_to_marry_in_other_language
+vietnam:
+  opposite_sex:
+    default:
+      default:
+      - :affidavit_for_marriage
