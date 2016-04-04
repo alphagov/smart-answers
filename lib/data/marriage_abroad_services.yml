@@ -1318,3 +1318,8 @@ italy:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+japan:
+  opposite_sex:
+    default:
+      default:
+      - :administering_oath_or_making_declaration
