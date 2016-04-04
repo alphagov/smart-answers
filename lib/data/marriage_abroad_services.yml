@@ -142,3 +142,8 @@ belarus:
     default:
       default:
       - :administering_oath_or_making_declaration
+cambodia:
+  opposite_sex:
+    default:
+      default:
+      - :affidavit_or_affirmation_for_marriage
