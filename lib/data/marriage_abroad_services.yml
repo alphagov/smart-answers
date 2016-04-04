@@ -1312,3 +1312,9 @@ indonesia:
     default:
       default:
       - :affidavit_or_affirmation_for_marriage
+italy:
+  opposite_sex:
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
