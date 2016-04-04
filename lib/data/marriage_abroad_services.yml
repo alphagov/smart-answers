@@ -137,3 +137,8 @@ spain:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+belarus:
+  opposite_sex:
+    default:
+      default:
+      - :administering_oath_or_making_declaration
