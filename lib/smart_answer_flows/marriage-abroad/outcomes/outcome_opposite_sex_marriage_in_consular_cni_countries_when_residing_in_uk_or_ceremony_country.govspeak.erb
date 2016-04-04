@@ -418,35 +418,9 @@
     You may be asked to provide a copy of your birth certificate. Make sure you send a [certified copy](/order-copy-birth-death-marriage-certificate) as you won’t get it back.
   <% end %>
 
-  <% if calculator.ceremony_country == 'croatia' && calculator.resident_of_ceremony_country? %>
-    <%= render partial: 'consular_fees_table.govspeak.erb',
-               locals: {
-                 calculator: calculator,
-                 services: [
-                   :receiving_notice_of_marriage,
-                   :issuing_cni_or_nulla_osta,
-                   :issuing_letter_or_certificate_english,
-                   :issuing_letter_or_certificate_other_language,
-                   :administering_oath_or_making_declaration,
-                   :issuing_custom_and_law_certificate,
-                 ]
-               } %>
+  <%= render partial: 'consular_fees_table.govspeak.erb',
+             locals: { calculator: calculator } %>
 
-
-  <% else %>
-    <%= render partial: 'consular_fees_table.govspeak.erb',
-               locals: {
-                 calculator: calculator,
-                 services: [
-                   :receiving_notice_of_marriage,
-                   :issuing_cni_or_nulla_osta,
-                   :issuing_letter_or_certificate_english,
-                   :issuing_letter_or_certificate_other_language,
-                   :administering_oath_or_making_declaration,
-                 ]
-              } %>
-
-  <% end %>
   <% unless calculator.country_without_consular_facilities? || calculator.ceremony_country == 'cote-d-ivoire' %>
     <% if %w(kazakhstan kyrgyzstan).include?(calculator.ceremony_country) %>
       You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Kazakhstan](/government/publications/kazakhstan-kyrgyzstan-consular-fees).

@@ -28,6 +28,13 @@ finland:
     third_country:
       default:
       - :affirmation_for_marriage
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
 lebanon:
   opposite_sex:
     default:
@@ -55,6 +62,13 @@ norway:
     ceremony_country:
       default:
       - :affidavit_or_affirmation_for_marriage
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
 peru:
   opposite_sex:
     default:
@@ -147,3 +161,1141 @@ cambodia:
     default:
       default:
       - :affidavit_or_affirmation_for_marriage
+afghanistan:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+albania:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+algeria:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+american-samoa:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+andorra:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+angola:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+armenia:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+aruba:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+austria:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+azerbaijan:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+bahrain:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+benin:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+bhutan:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+bolivia:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+bonaire-st-eustatius-saba:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+bosnia-and-herzegovina:
+  opposite_sex:
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+brazil:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+bulgaria:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+burkina-faso:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+burundi:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+cape-verde:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+central-african-republic:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+chad:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+chile:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+comoros:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+congo:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+croatia:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+      - :issuing_custom_and_law_certificate
+cuba:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+curacao:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+democratic-republic-of-congo:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+denmark:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+djibouti:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+el-salvador:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+equatorial-guinea:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+eritrea:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+estonia:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+ethiopia:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+gabon:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+georgia:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+greece:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+guatemala:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+guinea:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+guinea-bissau:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+haiti:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+honduras:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+hungary:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+iceland:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+iraq:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+jordan:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+kazakhstan:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+kyrgyzstan:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+latvia:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+libya:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+liechtenstein:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+lithuania:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+luxembourg:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+macedonia:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+mali:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+marshall-islands:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+mauritania:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+mexico:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+micronesia:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+moldova:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+montenegro:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+nepal:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+nicaragua:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+niger:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+palau:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+panama:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+paraguay:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+romania:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+russia:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+rwanda:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+san-marino:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+sao-tome-and-principe:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+serbia:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+south-sudan:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+st-maarten:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+sudan:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+suriname:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+sweden:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+tajikistan:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+timor-leste:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+togo:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+tunisia:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+turkmenistan:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+uzbekistan:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+venezuela:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
+western-sahara:
+  opposite_sex:
+    uk:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+      - :issuing_letter_or_certificate_english
+      - :issuing_letter_or_certificate_other_language
+      - :administering_oath_or_making_declaration
