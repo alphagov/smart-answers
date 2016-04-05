@@ -18,6 +18,10 @@ ecuador:
     default:
       default:
       - :affidavit_or_affirmation_for_marriage
+  same_sex:
+    default:
+      default:
+      - :issuing_cni_or_equivalent
 egypt:
   opposite_sex:
     default:
@@ -39,6 +43,10 @@ finland:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      default:
+      - :issuing_cni_or_equivalent
 lebanon:
   opposite_sex:
     default:
@@ -285,6 +293,10 @@ austria:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      default:
+      - :issuing_cni_or_equivalent
 azerbaijan:
   opposite_sex:
     uk:
@@ -385,6 +397,10 @@ brazil:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    uk:
+      default:
+      - :issuing_cni_or_equivalent
 bulgaria:
   opposite_sex:
     uk:
@@ -566,6 +582,10 @@ denmark:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      default:
+      - :issuing_cni_or_equivalent
 djibouti:
   opposite_sex:
     uk:
@@ -779,6 +799,10 @@ iceland:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      default:
+      - :issuing_cni_or_equivalent
 iraq:
   opposite_sex:
     uk:
@@ -909,6 +933,10 @@ luxembourg:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      default:
+      - :issuing_cni_or_equivalent
 macedonia:
   opposite_sex:
     uk:
@@ -1230,6 +1258,10 @@ sweden:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      default:
+      - :issuing_cni_or_equivalent
 tajikistan:
   opposite_sex:
     uk:
@@ -1351,6 +1383,10 @@ germany:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      partner_local:
+      - :issuing_cni_or_equivalent
 indonesia:
   opposite_sex:
     default:
@@ -1433,6 +1469,10 @@ slovenia:
     ceremony_country:
       default:
       - :affidavit_for_marriage
+  same_sex:
+    default:
+      default:
+      - :issuing_cni_or_equivalent
 cyprus:
   same_sex:
     default:
