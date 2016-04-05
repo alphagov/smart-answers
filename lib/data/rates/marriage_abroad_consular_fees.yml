@@ -12,3 +12,16 @@
   registering_civil_partnership: 140
   registering_civil_partnership_or_marriage: 140
   registering_marriage: 140
+- start_date: 2016-04-06
+  end_date: 2017-04-05
+  affidavit_or_affirmation_for_marriage: 50
+  issuing_civil_partnership_certificate: 50
+  issuing_civil_partnership_or_marriage_certificate: 50
+  issuing_cni_or_nulla_osta: 50
+  issuing_custom_and_law_certificate: 50
+  issuing_marriage_certificate: 50
+  receiving_notice_of_marriage: 50
+  receiving_notice_of_registration: 50
+  registering_civil_partnership: 150
+  registering_civil_partnership_or_marriage: 150
+  registering_marriage: 150
