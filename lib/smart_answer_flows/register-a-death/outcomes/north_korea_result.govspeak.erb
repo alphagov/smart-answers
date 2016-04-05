@@ -31,10 +31,8 @@
 
   ##Cost
 
-  Service | Fee
-  -|-
-  Register a death | £105
-  Copy of a death registration certificate | £65
+  <%= render partial: 'fees.govspeak.erb',
+             locals: { reg_data_query: reg_data_query } %>
 
   You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees](/government/organisations/foreign-commonwealth-office/series/consular-fees).
 

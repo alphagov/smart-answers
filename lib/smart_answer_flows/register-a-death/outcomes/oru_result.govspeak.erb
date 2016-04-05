@@ -54,10 +54,8 @@
 
   The registration fee doesn't include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office in the UK, but only from September the year after you register.
 
-  Service | Fee
-  -|-
-  Register a death | £105
-  Copy of a death registration certificate | £65
+  <%= render partial: 'fees.govspeak.erb',
+             locals: { reg_data_query: reg_data_query } %>
 
   <%= render partial: 'shared/births_and_deaths_registration/document_return_fees.govspeak.erb', locals: { document_return_fees: document_return_fees } %>
   <%= render partial: 'shared/births_and_deaths_registration/button.govspeak.erb', locals: { button_data: button_data } %>

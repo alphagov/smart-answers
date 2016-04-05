@@ -25,7 +25,7 @@ lib/data/rates/births_and_deaths_document_return_fees.yml: 4ac203e9fd076c12f62b5
 lib/data/translators.yml: d86f628f0b85e24ffb0dc0ec77401387
 lib/data/registrations.yml: 2eb5c61678f21bd9cc06af67c230279f
 lib/smart_answer/calculators/country_name_formatter.rb: c11e2762e225f0800e770728fb6ad474
-lib/smart_answer/calculators/registrations_data_query.rb: 8d7e4ba8b35fa0ac4db38b503ef5cf27
+lib/smart_answer/calculators/registrations_data_query.rb: 2815e58157ff0c29887612d43a88dcda
 lib/smart_answer/calculators/translator_links.rb: 079592f6c5ede06d7c6ae4e8c5553127
 test/fixtures/worldwide_locations.yml: 063711faceec3a4081d6d5fb386c8029
 test/fixtures/worldwide/afghanistan_organisations.json: 1fd89b60eb079c7b3fddcab985f37366
