@@ -735,8 +735,16 @@ france:
     default:
       default:
       - :issuing_custom_and_law_certificate
+  same_sex:
+    default:
+      default:
+      - :issuing_custom_and_law_certificate
 french-guiana:
   opposite_sex:
+    default:
+      default:
+      - :issuing_custom_and_law_certificate
+  same_sex:
     default:
       default:
       - :issuing_custom_and_law_certificate
@@ -745,8 +753,16 @@ french-polynesia:
     default:
       default:
       - :issuing_custom_and_law_certificate
+  same_sex:
+    default:
+      default:
+      - :issuing_custom_and_law_certificate
 guadeloupe:
   opposite_sex:
+    default:
+      default:
+      - :issuing_custom_and_law_certificate
+  same_sex:
     default:
       default:
       - :issuing_custom_and_law_certificate
@@ -755,13 +771,25 @@ martinique:
     default:
       default:
       - :issuing_custom_and_law_certificate
+  same_sex:
+    default:
+      default:
+      - :issuing_custom_and_law_certificate
 mayotte:
   opposite_sex:
     default:
       default:
       - :issuing_custom_and_law_certificate
+  same_sex:
+    default:
+      default:
+      - :issuing_custom_and_law_certificate
 monaco:
   opposite_sex:
+    default:
+      default:
+      - :issuing_custom_and_law_certificate
+  same_sex:
     default:
       default:
       - :issuing_custom_and_law_certificate
@@ -775,6 +803,10 @@ reunion:
     default:
       default:
       - :issuing_custom_and_law_certificate
+  same_sex:
+    default:
+      default:
+      - :issuing_custom_and_law_certificate
 st-pierre-and-miquelon:
   opposite_sex:
     default:
@@ -782,6 +814,10 @@ st-pierre-and-miquelon:
       - :issuing_custom_and_law_certificate
 wallis-and-futuna:
   opposite_sex:
+    default:
+      default:
+      - :issuing_custom_and_law_certificate
+  same_sex:
     default:
       default:
       - :issuing_custom_and_law_certificate
