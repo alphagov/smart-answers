@@ -27,7 +27,7 @@ ecuador:
   same_sex:
     default:
       default:
-      - :issuing_cni_or_equivalent
+      - :issuing_cni_or_nulla_osta
 egypt:
   opposite_sex:
     default:
@@ -41,7 +41,7 @@ finland:
   same_sex:
     default:
       default:
-      - :issuing_cni_or_equivalent
+      - :issuing_cni_or_nulla_osta
 lebanon:
   opposite_sex:
     default:
@@ -226,7 +226,7 @@ austria:
   same_sex:
     default:
       default:
-      - :issuing_cni_or_equivalent
+      - :issuing_cni_or_nulla_osta
 azerbaijan:
   opposite_sex:
     ceremony_country:
@@ -333,7 +333,7 @@ denmark:
   same_sex:
     default:
       default:
-      - :issuing_cni_or_equivalent
+      - :issuing_cni_or_nulla_osta
 el-salvador:
   opposite_sex:
     ceremony_country:
@@ -409,7 +409,7 @@ iceland:
   same_sex:
     default:
       default:
-      - :issuing_cni_or_equivalent
+      - :issuing_cni_or_nulla_osta
 jordan:
   opposite_sex:
     ceremony_country:
@@ -465,7 +465,7 @@ luxembourg:
   same_sex:
     default:
       default:
-      - :issuing_cni_or_equivalent
+      - :issuing_cni_or_nulla_osta
 macedonia:
   opposite_sex:
     ceremony_country:
@@ -572,7 +572,7 @@ sweden:
   same_sex:
     default:
       default:
-      - :issuing_cni_or_equivalent
+      - :issuing_cni_or_nulla_osta
 tajikistan:
   opposite_sex:
     ceremony_country:
@@ -697,7 +697,7 @@ slovenia:
   same_sex:
     default:
       default:
-      - :issuing_cni_or_equivalent
+      - :issuing_cni_or_nulla_osta
 cyprus:
   same_sex:
     default:
