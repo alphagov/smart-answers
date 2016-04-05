@@ -13,6 +13,12 @@ china:
     default:
       default:
       - :affirmation_for_freedom_to_marry_in_english_and_chinese
+  same_sex:
+    default:
+      default:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
 ecuador:
   opposite_sex:
     default:
@@ -64,6 +70,12 @@ mongolia:
       default:
       - :affirmation_for_freedom_to_marry_in_english
       - :affirmation_for_freedom_to_marry_in_other_language
+  same_sex:
+    default:
+      partner_british:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
 morocco:
   opposite_sex:
     default:
@@ -90,12 +102,24 @@ peru:
     default:
       default:
       - :affirmation_or_affidavit_for_freedom_to_marry
+  same_sex:
+    default:
+      default:
+      - :receiving_notice_of_registration
+      - :registering_marriage_or_civil_partnership
+      - :issuing_marriage_or_civil_partnership_certificate
 philippines:
   opposite_sex:
     default:
       default:
       - :affirmation_for_freedom_to_marry_in_english
       - :affirmation_for_freedom_to_marry_in_other_language
+  same_sex:
+    default:
+      default:
+      - :receiving_notice_of_registration
+      - :registering_marriage_or_civil_partnership
+      - :issuing_marriage_or_civil_partnership_certificate
 qatar:
   opposite_sex:
     default:
@@ -129,6 +153,16 @@ vietnam:
     default:
       default:
       - :affidavit_for_marriage
+  same_sex:
+    default:
+      partner_other:
+      - :receiving_notice_of_registration
+      - :registering_marriage_or_civil_partnership
+      - :issuing_marriage_or_civil_partnership_certificate
+      partner_british:
+      - :receiving_notice_of_registration
+      - :registering_marriage_or_civil_partnership
+      - :issuing_marriage_or_civil_partnership_certificate
 dominican-republic:
   same_sex:
     default:
@@ -177,6 +211,16 @@ cambodia:
     default:
       default:
       - :affidavit_or_affirmation_for_marriage
+  same_sex:
+    default:
+      partner_british:
+      - :receiving_notice_of_registration
+      - :registering_marriage_or_civil_partnership
+      - :issuing_marriage_or_civil_partnership_certificate
+      partner_other:
+      - :receiving_notice_of_registration
+      - :registering_marriage_or_civil_partnership
+      - :issuing_marriage_or_civil_partnership_certificate
 afghanistan:
   opposite_sex:
     uk:
@@ -202,6 +246,12 @@ albania:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      default:
+      - :receiving_notice_of_registration
+      - :registering_marriage_or_civil_partnership
+      - :issuing_marriage_or_civil_partnership_certificate
 algeria:
   opposite_sex:
     uk:
@@ -313,6 +363,16 @@ azerbaijan:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      partner_british:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
+      partner_other:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
 bahrain:
   opposite_sex:
     uk:
@@ -363,6 +423,12 @@ bolivia:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      default:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
 bonaire-st-eustatius-saba:
   opposite_sex:
     uk:
@@ -484,6 +550,16 @@ chile:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      partner_british:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
+      partner_other:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
 comoros:
   opposite_sex:
     uk:
@@ -645,6 +721,12 @@ estonia:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      default:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
 ethiopia:
   opposite_sex:
     uk:
@@ -783,6 +865,12 @@ hungary:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      partner_british:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
 iceland:
   opposite_sex:
     uk:
@@ -876,6 +964,16 @@ latvia:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      partner_british:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
+      partner_other:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
 libya:
   opposite_sex:
     uk:
@@ -917,6 +1015,12 @@ lithuania:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      partner_british:
+      - :posting_marriage_notice
+      - :performing_marriage_ceremony
+      - :issuing_marriage_certificate
 luxembourg:
   opposite_sex:
     uk:
@@ -1043,6 +1147,12 @@ montenegro:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      partner_british:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
 nepal:
   opposite_sex:
     uk:
@@ -1075,6 +1185,12 @@ nicaragua:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      partner_british:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
 niger:
   opposite_sex:
     uk:
@@ -1156,6 +1272,12 @@ russia:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      partner_british:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
 rwanda:
   opposite_sex:
     uk:
@@ -1199,6 +1321,12 @@ serbia:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      default:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
 south-sudan:
   opposite_sex:
     uk:
@@ -1387,6 +1515,14 @@ germany:
     default:
       partner_local:
       - :issuing_cni_or_equivalent
+      partner_british:
+      - :posting_marriage_notice
+      - :performing_marriage_ceremony
+      - :issuing_marriage_certificate
+      partner_other:
+      - :posting_marriage_notice
+      - :performing_marriage_ceremony
+      - :issuing_marriage_certificate
 indonesia:
   opposite_sex:
     default:
@@ -1403,6 +1539,12 @@ japan:
     default:
       default:
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      default:
+      - :receiving_notice_of_registration
+      - :registering_marriage_or_civil_partnership
+      - :issuing_marriage_or_civil_partnership_certificate
 kosovo:
   opposite_sex:
     uk:
@@ -1419,6 +1561,16 @@ kosovo:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      partner_british:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
+      partner_other:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
 kuwait:
   opposite_sex:
     default:
@@ -1487,3 +1639,17 @@ malta:
       - :receiving_notice_of_registration
       - :registering_marriage_or_civil_partnership
       - :issuing_marriage_or_civil_partnership_certificate
+australia:
+  same_sex:
+    default:
+      default:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
+colombia:
+  same_sex:
+    default:
+      default:
+      - :posting_marriage_notice
+      - :performing_marriage_ceremony
+      - :issuing_marriage_certificate
