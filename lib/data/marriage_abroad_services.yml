@@ -181,12 +181,12 @@ cambodia:
     default:
       partner_british:
       - :receiving_notice_of_registration
-      - :registering_marriage_or_civil_partnership
-      - :issuing_marriage_or_civil_partnership_certificate
+      - :registering_marriage
+      - :issuing_marriage_certificate
       partner_other:
       - :receiving_notice_of_registration
-      - :registering_marriage_or_civil_partnership
-      - :issuing_marriage_or_civil_partnership_certificate
+      - :registering_marriage
+      - :issuing_marriage_certificate
 albania:
   opposite_sex:
     ceremony_country:
@@ -453,8 +453,8 @@ lithuania:
   same_sex:
     default:
       partner_british:
-      - :posting_marriage_notice
-      - :performing_marriage_ceremony
+      - :receiving_notice_of_registration
+      - :registering_marriage
       - :issuing_marriage_certificate
 luxembourg:
   opposite_sex:
@@ -533,6 +533,16 @@ romania:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  same_sex:
+    default:
+      partner_british:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
+      partner_other:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
 russia:
   opposite_sex:
     ceremony_country:
@@ -612,15 +622,13 @@ venezuela:
 germany:
   same_sex:
     default:
-      partner_local:
-      - :issuing_cni_or_equivalent
       partner_british:
-      - :posting_marriage_notice
-      - :performing_marriage_ceremony
+      - :receiving_notice_of_registration
+      - :registering_marriage
       - :issuing_marriage_certificate
       partner_other:
-      - :posting_marriage_notice
-      - :performing_marriage_ceremony
+      - :receiving_notice_of_registration
+      - :registering_marriage
       - :issuing_marriage_certificate
 indonesia:
   opposite_sex:
@@ -723,8 +731,8 @@ colombia:
   same_sex:
     default:
       default:
-      - :posting_marriage_notice
-      - :performing_marriage_ceremony
+      - :receiving_notice_of_registration
+      - :registering_marriage
       - :issuing_marriage_certificate
   opposite_sex:
     default:
