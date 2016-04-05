@@ -6,8 +6,9 @@ module SmartAnswer::Calculators
     attr_writer :sex_of_your_partner
     attr_writer :marriage_or_pacs
 
-    def initialize(data_query: nil, country_name_formatter: nil, registrations_data_query: nil)
+    def initialize(data_query: nil, rates_query: nil, country_name_formatter: nil, registrations_data_query: nil)
       @data_query = data_query || MarriageAbroadDataQuery.new
+      @rates_query = rates_query || RatesQuery.from_file('marriage_abroad_consular_fees')
       @country_name_formatter = country_name_formatter || CountryNameFormatter.new
       @registrations_data_query = registrations_data_query || RegistrationsDataQuery.new
     end
@@ -258,6 +259,10 @@ module SmartAnswer::Calculators
 
     def document_download_link_if_opposite_sex_resident_of_uk_countries?
       MarriageAbroadDataQuery::NO_DOCUMENT_DOWNLOAD_LINK_IF_OS_RESIDENT_OF_UK_COUNTRIES.exclude?(ceremony_country)
+    end
+
+    def consular_fee(service)
+      @rates_query.rates[service]
     end
 
   private

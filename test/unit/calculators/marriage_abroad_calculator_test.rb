@@ -840,6 +840,23 @@ module SmartAnswer
           refute calculator.document_download_link_if_opposite_sex_resident_of_uk_countries?
         end
       end
+
+      context '#consular_fee' do
+        setup do
+          consular_fees = { fee: 55 }
+          rates_query = stub(rates: consular_fees)
+
+          @calculator = MarriageAbroadCalculator.new(rates_query: rates_query)
+        end
+
+        should 'return the fee value for a consular service' do
+          assert_equal 55, @calculator.consular_fee(:fee)
+        end
+
+        should 'return nil for an unknown consular service' do
+          assert_nil @calculator.consular_fee(:invalid)
+        end
+      end
     end
   end
 end

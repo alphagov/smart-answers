@@ -136,6 +136,7 @@
     <% when 'ss_marriage' %>
       <%= render partial: 'consular_fees_table.govspeak.erb',
                  locals: {
+                   calculator: calculator,
                    services: [
                      :receiving_notice_of_registration,
                      :registering_marriage,
@@ -149,6 +150,7 @@
     <% when 'ss_marriage' %>
       <%= render partial: 'consular_fees_table.govspeak.erb',
                  locals: {
+                   calculator: calculator,
                    services: [
                      :posting_marriage_notice,
                      :performing_marriage_ceremony,
@@ -159,6 +161,7 @@
     <% when 'ss_marriage_and_partnership' %>
       <%= render partial: 'consular_fees_table.govspeak.erb',
                  locals: {
+                   calculator: calculator,
                    services: [
                      :receiving_notice_of_registration,
                      :registering_marriage_or_civil_partnership,
