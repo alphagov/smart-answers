@@ -131,9 +131,6 @@ module SmartAnswer::Calculators
       minimum_hourly_rate <= total_hourly_rate
     end
 
-    def living_wage_or_above?
-      national_living_wage_rate <= total_hourly_rate.to_f
-    end
 
     def accommodation_adjustment(charge, number_of_nights)
       charge = charge.to_f

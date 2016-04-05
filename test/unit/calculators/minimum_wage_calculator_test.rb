@@ -1038,24 +1038,5 @@ module SmartAnswer::Calculators
       end
     end
 
-    context '#living_wage_or_above?' do
-      setup do
-        @calculator = MinimumWageCalculator.new
-      end
-
-      should 'returns false if the total_hourly_rate is less than 7.2' do
-        [nil, 0, 7.1999999].each do |hourly_rate|
-          @calculator.stubs(:total_hourly_rate).returns(hourly_rate)
-          assert !@calculator.living_wage_or_above?
-        end
-      end
-
-      should 'returns true  if the total_hourly_rate is 7.2 or above' do
-        [7.2, 7.2000001].each do |hourly_rate|
-          @calculator.stubs(:total_hourly_rate).returns(hourly_rate)
-          assert @calculator.living_wage_or_above?
-        end
-      end
-    end
   end
 end
