@@ -857,6 +857,71 @@ module SmartAnswer
           assert_nil @calculator.consular_fee(:invalid)
         end
       end
+
+      context '#services' do
+        setup do
+          services_data = {
+            'albania' => {
+              'opposite_sex' => {
+                'default' => {
+                  'default' => [:partner_sex_specific_default_service],
+                  'partner_local' => [:partner_sex_and_nationality_specific_service]
+                },
+                'uk' => {
+                  'default' => [:residency_specific_default_service],
+                  'partner_local' => [:residency_and_nationality_specific_service]
+                }
+              }
+            }
+          }
+          @calculator = MarriageAbroadCalculator.new(services_data: services_data)
+        end
+
+        should 'return empty array if country not found in data' do
+          @calculator.ceremony_country = 'country-not-in-data'
+
+          assert_equal [], @calculator.services
+        end
+
+        should 'return empty array if country found but no services available for type of ceremony' do
+          @calculator.ceremony_country = 'albania'
+          @calculator.sex_of_your_partner = 'same_sex'
+
+          assert_equal [], @calculator.services
+        end
+
+        should 'return default services matching the country and sex of partner' do
+          @calculator.ceremony_country = 'albania'
+          @calculator.sex_of_your_partner = 'opposite_sex'
+
+          assert_equal [:partner_sex_specific_default_service], @calculator.services
+        end
+
+        should 'return default services matching the country, sex of partner and residency' do
+          @calculator.ceremony_country = 'albania'
+          @calculator.sex_of_your_partner = 'opposite_sex'
+          @calculator.resident_of = 'uk'
+
+          assert_equal [:residency_specific_default_service], @calculator.services
+        end
+
+        should 'return services matching the country, sex of partner, default residency and nationality of partner' do
+          @calculator.ceremony_country = 'albania'
+          @calculator.sex_of_your_partner = 'opposite_sex'
+          @calculator.partner_nationality = 'partner_local'
+
+          assert_equal [:partner_sex_and_nationality_specific_service], @calculator.services
+        end
+
+        should 'return services matching the country, sex of partner, residency and nationality of partner' do
+          @calculator.ceremony_country = 'albania'
+          @calculator.sex_of_your_partner = 'opposite_sex'
+          @calculator.resident_of = 'uk'
+          @calculator.partner_nationality = 'partner_local'
+
+          assert_equal [:residency_and_nationality_specific_service], @calculator.services
+        end
+      end
     end
   end
 end

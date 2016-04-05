@@ -131,46 +131,8 @@
 
   <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 
-  <% if calculator.same_sex_alt_fees_table_country? %>
-    <% case calculator.marriage_and_partnership_phrases %>
-    <% when 'ss_marriage' %>
-      <%= render partial: 'consular_fees_table.govspeak.erb',
-                 locals: {
-                   calculator: calculator,
-                   services: [
-                     :receiving_notice_of_registration,
-                     :registering_marriage,
-                     :issuing_marriage_certificate,
-                   ]
-                 } %>
-
-    <% end %>
-  <% else %>
-    <% case calculator.marriage_and_partnership_phrases %>
-    <% when 'ss_marriage' %>
-      <%= render partial: 'consular_fees_table.govspeak.erb',
-                 locals: {
-                   calculator: calculator,
-                   services: [
-                     :posting_marriage_notice,
-                     :performing_marriage_ceremony,
-                     :issuing_marriage_certificate,
-                   ]
-                 } %>
-
-    <% when 'ss_marriage_and_partnership' %>
-      <%= render partial: 'consular_fees_table.govspeak.erb',
-                 locals: {
-                   calculator: calculator,
-                   services: [
-                     :receiving_notice_of_registration,
-                     :registering_marriage_or_civil_partnership,
-                     :issuing_marriage_or_civil_partnership_certificate,
-                   ]
-                 } %>
-
-    <% end %>
-  <% end %>
+  <%= render partial: 'consular_fees_table.govspeak.erb',
+             locals: { calculator: calculator } %>
 
   <% if calculator.ceremony_country == 'cambodia' %>
     <%= render partial: 'pay_by_cash_or_us_dollars_only.govspeak.erb' %>

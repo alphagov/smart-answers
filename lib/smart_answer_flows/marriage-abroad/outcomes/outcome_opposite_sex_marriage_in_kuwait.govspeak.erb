@@ -59,16 +59,7 @@
     <%= render partial: 'you_dont_need_to_stay_in_country.govspeak.erb' %>
 
     <%= render partial: 'consular_fees_table.govspeak.erb',
-               locals: {
-                 calculator: calculator,
-                 services: [
-                   :receiving_notice_of_marriage,
-                   :issuing_cni_or_nulla_osta,
-                   :issuing_letter_or_certificate_english,
-                   :issuing_letter_or_certificate_other_language,
-                   :administering_oath_or_making_declaration,
-                 ]
-               } %>
+               locals: { calculator: calculator } %>
 
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: { calculator: calculator } %>
@@ -122,16 +113,7 @@
     <% end %>
 
     <%= render partial: 'consular_fees_table.govspeak.erb',
-               locals: {
-                 calculator: calculator,
-                 services: [
-                   :receiving_notice_of_marriage,
-                   :issuing_cni_or_nulla_osta,
-                   :issuing_letter_or_certificate_english,
-                   :issuing_letter_or_certificate_other_language,
-                   :administering_oath_or_making_declaration,
-                 ]
-               } %>
+               locals: { calculator: calculator } %>
 
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: { calculator: calculator } %>

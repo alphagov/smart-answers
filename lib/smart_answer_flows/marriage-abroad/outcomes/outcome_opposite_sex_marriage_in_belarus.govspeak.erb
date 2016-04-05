@@ -39,12 +39,7 @@
   <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
 
   <%= render partial: 'consular_fees_table.govspeak.erb',
-             locals: {
-               calculator: calculator,
-               services: [
-                 :administering_oath_or_making_declaration,
-               ]
-             } %>
+             locals: { calculator: calculator } %>
 
   <%= render partial: 'link_to_consular_fees.govspeak.erb',
              locals: { calculator: calculator } %>

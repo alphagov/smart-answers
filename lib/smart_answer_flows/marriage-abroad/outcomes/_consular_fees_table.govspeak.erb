@@ -3,6 +3,6 @@
 Service | Fee
 -|-
 <%= render partial: 'consular_fees_table_items.govspeak.erb',
-           collection: services,
+           collection: calculator.services,
            as: :service,
            locals: { calculator: calculator } %>
