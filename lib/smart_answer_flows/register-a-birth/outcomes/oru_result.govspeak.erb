@@ -201,10 +201,8 @@
 
   Once you’ve paid you will be given a reference number to use on your birth registration form.
 
-  Service | Fee
-  -|-
-  Register a birth | £105
-  Copy of a birth registration certificate | £65
+  <%= render partial: 'fees.govspeak.erb',
+             locals: { reg_data_query: reg_data_query } %>
 
   <%= render partial: 'shared/births_and_deaths_registration/document_return_fees.govspeak.erb', locals: { document_return_fees: document_return_fees } %>
   <%= render partial: 'shared/births_and_deaths_registration/button.govspeak.erb', locals: { button_data: button_data } %>
