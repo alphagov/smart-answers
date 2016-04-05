@@ -175,7 +175,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_living_wage?
-      valid_age_for_living_wage?(age)
+      valid_age_for_living_wage?(age) && date >= Date.parse('2016-04-01')
     end
 
     def under_school_leaving_age?

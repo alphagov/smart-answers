@@ -158,8 +158,14 @@ module SmartAnswer::Calculators
       should 'return false if age is lower than 24 or nil' do
         %w(nil 0 24).each do |age|
           @calculator.age = age
-          assert !@calculator.eligible_for_living_wage?
+          refute @calculator.eligible_for_living_wage?
         end
+      end
+
+      should 'return false if age is over 25, and date is on or before 2016-04-01' do
+        @calculator.date = Date.parse('2016-03-30')
+        @calculator.age = 26
+        assert !@calculator.eligible_for_living_wage?
       end
     end
 
