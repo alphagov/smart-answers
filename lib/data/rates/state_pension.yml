@@ -18,3 +18,8 @@
   end_date: 2015-04-05
   weekly_rate: 115.95
   lower_weekly_rate: 69.50
+
+- start_date: 2016-04-06
+  end_date: 2017-04-05
+  weekly_rate: 119.30
+  lower_weekly_rate: 71.50

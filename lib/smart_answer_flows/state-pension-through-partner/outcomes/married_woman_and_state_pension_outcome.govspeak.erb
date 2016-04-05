@@ -27,12 +27,11 @@
 
   ##What you may get if you have a reduced rate election
 
-  You’ll get a pension that will be about the same as:
+  You’ll get a pension of about <%= higher_basic_state_pension_rate %> a week plus any Additional State Pension and Graduated Retirement Benefit you built up before 6 April 2016.
 
-  - the full rate of the basic State Pension (under the current State Pension rules)
-  - any Additional State Pension you built up before 6 April 2016
+  <%= higher_basic_state_pension_rate %> is the maximum rate of basic State Pension a widowed person who reached State Pension age before 6 April 2016 can get through their spouse or civil partner’s National Insurance record..
 
-  You’ll get this when you reach State Pension age.
+  You’ll get this when you’re widowed or when you [claim your State Pension](/deferring-state-pension/tax-and-inheritance), if later.
 
   ^You won’t need to have the minimum of 10 qualifying years on your National Insurance record to get a State Pension if you’re eligible under these different rules.^
 
@@ -40,7 +39,9 @@
 
   ###If you remarry or form a new civil partnership before you reach State Pension age
 
-  You’ll get a pension that is about the same as the lower rate current system basic State Pension of <%= lower_basic_state_pension_rate %> a week and any Additional State Pension you built up before 6 April 2016.
+  You’ll get a pension of about <%= lower_basic_state_pension_rate %> a week plus any Additional State Pension and Graduated Retirement Benefit you built up before 6 April 2016.
+
+  <%= lower_basic_state_pension_rate %> is the maximum rate of basic State Pension a married person or civil partner who reached State Pension age before 6 April 2016 can get through their spouse or civil partner’s National Insurance record.
 
   You'll get more if your [State Pension](/new-state-pension) is higher under your own National Insurance contributions.
 
@@ -48,15 +49,42 @@
 
   You’ll get this when you or your spouse or civil partner reach State Pension age, whichever is later.
 
-  ##Inheriting Additional State Pension
+  ##Inheriting State Pension
 
-  You may be able to inherit a portion of your late spouse or civil partner’s [Additional State Pension](/additional-state-pension/further-information). You must have been married or in a civil partnership with your partner before 6 April 2016.
+  You may be able to inherit some of your late spouse or civil partner’s State Pension. What you get depends on when they reached or would have reached State Pension age and when your marriage or civil partnership began.
 
-  ^You won’t be able to inherit any of your late spouse or civil partner’s Additional State Pension if you remarry or form a new civil partnership before State Pension age.^
+  You won’t be able to inherit any of your late spouse or civil partner’s State Pension if you remarry or form a new civil partnership before you reach State Pension age.
 
-  You also might be eligible for [Widowed Parent’s Allowance](/widowed-parents-allowance), a [Bereavement payment](/bereavement-payment) or [Bereavement Allowance](/bereavement-allowance) if you hadn’t reached State Pension age.
+  ##Your spouse or civil partner died under State Pension age before 6 April 2016
+
+  You may be able to inherit a portion of their [Additional State Pension](/additional-state-pension/further-information). and half their Graduated Retirement Benefit. This was the earnings-related State Pension people could build up between 1961 and 1975.
+
+
+  ##Your spouse or civil partner reached State Pension age before 6 April 2016
+
+  You may be able to inherit a portion of their [Additional State Pension](/additional-state-pension/further-information) and [State Pension top up](/voluntary-national-insurance-contributions/top-up-your-state-pension).
+
+  You may also be able to inherit half their Graduated Retirement Benefit. This was the earnings-related State Pension people could build up between 1961 and 1975
+
+  You must have been married or in a civil partnership with your partner before 6 April 2016.
+
+  You may also be able to inherit a portion of your late spouse or civil partner’s deferral payment if they had [deferred claiming their State Pension](/deferring-state-pension/tax-and-inheritance) - the date of your marriage doesn't affect this.
+
+  ##Your spouse or civil partner reached State Pension age  or died under State Pension age on or after 6 April 2016
+
+  You may be able to inherit half of their [Protected Payment](/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner).
+
+  You must have been married or in a civil partnership with your partner before 6 April 2016.
+
+  ###Other benefits you might get
+
+  You might be eligible for a [Bereavement payment](/bereavement-payment), [Widowed Parent’s Allowance](/widowed-parents-allowance), or [Bereavement Allowance](/bereavement-allowance) if you haven’t yet reached State Pension age. You might be eligible for a bereavement payment if you’re over State Pension age but your late spouse or civil partner wasn’t getting any State Pension when they died.
 
   ^You can contact the [future pension centre](/future-pension-centre) for help and advice.^
 
-  <%= render partial: 'increase_retirement_income.govspeak.erb' %>
+  ##If you remarry or form a new civil partnership after State Pension age
+
+  You’ll keep any State Pension you inherited from your previous spouse or civil partner if you remarry or form a new civil partnership after you reach State Pension age.
+
+  <%= render partial: 'increase_retirement_income.govspeak.erb' -%>
 <% end %>

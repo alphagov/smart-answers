@@ -10,8 +10,6 @@ module SmartAnswer
       # Q1
       multiple_choice :what_is_your_marital_status? do
         option :married
-        option :will_marry_before_specific_date
-        option :will_marry_on_or_after_specific_date
         option :widowed
         option :divorced
 
@@ -19,10 +17,8 @@ module SmartAnswer
 
         calculate :answers do |response|
           answers = []
-          if response == "married" or response == "will_marry_before_specific_date"
+          if response == "married"
             answers << :old1
-          elsif response == "will_marry_on_or_after_specific_date"
-            answers << :new1
           elsif response == "widowed"
             answers << :widow
           end
@@ -31,11 +27,11 @@ module SmartAnswer
 
         calculate :lower_basic_state_pension_rate do
           rate = SmartAnswer::Calculators::RatesQuery.from_file('state_pension').rates.lower_weekly_rate
-          "£#{rate}"
+          "£#{'%.2f' % rate}"
         end
         calculate :higher_basic_state_pension_rate do
           rate = SmartAnswer::Calculators::RatesQuery.from_file('state_pension').rates.weekly_rate
-          "£#{rate}"
+          "£#{'%.2f' % rate}"
         end
 
         next_node do |response|
@@ -128,6 +124,8 @@ module SmartAnswer
           when 'male_gender'
             if marital_status == 'divorced'
               outcome :impossibility_due_to_divorce_outcome
+            elsif marital_status == 'widowed'
+              outcome :widow_male_reaching_pension_age
             else
               outcome :impossibility_to_increase_pension_outcome
             end
@@ -143,17 +141,19 @@ module SmartAnswer
         end
       end
 
-      outcome :widow_and_old_pension_outcome
+      # Outcome list below. NB: outcomes 4 and 7 are not available
+      outcome :current_rules_no_additional_pension_outcome # Outcome 1
+      outcome :widow_and_old_pension_outcome # Outcome 2
+      outcome :current_rules_national_insurance_no_state_pension_outcome # Outcome 3
 
-      outcome :current_rules_no_additional_pension_outcome
-      outcome :current_rules_national_insurance_no_state_pension_outcome
+      outcome :married_woman_no_state_pension_outcome # Outcome 5
+      outcome :married_woman_and_state_pension_outcome # Outcome 6
 
-      outcome :impossibility_due_to_divorce_outcome
-      outcome :impossibility_to_increase_pension_outcome
+      outcome :impossibility_to_increase_pension_outcome # Outcome 8a
+      outcome :widow_male_reaching_pension_age # Outcome 8b
 
-      outcome :age_dependent_pension_outcome
-      outcome :married_woman_and_state_pension_outcome
-      outcome :married_woman_no_state_pension_outcome
+      outcome :impossibility_due_to_divorce_outcome # Outcome 9
+      outcome :age_dependent_pension_outcome # Outcome 10
     end
   end
 end
