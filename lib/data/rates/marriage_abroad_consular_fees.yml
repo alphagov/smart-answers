@@ -9,6 +9,6 @@
   issuing_civil_partnership_certificate: 65
   registering_civil_partnership: 140
   registering_marriage: 140
-  registering_marriage_or_civil_partnership: 140
+  registering_civil_partnership_or_marriage: 140
   issuing_civil_partnership_or_marriage_certificate: 65
   affidavit_or_affirmation_for_marriage: 55

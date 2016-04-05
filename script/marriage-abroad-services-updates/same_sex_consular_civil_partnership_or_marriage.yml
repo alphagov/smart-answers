@@ -17,5 +17,5 @@
 - default
 :services:
 - :receiving_notice_of_registration
-- :registering_marriage_or_civil_partnership
+- :registering_civil_partnership_or_marriage
 - :issuing_civil_partnership_or_marriage_certificate
