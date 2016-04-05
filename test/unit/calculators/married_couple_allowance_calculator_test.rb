@@ -134,5 +134,16 @@ module SmartAnswer::Calculators
       end
     end
 
+    test 'rate values for year 2016' do
+      Timecop.freeze(Date.parse('2016-06-01')) do
+        calculator = MarriedCouplesAllowanceCalculator.new
+
+        assert_equal 11000, calculator.personal_allowance
+        assert_equal 27700.0, calculator.income_limit_for_personal_allowances
+        assert_equal 8355, calculator.maximum_mca
+        assert_equal 3220, calculator.minimum_mca
+      end
+    end
+
   end
 end

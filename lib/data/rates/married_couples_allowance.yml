@@ -25,3 +25,12 @@
   income_limit_for_personal_allowances: 27700.0
   maximum_married_couple_allowance: 8355
   minimum_married_couple_allowance: 3220
+
+- start_date: 2016-04-06
+  end_date: 2017-04-05
+  personal_allowance: 11000
+  over_65_allowance: 11000
+  over_75_allowance: 11000
+  income_limit_for_personal_allowances: 27700.0
+  maximum_married_couple_allowance: 8355
+  minimum_married_couple_allowance: 3220
