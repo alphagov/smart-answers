@@ -10,8 +10,6 @@ module SmartAnswer
       # Q1
       multiple_choice :what_is_your_marital_status? do
         option :married
-        option :will_marry_before_specific_date
-        option :will_marry_on_or_after_specific_date
         option :widowed
         option :divorced
 
@@ -19,10 +17,8 @@ module SmartAnswer
 
         calculate :answers do |response|
           answers = []
-          if response == "married" or response == "will_marry_before_specific_date"
+          if response == "married"
             answers << :old1
-          elsif response == "will_marry_on_or_after_specific_date"
-            answers << :new1
           elsif response == "widowed"
             answers << :widow
           end
