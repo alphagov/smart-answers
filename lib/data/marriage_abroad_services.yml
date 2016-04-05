@@ -1358,3 +1358,10 @@ oman:
     default:
       default:
       - :administering_oath_or_making_declaration
+saudi-arabia:
+  opposite_sex:
+    ceremony_country:
+      default:
+      - :posting_marriage_notice
+      - :performing_marriage_ceremony
+      - :issuing_marriage_certificate
