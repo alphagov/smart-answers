@@ -4,6 +4,10 @@ belgium:
     default:
       default:
       - :affidavit_or_affirmation_for_marriage
+  same_sex:
+    default:
+      default:
+      - :affidavit_or_affirmation_for_marriage
 china:
   opposite_sex:
     default:
@@ -69,6 +73,10 @@ norway:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      default:
+      - :affidavit_or_affirmation_for_marriage
 peru:
   opposite_sex:
     default:
