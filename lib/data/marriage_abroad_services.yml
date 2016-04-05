@@ -12,7 +12,7 @@ china:
   opposite_sex:
     default:
       default:
-      - :affirmation_for_freedom_to_marry_in_english_and_chinese
+      - :affidavit_or_affirmation_for_marriage
   same_sex:
     default:
       default:
@@ -32,23 +32,12 @@ egypt:
   opposite_sex:
     default:
       default:
-      - :marriage_declaration
-      - :making_an_oath
+      - :affidavit_or_affirmation_for_marriage
 finland:
   opposite_sex:
-    ceremony_country:
+    default:
       default:
-      - :affirmation_for_marriage
-    third_country:
-      default:
-      - :affirmation_for_marriage
-    uk:
-      default:
-      - :receiving_notice_of_marriage
-      - :issuing_cni_or_nulla_osta
-      - :issuing_letter_or_certificate_english
-      - :issuing_letter_or_certificate_other_language
-      - :administering_oath_or_making_declaration
+      - :affidavit_or_affirmation_for_marriage
   same_sex:
     default:
       default:
@@ -57,8 +46,7 @@ lebanon:
   opposite_sex:
     default:
       default:
-      - :affirmation_for_freedom_to_marry_in_english
-      - :affirmation_for_freedom_to_marry_in_other_language
+      - :affidavit_or_affirmation_for_marriage
 macao:
   opposite_sex:
     default:
@@ -68,8 +56,7 @@ mongolia:
   opposite_sex:
     default:
       default:
-      - :affirmation_for_freedom_to_marry_in_english
-      - :affirmation_for_freedom_to_marry_in_other_language
+      - :affidavit_or_affirmation_for_marriage
   same_sex:
     default:
       partner_british:
@@ -83,16 +70,9 @@ morocco:
       - :affidavit_or_affirmation_for_marriage
 norway:
   opposite_sex:
-    ceremony_country:
+    default:
       default:
       - :affidavit_or_affirmation_for_marriage
-    uk:
-      default:
-      - :receiving_notice_of_marriage
-      - :issuing_cni_or_nulla_osta
-      - :issuing_letter_or_certificate_english
-      - :issuing_letter_or_certificate_other_language
-      - :administering_oath_or_making_declaration
   same_sex:
     default:
       default:
@@ -101,7 +81,7 @@ peru:
   opposite_sex:
     default:
       default:
-      - :affirmation_or_affidavit_for_freedom_to_marry
+      - :affidavit_or_affirmation_for_marriage
   same_sex:
     default:
       default:
@@ -112,8 +92,7 @@ philippines:
   opposite_sex:
     default:
       default:
-      - :affirmation_for_freedom_to_marry_in_english
-      - :affirmation_for_freedom_to_marry_in_other_language
+      - :affidavit_or_affirmation_for_marriage
   same_sex:
     default:
       default:
@@ -124,35 +103,32 @@ qatar:
   opposite_sex:
     default:
       default:
-      - :issuing_letter_or_certificate_english
-      - :issuing_letter_or_certificate_other_language
-      - :affidavit_for_marriage
+      - :affidavit_or_affirmation_for_marriage
 south-korea:
   opposite_sex:
     default:
       default:
-      - :affidavit_for_marriage
+      - :affidavit_or_affirmation_for_marriage
 thailand:
   opposite_sex:
     default:
       default:
-      - :affidavit_for_marriage
+      - :affidavit_or_affirmation_for_marriage
 turkey:
   opposite_sex:
     default:
       default:
-      - :affidavit_for_marriage
+      - :affidavit_or_affirmation_for_marriage
 united-arab-emirates:
   opposite_sex:
     default:
       default:
-      - :affirmation_for_freedom_to_marry_in_english
-      - :affirmation_for_freedom_to_marry_in_other_language
+      - :affidavit_or_affirmation_for_marriage
 vietnam:
   opposite_sex:
     default:
       default:
-      - :affidavit_for_marriage
+      - :affidavit_or_affirmation_for_marriage
   same_sex:
     default:
       partner_other:
@@ -205,7 +181,7 @@ belarus:
   opposite_sex:
     default:
       default:
-      - :administering_oath_or_making_declaration
+      - :affidavit_or_affirmation_for_marriage
 cambodia:
   opposite_sex:
     default:
@@ -918,20 +894,9 @@ jordan:
       - :administering_oath_or_making_declaration
 kazakhstan:
   opposite_sex:
-    uk:
-      default:
-      - :receiving_notice_of_marriage
-      - :issuing_cni_or_nulla_osta
-      - :issuing_letter_or_certificate_english
-      - :issuing_letter_or_certificate_other_language
-      - :administering_oath_or_making_declaration
     ceremony_country:
       default:
-      - :receiving_notice_of_marriage
-      - :issuing_cni_or_nulla_osta
-      - :issuing_letter_or_certificate_english
-      - :issuing_letter_or_certificate_other_language
-      - :administering_oath_or_making_declaration
+      - :affidavit_or_affirmation_for_marriage
 kyrgyzstan:
   opposite_sex:
     uk:
@@ -1538,7 +1503,7 @@ japan:
   opposite_sex:
     default:
       default:
-      - :administering_oath_or_making_declaration
+      - :affidavit_or_affirmation_for_marriage
   same_sex:
     default:
       default:
@@ -1589,7 +1554,7 @@ oman:
   opposite_sex:
     default:
       default:
-      - :administering_oath_or_making_declaration
+      - :affidavit_or_affirmation_for_marriage
 saudi-arabia:
   opposite_sex:
     ceremony_country:
@@ -1615,12 +1580,9 @@ poland:
       - :administering_oath_or_making_declaration
 slovenia:
   opposite_sex:
-    uk:
+    default:
       default:
-      - :affidavit_for_marriage
-    ceremony_country:
-      default:
-      - :affidavit_for_marriage
+      - :affidavit_or_affirmation_for_marriage
   same_sex:
     default:
       default:
@@ -1653,3 +1615,7 @@ colombia:
       - :posting_marriage_notice
       - :performing_marriage_ceremony
       - :issuing_marriage_certificate
+  opposite_sex:
+    default:
+      default:
+      - :affidavit_or_affirmation_for_marriage
