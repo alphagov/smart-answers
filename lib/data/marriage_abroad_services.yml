@@ -1480,3 +1480,10 @@ cyprus:
       - :receiving_notice_of_registration
       - :registering_civil_partnership
       - :issuing_civil_partnership_certificate
+malta:
+  same_sex:
+    default:
+      default:
+      - :receiving_notice_of_registration
+      - :registering_marriage_or_civil_partnership
+      - :issuing_marriage_or_civil_partnership_certificate

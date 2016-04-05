@@ -35,14 +35,7 @@
   <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 
   <%= render partial: 'consular_fees_table.govspeak.erb',
-             locals: {
-               calculator: calculator,
-               services: [
-                 :receiving_notice_of_registration,
-                 :registering_marriage_or_civil_partnership,
-                 :issuing_marriage_or_civil_partnership_certificate,
-               ]
-             } %>
+             locals: { calculator: calculator } %>
 
   <%= render partial: 'link_to_consular_fees.govspeak.erb',
              locals: { calculator: calculator } %>
