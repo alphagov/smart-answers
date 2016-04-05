@@ -5,14 +5,8 @@
   Receiving a notice of marriage | <%= format_money calculator.consular_fee(:receiving_notice_of_marriage) %>
 <% when :issuing_custom_and_law_certificate %>
   Issuing a certificate of custom and law | <%= format_money calculator.consular_fee(:issuing_custom_and_law_certificate) %>
-<% when :issuing_cni_or_equivalent %>
-  Issuing a CNI or equivalent | <%= format_money calculator.consular_fee(:issuing_cni_or_equivalent) %>
 <% when :issuing_cni_or_nulla_osta %>
   Issuing a CNI, Nulla Osta or equivalent | <%= format_money calculator.consular_fee(:issuing_cni_or_nulla_osta) %>
-<% when :issuing_letter_or_certificate_english %>
-  Issuing any other consular letter or certificate in English | <%= format_money calculator.consular_fee(:issuing_letter_or_certificate_english) %>
-<% when :issuing_letter_or_certificate_other_language %>
-  Issuing any other consular letter or certificate in any other language | <%= format_money calculator.consular_fee(:issuing_letter_or_certificate_other_language) %>
 <% when :issuing_marriage_certificate %>
   Issuing a marriage certificate | <%= format_money calculator.consular_fee(:issuing_marriage_certificate) %>
 <% when :issuing_civil_partnership_certificate %>
@@ -23,30 +17,8 @@
   Registering a marriage | <%= format_money calculator.consular_fee(:registering_marriage) %>
 <% when :registering_marriage_or_civil_partnership %>
   Registering a marriage or civil partnership | <%= format_money calculator.consular_fee(:registering_marriage_or_civil_partnership) %>
-<% when :posting_marriage_notice %>
-  Posting a marriage notice | <%= format_money calculator.consular_fee(:posting_marriage_notice) %>
-<% when :performing_marriage_ceremony %>
-  Performing a marriage ceremony | <%= format_money calculator.consular_fee(:performing_marriage_ceremony) %>
 <% when :issuing_marriage_or_civil_partnership_certificate %>
   Issuing a marriage or civil partnership certificate | <%= format_money calculator.consular_fee(:issuing_marriage_or_civil_partnership_certificate) %>
-<% when :administering_oath_or_making_declaration %>
-  Administering an oath or making a declaration | <%= format_money calculator.consular_fee(:administering_oath_or_making_declaration) %>
-<% when :affidavit_for_marriage %>
-  Affidavit for marriage | <%= format_money calculator.consular_fee(:affidavit_for_marriage) %>
-<% when :affirmation_for_marriage %>
-  Affirmation for marriage | <%= format_money calculator.consular_fee(:affirmation_for_marriage) %>
-<% when :affirmation_for_freedom_to_marry_in_english %>
-  Affirmation for freedom to marry in English | <%= format_money calculator.consular_fee(:affirmation_for_freedom_to_marry_in_english) %>
-<% when :affirmation_for_freedom_to_marry_in_english_and_chinese %>
-  Affirmation or affidavit for freedom to marry in English & Chinese | <%= format_money calculator.consular_fee(:affirmation_for_freedom_to_marry_in_english_and_chinese) %>
-<% when :affirmation_for_freedom_to_marry_in_other_language %>
-  Affirmation for freedom to marry in any other language | <%= format_money calculator.consular_fee(:affirmation_for_freedom_to_marry_in_other_language) %>
 <% when :affidavit_or_affirmation_for_marriage %>
   Affidavit or affirmation for marriage | <%= format_money calculator.consular_fee(:affidavit_or_affirmation_for_marriage) %>
-<% when :affirmation_or_affidavit_for_freedom_to_marry %>
-  Affirmation or affidavit for freedom to marry | <%= format_money calculator.consular_fee(:affirmation_or_affidavit_for_freedom_to_marry) %>
-<% when :marriage_declaration %>
-  Marriage declaration | <%= format_money calculator.consular_fee(:marriage_declaration) %>
-<% when :making_an_oath %>
-  Making an oath | <%= format_money calculator.consular_fee(:making_an_oath) %>
 <% end %>
