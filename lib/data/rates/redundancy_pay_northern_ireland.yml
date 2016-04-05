@@ -12,6 +12,10 @@
   max: "14,100"
   rate: 470
 - start_date: 2015-04-06
-  end_date: 2016-04-05
+  end_date: 2016-02-13
   max: "14,700"
   rate: 490
+- start_date: 2016-02-14
+  end_date: 2017-04-05
+  max: "15,000"
+  rate: 500

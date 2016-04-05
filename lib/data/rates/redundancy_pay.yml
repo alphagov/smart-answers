@@ -15,3 +15,7 @@
   end_date: 2016-04-05
   max: "14,250"
   rate: 475
+- start_date: 2016-04-06
+  end_date: 2017-04-05
+  max: "14,370"
+  rate: 479
