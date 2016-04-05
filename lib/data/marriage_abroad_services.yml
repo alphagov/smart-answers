@@ -1086,8 +1086,8 @@ saudi-arabia:
   opposite_sex:
     ceremony_country:
       default:
-      - :posting_marriage_notice
-      - :performing_marriage_ceremony
+      - :receiving_notice_of_registration
+      - :registering_marriage
       - :issuing_marriage_certificate
 poland:
   opposite_sex:
