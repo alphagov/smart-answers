@@ -257,11 +257,6 @@ bosnia-and-herzegovina:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
-brazil:
-  same_sex:
-    uk:
-      default:
-      - :issuing_cni_or_equivalent
 bulgaria:
   opposite_sex:
     ceremony_country:
@@ -511,12 +506,6 @@ panama:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
-  same_sex:
-    default:
-      default:
-      - :receiving_notice_of_registration
-      - :registering_civil_partnership
-      - :issuing_civil_partnership_certificate
 romania:
   opposite_sex:
     ceremony_country:
