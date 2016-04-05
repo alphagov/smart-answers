@@ -1353,3 +1353,8 @@ laos:
     default:
       partner_local:
       - :affidavit_or_affirmation_for_marriage
+oman:
+  opposite_sex:
+    default:
+      default:
+      - :administering_oath_or_making_declaration
