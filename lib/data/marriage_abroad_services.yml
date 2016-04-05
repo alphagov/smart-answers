@@ -627,20 +627,11 @@ iraq:
       - :administering_oath_or_making_declaration
 jordan:
   opposite_sex:
-    uk:
-      default:
-      - :receiving_notice_of_marriage
-      - :issuing_cni_or_nulla_osta
-      - :issuing_letter_or_certificate_english
-      - :issuing_letter_or_certificate_other_language
-      - :administering_oath_or_making_declaration
     ceremony_country:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
-      - :issuing_letter_or_certificate_english
-      - :issuing_letter_or_certificate_other_language
-      - :administering_oath_or_making_declaration
+      - :affidavit_or_affirmation_for_marriage
 kazakhstan:
   opposite_sex:
     ceremony_country:
