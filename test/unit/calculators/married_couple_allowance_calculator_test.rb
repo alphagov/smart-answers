@@ -26,7 +26,6 @@ module SmartAnswer::Calculators
         personal_allowance: @personal_allowance)
     end
 
-
     test "worked example on directgov for 2011-12" do
       hmrc_example_calculator = calculator(
           maximum_mca: 7295,
@@ -101,5 +100,39 @@ module SmartAnswer::Calculators
       result = default_calculator.calculate_adjusted_net_income(income, gross_pension_contributions, net_pension_contributions, gift_aided_donations)
       assert_equal SmartAnswer::Money.new("28250"), result
     end
+
+    test 'rate values for year 2013' do
+      Timecop.freeze(Date.parse('2013-06-01')) do
+        calculator = MarriedCouplesAllowanceCalculator.new
+
+        assert_equal 9440, calculator.personal_allowance
+        assert_equal 26100.0, calculator.income_limit_for_personal_allowances
+        assert_equal 7915, calculator.maximum_mca
+        assert_equal 3040, calculator.minimum_mca
+      end
+    end
+
+    test 'rate values for year 2014' do
+      Timecop.freeze(Date.parse('2014-06-01')) do
+        calculator = MarriedCouplesAllowanceCalculator.new
+
+        assert_equal 10000, calculator.personal_allowance
+        assert_equal 27000.0, calculator.income_limit_for_personal_allowances
+        assert_equal 8165, calculator.maximum_mca
+        assert_equal 3140, calculator.minimum_mca
+      end
+    end
+
+    test 'rate values for year 2015' do
+      Timecop.freeze(Date.parse('2015-06-01')) do
+        calculator = MarriedCouplesAllowanceCalculator.new
+
+        assert_equal 10600, calculator.personal_allowance
+        assert_equal 27700.0, calculator.income_limit_for_personal_allowances
+        assert_equal 8355, calculator.maximum_mca
+        assert_equal 3220, calculator.minimum_mca
+      end
+    end
+
   end
 end
