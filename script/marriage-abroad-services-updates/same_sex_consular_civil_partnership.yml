@@ -1,0 +1,20 @@
+---
+:countries:
+- albania
+- bulgaria
+- croatia
+- cyprus
+- guatemala
+- moldova
+- venezuela
+:residency_overrides: {}
+:partner_nationality_overrides: {}
+:sex_of_partner: same_sex
+:default_residencies:
+- default
+:default_partner_nationalities:
+- default
+:services:
+- :receiving_notice_of_registration
+- :registering_civil_partnership
+- :issuing_civil_partnership_certificate

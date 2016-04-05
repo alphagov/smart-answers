@@ -197,8 +197,8 @@ albania:
     default:
       default:
       - :receiving_notice_of_registration
-      - :registering_marriage_or_civil_partnership
-      - :issuing_marriage_or_civil_partnership_certificate
+      - :registering_civil_partnership
+      - :issuing_civil_partnership_certificate
 algeria:
   opposite_sex:
     ceremony_country:
