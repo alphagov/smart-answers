@@ -12,22 +12,73 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
     setup_for_testing_flow SmartAnswer::StatePensionThroughPartnerFlow
   end
 
-  context "old1 - married" do
+  context "married (old1)" do
     setup { add_response "married" }
     should "ask when will reach pension age" do
       assert_current_node :when_will_you_reach_pension_age?
     end
 
-    context "old2 - before specific date" do
+    context "you reached pension age before specific date (old2)" do
       setup { add_response "your_pension_age_before_specific_date" }
       should "ask when partner will reach pension age" do
         assert_current_node :when_will_your_partner_reach_pension_age?
       end
-
-      context "old3 - before specific date" do
+      #married, before, before
+      context "your spouse reached pension age before specific date (old3)" do
         setup { add_response "partner_pension_age_before_specific_date" }
-        should "go to current_rules_no_additional_pension_outcome" do
+        should "show current_rules_no_additional_pension_outcome" do
           assert_current_node :current_rules_no_additional_pension_outcome
+        end
+      end
+
+      #married, before, after
+      context "your spouse reached pension age after specific date (old3)" do
+        setup { add_response "partner_pension_age_after_specific_date" }
+        should "show current_rules_national_insurance_no_state_pension_outcome" do
+          assert_current_node :current_rules_national_insurance_no_state_pension_outcome
+        end
+      end
+    end
+
+    context "you reached pension age after specific date (old2)" do
+      setup { add_response "your_pension_age_after_specific_date" }
+      should "ask when partner will reach pension age" do
+        assert_current_node :when_will_your_partner_reach_pension_age?
+      end
+      #married, after, after
+      context "your spouse reached pension age after specific date (old3)" do
+        setup { add_response "partner_pension_age_after_specific_date" }
+
+        context "male" do
+          setup { add_response "male_gender" }
+          should "show impossibility_to_increase_pension_outcome" do
+            assert_current_node :impossibility_to_increase_pension_outcome
+          end
+        end
+
+        context "female" do
+          setup { add_response "female_gender" }
+          should "show married_woman_no_state_pension_outcome" do
+            assert_current_node :married_woman_no_state_pension_outcome
+          end
+        end
+      end
+      #married, before, before
+      context "your spouse reached pension age before specific date (old3)" do
+        setup { add_response "partner_pension_age_before_specific_date" }
+
+        context "male" do
+          setup { add_response "male_gender" }
+          should "show impossibility_to_increase_pension_outcome" do
+            assert_current_node :impossibility_to_increase_pension_outcome
+          end
+        end
+
+        context "female" do
+          setup { add_response "female_gender" }
+          should "show married_woman_no_state_pension_outcome" do
+            assert_current_node :married_woman_no_state_pension_outcome
+          end
         end
       end
     end
@@ -39,17 +90,31 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
       assert_current_node :when_will_you_reach_pension_age?
     end
 
-    context "new2 - after specific date" do
+    context "you will reach pension age before specific date (old2 old3)" do
+      setup { add_response "your_pension_age_before_specific_date" }
+      should "show widow_and_old_pension_outcome" do
+        assert_current_node :widow_and_old_pension_outcome
+      end
+    end
+
+    context "you will reach pension age after specific date (new2 old3)" do
       setup { add_response "your_pension_age_after_specific_date" }
 
-      should "go to question gender" do
+      should "show question gender" do
         assert_current_node :what_is_your_gender?
+      end
+
+      context "female" do
+        setup { add_response "female_gender" }
+        should "show married_woman_and_state_pension_outcome" do
+          assert_current_node :married_woman_and_state_pension_outcome
+        end
       end
 
       context "male" do
         setup { add_response "male_gender" }
-        should "go to impossibility_to_increase_pension_outcome" do
-          assert_current_node :impossibility_to_increase_pension_outcome
+        should "show widow_male_reaching_pension_age" do
+          assert_current_node :widow_male_reaching_pension_age
         end
       end
     end
@@ -58,152 +123,23 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
   context "divorced" do
     setup do
       add_response "divorced"
-      add_response "male_gender"
     end
-    should "ask male or female, answer male then go to result" do
-      assert_current_node :impossibility_due_to_divorce_outcome
+    context "woman" do
+      setup do
+        add_response "female_gender"
+      end
+      should "show age_dependent_pension_outcome" do
+        assert_current_node :age_dependent_pension_outcome
+      end
     end
-  end
 
-  #START OF QUICK TESTS
-  #current_rules_no_additional_pension
-  context "old1 old2 old3 == current_rules_no_additional_pension" do
-    setup do
-      add_response "married"
-      add_response "your_pension_age_before_specific_date"
-      add_response "partner_pension_age_before_specific_date"
-    end
-    should "take you to current_rules_no_additional_pension_outcome" do
-      assert_current_node :current_rules_no_additional_pension_outcome
-    end
-  end
-  context "new1 new2 old3, female == married_woman_no_state_pension" do
-    setup do
-      add_response "will_marry_on_or_after_specific_date"
-      add_response "your_pension_age_after_specific_date"
-      add_response "partner_pension_age_before_specific_date"
-      add_response "female_gender"
-    end
-    should "take you to married_woman_no_state_pension_outcome" do
-      assert_current_node :married_woman_no_state_pension_outcome
-    end
-  end
-  context "new1 old2 old3 == current_rules_no_additional_pension" do
-    setup do
-      add_response "will_marry_on_or_after_specific_date"
-      add_response "your_pension_age_before_specific_date"
-      add_response "partner_pension_age_before_specific_date"
-    end
-    should "take you to current_rules_no_additional_pension_outcome" do
-      assert_current_node :current_rules_no_additional_pension_outcome
-    end
-  end
-  #end current_rules_no_additional_pension
-  #current_rules_and_additional_pension
-  context "widow old2 old3== current_rules_and_additional_pension" do
-    setup do
-      add_response "widowed"
-      add_response "your_pension_age_before_specific_date"
-    end
-    should "take you to widow_and_old_pension_outcome" do
-      assert_current_node :widow_and_old_pension_outcome
-    end
-  end #end current_rules_and_additional_pension
-  #current_rules_national_insurance_no_state_pension
-  context "old1 old2 new3 == current_rules_national_insurance_no_state_pension" do
-    setup do
-      add_response "married"
-      add_response "your_pension_age_before_specific_date"
-      add_response "partner_pension_age_after_specific_date"
-    end
-    should "take you to current_rules_national_insurance_no_state_pension_outcome" do
-      assert_current_node :current_rules_national_insurance_no_state_pension_outcome
-    end
-  end #end current_rules_national_insurance_no_state_pension
-  #married_woman_no_state_pension
-  context "old1 new2 new3 == married_woman_no_state_pension" do
-    setup do
-      add_response "married"
-      add_response "your_pension_age_after_specific_date"
-      add_response "partner_pension_age_after_specific_date"
-      add_response "female_gender"
-    end
-    should "take you to married_woman_no_state_pension_outcome" do
-      assert_current_node :married_woman_no_state_pension_outcome
-    end
-  end
-  context "new1 new2 new3 == married_woman_no_state_pension" do
-    setup do
-      add_response "will_marry_on_or_after_specific_date"
-      add_response "your_pension_age_after_specific_date"
-      add_response "partner_pension_age_after_specific_date"
-      add_response "female_gender"
-    end
-    should "take you to married_woman_no_state_pension_outcome" do
-      assert_current_node :married_woman_no_state_pension_outcome
-    end
-  end
-  context "old1 new2 old3 == married_woman_no_state_pension" do
-    setup do
-      add_response "married"
-      add_response "your_pension_age_after_specific_date"
-      add_response "partner_pension_age_before_specific_date"
-      add_response "female_gender"
-    end
-    should "take you to married_woman_no_state_pension_outcome" do
-      assert_current_node :married_woman_no_state_pension_outcome
-    end
-  end#end married_woman_no_state_pension
-  #married_woman_and_state_pension
-  context "widow new2 old3 female_gender == married_woman_and_state_pension" do
-    setup do
-      add_response "widowed"
-      add_response "your_pension_age_after_specific_date"
-      add_response "female_gender"
-    end
-    should "take you to married_woman_and_state_pension_outcome" do
-      assert_current_node :married_woman_and_state_pension_outcome
-    end
-  end
-  context "widow new2 new3 female_gender == married_woman_and_state_pension" do
-    setup do
-      add_response "widowed"
-      add_response "your_pension_age_after_specific_date"
-      add_response "female_gender"
-    end
-    should "take you to female_gender_outcome" do
-      assert_current_node :married_woman_and_state_pension_outcome
-    end
-  end #end married_woman_and_state_pension
-  #impossibility_to_increase_pension
-  context "widow new2 new3 male_gender == impossibility_to_increase_pension" do
-    setup do
-      add_response "widowed"
-      add_response "your_pension_age_after_specific_date"
-      add_response "male_gender"
-    end
-    should "take you to impossibility_to_increase_pension_outcome" do
-      assert_current_node :impossibility_to_increase_pension_outcome
-    end
-  end  #end impossibility_to_increase_pension
-  context "divorced woman" do
-    setup do
-      add_response "divorced"
-      add_response "female_gender"
-    end
-    should "take you to age_dependent_pension_outcome" do
-      assert_current_node :age_dependent_pension_outcome
-    end
-  end # end testing for outcome 10
-  context "new1 new2 old3 female go to current_rules_and_additional_pension" do
-    setup do
-      add_response "will_marry_on_or_after_specific_date"
-      add_response "your_pension_age_after_specific_date"
-      add_response "partner_pension_age_before_specific_date"
-      add_response "female_gender"
-    end
-    should "take user to outcome married_woman_no_state_pension" do
-      assert_current_node :married_woman_no_state_pension_outcome
+    context "man" do
+      setup do
+        add_response "male_gender"
+      end
+      should "ask male or female, answer male then show result" do
+        assert_current_node :impossibility_due_to_divorce_outcome
+      end
     end
   end
 end
