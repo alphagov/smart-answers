@@ -1348,3 +1348,8 @@ kuwait:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+laos:
+  opposite_sex:
+    default:
+      partner_local:
+      - :affidavit_or_affirmation_for_marriage
