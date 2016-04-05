@@ -1,12 +1,10 @@
 Minimum wage calculator for workers
 
-Check if:
+Check if your pay matches the National Minimum Wage or if your employer owes you payments from past years.
 
-- you’re getting paid the National Minimum Wage
-- you’re getting paid the National Living Wage
-- your employer owes you past payments from past years
+You can also check if you'll get the national living wage from 1 April 2016.
 
-^You must be at least 25 years old to get the National Living Wage.^
+^You must be at least 25 years old to get the national living wage.^
 
 
 
