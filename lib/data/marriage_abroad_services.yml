@@ -87,7 +87,7 @@ peru:
       default:
       - :receiving_notice_of_registration
       - :registering_marriage_or_civil_partnership
-      - :issuing_marriage_or_civil_partnership_certificate
+      - :issuing_civil_partnership_or_marriage_certificate
 philippines:
   opposite_sex:
     default:
@@ -98,7 +98,7 @@ philippines:
       default:
       - :receiving_notice_of_registration
       - :registering_marriage_or_civil_partnership
-      - :issuing_marriage_or_civil_partnership_certificate
+      - :issuing_civil_partnership_or_marriage_certificate
 qatar:
   opposite_sex:
     default:
@@ -134,11 +134,11 @@ vietnam:
       partner_other:
       - :receiving_notice_of_registration
       - :registering_marriage_or_civil_partnership
-      - :issuing_marriage_or_civil_partnership_certificate
+      - :issuing_civil_partnership_or_marriage_certificate
       partner_british:
       - :receiving_notice_of_registration
       - :registering_marriage_or_civil_partnership
-      - :issuing_marriage_or_civil_partnership_certificate
+      - :issuing_civil_partnership_or_marriage_certificate
 dominican-republic:
   same_sex:
     default:
@@ -630,7 +630,7 @@ japan:
       default:
       - :receiving_notice_of_registration
       - :registering_marriage_or_civil_partnership
-      - :issuing_marriage_or_civil_partnership_certificate
+      - :issuing_civil_partnership_or_marriage_certificate
 kosovo:
   opposite_sex:
     ceremony_country:
@@ -698,7 +698,7 @@ malta:
       default:
       - :receiving_notice_of_registration
       - :registering_marriage_or_civil_partnership
-      - :issuing_marriage_or_civil_partnership_certificate
+      - :issuing_civil_partnership_or_marriage_certificate
 australia:
   same_sex:
     default:
