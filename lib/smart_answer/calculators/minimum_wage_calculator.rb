@@ -167,7 +167,7 @@ module SmartAnswer::Calculators
     end
 
     def national_living_wage_rate
-      7.2
+      minimum_hourly_rate
     end
 
     def apprentice_eligible_for_minimum_wage?

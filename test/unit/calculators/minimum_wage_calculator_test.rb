@@ -143,6 +143,17 @@ module SmartAnswer::Calculators
       end
     end
 
+    context '#national_living_wage' do
+      setup do
+        @calculator = MinimumWageCalculator.new
+      end
+
+      should 'return the national living wage' do
+        @calculator.stubs(:minimum_hourly_rate).returns(99)
+        assert_equal 99, @calculator.national_living_wage_rate
+      end
+    end
+
     context '#eligible_for_living_wage?' do
       setup do
         @calculator = MinimumWageCalculator.new
@@ -1043,6 +1054,5 @@ module SmartAnswer::Calculators
         assert_equal 14.29, calculator.total_hourly_rate
       end
     end
-
   end
 end
