@@ -401,6 +401,12 @@ bulgaria:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      default:
+      - :receiving_notice_of_registration
+      - :registering_civil_partnership
+      - :issuing_civil_partnership_certificate
 burkina-faso:
   opposite_sex:
     uk:
@@ -497,6 +503,12 @@ croatia:
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
       - :issuing_custom_and_law_certificate
+  same_sex:
+    default:
+      default:
+      - :receiving_notice_of_registration
+      - :registering_civil_partnership
+      - :issuing_civil_partnership_certificate
 cuba:
   opposite_sex:
     uk:
@@ -686,6 +698,12 @@ guatemala:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      default:
+      - :receiving_notice_of_registration
+      - :registering_civil_partnership
+      - :issuing_civil_partnership_certificate
 guinea:
   opposite_sex:
     uk:
@@ -975,6 +993,12 @@ moldova:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      default:
+      - :receiving_notice_of_registration
+      - :registering_civil_partnership
+      - :issuing_civil_partnership_certificate
 montenegro:
   opposite_sex:
     uk:
@@ -1057,6 +1081,12 @@ panama:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      default:
+      - :receiving_notice_of_registration
+      - :registering_civil_partnership
+      - :issuing_civil_partnership_certificate
 paraguay:
   opposite_sex:
     uk:
@@ -1298,6 +1328,12 @@ venezuela:
       - :issuing_letter_or_certificate_english
       - :issuing_letter_or_certificate_other_language
       - :administering_oath_or_making_declaration
+  same_sex:
+    default:
+      default:
+      - :receiving_notice_of_registration
+      - :registering_civil_partnership
+      - :issuing_civil_partnership_certificate
 western-sahara:
   opposite_sex:
     uk:
@@ -1397,3 +1433,10 @@ slovenia:
     ceremony_country:
       default:
       - :affidavit_for_marriage
+cyprus:
+  same_sex:
+    default:
+      default:
+      - :receiving_notice_of_registration
+      - :registering_civil_partnership
+      - :issuing_civil_partnership_certificate

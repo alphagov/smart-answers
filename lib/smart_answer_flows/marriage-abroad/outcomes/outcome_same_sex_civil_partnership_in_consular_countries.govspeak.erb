@@ -53,14 +53,7 @@
   <% end %>
 
   <%= render partial: 'consular_fees_table.govspeak.erb',
-             locals: {
-               calculator: calculator,
-               services: [
-                 :receiving_notice_of_registration,
-                 :registering_civil_partnership,
-                 :issuing_civil_partnership_certificate,
-               ]
-             } %>
+             locals: { calculator: calculator } %>
 
   You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for <%= calculator.ceremony_country_name %>](/government/publications/<%= calculator.ceremony_country %>-consular-fees).
 
