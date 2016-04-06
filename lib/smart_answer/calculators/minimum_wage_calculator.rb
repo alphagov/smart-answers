@@ -73,11 +73,7 @@ module SmartAnswer::Calculators
       if @is_apprentice
         @minimum_wage_data[:apprentice_rate]
       else
-        if eligible_for_living_wage?
-          national_living_wage_rate
-        else
-          per_hour_minimum_wage
-        end
+        per_hour_minimum_wage
       end
     end
 
@@ -131,9 +127,6 @@ module SmartAnswer::Calculators
       minimum_hourly_rate <= total_hourly_rate
     end
 
-    def living_wage_or_above?
-      national_living_wage_rate <= total_hourly_rate.to_f
-    end
 
     def accommodation_adjustment(charge, number_of_nights)
       charge = charge.to_f
@@ -170,7 +163,7 @@ module SmartAnswer::Calculators
     end
 
     def national_living_wage_rate
-      7.2
+      minimum_hourly_rate
     end
 
     def apprentice_eligible_for_minimum_wage?
@@ -178,7 +171,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_living_wage?
-      valid_age_for_living_wage?(age)
+      valid_age_for_living_wage?(age) && date >= Date.parse('2016-04-01')
     end
 
     def under_school_leaving_age?

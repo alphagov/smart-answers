@@ -1,16 +1,16 @@
 
 
 $C
-You weren't getting the National Minimum Wage.
+You were getting the National Minimum Wage.
+
+Your employer doesn’t owe you any past payments.
 $C
 
-The National Minimum Wage per hour at the time | Your actual pay | For each pay period your employer owes you
+The National Minimum Wage per hour at the time | Your actual pay
 - | -
-£7.20 | £6.39 * | £17.53
+£6.08 | £6.39
 
-\* This figure has been rounded to the nearest penny.
-
-This calculation includes an additional amount you’re entitled to by law for past payments. If you worked overtime or your employer provided you with [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
+If you worked overtime or your employer provided you with [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
 
 This result is an estimate. If you have any questions, call the confidential helpline.
 
