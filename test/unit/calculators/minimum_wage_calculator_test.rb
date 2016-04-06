@@ -260,7 +260,7 @@ module SmartAnswer::Calculators
         end
         context "when eligible for living wage?" do
           should "return the national living wage rate" do
-            @calculator = MinimumWageCalculator.new(age: 25)
+            @calculator = MinimumWageCalculator.new(age: 25, date: Date.parse('2016-04-02'))
             assert_equal 7.2, @calculator.minimum_hourly_rate
           end
         end
