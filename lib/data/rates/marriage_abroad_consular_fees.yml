@@ -1,14 +1,14 @@
 ---
 - start_date: 2015-01-01
   end_date: 2016-04-05
-  receiving_notice_of_registration: 65
-  receiving_notice_of_marriage: 65
-  issuing_custom_and_law_certificate: 65
-  issuing_cni_or_nulla_osta: 65
-  issuing_marriage_certificate: 65
-  issuing_civil_partnership_certificate: 65
-  registering_civil_partnership: 140
-  registering_marriage: 140
-  registering_civil_partnership_or_marriage: 140
-  issuing_civil_partnership_or_marriage_certificate: 65
   affidavit_or_affirmation_for_marriage: 55
+  issuing_civil_partnership_certificate: 65
+  issuing_civil_partnership_or_marriage_certificate: 65
+  issuing_cni_or_nulla_osta: 65
+  issuing_custom_and_law_certificate: 65
+  issuing_marriage_certificate: 65
+  receiving_notice_of_marriage: 65
+  receiving_notice_of_registration: 65
+  registering_civil_partnership: 140
+  registering_civil_partnership_or_marriage: 140
+  registering_marriage: 140
