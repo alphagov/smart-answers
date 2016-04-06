@@ -1,0 +1,13 @@
+---
+:countries:
+- norway
+- belgium
+:residency_overrides: {}
+:partner_nationality_overrides: {}
+:sex_of_partner: same_sex
+:default_residencies:
+- default
+:default_partner_nationalities:
+- default
+:services:
+- :affidavit_or_affirmation_for_marriage

@@ -1,0 +1,21 @@
+---
+:countries:
+- japan
+- malta
+- peru
+- philippines
+- vietnam
+:residency_overrides: {}
+:partner_nationality_overrides:
+  vietnam:
+  - partner_british
+  - partner_other
+:sex_of_partner: same_sex
+:default_residencies:
+- default
+:default_partner_nationalities:
+- default
+:services:
+- :receiving_notice_of_registration
+- :registering_civil_partnership_or_marriage
+- :issuing_civil_partnership_or_marriage_certificate

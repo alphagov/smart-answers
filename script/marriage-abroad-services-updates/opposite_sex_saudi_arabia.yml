@@ -1,0 +1,14 @@
+---
+:countries:
+- saudi-arabia
+:residency_overrides: {}
+:partner_nationality_overrides: {}
+:sex_of_partner: opposite_sex
+:default_residencies:
+- ceremony_country
+:default_partner_nationalities:
+- default
+:services:
+- :receiving_notice_of_registration
+- :registering_marriage
+- :issuing_marriage_certificate

@@ -1,0 +1,42 @@
+---
+:countries:
+- belarus
+- belgium
+- cambodia
+- china
+- colombia
+- ecuador
+- egypt
+- finland
+- indonesia
+- japan
+- kazakhstan
+- laos
+- lebanon
+- macao
+- mongolia
+- morocco
+- norway
+- oman
+- peru
+- philippines
+- qatar
+- slovenia
+- south-korea
+- thailand
+- turkey
+- united-arab-emirates
+- vietnam
+:residency_overrides:
+  kazakhstan:
+  - ceremony_country
+:partner_nationality_overrides:
+  laos:
+  - partner_local
+:sex_of_partner: opposite_sex
+:default_residencies:
+- default
+:default_partner_nationalities:
+- default
+:services:
+- :affidavit_or_affirmation_for_marriage

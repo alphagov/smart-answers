@@ -1,0 +1,22 @@
+---
+:countries:
+- france
+- french-guiana
+- french-polynesia
+- guadeloupe
+- martinique
+- mayotte
+- monaco
+- new-caledonia
+- reunion
+- st-pierre-and-miquelon
+- wallis-and-futuna
+:residency_overrides: {}
+:partner_nationality_overrides: {}
+:sex_of_partner: opposite_sex
+:default_residencies:
+- default
+:default_partner_nationalities:
+- default
+:services:
+- :issuing_custom_and_law_certificate

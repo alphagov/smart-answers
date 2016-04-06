@@ -1,0 +1,66 @@
+---
+:countries:
+- australia
+- azerbaijan
+- bolivia
+- cambodia
+- chile
+- china
+- colombia
+- dominican-republic
+- estonia
+- germany
+- hungary
+- kosovo
+- latvia
+- lithuania
+- mongolia
+- montenegro
+- nicaragua
+- romania
+- russia
+- serbia
+:residency_overrides: {}
+:partner_nationality_overrides:
+  azerbaijan:
+  - partner_british
+  - partner_other
+  cambodia:
+  - partner_british
+  - partner_other
+  chile:
+  - partner_british
+  - partner_other
+  germany:
+  - partner_british
+  - partner_other
+  hungary:
+  - partner_british
+  kosovo:
+  - partner_british
+  - partner_other
+  latvia:
+  - partner_british
+  - partner_other
+  lithuania:
+  - partner_british
+  mongolia:
+  - partner_british
+  montenegro:
+  - partner_british
+  nicaragua:
+  - partner_british
+  romania:
+  - partner_british
+  - partner_other
+  russia:
+  - partner_british
+:sex_of_partner: same_sex
+:default_residencies:
+- default
+:default_partner_nationalities:
+- default
+:services:
+- :receiving_notice_of_registration
+- :registering_marriage
+- :issuing_marriage_certificate
