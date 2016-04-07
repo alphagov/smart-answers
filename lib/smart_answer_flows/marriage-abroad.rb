@@ -27,7 +27,7 @@ module SmartAnswer
         next_node do
           if calculator.ceremony_country == 'ireland'
             question :partner_opposite_or_same_sex?
-          elsif %w(france monaco new-caledonia wallis-and-futuna).include?(calculator.ceremony_country)
+          elsif calculator.ceremony_country_offers_pacs?
             question :marriage_or_pacs?
           elsif calculator.ceremony_country_is_french_overseas_territory?
             outcome :outcome_marriage_in_france_or_french_overseas_territory
