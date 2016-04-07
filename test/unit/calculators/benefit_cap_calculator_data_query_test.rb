@@ -4,8 +4,8 @@ module SmartAnswer::Calculators
   class BenefitCapCalculatorDataQueryTest < ActiveSupport::TestCase
     context BenefitCapCalculatorDataQuery do
       setup do
-        query = BenefitCapCalculatorDataQuery.new
-        @rates = query.data.fetch("rates")
+        @query = BenefitCapCalculatorDataQuery.new
+        @rates = @query.data.fetch("rates")
       end
 
       context "benefit_cap_data" do
