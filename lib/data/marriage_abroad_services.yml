@@ -515,16 +515,6 @@ romania:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
-  same_sex:
-    default:
-      partner_british:
-      - :receiving_notice_of_registration
-      - :registering_marriage
-      - :issuing_marriage_certificate
-      partner_other:
-      - :receiving_notice_of_registration
-      - :registering_marriage
-      - :issuing_marriage_certificate
 russia:
   opposite_sex:
     ceremony_country:
