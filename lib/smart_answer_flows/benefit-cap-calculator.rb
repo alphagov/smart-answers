@@ -6,6 +6,9 @@ module SmartAnswer
       status :published
       satisfies_need "100696"
 
+      benefit_cap_query = SmartAnswer::Calculators::BenefitCapCalculatorDataQuery.new
+      benefit_cap_data = benefit_cap_query.data
+
       # Q1
       multiple_choice :receive_housing_benefit? do
         option :yes
@@ -519,22 +522,11 @@ module SmartAnswer
         option :parent
 
         calculate :benefit_cap do |response|
-          if response == 'single'
-            benefit_cap = 350
-          else
-            benefit_cap = 500
-          end
-          sprintf("%.2f", benefit_cap)
+          sprintf("%.2f", benefit_cap_data.fetch(response))
         end
 
         next_node do |response|
-          if response == 'single'
-            cap = 350
-          else
-            cap = 500
-          end
-
-          if total_benefits > cap
+          if total_benefits > benefit_cap_data.fetch(response)
             outcome :outcome_affected_greater_than_cap
           else
             outcome :outcome_not_affected_less_than_cap
