@@ -136,7 +136,7 @@
     :max_age: 21
     :rate: 5.30
   - :min_age: 21
-    :max_age: 24
+    :max_age: 25
     :rate: 6.70
   - :min_age: 25
     :max_age: 1000
