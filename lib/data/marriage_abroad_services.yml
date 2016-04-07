@@ -814,9 +814,3 @@ wallis-and-futuna:
     default:
       default:
       - :issuing_custom_and_law_certificate
-ukraine:
-  opposite_sex:
-    ceremony_country:
-      default:
-      - :receiving_notice_of_marriage
-      - :issuing_cni_or_nulla_osta
