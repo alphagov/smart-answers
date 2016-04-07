@@ -139,6 +139,10 @@ module SmartAnswer::Calculators
       @data_query.french_overseas_territories?(ceremony_country)
     end
 
+    def french_overseas_territory_offering_pacs?
+      MarriageAbroadDataQuery::FRENCH_OVERSEAS_TERRITORIES_OFFERING_PACS.include?(ceremony_country)
+    end
+
     def opposite_sex_consular_cni_country?
       @data_query.os_consular_cni_countries?(ceremony_country)
     end
