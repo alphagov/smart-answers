@@ -6,8 +6,9 @@ module SmartAnswer
       status :published
       satisfies_need "100696"
 
-      benefit_cap_query = SmartAnswer::Calculators::BenefitCapCalculatorDataQuery.new
-      benefit_cap_rates = benefit_cap_query.data.fetch('rates')
+      query = Calculators::BenefitCapCalculatorDataQuery.new
+      rates = query.data.fetch('rates')
+      benefits = query.data.fetch('benefits')
 
       # Q1
       multiple_choice :receive_housing_benefit? do
@@ -55,21 +56,9 @@ module SmartAnswer
 
       #Q4
       checkbox_question :receiving_non_exemption_benefits? do
-        option :bereavement
-        option :carers
-        option :child_benefit
-        option :child_tax
-        option :esa
-        option :guardian
-        option :incapacity
-        option :income_support
-        option :jsa
-        option :maternity
-        option :sda
-        option :widowed_mother
-        option :widowed_parent
-        option :widow_pension
-        option :widows_aged
+        benefits.each do |benefit|
+          option benefit.to_sym
+        end
 
         next_node_calculation :benefit_types do |response|
           response.split(",").map(&:to_sym)
@@ -522,11 +511,11 @@ module SmartAnswer
         option :parent
 
         calculate :benefit_cap do |response|
-          sprintf("%.2f", benefit_cap_rates.fetch(response))
+          sprintf("%.2f", rates.fetch(response))
         end
 
         next_node do |response|
-          if total_benefits > benefit_cap_rates.fetch(response)
+          if total_benefits > rates.fetch(response)
             outcome :outcome_affected_greater_than_cap
           else
             outcome :outcome_not_affected_less_than_cap
