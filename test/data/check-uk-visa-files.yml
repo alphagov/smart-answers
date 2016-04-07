@@ -17,7 +17,7 @@ lib/smart_answer_flows/check-uk-visa/outcomes/outcome_school_n.govspeak.erb: e9a
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_school_waiver.govspeak.erb: 74ffd01d62f3520f37bdc4562ebae9bc
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_school_y.govspeak.erb: ec5eb9ea68ef40ce2d3cacbcf1c9c9b7
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_standard_visit.govspeak.erb: 90ac4f580847563fabaae035896314e6
-lib/smart_answer_flows/check-uk-visa/outcomes/outcome_study_m.govspeak.erb: 871ae69ecc843716fe9cf56c96bd373f
+lib/smart_answer_flows/check-uk-visa/outcomes/outcome_study_m.govspeak.erb: 1d5c3eff89f1c533446c9421f053bbfc
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_study_waiver.govspeak.erb: dd0351a3dcde033fd5e66a791fa13a7b
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_study_y.govspeak.erb: 743176c3e1aad7e8a8c0b1e07d5d7187
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_taiwan_exception.govspeak.erb: efbcf67df0d639cb48d102b0b036b8c1
