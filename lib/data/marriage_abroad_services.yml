@@ -681,7 +681,10 @@ poland:
       - :issuing_cni_or_nulla_osta
 slovenia:
   opposite_sex:
-    default:
+    ceremony_country:
+      default:
+      - :affidavit_or_affirmation_for_marriage
+    uk:
       default:
       - :affidavit_or_affirmation_for_marriage
   same_sex:
