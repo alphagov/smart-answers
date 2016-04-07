@@ -1,4 +1,21 @@
 ---
-single: 350
-couple: 500
-parent: 500
+rates:
+  single: 350
+  couple: 500
+  parent: 500
+benefits:
+  - bereavement
+  - carers
+  - child_benefit
+  - child_tax
+  - esa
+  - guardian
+  - incapacity
+  - income_support
+  - jsa
+  - maternity
+  - sda
+  - widowed_mother
+  - widowed_parent
+  - widow_pension
+  - widows_aged
