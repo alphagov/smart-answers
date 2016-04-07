@@ -938,6 +938,22 @@ module SmartAnswer
           refute @calculator.ceremony_country_offers_pacs?
         end
       end
+
+      context '#french_overseas_territory_offering_pacs?' do
+        setup do
+          @calculator = MarriageAbroadCalculator.new
+        end
+
+        should 'return true if a PACS is available in the ceremony country and the country is a French overseas territory' do
+          @calculator.ceremony_country = 'new-caledonia'
+          assert @calculator.french_overseas_territory_offering_pacs?
+        end
+
+        should "return false if PACS is available in the ceremony country but it's not a French overseas territory" do
+          @calculator.ceremony_country = 'france'
+          refute @calculator.french_overseas_territory_offering_pacs?
+        end
+      end
     end
   end
 end
