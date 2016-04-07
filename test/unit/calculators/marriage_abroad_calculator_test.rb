@@ -922,6 +922,22 @@ module SmartAnswer
           assert_equal [:residency_and_nationality_specific_service], @calculator.services
         end
       end
+
+      context '#ceremony_country_offers_pacs?' do
+        setup do
+          @calculator = MarriageAbroadCalculator.new
+        end
+
+        should 'return true if a PACS is available in the ceremony country' do
+          @calculator.ceremony_country = 'france'
+          assert @calculator.ceremony_country_offers_pacs?
+        end
+
+        should 'return false if a PACS is not available in the ceremony country' do
+          @calculator.ceremony_country = 'country-without-pacs'
+          refute @calculator.ceremony_country_offers_pacs?
+        end
+      end
     end
   end
 end

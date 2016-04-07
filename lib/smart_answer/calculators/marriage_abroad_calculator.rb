@@ -219,6 +219,10 @@ module SmartAnswer::Calculators
       @data_query.dutch_caribbean_islands?(ceremony_country)
     end
 
+    def ceremony_country_offers_pacs?
+      MarriageAbroadDataQuery::CEREMONY_COUNTRIES_OFFERING_PACS.include?(ceremony_country)
+    end
+
     def requires_7_day_notice?
       @data_query.requires_7_day_notice?(ceremony_country)
     end
