@@ -56,7 +56,7 @@ module SmartAnswer
 
       #Q4
       checkbox_question :receiving_non_exemption_benefits? do
-        benefits.each do |benefit|
+        benefits.keys.each do |benefit|
           option benefit.to_sym
         end
 

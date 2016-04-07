@@ -4,18 +4,18 @@ rates:
   couple: 500
   parent: 500
 benefits:
-  - bereavement
-  - carers
-  - child_benefit
-  - child_tax
-  - esa
-  - guardian
-  - incapacity
-  - income_support
-  - jsa
-  - maternity
-  - sda
-  - widowed_mother
-  - widowed_parent
-  - widow_pension
-  - widows_aged
+  bereavement: :bereavement_amount?
+  carers: :carers_amount?
+  child_benefit: :child_benefit_amount?
+  child_tax: :child_tax_amount?
+  esa: :esa_amount?
+  guardian: :guardian_amount?
+  incapacity: :incapacity_amount?
+  income_support: :income_support_amount?
+  jsa: :jsa_amount?
+  maternity: :maternity_amount?
+  sda: :sda_amount?
+  widowed_mother: :widowed_mother_amount?
+  widowed_parent: :widowed_parent_amount?
+  widow_pension: :widow_pension_amount?
+  widows_aged: :widows_aged_amount?
