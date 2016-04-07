@@ -67,7 +67,11 @@ module SmartAnswer
 
         next_node do
           if calculator.ceremony_country == 'monaco'
-            outcome :outcome_ceremonies_in_monaco
+            if calculator.want_to_get_married?
+              outcome :outcome_marriage_in_monaco
+            else
+              outcome :outcome_civil_partnership_in_monaco
+            end
           elsif calculator.want_to_get_married?
             outcome :outcome_marriage_in_france_or_french_overseas_territory
           else
@@ -223,15 +227,16 @@ module SmartAnswer
 
       outcome :outcome_ceremonies_in_dominican_republic
       outcome :outcome_ceremonies_in_ireland
-      outcome :outcome_ceremonies_in_monaco
       outcome :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
       outcome :outcome_ceremonies_in_portugal
       outcome :outcome_ceremonies_in_spain
       outcome :outcome_ceremonies_in_sweden_when_residing_in_sweden
       outcome :outcome_ceremonies_in_switzerland
       outcome :outcome_civil_partnership_in_france_or_french_overseas_territory
+      outcome :outcome_civil_partnership_in_monaco
       outcome :outcome_marriage_in_brazil_when_residing_in_brazil_or_third_country
       outcome :outcome_marriage_in_france_or_french_overseas_territory
+      outcome :outcome_marriage_in_monaco
       outcome :outcome_opposite_sex_in_no_cni_countries_when_residing_in_ceremony_or_third_country
       outcome :outcome_opposite_sex_marriage_in_affirmation_countries
       outcome :outcome_opposite_sex_marriage_in_belarus
