@@ -35,4 +35,4 @@ lib/smart_answer_flows/minimum-wage-calculator-employers/questions/what_would_yo
 lib/smart_answer_flows/shared/minimum_wage/_acas_information.govspeak.erb: 582cdf982fa5619072ddd883bf4c1555
 lib/smart_answer_flows/shared_logic/minimum_wage.rb: d27e8aa03ebf55901c24d39118ebef62
 lib/smart_answer/calculators/minimum_wage_calculator.rb: 2c935b38a0cd5e3618c03270f08b8033
-lib/data/minimum_wage_data.yml: c257c01115baeb5ee5427339a416232b
+lib/data/minimum_wage_data.yml: 3eab0fe85f2d8687f486964580df51ff
