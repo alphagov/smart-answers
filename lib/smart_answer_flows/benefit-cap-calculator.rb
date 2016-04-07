@@ -8,7 +8,7 @@ module SmartAnswer
 
       query = Calculators::BenefitCapCalculatorDataQuery.new
       rates = query.data.fetch('rates')
-      benefits = query.data.fetch('benefits')
+      benefits = query.data.fetch('benefits').with_indifferent_access
 
       # Q1
       multiple_choice :receive_housing_benefit? do
@@ -76,29 +76,7 @@ module SmartAnswer
           if response == "none"
             outcome :outcome_not_affected
           else
-            case benefit_types.shift
-            when :bereavement then question :bereavement_amount?
-            when :carers then question :carers_amount?
-            when :child_benefit then question :child_benefit_amount?
-            when :child_tax then question :child_tax_amount?
-            when :esa then question :esa_amount?
-            when :guardian then question :guardian_amount?
-            when :incapacity then question :incapacity_amount?
-            when :income_support then question :income_support_amount?
-            when :jsa then question :jsa_amount?
-            when :maternity then question :maternity_amount?
-            when :sda then question :sda_amount?
-            when :widowed_mother then question :widowed_mother_amount?
-            when :widowed_parent then question :widowed_parent_amount?
-            when :widow_pension then question :widow_pension_amount?
-            when :widows_aged then question :widows_aged_amount?
-            else
-              if housing_benefit == 'yes'
-                question :housing_benefit_amount?
-              else
-                question :single_couple_lone_parent?
-              end
-            end
+           question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
           end
         end
       end
@@ -111,28 +89,7 @@ module SmartAnswer
         end
 
         next_node do
-          case benefit_types.shift
-          when :carers then question :carers_amount?
-          when :child_benefit then question :child_benefit_amount?
-          when :child_tax then question :child_tax_amount?
-          when :esa then question :esa_amount?
-          when :guardian then question :guardian_amount?
-          when :incapacity then question :incapacity_amount?
-          when :income_support then question :income_support_amount?
-          when :jsa then question :jsa_amount?
-          when :maternity then question :maternity_amount?
-          when :sda then question :sda_amount?
-          when :widowed_mother then question :widowed_mother_amount?
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widow_pension then question :widow_pension_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
+          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
         end
       end
 
@@ -144,27 +101,7 @@ module SmartAnswer
         end
 
         next_node do
-          case benefit_types.shift
-          when :child_benefit then question :child_benefit_amount?
-          when :child_tax then question :child_tax_amount?
-          when :esa then question :esa_amount?
-          when :guardian then question :guardian_amount?
-          when :incapacity then question :incapacity_amount?
-          when :income_support then question :income_support_amount?
-          when :jsa then question :jsa_amount?
-          when :maternity then question :maternity_amount?
-          when :sda then question :sda_amount?
-          when :widowed_mother then question :widowed_mother_amount?
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widow_pension then question :widow_pension_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
+          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
         end
       end
 
@@ -176,26 +113,7 @@ module SmartAnswer
         end
 
         next_node do
-          case benefit_types.shift
-          when :child_tax then question :child_tax_amount?
-          when :esa then question :esa_amount?
-          when :guardian then question :guardian_amount?
-          when :incapacity then question :incapacity_amount?
-          when :income_support then question :income_support_amount?
-          when :jsa then question :jsa_amount?
-          when :maternity then question :maternity_amount?
-          when :sda then question :sda_amount?
-          when :widowed_mother then question :widowed_mother_amount?
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widow_pension then question :widow_pension_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
+          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
         end
       end
 
@@ -207,25 +125,7 @@ module SmartAnswer
         end
 
         next_node do
-          case benefit_types.shift
-          when :esa then question :esa_amount?
-          when :guardian then question :guardian_amount?
-          when :incapacity then question :incapacity_amount?
-          when :income_support then question :income_support_amount?
-          when :jsa then question :jsa_amount?
-          when :maternity then question :maternity_amount?
-          when :sda then question :sda_amount?
-          when :widowed_mother then question :widowed_mother_amount?
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widow_pension then question :widow_pension_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
+          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
         end
       end
 
@@ -237,24 +137,7 @@ module SmartAnswer
         end
 
         next_node do
-          case benefit_types.shift
-          when :guardian then question :guardian_amount?
-          when :incapacity then question :incapacity_amount?
-          when :income_support then question :income_support_amount?
-          when :jsa then question :jsa_amount?
-          when :maternity then question :maternity_amount?
-          when :sda then question :sda_amount?
-          when :widowed_mother then question :widowed_mother_amount?
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widow_pension then question :widow_pension_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
+          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
         end
       end
 
@@ -266,23 +149,7 @@ module SmartAnswer
         end
 
         next_node do
-          case benefit_types.shift
-          when :incapacity then question :incapacity_amount?
-          when :income_support then question :income_support_amount?
-          when :jsa then question :jsa_amount?
-          when :maternity then question :maternity_amount?
-          when :sda then question :sda_amount?
-          when :widowed_mother then question :widowed_mother_amount?
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widow_pension then question :widow_pension_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
+          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
         end
       end
 
@@ -294,22 +161,7 @@ module SmartAnswer
         end
 
         next_node do
-          case benefit_types.shift
-          when :income_support then question :income_support_amount?
-          when :jsa then question :jsa_amount?
-          when :maternity then question :maternity_amount?
-          when :sda then question :sda_amount?
-          when :widowed_mother then question :widowed_mother_amount?
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widow_pension then question :widow_pension_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
+          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
         end
       end
 
@@ -321,21 +173,7 @@ module SmartAnswer
         end
 
         next_node do
-          case benefit_types.shift
-          when :jsa then question :jsa_amount?
-          when :maternity then question :maternity_amount?
-          when :sda then question :sda_amount?
-          when :widowed_mother then question :widowed_mother_amount?
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widow_pension then question :widow_pension_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
+          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
         end
       end
 
@@ -347,20 +185,7 @@ module SmartAnswer
         end
 
         next_node do
-          case benefit_types.shift
-          when :maternity then question :maternity_amount?
-          when :sda then question :sda_amount?
-          when :widowed_mother then question :widowed_mother_amount?
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widow_pension then question :widow_pension_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
+          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
         end
       end
 
@@ -372,19 +197,7 @@ module SmartAnswer
         end
 
         next_node do
-          case benefit_types.shift
-          when :sda then question :sda_amount?
-          when :widowed_mother then question :widowed_mother_amount?
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widow_pension then question :widow_pension_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
+          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
         end
       end
 
@@ -396,18 +209,7 @@ module SmartAnswer
         end
 
         next_node do
-          case benefit_types.shift
-          when :widowed_mother then question :widowed_mother_amount?
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widow_pension then question :widow_pension_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
+          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
         end
       end
 
@@ -419,17 +221,7 @@ module SmartAnswer
         end
 
         next_node do
-          case benefit_types.shift
-          when :widowed_mother then question :widowed_mother_amount?
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
+          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
         end
       end
 
@@ -441,16 +233,7 @@ module SmartAnswer
         end
 
         next_node do
-          case benefit_types.shift
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
+          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
         end
       end
 
@@ -462,15 +245,7 @@ module SmartAnswer
         end
 
         next_node do
-          case benefit_types.shift
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
+          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
         end
       end
 
@@ -482,11 +257,7 @@ module SmartAnswer
         end
 
         next_node do
-          if housing_benefit == 'yes'
-            question :housing_benefit_amount?
-          else
-            question :single_couple_lone_parent?
-          end
+          question :housing_benefit_amount?
         end
       end
 
