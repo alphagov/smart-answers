@@ -8,7 +8,6 @@ module SmartAnswer
 
       query = Calculators::BenefitCapCalculatorDataQuery.new
       rates = query.data.fetch('rates')
-      benefits = query.data.fetch('benefits').with_indifferent_access
 
       # Q1
       multiple_choice :receive_housing_benefit? do
@@ -56,8 +55,8 @@ module SmartAnswer
 
       #Q4
       checkbox_question :receiving_non_exemption_benefits? do
-        benefits.keys.each do |benefit|
-          option benefit.to_sym
+        query.benefits.keys.each do |benefit|
+          option benefit
         end
 
         next_node_calculation :benefit_types do |response|
@@ -76,13 +75,13 @@ module SmartAnswer
           if response == "none"
             outcome :outcome_not_affected
           else
-            question BenefitCapCalculatorFlow.next_benefit_amount_question(benefits, benefit_types)
+            question BenefitCapCalculatorFlow.next_benefit_amount_question(query.questions, benefit_types)
           end
         end
       end
 
       #Q5a-o
-      benefits.each do |(benefit,method)|
+      query.questions.each do |(_benefit, method)|
         money_question method do
 
           calculate :total_benefits do |response|
@@ -90,7 +89,7 @@ module SmartAnswer
           end
 
           next_node do
-            question BenefitCapCalculatorFlow.next_benefit_amount_question(benefits, benefit_types)
+            question BenefitCapCalculatorFlow.next_benefit_amount_question(query.questions, benefit_types)
           end
         end
       end
@@ -175,6 +174,7 @@ module SmartAnswer
       ## Outcome 5
       outcome :outcome_not_affected
     end
+
     def self.next_benefit_amount_question(benefits, selected_benefits)
       benefits.fetch(selected_benefits.shift, :housing_benefit_amount?)
     end
