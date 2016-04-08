@@ -53,10 +53,12 @@ You’ll need to book an appointment by email. Include your first name and last 
 $A
 British Consulate General Jerusalem, main contact
 British Consulate General
-19 Nashashibi Street
+15 Nashashibi Street
 Sheikh Jarrah Quarter
+Jerusalem
 East Jerusalem 97200
 P O Box 19690
+The Occupied Palestinian Territories
 $A
 
 $C
@@ -65,6 +67,7 @@ Fax: +972 (02) 532 2368
 
 Email: <britain.jerusalem@fco.gov.uk>
 
+[British Consulate General Jerusalem, main contact - opening hours](https://www.gov.uk/government/world/organisations/british-consulate-general-jerusalem/office/british-consulate-general-jerusalem-main-contact)
 $C
 
 ## Getting your passport
