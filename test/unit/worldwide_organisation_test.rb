@@ -1,9 +1,6 @@
 require_relative '../test_helper'
-require 'gds_api/test_helpers/worldwide'
 
 class WorldwideOrganisationTest < ActiveSupport::TestCase
-  include GdsApi::TestHelpers::Worldwide
-
   context '.for_location' do
     should 'instantiates WorldwideOrganisation objects using data from the API' do
       organisations_data = [
@@ -149,11 +146,5 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
         assert_equal 'organisation-web-url', @organisation.web_url
       end
     end
-  end
-
-  def load_fixture(country)
-    json = read_fixture_file("worldwide/#{country}_organisations.json")
-    worldwide_api_has_organisations_for_location(country, json)
-    WorldwideOrganisation.for_location(country)
   end
 end
