@@ -74,10 +74,20 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
     end
 
     should "fallback to main office" do
-      organisation = load_fixture('andorra').first
-      matches = organisation.offices_with_service('Obscure service')
+      organisation_data = OpenStruct.new(
+        offices: OpenStruct.new(
+          main: OpenStruct.new(
+            title: 'main-office',
+            services: []
+          ),
+          other: []
+        )
+      )
+      organisation = WorldwideOrganisation.new(organisation_data)
+
+      matches = organisation.offices_with_service('obscure-service')
       assert_equal 1, matches.length, "Wrong number of offices matched"
-      assert_equal 'British Embassy', matches[0].title
+      assert_equal 'main-office', matches[0].title
     end
 
     should "return empty array if no offices" do
