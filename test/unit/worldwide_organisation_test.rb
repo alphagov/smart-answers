@@ -150,10 +150,4 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
       end
     end
   end
-
-  def load_fixture(country)
-    json = read_fixture_file("worldwide/#{country}_organisations.json")
-    worldwide_api_has_organisations_for_location(country, json)
-    WorldwideOrganisation.for_location(country)
-  end
 end
