@@ -43,6 +43,13 @@ module SmartAnswer
         option :yes
         option :no
 
+        precalculate :exempt_benefits do
+          exempt_benefits = query.data.fetch("exempt_benefits").map do |exempt_benefit|
+            "- #{exempt_benefit}"
+          end
+          exempt_benefits.join("\n")
+        end
+
         next_node do |response|
           if response == 'yes'
             outcome :outcome_not_affected_exemptions
