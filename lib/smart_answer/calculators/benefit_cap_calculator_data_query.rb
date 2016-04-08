@@ -1,12 +1,15 @@
 module SmartAnswer::Calculators
   class BenefitCapCalculatorDataQuery
-    attr_reader :data, :benefits, :questions
     def data
       @data ||= YAML.load_file(Rails.root.join('lib', 'data', 'benefit_cap_data.yml'))
     end
 
+    def rates
+      @rates ||= data.fetch("rates")
+    end
+
     def benefits
-      @benefits ||=  @data.fetch("benefits").with_indifferent_access
+      @benefits ||= data.fetch("benefits").with_indifferent_access
     end
 
     def questions

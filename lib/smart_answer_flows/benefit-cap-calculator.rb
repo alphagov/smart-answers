@@ -7,7 +7,6 @@ module SmartAnswer
       satisfies_need "100696"
 
       query = Calculators::BenefitCapCalculatorDataQuery.new
-      rates = query.data.fetch('rates')
 
       # Q1
       multiple_choice :receive_housing_benefit? do
@@ -115,11 +114,11 @@ module SmartAnswer
         option :parent
 
         calculate :benefit_cap do |response|
-          sprintf("%.2f", rates.fetch(response))
+          sprintf("%.2f", query.rates.fetch(response))
         end
 
         next_node do |response|
-          if total_benefits > rates.fetch(response)
+          if total_benefits > query.rates.fetch(response)
             outcome :outcome_affected_greater_than_cap
           else
             outcome :outcome_not_affected_less_than_cap

@@ -5,19 +5,18 @@ module SmartAnswer::Calculators
     context BenefitCapCalculatorDataQuery do
       setup do
         @query = BenefitCapCalculatorDataQuery.new
-        @rates = @query.data.fetch("rates")
       end
 
       context "benefit_cap_data" do
         context "family types" do
           should "contain value for single person" do
-            assert_equal 350, @rates["single"]
+            assert_equal 350, @query.rates["single"]
           end
           should "contain value for a couple with or without children" do
-            assert_equal 500, @rates["couple"]
+            assert_equal 500, @query.rates["couple"]
           end
           should "contain value for lone parent" do
-            assert_equal 500, @rates["parent"]
+            assert_equal 500, @query.rates["parent"]
           end
         end
       end
