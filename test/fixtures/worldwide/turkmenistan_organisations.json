@@ -4,35 +4,36 @@
       "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-ashgabat",
       "title": "British Embassy Ashgabat",
       "format": "Worldwide Organisation",
-      "updated_at": "2014-03-13T07:09:26+00:00",
+      "updated_at": "2014-03-13T07:09:26.000+00:00",
       "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-ashgabat",
       "details": {
         "slug": "british-embassy-ashgabat"
       },
+      "analytics_identifier": "WO83",
       "offices": {
         "main": {
           "title": "British Embassy Ashgabat",
           "format": "World Office",
-          "updated_at": "2013-07-30T07:45:54+01:00",
+          "updated_at": "2013-07-30T07:45:54.000+01:00",
           "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-ashgabat/office/british-embassy-ashgabat",
           "details": {
-            "email": "General enquiries: beasb@online.tm; Consular enquiries: consular.ashgabat@fco.gov.uk; Visa enquiries: https://ukvi-international.faq-help.com/",
+            "email": "Consular enquiries: consular.ashgabat@fco.gov.uk; Visa enquiries: https://ukvi-international.faq-help.com/",
             "description": "If you are having difficulty with the main telephone number for the Embassy, please try any of the following: +993 12 363463, 363464, 363466, 363498 or 363474; or +99365 7102033; or call the FCO Switchboard in London on +44 (0)20 7008 1500 for assistance.",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"our-opening-hours\">Our Opening Hours</h2>\n<p>Monday to Thursday 08.30-17.00\nFriday 08.30-15.30\nLunch 12.30-13.30</p>\n\n<h2 id=\"british-embassy-ashgabat--local-holidays-2014\">BRITISH EMBASSY ASHGABAT \u2013 LOCAL HOLIDAYS 2014</h2>\n\n<p>Wednesday, 1 January New Year </p>\n\n<p>Wednesday, 19 February National Flag Day</p>\n\n<p>Friday, 21 March Novruz Bayram </p>\n\n<p>Friday, 18 April Good Friday</p>\n\n<p>Monday, 21 April Easter Monday</p>\n\n<p>Monday, 5 May Early May bank holiday</p>\n\n<p>Friday, 9 May Victory Day</p>\n\n<p>Monday, 26 May Spring Bank Holiday</p>\n\n<p>TBC October Kurban Bayram (one day off)</p>\n\n<p>Monday, 6 October Earthquake Memorial Day</p>\n\n<p>Monday, 27 October Independence Day</p>\n\n<p>Friday, 12 December Neutrality Day</p>\n\n<p>Wednesday, 24 December Christmas Eve</p>\n\n<p>Thursday, 25 December Christmas Day</p>\n\n<p>Friday, 26 December Boxing Day</p></div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"our-opening-hours\">Our Opening Hours</h2>\n<p>Monday to Thursday 08.30-17.00\nFriday 08.30-15.30\nLunch 12.30-13.30</p>\n\n<h2 id=\"local-holidays\">2016 local holidays</h2>\n\n<p>Friday, 1 January - New Year’s Day </p>\n\n<p>Friday, 19 February - National Flag Day</p>\n\n<p>Monday, 21 March - Novruz Bayram </p>\n\n<p>Friday, 25 March - Good Friday</p>\n\n<p>Monday, 28 March - Easter Monday</p>\n\n<p>Monday, 2 May - May bank holiday</p>\n\n<p>Monday, 30 May - Spring Bank Holiday</p>\n\n<p>Monday, 29 August - Summer Bank Holiday</p>\n\n<p>TBC, September - Kurban Bayram</p>\n\n<p>Thursday, 27 October - Independence Day</p>\n\n<p>Friday, 28 October - Independence Day</p>\n\n<p>Monday, 12 December - Neutrality Day</p>\n\n<p>Monday, 26 December - Boxing Day</p>\n\n<p>Tuesday, 27 December - In lieu of Christmas Day </p>\n</div>",
             "type": "Embassy"
           },
           "address": {
             "adr": {
               "fn": "",
-              "street-address": "3rd Floor Office Building \r\nFour Points Ak Altyn Hotel \r\n744001 Ashgabat",
-              "postal-code": "",
-              "locality": "",
-              "region": "",
+              "street-address": "3rd Floor Office Building \r\nFour Points Ak Altyn Hotel \r\n",
+              "postal-code": "744001",
+              "locality": "Ashgabat",
+              "region": "Ashgabat",
               "country-name": "Turkmenistan"
             },
             "label": {
-              "value": "3rd Floor Office Building \r\nFour Points Ak Altyn Hotel \r\n744001 Ashgabat\nTurkmenistan"
+              "value": "3rd Floor Office Building \r\nFour Points Ak Altyn Hotel \r\nAshgabat\nAshgabat\n744001\nTurkmenistan"
             }
           },
           "contact_numbers": [
@@ -73,41 +74,7 @@
           ]
         },
         "other": [
-          {
-            "title": "Visas section",
-            "format": "World Office",
-            "updated_at": "2014-02-20T09:48:15+00:00",
-            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-ashgabat/office/visas-section",
-            "details": {
-              "email": "",
-              "description": "Our opening hours are according to the appointed date and time set through www.visa4uk.com \r\nPassport collection times will be advised individually over phone",
-              "contact_form_url": "https://www.visainfoservices.com/Pages/dest_org.aspx",
-              "access_and_opening_times": "<div class=\"govspeak\"><p>BRITISH EMBASSY ASHGABAT \u2013 LOCAL HOLIDAYS 2014</p>\n\n<p>Wednesday, 1 January                    New Year   </p>\n\n<p>Wednesday, 19 February                 National Flag Day</p>\n\n<p>Friday, 21 March                             Novruz Bayram </p>\n\n<p>Friday, 18 April\t\t     Good Friday</p>\n\n<p>Monday, 21 April\t\t      Easter Monday</p>\n\n<p>Monday, 5 May                               Early May bank holiday</p>\n\n<p>Friday, 9 May \t\t      Victory Day</p>\n\n<p>Monday, 26 May\t\t      Spring Bank Holiday</p>\n\n<p>Monday, 6 October                           Earthquake Memorial Day</p>\n\n<p>Tuesday, 7 October\t \t    Kurban Bayram                           </p>\n\n<p>Monday, 27 October\t\t      Independence Day</p>\n\n<p>Friday, 12 December\t            \t      Neutrality Day</p>\n\n<p>Wednesday, 24 December               Christmas Eve</p>\n\n<p>Thursday, 25 December\t      Christmas Day</p>\n\n<p>Friday, 26 December\t                      Boxing Day </p></div>",
-              "type": "Embassy"
-            },
-            "address": {
-              "adr": {
-                "fn": "",
-                "street-address": "3rd Floor Office Building \r\nFour Points Ak Altyn Hotel",
-                "postal-code": "744001",
-                "locality": "",
-                "region": "Ashgabat",
-                "country-name": "Turkmenistan"
-              },
-              "label": {
-                "value": "3rd Floor Office Building \r\nFour Points Ak Altyn Hotel\nAshgabat\n744001\nTurkmenistan"
-              }
-            },
-            "contact_numbers": [
-              {
-                "label": "Telephone",
-                "number": "+993 12 36 34 62/64 (user pay)"
-              }
-            ],
-            "services": [
-              
-            ]
-          }
+
         ]
       },
       "sponsors": [
@@ -124,19 +91,20 @@
       "id": "https://www.gov.uk/api/worldwide-organisations/ukti-turkmenistan",
       "title": "UK Trade & Investment Turkmenistan",
       "format": "Worldwide Organisation",
-      "updated_at": "2013-07-26T12:02:41+01:00",
+      "updated_at": "2013-07-26T12:02:41.000+01:00",
       "web_url": "https://www.gov.uk/government/world/organisations/ukti-turkmenistan",
       "details": {
         "slug": "ukti-turkmenistan"
       },
+      "analytics_identifier": "WO359",
       "offices": {
         "main": {
           "title": "UK Trade & Investment Turkmenistan",
           "format": "World Office",
-          "updated_at": "2013-07-26T12:00:26+01:00",
+          "updated_at": "2013-07-26T12:00:26.000+01:00",
           "web_url": "https://www.gov.uk/government/world/organisations/ukti-turkmenistan/office/uk-trade-investment-turkmenistan",
           "details": {
-            "email": "gozel.pashikova@fco.gov.uk",
+            "email": "Arslan.Penjiyev@mobile.ukti.gov.uk",
             "description": "",
             "contact_form_url": "",
             "access_and_opening_times": "",
@@ -144,7 +112,7 @@
           },
           "address": {
             "adr": {
-              "fn": "Ms Gozel Pashikova",
+              "fn": "",
               "street-address": "British Embassy Ashgabat\r\n3rd Floor Office Building \r\nFour Points Ak Altyn Hotel",
               "postal-code": "744001",
               "locality": "Ashgabat",
@@ -152,7 +120,7 @@
               "country-name": "Turkmenistan"
             },
             "label": {
-              "value": "Ms Gozel Pashikova\nBritish Embassy Ashgabat\r\n3rd Floor Office Building \r\nFour Points Ak Altyn Hotel\nAshgabat\n744001\nTurkmenistan"
+              "value": "British Embassy Ashgabat\r\n3rd Floor Office Building \r\nFour Points Ak Altyn Hotel\nAshgabat\n744001\nTurkmenistan"
             }
           },
           "contact_numbers": [
@@ -162,11 +130,11 @@
             }
           ],
           "services": [
-            
+
           ]
         },
         "other": [
-          
+
         ]
       },
       "sponsors": [

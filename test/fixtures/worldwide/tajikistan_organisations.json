@@ -9,6 +9,7 @@
       "details": {
         "slug": "british-embassy-dushanbe"
       },
+      "analytics_identifier": "WO11",
       "offices": {
         "main": {
           "title": "British Embassy Dushanbe",
@@ -17,7 +18,7 @@
           "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-dushanbe/office/british-embassy-dushanbe",
           "details": {
             "email": "dushanbe.reception@fco.gov.uk ",
-            "description": "Office hours: By appointment only. Access our clickbook to fix an appointment.\r\nOpening hours: 9am to 5pm Monday to Friday (local time)",
+            "description": "Office hours: By appointment only. Use the appointments links in the services information above\r\nOpening hours: 9am to 5pm Monday to Friday (local time)",
             "contact_form_url": "",
             "access_and_opening_times": "",
             "type": "Embassy"
@@ -60,7 +61,9 @@
             }
           ]
         },
-        "other": []
+        "other": [
+
+        ]
       },
       "sponsors": [
         {
@@ -81,6 +84,7 @@
       "details": {
         "slug": "dfid-tajikistan"
       },
+      "analytics_identifier": "WO224",
       "offices": {
         "main": {
           "title": " DFID Tajikistan",
@@ -117,9 +121,13 @@
               "number": "+992 372 271 726"
             }
           ],
-          "services": []
+          "services": [
+
+          ]
         },
-        "other": []
+        "other": [
+
+        ]
       },
       "sponsors": [
         {
