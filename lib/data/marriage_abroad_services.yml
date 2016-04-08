@@ -70,7 +70,10 @@ morocco:
       - :affidavit_or_affirmation_for_marriage
 norway:
   opposite_sex:
-    default:
+    ceremony_country:
+      default:
+      - :affidavit_or_affirmation_for_marriage
+    uk:
       default:
       - :affidavit_or_affirmation_for_marriage
   same_sex:
@@ -512,16 +515,6 @@ romania:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
-  same_sex:
-    default:
-      partner_british:
-      - :receiving_notice_of_registration
-      - :registering_marriage
-      - :issuing_marriage_certificate
-      partner_other:
-      - :receiving_notice_of_registration
-      - :registering_marriage
-      - :issuing_marriage_certificate
 russia:
   opposite_sex:
     ceremony_country:
@@ -678,7 +671,10 @@ poland:
       - :issuing_cni_or_nulla_osta
 slovenia:
   opposite_sex:
-    default:
+    ceremony_country:
+      default:
+      - :affidavit_or_affirmation_for_marriage
+    uk:
       default:
       - :affidavit_or_affirmation_for_marriage
   same_sex:
@@ -808,9 +804,3 @@ wallis-and-futuna:
     default:
       default:
       - :issuing_custom_and_law_certificate
-ukraine:
-  opposite_sex:
-    ceremony_country:
-      default:
-      - :receiving_notice_of_marriage
-      - :issuing_cni_or_nulla_osta
