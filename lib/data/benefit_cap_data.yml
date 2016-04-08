@@ -4,18 +4,48 @@ rates:
   couple: 500
   parent: 500
 benefits:
-  bereavement: :bereavement_amount?
-  carers: :carers_amount?
-  child_benefit: :child_benefit_amount?
-  child_tax: :child_tax_amount?
-  esa: :esa_amount?
-  guardian: :guardian_amount?
-  incapacity: :incapacity_amount?
-  income_support: :income_support_amount?
-  jsa: :jsa_amount?
-  maternity: :maternity_amount?
-  sda: :sda_amount?
-  widowed_mother: :widowed_mother_amount?
-  widowed_parent: :widowed_parent_amount?
-  widow_pension: :widow_pension_amount?
-  widows_aged: :widows_aged_amount?
+  bereavement:
+    question: :bereavement_amount?
+    description: "Bereavement Allowance"
+  carers:
+    question: :carers_amount?
+    description: "Carer's Allowance"
+  child_benefit:
+    question: :child_benefit_amount?
+    description: "Child Benefit"
+  child_tax:
+    question: :child_tax_amount?
+    description: "Child Tax Credit"
+  esa:
+    question: :esa_amount?
+    description: "Employment and Support Allowance"
+  guardian:
+    question: :guardian_amount?
+    description: "Guardian's Allowance"
+  incapacity:
+    question: :incapacity_amount?
+    description: "Incapacity Benefit"
+  income_support:
+    question: :income_support_amount?
+    description: "Income Support"
+  jsa:
+    question: :jsa_amount?
+    description: "Jobseeker’s Allowance"
+  maternity:
+    question: :maternity_amount?
+    description: "Maternity Allowance"
+  sda:
+    question: :sda_amount?
+    description: "Severe Disablement Allowance"
+  widowed_mother:
+    question: :widowed_mother_amount?
+    description: "Widowed Mother's Allowance"
+  widowed_parent:
+    question: :widowed_parent_amount?
+    description: "Widowed Parent's Allowance"
+  widow_pension:
+    question: :widow_pension_amount?
+    description: "Widow's Pension"
+  widows_aged:
+    question: :widows_aged_amount?
+    description: "Widow's Pension (age related)"
