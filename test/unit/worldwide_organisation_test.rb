@@ -70,33 +70,47 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
 
   context "attribute accessors" do
     setup do
-      @organisation = load_fixture('australia')[1]
+      organisation_data = OpenStruct.new(
+        title: 'organisation-title',
+        web_url: 'organisation-web-url',
+        offices: OpenStruct.new(
+          main: OpenStruct.new(
+            title: 'main-office-title'
+          ),
+          other: [
+            OpenStruct.new(
+              title: 'other-office-title'
+            )
+          ]
+        )
+      )
+      @organisation = WorldwideOrganisation.new(organisation_data)
     end
 
     should "allow accessing required top-level attributes" do
-      assert_equal "British High Commission Canberra", @organisation.title
+      assert_equal 'organisation-title', @organisation.title
     end
 
     context "accessing office details" do
       should "allow accessing office details" do
-        assert_equal "British High Commission Canberra", @organisation.offices.main.title
+        assert_equal 'main-office-title', @organisation.offices.main.title
       end
 
       should "have shortcut accessor for main office" do
-        assert_equal "British High Commission Canberra", @organisation.main_office.title
+        assert_equal "main-office-title", @organisation.main_office.title
       end
 
       should "have shortcut accessor for other offices" do
-        assert_equal "British Consulate-General Sydney", @organisation.other_offices.first.title
+        assert_equal 'other-office-title', @organisation.other_offices.first.title
       end
 
       should "have an accessor for all offices" do
-        assert_equal 5, @organisation.all_offices.size
-        assert_equal ["British High Commission Canberra", "British Consulate-General Sydney"], @organisation.all_offices.map(&:title)[0..1]
+        assert_equal 2, @organisation.all_offices.size
+        assert_equal ['main-office-title', 'other-office-title'], @organisation.all_offices.map(&:title)
       end
 
       should "have an accessor for the URL" do
-        assert_equal "https://www.gov.uk/government/world/organisations/british-high-commission-canberra", @organisation.web_url
+        assert_equal 'organisation-web-url', @organisation.web_url
       end
     end
   end
