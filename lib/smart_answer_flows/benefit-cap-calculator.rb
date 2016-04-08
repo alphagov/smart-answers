@@ -109,9 +109,9 @@ module SmartAnswer
 
       #Q6
       multiple_choice :single_couple_lone_parent? do
-        option :single
-        option :couple
-        option :parent
+        query.rates.keys.each do |rate|
+          option rate
+        end
 
         calculate :benefit_cap do |response|
           sprintf("%.2f", query.rates.fetch(response))

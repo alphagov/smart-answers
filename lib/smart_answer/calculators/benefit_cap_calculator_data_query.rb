@@ -5,7 +5,7 @@ module SmartAnswer::Calculators
     end
 
     def rates
-      @rates ||= data.fetch("rates")
+      @rates ||= data.fetch("rates").with_indifferent_access
     end
 
     def benefits
