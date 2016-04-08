@@ -62,6 +62,10 @@ module SmartAnswer
           response.split(",").map(&:to_sym)
         end
 
+        precalculate :benefit_options do
+          query.descriptions.merge(none_above: "None of the above")
+        end
+
         calculate :total_benefits do
           0
         end
