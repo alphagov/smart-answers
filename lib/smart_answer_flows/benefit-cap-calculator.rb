@@ -76,188 +76,22 @@ module SmartAnswer
           if response == "none"
             outcome :outcome_not_affected
           else
-           question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
+            question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
           end
         end
       end
 
       #Q5a
-      money_question :bereavement_amount? do
+      benefits.each do |(benefit,method)|
+        money_question method do
 
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
+          calculate :total_benefits do |response|
+            total_benefits + response.to_f
+          end
 
-        next_node do
-          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
-        end
-      end
-
-      #Q5b
-      money_question :carers_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
-        end
-      end
-
-      #Q5c
-      money_question :child_benefit_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
-        end
-      end
-
-      #Q5d
-      money_question :child_tax_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
-        end
-      end
-
-      #Q5e
-      money_question :esa_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
-        end
-      end
-
-      #Q5f
-      money_question :guardian_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
-        end
-      end
-
-      #Q5g
-      money_question :incapacity_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
-        end
-      end
-
-      #Q5h
-      money_question :income_support_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
-        end
-      end
-
-      #Q5i
-      money_question :jsa_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
-        end
-      end
-
-      #Q5j
-      money_question :maternity_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
-        end
-      end
-
-      #Q5k
-      money_question :sda_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
-        end
-      end
-
-      #Q5n
-      money_question :widow_pension_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
-        end
-      end
-
-      #Q5l
-      money_question :widowed_mother_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
-        end
-      end
-
-      #Q5m
-      money_question :widowed_parent_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
-        end
-      end
-
-      #Q5o
-      money_question :widows_aged_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          question :housing_benefit_amount?
+          next_node do
+            question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
+          end
         end
       end
 
