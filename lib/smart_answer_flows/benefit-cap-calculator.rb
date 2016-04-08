@@ -76,12 +76,12 @@ module SmartAnswer
           if response == "none"
             outcome :outcome_not_affected
           else
-            question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
+            question BenefitCapCalculatorFlow.next_benefit_amount_question(benefits, benefit_types)
           end
         end
       end
 
-      #Q5a
+      #Q5a-o
       benefits.each do |(benefit,method)|
         money_question method do
 
@@ -90,7 +90,7 @@ module SmartAnswer
           end
 
           next_node do
-            question benefits.fetch(benefit_types.shift, :housing_benefit_amount?)
+            question BenefitCapCalculatorFlow.next_benefit_amount_question(benefits, benefit_types)
           end
         end
       end
@@ -174,6 +174,9 @@ module SmartAnswer
 
       ## Outcome 5
       outcome :outcome_not_affected
+    end
+    def self.next_benefit_amount_question(benefits, selected_benefits)
+      benefits.fetch(selected_benefits.shift, :housing_benefit_amount?)
     end
   end
 end
