@@ -24,16 +24,24 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
   end
 
   context "fco_sponsored?" do
-    setup do
-      @orgs = load_fixture('australia')
-    end
-
     should "return true for an organisation sponsored by the FCO" do
-      assert_equal true, @orgs[1].fco_sponsored?
+      organisation_data = OpenStruct.new(
+        sponsors: [
+          OpenStruct.new(
+            details: OpenStruct.new(acronym: 'FCO')
+          )
+        ]
+      )
+      worldwide_organisation = WorldwideOrganisation.new(organisation_data)
+
+      assert_equal true, worldwide_organisation.fco_sponsored?
     end
 
-    should "return false otherwise" do
-      assert_equal false, @orgs[0].fco_sponsored?
+    should "return false for an organisation not sponsored by the FCO" do
+      organisation_data = OpenStruct.new(sponsors: [])
+      worldwide_organisation = WorldwideOrganisation.new(organisation_data)
+
+      assert_equal false, worldwide_organisation.fco_sponsored?
     end
   end
 
