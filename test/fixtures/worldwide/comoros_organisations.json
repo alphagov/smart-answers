@@ -1,0 +1,82 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-high-commission-port-louis",
+      "title": "British High Commission Port Louis",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-01-29T08:49:57.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-port-louis",
+      "details": {
+        "slug": "british-high-commission-port-louis"
+      },
+      "analytics_identifier": "WO125",
+      "offices": {
+        "main": {
+          "title": "British High Commission Port Louis",
+          "format": "World Office",
+          "updated_at": "2014-09-23T11:12:12.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-port-louis/office/british-high-commission-port-louis",
+          "details": {
+            "email": "bhc@intnet.mu",
+            "description": "Opening Hours\r\n\r\nMonday to Thursday: 7:45 am to 3:45 pm\r\nFriday: 7:45 am to 1:45 pm",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h1 id=\"office-access\">Office access</h1>\n\n<p>List of public holidays 2015 during which the High Commission will be closed: </p>\n\n<h2 id=\"public-holidays\">Public Holidays</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 01 January</td>\n      <td>New Year</td>\n    </tr>\n    <tr>\n      <td>Monday 01 February</td>\n      <td>Abolition of Slavery</td>\n    </tr>\n    <tr>\n      <td>Monday 08 February</td>\n      <td>Chinese Spring Festival</td>\n    </tr>\n    <tr>\n      <td>Monday 07 March</td>\n      <td>Maha Shivaratree</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Friday 08 April</td>\n      <td>Ougadi</td>\n    </tr>\n    <tr>\n      <td>Wednesday 06 July</td>\n      <td>Eid Ul Fitr</td>\n    </tr>\n    <tr>\n      <td>Monday 15 August</td>\n      <td>Assumption Day</td>\n    </tr>\n    <tr>\n      <td>Monday 29 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 06 September</td>\n      <td>Ganesh Chaturthi</td>\n    </tr>\n    <tr>\n      <td>Wednesday 02 November</td>\n      <td>Arrival of Indentured Labourers</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 December</td>\n      <td>Chistamas Day Substitute</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"disabled-access-and-facilities\">Disabled access and facilities</h3>\n\n<h4 id=\"disabled-access-to-the-high-commission\">Disabled access to the High Commission</h4>\n\n<p>The British Government is keen to ensure that buildings and services are fully accessible to disabled members of the public. Wherever possible, we have made our buildings and services accessible. Sometimes however, this is not possible due to security or other restrictions. In Mauritius, the High Commission is located in a shared building, which is managed by a private company. To assist disabled visitors, we have set out below details of disabled access at the High Commission.</p>\n\n<h4 id=\"general-physical-access\">General physical access</h4>\n\n<ul>\n  <li>\n    <p>Entrances: there are three steps at the entrance to the building.</p>\n  </li>\n  <li>\n    <p>The easiest access is from Edith Cavell Street where public parking is available.</p>\n  </li>\n  <li>\n    <p>Access to the High Commission is by lift to the seventh floor.</p>\n  </li>\n  <li>\n    <p>Toilet facilities for disabled persons are located on the ground floor of Les Cascades building.</p>\n  </li>\n  <li>\n    <p>Floor coverings, doorways, and handles are of standard design.</p>\n  </li>\n  <li>\n    <p>The entrance area is well lit.</p>\n  </li>\n  <li>\n    <p>Emergency/evacuation: evacuation is on foot by staircase.  No specialist equipment is available.  Staff will assist in case of need but evacuation from the 7th floor would be problematic for people with limited mobility.</p>\n  </li>\n</ul>\n\n<h4 id=\"access-for-visually-impaired-visitors\">Access for visually-impaired visitors</h4>\n\n<ul>\n  <li>\n    <p>Essential signage is clear and easy to read.</p>\n  </li>\n  <li>\n    <p>Braille signage is not available.</p>\n  </li>\n  <li>\n    <p>Guide dogs are welcome.</p>\n  </li>\n</ul>\n\n<h4 id=\"access-for-deafhard-of-hearing-visitors\">Access for Deaf/hard of hearing visitors</h4>\n\n<ul>\n  <li>\n    <p>There are no audio induction loops or textphones.</p>\n  </li>\n  <li>\n    <p>Unfortunately we have no sign language or lip-speaking facilities.</p>\n  </li>\n  <li>\n    <p>Hearing dogs are welcome.</p>\n  </li>\n</ul>\n\n<h4 id=\"contact-us\">Contact us</h4>\n\n<p>If you need to visit us or use our services and feel that they may be inaccessible to you, please contact us on 202 9400 and we will try to find an alternative way of providing access for you.</p>\n</div>",
+            "type": "High Commission"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "7th floor, Cascades Building\r\nEdith Cavell Street, P.O. box 1063 ",
+              "postal-code": "",
+              "locality": "Port Louis",
+              "region": "Port Louis",
+              "country-name": "Mauritius"
+            },
+            "label": {
+              "value": "7th floor, Cascades Building\r\nEdith Cavell Street, P.O. box 1063 \nPort Louis\nPort Louis\nMauritius"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Enquiries",
+              "number": "Telephone +230 2029400"
+            },
+            {
+              "label": "Enquiries",
+              "number": "Fax +230 2029408"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/comoros/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

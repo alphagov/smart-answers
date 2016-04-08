@@ -1,0 +1,105 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-san-salvador",
+      "title": "British Embassy San Salvador",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-11-17T23:27:13.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-san-salvador",
+      "details": {
+        "slug": "british-embassy-san-salvador"
+      },
+      "analytics_identifier": "WO198",
+      "offices": {
+        "main": {
+          "title": "British Embassy San Salvador",
+          "format": "World Office",
+          "updated_at": "2013-12-18T16:07:10.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-san-salvador/office/british-embassy-san-salvador",
+          "details": {
+            "email": "britishembassy.elsalvador@fco.gov.uk",
+            "description": "Monday to Thursday 7:30am to 4:30pm\r\nFriday 7:30am to 11:30am\r\n",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><p>Office hours:\nMonday to Thursday 7:30am to 4:30pm\nFriday 7:30am to 11:30am</p>\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "Torre Futura, \r\n14th floor, \r\nColonia Escalón, \r\nSan Salvador \r\n\r\n",
+              "postal-code": "",
+              "locality": "San Salvador",
+              "region": "",
+              "country-name": "El Salvador"
+            },
+            "label": {
+              "value": "Torre Futura, \r\n14th floor, \r\nColonia Escalón, \r\nSan Salvador \r\n\r\nSan Salvador\nEl Salvador"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Switchboard",
+              "number": "+503 2511-5757"
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Lost or Stolen Passports",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Registrations of Marriage and Civil Partnerships",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Births and Deaths registration service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Notarial services",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Issue certificate of no impediment",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Legalisation Service",
+              "type": "Other Services"
+            }
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/el-salvador/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

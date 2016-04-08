@@ -1,0 +1,181 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-manama",
+      "title": "British Embassy Manama",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-10-29T15:35:59.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-manama",
+      "details": {
+        "slug": "british-embassy-manama"
+      },
+      "analytics_identifier": "WO78",
+      "offices": {
+        "main": {
+          "title": "British Embassy Manama, main contact",
+          "format": "World Office",
+          "updated_at": "2014-09-23T11:12:12.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-manama/office/british-embassy-manama-main-contact",
+          "details": {
+            "email": "",
+            "description": "Sunday to Thursday, 04:30am to 1130am GMT\r\nSunday to Thursday, 07:30 to 02:30pm Local Time\r\n \r\nConsular counter hours: Sunday and Thursday: 08:00 to 10:00am. You will need to make an appointment in advance for all routine notarial and documentary services.",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Our offices will be closed for the following public holidays for 2016:</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Offices</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Sunday  3 January 2016</td>\n      <td>New Years Day</td>\n    </tr>\n    <tr>\n      <td>Sunday &amp; Monday 27 &amp; 28 March</td>\n      <td>Easter</td>\n    </tr>\n    <tr>\n      <td>Sunday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>*Wednesday - Thursday 6 - 7 July</td>\n      <td>Eid Al Fitr</td>\n    </tr>\n    <tr>\n      <td>*Sunday &amp; Monday 11 &amp; 12 September</td>\n      <td>Eid Al Adha</td>\n    </tr>\n    <tr>\n      <td>*Monday/Tuesday 10/11 October</td>\n      <td>Ashoora</td>\n    </tr>\n    <tr>\n      <td>*Monday  12 December</td>\n      <td>Prophet’s Birthday</td>\n    </tr>\n    <tr>\n      <td>Sunday 18 December</td>\n      <td>National Day</td>\n    </tr>\n    <tr>\n      <td>Sunday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>*Date may move by one day according to Moon sighting.</p>\n\n<h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>The Foreign &amp; Commonwealth Office and this Embassy are keen to ensure that their buildings and services are fully accessible to disabled members of the public. Wherever possible, we have made our buildings and services accessible. Sometimes however, this is not possible due to security or other restrictions. In these situations we will endeavour to provide a service or access to a building in an alternative way to ensure equality of access for disabled people. To assist disabled visitors, we have set out below details of disabled access at this Embassy. We hope this information is helpful.</p>\n\n<h3 id=\"general-physical-access\">General physical access</h3>\n<ul>\n  <li>Entrance to the Main Reception is clear, unobstructed and at ground level with no impediments.</li>\n  <li>Toilet facilities for public users can be found in Consular Section when approaching the main reception.</li>\n</ul>\n\n<h3 id=\"contact-us\">Contact us</h3>\n\n<p>If you need to visit us or use our services and feel that they may be inaccessible to you, please contact Mrs. Gaby Melvin (Tel: 17574100) who will try to find an alternative way of providing access for you.</p>\n\n<h2 id=\"location-and-access\">Location and access</h2>\n\n<p>Information for visitors to the British Embassy</p>\n\n<p>Visitors to the British Embassy Bahrain will be subject to security procedures on arrival. Visitors and their baggage/personal belongings will be subject to search. Access will be denied to any person refusing to comply with the search. Visitors are not permitted to bring in items such as mobile phones, laptops, cameras or other electrical equipment. The embassy is unable to offer a storage facilities to visitors (with the exception of mobile phones). When planning on visiting the embassy, visitors should consider leaving such items elsewhere before arrival. This is standard practice across our network of embassies.</p>\n\n<h2 id=\"map\">Map</h2>\n\n<p>You can find British Embassy Manama on <a rel=\"external\" href=\"https://maps.google.com/maps/ms?hl=en&amp;ie=UTF8&amp;oe=UTF8&amp;msa=0&amp;msid=217692493711287246696.00046a3e69da67a58aaf7\">Google map</a>.</p>\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "British Embassy",
+              "street-address": "21 Government Avenue\r\nManama 306",
+              "postal-code": "P O Box 114",
+              "locality": "Manama",
+              "region": "",
+              "country-name": "Bahrain"
+            },
+            "label": {
+              "value": "British Embassy\n21 Government Avenue\r\nManama 306\nP O Box 114 Manama\nBahrain"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "+ 973 17574100"
+            },
+            {
+              "label": "Fax (Programme / Political Affairs)",
+              "number": "+973 17574161"
+            },
+            {
+              "label": "Fax (UK Trade and Investment)",
+              "number": "+973 17574101"
+            },
+            {
+              "label": "Fax (Consular/Corporate Services)",
+              "number": "+973 17574101"
+            },
+            {
+              "label": "Fax (Press and Public Affairs)",
+              "number": "+973 17574101"
+            },
+            {
+              "label": "Visa International Enquiry Service",
+              "number": "https://www.gov.uk/contact-ukvi-outside-uk "
+            },
+            {
+              "label": "Consular enquires",
+              "number": "BahrainConsularEnquires@fco.gov.uk"
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Transferring funds for prisoners / for financial assistance service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Issue certificate of no impediment",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Legalisation Service",
+              "type": "Other Services"
+            },
+            {
+              "title": "Lost or Stolen Passports",
+              "type": "Assistance Services"
+            }
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-bahrain",
+      "title": "UK Trade & Investment Bahrain",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-04-24T16:44:23.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-bahrain",
+      "details": {
+        "slug": "uk-trade-investment-bahrain"
+      },
+      "analytics_identifier": "WO204",
+      "offices": {
+        "main": {
+          "title": "UK Trade & Investment Bahrain",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:53.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-bahrain/office/uk-trade-investment-bahrain",
+          "details": {
+            "email": "UKTIBahrain@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "British Embassy",
+              "street-address": "21 Govt Avenue",
+              "postal-code": "",
+              "locality": "Manama",
+              "region": "",
+              "country-name": "Bahrain"
+            },
+            "label": {
+              "value": "British Embassy\n21 Govt Avenue\n Manama\nBahrain"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Enquiries",
+              "number": "+973 17 574 100"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "UK Trade & Investment",
+          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "details": {
+            "acronym": "UKTI"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/bahrain/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

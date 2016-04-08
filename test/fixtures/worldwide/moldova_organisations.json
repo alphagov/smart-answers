@@ -1,0 +1,115 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-chisinau",
+      "title": "British Embassy Chisinau",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-04-30T09:46:04.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-chisinau",
+      "details": {
+        "slug": "british-embassy-chisinau"
+      },
+      "analytics_identifier": "WO38",
+      "offices": {
+        "main": {
+          "title": "British Embassy Chisinau",
+          "format": "World Office",
+          "updated_at": "2013-06-28T17:04:45.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-chisinau/office/british-embassy",
+          "details": {
+            "email": "Enquiries.Chisinau@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h3 id=\"uk-visa-services\">UK Visa Services</h3>\n\n<p>By Telephone:      (+44 1243 217 936)</p>\n\n<p>Telephone contact service: speaking to an advisor will cost £1.37 plus the cost of the call.  Call costs will vary depending on the call type, the customer’s tariff and local charges.  Telephone enquiries from Moldova should be made to +44 1243 217 936 (0800 to 1600 Monday to Friday). </p>\n\n<p>By  Web-chat:      (https://synthetix.info/ukvi?country=Moldova)</p>\n\n<p>Web Chat with a live agent is a paid service, and there is a one off charge of £4.00 UK Sterling for each chat session.  You will be provided with a transcript of your chat at the end of the session.</p>\n\n<p>By e-mail:      (https://ukvi-international.faq-help.com/#)</p>\n\n<p>Email contact service: a web form enables customers to make email enquiries.  Please note that it can take up to 1 working day to respond to your questions by email. </p>\n\n<h3 id=\"consular-services\">Consular Services</h3>\n\n<p>Telephone: (+373) (22) 22 59 02 (select the language then press “2” for Consular  Services)</p>\n\n<p>Email Consular.Chisinau@fco.gov.uk</p>\n\n<h2 id=\"opening-times\">Opening times</h2>\n\n<h3 id=\"summer-mid-june-to-end-august-gmt-3-hours\">Summer, mid June to end August (GMT +3 hours)</h3>\n<ul>\n  <li>Monday to Thursday, 9am to 5:30pm </li>\n  <li>Friday, 9am to 1pm</li>\n</ul>\n\n<h3 id=\"winter-september-to-mid-june-gmt--2-hours\">Winter, September to mid June (GMT + 2 hours)</h3>\n<ul>\n  <li>Monday to Thursday, 9am to 5.30pm</li>\n  <li>Friday, 9am to 2pm</li>\n</ul>\n\n<h2 id=\"public-holidays\">2016 Public holidays</h2>\n\n<ul>\n  <li>\n    <p>Friday 1 January - in lieu of New Year’s Day</p>\n  </li>\n  <li>\n    <p>Thursday 7 January – Orthodox privilege Christmas Day</p>\n  </li>\n  <li>\n    <p>Friday 8 January – Orthodox privilege Christmas Day</p>\n  </li>\n  <li>\n    <p>Friday 25 March – Western Faith Good Friday</p>\n  </li>\n  <li>\n    <p>Monday 28 March – Western Faith Easter Monday</p>\n  </li>\n  <li>\n    <p>Monday 2 May – Orthodox Faith Easter Monday and UK May Bank Holiday</p>\n  </li>\n  <li>\n    <p>Monday 9 May – Day of the Deceased</p>\n  </li>\n  <li>\n    <p>Friday 27 May - HM The Queen’s Birthday privilege day</p>\n  </li>\n  <li>\n    <p>Monday 30 May - UK Spring Bank Holiday</p>\n  </li>\n  <li>\n    <p>Monday 29 Aug – UK late Summer Bank Holiday</p>\n  </li>\n  <li>\n    <p>Wednesday 31 August – Moldovan Language Day</p>\n  </li>\n  <li>\n    <p>Friday 14 October – Chisinau City Day</p>\n  </li>\n  <li>\n    <p>Monday 26 December - Boxing Day</p>\n  </li>\n  <li>\n    <p>Tuesday 27 December – Christmas Day</p>\n  </li>\n</ul>\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "18 Nicolae Iorga Str.",
+              "postal-code": "MD-2012",
+              "locality": "Chisinau",
+              "region": "",
+              "country-name": "Moldova"
+            },
+            "label": {
+              "value": "18 Nicolae Iorga Str.\nChisinau\nMD-2012\nMoldova"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "(+373) (22) 225 902"
+            },
+            {
+              "label": "Fax",
+              "number": "(+373) (22) 251 859"
+            },
+            {
+              "label": "Telephone: Consular section",
+              "number": "(+373) (22) 225 902"
+            },
+            {
+              "label": "Email",
+              "number": "Consular.Chisinau@fco.gov.uk"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/dfid-moldova",
+      "title": "DFID Moldova",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-04-29T12:31:52.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/dfid-moldova",
+      "details": {
+        "slug": "dfid-moldova"
+      },
+      "analytics_identifier": "WO342",
+      "offices": {
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Department for International Development",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-development",
+          "details": {
+            "acronym": "DFID"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/moldova/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

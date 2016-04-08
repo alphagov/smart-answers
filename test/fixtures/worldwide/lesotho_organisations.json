@@ -1,0 +1,173 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/dfid-south-africa",
+      "title": "DFID Southern Africa",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-10-25T13:47:20.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/dfid-south-africa",
+      "details": {
+        "slug": "dfid-south-africa"
+      },
+      "analytics_identifier": "WO244",
+      "offices": {
+        "main": {
+          "title": "DFID South Africa",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:54.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/dfid-south-africa/office/dfid-south-africa",
+          "details": {
+            "email": "enquiry @dfid.gov.uk ",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "255 Hill Street\r\nArcadia",
+              "postal-code": "0083",
+              "locality": "Tshwane",
+              "region": "",
+              "country-name": "South Africa"
+            },
+            "label": {
+              "value": "255 Hill Street\r\nArcadia\nTshwane\n0083\nSouth Africa"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Tel",
+              "number": "+27 (0) 12 4217500"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Department for International Development",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-development",
+          "details": {
+            "acronym": "DFID"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-high-commission-pretoria",
+      "title": "British High Commission Pretoria",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-03-13T07:57:55.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-pretoria",
+      "details": {
+        "slug": "british-high-commission-pretoria"
+      },
+      "analytics_identifier": "WO79",
+      "offices": {
+        "main": {
+          "title": "British High Commission, Pretoria",
+          "format": "World Office",
+          "updated_at": "2013-07-31T07:14:36.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-pretoria/office/british-high-commission-pretoria",
+          "details": {
+            "email": "southafrica.consulate@fco.gov.uk",
+            "description": "***\r\nVISA Enquiries: To speak to an adviser calls cost £1.37 per minute on top of the cost of the call. Payment will be required by credit or debit card. Acceptable cards are all forms of Visa Credit, Visa Debit, Mastercard Credit, Mastercard Debit and Maestro. \r\n\r\n***",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-times\">Opening times</h2>\n\n<h3 id=\"gmt\">GMT</h3>\n<p>Monday to Thursday 6am to 3pm and Friday 6am to 10:30am</p>\n\n<h3 id=\"local-time\">Local time</h3>\n<p>Monday to Thursday 8am to 5pm and Friday 8am to 12:30pm</p>\n\n<h3 id=\"consular-section\">Consular section</h3>\n<p>Monday to Thursday: 8am to 12pm</p>\n\n<h3 id=\"visa-section\">Visa section</h3>\n<p>Monday to Thursday 8am to 4pm and Friday 8am to 12:30pm</p>\n\n<h3 id=\"regional-passport-processing-centre-moved-to-the-uk\">Regional Passport Processing Centre moved to the UK.</h3>\n\n<h3 id=\"cape-town\">Cape Town</h3>\n<p>Monday to Thursday 8.30. to 12.30</p>\n\n<h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>The British Government is keen to ensure that buildings and services are fully accessible to disabled members of the public. Wherever possible, we have made our buildings and services accessible. Sometimes however, this is not possible due to security or other restrictions. In Pretoria, the High Commission is located in protected premises at 255 Hill Street (between Schoeman and Pretorius street) with the main entry for visitors being accessed from Hill Street. Access is controlled by security staff and all visitors are required to be cleared by security before being allowed access into the High Commission building. To assist disabled visitors, we have set out below details of disabled access at this High Commission. We hope this information is helpful.</p>\n\n<h3 id=\"general-physical-access\">General physical access</h3>\n\n<ul>\n  <li>Entrances: there is one easy access available into the main High Commission building and prior notification is desirable</li>\n  <li>Toilets: there are toilet facilities which can accommodate wheelchairs</li>\n  <li>Floor coverings, doorways, and handles are of standard design</li>\n  <li>The entrance area is well lit</li>\n  <li>Emergency/evacuation: evacuation is on foot leading to most of the exit points. In case of an emergency, the High Commission staff will be able to assist </li>\n</ul>\n\n<h3 id=\"access-for-visually-impaired-visitors\">Access for visually-impaired visitors</h3>\n\n<ul>\n  <li>Essential signage is clear and easy to read</li>\n  <li>Guide dogs are welcome</li>\n  <li>The Public Address system can be heard from all rooms within the building </li>\n</ul>\n\n<h3 id=\"access-for-deafhard-of-hearing-visitors\">Access for Deaf/hard of hearing visitors</h3>\n\n<ul>\n  <li>Hearing loops are not currently available</li>\n  <li>There are no minicom or textphones</li>\n  <li>There are no sign language facilities</li>\n  <li>Hearing dogs are welcome </li>\n</ul>\n\n<h3 id=\"contact-us\">Contact us</h3>\n\n<p>Please let us know if you have any special requirements or would like to check what facilities we have for people with disabilities. Contact our main receptionist at the High Commission on 012 421 7500 who will try to find an alternative way of providing access for you.</p>\n\n<h2 id=\"public-holidays-2016\">Public Holidays 2016</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Monday 21 March</td>\n      <td>Human Rights Day</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday and Family Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 27 April</td>\n      <td>Freedom Day</td>\n    </tr>\n    <tr>\n      <td>Monday 2 May</td>\n      <td>Workers’ Day(in lieu of Sunday 1 May)</td>\n    </tr>\n    <tr>\n      <td>Friday 27 May</td>\n      <td>Queen’s Birthday Privilege Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 30 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Thursday 16 June</td>\n      <td>Youth Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 9 August</td>\n      <td>National Women’s Day</td>\n    </tr>\n    <tr>\n      <td>Monday 29 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Saturday 24 September</td>\n      <td>Heritage Day</td>\n    </tr>\n    <tr>\n      <td>Friday 16 December</td>\n      <td>Reconciliation Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 24 December</td>\n      <td>Christmas Privilege Holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 27 December</td>\n      <td>Christmas Day(in lieu of Sunday 25 December)</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Day of Goodwill</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+            "type": "High Commission"
+          },
+          "address": {
+            "adr": {
+              "fn": "British High Commission ",
+              "street-address": "255 Hill Street\r\nArcadia",
+              "postal-code": "0028",
+              "locality": "Pretoria",
+              "region": "Pretoria",
+              "country-name": "South Africa"
+            },
+            "label": {
+              "value": "British High Commission \n255 Hill Street\r\nArcadia\nPretoria\nPretoria\n0028\nSouth Africa"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone - General and Consular enquiries",
+              "number": "+27 12 421 7500"
+            },
+            {
+              "label": "Fax - General enquiries",
+              "number": "+27 12 421 7599"
+            },
+            {
+              "label": "Fax - Consular enquiries",
+              "number": "+27 86 535 5422"
+            },
+            {
+              "label": "Telephone - Passport Enquiries",
+              "number": "+44 (0) 300 222 0000"
+            },
+            {
+              "label": "Telephone - Visa enquiries from within South Africa",
+              "number": "+27 21 300 3758"
+            },
+            {
+              "label": "Telephone - Visa enquiries from outside South Africa",
+              "number": "00 44 1243 217 959"
+            },
+            {
+              "label": "Fax - Visa enquiries",
+              "number": "+27 12 421 7888"
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Transferring funds for prisoners / for financial assistance service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Citizenship Ceremony service",
+              "type": "Documentary Services"
+            }
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/lesotho/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

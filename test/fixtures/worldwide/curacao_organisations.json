@@ -1,0 +1,101 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-consulate-general-amsterdam",
+      "title": "British Consulate General Amsterdam",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-04-15T14:26:01.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-consulate-general-amsterdam",
+      "details": {
+        "slug": "british-consulate-general-amsterdam"
+      },
+      "analytics_identifier": "WO333",
+      "offices": {
+        "main": {
+          "title": "British Consulate General Amsterdam",
+          "format": "World Office",
+          "updated_at": "2013-04-17T14:45:58.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-consulate-general-amsterdam/office/british-consulate-general-amsterdam",
+          "details": {
+            "email": "",
+            "description": "Documentary and notarial services by appointment only",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<p>Monday, Tuesday, Thursday and Friday, 09:00 to 12:30.</p>\n\n<p>To contact one of our Consular colleagues please call 0031 (0)20 676 4343 and follow the options for Consular Services. </p>\n\n<p>We operate a 24/7 service for the most urgent cases. </p>\n\n<h2 id=\"public-holidays\">2016 public holidays</h2>\n\n<p>The embassy and consulate will observe the following official holidays in 2016:</p>\n\n<ul>\n  <li>Friday 01 January </li>\n  <li>Friday 25 March</li>\n  <li>Monday 28 March</li>\n  <li>Wednesday 27 April </li>\n  <li>Monday 02 May</li>\n  <li>Thursday 05 May</li>\n  <li>Monday 16 May</li>\n  <li>Monday 30 May</li>\n  <li>Monday 29 August</li>\n  <li>Monday 26 December</li>\n  <li>Tuesday 27 December</li>\n</ul>\n\n<h2 id=\"disabled-access\">Disabled access</h2>\n<p>The Foreign and Commonwealth Office and our Embassy are keen to ensure that their buildings and services are fully accessible to disabled members of the public. Wherever possible, we have made our buildings and services accessible. Sometimes however, this is not possible due to security or other restrictions. In these situations we will endeavour to provide a service or access to a building in an alternative way to ensure equality of access for disabled people. To assist disabled visitors, we have set out below details of disabled access at this Consulate General. We hope this information is helpful.</p>\n\n<h3 id=\"general-physical-access\">General physical access</h3>\n<p>Access to the Consulate for wheelchairs is through the side entrance a few meters along the driveway into the rear carpark. Although there are no ramps, the ground surface is safe and secure.</p>\n\n<p>Inside the entrance to the former Consular waiting room,  doors are wide enough for wheelchair access to the interview room. Please contact us on +31 (0)70 4270 427 if you are arriving by car and would like assistance on arrival. Our security guards and staff will be happy to help.</p>\n\n<h3 id=\"access-for-visually-impaired-visitors\">Access for visually impaired visitors</h3>\n<p>Guide dogs are welcome.</p>\n\n<h3 id=\"access-for-deaf-and-hard-of-hearing-visitors\">Access for deaf and hard of hearing visitors</h3>\n<p>Hearing dogs are welcome.</p>\n</div>",
+            "type": "Consulate"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "Koningslaan 44",
+              "postal-code": "1075 AE",
+              "locality": "Amsterdam",
+              "region": "",
+              "country-name": "Netherlands"
+            },
+            "label": {
+              "value": "Koningslaan 44\n1075 AE Amsterdam\nNetherlands"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "+31 (0)20 676 4343"
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Births and Deaths registration service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Service of Process",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Notarial services",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Legalisation Service",
+              "type": "Other Services"
+            },
+            {
+              "title": "Registrations of Marriage and Civil Partnerships",
+              "type": "Documentary Services"
+            }
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/curacao/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-khartoum",
+      "title": "British Embassy Khartoum",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-09-29T16:10:03.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-khartoum",
+      "details": {
+        "slug": "british-embassy-khartoum"
+      },
+      "analytics_identifier": "WO102",
+      "offices": {
+        "main": {
+          "title": "British Embassy Khartoum",
+          "format": "World Office",
+          "updated_at": "2014-09-23T11:12:12.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-khartoum/office/british-embassy-khartoum-main-contact",
+          "details": {
+            "email": "information.khartoum@fco.gov.uk ",
+            "description": "Opening hours: \r\nEmbassy: \r\nSunday to Wednesday - 8am to 4pm\r\nThursday - 8am to 2:30pm\r\n\r\nConsular: \r\nSunday to Wednesday - 9am to 12pm \r\nThursday - Closed \r\nOutside of these opening hours we remain open to British nationals in distress only. \r\n\r\nVisa: \r\nSunday to Wednesday - Applications by appointment - 8:30am to 12pm\r\nThursday - Applications by appointment - 8:30am to 11am\r\nSunday to Thursday - collections by invitation - 1pm to 2pm\r\n\r\nPassport:\r\nSunday to Tuesday & Thursday - Applications - 8:30am to 11am\r\nSunday to Tuesday & Thursday - collections by invitation - 1pm to 2pm\r\nWednesday - Closed\r\n",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Our office will be closed for the following public holidays in 2016:</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Thursday 1 January</td>\n      <td>New Years Day/ Independence Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 7 January</td>\n      <td>Orthodox Christmas</td>\n    </tr>\n    <tr>\n      <td>Sunday 27 March</td>\n      <td>Easter Sunday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Sunday 1 May</td>\n      <td>Eastern Easter</td>\n    </tr>\n    <tr>\n      <td>Monday 2 May</td>\n      <td>Eastern Easter (Shamelnasim)&amp; May Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 May</td>\n      <td>Queen’s Birthday</td>\n    </tr>\n    <tr>\n      <td>Wednesday 6 July</td>\n      <td>Eid Elfitr *</td>\n    </tr>\n    <tr>\n      <td>Thursday 7 July</td>\n      <td>Eid Elfitr *</td>\n    </tr>\n    <tr>\n      <td>Sunday 11 September</td>\n      <td>Eid El Adha *</td>\n    </tr>\n    <tr>\n      <td>Monday 12 September</td>\n      <td>Eid El Adha *</td>\n    </tr>\n    <tr>\n      <td>Tuesday 13 September</td>\n      <td>Eid El Adha *</td>\n    </tr>\n    <tr>\n      <td>Sunday 2 October</td>\n      <td>New Hijri Year*</td>\n    </tr>\n    <tr>\n      <td>Sunday 11 December</td>\n      <td>Elmulid Elnabawi*</td>\n    </tr>\n    <tr>\n      <td>Sunday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>*Dates to be confirmed</p>\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "British Embassy",
+              "street-address": "off Sharia Al Baladia\r\nKhartoum East",
+              "postal-code": "(PO Box No 801)",
+              "locality": "Khartoum",
+              "region": "Khartoum",
+              "country-name": "Sudan"
+            },
+            "label": {
+              "value": "British Embassy\noff Sharia Al Baladia\r\nKhartoum East\nKhartoum\nKhartoum\n(PO Box No 801)\nSudan"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "+249 (0)156 775500 "
+            },
+            {
+              "label": "Fax",
+              "number": "+249 (0)156 775501"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+          {
+            "title": "Visa Section",
+            "format": "World Office",
+            "updated_at": "2014-02-21T08:50:20.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-khartoum/office/visa-section",
+            "details": {
+              "email": "",
+              "description": "",
+              "contact_form_url": "https://www.gov.uk/contact-ukvi-outside-uk",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<h3 id=\"visa-application-submission\">Visa Application Submission</h3>\n\n<p>The Visa Application Centre at the British Embassy is open for application submission Sunday to Wednesday 8:30 am to 12:30 pm and Thursday 8:30 am to 10:30 am.</p>\n\n<h3 id=\"passport-collection\">Passport Collection</h3>\n\n<p>The Visa Application Centre at the British Embassy is open for passport collection Sunday to Wednesday 1 pm to 2 pm and Thursday 12 pm - 1 pm . </p>\n\n<h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Our office will be closed for the following public holidays in 2016:</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Thursday 1 January</td>\n      <td>New Years Day/ Independence Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 7 January</td>\n      <td>Orthodox Christmas</td>\n    </tr>\n    <tr>\n      <td>Sunday 27 March</td>\n      <td>Easter Sunday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Sunday 1 May</td>\n      <td>Eastern Easter</td>\n    </tr>\n    <tr>\n      <td>Monday 2 May</td>\n      <td>Eastern Easter (Shamelnasim)&amp; May Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 May</td>\n      <td>Queen’s Birthday</td>\n    </tr>\n    <tr>\n      <td>Wednesday 6 July</td>\n      <td>Eid Elfitr *</td>\n    </tr>\n    <tr>\n      <td>Thursday 7 July</td>\n      <td>Eid Elfitr *</td>\n    </tr>\n    <tr>\n      <td>Sunday 11 September</td>\n      <td>Eid El Adha *</td>\n    </tr>\n    <tr>\n      <td>Monday 12 September</td>\n      <td>Eid El Adha *</td>\n    </tr>\n    <tr>\n      <td>Tuesday 13 September</td>\n      <td>Eid El Adha *</td>\n    </tr>\n    <tr>\n      <td>Sunday 2 October</td>\n      <td>New Hijri Year*</td>\n    </tr>\n    <tr>\n      <td>Sunday 11 December</td>\n      <td>Elmulid Elnabawi*</td>\n    </tr>\n    <tr>\n      <td>Sunday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>*Dates to be confirmed</p>\n</div>",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "British Embassy",
+                "street-address": "Al-Baladiya Street",
+                "postal-code": "11111",
+                "locality": "Khartoum",
+                "region": "Africa",
+                "country-name": "Sudan"
+              },
+              "label": {
+                "value": "British Embassy\nAl-Baladiya Street\nKhartoum\nAfrica\n11111\nSudan"
+              }
+            },
+            "contact_numbers": [
+
+            ],
+            "services": [
+
+            ]
+          }
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/dfid-sudan",
+      "title": "DFID Sudan",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-10-25T13:50:46.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/dfid-sudan",
+      "details": {
+        "slug": "dfid-sudan"
+      },
+      "analytics_identifier": "WO312",
+      "offices": {
+        "main": {
+          "title": "DFID Sudan",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:55.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/dfid-sudan/office/dfid-sudan",
+          "details": {
+            "email": "enquiry@dfid.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "British Embassy, \r\noff Sharia al-Baladiya \r\nP.O. Box 801 ",
+              "postal-code": "",
+              "locality": "Khartoum",
+              "region": "",
+              "country-name": "Sudan"
+            },
+            "label": {
+              "value": "British Embassy, \r\noff Sharia al-Baladiya \r\nP.O. Box 801 \nKhartoum\nSudan"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Fax:",
+              "number": "+249 15 677 5656"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Department for International Development",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-development",
+          "details": {
+            "acronym": "DFID"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/sudan/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

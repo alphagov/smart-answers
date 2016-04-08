@@ -1,0 +1,138 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-high-commission-wellington",
+      "title": "British High Commission Wellington",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-12-18T02:26:44.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-wellington",
+      "details": {
+        "slug": "british-high-commission-wellington"
+      },
+      "analytics_identifier": "WO264",
+      "offices": {
+        "main": {
+          "title": "British High Commission New Zealand",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:54.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-wellington/office/british-high-commission-new-zealand",
+          "details": {
+            "email": "",
+            "description": "Opening hours:\r\nMonday to Friday - 9.00am to 5.00pm \r\nConsular visiting hours\r\nMonday to Friday - 9.00am to 1.00pm",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"disabled-access\">Disabled access</h2>\n\n<h3 id=\"general-physical-access---public-areas\">General physical access - Public Areas</h3>\n\n<ul>\n  <li>Entrances\n    <ul>\n      <li>All entrances are clear &amp; unobstructed, guard is available if necessary to open doors etc. </li>\n    </ul>\n  </li>\n  <li>Steps and staircases<br>\n    <ul>\n      <li>There are stairs but there is access to the consular waiting area via and alternative route without stairs. </li>\n    </ul>\n  </li>\n  <li>Ramps – are mobile ones accessible? \n    <ul>\n      <li>No - none necessary. </li>\n    </ul>\n  </li>\n  <li>Lifts<br>\n    <ul>\n      <li>A lift to all floors is available </li>\n    </ul>\n  </li>\n  <li>Toilets<br>\n    <ul>\n      <li>Disabled toilet on the ground floor </li>\n    </ul>\n  </li>\n  <li>Parking – are there designated disabled spaces?\n    <ul>\n      <li>No reserved space but parking available with transfer space </li>\n    </ul>\n  </li>\n  <li>\n    <p>Floor coverings \n*All  floor coverings are safe and even </p>\n  </li>\n  <li>Handrails \n    <ul>\n      <li>No handrails available across courtyard</li>\n    </ul>\n  </li>\n  <li>Lighting \n    <ul>\n      <li>There is good lighting. </li>\n    </ul>\n  </li>\n  <li>Signs \n    <ul>\n      <li>Signs are clear.</li>\n    </ul>\n  </li>\n  <li>Emergency/evacuation – arrangements for emergencies / evacuation for disabled visitors. \n    <ul>\n      <li>There is a separate procedure for this in the building evacuation plan </li>\n    </ul>\n  </li>\n  <li>Telephones \n    <ul>\n      <li>No phone in public areas </li>\n    </ul>\n  </li>\n</ul>\n\n<h3 id=\"for-visually-impaired-visitors\">For visually impaired visitors</h3>\n\n<ul>\n  <li>Braille\n    <ul>\n      <li>There are no braille signs, but assistance can be given for the reading of material </li>\n    </ul>\n  </li>\n  <li>Guide dogs \n    <ul>\n      <li>Guide dogs are welcome  </li>\n    </ul>\n  </li>\n</ul>\n\n<h3 id=\"for-hearing-impaired-visitors\">For hearing impaired visitors</h3>\n\n<ul>\n  <li>Hearing loop \n    <ul>\n      <li>Amplifier installed at visa / passport counter and main reception area </li>\n    </ul>\n  </li>\n  <li>Minicom and textphones \n    <ul>\n      <li>There are no minicom or textphones </li>\n    </ul>\n  </li>\n  <li>Sign language \n    <ul>\n      <li>There is at least one member of staff trained in BSL </li>\n    </ul>\n  </li>\n  <li>Interpretation \n    <ul>\n      <li>Interpretation is available by arrangement </li>\n    </ul>\n  </li>\n  <li>Hearing dogs\n    <ul>\n      <li>Hearing dogs are welcome </li>\n    </ul>\n  </li>\n</ul>\n</div>",
+            "type": "High Commission"
+          },
+          "address": {
+            "adr": {
+              "fn": "British High Commission",
+              "street-address": "44 Hill Street\r\n",
+              "postal-code": "6011",
+              "locality": "Wellington",
+              "region": "Thorndon",
+              "country-name": "New Zealand"
+            },
+            "label": {
+              "value": "British High Commission\n44 Hill Street\r\nThorndon\nWellington 6011\nNew Zealand"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "+64 (0) 4 924 2888"
+            },
+            {
+              "label": "Fax",
+              "number": "+64 (0) 4 473 4982"
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Transferring funds for prisoners / for financial assistance service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Citizenship Ceremony service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Lost or Stolen Passports",
+              "type": "Assistance Services"
+            }
+          ]
+        },
+        "other": [
+          {
+            "title": "British Consulate-General Auckland ",
+            "format": "World Office",
+            "updated_at": "2013-03-25T10:37:54.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-wellington/office/british-consulate-general-auckland",
+            "details": {
+              "email": "",
+              "description": "Opening hours:\r\nMonday to Friday  9.00am to 1.00pm",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"disabled-access\">Disabled access</h2>\n\n<h3 id=\"general-physical-access---public-areas\">General physical access - Public Areas</h3>\n\n<ul>\n  <li>Entrances\n    <ul>\n      <li>All entrances are clear &amp; unobstructed, guard is available if necessary to open doors etc. </li>\n    </ul>\n  </li>\n  <li>Steps and staircases<br>\n    <ul>\n      <li>There are stairs but there is access to the consular waiting area via and alternative route without stairs. </li>\n    </ul>\n  </li>\n  <li>Ramps – are mobile ones accessible? \n    <ul>\n      <li>No - none necessary. </li>\n    </ul>\n  </li>\n  <li>Lifts<br>\n    <ul>\n      <li>A lift to all floors is available </li>\n    </ul>\n  </li>\n  <li>Toilets<br>\n    <ul>\n      <li>Disabled toilet on the ground floor </li>\n    </ul>\n  </li>\n  <li>Parking – are there designated disabled spaces?\n    <ul>\n      <li>No reserved space but parking available with transfer space </li>\n    </ul>\n  </li>\n  <li>\n    <p>Floor coverings \n*All  floor coverings are safe and even </p>\n  </li>\n  <li>Handrails \n    <ul>\n      <li>No handrails available across courtyard</li>\n    </ul>\n  </li>\n  <li>Lighting \n    <ul>\n      <li>There is good lighting. </li>\n    </ul>\n  </li>\n  <li>Signs \n    <ul>\n      <li>Signs are clear.</li>\n    </ul>\n  </li>\n  <li>Emergency/evacuation – arrangements for emergencies / evacuation for disabled visitors. \n    <ul>\n      <li>There is a separate procedure for this in the building evacuation plan </li>\n    </ul>\n  </li>\n  <li>Telephones \n    <ul>\n      <li>No phone in public areas </li>\n    </ul>\n  </li>\n</ul>\n\n<h3 id=\"for-visually-impaired-visitors\">For visually impaired visitors</h3>\n\n<ul>\n  <li>Braille\n    <ul>\n      <li>There are no braille signs, but assistance can be given for the reading of material </li>\n    </ul>\n  </li>\n  <li>Guide dogs \n    <ul>\n      <li>Guide dogs are welcome  </li>\n    </ul>\n  </li>\n</ul>\n\n<h3 id=\"for-hearing-impaired-visitors\">For hearing impaired visitors</h3>\n\n<ul>\n  <li>Hearing loop \n    <ul>\n      <li>Amplifier installed at visa / passport counter and main reception area </li>\n    </ul>\n  </li>\n  <li>Minicom and textphones \n    <ul>\n      <li>There are no minicom or textphones </li>\n    </ul>\n  </li>\n  <li>Sign language \n    <ul>\n      <li>There is at least one member of staff trained in BSL </li>\n    </ul>\n  </li>\n  <li>Interpretation \n    <ul>\n      <li>Interpretation is available by arrangement </li>\n    </ul>\n  </li>\n  <li>Hearing dogs\n    <ul>\n      <li>Hearing dogs are welcome </li>\n    </ul>\n  </li>\n</ul>\n\n<h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Please note the Wellington High Commission and Auckland Consulate are closed on the following dates:</p>\n\n<ul>\n  <li>Monday 27 April Anzac Day</li>\n  <li>Monday 25 May Spring Bank Holiday</li>\n  <li>Monday 1 June Queen’s Birthday</li>\n  <li>Monday 31 August Summer Bank Holiday</li>\n  <li>Monday 26 October Labour Day</li>\n  <li>Thursday 24 December Christmas Eve</li>\n  <li>Friday 25 December Christmas Day</li>\n  <li>Monday 28 December Boxing Day</li>\n</ul>\n</div>",
+              "type": "Consulate"
+            },
+            "address": {
+              "adr": {
+                "fn": "British Consulate-General Auckland ",
+                "street-address": "Level 17 ",
+                "postal-code": "1142",
+                "locality": "151 Queen Street",
+                "region": "Auckland ",
+                "country-name": "New Zealand"
+              },
+              "label": {
+                "value": "British Consulate-General Auckland \nLevel 17 \nAuckland \n151 Queen Street 1142\nNew Zealand"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Telephone",
+                "number": "+64 (0) 9 303 2973"
+              }
+            ],
+            "services": [
+              {
+                "title": "Emergency Travel Documents service",
+                "type": "Assistance Services"
+              },
+              {
+                "title": "Lost or Stolen Passports",
+                "type": "Assistance Services"
+              }
+            ]
+          }
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/samoa/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

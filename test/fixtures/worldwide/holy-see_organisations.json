@@ -1,0 +1,85 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-holy-see",
+      "title": "British Embassy Holy See",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-03-21T20:54:01.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-holy-see",
+      "details": {
+        "slug": "british-embassy-holy-see"
+      },
+      "analytics_identifier": "WO51",
+      "offices": {
+        "main": {
+          "title": "British Embassy Holy See",
+          "format": "World Office",
+          "updated_at": "2013-06-27T20:53:58.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-holy-see/office/british-embassy",
+          "details": {
+            "email": "HolySee@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<p>Monday to Friday, 9am to 5pm</p>\n\n<h2 id=\"public-holidays\">2016 public holidays</h2>\n<ul>\n  <li>Friday 1 January</li>\n  <li>Wednesday 6 January</li>\n  <li>Friday 25 March</li>\n  <li>Monday 28 March</li>\n  <li>Monday 25 April</li>\n  <li>Monday 2 May</li>\n  <li>Thursday 2 June</li>\n  <li>Wednesday 29 June</li>\n  <li>Monday 15 August</li>\n  <li>Monday 29 August</li>\n  <li>Tuesday 1 November</li>\n  <li>Thursday 8 December</li>\n  <li>Monday 26 December</li>\n  <li>Tuesday 27 December</li>\n</ul>\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "Via XX Settembre 80/a",
+              "postal-code": "00187",
+              "locality": "Rome",
+              "region": "",
+              "country-name": "Italy"
+            },
+            "label": {
+              "value": "Via XX Settembre 80/a\n00187 Rome \nItaly"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "+39 06 4220 4000"
+            },
+            {
+              "label": "Fax",
+              "number": "+39 06 4220 4205"
+            }
+          ],
+          "services": [
+            {
+              "title": "Overseas Passports Service",
+              "type": "Other Services"
+            }
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/holy-see/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

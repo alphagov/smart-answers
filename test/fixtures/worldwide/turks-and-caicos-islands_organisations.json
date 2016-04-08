@@ -1,0 +1,82 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/the-governors-office-turk-and-caicos-islands",
+      "title": "Governor's Office Waterloo Grand Turk",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-04-02T22:21:14.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/the-governors-office-turk-and-caicos-islands",
+      "details": {
+        "slug": "the-governors-office-turk-and-caicos-islands"
+      },
+      "analytics_identifier": "WO1",
+      "offices": {
+        "main": {
+          "title": "Contact us",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:51.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/the-governors-office-turk-and-caicos-islands/office/contact-us",
+          "details": {
+            "email": "governorgt@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><p>The Governor’s Office is open Monday to Friday from 8.00am until 4.30pm, except for public holidays.</p>\n\n<h2 id=\"turks-and-caicos-islands-public-holidays-2014\">Turks and Caicos Islands Public Holidays 2014</h2>\n\n<ul>\n  <li>\n    <p>1 January 2014 - New Year’s Day </p>\n  </li>\n  <li>\n    <p>10 March 2014 - Commonwealth Day</p>\n  </li>\n  <li>\n    <p>18 April 2014 - Good Friday</p>\n  </li>\n  <li>\n    <p>21 April 2014 - Easter Monday</p>\n  </li>\n  <li>\n    <p>26 May 2014 - National Heroes Day</p>\n  </li>\n  <li>\n    <p>16 June 2014 - HM the Queen’s Official Birthday</p>\n  </li>\n  <li>\n    <p>4 August 2014 - Emancipation Day</p>\n  </li>\n  <li>\n    <p>26 September 2014 - National Youth Day</p>\n  </li>\n  <li>\n    <p>13 October 2014 - National Heritage Day, formerly Columbus Day (October is National Heritage month) </p>\n  </li>\n  <li>\n    <p>28 November 2014 - National Day of Thanksgiving </p>\n  </li>\n  <li>\n    <p>25 December 2014 - Christmas Day</p>\n  </li>\n  <li>\n    <p>26 December 2014 - Boxing Day </p>\n  </li>\n</ul>\n\n<h3 id=\"the-following-important-days-are-not-public-holidays\">The following important days are not public holidays</h3>\n\n<ul>\n  <li>\n    <p>10 November 2014 - Remembrance Day</p>\n  </li>\n  <li>\n    <p>10 December 2014 - International Human Rights Day             </p>\n  </li>\n</ul>\n</div>",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "",
+              "postal-code": "",
+              "locality": "",
+              "region": "",
+              "country-name": ""
+            },
+            "label": {
+              "value": ""
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Switchboard",
+              "number": "649 946 2308/9"
+            },
+            {
+              "label": "Facsmile",
+              "number": "649 946 2903"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/turks-and-caicos-islands/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

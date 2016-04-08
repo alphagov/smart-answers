@@ -1,0 +1,228 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-high-commission-yaounde",
+      "title": "British High Commission Yaounde",
+      "format": "Worldwide Organisation",
+      "updated_at": "2015-10-01T16:01:41.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-yaounde",
+      "details": {
+        "slug": "british-high-commission-yaounde"
+      },
+      "analytics_identifier": "WO98",
+      "offices": {
+        "main": {
+          "title": "British High Commission Yaounde",
+          "format": "World Office",
+          "updated_at": "2014-03-13T09:29:07.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-yaounde/office/british-high-commission-yaounde",
+          "details": {
+            "email": "bhc.yaounde@fco.gov.uk    ",
+            "description": "\r\n",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"office-hours\">Office Hours:</h2>\n\n<p>Monday to Thursday (Local Time): 7:45am - 15:45pm</p>\n\n<p>Friday: 7:45am - 1:45pm</p>\n\n<h3 id=\"visa-interview-hours\">Visa Interview Hours:</h3>\n\n<p>Monday to Thursday (Local Time): 8:30am - 12:30am</p>\n\n<p>Friday: 8:30am - 11:30am</p>\n\n<h4 id=\"visa-pickup-hours\">Visa Pickup Hours:</h4>\n\n<p>Monday to Thursday (Local Time): 2:00pm</p>\n\n<p>Friday (Local Time): 12:00 noon</p>\n\n<h5 id=\"public-holidays-2016\">Public Holidays 2016</h5>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 01 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Thursday  11 February</td>\n      <td>Youth day</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 02 May</td>\n      <td>International Labour Day (in lieu) Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Thursday 05 May</td>\n      <td>Ascension</td>\n    </tr>\n    <tr>\n      <td>Friday 20 May</td>\n      <td>Cameroon National Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 07 July</td>\n      <td>Eid Al Fitr</td>\n    </tr>\n    <tr>\n      <td>Monday  15 August</td>\n      <td>Assumption</td>\n    </tr>\n    <tr>\n      <td>Monday 29 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 13 September</td>\n      <td>Eid al Adha</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 December</td>\n      <td>Christmas Holiday</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+            "type": "High Commission"
+          },
+          "address": {
+            "adr": {
+              "fn": "British High Commission in Yaounde",
+              "street-address": "Avenue Winston Churchill",
+              "postal-code": "547",
+              "locality": "Yaounde",
+              "region": "Centre Region",
+              "country-name": "Cameroon"
+            },
+            "label": {
+              "value": "British High Commission in Yaounde\nAvenue Winston Churchill\nYaounde\nCentre Region\n547\nCameroon"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "+237 222 22 07 96 "
+            },
+            {
+              "label": "Telephone",
+              "number": "+237 222 22 33 47 "
+            },
+            {
+              "label": "Fax",
+              "number": "+237 222 22 01 48"
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Transferring funds for prisoners / for financial assistance service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Births and Deaths registration service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Overseas Passports Service",
+              "type": "Other Services"
+            }
+          ]
+        },
+        "other": [
+          {
+            "title": "Honorary Consul Libreville",
+            "format": "World Office",
+            "updated_at": "2015-10-01T15:53:01.000+01:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-yaounde/office/honorary-consul-for-gabon",
+            "details": {
+              "email": "maranteharwood@mac.com",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"office-hours\">Office Hours:</h2>\n\n<p>Monday to Friday (Local Time): 7:45am - 3:45pm</p>\n\n<p>Friday: 7:45am - 1:45pm </p>\n\n<p>Monday to Thursday (Local Time): 7:45am - 15:45pm</p>\n\n<p>Friday: 7:45am - 1:45pm</p>\n\n<h3 id=\"visa-interview-hours\">Visa Interview Hours:</h3>\n\n<p>Monday to Thursday (Local Time): 7:45am - 2:30pm</p>\n\n<p>Friday (Local Time): 7:45 - 10:30am</p>\n\n<h3 id=\"visa-pickup-hours\">Visa Pickup Hours:</h3>\n\n<p>Monday to Thursday (Local Time): 2:00pm</p>\n\n<p>Friday (Local Time): 11:00am</p>\n\n<h2 id=\"public-holidays-2016\">Public Holidays 2016:</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Thurday11 February</td>\n      <td>Youth day</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 May</td>\n      <td>International Labour Day (in lieu)</td>\n    </tr>\n    <tr>\n      <td>Thursday 5 May</td>\n      <td>Ascension Day</td>\n    </tr>\n    <tr>\n      <td>Friday 20 May</td>\n      <td>Cameroon National Day</td>\n    </tr>\n    <tr>\n      <td>Monday 30 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Thursday 7 July</td>\n      <td>Eid Al Fitr Day</td>\n    </tr>\n    <tr>\n      <td>Monday 15 August</td>\n      <td>Assumption Day</td>\n    </tr>\n    <tr>\n      <td>Monday 29 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Tuesday13 September</td>\n      <td>Eid al Adha</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 December</td>\n      <td>Christmas Day Holiday</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+              "type": "Honorary Consul"
+            },
+            "address": {
+              "adr": {
+                "fn": "Marante Harwood",
+                "street-address": " Libreville",
+                "postal-code": "+241",
+                "locality": "Libreville",
+                "region": "Gabon",
+                "country-name": "Gabon"
+              },
+              "label": {
+                "value": "Marante Harwood\n Libreville\nLibreville\nGabon\n+241\nGabon"
+              }
+            },
+            "contact_numbers": [
+
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "Honorary Consul N'Djamena",
+            "format": "World Office",
+            "updated_at": "2015-10-01T16:06:23.000+01:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-yaounde/office/honorary-consul-for-chad",
+            "details": {
+              "email": "sbanks@pmbx.net",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"office-hours\">Office Hours:</h2>\n\n<p>Monday to Friday (Local Time): 7:45am - 3:45pm</p>\n\n<p>Friday: 7:45am - 1:45pm </p>\n\n<p>Monday to Thursday (Local Time): 7:45am - 15:45pm</p>\n\n<p>Friday: 7:45am - 1:45pm</p>\n\n<h3 id=\"visa-interview-hours\">Visa Interview Hours:</h3>\n\n<p>Monday to Thursday (Local Time): 7:45am - 2:30pm</p>\n\n<p>Friday (Local Time): 7:45 - 10:30am</p>\n\n<h3 id=\"visa-pickup-hours\">Visa Pickup Hours:</h3>\n\n<p>Monday to Thursday (Local Time): 2:00pm</p>\n\n<p>Friday (Local Time): 11:00am</p>\n\n<h2 id=\"public-holidays-2016\">Public Holidays 2016:</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Thurday11 February</td>\n      <td>Youth day</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 May</td>\n      <td>International Labour Day (in lieu)</td>\n    </tr>\n    <tr>\n      <td>Thursday 5 May</td>\n      <td>Ascension Day</td>\n    </tr>\n    <tr>\n      <td>Friday 20 May</td>\n      <td>Cameroon National Day</td>\n    </tr>\n    <tr>\n      <td>Monday 30 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Thursday 7 July</td>\n      <td>Eid Al Fitr Day</td>\n    </tr>\n    <tr>\n      <td>Monday 15 August</td>\n      <td>Assumption Day</td>\n    </tr>\n    <tr>\n      <td>Monday 29 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Tuesday13 September</td>\n      <td>Eid al Adha</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 December</td>\n      <td>Christmas Day Holiday</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+              "type": "Honorary Consul"
+            },
+            "address": {
+              "adr": {
+                "fn": "Mr. Steve Banks",
+                "street-address": "N'Djamena",
+                "postal-code": "+235",
+                "locality": "N'Djamena",
+                "region": "",
+                "country-name": "Chad"
+              },
+              "label": {
+                "value": "Mr. Steve Banks\nN'Djamena\nN'Djamena\n+235\nChad"
+              }
+            },
+            "contact_numbers": [
+
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "Honorary Consul Malabo",
+            "format": "World Office",
+            "updated_at": "2015-10-01T16:08:47.000+01:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-yaounde/office/honorary-consul-for-malabo",
+            "details": {
+              "email": "ShawD@rpsgroup.com",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"office-hours\">Office Hours:</h2>\n\n<p>Monday to Friday (Local Time): 7:45am - 3:45pm</p>\n\n<p>Friday: 7:45am - 1:45pm </p>\n\n<p>Monday to Thursday (Local Time): 7:45am - 15:45pm</p>\n\n<p>Friday: 7:45am - 1:45pm</p>\n\n<h3 id=\"visa-interview-hours\">Visa Interview Hours:</h3>\n\n<p>Monday to Thursday (Local Time): 7:45am - 2:30pm</p>\n\n<p>Friday (Local Time): 7:45 - 10:30am</p>\n\n<h3 id=\"visa-pickup-hours\">Visa Pickup Hours:</h3>\n\n<p>Monday to Thursday (Local Time): 2:00pm</p>\n\n<p>Friday (Local Time): 11:00am</p>\n\n<h2 id=\"public-holidays-2016\">Public Holidays 2016:</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Thurday11 February</td>\n      <td>Youth day</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 May</td>\n      <td>International Labour Day (in lieu)</td>\n    </tr>\n    <tr>\n      <td>Thursday 5 May</td>\n      <td>Ascension Day</td>\n    </tr>\n    <tr>\n      <td>Friday 20 May</td>\n      <td>Cameroon National Day</td>\n    </tr>\n    <tr>\n      <td>Monday 30 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Thursday 7 July</td>\n      <td>Eid Al Fitr Day</td>\n    </tr>\n    <tr>\n      <td>Monday 15 August</td>\n      <td>Assumption Day</td>\n    </tr>\n    <tr>\n      <td>Monday 29 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Tuesday13 September</td>\n      <td>Eid al Adha</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 December</td>\n      <td>Christmas Day Holiday</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+              "type": "Honorary Consul"
+            },
+            "address": {
+              "adr": {
+                "fn": "Mr. David Shaw",
+                "street-address": "Malabo",
+                "postal-code": "+240",
+                "locality": "",
+                "region": "",
+                "country-name": "Equatorial Guinea"
+              },
+              "label": {
+                "value": "Mr. David Shaw\nMalabo\n+240\nEquatorial Guinea"
+              }
+            },
+            "contact_numbers": [
+
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "Honorary Consul Douala",
+            "format": "World Office",
+            "updated_at": "2015-10-01T16:15:34.000+01:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-yaounde/office/honorary-consul-douala",
+            "details": {
+              "email": "elias.pungong@cm.ey.com",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"office-hours\">Office Hours:</h2>\n\n<p>Monday to Friday (Local Time): 7:45am - 3:45pm</p>\n\n<p>Friday: 7:45am - 1:45pm </p>\n\n<p>Monday to Thursday (Local Time): 7:45am - 15:45pm</p>\n\n<p>Friday: 7:45am - 1:45pm</p>\n\n<h3 id=\"visa-interview-hours\">Visa Interview Hours:</h3>\n\n<p>Monday to Thursday (Local Time): 7:45am - 2:30pm</p>\n\n<p>Friday (Local Time): 7:45 - 10:30am</p>\n\n<h3 id=\"visa-pickup-hours\">Visa Pickup Hours:</h3>\n\n<p>Monday to Thursday (Local Time): 2:00pm</p>\n\n<p>Friday (Local Time): 11:00am</p>\n\n<h2 id=\"public-holidays-2016\">Public Holidays 2016:</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Thurday11 February</td>\n      <td>Youth day</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 May</td>\n      <td>International Labour Day (in lieu)</td>\n    </tr>\n    <tr>\n      <td>Thursday 5 May</td>\n      <td>Ascension Day</td>\n    </tr>\n    <tr>\n      <td>Friday 20 May</td>\n      <td>Cameroon National Day</td>\n    </tr>\n    <tr>\n      <td>Monday 30 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Thursday 7 July</td>\n      <td>Eid Al Fitr Day</td>\n    </tr>\n    <tr>\n      <td>Monday 15 August</td>\n      <td>Assumption Day</td>\n    </tr>\n    <tr>\n      <td>Monday 29 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Tuesday13 September</td>\n      <td>Eid al Adha</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 December</td>\n      <td>Christmas Day Holiday</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+              "type": "Honorary Consul"
+            },
+            "address": {
+              "adr": {
+                "fn": "Mr. Elias Pungong",
+                "street-address": "Douala",
+                "postal-code": "+237",
+                "locality": "Douala",
+                "region": "",
+                "country-name": "Cameroon"
+              },
+              "label": {
+                "value": "Mr. Elias Pungong\nDouala\nDouala\n+237\nCameroon"
+              }
+            },
+            "contact_numbers": [
+
+            ],
+            "services": [
+
+            ]
+          }
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/gabon/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

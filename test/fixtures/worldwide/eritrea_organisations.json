@@ -1,0 +1,82 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-asmara",
+      "title": "British Embassy Asmara",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-05-30T07:45:00.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-asmara",
+      "details": {
+        "slug": "british-embassy-asmara"
+      },
+      "analytics_identifier": "WO104",
+      "offices": {
+        "main": {
+          "title": "British Embassy Asmara",
+          "format": "World Office",
+          "updated_at": "2014-09-23T11:12:12.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-asmara/office/british-embassy-asmara",
+          "details": {
+            "email": "Asmara.Enquiries@fco.gov.uk ",
+            "description": "Office Hours: \r\nMonday to Thursday  (GMT)\r\n5am - 1:30pm\r\nFriday\r\n5am - 9:30pm\r\nMonday to Thursday (Local Time)\r\n8am - 4:30pm\r\nFriday\r\n8am - 12:30pm",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "66-68 Mariam Ghimbi Street\r\nZip Code 174\r\nPO Box 5584\r\nAsmara",
+              "postal-code": "",
+              "locality": "Asmara",
+              "region": "",
+              "country-name": "Eritrea"
+            },
+            "label": {
+              "value": "66-68 Mariam Ghimbi Street\r\nZip Code 174\r\nPO Box 5584\r\nAsmara\nAsmara\nEritrea"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "+ 291 1 20 28 39"
+            },
+            {
+              "label": "Fax",
+              "number": "+ 291 1 12 01 04  "
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/eritrea/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-micronesia",
+      "title": "British Embassy Micronesia",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-08-05T04:08:39.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-micronesia",
+      "details": {
+        "slug": "british-embassy-micronesia"
+      },
+      "analytics_identifier": "WO362",
+      "offices": {
+        "main": {
+          "title": "British High Commission Suva",
+          "format": "World Office",
+          "updated_at": "2013-08-05T03:58:34.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-micronesia/office/british-high-commission-suva",
+          "details": {
+            "email": "publicdiplomacy@fco.gov.uk",
+            "description": "Office hours:\r\nMonday to Thursday: 8am to 12:40pm / 1pm to 4pm \r\nFriday: 8am to 1pm \r\n\r\nOpening hours for visas, consular and immigration: \r\nMonday to Thursday: 10am to 12pm",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "High Commission"
+          },
+          "address": {
+            "adr": {
+              "fn": "British High Commission Suva",
+              "street-address": "47 Gladstone Road",
+              "postal-code": "",
+              "locality": "Suva",
+              "region": "Fiji",
+              "country-name": "Fiji"
+            },
+            "label": {
+              "value": "British High Commission Suva\n47 Gladstone Road\nSuva\nFiji\nFiji"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "+679 3229 100"
+            },
+            {
+              "label": "Fax",
+              "number": "+679 3229 132"
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Transferring funds for prisoners / for financial assistance service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Registrations of Marriage and Civil Partnerships",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Births and Deaths registration service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Service of Process",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Notarial services",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Issue certificate of no impediment",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Citizenship Ceremony service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Legalisation Service",
+              "type": "Other Services"
+            },
+            {
+              "title": "Overseas Passports Service",
+              "type": "Other Services"
+            }
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-high-commission-suva",
+      "title": "British High Commission Suva",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-01-26T23:35:31.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-suva",
+      "details": {
+        "slug": "british-high-commission-suva"
+      },
+      "analytics_identifier": "WO324",
+      "offices": {
+        "main": {
+          "title": "British High Commission Suva",
+          "format": "World Office",
+          "updated_at": "2014-09-23T11:12:12.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-suva/office/british-high-commission-suva",
+          "details": {
+            "email": "publicdiplomacy@fco.gov.uk",
+            "description": "Office hours:\r\nMonday to Thursday: 8am to 12:40pm / 1pm to 4pm \r\nFriday: 8am to 1pm \r\n\r\nConsular section: \r\nPhone: +679 3229 100\r\n\r\nConsular opening hours:\r\nMonday to Thursday: 10am to 12pm",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"disabled-access\">Disabled Access</h2>\n<p>Access to the British High Commission offices for disabled persons is limited. But with prior warning of an intended visit by a person with disabilities, every effort will be made to ensure that temporary arrangements are in place to facilitate that visit. Consular section is accessible but disabled persons may wish to bring a helper.</p>\n\n<p>The High Commission will be closed for the the following public holidays in 2016</p>\n\n<ul>\n  <li>01 January New Year’s Day</li>\n  <li>25 March Good Friday</li>\n  <li>28 March Easter Monday</li>\n  <li>02 May May Bank Holiday</li>\n  <li>24 June National Sports Day</li>\n  <li>27 June Privilege Holiday Queen’s Birthday</li>\n  <li>29 August Summer Bank Holiday</li>\n  <li>07 September Constitution Day</li>\n  <li>10 October Fiji Day</li>\n  <li>31 October Diwali</li>\n  <li>12 December Prophet Mohammed’s Birthday</li>\n  <li>26 December Christmas Day</li>\n  <li>27 December Boxing Day</li>\n</ul>\n</div>",
+            "type": "High Commission"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "47 Gladstone Road",
+              "postal-code": "",
+              "locality": "Suva",
+              "region": "",
+              "country-name": "Fiji"
+            },
+            "label": {
+              "value": "47 Gladstone Road\nSuva\nFiji"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "+679 3229 100",
+              "number": "+679 3229 132"
+            },
+            {
+              "label": "Consular email",
+              "number": "consularsuva@fco.gov.uk "
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Births and Deaths registration service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Citizenship Ceremony service",
+              "type": "Documentary Services"
+            }
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/micronesia/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

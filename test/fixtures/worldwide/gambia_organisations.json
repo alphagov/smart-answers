@@ -1,0 +1,194 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-high-commission-banjul",
+      "title": "British Embassy Banjul",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-05-05T12:21:34.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-banjul",
+      "details": {
+        "slug": "british-high-commission-banjul"
+      },
+      "analytics_identifier": "WO115",
+      "offices": {
+        "main": {
+          "title": "British Embassy Banjul",
+          "format": "World Office",
+          "updated_at": "2013-11-15T10:03:14.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-banjul/office/british-high-commission-banjul",
+          "details": {
+            "email": "UKinTheGambia@fco.gov.uk ",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "48 Atlantic Road\r\nFajara\r\nPO Box 507\r\nBanjul",
+              "postal-code": "",
+              "locality": "Banjul",
+              "region": "",
+              "country-name": "Gambia"
+            },
+            "label": {
+              "value": "48 Atlantic Road\r\nFajara\r\nPO Box 507\r\nBanjul\nBanjul\nGambia"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "+220  4494508/4495134/4495133"
+            },
+            {
+              "label": "Consular assistance (24 hour)",
+              "number": "+220  4494508/4495134/4495133"
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Transferring funds for prisoners / for financial assistance service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Births and Deaths registration service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Overseas Passports Service",
+              "type": "Other Services"
+            }
+          ]
+        },
+        "other": [
+          {
+            "title": "Visa Section",
+            "format": "World Office",
+            "updated_at": "2014-02-19T15:26:55.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-banjul/office/visa-section",
+            "details": {
+              "email": "Enquiries",
+              "description": "",
+              "contact_form_url": "https://ukvi-international.faq-help.com/",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening Hours</h2>\n\n<h3 id=\"submission-of-applications\">Submission of Applications</h3>\n\n<p>Open from 8 am to 10:30 am</p>\n\n<h3 id=\"passport-collection\">Passport Collection</h3>\n\n<p>From 2:30 pm to 3:30 pm</p>\n\n<h3 id=\"for-enquiries-on-application\">For enquiries on application</h3>\n\n<p>Please ensure you put the correct name, date of birth/or the application reference number on all correspondence and email to visasheffield@homeoffice.gsi.gov.uk </p>\n</div>",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "48 Atlantic Road\r\nFajara\r\nPO Box 507",
+                "postal-code": "",
+                "locality": "Banjul",
+                "region": "",
+                "country-name": "Gambia"
+              },
+              "label": {
+                "value": "48 Atlantic Road\r\nFajara\r\nPO Box 507\nBanjul\nGambia"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Telephone",
+                "number": "+44 1243 213 315"
+              }
+            ],
+            "services": [
+              {
+                "title": "Overseas Passports Service",
+                "type": "Other Services"
+              }
+            ]
+          },
+          {
+            "title": "Consular Section",
+            "format": "World Office",
+            "updated_at": "2016-02-24T11:09:58.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-banjul/office/consular-section",
+            "details": {
+              "email": "UKinTheGambia@fco.gov.uk",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours-for-british-nationals\">Opening Hours for British Nationals</h2>\n\n<p>8 am to 12 pm</p>\n</div>",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "48 Atlantic Road\r\nFajara\r\nPO Box 507",
+                "postal-code": "",
+                "locality": "Banjul",
+                "region": "",
+                "country-name": "Gambia"
+              },
+              "label": {
+                "value": "48 Atlantic Road\r\nFajara\r\nPO Box 507\nBanjul\nGambia"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Consular assistance (24 hours)",
+                "number": "+220 4494508/4495134/4495133"
+              }
+            ],
+            "services": [
+
+            ]
+          }
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/dfid-gambia",
+      "title": "DFID Gambia",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-04-29T12:25:01.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/dfid-gambia",
+      "details": {
+        "slug": "dfid-gambia"
+      },
+      "analytics_identifier": "WO339",
+      "offices": {
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Department for International Development",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-development",
+          "details": {
+            "acronym": "DFID"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/gambia/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

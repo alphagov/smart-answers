@@ -1,0 +1,142 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-panama-city",
+      "title": "British Embassy Panama City",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-05-06T16:24:26.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-panama-city",
+      "details": {
+        "slug": "british-embassy-panama-city"
+      },
+      "analytics_identifier": "WO188",
+      "offices": {
+        "main": {
+          "title": "British Embassy Panama City",
+          "format": "World Office",
+          "updated_at": "2014-09-23T11:12:12.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-panama-city/office/british-embassy-panama-city",
+          "details": {
+            "email": "",
+            "description": "Office hours:\r\nMonday to Thursday 7:30am to 4:30pm\r\nFriday 7:30am to 12:30pm",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "British Embassy",
+              "street-address": "Humboldt Tower, 4th Floor\r\nCalle 53, Marbella\r\n(PO Box 0816-07946)",
+              "postal-code": "",
+              "locality": "Panama City",
+              "region": "",
+              "country-name": "Panama"
+            },
+            "label": {
+              "value": "British Embassy\nHumboldt Tower, 4th Floor\r\nCalle 53, Marbella\r\n(PO Box 0816-07946)\nPanama City\nPanama"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Switchboard",
+              "number": "(507) 297 6550"
+            },
+            {
+              "label": "Facsmile",
+              "number": "(507) 297 6588"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-panama",
+      "title": "UK Trade & Investment Panama",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-04-16T13:58:38.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-panama",
+      "details": {
+        "slug": "uk-trade-investment-panama"
+      },
+      "analytics_identifier": "WO280",
+      "offices": {
+        "main": {
+          "title": "UK Trade & Investment Panama",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:54.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-panama/office/uk-trade-investment-panama",
+          "details": {
+            "email": "ariel.perez@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "Ariel R. Perez Price LL.M - UKTI Director ",
+              "street-address": "British Embassy, Commercial Section\r\n4th floor, Humboldt Tower\r\n53rd Street ,Marbella",
+              "postal-code": "P. O. Box 0816-07946 ",
+              "locality": "",
+              "region": "Panama City",
+              "country-name": "Panama"
+            },
+            "label": {
+              "value": "Ariel R. Perez Price LL.M - UKTI Director \nBritish Embassy, Commercial Section\r\n4th floor, Humboldt Tower\r\n53rd Street ,Marbella\nPanama City\nP. O. Box 0816-07946 \nPanama"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "General enquiries",
+              "number": "+507 297 6580 / FTN 84586580"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "UK Trade & Investment",
+          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "details": {
+            "acronym": "UKTI"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/panama/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

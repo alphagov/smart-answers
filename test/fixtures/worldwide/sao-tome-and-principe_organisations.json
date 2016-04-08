@@ -1,0 +1,113 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-luanda",
+      "title": "British Embassy Luanda",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-06-12T12:53:54.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-luanda",
+      "details": {
+        "slug": "british-embassy-luanda"
+      },
+      "analytics_identifier": "WO119",
+      "offices": {
+        "main": {
+          "title": "British Embassy Luanda",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:53.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-luanda/office/british-embassy-luanda",
+          "details": {
+            "email": "postmaster.luand@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>Monday to Thursday: 8 am to 12:30 pm and 1:30 pm to 4:30; Friday: 8 am to 1 pm</p>\n\n<h3 id=\"visa-application\">Visa application</h3>\n<p>Monday to Thursday: 8:30 am to 11:30 am </p>\n\n<h3 id=\"visa-collection\">Visa collection</h3>\n<p>Monday to Thursday: 3 pm to 4 pm</p>\n\n<h3 id=\"consular\">Consular</h3>\n<p>Monday to Friday: 8 am to 12 pm </p>\n\n<h2 id=\"public-holiday\">Public Holiday</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 1 January</td>\n      <td>New Year’s Day (Angola/UK</td>\n    </tr>\n    <tr>\n      <td>Thursday 4 February</td>\n      <td>National Armed Forces Day (Angola)</td>\n    </tr>\n    <tr>\n      <td>Tuesday 9 February</td>\n      <td>Carnival (Angola)</td>\n    </tr>\n    <tr>\n      <td>Tuesday 8 March</td>\n      <td>International Women’s Day (Angola)</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday (UK)</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday (UK)</td>\n    </tr>\n    <tr>\n      <td>Monday 2 May</td>\n      <td>Early May Bank Holiday / Labour Day (UK/Angola</td>\n    </tr>\n    <tr>\n      <td>Monday 30 May</td>\n      <td>Spring Bank Holiday (UK)</td>\n    </tr>\n    <tr>\n      <td>Monday 29 August</td>\n      <td>Summer Bank Holiday(UK)</td>\n    </tr>\n    <tr>\n      <td>Monday 19 September</td>\n      <td>National Heroes’ Day (Angola</td>\n    </tr>\n    <tr>\n      <td>Wednesday 2 November</td>\n      <td>Dia de finados (Day of the Dead) (Angola)</td>\n    </tr>\n    <tr>\n      <td>Friday 11 November</td>\n      <td>Independence Day (Angola)</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day (UK)</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 December</td>\n      <td>Christmas Day (substitute day) (UK)</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "Rua 17 de Setembro, Nº 4\r\nCaixa ",
+              "postal-code": "1244",
+              "locality": "Luanda",
+              "region": "Luanda",
+              "country-name": "Angola"
+            },
+            "label": {
+              "value": "Rua 17 de Setembro, Nº 4\r\nCaixa \nLuanda\nLuanda\n1244\nAngola"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Enquiries",
+              "number": "Telephone +244 222 334 582/83; 222 372 917; 222 330 275; 222 396 910"
+            },
+            {
+              "label": "Enquiries ",
+              "number": "Fax +244 222 333 331"
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Transferring funds for prisoners / for financial assistance service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Registrations of Marriage and Civil Partnerships",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Births and Deaths registration service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Notarial services",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Citizenship Ceremony service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Legalisation Service",
+              "type": "Other Services"
+            },
+            {
+              "title": "Lost or Stolen Passports",
+              "type": "Assistance Services"
+            }
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/sao-tome-and-principe/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

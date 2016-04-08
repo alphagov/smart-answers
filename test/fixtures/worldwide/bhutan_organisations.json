@@ -1,0 +1,170 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-deputy-high-commission-kolkata",
+      "title": "British Deputy High Commission Kolkata",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-02-25T10:44:39.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-deputy-high-commission-kolkata",
+      "details": {
+        "slug": "british-deputy-high-commission-kolkata"
+      },
+      "analytics_identifier": "WO320",
+      "offices": {
+        "main": {
+          "title": "British Deputy High Commission Kolkata",
+          "format": "World Office",
+          "updated_at": "2015-10-27T10:32:41.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-deputy-high-commission-kolkata/office/british-deputy-high-commission-kolkata",
+          "details": {
+            "email": "web.newdelhi@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"office-hours\">Office hours</h2>\n\n<p>Mon- Thu: 0830-1630 hrs</p>\n\n<p>Fri: 0830- 1330 hrs</p>\n\n<p>Mon-Thu: 0900-1500hrs (Consular)</p>\n\n<p>Fri: 0900-1300hrs (Consular)</p>\n\n<h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Our offices will be closed for the following public holidays in 2016:</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Event</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 January</td>\n      <td>Republic Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 23 March</td>\n      <td>Doljatra</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Thursday 14 April</td>\n      <td>Bengali New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 6 July</td>\n      <td>Id-Ul-Fitr</td>\n    </tr>\n    <tr>\n      <td>Monday 15 August</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Monday 12 September</td>\n      <td>Id U’l Zuha</td>\n    </tr>\n    <tr>\n      <td>Monday 10 October</td>\n      <td>Durga Puja – Nabami</td>\n    </tr>\n    <tr>\n      <td>Tuesday 11 October</td>\n      <td>Durga Puja – Vijaya Dasami</td>\n    </tr>\n    <tr>\n      <td>Monday 14 November</td>\n      <td>Guru Nanak Jayanti</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 December</td>\n      <td>Christmas Privilege Holiday</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>Holidays that fall on Saturdays &amp; Sundays have been excluded from this list.</p>\n</div>",
+            "type": "Consulate"
+          },
+          "address": {
+            "adr": {
+              "fn": "British Deputy High Commission Kolkata",
+              "street-address": "1A Ho Chi Minh Sarani ",
+              "postal-code": "700071",
+              "locality": "Kolkata",
+              "region": "",
+              "country-name": "India"
+            },
+            "label": {
+              "value": "British Deputy High Commission Kolkata\n1A Ho Chi Minh Sarani \nKolkata 700071\nIndia"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "General telephone",
+              "number": "+91 (33) 2288 5172/2288 5173-76"
+            },
+            {
+              "label": "Emergency telephone",
+              "number": "+91 (11) 2419 2100 (24 hrs a day)"
+            },
+            {
+              "label": "Fax",
+              "number": "+91 (33) 2288 3435 "
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Transferring funds for prisoners / for financial assistance service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Births and Deaths registration service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Citizenship Ceremony service",
+              "type": "Documentary Services"
+            }
+          ]
+        },
+        "other": [
+          {
+            "title": "British Information Centre Bhubaneshwar",
+            "format": "World Office",
+            "updated_at": "2013-04-25T07:42:20.000+01:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-deputy-high-commission-kolkata/office/british-information-centre-bhubaneshwar",
+            "details": {
+              "email": "web.newdelhi@fco.gov.uk",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"office-hours\">Office hours</h2>\n\n<p>Mon-Fri: 0830-1600 hrs</p>\n\n<h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Our offices will be closed for the following public holidays in 2015:</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Event</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Thursday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Monday 26 January</td>\n      <td>Republic Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 17 February</td>\n      <td>Maha Shivratri</td>\n    </tr>\n    <tr>\n      <td>Friday 6 March</td>\n      <td>Doljatra</td>\n    </tr>\n    <tr>\n      <td>Friday 3 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Friday 5 June</td>\n      <td>Queen’s Birthday Privilege Holiday</td>\n    </tr>\n    <tr>\n      <td>Thursday 17 September</td>\n      <td>Ganesh Chaturthi</td>\n    </tr>\n    <tr>\n      <td>Friday 2 October</td>\n      <td>Gandhiji’s Birthday</td>\n    </tr>\n    <tr>\n      <td>Wednesday 21 October</td>\n      <td>Durga Puja – Astami</td>\n    </tr>\n    <tr>\n      <td>Thursday 22 October</td>\n      <td>Durga Puja - Nabami</td>\n    </tr>\n    <tr>\n      <td>Friday 23 October</td>\n      <td>Bijoya Dashami</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 October</td>\n      <td>Laxmi Puja</td>\n    </tr>\n    <tr>\n      <td>Thursday 10 November</td>\n      <td>Kali Puja</td>\n    </tr>\n    <tr>\n      <td>Friday 25 December</td>\n      <td>Christmas</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>Holidays that fall on Saturdays &amp; Sundays have been excluded from this list.</p>\n</div>",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "British Information Centre Bhubaneshwar",
+                "street-address": "Swarnamayee Satapathy\r\nOfficer-in-Charge\r\nDr. Harekrushna Mahatab State Library\r\nGround Floor\r\nSachivalaya Marg",
+                "postal-code": "751 001",
+                "locality": "Bhubaneswar",
+                "region": "Orissa",
+                "country-name": "India"
+              },
+              "label": {
+                "value": "British Information Centre Bhubaneshwar\nSwarnamayee Satapathy\r\nOfficer-in-Charge\r\nDr. Harekrushna Mahatab State Library\r\nGround Floor\r\nSachivalaya Marg\nOrissa\nBhubaneswar 751 001\nIndia"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "General telephone/fax",
+                "number": "+91 (674) 2535084"
+              }
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "British Information Centre Guwahati",
+            "format": "World Office",
+            "updated_at": "2013-04-25T07:44:45.000+01:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-deputy-high-commission-kolkata/office/british-information-centre-guwahati",
+            "details": {
+              "email": "web.newdelhi@fco.gov.uk",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"office-hours\">Office hours</h2>\n\n<p>Mon-Fri: 0830-1600 hrs</p>\n\n<h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Our offices will be closed for the following public holidays in 2015:</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Event</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Wednesday 14 January</td>\n      <td>Magh Bihu</td>\n    </tr>\n    <tr>\n      <td>Thursday\t15 January</td>\n      <td>Magh Bihu</td>\n    </tr>\n    <tr>\n      <td>Monday 26 January</td>\n      <td>Republic Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 5 March</td>\n      <td>Holi</td>\n    </tr>\n    <tr>\n      <td>Friday 3 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 14 April</td>\n      <td>Bohag Bihu</td>\n    </tr>\n    <tr>\n      <td>Wednesday 15 April</td>\n      <td>Bohag Bihu</td>\n    </tr>\n    <tr>\n      <td>Saturday 15 August</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 24 September</td>\n      <td>Id-Ud-Juha</td>\n    </tr>\n    <tr>\n      <td>Friday 2 October</td>\n      <td>Gandhi Jayanti</td>\n    </tr>\n    <tr>\n      <td>Thursday 22 October</td>\n      <td>Durga Puja</td>\n    </tr>\n    <tr>\n      <td>Friday 23 October</td>\n      <td>Durga Puja</td>\n    </tr>\n    <tr>\n      <td>Wednesday 11 November</td>\n      <td>Diwali</td>\n    </tr>\n    <tr>\n      <td>Friday 25 December</td>\n      <td>Christmas</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>Holidays that fall on Saturdays &amp; Sundays have been excluded from this list.</p>\n</div>",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "British Information Centre Guwahati",
+                "street-address": "Ranjinee Phukan\r\nOfficer-in-Charge\r\nNabin Bordoloi Hall\r\nDighalipukhuri West\r\nPanbazar",
+                "postal-code": "781001",
+                "locality": "Guwahati",
+                "region": "Assam",
+                "country-name": "India"
+              },
+              "label": {
+                "value": "British Information Centre Guwahati\nRanjinee Phukan\r\nOfficer-in-Charge\r\nNabin Bordoloi Hall\r\nDighalipukhuri West\r\nPanbazar\nAssam\nGuwahati 781001\nIndia"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "General telephone/fax",
+                "number": "+91 (361) 2733403"
+              }
+            ],
+            "services": [
+
+            ]
+          }
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/bhutan/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

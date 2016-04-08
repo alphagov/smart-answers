@@ -1,0 +1,251 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-paris",
+      "title": "British Embassy Paris",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-05-13T10:15:06.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-paris",
+      "details": {
+        "slug": "british-embassy-paris"
+      },
+      "analytics_identifier": "WO49",
+      "offices": {
+        "main": {
+          "title": "British Embassy Paris",
+          "format": "World Office",
+          "updated_at": "2013-03-28T10:26:49.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-paris/office/british-embassy",
+          "details": {
+            "email": "France.Enquiries@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-times\">Opening times</h2>\n\n<p>Monday to Friday, 9:30am to 1pm and 2:30pm to 5pm</p>\n\n<h2 id=\"public-holidays-2016\">Public holidays 2016</h2>\n\n<p>The British Embassy Paris and the British consulates will be closed on the following public holidays. </p>\n\n<p>In case of emergency: Please call +33 (0)1 44 51 31 00</p>\n\n<ul>\n  <li>Friday 1 January</li>\n  <li>Friday 25 March</li>\n  <li>Monday 28 March</li>\n  <li>Thursday 5 May</li>\n  <li>Monday 16 May</li>\n  <li>Monday 30 May</li>\n  <li>Thursday 14 July</li>\n  <li>Monday 15 August</li>\n  <li>Monday 29 August</li>\n  <li>Tuesday 1 November</li>\n  <li>Friday 11 November</li>\n  <li>Monday 26 December</li>\n  <li>Tuesday 27 December</li>\n</ul>\n\n<h2 id=\"getting-to-the-embassy\">Getting to the embassy</h2>\n\n<h3 id=\"parking\">Parking</h3>\n\n<p>Unfortunately there are no parking spaces available in the Faubourg. The nearest public car park is at Madeleine Tronchet and there is also a car park at Place de la Concorde (on the angle of avenue Gabriel) which provides a 24-hour service. <a rel=\"external\" href=\"http://www.vincipark.com/\" title=\"Vinci park website\">Visit the Vinci website for more details.</a></p>\n\n<h3 id=\"bus\">Bus</h3>\n\n<p>For those of you who prefer to travel by bus, the following lines will get you close to the embassy: 24, 42, 52, 72, 73, 84, 94 or <a rel=\"external\" href=\"http://www.ratp.fr/en/ratp/c_21879/tourists/\" title=\"RATP website\">consult the RATP website</a> in order to plan a more personalised route.</p>\n\n<h3 id=\"metro\">Metro</h3>\n\n<p>The nearest metro stations are Madeleine (lines 8, 12, 14), Concorde (line 1), Miromesnil (lines 9, 13) and Champs-Elysees (lines 1, 13).  Route maps and service information can be found <a rel=\"external\" href=\"http://www.ratp.fr/en/ratp/c_21879/tourists/\" title=\"RATP website\">on the RATP website.</a></p>\n\n<h3 id=\"train\">Train</h3>\n\n<p>The nearest train station is Saint Lazare which is about a 10-minute walk from the embassy. Service information can be found <a rel=\"external\" href=\"http://www.transilien.com/?siteLanguage=en\" title=\"Transilien website\">on the Transilien website.</a></p>\n\n<h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>For disabled persons, wheelchair access and assistance is available on request in all our buildings.</p>\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "35, rue du Faubourg St Honoré\r\nParis Cedex 08",
+              "postal-code": "75383",
+              "locality": "Paris",
+              "region": "",
+              "country-name": "France"
+            },
+            "label": {
+              "value": "35, rue du Faubourg St Honoré\r\nParis Cedex 08\n75383 Paris\nFrance"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "+33 (0) 1 44 51 31 00"
+            },
+            {
+              "label": "Fax",
+              "number": "+33 (0) 1 44 51 31 09"
+            },
+            {
+              "label": "Press enquiries",
+              "number": "+33 (0) 1 44 51 33 39"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+          {
+            "title": "Consular services Paris",
+            "format": "World Office",
+            "updated_at": "2014-09-23T11:12:12.000+01:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-paris/office/british-consulate-general",
+            "details": {
+              "email": "",
+              "description": "Postal address: British Embassy - BP111-08  - 75383 Paris Cedex 08 - France",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-times\">Opening times</h2>\n\n<ul>\n  <li>Monday to Friday, 9.30am to 12.30pm.</li>\n  <li>Outside normal working hours a consular Emergency Service is in operation and can be contacted on +33 (0)1 44 51 31 00.</li>\n</ul>\n\n<h2 id=\"where-we-are\">Where we are</h2>\n\n<p>16 rue d’Anjou 75008 Paris.</p>\n\n<h2 id=\"parking\">Parking</h2>\n\n<p>Unfortunately there are no parking spaces available in the Faubourg. The nearest public car park is at Madeleine Tronchet and there is also a car park at Place de la Concorde (on the angle of avenue Gabriel) which provides a 24-hour service. <a rel=\"external\" href=\"http://www.vincipark.com/\" title=\"Vinci park website\">Visit the Vinci website for more details.</a></p>\n\n<h2 id=\"bus\">Bus</h2>\n\n<p>For those of you who prefer to travel by bus, the following lines will get you close to the embassy: 24, 42, 52, 72, 73, 84, 94 or <a rel=\"external\" href=\"http://www.ratp.fr/en/ratp/c_21879/tourists/\" title=\"RATP website\">consult the RATP website</a> in order to plan a more personalised route.</p>\n\n<h2 id=\"metro\">Metro</h2>\n\n<p>The nearest metro stations are Madeleine (lines 8, 12, 14), Concorde (line 1), Miromesnil (lines 9, 13) and Champs-Elysees (lines 1, 13).  Route maps and service information can be found <a rel=\"external\" href=\"http://www.ratp.fr/en/ratp/c_21879/tourists/\" title=\"RATP website\">on the RATP website.</a></p>\n\n<h2 id=\"train\">Train</h2>\n\n<p>The nearest train station is Saint Lazare which is about a 10-minute walk from the Embassy. Service information can be found <a rel=\"external\" href=\"http://www.transilien.com/?siteLanguage=en\" title=\"Transilien website\">on the Transilien website.</a></p>\n\n<h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>For disabled persons, wheelchair access and assistance is available on request in all our buildings.</p>\n\n<h2 id=\"public-holidays-2016\">Public holidays 2016</h2>\n\n<p>The British Embassy Paris and the British consulates will be closed on the following public holidays. </p>\n\n<ul>\n  <li>Friday 1 January</li>\n  <li>Friday 25 March</li>\n  <li>Monday 28 March</li>\n  <li>Thursday 5 May</li>\n  <li>Monday 16 May</li>\n  <li>Monday 30 May</li>\n  <li>Thursday 14 July</li>\n  <li>Monday 15 August</li>\n  <li>Monday 29 August</li>\n  <li>Tuesday 1 November</li>\n  <li>Friday 11 November</li>\n  <li>Monday 26 December</li>\n  <li>Tuesday 27 December</li>\n</ul>\n</div>",
+              "type": "Consulate"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "16 rue d’Anjou",
+                "postal-code": "75008 ",
+                "locality": "Paris",
+                "region": "",
+                "country-name": "France"
+              },
+              "label": {
+                "value": "16 rue d’Anjou\n75008  Paris\nFrance"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Telephone",
+                "number": "+33 (0) 1 44 51 31 00 "
+              }
+            ],
+            "services": [
+              {
+                "title": "Emergency Travel Documents service",
+                "type": "Assistance Services"
+              },
+              {
+                "title": "Transferring funds for prisoners / for financial assistance service",
+                "type": "Assistance Services"
+              },
+              {
+                "title": "Lost or Stolen Passports",
+                "type": "Assistance Services"
+              },
+              {
+                "title": "Registrations of Marriage and Civil Partnerships",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Births and Deaths registration service",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Notarial services",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Citizenship Ceremony service",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Legalisation Service",
+                "type": "Other Services"
+              }
+            ]
+          },
+          {
+            "title": "British Consulate Bordeaux ",
+            "format": "World Office",
+            "updated_at": "2014-09-23T11:12:12.000+01:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-paris/office/british-consulate-bordeaux",
+            "details": {
+              "email": "",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><p>The Consulate in Bordeaux provides consular help for British Nationals and has a UKTI team advising in the advanced engineering sectors including aerospace, specialising in:</p>\n\n<ul>\n  <li>help for British companies with their business interests in France</li>\n  <li>help for French companies wishing to source supplies in the UK</li>\n  <li>help for British investors with a project to set up business in the UK</li>\n  <li>and publishes specific opportunities</li>\n</ul>\n\n<p><a href=\"https://www.gov.uk/government/world/organisations/uk-trade-investment-france/office/british-trade-investment-bordeaux\">Click here to contact the UKTI team in Bordeaux</a></p>\n\n<h2 id=\"opening-times\">Opening times</h2>\n\n<ul>\n  <li>Monday, Wednesday and Friday, 9.00am to 12.30pm</li>\n  <li>Phone lines are open Monday to Friday, 9am to 12.30am and 1.30pm to 4.30pm.</li>\n  <li>Outside normal working hours, a consular Emergency Service is in operation and be contacted on +33 (0)5 57 22 21 10</li>\n</ul>\n\n<h2 id=\"parking\">Parking</h2>\n<p>There is street parking available only in the side streets close to the office.</p>\n\n<h2 id=\"bus\">Bus</h2>\n<p>To reach the office, take bus 2, 5 or 56 from the centre or 9 from the station (Bordeaux St Jean). </p>\n\n<h2 id=\"train\">Train</h2>\n<p>Bordeaux St Jean is the main train station in Bordeaux, to reach the office from here take bus 9 to Barriere du Medoc stop.</p>\n\n<h2 id=\"tram\">Tram</h2>\n<p>Take Line C from Bordeaux St Jean station and then take the bus.</p>\n\n<h2 id=\"from-the-airport\">From the airport</h2>\n<p>Bordeaux-Merignac Airport is approximately 12km from the office. To get to the office from the airport take bus 1 from the airport to Bordeaux St Jean train station and then bus 9 to Barriere du Medoc stop. </p>\n\n<h2 id=\"access\">Access</h2>\n\n<p>The office is equipped with ramps and a lift for mobility impaired customers. </p>\n\n<h2 id=\"public-holidays-2015\">Public holidays 2015</h2>\n\n<p>The British Embassy Paris and the British consulates will be closed on the following public holidays. </p>\n\n<ul>\n  <li>Thursday 1 January </li>\n  <li>Friday 3 April </li>\n  <li>Monday 6 April </li>\n  <li>Friday 1 May </li>\n  <li>Friday 8 May </li>\n  <li>Thursday 14 May </li>\n  <li>Monday 25 May </li>\n  <li>Tuesday 14 July </li>\n  <li>Monday 31 August </li>\n  <li>Wednesday 11 November </li>\n  <li>Thursday 24 December</li>\n  <li>Friday 25 December </li>\n  <li>Monday 28 December</li>\n</ul>\n\n<h2 id=\"public-holidays-2016\">Public holidays 2016</h2>\n\n<ul>\n  <li>Friday 1 January</li>\n  <li>Friday 25 March</li>\n  <li>Monday 28 March</li>\n  <li>Thursday 5 May</li>\n  <li>Monday 16 May</li>\n  <li>Monday 30 May</li>\n  <li>Thursday 14 July</li>\n  <li>Monday 15 August</li>\n  <li>Monday 29 August</li>\n  <li>Tuesday 1 November</li>\n  <li>Friday 11 November</li>\n  <li>Monday 26 December</li>\n  <li>Tuesday 27 December</li>\n</ul>\n</div>",
+              "type": "Consulate"
+            },
+            "address": {
+              "adr": {
+                "fn": "2nd Floor",
+                "street-address": "353, Boulevard du President Wilson",
+                "postal-code": "33073",
+                "locality": "Bordeaux ",
+                "region": "",
+                "country-name": "France"
+              },
+              "label": {
+                "value": "2nd Floor\n353, Boulevard du President Wilson\n33073 Bordeaux \nFrance"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Telephone",
+                "number": "+33 (0)5 57 22 21 10"
+              },
+              {
+                "label": "Fax",
+                "number": "+33 (0)5 56 08 33 12"
+              }
+            ],
+            "services": [
+              {
+                "title": "Emergency Travel Documents service",
+                "type": "Assistance Services"
+              },
+              {
+                "title": "Transferring funds for prisoners / for financial assistance service",
+                "type": "Assistance Services"
+              },
+              {
+                "title": "Lost or Stolen Passports",
+                "type": "Assistance Services"
+              }
+            ]
+          },
+          {
+            "title": "British Consulate Marseille ",
+            "format": "World Office",
+            "updated_at": "2014-09-23T11:12:12.000+01:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-paris/office/british-consulate-marseille",
+            "details": {
+              "email": "",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-times\">Opening times</h2>\n\n<ul>\n  <li>Monday, Wednesday and Friday, 9.00am to 12.30pm</li>\n  <li>Outside normal working hours, a consular Emergency Service is in operation and can be contacted on +33 (0)4 91 15 72 10 </li>\n</ul>\n\n<h2 id=\"parking\">Parking</h2>\n\n<p>The closest car park to the office is Castellane underground car park, and there is also metered street parking available near to the office.</p>\n\n<h2 id=\"metro\">Metro</h2>\n\n<p>Castellane metro station is the closest metro station to the office and is served by lines 1 and 2. The station is approximately 300m from the office. </p>\n\n<h2 id=\"train\">Train</h2>\n\n<p>Marseille Saint Charles station is the main train station in Marseille with national and regional services from Paris, Lyon and Nice. To reach the office from the station, take either line 1 or line 2 on the metro to Castellane station, and walk approximately 300m to the office.</p>\n\n<h2 id=\"from-the-airport\">From the airport</h2>\n<p>Marseille Provence airport is approximately 28km from the office. Bus services run from the airport to Marseille Saint Charles station. (See information under Train above).</p>\n\n<h2 id=\"access\">Access</h2>\n<p>When you arrive at 24 avenue de Prado, enter the courtyard, turn left and enter Entree 1, walk up 11 steps, then take the lift to the 3rd floor. </p>\n\n<p>If you are mobility impaired and are unable to reach the office due to the steps, arrangements will be made to meet you elsewhere.</p>\n\n<h2 id=\"public-holidays-2016\">Public holidays 2016</h2>\n\n<p>The British Embassy Paris and the British consulates will be closed on the following public holidays. </p>\n\n<ul>\n  <li>Friday 1 January</li>\n  <li>Friday 25 March</li>\n  <li>Monday 28 March</li>\n  <li>Thursday 5 May</li>\n  <li>Monday 16 May</li>\n  <li>Monday 30 May</li>\n  <li>Thursday 14 July</li>\n  <li>Monday 15 August</li>\n  <li>Monday 29 August</li>\n  <li>Tuesday 1 November</li>\n  <li>Friday 11 November</li>\n  <li>Monday 26 December</li>\n  <li>Tuesday 27 December</li>\n</ul>\n</div>",
+              "type": "Consulate"
+            },
+            "address": {
+              "adr": {
+                "fn": "3rd Floor",
+                "street-address": "Entrée 1\r\n24, Avenue du Prado",
+                "postal-code": "13006",
+                "locality": "Marseille ",
+                "region": "",
+                "country-name": "France"
+              },
+              "label": {
+                "value": "3rd Floor\nEntrée 1\r\n24, Avenue du Prado\n13006 Marseille \nFrance"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Telephone",
+                "number": "+33 (0) 4 91 15 72 10"
+              },
+              {
+                "label": "Fax",
+                "number": "+33 (0) 4 91 37 47 06"
+              }
+            ],
+            "services": [
+              {
+                "title": "Emergency Travel Documents service",
+                "type": "Assistance Services"
+              },
+              {
+                "title": "Transferring funds for prisoners / for financial assistance service",
+                "type": "Assistance Services"
+              },
+              {
+                "title": "Lost or Stolen Passports",
+                "type": "Assistance Services"
+              }
+            ]
+          }
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/guadeloupe/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

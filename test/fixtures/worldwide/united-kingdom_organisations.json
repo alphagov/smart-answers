@@ -1,0 +1,50 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/uk-science-and-innovation-network",
+      "title": "UK Science and Innovation Network",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-11-14T06:13:09.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/uk-science-and-innovation-network",
+      "details": {
+        "slug": "uk-science-and-innovation-network"
+      },
+      "analytics_identifier": "WO363",
+      "offices": {
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Department for Business, Innovation & Skills",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-business-innovation-skills",
+          "details": {
+            "acronym": "BIS"
+          }
+        },
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/united-kingdom/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

@@ -1,0 +1,369 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-high-commission-trinidad-and-tobago",
+      "title": "British High Commission Port of Spain",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-02-14T15:14:49.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-trinidad-and-tobago",
+      "details": {
+        "slug": "british-high-commission-trinidad-and-tobago"
+      },
+      "analytics_identifier": "WO4",
+      "offices": {
+        "main": {
+          "title": "British High Commission Port of Spain",
+          "format": "World Office",
+          "updated_at": "2014-09-23T11:12:12.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-trinidad-and-tobago/office/british-high-commission-port-of-spain",
+          "details": {
+            "email": "",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"about-us\">About us</h2>\n<p>Visit our <a href=\"https://www.gov.uk/government/world/organisations/british-high-commission-barbados\">profile page</a> for more about the work we do.</p>\n\n<h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>Telephone: 9am to 4pm Monday to Thursday, 9am to 1pm Friday (excluding public holidays)</p>\n\n<h3 id=\"emergency-consular-assistance-following-the-death-hospitalisation-arrest--or-other-serious-incident-involving-a-british-national-is-available-24-hours-by-calling-1--1-868-350-0444\">Emergency consular assistance following the death, hospitalisation, arrest,  or other serious incident involving a British national is available 24 hours by calling +1 + 1 868 350 0444</h3>\n\n<h2 id=\"visas-for-the-uk\">Visas for the UK</h2>\n\n<h3 id=\"icon2-nbsp-no-enquiry-service-offered-at-this-location\">\n<img src=\"https://assets.digital.cabinet-office.gov.uk/static/icon-important.png\" alt=\" \">   No enquiry service offered at this location</h3>\n\n<p><a href=\"https://www.gov.uk/check-uk-visa\">Check</a> if you need a visa or <a href=\"https://www.gov.uk/contact-ukvi-outside-uk\">send an enquiry</a> to UK Visas and Immigration.</p>\n\n<div class=\"call-to-action\">\n<p>You can submit your visa biometrics to the Visa Section from 8:30am to 10:30am Monday to Friday</p>\n</div>\n\n<h2 id=\"passports\">Passports</h2>\n\n<h3 id=\"icon2-nbsp-no-enquiry-service-offered-at-this-location-1\">\n<img src=\"https://assets.digital.cabinet-office.gov.uk/static/icon-important.png\" alt=\" \">   No enquiry service offered at this location</h3>\n\n<p>Find out how to <a href=\"https://www.gov.uk/overseas-passports\" title=\"Passports\">apply</a> for a British passport  or <a rel=\"external\" href=\"https://eforms.homeoffice.gov.uk/outreach/Passport_Enquiries.ofml\">send an enquiry</a> to\nHer Majesty’s Passport Office.</p>\n\n<div class=\"call-to-action\">\n<p>You can collect your British Passport from 2pm to 3pm Monday to Thursday.</p>\n</div>\n\n<h2 id=\"services-available-by-appointment-in-port-of-spain\">Services available by appointment in Port-of-Spain</h2>\n<p>Make an appointment on-line for the following services, or contact us by telephone for further help.</p>\n\n<div class=\"call-to-action\">\n<p><a href=\"https://www.gov.uk/emergency-travel-document\">Make an appointment for an Emergency Travel Document</a></p>\n</div>\n\n<div class=\"call-to-action\">\n<p><a href=\"https://www.gov.uk/notarial-and-documentary-services-guide-for-barbados\">Make an appointment for a notarial or documentary service</a></p>\n</div>\n\n<h2 id=\"disabled-access\">Disabled Access</h2>\n<p>Our offices are fully equipped with facilities for disabled visitors. If you need special assistance, please contact us before you arrange an appointment.</p>\n\n<h2 id=\"press-enquiries\">Press enquiries</h2>\n<p>Our press team answers media enquiries about the work of the UK government and the British High Commission in Port-of-Spain.  To contact the press team, please call + 1 868 350 0444</p>\n\n<h2 id=\"uk-trade-and-investment-ukti\">UK Trade and Investment (UKTI)</h2>\n<p><a href=\"https://www.gov.uk/government/world/organisations/uk-trade-investment-trinidad-and-tobago\">UKTI</a> helps companies succeed in the global economy. We also help overseas companies bring their high-quality investment to the UK’s dynamic economy, acknowledged as Europe’s best place from which to succeed in global business.</p>\n\n<h2 id=\"public-holidays-in-2015\">Public holidays in 2015</h2>\n<p>On the following public holidays, our office will be closed for normal business.  Emergency consular assistance for British nationals is available by telephone.</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Thursday 1  January</td>\n      <td>New Year’s Day</td>\n    </tr>\n  </tbody>\n</table>\n\n</div>",
+            "type": "High Commission"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "19 St Clair Avenue\r\nSt Clair,\r\nPort of Spain",
+              "postal-code": "",
+              "locality": "",
+              "region": "",
+              "country-name": "Trinidad and Tobago"
+            },
+            "label": {
+              "value": "19 St Clair Avenue\r\nSt Clair,\r\nPort of Spain\nTrinidad and Tobago"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone:",
+              "number": "+ 1 868 350 0444"
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Lost or Stolen Passports",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Citizenship Ceremony service",
+              "type": "Documentary Services"
+            }
+          ]
+        },
+        "other": [
+          {
+            "title": "UK Trade and Investment",
+            "format": "World Office",
+            "updated_at": "2013-03-25T10:37:52.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-trinidad-and-tobago/office/uk-trade-and-investment",
+            "details": {
+              "email": "",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "British High Commission\r\n19 St Clair Avenue; St Clair",
+                "postal-code": "",
+                "locality": "Port of Spain",
+                "region": "Trinidad",
+                "country-name": "Trinidad and Tobago"
+              },
+              "label": {
+                "value": "British High Commission\r\n19 St Clair Avenue; St Clair\nPort of Spain\nTrinidad\nTrinidad and Tobago"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Telephone:",
+                "number": "+ 1 868 350 0444"
+              },
+              {
+                "label": "Facsimile:",
+                "number": "+ 1 868 350 0427"
+              }
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "British Council",
+            "format": "World Office",
+            "updated_at": "2013-03-25T10:37:52.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-trinidad-and-tobago/office/british-council",
+            "details": {
+              "email": "",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"website\">Website</h2>\n\n<p>Visit our <a rel=\"external\" href=\"http://caribbean.britishcouncil.org\">website</a> at http://caribbean.britishcouncil.org/</p>\n\n<h2 id=\"certification-of-academic-certificates\">Certification of academic certificates</h2>\n<p>The British Council can certify academic certificates issued by UK Institutions. Certifications can be issued on Tuesdays only from 8:00am to 12:00pm (excluding public holidays).</p>\n</div>",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "British High Commission\r\n19 St Clair Avenue; St Clair",
+                "postal-code": "",
+                "locality": "Port of Spain",
+                "region": "Trinidad",
+                "country-name": "Trinidad and Tobago"
+              },
+              "label": {
+                "value": "British High Commission\r\n19 St Clair Avenue; St Clair\nPort of Spain\nTrinidad\nTrinidad and Tobago"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Telephone:",
+                "number": "+ (1) (868) 350 0444"
+              },
+              {
+                "label": "Facsmile",
+                "number": "+ (1) (868) 350 0507"
+              }
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "Press enquiries",
+            "format": "World Office",
+            "updated_at": "2015-03-15T17:13:41.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-trinidad-and-tobago/office/press-enquiries",
+            "details": {
+              "email": "generalenquiries.ptofs@fco.gov.uk ",
+              "description": "Our press team answers media enquiries about the work of the UK government and the British High Commission in Port of Spain.",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"about-us\">About us</h2>\n<p>Visit our <a href=\"https://www.gov.uk/government/world/organisations/british-high-commission-barbados\">profile page</a> for more about the work we do.</p>\n\n<h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>Telephone: 9am to 4pm Monday to Thursday \n9am to 1pm Friday (excluding public holidays)</p>\n\n<h3 id=\"emergency-consular-assistance-following-the-death-hospitalisation-arrest--or-other-serious-incident-involving-a-british-national-is-available-24-hours-by-calling-1--1-868-350-0444\">Emergency consular assistance following the death, hospitalisation, arrest,  or other serious incident involving a British national is available 24 hours by calling +1 + 1 868 350 0444</h3>\n\n<h2 id=\"visas-for-the-uk\">Visas for the UK</h2>\n\n<h3 id=\"icon2-nbsp-no-enquiry-service-offered-at-this-location\">\n<img src=\"https://assets.digital.cabinet-office.gov.uk/static/icon-important.png\" alt=\" \">   No enquiry service offered at this location</h3>\n\n<p><a href=\"https://www.gov.uk/check-uk-visa\">Check</a> if you need a visa or <a href=\"https://www.gov.uk/contact-ukvi-outside-uk\">send an enquiry</a> to UK Visas and Immigration.</p>\n\n<p>You can submit your visa biometrics to the Visa Section from 8:30 to 10:30 Monday to Friday</p>\n\n<h2 id=\"passports\">Passports</h2>\n\n<h3 id=\"icon2-nbsp-no-enquiry-service-offered-at-this-location-1\">\n<img src=\"https://assets.digital.cabinet-office.gov.uk/static/icon-important.png\" alt=\" \">   No enquiry service offered at this location</h3>\n\n<p>Find out how to <a href=\"https://www.gov.uk/overseas-passports\" title=\"Passports\">apply</a> for a British passport  or <a rel=\"external\" href=\"https://eforms.homeoffice.gov.uk/outreach/Passport_Enquiries.ofml\">send an enquiry</a> to\nHer Majesty’s Passport Office.</p>\n\n<p>You can collect your British Passport from 2pm to 3pm Monday to Thursday.</p>\n\n<h2 id=\"services-available-by-appointment-in-port-of-spain\">Services available by appointment in Port-of-Spain</h2>\n<p>Make an appointment on-line for the following services, or contact us by telephone for further help.</p>\n\n<p><a href=\"https://www.gov.uk/emergency-travel-document\">Make an appointment for an Emergency Travel Document</a></p>\n\n<p><a href=\"https://www.gov.uk/notarial-and-documentary-services-guide-for-barbados\">Make an appointment for a notarial or documentary service</a></p>\n\n<p><a href=\"https://www.gov.uk/government/world/organisations/british-high-commission-trinidad-and-tobago/office/british-high-commission-Port-of-Spain\">Call</a> to make an appointment to extend your passport (option 1, then 0)</p>\n\n<h2 id=\"disabled-access\">Disabled Access</h2>\n<p>Our offices are fully equipped with facilities for disabled visitors. If you need special assistance, please contact us before you arrange an appointment.</p>\n\n<h2 id=\"press-enquiries\">Press enquiries</h2>\n<p>Our press team answers media enquiries about the work of the UK government and the British High Commission in Port-of-Spain.  To contact the press team, please call + 1 868 350 0444</p>\n\n<h2 id=\"uk-trade-and-investment-ukti\">UK Trade and Investment (UKTI)</h2>\n<p><a href=\"https://www.gov.uk/government/world/organisations/uk-trade-investment-trinidad-and-tobago\">UKTI</a> helps companies succeed in the global economy. We also help overseas companies bring their high-quality investment to the UK’s dynamic economy, acknowledged as Europe’s best place from which to succeed in global business.</p>\n\n<h2 id=\"public-holidays-in-2015\">Public holidays in 2015</h2>\n<p>On the following public holidays, our office will be closed for normal business.  Emergency consular assistance for British nationals is available by telephone.</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Thursday 1  January</td>\n      <td>New Year’s Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+              "type": "High Commission"
+            },
+            "address": {
+              "adr": {
+                "fn": "Press Office",
+                "street-address": "British High Commission \r\n19 St Clair Avenue, \r\nPort of Spain,",
+                "postal-code": "",
+                "locality": "",
+                "region": "",
+                "country-name": "Trinidad and Tobago"
+              },
+              "label": {
+                "value": "Press Office\nBritish High Commission \r\n19 St Clair Avenue, \r\nPort of Spain,\nTrinidad and Tobago"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Telephone:",
+                "number": "+ 1 868 350 0444 "
+              },
+              {
+                "label": "Facsimile:",
+                "number": "+ 1 868 350 0425 "
+              }
+            ],
+            "services": [
+
+            ]
+          }
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-trinidad-and-tobago",
+      "title": "UK Trade & Investment Trinidad and Tobago",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-04-17T10:25:17.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-trinidad-and-tobago",
+      "details": {
+        "slug": "uk-trade-investment-trinidad-and-tobago"
+      },
+      "analytics_identifier": "WO281",
+      "offices": {
+        "main": {
+          "title": "UK Trade & Investment Trinidad and Tobago",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:54.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-trinidad-and-tobago/office/uk-trade-investment-trinidad-and-tobago",
+          "details": {
+            "email": "reena.panchorie2@fco.gsi.gov.uk",
+            "description": "Office hours\r\nMonday to Thursday, 7:30am to 4:00pm \r\nFridays 7:30am to 12:30pm\r\n",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "British High Commission",
+              "street-address": "19, St. Clair Avenue",
+              "postal-code": "",
+              "locality": "St. Clair",
+              "region": "Port of Spain",
+              "country-name": "Trinidad and Tobago"
+            },
+            "label": {
+              "value": "British High Commission\n19, St. Clair Avenue\nSt. Clair\nPort of Spain\nTrinidad and Tobago"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "General enquiries",
+              "number": "+1 868 350 0444 (Option 3)"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+          {
+            "title": "Head of trade and investment",
+            "format": "World Office",
+            "updated_at": "2013-03-25T10:37:54.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-trinidad-and-tobago/office/head-of-trade-and-investment",
+            "details": {
+              "email": "natalie.dookie@fco.gov.uk",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "Natalie Dookie",
+                "street-address": "British High Commission",
+                "postal-code": "",
+                "locality": "Port of Spain",
+                "region": "",
+                "country-name": "Trinidad and Tobago"
+              },
+              "label": {
+                "value": "Natalie Dookie\nBritish High Commission\nPort of Spain\nTrinidad and Tobago"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Direct line",
+                "number": "+1 868 350 0402"
+              }
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "Trade and investment officer",
+            "format": "World Office",
+            "updated_at": "2013-03-25T10:37:54.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-trinidad-and-tobago/office/trade-and-investment-officer",
+            "details": {
+              "email": "bernadette.bacchus@fco.gov.uk",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "Bernadette Bacchus",
+                "street-address": "British High Commission",
+                "postal-code": "",
+                "locality": "",
+                "region": "Port of Spain",
+                "country-name": "Trinidad and Tobago"
+              },
+              "label": {
+                "value": "Bernadette Bacchus\nBritish High Commission\nPort of Spain\nTrinidad and Tobago"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Direct line",
+                "number": "+1 868 350 0435"
+              }
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "Trade and investment assistant",
+            "format": "World Office",
+            "updated_at": "2013-03-25T10:37:54.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-trinidad-and-tobago/office/trade-and-investment-assistant",
+            "details": {
+              "email": "lazena.abdool@fco.gov.uk",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "Lazena Abdool-Gay",
+                "street-address": "British High Commission\r\n",
+                "postal-code": "",
+                "locality": "",
+                "region": "Port of Spain",
+                "country-name": "Trinidad and Tobago"
+              },
+              "label": {
+                "value": "Lazena Abdool-Gay\nBritish High Commission\r\nPort of Spain\nTrinidad and Tobago"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Direct line",
+                "number": "+1 868 350 0431"
+              }
+            ],
+            "services": [
+
+            ]
+          }
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "UK Trade & Investment",
+          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "details": {
+            "acronym": "UKTI"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/trinidad-and-tobago/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

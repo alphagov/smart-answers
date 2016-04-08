@@ -1,0 +1,161 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-high-commission-maldives",
+      "title": "British High Commission Maldives",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-03-19T10:10:06.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-maldives",
+      "details": {
+        "slug": "british-high-commission-maldives"
+      },
+      "analytics_identifier": "WO254",
+      "offices": {
+        "main": {
+          "title": "British High Commission",
+          "format": "World Office",
+          "updated_at": "2014-09-23T11:12:12.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-maldives/office/british-high-commission",
+          "details": {
+            "email": "colombo.general@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><p>Office hours: \tGMT: Mon-Thurs: 0230-1100; Fri: 0230-0730    <br>\n                     \tLocal Time: Mon-Thurs: 0800-1630; Fri: 0800-1300</p>\n\n<p>Consular Section \tGMT: Mon-Fri: 0230-0630      <br>\n                             \tLocal Time: Mon-Fri: 0800-1200                                                                                                                                                                                                                                                              </p>\n\n<p>The High Commission will be closed on the following days in 2015: </p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Thursday 1 January</td>\n      <td>New Year Day (UK Holiday)</td>\n    </tr>\n    <tr>\n      <td>Thursday 15 January</td>\n      <td>Tamil Thai Pongal Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 4 February</td>\n      <td>National Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 14 April</td>\n      <td>Sinhala/Tamil new Year</td>\n    </tr>\n    <tr>\n      <td>Friday 3 April</td>\n      <td>Good Friday (UK Holiday)</td>\n    </tr>\n    <tr>\n      <td>Monday 6 April</td>\n      <td>Easter Monday (UK Holiday)</td>\n    </tr>\n    <tr>\n      <td>Friday 1 May</td>\n      <td>May Day</td>\n    </tr>\n    <tr>\n      <td>Monday 4 May</td>\n      <td>Day following Vesak Day</td>\n    </tr>\n    <tr>\n      <td>Monday 31 August</td>\n      <td>Summer Bank Holiday (UK Holiday)</td>\n    </tr>\n    <tr>\n      <td>Wednesday 23 September</td>\n      <td>Haj  (Eid-Ul- Alha)</td>\n    </tr>\n    <tr>\n      <td>Friday 25 December</td>\n      <td>Christmas day</td>\n    </tr>\n    <tr>\n      <td>Monday 28 December</td>\n      <td>Boxing day (substitute UK Holiday)</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>.  </p>\n\n<p>The High Commission will be closed on the following days in 2016: </p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 1 January</td>\n      <td>New Year Day (UK Holiday)</td>\n    </tr>\n    <tr>\n      <td>Friday 15 January</td>\n      <td>Tamil Thai Pongal Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 4 February</td>\n      <td>National Day</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday (UK Holiday)</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday (UK Holiday)</td>\n    </tr>\n    <tr>\n      <td>Thursday 14 April</td>\n      <td>Sinhala/Tamil new Year</td>\n    </tr>\n    <tr>\n      <td>Friday 15 April</td>\n      <td>Day after Sinhala and Tamil New Year</td>\n    </tr>\n    <tr>\n      <td>Monday 2 May</td>\n      <td>May Bank Holiday  (UK Holiday)</td>\n    </tr>\n    <tr>\n      <td>Monday 30 May</td>\n      <td>Spring Bank Holiday  (UK Holiday)</td>\n    </tr>\n    <tr>\n      <td>Wednesday 6 July</td>\n      <td>Id-Ul-Fitr (Ramazan)</td>\n    </tr>\n    <tr>\n      <td>Monday 12 September</td>\n      <td>Id-Ul-Alha (Hadji)</td>\n    </tr>\n    <tr>\n      <td>Monday 14 November</td>\n      <td>Ill Full Moon Poya Day</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing day (UK Holiday)</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 December</td>\n      <td>Christmas day (UK substitute day)</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+            "type": "High Commission"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "389, Bauddhaloka Mw, Colombo 7",
+              "postal-code": "",
+              "locality": "",
+              "region": "",
+              "country-name": "Sri Lanka"
+            },
+            "label": {
+              "value": "389, Bauddhaloka Mw, Colombo 7\nSri Lanka"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "General telephone",
+              "number": "+94 11 5390639"
+            },
+            {
+              "label": "Fax",
+              "number": "+94 11 5390694"
+            },
+            {
+              "label": "Consular enquiries email: ",
+              "number": "consular.enquiriescolombo@fco.gov.uk"
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Transferring funds for prisoners / for financial assistance service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Births and Deaths registration service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Citizenship Ceremony service",
+              "type": "Documentary Services"
+            }
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-sri-lanka",
+      "title": "UK Trade & Investment Sri Lanka",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-04-16T16:03:40.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-sri-lanka",
+      "details": {
+        "slug": "uk-trade-investment-sri-lanka"
+      },
+      "analytics_identifier": "WO231",
+      "offices": {
+        "main": {
+          "title": "UK Trade & Investment Sri Lanka",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:54.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-sri-lanka/office/uk-trade-investment-sri-lanka",
+          "details": {
+            "email": "colombo.general@fco.gov.uk",
+            "description": "Monday to Thursday: 8am to 12:30pm and 1:30pm to 4:30pm \r\nFriday: 8am to 1pm",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "British High Commission",
+              "street-address": "389 Bauddhaloka Mawatha",
+              "postal-code": "07",
+              "locality": "Colombo",
+              "region": "",
+              "country-name": "Sri Lanka"
+            },
+            "label": {
+              "value": "British High Commission\n389 Bauddhaloka Mawatha\nColombo\n07\nSri Lanka"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Enquiries",
+              "number": "+94 (0)11 5390639"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "UK Trade & Investment",
+          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "details": {
+            "acronym": "UKTI"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/maldives/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

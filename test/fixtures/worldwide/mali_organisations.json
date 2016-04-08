@@ -1,0 +1,83 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-bamako",
+      "title": "British Embassy  Bamako",
+      "format": "Worldwide Organisation",
+      "updated_at": "2015-06-25T07:45:54.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-bamako",
+      "details": {
+        "slug": "british-embassy-bamako"
+      },
+      "analytics_identifier": "WO378",
+      "offices": {
+        "main": {
+          "title": "British Embassy Bamako",
+          "format": "World Office",
+          "updated_at": "2015-06-25T11:54:27.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-bamako/office/british-embassy-bamako",
+          "details": {
+            "email": "bebamako@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening Hours</h2>\n\n<p>Monday to Thursday: 1000 to 1200     /    1400 to 1600</p>\n\n<p>Friday: 1000 to 1200 </p>\n\n<h2 id=\"public-holiday-list-2016\">Public Holiday List 2016</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 02 May</td>\n      <td>May Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Wednesday 25 May</td>\n      <td>Africa Day</td>\n    </tr>\n    <tr>\n      <td>Monday 30 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Thursday 07 July</td>\n      <td>End of Ramadan (Eid al Fitr)</td>\n    </tr>\n    <tr>\n      <td>Monday 12 September</td>\n      <td>Tabaski (Eid al Adha)</td>\n    </tr>\n    <tr>\n      <td>Tuesday 13 September</td>\n      <td>Tabaski (Eid al Adha)</td>\n    </tr>\n    <tr>\n      <td>Thursday 22 September</td>\n      <td>Mali Independence Day</td>\n    </tr>\n    <tr>\n      <td>Monday 12 December</td>\n      <td>Mawlid (Birth of the Prophet)</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 December</td>\n      <td>In lieu of Christmas Day 25 December</td>\n    </tr>\n  </tbody>\n</table>\n\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "Cité du Niger II\r\n",
+              "postal-code": "",
+              "locality": "Bamako",
+              "region": "",
+              "country-name": "Mali"
+            },
+            "label": {
+              "value": "Cité du Niger II\r\nBamako\nMali"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "(00223) 44 97 69 13"
+            },
+            {
+              "label": "Fax",
+              "number": "(00223) 44 97 69 11"
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Transferring funds for prisoners / for financial assistance service",
+              "type": "Assistance Services"
+            }
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/mali/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

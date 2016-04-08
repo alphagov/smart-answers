@@ -1,0 +1,245 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-high-commission-accra",
+      "title": "British High Commission Accra ",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-05-09T12:11:34.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-accra",
+      "details": {
+        "slug": "british-high-commission-accra"
+      },
+      "analytics_identifier": "WO92",
+      "offices": {
+        "main": {
+          "title": "British High Commission Accra",
+          "format": "World Office",
+          "updated_at": "2013-09-09T14:23:14.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-accra/office/british-high-commission-accra",
+          "details": {
+            "email": "High.Commission.Accra@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\">\n<h2 id=\"opening-hours\">Opening Hours:</h2>\n\n<h2 id=\"main-office-staff-working-hours\">Main Office (staff working hours):</h2>\n\n<p>Monday to Thursday 7:30am to 3:30 pm\nFriday 7:30am to 1:30pm</p>\n\n<h2 id=\"hm-passports\">HM Passports</h2>\n<p>The British High Commission in Accra no longer processes British passport applications. All applications must be sent direct to Her Majesty’s Passport Office in Durham, UK.  Full details can be found at our <a href=\"https://www.gov.uk/overseas-passports\">overseas passports page</a></p>\n\n<h2 id=\"consular-assistance-public-opening-hours\">Consular assistance; Public opening hours</h2>\n<p>Monday to Thursday    9:30am to 11:30am\nFriday    8:30am to 10:30am</p>\n\n<h2 id=\"british-passports-collection-only-public-opening-hours\">British passports collection only; Public opening hours</h2>\n<p>Monday to Thursday     9:30am to 11:30am</p>\n\n<h2 id=\"bank-holidays\">Bank holidays</h2>\n<p>The British High Commission Accra will observe the following holidays in 2015:</p>\n\n<ul>\n  <li>Thursday 1 January</li>\n  <li>Friday 6 March</li>\n  <li>Friday 3 April</li>\n  <li>Monday 6 April</li>\n  <li>Friday 1 May</li>\n  <li>Monday 25 May</li>\n  <li>Wednesday 1 July</li>\n  <li>Monday 20 July - Date to be confirmed</li>\n  <li>Monday 21 September </li>\n  <li>Thursday 24 September </li>\n  <li>Friday 4 December</li>\n  <li>Thursday 25 December</li>\n  <li>Monday 28 December</li>\n</ul>\n\n<p>Note:\nUsually when a holiday falls on the weekend, the following Monday will be the day to take off as the public holiday</p>\n\n</div>",
+            "type": "High Commission"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "Julius Nyerere Link\r\nPO Box 296",
+              "postal-code": "",
+              "locality": "Accra",
+              "region": "",
+              "country-name": "Ghana"
+            },
+            "label": {
+              "value": "Julius Nyerere Link\r\nPO Box 296\nAccra\nGhana"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "+ 233 302 213 250"
+            },
+            {
+              "label": "Passport Adviceline",
+              "number": "+ 44 300 222 0000"
+            },
+            {
+              "label": "Fax",
+              "number": "+ 233 30 2213 274"
+            },
+            {
+              "label": "Email Enquiries",
+              "number": "http://ukvi-international.faq-help.com/"
+            },
+            {
+              "label": "Visa Hotline",
+              "number": "+ 44 1243 213 316"
+            },
+            {
+              "label": "Consular Section E-mail address  ",
+              "number": "consularaccra@fco.gov.uk"
+            },
+            {
+              "label": "Consular Hotline",
+              "number": "+233 302213200"
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Lost or Stolen Passports",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Births and Deaths registration service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Citizenship Ceremony service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Overseas Passports Service",
+              "type": "Other Services"
+            }
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-ghana",
+      "title": "UK Trade & Investment Ghana",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-04-11T12:29:00.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-ghana",
+      "details": {
+        "slug": "uk-trade-investment-ghana"
+      },
+      "analytics_identifier": "WO135",
+      "offices": {
+        "main": {
+          "title": "UK Trade & Investment Ghana",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:53.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-ghana/office/uk-trade-investment-ghana",
+          "details": {
+            "email": "UKTIAccra@fco.gov.uk",
+            "description": "Opening hours:\r\nMonday to Thursday, 7:45am to 3:45pm\r\nFridays, 7:45am to 1:45pm",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "British High Commission",
+              "street-address": "Osu Link, Off Gamel Abdul Nasser Avenue",
+              "postal-code": "",
+              "locality": "P. O. Box 296",
+              "region": "Accra",
+              "country-name": "Ghana"
+            },
+            "label": {
+              "value": "British High Commission\nOsu Link, Off Gamel Abdul Nasser Avenue\nP. O. Box 296\nAccra\nGhana"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Enquiries",
+              "number": "(00-233-302)213200"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "UK Trade & Investment",
+          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "details": {
+            "acronym": "UKTI"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/dfid-ghana",
+      "title": "DFID Ghana",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-10-31T10:27:38.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/dfid-ghana",
+      "details": {
+        "slug": "dfid-ghana"
+      },
+      "analytics_identifier": "WO261",
+      "offices": {
+        "main": {
+          "title": "DFID Ghana",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:54.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/dfid-ghana/office/dfid-ghana",
+          "details": {
+            "email": "ghana-enquiries@dfid.gov.uk ",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "British High Commission \r\nOff Gamel Abdul Nasser Avenue \r\nPO Box GP 296\r\n",
+              "postal-code": "",
+              "locality": "Accra",
+              "region": "",
+              "country-name": "Ghana"
+            },
+            "label": {
+              "value": "British High Commission \r\nOff Gamel Abdul Nasser Avenue \r\nPO Box GP 296\r\nAccra\nGhana"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Tel: ",
+              "number": "+233 (0) 302 211490 or +233 (0) 302 253243"
+            },
+            {
+              "label": "Fax:\t",
+              "number": "+233 (0) 302 211491 or +233 (0) 302 253244"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Department for International Development",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-development",
+          "details": {
+            "acronym": "DFID"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 3,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/ghana/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

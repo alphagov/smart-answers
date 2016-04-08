@@ -1,0 +1,139 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-mogadishu",
+      "title": "British Embassy Mogadishu",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-08-14T08:52:49.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-mogadishu",
+      "details": {
+        "slug": "british-embassy-mogadishu"
+      },
+      "analytics_identifier": "WO118",
+      "offices": {
+        "main": {
+          "title": "British Embassy Mogadishu",
+          "format": "World Office",
+          "updated_at": "2013-10-09T07:43:45.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-mogadishu/office/british-embassy-mogadishu",
+          "details": {
+            "email": "Somalia.Enquiries@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening Hours:</h2>\n\n<h4 id=\"gmt\">GMT</h4>\n<p>Monday to Thursday: 4 am to 1 pm\nFriday: 4 am to 10 am</p>\n\n<h4 id=\"local-time\">Local time</h4>\n<p>Monday to Thursday: 7 am to 4 pm\nFriday: 7 am to 1 pm</p>\n\n<h4 id=\"visa-section\">Visa Section</h4>\n<p>Monday to Thursday: 1.30 pm to 3:30 pm\nFriday: 11 am to 12:30 pm</p>\n\n<h4 id=\"consular-department\">Consular Department</h4>\n<p>Monday to Thursday: 7:45 am to 2 pm \nFriday: Closed (except for emergencies)</p>\n\n<h4 id=\"uk-trade--investment\">UK Trade &amp; Investment</h4>\n<p>Monday to Friday: 8 am to 11 am </p>\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "British Embassy Mogadishu",
+              "street-address": "Mogadishu",
+              "postal-code": "",
+              "locality": "",
+              "region": "",
+              "country-name": "Somalia"
+            },
+            "label": {
+              "value": "British Embassy Mogadishu\nMogadishu\nSomalia"
+            }
+          },
+          "contact_numbers": [
+
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/dfid-somalia",
+      "title": "DFID Somalia",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-10-25T13:43:28.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/dfid-somalia",
+      "details": {
+        "slug": "dfid-somalia"
+      },
+      "analytics_identifier": "WO243",
+      "offices": {
+        "main": {
+          "title": "DFID Somalia",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:54.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/dfid-somalia/office/dfid-somalia",
+          "details": {
+            "email": "enquiry@dfid.gov.uk  ",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "British Embassy Mogadishu",
+              "street-address": "British High Commission   \r\nUpper Hill Road\r\nPO Box 30465",
+              "postal-code": "00100",
+              "locality": "Nairobi",
+              "region": "",
+              "country-name": "Kenya"
+            },
+            "label": {
+              "value": "British Embassy Mogadishu\nBritish High Commission   \r\nUpper Hill Road\r\nPO Box 30465\nNairobi\n00100\nKenya"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Tel",
+              "number": "+254 (0)20 287 3000"
+            },
+            {
+              "label": "Fax",
+              "number": "+254 (0)20 287 3102"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Department for International Development",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-development",
+          "details": {
+            "acronym": "DFID"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/somalia/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}
