@@ -47,11 +47,30 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
 
   context "offices with services" do
     should "find offices with service" do
-      organisation = load_fixture('argentina').first
-      matches = organisation.offices_with_service('Births and Deaths registration service')
+      organisation_data = OpenStruct.new(
+        offices: OpenStruct.new(
+          main: OpenStruct.new(
+            title: 'main-office',
+            services: []
+          ),
+          other: [
+            OpenStruct.new(
+              title: 'other-office-1',
+              services: [OpenStruct.new(title: 'service-offered')]
+            ),
+            OpenStruct.new(
+              title: 'other-office-2',
+              services: [OpenStruct.new(title: 'service-offered')]
+            )
+          ]
+        )
+      )
+      organisation = WorldwideOrganisation.new(organisation_data)
+
+      matches = organisation.offices_with_service('service-offered')
       assert_equal 2, matches.length, "Wrong number of offices matched"
-      assert_equal 'British Embassy Buenos Aires', matches[0].title
-      assert_equal 'Consular', matches[1].title
+      assert_equal 'other-office-1', matches[0].title
+      assert_equal 'other-office-2', matches[1].title
     end
 
     should "fallback to main office" do
