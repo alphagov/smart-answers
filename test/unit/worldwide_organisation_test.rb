@@ -91,8 +91,15 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
     end
 
     should "return empty array if no offices" do
-      organisation = load_fixture('brazil')[2]
-      matches = organisation.offices_with_service('desired service')
+      organisation_data = OpenStruct.new(
+        offices: OpenStruct.new(
+          main: nil,
+          other: []
+        )
+      )
+      organisation = WorldwideOrganisation.new(organisation_data)
+
+      matches = organisation.offices_with_service('service-name')
       assert_equal [], matches
     end
   end
