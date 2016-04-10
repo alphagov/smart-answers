@@ -217,13 +217,6 @@ Style/ClosingParenthesisIndentation:
     - 'test/unit/calculators/minimum_wage_calculator_test.rb'
     - 'test/unit/smart_answer_flows/am_i_getting_minimum_wage_flow_test.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/EmptyElse:
-  Exclude:
-    - 'lib/smart_answer_flows/calculate-agricultural-holiday-entitlement.rb'
-
 # Offense count: 5
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
