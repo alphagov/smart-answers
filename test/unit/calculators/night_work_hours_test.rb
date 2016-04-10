@@ -5,9 +5,9 @@ module SmartAnswer::Calculators
     context "7 day work cycle" do
       setup do
         @calc = NightWorkHours.new(
-   weeks_worked: 4, weeks_leave: 1,
-   work_cycle: 7, nights_in_cycle: 5,
-   hours_per_shift: 9, overtime_hours: 6
+          weeks_worked: 4, weeks_leave: 1,
+          work_cycle: 7, nights_in_cycle: 5,
+          hours_per_shift: 9, overtime_hours: 6
         )
       end
 
@@ -31,9 +31,9 @@ module SmartAnswer::Calculators
     context "non 7 day work cycle" do
       setup do
         @calc = NightWorkHours.new(
-   weeks_worked: 5, weeks_leave: 1,
-   work_cycle: 6, nights_in_cycle: 4,
-   hours_per_shift: 9, overtime_hours: 6
+          weeks_worked: 5, weeks_leave: 1,
+          work_cycle: 6, nights_in_cycle: 4,
+          hours_per_shift: 9, overtime_hours: 6
         )
       end
 
