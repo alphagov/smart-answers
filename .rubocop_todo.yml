@@ -233,13 +233,6 @@ Style/MultilineTernaryOperator:
   Exclude:
     - 'lib/smart_answer_flows/simplified-expenses-checker.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: AllowSafeAssignment.
-Style/ParenthesesAroundCondition:
-  Exclude:
-    - 'lib/smart_answer/salary.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: AllowMultipleReturnValues.
