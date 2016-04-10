@@ -72,8 +72,6 @@ module SmartAnswer
             elsif !weeks_from_october_1.nil?
               calculator.holiday_days (total_days_worked.to_f / weeks_from_october_1.to_f).round(10)
             end
-          else
-            nil
           end
         end
 
