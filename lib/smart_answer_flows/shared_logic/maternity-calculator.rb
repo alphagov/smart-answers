@@ -285,11 +285,11 @@ end
 
 ## QM16
 multiple_choice :which_week_in_month_is_the_employee_paid? do
-  option :"first"
-  option :"second"
-  option :"third"
-  option :"fourth"
-  option :"last"
+  option :first
+  option :second
+  option :third
+  option :fourth
+  option :last
 
   calculate :pay_week_in_month do |response|
     calculator.pay_week_in_month = response

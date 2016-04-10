@@ -238,15 +238,6 @@ Style/StructInheritance:
   Exclude:
     - 'lib/data/finance_weighting.rb'
 
-# Offense count: 37
-# Cop supports --auto-correct.
-Style/SymbolLiteral:
-  Exclude:
-    - 'lib/smart_answer_flows/inherits-someone-dies-without-will.rb'
-    - 'lib/smart_answer_flows/shared_logic/maternity-calculator.rb'
-    - 'lib/smart_answer_flows/shared_logic/paternity-calculator.rb'
-    - 'lib/smart_answer_flows/student-finance-calculator.rb'
-
 # Offense count: 5
 # Cop supports --auto-correct.
 # Configuration parameters: IgnoredMethods.
