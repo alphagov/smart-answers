@@ -129,13 +129,6 @@ Lint/UselessAssignment:
     - 'test/unit/start_node_presenter_test.rb'
     - 'test/unit/state_test.rb'
 
-# Offense count: 3
-# Cop supports --auto-correct.
-Performance/Detect:
-  Exclude:
-    - 'lib/data/fco_embassy_scraper.rb'
-    - 'lib/smart_answer/calculators/arrested_abroad.rb'
-
 # Offense count: 8
 # Cop supports --auto-correct.
 Performance/StringReplacement:
