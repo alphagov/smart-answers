@@ -9,7 +9,7 @@ module SmartAnswer
         option :no
       end
 
-      assert_equal ["yes", "no"], q.options
+      assert_equal %w(yes no), q.options
     end
 
     test "Can list options without transitions" do
@@ -18,7 +18,7 @@ module SmartAnswer
         option :no
       end
 
-      assert_equal ["yes", "no"], q.options
+      assert_equal %w(yes no), q.options
     end
 
     test "Can determine next state on provision of an input" do

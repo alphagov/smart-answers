@@ -75,7 +75,7 @@ module SmartAnswer
           else
             responses = response.split(",")
             raise InvalidResponse if response =~ /live_on_business_premises.*?using_home_for_business/
-            if (responses & ["car_or_van", "motorcycle"]).any?
+            if (responses & %w(car_or_van motorcycle)).any?
               question :buying_new_vehicle?
             elsif responses.include?("using_home_for_business")
               question :hours_work_home?

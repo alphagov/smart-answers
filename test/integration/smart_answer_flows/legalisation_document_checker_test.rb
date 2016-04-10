@@ -74,7 +74,7 @@ class LegalisationDocumentCheckerTest < ActiveSupport::TestCase
     end
 
     should "take you to the outcome for the ACRO police certificate document" do
-      assert_state_variable :groups_selected, ["police_disclosure", "vet_health"]
+      assert_state_variable :groups_selected, %w(police_disclosure vet_health)
     end
 
     should "show the generic content" do

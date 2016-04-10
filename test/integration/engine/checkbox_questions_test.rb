@@ -33,7 +33,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
             assert_page_has_content "What do you want on your pizza?"
           end
           within 'td.previous-question-body' do
-            assert_equal ['Ham', 'Pepperoni'], page.all("li").map(&:text)
+            assert_equal %w(Ham Pepperoni), page.all("li").map(&:text)
           end
           within('.link-right') { assert page.has_link?("Change", href: "/checkbox-sample/y?previous_response=ham%2Cpepperoni") }
         end
