@@ -189,16 +189,6 @@ Style/AndOr:
     - 'lib/working_days.rb'
     - 'test/fixtures/smart_answer_flows/bridge-of-death.rb'
 
-# Offense count: 6
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/BarePercentLiterals:
-  Exclude:
-    - 'lib/graphviz_presenter.rb'
-    - 'lib/smart_answer_flows/shared_logic/adoption-calculator.rb'
-    - 'lib/smart_answer_flows/shared_logic/maternity-calculator.rb'
-    - 'lib/smart_answer_flows/shared_logic/paternity-calculator.rb'
-
 # Offense count: 25
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
