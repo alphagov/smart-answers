@@ -226,13 +226,6 @@ Style/FirstParameterIndentation:
     - 'test/unit/calculators/minimum_wage_calculator_test.rb'
     - 'test/unit/calculators/night_work_hours_test.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/MethodCallParentheses:
-  Exclude:
-    - 'lib/smart_answer/calculators/state_pension_topup_calculator.rb'
-    - 'lib/smart_answer_flows/calculate-agricultural-holiday-entitlement.rb'
-
 # Offense count: 9
 Style/MethodCalledOnDoEndBlock:
   Exclude:
