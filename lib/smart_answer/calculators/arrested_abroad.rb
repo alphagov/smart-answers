@@ -8,7 +8,7 @@ module SmartAnswer::Calculators
     end
 
     def generate_url_for_download(country, field, text)
-      country_data = @data.select { |c| c["slug"] == country }.first
+      country_data = @data.find { |c| c["slug"] == country }
       return "" unless country_data
 
       url = country_data[field]
@@ -35,7 +35,7 @@ module SmartAnswer::Calculators
     end
 
     def get_country_regions(slug)
-      @data.select { |c| c["slug"] == slug }.first["regions"]
+      @data.find { |c| c["slug"] == slug }["regions"]
     end
   end
 end
