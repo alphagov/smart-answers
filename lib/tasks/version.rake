@@ -35,7 +35,7 @@ namespace :version do
   end
 
   def replace_in_file(filepath, replacements)
-    if File.exists?(filepath)
+    if File.exist?(filepath)
       text = File.read(filepath)
       replacements.each do |regex, replacement|
         text.gsub!(regex, replacement)
@@ -67,11 +67,11 @@ namespace :version do
       v2_test_filepath = File.join(UNIT_TEST_PATH, "#{filename}_v2_test.rb")
 
       if publish
-        if File.exists?(v2_filepath)
+        if File.exist?(v2_filepath)
           FileUtils.mv(v2_filepath, filepath)
           puts "Moved #{v2_filepath} to #{filepath}"
         end
-        if File.exists?(v2_test_filepath)
+        if File.exist?(v2_test_filepath)
           FileUtils.mv(v2_test_filepath, test_filepath)
           puts "Moved #{v2_test_filepath} to #{test_filepath}"
         end
@@ -79,11 +79,11 @@ namespace :version do
         replace_in_file(test_filepath, "#{class_name}V2" => class_name)
         replace_in_file(test_filepath, "#{class_name}V2Test" => "#{class_name}Test")
       else
-        if File.exists?(filepath)
+        if File.exist?(filepath)
           FileUtils.cp(filepath, v2_filepath)
           puts "Created #{v2_filepath}"
         end
-        if File.exists?(test_filepath)
+        if File.exist?(test_filepath)
           FileUtils.cp(test_filepath, v2_test_filepath)
           puts "Created #{v2_test_filepath}"
         end
@@ -98,7 +98,7 @@ namespace :version do
   task :publish, [:flow] => [:environment] do |t, args|
     flow = args[:flow]
     no_flow_name_error unless flow
-    raise_error("No v2 found for '#{flow}'") unless File.exists?(flow_path(flow, 'v2'))
+    raise_error("No v2 found for '#{flow}'") unless File.exist?(flow_path(flow, 'v2'))
 
     # Move the v2 files
     FileUtils.mv(flow_path(flow, 'v2'), flow_path(flow))
@@ -129,7 +129,7 @@ namespace :version do
   task :v2, [:flow] => [:environment] do |t, args|
     flow = args[:flow]
     no_flow_name_error unless flow
-    raise_error("V2 already found for '#{flow}'") if File.exists?(flow_path(flow, 'v2'))
+    raise_error("V2 already found for '#{flow}'") if File.exist?(flow_path(flow, 'v2'))
 
     # Create the v2 files
     FileUtils.cp(flow_path(flow), flow_path(flow, 'v2'))

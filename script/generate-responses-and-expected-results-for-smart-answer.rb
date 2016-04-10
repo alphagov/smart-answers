@@ -19,7 +19,7 @@ end
 smart_answer_helper = SmartAnswerTestHelper.new(flow_name)
 
 questions_and_responses_path = smart_answer_helper.question_and_responses_path
-unless File.exists?(questions_and_responses_path)
+unless File.exist?(questions_and_responses_path)
   puts "Questions and responses file doesn't exist."
   puts "Generate it using the generate-responses-for-smart-answer script."
   exit 1
