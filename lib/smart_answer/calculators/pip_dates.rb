@@ -12,11 +12,11 @@ module SmartAnswer::Calculators
     end
 
     def in_middle_group?
-      self.dob > GROUP_65_CUTOFF and self.dob < MIDDLE_GROUP_CUTOFF
+      self.dob > GROUP_65_CUTOFF && self.dob < MIDDLE_GROUP_CUTOFF
     end
 
     def turning_16_before_oct_2013?
-      self.dob >= TURNING_16_LOWER_CUTOFF and self.dob < TURNING_16_UPPER_CUTOFF
+      self.dob >= TURNING_16_LOWER_CUTOFF && self.dob < TURNING_16_UPPER_CUTOFF
     end
 
     def is_65_or_over?
@@ -25,7 +25,7 @@ module SmartAnswer::Calculators
 
     def is_16_to_64?
       today = Date.today
-      self.dob > 65.years.ago(today) and self.dob <= 16.years.ago(today)
+      self.dob > 65.years.ago(today) && self.dob <= 16.years.ago(today)
     end
   end
 end

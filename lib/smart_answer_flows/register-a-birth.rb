@@ -211,7 +211,7 @@ module SmartAnswer
         end
 
         precalculate :overseas_passports_embassies do
-          if organisations and organisations.any?
+          if organisations && organisations.any?
             service_title = 'Births and Deaths registration service'
             organisations.first.offices_with_service(service_title)
           else
@@ -240,7 +240,7 @@ module SmartAnswer
         end
 
         precalculate :overseas_passports_embassies do
-          if organisations and organisations.any?
+          if organisations && organisations.any?
             service_title = 'Births and Deaths registration service'
             organisations.first.offices_with_service(service_title)
           else

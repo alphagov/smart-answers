@@ -53,7 +53,7 @@ module SmartAnswer
 
         calculate :integer_value do |response|
           money = response.to_f
-          if (money % 1 != 0) or (money > 25 or money < 1)
+          if (money % 1 != 0) || (money > 25 || money < 1)
             raise SmartAnswer::InvalidResponse
           end
         end

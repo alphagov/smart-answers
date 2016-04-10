@@ -269,7 +269,7 @@ outcome :adoption_leave_and_pay do
   precalculate :pay_method do
     calculator.pay_method = (
       if monthly_pay_method
-        if monthly_pay_method == 'specific_date_each_month' and pay_day_in_month > 28
+        if monthly_pay_method == 'specific_date_each_month' && pay_day_in_month > 28
           'last_day_of_the_month'
         else
           monthly_pay_method

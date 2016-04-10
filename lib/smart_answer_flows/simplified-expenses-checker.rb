@@ -115,7 +115,7 @@ module SmartAnswer
         option :no
 
         calculate :capital_allowance_claimed do |response|
-          response == "yes" and (list_of_expenses & %w(using_home_for_business live_on_business_premises)).any?
+          response == "yes" && (list_of_expenses & %w(using_home_for_business live_on_business_premises)).any?
         end
 
         next_node do |response|

@@ -248,7 +248,7 @@ end
 value_question :what_specific_date_each_month_is_the_employee_paid?, parse: :to_i do
   calculate :pay_day_in_month do |response|
     day = response
-    raise InvalidResponse unless day > 0 and day < 32
+    raise InvalidResponse unless day > 0 && day < 32
     calculator.pay_day_in_month = day
   end
 
@@ -304,7 +304,7 @@ outcome :maternity_leave_and_pay_result do
   precalculate :pay_method do
     calculator.pay_method = (
       if monthly_pay_method
-        if monthly_pay_method == 'specific_date_each_month' and pay_day_in_month > 28
+        if monthly_pay_method == 'specific_date_each_month' && pay_day_in_month > 28
           'last_day_of_the_month'
         else
           monthly_pay_method
@@ -331,7 +331,7 @@ outcome :maternity_leave_and_pay_result do
   end
 
   precalculate :below_threshold do
-    calculator.average_weekly_earnings and
+    calculator.average_weekly_earnings &&
       calculator.average_weekly_earnings < calculator.lower_earning_limit
   end
 

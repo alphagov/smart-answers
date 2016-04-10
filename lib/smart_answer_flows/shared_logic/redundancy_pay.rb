@@ -35,7 +35,7 @@ end
 value_question :age_of_employee?, parse: :to_i do
   calculate :employee_age do |response|
     age = response
-    raise InvalidResponse if age < 16 or age > 100
+    raise InvalidResponse if age < 16 || age > 100
     age
   end
   calculate :years_available do
