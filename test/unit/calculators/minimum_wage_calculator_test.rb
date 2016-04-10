@@ -872,7 +872,7 @@ module SmartAnswer::Calculators
         setup do
           test_date = Date.parse("2012-08-01")
           @calculator = MinimumWageCalculator.new(
-          age: 25, pay_frequency: 5, basic_pay: 260, basic_hours: 40, date: test_date)
+            age: 25, pay_frequency: 5, basic_pay: 260, basic_hours: 40, date: test_date)
         end
 
         should "[with accommodation_adjustment] return lower rate total (206.39) based on overtime_hourly_rate" do
