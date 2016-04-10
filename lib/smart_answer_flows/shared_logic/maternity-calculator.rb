@@ -352,7 +352,7 @@ outcome :maternity_leave_and_pay_result do
   precalculate :pay_dates_and_pay do
     unless not_entitled_to_pay_reason.present?
       calculator.paydates_and_pay.map do |date_and_pay|
-        %Q(#{date_and_pay[:date].strftime('%e %B %Y')}|£#{sprintf('%.2f', date_and_pay[:pay])})
+        %(#{date_and_pay[:date].strftime('%e %B %Y')}|£#{sprintf('%.2f', date_and_pay[:pay])})
       end.join("\n")
     end
   end
