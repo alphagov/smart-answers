@@ -31,7 +31,7 @@ namespace :version do
 
   def flow_test_path(flow, version = '')
     version = "_#{version}" unless version.empty?
-    "#{FLOWS_TEST_PATH}#{flow.gsub('-', '_')}#{version}_test.rb"
+    "#{FLOWS_TEST_PATH}#{flow.tr('-', '_')}#{version}_test.rb"
   end
 
   def replace_in_file(filepath, replacements)

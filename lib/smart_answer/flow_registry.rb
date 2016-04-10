@@ -50,7 +50,7 @@ module SmartAnswer
     end
 
     def build_flow(name)
-      class_prefix = name.gsub("-", "_").camelize
+      class_prefix = name.tr("-", "_").camelize
       if Rails.env.development?
         load @load_path.join("#{name}.rb")
       else
