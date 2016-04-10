@@ -482,11 +482,11 @@ end
 
 ## QP20
 multiple_choice :pay_date_options_paternity? do
-  option :"first"
-  option :"second"
-  option :"third"
-  option :"fourth"
-  option :"last"
+  option :first
+  option :second
+  option :third
+  option :fourth
+  option :last
 
   calculate :pay_week_in_month do |response|
     calculator.pay_week_in_month = response

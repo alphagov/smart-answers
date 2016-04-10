@@ -94,7 +94,7 @@ module SmartAnswer
         option :"dependant-adult"
         option :"has-disability"
         option :"low-income"
-        option :"no"
+        option :no
 
         calculate :uk_ft_circumstances do |response|
           response.split(',')
@@ -109,7 +109,7 @@ module SmartAnswer
       checkbox_question :do_any_of_the_following_apply_all_uk_students? do
         option :"has-disability"
         option :"low-income"
-        option :"no"
+        option :no
 
         calculate :all_uk_students_circumstances do |response|
           response.split(',')
