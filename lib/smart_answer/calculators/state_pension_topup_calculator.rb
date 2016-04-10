@@ -42,7 +42,7 @@ module SmartAnswer::Calculators
     end
 
     def lump_sum_amount(age, weekly_amount)
-      data_query = StatePensionTopupDataQuery.new()
+      data_query = StatePensionTopupDataQuery.new
       if data_query.age_and_rates(age)
         total = data_query.age_and_rates(age) * weekly_amount.to_f
       else
