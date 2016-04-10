@@ -22,7 +22,7 @@ module SmartAnswer
       end
 
       def parse_input(raw_input)
-        return NONE_OPTION if raw_input.blank? or raw_input == NONE_OPTION
+        return NONE_OPTION if raw_input.blank? || raw_input == NONE_OPTION
         raw_input = raw_input.split(',') if raw_input.is_a?(String)
         raw_input.each do |option|
           raise SmartAnswer::InvalidResponse, "Illegal option #{option} for #{name}", caller unless valid_option?(option)

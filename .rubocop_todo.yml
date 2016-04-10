@@ -127,36 +127,6 @@ Style/AlignArray:
     - 'test/integration/engine/country_and_date_questions_test.rb'
     - 'test/unit/calculators/maternity_paternity_calculator_test.rb'
 
-# Offense count: 55
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/AndOr:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
-    - 'app/controllers/smart_answers_controller.rb'
-    - 'app/models/world_location.rb'
-    - 'lib/data/finance_weighting.rb'
-    - 'lib/smart_answer/calculators/maternity_paternity_calculator.rb'
-    - 'lib/smart_answer/calculators/minimum_wage_calculator.rb'
-    - 'lib/smart_answer/calculators/pip_dates.rb'
-    - 'lib/smart_answer/calculators/workplace_pension_calculator.rb'
-    - 'lib/smart_answer/flow.rb'
-    - 'lib/smart_answer/flow_registry.rb'
-    - 'lib/smart_answer/question/checkbox.rb'
-    - 'lib/smart_answer_flows/calculate-your-holiday-entitlement.rb'
-    - 'lib/smart_answer_flows/energy-grants-calculator.rb'
-    - 'lib/smart_answer_flows/register-a-birth.rb'
-    - 'lib/smart_answer_flows/shared_logic/adoption-calculator.rb'
-    - 'lib/smart_answer_flows/shared_logic/maternity-calculator.rb'
-    - 'lib/smart_answer_flows/shared_logic/paternity-calculator.rb'
-    - 'lib/smart_answer_flows/shared_logic/redundancy_pay.rb'
-    - 'lib/smart_answer_flows/simplified-expenses-checker.rb'
-    - 'lib/smart_answer_flows/state-pension-through-partner.rb'
-    - 'lib/smart_answer_flows/state-pension-topup.rb'
-    - 'lib/smart_answer_flows/student-finance-calculator.rb'
-    - 'lib/working_days.rb'
-    - 'test/fixtures/smart_answer_flows/bridge-of-death.rb'
-
 # Offense count: 25
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.

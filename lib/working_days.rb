@@ -11,7 +11,7 @@ class WorkingDays
 
   def after(date)
     days = @days
-    while days > 0 or !workday?(date)
+    while days > 0 || !workday?(date)
       date += 1.day
       days -= 1 if workday?(date)
     end
@@ -20,7 +20,7 @@ class WorkingDays
 
   def before(date)
     days = @days
-    while days > 0 or !workday?(date)
+    while days > 0 || !workday?(date)
       date -= 1.day
       days -= 1 if workday?(date)
     end
@@ -28,7 +28,7 @@ class WorkingDays
   end
 
   def self.workday?(date)
-    WEEKDAYS.include?(date.wday) and !bank_holidays.include?(date)
+    WEEKDAYS.include?(date.wday) && !bank_holidays.include?(date)
   end
 
 private
