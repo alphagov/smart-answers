@@ -331,6 +331,41 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           assert_equal true, current_state.calculator.minimum_wage_or_above?
         end
       end
+
+      context 'when the user is over 25 years old' do
+        setup do
+          add_response 25
+          add_response 1 # paid on a daily basis
+          add_response 8 # hour of work per period
+        end
+        context 'when the date is after 01 April 2016' do
+          setup do
+            Timecop.travel('07 April 2016')
+          end
+          context 'when he is paid over the minimum/living wage' do
+            setup do
+              add_response 350 # how much it is paid per period
+              add_response 0 # overtime
+              add_response 'no' # accommodation
+            end
+            should 'should reach the above national living wage result outcome' do
+              assert_current_node :current_payment_above
+              assert_match(/You are getting the National Living Wage./, outcome_body)
+            end
+          end
+          context 'when he is paid below the minimum/living wage' do
+            setup do
+              add_response 40 # how much it is paid per period
+              add_response 0 # overtime
+              add_response 'no' # accommodation
+            end
+            should ' should reach the below national living wage result outcome ' do
+              assert_current_node :current_payment_below
+              assert_match(/You aren’t getting the National Living Wage./, outcome_body)
+            end
+          end
+        end
+      end
     end # Apprentice
   end # Current pay
 
