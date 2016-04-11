@@ -629,6 +629,22 @@ module SmartAnswer
           end
         end
       end
+
+      context '#valid_current_location?' do
+        setup do
+          @calculator = OverseasPassportsCalculator.new
+        end
+
+        should 'be truthy if world_location is present?' do
+          @calculator.stubs(:world_location).returns(stub('world-location'))
+          assert @calculator.valid_current_location?
+        end
+
+        should 'be falsey if world_location is not present?' do
+          @calculator.stubs(:world_location).returns(nil)
+          refute @calculator.valid_current_location?
+        end
+      end
     end
   end
 end

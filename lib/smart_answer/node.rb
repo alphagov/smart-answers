@@ -4,9 +4,10 @@ module SmartAnswer
   class Node
     attr_reader :name, :calculations, :next_node_calculations, :precalculations
 
-    def initialize(flow, name, options = {}, &block)
+    def initialize(flow, name, _options = {}, &block)
       @flow = flow
       @name = name
+      @on_response_blocks = []
       @calculations = []
       @next_node_calculations = []
       @precalculations = []
@@ -23,6 +24,10 @@ module SmartAnswer
 
     def filesystem_friendly_name
       to_s.sub(/\?$/, '')
+    end
+
+    def on_response(&block)
+      @on_response_blocks << Block.new(&block)
     end
 
     def calculate(variable_name, &block)

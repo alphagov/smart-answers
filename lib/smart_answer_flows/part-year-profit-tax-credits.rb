@@ -11,12 +11,12 @@ module SmartAnswer
         from { Calculators::PartYearProfitTaxCreditsCalculator::TAX_CREDITS_AWARD_ENDS_EARLIEST_DATE }
         to   { Calculators::PartYearProfitTaxCreditsCalculator::TAX_CREDITS_AWARD_ENDS_LATEST_DATE }
 
-        next_node_calculation :calculator do
-          Calculators::PartYearProfitTaxCreditsCalculator.new
+        on_response do |response|
+          self.calculator = Calculators::PartYearProfitTaxCreditsCalculator.new
+          calculator.tax_credits_award_ends_on = response
         end
 
-        next_node do |response|
-          calculator.tax_credits_award_ends_on = response
+        next_node do
           question :what_date_do_your_accounts_go_up_to?
         end
       end
@@ -24,8 +24,11 @@ module SmartAnswer
       date_question :what_date_do_your_accounts_go_up_to? do
         default_year { 0 }
 
-        next_node do |response|
+        on_response do |response|
           calculator.accounts_end_month_and_day = response
+        end
+
+        next_node do
           question :have_you_stopped_trading?
         end
       end
@@ -34,12 +37,18 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        next_node do |response|
+        on_response do |response|
           if response == 'yes'
             calculator.stopped_trading = true
-            question :did_you_start_trading_before_the_relevant_accounting_year?
           elsif response == 'no'
             calculator.stopped_trading = false
+          end
+        end
+
+        next_node do
+          if calculator.stopped_trading
+            question :did_you_start_trading_before_the_relevant_accounting_year?
+          else
             question :do_your_accounts_cover_a_12_month_period?
           end
         end
@@ -67,12 +76,15 @@ module SmartAnswer
         precalculate(:tax_year_begins_on) { calculator.tax_year.begins_on }
         precalculate(:tax_year_ends_on)   { calculator.tax_year.ends_on }
 
-        validate(:not_in_tax_year_error) do |response|
-          calculator.valid_stopped_trading_date?(response)
+        on_response do |response|
+          calculator.stopped_trading_on = response
         end
 
-        next_node do |response|
-          calculator.stopped_trading_on = response
+        validate(:not_in_tax_year_error) do
+          calculator.valid_stopped_trading_date?
+        end
+
+        next_node do
           question :what_is_your_taxable_profit?
         end
       end
@@ -98,12 +110,15 @@ module SmartAnswer
 
         precalculate(:award_period_ends_on) { calculator.award_period.ends_on }
 
-        validate(:invalid_start_trading_date) do |response|
-          calculator.valid_start_trading_date?(response)
+        on_response do |response|
+          calculator.started_trading_on = response
         end
 
-        next_node do |response|
-          calculator.started_trading_on = response
+        validate(:invalid_start_trading_date) do
+          calculator.valid_start_trading_date?
+        end
+
+        next_node do
           if calculator.stopped_trading
             question :when_did_you_stop_trading?
           else
@@ -116,8 +131,11 @@ module SmartAnswer
         precalculate(:basis_period_begins_on) { calculator.basis_period.begins_on }
         precalculate(:basis_period_ends_on)   { calculator.basis_period.ends_on }
 
-        next_node do |response|
+        on_response do |response|
           calculator.taxable_profit = response
+        end
+
+        next_node do
           outcome :result
         end
       end

@@ -16,12 +16,12 @@ module SmartAnswer
       attr_accessor :started_trading_on
       attr_accessor :stopped_trading_on
 
-      def valid_stopped_trading_date?(date)
-        tax_year.include?(date)
+      def valid_stopped_trading_date?
+        tax_year.include?(stopped_trading_on)
       end
 
-      def valid_start_trading_date?(date)
-        date < award_period.ends_on
+      def valid_start_trading_date?
+        started_trading_on < award_period.ends_on
       end
 
       def tax_year

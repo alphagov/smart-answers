@@ -10,16 +10,16 @@ module SmartAnswer
 
       # Q1
       country_select :what_passport_do_you_have?, additional_countries: additional_countries, exclude_countries: Calculators::UkVisaCalculator::EXCLUDE_COUNTRIES do
-        next_node_calculation :calculator do
-          Calculators::UkVisaCalculator.new
+        on_response do |response|
+          self.calculator = Calculators::UkVisaCalculator.new
+          calculator.passport_country = response
         end
 
         calculate :purpose_of_visit_answer do
           nil
         end
 
-        next_node do |response|
-          calculator.passport_country = response
+        next_node do
           if calculator.passport_country_is_israel?
             question :israeli_document_type?
           elsif calculator.passport_country_in_eea?
@@ -35,8 +35,11 @@ module SmartAnswer
         option :"full-passport"
         option :"provisional-passport"
 
-        next_node do |response|
+        on_response do |response|
           calculator.passport_country = 'israel-provisional-passport' if response == 'provisional-passport'
+        end
+
+        next_node do
           question :purpose_of_visit?
         end
       end
@@ -53,9 +56,11 @@ module SmartAnswer
         option :medical
         option :diplomatic
 
-        next_node do |response|
+        on_response do |response|
           calculator.purpose_of_visit_answer = response
+        end
 
+        next_node do
           if calculator.study_visit? || calculator.work_visit?
             next question(:staying_for_how_long?)
           end
@@ -130,9 +135,11 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node do |response|
+        on_response do |response|
           calculator.passing_through_uk_border_control_answer = response
+        end
 
+        next_node do
           if calculator.passing_through_uk_border_control?
             if calculator.passport_country_is_taiwan?
               outcome :outcome_transit_taiwan_through_border_control

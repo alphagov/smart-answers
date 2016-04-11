@@ -19,12 +19,12 @@ module SmartAnswer
 
       # Q1
       country_select :country_of_ceremony?, exclude_countries: exclude_countries do
-        next_node_calculation :calculator do
-          Calculators::MarriageAbroadCalculator.new
+        on_response do |response|
+          self.calculator = Calculators::MarriageAbroadCalculator.new
+          calculator.ceremony_country = response
         end
 
-        next_node do |response|
-          calculator.ceremony_country = response
+        next_node do
           if calculator.ceremony_country == 'ireland'
             question :partner_opposite_or_same_sex?
           elsif %w(france monaco new-caledonia wallis-and-futuna).include?(calculator.ceremony_country)
@@ -43,8 +43,11 @@ module SmartAnswer
         option :ceremony_country
         option :third_country
 
-        next_node do |response|
+        on_response do |response|
           calculator.resident_of = response
+        end
+
+        next_node do
           if calculator.ceremony_country == 'switzerland'
             question :partner_opposite_or_same_sex?
           else
@@ -58,8 +61,11 @@ module SmartAnswer
         option :marriage
         option :pacs
 
-        next_node do |response|
+        on_response do |response|
           calculator.marriage_or_pacs = response
+        end
+
+        next_node do
           if calculator.ceremony_country == 'monaco'
             outcome :outcome_ceremonies_in_monaco
           elsif calculator.want_to_get_married?
@@ -76,8 +82,11 @@ module SmartAnswer
         option :partner_local
         option :partner_other
 
-        next_node do |response|
+        on_response do |response|
           calculator.partner_nationality = response
+        end
+
+        next_node do
           question :partner_opposite_or_same_sex?
         end
       end
@@ -87,8 +96,11 @@ module SmartAnswer
         option :opposite_sex
         option :same_sex
 
-        next_node do |response|
+        on_response do |response|
           calculator.sex_of_your_partner = response
+        end
+
+        next_node do
           if calculator.ceremony_country == 'brazil' && calculator.resident_outside_of_uk?
             outcome :outcome_marriage_in_brazil_when_residing_in_brazil_or_third_country
           elsif calculator.ceremony_country == "netherlands"
