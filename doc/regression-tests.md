@@ -50,7 +50,7 @@ Checksums for all flow-specific files are stored in a YAML file:
 
     test/data/<smart-answer-flow-name>-files.yml
 
-Once you're happy that the changes to the artefacts correspond to the changes you intended to make, you can update the checksums using the following command:
+Once you're happy that the changes to the artefacts correspond to the changes you intended to make, commit the changes. Then you can update the checksums using the following command:
 
 ```bash
 $ rails r script/generate-checksums-for-smart-answer.rb <smart-answer-flow-name>
