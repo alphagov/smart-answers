@@ -68,6 +68,25 @@ The regression test for a given flow is triggered automatically when you run the
 
 If you've added new classes, modules or data which is used by a flow, you should add the relevant files to the checksums file.
 
+## How to get the regression tests to pass after a code change
+
+This list guides you through the steps you need to take to make the smallest change to a smart-answer, for example changing the text on a landing page.
+
+1. Make the change to the code/template
+2. Commit the change
+3. Run the [regression tests](#regression-tests)
+4. Commit changes to the [test artefacts](#artefacts)
+5. Re-run the regression tests
+6. Regenerate the [checksums](#checksums)
+7. (Optional) Re-run the regression tests
+8. Commit the changes to the checksums
+
+Once the regression tests have passed you can prepare your changes for review as usual:
+
+1. Create a [pull request](pull-requests.md)
+2. (Optional) Deploy an app to [Heroku](factcheck.md#deploying-to-heroku) for factcheck
+  1. Add a "Waiting for factcheck" label to the pull request
+
 ## Continuous integration
 
 The [main CI instance](doc/continuous-integration.md#main) and the [corresponding branches one](doc/continuous-integration.md#branches) run the rake `test` task and so work in the same way as above.
