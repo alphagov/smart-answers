@@ -1131,16 +1131,154 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "ceremony in sweden, resident in sweden, partner other" do
+  context "ceremony in sweden," do
     setup do
       worldwide_api_has_organisations_for_location('sweden', read_fixture_file('worldwide/sweden_organisations.json'))
       add_response 'sweden'
-      add_response 'ceremony_country'
-      add_response 'partner_other'
-      add_response 'same_sex'
     end
-    should "go to cp or equivalent os outcome" do
-      assert_current_node :outcome_same_sex_civil_partnership
+    context "resident in uk," do
+      setup { add_response 'uk' }
+      context "partner is british," do
+        setup { add_response 'partner_british' }
+        context "opposite sex" do
+          setup { add_response 'opposite_sex' }
+          should "go to cp or equivalent os outcome" do
+            assert_current_node :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk_or_ceremony_country
+          end
+        end
+        context "same sex" do
+          setup { add_response 'same_sex' }
+          should "go to cp or equivalent os outcome" do
+            assert_current_node :outcome_same_sex_civil_partnership
+          end
+        end
+      end
+      context "partner is local," do
+        setup { add_response 'partner_local' }
+        context "opposite sex" do
+          setup { add_response 'opposite_sex' }
+          should "go to cp or equivalent os outcome" do
+            assert_current_node :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk_or_ceremony_country
+          end
+        end
+        context "same sex" do
+          setup { add_response 'same_sex' }
+          should "go to cp or equivalent os outcome" do
+            assert_current_node :outcome_same_sex_civil_partnership
+          end
+        end
+      end
+      context "partner is other," do
+        setup { add_response 'partner_other' }
+        context "opposite sex" do
+          setup { add_response 'opposite_sex' }
+          should "go to cp or equivalent os outcome" do
+            assert_current_node :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk_or_ceremony_country
+          end
+        end
+        context "same sex" do
+          setup { add_response 'same_sex' }
+          should "go to cp or equivalent os outcome" do
+            assert_current_node :outcome_same_sex_civil_partnership
+          end
+        end
+      end
+    end
+    context "resident in ceremony country" do
+      setup { add_response 'ceremony_country' }
+      context "partner is british," do
+        setup { add_response 'partner_british' }
+        context "opposite sex" do
+          setup { add_response 'opposite_sex' }
+          should "go to cp or equivalent os outcome" do
+            assert_current_node :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk_or_ceremony_country
+          end
+        end
+        context "same sex" do
+          setup { add_response 'same_sex' }
+          should "go to cp or equivalent os outcome" do
+            assert_current_node :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk_or_ceremony_country
+          end
+        end
+      end
+      context "partner is local," do
+        setup { add_response 'partner_local' }
+        context "opposite sex" do
+          setup { add_response 'opposite_sex' }
+          should "go to cp or equivalent os outcome" do
+            assert_current_node :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk_or_ceremony_country
+          end
+        end
+        context "same sex" do
+          setup { add_response 'same_sex' }
+          should "go to cp or equivalent os outcome" do
+            assert_current_node :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk_or_ceremony_country
+          end
+        end
+      end
+      context "partner is other," do
+        setup { add_response 'partner_other' }
+        context "opposite sex" do
+          setup { add_response 'opposite_sex' }
+          should "go to cp or equivalent os outcome" do
+            assert_current_node :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk_or_ceremony_country
+          end
+        end
+        context "same sex" do
+          setup { add_response 'same_sex' }
+          should "go to cp or equivalent os outcome" do
+            assert_current_node :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk_or_ceremony_country
+          end
+        end
+      end
+    end
+    context "resident in elsewhere," do
+      setup { add_response 'third_country' }
+      context "partner is british," do
+        setup { add_response 'partner_british' }
+        context "opposite sex" do
+          setup { add_response 'opposite_sex' }
+          should "go to cp or equivalent os outcome" do
+            assert_current_node :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
+          end
+        end
+        context "same sex" do
+          setup { add_response 'same_sex' }
+          should "go to cp or equivalent os outcome" do
+            assert_current_node :outcome_same_sex_civil_partnership
+          end
+        end
+      end
+      context "partner is local," do
+        setup { add_response 'partner_local' }
+        context "opposite sex" do
+          setup { add_response 'opposite_sex' }
+          should "go to cp or equivalent os outcome" do
+            assert_current_node :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
+          end
+        end
+        context "same sex" do
+          setup { add_response 'same_sex' }
+          should "go to cp or equivalent os outcome" do
+            assert_current_node :outcome_same_sex_civil_partnership
+          end
+        end
+      end
+      context "partner is other," do
+        setup { add_response 'partner_other' }
+        context "opposite sex" do
+          setup { add_response 'opposite_sex' }
+          should "go to cp or equivalent os outcome" do
+            assert_current_node :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
+          end
+        end
+        context "same sex" do
+          setup { add_response 'same_sex' }
+          should "go to cp or equivalent os outcome" do
+            assert_current_node :outcome_same_sex_civil_partnership
+          end
+        end
+      end
     end
   end
 
