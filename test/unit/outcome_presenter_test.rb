@@ -22,6 +22,29 @@ module SmartAnswer
       OutcomePresenter.new(outcome)
     end
 
+    test 'renderer is constructed with default helper modules' do
+      outcome_directory = Pathname.new('outcome-template-directory')
+      outcome = stub('outcome', name: :outcome_name, template_directory: outcome_directory)
+
+      SmartAnswer::ErbRenderer.expects(:new).with(has_entry(helpers: [
+        SmartAnswer::FormattingHelper,
+        SmartAnswer::OverseasPassportsHelper,
+        SmartAnswer::MarriageAbroadHelper,
+      ]))
+
+      OutcomePresenter.new(outcome)
+    end
+
+    test 'renderer is constructed with supplied helper modules' do
+      outcome_directory = Pathname.new('outcome-template-directory')
+      outcome = stub('outcome', name: :outcome_name, template_directory: outcome_directory)
+      helper = Module.new
+
+      SmartAnswer::ErbRenderer.expects(:new).with(has_entry(helpers: includes(helper)))
+
+      OutcomePresenter.new(outcome, nil, helpers: [helper])
+    end
+
     test '#title returns single line of content rendered for title block' do
       @renderer.stubs(:single_line_of_content_for).with(:title).returns('title-text')
 
