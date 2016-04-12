@@ -6,7 +6,7 @@ module SmartAnswer
       status :published
       satisfies_need "100696"
 
-      query = Calculators::BenefitCapCalculatorDataQuery.new
+      config = Calculators::BenefitCapCalculatorConfiguration.new
 
       # Q1
       multiple_choice :receive_housing_benefit? do
@@ -44,7 +44,7 @@ module SmartAnswer
         option :no
 
         precalculate :exempt_benefits do
-          exempt_benefits = query.data.fetch("exempt_benefits").map do |exempt_benefit|
+          exempt_benefits = config.data.fetch("exempt_benefits").map do |exempt_benefit|
             "- #{exempt_benefit}"
           end
           exempt_benefits.join("\n")
@@ -61,7 +61,7 @@ module SmartAnswer
 
       #Q4
       checkbox_question :receiving_non_exemption_benefits? do
-        query.benefits.keys.each do |benefit|
+        config.benefits.keys.each do |benefit|
           option benefit
         end
 
@@ -70,7 +70,7 @@ module SmartAnswer
         end
 
         precalculate :benefit_options do
-          query.descriptions.merge(none_above: "None of the above")
+          config.descriptions.merge(none_above: "None of the above")
         end
 
         calculate :total_benefits do
@@ -85,13 +85,13 @@ module SmartAnswer
           if response == "none"
             outcome :outcome_not_affected
           else
-            question BenefitCapCalculatorFlow.next_benefit_amount_question(query.questions, benefit_types)
+            question BenefitCapCalculatorFlow.next_benefit_amount_question(config.questions, benefit_types)
           end
         end
       end
 
       #Q5a-o
-      query.questions.each do |(_benefit, method)|
+      config.questions.each do |(_benefit, method)|
         money_question method do
 
           calculate :total_benefits do |response|
@@ -99,7 +99,7 @@ module SmartAnswer
           end
 
           next_node do
-            question BenefitCapCalculatorFlow.next_benefit_amount_question(query.questions, benefit_types)
+            question BenefitCapCalculatorFlow.next_benefit_amount_question(config.questions, benefit_types)
           end
         end
       end
@@ -120,16 +120,16 @@ module SmartAnswer
 
       #Q6
       multiple_choice :single_couple_lone_parent? do
-        query.weekly_benefit_cap.keys.each do |rate|
+        config.weekly_benefit_cap.keys.each do |rate|
           option rate
         end
 
         calculate :benefit_cap do |response|
-          sprintf("%.2f", query.weekly_benefit_cap.fetch(response))
+          sprintf("%.2f", config.weekly_benefit_cap.fetch(response))
         end
 
         next_node do |response|
-          if total_benefits > query.weekly_benefit_cap.fetch(response)
+          if total_benefits > config.weekly_benefit_cap.fetch(response)
             outcome :outcome_affected_greater_than_cap
           else
             outcome :outcome_not_affected_less_than_cap
