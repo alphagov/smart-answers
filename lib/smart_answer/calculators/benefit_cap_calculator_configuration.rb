@@ -1,9 +1,5 @@
 module SmartAnswer::Calculators
   class BenefitCapCalculatorConfiguration
-    def data
-      @data ||= YAML.load_file(Rails.root.join('lib', 'data', 'benefit_cap_data.yml'))
-    end
-
     def weekly_benefit_cap
       @weekly_benefit_cap ||= data.fetch("weekly_benefit_cap").with_indifferent_access
     end
@@ -30,6 +26,12 @@ module SmartAnswer::Calculators
           benefits_and_descriptions[key] = value.fetch("description")
           benefits_and_descriptions
         end
+    end
+
+  private
+
+    def data
+      @data ||= YAML.load_file(Rails.root.join('lib', 'data', 'benefit_cap_data.yml'))
     end
   end
 end
