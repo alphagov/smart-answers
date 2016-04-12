@@ -4,8 +4,8 @@ module SmartAnswer::Calculators
       @data ||= YAML.load_file(Rails.root.join('lib', 'data', 'benefit_cap_data.yml'))
     end
 
-    def rates
-      @rates ||= data.fetch("rates").with_indifferent_access
+    def weekly_benefit_cap
+      @weekly_benefit_cap ||= data.fetch("weekly_benefit_cap").with_indifferent_access
     end
 
     def benefits

@@ -120,16 +120,16 @@ module SmartAnswer
 
       #Q6
       multiple_choice :single_couple_lone_parent? do
-        query.rates.keys.each do |rate|
+        query.weekly_benefit_cap.keys.each do |rate|
           option rate
         end
 
         calculate :benefit_cap do |response|
-          sprintf("%.2f", query.rates.fetch(response))
+          sprintf("%.2f", query.weekly_benefit_cap.fetch(response))
         end
 
         next_node do |response|
-          if total_benefits > query.rates.fetch(response)
+          if total_benefits > query.weekly_benefit_cap.fetch(response)
             outcome :outcome_affected_greater_than_cap
           else
             outcome :outcome_not_affected_less_than_cap

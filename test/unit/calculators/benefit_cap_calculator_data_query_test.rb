@@ -7,17 +7,15 @@ module SmartAnswer::Calculators
         @query = BenefitCapCalculatorDataQuery.new
       end
 
-      context "benefit_cap_data" do
-        context "family types" do
-          should "contain value for single person" do
-            assert_equal 350, @query.rates["single"]
-          end
-          should "contain value for a couple with or without children" do
-            assert_equal 500, @query.rates["couple"]
-          end
-          should "contain value for lone parent" do
-            assert_equal 500, @query.rates["parent"]
-          end
+      context "weekly_benefit_cap" do
+        should "be £350 for a single person" do
+          assert_equal 350, @query.weekly_benefit_cap["single"]
+        end
+        should "be £500 for a couple with or without children" do
+          assert_equal 500, @query.weekly_benefit_cap["couple"]
+        end
+        should "be £500 for a lone parent" do
+          assert_equal 500, @query.weekly_benefit_cap["parent"]
         end
       end
 
