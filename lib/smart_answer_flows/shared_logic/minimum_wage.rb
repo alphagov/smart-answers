@@ -1,5 +1,6 @@
 # Q1A
 multiple_choice :past_payment_date? do
+  option "2015-10-01"
   option "2014-10-01"
   option "2013-10-01"
   option "2012-10-01"
