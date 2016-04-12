@@ -348,7 +348,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
               add_response 0 # overtime
               add_response 'no' # accommodation
             end
-            should 'should reach the above national living wage result outcome' do
+            should 'reach the above national living wage result outcome' do
               assert_current_node :current_payment_above
               assert_match(/You are getting the National Living Wage./, outcome_body)
             end
@@ -359,7 +359,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
               add_response 0 # overtime
               add_response 'no' # accommodation
             end
-            should ' should reach the below national living wage result outcome ' do
+            should 'reach the below national living wage result outcome' do
               assert_current_node :current_payment_below
               assert_match(/You aren’t getting the National Living Wage./, outcome_body)
             end
@@ -633,6 +633,38 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           assert_equal 3.21, current_state.calculator.total_hourly_rate
           assert_equal false, current_state.calculator.minimum_wage_or_above?
           assert_equal 70.38, current_state.calculator.historical_adjustment
+        end
+      end
+    end
+    context 'answer 2015-10-01' do
+      setup do
+        add_response '2015-10-01'
+        add_response :no
+        add_response 25
+        add_response 1 # paid on a daily basis
+        add_response 8 # hour of work per period
+        Timecop.travel('07 January 2016')
+      end
+      context 'when he is paid over the minimum/living wage' do
+        setup do
+          add_response 350 # how much it is paid per period
+          add_response 0 # overtime
+          add_response 'no' # accommodation
+        end
+        should 'reach the above national minimum wage result outcome' do
+          assert_current_node :past_payment_above
+          assert_match(/You were getting the National Minimum Wage./, outcome_body)
+        end
+      end
+      context 'when he is paid below the minimum/living wage' do
+        setup do
+          add_response 40 # how much it is paid per period
+          add_response 0 # overtime
+          add_response 'no' # accommodation
+        end
+        should 'reach the below national minimum wage result outcome' do
+          assert_current_node :past_payment_below
+          assert_match(/You weren’t getting the National Minimum Wage./, outcome_body)
         end
       end
     end
