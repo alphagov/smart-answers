@@ -12,6 +12,10 @@ module SmartAnswer::Calculators
       @benefits ||= data.fetch("benefits").with_indifferent_access
     end
 
+    def exempt_benefits
+      @exempt_benefits ||= data.fetch("exempt_benefits")
+    end
+
     def questions
       @questions ||=
         benefits.inject(HashWithIndifferentAccess.new) do |benefits_and_questions, (key, value)|

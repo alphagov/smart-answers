@@ -44,7 +44,7 @@ module SmartAnswer
         option :no
 
         precalculate :exempt_benefits do
-          exempt_benefits = config.data.fetch("exempt_benefits").map do |exempt_benefit|
+          exempt_benefits = config.exempt_benefits.map do |exempt_benefit|
             "- #{exempt_benefit}"
           end
           exempt_benefits.join("\n")

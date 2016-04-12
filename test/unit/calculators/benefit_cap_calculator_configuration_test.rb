@@ -31,6 +31,12 @@ module SmartAnswer::Calculators
           assert_kind_of Hash, @config.descriptions
         end
       end
+
+      context "exempt_benefits" do
+        should "contain an entry for Disability Living Allowance" do
+          assert_includes @config.exempt_benefits, "Disability Living Allowance"
+        end
+      end
     end
   end
 end
