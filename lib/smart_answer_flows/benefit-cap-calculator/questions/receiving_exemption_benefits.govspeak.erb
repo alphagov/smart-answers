@@ -8,6 +8,7 @@
 ) %>
 
 <% content_for :body do %>
-  <%= exempt_benefits %>
-
+  <% exempt_benefits.each do |exempt_benefit| %>
+     - <%= exempt_benefit %>
+  <% end %>
 <% end %>

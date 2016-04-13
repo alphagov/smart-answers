@@ -44,10 +44,7 @@ module SmartAnswer
         option :no
 
         precalculate :exempt_benefits do
-          exempt_benefits = config.exempt_benefits.map do |exempt_benefit|
-            "- #{exempt_benefit}"
-          end
-          exempt_benefits.join("\n")
+          config.exempt_benefits
         end
 
         next_node do |response|
