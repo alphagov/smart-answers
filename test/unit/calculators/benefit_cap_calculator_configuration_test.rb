@@ -7,15 +7,15 @@ module SmartAnswer::Calculators
         @config = BenefitCapCalculatorConfiguration.new
       end
 
-      context "weekly_benefit_cap" do
+      context "weekly_benefit_caps" do
         should "be £350 for a single person" do
-          assert_equal 350, @config.weekly_benefit_cap["single"]
+          assert_equal 350, @config.weekly_benefit_cap_amount("single")
         end
         should "be £500 for a couple with or without children" do
-          assert_equal 500, @config.weekly_benefit_cap["couple"]
+          assert_equal 500, @config.weekly_benefit_cap_amount("couple")
         end
         should "be £500 for a lone parent" do
-          assert_equal 500, @config.weekly_benefit_cap["parent"]
+          assert_equal 500, @config.weekly_benefit_cap_amount("parent")
         end
       end
 

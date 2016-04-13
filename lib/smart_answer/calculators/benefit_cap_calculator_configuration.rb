@@ -1,7 +1,19 @@
 module SmartAnswer::Calculators
   class BenefitCapCalculatorConfiguration
-    def weekly_benefit_cap
-      @weekly_benefit_cap ||= data.fetch("weekly_benefit_cap").with_indifferent_access
+    def weekly_benefit_caps
+      @weekly_benefit_caps ||= data.fetch("weekly_benefit_caps").with_indifferent_access
+    end
+
+    def weekly_benefit_cap_descriptions
+      @weekly_benefit_cap_descriptions ||=
+        weekly_benefit_caps.inject(HashWithIndifferentAccess.new) do |weekly_benefit_cap_description, (key, value)|
+          weekly_benefit_cap_description[key] = value.fetch("description")
+          weekly_benefit_cap_description
+        end
+    end
+
+    def weekly_benefit_cap_amount(family_type)
+      weekly_benefit_caps.fetch(family_type)["amount"]
     end
 
     def benefits
