@@ -141,7 +141,11 @@ module SmartAnswer
       ##OUTCOMES
 
       ## Outcome 1
-      outcome :outcome_not_affected_exemptions
+      outcome :outcome_not_affected_exemptions do
+        precalculate :exempt_benefits do
+          config.exempt_benefits
+        end
+      end
 
       ## Outcome 2
       outcome :outcome_not_affected_no_housing_benefit
