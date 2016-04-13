@@ -19,8 +19,8 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "benefit type data" do
-        should "have a question and description for each benefit type" do
+      context "benefits data" do
+        should "have a question and description for each benefit" do
           assert_equal :jsa_amount?, @config.benefits.fetch("jsa")["question"]
           assert_equal "Jobseeker’s Allowance", @config.benefits.fetch("jsa")["description"]
         end
