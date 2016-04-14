@@ -13,6 +13,9 @@
       <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_marriage.govspeak.erb',
                  locals: { calculator: calculator } %>
     <% end %>
+  <% elsif calculator.ceremony_country == 'sweden' %>
+    Contact the [Swedish Tax Authorities](http://www.skatteverket.se/servicelankar/otherlanguages/inenglish/contactus.4.4c5def2714bbf25766d2d6f.html) to find out about local marriage laws, including what documents you’ll need.
+
   <% else %>
     <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
                locals: { calculator: calculator } %>
@@ -63,6 +66,11 @@
 
     <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
 
+  <% elsif calculator.resident_of_ceremony_country? && calculator.ceremony_country == 'sweden' %>
+    If you aren’t registered in the Swedish population register you’ll need to provide proof of marital status. A certificate of no impediment (CNI) will be required to prove you’re allowed to marry.
+
+    If you aren’t registered in Sweden, you’ll also need to bring your partner’s extract from the population register as proof of address, or proof of address from the country that you’re living in.
+
   <% else %>
     <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
 
@@ -103,6 +111,10 @@
       Your UK-issued CNI should be accepted by the town hall.
 
       You should also check if it needs to be:
+
+    <% elsif calculator.ceremony_country == 'sweden' %>
+      ### Legalisation and translation
+      You should  check if your CNI needs to be:
 
     <% else %>
       <%= render partial: 'legisation_and_translation_intro_uk.govspeak.erb',
@@ -226,6 +238,17 @@
       [British Embassy Chisinau - opening hours](/government/world/organisations/british-embassy-chisinau/office/british-embassy)
       $C
 
+    <% elsif calculator.ceremony_country == 'sweden' %>
+      You can have your [notice of marriage form](/government/publications/notice-of-marriage-form--2) and [oath or affirmation](/government/publications/affirmationaffidavit-of-marital-status-form) witnessed in front of a [local notary public](https://www.advokatsamfundet.se/Behover-du-advokat/Sok-advokat/Sokresultat/?areaoflaw=6801) or at the British embassy.
+
+      You can download and fill in (but not sign) the forms in advance.
+
+      ###Posting notice at the embassy
+
+      [Book an appointment for a CNI in Stockholm](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-stockholm/certificate-of-no-impediment/slot_picker).
+
+      To give notice of intended marriage at the embassy, you can swear or affirm an oath. If you would like to swear an oath on a holy book (religious), you’ll need to bring your own holy book.
+
     <% else %>
       <%= render partial: 'contact_method.govspeak.erb',
                  locals: { calculator: calculator } %>
@@ -246,6 +269,15 @@
     <%= render partial: 'required_supporting_documents_philippines.govspeak.erb' %>
   <% elsif calculator.resident_outside_of_uk? && calculator.ceremony_country == 'macao' %>
     <%= render partial: 'required_supporting_documents_macao.govspeak.erb' %>
+  <% elsif calculator.resident_of_ceremony_country? && calculator.ceremony_country == 'sweden' %>
+    You’ll need to provide supporting documents, including:
+
+    -	your passport
+    -	proof of residence
+    -	equivalent documents for your partner
+
+    You’ll also need the correct fees.
+
   <% elsif calculator.resident_of_ceremony_country? %>
     <% if calculator.birth_certificate_required_as_supporting_document? && (calculator.notary_public_ceremony_country? || %w(japan macedonia).include?(calculator.ceremony_country)) %>
       You’ll need to provide supporting documents, including:
@@ -318,7 +350,7 @@
 
   <% if calculator.resident_of_ceremony_country? %>
 
-    <% if calculator.partner_british? && %w(finland).exclude?(calculator.ceremony_country) %>
+    <% if calculator.partner_british? && %w(finland sweden).exclude?(calculator.ceremony_country) %>
       ^Your partner will need to follow the same process and pay the fees to get their own CNI.^
     <% end %>
 
@@ -362,6 +394,20 @@
 
       [Make an appointment to collect your CNI at the embassy in Athens](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-athens/certificate-of-no-impediment/slot_picker).
 
+    <% elsif calculator.ceremony_country == 'sweden' %>
+      ##What happens next
+
+      The embassy or notary public can take your oath or affirmation and witness your notice of marriage. The notary public may charge 2 separate fees for this.
+
+      If a notary public witnesses your documents, you must post the signed forms and any supporting documents to the British embassy in Stockholm afterwards, along with the [credit card payment authorisation form](/government/publications/creditdebit-card-payment-authorisation-slip-sweden) to:
+
+      $A
+      British Embassy
+      Consular Section
+      Box 27819
+      115 93 Stockholm
+      $A
+
     <% elsif calculator.notary_public_ceremony_country? %>
       ###What happens next
 
@@ -393,11 +439,13 @@
 
   <% end %>
 
-  <% if calculator.resident_outside_of_uk? %>
-    <%= render partial: 'check_if_cni_needs_to_be_legalised.govspeak.erb',
-               locals: { calculator: calculator } %>
-
+  <% if %w(sweden).exclude?(calculator.ceremony_country) %>
+    <% if calculator.resident_outside_of_uk? %>
+      <%= render partial: 'check_if_cni_needs_to_be_legalised.govspeak.erb',
+                 locals: { calculator: calculator } %>
+    <% end %>
   <% end %>
+
   <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'you_dont_need_to_stay_in_country.govspeak.erb' %>
 
