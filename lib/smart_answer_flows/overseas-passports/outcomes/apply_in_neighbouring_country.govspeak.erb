@@ -3,7 +3,12 @@
 <% end %>
 
 <% content_for :body do %>
-  You should apply in a neighbouring country of your choice.
+  <% case calculator.current_location %>
+  <% when 'british-indian-ocean-territory', 'north-korea', 'south-georgia-and-south-sandwich-islands' %>
+    You can apply in a neighbouring country of your choice - pick one from the [list of countries](/overseas-passports/y) and follow the application process for that country.
+  <% else %>
+    You should apply in a neighbouring country of your choice.
+  <% end %>
 
   <% case calculator.current_location %>
   <% when 'kyrgyzstan' %>
