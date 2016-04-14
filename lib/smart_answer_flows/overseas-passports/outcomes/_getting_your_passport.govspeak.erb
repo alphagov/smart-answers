@@ -1,11 +1,9 @@
 ## Getting your passport
 
 <% collect_in_person_countries = %w(angola benin cameroon chad congo egypt eritrea ethiopia gambia ghana guinea iraq jamaica jordan kenya nigeria rwanda sierra-leone somalia south-sudan tunisia uganda zambia zimbabwe) %>
-<% collect_in_person_variant_countries = %w(burundi india pitcairn-island) %>
-<% collect_in_person_renewing_new_variant_countries = %w(burma north-korea st-helena-ascension-and-tristan-da-cunha) %>
+<% collect_in_person_variant_countries = %w(burundi pitcairn-island) %>
+<% collect_in_person_renewing_new_variant_countries = %w(st-helena-ascension-and-tristan-da-cunha) %>
 <% uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan bangladesh belarus burma cambodia china georgia india indonesia kazakhstan lebanon mauritania morocco nepal pakistan russia thailand ukraine venezuela vietnam western-sahara) %>
-<% uk_visa_application_centre_variant_countries = %w(libya) %>
-<% collect_with_photo_id_countries = %w(egypt iraq libya rwanda sierra-leone tunisia uganda) %>
 <% passport_delivered_by_courier_countries = %w(laos) %>
 
 <% if passport_delivered_by_courier_countries.include?(calculator.current_location) %>
@@ -18,19 +16,6 @@
     <%= render partial: 'getting_your_passport/id_renew_new.govspeak.erb' %>
   <% else %>
     <%= render partial: 'getting_your_passport/bring_id.govspeak.erb' %>
-  <% end %>
-<% elsif uk_visa_application_centre_variant_countries.include?(calculator.current_location) %>
-  <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { calculator: calculator } %>
-  They will contact you with details of where to collect your passport when it arrives, using the contact details you provided on your form.
-  <% if calculator.renewing_new? %>
-    <% if collect_with_photo_id_countries.include?(calculator.current_location) %>
-
-      You must bring photo ID with you.
-    <% else %>
-      <%= render partial: 'getting_your_passport/id_renew_new.govspeak.erb' %>
-    <% end %>
-  <% else %>
-    <%= render partial: 'getting_your_passport/id_apply_renew_old_replace.govspeak.erb' %>
   <% end %>
 <% elsif collect_in_person_countries.include?(calculator.current_location) %>
   <%= render partial: 'getting_your_passport/by_current_location.govspeak.erb', locals: { calculator: calculator } %>
