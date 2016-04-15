@@ -1,7 +1,7 @@
 ---
-lib/smart_answer_flows/marriage-abroad.rb: 9395e453c566da3c506d4ccf9b27df87
+lib/smart_answer_flows/marriage-abroad.rb: 45190f9274b27abbc35d841905eef35a
 test/data/marriage-abroad-questions-and-responses.yml: 2debf4d9c0e525b5fe3b44ca701e36e0
-test/data/marriage-abroad-responses-and-expected-results.yml: b1415318b0ecdba069d2fb6e601d4da1
+test/data/marriage-abroad-responses-and-expected-results.yml: e87ea63ee2305dcc0bcb8484c24c856a
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
 lib/smart_answer_flows/marriage-abroad/outcomes/_affirmation_os_translation_in_local_language_text.govspeak.erb: 4ac964ce5e41e3efaf0f43d11c71b2b7
 lib/smart_answer_flows/marriage-abroad/outcomes/_appointment_documents_in_vietnam.govspeak.erb: 6390e13560110a71b8a3c0dc018ff4cf
@@ -95,6 +95,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_monaco.gov
 : e68905e2106942e14c968512f06c1d84
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_portugal.govspeak.erb: 7928e930761d5d6d2f32491194004c15
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_spain.govspeak.erb: e3b7876bd41f892e559057fedf2e042d
+lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_sweden_when_residing_in_sweden.govspeak.erb: 1b11c4cd1aa098ab493f0c546a7258bb
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_switzerland.govspeak.erb: 4cf5714aa31b252c55e159b24cd7b657
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_civil_partnership_in_france_or_french_overseas_territory.govspeak.erb: 71ed894fbccf1cd2249915ceca553bf4
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_marriage_in_brazil_when_residing_in_brazil_or_third_country.govspeak.erb: e3fb0ad81caf8965909db65b7e14603f
@@ -110,7 +111,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in
 ? lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country.govspeak.erb
 : 9f9684fdb5bfcee8e131654dae5b31eb
 ? lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk_or_ceremony_country.govspeak.erb
-: 3b4c525bf537a112b5b6fe1911c96a59
+: 829e77ef8b06492927c5321dd2d1e3a9
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_germany.govspeak.erb: e80afe8293f214d27675af77b804f4dc
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_hong_kong.govspeak.erb: 9c1686c0a3ba24dff0297e4e04f2fae6
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_indonesia.govspeak.erb: a5b4f25adb6e0ed710d859b63efd751e
@@ -142,7 +143,7 @@ lib/smart_answer_flows/marriage-abroad/questions/marriage_or_pacs.govspeak.erb: 
 lib/smart_answer_flows/marriage-abroad/questions/partner_opposite_or_same_sex.govspeak.erb: 40d0c99a5be50f0625c6562f06fe4afd
 lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationality.govspeak.erb: 80e04f36c75c232bede1a244d621471e
 lib/data/rates/marriage_abroad_consular_fees.yml: db466bd97c7ee1b9a275dec70590d61f
-lib/data/marriage_abroad_services.yml: 7518c784ac69b47c23337230571d6fd1
+lib/data/marriage_abroad_services.yml: 2715735cb6045f54c6c45dc91ae63c4e
 lib/smart_answer/calculators/marriage_abroad_calculator.rb: ae01afa9bbaa40ef191b4c2ea066e7c2
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1d83fae34e0ee72ce1c1554bdb766d21
 lib/smart_answer/calculators/marriage_abroad_data_query.rb: e224243b2aa50c3c89d68515b16106f7
