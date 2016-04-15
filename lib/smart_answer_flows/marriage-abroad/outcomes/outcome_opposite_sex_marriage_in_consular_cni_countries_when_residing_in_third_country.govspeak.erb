@@ -6,14 +6,20 @@
   <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
              locals: { calculator: calculator } %>
 
-  <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
+  <% if calculator.ceremony_country == 'bulgaria' %>
+    <%= render partial: 'get_legal_advice.govspeak.erb',
              locals: { calculator: calculator } %>
+  <% else %>
+    <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
+             locals: { calculator: calculator } %>
+  <% end %>
 
   <% if calculator.opposite_sex_no_marriage_related_consular_services_in_ceremony_country? %>
     <%= render partial: 'cni_os_consular_facilities_unavailable.govspeak.erb',
                locals: { calculator: calculator } %>
 
   <% end %>
+
   <%= render partial: 'what_you_need_to_do.govspeak.erb',
       locals: { calculator: calculator } %>
 
@@ -22,6 +28,33 @@
 
     - [go to the UK and post notice with a UK registrar](<%= calculator.outcome_path_when_resident_in_uk %>)
     - [go to <%= calculator.country_name_lowercase_prefix %> and swear an affidavit (written statement of facts) that you’re free to marry](<%= calculator.outcome_path_when_resident_in_ceremony_country %>)
+  <% elsif calculator.ceremony_country == 'bulgaria' %>
+    <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
+    <%= render partial: 'you_will_be_asked_for_cni_bulgaria.govspeak.erb' %>
+    <%= render partial: 'notary_bulgaria.govspeak.erb' %>
+    <%= render partial: 'required_supporting_documents_bulgaria.govspeak.erb' %>
+    <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
+    <%= render partial: 'consular_cni_os_not_uk_resident_ceremony_not_germany.govspeak.erb' %>
+    <%= render partial: 'evidence_of_nationality_residence.govspeak.erb' %>
+    <%= render partial: 'what_happens_next_bulgaria.govspeak.erb' %>
+    <%= render partial: 'collect_cni_bulgaria.govspeak.erb' %>
+    <%= render partial: 'you_dont_need_to_stay_in_country.govspeak.erb' %>
+    <%= render partial: 'contact_bulgarian_ministry_fa.govspeak.erb' %>
+    <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
+    <%= render partial: 'consular_fees_table.govspeak.erb',
+               locals: {
+                 services: [
+                   :receiving_notice_of_marriage,
+                   :issuing_cni_or_nulla_osta,
+                   :issuing_letter_or_certificate_english,
+                   :issuing_letter_or_certificate_other_language,
+                   :administering_oath_or_making_declaration
+                 ],
+                 calculator: calculator
+               } %>
+    <%= render partial: 'link_to_consular_fees.govspeak.erb',
+                          locals: { calculator: calculator } %>
+    You can pay by cash or credit card, but not by personal cheque.
   <% else %>
     <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
 

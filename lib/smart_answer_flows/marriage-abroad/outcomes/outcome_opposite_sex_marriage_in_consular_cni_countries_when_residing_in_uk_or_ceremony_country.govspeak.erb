@@ -63,6 +63,12 @@
 
     <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
 
+  <% elsif calculator.resident_of_uk? && calculator.ceremony_country == 'bulgaria' %>
+    <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
+    Local registry offices in Bulgaria do not accept UK-issued CNIs. You must get a UK-issued CNI then exchange it for a locally-issued CNI.
+
+    ### Get a UK-issued CNI
+
   <% else %>
     <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
 
@@ -80,10 +86,33 @@
 
     <% end %>
   <% end %>
+
   <% if calculator.resident_of_uk? %>
 
     <% if calculator.ceremony_country == 'tunisia' %>
       You’ll need to exchange your UK-issued CNI for one that’s valid in Tunisia at the nearest British embassy to where you’re getting married.
+
+    <% elsif calculator.ceremony_country == 'bulgaria' %>
+      ### Exchange your CNI for a locally-issued one
+
+      You must make an appointment at the British embassy in Sofia to to exchange your UK-issued CNI for a locally-issued one.
+
+      [Make an appointment at the embassy in Sofia.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-sofia/certificate-of-no-impediment/slot_picker)
+
+      ### Legalisation and translation
+      Once you have your CNI, you must contact the Bulgarian Ministry of Foreign Affairs to get it legalised (certified as genuine).
+
+      $A
+      2 Alfred Nobel Street
+      Sofia
+      Bulgaria
+      $A
+
+      $C
+      Telephone: (+359) 2 807 64 23, (+359) 2 807 64 28, (+359) 2 807 64 26
+      $C
+
+      You should also check with the local authorities in <%= calculator.country_name_lowercase_prefix %> to find out if you need to provide legalised and translated copies of any other documents.
 
     <% elsif calculator.ceremony_country == 'montenegro' %>
       ###Getting a Montenegrin version of your CNI
@@ -109,7 +138,7 @@
                  locals: { calculator: calculator } %>
 
     <% end %>
-    <% if %w(tunisia).exclude?(calculator.ceremony_country) %>
+    <% if %w(tunisia bulgaria).exclude?(calculator.ceremony_country) %>
       <%= render partial: 'legalise_translate_and_check_with_authorities.govspeak.erb',
                  locals: { calculator: calculator } %>
     <% end %>
@@ -129,6 +158,8 @@
     <% elsif calculator.ceremony_country == 'nicaragua' %>
       If you need a CNI, you must arrange this through the British Embassy in Costa Rica because there aren’t any British consular facilities in Nicaragua.
 
+    <% elsif calculator.ceremony_country == 'bulgaria' %>
+      <%= render partial: 'you_will_be_asked_for_cni_bulgaria.govspeak.erb' %>
 
     <% elsif %w(kazakhstan macedonia russia).exclude?(calculator.ceremony_country) %>
       To get a CNI, you must post notice of your intended marriage in <%= calculator.country_name_lowercase_prefix %>. You can do this at the British embassy or in front of a notary public.
@@ -136,7 +167,7 @@
 
     <% end %>
 
-    <% if %w(croatia italy russia).exclude?(calculator.ceremony_country) && calculator.three_day_residency_requirement_applies? %>
+    <% if %w(croatia italy russia bulgaria).exclude?(calculator.ceremony_country) && calculator.three_day_residency_requirement_applies? %>
       <%= render partial: "three_day_residency_requirement.govspeak.erb",
                  locals: {
                    country_name_lowercase_prefix: calculator.country_name_lowercase_prefix
@@ -226,6 +257,9 @@
       [British Embassy Chisinau - opening hours](/government/world/organisations/british-embassy-chisinau/office/british-embassy)
       $C
 
+    <% elsif calculator.ceremony_country == 'bulgaria' %>
+      You’ll need to have been living in Bulgaria for at least 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.
+      <%= render partial: 'notary_bulgaria.govspeak.erb' %>
     <% else %>
       <%= render partial: 'contact_method.govspeak.erb',
                  locals: { calculator: calculator } %>
@@ -233,6 +267,8 @@
   <% end %>
   <% if calculator.resident_outside_of_uk? && calculator.ceremony_country == 'egypt' %>
     <%= render partial: 'required_supporting_documents_egypt.govspeak.erb' %>
+  <% elsif calculator.ceremony_country == 'bulgaria' && calculator.resident_outside_of_uk? %>
+    <%= render partial: 'required_supporting_documents_bulgaria.govspeak.erb' %>
   <% elsif calculator.resident_outside_of_uk? && calculator.ceremony_country == 'greece' %>
     You’ll need to provide supporting documents, including:
 
@@ -272,7 +308,6 @@
       - proof of residence, such as a residence certificate - check with the <%= calculator.embassy_or_consulate_ceremony_country %> or notary public to find out what you need
       - equivalent documents for your partner
 
-
     <% else %>
       <%= render partial: 'required_supporting_documents.govspeak.erb',
                  locals: { calculator: calculator } %>
@@ -296,8 +331,7 @@
 
       [Download ‘Affidavit and affirmation for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form)
       $D
-
-
+    <% elsif calculator.ceremony_country == 'bulgaria' %>
     <% else %>
       <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
 
@@ -343,7 +377,7 @@
 
       <% end %>
 
-      ^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
+      <%= render partial: 'evidence_of_nationality_residence.govspeak.erb' %>
 
     <% end %>
 
@@ -362,6 +396,9 @@
 
       [Make an appointment to collect your CNI at the embassy in Athens](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-athens/certificate-of-no-impediment/slot_picker).
 
+    <% elsif calculator.ceremony_country == 'bulgaria' %>
+      <%= render partial: 'what_happens_next_bulgaria.govspeak.erb' %>
+
     <% elsif calculator.notary_public_ceremony_country? %>
       ###What happens next
 
@@ -377,12 +414,12 @@
 
       There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
 
-
     <% else %>
       <%= render partial: 'display_notice_of_marriage_7_days.govspeak.erb',
                  locals: { calculator: calculator } %>
 
     <% end %>
+
   <% elsif calculator.requires_7_day_notice? %>
     <%= render partial: 'display_notice_of_marriage_7_days.govspeak.erb',
                locals: { calculator: calculator } %>
@@ -393,19 +430,23 @@
 
   <% end %>
 
-  <% if calculator.resident_outside_of_uk? %>
+  <% if calculator.ceremony_country == 'bulgaria' && calculator.resident_outside_of_uk? %>
+    <%= render partial: 'collect_cni_bulgaria.govspeak.erb' %>
+
+  <% elsif calculator.resident_outside_of_uk? %>
     <%= render partial: 'check_if_cni_needs_to_be_legalised.govspeak.erb',
                locals: { calculator: calculator } %>
 
   <% end %>
-  <% if calculator.resident_of_ceremony_country? %>
+  <% if calculator.ceremony_country == 'bulgaria' && calculator.resident_outside_of_uk? %>
+    <%= render partial: 'you_dont_need_to_stay_in_country.govspeak.erb' %>
+    <%= render partial: 'contact_bulgarian_ministry_fa.govspeak.erb' %>
+  <% elsif calculator.resident_of_ceremony_country? %>
     <%= render partial: 'you_dont_need_to_stay_in_country.govspeak.erb' %>
 
   <% end %>
   <% if calculator.partner_not_british? %>
-
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
-
   <% end %>
 
   <% if calculator.ceremony_country == 'poland' %>
@@ -421,7 +462,7 @@
   <%= render partial: 'consular_fees_table.govspeak.erb',
              locals: { calculator: calculator } %>
 
-  <% unless calculator.country_without_consular_facilities? || calculator.ceremony_country == 'cote-d-ivoire' %>
+  <% unless calculator.country_without_consular_facilities? || calculator.ceremony_country == 'cote-d-ivoire' || (calculator.ceremony_country == 'bulgaria' && calculator.resident_of_uk?) %>
     <% if %w(kazakhstan kyrgyzstan).include?(calculator.ceremony_country) %>
       You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Kazakhstan](/government/publications/kazakhstan-kyrgyzstan-consular-fees).
 
@@ -441,6 +482,11 @@
     <% elsif calculator.ceremony_country == 'luxembourg' %>
       <%= render partial: 'pay_in_cash_visa_or_mastercard.govspeak.erb',
                  locals: { calculator: calculator } %>
+
+    <% elsif calculator.ceremony_country == 'bulgaria' %>
+      <% if calculator.resident_outside_of_uk? %>
+        You can pay by cash or credit card, but not by personal cheque.
+      <% end %>
     <% elsif calculator.ceremony_country == 'russia' %>
       You can only pay by MasterCard and Visa credit cards.
 
