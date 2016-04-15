@@ -63,12 +63,12 @@ $A
 
 ^You don't need to stay in the country while your notice is posted.^
 
-##Fees
+## Fees
 
 Service | Fee
 -|-
-Receiving a notice of marriage | £50
-Issuing a CNI, Nulla Osta or equivalent | £50
+Receiving a notice of marriage | £65
+Issuing a CNI, Nulla Osta or equivalent | £65
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Sweden](/government/publications/sweden-consular-fees).
 
