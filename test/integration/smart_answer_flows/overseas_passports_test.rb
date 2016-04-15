@@ -471,26 +471,26 @@ class OverseasPassportsTest < ActiveSupport::TestCase
   end # nepal (IPS1 with custom phrases)
 
   context "answer Yemen" do
-    should "give a bespoke outcome stating an application is not possible in Yemen" do
+    should "give an outcome stating an application is not possible in Yemen" do
       worldwide_api_has_organisations_for_location('yemen', read_fixture_file('worldwide/yemen_organisations.json'))
       add_response 'yemen'
-      assert_current_node :cannot_apply
+      assert_current_node :apply_in_neighbouring_country
     end
   end # Yemen - no application outcome
 
   context "answer Iran" do
-    should "give a bespoke outcome stating an application is not possible in Iran" do
+    should "give an outcome stating an application is not possible in Iran" do
       worldwide_api_has_organisations_for_location('iran', read_fixture_file('worldwide/iran_organisations.json'))
       add_response 'iran'
-      assert_current_node :cannot_apply
+      assert_current_node :apply_in_neighbouring_country
     end
   end # Iran - no application outcome
 
   context "answer Syria" do
-    should "give a bespoke outcome stating an application is not possible in Syria" do
+    should "give an outcome stating an application is not possible in Syria" do
       worldwide_api_has_organisations_for_location('syria', read_fixture_file('worldwide/syria_organisations.json'))
       add_response 'syria'
-      assert_current_node :cannot_apply
+      assert_current_node :apply_in_neighbouring_country
     end
   end # Syria - no application outcome
 

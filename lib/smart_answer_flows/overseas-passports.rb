@@ -22,9 +22,7 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.ineligible_country?
-            outcome :cannot_apply
-          elsif calculator.current_location == 'the-occupied-palestinian-territories'
+          if calculator.current_location == 'the-occupied-palestinian-territories'
             question :which_opt?
           elsif calculator.apply_in_neighbouring_countries?
             outcome :apply_in_neighbouring_country
@@ -108,9 +106,6 @@ module SmartAnswer
 
       ## IPS Application Result
       outcome :ips_application_result
-
-      ## No-op outcome.
-      outcome :cannot_apply
 
       outcome :apply_in_neighbouring_country
     end
