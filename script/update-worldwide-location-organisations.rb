@@ -1,12 +1,17 @@
 require "open-uri"
 
-unless location_slug = ARGV.shift
-  puts "Usage: #{__FILE__} <location-slug>"
-  exit 1
-end
+worldwide_locations_path = Rails.root.join('test', 'fixtures', 'worldwide_locations.yml')
+worldwide_locations = YAML.load_file(worldwide_locations_path)
 
-json = open("https://www.gov.uk/api/world-locations/#{location_slug}/organisations.json").read
-organisations_fixture_path = Rails.root.join("test/fixtures/worldwide/#{location_slug}_organisations.json")
-File.open(organisations_fixture_path, "w") do |file|
-  file.puts json
+worldwide_locations.each do |location_slug|
+  puts "Updating data for #{location_slug}"
+
+  url = "https://www.gov.uk/api/world-locations/#{location_slug}/organisations.json"
+  json = open(url).read
+
+  organisations_fixture_path = Rails.root.join("test/fixtures/worldwide/#{location_slug}_organisations.json")
+
+  File.open(organisations_fixture_path, "w") do |file|
+    file.puts json
+  end
 end
