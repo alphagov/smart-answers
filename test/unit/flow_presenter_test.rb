@@ -53,7 +53,8 @@ class FlowPresenterTest < ActiveSupport::TestCase
   end
 
   test '#presenter_for returns presenter for other question types' do
-    question = @flow.send(:add_question, SmartAnswer::Question::Base, :question_key).last
+    question = SmartAnswer::Question::Base.new(@flow, :question_key)
+    @flow.send(:add_node, question)
     node_presenter = @flow_presenter.presenter_for(question)
     assert_instance_of QuestionPresenter, node_presenter
   end
@@ -65,7 +66,8 @@ class FlowPresenterTest < ActiveSupport::TestCase
   end
 
   test '#presenter_for returns presenter for other node types' do
-    node = @flow.send(:add_question, SmartAnswer::Node, :node_key).last
+    node = SmartAnswer::Node.new(@flow, :node_key)
+    @flow.send(:add_node, node)
     node_presenter = @flow_presenter.presenter_for(node)
     assert_instance_of NodePresenter, node_presenter
   end
