@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/state-pension-topup.rb: 4da6af966b702390d3c69ab87de1856f
+lib/smart_answer_flows/state-pension-topup.rb: 39e5b5366441d664e3a3cd416986ee8e
 test/data/state-pension-topup-questions-and-responses.yml: f4f609a6e989f166616a05435c6993aa
 test/data/state-pension-topup-responses-and-expected-results.yml: 1207c6118839a3b13810038c57a20d4a
 lib/smart_answer_flows/state-pension-topup/outcomes/outcome_pension_age_not_reached.govspeak.erb: 558d49584fe1ece4d36427740d381273
@@ -9,6 +9,6 @@ lib/smart_answer_flows/state-pension-topup/questions/dob_age.govspeak.erb: a98e1
 lib/smart_answer_flows/state-pension-topup/questions/gender.govspeak.erb: f388163b3d7abb9c78bfe8265b2f2856
 lib/smart_answer_flows/state-pension-topup/questions/how_much_extra_per_week.govspeak.erb: fcbf62d8db40dde727445b1742e7b958
 lib/smart_answer_flows/state-pension-topup/state_pension_topup.govspeak.erb: 519a1c6174840e90d2ce509aff91d7be
-lib/smart_answer/calculators/state_pension_topup_calculator.rb: 5df697870c82e8c44a0c08d1bc7c3d43
-lib/smart_answer/calculators/state_pension_topup_data_query.rb: d18c0d8df71ac858809f11a0b5fb0e63
+lib/smart_answer/calculators/state_pension_topup_calculator.rb: 8c7fd0813d54ce07b02b0bee27019121
+lib/smart_answer/calculators/state_pension_topup_data_query.rb: 62717af09ad451e49dbb9e1a4d5422bc
 lib/data/pension_top_up_data.yml: 8fb3111dcf367687e4035e1dcc8d003b
