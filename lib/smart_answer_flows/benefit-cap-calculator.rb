@@ -6,7 +6,7 @@ module SmartAnswer
       status :published
       satisfies_need "100696"
 
-      config = Calculators::BenefitCapCalculatorConfiguration.new
+      config = Calculators::BenefitCapCalculatorConfiguration.new("default")
 
       # Routing question
       multiple_choice :choose_cap_to_calculate? do
