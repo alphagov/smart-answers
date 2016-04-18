@@ -3,7 +3,7 @@ module SmartAnswer
     class Value < Base
       def initialize(flow, name, options = {}, &block)
         @parse = options[:parse]
-        super
+        super(flow, name, &block)
       end
 
       def parse_input(raw_input)
