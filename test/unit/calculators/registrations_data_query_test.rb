@@ -4,7 +4,7 @@ module SmartAnswer::Calculators
   class RegistrationsDataQueryTest < ActiveSupport::TestCase
     context RegistrationsDataQuery do
       setup do
-        @described_class = SmartAnswer::Calculators::RegistrationsDataQuery
+        @described_class = RegistrationsDataQuery
         @query = @described_class.new
       end
       context "registration_data method" do

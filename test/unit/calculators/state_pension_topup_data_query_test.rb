@@ -3,10 +3,10 @@ require_relative "../../test_helper"
 module SmartAnswer::Calculators
   class StatePensionTopupDataQueryTest < ActiveSupport::TestCase
     setup do
-      SmartAnswer::Calculators::StatePensionTopupDataQuery
+      StatePensionTopupDataQuery
         .stubs(:age_and_rates_data)
         .returns('age_and_rates' => { 100 => 127, 99 => 137 })
-      @query = SmartAnswer::Calculators::StatePensionTopupDataQuery.new
+      @query = StatePensionTopupDataQuery.new
     end
 
     should "use the rate for the maximum provided age for people who are older" do

@@ -82,7 +82,7 @@ module SmartAnswer
 
       outcome :outcome_results do
         precalculate :data_query do
-          SmartAnswer::Calculators::LegalisationDocumentsDataQuery.new
+          Calculators::LegalisationDocumentsDataQuery.new
         end
 
         precalculate :groups_selected do

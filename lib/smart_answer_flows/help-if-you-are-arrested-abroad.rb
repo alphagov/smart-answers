@@ -6,7 +6,7 @@ module SmartAnswer
       status :published
       satisfies_need "100220"
 
-      arrested_calc = SmartAnswer::Calculators::ArrestedAbroad.new
+      arrested_calc = Calculators::ArrestedAbroad.new
       prisoner_packs = arrested_calc.data
       exclude_countries = %w(holy-see british-antarctic-territory)
 

@@ -67,7 +67,7 @@ module SmartAnswer
       #Q5
       money_question :whats_your_household_income? do
         calculate :calculator do |response|
-          SmartAnswer::Calculators::StudentFinanceCalculator.new(
+          Calculators::StudentFinanceCalculator.new(
             course_start: start_date,
             household_income: response,
             residence: where_living

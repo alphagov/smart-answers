@@ -5,7 +5,7 @@ module SmartAnswer
     class PayLeaveForParentsCalculatorTest < ActiveSupport::TestCase
       setup do
         @due_date = Date.parse('2015-1-1')
-        @calculator = SmartAnswer::Calculators::PayLeaveForParentsCalculator.new
+        @calculator = PayLeaveForParentsCalculator.new
       end
 
       test "continuity_start_date" do
@@ -61,7 +61,7 @@ module SmartAnswer
       context "due date in 2013-2014 range" do
         setup do
           @date = Date.parse("2014-1-1")
-          @calculator = SmartAnswer::Calculators::PayLeaveForParentsCalculator.new
+          @calculator = PayLeaveForParentsCalculator.new
         end
 
         should "be in 2013-2014 range" do
@@ -76,7 +76,7 @@ module SmartAnswer
       context "due date in 2014-2015 range" do
         setup do
           @date = Date.parse("2015-1-1")
-          @calculator = SmartAnswer::Calculators::PayLeaveForParentsCalculator.new
+          @calculator = PayLeaveForParentsCalculator.new
         end
 
         should "be in 2013-2014 range" do
@@ -91,7 +91,7 @@ module SmartAnswer
       context "due date in 2015-2016 range" do
         setup do
           @date = Date.parse("2016-1-1")
-          @calculator = SmartAnswer::Calculators::PayLeaveForParentsCalculator.new
+          @calculator = PayLeaveForParentsCalculator.new
         end
 
         should "be in 2015-2016 range" do
@@ -106,7 +106,7 @@ module SmartAnswer
       context "due date outside all ranges" do
         setup do
           @date = Date.parse("2022-1-1")
-          @calculator = SmartAnswer::Calculators::PayLeaveForParentsCalculator.new
+          @calculator = PayLeaveForParentsCalculator.new
         end
 
         should "return the latest_pat_leave known lower_earnings_amount" do
