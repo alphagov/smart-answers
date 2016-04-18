@@ -5,7 +5,7 @@ module SmartAnswer
         @exclude_countries = options.delete(:exclude_countries)
         @include_uk = options.delete(:include_uk)
         @additional_countries = options.delete(:additional_countries)
-        super
+        super(flow, name, &block)
       end
 
       def options
@@ -21,7 +21,7 @@ module SmartAnswer
       end
 
       def valid_option?(option)
-        options.map { |v| v.slug }.include? (option.to_s)
+        options.map(&:slug).include? (option.to_s)
       end
 
       def parse_input(raw_input)

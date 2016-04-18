@@ -42,7 +42,6 @@ module SmartAnswer::Calculators
           }
           assert_equal expected, resp
         end
-
       end
     end
   end

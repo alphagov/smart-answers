@@ -31,7 +31,7 @@ class SmartAnswersControllerSalaryQuestionTest < ActionController::TestCase
 
       context "error message set in erb template" do
         setup do
-          submit_response({ amount: "bad_number" }, { responses: '1.23' })
+          submit_response({ amount: "bad_number" }, responses: '1.23')
         end
 
         should "show a validation error if invalid amount" do

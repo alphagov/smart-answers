@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/calculate-your-child-maintenance.rb: 24b4055e8215d430d11630dd69ff69f5
+lib/smart_answer_flows/calculate-your-child-maintenance.rb: d2187c78a525908ed350daa88d91c01e
 test/data/calculate-your-child-maintenance-questions-and-responses.yml: 4534340cf82c2d7f24a865a8b70855fd
 test/data/calculate-your-child-maintenance-responses-and-expected-results.yml: e5f2d15987daf89c77c28fc4b4b82042
 lib/smart_answer_flows/calculate-your-child-maintenance/calculate_your_child_maintenance.govspeak.erb: 54774b8368ca04904d29c4857b8178ef
@@ -12,5 +12,5 @@ lib/smart_answer_flows/calculate-your-child-maintenance/questions/gross_income_o
 lib/smart_answer_flows/calculate-your-child-maintenance/questions/how_many_children_paid_for.govspeak.erb: b20dcec0a014c9bded488f13b97ab782
 lib/smart_answer_flows/calculate-your-child-maintenance/questions/how_many_nights_children_stay_with_payee.govspeak.erb: 9a27f3b0b85791d2b58342d5942faf0e
 lib/smart_answer_flows/calculate-your-child-maintenance/questions/how_many_other_children_in_payees_household.govspeak.erb: da41d90eff1f553188920489616b3c1e
-lib/smart_answer/calculators/child_maintenance_calculator.rb: b25f3f30fa8a7e43eb5e006cdd9bdfd0
+lib/smart_answer/calculators/child_maintenance_calculator.rb: 8968b445c70dde76c72e0adbc3447ed2
 lib/data/child_maintenance_data.yml: a8cd91247e67f9f6bafdb93fb4ff8166

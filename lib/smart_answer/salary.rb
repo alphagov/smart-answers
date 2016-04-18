@@ -5,10 +5,10 @@ module SmartAnswer
     attr_reader :amount, :period
 
     def initialize(amount_or_options = {}, period = nil)
-      if (amount_or_options.is_a?(Hash))
+      if amount_or_options.is_a?(Hash)
         amount = amount_or_options[:amount]
         period = amount_or_options[:period]
-      elsif (amount_or_options.to_s.match(/^[0-9\.]+-[a-z]+$/))
+      elsif amount_or_options.to_s.match(/^[0-9\.]+-[a-z]+$/)
         amount, period = amount_or_options.to_s.split('-')
       else
         amount = amount_or_options
@@ -21,7 +21,7 @@ module SmartAnswer
     def <=>(other)
       return nil unless other.is_a?(Salary)
       return nil unless other.period == self.period
-      return self.amount <=> other.amount
+      self.amount <=> other.amount
     end
 
     def to_s

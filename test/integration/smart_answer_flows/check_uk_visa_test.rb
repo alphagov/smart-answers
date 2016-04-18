@@ -510,7 +510,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       add_response 'oman'
       add_response 'medical'
     end
-      should "take you to outcome visit waiver" do
+    should "take you to outcome visit waiver" do
       assert_current_node :outcome_visit_waiver
     end
   end
@@ -623,7 +623,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       add_response 'work'
       add_response 'six_months_or_less'
     end
-      should "take you to outcome work_n" do
+    should "take you to outcome work_n" do
       assert_current_node :outcome_work_n
     end
   end
@@ -634,7 +634,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       add_response 'study'
       add_response 'six_months_or_less'
     end
-      should "take you to outcome taiwan exception" do
+    should "take you to outcome taiwan exception" do
       assert_current_node :outcome_taiwan_exception
     end
   end
@@ -644,7 +644,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       add_response 'taiwan'
       add_response 'tourism'
     end
-      should "take you to outcome taiwan exception" do
+    should "take you to outcome taiwan exception" do
       assert_current_node :outcome_taiwan_exception
     end
   end
@@ -654,7 +654,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       add_response 'taiwan'
       add_response 'school'
     end
-      should "take you to outcome taiwan exception" do
+    should "take you to outcome taiwan exception" do
       assert_current_node :outcome_taiwan_exception
     end
   end
@@ -664,7 +664,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       add_response 'taiwan'
       add_response 'medical'
     end
-      should "take you to outcome taiwan exception" do
+    should "take you to outcome taiwan exception" do
       assert_current_node :outcome_taiwan_exception
     end
   end

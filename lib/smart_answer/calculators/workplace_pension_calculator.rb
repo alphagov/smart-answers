@@ -1,6 +1,5 @@
 module SmartAnswer::Calculators
   class WorkplacePensionCalculator
-
     attr_reader :data
 
     def threshold_annual_rate
@@ -41,7 +40,7 @@ module SmartAnswer::Calculators
 
     def self.enrollment_data(num)
       load_calculator_data.find do |d|
-        num >= d[:min_employees] and num <= d[:max_employees]
+        num >= d[:min_employees] && num <= d[:max_employees]
       end
     end
 

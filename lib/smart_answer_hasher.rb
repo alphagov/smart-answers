@@ -15,7 +15,7 @@ private
 
   def ensure_all_files_exist
     @flow_file_paths.each do |path|
-      raise FileNotFound.new(path) unless File.exists?(path)
+      raise FileNotFound.new(path) unless File.exist?(path)
     end
   end
 

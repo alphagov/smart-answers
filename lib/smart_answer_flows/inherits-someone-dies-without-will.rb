@@ -12,7 +12,7 @@ module SmartAnswer
       # Q1
       multiple_choice :region? do
         option :"england-and-wales"
-        option :"scotland"
+        option :scotland
         option :"northern-ireland"
 
         save_input_as :region
@@ -28,8 +28,8 @@ module SmartAnswer
 
       # Q2
       multiple_choice :partner? do
-        option :"yes"
-        option :"no"
+        option :yes
+        option :no
 
         save_input_as :partner
 
@@ -50,8 +50,8 @@ module SmartAnswer
 
       # Q3
       multiple_choice :estate_over_250000? do
-        option :"yes"
-        option :"no"
+        option :yes
+        option :no
 
         save_input_as :estate_over_250000
 
@@ -85,8 +85,8 @@ module SmartAnswer
 
       # Q4
       multiple_choice :children? do
-        option :"yes"
-        option :"no"
+        option :yes
+        option :no
 
         save_input_as :children
 
@@ -149,8 +149,8 @@ module SmartAnswer
 
       # Q5
       multiple_choice :parents? do
-        option :"yes"
-        option :"no"
+        option :yes
+        option :no
 
         save_input_as :parents
 
@@ -188,8 +188,8 @@ module SmartAnswer
 
       # Q6
       multiple_choice :siblings? do
-        option :"yes"
-        option :"no"
+        option :yes
+        option :no
 
         save_input_as :siblings
 
@@ -252,8 +252,8 @@ module SmartAnswer
 
       # Q61
       multiple_choice :siblings_including_mixed_parents? do
-        option :"yes"
-        option :"no"
+        option :yes
+        option :no
 
         save_input_as :siblings
 
@@ -269,8 +269,8 @@ module SmartAnswer
 
       # Q7
       multiple_choice :grandparents? do
-        option :"yes"
-        option :"no"
+        option :yes
+        option :no
 
         save_input_as :grandparents
 
@@ -303,8 +303,8 @@ module SmartAnswer
 
       # Q8
       multiple_choice :aunts_or_uncles? do
-        option :"yes"
-        option :"no"
+        option :yes
+        option :no
 
         save_input_as :aunts_or_uncles
 
@@ -337,8 +337,8 @@ module SmartAnswer
 
       # Q20
       multiple_choice :half_siblings? do
-        option :"yes"
-        option :"no"
+        option :yes
+        option :no
 
         save_input_as :half_siblings
 
@@ -354,8 +354,8 @@ module SmartAnswer
 
       # Q21
       multiple_choice :half_aunts_or_uncles? do
-        option :"yes"
-        option :"no"
+        option :yes
+        option :no
 
         save_input_as :half_aunts_or_uncles
 
@@ -371,8 +371,8 @@ module SmartAnswer
 
       # Q40
       multiple_choice :great_aunts_or_uncles? do
-        option :"yes"
-        option :"no"
+        option :yes
+        option :no
 
         save_input_as :great_aunts_or_uncles
 
@@ -388,8 +388,8 @@ module SmartAnswer
 
       # Q60
       multiple_choice :more_than_one_child? do
-        option :"yes"
-        option :"no"
+        option :yes
+        option :no
 
         save_input_as :more_than_one_child
 

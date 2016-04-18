@@ -18,12 +18,12 @@ module SmartAnswer
       method_name =~ /=$/ || super
     end
 
-    def transition_to(new_node, input, &blk)
+    def transition_to(new_node, input, &block)
       dup.tap { |new_state|
         new_state.path << self.current_node
         new_state.current_node = new_node
         new_state.responses << input
-        yield new_state if block_given?
+        block.call(new_state) if block_given?
         new_state.freeze
       }
     end

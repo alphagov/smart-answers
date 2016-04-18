@@ -6,9 +6,9 @@ module SmartAnswer
     attr_accessor :status, :need_id
 
     def self.build
-      new.tap do |flow|
-        flow.define
-      end
+      flow = new
+      flow.define
+      flow
     end
 
     def initialize(&block)
@@ -50,36 +50,36 @@ module SmartAnswer
       @status
     end
 
-    def multiple_choice(name, options = {}, &block)
-      add_question(Question::MultipleChoice, name, options, &block)
+    def multiple_choice(name, &block)
+      add_node Question::MultipleChoice.new(self, name, &block)
     end
 
     def country_select(name, options = {}, &block)
-      add_question(Question::CountrySelect, name, options, &block)
+      add_node Question::CountrySelect.new(self, name, options, &block)
     end
 
-    def date_question(name, options = {}, &block)
-      add_question(Question::Date, name, options, &block)
+    def date_question(name, &block)
+      add_node Question::Date.new(self, name, &block)
     end
 
     def value_question(name, options = {}, &block)
-      add_question(Question::Value, name, options, &block)
+      add_node Question::Value.new(self, name, options, &block)
     end
 
-    def money_question(name, options = {}, &block)
-      add_question(Question::Money, name, options, &block)
+    def money_question(name, &block)
+      add_node Question::Money.new(self, name, &block)
     end
 
-    def salary_question(name, options = {}, &block)
-      add_question(Question::Salary, name, options, &block)
+    def salary_question(name, &block)
+      add_node Question::Salary.new(self, name, &block)
     end
 
-    def checkbox_question(name, options = {}, &block)
-      add_question(Question::Checkbox, name, options, &block)
+    def checkbox_question(name, &block)
+      add_node Question::Checkbox.new(self, name, &block)
     end
 
-    def postcode_question(name, options = {}, &block)
-      add_question(Question::Postcode, name, options, &block)
+    def postcode_question(name, &block)
+      add_node Question::Postcode.new(self, name, &block)
     end
 
     def outcome(name, &block)
@@ -99,7 +99,7 @@ module SmartAnswer
     end
 
     def node(node_or_name)
-      @nodes.find { |n| n.name == node_or_name.to_sym } or raise "Node '#{node_or_name}' does not exist"
+      @nodes.find { |n| n.name == node_or_name.to_sym } || raise("Node '#{node_or_name}' does not exist")
     end
 
     def start_state
@@ -132,10 +132,6 @@ module SmartAnswer
     class InvalidStatus < StandardError; end
 
   private
-
-    def add_question(klass, name, options = {}, &block)
-      add_node klass.new(self, name, options, &block)
-    end
 
     def add_node(node)
       raise "Node #{node.name} already defined" if node_exists?(node)

@@ -1,6 +1,5 @@
 module SmartAnswer::Calculators
   class MinimumWageCalculator
-
     attr_accessor :age, :pay_frequency, :basic_hours, :basic_pay, :is_apprentice,
       :overtime_hours, :overtime_hourly_rate, :accommodation_cost
 
@@ -54,7 +53,7 @@ module SmartAnswer::Calculators
 
     def basic_rate
       rate = @basic_pay / @basic_hours
-      if overtime_hours > 0 and overtime_hourly_rate > 0 and rate > overtime_hourly_rate
+      if overtime_hours > 0 && overtime_hourly_rate > 0 && rate > overtime_hourly_rate
         overtime_hourly_rate
       else
         rate
@@ -147,14 +146,14 @@ module SmartAnswer::Calculators
       else
         rates = data[:minimum_rates]
         rates.find do |r|
-          @age >= r[:min_age] and @age < r[:max_age]
+          @age >= r[:min_age] && @age < r[:max_age]
         end[:rate]
       end
     end
 
     def minimum_wage_data_for_date(date = Date.today)
       historical_minimum_wage_data.find do |d|
-        date >= d[:start_date] and date <= d[:end_date]
+        date >= d[:start_date] && date <= d[:end_date]
       end
     end
 
@@ -208,6 +207,5 @@ module SmartAnswer::Calculators
     def historical_minimum_wage_data
       @@historical_minimum_wage_data ||= YAML.load_file(Rails.root.join("lib/data/minimum_wage_data.yml"))[:minimum_wage_data]
     end
-
   end
 end

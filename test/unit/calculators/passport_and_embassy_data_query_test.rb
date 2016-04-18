@@ -2,9 +2,7 @@ require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class PassportAndEmbassyDataQueryTest < ActiveSupport::TestCase
-
     context PassportAndEmbassyDataQuery do
-
       setup do
         @query = PassportAndEmbassyDataQuery.new
       end

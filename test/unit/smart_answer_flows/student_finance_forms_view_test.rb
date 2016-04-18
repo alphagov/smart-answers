@@ -16,13 +16,13 @@ module SmartAnswer
 
     context 'when rendering :continuing_student? question' do
       should 'display Yes and No options' do
-        assert_equal ['No', 'Yes'], question_presenter(:continuing_student?).options.map(&:label).sort
+        assert_equal %w(No Yes), question_presenter(:continuing_student?).options.map(&:label).sort
       end
     end
 
     context 'when rendering :pt_course_start? question' do
       should 'display Yes and No options' do
-        assert_equal ['No', 'Yes'], question_presenter(:pt_course_start?).options.map(&:label).sort
+        assert_equal %w(No Yes), question_presenter(:pt_course_start?).options.map(&:label).sort
       end
     end
   end

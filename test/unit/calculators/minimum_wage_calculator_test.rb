@@ -218,7 +218,11 @@ module SmartAnswer::Calculators
         @basic_pay = 187.46
         @basic_hours = 39
         @calculator = MinimumWageCalculator.new(
-          age: @age, date: Date.parse('2010-10-01'), basic_pay: @basic_pay, basic_hours: @basic_hours)
+          age: @age,
+          date: Date.parse('2010-10-01'),
+          basic_pay: @basic_pay,
+          basic_hours: @basic_hours
+        )
       end
 
       context "compare basic_pay_check and @basic_pay" do
@@ -370,7 +374,12 @@ module SmartAnswer::Calculators
           # NOTE: test_date included as all minimum wage calculations are date sensitive
           test_date = Date.parse("2012-08-01")
           @calculator = MinimumWageCalculator.new(
-            age: 24, pay_frequency: 7, basic_pay: 168, basic_hours: 40, date: test_date)
+            age: 24,
+            pay_frequency: 7,
+            basic_pay: 168,
+            basic_hours: 40,
+            date: test_date
+          )
         end
 
         should "have a total hourly rate of 4.20" do
@@ -380,7 +389,6 @@ module SmartAnswer::Calculators
         end
 
         context "working 7 hours overtime @ 5.70" do
-
           setup do
             @calculator.overtime_hours = 7
             @calculator.overtime_hourly_rate = 5.7
@@ -407,16 +415,19 @@ module SmartAnswer::Calculators
             assert_equal 0, @calculator.accommodation_cost
             assert_equal 4.2, @calculator.total_hourly_rate
           end
-
         end
-
       end
 
       # Scenario 2
       context "minimum wage calculator for a 23 yr old working 70 hours over a fortnight after 01/10/2012" do
         setup do
           @calculator = MinimumWageCalculator.new(
-            age: 23, pay_frequency: 14, date: Date.parse("2012-10-01"), basic_pay: 420, basic_hours: 70)
+            age: 23,
+            pay_frequency: 14,
+            date: Date.parse("2012-10-01"),
+            basic_pay: 420,
+            basic_hours: 70
+          )
         end
 
         should "calculate total hourly rate" do
@@ -425,7 +436,6 @@ module SmartAnswer::Calculators
         end
 
         context "working overtime" do
-
           setup do
             @calculator.overtime_hours = 2
             @calculator.overtime_hourly_rate = 8
@@ -456,16 +466,19 @@ module SmartAnswer::Calculators
             assert_equal 6, @calculator.total_hourly_rate
             assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
           end
-
         end
-
       end
 
       # Scenario 3
       context "24 y/o with a low hourly rate" do
         setup do
           @calculator = MinimumWageCalculator.new(
-            age: 24, date: Date.parse('2011-10-01'), pay_frequency: 7, basic_pay: 100, basic_hours: 40)
+            age: 24,
+            date: Date.parse('2011-10-01'),
+            pay_frequency: 7,
+            basic_pay: 100,
+            basic_hours: 40
+          )
         end
 
         should "calculate total hourly rate" do
@@ -495,14 +508,18 @@ module SmartAnswer::Calculators
           assert_equal 2.50, @calculator.total_hourly_rate
           assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
-
       end
 
       # Scenario 4
       context "24 y/o in 2011, no accommodation, varying overtime" do
         setup do
           @calculator = MinimumWageCalculator.new(
-            age: 24, date: Date.parse('2011-10-01'), pay_frequency: 7, basic_pay: 100, basic_hours: 40)
+            age: 24,
+            date: Date.parse('2011-10-01'),
+            pay_frequency: 7,
+            basic_pay: 100,
+            basic_hours: 40
+          )
           @calculator.overtime_hours = 10
         end
 
@@ -521,14 +538,18 @@ module SmartAnswer::Calculators
           assert_equal 2.5, @calculator.total_hourly_rate
           assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
-
       end
 
       # Scenario 5
       context "21 y/o in 2009, no accommodation, varying overtime" do
         setup do
           @calculator = MinimumWageCalculator.new(
-            age: 21, date: Date.parse('2009-10-01'), pay_frequency: 12, basic_pay: 290, basic_hours: 60)
+            age: 21,
+            date: Date.parse('2009-10-01'),
+            pay_frequency: 12,
+            basic_pay: 290,
+            basic_hours: 60
+          )
         end
 
         should "calculate total hourly rate accounting for overtime with 4.83 hourly rate" do
@@ -591,16 +612,19 @@ module SmartAnswer::Calculators
             assert_equal 314.15, @calculator.total_pay
             assert_equal 4.83, @calculator.total_hourly_rate
           end
-
         end
-
       end
 
       # Scenario 6
       context "24 y/o 2008-2009 with accommodation and overtime variations." do
         setup do
           @calculator = MinimumWageCalculator.new(
-            age: 24, date: Date.parse('2008-10-01'), pay_frequency: 7, basic_pay: 168, basic_hours: 40)
+            age: 24,
+            date: Date.parse('2008-10-01'),
+            pay_frequency: 7,
+            basic_pay: 168,
+            basic_hours: 40
+          )
           @calculator.overtime_hours = 7
           @calculator.overtime_hourly_rate = 5.7
         end
@@ -625,14 +649,18 @@ module SmartAnswer::Calculators
           assert_equal 3.75, @calculator.total_hourly_rate
           assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
-
       end
 
       # Scenario 7
       context "18 y/o 2007-2008 with accommodation and overtime variations." do
         setup do
           @calculator = MinimumWageCalculator.new(
-            age: 17, date: Date.parse('2007-10-01'), pay_frequency: 30, basic_pay: 450, basic_hours: 150)
+            age: 17,
+            date: Date.parse('2007-10-01'),
+            pay_frequency: 30,
+            basic_pay: 450,
+            basic_hours: 150
+          )
           @calculator.overtime_hours = 8
           @calculator.overtime_hourly_rate = 4
         end
@@ -658,14 +686,18 @@ module SmartAnswer::Calculators
           assert_equal 537.20, @calculator.historical_entitlement
           assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
-
       end
 
       # Scenario 8
       context "24 y/o 2011-12 with high accommodation charge variations." do
         setup do
           @calculator = MinimumWageCalculator.new(
-            age: 24, date: Date.parse('2012-08-21'), pay_frequency: 7, basic_pay: 350, basic_hours: 35)
+            age: 24,
+            date: Date.parse('2012-08-21'),
+            pay_frequency: 7,
+            basic_pay: 350,
+            basic_hours: 35
+          )
           @calculator.overtime_hours = 10
           @calculator.overtime_hourly_rate = 12
         end
@@ -690,7 +722,6 @@ module SmartAnswer::Calculators
           assert_equal 6.07, @calculator.total_hourly_rate
           assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
-
       end
 
       # Scenario 12
@@ -698,7 +729,12 @@ module SmartAnswer::Calculators
         setup do
           Timecop.travel('30 Sep 2013')
           @calculator = MinimumWageCalculator.new(
-            age: 17, date: Date.parse('2009-01-10'), pay_frequency: 30, basic_pay: 840, basic_hours: 210)
+            age: 17,
+            date: Date.parse('2009-01-10'),
+            pay_frequency: 30,
+            basic_pay: 840,
+            basic_hours: 210
+          )
           @calculator.overtime_hours = 0
           @calculator.overtime_hourly_rate = 0
         end
@@ -725,9 +761,7 @@ module SmartAnswer::Calculators
           assert_equal 70.38, @calculator.historical_adjustment
           assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
-
       end
-
     end
     # Test URL: /am-i-getting-minimum-wage/y/past_payment/2010-10-01/apprentice_under_19/7/35/78.0/0/no
     context "Historical adjustment for apprentices (hours:35, pay:78)" do
@@ -741,7 +775,8 @@ module SmartAnswer::Calculators
           pay_frequency: 7,
           basic_hours: 35,
           basic_pay: 78,
-          is_apprentice: true)
+          is_apprentice: true
+        )
         assert_equal 2.50, @calculator.minimum_hourly_rate
         assert_equal 2.23, @calculator.total_hourly_rate
         assert_equal 10.07, @calculator.historical_adjustment
@@ -749,7 +784,6 @@ module SmartAnswer::Calculators
     end
 
     context "per hour minimum wage" do
-
       should "give the minimum wage for this year (2011-2012) for a given age" do
         test_date = Date.parse("2012-08-01")
         @calculator = MinimumWageCalculator.new age: 17, date: test_date
@@ -857,7 +891,11 @@ module SmartAnswer::Calculators
     context "total_pay and basic_rate calculations" do
       setup do
         @calculator = MinimumWageCalculator.new(
-          age: 25, pay_frequency: 5, basic_pay: 260, basic_hours: 40)
+          age: 25,
+          pay_frequency: 5,
+          basic_pay: 260,
+          basic_hours: 40
+        )
       end
 
       should "return overtime (5) as the lower rate" do
@@ -888,7 +926,12 @@ module SmartAnswer::Calculators
         setup do
           test_date = Date.parse("2012-08-01")
           @calculator = MinimumWageCalculator.new(
-          age: 25, pay_frequency: 5, basic_pay: 260, basic_hours: 40, date: test_date)
+            age: 25,
+            pay_frequency: 5,
+            basic_pay: 260,
+            basic_hours: 40,
+            date: test_date
+          )
         end
 
         should "[with accommodation_adjustment] return lower rate total (206.39) based on overtime_hourly_rate" do
@@ -910,7 +953,11 @@ module SmartAnswer::Calculators
     context "basic_rate tests" do
       setup do
         @calculator = MinimumWageCalculator.new(
-          age: 25, pay_frequency: 5, basic_pay: 312, basic_hours: 39)
+          age: 25,
+          pay_frequency: 5,
+          basic_pay: 312,
+          basic_hours: 39
+        )
       end
       should "basic_rate = 8" do
         assert_equal 8, @calculator.basic_hourly_rate
@@ -923,7 +970,11 @@ module SmartAnswer::Calculators
       end
       should "basic_rate = 0 with overtime_hourly_rate set to 7" do
         @calculator = MinimumWageCalculator.new(
-          age: 25, pay_frequency: 5, basic_pay: 0, basic_hours: 39)
+          age: 25,
+          pay_frequency: 5,
+          basic_pay: 0,
+          basic_hours: 39
+        )
         @calculator.overtime_hours = 10
         @calculator.overtime_hourly_rate = 7
         assert_equal 0, @calculator.basic_hourly_rate
@@ -939,17 +990,32 @@ module SmartAnswer::Calculators
     context "non-historical minimum wage" do
       should "return today's minimum wage rate for 25 year old" do
         @calculator = MinimumWageCalculator.new(
-          age: 24, pay_frequency: 7, basic_pay: 312, basic_hours: 39, date: Date.parse("5 Aug 2012"))
+          age: 24,
+          pay_frequency: 7,
+          basic_pay: 312,
+          basic_hours: 39,
+          date: Date.parse("5 Aug 2012")
+        )
         assert_equal 6.08, @calculator.minimum_hourly_rate
       end
       should "return today's minimum wage rate for 19 year old" do
         @calculator = MinimumWageCalculator.new(
-          age: 19, pay_frequency: 7, basic_pay: 312, basic_hours: 39, date: Date.parse("5 Aug 2012"))
+          age: 19,
+          pay_frequency: 7,
+          basic_pay: 312,
+          basic_hours: 39,
+          date: Date.parse("5 Aug 2012")
+        )
         assert_equal 4.98, @calculator.minimum_hourly_rate
       end
       should "return today's minimum wage rate for 17 year old" do
         @calculator = MinimumWageCalculator.new(
-          age: 17, pay_frequency: 7, basic_pay: 312, basic_hours: 39, date: Date.parse("5 Aug 2012"))
+          age: 17,
+          pay_frequency: 7,
+          basic_pay: 312,
+          basic_hours: 39,
+          date: Date.parse("5 Aug 2012")
+        )
         assert_equal 3.68, @calculator.minimum_hourly_rate
       end
     end
@@ -957,8 +1023,12 @@ module SmartAnswer::Calculators
     context "non-historical total entitlement and underpayment test" do
       setup do
         @calculator = MinimumWageCalculator.new(
-          age: 24, pay_frequency: 7, basic_pay: 100, basic_hours: 39, date: Date.parse("5 Aug 2012")
-          )
+          age: 24,
+          pay_frequency: 7,
+          basic_pay: 100,
+          basic_hours: 39,
+          date: Date.parse("5 Aug 2012")
+        )
       end
       should "return total_entitlement" do
         assert_equal 237.12, @calculator.total_entitlement
@@ -979,8 +1049,12 @@ module SmartAnswer::Calculators
       end
       should "return total_underpayment as 0.0" do
         @calculator = MinimumWageCalculator.new(
-          age: 25, pay_frequency: 7, basic_pay: 300, basic_hours: 39, date: Date.parse("5 Aug 2012")
-          )
+          age: 25,
+          pay_frequency: 7,
+          basic_pay: 300,
+          basic_hours: 39,
+          date: Date.parse("5 Aug 2012")
+        )
         @calculator.overtime_hours = 20
         @calculator.overtime_hourly_rate = 10
         assert_equal 453.8, @calculator.total_pay
@@ -998,7 +1072,8 @@ module SmartAnswer::Calculators
           pay_frequency: 7,
           basic_pay: 100,
           basic_hours: 39,
-          date: Date.parse("5 Aug 2010"))
+          date: Date.parse("5 Aug 2010")
+        )
         assert !@calculator.minimum_wage_or_above?
       end
       should "below minimum_wage_or_above (200)" do
@@ -1007,7 +1082,8 @@ module SmartAnswer::Calculators
           pay_frequency: 7,
           basic_pay: 200,
           basic_hours: 40,
-          date: Date.parse("5 Aug 2010"))
+          date: Date.parse("5 Aug 2010")
+        )
         # underpayment
         assert !@calculator.minimum_wage_or_above?
         assert_equal 32, @calculator.underpayment
@@ -1024,7 +1100,8 @@ module SmartAnswer::Calculators
           pay_frequency: 7,
           basic_pay: 100,
           basic_hours: 40,
-          date: Date.parse("5 Aug 2008"))
+          date: Date.parse("5 Aug 2008")
+        )
         # underpayment
         assert_equal 5.52, @calculator.minimum_hourly_rate
         assert_equal 2.5, @calculator.total_hourly_rate
@@ -1038,7 +1115,8 @@ module SmartAnswer::Calculators
           pay_frequency: 7,
           basic_pay: 100,
           basic_hours: 40,
-          date: Date.parse("5 Aug 2009"))
+          date: Date.parse("5 Aug 2009")
+        )
         # underpayment
         assert_equal 5.73, @calculator.minimum_hourly_rate
         assert_equal 2.5, @calculator.total_hourly_rate
@@ -1052,7 +1130,8 @@ module SmartAnswer::Calculators
           pay_frequency: 7,
           basic_pay: 40,
           basic_hours: 40,
-          date: Date.parse("5 Aug 2009"))
+          date: Date.parse("5 Aug 2009")
+        )
         # underpayment
         assert_equal 5.73, @calculator.minimum_hourly_rate
         assert_equal 1, @calculator.total_hourly_rate
@@ -1066,7 +1145,8 @@ module SmartAnswer::Calculators
           pay_frequency: 28,
           basic_pay: 741,
           basic_hours: 147,
-          date: Date.parse("5 Aug 2007"))
+          date: Date.parse("5 Aug 2007")
+        )
         # underpayment
         assert_equal 5.35, @calculator.minimum_hourly_rate
         assert_equal 5.04, @calculator.total_hourly_rate
@@ -1080,7 +1160,8 @@ module SmartAnswer::Calculators
           pay_frequency: 28,
           basic_pay: 696,
           basic_hours: 147,
-          date: Date.parse("5 Aug 2007"))
+          date: Date.parse("5 Aug 2007")
+        )
         # underpayment
         assert_equal 5.35, @calculator.minimum_hourly_rate
         assert_equal 4.73, @calculator.total_hourly_rate
@@ -1094,13 +1175,13 @@ module SmartAnswer::Calculators
           pay_frequency: 28,
           basic_pay: 661,
           basic_hours: 147,
-          date: Date.parse("5 Aug 2007"))
+          date: Date.parse("5 Aug 2007")
+        )
         # underpayment
         assert_equal 5.35, @calculator.minimum_hourly_rate
         assert_equal 4.5, @calculator.total_hourly_rate
         assert_equal 145.15, @calculator.historical_adjustment
       end
-
     end
     context "Zero overtime rate" do
       # Bug 436728 overtime_hourly_rate should not affect basic_rate when 0
@@ -1111,7 +1192,8 @@ module SmartAnswer::Calculators
           basic_pay: 2230.0,
           basic_hours: 148.0,
           overtime_hours: 8.0,
-          overtime_hourly_rate: 0.0)
+          overtime_hourly_rate: 0.0
+        )
         assert_equal 14.29, calculator.total_hourly_rate
       end
     end

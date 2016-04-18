@@ -8,10 +8,10 @@ module SmartAnswer::Calculators
           @due_date = Date.parse("2013-01-02")
           @calculator = MaternityBenefitsCalculator.new(@due_date)
         end
- should "return basic calcs" do
-   assert_equal @due_date, @calculator.due_date
-   assert_equal Date.parse("2012-12-30")..Date.parse("2013-01-05"), @calculator.expected_week
- end
+        should "return basic calcs" do
+          assert_equal @due_date, @calculator.due_date
+          assert_equal Date.parse("2012-12-30")..Date.parse("2013-01-05"), @calculator.expected_week
+        end
       end
 
       context "editor tests" do
@@ -50,7 +50,7 @@ module SmartAnswer::Calculators
           assert_equal 135.45, @calculator.ma_rate
         end
 
- should "have an smp_lel of 135.45" do
+        should "have an smp_lel of 135.45" do
           assert_equal 107, @calculator.smp_lel
         end
       end
@@ -74,7 +74,7 @@ module SmartAnswer::Calculators
           @calculator = MaternityBenefitsCalculator.new(Date.parse("14th July 2013"))
         end
 
- should "have an smp_lel of 109" do
+        should "have an smp_lel of 109" do
           assert_equal 109, @calculator.smp_lel
         end
       end
@@ -84,10 +84,10 @@ module SmartAnswer::Calculators
           @calculator = MaternityBenefitsCalculator.new(Date.parse("7th April 2014"))
         end
 
- should "have smp_rate and ma_rate of 138.18 and smp_lel of 111" do
+        should "have smp_rate and ma_rate of 138.18 and smp_lel of 111" do
           assert_equal 138.18, @calculator.smp_rate
           assert_equal 138.18, @calculator.ma_rate
-   assert_equal 111, @calculator.smp_lel
+          assert_equal 111, @calculator.smp_lel
         end
       end
     end

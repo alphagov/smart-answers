@@ -211,7 +211,7 @@ module SmartAnswer
         end
 
         precalculate :overseas_passports_embassies do
-          if organisations and organisations.any?
+          if organisations && organisations.any?
             service_title = 'Births and Deaths registration service'
             organisations.first.offices_with_service(service_title)
           else
@@ -229,7 +229,6 @@ module SmartAnswer
       outcome :no_embassy_result
       outcome :homeoffice_result
       outcome :no_birth_certificate_result do
-
         precalculate :location do
           loc = WorldLocation.find(country_of_birth)
           raise InvalidResponse unless loc
@@ -241,7 +240,7 @@ module SmartAnswer
         end
 
         precalculate :overseas_passports_embassies do
-          if organisations and organisations.any?
+          if organisations && organisations.any?
             service_title = 'Births and Deaths registration service'
             organisations.first.offices_with_service(service_title)
           else

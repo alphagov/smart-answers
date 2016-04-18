@@ -90,7 +90,6 @@ module SmartAnswer
       #Q5a-o
       config.questions.each do |(_benefit, method)|
         money_question method do
-
           calculate :total_benefits do |response|
             total_benefits + response.to_f
           end
@@ -103,7 +102,6 @@ module SmartAnswer
 
       #Q5p
       money_question :housing_benefit_amount? do
-
         save_input_as :housing_benefit_amount
 
         calculate :total_benefits do |response|
@@ -152,7 +150,6 @@ module SmartAnswer
 
       ## Outcome 3
       outcome :outcome_affected_greater_than_cap do
-
         precalculate :total_benefits do
           sprintf("%.2f", total_benefits)
         end
@@ -183,7 +180,6 @@ module SmartAnswer
         precalculate :total_benefits do
           sprintf("%.2f", total_benefits)
         end
-
       end
 
       ## Outcome 5

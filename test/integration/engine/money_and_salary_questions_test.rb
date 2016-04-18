@@ -1,7 +1,6 @@
 require_relative 'engine_test_helper'
 
 class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
-
   with_and_without_javascript do
     should "handle money and salary questions" do
       visit "/money-and-salary-sample/y"

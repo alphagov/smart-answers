@@ -31,7 +31,7 @@ class SmartAnswerTestHelper
   end
 
   def files_checksum_data_exists?
-    File.exists?(files_checksum_path)
+    File.exist?(files_checksum_path)
   end
 
   def run_regression_tests?

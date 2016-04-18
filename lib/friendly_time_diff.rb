@@ -1,10 +1,10 @@
 module FriendlyTimeDiff
-
   def friendly_time_diff(from_time, to_time)
     FriendlyDateDiff.new(from_time.to_date, to_time.to_date).describe
   end
 
 private
+
   class FriendlyDateDiff
     include ActionView::Helpers::TextHelper
     attr_reader :from_date, :to_date
@@ -19,6 +19,7 @@ private
     end
 
   private
+
     def date_parts
       [
         date_part('year', whole_years_away),

@@ -35,7 +35,6 @@ module SmartAnswer
           else
             []
           end
-
         end
 
         next_node do |response|

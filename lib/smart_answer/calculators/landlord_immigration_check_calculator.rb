@@ -1,6 +1,5 @@
 module SmartAnswer::Calculators
   class LandlordImmigrationCheckCalculator
-
     VALID_COUNTRIES = %w( England )
 
     attr_reader :postcode

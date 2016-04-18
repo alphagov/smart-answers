@@ -12,7 +12,7 @@ module SmartAnswer
       if raw_input.is_a?(Numeric)
         @value = BigDecimal.new(raw_input.to_s)
       else
-        raw_input = raw_input.to_s.gsub(/,/, '').gsub(/\s/, '')
+        raw_input = raw_input.to_s.delete(',').gsub(/\s/, '')
         if !self.class.valid?(raw_input)
           raise InvalidResponse, "Sorry, I couldn't understand that number. Please try again.", caller
         end

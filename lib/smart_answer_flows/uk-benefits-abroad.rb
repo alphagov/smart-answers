@@ -41,7 +41,7 @@ module SmartAnswer
           going_or_already_abroad == 'already_abroad'
         end
 
-        calculate :already_abroad_text_two do |response|
+        calculate :already_abroad_text_two do |_response|
           " or permanently" if already_abroad
         end
 
@@ -111,8 +111,7 @@ module SmartAnswer
       end
 
       ## Country Question - Shared
-      country_select :which_country?,additional_countries: additional_countries, exclude_countries: exclude_countries do
-
+      country_select :which_country?, additional_countries: additional_countries, exclude_countries: exclude_countries do
         save_input_as :country
 
         calculate :country_name do

@@ -2,7 +2,6 @@ require_relative '../../test_helper'
 require_relative '../../integration/smart_answer_flows/flow_test_helper'
 
 class FlowTestHelperTest < ActiveSupport::TestCase
-
   class FlowTestHelperIncluder
     include FlowTestHelper
     attr_accessor :responses

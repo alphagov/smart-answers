@@ -1,7 +1,6 @@
 require_relative 'engine_test_helper'
 
 class DataPartialsTest < EngineIntegrationTest
-
   should "output data partials correctly" do
     visit "/data-partial-sample/y/data_partial_with_scalar"
 
@@ -46,7 +45,7 @@ class DataPartialsTest < EngineIntegrationTest
           assert_page_has_content "Yarralumla"
           assert_page_has_content "ACT 2600"
 
-   assert page.has_selector?('h3', text: "Phone")
+          assert page.has_selector?('h3', text: "Phone")
           assert_page_has_content "(+61) (0) 2 6270 6666"
         end
 
@@ -58,7 +57,7 @@ class DataPartialsTest < EngineIntegrationTest
           assert_page_has_content "P O Box 1812"
           assert_page_has_content "Wellington 6140"
 
-   assert page.has_selector?('h3', text: "Phone")
+          assert page.has_selector?('h3', text: "Phone")
           assert_page_has_content "(+64) (0) 9 6270 1234"
         end
       end
