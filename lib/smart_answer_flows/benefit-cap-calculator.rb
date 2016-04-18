@@ -6,7 +6,7 @@ module SmartAnswer
       status :published
       satisfies_need "100696"
 
-      config = Calculators::BenefitCapCalculatorConfiguration.new
+      config = Calculators::BenefitCapCalculatorConfiguration.new("default")
 
       # Q1
       multiple_choice :receive_housing_benefit? do
