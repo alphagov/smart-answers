@@ -420,6 +420,10 @@ module SmartAnswer::Calculators
         @calc.stubs(:foo).returns(23.0493)
         assert_equal '23', @calc.formatted_foo
       end
+
+      should "respond to foo" do
+        assert @calc.respond_to?(:foo)
+      end
     end
 
     context "decimal precision in hours and minutes calculations" do
