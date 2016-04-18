@@ -39,7 +39,7 @@ end
 
 def check_locales_file(contents)
   links_to_check = []
-  contents.gsub(/\[(.+)\]\((.+)\)/) { |match|
+  contents.gsub(/\[(.+)\]\((.+)\)/) {
     link = prefix_link($2.gsub(/ "(.+)"$/, ''))
     links_to_check << link
   }
@@ -57,7 +57,7 @@ end
 
 namespace :links do
   desc 'Checks all URLs within Smart Answers for errors.'
-  task :check, :file do |t, args|
+  task :check, :file do |_, args|
     broken = []
     pwd = Dir.pwd
 

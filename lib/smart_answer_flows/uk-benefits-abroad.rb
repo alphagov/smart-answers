@@ -41,7 +41,7 @@ module SmartAnswer
           going_or_already_abroad == 'already_abroad'
         end
 
-        calculate :already_abroad_text_two do |response|
+        calculate :already_abroad_text_two do |_response|
           " or permanently" if already_abroad
         end
 

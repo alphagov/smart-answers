@@ -9,7 +9,7 @@ module SmartAnswer::Calculators
       age = age.to_i
       years = [20, years.to_i].min
 
-      (1..years.to_i).each do |i|
+      (1..years.to_i).each do
         entitlement_ratio = ratio(age)
         @pay += ([rate.to_f, weekly_pay.to_f].min * entitlement_ratio).round(10)
         @number_of_weeks_entitlement += entitlement_ratio

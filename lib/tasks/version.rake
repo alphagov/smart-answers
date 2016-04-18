@@ -95,7 +95,7 @@ namespace :version do
   end
 
   desc "Turns a version 2 draft flow into a published flow"
-  task :publish, [:flow] => [:environment] do |t, args|
+  task :publish, [:flow] => [:environment] do |_, args|
     flow = args[:flow]
     no_flow_name_error unless flow
     raise_error("No v2 found for '#{flow}'") unless File.exist?(flow_path(flow, 'v2'))
@@ -126,7 +126,7 @@ namespace :version do
   end
 
   desc "Makes a version 2 draft flow"
-  task :v2, [:flow] => [:environment] do |t, args|
+  task :v2, [:flow] => [:environment] do |_, args|
     flow = args[:flow]
     no_flow_name_error unless flow
     raise_error("V2 already found for '#{flow}'") if File.exist?(flow_path(flow, 'v2'))
