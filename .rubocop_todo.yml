@@ -141,13 +141,6 @@ Style/ClassVars:
   Exclude:
     - 'lib/smart_answer/calculators/minimum_wage_calculator.rb'
 
-# Offense count: 6
-# Cop supports --auto-correct.
-Style/ClosingParenthesisIndentation:
-  Exclude:
-    - 'test/unit/calculators/minimum_wage_calculator_test.rb'
-    - 'test/unit/smart_answer_flows/am_i_getting_minimum_wage_flow_test.rb'
-
 # Offense count: 9
 Style/MethodCalledOnDoEndBlock:
   Exclude:
