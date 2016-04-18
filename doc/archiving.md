@@ -35,7 +35,3 @@ There may also be an associated `Calculator` or data files, these will be refere
 Generally, the larger and more complex the Smart Answer, the more likely there may be additional supporting files, and you should check the flow carefully and get review from someone more familiar with Smart Answers.
 
 This [pull request](https://github.com/alphagov/smart-answers/pull/1428) is a good example of removing this kind of Smart Answer.
-
-## Drafts
-
-Flows may have an active draft/V2 flow, which is a clone of the original flow but with a `-v2` suffix on all the files, so make sure this is removed as well.
