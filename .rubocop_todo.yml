@@ -161,10 +161,3 @@ Style/MultilineTernaryOperator:
 Style/StructInheritance:
   Exclude:
     - 'lib/data/finance_weighting.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: ExactNameMatch, AllowPredicates, AllowDSLWriters, IgnoreClassMethods, Whitelist.
-Style/TrivialAccessors:
-  Exclude:
-    - 'lib/smart_answer/question/base.rb'

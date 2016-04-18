@@ -47,7 +47,7 @@ module SmartAnswer
       end
 
       def save_input_as(variable_name)
-        @save_input_as = variable_name
+        @saved_input = variable_name
       end
 
       def transition(current_state, raw_input)
@@ -60,7 +60,7 @@ module SmartAnswer
         end
         next_node = next_node_for(new_state, input)
         new_state = new_state.transition_to(next_node, input) do |state|
-          state.save_input_as @save_input_as if @save_input_as
+          state.save_input_as @saved_input if @saved_input
         end
         @calculations.each do |calculation|
           new_state = calculation.evaluate(new_state, input)
