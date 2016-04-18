@@ -43,7 +43,7 @@ module SmartAnswer::Calculators
   private
 
     def data
-      @data ||= YAML.load_file(Rails.root.join('lib', 'data', 'benefit_cap_data.yml'))
+      @data ||= YAML.load_file(Rails.root.join('lib', 'data', 'benefit_cap_data.yml'))['default']
     end
   end
 end
