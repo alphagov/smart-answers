@@ -126,7 +126,7 @@ module SmartAnswer
         next_node { outcome :done }
       end
 
-      new_state = q.transition(@initial_state, { year: "2011", month: '2', day: '1' })
+      new_state = q.transition(@initial_state, year: "2011", month: '2', day: '1')
       assert_equal Date.parse('2011-02-01'), new_state.date
     end
 
@@ -137,7 +137,7 @@ module SmartAnswer
       end
 
       assert_raise SmartAnswer::InvalidResponse do
-        q.transition(@initial_state, { year: "", month: '2', day: '1' })
+        q.transition(@initial_state, year: "", month: '2', day: '1')
       end
     end
 
@@ -234,7 +234,7 @@ module SmartAnswer
         next_node { outcome :done }
       end
 
-      new_state = q.transition(@initial_state, { year: "", month: "", day: "" })
+      new_state = q.transition(@initial_state, year: "", month: "", day: "")
       assert_equal Date.parse('2013-02-11'), new_state.date
     end
 

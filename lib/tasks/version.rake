@@ -109,9 +109,9 @@ namespace :version do
     puts "Moved #{flow_test_path(flow, 'v2')} to #{flow_test_path(flow)}"
 
     # Rename the internals
-    replace_in_file(flow_path(flow), { /V2/ => '' })
-    replace_in_file(yml_path(flow), { Regexp.new("#{flow}-v2:") => "#{flow}:" })
-    replace_in_file(flow_test_path(flow), { /V2/ => '', Regexp.new("#{flow}-v2") => flow })
+    replace_in_file(flow_path(flow), /V2/ => '')
+    replace_in_file(yml_path(flow), Regexp.new("#{flow}-v2:") => "#{flow}:")
+    replace_in_file(flow_test_path(flow), /V2/ => '', Regexp.new("#{flow}-v2") => flow)
 
     flow_data = File.read(flow_path(flow))
     flow_data.gsub!("status :draft", "status :published")
@@ -152,7 +152,7 @@ namespace :version do
     File.open(flow_path(flow, 'v2'), "w") { |file| file.puts flow_data }
 
     # Replace yml key
-    replace_in_file(yml_path(flow, 'v2'), { Regexp.new("#{flow}:") => "#{flow}-v2:" })
+    replace_in_file(yml_path(flow, 'v2'), Regexp.new("#{flow}:") => "#{flow}-v2:")
 
     # Update class name for integration test and setup flow name
     test_data = File.read(flow_test_path(flow, 'v2'))
