@@ -5,7 +5,7 @@ module SmartAnswer
         @exclude_countries = options.delete(:exclude_countries)
         @include_uk = options.delete(:include_uk)
         @additional_countries = options.delete(:additional_countries)
-        super
+        super(flow, name, &block)
       end
 
       def options

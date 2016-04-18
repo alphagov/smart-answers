@@ -3,7 +3,7 @@ module SmartAnswer
     class Base < Node
       class NextNodeUndefined < StandardError; end
 
-      def initialize(flow, name, options = {}, &block)
+      def initialize(flow, name, &block)
         @validations = []
         @default_next_node_block = lambda { |_| nil }
         super
