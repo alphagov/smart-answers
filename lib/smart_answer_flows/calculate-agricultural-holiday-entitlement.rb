@@ -35,11 +35,9 @@ module SmartAnswer
         option "2-days"
         option "1-day"
 
-        calculate :days_worked_per_week do |response|
-          # XXX: this is a bit nasty and takes advantage of the fact that
-          # to_i only looks for the very first integer
-          response.to_i
-        end
+        # XXX: this is a bit nasty and takes advantage of the fact that
+        # to_i only looks for the very first integer in the string response
+        calculate :days_worked_per_week, &:to_i
 
         next_node do
           question :worked_for_same_employer?

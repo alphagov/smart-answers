@@ -36,10 +36,8 @@ module SmartAnswer
           end
         end
 
-        calculate :number_of_children do |response|
-          ## to_i will look for the first integer in the string
-          response.to_i
-        end
+        ## to_i will look for the first integer in the string response
+        calculate :number_of_children, &:to_i
 
         next_node do
           question :gets_benefits?
