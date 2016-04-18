@@ -58,7 +58,7 @@ private
     Rails.application.config.expose_govspeak && presenter.render_txt?
   end
 
-  def with_format(format, &block)
+  def with_format(format, &_block)
     old_formats = self.formats
     self.formats = [format]
     result = yield

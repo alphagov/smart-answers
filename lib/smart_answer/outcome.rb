@@ -4,7 +4,7 @@ module SmartAnswer
       true
     end
 
-    def transition(*args)
+    def transition(*_args)
       raise InvalidNode
     end
   end
