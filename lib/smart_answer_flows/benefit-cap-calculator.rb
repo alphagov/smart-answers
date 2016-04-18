@@ -6,7 +6,17 @@ module SmartAnswer
       status :published
       satisfies_need "100696"
 
-      config = Calculators::BenefitCapCalculatorConfiguration.new("default")
+
+      #Routing question
+      multiple_choice :choose_cap_to_calculate? do
+        option :default
+        option :future
+      end
+      if response == "default"
+        config = Calculators::BenefitCapCalculatorConfiguration.new
+      else
+        config = Calculators::BenefitCapCalculatorConfiguration.new(:future)
+      end
 
       # Q1
       multiple_choice :receive_housing_benefit? do
