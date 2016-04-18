@@ -279,7 +279,7 @@ module SmartAnswer
       end
 
       outcome :hours_per_week_done do
-        precalculate :calculator do |response|
+        precalculate :calculator do
           Calculators::HolidayEntitlement.new(
             hours_per_week: hours_per_week,
             start_date: start_date,

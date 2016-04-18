@@ -70,7 +70,7 @@ module SmartAnswer
           links = []
           if arrested_calc.countries_with_regions.include?(country)
             regions = arrested_calc.get_country_regions(country)
-            regions.each do |key, val|
+            regions.each_value do |val|
               links << "- [#{val['url_text']}](#{val['link']})"
             end
           end

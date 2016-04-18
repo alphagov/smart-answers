@@ -69,18 +69,6 @@ Lint/ShadowingOuterLocalVariable:
     - 'lib/tasks/links.rake'
     - 'test/regression/smart_answers_regression_test.rb'
 
-# Offense count: 8
-# Cop supports --auto-correct.
-# Configuration parameters: IgnoreEmptyBlocks.
-Lint/UnusedBlockArgument:
-  Exclude:
-    - 'lib/smart_answer/calculators/redundancy_calculator.rb'
-    - 'lib/smart_answer_flows/calculate-your-holiday-entitlement.rb'
-    - 'lib/smart_answer_flows/help-if-you-are-arrested-abroad.rb'
-    - 'lib/smart_answer_flows/uk-benefits-abroad.rb'
-    - 'lib/tasks/links.rake'
-    - 'lib/tasks/version.rake'
-
 # Offense count: 13
 # Cop supports --auto-correct.
 # Configuration parameters: AllowUnusedKeywordArguments, IgnoreEmptyMethods.
