@@ -6,6 +6,8 @@ module SmartAnswer
       status :published
       satisfies_need "100696"
 
+      config = Calculators::BenefitCapCalculatorConfiguration.new
+
       # Q1
       multiple_choice :receive_housing_benefit? do
         option :yes
@@ -41,6 +43,10 @@ module SmartAnswer
         option :yes
         option :no
 
+        precalculate :exempt_benefits do
+          config.exempt_benefits
+        end
+
         next_node do |response|
           if response == 'yes'
             outcome :outcome_not_affected_exemptions
@@ -52,24 +58,16 @@ module SmartAnswer
 
       #Q4
       checkbox_question :receiving_non_exemption_benefits? do
-        option :bereavement
-        option :carers
-        option :child_benefit
-        option :child_tax
-        option :esa
-        option :guardian
-        option :incapacity
-        option :income_support
-        option :jsa
-        option :maternity
-        option :sda
-        option :widowed_mother
-        option :widowed_parent
-        option :widow_pension
-        option :widows_aged
+        config.benefits.keys.each do |benefit|
+          option benefit
+        end
 
         next_node_calculation :benefit_types do |response|
           response.split(",").map(&:to_sym)
+        end
+
+        precalculate :benefit_options do
+          config.descriptions.merge(none_above: "None of the above")
         end
 
         calculate :total_benefits do
@@ -84,416 +82,21 @@ module SmartAnswer
           if response == "none"
             outcome :outcome_not_affected
           else
-            case benefit_types.shift
-            when :bereavement then question :bereavement_amount?
-            when :carers then question :carers_amount?
-            when :child_benefit then question :child_benefit_amount?
-            when :child_tax then question :child_tax_amount?
-            when :esa then question :esa_amount?
-            when :guardian then question :guardian_amount?
-            when :incapacity then question :incapacity_amount?
-            when :income_support then question :income_support_amount?
-            when :jsa then question :jsa_amount?
-            when :maternity then question :maternity_amount?
-            when :sda then question :sda_amount?
-            when :widowed_mother then question :widowed_mother_amount?
-            when :widowed_parent then question :widowed_parent_amount?
-            when :widow_pension then question :widow_pension_amount?
-            when :widows_aged then question :widows_aged_amount?
-            else
-              if housing_benefit == 'yes'
-                question :housing_benefit_amount?
-              else
-                question :single_couple_lone_parent?
-              end
-            end
+            question BenefitCapCalculatorFlow.next_benefit_amount_question(config.questions, benefit_types)
           end
         end
       end
 
-      #Q5a
-      money_question :bereavement_amount? do
+      #Q5a-o
+      config.questions.each do |(_benefit, method)|
+        money_question method do
 
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          case benefit_types.shift
-          when :carers then question :carers_amount?
-          when :child_benefit then question :child_benefit_amount?
-          when :child_tax then question :child_tax_amount?
-          when :esa then question :esa_amount?
-          when :guardian then question :guardian_amount?
-          when :incapacity then question :incapacity_amount?
-          when :income_support then question :income_support_amount?
-          when :jsa then question :jsa_amount?
-          when :maternity then question :maternity_amount?
-          when :sda then question :sda_amount?
-          when :widowed_mother then question :widowed_mother_amount?
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widow_pension then question :widow_pension_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
+          calculate :total_benefits do |response|
+            total_benefits + response.to_f
           end
-        end
-      end
 
-      #Q5b
-      money_question :carers_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          case benefit_types.shift
-          when :child_benefit then question :child_benefit_amount?
-          when :child_tax then question :child_tax_amount?
-          when :esa then question :esa_amount?
-          when :guardian then question :guardian_amount?
-          when :incapacity then question :incapacity_amount?
-          when :income_support then question :income_support_amount?
-          when :jsa then question :jsa_amount?
-          when :maternity then question :maternity_amount?
-          when :sda then question :sda_amount?
-          when :widowed_mother then question :widowed_mother_amount?
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widow_pension then question :widow_pension_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
-        end
-      end
-
-      #Q5c
-      money_question :child_benefit_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          case benefit_types.shift
-          when :child_tax then question :child_tax_amount?
-          when :esa then question :esa_amount?
-          when :guardian then question :guardian_amount?
-          when :incapacity then question :incapacity_amount?
-          when :income_support then question :income_support_amount?
-          when :jsa then question :jsa_amount?
-          when :maternity then question :maternity_amount?
-          when :sda then question :sda_amount?
-          when :widowed_mother then question :widowed_mother_amount?
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widow_pension then question :widow_pension_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
-        end
-      end
-
-      #Q5d
-      money_question :child_tax_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          case benefit_types.shift
-          when :esa then question :esa_amount?
-          when :guardian then question :guardian_amount?
-          when :incapacity then question :incapacity_amount?
-          when :income_support then question :income_support_amount?
-          when :jsa then question :jsa_amount?
-          when :maternity then question :maternity_amount?
-          when :sda then question :sda_amount?
-          when :widowed_mother then question :widowed_mother_amount?
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widow_pension then question :widow_pension_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
-        end
-      end
-
-      #Q5e
-      money_question :esa_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          case benefit_types.shift
-          when :guardian then question :guardian_amount?
-          when :incapacity then question :incapacity_amount?
-          when :income_support then question :income_support_amount?
-          when :jsa then question :jsa_amount?
-          when :maternity then question :maternity_amount?
-          when :sda then question :sda_amount?
-          when :widowed_mother then question :widowed_mother_amount?
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widow_pension then question :widow_pension_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
-        end
-      end
-
-      #Q5f
-      money_question :guardian_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          case benefit_types.shift
-          when :incapacity then question :incapacity_amount?
-          when :income_support then question :income_support_amount?
-          when :jsa then question :jsa_amount?
-          when :maternity then question :maternity_amount?
-          when :sda then question :sda_amount?
-          when :widowed_mother then question :widowed_mother_amount?
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widow_pension then question :widow_pension_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
-        end
-      end
-
-      #Q5g
-      money_question :incapacity_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          case benefit_types.shift
-          when :income_support then question :income_support_amount?
-          when :jsa then question :jsa_amount?
-          when :maternity then question :maternity_amount?
-          when :sda then question :sda_amount?
-          when :widowed_mother then question :widowed_mother_amount?
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widow_pension then question :widow_pension_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
-        end
-      end
-
-      #Q5h
-      money_question :income_support_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          case benefit_types.shift
-          when :jsa then question :jsa_amount?
-          when :maternity then question :maternity_amount?
-          when :sda then question :sda_amount?
-          when :widowed_mother then question :widowed_mother_amount?
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widow_pension then question :widow_pension_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
-        end
-      end
-
-      #Q5i
-      money_question :jsa_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          case benefit_types.shift
-          when :maternity then question :maternity_amount?
-          when :sda then question :sda_amount?
-          when :widowed_mother then question :widowed_mother_amount?
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widow_pension then question :widow_pension_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
-        end
-      end
-
-      #Q5j
-      money_question :maternity_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          case benefit_types.shift
-          when :sda then question :sda_amount?
-          when :widowed_mother then question :widowed_mother_amount?
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widow_pension then question :widow_pension_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
-        end
-      end
-
-      #Q5k
-      money_question :sda_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          case benefit_types.shift
-          when :widowed_mother then question :widowed_mother_amount?
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widow_pension then question :widow_pension_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
-        end
-      end
-
-      #Q5n
-      money_question :widow_pension_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          case benefit_types.shift
-          when :widowed_mother then question :widowed_mother_amount?
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
-        end
-      end
-
-      #Q5l
-      money_question :widowed_mother_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          case benefit_types.shift
-          when :widowed_parent then question :widowed_parent_amount?
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
-        end
-      end
-
-      #Q5m
-      money_question :widowed_parent_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          case benefit_types.shift
-          when :widows_aged then question :widows_aged_amount?
-          else
-            if housing_benefit == 'yes'
-              question :housing_benefit_amount?
-            else
-              question :single_couple_lone_parent?
-            end
-          end
-        end
-      end
-
-      #Q5o
-      money_question :widows_aged_amount? do
-
-        calculate :total_benefits do |response|
-          total_benefits + response.to_f
-        end
-
-        next_node do
-          if housing_benefit == 'yes'
-            question :housing_benefit_amount?
-          else
-            question :single_couple_lone_parent?
+          next_node do
+            question BenefitCapCalculatorFlow.next_benefit_amount_question(config.questions, benefit_types)
           end
         end
       end
@@ -514,27 +117,20 @@ module SmartAnswer
 
       #Q6
       multiple_choice :single_couple_lone_parent? do
-        option :single
-        option :couple
-        option :parent
+        precalculate :weekly_benefit_cap_descriptions do
+          config.weekly_benefit_cap_descriptions
+        end
+
+        config.weekly_benefit_caps.keys.each do |weekly_benefit_cap|
+          option weekly_benefit_cap
+        end
 
         calculate :benefit_cap do |response|
-          if response == 'single'
-            benefit_cap = 350
-          else
-            benefit_cap = 500
-          end
-          sprintf("%.2f", benefit_cap)
+          sprintf("%.2f", config.weekly_benefit_cap_amount(response))
         end
 
         next_node do |response|
-          if response == 'single'
-            cap = 350
-          else
-            cap = 500
-          end
-
-          if total_benefits > cap
+          if total_benefits > config.weekly_benefit_cap_amount(response)
             outcome :outcome_affected_greater_than_cap
           else
             outcome :outcome_not_affected_less_than_cap
@@ -545,7 +141,11 @@ module SmartAnswer
       ##OUTCOMES
 
       ## Outcome 1
-      outcome :outcome_not_affected_exemptions
+      outcome :outcome_not_affected_exemptions do
+        precalculate :exempt_benefits do
+          config.exempt_benefits
+        end
+      end
 
       ## Outcome 2
       outcome :outcome_not_affected_no_housing_benefit
@@ -588,6 +188,10 @@ module SmartAnswer
 
       ## Outcome 5
       outcome :outcome_not_affected
+    end
+
+    def self.next_benefit_amount_question(benefits, selected_benefits)
+      benefits.fetch(selected_benefits.shift, :housing_benefit_amount?)
     end
   end
 end

@@ -5,15 +5,10 @@
 <% content_for :body do %>
   These benefits are exempt from the benefit cap:
 
-  - Attendance Allowance
-  - Disability Living Allowance
-  - Industrial Injuries Benefit
-  - Personal Independence Payment
-  - Employment and Support Allowance (support component)
-  - War Widow’s or War Widower’s Pension
-  - Working Tax Credit
-  - Armed Forces Compensation Scheme
-  - Armed Forces Independence Payment
+- Working Tax Credit
+  <% exempt_benefits.each do |exempt_benefit| %>
+     - <%= exempt_benefit %>
+  <% end %>
 
   You may be affected by the cap if your circumstances change.
 

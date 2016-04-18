@@ -1,0 +1,66 @@
+---
+weekly_benefit_caps:
+  single:
+    amount: 350
+    description: "Single"
+  couple:
+    amount: 500
+    description: "Living as a couple (with or without children)"
+  parent:
+    amount: 500
+    description: "A lone parent with 1 or more dependent children"
+exempt_benefits:
+  - Attendance Allowance
+  - Disability Living Allowance
+  - Industrial Injuries Benefit
+  - Personal Independence Payment
+  - Employment and Support Allowance (support component)
+  - War Widow’s or War Widower’s Pension
+  - Armed Forces Compensation Scheme
+  - Armed Forces Independence Payment
+benefits:
+  bereavement:
+    question: :bereavement_amount?
+    description: "Bereavement Allowance"
+  carers:
+    question: :carers_amount?
+    description: "Carer's Allowance"
+  child_benefit:
+    question: :child_benefit_amount?
+    description: "Child Benefit"
+  child_tax:
+    question: :child_tax_amount?
+    description: "Child Tax Credit"
+  esa:
+    question: :esa_amount?
+    description: "Employment and Support Allowance"
+  guardian:
+    question: :guardian_amount?
+    description: "Guardian's Allowance"
+  incapacity:
+    question: :incapacity_amount?
+    description: "Incapacity Benefit"
+  income_support:
+    question: :income_support_amount?
+    description: "Income Support"
+  jsa:
+    question: :jsa_amount?
+    description: "Jobseeker’s Allowance"
+  maternity:
+    question: :maternity_amount?
+    description: "Maternity Allowance"
+  sda:
+    question: :sda_amount?
+    description: "Severe Disablement Allowance"
+  widowed_mother:
+    question: :widowed_mother_amount?
+    description: "Widowed Mother's Allowance"
+  widowed_parent:
+    question: :widowed_parent_amount?
+    description: "Widowed Parent's Allowance"
+  widow_pension:
+    question: :widow_pension_amount?
+    description: "Widow's Pension"
+  widows_aged:
+    question: :widows_aged_amount?
+    description: "Widow's Pension (age related)"
