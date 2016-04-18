@@ -10,7 +10,7 @@ questions_and_responses = {}
 unknown_questions = []
 
 module MethodMissingHelper
-  def method_missing(method, *args, &block)
+  def method_missing(method, *_args, &_block)
     MethodMissingObject.new(method)
   end
 end

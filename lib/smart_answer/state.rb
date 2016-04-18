@@ -18,7 +18,7 @@ module SmartAnswer
       method_name =~ /=$/ || super
     end
 
-    def transition_to(new_node, input, &blk)
+    def transition_to(new_node, input, &_blk)
       dup.tap { |new_state|
         new_state.path << self.current_node
         new_state.current_node = new_node

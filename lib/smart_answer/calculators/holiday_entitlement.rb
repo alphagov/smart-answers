@@ -98,7 +98,7 @@ module SmartAnswer::Calculators
       end
     end
 
-    def respond_to?(symbol, include_all = false)
+    def respond_to?(symbol, _include_all = false)
       formatting_method(symbol).present?
     end
 
