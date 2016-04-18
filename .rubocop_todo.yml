@@ -162,17 +162,6 @@ Style/StructInheritance:
   Exclude:
     - 'lib/data/finance_weighting.rb'
 
-# Offense count: 5
-# Cop supports --auto-correct.
-# Configuration parameters: IgnoredMethods.
-Style/SymbolProc:
-  Exclude:
-    - 'app/models/world_location.rb'
-    - 'lib/smart_answer/flow.rb'
-    - 'lib/smart_answer/question/country_select.rb'
-    - 'lib/smart_answer_flows/calculate-agricultural-holiday-entitlement.rb'
-    - 'lib/smart_answer_flows/calculate-your-child-maintenance.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: ExactNameMatch, AllowPredicates, AllowDSLWriters, IgnoreClassMethods, Whitelist.

@@ -35,11 +35,13 @@ module SmartAnswer
         option "2-days"
         option "1-day"
 
+        # rubocop:disable Style/SymbolProc
         calculate :days_worked_per_week do |response|
           # XXX: this is a bit nasty and takes advantage of the fact that
           # to_i only looks for the very first integer
           response.to_i
         end
+        # rubocop:enable Style/SymbolProc
 
         next_node do
           question :worked_for_same_employer?
