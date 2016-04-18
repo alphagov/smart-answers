@@ -120,13 +120,6 @@ Lint/UselessAssignment:
     - 'test/unit/start_node_presenter_test.rb'
     - 'test/unit/state_test.rb'
 
-# Offense count: 21
-# Cop supports --auto-correct.
-Style/AlignArray:
-  Exclude:
-    - 'test/integration/engine/country_and_date_questions_test.rb'
-    - 'test/unit/calculators/maternity_paternity_calculator_test.rb'
-
 # Offense count: 25
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.

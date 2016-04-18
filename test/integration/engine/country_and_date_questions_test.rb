@@ -13,7 +13,8 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         panama portugal sao-tome-and-principe singapore south-korea
         sri-lanka uk-delegation-to-council-of-europe
         uk-delegation-to-organization-for-security-and-co-operation-in-europe
-        united-kingdom venezuela vietnam)
+        united-kingdom venezuela vietnam
+      )
       worldwide_api_has_locations(@location_slugs)
       Timecop.travel("2013-01-01")
     end
@@ -29,11 +30,13 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       within '.question-body' do
         assert page.has_select?("response")
         # Options above missing delegations and uk
-        expected = %w(angola aruba bangladesh belarus brazil brunei
+        expected = %w(
+          angola aruba bangladesh belarus brazil brunei
           cambodia chad croatia denmark eritrea france ghana iceland
           japan laos luxembourg malta micronesia mozambique nicaragua
           panama portugal sao-tome-and-principe singapore south-korea
-          sri-lanka venezuela vietnam)
+          sri-lanka venezuela vietnam
+        )
         actual = page.all('select option').map(&:value)
         assert_equal expected, actual
       end
@@ -102,11 +105,13 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       within '.question-body' do
         assert page.has_select?("response")
         # Options above excluding delegations
-        expected = %w(afghanistan angola aruba bangladesh belarus brazil brunei
+        expected = %w(
+          afghanistan angola aruba bangladesh belarus brazil brunei
           cambodia chad croatia denmark eritrea france ghana iceland
           japan laos luxembourg malta micronesia mozambique nicaragua
           panama portugal sao-tome-and-principe singapore south-korea
-          sri-lanka united-kingdom venezuela vietnam)
+          sri-lanka united-kingdom venezuela vietnam
+        )
         actual = page.all('select option').map(&:value)
         assert_equal expected, actual
       end
