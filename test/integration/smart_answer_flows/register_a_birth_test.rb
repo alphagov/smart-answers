@@ -142,7 +142,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
           should "give the oru result" do
             add_response 'in_the_uk'
             assert_state_variable :registration_country, 'spain'
-            assert_state_variable :button_data, { text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start" }
+            assert_state_variable :button_data, text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start"
             assert_current_node :oru_result
             assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
           end

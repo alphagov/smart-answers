@@ -120,22 +120,6 @@ Lint/UselessAssignment:
     - 'test/unit/start_node_presenter_test.rb'
     - 'test/unit/state_test.rb'
 
-# Offense count: 25
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/BracesAroundHashParameters:
-  Exclude:
-    - 'lib/tasks/version.rake'
-    - 'test/functional/smart_answers_controller_salary_question_test.rb'
-    - 'test/integration/smart_answer_flows/register_a_birth_test.rb'
-    - 'test/integration/smart_answer_flows/register_a_death_test.rb'
-    - 'test/integration_test_helper.rb'
-    - 'test/unit/calculators/state_pension_topup_data_query_test.rb'
-    - 'test/unit/calculators/translator_links_test.rb'
-    - 'test/unit/date_question_test.rb'
-    - 'test/unit/salary_question_test.rb'
-    - 'test/unit/smart_answer_flows/calculate_statutory_sick_pay_flow_test.rb'
-
 # Offense count: 1
 Style/ClassVars:
   Exclude:

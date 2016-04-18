@@ -4,12 +4,12 @@ module SmartAnswer::Calculators
   class TranslatorLinksTest < ActiveSupport::TestCase
     context TranslatorLinks do
       setup do
-        YAML.stubs(:load_file).returns({
-                                        'spain' => '/government/publications/spain-list-of-lawyers',
-                                        'switzerland' => '/government/publications/switzerland-list-of-lawyers',
-                                        'andorra' => '/government/publications/spain-list-of-lawyers',
-                                        'san-marino' => '/government/publications/italy-list-of-lawyers'
-                                        })
+        YAML.stubs(:load_file).returns(
+          'spain' => '/government/publications/spain-list-of-lawyers',
+          'switzerland' => '/government/publications/switzerland-list-of-lawyers',
+          'andorra' => '/government/publications/spain-list-of-lawyers',
+          'san-marino' => '/government/publications/italy-list-of-lawyers'
+        )
         @data = SmartAnswer::Calculators::TranslatorLinks.new
       end
 

@@ -16,10 +16,8 @@ module SmartAnswer
       context 'and sickness period is valid period of incapacity for work' do
         setup do
           @calculator.stubs(valid_period_of_incapacity_for_work?: true)
-          setup_states_for_question(:last_sick_day?, {
-            responding_with: '2015-01-03',
-            initial_state: { calculator: @calculator }
-          })
+          setup_states_for_question(:last_sick_day?, responding_with: '2015-01-03',
+            initial_state: { calculator: @calculator })
         end
 
         should 'go to has_linked_sickness? question' do
@@ -31,10 +29,8 @@ module SmartAnswer
       context 'and sickness period is not valid period of incapacity for work' do
         setup do
           @calculator.stubs(valid_period_of_incapacity_for_work?: false)
-          setup_states_for_question(:last_sick_day?, {
-            responding_with: '2015-01-03',
-            initial_state: { calculator: @calculator }
-          })
+          setup_states_for_question(:last_sick_day?, responding_with: '2015-01-03',
+            initial_state: { calculator: @calculator })
         end
 
         should 'go to must_be_sick_for_4_days outcome' do
