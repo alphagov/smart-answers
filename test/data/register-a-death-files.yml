@@ -25,7 +25,6 @@ test/fixtures/worldwide/italy_organisations.json: 536304a31cc5d56801162af4d056d6
 lib/smart_answer/calculators/registrations_data_query.rb: 2815e58157ff0c29887612d43a88dcda
 lib/smart_answer/calculators/country_name_formatter.rb: c11e2762e225f0800e770728fb6ad474
 lib/smart_answer/calculators/translator_links.rb: 079592f6c5ede06d7c6ae4e8c5553127
-test/fixtures/worldwide_locations.yml: 063711faceec3a4081d6d5fb386c8029
 test/fixtures/worldwide/algeria_organisations.json: 0351ae95cffe4095b3287058ca9af42e
 test/fixtures/worldwide/australia_organisations.json: e1f694483eaf4fb50808f688db0ff9c5
 test/fixtures/worldwide/brazil_organisations.json: a6f4bf65fd565df939bc3970f6d25bb5

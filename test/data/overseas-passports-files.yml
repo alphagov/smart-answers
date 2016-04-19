@@ -46,7 +46,6 @@ lib/smart_answer/calculators/overseas_passports_calculator.rb: 38bcdc2df765fd89b
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1d83fae34e0ee72ce1c1554bdb766d21
 lib/smart_answer/overseas_passports_helper.rb: 07df4cd921e62464c2dc9534b4d8cdf8
 lib/smart_answer/calculators/passport_and_embassy_data_query.rb: 21c2a74b8496d437ffd204d70ad5b366
-test/fixtures/worldwide_locations.yml: 063711faceec3a4081d6d5fb386c8029
 test/fixtures/worldwide/france_organisations.json: b52b023dff2ff86b9f2a7bcd4e6177d2
 test/fixtures/worldwide/st-martin_organisations.json: de1b42feef1112a6b4a0d818bebcc203
 test/fixtures/worldwide/nigeria_organisations.json: 8ee00943c597f24846f8c40eac5a4265
