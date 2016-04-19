@@ -41,9 +41,9 @@ class PlanAdoptionLeaveTest < ActiveSupport::TestCase
           add_response @arrival_date
         end
 
-       should "be on leave_start?" do
-         assert_current_node :leave_start?
-       end
+        should "be on leave_start?" do
+          assert_current_node :leave_start?
+        end
 
         should "error on leave_start over 14 days before" do
           add_response 15.days.ago(@arrival_date)
@@ -58,9 +58,7 @@ class PlanAdoptionLeaveTest < ActiveSupport::TestCase
             assert_current_node :adoption_leave_details
           end
         end
-
       end
     end
-
   end
 end

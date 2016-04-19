@@ -19,9 +19,7 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
   end
 
   context "In a country with a prisoner pack" do
-
     context "Answering with a country without any specific downloads / information" do
-
       context "Answering Aruba" do
         setup do
           worldwide_api_has_organisations_for_location('aruba', read_fixture_file('worldwide/aruba_organisations.json'))
@@ -40,13 +38,10 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
         should "correctly set up phrase lists" do
           assert_state_variable :has_extra_downloads, false
         end
-
       end # context: Andorra
-
     end # context: country without specific info
 
     context "Answering with a country that has specific downloads / information" do
-
       context "Answering Belgium" do
         setup do
           worldwide_api_has_organisations_for_location('belgium', read_fixture_file('worldwide/belgium_organisations.json'))
@@ -88,7 +83,6 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
     should "take them to the special Iran outcome" do
       assert_current_node :answer_two_iran
     end
-
   end
 
   context "In Syria" do
@@ -101,5 +95,4 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
       assert_current_node :answer_three_syria
     end
   end
-
 end

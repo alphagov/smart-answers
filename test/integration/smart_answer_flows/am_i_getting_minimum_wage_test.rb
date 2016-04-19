@@ -372,7 +372,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         should "ask 'how often did you get paid?'" do
           assert_current_node :does_not_apply_to_historical_apprentices
         end
-
       end
 
       context "answered 'no' to 'were you an apprentice?'" do
@@ -406,19 +405,19 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
               assert_current_node :how_many_hours_did_you_work?
             end
 
-          context "test hours entry for hours worked" do
-            should "succeed on 37.5 entered" do
-              add_response "37.5"
-              assert_current_node :how_much_were_you_paid_during_pay_period?
+            context "test hours entry for hours worked" do
+              should "succeed on 37.5 entered" do
+                add_response "37.5"
+                assert_current_node :how_much_were_you_paid_during_pay_period?
+              end
+              should "fail on text entered" do
+                add_response "no numbers"
+                assert_current_node_is_error
+              end
+              should "succeed on 0.01 entered" do
+                add_response "0.01"
+              end
             end
-            should "fail on text entered" do
-              add_response "no numbers"
-              assert_current_node_is_error
-            end
-            should "succeed on 0.01 entered" do
-              add_response "0.01"
-            end
-          end
 
             context "answered 'how many hours did you work?'" do
               setup do
@@ -478,7 +477,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                       assert_current_node :past_payment_below
                       # assert_current_node :past_payment_above
                     end
-
                   end
 
                   # Where accommodation is charged under the £4.73 threshold.
@@ -564,14 +562,14 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         add_response 17 # age at the time
         add_response 30 # pay frequency
         add_response 210 # basic hours
-        add_response 840  # basic pay
-        add_response 0   # overtime hours
+        add_response 840 # basic pay
+        add_response 0 # overtime hours
       end
       # Scenario 12 in free accommodation
       context "living in free accommodation" do
         setup do
           add_response :yes_free # accommodation type
-          add_response 5   # days per week in accommodation
+          add_response 5 # days per week in accommodation
         end
         should "be above the minimum wage" do
           assert_current_node :past_payment_above
@@ -602,7 +600,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           assert_equal 70.38, current_state.calculator.historical_adjustment
         end
       end
-
     end
   end # Past pay
 

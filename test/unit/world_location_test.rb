@@ -56,7 +56,7 @@ class WorldLocationTest < ActiveSupport::TestCase
         first = WorldLocation.all
         second = WorldLocation.all
 
- assert_requested(:get, %r{\A#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations}, times: 2) # 2 pages of results, once each
+        assert_requested(:get, %r{\A#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations}, times: 2) # 2 pages of results, once each
         assert_equal first, second
       end
 
@@ -64,18 +64,18 @@ class WorldLocationTest < ActiveSupport::TestCase
         first = WorldLocation.all
         second = WorldLocation.all
 
- assert_requested(:get, %r{\A#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations}, times: 2) # 2 pages of results, once each
+        assert_requested(:get, %r{\A#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations}, times: 2) # 2 pages of results, once each
         assert_equal first, second
 
         Timecop.travel(Time.now + 23.hours) do
           third = WorldLocation.all
-   assert_requested(:get, %r{\A#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations}, times: 2) # 2 pages of results, once each
+          assert_requested(:get, %r{\A#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations}, times: 2) # 2 pages of results, once each
           assert_equal first, third
         end
 
         Timecop.travel(Time.now + 25.hours) do
           fourth = WorldLocation.all
-   assert_requested(:get, %r{\A#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations}, times: 4) # 2 pages of results, twice each
+          assert_requested(:get, %r{\A#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations}, times: 4) # 2 pages of results, twice each
           assert_equal first, fourth
         end
       end
@@ -125,7 +125,7 @@ class WorldLocationTest < ActiveSupport::TestCase
         first = WorldLocation.find('rohan')
         second = WorldLocation.find('rohan')
 
- assert_requested(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan", times: 1)
+        assert_requested(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan", times: 1)
         assert_equal first, second
       end
 
@@ -138,18 +138,18 @@ class WorldLocationTest < ActiveSupport::TestCase
         first = WorldLocation.find('rohan')
         second = WorldLocation.find('rohan')
 
- assert_requested(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan", times: 1)
+        assert_requested(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan", times: 1)
         assert_equal first, second
 
         Timecop.travel(Time.now + 23.hours) do
           third = WorldLocation.find('rohan')
-   assert_requested(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan", times: 1)
+          assert_requested(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan", times: 1)
           assert_equal first, third
         end
 
         Timecop.travel(Time.now + 25.hours) do
           fourth = WorldLocation.find('rohan')
-   assert_requested(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan", times: 2)
+          assert_requested(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan", times: 2)
           assert_equal first, fourth
         end
       end

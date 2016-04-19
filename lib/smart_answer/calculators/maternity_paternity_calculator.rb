@@ -12,7 +12,7 @@ module SmartAnswer::Calculators
       :a_notice_leave, :last_payday, :pre_offset_payday, :pay_date, :paternity_leave_duration,
       :pay_day_in_month, :pay_day_in_week, :pay_method, :pay_week_in_month, :work_days, :date_of_birth, :awe
 
-    DAYS_OF_THE_WEEK = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    DAYS_OF_THE_WEEK = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
 
     def initialize(match_or_due_date, leave_type = "maternity")
       expected_start = match_or_due_date - match_or_due_date.wday
@@ -20,9 +20,9 @@ module SmartAnswer::Calculators
 
       @due_date = @match_date = match_or_due_date
       @leave_type = leave_type
-      @expected_week = @matched_week = expected_start .. expected_start + 6.days
+      @expected_week = @matched_week = expected_start..expected_start + 6.days
       @notice_of_leave_deadline = next_saturday(qualifying_start)
-      @qualifying_week = qualifying_start .. qualifying_start + 6.days
+      @qualifying_week = qualifying_start..qualifying_start + 6.days
       @employment_start = 25.weeks.ago(@qualifying_week.last)
       @a_employment_start = 25.weeks.ago(@matched_week.last)
       @leave_earliest_start_date = 11.weeks.ago(@expected_week.first)
@@ -206,7 +206,7 @@ module SmartAnswer::Calculators
     def paydates_weekly_starting
       [].tap do |ary|
         pay_start_date.step(pay_end_date) do |d|
-          ary << d if d.wday == (pay_start_date - 1).wday and d > pay_start_date
+          ary << d if d.wday == (pay_start_date - 1).wday && d > pay_start_date
         end
       end
     end
@@ -217,7 +217,7 @@ module SmartAnswer::Calculators
           weekdays = weekdays_for_month(date, pay_day_in_week)
           ary << weekdays.send(pay_week_in_month)
         end
-        if ary.last and ary.last < pay_end_date
+        if ary.last && ary.last < pay_end_date
           weekdays = weekdays_for_month(1.month.since(pay_end_date), pay_day_in_week)
           ary << weekdays.send(pay_week_in_month)
         end
@@ -231,7 +231,7 @@ module SmartAnswer::Calculators
         { min: uprating_date(2014), max: uprating_date(2015), amount: 138.18 },
         { min: uprating_date(2014), max: uprating_date(2100), amount: 139.58 } ### Change year in future
       ]
-      rate = rates.find { |r| r[:min] <= date and date < r[:max] } || rates.last
+      rate = rates.find { |r| r[:min] <= date && date < r[:max] } || rates.last
       rate[:amount]
     end
 
@@ -256,7 +256,7 @@ module SmartAnswer::Calculators
     end
 
     def within_pay_date_range?(day)
-      pay_start_date <= day and day <= pay_end_date
+      pay_start_date <= day && day <= pay_end_date
     end
 
     def rate_changes?(week)
@@ -266,7 +266,7 @@ module SmartAnswer::Calculators
     def pay_for_period(start_date, end_date)
       pay = 0.0
       (start_date..end_date).each_slice(7) do |week|
-        if week.size < 7 or !within_pay_date_range?(week.last) or rate_changes?(week)
+        if week.size < 7 || !within_pay_date_range?(week.last) || rate_changes?(week)
           # When calculating a partial SMP pay week divide the weekly rate by 7
           # truncating the result at 5 decimal places and increment the total pay
           # for each day of the partial week
@@ -322,7 +322,7 @@ module SmartAnswer::Calculators
     end
 
     def uprating_date(year)
-      date = first_sunday_in_month(4 , year)
+      date = first_sunday_in_month(4, year)
       date += leave_start_date.wday if leave_start_date
       date
     end

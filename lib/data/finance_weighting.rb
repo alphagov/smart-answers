@@ -25,7 +25,7 @@ end
 
 class BandedWeightingScore < Struct.new(:bands, :weight)
   def score(answer)
-    range = bands.find { |b| b[:min] <= answer and (!b.has_key?(:max) or b[:max] >= answer) }[:score]
+    range = bands.find { |b| b[:min] <= answer && (!b.has_key?(:max) || b[:max] >= answer) }[:score]
     range * weight
   end
 end

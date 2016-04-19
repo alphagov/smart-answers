@@ -5,12 +5,12 @@ module SmartAnswer
     context "using the worldwide API data" do
       setup do
         location1 = stub(slug: 'afghanistan', name: 'Afghanistan')
- location2 = stub(slug: 'denmark', name: 'Denmark')
- location3 = stub(slug: 'united-kingdom', name: 'United Kingdom')
- location4 = stub(slug: 'vietnam', name: 'Vietnam')
- location5 = stub(slug: 'holy-see', name: 'Holy See')
- location6 = stub(slug: 'british-antarctic-territory', name: 'British Antartic Territory')
- location7 = stub(slug: 'greenland', name: 'Greenland')
+        location2 = stub(slug: 'denmark', name: 'Denmark')
+        location3 = stub(slug: 'united-kingdom', name: 'United Kingdom')
+        location4 = stub(slug: 'vietnam', name: 'Vietnam')
+        location5 = stub(slug: 'holy-see', name: 'Holy See')
+        location6 = stub(slug: 'british-antarctic-territory', name: 'British Antartic Territory')
+        location7 = stub(slug: 'greenland', name: 'Greenland')
         WorldLocation.stubs(:all).returns([location1, location2, location3, location4, location5, location6])
         UkbaCountry.stubs(:all).returns([location7])
       end

@@ -99,7 +99,7 @@ module SmartAnswer::Calculators
     end
 
     def respond_to?(symbol, include_all = false)
-      formatting_method(symbol).present?
+      formatting_method(symbol).present? || super
     end
 
   private

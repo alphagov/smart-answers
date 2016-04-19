@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/register-a-birth.rb: d2dac27c5327ea996b030b425922a99f
+lib/smart_answer_flows/register-a-birth.rb: 2fc88098ac8bdbdda35222aa10de5050
 test/data/register-a-birth-questions-and-responses.yml: c59cb1d0c11f3ad29f905b632f7c58bb
 test/data/register-a-birth-responses-and-expected-results.yml: 3ac4372034c86d8cc87665db59ff11d5
 lib/smart_answer_flows/register-a-birth/outcomes/_fees.govspeak.erb: a2bc6c611c6809b333ab42066a805f71
@@ -24,8 +24,8 @@ lib/smart_answer_flows/shared/births_and_deaths_registration/_button.govspeak.er
 lib/data/rates/births_and_deaths_document_return_fees.yml: 4ac203e9fd076c12f62b57f8d1b64ffc
 lib/data/translators.yml: d86f628f0b85e24ffb0dc0ec77401387
 lib/data/registrations.yml: 2eb5c61678f21bd9cc06af67c230279f
-lib/smart_answer/calculators/country_name_formatter.rb: c11e2762e225f0800e770728fb6ad474
-lib/smart_answer/calculators/registrations_data_query.rb: 2815e58157ff0c29887612d43a88dcda
+lib/smart_answer/calculators/country_name_formatter.rb: 16b57a11261644a0bda0d609a60d1c62
+lib/smart_answer/calculators/registrations_data_query.rb: c63ecdace15fda23a06d14909a246873
 lib/smart_answer/calculators/translator_links.rb: 079592f6c5ede06d7c6ae4e8c5553127
 test/fixtures/worldwide_locations.yml: 063711faceec3a4081d6d5fb386c8029
 test/fixtures/worldwide/afghanistan_organisations.json: 17c0cf62dc952a13684d25c0374263ac

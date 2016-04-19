@@ -11,7 +11,6 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
   end
 
   context "Benefit cap calculator" do
-
     #Q1 Receiving Housing Benefit
     should "ask do you receive housing benefit" do
       assert_current_node :receive_housing_benefit?

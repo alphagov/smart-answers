@@ -2,7 +2,6 @@ require_relative '../../test_helper'
 
 module SmartAnswer::Calculators
   class HolidayEntitlementTest < ActiveSupport::TestCase
-
     context "seeing if feb 29th in range" do
       should "return true for 2010-01-01 to 2012-05-05" do
         assert_equal true, HolidayEntitlement.new.feb29th_in_range(Date.new(2010, 1, 1), Date.new(2012, 5, 5))
@@ -109,7 +108,7 @@ module SmartAnswer::Calculators
 
             should "return the fraction of a year in a leap year" do
               calc = HolidayEntitlement.new(start_date: Date.parse('2012-02-21'), leave_year_start_date: Date.parse('2012-02-01'))
-               assert_equal '0.9454', sprintf('%.4f', calc.fraction_of_year)
+              assert_equal '0.9454', sprintf('%.4f', calc.fraction_of_year)
             end
 
             should "return the fraction of a year in a leap year not covering Feb 29th" do
@@ -420,6 +419,10 @@ module SmartAnswer::Calculators
       should "strip .0 from foo" do
         @calc.stubs(:foo).returns(23.0493)
         assert_equal '23', @calc.formatted_foo
+      end
+
+      should "respond to foo" do
+        assert @calc.respond_to?(:foo)
       end
     end
 

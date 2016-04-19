@@ -3,14 +3,13 @@ require_relative '../test_helper'
 
 module SmartAnswer
   class MultipleChoiceQuestionTest < ActiveSupport::TestCase
-
     test "Can list options" do
       q = Question::MultipleChoice.new(nil, :example) do
         option :yes
         option :no
       end
 
-      assert_equal ["yes", "no"], q.options
+      assert_equal %w(yes no), q.options
     end
 
     test "Can list options without transitions" do
@@ -19,7 +18,7 @@ module SmartAnswer
         option :no
       end
 
-      assert_equal ["yes", "no"], q.options
+      assert_equal %w(yes no), q.options
     end
 
     test "Can determine next state on provision of an input" do
@@ -56,6 +55,5 @@ module SmartAnswer
         new_state = q.transition(current_state, :invalid)
       end
     end
-
   end
 end

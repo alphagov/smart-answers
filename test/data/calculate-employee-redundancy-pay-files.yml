@@ -9,7 +9,7 @@ lib/smart_answer_flows/calculate-employee-redundancy-pay/questions/age_of_employ
 lib/smart_answer_flows/calculate-employee-redundancy-pay/questions/date_of_redundancy.govspeak.erb: e6ba7dfca27ad55335fb2cd7dda62d5f
 lib/smart_answer_flows/calculate-employee-redundancy-pay/questions/weekly_pay_before_tax.govspeak.erb: 805f2283eecf730779d648b2998db59f
 lib/smart_answer_flows/calculate-employee-redundancy-pay/questions/years_employed.govspeak.erb: 6840413403d9331d79e3b60f04d244a9
-lib/smart_answer_flows/shared_logic/redundancy_pay.rb: 04f4009e5e4bf1620356825f67cdb7e0
-lib/smart_answer/calculators/redundancy_calculator.rb: 1fe3bafe5d283d97f1f3406e0bf56b4e
+lib/smart_answer_flows/shared_logic/redundancy_pay.rb: 49a179c0627bc74b41562c5150ae11f5
+lib/smart_answer/calculators/redundancy_calculator.rb: 102729e2e21790e3f3691cc01d1c1d95
 lib/data/rates/redundancy_pay.yml: a214c01e46e92847f26b1de107997c78
 lib/data/rates/redundancy_pay_northern_ireland.yml: 83dcea5aa4048b6fb5d4aa222343e5c5

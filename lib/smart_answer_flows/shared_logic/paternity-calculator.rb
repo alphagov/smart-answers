@@ -71,7 +71,6 @@ end
 
 ## QAP2 - Paternity Adoption
 date_question :padoption_date_of_adoption_placement? do
-
   calculate :ap_adoption_date do |response|
     placement_date = response
     raise SmartAnswer::InvalidResponse if placement_date < matched_date
@@ -428,10 +427,9 @@ end
 
 ## QP17
 value_question :specific_date_each_month_paternity?, parse: :to_i do
-
   calculate :pay_day_in_month do |response|
     day = response
-    raise InvalidResponse unless day > 0 and day < 32
+    raise InvalidResponse unless day > 0 && day < 32
     calculator.pay_day_in_month = day
   end
 
@@ -484,11 +482,11 @@ end
 
 ## QP20
 multiple_choice :pay_date_options_paternity? do
-  option :"first"
-  option :"second"
-  option :"third"
-  option :"fourth"
-  option :"last"
+  option :first
+  option :second
+  option :third
+  option :fourth
+  option :last
 
   calculate :pay_week_in_month do |response|
     calculator.pay_week_in_month = response
@@ -520,7 +518,7 @@ outcome :paternity_leave_and_pay do
   precalculate :pay_method do
     calculator.pay_method = (
       if monthly_pay_method
-        if monthly_pay_method == 'specific_date_each_month' and pay_day_in_month > 28
+        if monthly_pay_method == 'specific_date_each_month' && pay_day_in_month > 28
           'last_day_of_the_month'
         else
           monthly_pay_method
@@ -548,7 +546,7 @@ outcome :paternity_leave_and_pay do
   precalculate :pay_dates_and_pay do
     if entitled_to_pay && above_lower_earning_limit
       calculator.paydates_and_pay.map do |date_and_pay|
-        %Q(#{date_and_pay[:date].strftime('%e %B %Y')}|£#{sprintf('%.2f', date_and_pay[:pay])})
+        %(#{date_and_pay[:date].strftime('%e %B %Y')}|£#{sprintf('%.2f', date_and_pay[:pay])})
       end.join("\n")
     end
   end
@@ -562,7 +560,6 @@ outcome :paternity_leave_and_pay do
   precalculate :average_weekly_earnings do
     sprintf("%.2f", calculator.average_weekly_earnings)
   end
-
 end
 
 outcome :paternity_not_entitled_to_leave_or_pay do

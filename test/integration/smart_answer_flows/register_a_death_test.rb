@@ -244,7 +244,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
       end
       should "give the ORU result and be done" do
         assert_current_node :oru_result
-        assert_state_variable :button_data, { text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start" }
+        assert_state_variable :button_data, text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"
         assert_state_variable :translator_link_url, "/government/publications/italy-list-of-lawyers"
       end
     end # Answer Italy
@@ -258,7 +258,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
       end
       should "give the oru result and be done" do
         assert_current_node :oru_result
-        assert_state_variable :button_data, { text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start" }
+        assert_state_variable :button_data, text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"
         assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
       end
     end # Answer Andorra, now in France
@@ -280,7 +280,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         should "give the ORU result with a translators link" do
           add_response 'in_the_uk'
           assert_current_node :oru_result
-          assert_state_variable :button_data, { text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start" }
+          assert_state_variable :button_data, text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"
           assert_state_variable :translator_link_url, "/government/publications/afghanistan-list-of-lawyers"
         end
       end
@@ -296,7 +296,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         should "give the ORU result with a translator link and a standard payment method" do
           add_response 'in_the_uk'
           assert_current_node :oru_result
-          assert_state_variable :button_data, { text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start" }
+          assert_state_variable :button_data, text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"
           assert_state_variable :translator_link_url, "/government/publications/algeria-list-of-lawyers"
         end
       end
@@ -306,7 +306,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
           add_response 'another_country'
           add_response 'algeria'
           assert_current_node :oru_result
-          assert_state_variable :button_data, { text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start" }
+          assert_state_variable :button_data, text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"
           assert_state_variable :translator_link_url, "/government/publications/algeria-list-of-lawyers"
         end
       end
@@ -479,6 +479,5 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_current_node :oru_result
       end
     end
-
   end # Overseas
 end

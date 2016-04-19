@@ -17,7 +17,8 @@ module SmartAnswer
           setup do
             @question = @flow.node(age_question_name)
             @state = SmartAnswer::State.new(@question)
-            @calculator = stub('calculator',
+            @calculator = stub(
+              'calculator',
               :age= => nil,
               :under_school_leaving_age? => nil
             )
@@ -50,9 +51,7 @@ module SmartAnswer
           setup do
             @question = @flow.node(pay_frequency_question_name)
             @state = SmartAnswer::State.new(@question)
-            @calculator = stub('calculator',
-              :pay_frequency= => nil
-            )
+            @calculator = stub('calculator', :pay_frequency= => nil)
             @state.calculator = @calculator
           end
 
@@ -82,7 +81,8 @@ module SmartAnswer
           setup do
             @question = @flow.node(hours_question_name)
             @state = SmartAnswer::State.new(@question)
-            @calculator = stub('calculator',
+            @calculator = stub(
+              'calculator',
               pay_frequency: 1,
               :basic_hours= => nil
             )
@@ -125,9 +125,11 @@ module SmartAnswer
           setup do
             @question = @flow.node(overtime_hours_question_name)
             @state = SmartAnswer::State.new(@question)
-            @calculator = stub('calculator',
+            @calculator = stub(
+              'calculator',
               :overtime_hours= => nil,
-              :any_overtime_hours_worked? => nil)
+              :any_overtime_hours_worked? => nil
+            )
             @state.calculator = @calculator
           end
 
@@ -192,7 +194,8 @@ module SmartAnswer
             @question = @flow.node(accommodation_usage_question_name)
             @state = SmartAnswer::State.new(@question)
             @state.accommodation_charge = nil
-            @calculator = stub('calculator',
+            @calculator = stub(
+              'calculator',
               accommodation_adjustment: nil,
               minimum_wage_or_above?: nil,
               historically_receiving_minimum_wage?: nil

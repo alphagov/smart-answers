@@ -78,7 +78,6 @@ module SmartAnswer
         next_node do
           outcome :outcome_results
         end
-
       end
 
       outcome :outcome_results do

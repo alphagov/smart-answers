@@ -61,16 +61,16 @@ module SmartAnswer
         end
 
         calculate :has_extra_downloads do
-          [police, judicial, consul, prison, lawyer, benefits, doc, pdf].select { |x|
+          [police, judicial, consul, prison, lawyer, benefits, doc, pdf].count { |x|
             x != ""
-          }.length > 0 || arrested_calc.countries_with_regions.include?(country)
+          } > 0 || arrested_calc.countries_with_regions.include?(country)
         end
 
         calculate :region_links do
           links = []
           if arrested_calc.countries_with_regions.include?(country)
             regions = arrested_calc.get_country_regions(country)
-            regions.each do |key, val|
+            regions.each_value do |val|
               links << "- [#{val['url_text']}](#{val['link']})"
             end
           end
@@ -86,7 +86,6 @@ module SmartAnswer
             outcome :answer_one_generic
           end
         end
-
       end
 
       outcome :answer_one_generic do

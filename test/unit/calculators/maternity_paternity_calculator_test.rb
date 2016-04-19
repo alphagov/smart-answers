@@ -99,7 +99,6 @@ module SmartAnswer::Calculators
             @calculator.average_weekly_earnings = 135.40
             assert_equal 121.86, @calculator.statutory_maternity_rate_b.round(2)
           end
-
         end
 
         context "with an adoption placement date of a week ago" do
@@ -438,7 +437,6 @@ module SmartAnswer::Calculators
           @calculator.leave_start_date = Date.parse('1 March 2013')
           @calculator.pay_method = 'first_day_of_the_month'
           @calculator.average_weekly_earnings = 300.0
-
         end
         should "pay on the leave start date" do
           assert_equal '2013-03-01', @calculator.paydates_first_day_of_the_month.first.to_s
@@ -508,11 +506,14 @@ module SmartAnswer::Calculators
 
           paydates_and_pay = @calculator.paydates_and_pay
 
-          assert_equal ["2013-01-03", "2013-01-17", "2013-01-31", "2013-02-14", "2013-02-28",
-          "2013-03-14", "2013-03-28", "2013-04-11", "2013-04-25", "2013-05-09",
-          "2013-05-23", "2013-06-06", "2013-06-20", "2013-07-04", "2013-07-18",
-          "2013-08-01", "2013-08-15", "2013-08-29", "2013-09-12", "2013-09-26",
-          "2013-10-10"], paydates_and_pay.map { |p| p[:date].to_s }
+          expected_pay_dates = [
+            "2013-01-03", "2013-01-17", "2013-01-31", "2013-02-14", "2013-02-28",
+            "2013-03-14", "2013-03-28", "2013-04-11", "2013-04-25", "2013-05-09",
+            "2013-05-23", "2013-06-06", "2013-06-20", "2013-07-04", "2013-07-18",
+            "2013-08-01", "2013-08-15", "2013-08-29", "2013-09-12", "2013-09-26",
+            "2013-10-10"
+          ]
+          assert_equal expected_pay_dates, paydates_and_pay.map { |p| p[:date].to_s }
           assert_equal 32.15, paydates_and_pay.first[:pay]
           assert_equal 450, paydates_and_pay.second[:pay]
           assert_equal 270.9, paydates_and_pay[4][:pay]
@@ -649,7 +650,7 @@ module SmartAnswer::Calculators
         end
 
         should "produce 2 weeks of pay dates and pay at 90% of wage" do
-          paydates_and_pay =  @calculator.paydates_and_pay
+          paydates_and_pay = @calculator.paydates_and_pay
           assert_equal '2014-05-07', paydates_and_pay.first[:date].to_s
           assert_equal 112.5, paydates_and_pay.first[:pay]
           assert_equal '2014-05-14', paydates_and_pay.last[:date].to_s
@@ -668,7 +669,7 @@ module SmartAnswer::Calculators
         end
 
         should "produce 1 week of pay dates and pay at maximum amount" do
-          paydates_and_pay =  @calculator.paydates_and_pay
+          paydates_and_pay = @calculator.paydates_and_pay
           assert_equal '2014-05-31', paydates_and_pay.first[:date].to_s
           assert_equal 276.36, paydates_and_pay.first[:pay]
         end
@@ -684,7 +685,7 @@ module SmartAnswer::Calculators
         end
 
         should "produce 1 week of pay dates and pay at maximum amount" do
-          paydates_and_pay =  @calculator.paydates_and_pay
+          paydates_and_pay = @calculator.paydates_and_pay
           assert_equal '2014-05-31', paydates_and_pay.first[:date].to_s
           assert_equal 276.36, paydates_and_pay.first[:pay]
         end
@@ -701,7 +702,7 @@ module SmartAnswer::Calculators
         end
 
         should "produce 1 week of pay dates and pay at maximum amount" do
-          paydates_and_pay =  @calculator.paydates_and_pay
+          paydates_and_pay = @calculator.paydates_and_pay
           assert_equal '2015-05-31', paydates_and_pay.first[:date].to_s
           assert_equal (139.58 * 2), paydates_and_pay.first[:pay]
         end
@@ -739,14 +740,18 @@ module SmartAnswer::Calculators
           @calculator.leave_start_date = Date.parse('20 January 2014')
           @calculator.calculate_average_weekly_pay('monthly', 3000)
           paydates_and_pay = @calculator.paydates_and_pay
-          assert_equal ["2014-01-26", "2014-02-02", "2014-02-09", "2014-02-16", "2014-02-23",
-          "2014-03-02", "2014-03-09", "2014-03-16", "2014-03-23", "2014-03-30",
-          "2014-04-06", "2014-04-13", "2014-04-20", "2014-04-27", "2014-05-04",
-          "2014-05-11", "2014-05-18", "2014-05-25", "2014-06-01", "2014-06-08",
-          "2014-06-15", "2014-06-22", "2014-06-29", "2014-07-06", "2014-07-13",
-          "2014-07-20", "2014-07-27", "2014-08-03", "2014-08-10", "2014-08-17",
-          "2014-08-24", "2014-08-31", "2014-09-07", "2014-09-14", "2014-09-21",
-          "2014-09-28", "2014-10-05", "2014-10-12", "2014-10-19"], paydates_and_pay.map { |p| p[:date].to_s }
+
+          expected_pay_dates = [
+            "2014-01-26", "2014-02-02", "2014-02-09", "2014-02-16", "2014-02-23",
+            "2014-03-02", "2014-03-09", "2014-03-16", "2014-03-23", "2014-03-30",
+            "2014-04-06", "2014-04-13", "2014-04-20", "2014-04-27", "2014-05-04",
+            "2014-05-11", "2014-05-18", "2014-05-25", "2014-06-01", "2014-06-08",
+            "2014-06-15", "2014-06-22", "2014-06-29", "2014-07-06", "2014-07-13",
+            "2014-07-20", "2014-07-27", "2014-08-03", "2014-08-10", "2014-08-17",
+            "2014-08-24", "2014-08-31", "2014-09-07", "2014-09-14", "2014-09-21",
+            "2014-09-28", "2014-10-05", "2014-10-12", "2014-10-19"
+          ]
+          assert_equal expected_pay_dates, paydates_and_pay.map { |p| p[:date].to_s }
           assert_equal 136.78, paydates_and_pay.first[:pay]
           assert_equal 136.78, paydates_and_pay[9][:pay]
           assert_equal 138.18, paydates_and_pay[11][:pay]
@@ -768,13 +773,12 @@ module SmartAnswer::Calculators
 
         should "calculate 39 weeks of dates and pay, first 6 weeks is 90% of avg weekly pay, \
                 the remaining weeks is the minimum of 90% of avg weekly pay or 139.58" do
+          expected_pay_dates = %w(2015-04-07 2015-04-14 2015-04-21 2015-04-28 2015-05-05 2015-05-12 2015-05-19 2015-05-26 2015-06-02 2015-06-09 2015-06-16 2015-06-23 2015-06-30 2015-07-07 2015-07-14 2015-07-21 2015-07-28 2015-08-04 2015-08-11 2015-08-18 2015-08-25 2015-09-01 2015-09-08 2015-09-15 2015-09-22 2015-09-29 2015-10-06 2015-10-13 2015-10-20 2015-10-27 2015-11-03 2015-11-10 2015-11-17 2015-11-24 2015-12-01 2015-12-08 2015-12-15 2015-12-22 2015-12-29)
+          assert_equal 346.15, @calculator.calculate_average_weekly_pay('monthly', 3000).round(2)
+          assert_equal expected_pay_dates, @calculator.paydates_and_pay.map { |p| p[:date].to_s }
 
-                  expected_pay_dates = %w(2015-04-07 2015-04-14 2015-04-21 2015-04-28 2015-05-05 2015-05-12 2015-05-19 2015-05-26 2015-06-02 2015-06-09 2015-06-16 2015-06-23 2015-06-30 2015-07-07 2015-07-14 2015-07-21 2015-07-28 2015-08-04 2015-08-11 2015-08-18 2015-08-25 2015-09-01 2015-09-08 2015-09-15 2015-09-22 2015-09-29 2015-10-06 2015-10-13 2015-10-20 2015-10-27 2015-11-03 2015-11-10 2015-11-17 2015-11-24 2015-12-01 2015-12-08 2015-12-15 2015-12-22 2015-12-29)
-                  assert_equal 346.15, @calculator.calculate_average_weekly_pay('monthly', 3000).round(2)
-                  assert_equal expected_pay_dates, @calculator.paydates_and_pay.map { |p| p[:date].to_s }
-
-                  assert_equal [(346.15385 * 0.9).round(2)], @calculator.paydates_and_pay.first(6).map { |p| p[:pay] }.uniq
-                  assert_equal [139.58], @calculator.paydates_and_pay[6..-1].map { |p| p[:pay] }.uniq
+          assert_equal [(346.15385 * 0.9).round(2)], @calculator.paydates_and_pay.first(6).map { |p| p[:pay] }.uniq
+          assert_equal [139.58], @calculator.paydates_and_pay[6..-1].map { |p| p[:pay] }.uniq
         end
       end
 
@@ -790,9 +794,13 @@ module SmartAnswer::Calculators
           @calculator.pay_week_in_month = 'last'
           @calculator.calculate_average_weekly_pay('monthly', 3000)
           paydates_and_pay = @calculator.paydates_and_pay
-          assert_equal ["2014-01-31", "2014-02-28", "2014-03-28",
-          "2014-04-25", "2014-05-30", "2014-06-27", "2014-07-25",
-          "2014-08-29", "2014-09-26", "2014-10-31"], paydates_and_pay.map { |p| p[:date].to_s }
+
+          expected_pay_dates = [
+            "2014-01-31", "2014-02-28", "2014-03-28",
+            "2014-04-25", "2014-05-30", "2014-06-27", "2014-07-25",
+            "2014-08-29", "2014-09-26", "2014-10-31"
+          ]
+          assert_equal expected_pay_dates, paydates_and_pay.map { |p| p[:date].to_s }
           assert_equal 234.48, paydates_and_pay.first[:pay]
           assert_equal 550.93, paydates_and_pay[3][:pay]
           assert_equal 454.03, paydates_and_pay.last[:pay]

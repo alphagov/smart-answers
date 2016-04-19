@@ -75,7 +75,7 @@ module SmartAnswer
           else
             responses = response.split(",")
             raise InvalidResponse if response =~ /live_on_business_premises.*?using_home_for_business/
-            if (responses & ["car_or_van", "motorcycle"]).any?
+            if (responses & %w(car_or_van motorcycle)).any?
               question :buying_new_vehicle?
             elsif responses.include?("using_home_for_business")
               question :hours_work_home?
@@ -102,7 +102,6 @@ module SmartAnswer
             end
           end
         end
-
       end
 
       #Q4 - capital allowances claimed?
@@ -116,7 +115,7 @@ module SmartAnswer
         option :no
 
         calculate :capital_allowance_claimed do |response|
-          response == "yes" and (list_of_expenses & %w(using_home_for_business live_on_business_premises)).any?
+          response == "yes" && (list_of_expenses & %w(using_home_for_business live_on_business_premises)).any?
         end
 
         next_node do |response|
@@ -136,7 +135,6 @@ module SmartAnswer
             question :how_much_expect_to_claim?
           end
         end
-
       end
 
       #Q5 - claim vehicle expenses
@@ -197,11 +195,11 @@ module SmartAnswer
           response
         end
         calculate :green_vehicle_write_off do
-          vehicle_is_green ? Money.new(green_vehicle_price * ( business_use_percent / 100)) : nil
+          vehicle_is_green ? Money.new(green_vehicle_price * (business_use_percent / 100)) : nil
         end
 
         calculate :dirty_vehicle_write_off do
-          vehicle_is_green ? nil : Money.new(dirty_vehicle_price * ( business_use_percent / 100))
+          vehicle_is_green ? nil : Money.new(dirty_vehicle_price * (business_use_percent / 100))
         end
 
         next_node do |response|
@@ -217,7 +215,7 @@ module SmartAnswer
         # [user input 1-10,000] x 0.45
         # [user input > 10,001]  x 0.25
         calculate :simple_vehicle_costs do |response|
-          answer = response.gsub(",", "").to_f
+          answer = response.delete(",").to_f
           if answer <= 10000
             Money.new(answer * 0.45)
           else
@@ -242,7 +240,7 @@ module SmartAnswer
       #Q10 - miles to drive for business motorcycle
       value_question :drive_business_miles_motorcycle? do
         calculate :simple_motorcycle_costs do |response|
-          Money.new(response.gsub(",", "").to_f * 0.24)
+          Money.new(response.delete(",").to_f * 0.24)
         end
 
         next_node do
@@ -258,9 +256,8 @@ module SmartAnswer
 
       #Q11 - hours for home work
       value_question :hours_work_home? do
-
         calculate :hours_worked_home do |response|
-          response.gsub(",", "").to_f
+          response.delete(",").to_f
         end
 
         calculate :simple_home_costs do
@@ -292,7 +289,6 @@ module SmartAnswer
         next_node do
           list_of_expenses.include?("live_on_business_premises") ? question(:deduct_from_premises?) : outcome(:you_can_use_result)
         end
-
       end
 
       #Q13 = how much do you deduct from premises for private use?

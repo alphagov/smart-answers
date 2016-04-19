@@ -1,6 +1,5 @@
 module SmartAnswer::Calculators
   class StatePensionTopupCalculator
-
     FEMALE_YOUNGEST_DOB = Date.parse('1953-04-05')
     MALE_YOUNGEST_DOB = Date.parse('1951-04-05')
     TOPUP_START_DATE = Date.parse('2015-10-12')
@@ -43,7 +42,7 @@ module SmartAnswer::Calculators
     end
 
     def lump_sum_amount(age, weekly_amount)
-      data_query = StatePensionTopupDataQuery.new()
+      data_query = StatePensionTopupDataQuery.new
       if data_query.age_and_rates(age)
         total = data_query.age_and_rates(age) * weekly_amount.to_f
       else

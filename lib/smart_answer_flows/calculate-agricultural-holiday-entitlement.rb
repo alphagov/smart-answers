@@ -6,7 +6,7 @@ module SmartAnswer
       status :published
       satisfies_need "100143"
 
-      calculator = Calculators::AgriculturalHolidayEntitlementCalculator.new()
+      calculator = Calculators::AgriculturalHolidayEntitlementCalculator.new
 
       multiple_choice :work_the_same_number_of_days_each_week? do
         option "same-number-of-days"
@@ -35,11 +35,13 @@ module SmartAnswer
         option "2-days"
         option "1-day"
 
+        # rubocop:disable Style/SymbolProc
         calculate :days_worked_per_week do |response|
           # XXX: this is a bit nasty and takes advantage of the fact that
           # to_i only looks for the very first integer
           response.to_i
         end
+        # rubocop:enable Style/SymbolProc
 
         next_node do
           question :worked_for_same_employer?
@@ -72,8 +74,6 @@ module SmartAnswer
             elsif !weeks_from_october_1.nil?
               calculator.holiday_days (total_days_worked.to_f / weeks_from_october_1.to_f).round(10)
             end
-          else
-            nil
           end
         end
 
@@ -88,7 +88,6 @@ module SmartAnswer
       end
 
       value_question :how_many_total_days?, parse: Integer do
-
         precalculate :available_days do
           calculator.available_days
         end

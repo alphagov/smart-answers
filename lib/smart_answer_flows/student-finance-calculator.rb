@@ -32,9 +32,8 @@ module SmartAnswer
 
       #Q3
       money_question :how_much_are_your_tuition_fees_per_year? do
-
         calculate :tuition_fee_amount do |response|
-          if course_type == "uk-full-time" or course_type == 'eu-full-time'
+          if course_type == "uk-full-time" || course_type == 'eu-full-time'
             raise SmartAnswer::InvalidResponse if response > 9000
           else
             raise SmartAnswer::InvalidResponse if response > 6750
@@ -52,7 +51,6 @@ module SmartAnswer
             outcome :outcome_eu_students
           end
         end
-
       end
       #Q4
       multiple_choice :where_will_you_live_while_studying? do
@@ -96,7 +94,7 @@ module SmartAnswer
         option :"dependant-adult"
         option :"has-disability"
         option :"low-income"
-        option :"no"
+        option :no
 
         calculate :uk_ft_circumstances do |response|
           response.split(',')
@@ -111,7 +109,7 @@ module SmartAnswer
       checkbox_question :do_any_of_the_following_apply_all_uk_students? do
         option :"has-disability"
         option :"low-income"
-        option :"no"
+        option :no
 
         calculate :all_uk_students_circumstances do |response|
           response.split(',')
@@ -141,7 +139,6 @@ module SmartAnswer
             outcome :outcome_eu_students
           end
         end
-
       end
 
       outcome :outcome_uk_full_time_students

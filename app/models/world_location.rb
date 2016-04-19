@@ -14,7 +14,7 @@ class WorldLocation
   def self.all
     cache_fetch("all") do
       Services.worldwide_api.world_locations.with_subsequent_pages.map do |l|
-        new(l) if l.format == "World location" and l.details and l.details.slug.present?
+        new(l) if l.format == "World location" && l.details && l.details.slug.present?
       end.compact
     end
   end
@@ -53,7 +53,7 @@ class WorldLocation
   end
 
   def ==(other)
-    other.is_a?(self.class) and other.slug == self.slug
+    other.is_a?(self.class) && other.slug == self.slug
   end
 
   def_delegators :@data, :title, :details
@@ -65,6 +65,6 @@ class WorldLocation
   end
 
   def fco_organisation
-    self.organisations.find { |o| o.fco_sponsored? }
+    self.organisations.find(&:fco_sponsored?)
   end
 end

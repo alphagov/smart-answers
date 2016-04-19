@@ -2,7 +2,6 @@ require_relative '../../lib/data/state_pension_date_query'
 require_relative '../test_helper'
 
 class StatePensionDateQueryTest < ActiveSupport::TestCase
-
   context 'when female, born between 1 January 1890 and 5 April 1950' do
     should 'return state pension date 60 years from date of birth' do
       assert_equal StatePensionDateQuery.state_pension_date(Date.parse('1 January 1890'), :female), Date.parse('1 January 1890') + 60.years
