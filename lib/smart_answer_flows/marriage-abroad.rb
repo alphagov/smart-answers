@@ -27,7 +27,7 @@ module SmartAnswer
         next_node do
           if calculator.ceremony_country == 'ireland'
             question :partner_opposite_or_same_sex?
-          elsif %w(france monaco new-caledonia wallis-and-futuna).include?(calculator.ceremony_country)
+          elsif calculator.ceremony_country_offers_pacs?
             question :marriage_or_pacs?
           elsif calculator.ceremony_country_is_french_overseas_territory?
             outcome :outcome_marriage_in_france_or_french_overseas_territory
@@ -66,12 +66,18 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.ceremony_country == 'monaco'
-            outcome :outcome_ceremonies_in_monaco
-          elsif calculator.want_to_get_married?
-            outcome :outcome_marriage_in_france_or_french_overseas_territory
+          if calculator.want_to_get_married?
+            if calculator.ceremony_country == 'monaco'
+              outcome :outcome_marriage_in_monaco
+            else
+              outcome :outcome_marriage_in_france_or_french_overseas_territory
+            end
           else
-            outcome :outcome_civil_partnership_in_france_or_french_overseas_territory
+            if calculator.ceremony_country == 'monaco'
+              outcome :outcome_civil_partnership_in_monaco
+            else
+              outcome :outcome_civil_partnership_in_france_or_french_overseas_territory
+            end
           end
         end
       end
@@ -223,15 +229,16 @@ module SmartAnswer
 
       outcome :outcome_ceremonies_in_dominican_republic
       outcome :outcome_ceremonies_in_ireland
-      outcome :outcome_ceremonies_in_monaco
       outcome :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
       outcome :outcome_ceremonies_in_portugal
       outcome :outcome_ceremonies_in_spain
       outcome :outcome_ceremonies_in_sweden_when_residing_in_sweden
       outcome :outcome_ceremonies_in_switzerland
       outcome :outcome_civil_partnership_in_france_or_french_overseas_territory
+      outcome :outcome_civil_partnership_in_monaco
       outcome :outcome_marriage_in_brazil_when_residing_in_brazil_or_third_country
       outcome :outcome_marriage_in_france_or_french_overseas_territory
+      outcome :outcome_marriage_in_monaco
       outcome :outcome_opposite_sex_in_no_cni_countries_when_residing_in_ceremony_or_third_country
       outcome :outcome_opposite_sex_marriage_in_affirmation_countries
       outcome :outcome_opposite_sex_marriage_in_belarus

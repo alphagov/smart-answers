@@ -139,6 +139,10 @@ module SmartAnswer::Calculators
       @data_query.french_overseas_territories?(ceremony_country)
     end
 
+    def french_overseas_territory_offering_pacs?
+      MarriageAbroadDataQuery::FRENCH_OVERSEAS_TERRITORIES_OFFERING_PACS.include?(ceremony_country)
+    end
+
     def opposite_sex_consular_cni_country?
       @data_query.os_consular_cni_countries?(ceremony_country)
     end
@@ -217,6 +221,10 @@ module SmartAnswer::Calculators
 
     def ceremony_country_is_dutch_caribbean_island?
       @data_query.dutch_caribbean_islands?(ceremony_country)
+    end
+
+    def ceremony_country_offers_pacs?
+      MarriageAbroadDataQuery::CEREMONY_COUNTRIES_OFFERING_PACS.include?(ceremony_country)
     end
 
     def requires_7_day_notice?
