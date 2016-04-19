@@ -1,1 +1,146 @@
-{"results":[{"id":"https://www.gov.uk/api/worldwide-organisations/british-embassy-abidjan","title":"British Embassy Abidjan","format":"Worldwide Organisation","updated_at":"2013-05-29T08:18:44+01:00","web_url":"https://www.gov.uk/government/world/organisations/british-embassy-abidjan","details":{"slug":"british-embassy-abidjan","summary":"We develop and maintain relations between the United Kingdom and Ivory Coast.","description":"<div class=\"govspeak\"><p>We deal with a wide range of political, commercial, security and economic questions of interest to the UK and Ivory Coast. We provide emergency consular assistance to British nationals in Ivory Coast.</p></div>","services":"<div class=\"govspeak\"><h2 id=\"visashttpwwwukbahomeofficegovukvisas-immigration\"><a rel=\"external\" href=\"http://www.ukba.homeoffice.gov.uk/visas-immigration/\">Visas</a></h2>\n<p>For information on whether you require a visa for the United Kingdom and how to apply go to the <a rel=\"external\" href=\"http://www.ukba.homeoffice.gov.uk/visas-immigration/\" title=\"UK Border Agency website\">UK Border Agency website</a></p>\n\n<h2 id=\"births-deaths-and-marriageshttpswwwgovukbrowsebirths-deaths-marriages\"><a href=\"https://www.gov.uk/browse/births-deaths-marriages\">Births, deaths and marriages</a></h2>\n<p>Information on how you can register a birth or death which occurred overseas, and legal documents for couples marrying or entering into civil partnerships abroad.</p>\n\n<h2 id=\"passports-and-emergency-travel-documentshttpswwwgovukoverseas-passports\"><a href=\"https://www.gov.uk/overseas-passports\">Passports and emergency travel documents</a></h2>\n<p>How to renew or replace your British passport when visiting the UK and information on getting replacement travel documents if your passport is lost or stolen.</p>\n\n<h2 id=\"travel-advicehttpswwwgovukforeign-travel-advicecote-d-ivoire\"><a href=\"https://www.gov.uk/foreign-travel-advice/cote-d-ivoire\">Travel advice</a></h2>\n<p>Information on staying safe and avoiding problems when living or travelling abroad, with links to our embassies, high commissions and other diplomatic posts across the world.</p>\n\n<h2 id=\"legalisation-servicehttpswwwgovukgovernmentpublicationslegalisation-general-guidance-leaflet\"><a href=\"https://www.gov.uk/government/publications/legalisation-general-guidance-leaflet\">Legalisation Service</a></h2>\n<p>How to get official confirmation that your UK public documentation is genuine so it can be accepted by foreign authorities. The UK does not require any documents to be legalised for use within the UK.</p></div>"},"offices":{"main":{"title":"British Embassy Abidjan","format":"World Office","updated_at":"2013-03-25T10:37:54+00:00","web_url":"https://www.gov.uk/government/world/organisations/british-embassy-abidjan/office/british-embassy-abidjan","details":{"email":"uk_abidjan@yahoo.fr","description":"Opening Hours\r\nMonday to Thursday: 9 am to 4:30 pm\r\nFriday: 9 am to 2:30 pm","contact_form_url":"","access_and_opening_times":"<div class=\"govspeak\"><h2 id=\"public-holidays\">Public Holidays</h2>\n\n<table>\n<thead><tr>\n<th>Date</th>\n      <th>Holiday</th>\n      <th>\u00a0</th>\n    </tr></thead>\n<tbody>\n<tr>\n<td>\u00a0</td>\n      <td>Tuesday 1 January</td>\n      <td>New Year\u2019s Day</td>\n    </tr>\n<tr>\n<td>\u00a0</td>\n      <td>Friday 29 March</td>\n      <td>Good Friday</td>\n    </tr>\n<tr>\n<td>\u00a0</td>\n      <td>Monday 1 April</td>\n      <td>Easter Monday</td>\n    </tr>\n<tr>\n<td>\u00a0</td>\n      <td>Wednesday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n<tr>\n<td>\u00a0</td>\n      <td>Thursday 9 May</td>\n      <td>Ascension Day</td>\n    </tr>\n<tr>\n<td>\u00a0</td>\n      <td>Monday 20 May</td>\n      <td>Whit Monday (After Pentecost)</td>\n    </tr>\n<tr>\n<td>\u00a0</td>\n      <td>Wednesday 7 August</td>\n      <td>Independence Day</td>\n    </tr>\n<tr>\n<td>\u00a0</td>\n      <td>Thursday 8 August</td>\n      <td>Eid al Fitr (End of Ramadan)Date to be confirmed</td>\n    </tr>\n<tr>\n<td>\u00a0</td>\n      <td>Thursday 15 August</td>\n      <td>Assumption Monday</td>\n    </tr>\n<tr>\n<td>\u00a0</td>\n      <td>Tuesday 15 October</td>\n      <td>Eid al Adha (Feast of the Sacrifice)  Date to be confirmed</td>\n    </tr>\n<tr>\n<td>\u00a0</td>\n      <td>Thursday 1 November</td>\n      <td>All Saint\u2019s Day</td>\n    </tr>\n<tr>\n<td>\u00a0</td>\n      <td>Wednesday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n<tr>\n<td>\u00a0</td>\n      <td>Thursday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n<tr>\n<td>\u00a0</td>\n      <td>Friday 27 December</td>\n      <td>Christmas Privilege Holiday</td>\n    </tr>\n</tbody>\n</table></div>","type":"Other"},"address":{"adr":{"fn":"","street-address":"Ambassade de Grande-Bretagne, Cocody Quartier Ambassades, ","postal-code":"","locality":"Rue l\u2019Impasse du Belier, Rue A 58, 01 BP 2581,","region":"Abidjan 01","country-name":"Cote d\u2019Ivoire"},"label":{"value":"Ambassade de Grande-Bretagne, Cocody Quartier Ambassades, \nRue l\u2019Impasse du Belier, Rue A 58, 01 BP 2581,\nAbidjan 01\nCote d\u2019Ivoire"}},"contact_numbers":[{"label":"Enquiries","number":"Telephone +225 2244 2669"},{"label":"Enquiries","number":"Fax number: (+225) 2248 9548"}],"services":[]},"other":[]},"sponsors":[{"title":"Foreign & Commonwealth Office","web_url":"https://www.gov.uk/government/organisations/foreign-commonwealth-office","details":{"acronym":"FCO"}}]}],"current_page":1,"total":1,"pages":1,"page_size":20,"start_index":1,"_response_info":{"status":"ok","links":[{"href":"https://www.gov.uk/api/world-locations/cote-d-ivoire/organisations?page=1","rel":"self"}]}}
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-abidjan",
+      "title": "British Embassy Abidjan",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-03-18T17:57:03.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-abidjan",
+      "details": {
+        "slug": "british-embassy-abidjan"
+      },
+      "analytics_identifier": "WO256",
+      "offices": {
+        "main": {
+          "title": "British Embassy Abidjan",
+          "format": "World Office",
+          "updated_at": "2014-09-23T11:12:12.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-abidjan/office/british-embassy-abidjan",
+          "details": {
+            "email": "British.Embassy.Abidjan@fco.gov.uk",
+            "description": "Opening Hours\r\nMonday to Thursday: 8:30 am to 4:30 pm\r\nFriday: 8:30 am to 2:30 pm\r\n\r\nFor consular information and emergency assistance call +44 (0)1908 516 666 or +225 2244 2669",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays\">Public Holidays</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Thursday 21 April</td>\n      <td>The Queen’s Birthday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 May</td>\n      <td>Early May Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Thursday 5 May</td>\n      <td>Ascension Day</td>\n    </tr>\n    <tr>\n      <td>Monday 30 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 5 July</td>\n      <td>Eid al Fitr (End of Ramadan)</td>\n    </tr>\n    <tr>\n      <td>Monday 8 August</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Monday 29 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 12 September</td>\n      <td>Eid al Adha (Feast of the Sacrifice)</td>\n    </tr>\n    <tr>\n      <td>Monday 31 October</td>\n      <td>In lieu of All Saint’s Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 24 December</td>\n      <td>Christmas Eve</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 December</td>\n      <td>In lieu of Christmas Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "Ambassade de Grande-Bretagne, Cocody Quartier Ambassades\r\nImpasse du Belier, Rue A 58, 01 BP 2581 Abidjan 01",
+              "postal-code": "01 BP 2581 ",
+              "locality": "Abidjan",
+              "region": "",
+              "country-name": "Cote d’Ivoire"
+            },
+            "label": {
+              "value": "Ambassade de Grande-Bretagne, Cocody Quartier Ambassades\r\nImpasse du Belier, Rue A 58, 01 BP 2581 Abidjan 01\nAbidjan\n01 BP 2581 \nCote d’Ivoire"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Enquiries",
+              "number": "Telephone +225 2244 2669"
+            },
+            {
+              "label": "Enquiries",
+              "number": "Fax number: (+225) 2248 9548"
+            },
+            {
+              "label": "Consular assistance (24 hour)",
+              "number": "+44 (0)1908 516 666 "
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-cote-divoire",
+      "title": "UK Trade & Investment Cote d'Ivoire ",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-08-06T11:44:21.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-cote-divoire",
+      "details": {
+        "slug": "uk-trade-investment-cote-divoire"
+      },
+      "analytics_identifier": "WO370",
+      "offices": {
+        "main": {
+          "title": "UK Trade & Investment Cote d'Ivoire",
+          "format": "World Office",
+          "updated_at": "2014-08-06T11:48:25.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-cote-divoire/office/uk-trade-investment-cote-divoire",
+          "details": {
+            "email": "Marcel.Ngosso@fconet.fco.gov.uk ",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><p>Opening Hours\nMonday to Thursday: 9 am to 4:30 pm\nConsular Opening hours\nMonday to Thursday: 9 am to 11 am\nFriday: 9 am to 2:30 pm</p>\n</div>",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "Marcel Ngosso",
+              "street-address": "Ambassade de Grande-Bretagne, Cocody Quartier Ambassades, \r\nRue l’Impasse du Belier, Rue A 58, 01 BP 2581,\r\nAbidjan 01",
+              "postal-code": "",
+              "locality": "",
+              "region": "",
+              "country-name": "Cote d’Ivoire"
+            },
+            "label": {
+              "value": "Marcel Ngosso\nAmbassade de Grande-Bretagne, Cocody Quartier Ambassades, \r\nRue l’Impasse du Belier, Rue A 58, 01 BP 2581,\r\nAbidjan 01\nCote d’Ivoire"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Phone",
+              "number": "+225 22 44 26 69"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "UK Trade & Investment",
+          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "details": {
+            "acronym": "UKTI"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/cote-d-ivoire/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-antarctic-territory",
+      "title": "British Antarctic Territory",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-05-12T15:24:07.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-antarctic-territory",
+      "details": {
+        "slug": "british-antarctic-territory"
+      },
+      "analytics_identifier": "WO72",
+      "offices": {
+        "main": {
+          "title": "Polar Regions Department",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:52.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-antarctic-territory/office/polar-regions-unit",
+          "details": {
+            "email": "polarregions@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><p>We are open 9am to 5:30pm Monday to Friday.</p>\n</div>",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "Overseas Territories Directorate",
+              "street-address": "Polar Regions Department\r\nForeign and Commonwealth Office\r\nRoom K2.55\r\nKing Charles Street\r\n",
+              "postal-code": "SW1A 2AH",
+              "locality": "London",
+              "region": "",
+              "country-name": ""
+            },
+            "label": {
+              "value": "Overseas Territories Directorate\nPolar Regions Department\r\nForeign and Commonwealth Office\r\nRoom K2.55\r\nKing Charles Street\r\nLondon\nSW1A 2AH"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "0207 008 1639"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/british-antarctic-territory/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

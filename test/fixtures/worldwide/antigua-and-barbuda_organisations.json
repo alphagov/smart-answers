@@ -1,0 +1,436 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-high-commission-barbados",
+      "title": "British High Commission Bridgetown",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-04-01T20:26:36.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-barbados",
+      "details": {
+        "slug": "british-high-commission-barbados"
+      },
+      "analytics_identifier": "WO22",
+      "offices": {
+        "main": {
+          "title": "British High Commission, Bridgetown",
+          "format": "World Office",
+          "updated_at": "2014-09-23T11:12:12.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-barbados/office/british-high-commission-main-contact",
+          "details": {
+            "email": "ukinbarbados@fco.gov.uk ",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"about-us\">About us</h2>\n<p>Visit our <a href=\"https://www.gov.uk/government/world/organisations/british-high-commission-barbados\">profile page</a> for more about the work we do.</p>\n\n<h2 id=\"opening-hours\">Opening hours</h2>\n<p>Due to security considerations, public access is by appointment only. </p>\n\n<p>Telephone: 9am to 4pm Monday to Thursday \n9am to 1pm Friday (excluding public holidays)</p>\n\n<h3 id=\"emergency-consular-assistance-following-the-death-hospitalisation-arrest--or-other-serious-incident-involving-a-british-national-is-available-24-hours-by-calling-1-246-430-7800\">Emergency consular assistance following the death, hospitalisation, arrest,  or other serious incident involving a British national is available 24 hours by calling +1 246 430 7800</h3>\n\n<h2 id=\"visa-enquiries\">Visa enquiries</h2>\n\n<h3 id=\"icon1-nbsp-service-not-offered-at-this-location\">\n<img src=\"https://assets.digital.cabinet-office.gov.uk/static/icon-important.png\" alt=\" \">   Service not offered at this location</h3>\n\n<p><a href=\"https://www.gov.uk/check-uk-visa\">Check</a> if you need a visa or <a href=\"https://www.gov.uk/contact-ukvi-outside-uk\">send an enquiry</a> to UK Visas and Immigration.</p>\n\n<h2 id=\"passports\">Passports</h2>\n\n<h3 id=\"icon1-nbsp-service-not-offered-at-this-location-1\">\n<img src=\"https://assets.digital.cabinet-office.gov.uk/static/icon-important.png\" alt=\" \">   Service not offered at this location</h3>\n\n<p>Find out how to <a href=\"https://www.gov.uk/overseas-passports\" title=\"Passports\">apply</a> for a British passport  or <a rel=\"external\" href=\"https://eforms.homeoffice.gov.uk/outreach/Passport_Enquiries.ofml\">send an enquiry</a> to\nHer Majesty’s Passport Office.</p>\n\n<h2 id=\"services-available-by-appointment-in-bridgetown\">Services available by appointment in Bridgetown</h2>\n<p>Make an appointment on-line for the following services, or contact us by telephone for further help.</p>\n\n<div class=\"call-to-action\">\n<p><img src=\"https://assets.digital.cabinet-office.gov.uk/calendars/icon-calendar.png\" alt=\"\">   <a href=\"https://www.gov.uk/emergency-travel-document\">Make an appointment for an Emergency Travel Document</a></p>\n\n</div>\n\n<div class=\"call-to-action\">\n<p><img src=\"https://assets.digital.cabinet-office.gov.uk/calendars/icon-calendar.png\" alt=\"\">   <a href=\"https://www.gov.uk/notarial-and-documentary-services-guide-for-barbados\">Make an appointment for a notarial or documentary service</a> </p>\n\n</div>\n\n<h2 id=\"disabled-access\">Disabled Access</h2>\n<p>Our offices are fully equipped with facilities for disabled visitors. If you need special assistance, please contact us before you arrange an appointment.</p>\n\n<h2 id=\"press-enquiries\">Press enquiries</h2>\n<p>Our press team answers media enquiries about the work of the UK government and the British High Commission in Bridgetown.  To contact the press team, please call +1 (246) 430 7800 </p>\n\n<h2 id=\"uk-trade-and-investment-ukti\">UK Trade and Investment (UKTI)</h2>\n<p><a href=\"https://www.gov.uk/government/world/organisations/uk-trade-investment-barbados\">UKTI</a> helps companies succeed in the global economy. We also help overseas companies bring their high-quality investment to the UK’s dynamic economy, acknowledged as Europe’s best place from which to succeed in global business.</p>\n\n<h2 id=\"public-holidays-in-2016\">Public holidays in 2016</h2>\n<p>On the following public holidays, our office will be closed for normal business.  Emergency consular assistance for British nationals is available by telephone.</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Firday 1  January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 21 January</td>\n      <td>Errol Barrow Day</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Thursday 28 April</td>\n      <td>National Heroes Day</td>\n    </tr>\n    <tr>\n      <td>Monday 1 May</td>\n      <td>May Day</td>\n    </tr>\n    <tr>\n      <td>Monday 16 May</td>\n      <td>Whit Mon</td>\n    </tr>\n    <tr>\n      <td>Monday 25 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 1 Aug</td>\n      <td>Kadooment Day</td>\n    </tr>\n    <tr>\n      <td>Monday 29 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Wednesday 30 November</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 December</td>\n      <td>Christmas Substitute Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+            "type": "High Commission"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "Lower Collymore Rock\r\nPO Box 676",
+              "postal-code": "",
+              "locality": "Bridgetown",
+              "region": "",
+              "country-name": "Barbados"
+            },
+            "label": {
+              "value": "Lower Collymore Rock\r\nPO Box 676\nBridgetown\nBarbados"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone:",
+              "number": "+ 1 246 430 7800 "
+            },
+            {
+              "label": "Fax:",
+              "number": "+ 1 246 430 7860"
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Transferring funds for prisoners / for financial assistance service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Lost or Stolen Passports",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Births and Deaths registration service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Citizenship Ceremony service",
+              "type": "Documentary Services"
+            }
+          ]
+        },
+        "other": [
+          {
+            "title": "Honorary British Consul Antigua and Barbuda",
+            "format": "World Office",
+            "updated_at": "2013-03-25T10:37:52.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-barbados/office/honorary-british-consul-antigua-and-barbuda-st-john-s",
+            "details": {
+              "email": "ukinantigua@fco.gov.uk ",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><p>The British High Commission in Barbados is responsible for UK government relations with Antingua and Barbuda, assisted by a British Honorary Consul.   </p>\n\n<h2 id=\"about-us\">About us</h2>\n<p>Visit our <a href=\"https://www.gov.uk/government/world/organisations/british-high-commission-barbados\">profile page</a> for more about the work we do.</p>\n\n<h3 id=\"emergency-consular-assistance-following-the-death-hospitalisation-arrest--or-other-serious-incident-involving-a-british-national-is-available-24-hours-by-calling-1-246-430-7800\">Emergency consular assistance following the death, hospitalisation, arrest,  or other serious incident involving a British national is available 24 hours by calling +1 246 430 7800</h3>\n\n<h2 id=\"visa-enquiries\">Visa enquiries</h2>\n\n<h3 id=\"icon2-nbsp-service-not-offered-at-this-location\">\n<img src=\"https://assets.digital.cabinet-office.gov.uk/static/icon-important.png\" alt=\" \">   Service not offered at this location</h3>\n\n<p><a href=\"https://www.gov.uk/check-uk-visa\">Check</a> if you need a visa or <a href=\"https://www.gov.uk/contact-ukvi-outside-uk\">send an enquiry</a> to UK Visas and Immigration.</p>\n\n<h2 id=\"passports\">Passports</h2>\n\n<h3 id=\"icon2-nbsp-service-not-offered-at-this-location-1\">\n<img src=\"https://assets.digital.cabinet-office.gov.uk/static/icon-important.png\" alt=\" \">   Service not offered at this location</h3>\n\n<p>Find out how to <a href=\"https://www.gov.uk/overseas-passports\" title=\"Passports\">apply</a> for a British passport  or <a rel=\"external\" href=\"https://eforms.homeoffice.gov.uk/outreach/Passport_Enquiries.ofml\">send an enquiry</a> to\nHer Majesty’s Passport Office.</p>\n\n<h2 id=\"services-available-by-appointment-in-bridgetown\">Services available by appointment in Bridgetown</h2>\n<p>Make an appointment on-line for the following services, or contact us by telephone for further help.</p>\n\n<div class=\"call-to-action\">\n<p><a href=\"https://www.gov.uk/emergency-travel-document\">Make an appointment for an Emergency Travel Document</a></p>\n</div>\n\n<div class=\"call-to-action\">\n<p><a href=\"https://www.gov.uk/notarial-and-documentary-services-guide-for-barbados\">Make an appointment for a notarial or documentary service</a></p>\n</div>\n\n<h2 id=\"press-enquiries\">Press enquiries</h2>\n<p>Our press team answers media enquiries about the work of the UK government and the British High Commission in Bridgetown.  To contact the press team, please call +1 (246) 430 7800 </p>\n\n<h2 id=\"uk-trade-and-investment-ukti\">UK Trade and Investment (UKTI)</h2>\n<p><a href=\"https://www.gov.uk/government/world/organisations/uk-trade-investment-barbados\">UKTI</a> helps companies succeed in the global economy. We also help overseas companies bring their high-quality investment to the UK’s dynamic economy, acknowledged as Europe’s best place from which to succeed in global business.</p>\n\n</div>",
+              "type": "Honorary Consul"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "For emergency Consular assistance contact British High Commission in",
+                "postal-code": "",
+                "locality": "",
+                "region": "",
+                "country-name": "Barbados"
+              },
+              "label": {
+                "value": "For emergency Consular assistance contact British High Commission in\nBarbados"
+              }
+            },
+            "contact_numbers": [
+
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "Honorary British Consul Dominica",
+            "format": "World Office",
+            "updated_at": "2013-03-25T10:37:52.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-barbados/office/honorary-british-consul-dominica-roseau",
+            "details": {
+              "email": "ukindominica@fco.gov.uk ",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><p>The British High Commission in Barbados is responsible for UK government relations with Barbados and the countries of the Eastern Caribbean: Antigua and Barbuda, Dominica, Grenada, St Kitts and Nevis, St Lucia &amp; St Vincent and the Grenadines.</p>\n\n<p>We look after the interests of British nationals in the region, work with the region to reduce drug trafficking, to adapt to the impact of climate change and we support British companies seeking to do business in the region. Additionally we aim to secure the support of the region in achieving British foreign policy objectives, such as the right of the Falkland Islanders to determine their own future. The Department for International Development Caribbean is also based in Barbados, working to support the economies and security of the region.</p>\n</div>",
+              "type": "Honorary Consul"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "For emergency Consular assistance contact British High Commission in",
+                "postal-code": "",
+                "locality": "",
+                "region": "",
+                "country-name": "Barbados"
+              },
+              "label": {
+                "value": "For emergency Consular assistance contact British High Commission in\nBarbados"
+              }
+            },
+            "contact_numbers": [
+
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "Honorary British Consul Grenada",
+            "format": "World Office",
+            "updated_at": "2013-03-25T10:37:52.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-barbados/office/honorary-british-consul-grenada-st-georges",
+            "details": {
+              "email": "ukingrenada@fco.gov.uk",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><p>The British High Commission in Barbados is responsible for UK government relations with Barbados and the countries of the Eastern Caribbean: Antigua and Barbuda, Dominica, Grenada, St Kitts and Nevis, St Lucia &amp; St Vincent and the Grenadines.</p>\n\n<p>We look after the interests of British nationals in the region, work with the region to reduce drug trafficking, to adapt to the impact of climate change and we support British companies seeking to do business in the region. Additionally we aim to secure the support of the region in achieving British foreign policy objectives, such as the right of the Falkland Islanders to determine their own future. The Department for International Development Caribbean is also based in Barbados, working to support the economies and security of the region.</p>\n</div>",
+              "type": "Honorary Consul"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "For emergency Consular assistance contact British High Commission in",
+                "postal-code": "",
+                "locality": "",
+                "region": "",
+                "country-name": "Barbados"
+              },
+              "label": {
+                "value": "For emergency Consular assistance contact British High Commission in\nBarbados"
+              }
+            },
+            "contact_numbers": [
+
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "Honorary British Consul St Kitts and Nevis",
+            "format": "World Office",
+            "updated_at": "2013-03-25T10:37:52.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-barbados/office/honorary-british-consul-st-kitts-and-nevis-basseterre",
+            "details": {
+              "email": "ukinstkittsnevis@fco.gov.uk",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><p>The British High Commission in Barbados is responsible for UK government relations with Barbados and the countries of the Eastern Caribbean: Antigua and Barbuda, Dominica, Grenada, St Kitts and Nevis, St Lucia &amp; St Vincent and the Grenadines.</p>\n\n<p>We look after the interests of British nationals in the region, work with the region to reduce drug trafficking, to adapt to the impact of climate change and we support British companies seeking to do business in the region. Additionally we aim to secure the support of the region in achieving British foreign policy objectives, such as the right of the Falkland Islanders to determine their own future. The Department for International Development Caribbean is also based in Barbados, working to support the economies and security of the region.</p>\n</div>",
+              "type": "Honorary Consul"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "For emergency Consular assistance contact British High Commission in",
+                "postal-code": "",
+                "locality": "",
+                "region": "",
+                "country-name": "Barbados"
+              },
+              "label": {
+                "value": "For emergency Consular assistance contact British High Commission in\nBarbados"
+              }
+            },
+            "contact_numbers": [
+
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "Honorary British Consul St Vincent and The Grenadines",
+            "format": "World Office",
+            "updated_at": "2013-03-25T10:37:52.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-barbados/office/honorary-british-consul-st-vincent-and-the-grenadines-kingstown",
+            "details": {
+              "email": "ukinstvincent@fco.gov.uk",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><p>The British High Commission in Barbados is responsible for UK government relations with Barbados and the countries of the Eastern Caribbean: Antigua and Barbuda, Dominica, Grenada, St Kitts and Nevis, St Lucia &amp; St Vincent and the Grenadines.</p>\n\n<p>We look after the interests of British nationals in the region, work with the region to reduce drug trafficking, to adapt to the impact of climate change and we support British companies seeking to do business in the region. Additionally we aim to secure the support of the region in achieving British foreign policy objectives, such as the right of the Falkland Islanders to determine their own future. The Department for International Development Caribbean is also based in Barbados, working to support the economies and security of the region.</p>\n</div>",
+              "type": "Honorary Consul"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "For emergency Consular assistance contact British High Commission in",
+                "postal-code": "",
+                "locality": "",
+                "region": "",
+                "country-name": "Barbados"
+              },
+              "label": {
+                "value": "For emergency Consular assistance contact British High Commission in\nBarbados"
+              }
+            },
+            "contact_numbers": [
+
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "British High Commission St Lucia, Castries",
+            "format": "World Office",
+            "updated_at": "2014-09-23T11:12:12.000+01:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-barbados/office/british-high-commission-st-lucia-castries",
+            "details": {
+              "email": "",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><p>The British High Commission in Barbados is responsible for UK government relations with Barbados and the countries of the Eastern Caribbean: Antigua and Barbuda, Dominica, Grenada, St Kitts and Nevis, St Lucia &amp; St Vincent and the Grenadines.</p>\n\n<p>We look after the interests of British nationals in the region, work with the region to reduce drug trafficking, to adapt to the impact of climate change and we support British companies seeking to do business in the region. Additionally we aim to secure the support of the region in achieving British foreign policy objectives, such as the right of the Falkland Islanders to determine their own future. The Department for International Development Caribbean is also based in Barbados, working to support the economies and security of the region.</p>\n</div>",
+              "type": "High Commission"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "Francis Compton Building\r\n2nd Floor\r\n(PO Box 227)\r\nWaterfront",
+                "postal-code": "",
+                "locality": "Castries",
+                "region": "",
+                "country-name": "St Lucia"
+              },
+              "label": {
+                "value": "Francis Compton Building\r\n2nd Floor\r\n(PO Box 227)\r\nWaterfront\nCastries\nSt Lucia"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Telephone:",
+                "number": "+1 758 452 2484"
+              }
+            ],
+            "services": [
+
+            ]
+          }
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/dfid-caribbean",
+      "title": "DFID Caribbean",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-04-11T11:35:15.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/dfid-caribbean",
+      "details": {
+        "slug": "dfid-caribbean"
+      },
+      "analytics_identifier": "WO306",
+      "offices": {
+        "main": {
+          "title": "DFID Caribbean",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:54.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/dfid-caribbean/office/dfid-caribbean",
+          "details": {
+            "email": "enquiry@dfid.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "British High Commission\r\nLower Collymore Rock",
+              "postal-code": "BB11000",
+              "locality": "St. Michael",
+              "region": "",
+              "country-name": "Barbados"
+            },
+            "label": {
+              "value": "British High Commission\r\nLower Collymore Rock\nSt. Michael\nBB11000\nBarbados"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone:",
+              "number": "+1 246 430 7900 "
+            },
+            {
+              "label": "Fax :",
+              "number": "+1 246 430 7959"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+          {
+            "title": "DFID Caribbean (Jamaica)",
+            "format": "World Office",
+            "updated_at": "2013-03-25T10:37:54.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/dfid-caribbean/office/dfid-caribbean-jamaica",
+            "details": {
+              "email": "enquiry@dfid.gov.uk",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "British High Commission",
+                "street-address": "PO Box 575\r\n28 Trafalgar Road",
+                "postal-code": "",
+                "locality": "Kingston 10",
+                "region": "",
+                "country-name": "Jamaica"
+              },
+              "label": {
+                "value": "British High Commission\nPO Box 575\r\n28 Trafalgar Road\nKingston 10\nJamaica"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Tel:",
+                "number": "+ 1 876 936 0700 "
+              },
+              {
+                "label": "Fax:",
+                "number": "+ 1 876 733 5336"
+              }
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "DFID Caribbean (Guyana)",
+            "format": "World Office",
+            "updated_at": "2013-03-25T10:37:55.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/dfid-caribbean/office/dfid-caribbean-guyana",
+            "details": {
+              "email": "enquiry@dfid.gov.uk",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "British High Commission \r\n44 Main Street Street",
+                "postal-code": "",
+                "locality": "Georgetown ",
+                "region": "",
+                "country-name": "Guyana"
+              },
+              "label": {
+                "value": "British High Commission \r\n44 Main Street Street\nGeorgetown \nGuyana"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Tel: ",
+                "number": "+592 226 5883/4"
+              },
+              {
+                "label": "Fax:",
+                "number": "+592 226-3360"
+              }
+            ],
+            "services": [
+
+            ]
+          }
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Department for International Development",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-development",
+          "details": {
+            "acronym": "DFID"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/antigua-and-barbuda/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

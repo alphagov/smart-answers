@@ -7,7 +7,7 @@ Contact them to make an appointment:
 $A
 British Embassy Tokyo
 〒102-8381
-No 1 Ichiban-cho, Chiyoda-ku, Tokyo
+TokyoNo 1 Ichiban-cho, Chiyoda-ku, Tokyo
 Japan
 $A
 
@@ -15,10 +15,26 @@ $C
 Telephone: (+81) (3) 5211-1100
 Fax: (+81) (3) 5275-3164
 Fax - Consular assistance for British nationals: +(81) (3) 5275 0346
-Email - consular enquiries: consular.tokyo@fco.gov.uk
+Email - consular enquiries: consular.japan@fco.gov.uk
 Email - general enquiries: public-enquiries.tokyo@fco.gov.uk
 
 [British Embassy Tokyo - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-tokyo/office/british-embassy-tokyo)
+$C
+
+$A
+British Consulate-General Osaka
+〒541 - 0059
+3-5-1 Bakuro-machi, Chuo-ku, Osaka
+Japan
+$A
+
+$C
+Telephone: (+81) (6) 6120 5600
+Fax: (+81) (6) 6281 1731
+
+Email: <consular.japan@fco.gov.uk>
+
+[British Consulate-General Osaka - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-tokyo/office/british-consulate-general-osaka)
 $C
 
 ##What documents you’ll need

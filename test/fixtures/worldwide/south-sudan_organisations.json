@@ -1,0 +1,140 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-juba",
+      "title": "British Embassy Juba",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-07-23T09:53:02.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-juba",
+      "details": {
+        "slug": "british-embassy-juba"
+      },
+      "analytics_identifier": "WO110",
+      "offices": {
+        "main": {
+          "title": "British Embassy Juba",
+          "format": "World Office",
+          "updated_at": "2014-09-23T11:12:12.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-juba/office/british-embassy-juba",
+          "details": {
+            "email": "ukin.southsudan@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h3 id=\"office-hours\">Office Hours:</h3>\n\n<p>Monday to Thursday: 8.30 am - 5.15 pm\nFriday: 8.30 am - 1.30 pm</p>\n\n<h3 id=\"consular-enquiries\">Consular Enquiries:</h3>\n\n<p>Monday to Thursday: 9.30 am - 12.30 pm\nFriday closed</p>\n\n<p>We will additionally respond to consular emergencies outside of these times.</p>\n\n<p>The Embassy will be closed for the following holidays in 2015</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>3 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>6 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>9 July</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>20 July (to be confirmed)</td>\n      <td>Eid Al FitrI</td>\n    </tr>\n    <tr>\n      <td>30 July</td>\n      <td>Martyrs Day</td>\n    </tr>\n    <tr>\n      <td>18 August</td>\n      <td>Veterans Day</td>\n    </tr>\n    <tr>\n      <td>25 August</td>\n      <td>UK Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>24 September (to be confirmed)</td>\n      <td>Eid Al Adha</td>\n    </tr>\n    <tr>\n      <td>23-25 December</td>\n      <td>Christmas</td>\n    </tr>\n    <tr>\n      <td>28 December</td>\n      <td>In lieu of Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "EU Compound, \r\nKololo Road, \r\nThom Ping, Juba,",
+              "postal-code": "",
+              "locality": "Juba",
+              "region": "Juba",
+              "country-name": "South Sudan"
+            },
+            "label": {
+              "value": "EU Compound, \r\nKololo Road, \r\nThom Ping, Juba,\nJuba\nJuba\nSouth Sudan"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Reception and general enquiries:",
+              "number": "+211 (0) 912323712/+211 (0) 959200010"
+            },
+            {
+              "label": "Consular enquiries [emergency calls only out of office hours]: ",
+              "number": "+211 (0) 912327315/ +211 (0) 0959100135"
+            },
+            {
+              "label": "Consular assistance (24 hour)",
+              "number": "+44 1908 51 6666 or +211 (0) 912327315 or +211 (0) 0959100135"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/dfid-south-sudan",
+      "title": "DFID South Sudan",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-10-25T13:52:49.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/dfid-south-sudan",
+      "details": {
+        "slug": "dfid-south-sudan"
+      },
+      "analytics_identifier": "WO245",
+      "offices": {
+        "main": {
+          "title": "DFID South Sudan",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:54.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/dfid-south-sudan/office/dfid-south-sudan",
+          "details": {
+            "email": "enquiry@dfid.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "EU Compound\r\nKololo Road\r\nThom Ping, Juba",
+              "postal-code": "",
+              "locality": "",
+              "region": "",
+              "country-name": "South Sudan"
+            },
+            "label": {
+              "value": "EU Compound\r\nKololo Road\r\nThom Ping, Juba\nSouth Sudan"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Tel",
+              "number": "+211 912 323172/+211 959 200010"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Department for International Development",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-development",
+          "details": {
+            "acronym": "DFID"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/south-sudan/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

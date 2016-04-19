@@ -1,0 +1,233 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-manila",
+      "title": "British Embassy Manila",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-04-04T09:30:32.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-manila",
+      "details": {
+        "slug": "british-embassy-manila"
+      },
+      "analytics_identifier": "WO217",
+      "offices": {
+        "main": {
+          "title": "British Embassy Manila",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:54.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-manila/office/british-embassy-manila",
+          "details": {
+            "email": "ukinthephilippines@fco.gov.uk",
+            "description": "Opening hours:\r\nMonday to Friday - 8:00am to 4:45pm ",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"making-a-consular-appointment\">Making a consular appointment</h2>\n\n<p>Our embassy and consulate deal with a large number of urgent cases each year. Before contacting the embassy or consulate with non-urgent enquiries, please read our <a href=\"/government/publications/support-for-british-nationals-abroad-a-guide\" title=\"Support for British nationals abroad: a guide\">Support for British nationals abroad: a guide</a> to see if the information you need is there. If you still cannot find the information you need, you can contact our Consular team at <a href=\"mailto:Cons.Manila@fco.gov.uk\" title=\"Consular email address\">Cons.Manila@fco.gov.uk</a>. To make an appointment with the Consular section, please click this <a href=\"https://www.gov.uk/notarial-and-documentary-services-guide-for-the-philippines\" title=\"link\">link</a>.</p>\n\n<h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>The British Embassy Manila is keen to ensure that our building and services are fully accessible to disabled members of the public.</p>\n\n<p>For security reasons, visitors to Visa and Consular Section are not permitted to drive their vehicles into the Embassy compound but there is reasonable space at the main entrance outside of the compound to allow them to be dropped off.  The foot entrance to the building is a via a secure turnstile. Mobility impaired persons who are unable to pass through this security system are invited to use the vehicle entrance. There they will, like other visitors, be required to undergo a security inspection. Following this they will under escort travel along a well-lit covered footpath (wide enough for a wheel chair), to either the main entrance or to the Visa and Consular entrance of the main building. Static guards and or the escort will assist if required, in opening these front doors. Both entrances are on the ground floor.</p>\n\n<p>Hearing and Sight dogs will be permitted within the building. Mobile induction loops are available to visitors if required. Accessible toilets (wide doors complete with handrails and fitted with alarm buttons) are likewise available to staff and visitors. The single building lift has buttons in Braille and provides accessibility to all floors. </p>\n\n<p>If you need assistance to visit us or have other accessibility concerns, please contact the Security Manager at (63) (2) 858 2200. </p>\n\n<h2 id=\"public-holidays\">Public holidays</h2>\n\n<ul>\n  <li>\n    <p>Thursday 1st January New Year’s Day</p>\n  </li>\n  <li>\n    <p>Friday 16th January Pastoral Visit of Pope Francis</p>\n  </li>\n  <li>\n    <p>Thursday 19th February Chinese New Year</p>\n  </li>\n  <li>\n    <p>Thursday 2nd April Holy Thursday</p>\n  </li>\n  <li>\n    <p>Friday 3rd April Good Friday</p>\n  </li>\n  <li>\n    <p>Monday 6th April Easter Monday </p>\n  </li>\n  <li>\n    <p>Friday 1st May Labour Day</p>\n  </li>\n  <li>\n    <p>Friday 12th June Philippine Independence Day</p>\n  </li>\n  <li>\n    <p>Monday 31st August Summer Bank Holiday / National Heroes Day</p>\n  </li>\n  <li>\n    <p>Thursday 24th December Christmas Eve</p>\n  </li>\n  <li>\n    <p>Friday 25th December Christmas Day Holiday </p>\n  </li>\n  <li>\n    <p>Monday 28th December Boxing Day Holiday </p>\n  </li>\n  <li>\n    <p>Wednesday 30th December Rizal Day</p>\n  </li>\n  <li>\n    <p>Thursday 31st December New Year’s Eve </p>\n  </li>\n</ul>\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "120 Upper McKinley Road, McKinley Hill\r\nTaguig City",
+              "postal-code": "1634",
+              "locality": "Manila",
+              "region": "Manila",
+              "country-name": "Philippines"
+            },
+            "label": {
+              "value": "120 Upper McKinley Road, McKinley Hill\r\nTaguig City Manila\n1634 Manila\nPhilippines"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "+63 2 858 2200"
+            },
+            {
+              "label": "Fax (Information)",
+              "number": "+63 2 858 2313"
+            },
+            {
+              "label": "Fax (Trade)",
+              "number": "+63 2 858 2371"
+            },
+            {
+              "label": "Fax (Management)",
+              "number": "+63 2 858 2237"
+            },
+            {
+              "label": "Fax (Chancery)",
+              "number": "+63 2 858 2216"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+          {
+            "title": "British Embassy Manila - Consular section",
+            "format": "World Office",
+            "updated_at": "2013-08-08T07:17:46.000+01:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-manila/office/consular-services",
+            "details": {
+              "email": "Cons.Manila@fco.gov.uk",
+              "description": "Opening hours:\r\nMonday to Friday - 8:30am to 11:30am*\r\n*By appointment",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"making-a-consular-appointment\">Making a consular appointment</h2>\n\n<p>Our embassy and consulate deal with a large number of urgent cases each year. Before contacting the embassy or consulate with non-urgent enquiries, please read our <a href=\"/government/publications/support-for-british-nationals-abroad-a-guide\" title=\"Support for British nationals abroad: a guide\">Support for British nationals abroad: a guide</a> to see if the information you need is there. If you still cannot find the information you need, you can contact our Consular team at <a href=\"mailto:Cons.Manila@fco.gov.uk\" title=\"Consular email address\">Cons.Manila@fco.gov.uk</a>. To make an appointment with the Consular section, please click this <a href=\"https://www.gov.uk/notarial-and-documentary-services-guide-for-the-philippines\" title=\"link\">link</a>.</p>\n\n<h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>The British Embassy Manila is keen to ensure that our building and services are fully accessible to disabled members of the public.</p>\n\n<p>For security reasons, visitors to Visa and Consular Section are not permitted to drive their vehicles into the Embassy compound but there is reasonable space at the main entrance outside of the compound to allow them to be dropped off.  The foot entrance to the building is a via a secure turnstile. Mobility impaired persons who are unable to pass through this security system are invited to use the vehicle entrance. There they will, like other visitors, be required to undergo a security inspection. Following this they will under escort travel along a well-lit covered footpath (wide enough for a wheel chair), to either the main entrance or to the Visa and Consular entrance of the main building. Static guards and or the escort will assist if required, in opening these front doors. Both entrances are on the ground floor.</p>\n\n<p>Hearing and Sight dogs will be permitted within the building. Mobile induction loops are available to visitors if required. Accessible toilets (wide doors complete with handrails and fitted with alarm buttons) are likewise available to staff and visitors. The single building lift has buttons in Braille and provides accessibility to all floors. </p>\n\n<p>If you need assistance to visit us or have other accessibility concerns, please contact the Security Manager at (63) (2) 858 2200. </p>\n\n<h2 id=\"public-holidays\">Public holidays</h2>\n\n<ul>\n  <li>\n    <p>Thursday 1st January New Year’s Day</p>\n  </li>\n  <li>\n    <p>Friday 16th January Pastoral Visit of Pope Francis</p>\n  </li>\n  <li>\n    <p>Thursday 19th February Chinese New Year</p>\n  </li>\n  <li>\n    <p>Thursday 2nd April Holy Thursday</p>\n  </li>\n  <li>\n    <p>Friday 3rd April Good Friday</p>\n  </li>\n  <li>\n    <p>Monday 6th April Easter Monday </p>\n  </li>\n  <li>\n    <p>Friday 1st May Labour Day</p>\n  </li>\n  <li>\n    <p>Friday 12th June Philippine Independence Day</p>\n  </li>\n  <li>\n    <p>Monday 31st August Summer Bank Holiday / National Heroes Day</p>\n  </li>\n  <li>\n    <p>Thursday 24th December Christmas Eve</p>\n  </li>\n  <li>\n    <p>Friday 25th December Christmas Day Holiday </p>\n  </li>\n  <li>\n    <p>Monday 28th December Boxing Day Holiday </p>\n  </li>\n  <li>\n    <p>Wednesday 30th December Rizal Day</p>\n  </li>\n  <li>\n    <p>Thursday 31st December New Year’s Eve </p>\n  </li>\n</ul>\n</div>",
+              "type": "Embassy"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "120 Upper McKinley Road, McKinley Hill",
+                "postal-code": "1634",
+                "locality": "Taguig City",
+                "region": "",
+                "country-name": "Philippines"
+              },
+              "label": {
+                "value": "120 Upper McKinley Road, McKinley Hill \n1634 Taguig City\nPhilippines"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Telephone",
+                "number": "+63 2 858 2200"
+              },
+              {
+                "label": "Fax",
+                "number": "+63 2 858 2342"
+              }
+            ],
+            "services": [
+              {
+                "title": "Emergency Travel Documents service",
+                "type": "Assistance Services"
+              },
+              {
+                "title": "Registrations of Marriage and Civil Partnerships",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Births and Deaths registration service",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Notarial services",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Legalisation Service",
+                "type": "Other Services"
+              },
+              {
+                "title": "Lost or Stolen Passports",
+                "type": "Assistance Services"
+              }
+            ]
+          },
+          {
+            "title": "UK Trade & Investment",
+            "format": "World Office",
+            "updated_at": "2013-03-25T10:37:54.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-manila/office/uk-trade-investment",
+            "details": {
+              "email": "uktimanila@fco.gov.uk",
+              "description": "Opening hours:\r\nMonday to Friday - 8:00am to 4:45pm",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"making-a-consular-appointment\">Making a consular appointment</h2>\n\n<p>Our embassy and consulate deal with a large number of urgent cases each year. Before contacting the embassy or consulate with non-urgent enquiries, please read our <a href=\"/government/publications/support-for-british-nationals-abroad-a-guide\" title=\"Support for British nationals abroad: a guide\">Support for British nationals abroad: a guide</a> to see if the information you need is there. If you still cannot find the information you need, you can contact our Consular team at <a href=\"mailto:Cons.Manila@fco.gov.uk\" title=\"Consular email address\">Cons.Manila@fco.gov.uk</a>. To make an appointment with the Consular section, please click this <a href=\"https://www.gov.uk/notarial-and-documentary-services-guide-for-the-philippines\" title=\"link\">link</a>.</p>\n\n<h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>The British Embassy Manila is keen to ensure that our building and services are fully accessible to disabled members of the public.</p>\n\n<p>For security reasons, visitors to Visa and Consular Section are not permitted to drive their vehicles into the Embassy compound but there is reasonable space at the main entrance outside of the compound to allow them to be dropped off.  The foot entrance to the building is a via a secure turnstile. Mobility impaired persons who are unable to pass through this security system are invited to use the vehicle entrance. There they will, like other visitors, be required to undergo a security inspection. Following this they will under escort travel along a well-lit covered footpath (wide enough for a wheel chair), to either the main entrance or to the Visa and Consular entrance of the main building. Static guards and or the escort will assist if required, in opening these front doors. Both entrances are on the ground floor.</p>\n\n<p>Hearing and Sight dogs will be permitted within the building. Mobile induction loops are available to visitors if required. Accessible toilets (wide doors complete with handrails and fitted with alarm buttons) are likewise available to staff and visitors. The single building lift has buttons in Braille and provides accessibility to all floors. </p>\n\n<p>If you need assistance to visit us or have other accessibility concerns, please contact the Security Manager at (63) (2) 858 2200. </p>\n\n<h2 id=\"public-holidays\">Public holidays</h2>\n\n<ul>\n  <li>\n    <p>Thursday 1st January New Year’s Day</p>\n  </li>\n  <li>\n    <p>Friday 16th January Pastoral Visit of Pope Francis</p>\n  </li>\n  <li>\n    <p>Thursday 19th February Chinese New Year</p>\n  </li>\n  <li>\n    <p>Thursday 2nd April Holy Thursday</p>\n  </li>\n  <li>\n    <p>Friday 3rd April Good Friday</p>\n  </li>\n  <li>\n    <p>Monday 6th April Easter Monday </p>\n  </li>\n  <li>\n    <p>Friday 1st May Labour Day</p>\n  </li>\n  <li>\n    <p>Friday 12th June Philippine Independence Day</p>\n  </li>\n  <li>\n    <p>Monday 31st August Summer Bank Holiday / National Heroes Day</p>\n  </li>\n  <li>\n    <p>Thursday 24th December Christmas Eve</p>\n  </li>\n  <li>\n    <p>Friday 25th December Christmas Day Holiday </p>\n  </li>\n  <li>\n    <p>Monday 28th December Boxing Day Holiday </p>\n  </li>\n  <li>\n    <p>Wednesday 30th December Rizal Day</p>\n  </li>\n  <li>\n    <p>Thursday 31st December New Year’s Eve </p>\n  </li>\n</ul>\n</div>",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "120 Upper McKinley Road, McKinley Hill",
+                "postal-code": "1634",
+                "locality": "Taguig city",
+                "region": "",
+                "country-name": "Philippines"
+              },
+              "label": {
+                "value": "120 Upper McKinley Road, McKinley Hill \n1634 Taguig city\nPhilippines"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Telephone",
+                "number": "+63 2 858 2200"
+              },
+              {
+                "label": "Fax",
+                "number": "+63 2 858 2371"
+              }
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "British Consulate Cebu",
+            "format": "World Office",
+            "updated_at": "2013-03-25T10:37:54.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-manila/office/british-consulate-cebu",
+            "details": {
+              "email": "Cons.Manila@fco.gov.uk",
+              "description": "Opening hours:\r\nMonday to Friday*\r\n*Mornings only, by appointment",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"making-a-consular-appointment\">Making a consular appointment</h2>\n\n<p>Our embassy and consulate deal with a large number of urgent cases each year. Before contacting the embassy or consulate with non-urgent enquiries, please read our <a href=\"/government/publications/support-for-british-nationals-abroad-a-guide\" title=\"Support for British nationals abroad: a guide\">Support for British nationals abroad: a guide</a> to see if the information you need is there. If you still cannot find the information you need, you can contact our Consular team at <a href=\"mailto:Cons.Manila@fco.gov.uk\" title=\"Consular email address\">Cons.Manila@fco.gov.uk</a>. To make an appointment with the Consular section, please click this <a href=\"https://www.gov.uk/notarial-and-documentary-services-guide-for-the-philippines\" title=\"link\">link</a>.</p>\n\n<h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>The British Embassy Manila is keen to ensure that our building and services are fully accessible to disabled members of the public.</p>\n\n<p>For security reasons, visitors to Visa and Consular Section are not permitted to drive their vehicles into the Embassy compound but there is reasonable space at the main entrance outside of the compound to allow them to be dropped off.  The foot entrance to the building is a via a secure turnstile. Mobility impaired persons who are unable to pass through this security system are invited to use the vehicle entrance. There they will, like other visitors, be required to undergo a security inspection. Following this they will under escort travel along a well-lit covered footpath (wide enough for a wheel chair), to either the main entrance or to the Visa and Consular entrance of the main building. Static guards and or the escort will assist if required, in opening these front doors. Both entrances are on the ground floor.</p>\n\n<p>Hearing and Sight dogs will be permitted within the building. Mobile induction loops are available to visitors if required. Accessible toilets (wide doors complete with handrails and fitted with alarm buttons) are likewise available to staff and visitors. The single building lift has buttons in Braille and provides accessibility to all floors. </p>\n\n<p>If you need assistance to visit us or have other accessibility concerns, please contact the Security Manager at (63) (2) 858 2200. </p>\n\n<h2 id=\"public-holidays\">Public holidays</h2>\n\n<ul>\n  <li>\n    <p>Thursday 1st January New Year’s Day</p>\n  </li>\n  <li>\n    <p>Friday 16th January Pastoral Visit of Pope Francis</p>\n  </li>\n  <li>\n    <p>Thursday 19th February Chinese New Year</p>\n  </li>\n  <li>\n    <p>Thursday 2nd April Holy Thursday</p>\n  </li>\n  <li>\n    <p>Friday 3rd April Good Friday</p>\n  </li>\n  <li>\n    <p>Monday 6th April Easter Monday </p>\n  </li>\n  <li>\n    <p>Friday 1st May Labour Day</p>\n  </li>\n  <li>\n    <p>Friday 12th June Philippine Independence Day</p>\n  </li>\n  <li>\n    <p>Monday 31st August Summer Bank Holiday / National Heroes Day</p>\n  </li>\n  <li>\n    <p>Thursday 24th December Christmas Eve</p>\n  </li>\n  <li>\n    <p>Friday 25th December Christmas Day Holiday </p>\n  </li>\n  <li>\n    <p>Monday 28th December Boxing Day Holiday </p>\n  </li>\n  <li>\n    <p>Wednesday 30th December Rizal Day</p>\n  </li>\n  <li>\n    <p>Thursday 31st December New Year’s Eve </p>\n  </li>\n</ul>\n</div>",
+              "type": "Consulate"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "Contact the Consular section for assistance.",
+                "postal-code": "",
+                "locality": "Cebu City",
+                "region": "",
+                "country-name": "Philippines"
+              },
+              "label": {
+                "value": "Contact the Consular section for assistance. \n Cebu City\nPhilippines"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Telephone",
+                "number": "+63 2 858 2200"
+              },
+              {
+                "label": "Fax",
+                "number": "+63 2 858 2342"
+              }
+            ],
+            "services": [
+
+            ]
+          }
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/palau/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

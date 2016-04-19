@@ -1,0 +1,82 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-antananarivo",
+      "title": "British Embassy Antananarivo",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-10-29T14:02:40.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-antananarivo",
+      "details": {
+        "slug": "british-embassy-antananarivo"
+      },
+      "analytics_identifier": "WO127",
+      "offices": {
+        "main": {
+          "title": "British Embassy Antananarivo",
+          "format": "World Office",
+          "updated_at": "2014-09-23T11:12:12.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-antananarivo/office/british-embassy-antananarivo",
+          "details": {
+            "email": "beantananarivo@moov.mg",
+            "description": "The British Embassy Antananarivo is happy to welcome you to its newly revamped office at Ninth Floor Tour Zital Ankorondrano since 8 August 2013. You can call the numbers provided on this page to be directed to the service you require. Note that the Honorary Consulate in Antananarivo has ceased giving separate consular services. Please call the Embassy main numbers for any consular query.\r\n\r\nIn case you are having problems getting through, this may be due to technical issues on our telephone lines. Please email us and we will reply to your query as rapidly as we can.",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours-local-time-gmt--3-hours\">Opening hours (Local Time: GMT + 3 Hours):</h2>\n\n<p>Monday to Thursday: 7.45 am to 3.45 pm &amp; Friday: 7.45 am to 1.45 pm</p>\n\n<h3 id=\"public-hours\">Public hours:</h3>\n<p>Monday to Friday: 8:30 am to 12:30 </p>\n\n<h3 id=\"consular-section-and-passports\">Consular Section and Passports:</h3>\n<p>Monday to Friday: 8:30 am to 12:30 </p>\n\n<h3 id=\"public-holidays-2016\">Public holidays 2016</h3>\n\n<table class=\"js-barchart-table mc-auto-outdent\">\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Day</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>January - 01</td>\n      <td>Friday</td>\n      <td>New Year`s Day</td>\n    </tr>\n    <tr>\n      <td>Mar - 25</td>\n      <td>Friday</td>\n      <td>Easter – Good Friday</td>\n    </tr>\n    <tr>\n      <td>Mar - 28</td>\n      <td>Monday</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>May - 02</td>\n      <td>Monday</td>\n      <td>Labour Day (substitute day)</td>\n    </tr>\n    <tr>\n      <td>May - 5</td>\n      <td>Thursday</td>\n      <td>Ascension Day</td>\n    </tr>\n    <tr>\n      <td>May - 16</td>\n      <td>Monday</td>\n      <td>Whit Monday</td>\n    </tr>\n    <tr>\n      <td>May - 30</td>\n      <td>Monday</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Jun - 27</td>\n      <td>Monday</td>\n      <td>National Independence Day  (substitute day)</td>\n    </tr>\n    <tr>\n      <td>Jul - 12</td>\n      <td>Tuesday</td>\n      <td>Orangemen’s Day</td>\n    </tr>\n    <tr>\n      <td>August - 15</td>\n      <td>Monday</td>\n      <td>Assumption of the Blessed Virgin Mary</td>\n    </tr>\n    <tr>\n      <td>August - 29</td>\n      <td>Monday</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>November - 1</td>\n      <td>Tuesday</td>\n      <td>Toussaint</td>\n    </tr>\n    <tr>\n      <td>December - 26</td>\n      <td>Monday</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>December - 27</td>\n      <td>Tuesday</td>\n      <td>Christmas Day (substitute day)</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "British Embassy Antananarivo",
+              "street-address": "Ninth Floor Tour Zital\r\nRavoninahitriniarivo Street",
+              "postal-code": "",
+              "locality": "Ankorondrano",
+              "region": "Antananarivo 101",
+              "country-name": "Madagascar"
+            },
+            "label": {
+              "value": "British Embassy Antananarivo\nNinth Floor Tour Zital\r\nRavoninahitriniarivo Street\nAnkorondrano\nAntananarivo 101\nMadagascar"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Enquiries",
+              "number": "Telephone +261 2022 33053"
+            },
+            {
+              "label": "Consular assistance (24 hour)",
+              "number": "+261 2022 33053"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/madagascar/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

@@ -1,0 +1,222 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-liechtenstein",
+      "title": "British Embassy Liechtenstein",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-03-20T12:48:57.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-liechtenstein",
+      "details": {
+        "slug": "british-embassy-liechtenstein"
+      },
+      "analytics_identifier": "WO313",
+      "offices": {
+        "main": {
+          "title": "British Embassy",
+          "format": "World Office",
+          "updated_at": "2014-09-23T11:12:12.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-liechtenstein/office/british-embassy",
+          "details": {
+            "email": "info.berne@fco.gsi.gov.uk",
+            "description": "Office hours:\r\nMonday to Friday, \r\n9.00 to 12.30 and 13.30 to 16.30\r\n\r\nConsular hours:\r\nMonday to Friday, 9.30 to 12.00\r\n\r\nNotarial services:\r\nNotarial services are by appointment only. To reserve an appointment, please use the Contact form link.",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "Thunstrasse 50",
+              "postal-code": "3005",
+              "locality": "Berne",
+              "region": "",
+              "country-name": "Switzerland"
+            },
+            "label": {
+              "value": "Thunstrasse 50\n3005 Berne\nSwitzerland"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "+41 (0)31 359 7700"
+            },
+            {
+              "label": "Fax (general)",
+              "number": "+41 (0)31 359 7701    "
+            },
+            {
+              "label": "Fax (consular)",
+              "number": "+41 (0)31 359 7765"
+            },
+            {
+              "label": "Out of hours emergencies",
+              "number": "+41 (0)31 359 77 00"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-berne",
+      "title": "British Embassy Berne",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-12-04T12:32:17.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-berne",
+      "details": {
+        "slug": "british-embassy-berne"
+      },
+      "analytics_identifier": "WO64",
+      "offices": {
+        "main": {
+          "title": "British Embassy Berne",
+          "format": "World Office",
+          "updated_at": "2014-09-23T11:12:12.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-berne/office/british-embassy",
+          "details": {
+            "email": "info.berne@fco.gsi.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<p>Monday to Friday, 9:00 to 12:30  and 13:30 to 16:30</p>\n\n<h3 id=\"consular-hours\">Consular hours</h3>\n<p>Monday to Friday, 9:00am to 12:00pm</p>\n\n<h2 id=\"notarial-services\">Notarial services</h2>\n<p>Notarial services are by appointment only. Please follow <a href=\"https://www.gov.uk/notarial-and-documentary-services-guide-for-switzerland\">this link</a> for information on the notarial &amp; documentary services we provide at the British Embassy in Berne, and how to make an appointment for these services. </p>\n\n<h2 id=\"public-holidays\">2016 Public holidays</h2>\n<ul>\n  <li>01 January,       Friday,        New Year’s Day </li>\n  <li>04 January,       Monday,            St Berthold Day(in lieu of) </li>\n  <li>24 March,           Thursday,         Maundy Thursday </li>\n  <li>25 March,           Friday,             Good Friday </li>\n  <li>28 March,           Monday,           Easter Monday</li>\n  <li>02 May,           Monday,           Early May Bank Holiday</li>\n  <li>05 May,           Thursday,         Ascension Day</li>\n  <li>06 May,           Friday,           Ascension Friday</li>\n  <li>16 May,           Monday,           Whit Monday</li>\n  <li>30 May,            Monday,             Spring Bank Holiday </li>\n  <li>01 August,       Monday,          Swiss National Day</li>\n  <li>29 August,       Monday,          Summer Bank Holiday</li>\n  <li>26 December,   Monday        Boxing Day </li>\n  <li>27 December,   Friday,            Christmas Day(in lieu of) </li>\n</ul>\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "Thunstrasse 50",
+              "postal-code": "3005",
+              "locality": "Berne",
+              "region": "",
+              "country-name": "Switzerland"
+            },
+            "label": {
+              "value": "Thunstrasse 50\n3005 Berne\nSwitzerland"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "+41 (0)31 359 7700"
+            },
+            {
+              "label": "Fax (general)",
+              "number": "+41 (0)31 359 7701    "
+            },
+            {
+              "label": "Fax (consular)",
+              "number": "+41 (0)31 359 7765"
+            },
+            {
+              "label": "Out of hours emergencies",
+              "number": "+41 (0)31 359 77 00"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-liechtenstein",
+      "title": "UK Trade & Investment Liechtenstein",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-04-11T15:56:13.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-liechtenstein",
+      "details": {
+        "slug": "uk-trade-investment-liechtenstein"
+      },
+      "analytics_identifier": "WO138",
+      "offices": {
+        "main": {
+          "title": "UK Trade & Investment Liechtenstein",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:53.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-liechtenstein/office/uk-trade-investment-liechtenstein",
+          "details": {
+            "email": "",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "British Embassy",
+              "street-address": "Thunstrasse 50",
+              "postal-code": "CH-3005",
+              "locality": "Berne",
+              "region": "",
+              "country-name": "Switzerland"
+            },
+            "label": {
+              "value": "British Embassy\nThunstrasse 50\nCH-3005 Berne\nSwitzerland"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Enquiries",
+              "number": "+41 (0)31 359 7700"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "UK Trade & Investment",
+          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "details": {
+            "acronym": "UKTI"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 3,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/liechtenstein/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-ulaanbaatar",
+      "title": "British Embassy Ulaanbaatar",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-04-04T08:02:49.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-ulaanbaatar",
+      "details": {
+        "slug": "british-embassy-ulaanbaatar"
+      },
+      "analytics_identifier": "WO307",
+      "offices": {
+        "main": {
+          "title": "British Embassy Ulaanbaatar",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:54.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-ulaanbaatar/office/british-embassy-ulaanbaatar",
+          "details": {
+            "email": "Enquiries.Mongolia@fco.gov.uk",
+            "description": "Opening hours (local time):\r\nMonday to Thursday, 8:30am to 1:00pm / 2:00pm to 5:00pm\r\nFriday, 8:30am to 1:30pm",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Please note that the British Embassy is closed for Easter weekend.  For emergencies please dial + 976-11-458133 and follow the instructions.</p>\n\n<p>The British Embassy, Ulaanbaatar is closed on the following UK and Mongolian public holidays in 2016:</p>\n\n<ul>\n  <li>\n    <p>Friday 1 January</p>\n  </li>\n  <li>\n    <p>Tuesday 9 February*</p>\n  </li>\n  <li>\n    <p>Wednesday 10 February*</p>\n  </li>\n  <li>\n    <p>Thursday 11 February*</p>\n  </li>\n  <li>\n    <p>Friday 25 March</p>\n  </li>\n  <li>\n    <p>Monday 28 March</p>\n  </li>\n  <li>\n    <p>Monday 2 May</p>\n  </li>\n  <li>\n    <p>Wednesday 1 June</p>\n  </li>\n  <li>\n    <p>Monday 11 July</p>\n  </li>\n  <li>\n    <p>Tuesday 12 July</p>\n  </li>\n  <li>\n    <p>Wednesday 13 July</p>\n  </li>\n  <li>\n    <p>Monday 31 August</p>\n  </li>\n  <li>\n    <p>November* </p>\n  </li>\n  <li>\n    <p>Monday 26 December</p>\n  </li>\n  <li>\n    <p>Tuesday 27 December</p>\n  </li>\n  <li>\n    <p>Thursday 29 December </p>\n  </li>\n</ul>\n\n<p>Holiday marked * is subject to change due to our Lunar Calendar</p>\n\n<h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>There are steps up to the front of the Embassy building. If you want to call and would find these difficult to manage, please <a href=\"/government/world/organisations/british-embassy-ulaanbaatar#contact-us\" title=\"Contact Us\">let us know</a> and we will arrange alternative access.</p>\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "Peace Avenue 30, Bayanzurkh District\r\nUlaanbaatar 13381",
+              "postal-code": "",
+              "locality": "Ulaanbaatar",
+              "region": "",
+              "country-name": "Mongolia"
+            },
+            "label": {
+              "value": "Peace Avenue 30, Bayanzurkh District\r\nUlaanbaatar 13381\nUlaanbaatar\nMongolia"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "+976 11 458 133"
+            },
+            {
+              "label": "Fax",
+              "number": "+976 11 458036"
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Transferring funds for prisoners / for financial assistance service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Registrations of Marriage and Civil Partnerships",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Births and Deaths registration service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Service of Process",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Notarial services",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Issue certificate of no impediment",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Citizenship Ceremony service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Legalisation Service",
+              "type": "Other Services"
+            },
+            {
+              "title": "Overseas Passports Service",
+              "type": "Other Services"
+            }
+          ]
+        },
+        "other": [
+          {
+            "title": "Consular services",
+            "format": "World Office",
+            "updated_at": "2014-08-20T08:19:38.000+01:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-ulaanbaatar/office/consular-services",
+            "details": {
+              "email": "Consular.Mongolia@fco.gov.uk",
+              "description": "Consular opening hours (local time): \r\nMonday to Friday, 9:00am to 11:00am\r\n",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Please note that the British Embassy is closed for Easter weekend.  For emergencies please dial + 976-11-458133 and follow the instructions.</p>\n\n<p>The British Embassy, Ulaanbaatar is closed on the following UK and Mongolian public holidays in 2016:</p>\n\n<ul>\n  <li>\n    <p>Friday 1 January</p>\n  </li>\n  <li>\n    <p>Tuesday 9 February*</p>\n  </li>\n  <li>\n    <p>Wednesday 10 February*</p>\n  </li>\n  <li>\n    <p>Thursday 11 February*</p>\n  </li>\n  <li>\n    <p>Friday 25 March</p>\n  </li>\n  <li>\n    <p>Monday 28 March</p>\n  </li>\n  <li>\n    <p>Monday 2 May</p>\n  </li>\n  <li>\n    <p>Wednesday 1 June</p>\n  </li>\n  <li>\n    <p>Monday 11 July</p>\n  </li>\n  <li>\n    <p>Tuesday 12 July</p>\n  </li>\n  <li>\n    <p>Wednesday 13 July</p>\n  </li>\n  <li>\n    <p>Monday 31 August</p>\n  </li>\n  <li>\n    <p>November* </p>\n  </li>\n  <li>\n    <p>Monday 26 December</p>\n  </li>\n  <li>\n    <p>Tuesday 27 December</p>\n  </li>\n  <li>\n    <p>Thursday 29 December </p>\n  </li>\n</ul>\n\n<p>Holiday marked * is subject to change due to our Lunar Calendar</p>\n\n<h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>There are steps up to the front of the Embassy building. If you want to call and would find these difficult to manage, please <a href=\"/government/world/organisations/british-embassy-ulaanbaatar#contact-us\" title=\"Contact Us\">let us know</a> and we will arrange alternative access.</p>\n</div>",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "Peace Avenue 30, Bayanzurkh District\r\nUlaanbaatar 13381",
+                "postal-code": "",
+                "locality": "",
+                "region": "",
+                "country-name": "Mongolia"
+              },
+              "label": {
+                "value": "Peace Avenue 30, Bayanzurkh District\r\nUlaanbaatar 13381\nMongolia"
+              }
+            },
+            "contact_numbers": [
+
+            ],
+            "services": [
+              {
+                "title": "Emergency Travel Documents service",
+                "type": "Assistance Services"
+              },
+              {
+                "title": "Transferring funds for prisoners / for financial assistance service",
+                "type": "Assistance Services"
+              },
+              {
+                "title": "Registrations of Marriage and Civil Partnerships",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Births and Deaths registration service",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Service of Process",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Notarial services",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Issue certificate of no impediment",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Citizenship Ceremony service",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Legalisation Service",
+                "type": "Other Services"
+              },
+              {
+                "title": "Overseas Passports Service",
+                "type": "Other Services"
+              }
+            ]
+          }
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/ukti-mongolia",
+      "title": "UK Trade & Investment Mongolia",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-04-30T09:59:14.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/ukti-mongolia",
+      "details": {
+        "slug": "ukti-mongolia"
+      },
+      "analytics_identifier": "WO345",
+      "offices": {
+        "main": {
+          "title": "UK Trade & Investment, Mongolia",
+          "format": "World Office",
+          "updated_at": "2013-04-30T10:09:15.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/ukti-mongolia/office/uk-trade-investment-mongolia",
+          "details": {
+            "email": "Commercial.Mongolia@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "British Embassy Ulaanbaatar\r\nPeace Avenue 30, Bayanzurkh District\r\nUlaanbaatar 13381",
+              "postal-code": "",
+              "locality": "",
+              "region": "",
+              "country-name": "Mongolia"
+            },
+            "label": {
+              "value": "British Embassy Ulaanbaatar\r\nPeace Avenue 30, Bayanzurkh District\r\nUlaanbaatar 13381\nMongolia"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Switchboard",
+              "number": "+976 11 458 133"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "UK Trade & Investment",
+          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "details": {
+            "acronym": "UKTI"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/mongolia/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-chile",
+      "title": "British Embassy Santiago",
+      "format": "Worldwide Organisation",
+      "updated_at": "2015-12-22T14:42:34.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-chile",
+      "details": {
+        "slug": "british-embassy-chile"
+      },
+      "analytics_identifier": "WO17",
+      "offices": {
+        "main": {
+          "title": "British Embassy",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:51.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-chile/office/british-embassy",
+          "details": {
+            "email": "embsan@britemb.cl",
+            "description": "Monday to Thursday: 9am to 1pm and 2pm to 5:30pm \r\nFriday: 9am to 1pm\r\n\r\nFor any emergency involving a British citizen during holidays or out-of-office-hours, please contact +56 2 2370 4100 and your call will be properly re-directed.\r\n\r\nYou may also send an email to: consularenquiries.santi@fco.gov.uk\r\n",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"address\">Address</h2>\n<p>Av. El Bosque Norte 0125\nLas Condes\nSantiago, Chile</p>\n\n<p>Tel:  56 2 2370 4100\nFax: 56 2 2370 4160  </p>\n\n<p>References: </p>\n\n<p>Tobalaba Metro Station\nPublic transport by Av. Apoquindo or Vitacura Avenues. Get off the bus or taxi on the corner of El Bosque Norte Street and Apoquindo Avenue.</p>\n\n<h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>The immediate vicinity around the Embassy building is well paved and accessible. Access to the consular area is via a public lift. </p>\n\n<h2 id=\"opening-hours\">Opening hours</h2>\n\n<h3 id=\"british-embassy\">British Embassy</h3>\n<p>Monday to Thursday: 9am to 1pm and 2pm to 5:30pm\nFriday: 9am to 1pm</p>\n\n<h3 id=\"british-consulate\">British Consulate</h3>\n<p>Monday to Thursday: 9am to 12pm: Submission of new applications for notarial services. BY APPOINTMENT ONLY.\n<a rel=\"external\" href=\"https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-santiago/-/service_list\">Consular Appointments Booking System</a></p>\n\n<p>Friday: Closed for the public.</p>\n\n<p>If you need consular assistance, please contact the British Consulate at <a href=\"mailto:consularenquiries.santi@fco.gov.uk\">consularenquiries.santi@fco.gov.uk</a></p>\n\n<h2 id=\"embassy-holidays-for-2016\">Embassy holidays for 2016</h2>\n\n<ul>\n  <li>Friday 1 January</li>\n  <li>Friday 25 March</li>\n  <li>Monday 28 March</li>\n  <li>Monday 2 May</li>\n  <li>Thursday 27 June</li>\n  <li>Monday 15 August</li>\n  <li>Monday 29 August</li>\n  <li>Monday 19 September</li>\n  <li>Monday 10 October</li>\n  <li>Monday 31 October</li>\n  <li>Tuesday 1 November</li>\n  <li>Thursday 8 December</li>\n  <li>Monday 26 December</li>\n  <li>Tuesday 27 December</li>\n</ul>\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "Avda. El Bosque Norte 0125, \r\nLas Condes, ",
+              "postal-code": "",
+              "locality": "Santiago",
+              "region": "",
+              "country-name": "Chile"
+            },
+            "label": {
+              "value": "Avda. El Bosque Norte 0125, \r\nLas Condes, \nSantiago\nChile"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "56 2 2370 4100"
+            },
+            {
+              "label": "Facsmile",
+              "number": "56 2 2370 4160"
+            }
+          ],
+          "services": [
+            {
+              "title": "Citizenship Ceremony service",
+              "type": "Documentary Services"
+            }
+          ]
+        },
+        "other": [
+          {
+            "title": "Consular Section",
+            "format": "World Office",
+            "updated_at": "2013-03-25T10:37:54.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-chile/office/consular-section",
+            "details": {
+              "email": "consularenquiries.santi@fco.gov.uk",
+              "description": "* Monday to Thursday: 9 to 12pm: Submission of new applications for notarial services. BY APPOINTMENT ONLY.\r\n* Friday: Closed for the public.\r\n\r\nIf you need consular assistance, please contact the British Consulate at the above email address.\r\n\r\nFor any emergency involving a British citizen during holidays or out-of-office-hours, please contact +56 2 2370 4100 and your call will be properly re-directed.",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"address\">Address</h2>\n<p>Av. El Bosque Norte 0125\nLas Condes\nSantiago, Chile</p>\n\n<p>Tel:  56 2 2370 4100\nFax: 56 2 2370 4160  </p>\n\n<p>References: </p>\n\n<p>Tobalaba Metro Station\nPublic transport by Av. Apoquindo or Vitacura Avenues. Get off the bus or taxi on the corner of El Bosque Norte Street and Apoquindo Avenue.</p>\n\n<h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>The immediate vicinity around the Embassy building is well paved and accessible. Access to the consular area is via a public lift. </p>\n\n<h2 id=\"opening-hours\">Opening hours</h2>\n\n<h3 id=\"british-embassy\">British Embassy</h3>\n<p>Monday to Thursday: 9am to 1pm and 2pm to 5:30pm\nFriday: 9am to 1pm</p>\n\n<h3 id=\"british-consulate\">British Consulate</h3>\n<p>Monday to Thursday: 9am to 12pm: Submission of new applications for notarial services. BY APPOINTMENT ONLY.\n<a rel=\"external\" href=\"https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-santiago/-/service_list\">Consular Appointments Booking System</a></p>\n\n<p>Friday: Closed for the public.</p>\n\n<p>If you need consular assistance, please contact the British Consulate at <a href=\"mailto:consularenquiries.santi@fco.gov.uk\">consularenquiries.santi@fco.gov.uk</a></p>\n\n<h2 id=\"embassy-holidays-for-2016\">Embassy holidays for 2016</h2>\n\n<ul>\n  <li>Friday 1 January</li>\n  <li>Friday 25 March</li>\n  <li>Monday 28 March</li>\n  <li>Monday 2 May</li>\n  <li>Thursday 27 June</li>\n  <li>Monday 15 August</li>\n  <li>Monday 29 August</li>\n  <li>Monday 19 September</li>\n  <li>Monday 10 October</li>\n  <li>Monday 31 October</li>\n  <li>Tuesday 1 November</li>\n  <li>Thursday 8 December</li>\n  <li>Monday 26 December</li>\n  <li>Tuesday 27 December</li>\n</ul>\n</div>",
+              "type": "Consulate"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "",
+                "postal-code": "",
+                "locality": "",
+                "region": "",
+                "country-name": ""
+              },
+              "label": {
+                "value": ""
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Telephone",
+                "number": "56 2 2370 4100"
+              },
+              {
+                "label": "Facsimile",
+                "number": "56 2 2370 4160"
+              }
+            ],
+            "services": [
+              {
+                "title": "Emergency Travel Documents service",
+                "type": "Assistance Services"
+              },
+              {
+                "title": "Births and Deaths registration service",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Notarial services",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Citizenship Ceremony service",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Legalisation Service",
+                "type": "Other Services"
+              },
+              {
+                "title": "Overseas Passports Service",
+                "type": "Other Services"
+              }
+            ]
+          }
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-chile",
+      "title": "UK Trade & Investment Chile",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-04-24T15:50:22.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-chile",
+      "details": {
+        "slug": "uk-trade-investment-chile"
+      },
+      "analytics_identifier": "WO276",
+      "offices": {
+        "main": {
+          "title": "UK Trade & Investment Chile",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:54.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-chile/office/uk-trade-investment-chile",
+          "details": {
+            "email": "commercial.santiago@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "British Embassy",
+              "street-address": "Avda. El Bosque Norte 0125",
+              "postal-code": "",
+              "locality": "Las Condes",
+              "region": "Santiago",
+              "country-name": "Chile"
+            },
+            "label": {
+              "value": "British Embassy\nAvda. El Bosque Norte 0125\nLas Condes\nSantiago\nChile"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "General enquiries",
+              "number": "+56 2 2370 4100"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "UK Trade & Investment",
+          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "details": {
+            "acronym": "UKTI"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/chile/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

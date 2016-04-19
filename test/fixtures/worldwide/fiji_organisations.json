@@ -1,0 +1,157 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-high-commission-suva",
+      "title": "British High Commission Suva",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-01-26T23:35:31.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-suva",
+      "details": {
+        "slug": "british-high-commission-suva"
+      },
+      "analytics_identifier": "WO324",
+      "offices": {
+        "main": {
+          "title": "British High Commission Suva",
+          "format": "World Office",
+          "updated_at": "2014-09-23T11:12:12.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-suva/office/british-high-commission-suva",
+          "details": {
+            "email": "publicdiplomacy@fco.gov.uk",
+            "description": "Office hours:\r\nMonday to Thursday: 8am to 12:40pm / 1pm to 4pm \r\nFriday: 8am to 1pm \r\n\r\nConsular section: \r\nPhone: +679 3229 100\r\n\r\nConsular opening hours:\r\nMonday to Thursday: 10am to 12pm",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"disabled-access\">Disabled Access</h2>\n<p>Access to the British High Commission offices for disabled persons is limited. But with prior warning of an intended visit by a person with disabilities, every effort will be made to ensure that temporary arrangements are in place to facilitate that visit. Consular section is accessible but disabled persons may wish to bring a helper.</p>\n\n<p>The High Commission will be closed for the the following public holidays in 2016</p>\n\n<ul>\n  <li>01 January New Year’s Day</li>\n  <li>25 March Good Friday</li>\n  <li>28 March Easter Monday</li>\n  <li>02 May May Bank Holiday</li>\n  <li>24 June National Sports Day</li>\n  <li>27 June Privilege Holiday Queen’s Birthday</li>\n  <li>29 August Summer Bank Holiday</li>\n  <li>07 September Constitution Day</li>\n  <li>10 October Fiji Day</li>\n  <li>31 October Diwali</li>\n  <li>12 December Prophet Mohammed’s Birthday</li>\n  <li>26 December Christmas Day</li>\n  <li>27 December Boxing Day</li>\n</ul>\n</div>",
+            "type": "High Commission"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "47 Gladstone Road",
+              "postal-code": "",
+              "locality": "Suva",
+              "region": "",
+              "country-name": "Fiji"
+            },
+            "label": {
+              "value": "47 Gladstone Road\nSuva\nFiji"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "+679 3229 100",
+              "number": "+679 3229 132"
+            },
+            {
+              "label": "Consular email",
+              "number": "consularsuva@fco.gov.uk "
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Births and Deaths registration service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Citizenship Ceremony service",
+              "type": "Documentary Services"
+            }
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-png-and-south-pacific",
+      "title": "UK Trade & Investment Papua New Guinea & South Pacific",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-12-22T01:38:13.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-png-and-south-pacific",
+      "details": {
+        "slug": "uk-trade-investment-png-and-south-pacific"
+      },
+      "analytics_identifier": "WO372",
+      "offices": {
+        "main": {
+          "title": "UK Trade & Investment Papua New Guinea & South Pacific",
+          "format": "World Office",
+          "updated_at": "2014-12-22T01:51:33.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-png-and-south-pacific/office/uk-trade-investment-papua-new-guinea-south-pacific",
+          "details": {
+            "email": "hera.tonge@mobile.ukti.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "High Commission"
+          },
+          "address": {
+            "adr": {
+              "fn": "Ms Hera Tonge, Head of UK Trade and Investment PNG and South Pacific",
+              "street-address": "British High Commission\r\nLock Bag 212\r\nWaigani",
+              "postal-code": "",
+              "locality": "",
+              "region": "National Capital District",
+              "country-name": "Papua New Guinea"
+            },
+            "label": {
+              "value": "Ms Hera Tonge, Head of UK Trade and Investment PNG and South Pacific\nBritish High Commission\r\nLock Bag 212\r\nWaigani\nNational Capital District\nPapua New Guinea"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Mobile",
+              "number": "+(675) 7909 3520"
+            },
+            {
+              "label": "Telephone",
+              "number": "+(675) 325 1677 ext 2202"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "UK Trade & Investment",
+          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "details": {
+            "acronym": "UKTI"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/fiji/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

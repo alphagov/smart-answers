@@ -1,0 +1,149 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-sofia",
+      "title": "British Embassy Sofia",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-04-09T13:37:30.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-sofia",
+      "details": {
+        "slug": "british-embassy-sofia"
+      },
+      "analytics_identifier": "WO43",
+      "offices": {
+        "main": {
+          "title": "British Embassy Sofia",
+          "format": "World Office",
+          "updated_at": "2014-04-09T13:43:37.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-sofia/office/british-embassy",
+          "details": {
+            "email": "BritishEmbassySofia@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>Monday to Friday, 9am to 5pm</p>\n\n<p>2016 Public Holidays</p>\n\n<ul>\n  <li>Friday 1 January New Year’s Day</li>\n  <li>Thursday 3 March Liberation Day</li>\n  <li>Friday 25 March UK Easter Friday</li>\n  <li>Monday 28 March UK Easter Monday</li>\n  <li>Friday 29 April Bulgarian Easter Friday</li>\n  <li>Monday 2 May Bulgarian Easter Monday/Early May Bank Holiday</li>\n  <li>Friday 6 May St George’s Day</li>\n  <li>Tuesday 24 May Day of the Slavonic Alphabet</li>\n  <li>Monday 30 May Spring Bank Holiday</li>\n  <li>Monday 29 August Summer Bank Holiday</li>\n  <li>Tuesday 6 September Unification Day</li>\n  <li>Thursday 22 September Independence Day</li>\n  <li>Monday 26 December Boxing Day</li>\n  <li>Tuesday 27 December Christmas Day (substitute day)</li>\n</ul>\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "9, Moskovska St",
+              "postal-code": "1000",
+              "locality": "Sofia ",
+              "region": "",
+              "country-name": "Bulgaria"
+            },
+            "label": {
+              "value": "9, Moskovska St\n1000 Sofia \nBulgaria"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "(+359) 2 933 9222"
+            },
+            {
+              "label": "Fax",
+              "number": "(+359) 2 933 9250"
+            },
+            {
+              "label": "Consular e-mail address: ",
+              "number": "consularsection.sofia@fco.gov.uk"
+            }
+          ],
+          "services": [
+            {
+              "title": "Lost or Stolen Passports",
+              "type": "Assistance Services"
+            }
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-bulgaria",
+      "title": "UK Trade & Investment Bulgaria",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-04-24T16:46:10.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-bulgaria",
+      "details": {
+        "slug": "uk-trade-investment-bulgaria"
+      },
+      "analytics_identifier": "WO226",
+      "offices": {
+        "main": {
+          "title": "UK Trade & Investment Bulgaria",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:54.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-bulgaria/office/uk-trade-investment-bulgaria",
+          "details": {
+            "email": "britishembassysofia@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "British Embassy",
+              "street-address": "9 Moskovska Street",
+              "postal-code": "1000",
+              "locality": "Sofia",
+              "region": "",
+              "country-name": "Bulgaria"
+            },
+            "label": {
+              "value": "British Embassy\n9 Moskovska Street\n1000 Sofia\nBulgaria"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Enquiries",
+              "number": "+359 (2) 933 9222"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "UK Trade & Investment",
+          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "details": {
+            "acronym": "UKTI"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/bulgaria/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

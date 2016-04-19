@@ -1,0 +1,78 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-honduras",
+      "title": "British Embassy Guatemala City (for Honduras)",
+      "format": "Worldwide Organisation",
+      "updated_at": "2015-08-19T18:51:50.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-honduras",
+      "details": {
+        "slug": "british-embassy-honduras"
+      },
+      "analytics_identifier": "WO9",
+      "offices": {
+        "main": {
+          "title": "British Embassy",
+          "format": "World Office",
+          "updated_at": "2014-09-23T11:12:12.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-honduras/office/british-embassy",
+          "details": {
+            "email": "",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "Edificio Torre Internacional, \r\nNivel 11, 16 Calle 0-55, \r\nZona 10 Guatemala City",
+              "postal-code": "",
+              "locality": "",
+              "region": "",
+              "country-name": "Guatemala"
+            },
+            "label": {
+              "value": "Edificio Torre Internacional, \r\nNivel 11, 16 Calle 0-55, \r\nZona 10 Guatemala City\nGuatemala"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Switchboard",
+              "number": "+502-2380-7300"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/honduras/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

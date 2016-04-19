@@ -1,0 +1,376 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-rabat",
+      "title": "British Embassy Rabat",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-04-23T11:03:42.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-rabat",
+      "details": {
+        "slug": "british-embassy-rabat"
+      },
+      "analytics_identifier": "WO86",
+      "offices": {
+        "main": {
+          "title": "British Embassy Rabat",
+          "format": "World Office",
+          "updated_at": "2013-07-30T13:30:40.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-rabat/office/british-embassy-rabat-main-contact",
+          "details": {
+            "email": "rabat.consular@fco.gov.uk",
+            "description": "Office hours:  Monday to Thursday, 0800-1615; Friday 0800-1300\r\n\r\nConsular public opening hours:  Monday to Friday, 0800-1200 – an appointment is required\r\n\r\nRamadan Opening Hours: Monday to Thursday, 0800-1400; Friday 0800-1300\r\n\r\n\r\n",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Our offices will be closed for the following public holidays:</p>\n\n<ul>\n  <li>Friday 1 January: New Year’s Day</li>\n  <li>Friday  25 March:   Good Friday</li>\n  <li>Monday 28 March:   Easter Monday</li>\n  <li>Monday 2 May:   May Bank Holiday</li>\n  <li>Friday 27 May:   Privilege Holiday for Queens Birthday</li>\n  <li>Monday 30 May:   Spring Bank Holiday</li>\n  <li>Wednesday 6 July* &amp; Thursday 7 July*: Eid El Fitr </li>\n  <li>Monday 29 August\t\tSummer Bank Holiday\t\t</li>\n  <li>Monday 12 September* &amp; Tuesday 13 September*: Eid El Adha</li>\n  <li>Monday 3 October*: Islamic New Year  </li>\n  <li>Monday 26 December: Boxing Day</li>\n  <li>Tuesday 27 December: in lieu Christmas Day</li>\n</ul>\n\n<p>The star (*) means it is a movable feast depending on the sighting of the moon</p>\n\n<h2 id=\"security-regulations\">Security regulations</h2>\n\n<p>Please be aware that all visitors to the British Embassy will have to pass through Embassy security. While we aim for this to be as light-touch as possible, it does require a search of bags and pockets.</p>\n\n<p>The British Embassy in Rabat security regulations, in line with all British Diplomatic Missions world-wide, do not permit visitors to enter the embassy with mobile telephones, laptops, PDAs or any other similar electrical devices. We prefer that you arrive at the embassy without them. If this is not possible we can retain them at the entrance during your visit.  </p>\n\n<p>Weapons (including pepper sprays), or any object that our security staff consider could be used as a weapon, are also forbidden. These will not be retained by our staff. Should you arrive with such an object you will not be granted access but will be asked to return without it.</p>\n\n<p>These regulations are intended to help us ensure the security for our staff and visitors. Your cooperation is appreciated.</p>\n\n<h2 id=\"map\">Map</h2>\n\n<p>You can find maps showing our locations at:</p>\n\n<ul>\n  <li>\n    <p><a rel=\"external\" href=\"https://maps.google.co.in/maps?q=British+Embassy,+Avenue+S.A.R.+Sidi+Mohammed,+Rabat,+Rabat-Sale-Zemmour-Zaer,+Morocco&amp;hl=en&amp;sll=33.9702,-6.838431&amp;sspn=0.015215,0.033023&amp;oq=british+embass&amp;gl=in&amp;hq=british+embassy&amp;hnear=Avenue+S.A.R.+Sidi+Mohammed,+Rabat,+Rabat-Sale-Zemmour-Zaer,+Morocco&amp;t=m&amp;z=17\">British Embassy Rabat</a>.</p>\n  </li>\n  <li>\n    <p><a rel=\"external\" href=\"https://maps.google.co.in/maps?q=british+consulate+general,+36+rue+de+la+loire,+polo,+casablanca&amp;hl=en&amp;sll=33.973118,-6.844482&amp;sspn=0.004751,0.006877&amp;gl=in&amp;hq=british+consulate+general,+36+rue+de+la+loire,&amp;hnear=POLO,+Casablanca,+El+Fida-Derb+Soltane,+Grand+Casablanca,+Morocco&amp;t=m&amp;z=14\">British Consulate General Casablanca</a>.</p>\n  </li>\n  <li>\n    <p><a rel=\"external\" href=\"https://maps.google.co.in/maps?q=british+honorary+consulate,+47+avenue+mohamed+V,+Marrakech&amp;hl=en&amp;sll=31.63847,-8.002671&amp;sspn=0.156086,0.22007&amp;gl=in&amp;hq=british+honorary+consulate,&amp;hnear=Avenue+Mohamed+V,+Gueliz,+Marrakech,+Marrakesh,+Marrakesh-Tensift-El+Haouz,+Morocco&amp;t=m&amp;z=16\">British Honorary Consulate Marrakech</a>.</p>\n  </li>\n  <li>\n    <p><a rel=\"external\" href=\"https://maps.google.co.in/maps?q=Boulevard+20+aout,+agadir&amp;hl=en&amp;sll=31.636899,-8.016534&amp;sspn=0.009756,0.013754&amp;gl=in&amp;hnear=Boulevard+du+20+Aout,+Agadir,+Agadir-Ida-Ou+Tanane+Province,+Souss-Massa-Draa,+Morocco&amp;t=m&amp;z=14\">British Honorary Consulate Agadir</a>.</p>\n  </li>\n</ul>\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "Address:",
+              "street-address": "28 Avenue S.A.R. Sidi Mohammed\r\nSouissi 10105 (BP 45), ",
+              "postal-code": "",
+              "locality": "Rabat",
+              "region": "Rabat",
+              "country-name": "Morocco"
+            },
+            "label": {
+              "value": "Address:\n28 Avenue S.A.R. Sidi Mohammed\r\nSouissi 10105 (BP 45), \nRabat\nRabat\nMorocco"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone:",
+              "number": "+212 (0) 537 633 333"
+            },
+            {
+              "label": "Fax:",
+              "number": "+212 (0) 537 758 709"
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Transferring funds for prisoners / for financial assistance service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Registrations of Marriage and Civil Partnerships",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Births and Deaths registration service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Service of Process",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Notarial services",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Issue certificate of no impediment",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Citizenship Ceremony service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Legalisation Service",
+              "type": "Other Services"
+            },
+            {
+              "title": "Overseas Passports Service",
+              "type": "Other Services"
+            }
+          ]
+        },
+        "other": [
+          {
+            "title": "British Consulate-General, Casablanca",
+            "format": "World Office",
+            "updated_at": "2013-07-30T13:24:49.000+01:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-rabat/office/british-consulate-general-casablanca",
+            "details": {
+              "email": "British.consulate2@menara.ma",
+              "description": "Office hours: Monday to Thursday, 0800-1615; Friday 0800-1300",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Our offices will be closed for the following public holidays:</p>\n\n<ul>\n  <li>Friday 1 January: New Year’s Day</li>\n  <li>Friday  25 March:   Good Friday</li>\n  <li>Monday 28 March:   Easter Monday</li>\n  <li>Monday 2 May:   May Bank Holiday</li>\n  <li>Friday 27 May:   Privilege Holiday for Queens Birthday</li>\n  <li>Monday 30 May:   Spring Bank Holiday</li>\n  <li>Wednesday 6 July* &amp; Thursday 7 July*: Eid El Fitr </li>\n  <li>Monday 29 August\t\tSummer Bank Holiday\t\t</li>\n  <li>Monday 12 September* &amp; Tuesday 13 September*: Eid El Adha</li>\n  <li>Monday 3 October*: Islamic New Year  </li>\n  <li>Monday 26 December: Boxing Day</li>\n  <li>Tuesday 27 December: in lieu Christmas Day</li>\n</ul>\n\n<p>The star (*) means it is a movable feast depending on the sighting of the moon</p>\n\n<h2 id=\"security-regulations\">Security regulations</h2>\n\n<p>Please be aware that all visitors to the British Embassy will have to pass through Embassy security. While we aim for this to be as light-touch as possible, it does require a search of bags and pockets.</p>\n\n<p>The British Embassy in Rabat security regulations, in line with all British Diplomatic Missions world-wide, do not permit visitors to enter the embassy with mobile telephones, laptops, PDAs or any other similar electrical devices. We prefer that you arrive at the embassy without them. If this is not possible we can retain them at the entrance during your visit.  </p>\n\n<p>Weapons (including pepper sprays), or any object that our security staff consider could be used as a weapon, are also forbidden. These will not be retained by our staff. Should you arrive with such an object you will not be granted access but will be asked to return without it.</p>\n\n<p>These regulations are intended to help us ensure the security for our staff and visitors. Your cooperation is appreciated.</p>\n\n<h2 id=\"map\">Map</h2>\n\n<p>You can find maps showing our locations at:</p>\n\n<ul>\n  <li>\n    <p><a rel=\"external\" href=\"https://maps.google.co.in/maps?q=British+Embassy,+Avenue+S.A.R.+Sidi+Mohammed,+Rabat,+Rabat-Sale-Zemmour-Zaer,+Morocco&amp;hl=en&amp;sll=33.9702,-6.838431&amp;sspn=0.015215,0.033023&amp;oq=british+embass&amp;gl=in&amp;hq=british+embassy&amp;hnear=Avenue+S.A.R.+Sidi+Mohammed,+Rabat,+Rabat-Sale-Zemmour-Zaer,+Morocco&amp;t=m&amp;z=17\">British Embassy Rabat</a>.</p>\n  </li>\n  <li>\n    <p><a rel=\"external\" href=\"https://maps.google.co.in/maps?q=british+consulate+general,+36+rue+de+la+loire,+polo,+casablanca&amp;hl=en&amp;sll=33.973118,-6.844482&amp;sspn=0.004751,0.006877&amp;gl=in&amp;hq=british+consulate+general,+36+rue+de+la+loire,&amp;hnear=POLO,+Casablanca,+El+Fida-Derb+Soltane,+Grand+Casablanca,+Morocco&amp;t=m&amp;z=14\">British Consulate General Casablanca</a>.</p>\n  </li>\n  <li>\n    <p><a rel=\"external\" href=\"https://maps.google.co.in/maps?q=british+honorary+consulate,+47+avenue+mohamed+V,+Marrakech&amp;hl=en&amp;sll=31.63847,-8.002671&amp;sspn=0.156086,0.22007&amp;gl=in&amp;hq=british+honorary+consulate,&amp;hnear=Avenue+Mohamed+V,+Gueliz,+Marrakech,+Marrakesh,+Marrakesh-Tensift-El+Haouz,+Morocco&amp;t=m&amp;z=16\">British Honorary Consulate Marrakech</a>.</p>\n  </li>\n  <li>\n    <p><a rel=\"external\" href=\"https://maps.google.co.in/maps?q=Boulevard+20+aout,+agadir&amp;hl=en&amp;sll=31.636899,-8.016534&amp;sspn=0.009756,0.013754&amp;gl=in&amp;hnear=Boulevard+du+20+Aout,+Agadir,+Agadir-Ida-Ou+Tanane+Province,+Souss-Massa-Draa,+Morocco&amp;t=m&amp;z=14\">British Honorary Consulate Agadir</a>.</p>\n  </li>\n</ul>\n</div>",
+              "type": "Consulate"
+            },
+            "address": {
+              "adr": {
+                "fn": "Address:",
+                "street-address": "Villa Les Sallurges\r\n36 rue de la Loire – Polo",
+                "postal-code": "",
+                "locality": "",
+                "region": "Casablanca",
+                "country-name": "Morocco"
+              },
+              "label": {
+                "value": "Address:\nVilla Les Sallurges\r\n36 rue de la Loire – Polo\nCasablanca\nMorocco"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Telephone:",
+                "number": "+212 (0)522 85 74 00"
+              },
+              {
+                "label": "Fax:",
+                "number": "+ 212 (0) 522 83 46 25/26"
+              }
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "British Honorary Consulate, Tangier",
+            "format": "World Office",
+            "updated_at": "2013-07-30T13:23:50.000+01:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-rabat/office/britsh-honorary-consulate-tangier",
+            "details": {
+              "email": "rabat.consular@fco.gov.uk",
+              "description": "Please contact us to make arrangements to see our consular staff in Tangier\r\n\r\nOffice hours:  Monday to Friday 1000-1400",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Our offices will be closed for the following public holidays:</p>\n\n<ul>\n  <li>Friday 1 January: New Year’s Day</li>\n  <li>Friday  25 March:   Good Friday</li>\n  <li>Monday 28 March:   Easter Monday</li>\n  <li>Monday 2 May:   May Bank Holiday</li>\n  <li>Friday 27 May:   Privilege Holiday for Queens Birthday</li>\n  <li>Monday 30 May:   Spring Bank Holiday</li>\n  <li>Wednesday 6 July* &amp; Thursday 7 July*: Eid El Fitr </li>\n  <li>Monday 29 August\t\tSummer Bank Holiday\t\t</li>\n  <li>Monday 12 September* &amp; Tuesday 13 September*: Eid El Adha</li>\n  <li>Monday 3 October*: Islamic New Year  </li>\n  <li>Monday 26 December: Boxing Day</li>\n  <li>Tuesday 27 December: in lieu Christmas Day</li>\n</ul>\n\n<p>The star (*) means it is a movable feast depending on the sighting of the moon</p>\n\n<h2 id=\"security-regulations\">Security regulations</h2>\n\n<p>Please be aware that all visitors to the British Embassy will have to pass through Embassy security. While we aim for this to be as light-touch as possible, it does require a search of bags and pockets.</p>\n\n<p>The British Embassy in Rabat security regulations, in line with all British Diplomatic Missions world-wide, do not permit visitors to enter the embassy with mobile telephones, laptops, PDAs or any other similar electrical devices. We prefer that you arrive at the embassy without them. If this is not possible we can retain them at the entrance during your visit.  </p>\n\n<p>Weapons (including pepper sprays), or any object that our security staff consider could be used as a weapon, are also forbidden. These will not be retained by our staff. Should you arrive with such an object you will not be granted access but will be asked to return without it.</p>\n\n<p>These regulations are intended to help us ensure the security for our staff and visitors. Your cooperation is appreciated.</p>\n\n<h2 id=\"map\">Map</h2>\n\n<p>You can find maps showing our locations at:</p>\n\n<ul>\n  <li>\n    <p><a rel=\"external\" href=\"https://maps.google.co.in/maps?q=British+Embassy,+Avenue+S.A.R.+Sidi+Mohammed,+Rabat,+Rabat-Sale-Zemmour-Zaer,+Morocco&amp;hl=en&amp;sll=33.9702,-6.838431&amp;sspn=0.015215,0.033023&amp;oq=british+embass&amp;gl=in&amp;hq=british+embassy&amp;hnear=Avenue+S.A.R.+Sidi+Mohammed,+Rabat,+Rabat-Sale-Zemmour-Zaer,+Morocco&amp;t=m&amp;z=17\">British Embassy Rabat</a>.</p>\n  </li>\n  <li>\n    <p><a rel=\"external\" href=\"https://maps.google.co.in/maps?q=british+consulate+general,+36+rue+de+la+loire,+polo,+casablanca&amp;hl=en&amp;sll=33.973118,-6.844482&amp;sspn=0.004751,0.006877&amp;gl=in&amp;hq=british+consulate+general,+36+rue+de+la+loire,&amp;hnear=POLO,+Casablanca,+El+Fida-Derb+Soltane,+Grand+Casablanca,+Morocco&amp;t=m&amp;z=14\">British Consulate General Casablanca</a>.</p>\n  </li>\n  <li>\n    <p><a rel=\"external\" href=\"https://maps.google.co.in/maps?q=british+honorary+consulate,+47+avenue+mohamed+V,+Marrakech&amp;hl=en&amp;sll=31.63847,-8.002671&amp;sspn=0.156086,0.22007&amp;gl=in&amp;hq=british+honorary+consulate,&amp;hnear=Avenue+Mohamed+V,+Gueliz,+Marrakech,+Marrakesh,+Marrakesh-Tensift-El+Haouz,+Morocco&amp;t=m&amp;z=16\">British Honorary Consulate Marrakech</a>.</p>\n  </li>\n  <li>\n    <p><a rel=\"external\" href=\"https://maps.google.co.in/maps?q=Boulevard+20+aout,+agadir&amp;hl=en&amp;sll=31.636899,-8.016534&amp;sspn=0.009756,0.013754&amp;gl=in&amp;hnear=Boulevard+du+20+Aout,+Agadir,+Agadir-Ida-Ou+Tanane+Province,+Souss-Massa-Draa,+Morocco&amp;t=m&amp;z=14\">British Honorary Consulate Agadir</a>.</p>\n  </li>\n</ul>\n</div>",
+              "type": "Honorary Consul"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": ".",
+                "postal-code": "",
+                "locality": "",
+                "region": "",
+                "country-name": "Morocco"
+              },
+              "label": {
+                "value": ".\nMorocco"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Telephone:",
+                "number": "+212 (0) 537 633 333"
+              }
+            ],
+            "services": [
+              {
+                "title": "Emergency Travel Documents service",
+                "type": "Assistance Services"
+              },
+              {
+                "title": "Transferring funds for prisoners / for financial assistance service",
+                "type": "Assistance Services"
+              },
+              {
+                "title": "Births and Deaths registration service",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Notarial services",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Issue certificate of no impediment",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Legalisation Service",
+                "type": "Other Services"
+              }
+            ]
+          },
+          {
+            "title": "British Honorary Consulate Marrakech",
+            "format": "World Office",
+            "updated_at": "2013-07-30T13:26:26.000+01:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-rabat/office/british-honorary-consulate-marrakech",
+            "details": {
+              "email": "rabat.consular@fco.gov.uk",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Our offices will be closed for the following public holidays:</p>\n\n<ul>\n  <li>Friday 1 January: New Year’s Day</li>\n  <li>Friday  25 March:   Good Friday</li>\n  <li>Monday 28 March:   Easter Monday</li>\n  <li>Monday 2 May:   May Bank Holiday</li>\n  <li>Friday 27 May:   Privilege Holiday for Queens Birthday</li>\n  <li>Monday 30 May:   Spring Bank Holiday</li>\n  <li>Wednesday 6 July* &amp; Thursday 7 July*: Eid El Fitr </li>\n  <li>Monday 29 August\t\tSummer Bank Holiday\t\t</li>\n  <li>Monday 12 September* &amp; Tuesday 13 September*: Eid El Adha</li>\n  <li>Monday 3 October*: Islamic New Year  </li>\n  <li>Monday 26 December: Boxing Day</li>\n  <li>Tuesday 27 December: in lieu Christmas Day</li>\n</ul>\n\n<p>The star (*) means it is a movable feast depending on the sighting of the moon</p>\n\n<h2 id=\"security-regulations\">Security regulations</h2>\n\n<p>Please be aware that all visitors to the British Embassy will have to pass through Embassy security. While we aim for this to be as light-touch as possible, it does require a search of bags and pockets.</p>\n\n<p>The British Embassy in Rabat security regulations, in line with all British Diplomatic Missions world-wide, do not permit visitors to enter the embassy with mobile telephones, laptops, PDAs or any other similar electrical devices. We prefer that you arrive at the embassy without them. If this is not possible we can retain them at the entrance during your visit.  </p>\n\n<p>Weapons (including pepper sprays), or any object that our security staff consider could be used as a weapon, are also forbidden. These will not be retained by our staff. Should you arrive with such an object you will not be granted access but will be asked to return without it.</p>\n\n<p>These regulations are intended to help us ensure the security for our staff and visitors. Your cooperation is appreciated.</p>\n\n<h2 id=\"map\">Map</h2>\n\n<p>You can find maps showing our locations at:</p>\n\n<ul>\n  <li>\n    <p><a rel=\"external\" href=\"https://maps.google.co.in/maps?q=British+Embassy,+Avenue+S.A.R.+Sidi+Mohammed,+Rabat,+Rabat-Sale-Zemmour-Zaer,+Morocco&amp;hl=en&amp;sll=33.9702,-6.838431&amp;sspn=0.015215,0.033023&amp;oq=british+embass&amp;gl=in&amp;hq=british+embassy&amp;hnear=Avenue+S.A.R.+Sidi+Mohammed,+Rabat,+Rabat-Sale-Zemmour-Zaer,+Morocco&amp;t=m&amp;z=17\">British Embassy Rabat</a>.</p>\n  </li>\n  <li>\n    <p><a rel=\"external\" href=\"https://maps.google.co.in/maps?q=british+consulate+general,+36+rue+de+la+loire,+polo,+casablanca&amp;hl=en&amp;sll=33.973118,-6.844482&amp;sspn=0.004751,0.006877&amp;gl=in&amp;hq=british+consulate+general,+36+rue+de+la+loire,&amp;hnear=POLO,+Casablanca,+El+Fida-Derb+Soltane,+Grand+Casablanca,+Morocco&amp;t=m&amp;z=14\">British Consulate General Casablanca</a>.</p>\n  </li>\n  <li>\n    <p><a rel=\"external\" href=\"https://maps.google.co.in/maps?q=british+honorary+consulate,+47+avenue+mohamed+V,+Marrakech&amp;hl=en&amp;sll=31.63847,-8.002671&amp;sspn=0.156086,0.22007&amp;gl=in&amp;hq=british+honorary+consulate,&amp;hnear=Avenue+Mohamed+V,+Gueliz,+Marrakech,+Marrakesh,+Marrakesh-Tensift-El+Haouz,+Morocco&amp;t=m&amp;z=16\">British Honorary Consulate Marrakech</a>.</p>\n  </li>\n  <li>\n    <p><a rel=\"external\" href=\"https://maps.google.co.in/maps?q=Boulevard+20+aout,+agadir&amp;hl=en&amp;sll=31.636899,-8.016534&amp;sspn=0.009756,0.013754&amp;gl=in&amp;hnear=Boulevard+du+20+Aout,+Agadir,+Agadir-Ida-Ou+Tanane+Province,+Souss-Massa-Draa,+Morocco&amp;t=m&amp;z=14\">British Honorary Consulate Agadir</a>.</p>\n  </li>\n</ul>\n</div>",
+              "type": "Honorary Consul"
+            },
+            "address": {
+              "adr": {
+                "fn": "Address:",
+                "street-address": "Borj Menara 2, Immeuble B, 5eme etage\r\nAvenue Abdelkrim El Khattabi",
+                "postal-code": "",
+                "locality": "",
+                "region": "Marrakech",
+                "country-name": "Morocco"
+              },
+              "label": {
+                "value": "Address:\nBorj Menara 2, Immeuble B, 5eme etage\r\nAvenue Abdelkrim El Khattabi\nMarrakech\nMorocco"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Telephone:",
+                "number": "+212 (0) 537 633 333"
+              },
+              {
+                "label": "Fax:",
+                "number": "+212 (0) 537 758 709"
+              }
+            ],
+            "services": [
+              {
+                "title": "Emergency Travel Documents service",
+                "type": "Assistance Services"
+              },
+              {
+                "title": "Transferring funds for prisoners / for financial assistance service",
+                "type": "Assistance Services"
+              },
+              {
+                "title": "Births and Deaths registration service",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Notarial services",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Issue certificate of no impediment",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Legalisation Service",
+                "type": "Other Services"
+              }
+            ]
+          },
+          {
+            "title": "British Honorary Consulate Agadir",
+            "format": "World Office",
+            "updated_at": "2013-07-30T13:28:56.000+01:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-rabat/office/british-honorary-consulate-agadir",
+            "details": {
+              "email": "rabat.consular@fco.gov.uk",
+              "description": "Please contact us to make arrangements to see our consular staff in Agadir\r\n\r\nOffice hours:  Monday to Thursday 0800-1615; Friday 0800-1300",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Our offices will be closed for the following public holidays:</p>\n\n<ul>\n  <li>Friday 1 January: New Year’s Day</li>\n  <li>Friday  25 March:   Good Friday</li>\n  <li>Monday 28 March:   Easter Monday</li>\n  <li>Monday 2 May:   May Bank Holiday</li>\n  <li>Friday 27 May:   Privilege Holiday for Queens Birthday</li>\n  <li>Monday 30 May:   Spring Bank Holiday</li>\n  <li>Wednesday 6 July* &amp; Thursday 7 July*: Eid El Fitr </li>\n  <li>Monday 29 August\t\tSummer Bank Holiday\t\t</li>\n  <li>Monday 12 September* &amp; Tuesday 13 September*: Eid El Adha</li>\n  <li>Monday 3 October*: Islamic New Year  </li>\n  <li>Monday 26 December: Boxing Day</li>\n  <li>Tuesday 27 December: in lieu Christmas Day</li>\n</ul>\n\n<p>The star (*) means it is a movable feast depending on the sighting of the moon</p>\n\n<h2 id=\"security-regulations\">Security regulations</h2>\n\n<p>Please be aware that all visitors to the British Embassy will have to pass through Embassy security. While we aim for this to be as light-touch as possible, it does require a search of bags and pockets.</p>\n\n<p>The British Embassy in Rabat security regulations, in line with all British Diplomatic Missions world-wide, do not permit visitors to enter the embassy with mobile telephones, laptops, PDAs or any other similar electrical devices. We prefer that you arrive at the embassy without them. If this is not possible we can retain them at the entrance during your visit.  </p>\n\n<p>Weapons (including pepper sprays), or any object that our security staff consider could be used as a weapon, are also forbidden. These will not be retained by our staff. Should you arrive with such an object you will not be granted access but will be asked to return without it.</p>\n\n<p>These regulations are intended to help us ensure the security for our staff and visitors. Your cooperation is appreciated.</p>\n\n<h2 id=\"map\">Map</h2>\n\n<p>You can find maps showing our locations at:</p>\n\n<ul>\n  <li>\n    <p><a rel=\"external\" href=\"https://maps.google.co.in/maps?q=British+Embassy,+Avenue+S.A.R.+Sidi+Mohammed,+Rabat,+Rabat-Sale-Zemmour-Zaer,+Morocco&amp;hl=en&amp;sll=33.9702,-6.838431&amp;sspn=0.015215,0.033023&amp;oq=british+embass&amp;gl=in&amp;hq=british+embassy&amp;hnear=Avenue+S.A.R.+Sidi+Mohammed,+Rabat,+Rabat-Sale-Zemmour-Zaer,+Morocco&amp;t=m&amp;z=17\">British Embassy Rabat</a>.</p>\n  </li>\n  <li>\n    <p><a rel=\"external\" href=\"https://maps.google.co.in/maps?q=british+consulate+general,+36+rue+de+la+loire,+polo,+casablanca&amp;hl=en&amp;sll=33.973118,-6.844482&amp;sspn=0.004751,0.006877&amp;gl=in&amp;hq=british+consulate+general,+36+rue+de+la+loire,&amp;hnear=POLO,+Casablanca,+El+Fida-Derb+Soltane,+Grand+Casablanca,+Morocco&amp;t=m&amp;z=14\">British Consulate General Casablanca</a>.</p>\n  </li>\n  <li>\n    <p><a rel=\"external\" href=\"https://maps.google.co.in/maps?q=british+honorary+consulate,+47+avenue+mohamed+V,+Marrakech&amp;hl=en&amp;sll=31.63847,-8.002671&amp;sspn=0.156086,0.22007&amp;gl=in&amp;hq=british+honorary+consulate,&amp;hnear=Avenue+Mohamed+V,+Gueliz,+Marrakech,+Marrakesh,+Marrakesh-Tensift-El+Haouz,+Morocco&amp;t=m&amp;z=16\">British Honorary Consulate Marrakech</a>.</p>\n  </li>\n  <li>\n    <p><a rel=\"external\" href=\"https://maps.google.co.in/maps?q=Boulevard+20+aout,+agadir&amp;hl=en&amp;sll=31.636899,-8.016534&amp;sspn=0.009756,0.013754&amp;gl=in&amp;hnear=Boulevard+du+20+Aout,+Agadir,+Agadir-Ida-Ou+Tanane+Province,+Souss-Massa-Draa,+Morocco&amp;t=m&amp;z=14\">British Honorary Consulate Agadir</a>.</p>\n  </li>\n</ul>\n</div>",
+              "type": "Honorary Consul"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "Britsh Honorary Consulate",
+                "postal-code": "",
+                "locality": "",
+                "region": "Agadir",
+                "country-name": "Morocco"
+              },
+              "label": {
+                "value": "Britsh Honorary Consulate\nAgadir\nMorocco"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Telephone: ",
+                "number": "+212 (0) 537 633 333"
+              },
+              {
+                "label": "Fax:",
+                "number": "+212 (0) 537 758 709"
+              }
+            ],
+            "services": [
+              {
+                "title": "Emergency Travel Documents service",
+                "type": "Assistance Services"
+              },
+              {
+                "title": "Transferring funds for prisoners / for financial assistance service",
+                "type": "Assistance Services"
+              },
+              {
+                "title": "Births and Deaths registration service",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Notarial services",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Issue certificate of no impediment",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Legalisation Service",
+                "type": "Other Services"
+              }
+            ]
+          },
+          {
+            "title": "British Embassy Press Team",
+            "format": "World Office",
+            "updated_at": "2014-09-23T11:12:12.000+01:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-rabat/office/british-embassy-press-team",
+            "details": {
+              "email": "PressOffice.Rabat@fco.gov.uk",
+              "description": "For all media enquiries, please contact the Press Team on:",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Our offices will be closed for the following public holidays:</p>\n\n<ul>\n  <li>Friday 1 January: New Year’s Day</li>\n  <li>Friday  25 March:   Good Friday</li>\n  <li>Monday 28 March:   Easter Monday</li>\n  <li>Monday 2 May:   May Bank Holiday</li>\n  <li>Friday 27 May:   Privilege Holiday for Queens Birthday</li>\n  <li>Monday 30 May:   Spring Bank Holiday</li>\n  <li>Wednesday 6 July* &amp; Thursday 7 July*: Eid El Fitr </li>\n  <li>Monday 29 August\t\tSummer Bank Holiday\t\t</li>\n  <li>Monday 12 September* &amp; Tuesday 13 September*: Eid El Adha</li>\n  <li>Monday 3 October*: Islamic New Year  </li>\n  <li>Monday 26 December: Boxing Day</li>\n  <li>Tuesday 27 December: in lieu Christmas Day</li>\n</ul>\n\n<p>The star (*) means it is a movable feast depending on the sighting of the moon</p>\n\n<h2 id=\"security-regulations\">Security regulations</h2>\n\n<p>Please be aware that all visitors to the British Embassy will have to pass through Embassy security. While we aim for this to be as light-touch as possible, it does require a search of bags and pockets.</p>\n\n<p>The British Embassy in Rabat security regulations, in line with all British Diplomatic Missions world-wide, do not permit visitors to enter the embassy with mobile telephones, laptops, PDAs or any other similar electrical devices. We prefer that you arrive at the embassy without them. If this is not possible we can retain them at the entrance during your visit.  </p>\n\n<p>Weapons (including pepper sprays), or any object that our security staff consider could be used as a weapon, are also forbidden. These will not be retained by our staff. Should you arrive with such an object you will not be granted access but will be asked to return without it.</p>\n\n<p>These regulations are intended to help us ensure the security for our staff and visitors. Your cooperation is appreciated.</p>\n\n<h2 id=\"map\">Map</h2>\n\n<p>You can find maps showing our locations at:</p>\n\n<ul>\n  <li>\n    <p><a rel=\"external\" href=\"https://maps.google.co.in/maps?q=British+Embassy,+Avenue+S.A.R.+Sidi+Mohammed,+Rabat,+Rabat-Sale-Zemmour-Zaer,+Morocco&amp;hl=en&amp;sll=33.9702,-6.838431&amp;sspn=0.015215,0.033023&amp;oq=british+embass&amp;gl=in&amp;hq=british+embassy&amp;hnear=Avenue+S.A.R.+Sidi+Mohammed,+Rabat,+Rabat-Sale-Zemmour-Zaer,+Morocco&amp;t=m&amp;z=17\">British Embassy Rabat</a>.</p>\n  </li>\n  <li>\n    <p><a rel=\"external\" href=\"https://maps.google.co.in/maps?q=british+consulate+general,+36+rue+de+la+loire,+polo,+casablanca&amp;hl=en&amp;sll=33.973118,-6.844482&amp;sspn=0.004751,0.006877&amp;gl=in&amp;hq=british+consulate+general,+36+rue+de+la+loire,&amp;hnear=POLO,+Casablanca,+El+Fida-Derb+Soltane,+Grand+Casablanca,+Morocco&amp;t=m&amp;z=14\">British Consulate General Casablanca</a>.</p>\n  </li>\n  <li>\n    <p><a rel=\"external\" href=\"https://maps.google.co.in/maps?q=british+honorary+consulate,+47+avenue+mohamed+V,+Marrakech&amp;hl=en&amp;sll=31.63847,-8.002671&amp;sspn=0.156086,0.22007&amp;gl=in&amp;hq=british+honorary+consulate,&amp;hnear=Avenue+Mohamed+V,+Gueliz,+Marrakech,+Marrakesh,+Marrakesh-Tensift-El+Haouz,+Morocco&amp;t=m&amp;z=16\">British Honorary Consulate Marrakech</a>.</p>\n  </li>\n  <li>\n    <p><a rel=\"external\" href=\"https://maps.google.co.in/maps?q=Boulevard+20+aout,+agadir&amp;hl=en&amp;sll=31.636899,-8.016534&amp;sspn=0.009756,0.013754&amp;gl=in&amp;hnear=Boulevard+du+20+Aout,+Agadir,+Agadir-Ida-Ou+Tanane+Province,+Souss-Massa-Draa,+Morocco&amp;t=m&amp;z=14\">British Honorary Consulate Agadir</a>.</p>\n  </li>\n</ul>\n</div>",
+              "type": "Embassy"
+            },
+            "address": {
+              "adr": {
+                "fn": "British Embassy Rabat",
+                "street-address": "28 Avenue S.A.R. Sidi Mohammed\r\nSouissi 10105 (BP 45), ",
+                "postal-code": "",
+                "locality": "Rabat",
+                "region": "",
+                "country-name": "Morocco"
+              },
+              "label": {
+                "value": "British Embassy Rabat\n28 Avenue S.A.R. Sidi Mohammed\r\nSouissi 10105 (BP 45), \nRabat\nMorocco"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Telephone:",
+                "number": "+212 (0) 537 633 333"
+              }
+            ],
+            "services": [
+
+            ]
+          }
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/mauritania/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

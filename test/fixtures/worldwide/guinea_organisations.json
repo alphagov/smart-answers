@@ -1,0 +1,82 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-conakry",
+      "title": "British Embassy Conakry",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-04-04T11:23:00.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-conakry",
+      "details": {
+        "slug": "british-embassy-conakry"
+      },
+      "analytics_identifier": "WO354",
+      "offices": {
+        "main": {
+          "title": "British Embassy Conakry",
+          "format": "World Office",
+          "updated_at": "2013-06-21T10:36:12.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-conakry/office/british-embassy-conakry",
+          "details": {
+            "email": "britembconakry@hotmail.com",
+            "description": "Emergency consular assistance (24 hours)\r\nFor emergency assistance, such as in the event of the death, assault, arrest or hospitalisation of a British national in Guinea, call +44 (0)1908 516 666 and follow the instructions to be connected with consular officers.\r\nIf you are calling from the UK about a British national in Guinea, call our Consular Assistance Team in London on + 44 (0) 207 008 1500.",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "British Embassy Conakry",
+              "street-address": "Villa 1, Residence 2000\r\nCorniche Sud",
+              "postal-code": "",
+              "locality": "Conakry",
+              "region": "",
+              "country-name": "Guinea"
+            },
+            "label": {
+              "value": "British Embassy Conakry\nVilla 1, Residence 2000\r\nCorniche Sud\nConakry\nGuinea"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "00 224 631 355 329 (Monday to Thursday 8am to 4.30pm, Friday 8am to 1pm)"
+            },
+            {
+              "label": "Consular assistance (24 hour)",
+              "number": "+44 (0)1908 516 666"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/guinea/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

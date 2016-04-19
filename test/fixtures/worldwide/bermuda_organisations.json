@@ -1,0 +1,82 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/governors-office-hamilton",
+      "title": "Governor's Office Hamilton",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-11-24T14:14:51.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/governors-office-hamilton",
+      "details": {
+        "slug": "governors-office-hamilton"
+      },
+      "analytics_identifier": "WO371",
+      "offices": {
+        "main": {
+          "title": "Governor's Office Hamilton",
+          "format": "World Office",
+          "updated_at": "2014-11-24T14:27:39.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/governors-office-hamilton/office/governors-office-hamilton",
+          "details": {
+            "email": "executiveofficer@gov.bm",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><p>The Governor’s Office is open Monday to Friday from 8.45am until 1.pm and 2.15pm until 5.30pm, except for public holidays.</p>\n\n<h3 id=\"bermuda-public-holidays-2014\">Bermuda Public Holidays 2014</h3>\n\n<ul>\n  <li>\n    <p>1 January 2014 - New Year’s Day </p>\n  </li>\n  <li>\n    <p>18 April 2014 - Good Friday</p>\n  </li>\n  <li>\n    <p>26 May 2014 - Bermuda Day</p>\n  </li>\n  <li>\n    <p>16 June 2014 - HM the Queen’s Official Birthday</p>\n  </li>\n  <li>\n    <p>31 July - 1 August - Emancipation and Somer’s Day</p>\n  </li>\n  <li>\n    <p>1 September 2014 - Labour Day</p>\n  </li>\n  <li>\n    <p>11 November 2014 - Remembrance Day</p>\n  </li>\n  <li>\n    <p>25 December 2014 - Christmas Day</p>\n  </li>\n  <li>\n    <p>26 December 2014 - Boxing Day</p>\n  </li>\n</ul>\n\n<p>Christmas Eve (24th December) and New Year’s Eve are not Public Holidays but the Office may not be ordinarily open to visitors. If you intend to visit Government House on either of these days please ensure you ring ahead to schedule an appointment.</p>\n\n</div>",
+            "type": "HM Governor’s Office"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "11 Langton Hill",
+              "postal-code": "H.M 13",
+              "locality": "",
+              "region": "Pembroke",
+              "country-name": "Bermuda"
+            },
+            "label": {
+              "value": "11 Langton Hill\nPembroke\nH.M 13\nBermuda"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Governor's Office Switchboard",
+              "number": "(441) 292-3600"
+            },
+            {
+              "label": "Deputy Governor's Office Switchboard",
+              "number": "(441) 292-2587"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/bermuda/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

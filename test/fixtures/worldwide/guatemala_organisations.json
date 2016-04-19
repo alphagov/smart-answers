@@ -1,1 +1,109 @@
-{"results":[{"id":"https://www.gov.uk/api/worldwide-organisations/british-embassy-guatemala","title":"British Embassy Guatemala City","format":"Worldwide Organisation","updated_at":"2013-04-02T22:06:50+01:00","web_url":"https://www.gov.uk/government/world/organisations/british-embassy-guatemala","details":{"slug":"british-embassy-guatemala","summary":"The British embassy in Guatemala City is responsible for developing and maintaining relations between the United Kingdom and Guatemala (we also cover Honduras remotely). ","description":"<div class=\"govspeak\"><p>We are working with Guatemala on a range of issues to strengthen political and trade links. Our work also includes supporting British nationals in Guatemala.</p></div>","services":"<div class=\"govspeak\"><h2 id=\"visashttpwwwukbahomeofficegovukvisas-immigration-visas\"><a rel=\"external\" href=\"http://www.ukba.homeoffice.gov.uk/visas-immigration/\" title=\"Visas\">Visas</a></h2>\n<p>For information on whether you require a visa for the United Kingdom and how to apply go to the <a rel=\"external\" href=\"http://www.ukba.homeoffice.gov.uk/visas-immigration/\" title=\"UK Border Agency website\">UK Border Agency website</a></p>\n\n<h2 id=\"births-deaths-and-marriages\">Births, deaths and marriages</h2>\n<p>Information on how you can register a <a href=\"https://www.gov.uk/register-a-birth/y\" title=\"register a birth\">birth</a> or <a href=\"https://www.gov.uk/register-a-death/y/overseas\" title=\"register a death\">death</a> which occurred overseas, and legal documents for couples <a href=\"https://www.gov.uk/marriage-abroad\" title=\"marrying or entering into civil partnerships\">marrying or entering into civil partnerships</a> abroad.</p>\n\n<h2 id=\"passports-and-emergency-travel-documentshttpswwwgovukoverseas-passports-passports-and-emergency-travel-documents\"><a href=\"https://www.gov.uk/overseas-passports\" title=\"Passports and emergency travel documents\">Passports and emergency travel documents</a></h2>\n<p>How to renew or replace your British passport when outside of the UK and information on getting <a href=\"https://www.gov.uk/emergency-travel-document\" title=\"Get an emergency travel document\">replacement travel documents if your passport is lost or stolen</a>.</p>\n\n<h2 id=\"travel-advicehttpswwwgovukforeign-travel-advice-travel-advice\"><a href=\"https://www.gov.uk/foreign-travel-advice/\" title=\"Travel Advice\">Travel Advice</a></h2>\n<p>Information on staying safe and avoiding problems when living or travelling abroad, with links to our embassies, high commissions and other diplomatic posts across the world.</p>\n\n<h2 id=\"legalisation-servicehttpswwwgovukget-document-legalised-legalisation-service\"><a href=\"https://www.gov.uk/get-document-legalised\" title=\"Legalisation Service\">Legalisation Service</a></h2>\n<p>How to get official confirmation that your UK public documentation is genuine so it can be accepted by foreign authorities. The UK does not require any documents to be legalised for use within the UK.</p>\n\n<h2 id=\"consular-feeshttpswwwgovukgovernmentorganisationsforeign-commonwealth-officeseriesconsular-fees-consular-fees\"><a href=\"https://www.gov.uk/government/organisations/foreign-commonwealth-office/series/consular-fees\" title=\"Consular fees\">Consular fees</a></h2>\n<p>Information on the current cost of fee-bearing services.</p></div>"},"offices":{"main":{"title":"British Embassy","format":"World Office","updated_at":"2013-07-30T21:32:23+01:00","details":{"email":"","description":"","contact_form_url":"","access_and_opening_times":"","type":"Embassy"},"address":{"adr":{"fn":"","street-address":"Edificio Torre Internacional, \r\nNivel 11, 16 Calle 0-55, \r\nZona 10 Guatemala City ","postal-code":"","locality":"","region":"","country-name":"Guatemala"},"label":{"value":"Edificio Torre Internacional, \r\nNivel 11, 16 Calle 0-55, \r\nZona 10 Guatemala City \nGuatemala"}},"contact_numbers":[{"label":"Switchboard","number":"+502-2380-7300"}],"services":[{"title":"Emergency Travel Documents service","type":"Assistance Services"},{"title":"Transferring funds for prisoners / for financial assistance service","type":"Assistance Services"},{"title":"Marriage or Civil Partnership registrations","type":"Documentary Services"},{"title":"Births and Deaths registration service","type":"Documentary Services"},{"title":"Notarial services","type":"Documentary Services"},{"title":"Marriages or Civil Partnership service","type":"Documentary Services"},{"title":"Citizenship Ceremony service","type":"Documentary Services"},{"title":"Legalisation Service","type":"Other Services"}]},"other":[]},"sponsors":[{"title":"Foreign & Commonwealth Office","web_url":"https://www.gov.uk/government/organisations/foreign-commonwealth-office","details":{"acronym":"FCO"}}]}],"current_page":1,"total":1,"pages":1,"page_size":20,"start_index":1,"_response_info":{"status":"ok","links":[{"href":"https://www.gov.uk/api/world-locations/guatemala/organisations?page=1","rel":"self"}]}}
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-guatemala",
+      "title": "British Embassy Guatemala City",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-11-18T12:42:30.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-guatemala",
+      "details": {
+        "slug": "british-embassy-guatemala"
+      },
+      "analytics_identifier": "WO10",
+      "offices": {
+        "main": {
+          "title": "British Embassy",
+          "format": "World Office",
+          "updated_at": "2013-07-30T21:32:23.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-guatemala/office/british-embassy",
+          "details": {
+            "email": "embassy@intelnett.com",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><p>E-mail:  embassy@intelnett.com</p>\n\n<h2 id=\"public-holidays-in-2016\">Public holidays in 2016</h2>\n<p>On the following public holidays, our office will be closed for normal business.  Emergency consular assistance for British nationals is available by telephone.</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 23 March</td>\n      <td>Easter</td>\n    </tr>\n    <tr>\n      <td>Thursday 24 March</td>\n      <td>Maundy Thursday</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 30 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 1 July</td>\n      <td>Army Day</td>\n    </tr>\n    <tr>\n      <td>Monday 15 August</td>\n      <td>Asuncion Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 15 September</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 20 October</td>\n      <td>Revolution of 1944</td>\n    </tr>\n    <tr>\n      <td>Monday 31 October</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 1 November</td>\n      <td>All Saints Day</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>*Tuesday 27 December</td>\n      <td>In lieu of Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Friday 30 December</td>\n      <td>New Years Eve</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "Edificio Torre Internacional, \r\nNivel 11, 16 Calle 0-55, \r\nZona 10 Guatemala City ",
+              "postal-code": "",
+              "locality": "Guatemala City",
+              "region": "",
+              "country-name": "Guatemala"
+            },
+            "label": {
+              "value": "Edificio Torre Internacional, \r\nNivel 11, 16 Calle 0-55, \r\nZona 10 Guatemala City \nGuatemala City\nGuatemala"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Switchboard",
+              "number": "+502-2380-7300"
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Transferring funds for prisoners / for financial assistance service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Registrations of Marriage and Civil Partnerships",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Births and Deaths registration service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Notarial services",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Issue certificate of no impediment",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Citizenship Ceremony service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Legalisation Service",
+              "type": "Other Services"
+            }
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/guatemala/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

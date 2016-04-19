@@ -1,1 +1,173 @@
-{"results":[{"id":"https://www.gov.uk/api/worldwide-organisations/british-embassy-vilnius","title":"British Embassy Vilnius","format":"Worldwide Organisation","updated_at":"2014-04-02T13:02:58+01:00","web_url":"https://www.gov.uk/government/world/organisations/british-embassy-vilnius","details":{"slug":"british-embassy-vilnius"},"offices":{"main":{"title":"British Embassy Vilnius","format":"World Office","updated_at":"2013-06-27T22:08:16+01:00","web_url":"https://www.gov.uk/government/world/organisations/british-embassy-vilnius/office/british-embassy","details":{"email":"be-vilnius@britain.lt ","description":"","contact_form_url":"https://www.clickbook.net/dev/bc.nsf/sub/ukinlithuania?OpenDocument&cb_referer=http%3A%2F%2Fwww.google.lt%2Furl%3Fsa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26frm%3D1%26source%3Dweb%26cd%3D1%26ved%3D0CC0QFjAA%26url%3Dhttp%203A%202F%202Fukinlithuania.clickbook.net","access_and_opening_times":"<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>GMT+2</p>\n\n<h3 id=\"summer-mid-june-to-end-august\">Summer (mid June to end August)</h3>\n<ul>\n<li>Monday to Thursday, 8:30am to 4.45pm </li>\n  <li>Friday 8:30am to 1pm  </li>\n</ul><h3 id=\"winter\">Winter</h3>\n<ul>\n<li>Monday to Thursday 8:30am to 4.45pm</li>\n  <li>Friday 8.30am to 3.30pm</li>\n</ul><h2 id=\"public-holidays\">2014 public holidays</h2>\n\n<ul>\n<li>Tuesday 11 March, Restoration of Lithuanian Independence </li>\n  <li>Friday 18 April, Good Friday</li>\n  <li>Monday 21 April, Easter Monday</li>\n  <li>Tuesday 22 April, Easter Tuesday </li>\n  <li>Thursday 1 May, May Day</li>\n  <li>Monday 5 May, Early May Bank Holiday</li>\n  <li>Monday 26 May, May Bank Holiday</li>\n  <li>Tuesday 24 June, St. John\u2019s /Mid-Summer\u2019s Day</li>\n  <li>Friday 15 August, Zoline</li>\n  <li>Monday 25 August, Summer Bank Holiday</li>\n  <li>Wednesday 24 December, Christmas Eve Day (K\u016b\u010dios)</li>\n  <li>Thursday 25 December, Christmas Day</li>\n  <li>Friday 26 December, Boxing Day</li>\n</ul><h2 id=\"getting-to-the-embassy\">Getting to the embassy</h2>\n<p>The British embassy is located 10 minutes drive from Vilnius old town next to the Church of St Peter and St Paul.\nTake trolleybus no. 2,3,4,14,17 or 20 and get off at the stop for \u2018\u0160v.Petro ir Povilo ba\u017eny\u010dia\u2019.</p>\n\n<h3 id=\"parking\">Parking</h3>\n<p>No parking available</p></div>","type":"Embassy"},"address":{"adr":{"fn":"","street-address":"Antakalnio str. 2 ","postal-code":"LT-10308","locality":"Vilnius","region":"","country-name":"Lithuania"},"label":{"value":"Antakalnio str. 2 \nVilnius\nLT-10308\nLithuania"}},"contact_numbers":[{"label":"Email (consular)","number":"Consular.Vilnius@fco.gov.uk"},{"label":"Telephone","number":"+370 5 2462900"},{"label":"Fax","number":"+370 5 2462901"}],"services":[{"title":"Emergency Travel Documents service","type":"Assistance Services"},{"title":"Births and Deaths registration service","type":"Documentary Services"},{"title":"Notarial services","type":"Documentary Services"}]},"other":[]},"sponsors":[{"title":"Foreign & Commonwealth Office","web_url":"https://www.gov.uk/government/organisations/foreign-commonwealth-office","details":{"acronym":"FCO"}}]},{"id":"https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-lithuania","title":"UK Trade & Investment Lithuania","format":"Worldwide Organisation","updated_at":"2013-05-15T08:12:50+01:00","web_url":"https://www.gov.uk/government/world/organisations/uk-trade-investment-lithuania","details":{"slug":"uk-trade-investment-lithuania"},"offices":{"main":{"title":"UK Trade & Investment Lithuania","format":"World Office","updated_at":"2013-03-25T10:37:54+00:00","web_url":"https://www.gov.uk/government/world/organisations/uk-trade-investment-lithuania/office/uk-trade-investment-lithuania","details":{"email":"ukti.vilnius@fco.gov.uk","description":"","contact_form_url":"","access_and_opening_times":"","type":"Other"},"address":{"adr":{"fn":"British Embassy","street-address":"Antakalnio 2","postal-code":"LT-10308","locality":"Vilnius","region":"","country-name":"Lithuania"},"label":{"value":"British Embassy\nAntakalnio 2\nVilnius\nLT-10308\nLithuania"}},"contact_numbers":[{"label":"General enquiries","number":"+370 5 246 2900"},{"label":"Laura Le\u0161\u010dinskien\u0117 - Senior Market Adviser","number":"+370 5 246 2927"},{"label":"Ieva Binkauskait\u0117 - Senior Market Adviser","number":"+370 5 246 2916"},{"label":"Ringail\u0117 Savi\u010dien\u0117 - Head of Trade Team Lithuania","number":"+370 5 246 2929"}],"services":[]},"other":[]},"sponsors":[{"title":"UK Trade & Investment","web_url":"https://www.gov.uk/government/organisations/uk-trade-investment","details":{"acronym":"UKTI"}}]}],"current_page":1,"total":2,"pages":1,"page_size":20,"start_index":1,"_response_info":{"status":"ok","links":[{"href":"https://www.gov.uk/api/world-locations/lithuania/organisations?&page=1","rel":"self"}]}}
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-vilnius",
+      "title": "British Embassy Vilnius",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-04-02T13:02:58.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-vilnius",
+      "details": {
+        "slug": "british-embassy-vilnius"
+      },
+      "analytics_identifier": "WO75",
+      "offices": {
+        "main": {
+          "title": "British Embassy Vilnius",
+          "format": "World Office",
+          "updated_at": "2013-06-27T22:08:16.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-vilnius/office/british-embassy",
+          "details": {
+            "email": "be-vilnius@britain.lt ",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>GMT+2</p>\n\n<h3 id=\"summer-mid-june-to-end-august\">Summer (mid June to end August)</h3>\n<ul>\n  <li>Monday to Thursday, 8.30am to 4.45pm </li>\n  <li>Friday 8.30am to 1pm  </li>\n</ul>\n\n<h3 id=\"winter\">Winter</h3>\n<ul>\n  <li>Monday to Thursday 8.30am to 4.45pm</li>\n  <li>Friday 8.30am to 3.30pm</li>\n</ul>\n\n<h2 id=\"consular-hours\">Consular hours</h2>\n<p>Monday, Tuesday, Thursday, Friday 9.00am to 11.00am</p>\n\n<h2 id=\"public-holidays-in-2016\">Public holidays in 2016</h2>\n\n<ul>\n  <li>Friday 1 January, New Year’s Day</li>\n  <li>Tuesday 16 February Lithuanian Independence Day </li>\n  <li>Friday 11 March, Restoration of Lithuanian Independence </li>\n  <li>Friday 25 March, Good Friday</li>\n  <li>Monday 28 March, Easter Monday</li>\n  <li>Monday 2 May, Early May Bank Holiday</li>\n  <li>Monday 30 May, Spring Bank Holiday</li>\n  <li>Friday 24 June, St. John’s /Mid-Summer’s Day</li>\n  <li>Wednesday 6 July, King Mindaugas Coronation Day</li>\n  <li>Monday 15 August, Žolinė</li>\n  <li>Monday 29 August, Summer bank holiday</li>\n  <li>Tuesday 1 November, All Souls Day </li>\n  <li>Monday 26 December, Boxing Day</li>\n  <li>Tuesday 27 December, Christmas Day (substitute day)</li>\n</ul>\n\n<h2 id=\"getting-to-the-embassy\">Getting to the embassy</h2>\n\n<p>The British embassy is located 10 minutes drive from Vilnius old town next to the Church of St Peter and St Paul. Take trolleybus no. 2,3,4,14,17 or 20 and get off at the stop for ‘Šv.Petro ir Povilo bažnyčia’.</p>\n\n<h3 id=\"parking\">Parking</h3>\n\n<p>No parking available</p>\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "Antakalnio str. 2 ",
+              "postal-code": "LT-10308",
+              "locality": "Vilnius",
+              "region": "",
+              "country-name": "Lithuania"
+            },
+            "label": {
+              "value": "Antakalnio str. 2 \nVilnius\nLT-10308\nLithuania"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Email (consular)",
+              "number": "Consular.Vilnius@fco.gov.uk"
+            },
+            {
+              "label": "Telephone",
+              "number": "+370 5 246 2900"
+            },
+            {
+              "label": "Fax",
+              "number": "+370 5 246 2901"
+            },
+            {
+              "label": "Web address",
+              "number": "www.gov.uk/government/world/lithuania"
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Births and Deaths registration service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Notarial services",
+              "type": "Documentary Services"
+            }
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-lithuania",
+      "title": "UK Trade & Investment Lithuania",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-05-15T08:12:50.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-lithuania",
+      "details": {
+        "slug": "uk-trade-investment-lithuania"
+      },
+      "analytics_identifier": "WO296",
+      "offices": {
+        "main": {
+          "title": "UK Trade & Investment Lithuania",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:54.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-lithuania/office/uk-trade-investment-lithuania",
+          "details": {
+            "email": "ukti.vilnius@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "British Embassy",
+              "street-address": "Antakalnio 2",
+              "postal-code": "LT-10308",
+              "locality": "Vilnius",
+              "region": "",
+              "country-name": "Lithuania"
+            },
+            "label": {
+              "value": "British Embassy\nAntakalnio 2\nVilnius\nLT-10308\nLithuania"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "General enquiries",
+              "number": "+370 5 246 2900"
+            },
+            {
+              "label": "Ieva Binkauskaitė -  Head of Trade Section Lithuania",
+              "number": "+370 5 246 2916"
+            },
+            {
+              "label": "Dovilė Janeliauskaitė- Senior Market Adviser",
+              "number": "+370 5 246 2927"
+            },
+            {
+              "label": "Juliana Kucevičiūtė - Senior Market Adviser",
+              "number": "+370 5 246 2929"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "UK Trade & Investment",
+          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "details": {
+            "acronym": "UKTI"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/lithuania/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

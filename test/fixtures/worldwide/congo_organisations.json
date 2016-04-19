@@ -1,1 +1,123 @@
-{"results":[{"id":"https://www.gov.uk/api/worldwide-organisations/british-embassy-kinshasa","title":"British Embassy Kinshasa","format":"Worldwide Organisation","updated_at":"2013-05-30T07:51:41+01:00","web_url":"https://www.gov.uk/government/world/organisations/british-embassy-kinshasa","details":{"slug":"british-embassy-kinshasa","summary":"We develop and maintain relations between the United Kingdom and both Democratic Republic of Congo and Republic of Congo.  ","description":"<div class=\"govspeak\"><p>Our primary mission is to consolidate peace and reduce poverty in DR Congo. As well as managing the political relationship, we provide consular assistance to British nationals in both countries and support trade and investment. The UK, through the Department for International Development, is a major donor to DR Congo.</p></div>","services":"<div class=\"govspeak\"><h2 id=\"visashttpwwwukbahomeofficegovukvisas-immigration\"><a rel=\"external\" href=\"http://www.ukba.homeoffice.gov.uk/visas-immigration/\">Visas</a></h2>\n<p>For information on whether you require a visa for the United Kingdom and how to apply go to the <a rel=\"external\" href=\"http://www.ukba.homeoffice.gov.uk/visas-immigration/\" title=\"UK Border Agency website\">UK Border Agency website</a></p>\n\n<h2 id=\"births-deaths-and-marriageshttpswwwgovukbrowsebirths-deaths-marriages\"><a href=\"https://www.gov.uk/browse/births-deaths-marriages\">Births, deaths and marriages</a></h2>\n<p>Information on how you can register a birth or death which occurred overseas, and legal documents for couples marrying or entering into civil partnerships abroad.</p>\n\n<h2 id=\"passports-and-emergency-travel-documentshttpswwwgovukoverseas-passports\"><a href=\"https://www.gov.uk/overseas-passports\">Passports and emergency travel documents</a></h2>\n<p>How to renew or replace your British passport when visiting the UK and information on getting replacement travel documents if your passport is lost or stolen.</p>\n\n<h2 id=\"travel-advicehttpswwwgovukforeign-travel-advicedemocratic-republic-of-congo\"><a href=\"https://www.gov.uk/foreign-travel-advice/democratic-republic-of-congo\">Travel advice</a></h2>\n<p>Information on staying safe and avoiding problems when living or travelling abroad, with links to our embassies, high commissions and other diplomatic posts across the world.</p>\n\n<h2 id=\"legalisation-servicehttpswwwgovukgovernmentpublicationslegalisation-general-guidance-leaflet\"><a href=\"https://www.gov.uk/government/publications/legalisation-general-guidance-leaflet\">Legalisation Service</a></h2>\n<p>How to get official confirmation that your UK public documentation is genuine so it can be accepted by foreign authorities. The UK does not require any documents to be legalised for use within the UK.</p></div>"},"offices":{"main":{"title":"British Embassy Kinshasa","format":"World Office","updated_at":"2013-03-25T10:37:53+00:00","details":{"email":"ambassade.britannique@fco.gov.uk","description":"Opening hours\r\n \r\nGMT\r\nMonday to Thursday: 6:30 am to 3 pm\r\nFriday: 6:30 am to 1 pm\r\n \r\nLocal Time\r\nMonday to Thursday: 7:30 am to 4 pm\r\nFriday: 7:30 am to 2 pm\r\n\r\nOut of hours, embassy answer machine gives a contact number.","contact_form_url":"","access_and_opening_times":"<div class=\"govspeak\"><h2 id=\"public-holidays\">Public Holidays</h2>\n\n<table>\n<thead><tr>\n<th>Date</th>\n      <th>Holiday</th>\n    </tr></thead>\n<tbody>\n<tr>\n<td>Tuesday 1 January</td>\n      <td>New Year\u2019s Day</td>\n    </tr>\n<tr>\n<td>Wednesday 2 January</td>\n      <td>Privilege Day</td>\n    </tr>\n<tr>\n<td>Friday 4 January</td>\n      <td>Martyrs\u2019 Day</td>\n    </tr>\n<tr>\n<td>Wednesday 16 January</td>\n      <td>Heroes\u2019 Day (Death of President Laurent Kabila)</td>\n    </tr>\n<tr>\n<td>Friday 29 March</td>\n      <td>Good Friday</td>\n    </tr>\n<tr>\n<td>Monday 1 April</td>\n      <td>Easter Monday</td>\n    </tr>\n<tr>\n<td>Wednesday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n<tr>\n<td>Friday 17 May</td>\n      <td>Fall of Mobutu and New Regime</td>\n    </tr>\n<tr>\n<td>Sunday 30 June</td>\n      <td>National Day</td>\n    </tr>\n<tr>\n<td>Thursday 1 August</td>\n      <td>Parents and Dead Day</td>\n    </tr>\n<tr>\n<td>Monday 26 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n<tr>\n<td>Wednesday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n<tr>\n<td>Thursday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n</tbody>\n</table></div>","type":"Embassy"},"address":{"adr":{"fn":"","street-address":"83, Avenue Roi Baudoin","postal-code":"","locality":" Gombe","region":"Kinshasa","country-name":"Democratic Republic of Congo"},"label":{"value":"83, Avenue Roi Baudoin\n Gombe\nKinshasa\nDemocratic Republic of Congo"}},"contact_numbers":[{"label":"Enquiries ","number":"Telephone +243 81 556 6200"},{"label":"Enquiries ","number":"Fax +243 81 346 4291"}],"services":[]},"other":[]},"sponsors":[{"title":"Foreign & Commonwealth Office","web_url":"https://www.gov.uk/government/organisations/foreign-commonwealth-office","details":{"acronym":"FCO"}}]}],"current_page":1,"total":1,"pages":1,"page_size":20,"start_index":1,"_response_info":{"status":"ok","links":[{"href":"https://www.gov.uk/api/world-locations/congo/organisations?&page=1","rel":"self"}]}}
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-kinshasa",
+      "title": "British Embassy Kinshasa",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-05-30T07:51:41.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-kinshasa",
+      "details": {
+        "slug": "british-embassy-kinshasa"
+      },
+      "analytics_identifier": "WO128",
+      "offices": {
+        "main": {
+          "title": "British Embassy Kinshasa",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:53.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-kinshasa/office/british-embassy-kinshasa",
+          "details": {
+            "email": "ambassade.britannique@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<h3 id=\"gmt\">GMT</h3>\n<p>Monday to Thursday: 6:30 am to 3 pm and Friday: 6:30 am to 1 pm</p>\n\n<h3 id=\"local-time\">Local Time</h3>\n<p>Monday to Thursday: 7:30 am to 4 pm and Friday: 7:30 am to 2 pm</p>\n\n<h3 id=\"out-of-hours-embassy-answer-machine-gives-a-contact-number\">Out of hours: Embassy answer machine gives a contact number.</h3>\n\n<h2 id=\"public-holidays-2016\">Public Holidays 2016</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Monday 4 January</td>\n      <td>Martyrs’ Day</td>\n    </tr>\n    <tr>\n      <td>Friday 15 January</td>\n      <td>Hero’s Day (Laurent-Désiré Kabila)</td>\n    </tr>\n    <tr>\n      <td>Monday 18 January</td>\n      <td>Hero’s Day (Lumumba)</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 17 May</td>\n      <td>Armed Forces Revolution Day</td>\n    </tr>\n    <tr>\n      <td>Friday 27 May</td>\n      <td>Privilege Bank Holiday for Queen’s Birthday</td>\n    </tr>\n    <tr>\n      <td>Thursday 30 June</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Monday 1 August</td>\n      <td>Parents Day</td>\n    </tr>\n    <tr>\n      <td>Monday 29 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 December</td>\n      <td>Christmas Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "83, Avenue Roi Baudoin\r\nGombe",
+              "postal-code": "",
+              "locality": "Kinshasa",
+              "region": "",
+              "country-name": "Democratic Republic of Congo"
+            },
+            "label": {
+              "value": "83, Avenue Roi Baudoin\r\nGombe\nKinshasa\nDemocratic Republic of Congo"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Enquiries ",
+              "number": "Telephone +243 81 556 6200"
+            },
+            {
+              "label": "Enquiries ",
+              "number": "Fax +243 81 346 4291"
+            },
+            {
+              "label": "Consular assistance (24 hour)",
+              "number": "+243 81 556 6200"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+          {
+            "title": "Visas Section",
+            "format": "World Office",
+            "updated_at": "2015-02-18T08:37:08.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-kinshasa/office/visas-section",
+            "details": {
+              "email": "Malou-vac@malabar-group.com ",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays\">Public Holidays</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Date</td>\n      <td>Holiday</td>\n    </tr>\n    <tr>\n      <td>2015——–</td>\n      <td>——-</td>\n    </tr>\n    <tr>\n      <td>Thursday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 2 January</td>\n      <td>Privilege Day</td>\n    </tr>\n    <tr>\n      <td>Monday 5 January</td>\n      <td>Martyrs’ Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 16 January</td>\n      <td>Heroes’ Day</td>\n    </tr>\n    <tr>\n      <td>Friday 17 January</td>\n      <td>Heroes’ Day</td>\n    </tr>\n    <tr>\n      <td>Friday 3 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 6 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Friday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Friday 15 May</td>\n      <td>Armed Forces Revolution Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 30 June</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Friday 31 July</td>\n      <td>Parents and Dead Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 24 December</td>\n      <td>Christmas Eve</td>\n    </tr>\n    <tr>\n      <td>Friday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Monday 28 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "Malabar Group ( Fedex)",
+                "street-address": "491, Avenue Colonel Mondjiba\r\nOpposite ( English School CALI)",
+                "postal-code": "",
+                "locality": "Gombe",
+                "region": "Kinshasa",
+                "country-name": "Democratic Republic of Congo"
+              },
+              "label": {
+                "value": "Malabar Group ( Fedex)\n491, Avenue Colonel Mondjiba\r\nOpposite ( English School CALI)\nGombe\nKinshasa\nDemocratic Republic of Congo"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Visa enquiries",
+                "number": "00243 821502796"
+              }
+            ],
+            "services": [
+              {
+                "title": "Emergency Travel Documents service",
+                "type": "Assistance Services"
+              }
+            ]
+          }
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/congo/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

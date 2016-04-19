@@ -1,1 +1,180 @@
-{"results":[{"id":"https://www.gov.uk/api/worldwide-organisations/british-embassy-reykjavik","title":"British Embassy Reykjavik ","format":"Worldwide Organisation","updated_at":"2013-06-12T16:26:48.000+01:00","web_url":"https://www.gov.uk/government/world/organisations/british-embassy-reykjavik","details":{"slug":"british-embassy-reykjavik"},"offices":{"main":{"title":"British Embassy Reykjavik","format":"World Office","updated_at":"2014-09-23T11:12:12.000+01:00","web_url":"https://www.gov.uk/government/world/organisations/british-embassy-reykjavik/office/british-embassy","details":{"email":"info@britishembassy.is ","description":"","contact_form_url":"","access_and_opening_times":"\u003cdiv class=\"govspeak\"\u003e\u003ch2 id=\"opening-hours\"\u003eOpening hours\u003c/h2\u003e\n\u003cul\u003e\n  \u003cli\u003eMonday to Thursday, 8:30am to 4pm \u003c/li\u003e\n  \u003cli\u003eFriday, 8:30am to 3:30pm\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003ch2 id=\"public-holidays\"\u003e2015 public holidays\u003c/h2\u003e\n\u003cul\u003e\n  \u003cli\u003eThursday 1 January  (New Years Day)  \u003c/li\u003e\n  \u003cli\u003eThursday 2 April  (Maundy Thursday)  \u003c/li\u003e\n  \u003cli\u003eFriday 3 April  (Good Friday) \u003c/li\u003e\n  \u003cli\u003eMonday 6 April  (Easter Monday)\u003c/li\u003e\n  \u003cli\u003eThursday 23 April  (First Day of Summer) \u003c/li\u003e\n  \u003cli\u003eFriday 1 May  (Labour Day)\u003c/li\u003e\n  \u003cli\u003eThursday 14 May  (Ascension) \u003c/li\u003e\n  \u003cli\u003eMonday 25 May  (Whitsun)\u003c/li\u003e\n  \u003cli\u003eWednesday 17 June  (National Day) \u003c/li\u003e\n  \u003cli\u003eMonday 3 August  (Tradesmen´s Day) \u003c/li\u003e\n  \u003cli\u003eThursday 24 December  (Christmas Eve)\u003c/li\u003e\n  \u003cli\u003eFriday 25 December  (Christmas Day)                    \u003c/li\u003e\n  \u003cli\u003eMonday 28 December  (In lieu of Boxing Day)                              \u003c/li\u003e\n  \u003cli\u003eThursday 31 December  (New Year´s Eve) \u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e","type":"Embassy"},"address":{"adr":{"fn":"","street-address":"Laufásvegur 31","postal-code":"101 ","locality":"Reykjavík","region":"","country-name":"Iceland"},"label":{"value":"Laufásvegur 31\n101  Reykjavík\nIceland"}},"contact_numbers":[{"label":"Telephone","number":"+354 550 5100"},{"label":"Fax","number":"+354 550 5105 "}],"services":[]},"other":[{"title":"Visa section","format":"World Office","updated_at":"2014-02-19T16:35:03.000+00:00","web_url":"https://www.gov.uk/government/world/organisations/british-embassy-reykjavik/office/visa-section","details":{"email":"","description":"","contact_form_url":"https://ukvi-international.faq-help.com/","access_and_opening_times":"\u003cdiv class=\"govspeak\"\u003e\n\u003cp\u003eVisas and Immigration: \nhttps://www.gov.uk/visas-immigration\u003c/p\u003e\n\n\u003c/div\u003e","type":"Other"},"address":{"adr":{"fn":"","street-address":"UK Visa Application Centre\r\nTeleperformance\r\nHotel Radisson Blu Saga\r\nHagatorg \r\n107 Reykjavík ","postal-code":"","locality":"","region":"","country-name":"Iceland"},"label":{"value":"UK Visa Application Centre\r\nTeleperformance\r\nHotel Radisson Blu Saga\r\nHagatorg \r\n107 Reykjavík \n \nIceland"}},"contact_numbers":[{"label":"Telephone","number":"+354 497 1220 (Charges will apply. For more information visit: https://ukvi-international.faq-help.com/)"},{"label":"Telephone","number":"+44 1243 213 318 (Charges will apply. For more information visit: https://ukvi-international.faq-help.com/)"}],"services":[]}]},"sponsors":[{"title":"Foreign \u0026 Commonwealth Office","web_url":"https://www.gov.uk/government/organisations/foreign-commonwealth-office","details":{"acronym":"FCO"}}]},{"id":"https://www.gov.uk/api/worldwide-organisations/ukti-iceland","title":"UK Trade \u0026 Investment Iceland","format":"Worldwide Organisation","updated_at":"2013-04-11T15:14:38.000+01:00","web_url":"https://www.gov.uk/government/world/organisations/ukti-iceland","details":{"slug":"ukti-iceland"},"offices":{"main":{"title":"UK Trade \u0026 Investment Iceland","format":"World Office","updated_at":"2014-07-29T13:20:08.000+01:00","web_url":"https://www.gov.uk/government/world/organisations/ukti-iceland/office/uk-trade-investment-iceland","details":{"email":"info@britishembassy.is","description":"Monday to Friday: 8:30am to 12:00pm","contact_form_url":"","access_and_opening_times":"","type":"Other"},"address":{"adr":{"fn":"","street-address":"Laufasvegur 31\r\n101 Reykjavik\r\n","postal-code":"","locality":"","region":"","country-name":"Iceland"},"label":{"value":"Laufasvegur 31\r\n101 Reykjavik\r\n \nIceland"}},"contact_numbers":[{"label":"(+354)","number":"550 5100"}],"services":[]},"other":[]},"sponsors":[{"title":"UK Trade \u0026 Investment","web_url":"https://www.gov.uk/government/organisations/uk-trade-investment","details":{"acronym":"UKTI"}}]}],"current_page":1,"total":2,"pages":1,"page_size":20,"start_index":1,"_response_info":{"status":"ok","links":[{"href":"https://www.gov.uk/api/world-locations/iceland/organisations?page=1","rel":"self"}]}}
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-reykjavik",
+      "title": "British Embassy Reykjavik ",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-06-12T16:26:48.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-reykjavik",
+      "details": {
+        "slug": "british-embassy-reykjavik"
+      },
+      "analytics_identifier": "WO53",
+      "offices": {
+        "main": {
+          "title": "British Embassy Reykjavik",
+          "format": "World Office",
+          "updated_at": "2014-09-23T11:12:12.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-reykjavik/office/british-embassy",
+          "details": {
+            "email": "info@britishembassy.is ",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<ul>\n  <li>Monday to Thursday, 8:30am to 4pm </li>\n  <li>Friday, 8:30am to 3:30pm</li>\n</ul>\n\n<h2 id=\"public-holidays\">2016 public holidays</h2>\n<ul>\n  <li>Friday 1 January  (New Years Day)  </li>\n  <li>Thursday 24 March  (Maundy Thursday)  </li>\n  <li>Friday 25 March  (Good Friday) </li>\n  <li>Monday 28 March  (Easter Monday)</li>\n  <li>Thursday 21 April  (First Day of Summer) </li>\n  <li>Monday 2 May  (In lieu of Labour Day)</li>\n  <li>Thursday 5 May  (Ascension) </li>\n  <li>Monday 16 May  (Whitsun Monday)</li>\n  <li>Friday 17 June  (National Day) </li>\n  <li>Monday 1 August  (Tradesmen´s Day) </li>\n  <li>Monday 26 December  (Boxing Day)</li>\n  <li>Tuesday 27 December  (In lieu of Christmas Eve)                    </li>\n  <li>Wednesday 28 December  (In lieu of Christmas Day)                              </li>\n  <li>Friday 30 December  (In lieu of New Year´s Eve) </li>\n</ul>\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "Laufásvegur 31",
+              "postal-code": "101 ",
+              "locality": "Reykjavík",
+              "region": "",
+              "country-name": "Iceland"
+            },
+            "label": {
+              "value": "Laufásvegur 31\n101  Reykjavík\nIceland"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "+354 550 5100"
+            },
+            {
+              "label": "Fax",
+              "number": "+354 550 5105 "
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+          {
+            "title": "Visa section",
+            "format": "World Office",
+            "updated_at": "2014-02-19T16:35:03.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-reykjavik/office/visa-section",
+            "details": {
+              "email": "",
+              "description": "",
+              "contact_form_url": "https://ukvi-international.faq-help.com/",
+              "access_and_opening_times": "<div class=\"govspeak\">\n<p>Visas and Immigration: \nhttps://www.gov.uk/visas-immigration</p>\n\n</div>",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "UK Visa Application Centre\r\nTeleperformance\r\nHotel Radisson Blu Saga\r\nHagatorg \r\n107 Reykjavík ",
+                "postal-code": "",
+                "locality": "",
+                "region": "",
+                "country-name": "Iceland"
+              },
+              "label": {
+                "value": "UK Visa Application Centre\r\nTeleperformance\r\nHotel Radisson Blu Saga\r\nHagatorg \r\n107 Reykjavík \n \nIceland"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Telephone",
+                "number": "+354 497 1220 (Charges will apply. For more information visit: https://ukvi-international.faq-help.com/)"
+              },
+              {
+                "label": "Telephone",
+                "number": "+44 1243 213 318 (Charges will apply. For more information visit: https://ukvi-international.faq-help.com/)"
+              }
+            ],
+            "services": [
+
+            ]
+          }
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/ukti-iceland",
+      "title": "UK Trade & Investment Iceland",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-04-11T15:14:38.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/ukti-iceland",
+      "details": {
+        "slug": "ukti-iceland"
+      },
+      "analytics_identifier": "WO331",
+      "offices": {
+        "main": {
+          "title": "UK Trade & Investment Iceland",
+          "format": "World Office",
+          "updated_at": "2014-07-29T13:20:08.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/ukti-iceland/office/uk-trade-investment-iceland",
+          "details": {
+            "email": "info@britishembassy.is",
+            "description": "Monday to Friday: 8:30am to 12:00pm",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "Laufasvegur 31\r\n101 Reykjavik\r\n",
+              "postal-code": "",
+              "locality": "",
+              "region": "",
+              "country-name": "Iceland"
+            },
+            "label": {
+              "value": "Laufasvegur 31\r\n101 Reykjavik\r\n \nIceland"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "(+354)",
+              "number": "550 5100"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "UK Trade & Investment",
+          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "details": {
+            "acronym": "UKTI"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/iceland/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

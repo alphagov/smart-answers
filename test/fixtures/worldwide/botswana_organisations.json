@@ -1,0 +1,97 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-high-commission-gaborone",
+      "title": "British High Commission Gaborone",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-01-17T04:39:54.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-gaborone",
+      "details": {
+        "slug": "british-high-commission-gaborone"
+      },
+      "analytics_identifier": "WO114",
+      "offices": {
+        "main": {
+          "title": "British High Commission Gaborone",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:52.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-gaborone/office/british-high-commission-gaborone",
+          "details": {
+            "email": "ukinbotswana@gmail.com",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening Hours:</h2>\n\n<h3 id=\"gmt\">GMT:</h3>\n<p>Monday to Thursday: 6 am to 2.30 pm and Friday: 6 am to 11 am</p>\n\n<h3 id=\"local-time\">Local Time:</h3>\n<p>Monday to Thursday: 8 am to 4.30 pm and Friday: 8 am to 1 pm</p>\n\n<h3 id=\"out-of-hours-the-high-commission-answer-machine-gives-an-emergency-number\">Out of hours: The High Commission answer machine gives an emergency number.</h3>\n\n<h2 id=\"visa-hours\">Visa Hours</h2>\n\n<p>Our Visa Application Centre (VAC) in Gaborone is now operated by FedEx, located at their premises: </p>\n\n<p>Unit 1, Plot 79, Gaborone International Commerce Park, Gaborone</p>\n\n<p>It is open 5 mornings a week.\nAt the same time, we are making the following changes to the visa service that we offer:</p>\n\n<p>There will be a charge of £59 to use the Visa Application Centre in Gaborone. This will be in addition to the visa fee and will be charged at the point of booking the appointment and will cover the cost of providing the application submission facilities in Gaborone. Your appointment at this Visa Application Centre will not be honoured if this fee is not paid.</p>\n\n<p>A new Priority Visa service will also be offered for an additional fee of £100. Priority Visa applications will normally be processed within 5 days.</p>\n\n<h2 id=\"consular-services\">Consular Services</h2>\n\n<h3 id=\"gmt-1\">GMT:</h3>\n<p>Monday to Thursday: 7 am to 10 am Only except for emergencies</p>\n\n<h3 id=\"local-time-1\">Local Time:</h3>\n<p>Monday to Thursday: 9 am to 12 pm Only except for emergencies</p>\n\n<p>Customers with emergencies can however call the High Commission outside these times and seek assistance from the Consular Officer.</p>\n\n<h2 id=\"public-holidays-2016\">Public Holidays 2016</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 01 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 02 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 05 May</td>\n      <td>Ascension Day</td>\n    </tr>\n    <tr>\n      <td>Monday 30 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 31 May</td>\n      <td>Priviledge Holiday for Queen’s birthday</td>\n    </tr>\n    <tr>\n      <td>Friday 01 July</td>\n      <td>Sir Seretse Khama Day</td>\n    </tr>\n    <tr>\n      <td>Monday 18 July</td>\n      <td>President’s Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 19 July</td>\n      <td>Public Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 29 August</td>\n      <td>“Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 30 September</td>\n      <td>Botswana Day</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Tueday 27 December</td>\n      <td>Public Holiday in lieu of Christmas Day</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"disabled-access\">Disabled Access</h3>\n\n<p>Please call us if you would like to arrange parking at our car park, which allows easier access to the building.</p>\n\n<p>Wherever possible, we have made our buildings and services accessible. Sometimes, however, this is not possible due to security or other restrictions.</p>\n</div>",
+            "type": "High Commission"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "Plot 1079-1084,\r\nMain Mall\r\noff Queens Road, ",
+              "postal-code": "",
+              "locality": "Gaborone",
+              "region": "Gaborone,",
+              "country-name": "Botswana"
+            },
+            "label": {
+              "value": "Plot 1079-1084,\r\nMain Mall\r\noff Queens Road, \nGaborone\nGaborone,\nBotswana"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Enquiries",
+              "number": "Telephone +267 3952841"
+            },
+            {
+              "label": "Enquiries",
+              "number": "Fax +267 3956105"
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Transferring funds for prisoners / for financial assistance service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Notarial services",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Citizenship Ceremony service",
+              "type": "Documentary Services"
+            }
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/botswana/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

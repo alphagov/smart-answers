@@ -1,0 +1,185 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-high-commission-honiara",
+      "title": "British High Commission Honiara",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-12-05T08:14:16.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-honiara",
+      "details": {
+        "slug": "british-high-commission-honiara"
+      },
+      "analytics_identifier": "WO190",
+      "offices": {
+        "main": {
+          "title": "British High Commission Honiara",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:53.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-honiara/office/british-high-commission-honiara",
+          "details": {
+            "email": "bhc@solomon.com.sb",
+            "description": "Opening hours:\r\nMonday to Thursday: 8.00am to 12.00pm / 1.00pm to 4.00pm\r\nFriday: 8.00am to 12.00pm / 1.00pm to 3.00pm",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>The Foreign &amp; Commonwealth Office is keen to ensure that its buildings and services are fully accessible to disabled members of the public. Wherever possible, we have made our buildings and services accessible. Sometimes however, this is not possible due to security or other restrictions. In these situations we will endeavour to provide a service or access to a building in an alternative way to ensure equality of access for disabled people.</p>\n\n<p>The British High Commission in Honiara is located on the first floor of the Heritage Park Hotel and there is no wheelchair access.  Arrangements can be made to meet on the ground floor of the hotel.</p>\n\n<p>If you need to visit us or use our services and feel that they may be inaccessible to you, please contact the Deputy High Commissioner on:</p>\n\n<div class=\"address\"><div class=\"adr org fn\"><p>\n\nTelephone:  +44 (677) 21705 or \n<br>Email: bhc@solomon.com.sb\n<br>\n</p></div></div>\n\n<h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>The office will be closed on the following days in the calendar year for 2016:</p>\n\n<ul>\n  <li>\n    <p>Friday 1st January - New Years Day</p>\n  </li>\n  <li>\n    <p>Friday 25th March\t - Good Friday</p>\n  </li>\n  <li>\n    <p>Monday 28th March - Easter Monday</p>\n  </li>\n  <li>\n    <p>Monday 2nd May*\t - May Bank Holiday </p>\n  </li>\n  <li>\n    <p>Monday 16th May\t - Whit Monday</p>\n  </li>\n  <li>\n    <p>Friday 27th May* - Privilege Holiday for Queens Birthday (UK) </p>\n  </li>\n  <li>\n    <p>Monday 30th May* - Spring Bank Holiday</p>\n  </li>\n  <li>\n    <p>Friday 10th June - Queens Birthday (SI) Saturday 11</p>\n  </li>\n  <li>\n    <p>Thursday 7th July\t- SI Independence Day</p>\n  </li>\n  <li>\n    <p>Monday 29th August* - Summer Bank Holiday</p>\n  </li>\n  <li>\n    <p>Friday 23rd December - Christmas Day ( In lieu of Chrismas Day)</p>\n  </li>\n  <li>\n    <p>Monday 26th December - Boxing Day</p>\n  </li>\n  <li>\n    <p>Tuesday 27th December - National Day of Thanksgiving      </p>\n  </li>\n</ul>\n\n<p>Holiday’s marked * are UK Public and Privilege Holiday</p>\n</div>",
+            "type": "High Commission"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "British High Commission, Honiara\r\nGallery 3 & 4 \r\nFirst Floor \r\nHeritage Park Hotel Ltd \r\nMendana Avenue ",
+              "postal-code": "P.O. 676",
+              "locality": "Honiara",
+              "region": "",
+              "country-name": "Solomon Islands"
+            },
+            "label": {
+              "value": "British High Commission, Honiara\r\nGallery 3 & 4 \r\nFirst Floor \r\nHeritage Park Hotel Ltd \r\nMendana Avenue \nHoniara\nP.O. 676\nSolomon Islands"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "(+677) 21705"
+            },
+            {
+              "label": "Fax",
+              "number": "(+677) 21549"
+            }
+          ],
+          "services": [
+            {
+              "title": "Citizenship Ceremony service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Transferring funds for prisoners / for financial assistance service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Registrations of Marriage and Civil Partnerships",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Births and Deaths registration service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Service of Process",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Notarial services",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Issue certificate of no impediment",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Legalisation Service",
+              "type": "Other Services"
+            },
+            {
+              "title": "Overseas Passports Service",
+              "type": "Other Services"
+            }
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-png-and-south-pacific",
+      "title": "UK Trade & Investment Papua New Guinea & South Pacific",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-12-22T01:38:13.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-png-and-south-pacific",
+      "details": {
+        "slug": "uk-trade-investment-png-and-south-pacific"
+      },
+      "analytics_identifier": "WO372",
+      "offices": {
+        "main": {
+          "title": "UK Trade & Investment Papua New Guinea & South Pacific",
+          "format": "World Office",
+          "updated_at": "2014-12-22T01:51:33.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-png-and-south-pacific/office/uk-trade-investment-papua-new-guinea-south-pacific",
+          "details": {
+            "email": "hera.tonge@mobile.ukti.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "High Commission"
+          },
+          "address": {
+            "adr": {
+              "fn": "Ms Hera Tonge, Head of UK Trade and Investment PNG and South Pacific",
+              "street-address": "British High Commission\r\nLock Bag 212\r\nWaigani",
+              "postal-code": "",
+              "locality": "",
+              "region": "National Capital District",
+              "country-name": "Papua New Guinea"
+            },
+            "label": {
+              "value": "Ms Hera Tonge, Head of UK Trade and Investment PNG and South Pacific\nBritish High Commission\r\nLock Bag 212\r\nWaigani\nNational Capital District\nPapua New Guinea"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Mobile",
+              "number": "+(675) 7909 3520"
+            },
+            {
+              "label": "Telephone",
+              "number": "+(675) 325 1677 ext 2202"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "UK Trade & Investment",
+          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "details": {
+            "acronym": "UKTI"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/solomon-islands/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

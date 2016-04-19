@@ -1,0 +1,225 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-high-commission-maputo",
+      "title": "British High Commission Maputo",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-08-21T08:18:59.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-maputo",
+      "details": {
+        "slug": "british-high-commission-maputo"
+      },
+      "analytics_identifier": "WO105",
+      "offices": {
+        "main": {
+          "title": "British High Commission Maputo",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:52.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-maputo/office/british-high-commission-maputo",
+          "details": {
+            "email": "maputo.ConsularEnquiries@fco.gov.uk",
+            "description": "The Consular section is open Monday to Friday, from 8:30 to 12:00. If you need to speak to a consular officer, please call +258 21 35 60 00, option 2. ",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening Hours</h2>\n\n<h3 id=\"normal-office-working-hours-at-local-time\">Normal office working hours at local time</h3>\n\n<p>Monday to Thursday: from 8 am to 12:30 pm and 1 pm to 4 pm; \nFriday: from 8 am to 1pm.</p>\n\n<h3 id=\"consular-section\">Consular Section</h3>\n\n<p>Monday to Friday: from 8:30 am to 12:00 pm.</p>\n\n<p>For general enquiries, please call +258 21 35 60 00. </p>\n\n<h3 id=\"out-of-hours-emergency-contact-details--258-21-356-072\">Out of hours emergency contact details + 258 21 356 072</h3>\n\n<h2 id=\"public-holidays-2016\">Public Holidays 2016</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Friday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 3 February</td>\n      <td>Mozambican Heroes’ Day</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Thursday 7 April</td>\n      <td>Mozambican Women’s Day</td>\n    </tr>\n    <tr>\n      <td>Monday 2 May</td>\n      <td>In lieu of Workers’ Day</td>\n    </tr>\n    <tr>\n      <td>Friday 27 May</td>\n      <td>Privilege Holiday for the Queen’s Birthday</td>\n    </tr>\n    <tr>\n      <td>Monday 29 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Wednesday 7 September</td>\n      <td>Mozambique’s Victory Day</td>\n    </tr>\n    <tr>\n      <td>Monday 26 September</td>\n      <td>In lieu of Mozambican Armed Forces Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 4 October</td>\n      <td>Mozambique’s Peace Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 10 November</td>\n      <td>Maputo City Day</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Christmas Privilege Holiday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"disabled-access\">Disabled access</h3>\n<p>Disabled access to the British High Commission is available via the pedestrian gate on the corner of Av Vladimir Lenine and Av Patrice Lumumba and a ramp to the Consular Section of the High Commission.</p>\n\n<p>The guards at the main entrance can arrange for the interconnecting gates to be unlocked to allow access for disabled people to the main reception area.</p>\n</div>",
+            "type": "High Commission"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "Avenida Vladmir Lenine, 310",
+              "postal-code": "P.O. Box 55",
+              "locality": "Maputo City ",
+              "region": "Maputo",
+              "country-name": "Mozambique"
+            },
+            "label": {
+              "value": "Avenida Vladmir Lenine, 310\nMaputo City \nMaputo\nP.O. Box 55\nMozambique"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Enquiries",
+              "number": "Telephone +258 21 35 60 00"
+            },
+            {
+              "label": "Enquiries",
+              "number": "Mobile +258 82 313 8580"
+            },
+            {
+              "label": "Enquiries",
+              "number": "Fax +258 21 35 60 60"
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Transferring funds for prisoners / for financial assistance service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Citizenship Ceremony service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Legalisation Service",
+              "type": "Other Services"
+            }
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/dfid-mozambique",
+      "title": "DFID Mozambique",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-10-30T11:38:40.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/dfid-mozambique",
+      "details": {
+        "slug": "dfid-mozambique"
+      },
+      "analytics_identifier": "WO237",
+      "offices": {
+        "main": {
+          "title": "DFID Mozambique",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:54.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/dfid-mozambique/office/dfid-mozambique",
+          "details": {
+            "email": "enquiry@dfid.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "3rd Floor, JAT Building\r\nAv.25 Setembro 420\r\nCaixa Postal 93\r\n",
+              "postal-code": "",
+              "locality": "Maputo",
+              "region": "",
+              "country-name": "Mozambique"
+            },
+            "label": {
+              "value": "3rd Floor, JAT Building\r\nAv.25 Setembro 420\r\nCaixa Postal 93\r\nMaputo\nMozambique"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Tel",
+              "number": "+ 258 21 351400"
+            },
+            {
+              "label": "Fax",
+              "number": "+ 258 21 351450"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Department for International Development",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-development",
+          "details": {
+            "acronym": "DFID"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-and-investment-mozambique",
+      "title": "UK Trade & Investment Mozambique",
+      "format": "Worldwide Organisation",
+      "updated_at": "2016-02-29T09:44:18.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-and-investment-mozambique",
+      "details": {
+        "slug": "uk-trade-and-investment-mozambique"
+      },
+      "analytics_identifier": "WO374",
+      "offices": {
+        "main": {
+          "title": "UK Trade and Investment Mozambique",
+          "format": "World Office",
+          "updated_at": "2015-03-03T09:47:02.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-and-investment-mozambique/office/uk-trade-and-investment-mozambique",
+          "details": {
+            "email": "Moz.Trade@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><p>UK Trade &amp; Investment helps british companies succeed in the global economy. We also help overseas companies bring their high-quality investment to the UK’s vibrant economy.</p>\n\n<p>UKTI Mozambique is open Monday to Thursday, from 08:00 to 16:00 and Friday from 08:00 to 13:00, with the exception of holidays.</p>\n</div>",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "310, Av. Vladimir Lenine\r\nCP 55\r\n",
+              "postal-code": "",
+              "locality": "",
+              "region": "Maputo",
+              "country-name": "Mozambique"
+            },
+            "label": {
+              "value": "310, Av. Vladimir Lenine\r\nCP 55\r\nMaputo\nMozambique"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Enquiries",
+              "number": "+258 21 356 000"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "UK Trade & Investment",
+          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "details": {
+            "acronym": "UKTI"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 3,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/mozambique/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

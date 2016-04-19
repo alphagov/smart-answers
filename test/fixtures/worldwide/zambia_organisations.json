@@ -1,0 +1,157 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-high-commission-lusaka",
+      "title": "British High Commission Lusaka",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-11-13T14:46:50.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-lusaka",
+      "details": {
+        "slug": "british-high-commission-lusaka"
+      },
+      "analytics_identifier": "WO131",
+      "offices": {
+        "main": {
+          "title": "British High Commission Lusaka",
+          "format": "World Office",
+          "updated_at": "2013-09-02T10:51:12.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-lusaka/office/british-high-commission-lusaka",
+          "details": {
+            "email": "LusakaGeneralEnquiries@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours:</h2>\n\n<h3 id=\"british-summer-time-bst\">British Summer Time (BST)</h3>\n<p>Monday to Thursday: 6 am to 11 am/12 pm - 2:45 pm and Friday: 6 am to 11 am</p>\n\n<h3 id=\"local-time\">Local Time</h3>\n<p>Monday to Thursday: 8 am to 1 pm/2 pm to 4:45 pm  and Friday: 8 am to 1 pm</p>\n\n<h2 id=\"public-holidays\">Public Holidays</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Tuesday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 8 March</td>\n      <td>International Women’s Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 12 March</td>\n      <td>Youth Day</td>\n    </tr>\n    <tr>\n      <td>Friday 29 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 1 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Wednesday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Monday 6 May</td>\n      <td>Early May Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 1 July</td>\n      <td>Heroes Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 2 July</td>\n      <td>Unity Day</td>\n    </tr>\n    <tr>\n      <td>Monday 5 August</td>\n      <td>Farmer’s Day</td>\n    </tr>\n    <tr>\n      <td>Monday 26 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Thursday 24 October</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 1 November</td>\n      <td>All Saint’s Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"disabled-access\">Disabled Access</h3>\n\n<p>The Foreign &amp; Commonwealth Office and the British High Commission in Lusaka are keen to ensure that their buildings and services are fully accessible to disabled members of the public.</p>\n\n<p>Wherever possible, we have made our buildings and services accessible. Sometimes however, this is not possible due to security or other restrictions. In these situations we will endeavour to provide a service or access to a building in an alternative way to ensure equality of access for disabled people. For example, the guards at the main entrance of the British High Commission in Lusaka can arrange for the interconnecting gates to be unlocked to allow access for disabled people to the main British High Commission reception area.</p>\n\n<p>To assist disabled visitors, we have set out below details of disabled access at this High Commission. We hope this information is helpful.</p>\n\n<h4 id=\"general-physical-access\">General physical access:</h4>\n\n<ul>\n  <li>entrances - all entrances have ramps and are accessible to wheelchairs </li>\n  <li>steps and staircases - none of the stairs have clear step edging or anti slip edging </li>\n  <li>stairs - all of the High Commission’s services can be offered on the ground floor </li>\n  <li>toilets - separate toilets that can accommodate wheelchairs are available </li>\n  <li>parking - parking spaces are available outside of the High Commission at owners’ risk, however, no transfer space for wheelchairs is \navailable. Parking inside the High Commission is therefore available by prior arrangement </li>\n  <li>floor - floor coverings are a mixture of carpet and hard surfaces </li>\n  <li>handrails – handrails are accessible and available on the way to high levels </li>\n  <li>doors – corridor doors are on hold opens, rest of doors not set up for disabled users but assistance will be provided \nlighting – lighting is good in all offices </li>\n  <li>Phones – desk phones can be accessed by wheelchair users </li>\n  <li>emergency/evacuation - evacuation is on foot leading to most of the exit points. In case of an emergency, the high commission staff will be able to assist  </li>\n</ul>\n\n<h4 id=\"general-access\">General access</h4>\n\n<ul>\n  <li>signs – no signage or braille numbers available </li>\n  <li>guide dogs - guide dogs are welcome </li>\n  <li>hearing loops are not currently available </li>\n  <li>there are no minicom or textphones </li>\n  <li>there are no sign language facilities </li>\n</ul>\n\n<p>If you need to visit us or use our services and feel that they may be inaccessible to you, please contact the management section on (+260) (211) 423 200 who will try to find an alternative way of providing access for you.</p>\n</div>",
+            "type": "High Commission"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "5210 Independence Avenue, P.O. Box 50050\r\n 15101 Ridgeway",
+              "postal-code": "10101",
+              "locality": "Lusaka",
+              "region": "",
+              "country-name": "Zambia"
+            },
+            "label": {
+              "value": "5210 Independence Avenue, P.O. Box 50050\r\n 15101 Ridgeway\nLusaka\n10101\nZambia"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Enquiries",
+              "number": "Telephone +260 211 423 200 "
+            },
+            {
+              "label": "Enquiries",
+              "number": "Fax +260 211 423 278"
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Lost or Stolen Passports",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Births and Deaths registration service",
+              "type": "Documentary Services"
+            }
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/dfid-zambia",
+      "title": "DFID Zambia",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-10-28T09:54:27.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/dfid-zambia",
+      "details": {
+        "slug": "dfid-zambia"
+      },
+      "analytics_identifier": "WO249",
+      "offices": {
+        "main": {
+          "title": "DFID Zambia",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:54.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/dfid-zambia/office/dfid-zambia",
+          "details": {
+            "email": "enquiry@dfid.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "British High Commission\r\nPO Box 50050\r\n15101 Ridgeway",
+              "postal-code": "",
+              "locality": "Lusaka",
+              "region": "",
+              "country-name": "Zambia"
+            },
+            "label": {
+              "value": "British High Commission\r\nPO Box 50050\r\n15101 Ridgeway\nLusaka\nZambia"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Tel",
+              "number": "+260 (0)211 423200"
+            },
+            {
+              "label": "Fax",
+              "number": "+260 (0)211 251164"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Department for International Development",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-development",
+          "details": {
+            "acronym": "DFID"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/zambia/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

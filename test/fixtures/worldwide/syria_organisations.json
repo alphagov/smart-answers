@@ -1,1 +1,139 @@
-{"results":[{"id":"https://www.gov.uk/api/worldwide-organisations/dfid-syria-crisis-response","title":"DFID Syria Crisis Response","format":"Worldwide Organisation","updated_at":"2013-03-18T13:49:57+00:00","web_url":"https://www.gov.uk/government/world/organisations/dfid-syria-crisis-response","details":{"slug":"dfid-syria-crisis-response","summary":"The DFID Syria Crisis Response coordinates the UK's humanitarian response in Syria.","description":"<div class=\"govspeak\"><p>The appalling violence in Syria has left millions of people in need of urgent humanitarian assistance. </p>\n\n<p>The UK is a leading donor in the humanitarian response. To date we have provided £139.5 million in humanitarian funding. </p>\n\n<p>This is providing support, such as food, shelter, medical care and clean drinking water, for hundreds of thousands of people affected by the conflict, both inside Syria and for refugees.</p>\n\n<p><abbr title=\"Department for International Development\">DFID</abbr> does not have an office based in Syria. If you wish to contact us about any of the work we are doing in Syria, please contact our London office.</p></div>","services":""},"offices":{"main":{"title":"DFID Syria Crisis Response","format":"World Office","updated_at":"2013-03-25T10:37:53+00:00","details":{"email":"enquiry@dfid.gov.uk","description":"","contact_form_url":"","access_and_opening_times":"","type":"Other"},"address":{"adr":{"fn":"","street-address":"22 Whitehall","postal-code":"SW1A 2EG","locality":"London","region":"","country-name":""},"label":{"value":"22 Whitehall\nLondon\nSW1A 2EG"}},"contact_numbers":[{"label":"Tel. ","number":"0845 300 4100"},{"label":"Fax","number":"+44 (0) 1355 84 4099"}],"services":[]},"other":[]},"sponsors":[{"title":"Department for International Development","web_url":"https://www.gov.uk/government/organisations/department-for-international-development","details":{"acronym":"DFID"}}]},{"id":"https://www.gov.uk/api/worldwide-organisations/british-embassy-damascus","title":"British Embassy Damascus","format":"Worldwide Organisation","updated_at":"2013-06-06T14:27:25+01:00","web_url":"https://www.gov.uk/government/world/organisations/british-embassy-damascus","details":{"slug":"british-embassy-damascus","summary":"The British Embassy Damascus has suspended all services and all diplomatic personnel have been withdrawn from Syria. \r\n\r\nThose who choose to remain in Syria or to visit against our advice should be aware that we cannot provide consular assistance in country. Any British nationals requiring urgent consular assistance can visit the embassy of any EU Member State in Damascus, or in an emergency call the FCO in London on (+44) 20 7008 1500.","description":"<div class=\"govspeak\"><p>We currently advise against all travel to the Syrian Arab Republic; British nationals in Syria should leave now by commercial means while they are still available. We cannot help you leave Syria.Those who choose to remain in Syria or to visit against our advice should be aware that we cannot provide consular assistance in country. Any British nationals requiring urgent consular assistance can visit the Embassy of any EU Member State in Damascus, or in an emergency call the Foreign and Commonwealth Office in London on (+44) 20 7008 1500.</p>\n\n<p>If, despite our very clear advice to leave now, you choose to travel to Syria, or stay there, you should make sure you and your family enter Syria legally with the appropriate visa, and have a valid exit stamp on your travel documents if you need one. </p>\n\n<p>If you require a first-time or renewal passport, or an emergency travel document, then please contact the Foreign and Commonwealth Office at <a href=\"mailto:%20consularenquiries.damascus@fco.gov.uk\">consularenquiries.damascus@fco.gov.uk</a> or by telephone (+44) 207 008 1500, for further information and to discuss options for how you might submit your application. Please note that you will be required to apply for these services in a neighbouring country.</p></div>","services":""},"offices":{"main":{"title":"British Embassy Damascus, main contact","format":"World Office","updated_at":"2013-03-25T10:37:53+00:00","details":{"email":"","description":"","contact_form_url":"","access_and_opening_times":"","type":"Other"},"address":{"adr":{"fn":"","street-address":"Any British nationals requiring urgent consular assistance can visit the Embassy of any EU Member State in Damascus, or in an emergency call the FCO in London on (+44) 20 7008 1500.","postal-code":"","locality":"","region":"","country-name":"Syria"},"label":{"value":"Any British nationals requiring urgent consular assistance can visit the Embassy of any EU Member State in Damascus, or in an emergency call the FCO in London on (+44) 20 7008 1500.\n \nSyria"}},"contact_numbers":[],"services":[]},"other":[]},"sponsors":[{"title":"Foreign & Commonwealth Office","web_url":"https://www.gov.uk/government/organisations/foreign-commonwealth-office","details":{"acronym":"FCO"}}]}],"current_page":1,"total":2,"pages":1,"page_size":20,"start_index":1,"_response_info":{"status":"ok","links":[{"href":"https://www.gov.uk/api/world-locations/syria/organisations?page=1","rel":"self"}]}}
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/dfid-syria-crisis-response",
+      "title": "DFID Syria Crisis Response",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-01-27T10:36:54.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/dfid-syria-crisis-response",
+      "details": {
+        "slug": "dfid-syria-crisis-response"
+      },
+      "analytics_identifier": "WO197",
+      "offices": {
+        "main": {
+          "title": "DFID Syria Crisis Response",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:53.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/dfid-syria-crisis-response/office/dfid-syria-crisis-response",
+          "details": {
+            "email": "enquiry@dfid.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "22 Whitehall",
+              "postal-code": "SW1A 2EG",
+              "locality": "London",
+              "region": "",
+              "country-name": ""
+            },
+            "label": {
+              "value": "22 Whitehall\nLondon\nSW1A 2EG"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Tel. ",
+              "number": "0845 300 4100"
+            },
+            {
+              "label": "Fax",
+              "number": "+44 (0) 1355 84 4099"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Department for International Development",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-development",
+          "details": {
+            "acronym": "DFID"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-damascus",
+      "title": "British Embassy Damascus",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-06-06T14:27:25.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-damascus",
+      "details": {
+        "slug": "british-embassy-damascus"
+      },
+      "analytics_identifier": "WO206",
+      "offices": {
+        "main": {
+          "title": "British Embassy Damascus, main contact",
+          "format": "World Office",
+          "updated_at": "2014-09-23T11:12:12.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-damascus/office/british-embassy-damascus-main-contact",
+          "details": {
+            "email": "",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "Any British nationals requiring urgent consular assistance can visit the Embassy of any EU Member State in Damascus, or in an emergency call the FCO in London on (+44) 20 7008 1500.",
+              "postal-code": "",
+              "locality": "Damascus",
+              "region": "Damascus",
+              "country-name": "Syria"
+            },
+            "label": {
+              "value": "Any British nationals requiring urgent consular assistance can visit the Embassy of any EU Member State in Damascus, or in an emergency call the FCO in London on (+44) 20 7008 1500.\n Damascus\nSyria"
+            }
+          },
+          "contact_numbers": [
+
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/syria/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

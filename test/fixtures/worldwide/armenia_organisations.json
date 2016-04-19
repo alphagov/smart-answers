@@ -1,1 +1,105 @@
-{"results":[{"id":"https://www.gov.uk/api/worldwide-organisations/british-embassy-armenia","title":"British Embassy Yerevan","format":"Worldwide Organisation","updated_at":"2013-06-28T07:16:46+01:00","web_url":"https://www.gov.uk/government/world/organisations/british-embassy-armenia","details":{"slug":"british-embassy-armenia","summary":"The British Embassy in Yerevan works to develop and sustain bilateral relations between the UK and Armenia. We deal with political, human rights, cultural and economic questions of interest to the UK and Armenia. ","description":"<div class=\"govspeak\"><p>We work to improve human rights and good governance,  and support various projects to improve this areas. We work closely with the Department of Defence Policy to maintain relations between the UK and Armenia on defence matters. We support UK trade and economy, and develop stronger ties with Armenian commercial sectors. </p></div>","services":"<div class=\"govspeak\"><h2 id=\"travel-advice-httpswwwgovukforeign-travel-advicearmenia\"><a href=\"https://www.gov.uk/foreign-travel-advice/armenia\">Travel advice</a></h2>\n<p>Information, news and updates, listed country by country, to ensure you stay safe, avoid problems, and make informed decisions when living or travelling abroad.</p>\n\n<h2 id=\"passports-and-emergency-travel-documentshttpswwwgovukoverseas-passports\"><a href=\"https://www.gov.uk/overseas-passports\">Passports and emergency travel documents</a></h2>\n<p>How to renew or replace your British passport if you live outside the UK and information on getting replacement travel documents if your passport is lost or stolen.</p>\n\n<h2 id=\"visas-httpswwwgovukuk-visa\"><a href=\"https://www.gov.uk/uk-visa\">Visas</a></h2>\n<p>Information on whether you require a visa for the United Kingdom and how to apply.</p>\n\n<p>Summer is one of the busiest times of the year for applications, and this year is no exception - our appointment schedule is fully booked until 03 July.  The visa section would like to remind any applicants of the importance of making an appointment to place their paperwork at the section at least 15 working days in advance of travel ie. if intending to travel on 01 August, an applicant  should attend an appointment on 11 July.  Please visit our website on http://www.ukba.homeoffice.gov.uk/ and/or www.gov.uk/world/armenia for information on the application process, rules and guidance pertaining to an application and paperwork required.  Failure to prepare in advance could mean that your application is not successful and you therefore miss your opportunity to travel.</p>\n\n<h2 id=\"births-deaths-and-marriages-httpswwwgovukbrowsebirths-deaths-marriages\"><a href=\"https://www.gov.uk/browse/births-deaths-marriages\">Births, deaths and marriages</a></h2>\n<p>Information on how you can register a birth or death which occurred overseas, and legal documents for couples marrying or entering into civil partnerships abroad. </p>\n\n<h2 id=\"legalisation-servicehttpswwwgovukgovernmentpublicationslegalisation-general-guidance-leaflet\"><a href=\"https://www.gov.uk/government/publications/legalisation-general-guidance-leaflet\">Legalisation Service</a></h2>\n<p>How to get official confirmation that your UK public documentation is genuine so it can be accepted by foreign authorities. The UK does not require any documents to be legalised for use within the UK.</p></div>"},"offices":{"main":{"title":"British Embassy Yerevan","format":"World Office","updated_at":"2013-08-01T11:41:03+01:00","web_url":"https://www.gov.uk/government/world/organisations/british-embassy-armenia/office/british-embassy","details":{"email":"enquiries.yerevan@fco.gov.uk","description":"","contact_form_url":"","access_and_opening_times":"<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>Monday to Friday, 9am to 5pm</p>\n\n<h2 id=\"public-holidays\">2013 public holidays</h2>\n\n<ul>\n<li>Tuesday 1January</li>\n  <li>Wednesday 2 January </li>\n  <li>Friday 8 March </li>\n  <li>Friday 29 March</li>\n  <li>Monday 1 April </li>\n  <li>Wednesday 24 April </li>\n  <li>Friday  27 May </li>\n  <li>Monday 28 May  </li>\n  <li>Friday 5 July</li>\n  <li>Tuesday 24 December</li>\n  <li>Wednesday 25 December </li>\n  <li>Thursday 26 December </li>\n  <li>Tuesday 31 December</li>\n</ul></div>","type":"Embassy"},"address":{"adr":{"fn":"","street-address":"34 Baghramyan Avenue","postal-code":"0019","locality":"Yerevan","region":"","country-name":"Armenia"},"label":{"value":"34 Baghramyan Avenue\nYerevan\n0019\nArmenia"}},"contact_numbers":[{"label":"Telephone","number":"+374 10 264301"},{"label":"Fax","number":"+374 10 264318"}],"services":[{"title":"Emergency Travel Documents service","type":"Assistance Services"},{"title":"Transferring funds for prisoners / for financial assistance service","type":"Assistance Services"},{"title":"Marriage or Civil Partnership registrations","type":"Documentary Services"},{"title":"Births and Deaths registration service","type":"Documentary Services"},{"title":"Citizenship Ceremony service","type":"Documentary Services"},{"title":"Overseas Passports Service","type":"Other Services"}]},"other":[]},"sponsors":[{"title":"Foreign & Commonwealth Office","web_url":"https://www.gov.uk/government/organisations/foreign-commonwealth-office","details":{"acronym":"FCO"}}]}],"current_page":1,"total":1,"pages":1,"page_size":20,"start_index":1,"_response_info":{"status":"ok","links":[{"href":"https://www.gov.uk/api/world-locations/armenia/organisations?page=1","rel":"self"}]}}
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-yerevan",
+      "title": "British Embassy Yerevan",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-04-03T12:57:04.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-yerevan",
+      "details": {
+        "slug": "british-embassy-yerevan"
+      },
+      "analytics_identifier": "WO25",
+      "offices": {
+        "main": {
+          "title": "British Embassy Yerevan",
+          "format": "World Office",
+          "updated_at": "2013-08-01T11:41:03.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-yerevan/office/british-embassy",
+          "details": {
+            "email": "Enquiries.yerevan@fco.gov.uk Consular.Yerevan@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>Monday to Friday, 9am to 5pm</p>\n\n<h2 id=\"consular-section\">Consular section</h2>\n\n<p>The Consular Section is open Monday to Friday 0930 to 1230 by appointment only except in an emergency.\nFor Notarial, documentary and other non-urgent consular services appointments should be made online via our official website: <a href=\"www.consular-appointments.service.gov.uk\">www.consular-appointments.service.gov.uk</a>\nFor general Consular enquiries please contact: <a href=\"mailto:Consular.Yerevan@fco.gov.uk\">Consular.Yerevan@fco.gov.uk</a>\nIf you require emergency Consular assistance out of office hours please call +37410 264301 and choose the option for an emergency involving a British National.</p>\n\n<p>Disabled access is available. Customers should contact the British Embassy Yerevan in advance of their appointment for assistance.</p>\n\n<h2 id=\"public-holidays\">2016 public holidays</h2>\n<ul>\n  <li>Friday 01 January New Year’s Day</li>\n  <li>Wednesday 6 January Christmas Day</li>\n  <li>Tuesday 08 March International Women’s Day</li>\n  <li>Friday 25 March Good Friday</li>\n  <li>Monday 28 March Easter Monday</li>\n  <li>Friday 22 April In lieu of Sunday 24 April Genocide Memorial Day</li>\n  <li>Monday 02 May Early May Bank Holiday</li>\n  <li>Monday 09 May Victory Day</li>\n  <li>Friday 27 May In lieu of Saturday 28 May Republic Day</li>\n  <li>Monday 30 May Spring Bank Holiday</li>\n  <li>Tuesday 5 July Constitution Day</li>\n  <li>Wednesday 21 September Independence Day</li>\n  <li>Monday 26 December Boxing Day</li>\n  <li>Monday 30 December In lieu of Saturday 31 December New Year’s Eve</li>\n</ul>\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "34 Baghramyan Avenue",
+              "postal-code": "0019",
+              "locality": "Yerevan",
+              "region": "",
+              "country-name": "Armenia"
+            },
+            "label": {
+              "value": "34 Baghramyan Avenue\nYerevan\n0019\nArmenia"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "+374 10 264301"
+            },
+            {
+              "label": "Fax",
+              "number": "+374 10 264318"
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Transferring funds for prisoners / for financial assistance service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Registrations of Marriage and Civil Partnerships",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Births and Deaths registration service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Citizenship Ceremony service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Overseas Passports Service",
+              "type": "Other Services"
+            }
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/armenia/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

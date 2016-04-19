@@ -1,0 +1,93 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-bolivia",
+      "title": "British Embassy La Paz",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-04-24T15:20:40.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-bolivia",
+      "details": {
+        "slug": "british-embassy-bolivia"
+      },
+      "analytics_identifier": "WO20",
+      "offices": {
+        "main": {
+          "title": "British Embassy, La Paz",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:51.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-bolivia/office/british-embassy-la-paz",
+          "details": {
+            "email": "BELaPaz@fco.gov.uk ; consular.lapaz@fco.gov.uk",
+            "description": "Visa Section opening hours: Monday to Thursday from 9:00 to 12:00\r\nPassport collection hours: Monday to Thursday from 9:00 to 12:00\r\nAll visa enquiries are dealt with by VFS Global. Please visit their website \r\nhttp://www.vfsglobal.co.uk/bolivia,\r\nwhich contains all the relevant information about visas for Bolivian residents as well as contact information for the international visa enquiry centre.\r\n\r\nConsular Section opening hours: Monday to Friday from 9:00 to 12:00. Appointment required, except in emergencies. \r\nFor any emergency involving a British citizen during holidays or out-of-office-hours, please call our switchboard and your call will be properly re-directed.",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"office-hours\">Office hours</h2>\n<ul>\n  <li>GMT: Mon–Thurs: 1230–1630 and 1730-2100\nFri: 1230–1730</li>\n  <li>Local Time: Mon-Thurs: 0830-1230 and 1330-1700\nFri: 0830-1330</li>\n</ul>\n\n<p>In case of emergency involving a British national, please call our switchboard (591 2) 2433424 and you will be re-directed to an emergency response team.</p>\n\n<h2 id=\"holidays-2016\">Holidays 2016</h2>\n<ul>\n  <li>1 January </li>\n  <li>22 January </li>\n  <li>8 February</li>\n  <li>9 February</li>\n  <li>25 March</li>\n  <li>28 March</li>\n  <li>2 May</li>\n  <li>26 May</li>\n  <li>27 May</li>\n  <li>21 June</li>\n  <li>29 August</li>\n  <li>2 November</li>\n  <li>26 December</li>\n  <li>27 December</li>\n</ul>\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "Avenida Arce No. 2732",
+              "postal-code": "",
+              "locality": "La Paz",
+              "region": "La Paz",
+              "country-name": "Bolivia"
+            },
+            "label": {
+              "value": "Avenida Arce No. 2732\nLa Paz\nLa Paz\nBolivia"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Switchboard",
+              "number": " (591 2) 2433424"
+            },
+            {
+              "label": "Facsmile",
+              "number": "(591 2) 2431073 "
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Births and Deaths registration service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Notarial services",
+              "type": "Documentary Services"
+            }
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/bolivia/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

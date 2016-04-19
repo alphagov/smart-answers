@@ -1,0 +1,146 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-monrovia",
+      "title": "British Embassy Monrovia",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-06-19T11:55:39.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-monrovia",
+      "details": {
+        "slug": "british-embassy-monrovia"
+      },
+      "analytics_identifier": "WO355",
+      "offices": {
+        "main": {
+          "title": "British Embassy Monrovia",
+          "format": "World Office",
+          "updated_at": "2013-06-19T10:59:48.000+01:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-monrovia/office/british-embassy-monrovia",
+          "details": {
+            "email": "Monrovia.GeneralEnquiries@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "Leone Compound, 12th Street Beach-side, \r\nSinkor, ",
+              "postal-code": "",
+              "locality": "Monrovia",
+              "region": "Monrovia",
+              "country-name": "Liberia"
+            },
+            "label": {
+              "value": "Leone Compound, 12th Street Beach-side, \r\nSinkor, \nMonrovia\nMonrovia\nLiberia"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "+231 (0) 777530320"
+            },
+            {
+              "label": "Consular assistance (24 hour)",
+              "number": "+44 (0)1908 516 666"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/dfid-sierra-leone",
+      "title": "DFID Sierra Leone",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-10-25T13:39:18.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/dfid-sierra-leone",
+      "details": {
+        "slug": "dfid-sierra-leone"
+      },
+      "analytics_identifier": "WO242",
+      "offices": {
+        "main": {
+          "title": "DFID Sierra Leone",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:54.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/dfid-sierra-leone/office/dfid-sierra-leone",
+          "details": {
+            "email": "sl-enquiries@dfid.gov.uk   ",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "5 Off Spur Road\r\nWilberforce",
+              "postal-code": "",
+              "locality": "Freetown",
+              "region": "",
+              "country-name": "Sierra Leone"
+            },
+            "label": {
+              "value": "5 Off Spur Road\r\nWilberforce\nFreetown\nSierra Leone"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Tel",
+              "number": "+232 22 233 620"
+            },
+            {
+              "label": "Fax",
+              "number": "+232 22 235 769"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Department for International Development",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-development",
+          "details": {
+            "acronym": "DFID"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/liberia/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

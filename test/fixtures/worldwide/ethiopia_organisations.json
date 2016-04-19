@@ -1,0 +1,387 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-addis-ababa",
+      "title": "British Embassy Addis Ababa",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-01-09T07:31:02.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-addis-ababa",
+      "details": {
+        "slug": "british-embassy-addis-ababa"
+      },
+      "analytics_identifier": "WO109",
+      "offices": {
+        "main": {
+          "title": "British Embassy Addis Ababa",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:52.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-addis-ababa/office/british-embassy-addis-ababa",
+          "details": {
+            "email": "Britishembassy.addisababa@fco.gov.uk; Addis.Consular@fco.gov.uk (Consular email)",
+            "description": "For Consular/Passport customers please follow http://ow.ly/RMqkF for details of our services and contact details",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"hm-passport-office-addis-ababa\">HM Passport Office Addis Ababa</h2>\n\n<p>Email: <a href=\"mailto:%20HMPOEnquiries.AddisAbaba@fco.gov.uk\">HMPOEnquiries.AddisAbaba@fco.gov.uk</a></p>\n\n<h3 id=\"opening-hours\">Opening hours:</h3>\n\n<p>Local time: Monday to Thursday: 08:00 a.m to 04:45 pm</p>\n\n<p>Closed on Friday (except for emergencies)</p>\n\n<h3 id=\"passport-collection-opening-hours-2pm-to-4pm-on-tuesday-and-thursday\">Passport collection opening hours: 2pm to 4pm on Tuesday and Thursday</h3>\n\n<p>For General enquiries on how and where to access the passport application procedures, if you are apply for a <a href=\"www.gov.uk/overseas-passports\">British passport from overseas</a>. </p>\n\n<p>For case specific enquiries on how to follow up on submitted passport applications, contact Her Majesty  passport office customer contact centre by Phone +44 (0) 300 222 0000, Fax: +44 (0) 1633 473899 and Email: <a href=\"mailto:%20overseasNewportCCC@hmpo.gsi.gov.uk\">overseasNewportCCC@hmpo.gsi.gov.uk</a></p>\n\n<h2 id=\"public-holiday-list-2016\">Public Holiday List 2016</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday January 1st</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 8 January</td>\n      <td>Ethiopian Christmas</td>\n    </tr>\n    <tr>\n      <td>Wednesday 20 January</td>\n      <td>Ethiopian Epiphany</td>\n    </tr>\n    <tr>\n      <td>Wednesday 2 March</td>\n      <td>Victory of Adwa</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday (UK)</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday (UK)</td>\n    </tr>\n    <tr>\n      <td>Friday 29 April</td>\n      <td>Ethiopian Good Friday</td>\n    </tr>\n    <tr>\n      <td>Sunday 1 May</td>\n      <td>Ethiopian Easter</td>\n    </tr>\n    <tr>\n      <td>Sunday 1 May</td>\n      <td>International Labour Day</td>\n    </tr>\n    <tr>\n      <td>Monday 2 May</td>\n      <td>May Bank Holiday (UK)</td>\n    </tr>\n    <tr>\n      <td>Thursday 5 May</td>\n      <td>Ethiopian Patriots’ Victory Day</td>\n    </tr>\n    <tr>\n      <td>Saturday 28 May</td>\n      <td>Down fall of the Derg</td>\n    </tr>\n    <tr>\n      <td>Monday 30 May</td>\n      <td>Spring Bank Holiday (UK)</td>\n    </tr>\n    <tr>\n      <td>*Thursday 7 July</td>\n      <td>Eid al Fitr (End of Ramadan)</td>\n    </tr>\n    <tr>\n      <td>Monday 29 August</td>\n      <td>Summer Bank Holiday (UK)</td>\n    </tr>\n    <tr>\n      <td>Sunday 11 September</td>\n      <td>Ethiopian New Year</td>\n    </tr>\n    <tr>\n      <td>*Monday 13 September</td>\n      <td>Eid al Adha (Arafa)</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 September</td>\n      <td>The Finding of the True Cross (Meskel)</td>\n    </tr>\n    <tr>\n      <td>*Monday 12 December</td>\n      <td>Maulid (Birthday of the Prophet Mohammed)</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 December</td>\n      <td>In lieu of Christmas Day (Saturday 25 December)</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>*Actual date to be decided nearer the time as they are based on lunar calendar.</p>\n\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "Comoros Street",
+              "postal-code": "858",
+              "locality": "Addis Ababa",
+              "region": "",
+              "country-name": "Ethiopia"
+            },
+            "label": {
+              "value": "Comoros Street\nAddis Ababa\n858\nEthiopia"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "+251 11 6170100"
+            },
+            {
+              "label": "Fax",
+              "number": "+251 11 6610588"
+            },
+            {
+              "label": "The Embassy landline telephone is not reliable. If unavailable, for urgent matters please call: ",
+              "number": "+251 912 501 107"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+          {
+            "title": "British Consulate Djibouti",
+            "format": "World Office",
+            "updated_at": "2013-03-25T10:37:52.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-addis-ababa/office/british-consulate-djibouti",
+            "details": {
+              "email": "alain.martinet-honcon@fconet.fco.gov.uk  ",
+              "description": "Office hours (GMT)\r\nSunday to Thursday\r\n6:00- 9:00",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\">\n<h2 id=\"opening-times\">Opening Times</h2>\n\n<h3 id=\"gmt\">GMT</h3>\n\n<p>Monday to Thursday </p>\n\n<p>8:00am - 16:30pm</p>\n\n<p>Friday  8:00am - 13:00pm</p>\n\n<h3 id=\"local-time\">Local Time</h3>\n\n<p>Monday to Thursday </p>\n\n<p>2:00 - 10:30</p>\n\n<p>Friday  2:00 - 7:00</p>\n\n<h3 id=\"consular-section\">Consular Section</h3>\n\n<p>Monday to Thursday</p>\n\n<p>8:00am - 16:45pm</p>\n\n<p>Friday</p>\n\n<p>8:00am - 13:00pm</p>\n</div>",
+              "type": "Consulate"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "PO Box 169\r\nRue de Djibouti\r\nDjibouti",
+                "postal-code": "",
+                "locality": "",
+                "region": "",
+                "country-name": "Djibouti"
+              },
+              "label": {
+                "value": "PO Box 169\r\nRue de Djibouti\r\nDjibouti\nDjibouti"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Telephone",
+                "number": "+ 253 35 50 07 / 35 73 27 / 35 28 79"
+              },
+              {
+                "label": "Fax",
+                "number": "+ 253 35 25 43"
+              }
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "Consular Office Addis Ababa",
+            "format": "World Office",
+            "updated_at": "2013-03-25T10:37:52.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-addis-ababa/office/consular-office-addis-ababa",
+            "details": {
+              "email": "Britishembassy.addisababa@fco.gov.uk; Addis.Consular@fco.gov.uk (Consular email) ",
+              "description": "Please go to http://ow.ly/RMq7X for details of our services and contact details \r\n\r\nUK Nationals calling for Consular assistance (not visas issues) during office hours, please use the Embassy landline. \r\n\r\nOut of office hours, UK nationals with genuine emergencies only (not visa issues), please call the Embassy landline for connection to our out of hours Call Centre. If unable to connect, please call +251 91 250 1107.\r\n\r\nWe cannot help with UK Visa matters. Please see 'Our Services' section above for Visa enquiries.",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"access-and-opening-times\">Access and Opening Times</h2>\n\n<h2 id=\"local-time\">Local time</h2>\n\n<p>Monday to Thursday\n2:00 - 10:45</p>\n\n<p>Friday \n2:00 - 7:00</p>\n\n<h3 id=\"gmt\">GMT</h3>\n\n<p>Monday to Thursday\n8:00 - 16:45</p>\n\n<p>Friday\n8:00 - 13:00</p>\n\n<h3 id=\"as-of-8th-february-our-consular-documentary-opening-hours-changed-as-follows\">As of 8th February our Consular Documentary Opening Hours Changed as follows;</h3>\n\n<h3 id=\"documentary-services\">Documentary services:</h3>\n\n<p>Monday – Closed</p>\n\n<p>Tuesday - Thursday 08:30 - 11:30</p>\n\n<p>Friday – closed</p>\n\n<p>Documentary services take at least 24 hours</p>\n\n<h3 id=\"for-british-nationals-in-distress\">For British Nationals in distress</h3>\n\n<p>Monday to Thursday\n8:00 - 12:30 &amp; 13:30 - 16:45</p>\n\n<p>Friday\n8:00 - 13:00</p>\n</div>",
+              "type": "Consulate"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "Comoros Street",
+                "postal-code": "PO Box 858",
+                "locality": "Addis Ababa",
+                "region": "",
+                "country-name": "Ethiopia"
+              },
+              "label": {
+                "value": "Comoros Street\nAddis Ababa\nPO Box 858\nEthiopia"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Telephone",
+                "number": "+251 (0)11 617 0100 "
+              },
+              {
+                "label": "Fax",
+                "number": "+251 11 6610588 "
+              }
+            ],
+            "services": [
+              {
+                "title": "Emergency Travel Documents service",
+                "type": "Assistance Services"
+              },
+              {
+                "title": "Transferring funds for prisoners / for financial assistance service",
+                "type": "Assistance Services"
+              },
+              {
+                "title": "Lost or Stolen Passports",
+                "type": "Assistance Services"
+              },
+              {
+                "title": "Notarial services",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Legalisation Service",
+                "type": "Other Services"
+              },
+              {
+                "title": "Overseas Passports Service",
+                "type": "Other Services"
+              },
+              {
+                "title": "Citizenship Ceremony service",
+                "type": "Documentary Services"
+              }
+            ]
+          },
+          {
+            "title": "UKTI Ethiopia",
+            "format": "World Office",
+            "updated_at": "2013-03-25T10:37:52.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-addis-ababa/office/ukti-ethiopia",
+            "details": {
+              "email": "dessalegn.yigzaw@fco.gov.uk ",
+              "description": "\r\nOffice Hours (Local time):\r\nMonday to Thursday\r\n8:00 - 16:45\r\nFriday\r\n8:00 - 13:00",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\">\n<h2 id=\"opening-times\">Opening Times</h2>\n\n<h3 id=\"gmt\">GMT</h3>\n\n<p>Monday to Thursday </p>\n\n<p>8:00am - 16:30pm</p>\n\n<p>Friday  8:00am - 13:00pm</p>\n\n<h3 id=\"local-time\">Local Time</h3>\n\n<p>Monday to Thursday </p>\n\n<p>2:00 - 10:30</p>\n\n<p>Friday  2:00 - 7:00</p>\n\n<h3 id=\"consular-section\">Consular Section</h3>\n\n<p>Monday to Thursday</p>\n\n<p>8:00am - 16:45pm</p>\n\n<p>Friday</p>\n\n<p>8:00am - 13:00pm</p>\n</div>",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "Dessalegn Yigzaw, Trade Development Manager",
+                "street-address": "British Embassy, Addis Ababa    ",
+                "postal-code": "",
+                "locality": "",
+                "region": "",
+                "country-name": "Ethiopia"
+              },
+              "label": {
+                "value": "Dessalegn Yigzaw, Trade Development Manager\nBritish Embassy, Addis Ababa    \nEthiopia"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Telephone",
+                "number": "+251 11 617 0100"
+              }
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "HM Passport Office Addis Ababa",
+            "format": "World Office",
+            "updated_at": "2015-02-26T11:33:35.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-addis-ababa/office/hm-passport-office-addis-ababa",
+            "details": {
+              "email": "",
+              "description": "Information on how to apply for a British passport from overseas: \r\nE-mail correspondence should be submitted via the online enquiry form at the following web address:  www.gov.uk/passport-advice-line or by telephone on +44 (0)300 222 0000.\r\n",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><p>Opening hours: \nLocal time: Monday to Thursday: 08:00 a.m to 04:45 pm\nClosed on Friday (except for emergencies)\nPassport collection opening hours: 2pm to 4pm on Tuesday and Thursday</p>\n</div>",
+              "type": "Embassy"
+            },
+            "address": {
+              "adr": {
+                "fn": "HM Passport Office Addis Ababa",
+                "street-address": "Comoros Street",
+                "postal-code": "858",
+                "locality": "Around Kebena",
+                "region": "Addis Ababa",
+                "country-name": "Ethiopia"
+              },
+              "label": {
+                "value": "HM Passport Office Addis Ababa\nComoros Street\nAround Kebena\nAddis Ababa\n858\nEthiopia"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Telephone ",
+                "number": "+251-116-17-01-00 "
+              }
+            ],
+            "services": [
+              {
+                "title": "Overseas Passports Service",
+                "type": "Other Services"
+              }
+            ]
+          }
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-ethiopia",
+      "title": "UK Trade & Investment Ethiopia",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-04-11T12:04:37.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-ethiopia",
+      "details": {
+        "slug": "uk-trade-investment-ethiopia"
+      },
+      "analytics_identifier": "WO212",
+      "offices": {
+        "main": {
+          "title": "UK Trade & Investment Ethiopia",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:54.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-ethiopia/office/uk-trade-investment-ethiopia",
+          "details": {
+            "email": "",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "British Embassy",
+              "street-address": "Comoros Street\r\nPO Box 858",
+              "postal-code": "",
+              "locality": "Addis Ababa",
+              "region": "",
+              "country-name": "Ethiopia"
+            },
+            "label": {
+              "value": "British Embassy\nComoros Street\r\nPO Box 858\nAddis Ababa\nEthiopia"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Enquiries",
+              "number": "+251 11 661 2354"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "UK Trade & Investment",
+          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "details": {
+            "acronym": "UKTI"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/dfid-ethiopia",
+      "title": "DFID Ethiopia",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-10-31T10:26:46.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/dfid-ethiopia",
+      "details": {
+        "slug": "dfid-ethiopia"
+      },
+      "analytics_identifier": "WO260",
+      "offices": {
+        "main": {
+          "title": "DFID Ethiopia",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:54.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/dfid-ethiopia/office/dfid-ethiopia",
+          "details": {
+            "email": "enquiry@dfid.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "British Embassy  \r\nPO Box 858",
+              "postal-code": "",
+              "locality": "Addis Ababa",
+              "region": "",
+              "country-name": "Ethiopia"
+            },
+            "label": {
+              "value": "British Embassy  \r\nPO Box 858\nAddis Ababa\nEthiopia"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Tel:\t",
+              "number": "+251 116 180 601"
+            },
+            {
+              "label": "Fax:\t",
+              "number": "+251 116 180 635"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Department for International Development",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-development",
+          "details": {
+            "acronym": "DFID"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 3,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/ethiopia/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

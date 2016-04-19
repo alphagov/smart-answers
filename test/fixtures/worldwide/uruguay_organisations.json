@@ -1,0 +1,198 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-montevideo",
+      "title": "British Embassy Montevideo",
+      "format": "Worldwide Organisation",
+      "updated_at": "2014-03-10T15:12:34.000+00:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-montevideo",
+      "details": {
+        "slug": "british-embassy-montevideo"
+      },
+      "analytics_identifier": "WO187",
+      "offices": {
+        "main": {
+          "title": "British Embassy Montevideo, main contact",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:53.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-montevideo/office/british-embassy-montevideo-main-contact",
+          "details": {
+            "email": "ukinuruguay@adinet.com.uy",
+            "description": "Office hours:\r\n\r\nJanuary\r\nMonday – Friday: \r\n08:30 – 14:30\r\n\r\nFebruary - December\r\nMonday to Thursday: \r\n09:00 - 13:00 and 14:00 - 17:30\r\nFridays: \r\n09:00 - 14:00",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><p>The Embassy will be closed on the following days in 2016*:</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 1 January</td>\n      <td>New Year</td>\n    </tr>\n    <tr>\n      <td>Wednesday 6 January</td>\n      <td>Epiphany</td>\n    </tr>\n    <tr>\n      <td>Monday 8 &amp; Tuesday 9 February</td>\n      <td>Carnival</td>\n    </tr>\n    <tr>\n      <td>Thursday 24 &amp; Friday 25 March</td>\n      <td>Easter</td>\n    </tr>\n    <tr>\n      <td>Monday 16 May 18 May – in lieu</td>\n      <td>Batalla de Las Piedras</td>\n    </tr>\n    <tr>\n      <td>Monday 18 July</td>\n      <td>Constitution Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 25 August</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Monday 10 October 12 October – in lieu</td>\n      <td>Día de la Raza</td>\n    </tr>\n    <tr>\n      <td>Wednesday 2 November</td>\n      <td>All Saints Day</td>\n    </tr>\n    <tr>\n      <td>Friday 23 December &amp; Monday 26 December</td>\n      <td>Christmas holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 30 December</td>\n      <td>End of year holiday</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>*The above may be subject to change.</p>\n</div>",
+            "type": "Embassy"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "British Embassy\r\nMarco Bruto 1073",
+              "postal-code": "11300 ",
+              "locality": "Montevideo",
+              "region": "",
+              "country-name": "Uruguay"
+            },
+            "label": {
+              "value": "British Embassy\r\nMarco Bruto 1073\nMontevideo\n11300 \nUruguay"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Switchboard",
+              "number": "(598) 2622 3630 or 2622 3650    "
+            },
+            {
+              "label": "Fax",
+              "number": "(598) 2622 7815"
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Transferring funds for prisoners / for financial assistance service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Births and Deaths registration service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Notarial services",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Citizenship Ceremony service",
+              "type": "Documentary Services"
+            }
+          ]
+        },
+        "other": [
+          {
+            "title": "British Embassy Montevideo, Consular enquiries",
+            "format": "World Office",
+            "updated_at": "2013-03-25T10:37:54.000+00:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-montevideo/office/british-embassy-montevideo-consular-enquiries",
+            "details": {
+              "email": "consular.enquiriesmontevideo@fco.gov.uk",
+              "description": "Monday to Friday: 9:00am to 1:00pm\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><p>The Embassy will be closed on the following days in 2016*:</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 1 January</td>\n      <td>New Year</td>\n    </tr>\n    <tr>\n      <td>Wednesday 6 January</td>\n      <td>Epiphany</td>\n    </tr>\n    <tr>\n      <td>Monday 8 &amp; Tuesday 9 February</td>\n      <td>Carnival</td>\n    </tr>\n    <tr>\n      <td>Thursday 24 &amp; Friday 25 March</td>\n      <td>Easter</td>\n    </tr>\n    <tr>\n      <td>Monday 16 May 18 May – in lieu</td>\n      <td>Batalla de Las Piedras</td>\n    </tr>\n    <tr>\n      <td>Monday 18 July</td>\n      <td>Constitution Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 25 August</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Monday 10 October 12 October – in lieu</td>\n      <td>Día de la Raza</td>\n    </tr>\n    <tr>\n      <td>Wednesday 2 November</td>\n      <td>All Saints Day</td>\n    </tr>\n    <tr>\n      <td>Friday 23 December &amp; Monday 26 December</td>\n      <td>Christmas holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 30 December</td>\n      <td>End of year holiday</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>*The above may be subject to change.</p>\n</div>",
+              "type": "Consulate"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "",
+                "postal-code": "",
+                "locality": "",
+                "region": "",
+                "country-name": ""
+              },
+              "label": {
+                "value": ""
+              }
+            },
+            "contact_numbers": [
+
+            ],
+            "services": [
+              {
+                "title": "Emergency Travel Documents service",
+                "type": "Assistance Services"
+              },
+              {
+                "title": "Registrations of Marriage and Civil Partnerships",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Births and Deaths registration service",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Service of Process",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Notarial services",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Issue certificate of no impediment",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Citizenship Ceremony service",
+                "type": "Documentary Services"
+              },
+              {
+                "title": "Legalisation Service",
+                "type": "Other Services"
+              }
+            ]
+          },
+          {
+            "title": "British Council (Organisation specialising in international educational and cultural opportunities including Plan Ceibal)",
+            "format": "World Office",
+            "updated_at": "2013-08-09T17:17:13.000+01:00",
+            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-montevideo/office/british-council",
+            "details": {
+              "email": "graham.stanley@britishcouncil.org",
+              "description": "",
+              "contact_form_url": "http://www.britishcouncil.uy",
+              "access_and_opening_times": "<div class=\"govspeak\"><p>The Embassy will be closed on the following days in 2016*:</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 1 January</td>\n      <td>New Year</td>\n    </tr>\n    <tr>\n      <td>Wednesday 6 January</td>\n      <td>Epiphany</td>\n    </tr>\n    <tr>\n      <td>Monday 8 &amp; Tuesday 9 February</td>\n      <td>Carnival</td>\n    </tr>\n    <tr>\n      <td>Thursday 24 &amp; Friday 25 March</td>\n      <td>Easter</td>\n    </tr>\n    <tr>\n      <td>Monday 16 May 18 May – in lieu</td>\n      <td>Batalla de Las Piedras</td>\n    </tr>\n    <tr>\n      <td>Monday 18 July</td>\n      <td>Constitution Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 25 August</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Monday 10 October 12 October – in lieu</td>\n      <td>Día de la Raza</td>\n    </tr>\n    <tr>\n      <td>Wednesday 2 November</td>\n      <td>All Saints Day</td>\n    </tr>\n    <tr>\n      <td>Friday 23 December &amp; Monday 26 December</td>\n      <td>Christmas holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 30 December</td>\n      <td>End of year holiday</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>*The above may be subject to change.</p>\n</div>",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "Av. Italia 6201 – Edifico Los Ceibos Complejo LATU",
+                "postal-code": "",
+                "locality": "Montevideo",
+                "region": "",
+                "country-name": "Uruguay"
+              },
+              "label": {
+                "value": "Av. Italia 6201 – Edifico Los Ceibos Complejo LATU\nMontevideo\nUruguay"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "General enquiries",
+                "number": "+598 2601 5773 ext 2002 Monday to Friday: 09:30 - 16:30 "
+              }
+            ],
+            "services": [
+
+            ]
+          }
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/uruguay/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

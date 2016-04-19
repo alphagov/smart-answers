@@ -1,1 +1,82 @@
-{"results":[{"id":"https://www.gov.uk/api/worldwide-organisations/the-governors-office-anguilla","title":"Governor's Office The Valley","format":"Worldwide Organisation","updated_at":"2013-09-09T20:05:23+01:00","web_url":"https://www.gov.uk/government/world/organisations/the-governors-office-anguilla","details":{"slug":"the-governors-office-anguilla","summary":"Her Excellency, the Governor, is the representative of Her Majesty the Queen and the Constitutional Head of State in Anguilla.","description":"<div class=\"govspeak\"><p>The constitution gives the Governor certain responsibilities which include oversight for external affairs, defence, internal security and international financial services or any directly related aspect of finance. She is also the presiding officer of Executive Council. The Governor also takes a close interest in good governance issues. Responsibility for the Public Service has been devolved to the Deputy Governor who is a locally appointed Anguillian. The Governor\u2019s Office staff support the Governor in the discharge of her responsibilities and enable her to carry out her programme of public functions. As well, the Governor\u2019s Office staff work closely with their Government of Anguilla counterparts on a wide range of issues. Making good use of the Overseas Territories Programme Fund and the Jubilee Fund is also a priority for the Governor\u2019s Office in Anguilla.</p></div>","services":"<div class=\"govspeak\"><h2 id=\"visashttpwwwukbahomeofficegovukvisas-immigration-visas\"><a rel=\"external\" href=\"http://www.ukba.homeoffice.gov.uk/visas-immigration/\" title=\"Visas\">Visas</a></h2>\n<p>For information on whether you require a visa for the United Kingdom and how to apply go to the <a rel=\"external\" href=\"http://www.ukba.homeoffice.gov.uk/visas-immigration/\" title=\"UK Border Agency website\">UK Border Agency website</a></p>\n\n<h2 id=\"births-deaths-and-marriages\">Births, deaths and marriages</h2>\n<p>Information on how you can register a <a href=\"https://www.gov.uk/register-a-birth/y\" title=\"register a birth\">birth</a> or <a href=\"https://www.gov.uk/register-a-death/y/overseas\" title=\"register a death\">death</a> which occurred overseas, and legal documents for couples <a href=\"https://www.gov.uk/marriage-abroad\" title=\"marrying or entering into civil partnerships\">marrying or entering into civil partnerships</a> abroad.</p>\n\n<h2 id=\"passports-and-emergency-travel-documentshttpswwwgovukoverseas-passports-passports-and-emergency-travel-documents\"><a href=\"https://www.gov.uk/overseas-passports\" title=\"Passports and emergency travel documents\">Passports and emergency travel documents</a></h2>\n<p>How to renew or replace your British passport when outside of the UK and information on getting <a href=\"https://www.gov.uk/emergency-travel-document\" title=\"Get an emergency travel document\">replacement travel documents if your passport is lost or stolen</a>.</p>\n\n<h2 id=\"travel-advicehttpswwwgovukforeign-travel-advice-travel-advice\"><a href=\"https://www.gov.uk/foreign-travel-advice/\" title=\"Travel Advice\">Travel Advice</a></h2>\n<p>Information on staying safe and avoiding problems when living or travelling abroad, with links to our embassies, high commissions and other diplomatic posts across the world.</p>\n\n<h2 id=\"legalisation-servicehttpswwwgovukget-document-legalised-legalisation-service\"><a href=\"https://www.gov.uk/get-document-legalised\" title=\"Legalisation Service\">Legalisation Service</a></h2>\n<p>How to get official confirmation that your UK public documentation is genuine so it can be accepted by foreign authorities. The UK does not require any documents to be legalised for use within the UK.</p>\n\n<h2 id=\"consular-feeshttpswwwgovukgovernmentorganisationsforeign-commonwealth-officeseriesconsular-fees-consular-fees\"><a href=\"https://www.gov.uk/government/organisations/foreign-commonwealth-office/series/consular-fees\" title=\"Consular fees\">Consular fees</a></h2>\n<p>Information on the current cost of fee-bearing services.</p></div>"},"offices":{"main":{"title":"The Governor's Office, Anguilla","format":"World Office","updated_at":"2013-03-25T10:37:51+00:00","web_url":"https://www.gov.uk/government/world/organisations/the-governors-office-anguilla/office/the-governor-s-office-anguilla","details":{"email":"","description":"Opening hours\r\nMonday to Friday: 8:00am to 12:00pm and 1:00pm to 4:00pm","contact_form_url":"","access_and_opening_times":"","type":"HM Governor\u2019s Office"},"address":{"adr":{"fn":"","street-address":"PO Box 60","postal-code":"AI-2640","locality":"The Valley","region":"","country-name":"Anguilla"},"label":{"value":"PO Box 60\nThe Valley\nAI-2640\nAnguilla"}},"contact_numbers":[{"label":"Main","number":"+(1) (264) 497 2621"},{"label":"Fax","number":"+(1) (264) 497 3314"}],"services":[]},"other":[]},"sponsors":[{"title":"Foreign & Commonwealth Office","web_url":"https://www.gov.uk/government/organisations/foreign-commonwealth-office","details":{"acronym":"FCO"}}]}],"current_page":1,"total":1,"pages":1,"page_size":20,"start_index":1,"_response_info":{"status":"ok","links":[{"href":"https://www.gov.uk/api/world-locations/anguilla/organisations?page=1","rel":"self"}]}}
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/the-governors-office-anguilla",
+      "title": "Governor's Office The Valley",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-09-09T20:05:23.000+01:00",
+      "web_url": "https://www.gov.uk/government/world/organisations/the-governors-office-anguilla",
+      "details": {
+        "slug": "the-governors-office-anguilla"
+      },
+      "analytics_identifier": "WO3",
+      "offices": {
+        "main": {
+          "title": "The Governor's Office, Anguilla",
+          "format": "World Office",
+          "updated_at": "2013-03-25T10:37:51.000+00:00",
+          "web_url": "https://www.gov.uk/government/world/organisations/the-governors-office-anguilla/office/the-governor-s-office-anguilla",
+          "details": {
+            "email": "",
+            "description": "Opening hours\r\nMonday to Friday: 8:00am to 12:00pm and 1:00pm to 4:00pm",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "HM Governor’s Office"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "PO Box 60",
+              "postal-code": "AI-2640",
+              "locality": "The Valley",
+              "region": "",
+              "country-name": "Anguilla"
+            },
+            "label": {
+              "value": "PO Box 60\nThe Valley\nAI-2640\nAnguilla"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Main",
+              "number": "+(1) (264) 497 2621"
+            },
+            {
+              "label": "Fax",
+              "number": "+(1) (264) 497 3314"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 1,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/anguilla/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}
