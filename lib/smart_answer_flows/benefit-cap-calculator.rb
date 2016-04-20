@@ -9,13 +9,19 @@ module SmartAnswer
       # Routing question
       multiple_choice :choose_cap_to_calculate? do
         option :current
+        option :future
 
-        next_node do
-          question :receive_housing_benefit?
+        next_node do |response|
+          if response == 'current'
+            question :receive_housing_benefit?
+          else
+            question :receive_housing_benefit_post_2016?
+          end
         end
       end
 
       use_shared_logic('benefit-cap-calculator-pre-2016')
+      use_shared_logic('benefit-cap-calculator-post-2016')
     end
   end
 end
