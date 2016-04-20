@@ -8,7 +8,7 @@ module SmartAnswer::Calculators
         @config = BenefitCapCalculatorConfiguration.new
       end
 
-      context "weekly_benefit_caps" do
+      context "national weekly_benefit_caps" do
         should "be £350 for a single person" do
           assert_equal 350, @config.weekly_benefit_cap_amount(:default, :single)
         end
@@ -44,13 +44,15 @@ module SmartAnswer::Calculators
           BenefitCapCalculatorConfiguration.any_instance.stubs(:dataset).returns(
             default: {
               weekly_benefit_caps: {
-                first: {
-                  amount: 100,
-                  description: "first cap"
-                },
-                second: {
-                  amount: 200,
-                  description: "second cap"
+                national: {
+                  first: {
+                    amount: 100,
+                    description: "first cap"
+                  },
+                  second: {
+                    amount: 200,
+                    description: "second cap"
+                  }
                 }
               },
               exempt_benefits: ["first exempt benefit", "second exempt benefit"],
@@ -71,13 +73,15 @@ module SmartAnswer::Calculators
             },
             other: {
               weekly_benefit_caps: {
-                first: {
-                  amount: 300,
-                  description: "first other cap"
-                },
-                second: {
-                  amount: 400,
-                  description: "second other cap"
+                national: {
+                  first: {
+                    amount: 300,
+                    description: "first other cap"
+                  },
+                  second: {
+                    amount: 400,
+                    description: "second other cap"
+                  }
                 }
               },
               exempt_benefits: ["first other exempt benefit", "second other exempt benefit"],

@@ -1,18 +1,18 @@
 module SmartAnswer::Calculators
   class BenefitCapCalculatorConfiguration
-    def weekly_benefit_caps(version)
-      data(version).fetch(:weekly_benefit_caps).with_indifferent_access
+    def weekly_benefit_caps(version, region = :national)
+      data(version).fetch(:weekly_benefit_caps)[region].with_indifferent_access
     end
 
-    def weekly_benefit_cap_descriptions(version)
-      weekly_benefit_caps(version).inject(HashWithIndifferentAccess.new) do |weekly_benefit_cap_description, (key, value)|
+    def weekly_benefit_cap_descriptions(version, region = :national)
+      weekly_benefit_caps(version, region).inject(HashWithIndifferentAccess.new) do |weekly_benefit_cap_description, (key, value)|
         weekly_benefit_cap_description[key] = value.fetch(:description)
         weekly_benefit_cap_description
       end
     end
 
-    def weekly_benefit_cap_amount(version, family_type)
-      weekly_benefit_caps(version).fetch(family_type)[:amount]
+    def weekly_benefit_cap_amount(version, family_type, region = :national)
+      weekly_benefit_caps(version, region).fetch(family_type)[:amount]
     end
 
     def benefits(version)
