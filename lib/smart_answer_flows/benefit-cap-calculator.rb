@@ -6,16 +6,18 @@ module SmartAnswer
       status :published
       satisfies_need "100696"
 
+      config = Calculators::BenefitCapCalculatorConfiguration.new
 
-      #Routing question
+      # Routing question
       multiple_choice :choose_cap_to_calculate? do
         option :default
         option :future
-      end
-      if response == "default"
-        config = Calculators::BenefitCapCalculatorConfiguration.new
-      else
-        config = Calculators::BenefitCapCalculatorConfiguration.new(:future)
+
+        save_input_as :chosen_cap
+
+        next_node do
+          question :receive_housing_benefit?
+        end
       end
 
       # Q1
@@ -26,6 +28,7 @@ module SmartAnswer
         save_input_as :housing_benefit
 
         next_node do |response|
+          chosen_cap = chosen_cap
           if response == 'yes'
             question :working_tax_credit?
           else
@@ -54,21 +57,25 @@ module SmartAnswer
         option :no
 
         precalculate :exempt_benefits do
-          config.exempt_benefits
+          config.exempt_benefits(chosen_cap)
         end
 
         next_node do |response|
           if response == 'yes'
             outcome :outcome_not_affected_exemptions
           else
-            question :receiving_non_exemption_benefits?
+            if chosen_cap == 'future'
+              question :receiving_non_exemption_benefits_future?
+            else
+              question :receiving_non_exemption_benefits?
+            end
           end
         end
       end
 
-      #Q4
+      #Q4 default flow
       checkbox_question :receiving_non_exemption_benefits? do
-        config.benefits.keys.each do |benefit|
+        config.benefits(:default).keys.each do |benefit|
           option benefit
         end
 
@@ -77,7 +84,7 @@ module SmartAnswer
         end
 
         precalculate :benefit_options do
-          config.descriptions.merge(none_above: "None of the above")
+          config.descriptions(chosen_cap).merge(none_above: "None of the above")
         end
 
         calculate :total_benefits do
@@ -92,20 +99,51 @@ module SmartAnswer
           if response == "none"
             outcome :outcome_not_affected
           else
-            question BenefitCapCalculatorFlow.next_benefit_amount_question(config.questions, benefit_types)
+            question BenefitCapCalculatorFlow.next_benefit_amount_question(config.questions(chosen_cap), benefit_types)
+          end
+        end
+      end
+
+      #Q4 future flow
+      checkbox_question :receiving_non_exemption_benefits_future? do
+        config.benefits(:future).keys.each do |benefit|
+          option benefit
+        end
+
+        next_node_calculation :benefit_types do |response|
+          response.split(",").map(&:to_sym)
+        end
+
+        precalculate :benefit_options do
+          config.descriptions(chosen_cap).merge(none_above: "None of the above")
+        end
+
+        calculate :total_benefits do
+          0
+        end
+
+        calculate :benefit_cap do
+          0
+        end
+
+        next_node do |response|
+          if response == "none"
+            outcome :outcome_not_affected
+          else
+            question BenefitCapCalculatorFlow.next_benefit_amount_question(config.questions(chosen_cap), benefit_types)
           end
         end
       end
 
       #Q5a-o
-      config.questions.each do |(_benefit, method)|
+      config.all_questions.each do |(_benefit, method)|
         money_question method do
           calculate :total_benefits do |response|
             total_benefits + response.to_f
           end
 
           next_node do
-            question BenefitCapCalculatorFlow.next_benefit_amount_question(config.questions, benefit_types)
+            question BenefitCapCalculatorFlow.next_benefit_amount_question(config.questions(chosen_cap), benefit_types)
           end
         end
       end
@@ -119,26 +157,53 @@ module SmartAnswer
         end
 
         next_node do
-          question :single_couple_lone_parent?
+          if chosen_cap == "future"
+            question :single_couple_lone_parent_future?
+          else
+            question :single_couple_lone_parent?
+          end
         end
       end
 
-      #Q6
+      #Q6 current flow
       multiple_choice :single_couple_lone_parent? do
         precalculate :weekly_benefit_cap_descriptions do
-          config.weekly_benefit_cap_descriptions
+          config.weekly_benefit_cap_descriptions(chosen_cap)
         end
 
-        config.weekly_benefit_caps.keys.each do |weekly_benefit_cap|
+        config.weekly_benefit_caps(:default).keys.each do |weekly_benefit_cap|
           option weekly_benefit_cap
         end
 
         calculate :benefit_cap do |response|
-          sprintf("%.2f", config.weekly_benefit_cap_amount(response))
+          sprintf("%.2f", config.weekly_benefit_cap_amount(chosen_cap, response))
         end
 
         next_node do |response|
-          if total_benefits > config.weekly_benefit_cap_amount(response)
+          if total_benefits > config.weekly_benefit_cap_amount(chosen_cap, response)
+            outcome :outcome_affected_greater_than_cap
+          else
+            outcome :outcome_not_affected_less_than_cap
+          end
+        end
+      end
+
+      #Q6 future
+      multiple_choice :single_couple_lone_parent_future? do
+        precalculate :weekly_benefit_cap_descriptions do
+          config.weekly_benefit_cap_descriptions(chosen_cap)
+        end
+
+        config.weekly_benefit_caps(:future).keys.each do |weekly_benefit_cap|
+          option weekly_benefit_cap
+        end
+
+        calculate :benefit_cap do |response|
+          sprintf("%.2f", config.weekly_benefit_cap_amount(chosen_cap, response))
+        end
+
+        next_node do |response|
+          if total_benefits > config.weekly_benefit_cap_amount(chosen_cap, response)
             outcome :outcome_affected_greater_than_cap
           else
             outcome :outcome_not_affected_less_than_cap
