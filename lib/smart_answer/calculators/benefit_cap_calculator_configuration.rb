@@ -1,47 +1,40 @@
 module SmartAnswer::Calculators
   class BenefitCapCalculatorConfiguration
-    def initialize(configuration = :default)
-      @configuration = configuration
+    def weekly_benefit_caps(version)
+      data(version).fetch(:weekly_benefit_caps).with_indifferent_access
     end
 
-    def weekly_benefit_caps
-      @weekly_benefit_caps ||= data.fetch(:weekly_benefit_caps).with_indifferent_access
+    def weekly_benefit_cap_descriptions(version)
+      weekly_benefit_caps(version).inject(HashWithIndifferentAccess.new) do |weekly_benefit_cap_description, (key, value)|
+        weekly_benefit_cap_description[key] = value.fetch(:description)
+        weekly_benefit_cap_description
+      end
     end
 
-    def weekly_benefit_cap_descriptions
-      @weekly_benefit_cap_descriptions ||=
-        weekly_benefit_caps.inject(HashWithIndifferentAccess.new) do |weekly_benefit_cap_description, (key, value)|
-          weekly_benefit_cap_description[key] = value.fetch(:description)
-          weekly_benefit_cap_description
-        end
+    def weekly_benefit_cap_amount(version, family_type)
+      weekly_benefit_caps(version).fetch(family_type)[:amount]
     end
 
-    def weekly_benefit_cap_amount(family_type)
-      weekly_benefit_caps.fetch(family_type)[:amount]
+    def benefits(version)
+      data(version).fetch(:benefits).with_indifferent_access
     end
 
-    def benefits
-      @benefits ||= data.fetch(:benefits).with_indifferent_access
+    def exempt_benefits(version)
+      data(version).fetch(:exempt_benefits)
     end
 
-    def exempt_benefits
-      @exempt_benefits ||= data.fetch(:exempt_benefits)
+    def questions(version)
+      benefits(version).inject(HashWithIndifferentAccess.new) do |benefits_and_questions, (key, value)|
+        benefits_and_questions[key] = value.fetch(:question)
+        benefits_and_questions
+      end
     end
 
-    def questions
-      @questions ||=
-        benefits.inject(HashWithIndifferentAccess.new) do |benefits_and_questions, (key, value)|
-          benefits_and_questions[key] = value.fetch(:question)
-          benefits_and_questions
-        end
-    end
-
-    def descriptions
-      @descriptions ||=
-        benefits.inject(HashWithIndifferentAccess.new) do |benefits_and_descriptions, (key, value)|
-          benefits_and_descriptions[key] = value.fetch(:description)
-          benefits_and_descriptions
-        end
+    def descriptions(version)
+      benefits(version).inject(HashWithIndifferentAccess.new) do |benefits_and_descriptions, (key, value)|
+        benefits_and_descriptions[key] = value.fetch(:description)
+        benefits_and_descriptions
+      end
     end
 
   private
@@ -50,8 +43,8 @@ module SmartAnswer::Calculators
       @dataset ||= YAML.load_file(Rails.root.join('lib', 'data', 'benefit_cap_data.yml')).with_indifferent_access
     end
 
-    def data
-      @data ||= dataset[@configuration]
+    def data(version)
+      dataset.fetch(version)
     end
   end
 end
