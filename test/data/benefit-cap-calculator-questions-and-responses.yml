@@ -1,4 +1,6 @@
 ---
+:choose_cap_to_calculate?:
+- current
 :receive_housing_benefit?:
 - 'yes'
 - 'no'
