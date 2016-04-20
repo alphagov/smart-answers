@@ -37,6 +37,10 @@ module SmartAnswer::Calculators
       end
     end
 
+    def all_questions
+      dataset.keys.inject({}){|versions, version| versions.merge(questions(version))}
+    end
+
   private
 
     def dataset

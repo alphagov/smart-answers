@@ -62,6 +62,10 @@ module SmartAnswer::Calculators
                 second_benefit: {
                   question: "second_question",
                   description: "second description"
+                },
+                third_benefit: {
+                  question: "third_question",
+                  description: "third description"
                 }
               }
             },
@@ -85,6 +89,10 @@ module SmartAnswer::Calculators
                 second_benefit: {
                   question: "other_second_question",
                   description: "other second description"
+                },
+                other_third_benefit: {
+                  question: "other_third_question",
+                  description: "other third description"
                 }
               }
             }
@@ -110,6 +118,17 @@ module SmartAnswer::Calculators
           end
           should "get benefits data for the other configuration" do
             assert_equal "other_first_question", @config.benefits(:other).fetch("first_benefit")["question"]
+          end
+        end
+        context "merge questions" do
+          should "get all benefit questions from multiple configuration sets" do
+            questions = @config.all_questions
+            refute_includes questions.values, "first_question"
+            refute_includes questions.values, "second_question"
+            assert_includes questions.values, "other_first_question"
+            assert_includes questions.values, "other_second_question"
+            assert_includes questions.values, "third_question"
+            assert_includes questions.values, "other_third_question"
           end
         end
       end
