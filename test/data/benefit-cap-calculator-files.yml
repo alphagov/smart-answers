@@ -34,5 +34,5 @@ lib/smart_answer_flows/benefit-cap-calculator/questions/widowed_mother_amount.go
 lib/smart_answer_flows/benefit-cap-calculator/questions/widowed_parent_amount.govspeak.erb: 7355088c4cbc00513807d90b1930ff5c
 lib/smart_answer_flows/benefit-cap-calculator/questions/widows_aged_amount.govspeak.erb: 56ddf0a2aed4310db694dafeaea8e1db
 lib/smart_answer_flows/benefit-cap-calculator/questions/working_tax_credit.govspeak.erb: d96c2ff97c1bb068389fbefc25b9ed1a
-lib/data/benefit_cap_data.yml: 56b544d6cf1625c81cad49d53821e376
-lib/smart_answer/calculators/benefit_cap_calculator_configuration.rb: 5d2b45e29cdd59e48880651e6817eb2e
+lib/data/benefit_cap_data.yml: b13b36e1433d285ac3ff1a05f3e5e03d
+lib/smart_answer/calculators/benefit_cap_calculator_configuration.rb: 796e39be2abe624f3a0f0b8837efc307
