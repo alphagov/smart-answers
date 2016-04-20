@@ -102,7 +102,7 @@ module SmartAnswer
       end
 
       #Q5a-o
-      config.questions(:default).each do |(_benefit, method)|
+      config.all_questions.each do |(_benefit, method)|
         money_question method do
           calculate :total_benefits do |response|
             total_benefits + response.to_f
