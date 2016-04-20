@@ -64,7 +64,7 @@
 :receiving_non_exemption_benefits_post_2016?:
 - none
 - bereavement
-- bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widowed_mother,widowed_parent,widow_pension,widows_aged
+- bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widowed_mother,widowed_parent,widow_pension,widows_aged
 :bereavement_amount_post_2016?:
 - 50
 :carers_amount_post_2016?:
