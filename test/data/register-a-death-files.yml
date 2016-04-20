@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/register-a-death.rb: a2ec281c741736119b14cdcfef9965de
+lib/smart_answer_flows/register-a-death.rb: a8b8e0245c02c2eece40ca005476ef4b
 test/data/register-a-death-questions-and-responses.yml: bae21b0a8be1bbaa2dd6febd505382d6
 test/data/register-a-death-responses-and-expected-results.yml: a69c595900ab2d85208c0ac92f186ae8
 lib/smart_answer_flows/register-a-death/outcomes/_fees.govspeak.erb: ea6d04bee0f4148fc2fa587df3cc8363
@@ -22,7 +22,7 @@ lib/smart_answer_flows/shared/births_and_deaths_registration/_button.govspeak.er
 lib/data/rates/births_and_deaths_document_return_fees.yml: 4ac203e9fd076c12f62b57f8d1b64ffc
 lib/data/translators.yml: d86f628f0b85e24ffb0dc0ec77401387
 test/fixtures/worldwide/italy_organisations.json: 536304a31cc5d56801162af4d056d6bd
-lib/smart_answer/calculators/registrations_data_query.rb: c63ecdace15fda23a06d14909a246873
+lib/smart_answer/calculators/registrations_data_query.rb: 6e66e8a3884f3efa3118434e2b28e876
 lib/smart_answer/calculators/country_name_formatter.rb: 16b57a11261644a0bda0d609a60d1c62
 lib/smart_answer/calculators/translator_links.rb: 079592f6c5ede06d7c6ae4e8c5553127
 test/fixtures/worldwide_locations.yml: 063711faceec3a4081d6d5fb386c8029

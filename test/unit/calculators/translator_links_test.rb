@@ -10,7 +10,7 @@ module SmartAnswer::Calculators
           'andorra' => '/government/publications/spain-list-of-lawyers',
           'san-marino' => '/government/publications/italy-list-of-lawyers'
         )
-        @data = SmartAnswer::Calculators::TranslatorLinks.new
+        @data = TranslatorLinks.new
       end
 
       should "allow access to Hash" do

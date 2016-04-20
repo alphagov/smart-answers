@@ -4,7 +4,7 @@ module SmartAnswer::Calculators
   class StatePensionTopupCalculatorTest < ActiveSupport::TestCase
     context "checking lump sum amount" do
       setup do
-        @calculator = SmartAnswer::Calculators::StatePensionTopupCalculator.new
+        @calculator = StatePensionTopupCalculator.new
       end
 
       should "be 8010 for age of 69" do
@@ -23,7 +23,7 @@ module SmartAnswer::Calculators
 
     context "check lump sum amount and age" do
       setup do
-        @calculator = SmartAnswer::Calculators::StatePensionTopupCalculator.new
+        @calculator = StatePensionTopupCalculator.new
       end
 
       should "Show age of 64" do
@@ -37,7 +37,7 @@ module SmartAnswer::Calculators
 
     context "check return value for lump sum amount and age male" do
       setup do
-        @calculator = SmartAnswer::Calculators::StatePensionTopupCalculator.new
+        @calculator = StatePensionTopupCalculator.new
       end
 
       should "Show 2 rates for ages 85 and 86" do
@@ -47,7 +47,7 @@ module SmartAnswer::Calculators
 
     context "check return value for lump sum amount and age" do
       setup do
-        @calculator = SmartAnswer::Calculators::StatePensionTopupCalculator.new
+        @calculator = StatePensionTopupCalculator.new
       end
 
       should "show three rates for a woman born on 1953-04-05 who wants to top up her pension by £1 a week" do

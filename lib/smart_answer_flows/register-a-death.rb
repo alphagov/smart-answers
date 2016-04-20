@@ -6,9 +6,9 @@ module SmartAnswer
       status :published
       satisfies_need "101006"
 
-      country_name_query = SmartAnswer::Calculators::CountryNameFormatter.new
-      reg_data_query = SmartAnswer::Calculators::RegistrationsDataQuery.new
-      translator_query = SmartAnswer::Calculators::TranslatorLinks.new
+      country_name_query = Calculators::CountryNameFormatter.new
+      reg_data_query = Calculators::RegistrationsDataQuery.new
+      translator_query = Calculators::TranslatorLinks.new
       exclude_countries = %w(holy-see british-antarctic-territory)
 
       # Q1
@@ -157,7 +157,7 @@ module SmartAnswer
         end
 
         precalculate :reg_data_query do
-          SmartAnswer::Calculators::RegistrationsDataQuery.new
+          Calculators::RegistrationsDataQuery.new
         end
 
         precalculate :document_return_fees do
@@ -167,7 +167,7 @@ module SmartAnswer
 
       outcome :north_korea_result do
         precalculate :reg_data_query do
-          SmartAnswer::Calculators::RegistrationsDataQuery.new
+          Calculators::RegistrationsDataQuery.new
         end
 
         precalculate :overseas_passports_embassies do
