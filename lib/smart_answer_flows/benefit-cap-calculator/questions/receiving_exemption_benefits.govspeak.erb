@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  Do you or someone in your household get any of the following benefits?
+  Do you or someone in your household get any of the following benefits:
 <% end %>
 
 <% options(
@@ -8,7 +8,13 @@
 ) %>
 
 <% content_for :body do %>
-  <% exempt_benefits.each do |exempt_benefit| %>
-     - <%= exempt_benefit %>
-  <% end %>
+  - Attendance Allowance
+  - Disability Living Allowance
+  - Industrial Injuries Benefit
+  - Personal Independence Payment
+  - Employment and Support Allowance (support component)
+  - War Widow’s or War Widower’s Pension
+  - Armed Forces Compensation Scheme
+  - Armed Forces Independence Payment
+
 <% end %>
