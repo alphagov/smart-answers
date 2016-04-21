@@ -20,8 +20,8 @@ module SmartAnswer
         end
       end
 
-      use_shared_logic('benefit-cap-calculator')
-      use_shared_logic('benefit-cap-calculator-post-2016')
+      use_shared_logic('benefit-cap-calculator', locals: { node_suffix: '' })
+      use_shared_logic('benefit-cap-calculator', locals: { node_suffix: '_post_2016' })
     end
   end
 end
