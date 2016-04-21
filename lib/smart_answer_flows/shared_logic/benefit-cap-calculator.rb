@@ -51,11 +51,11 @@ end
 #Q4
 checkbox_question node_name[:receiving_non_exemption_benefits?] do
   option :bereavement
-  option :carers
+  option :carers unless node_suffix == '_post_2016'
   option :child_benefit
   option :child_tax
   option :esa
-  option :guardian
+  option :guardian unless node_suffix == '_post_2016'
   option :incapacity
   option :income_support
   option :jsa
@@ -142,33 +142,35 @@ money_question node_name[:bereavement_amount?] do
   end
 end
 
-#Q5b
-money_question node_name[:carers_amount?] do
+unless node_suffix == '_post_2016'
+  #Q5b
+  money_question node_name[:carers_amount?] do
 
-  calculate :total_benefits do |response|
-    total_benefits + response.to_f
-  end
+    calculate :total_benefits do |response|
+      total_benefits + response.to_f
+    end
 
-  next_node do
-    case benefit_types.shift
-    when :child_benefit then question node_name[:child_benefit_amount?]
-    when :child_tax then question node_name[:child_tax_amount?]
-    when :esa then question node_name[:esa_amount?]
-    when :guardian then question node_name[:guardian_amount?]
-    when :incapacity then question node_name[:incapacity_amount?]
-    when :income_support then question node_name[:income_support_amount?]
-    when :jsa then question node_name[:jsa_amount?]
-    when :maternity then question node_name[:maternity_amount?]
-    when :sda then question node_name[:sda_amount?]
-    when :widowed_mother then question node_name[:widowed_mother_amount?]
-    when :widowed_parent then question node_name[:widowed_parent_amount?]
-    when :widow_pension then question node_name[:widow_pension_amount?]
-    when :widows_aged then question node_name[:widows_aged_amount?]
-    else
-      if housing_benefit == 'yes'
-        question node_name[:housing_benefit_amount?]
+    next_node do
+      case benefit_types.shift
+      when :child_benefit then question node_name[:child_benefit_amount?]
+      when :child_tax then question node_name[:child_tax_amount?]
+      when :esa then question node_name[:esa_amount?]
+      when :guardian then question node_name[:guardian_amount?]
+      when :incapacity then question node_name[:incapacity_amount?]
+      when :income_support then question node_name[:income_support_amount?]
+      when :jsa then question node_name[:jsa_amount?]
+      when :maternity then question node_name[:maternity_amount?]
+      when :sda then question node_name[:sda_amount?]
+      when :widowed_mother then question node_name[:widowed_mother_amount?]
+      when :widowed_parent then question node_name[:widowed_parent_amount?]
+      when :widow_pension then question node_name[:widow_pension_amount?]
+      when :widows_aged then question node_name[:widows_aged_amount?]
       else
-        question node_name[:single_couple_lone_parent?]
+        if housing_benefit == 'yes'
+          question node_name[:housing_benefit_amount?]
+        else
+          question node_name[:single_couple_lone_parent?]
+        end
       end
     end
   end
@@ -264,29 +266,31 @@ money_question node_name[:esa_amount?] do
   end
 end
 
-#Q5f
-money_question node_name[:guardian_amount?] do
+unless node_suffix == '_post_2016'
+  #Q5f
+  money_question node_name[:guardian_amount?] do
 
-  calculate :total_benefits do |response|
-    total_benefits + response.to_f
-  end
+    calculate :total_benefits do |response|
+      total_benefits + response.to_f
+    end
 
-  next_node do
-    case benefit_types.shift
-    when :incapacity then question node_name[:incapacity_amount?]
-    when :income_support then question node_name[:income_support_amount?]
-    when :jsa then question node_name[:jsa_amount?]
-    when :maternity then question node_name[:maternity_amount?]
-    when :sda then question node_name[:sda_amount?]
-    when :widowed_mother then question node_name[:widowed_mother_amount?]
-    when :widowed_parent then question node_name[:widowed_parent_amount?]
-    when :widow_pension then question node_name[:widow_pension_amount?]
-    when :widows_aged then question node_name[:widows_aged_amount?]
-    else
-      if housing_benefit == 'yes'
-        question node_name[:housing_benefit_amount?]
+    next_node do
+      case benefit_types.shift
+      when :incapacity then question node_name[:incapacity_amount?]
+      when :income_support then question node_name[:income_support_amount?]
+      when :jsa then question node_name[:jsa_amount?]
+      when :maternity then question node_name[:maternity_amount?]
+      when :sda then question node_name[:sda_amount?]
+      when :widowed_mother then question node_name[:widowed_mother_amount?]
+      when :widowed_parent then question node_name[:widowed_parent_amount?]
+      when :widow_pension then question node_name[:widow_pension_amount?]
+      when :widows_aged then question node_name[:widows_aged_amount?]
       else
-        question node_name[:single_couple_lone_parent?]
+        if housing_benefit == 'yes'
+          question node_name[:housing_benefit_amount?]
+        else
+          question node_name[:single_couple_lone_parent?]
+        end
       end
     end
   end
