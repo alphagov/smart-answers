@@ -1,0 +1,43 @@
+<% content_for :title do %>
+  Based on the answers you’ve given, you will be affected by the Greater London benefit cap from autumn 2016.
+
+<% end %>
+
+<% content_for :body do %>
+
+  Your benefits | Greater London benefit cap
+  -|-
+  £<%= total_benefits %> | £<%= benefit_cap %>
+
+  This means your Housing Benefit in autumn 2016 will now be: £<%= new_housing_benefit %>.
+
+  ##How this is worked out
+
+  The benefits you get are added together. The total amount of benefits over your benefit cap is subtracted from your Housing Benefit:
+
+  Total amount of benefits affected by the Greater London cap: £<%= total_benefits %>
+
+  Your Housing Benefit is reduced by the amount you are over your benefit cap of £<%= benefit_cap %>:
+
+  Total benefits affected: £<%= total_benefits %>
+
+  Minus Greater London benefit cap: £<%= benefit_cap %>
+
+  Total over Greater London cap: £<%= total_over_cap %>
+
+  Housing benefit: £<%= housing_benefit_amount %>
+
+  Minus total over Greater London cap: £<%= total_over_cap %>
+
+  New Housing Benefit amount: £<%= new_housing_benefit %>
+
+  <% if new_housing_benefit_amount < 0.5 %>
+    Your Housing Benefit won’t be reduced to 0. You need to be getting some Housing Benefit to be eligible for other services.
+  <% end %>
+  
+  You can check if you’re affected by the [current benefits cap](/benefit-cap-calculator/y/default).
+
+  This is an estimate only. Contact the Department for Work and Pensions if you need further help.
+
+  <%= render partial: 'dwp_contact_details.govspeak.erb' %>
+<% end %>
