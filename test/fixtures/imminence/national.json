@@ -1,0 +1,51 @@
+{
+   "_response_info":{
+      "status":"ok",
+      "links":[
+
+      ]
+   },
+   "total":4,
+   "start_index":1,
+   "page_size":4,
+   "current_page":1,
+   "pages":1,
+   "results":[
+      {
+         "slug":"birmingham-borough-council",
+         "name":"Birmingham Borough Council",
+         "country_name":"England",
+         "type":"MTD",
+         "codes":{
+            "gss":"E08000025"
+         }
+      },
+      {
+         "slug":"west-midlands",
+         "name":"West Midlands",
+         "country_name":"England",
+         "type":"EUR",
+         "codes":{
+            "gss":"E15000005"
+         }
+      },
+      {
+         "slug":"ladywood",
+         "name":"Ladywood",
+         "country_name":"England",
+         "type":"MTW",
+         "codes":{
+            "gss":"E05001193"
+         }
+      },
+      {
+         "slug":"birmingham-ladywood",
+         "name":"Birmingham, Ladywood",
+         "country_name":"England",
+         "type":"WMC",
+         "codes":{
+            "gss":"E14000564"
+         }
+      }
+   ]
+}
