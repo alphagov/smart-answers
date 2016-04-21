@@ -28,11 +28,14 @@ module SmartAnswer
         save_input_as :housing_benefit
 
         next_node do |response|
-          chosen_cap = chosen_cap
           if response == 'yes'
             question :working_tax_credit?
           else
-            outcome :outcome_not_affected_no_housing_benefit
+            if chosen_cap == 'future'
+              outcome :outcome_not_affected_no_housing_benefit_future
+            else
+              outcome :outcome_not_affected_no_housing_benefit
+            end
           end
         end
       end
@@ -44,7 +47,11 @@ module SmartAnswer
 
         next_node do |response|
           if response == 'yes'
-            outcome :outcome_not_affected_exemptions
+            if chosen_cap == 'future'
+              outcome :outcome_not_affected_exemptions_future
+            else
+              outcome :outcome_not_affected_exemptions
+            end
           else
             question :receiving_exemption_benefits?
           end
@@ -62,7 +69,11 @@ module SmartAnswer
 
         next_node do |response|
           if response == 'yes'
-            outcome :outcome_not_affected_exemptions
+            if chosen_cap == 'future'
+              outcome :outcome_not_affected_exemptions_future
+            else
+              outcome :outcome_not_affected_exemptions
+            end
           else
             if chosen_cap == 'future'
               question :receiving_non_exemption_benefits_future?
@@ -75,7 +86,6 @@ module SmartAnswer
 
       #Q4 default flow
       checkbox_question :receiving_non_exemption_benefits? do
-
         config.benefits(:default).keys.each do |benefit|
           option benefit
         end
@@ -129,7 +139,7 @@ module SmartAnswer
 
         next_node do |response|
           if response == "none"
-            outcome :outcome_not_affected
+            outcome :outcome_not_affected_future
           else
             question BenefitCapCalculatorFlow.next_benefit_amount_question(config.questions(chosen_cap), benefit_types)
           end
@@ -215,9 +225,17 @@ module SmartAnswer
         next_node do |response|
           region = config.region(response)
           if total_benefits > config.weekly_benefit_cap_amount(chosen_cap, family_type, region)
-            outcome :outcome_affected_greater_than_cap
+            if region == :london
+              outcome :outcome_affected_greater_than_cap_future_london
+            else
+              outcome :outcome_affected_greater_than_cap_future_national
+            end
           else
-            outcome :outcome_not_affected_less_than_cap
+            if region == :london
+              outcome :outcome_not_affected_less_than_cap_future_london
+            else
+              outcome :outcome_not_affected_less_than_cap_future_national
+            end
           end
         end
       end
@@ -227,15 +245,74 @@ module SmartAnswer
       ## Outcome 1
       outcome :outcome_not_affected_exemptions do
         precalculate :exempt_benefits do
-          config.exempt_benefits
+          config.exempt_benefits(chosen_cap)
+        end
+      end
+
+      outcome :outcome_not_affected_exemptions_future do
+        precalculate :exempt_benefits do
+          config.exempt_benefits(chosen_cap)
         end
       end
 
       ## Outcome 2
       outcome :outcome_not_affected_no_housing_benefit
+      outcome :outcome_not_affected_no_housing_benefit_future
 
       ## Outcome 3
       outcome :outcome_affected_greater_than_cap do
+        precalculate :total_benefits do
+          sprintf("%.2f", total_benefits)
+        end
+
+        precalculate :housing_benefit_amount do
+          sprintf("%.2f", housing_benefit_amount)
+        end
+
+        precalculate :total_over_cap do
+          sprintf("%.2f", (total_benefits.to_f - benefit_cap.to_f))
+        end
+
+        precalculate :new_housing_benefit_amount do
+          housing_benefit_amount.to_f - total_over_cap.to_f
+        end
+
+        precalculate :new_housing_benefit do
+          amount = sprintf("%.2f", new_housing_benefit_amount)
+          if amount < "0.5"
+            amount = sprintf("%.2f", 0.5)
+          end
+          amount
+        end
+      end
+
+      outcome :outcome_affected_greater_than_cap_future_london do
+        precalculate :total_benefits do
+          sprintf("%.2f", total_benefits)
+        end
+
+        precalculate :housing_benefit_amount do
+          sprintf("%.2f", housing_benefit_amount)
+        end
+
+        precalculate :total_over_cap do
+          sprintf("%.2f", (total_benefits.to_f - benefit_cap.to_f))
+        end
+
+        precalculate :new_housing_benefit_amount do
+          housing_benefit_amount.to_f - total_over_cap.to_f
+        end
+
+        precalculate :new_housing_benefit do
+          amount = sprintf("%.2f", new_housing_benefit_amount)
+          if amount < "0.5"
+            amount = sprintf("%.2f", 0.5)
+          end
+          amount
+        end
+      end
+
+      outcome :outcome_affected_greater_than_cap_future_national do
         precalculate :total_benefits do
           sprintf("%.2f", total_benefits)
         end
@@ -267,9 +344,20 @@ module SmartAnswer
           sprintf("%.2f", total_benefits)
         end
       end
+      outcome :outcome_not_affected_less_than_cap_future_london do
+        precalculate :total_benefits do
+          sprintf("%.2f", total_benefits)
+        end
+      end
+      outcome :outcome_not_affected_less_than_cap_future_national do
+        precalculate :total_benefits do
+          sprintf("%.2f", total_benefits)
+        end
+      end
 
       ## Outcome 5
       outcome :outcome_not_affected
+      outcome :outcome_not_affected_future
     end
 
     def self.next_benefit_amount_question(benefits, selected_benefits)
