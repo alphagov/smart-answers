@@ -66,6 +66,10 @@ class SmartAnswersRegressionTest < ActionController::TestCase
         next if self.class.setup_has_run? && !self.class.teardown_hooks_installed?
         stub_content_api_default_artefact
         WebMock.stub_request(:get, WorkingDays::BANK_HOLIDAYS_URL).to_return(body: File.open(fixture_file('bank_holidays.json')))
+        WebMock.stub_request(:get, "#{Plek.new.find('imminence')}/areas/IG6%202BA.json").
+          to_return(body: File.open(fixture_file('imminence/london.json')))
+        WebMock.stub_request(:get, "#{Plek.new.find('imminence')}/areas/B1%201PW.json").
+          to_return(body: File.open(fixture_file('imminence/national.json')))
 
         setup_worldwide_locations
 
