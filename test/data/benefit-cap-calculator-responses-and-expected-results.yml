@@ -1,23 +1,32 @@
 ---
+- :current_node: :choose_cap_to_calculate?
+  :responses:
+  - default
+  :next_node: :receive_housing_benefit?
+  :outcome_node: false
 - :current_node: :receive_housing_benefit?
   :responses:
+  - default
   - 'yes'
   :next_node: :working_tax_credit?
   :outcome_node: false
 - :current_node: :working_tax_credit?
   :responses:
+  - default
   - 'yes'
   - 'yes'
   :next_node: :outcome_not_affected_exemptions
   :outcome_node: true
 - :current_node: :working_tax_credit?
   :responses:
+  - default
   - 'yes'
   - 'no'
   :next_node: :receiving_exemption_benefits?
   :outcome_node: false
 - :current_node: :receiving_exemption_benefits?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'yes'
@@ -25,6 +34,7 @@
   :outcome_node: true
 - :current_node: :receiving_exemption_benefits?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -32,6 +42,7 @@
   :outcome_node: false
 - :current_node: :receiving_non_exemption_benefits?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -40,6 +51,7 @@
   :outcome_node: true
 - :current_node: :receiving_non_exemption_benefits?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -48,6 +60,7 @@
   :outcome_node: false
 - :current_node: :bereavement_amount?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -57,6 +70,7 @@
   :outcome_node: false
 - :current_node: :housing_benefit_amount?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -67,6 +81,7 @@
   :outcome_node: false
 - :current_node: :single_couple_lone_parent?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -78,6 +93,7 @@
   :outcome_node: true
 - :current_node: :single_couple_lone_parent?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -89,6 +105,7 @@
   :outcome_node: true
 - :current_node: :single_couple_lone_parent?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -100,6 +117,7 @@
   :outcome_node: true
 - :current_node: :housing_benefit_amount?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -110,6 +128,7 @@
   :outcome_node: false
 - :current_node: :single_couple_lone_parent?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -121,6 +140,7 @@
   :outcome_node: true
 - :current_node: :single_couple_lone_parent?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -132,6 +152,7 @@
   :outcome_node: true
 - :current_node: :single_couple_lone_parent?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -143,6 +164,7 @@
   :outcome_node: true
 - :current_node: :receiving_non_exemption_benefits?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -151,6 +173,7 @@
   :outcome_node: false
 - :current_node: :bereavement_amount?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -160,6 +183,7 @@
   :outcome_node: false
 - :current_node: :carers_amount?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -170,6 +194,7 @@
   :outcome_node: false
 - :current_node: :child_benefit_amount?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -181,6 +206,7 @@
   :outcome_node: false
 - :current_node: :child_tax_amount?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -193,6 +219,7 @@
   :outcome_node: false
 - :current_node: :esa_amount?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -206,6 +233,7 @@
   :outcome_node: false
 - :current_node: :guardian_amount?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -220,6 +248,7 @@
   :outcome_node: false
 - :current_node: :incapacity_amount?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -235,6 +264,7 @@
   :outcome_node: false
 - :current_node: :income_support_amount?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -251,6 +281,7 @@
   :outcome_node: false
 - :current_node: :jsa_amount?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -268,6 +299,7 @@
   :outcome_node: false
 - :current_node: :maternity_amount?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -286,6 +318,7 @@
   :outcome_node: false
 - :current_node: :sda_amount?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -305,6 +338,7 @@
   :outcome_node: false
 - :current_node: :widow_pension_amount?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -325,6 +359,7 @@
   :outcome_node: false
 - :current_node: :widowed_mother_amount?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -346,6 +381,7 @@
   :outcome_node: false
 - :current_node: :widowed_parent_amount?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -368,6 +404,7 @@
   :outcome_node: false
 - :current_node: :widows_aged_amount?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -391,6 +428,7 @@
   :outcome_node: false
 - :current_node: :housing_benefit_amount?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -415,6 +453,7 @@
   :outcome_node: false
 - :current_node: :single_couple_lone_parent?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -440,6 +479,7 @@
   :outcome_node: true
 - :current_node: :single_couple_lone_parent?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -465,6 +505,7 @@
   :outcome_node: true
 - :current_node: :single_couple_lone_parent?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -490,6 +531,7 @@
   :outcome_node: true
 - :current_node: :housing_benefit_amount?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -514,6 +556,7 @@
   :outcome_node: false
 - :current_node: :single_couple_lone_parent?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -539,6 +582,7 @@
   :outcome_node: true
 - :current_node: :single_couple_lone_parent?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -564,6 +608,7 @@
   :outcome_node: true
 - :current_node: :single_couple_lone_parent?
   :responses:
+  - default
   - 'yes'
   - 'no'
   - 'no'
@@ -589,6 +634,1039 @@
   :outcome_node: true
 - :current_node: :receive_housing_benefit?
   :responses:
+  - default
   - 'no'
   :next_node: :outcome_not_affected_no_housing_benefit
+  :outcome_node: true
+- :current_node: :choose_cap_to_calculate?
+  :responses:
+  - future
+  :next_node: :receive_housing_benefit?
+  :outcome_node: false
+- :current_node: :receive_housing_benefit?
+  :responses:
+  - future
+  - 'yes'
+  :next_node: :working_tax_credit?
+  :outcome_node: false
+- :current_node: :working_tax_credit?
+  :responses:
+  - future
+  - 'yes'
+  - 'yes'
+  :next_node: :outcome_not_affected_exemptions_future
+  :outcome_node: true
+- :current_node: :working_tax_credit?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  :next_node: :receiving_exemption_benefits?
+  :outcome_node: false
+- :current_node: :receiving_exemption_benefits?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'yes'
+  :next_node: :outcome_not_affected_exemptions_future
+  :outcome_node: true
+- :current_node: :receiving_exemption_benefits?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  :next_node: :receiving_non_exemption_benefits_future?
+  :outcome_node: false
+- :current_node: :receiving_non_exemption_benefits_future?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - none
+  :next_node: :outcome_not_affected_future
+  :outcome_node: true
+- :current_node: :receiving_non_exemption_benefits_future?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement
+  :next_node: :bereavement_amount?
+  :outcome_node: false
+- :current_node: :bereavement_amount?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement
+  - '50'
+  :next_node: :housing_benefit_amount?
+  :outcome_node: false
+- :current_node: :housing_benefit_amount?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement
+  - '50.0'
+  - '50'
+  :next_node: :single_couple_lone_parent_future?
+  :outcome_node: false
+- :current_node: :single_couple_lone_parent_future?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement
+  - '50.0'
+  - '50.0'
+  - single
+  :next_node: :enter_postcode?
+  :outcome_node: false
+- :current_node: :enter_postcode?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement
+  - '50.0'
+  - '50.0'
+  - single
+  - B1 1PW
+  :next_node: :outcome_not_affected_less_than_cap_future_national
+  :outcome_node: true
+- :current_node: :enter_postcode?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement
+  - '50.0'
+  - '50.0'
+  - single
+  - IG6 2BA
+  :next_node: :outcome_not_affected_less_than_cap_future_london
+  :outcome_node: true
+- :current_node: :single_couple_lone_parent_future?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement
+  - '50.0'
+  - '50.0'
+  - couple
+  :next_node: :enter_postcode?
+  :outcome_node: false
+- :current_node: :enter_postcode?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement
+  - '50.0'
+  - '50.0'
+  - couple
+  - B1 1PW
+  :next_node: :outcome_not_affected_less_than_cap_future_national
+  :outcome_node: true
+- :current_node: :enter_postcode?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement
+  - '50.0'
+  - '50.0'
+  - couple
+  - IG6 2BA
+  :next_node: :outcome_not_affected_less_than_cap_future_london
+  :outcome_node: true
+- :current_node: :single_couple_lone_parent_future?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement
+  - '50.0'
+  - '50.0'
+  - parent
+  :next_node: :enter_postcode?
+  :outcome_node: false
+- :current_node: :enter_postcode?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement
+  - '50.0'
+  - '50.0'
+  - parent
+  - B1 1PW
+  :next_node: :outcome_not_affected_less_than_cap_future_national
+  :outcome_node: true
+- :current_node: :enter_postcode?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement
+  - '50.0'
+  - '50.0'
+  - parent
+  - IG6 2BA
+  :next_node: :outcome_not_affected_less_than_cap_future_london
+  :outcome_node: true
+- :current_node: :housing_benefit_amount?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement
+  - '50.0'
+  - '350'
+  :next_node: :single_couple_lone_parent_future?
+  :outcome_node: false
+- :current_node: :single_couple_lone_parent_future?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement
+  - '50.0'
+  - '350.0'
+  - single
+  :next_node: :enter_postcode?
+  :outcome_node: false
+- :current_node: :enter_postcode?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement
+  - '50.0'
+  - '350.0'
+  - single
+  - B1 1PW
+  :next_node: :outcome_affected_greater_than_cap_future_national
+  :outcome_node: true
+- :current_node: :enter_postcode?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement
+  - '50.0'
+  - '350.0'
+  - single
+  - IG6 2BA
+  :next_node: :outcome_affected_greater_than_cap_future_london
+  :outcome_node: true
+- :current_node: :single_couple_lone_parent_future?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement
+  - '50.0'
+  - '350.0'
+  - couple
+  :next_node: :enter_postcode?
+  :outcome_node: false
+- :current_node: :enter_postcode?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement
+  - '50.0'
+  - '350.0'
+  - couple
+  - B1 1PW
+  :next_node: :outcome_affected_greater_than_cap_future_national
+  :outcome_node: true
+- :current_node: :enter_postcode?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement
+  - '50.0'
+  - '350.0'
+  - couple
+  - IG6 2BA
+  :next_node: :outcome_not_affected_less_than_cap_future_london
+  :outcome_node: true
+- :current_node: :single_couple_lone_parent_future?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement
+  - '50.0'
+  - '350.0'
+  - parent
+  :next_node: :enter_postcode?
+  :outcome_node: false
+- :current_node: :enter_postcode?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement
+  - '50.0'
+  - '350.0'
+  - parent
+  - B1 1PW
+  :next_node: :outcome_affected_greater_than_cap_future_national
+  :outcome_node: true
+- :current_node: :enter_postcode?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement
+  - '50.0'
+  - '350.0'
+  - parent
+  - IG6 2BA
+  :next_node: :outcome_not_affected_less_than_cap_future_london
+  :outcome_node: true
+- :current_node: :receiving_non_exemption_benefits_future?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widowed_mother,widowed_parent,widow_pension,widows_aged
+  :next_node: :bereavement_amount?
+  :outcome_node: false
+- :current_node: :bereavement_amount?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50'
+  :next_node: :child_benefit_amount?
+  :outcome_node: false
+- :current_node: :child_benefit_amount?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50'
+  :next_node: :child_tax_amount?
+  :outcome_node: false
+- :current_node: :child_tax_amount?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50'
+  :next_node: :esa_amount?
+  :outcome_node: false
+- :current_node: :esa_amount?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50'
+  :next_node: :incapacity_amount?
+  :outcome_node: false
+- :current_node: :incapacity_amount?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50'
+  :next_node: :income_support_amount?
+  :outcome_node: false
+- :current_node: :income_support_amount?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50'
+  :next_node: :jsa_amount?
+  :outcome_node: false
+- :current_node: :jsa_amount?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50'
+  :next_node: :maternity_amount?
+  :outcome_node: false
+- :current_node: :maternity_amount?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50'
+  :next_node: :sda_amount?
+  :outcome_node: false
+- :current_node: :sda_amount?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50'
+  :next_node: :widow_pension_amount?
+  :outcome_node: false
+- :current_node: :widow_pension_amount?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50'
+  :next_node: :widowed_mother_amount?
+  :outcome_node: false
+- :current_node: :widowed_mother_amount?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50'
+  :next_node: :widowed_parent_amount?
+  :outcome_node: false
+- :current_node: :widowed_parent_amount?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50'
+  :next_node: :widows_aged_amount?
+  :outcome_node: false
+- :current_node: :widows_aged_amount?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50'
+  :next_node: :housing_benefit_amount?
+  :outcome_node: false
+- :current_node: :housing_benefit_amount?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50'
+  :next_node: :single_couple_lone_parent_future?
+  :outcome_node: false
+- :current_node: :single_couple_lone_parent_future?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - single
+  :next_node: :enter_postcode?
+  :outcome_node: false
+- :current_node: :enter_postcode?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - single
+  - B1 1PW
+  :next_node: :outcome_affected_greater_than_cap_future_national
+  :outcome_node: true
+- :current_node: :enter_postcode?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - single
+  - IG6 2BA
+  :next_node: :outcome_affected_greater_than_cap_future_london
+  :outcome_node: true
+- :current_node: :single_couple_lone_parent_future?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - couple
+  :next_node: :enter_postcode?
+  :outcome_node: false
+- :current_node: :enter_postcode?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - couple
+  - B1 1PW
+  :next_node: :outcome_affected_greater_than_cap_future_national
+  :outcome_node: true
+- :current_node: :enter_postcode?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - couple
+  - IG6 2BA
+  :next_node: :outcome_affected_greater_than_cap_future_london
+  :outcome_node: true
+- :current_node: :single_couple_lone_parent_future?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - parent
+  :next_node: :enter_postcode?
+  :outcome_node: false
+- :current_node: :enter_postcode?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - parent
+  - B1 1PW
+  :next_node: :outcome_affected_greater_than_cap_future_national
+  :outcome_node: true
+- :current_node: :enter_postcode?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - parent
+  - IG6 2BA
+  :next_node: :outcome_affected_greater_than_cap_future_london
+  :outcome_node: true
+- :current_node: :housing_benefit_amount?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '350'
+  :next_node: :single_couple_lone_parent_future?
+  :outcome_node: false
+- :current_node: :single_couple_lone_parent_future?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '350.0'
+  - single
+  :next_node: :enter_postcode?
+  :outcome_node: false
+- :current_node: :enter_postcode?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '350.0'
+  - single
+  - B1 1PW
+  :next_node: :outcome_affected_greater_than_cap_future_national
+  :outcome_node: true
+- :current_node: :enter_postcode?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '350.0'
+  - single
+  - IG6 2BA
+  :next_node: :outcome_affected_greater_than_cap_future_london
+  :outcome_node: true
+- :current_node: :single_couple_lone_parent_future?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '350.0'
+  - couple
+  :next_node: :enter_postcode?
+  :outcome_node: false
+- :current_node: :enter_postcode?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '350.0'
+  - couple
+  - B1 1PW
+  :next_node: :outcome_affected_greater_than_cap_future_national
+  :outcome_node: true
+- :current_node: :enter_postcode?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '350.0'
+  - couple
+  - IG6 2BA
+  :next_node: :outcome_affected_greater_than_cap_future_london
+  :outcome_node: true
+- :current_node: :single_couple_lone_parent_future?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '350.0'
+  - parent
+  :next_node: :enter_postcode?
+  :outcome_node: false
+- :current_node: :enter_postcode?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '350.0'
+  - parent
+  - B1 1PW
+  :next_node: :outcome_affected_greater_than_cap_future_national
+  :outcome_node: true
+- :current_node: :enter_postcode?
+  :responses:
+  - future
+  - 'yes'
+  - 'no'
+  - 'no'
+  - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '50.0'
+  - '350.0'
+  - parent
+  - IG6 2BA
+  :next_node: :outcome_affected_greater_than_cap_future_london
+  :outcome_node: true
+- :current_node: :receive_housing_benefit?
+  :responses:
+  - future
+  - 'no'
+  :next_node: :outcome_not_affected_no_housing_benefit_future
   :outcome_node: true
