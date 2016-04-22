@@ -589,53 +589,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       end
     end
 
-    # Scenario 12 from spreadsheet
-    context "17 year old in 2008-09" do
-      setup do
-        add_response Date.parse("2008-10-01")
-        add_response :no
-        add_response 17 # age at the time
-        add_response 30 # pay frequency
-        add_response 210 # basic hours
-        add_response 840 # basic pay
-        add_response 0 # overtime hours
-      end
-      # Scenario 12 in free accommodation
-      context "living in free accommodation" do
-        setup do
-          add_response :yes_free # accommodation type
-          add_response 5 # days per week in accommodation
-        end
-        should "be above the minimum wage" do
-          assert_current_node :past_payment_above
-        end
-        should "make outcome calculations" do
-          assert_equal 210, current_state.calculator.total_hours
-          assert_equal 3.53, current_state.calculator.minimum_hourly_rate
-          assert_equal 4.46, current_state.calculator.total_hourly_rate
-          assert_equal true, current_state.calculator.minimum_wage_or_above?
-          assert_equal 0, current_state.calculator.historical_adjustment
-        end
-      end
-      # Scenario 12 in accommodation charged above the threshold
-      context "living in charged accommodation" do
-        setup do
-          add_response :yes_charged
-          add_response 10  # accommodation cost
-          add_response 7   # days per week in accommodation
-        end
-        should "be below the minimum wage" do
-          assert_current_node :past_payment_below
-        end
-        should "make outcome calculations" do
-          assert_equal 210, current_state.calculator.total_hours
-          assert_equal 3.53, current_state.calculator.minimum_hourly_rate
-          assert_equal 3.21, current_state.calculator.total_hourly_rate
-          assert_equal false, current_state.calculator.minimum_wage_or_above?
-          assert_equal 70.38, current_state.calculator.historical_adjustment
-        end
-      end
-    end
     context 'answer 2015-10-01' do
       setup do
         add_response '2015-10-01'

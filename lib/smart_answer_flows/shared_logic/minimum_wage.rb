@@ -7,7 +7,6 @@ multiple_choice :past_payment_date? do
   option "2011-10-01"
   option "2010-10-01"
   option "2009-10-01"
-  option "2008-10-01"
 
   next_node do |response|
     calculator.date = Date.parse(response)
