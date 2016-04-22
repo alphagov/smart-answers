@@ -1,7 +1,7 @@
 module SmartAnswer::Calculators
   class OverseasPassportsCalculator
     APPLY_IN_NEIGHBOURING_COUNTRIES = %w(
-      british-indian-ocean-territory north-korea south-georgia-and-south-sandwich-islands
+      british-indian-ocean-territory iran libya north-korea south-georgia-and-south-sandwich-islands syria yemen
     )
 
     BOOK_APPOINTMENT_ONLINE_COUNTRIES = %w(
@@ -24,10 +24,6 @@ module SmartAnswer::Calculators
 
     EXCLUDE_COUNTRIES = %w(
       holy-see british-antarctic-territory
-    )
-
-    INELIGIBLE_COUNTRIES = %w(
-      iran libya syria yemen
     )
 
     IPS_APPLICATION_TYPES = %w(
@@ -63,10 +59,6 @@ module SmartAnswer::Calculators
 
     def non_uk_visa_application_with_colour_pictures?
       NON_UK_VISA_APPLICATION_WITH_COLOUR_PICTURES_COUNTRIES.include?(current_location)
-    end
-
-    def ineligible_country?
-      INELIGIBLE_COUNTRIES.include?(current_location)
     end
 
     def apply_in_neighbouring_countries?
