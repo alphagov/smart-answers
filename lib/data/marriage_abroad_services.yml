@@ -214,24 +214,28 @@ albania:
       - :receiving_notice_of_registration
       - :registering_civil_partnership
       - :issuing_civil_partnership_certificate
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 algeria:
   opposite_sex:
     ceremony_country:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 angola:
   opposite_sex:
     ceremony_country:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 armenia:
   opposite_sex:
     ceremony_country:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_in_local_currency_ceremony_country_name
 austria:
   opposite_sex:
     ceremony_country:
@@ -242,6 +246,7 @@ austria:
     default:
       default:
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 azerbaijan:
   opposite_sex:
     ceremony_country:
@@ -258,12 +263,14 @@ azerbaijan:
       - :receiving_notice_of_registration
       - :registering_marriage
       - :issuing_marriage_certificate
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 bahrain:
   opposite_sex:
     ceremony_country:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 bolivia:
   opposite_sex:
     ceremony_country:
@@ -276,12 +283,14 @@ bolivia:
       - :receiving_notice_of_registration
       - :registering_marriage
       - :issuing_marriage_certificate
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 bosnia-and-herzegovina:
   opposite_sex:
     ceremony_country:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_in_local_currency_ceremony_country_name
 bulgaria:
   opposite_sex:
     ceremony_country:
@@ -294,6 +303,7 @@ bulgaria:
       - :receiving_notice_of_registration
       - :registering_civil_partnership
       - :issuing_civil_partnership_certificate
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 chile:
   opposite_sex:
     ceremony_country:
@@ -310,6 +320,7 @@ chile:
       - :receiving_notice_of_registration
       - :registering_marriage
       - :issuing_marriage_certificate
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 croatia:
   opposite_sex:
     ceremony_country:
@@ -322,18 +333,21 @@ croatia:
       - :receiving_notice_of_registration
       - :registering_civil_partnership
       - :issuing_civil_partnership_certificate
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 cuba:
   opposite_sex:
     ceremony_country:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 democratic-republic-of-congo:
   opposite_sex:
     ceremony_country:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 denmark:
   opposite_sex:
     ceremony_country:
@@ -344,12 +358,14 @@ denmark:
     default:
       default:
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 el-salvador:
   opposite_sex:
     ceremony_country:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 estonia:
   opposite_sex:
     ceremony_country:
@@ -362,24 +378,28 @@ estonia:
       - :receiving_notice_of_registration
       - :registering_marriage
       - :issuing_marriage_certificate
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 ethiopia:
   opposite_sex:
     ceremony_country:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 georgia:
   opposite_sex:
     ceremony_country:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 greece:
   opposite_sex:
     ceremony_country:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 guatemala:
   opposite_sex:
     ceremony_country:
@@ -392,12 +412,14 @@ guatemala:
       - :receiving_notice_of_registration
       - :registering_civil_partnership
       - :issuing_civil_partnership_certificate
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 honduras:
   opposite_sex:
     ceremony_country:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 hungary:
   opposite_sex:
     ceremony_country:
@@ -410,6 +432,7 @@ hungary:
       - :receiving_notice_of_registration
       - :registering_marriage
       - :issuing_marriage_certificate
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 iceland:
   opposite_sex:
     ceremony_country:
@@ -420,6 +443,7 @@ iceland:
     default:
       default:
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_in_local_currency_ceremony_country_name
 jordan:
   opposite_sex:
     ceremony_country:
@@ -427,17 +451,20 @@ jordan:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
       - :affidavit_or_affirmation_for_marriage
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 kazakhstan:
   opposite_sex:
     ceremony_country:
       default:
       - :affidavit_or_affirmation_for_marriage
+  payment_partial_name: pay_by_cash_in_kazakhstan
 kyrgyzstan:
   opposite_sex:
     ceremony_country:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_by_cash_in_kazakhstan
 latvia:
   opposite_sex:
     ceremony_country:
@@ -454,6 +481,7 @@ latvia:
       - :receiving_notice_of_registration
       - :registering_marriage
       - :issuing_marriage_certificate
+  payment_partial_name: pay_in_local_currency_ceremony_country_name
 lithuania:
   opposite_sex:
     ceremony_country:
@@ -466,6 +494,7 @@ lithuania:
       - :receiving_notice_of_registration
       - :registering_marriage
       - :issuing_marriage_certificate
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 luxembourg:
   opposite_sex:
     ceremony_country:
@@ -476,18 +505,21 @@ luxembourg:
     default:
       default:
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_in_cash_visa_or_mastercard
 macedonia:
   opposite_sex:
     ceremony_country:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 mexico:
   opposite_sex:
     ceremony_country:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 moldova:
   opposite_sex:
     ceremony_country:
@@ -500,6 +532,7 @@ moldova:
       - :receiving_notice_of_registration
       - :registering_civil_partnership
       - :issuing_civil_partnership_certificate
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 montenegro:
   opposite_sex:
     ceremony_country:
@@ -512,12 +545,14 @@ montenegro:
       - :receiving_notice_of_registration
       - :registering_marriage
       - :issuing_marriage_certificate
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 nepal:
   opposite_sex:
     ceremony_country:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 nicaragua:
   same_sex:
     default:
@@ -525,18 +560,21 @@ nicaragua:
       - :receiving_notice_of_registration
       - :registering_marriage
       - :issuing_marriage_certificate
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 panama:
   opposite_sex:
     ceremony_country:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 romania:
   opposite_sex:
     ceremony_country:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 russia:
   opposite_sex:
     ceremony_country:
@@ -549,6 +587,7 @@ russia:
       - :receiving_notice_of_registration
       - :registering_marriage
       - :issuing_marriage_certificate
+  payment_partial_name: pay_by_mastercard_and_visa_only
 serbia:
   opposite_sex:
     ceremony_country:
@@ -561,12 +600,14 @@ serbia:
       - :receiving_notice_of_registration
       - :registering_marriage
       - :issuing_marriage_certificate
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 sudan:
   opposite_sex:
     ceremony_country:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 sweden:
   opposite_sex:
     ceremony_country:
@@ -588,24 +629,28 @@ tajikistan:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_in_local_currency_ceremony_country_name
 tunisia:
   opposite_sex:
     ceremony_country:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_in_local_currency_ceremony_country_name
 turkmenistan:
   opposite_sex:
     ceremony_country:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 uzbekistan:
   opposite_sex:
     ceremony_country:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 venezuela:
   opposite_sex:
     ceremony_country:
@@ -618,6 +663,7 @@ venezuela:
       - :receiving_notice_of_registration
       - :registering_civil_partnership
       - :issuing_civil_partnership_certificate
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 germany:
   same_sex:
     default:
