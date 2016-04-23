@@ -730,6 +730,7 @@ australia:
       - :registering_marriage
       - :issuing_marriage_certificate
 colombia:
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
   same_sex:
     default:
       default:
