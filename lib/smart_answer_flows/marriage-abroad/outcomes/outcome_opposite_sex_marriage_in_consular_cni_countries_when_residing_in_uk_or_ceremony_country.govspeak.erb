@@ -441,7 +441,7 @@
       <%= render partial: 'pay_in_local_currency_ceremony_country_name.govspeak.erb',
                  locals: { calculator: calculator } %>
     <% elsif %w(kazakhstan kyrgyzstan).include?(calculator.ceremony_country) %>
-      ^You can only pay by cash in Kazakhstan. This must be in the local currency.^
+      <%= render partial: 'pay_by_cash_in_kazakhstan' %>
 
     <% elsif calculator.ceremony_country == 'luxembourg' %>
       <%= render partial: 'pay_in_cash_visa_or_mastercard.govspeak.erb',
