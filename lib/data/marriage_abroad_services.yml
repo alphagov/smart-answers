@@ -201,6 +201,7 @@ cambodia:
       - :receiving_notice_of_registration
       - :registering_marriage
       - :issuing_marriage_certificate
+  payment_partial_name: pay_by_cash_or_us_dollars_only
 albania:
   opposite_sex:
     ceremony_country:
