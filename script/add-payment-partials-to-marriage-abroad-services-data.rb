@@ -1,30 +1,9 @@
 countries = %w(
-  belgium
-  china
-  ecuador
-  egypt
-  finland
-  lebanon
-  macao
-  mongolia
-  morocco
-  norway
-  peru
-  philippines
-  qatar
-  south-korea
-  thailand
-  turkey
-  united-arab-emirates
-  vietnam
+  dominican-republic
 )
 
 payment_method_partial = {
-  'default'     => 'pay_by_cash_or_credit_card_no_cheque',
-  'finland'     => 'pay_in_euros_or_visa_electron',
-  'norway'      => 'pay_by_visas_or_mastercard',
-  'philippines' => 'pay_by_cash_or_bank_cheque',
-  'south-korea' => 'pay_by_cash_in_local_currency_or_credit_card_not_cheque'
+  'default'     => 'pay_by_cash_or_credit_card_no_cheque'
 }
 
 marriage_abroad_services_file = Rails.root.join('lib', 'data', 'marriage_abroad_services.yml')
