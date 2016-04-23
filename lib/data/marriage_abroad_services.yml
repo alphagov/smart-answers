@@ -169,6 +169,7 @@ dominican-republic:
       - :registering_marriage
       - :issuing_marriage_certificate
 spain:
+  payment_partial_name: pay_by_visas_or_mastercard
   opposite_sex:
     ceremony_country:
       default:
