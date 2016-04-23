@@ -187,6 +187,7 @@ belarus:
       default:
       - :affidavit_or_affirmation_for_marriage
 cambodia:
+  payment_partial_name: pay_by_cash_or_us_dollars_only
   opposite_sex:
     default:
       default:
