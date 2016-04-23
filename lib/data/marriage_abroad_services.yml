@@ -179,6 +179,7 @@ spain:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_by_visas_or_mastercard
 belarus:
   opposite_sex:
     default:

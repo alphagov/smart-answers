@@ -1,9 +1,9 @@
 countries = %w(
-  dominican-republic
+  spain
 )
 
 payment_method_partial = {
-  'default'     => 'pay_by_cash_or_credit_card_no_cheque'
+  'default' => 'pay_by_visas_or_mastercard'
 }
 
 marriage_abroad_services_file = Rails.root.join('lib', 'data', 'marriage_abroad_services.yml')
