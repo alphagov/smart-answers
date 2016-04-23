@@ -1,9 +1,9 @@
 countries = %w(
-  belarus
+  cambodia
 )
 
 payment_method_partial = {
-  'default' => 'pay_by_cash_only'
+  'default' => 'pay_by_cash_or_us_dollars_only'
 }
 
 marriage_abroad_services_file = Rails.root.join('lib', 'data', 'marriage_abroad_services.yml')
