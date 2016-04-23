@@ -11,8 +11,6 @@
                locals: { calculator: calculator } %>
   <% end %>
 
-  <% if calculator.services_payment_partial_name.present? %>
-    <% partial = calculator.services_payment_partial_name + '.govspeak.erb' %>
-    <%= render partial: partial, locals: { calculator: calculator } %>
-  <% end %>
+  <%= render partial: 'payment_for_services.govspeak.erb',
+             locals: { calculator: calculator } %>
 <% end %>
