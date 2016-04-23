@@ -447,7 +447,7 @@
       <%= render partial: 'pay_in_cash_visa_or_mastercard.govspeak.erb',
                  locals: { calculator: calculator } %>
     <% elsif calculator.ceremony_country == 'russia' %>
-      You can only pay by MasterCard and Visa credit cards.
+      <%= render partial: 'pay_by_mastercard_and_visa_only.govspeak.erb' %>
 
     <% elsif calculator.ceremony_country == 'finland' %>
       <%= render partial: 'pay_in_euros_or_visa_electron.govspeak.erb' %>
