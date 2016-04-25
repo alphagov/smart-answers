@@ -155,6 +155,10 @@ module SmartAnswer
           total_benefits + response.to_f
         end
 
+        calculate :housing_benefit_amount do
+          sprintf("%.2f", housing_benefit_amount)
+        end
+
         next_node do
           if chosen_cap == "future"
             question :single_couple_lone_parent_future?
@@ -244,10 +248,6 @@ module SmartAnswer
           sprintf("%.2f", total_benefits)
         end
 
-        precalculate :housing_benefit_amount do
-          sprintf("%.2f", housing_benefit_amount)
-        end
-
         precalculate :total_over_cap do
           sprintf("%.2f", (total_benefits.to_f - benefit_cap.to_f))
         end
@@ -270,10 +270,6 @@ module SmartAnswer
           sprintf("%.2f", total_benefits)
         end
 
-        precalculate :housing_benefit_amount do
-          sprintf("%.2f", housing_benefit_amount)
-        end
-
         precalculate :total_over_cap do
           sprintf("%.2f", (total_benefits.to_f - benefit_cap.to_f))
         end
@@ -294,10 +290,6 @@ module SmartAnswer
       outcome :outcome_affected_greater_than_cap_future_national do
         precalculate :total_benefits do
           sprintf("%.2f", total_benefits)
-        end
-
-        precalculate :housing_benefit_amount do
-          sprintf("%.2f", housing_benefit_amount)
         end
 
         precalculate :total_over_cap do
