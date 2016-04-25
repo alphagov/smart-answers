@@ -45,6 +45,10 @@ module SmartAnswer
         option :yes
         option :no
 
+        calculate :exempt_benefits do
+          config.exempt_benefits(chosen_cap)
+        end
+
         next_node do |response|
           if response == 'yes'
             if chosen_cap == 'future'
@@ -62,10 +66,6 @@ module SmartAnswer
       multiple_choice :receiving_exemption_benefits? do
         option :yes
         option :no
-
-        precalculate :exempt_benefits do
-          config.exempt_benefits(chosen_cap)
-        end
 
         calculate :benefit_options do
           config.descriptions(chosen_cap).merge(none_above: "None of the above")
@@ -231,17 +231,8 @@ module SmartAnswer
       ##OUTCOMES
 
       ## Outcome 1
-      outcome :outcome_not_affected_exemptions do
-        precalculate :exempt_benefits do
-          config.exempt_benefits(chosen_cap)
-        end
-      end
-
-      outcome :outcome_not_affected_exemptions_future do
-        precalculate :exempt_benefits do
-          config.exempt_benefits(chosen_cap)
-        end
-      end
+      outcome :outcome_not_affected_exemptions
+      outcome :outcome_not_affected_exemptions_future
 
       ## Outcome 2
       outcome :outcome_not_affected_no_housing_benefit
