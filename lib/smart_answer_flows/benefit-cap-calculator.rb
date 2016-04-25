@@ -67,6 +67,18 @@ module SmartAnswer
           config.exempt_benefits(chosen_cap)
         end
 
+        calculate :benefit_options do
+          config.descriptions(chosen_cap).merge(none_above: "None of the above")
+        end
+
+        calculate :total_benefits do
+          0
+        end
+
+        calculate :benefit_cap do
+          0
+        end
+
         next_node do |response|
           if response == 'yes'
             if chosen_cap == 'future'
@@ -94,18 +106,6 @@ module SmartAnswer
           response.split(",").map(&:to_sym)
         end
 
-        precalculate :benefit_options do
-          config.descriptions(chosen_cap).merge(none_above: "None of the above")
-        end
-
-        calculate :total_benefits do
-          0
-        end
-
-        calculate :benefit_cap do
-          0
-        end
-
         next_node do |response|
           if response == "none"
             outcome :outcome_not_affected
@@ -123,18 +123,6 @@ module SmartAnswer
 
         next_node_calculation :benefit_types do |response|
           response.split(",").map(&:to_sym)
-        end
-
-        precalculate :benefit_options do
-          config.descriptions(chosen_cap).merge(none_above: "None of the above")
-        end
-
-        calculate :total_benefits do
-          0
-        end
-
-        calculate :benefit_cap do
-          0
         end
 
         next_node do |response|
