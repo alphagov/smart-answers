@@ -144,7 +144,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
             assert_state_variable :registration_country, 'spain'
             assert_state_variable :button_data, text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start"
             assert_current_node :oru_result
-            assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
+            assert_state_variable :translator_link_url, "http://www.exteriores.gob.es/Portal/en/ServiciosAlCiudadano/Paginas/Traductoresas---Int%C3%A9rpretes-Juradosas.aspx"
           end
         end
       end # married

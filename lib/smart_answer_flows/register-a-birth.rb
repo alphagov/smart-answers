@@ -220,7 +220,11 @@ module SmartAnswer
         end
 
         precalculate :translator_link_url do
-          translator_query.links[country_of_birth]
+          if translator_query.alternate_link?(country_of_birth)
+            translator_query.alternate_links[country_of_birth]
+          else
+            translator_query.links[country_of_birth]
+          end
         end
       end
 
