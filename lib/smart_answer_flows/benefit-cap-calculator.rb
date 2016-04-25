@@ -186,6 +186,10 @@ module SmartAnswer
           sprintf("%.2f", total_benefits)
         end
 
+        calculate :total_over_cap do
+          sprintf("%.2f", (total_benefits.to_f - benefit_cap.to_f))
+        end
+
         next_node do |response|
           if total_benefits > config.weekly_benefit_cap_amount(chosen_cap, response)
             outcome :outcome_affected_greater_than_cap
@@ -222,6 +226,10 @@ module SmartAnswer
           sprintf("%.2f", total_benefits)
         end
 
+        calculate :total_over_cap do
+          sprintf("%.2f", (total_benefits.to_f - benefit_cap.to_f))
+        end
+
         next_node do |response|
           region = config.region(response)
           if total_benefits > config.weekly_benefit_cap_amount(chosen_cap, family_type, region)
@@ -252,10 +260,6 @@ module SmartAnswer
 
       ## Outcome 3
       outcome :outcome_affected_greater_than_cap do
-        precalculate :total_over_cap do
-          sprintf("%.2f", (total_benefits.to_f - benefit_cap.to_f))
-        end
-
         precalculate :new_housing_benefit_amount do
           housing_benefit_amount.to_f - total_over_cap.to_f
         end
@@ -270,10 +274,6 @@ module SmartAnswer
       end
 
       outcome :outcome_affected_greater_than_cap_future_london do
-        precalculate :total_over_cap do
-          sprintf("%.2f", (total_benefits.to_f - benefit_cap.to_f))
-        end
-
         precalculate :new_housing_benefit_amount do
           housing_benefit_amount.to_f - total_over_cap.to_f
         end
@@ -288,10 +288,6 @@ module SmartAnswer
       end
 
       outcome :outcome_affected_greater_than_cap_future_national do
-        precalculate :total_over_cap do
-          sprintf("%.2f", (total_benefits.to_f - benefit_cap.to_f))
-        end
-
         precalculate :new_housing_benefit_amount do
           housing_benefit_amount.to_f - total_over_cap.to_f
         end
