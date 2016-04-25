@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  Based on the answers you’ve given, you will be affected by the benefit cap as you get £<%= total_benefits %> in benefits and your benefit cap is £<%= benefit_cap %>.
+  Based on the answers you’ve given, you will be affected by the benefit cap as you get £<%= total_benefits_amount %> in benefits and your benefit cap is £<%= benefit_cap %>.
 <% end %>
 
 <% content_for :body do %>
@@ -9,11 +9,11 @@
 
   The benefits you get are added together. The total amount of benefits over your benefit cap is subtracted from your Housing Benefit:
 
-  Total amount of benefits affected by cap: £<%= total_benefits %>
+  Total amount of benefits affected by cap: £<%= total_benefits_amount %>
 
   Your Housing Benefit is reduced by the amount you are over your benefit cap of £<%= benefit_cap %>:
 
-  Total benefits affected: £<%= total_benefits %>
+  Total benefits affected: £<%= total_benefits_amount %>
 
   Minus benefit cap: £<%= benefit_cap %>
 

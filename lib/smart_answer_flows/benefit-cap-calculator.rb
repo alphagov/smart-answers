@@ -182,6 +182,10 @@ module SmartAnswer
           sprintf("%.2f", config.weekly_benefit_cap_amount(chosen_cap, response))
         end
 
+        calculate :total_benefits_amount do
+          sprintf("%.2f", total_benefits)
+        end
+
         next_node do |response|
           if total_benefits > config.weekly_benefit_cap_amount(chosen_cap, response)
             outcome :outcome_affected_greater_than_cap
@@ -214,6 +218,10 @@ module SmartAnswer
           sprintf("%.2f", config.weekly_benefit_cap_amount(chosen_cap, family_type, config.region(response)))
         end
 
+        calculate :total_benefits_amount do
+          sprintf("%.2f", total_benefits)
+        end
+
         next_node do |response|
           region = config.region(response)
           if total_benefits > config.weekly_benefit_cap_amount(chosen_cap, family_type, region)
@@ -244,10 +252,6 @@ module SmartAnswer
 
       ## Outcome 3
       outcome :outcome_affected_greater_than_cap do
-        precalculate :total_benefits do
-          sprintf("%.2f", total_benefits)
-        end
-
         precalculate :total_over_cap do
           sprintf("%.2f", (total_benefits.to_f - benefit_cap.to_f))
         end
@@ -266,10 +270,6 @@ module SmartAnswer
       end
 
       outcome :outcome_affected_greater_than_cap_future_london do
-        precalculate :total_benefits do
-          sprintf("%.2f", total_benefits)
-        end
-
         precalculate :total_over_cap do
           sprintf("%.2f", (total_benefits.to_f - benefit_cap.to_f))
         end
@@ -288,10 +288,6 @@ module SmartAnswer
       end
 
       outcome :outcome_affected_greater_than_cap_future_national do
-        precalculate :total_benefits do
-          sprintf("%.2f", total_benefits)
-        end
-
         precalculate :total_over_cap do
           sprintf("%.2f", (total_benefits.to_f - benefit_cap.to_f))
         end
@@ -310,21 +306,9 @@ module SmartAnswer
       end
 
       ## Outcome 4
-      outcome :outcome_not_affected_less_than_cap do
-        precalculate :total_benefits do
-          sprintf("%.2f", total_benefits)
-        end
-      end
-      outcome :outcome_not_affected_less_than_cap_future_london do
-        precalculate :total_benefits do
-          sprintf("%.2f", total_benefits)
-        end
-      end
-      outcome :outcome_not_affected_less_than_cap_future_national do
-        precalculate :total_benefits do
-          sprintf("%.2f", total_benefits)
-        end
-      end
+      outcome :outcome_not_affected_less_than_cap
+      outcome :outcome_not_affected_less_than_cap_future_london
+      outcome :outcome_not_affected_less_than_cap_future_national
 
       ## Outcome 5
       outcome :outcome_not_affected
