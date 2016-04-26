@@ -1,5 +1,4 @@
 class GraphPresenter
-  EXEMPTIONS_LIST = ['benefit-cap-calculator']
   def initialize(flow)
     @flow = flow
   end
@@ -29,11 +28,7 @@ class GraphPresenter
 
   def visualisable?
     @flow.questions.all? do |node|
-      if EXEMPTIONS_LIST.include?(@flow.name)
-        true
-      else
-        node.permitted_next_nodes.any?
-      end
+      node.permitted_next_nodes.any?
     end
   end
 

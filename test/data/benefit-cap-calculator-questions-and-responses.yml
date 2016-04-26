@@ -1,4 +1,7 @@
 ---
+:choose_cap_to_calculate?:
+- current
+- future
 :receive_housing_benefit?:
 - 'yes'
 - 'no'
@@ -46,6 +49,56 @@
 - 50
 - 350
 :single_couple_lone_parent?:
+- single
+- couple
+- parent
+:receive_housing_benefit_post_2016?:
+- 'yes'
+- 'no'
+:working_tax_credit_post_2016?:
+- 'yes'
+- 'no'
+:receiving_exemption_benefits_post_2016?:
+- 'yes'
+- 'no'
+:receiving_non_exemption_benefits_post_2016?:
+- none
+- bereavement
+- bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widowed_mother,widowed_parent,widow_pension,widows_aged
+:bereavement_amount_post_2016?:
+- 50
+:carers_amount_post_2016?:
+- 50
+:child_benefit_amount_post_2016?:
+- 50
+:child_tax_amount_post_2016?:
+- 50
+:esa_amount_post_2016?:
+- 50
+:guardian_amount_post_2016?:
+- 50
+:incapacity_amount_post_2016?:
+- 50
+:income_support_amount_post_2016?:
+- 50
+:jsa_amount_post_2016?:
+- 50
+:maternity_amount_post_2016?:
+- 50
+:sda_amount_post_2016?:
+- 50
+:widowed_mother_amount_post_2016?:
+- 50
+:widowed_parent_amount_post_2016?:
+- 50
+:widow_pension_amount_post_2016?:
+- 50
+:widows_aged_amount_post_2016?:
+- 50
+:housing_benefit_amount_post_2016?:
+- 50
+- 350
+:single_couple_lone_parent_post_2016?:
 - single
 - couple
 - parent
