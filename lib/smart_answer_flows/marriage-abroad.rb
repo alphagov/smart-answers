@@ -123,6 +123,8 @@ module SmartAnswer
             outcome :outcome_ceremonies_in_dominican_republic
           elsif calculator.ceremony_country == 'sweden' && calculator.resident_of_ceremony_country?
             outcome :outcome_ceremonies_in_sweden_when_residing_in_sweden
+          elsif calculator.ceremony_country == 'south-africa'
+            outcome :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
           elsif calculator.partner_is_opposite_sex?
             if calculator.ceremony_country == 'hong-kong'
               outcome :outcome_opposite_sex_marriage_in_hong_kong
@@ -269,6 +271,7 @@ module SmartAnswer
       outcome :outcome_same_sex_marriage_and_civil_partnership
       outcome :outcome_same_sex_marriage_and_civil_partnership_in_malta
       outcome :outcome_same_sex_marriage_and_civil_partnership_in_other_countries
+      outcome :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
       outcome :outcome_same_sex_marriage_and_civil_partnership_not_possible
     end
   end
