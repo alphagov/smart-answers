@@ -154,6 +154,10 @@
 
       <consular.athens@fco.gov.uk>
 
+      <% if calculator.resident_of_ceremony_country? %>
+        ^Some notaries public might not let you post notice. If a local notary public doesn’t sign your forms you’ll have to post notice at the British Embassy in Athens.^
+      <% end %>
+
       ### Posting notice at the embassy
 
     <% end %>
