@@ -252,10 +252,12 @@ module SmartAnswer
 
       ## Outcome 1
       outcome :outcome_not_affected_exemptions
+      ## Outcome 6
       outcome :outcome_not_affected_exemptions_future
 
       ## Outcome 2
       outcome :outcome_not_affected_no_housing_benefit
+      ## Outcome 7
       outcome :outcome_not_affected_no_housing_benefit_future
 
       ## Outcome 3
@@ -273,6 +275,7 @@ module SmartAnswer
         end
       end
 
+      ## Outcome 8
       outcome :outcome_affected_greater_than_cap_future_london do
         precalculate :new_housing_benefit_amount do
           housing_benefit_amount.to_f - total_over_cap.to_f
@@ -287,6 +290,7 @@ module SmartAnswer
         end
       end
 
+      ## Outcome 10
       outcome :outcome_affected_greater_than_cap_future_national do
         precalculate :new_housing_benefit_amount do
           housing_benefit_amount.to_f - total_over_cap.to_f
@@ -303,11 +307,14 @@ module SmartAnswer
 
       ## Outcome 4
       outcome :outcome_not_affected_less_than_cap
+      ## Outcome 9
       outcome :outcome_not_affected_less_than_cap_future_london
+      ## Outcome 11
       outcome :outcome_not_affected_less_than_cap_future_national
 
       ## Outcome 5
       outcome :outcome_not_affected
+      ## Outcome 12
       outcome :outcome_not_affected_future
     end
 
