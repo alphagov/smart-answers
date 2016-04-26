@@ -24,7 +24,7 @@ lib/data/translators.yml: d86f628f0b85e24ffb0dc0ec77401387
 test/fixtures/worldwide/italy_organisations.json: 536304a31cc5d56801162af4d056d6bd
 lib/smart_answer/calculators/registrations_data_query.rb: 6e66e8a3884f3efa3118434e2b28e876
 lib/smart_answer/calculators/country_name_formatter.rb: 16b57a11261644a0bda0d609a60d1c62
-lib/smart_answer/calculators/translator_links.rb: 079592f6c5ede06d7c6ae4e8c5553127
+lib/smart_answer/calculators/translator_links.rb: f3bdbe9ef2ca8bd9efb53763d71a7b43
 test/fixtures/worldwide_locations.yml: 063711faceec3a4081d6d5fb386c8029
 test/fixtures/worldwide/algeria_organisations.json: 0351ae95cffe4095b3287058ca9af42e
 test/fixtures/worldwide/australia_organisations.json: e1f694483eaf4fb50808f688db0ff9c5
