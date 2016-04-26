@@ -21,10 +21,12 @@ module SmartAnswer
       @content_id
     end
 
-    def use_shared_logic(filename)
+    def use_shared_logic(filename, locals: {})
+      current_binding = binding
+      locals.each { |key, value| current_binding.local_variable_set(key, value) }
       path = Rails.root.join('lib', 'smart_answer_flows', 'shared_logic', "#{filename}.rb")
       # rubocop:disable Lint/Eval
-      eval File.read(path), binding, path.to_s
+      eval File.read(path), current_binding, path.to_s
       # rubocop:enable Lint/Eval
     end
 
