@@ -24,6 +24,10 @@ module SmartAnswer
           calculator.ceremony_country = response
         end
 
+        validate do
+          calculator.valid_ceremony_country?
+        end
+
         next_node do
           if calculator.ceremony_country == 'ireland'
             question :partner_opposite_or_same_sex?
