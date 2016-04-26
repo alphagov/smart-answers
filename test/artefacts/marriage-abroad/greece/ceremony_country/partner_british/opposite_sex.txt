@@ -17,6 +17,8 @@ If you choose to post notice before a local notary public, you must email the em
 
 <consular.athens@fco.gov.uk>
 
+^Some notaries public might not let you post notice. If a local notary public doesn’t sign your forms you’ll have to post notice at the British Embassy in Athens.^
+
 ### Posting notice at the embassy
 
 [Make an appointment at the embassy in Athens.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-athens/notice-of-marriage-or-civil-partnership/slot_picker)
