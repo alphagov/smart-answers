@@ -40,6 +40,34 @@ module SmartAnswer::Calculators
           refute @data.links['pitcairn']
         end
       end
+
+      context "alternate links" do
+        setup do
+          YAML.stubs(:load_file).returns(
+            'spain' =>
+              'http://gob.es/path/to/spanish/translator/page',
+          )
+          @translator_links = TranslatorLinks.new
+        end
+
+        should "return true for a defined country(spain)" do
+          assert_equal true, @translator_links.alternate_link?('spain')
+        end
+
+        should "return false for an undefined country (belguim)" do
+          assert_equal false, @translator_links.alternate_link?('belgium')
+        end
+
+        should "return alternative link for spain" do
+          assert_equal 'http://gob.es/path/to/spanish/translator/page',
+            @translator_links.alternate_links['spain']
+        end
+
+        should "return nil for belgium" do
+          assert_equal nil,
+            @translator_links.alternate_links['belgium']
+        end
+      end
     end
   end
 end
