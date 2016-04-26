@@ -26,8 +26,6 @@ module SmartAnswer::Calculators
         date_of_birth > FEMALE_YOUNGEST_DOB
       when 'male'
         date_of_birth > MALE_YOUNGEST_DOB
-      else
-        raise SmartAnswer::InvalidResponse
       end
     end
 
