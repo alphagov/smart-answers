@@ -16,6 +16,13 @@ module SmartAnswer
       instance_eval(&block) if block_given?
     end
 
+    def append(flow)
+      flow.nodes.each do |node|
+        node.flow = self
+        add_node(node)
+      end
+    end
+
     def content_id(cid = nil)
       @content_id = cid unless cid.nil?
       @content_id
