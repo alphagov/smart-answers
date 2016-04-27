@@ -1,3 +1,5 @@
+require 'smart_answer_flows/shared_logic/minimum_wage'
+
 module SmartAnswer
   class AmIGettingMinimumWageFlow < Flow
     def define
@@ -49,7 +51,7 @@ module SmartAnswer
         end
       end
 
-      use_shared_logic "minimum_wage"
+      append(SharedLogic::MinimumWageFlow.build)
     end
   end
 end
