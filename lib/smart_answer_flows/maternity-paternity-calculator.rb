@@ -1,4 +1,5 @@
 require 'smart_answer_flows/shared_logic/adoption-calculator'
+require 'smart_answer_flows/shared_logic/paternity-calculator'
 
 module SmartAnswer
   class MaternityPaternityCalculatorFlow < Flow
@@ -62,7 +63,7 @@ module SmartAnswer
       end
 
       add(SharedLogic::AdoptionCalculatorFlow.build)
-      use_shared_logic ("paternity-calculator")
+      add(SharedLogic::PaternityCalculatorFlow.build)
       use_shared_logic ("maternity-calculator")
     end
   end
