@@ -396,4 +396,25 @@ end
     line_number = source.split($/).index { |line| line =~ /SyntaxError/ } + 1
     assert_match "#{path}:#{line_number}", e.message
   end
+
+  context 'when another flow is appended to this one' do
+    setup do
+      other_flow = SmartAnswer::Flow.new do
+        outcome :another_outcome
+      end
+      @flow = SmartAnswer::Flow.new do
+        value_question :question?
+        outcome :outcome
+        append(other_flow)
+      end
+    end
+
+    should 'have nodes from other flow after nodes in this flow' do
+      assert_equal %i(question? outcome another_outcome), @flow.nodes.map(&:name)
+    end
+
+    should 'set flow on all nodes from other flow' do
+      assert @flow.nodes.all? { |node| node.flow == @flow }
+    end
+  end
 end
