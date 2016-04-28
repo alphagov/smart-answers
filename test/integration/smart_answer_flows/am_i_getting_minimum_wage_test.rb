@@ -331,6 +331,41 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
           assert_equal true, current_state.calculator.minimum_wage_or_above?
         end
       end
+
+      context 'when the user is over 25 years old' do
+        setup do
+          add_response 25
+          add_response 1 # paid on a daily basis
+          add_response 8 # hour of work per period
+        end
+        context 'when the date is after 01 April 2016' do
+          setup do
+            Timecop.travel('07 April 2016')
+          end
+          context 'when he is paid over the minimum/living wage' do
+            setup do
+              add_response 350 # how much it is paid per period
+              add_response 0 # overtime
+              add_response 'no' # accommodation
+            end
+            should 'reach the above national living wage result outcome' do
+              assert_current_node :current_payment_above
+              assert_match(/You are getting the National Living Wage./, outcome_body)
+            end
+          end
+          context 'when he is paid below the minimum/living wage' do
+            setup do
+              add_response 40 # how much it is paid per period
+              add_response 0 # overtime
+              add_response 'no' # accommodation
+            end
+            should 'reach the below national living wage result outcome' do
+              assert_current_node :current_payment_below
+              assert_match(/You aren’t getting the National Living Wage./, outcome_body)
+            end
+          end
+        end
+      end
     end # Apprentice
   end # Current pay
 
@@ -554,50 +589,35 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       end
     end
 
-    # Scenario 12 from spreadsheet
-    context "17 year old in 2008-09" do
+    context 'answer 2015-10-01' do
       setup do
-        add_response Date.parse("2008-10-01")
+        add_response '2015-10-01'
         add_response :no
-        add_response 17 # age at the time
-        add_response 30 # pay frequency
-        add_response 210 # basic hours
-        add_response 840 # basic pay
-        add_response 0 # overtime hours
+        add_response 25
+        add_response 1 # paid on a daily basis
+        add_response 8 # hour of work per period
+        Timecop.travel('07 January 2016')
       end
-      # Scenario 12 in free accommodation
-      context "living in free accommodation" do
+      context 'when he is paid over the minimum/living wage' do
         setup do
-          add_response :yes_free # accommodation type
-          add_response 5 # days per week in accommodation
+          add_response 350 # how much it is paid per period
+          add_response 0 # overtime
+          add_response 'no' # accommodation
         end
-        should "be above the minimum wage" do
+        should 'reach the above national minimum wage result outcome' do
           assert_current_node :past_payment_above
-        end
-        should "make outcome calculations" do
-          assert_equal 210, current_state.calculator.total_hours
-          assert_equal 3.53, current_state.calculator.minimum_hourly_rate
-          assert_equal 4.46, current_state.calculator.total_hourly_rate
-          assert_equal true, current_state.calculator.minimum_wage_or_above?
-          assert_equal 0, current_state.calculator.historical_adjustment
+          assert_match(/You were getting the National Minimum Wage./, outcome_body)
         end
       end
-      # Scenario 12 in accommodation charged above the threshold
-      context "living in charged accommodation" do
+      context 'when he is paid below the minimum/living wage' do
         setup do
-          add_response :yes_charged
-          add_response 10  # accommodation cost
-          add_response 7   # days per week in accommodation
+          add_response 40 # how much it is paid per period
+          add_response 0 # overtime
+          add_response 'no' # accommodation
         end
-        should "be below the minimum wage" do
+        should 'reach the below national minimum wage result outcome' do
           assert_current_node :past_payment_below
-        end
-        should "make outcome calculations" do
-          assert_equal 210, current_state.calculator.total_hours
-          assert_equal 3.53, current_state.calculator.minimum_hourly_rate
-          assert_equal 3.21, current_state.calculator.total_hourly_rate
-          assert_equal false, current_state.calculator.minimum_wage_or_above?
-          assert_equal 70.38, current_state.calculator.historical_adjustment
+          assert_match(/You weren’t getting the National Minimum Wage./, outcome_body)
         end
       end
     end
