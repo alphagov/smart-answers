@@ -2,7 +2,7 @@ require 'ostruct'
 
 module SmartAnswer
   class Flow
-    attr_reader :nodes, :outcomes
+    attr_reader :nodes
     attr_accessor :status, :need_id
 
     def self.build
