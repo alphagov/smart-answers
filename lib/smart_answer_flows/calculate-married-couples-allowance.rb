@@ -30,7 +30,7 @@ module SmartAnswer
         end
 
         calculate :calculator do
-          Calculators::MarriedCouplesAllowanceCalculator.new(validate_income: false)
+          Calculators::MarriedCouplesAllowanceCalculator.new
         end
 
         next_node do |response|

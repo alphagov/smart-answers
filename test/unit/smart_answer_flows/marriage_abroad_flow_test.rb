@@ -35,6 +35,20 @@ module SmartAnswer
       should 'store parsed response on calculator as ceremony_country' do
         assert_equal 'afghanistan', @calculator.ceremony_country
       end
+
+      context 'responding with an invalid ceremony country' do
+        setup do
+          @calculator.stubs(:valid_ceremony_country?).returns(false)
+        end
+
+        should 'raise an exception' do
+          assert_raise(SmartAnswer::InvalidResponse) do
+            setup_states_for_question(:country_of_ceremony?,
+              responding_with: 'unknown-country',
+              initial_state: { calculator: @calculator })
+          end
+        end
+      end
     end
 
     context 'when answering legal_residency? question' do

@@ -49,15 +49,7 @@ module SmartAnswer::Calculators
       assert_equal SmartAnswer::Money.new("721"), result
     end
 
-    # backwards compatibility with version 1
-    test "don't allow an income less than 1 by default" do
-      assert_raises SmartAnswer::InvalidResponse do
-        default_calculator.calculate_allowance(@age_related_allowance, 0)
-      end
-    end
-
-    test "allow an income less than 1 when income validation is false" do
-      default_calculator.validate_income = false
+    test "allow an income less than 1" do
       result = default_calculator.calculate_allowance(@age_related_allowance, 0)
       assert_equal SmartAnswer::Money.new("802"), result
     end

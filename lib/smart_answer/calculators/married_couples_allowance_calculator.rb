@@ -1,17 +1,10 @@
 module SmartAnswer::Calculators
   class MarriedCouplesAllowanceCalculator
-    attr_accessor :validate_income
-
-    def initialize(validate_income: true)
-      @validate_income = validate_income
-    end
-
     def calculate_adjusted_net_income(income, gross_pension_contributions, net_pension_contributions, gift_aided_donations)
       income - gross_pension_contributions - (net_pension_contributions * 1.25) - (gift_aided_donations * 1.25)
     end
 
     def calculate_allowance(age_related_allowance, income)
-      validate(income) if validate_income
       income = 1 if income < 1
 
       mca_entitlement = maximum_mca
@@ -39,10 +32,6 @@ module SmartAnswer::Calculators
 
       mca = mca_entitlement * 0.1
       SmartAnswer::Money.new(mca)
-    end
-
-    def validate(income)
-      raise SmartAnswer::InvalidResponse if income < 1
     end
 
     def maximum_mca
