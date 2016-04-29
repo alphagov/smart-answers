@@ -25,7 +25,6 @@ class SmartAnswersControllerErrorHandlingTest < ActionDispatch::IntegrationTest
 
   context 'when SmartAnswer::InvalidNode raised' do
     setup do
-      flow = stub('flow', name: 'flow-name')
       @flow_registry.stubs(:find).raises(SmartAnswer::FlowRegistry::NotFound)
     end
 
