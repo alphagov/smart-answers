@@ -1,9 +1,9 @@
 countries = %w(
-  kosovo
+  kuwait
 )
 
 payment_method_partial = {
-  'default' => 'pay_by_cash_or_credit_card_no_cheque'
+  'default' => 'pay_by_cash_or_credit_card_no_cheque_nor_amex'
 }
 
 marriage_abroad_services_file = Rails.root.join('lib', 'data', 'marriage_abroad_services.yml')
