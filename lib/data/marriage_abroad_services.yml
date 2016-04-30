@@ -729,6 +729,7 @@ laos:
     default:
       partner_local:
       - :affidavit_or_affirmation_for_marriage
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 oman:
   opposite_sex:
     default:
