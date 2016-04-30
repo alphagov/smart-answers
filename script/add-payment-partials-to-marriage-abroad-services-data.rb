@@ -1,5 +1,5 @@
 countries = %w(
-  laos
+  oman
 )
 
 payment_method_partial = {
