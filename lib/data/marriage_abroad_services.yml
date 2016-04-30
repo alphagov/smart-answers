@@ -763,6 +763,7 @@ slovenia:
     default:
       default:
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_in_local_currency_ceremony_country_name
 cyprus:
   same_sex:
     default:
