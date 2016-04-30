@@ -752,6 +752,7 @@ poland:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
 slovenia:
+  payment_partial_name: pay_in_local_currency_ceremony_country_name
   opposite_sex:
     ceremony_country:
       default:
