@@ -774,6 +774,7 @@ cyprus:
       - :registering_civil_partnership
       - :issuing_civil_partnership_certificate
 malta:
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
   same_sex:
     default:
       default:
