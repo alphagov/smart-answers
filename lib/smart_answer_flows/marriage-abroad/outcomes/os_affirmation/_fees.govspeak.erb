@@ -14,7 +14,7 @@
   <% if calculator.ceremony_country == 'finland' %>
     <%= render partial: 'pay_in_euros_or_visa_electron.govspeak.erb' %>
   <% elsif calculator.ceremony_country == 'philippines' %>
-    You can pay in cash or by cheque issued by a bank.
+    <%= render partial: 'pay_by_cash_or_bank_cheque' %>
   <% elsif calculator.ceremony_country == 'norway' %>
     <%= render partial: 'pay_by_visas_or_mastercard.govspeak.erb' %>
   <% elsif calculator.ceremony_country == 'south-korea' %>
