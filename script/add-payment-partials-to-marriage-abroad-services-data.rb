@@ -1,25 +1,31 @@
 countries = %w(
-  austria
-  brazil
-  czech-republic
-  denmark
-  ecuador
-  finland
+  albania
+  australia
+  azerbaijan
+  bolivia
+  cambodia
+  chile
+  china
+  colombia
+  estonia
   germany
-  iceland
-  luxembourg
-  slovenia
-  sweden
+  hungary
+  japan
+  kosovo
+  latvia
+  lithuania
+  mongolia
+  montenegro
+  nicaragua
+  peru
+  philippines
+  russia
+  serbia
+  vietnam
 )
 
-# Exclude countries ignored in the outcome template
-countries = countries - %w(czech-republic cote-d-ivoire)
-
 payment_method_partial = {
-  'iceland' => 'pay_in_local_currency_ceremony_country_name',
-  'slovenia' => 'pay_in_local_currency_ceremony_country_name',
-
-  'luxembourg' => 'pay_in_cash_visa_or_mastercard',
+  'cambodia' => 'pay_by_cash_or_us_dollars_only',
 
   'default' => 'pay_by_cash_or_credit_card_no_cheque'
 }
