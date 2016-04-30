@@ -745,6 +745,7 @@ saudi-arabia:
       - :registering_marriage
       - :issuing_marriage_certificate
 poland:
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
   opposite_sex:
     ceremony_country:
       default:
