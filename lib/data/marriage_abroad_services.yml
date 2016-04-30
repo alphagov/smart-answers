@@ -687,6 +687,7 @@ italy:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_in_euro_or_sterling_or_card
 japan:
   opposite_sex:
     default:
