@@ -1,5 +1,5 @@
 countries = %w(
-  saudi-arabia
+  poland
 )
 
 payment_method_partial = {
