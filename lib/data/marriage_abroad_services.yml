@@ -682,6 +682,7 @@ indonesia:
       default:
       - :affidavit_or_affirmation_for_marriage
 italy:
+  payment_partial_name: pay_in_euro_or_sterling_or_card
   opposite_sex:
     ceremony_country:
       default:
