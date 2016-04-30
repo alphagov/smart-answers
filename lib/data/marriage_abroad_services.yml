@@ -701,6 +701,7 @@ japan:
       - :registering_civil_partnership_or_marriage
       - :issuing_civil_partnership_or_marriage_certificate
 kosovo:
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
   opposite_sex:
     ceremony_country:
       default:
