@@ -52,7 +52,8 @@
 
     You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for <%= calculator.ceremony_country_name %>](/government/publications/<%= calculator.ceremony_country %>-consular-fees).
 
-    <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
+    <%= render partial: 'payment_for_services.govspeak.erb',
+               locals: { calculator: calculator } %>
 
   <% end %>
 <% end %>
