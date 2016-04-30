@@ -66,13 +66,6 @@
                locals: { calculator: calculator } %>
   <% end %>
 
-  <% if %w(iceland slovenia).include?(calculator.ceremony_country) %>
-    <%= render partial: 'pay_in_local_currency_ceremony_country_name.govspeak.erb',
-               locals: { calculator: calculator } %>
-  <% elsif calculator.ceremony_country == 'luxembourg' %>
-    <%= render partial: 'pay_in_cash_visa_or_mastercard.govspeak.erb',
-               locals: { calculator: calculator } %>
-  <% elsif %w(czech-republic cote-d-ivoire).exclude?(calculator.ceremony_country) %>
-    <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
-  <% end %>
+  <%= render partial: 'payment_for_services.govspeak.erb',
+             locals: { calculator: calculator } %>
 <% end %>

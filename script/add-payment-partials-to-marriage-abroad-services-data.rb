@@ -1,14 +1,26 @@
 countries = %w(
-  bulgaria
-  croatia
-  cyprus
-  guatemala
-  moldova
-  panama
-  venezuela
+  austria
+  brazil
+  czech-republic
+  denmark
+  ecuador
+  finland
+  germany
+  iceland
+  luxembourg
+  slovenia
+  sweden
 )
 
+# Exclude countries ignored in the outcome template
+countries = countries - %w(czech-republic cote-d-ivoire)
+
 payment_method_partial = {
+  'iceland' => 'pay_in_local_currency_ceremony_country_name',
+  'slovenia' => 'pay_in_local_currency_ceremony_country_name',
+
+  'luxembourg' => 'pay_in_cash_visa_or_mastercard',
+
   'default' => 'pay_by_cash_or_credit_card_no_cheque'
 }
 
