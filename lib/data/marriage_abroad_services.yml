@@ -689,6 +689,7 @@ italy:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
 japan:
+  payment_partial_name: pay_by_credit_card_but_not_personal_cheque
   opposite_sex:
     default:
       default:
