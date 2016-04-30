@@ -64,7 +64,8 @@
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: { calculator: calculator } %>
 
-    <%= render partial: 'pay_by_cash_or_credit_card_no_cheque_nor_amex.govspeak.erb' %>
+    <%= render partial: 'payment_for_services.govspeak.erb',
+               locals: { calculator: calculator } %>
 
   <% elsif calculator.resident_of_third_country? %>
     <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
@@ -118,7 +119,8 @@
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: { calculator: calculator } %>
 
-    <%= render partial: 'pay_by_cash_or_credit_card_no_cheque_nor_amex.govspeak.erb' %>
+    <%= render partial: 'payment_for_services.govspeak.erb',
+               locals: { calculator: calculator } %>
   <% end %>
 
   *[CNI]:Certificate of no impediment
