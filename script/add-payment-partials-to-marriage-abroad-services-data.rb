@@ -1,9 +1,9 @@
 countries = %w(
-  italy
+  japan
 )
 
 payment_method_partial = {
-  'default' => 'pay_in_euro_or_sterling_or_card'
+  'default' => 'pay_in_japan'
 }
 
 marriage_abroad_services_file = Rails.root.join('lib', 'data', 'marriage_abroad_services.yml')
