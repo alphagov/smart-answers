@@ -1,8 +1,32 @@
 countries = %w(
-  malta
+  albania
+  australia
+  azerbaijan
+  bolivia
+  cambodia
+  chile
+  china
+  colombia
+  estonia
+  germany
+  hungary
+  japan
+  kosovo
+  latvia
+  lithuania
+  mongolia
+  montenegro
+  nicaragua
+  peru
+  philippines
+  russia
+  serbia
+  vietnam
 )
 
 payment_method_partial = {
+  'cambodia' => 'pay_by_cash_or_us_dollars_only',
+
   'default' => 'pay_by_cash_or_credit_card_no_cheque'
 }
 
