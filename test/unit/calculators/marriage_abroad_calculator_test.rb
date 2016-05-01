@@ -955,6 +955,35 @@ module SmartAnswer
           refute @calculator.french_overseas_territory_offering_pacs?
         end
       end
+
+      context '#services_payment_partial_name' do
+        should "return nil if there's no data for the ceremony country" do
+          calculator = MarriageAbroadCalculator.new(services_data: {})
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_nil calculator.services_payment_partial_name
+        end
+
+        should "return nil if there's no payment information partial set for the ceremony country" do
+          services_data = { 'ceremony-country' => {} }
+          calculator = MarriageAbroadCalculator.new(services_data: services_data)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_nil calculator.services_payment_partial_name
+        end
+
+        should 'return the name of the payment information partial' do
+          services_data = {
+            'ceremony-country' => {
+              'payment_partial_name' => 'partial-name'
+            }
+          }
+          calculator = MarriageAbroadCalculator.new(services_data: services_data)
+          calculator.ceremony_country = 'ceremony-country'
+
+          assert_equal 'partial-name', calculator.services_payment_partial_name
+        end
+      end
     end
   end
 end

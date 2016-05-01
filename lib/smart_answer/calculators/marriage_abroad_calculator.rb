@@ -289,6 +289,12 @@ module SmartAnswer::Calculators
       end
     end
 
+    def services_payment_partial_name
+      if @services_data[ceremony_country].present?
+        @services_data[ceremony_country]['payment_partial_name']
+      end
+    end
+
   private
 
     def services_for_country_and_partner_sex_and_residency_and_partner_nationality?
