@@ -2,168 +2,166 @@ require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class RatesQueryTest < ActiveSupport::TestCase
-    context RatesQuery do
-      context "#rates" do
-        setup do
-          load_path = File.join("test", "fixtures", "rates")
-          @test_rate = RatesQuery.from_file('exact_date_rates', load_path: load_path)
-        end
+    context "#rates" do
+      setup do
+        load_path = File.join("test", "fixtures", "rates")
+        @test_rate = RatesQuery.from_file('exact_date_rates', load_path: load_path)
+      end
 
-        should "be 1 for 2013-01-31" do
+      should "be 1 for 2013-01-31" do
+        assert_equal 1, @test_rate.rates(Date.parse('2013-01-31')).rate
+      end
+
+      should "be 2 for 2013-02-01" do
+        assert_equal 2, @test_rate.rates(Date.parse('2013-02-01')).rate
+      end
+
+      should "be the latest known rate (2) for uncovered future dates" do
+        assert_equal 2, @test_rate.rates(Date.parse('2113-03-12')).rate
+      end
+
+      context 'given a rate has been loaded for one date' do
+        should 'return the correct rate for a different date' do
           assert_equal 1, @test_rate.rates(Date.parse('2013-01-31')).rate
-        end
-
-        should "be 2 for 2013-02-01" do
-          assert_equal 2, @test_rate.rates(Date.parse('2013-02-01')).rate
-        end
-
-        should "be the latest known rate (2) for uncovered future dates" do
-          assert_equal 2, @test_rate.rates(Date.parse('2113-03-12')).rate
-        end
-
-        context 'given a rate has been loaded for one date' do
-          should 'return the correct rate for a different date' do
-            assert_equal 1, @test_rate.rates(Date.parse('2013-01-31')).rate
-            assert_equal 2, @test_rate.rates(Date.parse("2013-02-01")).rate
-          end
-        end
-
-        context 'with various dates' do
-          setup do
-            today = Date.today
-            @yesterday = today - 1.day
-            @tomorrow = today + 1.day
-
-            yesterdays_rates = {
-              start_date: @yesterday,
-              end_date: @yesterday,
-              rate: 3
-            }
-            todays_rates = {
-              start_date: today,
-              end_date: today,
-              rate: 2
-            }
-            tomorrows_rates = {
-              start_date: @tomorrow,
-              end_date: @tomorrow,
-              rate: 1
-            }
-            rates = [yesterdays_rates, todays_rates, tomorrows_rates]
-            @rates_query = RatesQuery.new(rates)
-          end
-
-          should "return rate for date specified when calling the method" do
-            assert_equal 3, @rates_query.rates(@yesterday).rate
-          end
-
-          should "return rate for date specified in RATES_QUERY_DATE environment variable if set" do
-            begin
-              ENV['RATES_QUERY_DATE'] = @tomorrow.to_s
-
-              assert_equal 1, @rates_query.rates.rate
-            ensure
-              ENV['RATES_QUERY_DATE'] = nil
-            end
-          end
-
-          should "return rate for today when no date is specified" do
-            assert_equal 2, @rates_query.rates.rate
-          end
+          assert_equal 2, @test_rate.rates(Date.parse("2013-02-01")).rate
         end
       end
 
-      context "Married couples allowance" do
+      context 'with various dates' do
         setup do
-          @query = RatesQuery.from_file('married_couples_allowance')
+          today = Date.today
+          @yesterday = today - 1.day
+          @tomorrow = today + 1.day
+
+          yesterdays_rates = {
+            start_date: @yesterday,
+            end_date: @yesterday,
+            rate: 3
+          }
+          todays_rates = {
+            start_date: today,
+            end_date: today,
+            rate: 2
+          }
+          tomorrows_rates = {
+            start_date: @tomorrow,
+            end_date: @tomorrow,
+            rate: 1
+          }
+          rates = [yesterdays_rates, todays_rates, tomorrows_rates]
+          @rates_query = RatesQuery.new(rates)
         end
 
-        should "have all required rates defined for the current fiscal year" do
-          %w(personal_allowance over_65_allowance over_75_allowance income_limit_for_personal_allowances maximum_married_couple_allowance minimum_married_couple_allowance).each do |rate|
-            assert @query.rates.send(rate).is_a?(Numeric)
+        should "return rate for date specified when calling the method" do
+          assert_equal 3, @rates_query.rates(@yesterday).rate
+        end
+
+        should "return rate for date specified in RATES_QUERY_DATE environment variable if set" do
+          begin
+            ENV['RATES_QUERY_DATE'] = @tomorrow.to_s
+
+            assert_equal 1, @rates_query.rates.rate
+          ensure
+            ENV['RATES_QUERY_DATE'] = nil
           end
         end
 
-        context "personal_allowance" do
-          should "be the latest known walue on 15th April 2116 (fallback)" do
-            assert @query.rates(Date.parse("2116-04-15")).personal_allowance.is_a?(Numeric)
-          end
+        should "return rate for today when no date is specified" do
+          assert_equal 2, @rates_query.rates.rate
+        end
+      end
+    end
 
-          should "be 10600 on 5th April 2016" do
-            assert_equal 10600, @query.rates(Date.parse("2016-04-05")).personal_allowance
-          end
+    context "Married couples allowance" do
+      setup do
+        @query = RatesQuery.from_file('married_couples_allowance')
+      end
 
-          should "be 9440 on 6th April 2013" do
-            assert_equal 9440, @query.rates(Date.parse("2013-04-06")).personal_allowance
-          end
-
-          should "be 10000 on 6th April 2014" do
-            assert_equal 10000, @query.rates(Date.parse("2014-04-06")).personal_allowance
-          end
+      should "have all required rates defined for the current fiscal year" do
+        %w(personal_allowance over_65_allowance over_75_allowance income_limit_for_personal_allowances maximum_married_couple_allowance minimum_married_couple_allowance).each do |rate|
+          assert @query.rates.send(rate).is_a?(Numeric)
         end
       end
 
-      context 'register a death fees' do
-        context 'for 2015/16' do
-          setup do
-            @rates_query = RatesQuery.from_file('register_a_death')
-            @sixth_april_2015 = Date.parse('2015-04-06')
-          end
-
-          should 'be £105 for registering a death' do
-            assert_equal 105, @rates_query.rates(@sixth_april_2015).register_a_death
-          end
-
-          should 'be £65 for a copy of the death registration certificate' do
-            assert_equal 65, @rates_query.rates(@sixth_april_2015).copy_of_death_registration_certificate
-          end
+      context "personal_allowance" do
+        should "be the latest known walue on 15th April 2116 (fallback)" do
+          assert @query.rates(Date.parse("2116-04-15")).personal_allowance.is_a?(Numeric)
         end
 
-        context 'for 2016/17' do
-          setup do
-            @rates_query = RatesQuery.from_file('register_a_death')
-            @sixth_april_2016 = Date.parse('2016-04-06')
-          end
+        should "be 10600 on 5th April 2016" do
+          assert_equal 10600, @query.rates(Date.parse("2016-04-05")).personal_allowance
+        end
 
-          should 'be £150 for registering a death' do
-            assert_equal 150, @rates_query.rates(@sixth_april_2016).register_a_death
-          end
+        should "be 9440 on 6th April 2013" do
+          assert_equal 9440, @query.rates(Date.parse("2013-04-06")).personal_allowance
+        end
 
-          should 'be £50 for a copy of the death registration certificate' do
-            assert_equal 50, @rates_query.rates(@sixth_april_2016).copy_of_death_registration_certificate
-          end
+        should "be 10000 on 6th April 2014" do
+          assert_equal 10000, @query.rates(Date.parse("2014-04-06")).personal_allowance
+        end
+      end
+    end
+
+    context 'register a death fees' do
+      context 'for 2015/16' do
+        setup do
+          @rates_query = RatesQuery.from_file('register_a_death')
+          @sixth_april_2015 = Date.parse('2015-04-06')
+        end
+
+        should 'be £105 for registering a death' do
+          assert_equal 105, @rates_query.rates(@sixth_april_2015).register_a_death
+        end
+
+        should 'be £65 for a copy of the death registration certificate' do
+          assert_equal 65, @rates_query.rates(@sixth_april_2015).copy_of_death_registration_certificate
         end
       end
 
-      context 'register a birth fees' do
-        context 'for 2015/16' do
-          setup do
-            @rates_query = RatesQuery.from_file('register_a_birth')
-            @sixth_april_2015 = Date.parse('2015-04-06')
-          end
-
-          should 'be £105 for registering a birth' do
-            assert_equal 105, @rates_query.rates(@sixth_april_2015).register_a_birth
-          end
-
-          should 'be £65 for a copy of the birth registration certificate' do
-            assert_equal 65, @rates_query.rates(@sixth_april_2015).copy_of_birth_registration_certificate
-          end
+      context 'for 2016/17' do
+        setup do
+          @rates_query = RatesQuery.from_file('register_a_death')
+          @sixth_april_2016 = Date.parse('2016-04-06')
         end
 
-        context 'for 2016/17' do
-          setup do
-            @rates_query = RatesQuery.from_file('register_a_birth')
-            @sixth_april_2016 = Date.parse('2016-04-06')
-          end
+        should 'be £150 for registering a death' do
+          assert_equal 150, @rates_query.rates(@sixth_april_2016).register_a_death
+        end
 
-          should 'be £150 for registering a birth' do
-            assert_equal 150, @rates_query.rates(@sixth_april_2016).register_a_birth
-          end
+        should 'be £50 for a copy of the death registration certificate' do
+          assert_equal 50, @rates_query.rates(@sixth_april_2016).copy_of_death_registration_certificate
+        end
+      end
+    end
 
-          should 'be £50 for a copy of the birth registration certificate' do
-            assert_equal 50, @rates_query.rates(@sixth_april_2016).copy_of_birth_registration_certificate
-          end
+    context 'register a birth fees' do
+      context 'for 2015/16' do
+        setup do
+          @rates_query = RatesQuery.from_file('register_a_birth')
+          @sixth_april_2015 = Date.parse('2015-04-06')
+        end
+
+        should 'be £105 for registering a birth' do
+          assert_equal 105, @rates_query.rates(@sixth_april_2015).register_a_birth
+        end
+
+        should 'be £65 for a copy of the birth registration certificate' do
+          assert_equal 65, @rates_query.rates(@sixth_april_2015).copy_of_birth_registration_certificate
+        end
+      end
+
+      context 'for 2016/17' do
+        setup do
+          @rates_query = RatesQuery.from_file('register_a_birth')
+          @sixth_april_2016 = Date.parse('2016-04-06')
+        end
+
+        should 'be £150 for registering a birth' do
+          assert_equal 150, @rates_query.rates(@sixth_april_2016).register_a_birth
+        end
+
+        should 'be £50 for a copy of the birth registration certificate' do
+          assert_equal 50, @rates_query.rates(@sixth_april_2016).copy_of_birth_registration_certificate
         end
       end
     end
