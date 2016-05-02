@@ -1,8 +1,6 @@
 require 'node_presenter'
-require 'gds_api/helpers'
 
 class FlowPresenter
-  include GdsApi::Helpers
   extend Forwardable
   include Rails.application.routes.url_helpers
 
@@ -18,7 +16,7 @@ class FlowPresenter
   end
 
   def artefact
-    @artefact ||= content_api.artefact(@flow.name.to_s)
+    @artefact ||= Services.content_api.artefact(@flow.name.to_s)
   rescue GdsApi::HTTPErrorResponse
     {}
   end
