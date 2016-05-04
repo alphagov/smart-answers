@@ -11,16 +11,6 @@
                locals: { calculator: calculator } %>
   <% end %>
 
-  <% if calculator.ceremony_country == 'finland' %>
-    <%= render partial: 'pay_in_euros_or_visa_electron.govspeak.erb' %>
-  <% elsif calculator.ceremony_country == 'philippines' %>
-    You can pay in cash or by cheque issued by a bank.
-  <% elsif calculator.ceremony_country == 'norway' %>
-    <%= render partial: 'pay_by_visas_or_mastercard.govspeak.erb' %>
-  <% elsif calculator.ceremony_country == 'south-korea' %>
-    You can pay by cash in the local currency or by credit card, but not by personal cheque.
-
-  <% else %>
-    <%= render partial: 'pay_by_cash_or_credit_card_no_cheque.govspeak.erb' %>
-  <% end %>
+  <%= render partial: 'payment_for_services.govspeak.erb',
+             locals: { calculator: calculator } %>
 <% end %>
