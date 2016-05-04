@@ -108,7 +108,7 @@ module SmartAnswer
 
         next_node do |response|
           if response == "none"
-            outcome :outcome_not_affected
+            outcome :housing_benefit_amount?
           else
             question BenefitCapCalculatorFlow.next_benefit_amount_question(config.questions(chosen_cap), benefit_types)
           end
@@ -127,7 +127,7 @@ module SmartAnswer
 
         next_node do |response|
           if response == "none"
-            outcome :outcome_not_affected_future
+            outcome :housing_benefit_amount?
           else
             question BenefitCapCalculatorFlow.next_benefit_amount_question(config.questions(chosen_cap), benefit_types)
           end
@@ -311,11 +311,6 @@ module SmartAnswer
       outcome :outcome_not_affected_less_than_cap_future_london
       ## Outcome 11
       outcome :outcome_not_affected_less_than_cap_future_national
-
-      ## Outcome 5
-      outcome :outcome_not_affected
-      ## Outcome 12
-      outcome :outcome_not_affected_future
     end
 
     def self.next_benefit_amount_question(benefits, selected_benefits)
