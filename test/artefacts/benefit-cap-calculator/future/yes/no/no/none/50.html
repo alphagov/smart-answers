@@ -28,19 +28,37 @@
   </header>
 
     <div class="step current">
-      <form action="/benefit-cap-calculator/y/default/yes/no/no/bereavement/50.0" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+      <form action="/benefit-cap-calculator/y/future/yes/no/no/none/50.0" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
         <div class="current-question" id="current-question">
           <div class="question">
   <h2>
-    How much do you or someone in your household get for Housing Benefit?
+    Are you:
   </h2>
   <div class="question-body">
 
-      <p class="hint">You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week. You must enter the full amount you get for each benefit.</p>
 
     <div class="">
 
-      <label for="response_amount">&pound; <input type="text" name="response" id="response" size="5" /></label>
+      <ul class="options">
+    <li>
+      <label for="response_0" class="selectable">
+        <input type="radio" name="response" id="response_0" value="single" />
+        Single
+      </label>
+    </li>
+    <li>
+      <label for="response_1" class="selectable">
+        <input type="radio" name="response" id="response_1" value="couple" />
+        Living as a couple (with or without children)
+      </label>
+    </li>
+    <li>
+      <label for="response_2" class="selectable">
+        <input type="radio" name="response" id="response_2" value="parent" />
+        A lone parent with 1 or more dependent children
+      </label>
+    </li>
+</ul>
 
 
       
@@ -68,10 +86,10 @@
               <tr class="section">
   <td class="previous-question-title">The benefit cap is changing.</td>
     <td class="previous-question-body">
-    The current benefit cap</td>
+    The new benefit cap from autumn 2016 - we’ll provide the exact date once it’s available</td>
 
   <td class="link-right">
-    <a href="/benefit-cap-calculator/y?previous_response=default">
+    <a href="/benefit-cap-calculator/y?previous_response=future">
       Change<span class="visuallyhidden"> answer to "The benefit cap is changing."</span>
 </a>  </td>
 </tr>
@@ -82,7 +100,7 @@
     Yes</td>
 
   <td class="link-right">
-    <a href="/benefit-cap-calculator/y/default?previous_response=yes">
+    <a href="/benefit-cap-calculator/y/future?previous_response=yes">
       Change<span class="visuallyhidden"> answer to "Do you receive Housing Benefit?"</span>
 </a>  </td>
 </tr>
@@ -93,7 +111,7 @@
     No</td>
 
   <td class="link-right">
-    <a href="/benefit-cap-calculator/y/default/yes?previous_response=no">
+    <a href="/benefit-cap-calculator/y/future/yes?previous_response=no">
       Change<span class="visuallyhidden"> answer to "Do you qualify for Working Tax Credit?"</span>
 </a>  </td>
 </tr>
@@ -104,7 +122,7 @@
     No</td>
 
   <td class="link-right">
-    <a href="/benefit-cap-calculator/y/default/yes/no?previous_response=no">
+    <a href="/benefit-cap-calculator/y/future/yes/no?previous_response=no">
       Change<span class="visuallyhidden"> answer to "Do you or someone in your household get any of the following benefits?"</span>
 </a>  </td>
 </tr>
@@ -112,23 +130,23 @@
               <tr class="section">
   <td class="previous-question-title">Do you or someone in your household get any of the following benefits?</td>
     <td class="previous-question-body"><ul>
-      <li>Bereavement Allowance</li>
+      <li>none</li>
     </ul></td>
 
   <td class="link-right">
-    <a href="/benefit-cap-calculator/y/default/yes/no/no?previous_response=bereavement">
+    <a href="/benefit-cap-calculator/y/future/yes/no/no?previous_response=none">
       Change<span class="visuallyhidden"> answer to "Do you or someone in your household get any of the following benefits?"</span>
 </a>  </td>
 </tr>
 
               <tr class="section">
-  <td class="previous-question-title">How much do you or someone in your household get for Bereavement Allowance?</td>
+  <td class="previous-question-title">How much do you or someone in your household get for Housing Benefit?</td>
     <td class="previous-question-body">
     £50</td>
 
   <td class="link-right">
-    <a href="/benefit-cap-calculator/y/default/yes/no/no/bereavement?previous_response=50.0">
-      Change<span class="visuallyhidden"> answer to "How much do you or someone in your household get for Bereavement Allowance?"</span>
+    <a href="/benefit-cap-calculator/y/future/yes/no/no/none?previous_response=50.0">
+      Change<span class="visuallyhidden"> answer to "How much do you or someone in your household get for Housing Benefit?"</span>
 </a>  </td>
 </tr>
 
