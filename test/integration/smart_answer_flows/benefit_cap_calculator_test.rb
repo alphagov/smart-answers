@@ -163,9 +163,25 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
             context "no additional benefits selected" do
               setup { add_response 'none' }
 
-              should "go to outcome" do
-                assert_current_node :outcome_not_affected
+              should "ask for housing benefit amount" do
+                assert_current_node :housing_benefit_amount?
               end
+
+              context "answer housing benefit amount" do
+                setup { add_response "10" }
+
+                should "ask if single, couple or lone parent" do
+                  assert_current_node :single_couple_lone_parent?
+                end
+
+                context "answer lone parent" do
+                  setup { add_response 'parent' }
+
+                  should "go to outcome" do
+                    assert_current_node :outcome_not_affected_less_than_cap
+                  end
+                end #Q6 lone parent, under cap, at Outcome 4
+              end #Q5p how much for housing, under cap
             end #Q4 no additional benefits at Outcome 5
           end #Q3 not receiving benefits
         end # Q2 not qualify for working tax credit
@@ -369,9 +385,39 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
             context "no additional benefits selected" do
               setup { add_response 'none' }
 
-              should "go to outcome" do
-                assert_current_node :outcome_not_affected_future
+              should "ask for housing benefit amount" do
+                assert_current_node :housing_benefit_amount?
               end
+
+              context "answer housing benefit amount" do
+                setup { add_response "10" }
+
+                should "ask if single, couple or lone parent" do
+                  assert_current_node :single_couple_lone_parent_future?
+                end
+
+                context "answer lone parent" do
+                  setup { add_response 'parent' }
+
+                  should "ask for your postcode" do
+                    assert_current_node :enter_postcode?
+                  end
+                  context "enter postcode outside London" do
+                    setup { add_response "B1 1PW" }
+
+                    should "go to outcome benefits less than cap for outside London" do
+                      assert_current_node :outcome_not_affected_less_than_cap_future_national
+                    end
+                  end
+                  context "enter postcode in Greater London" do
+                    setup { add_response "IG6 2BA" }
+
+                    should "go to outcome benefits less than cap for Greater London" do
+                      assert_current_node :outcome_not_affected_less_than_cap_future_london
+                    end
+                  end
+                end #Q6 lone parent, under cap, at Outcome 4
+              end #Q5p how much for housing, under cap
             end #Q4 no additional benefits at Outcome 5
           end #Q3 not receiving benefits
         end # Q2 not qualify for working tax credit
