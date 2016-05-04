@@ -1,16 +1,14 @@
 ---
-lib/smart_answer_flows/benefit-cap-calculator.rb: c99096e1151f22572eae93101c3126e3
+lib/smart_answer_flows/benefit-cap-calculator.rb: ee1cdbd62acd6cd786f830b808ce3aba
 test/data/benefit-cap-calculator-questions-and-responses.yml: 4567ad401275ae2413078e16ca24c54b
-test/data/benefit-cap-calculator-responses-and-expected-results.yml: 9c548b91812c1be743d2afc45b78f00c
+test/data/benefit-cap-calculator-responses-and-expected-results.yml: 3d7338effa5731b7e303f1d5a031df2a
 lib/smart_answer_flows/benefit-cap-calculator/benefit_cap_calculator.govspeak.erb: ce5203f11989c0b35bd9c53ade1f3f82
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/_dwp_contact_details.govspeak.erb: 3bab6f0d1df0457dbf0ff7548150ba4f
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_affected_greater_than_cap.govspeak.erb: 7936b82b49f4585eae7a5e4e6fdc23f7
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_affected_greater_than_cap_future_london.govspeak.erb: 81c5c8474ccf939d6c15c346edb064c1
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_affected_greater_than_cap_future_national.govspeak.erb: 2319a8e2b2bf248c8cb9e5f0faa3ee88
-lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected.govspeak.erb: 4dc17c29820007d202f8d59723de2892
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected_exemptions.govspeak.erb: 41d68ee32bba9ebe50e60bc6dc4929b5
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected_exemptions_future.govspeak.erb: b438d0f73b9b0bf6978ee05e28bba719
-lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected_future.govspeak.erb: 9c0a024c910604fbe0b313e77a953012
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected_less_than_cap.govspeak.erb: e8bdd6241518ebc081cd0801b208c7dc
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected_less_than_cap_future_london.govspeak.erb: c2b48f7b67b50e181e38cd647846a53f
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected_less_than_cap_future_national.govspeak.erb: eeca87417ce53982d82446f88cc8058e
