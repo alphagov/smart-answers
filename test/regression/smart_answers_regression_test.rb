@@ -14,6 +14,9 @@ require 'gds_api/test_helpers/content_api'
 require 'gds_api/test_helpers/worldwide'
 require 'gds_api/test_helpers/imminence'
 
+require 'mocha/setup'
+Mocha::Configuration.prevent(:stubbing_non_existent_method)
+
 class SmartAnswersRegressionTest < ActionController::TestCase
   i_suck_and_my_tests_are_order_dependent!
   RUN_ME_LAST = 'zzzzzzzzzzz run me last'
@@ -62,12 +65,11 @@ class SmartAnswersRegressionTest < ActionController::TestCase
     context "Smart Answer: #{flow_name}" do
       setup do
         Timecop.freeze(smart_answer_helper.current_time)
+        setup_worldwide_locations
 
         next if self.class.setup_has_run? && !self.class.teardown_hooks_installed?
         stub_content_api_default_artefact
         WebMock.stub_request(:get, WorkingDays::BANK_HOLIDAYS_URL).to_return(body: File.open(fixture_file('bank_holidays.json')))
-
-        setup_worldwide_locations
 
         imminence_has_areas_for_postcode("PA3%202SW",  [{ slug: 'renfrewshire-council', country_name: 'Scotland' }])
         imminence_has_areas_for_postcode("B1%201PW",   [{ slug: "birmingham-city-council", country_name: 'England' }])
@@ -151,13 +153,26 @@ private
 
   def setup_worldwide_locations
     location_slugs = YAML.load(read_fixture_file("worldwide_locations.yml"))
-    worldwide_api_has_locations(location_slugs)
-    location_slugs.each do |location|
-      path_to_organisations_fixture = fixture_file("worldwide/#{location}_organisations.json")
-      if File.exist?(path_to_organisations_fixture)
-        json = File.read(path_to_organisations_fixture)
-        worldwide_api_has_organisations_for_location(location, json)
-      end
+    stub_worldwide_locations(location_slugs)
+    # worldwide_api_has_locations(location_slugs)
+    # location_slugs.each do |location|
+    #   path_to_organisations_fixture = fixture_file("worldwide/#{location}_organisations.json")
+    #   if File.exist?(path_to_organisations_fixture)
+    #     json = File.read(path_to_organisations_fixture)
+    #     worldwide_api_has_organisations_for_location(location, json)
+    #   end
+    # end
+  end
+
+  def stub_worldwide_locations(location_slugs)
+    locations = location_slugs.map do |slug|
+      location = stub.quacks_like(WorldLocation.new({}))
+      location.stubs(:slug).returns(slug)
+      location.stubs(:name).returns(slug.humanize)
+      location.stubs(:fco_organisation).returns(nil)
+      WorldLocation.stubs(:find).with(slug).returns(location)
+      location
     end
+    WorldLocation.stubs(:all).returns(locations)
   end
 end
