@@ -26,8 +26,6 @@ module SmartAnswer::Calculators
 
     OS_CONSULAR_CNI_IN_NEARBY_COUNTRY = %w(nicaragua)
 
-    OS_OTHER_COUNTRIES = %w(burma north-korea iran somalia syria yemen saudi-arabia)
-
     OS_AFFIRMATION_COUNTRIES = %w(belgium cambodia colombia china ecuador egypt lebanon finland macao mongolia morocco norway peru philippines qatar south-korea thailand turkey united-arab-emirates vietnam)
 
     CP_EQUIVALENT_COUNTRIES = %w(austria brazil colombia czech-republic denmark ecuador finland germany hungary iceland luxembourg netherlands norway portugal slovenia sweden)
@@ -125,10 +123,6 @@ module SmartAnswer::Calculators
 
     def os_no_marriage_related_consular_services?(country_slug)
       OS_NO_MARRIAGE_CONSULAR_SERVICES.include?(country_slug)
-    end
-
-    def os_other_countries?(country_slug)
-      OS_OTHER_COUNTRIES.include?(country_slug)
     end
 
     def cp_equivalent_countries?(country_slug)
