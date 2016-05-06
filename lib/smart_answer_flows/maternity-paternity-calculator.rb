@@ -1,6 +1,6 @@
-require 'smart_answer_flows/maternity-paternity-calculator/adoption-calculator'
-require 'smart_answer_flows/maternity-paternity-calculator/paternity-calculator'
-require 'smart_answer_flows/maternity-paternity-calculator/maternity-calculator'
+require 'smart_answer_flows/maternity-paternity-calculator/adoption_calculator_flow'
+require 'smart_answer_flows/maternity-paternity-calculator/paternity_calculator_flow'
+require 'smart_answer_flows/maternity-paternity-calculator/maternity_calculator_flow'
 
 module SmartAnswer
   class MaternityPaternityCalculatorFlow < Flow

@@ -105,9 +105,9 @@ Style/MethodCalledOnDoEndBlock:
     - 'lib/graph_presenter.rb'
     - 'lib/graphviz_presenter.rb'
     - 'lib/smart_answer/calculators/minimum_wage_calculator.rb'
-    - 'lib/smart_answer_flows/maternity-paternity-calculator/adoption-calculator.rb'
-    - 'lib/smart_answer_flows/maternity-paternity-calculator/maternity-calculator.rb'
-    - 'lib/smart_answer_flows/maternity-paternity-calculator/paternity-calculator.rb'
+    - 'lib/smart_answer_flows/maternity-paternity-calculator/adoption_calculator_flow.rb'
+    - 'lib/smart_answer_flows/maternity-paternity-calculator/maternity_calculator_flow.rb'
+    - 'lib/smart_answer_flows/maternity-paternity-calculator/paternity_calculator_flow.rb'
 
 # Offense count: 1
 Style/MultilineTernaryOperator:
