@@ -1,5 +1,5 @@
 module SmartAnswer
-  module SharedLogic
+  module Shared
     class RedundancyPayFlow < Flow
       def define
         date_question :date_of_redundancy? do
