@@ -1,5 +1,5 @@
 module SmartAnswer
-  module SharedLogic
+  module Shared
     class MinimumWageFlow < Flow
       def define
         # Q1A

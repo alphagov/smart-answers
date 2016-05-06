@@ -1,4 +1,4 @@
-require 'smart_answer_flows/shared_logic/minimum_wage'
+require 'smart_answer_flows/shared/minimum_wage'
 
 module SmartAnswer
   class MinimumWageCalculatorEmployersFlow < Flow
@@ -51,7 +51,7 @@ module SmartAnswer
         end
       end
 
-      append(SharedLogic::MinimumWageFlow.build)
+      append(Shared::MinimumWageFlow.build)
     end
   end
 end
