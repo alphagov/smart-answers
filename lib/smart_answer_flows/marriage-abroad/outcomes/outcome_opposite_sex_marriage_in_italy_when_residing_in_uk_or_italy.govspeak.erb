@@ -114,7 +114,8 @@
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: { calculator: calculator } %>
 
-    <%= render partial: 'pay_in_euro_or_sterling_or_card.govspeak.erb' %>
+    <%= render partial: 'payment_information.govspeak.erb',
+               locals: { calculator: calculator } %>
   <% end %>
 
 
