@@ -290,7 +290,7 @@ module SmartAnswer::Calculators
     end
 
     def services_payment_partial_name
-      if @services_data[ceremony_country].present?
+      if services_data_for_ceremony_country?
         @services_data[ceremony_country]['payment_partial_name']
       end
     end
@@ -325,8 +325,12 @@ module SmartAnswer::Calculators
     end
 
     def services_data_for_country_and_partner_sex?
-      @services_data.has_key?(ceremony_country) &&
+      services_data_for_ceremony_country? &&
         @services_data[ceremony_country].has_key?(@sex_of_your_partner)
+    end
+
+    def services_data_for_ceremony_country?
+      @services_data.has_key?(ceremony_country)
     end
 
     def outcome_path_when_resident_in(uk_or_ceremony_country)
