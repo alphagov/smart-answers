@@ -1,5 +1,5 @@
 module SmartAnswer
-  module SharedLogic
+  class MaternityPaternityCalculatorFlow < Flow
     class PaternityCalculatorFlow < Flow
       def define
         days_of_the_week = Calculators::MaternityPaternityCalculator::DAYS_OF_THE_WEEK
