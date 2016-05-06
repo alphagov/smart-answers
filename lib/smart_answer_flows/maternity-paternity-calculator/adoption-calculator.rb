@@ -1,5 +1,5 @@
 module SmartAnswer
-  module SharedLogic
+  class MaternityPaternityCalculatorFlow < Flow
     class AdoptionCalculatorFlow < Flow
       def define
         ## QA0
