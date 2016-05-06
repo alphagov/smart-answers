@@ -1,4 +1,4 @@
-require 'smart_answer_flows/shared_logic/redundancy_pay'
+require 'smart_answer_flows/shared/redundancy_pay'
 
 module SmartAnswer
   class CalculateEmployeeRedundancyPayFlow < Flow
@@ -9,7 +9,7 @@ module SmartAnswer
       status :published
       satisfies_need "100138"
 
-      append(SharedLogic::RedundancyPayFlow.build)
+      append(Shared::RedundancyPayFlow.build)
     end
   end
 end
