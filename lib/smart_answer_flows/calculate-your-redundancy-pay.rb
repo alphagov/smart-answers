@@ -1,4 +1,4 @@
-require 'smart_answer_flows/shared/redundancy_pay'
+require 'smart_answer_flows/shared/redundancy_pay_flow'
 
 module SmartAnswer
   class CalculateYourRedundancyPayFlow < Flow
