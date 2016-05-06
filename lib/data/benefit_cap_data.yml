@@ -10,7 +10,7 @@ default:
         description: "Living as a couple (with or without children)"
       parent:
         amount: 500
-        description: "A lone parent with 1 or more dependent children"
+        description: "A lone parent with one or more dependent children"
   exempt_benefits:
     - Attendance Allowance
     - Disability Living Allowance
@@ -77,7 +77,7 @@ future:
         description: "Living as a couple (with or without children)"
       parent:
         amount: 384.62
-        description: "A lone parent with 1 or more dependent children"
+        description: "A lone parent with one or more dependent children"
     london:
       single:
         amount: 296.35
@@ -87,7 +87,7 @@ future:
         description: "Living as a couple (with or without children)"
       parent:
         amount: 442.31
-        description: "A lone parent with 1 or more dependent children"
+        description: "A lone parent with one or more dependent children"
   exempt_benefits:
     - Attendance Allowance
     - Carer's Allowance
