@@ -16,14 +16,32 @@ Clone the following repositories:
 * [asset-manager](https://github.com/alphagov/asset-manager)
 * [govuk_content_api](https://github.com/alphagov/govuk_content_api)
 
+If you want to run the Whitehall app locally (to provide the server side of the Worldwide API), then you also need to clone its repository:
+
+* [whitehall](https://github.com/alphagov/whitehall)
+
 Then run `bundle install` for each application.
+
+If you're running the Whitehall app locally, you'll need to setup its database and import some suitable data. There's a data replication job that imports production data which includes Whitehall data.
 
 ## Running the application
 
-Run using bowler on VM from cd /var/govuk/development:
+### Without local Whitehall app
+
+Add `PLEK_SERVICE_WHITEHALL_ADMIN_URI=https://www.gov.uk` to a `.env` file in `/var/govuk/development` to point the Smart Answers app at the production instance of the Whitehall app.
+
+Run using bowler on VM from `/var/govuk/development`:
 
 ```bash
 bowl smartanswers
+```
+
+### With local Whitehall app
+
+Run using bowler on VM from ``/var/govuk/development`:
+
+```bash
+bowl smartanswers whitehall
 ```
 
 ## Viewing a Smart Answer
