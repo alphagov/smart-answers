@@ -1,4 +1,4 @@
-require 'smart_answer_flows/shared/minimum_wage'
+require 'smart_answer_flows/shared/minimum_wage_flow'
 
 module SmartAnswer
   class MinimumWageCalculatorEmployersFlow < Flow
