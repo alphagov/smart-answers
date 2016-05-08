@@ -139,7 +139,8 @@
                locals: { calculator: calculator } %>
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: { calculator: calculator } %>
-    <%= render partial: 'pay_by_visas_or_mastercard.govspeak.erb' %>
+    <%= render partial: 'payment_information.govspeak.erb',
+               locals: { calculator: calculator } %>
   <% end %>
 
   *[CNI]:certificate of no impediment
