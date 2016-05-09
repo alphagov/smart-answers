@@ -1,3 +1,7 @@
+require 'smart_answer_flows/maternity-paternity-calculator/adoption_calculator_flow'
+require 'smart_answer_flows/maternity-paternity-calculator/paternity_calculator_flow'
+require 'smart_answer_flows/maternity-paternity-calculator/maternity_calculator_flow'
+
 module SmartAnswer
   class MaternityPaternityCalculatorFlow < Flow
     def define
@@ -59,9 +63,9 @@ module SmartAnswer
         end
       end
 
-      use_shared_logic ("adoption-calculator")
-      use_shared_logic ("paternity-calculator")
-      use_shared_logic ("maternity-calculator")
+      append(AdoptionCalculatorFlow.build)
+      append(PaternityCalculatorFlow.build)
+      append(MaternityCalculatorFlow.build)
     end
   end
 end

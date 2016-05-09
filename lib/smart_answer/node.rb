@@ -2,6 +2,7 @@ require 'active_support/inflector'
 
 module SmartAnswer
   class Node
+    attr_accessor :flow
     attr_reader :name, :calculations, :next_node_calculations, :precalculations
 
     def initialize(flow, name, &block)
