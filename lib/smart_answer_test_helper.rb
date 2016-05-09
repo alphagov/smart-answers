@@ -11,8 +11,22 @@ class SmartAnswerTestHelper
     Dir[data_path.join('*-responses-and-expected-results.yml')]
   end
 
+  def self.configurations
+    yaml = File.read(data_path.join('configurations.yml'))
+    YAML.load(yaml)
+  end
+
+  def self.default_configuration
+    configurations.fetch('default')
+  end
+
   def initialize(flow_name)
     @flow_name = flow_name
+  end
+
+  def configuration
+    default = self.class.default_configuration
+    self.class.configurations.fetch(@flow_name, default)
   end
 
   def files_checksum_path
