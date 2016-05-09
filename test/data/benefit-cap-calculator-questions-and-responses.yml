@@ -1,4 +1,7 @@
 ---
+:choose_cap_to_calculate?:
+- 'default'
+- 'future'
 :receive_housing_benefit?:
 - 'yes'
 - 'no'
@@ -12,6 +15,10 @@
 - none
 - bereavement
 - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widowed_mother,widowed_parent,widow_pension,widows_aged
+:receiving_non_exemption_benefits_future?:
+- none
+- bereavement
+- bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widowed_mother,widowed_parent,widow_pension,widows_aged
 :bereavement_amount?:
 - 50
 :carers_amount?:
@@ -49,3 +56,10 @@
 - single
 - couple
 - parent
+:single_couple_lone_parent_future?:
+- single
+- couple
+- parent
+:enter_postcode?:
+- B1 1PW
+- IG6 2BA

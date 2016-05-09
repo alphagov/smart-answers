@@ -1,0 +1,69 @@
+{
+   "_response_info":{
+      "status":"ok",
+      "links":[
+
+      ]
+   },
+   "total":6,
+   "start_index":1,
+   "page_size":6,
+   "current_page":1,
+   "pages":1,
+   "results":[
+      {
+         "slug":"havering-and-redbridge",
+         "name":"Havering and Redbridge",
+         "country_name":"England",
+         "type":"LAC",
+         "codes":{
+            "gss":"E32000009"
+         }
+      },
+      {
+         "slug":"fullwell",
+         "name":"Fullwell",
+         "country_name":"England",
+         "type":"LBW",
+         "codes":{
+            "gss":"E05000504"
+         }
+      },
+      {
+         "slug":"redbridge-borough-council",
+         "name":"Redbridge Borough Council",
+         "country_name":"England",
+         "type":"LBO",
+         "codes":{
+            "gss":"E09000026"
+         }
+      },
+      {
+         "slug":"ilford-north",
+         "name":"Ilford North",
+         "country_name":"England",
+         "type":"WMC",
+         "codes":{
+            "gss":"E14000759"
+         }
+      },
+      {
+         "slug":"greater-london-authority",
+         "name":"Greater London Authority",
+         "country_name":"England",
+         "type":"GLA",
+         "codes":{
+            "gss":null
+         }
+      },
+      {
+         "slug":"london",
+         "name":"London",
+         "country_name":"England",
+         "type":"EUR",
+         "codes":{
+            "gss":"E15000007"
+         }
+      }
+   ]
+}
