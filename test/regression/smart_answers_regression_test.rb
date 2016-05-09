@@ -62,7 +62,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
     context "Smart Answer: #{flow_name}" do
       setup do
         next if self.class.setup_has_run? && !self.class.teardown_hooks_installed?
-        Timecop.freeze(Date.parse('2015-01-01'))
+        Timecop.freeze(smart_answer_helper.current_time)
         stub_content_api_default_artefact
         WebMock.stub_request(:get, WorkingDays::BANK_HOLIDAYS_URL).to_return(body: File.open(fixture_file('bank_holidays.json')))
 
