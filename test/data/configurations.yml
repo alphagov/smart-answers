@@ -1,2 +1,3 @@
 ---
-  default: {}
+  default:
+    :current_time: 2015-01-01

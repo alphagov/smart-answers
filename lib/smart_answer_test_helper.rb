@@ -29,6 +29,10 @@ class SmartAnswerTestHelper
     self.class.configurations.fetch(@flow_name, default)
   end
 
+  def current_time
+    configuration.fetch(:current_time)
+  end
+
   def files_checksum_path
     data_path.join(files_checksum_filename)
   end
