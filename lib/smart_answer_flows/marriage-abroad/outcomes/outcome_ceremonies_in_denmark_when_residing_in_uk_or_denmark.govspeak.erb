@@ -1,0 +1,447 @@
+<% content_for :title do %>
+  Marriage in <%= calculator.country_name_lowercase_prefix %>
+<% end %>
+
+<% content_for :body do %>
+  <% if calculator.resident_of_uk? %>
+    <% if calculator.ceremony_country_is_dutch_caribbean_island? %>
+      <%= calculator.country_name_uppercase_prefix %> is one of the Dutch Caribbean islands.
+
+      Contact the [Dutch Embassy in the UK](http://www.netherlands-embassy.org.uk/about/index.php?i=121) before making any plans to find out about local marriage laws, including what documents you’ll need
+
+    <% else %>
+      <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_marriage.govspeak.erb',
+                 locals: { calculator: calculator } %>
+    <% end %>
+  <% else %>
+    <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
+               locals: { calculator: calculator } %>
+  <% end %>
+
+  <% if %w(jordan oman qatar).include?(calculator.ceremony_country) %>
+    <%= render partial: 'gulf_states_os_consular_cni.govspeak.erb',
+               locals: { calculator: calculator } %>
+    <% if calculator.resident_of_ceremony_country? %>
+      <%= render partial: 'gulf_states_os_consular_cni_local_resident.govspeak.erb',
+                 locals: { calculator: calculator } %>
+
+    <% end %>
+  <% end %>
+
+  <% if calculator.resident_of_ceremony_country? %>
+    <%= render partial: 'get_legal_advice.govspeak.erb' %>
+  <% else %>
+    <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
+               locals: { calculator: calculator } %>
+  <% end %>
+
+  <%= render partial: 'what_you_need_to_do.govspeak.erb',
+      locals: { calculator: calculator } %>
+
+  <% if calculator.ceremony_country == 'croatia' && calculator.resident_of_ceremony_country? %>
+    You'll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
+
+    The local registrar may also need a certificate of custom and law, which confirms the marriage is valid - the Embassy in Zagreb can provide this.
+
+  <% elsif %w(montenegro kuwait).include?(calculator.ceremony_country) && calculator.resident_outside_of_uk? %>
+    You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry. Contact the local notary public to check if you need a CNI.
+
+  <% elsif calculator.ceremony_country == 'jordan' %>
+    You need to have been living in <%= calculator.country_name_lowercase_prefix %> for 21 days.
+
+    If you’re getting married at the Sharia Court, you’ll need to provide a [single declaration document](/government/publications/single-declaration-form-for-islamic-marriages-jordan) to prove you’re allowed to marry, or a [single divorced declaration document](/government/publications/single-declaration-form-for-islamic-marriages-if-you-are-divorced-jordan) if you’re divorced.
+
+    Make an appointment at the local British embassy or consulate to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring the single declaration, your passport, your partner’s passport and pay a fee.
+
+    ^Documents must be originals if you are getting married at the Sharia Court.^
+
+    For non-Islamic marriages, you’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
+
+
+  <% elsif calculator.opposite_sex_21_days_residency_required? %>
+    You need to have been living in the country where you intend to marry for 21 full days.
+
+    <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
+
+  <% else %>
+    <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
+
+  <% end %>
+  <% if calculator.ceremony_country == 'denmark' %>
+    ^You don’t need a CNI if you’re getting married in the main town hall in Copenhagen.^
+
+  <% end %>
+  <% if calculator.resident_of_uk? %>
+    <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
+    <%= render partial: 'cni_issued_locally_validity.govspeak.erb',
+               locals: { calculator: calculator } %>
+    <% if calculator.cni_posted_after_14_days? %>
+      They’ll post your notice, and as long as nobody has registered an objection after 14 days, they’ll issue your CNI.
+
+    <% end %>
+  <% end %>
+  <% if calculator.resident_of_uk? %>
+
+    <% if calculator.ceremony_country == 'tunisia' %>
+      You’ll need to exchange your UK-issued CNI for one that’s valid in Tunisia at the nearest British embassy to where you’re getting married.
+
+    <% elsif calculator.ceremony_country == 'montenegro' %>
+      ###Getting a Montenegrin version of your CNI
+
+      You might need to exchange your UK-issued CNI for one that’s valid in Montenegro at the British Embassy in Podgorica.
+
+      Contact the embassy to make an appointment. You’ll need to pay the fee for issuing a CNI or equivalent - see below. Check with the local authorities to make sure they’ll accept your UK-issued CNI, and whether it needs to be:
+
+    <% elsif %w(finland kazakhstan kyrgyzstan).include?(calculator.ceremony_country) %>
+      ###Legalisation and translation
+
+      You should check with the local authorities in <%= calculator.country_name_lowercase_prefix %> to see if your CNI needs to be:
+
+
+    <% elsif calculator.ceremony_country == 'greece' %>
+      <%= render partial: 'legalisation_and_translation.govspeak.erb' %>
+      Your UK-issued CNI should be accepted by the town hall.
+
+      You should also check if it needs to be:
+
+    <% elsif calculator.ceremony_country == 'sweden' %>
+      ###Legalisation and translation
+
+      You should check if your CNI needs to be:
+
+    <% else %>
+      <%= render partial: 'legisation_and_translation_intro_uk.govspeak.erb',
+                 locals: { calculator: calculator } %>
+
+    <% end %>
+    <% if %w(tunisia).exclude?(calculator.ceremony_country) %>
+      <%= render partial: 'legalise_translate_and_check_with_authorities.govspeak.erb',
+                 locals: { calculator: calculator } %>
+    <% end %>
+  <% end %>
+  <% if calculator.resident_of_ceremony_country? %>
+    <% if calculator.ceremony_country == 'croatia' %>
+
+      ###Applying for a CNI from the <%= calculator.embassy_or_consulate_ceremony_country %>
+
+      <%= render partial: "three_day_residency_requirement.govspeak.erb",
+                 locals: {
+                   country_name_lowercase_prefix: calculator.country_name_lowercase_prefix
+                 } %>
+
+      You can then book an appointment at the embassy to give notice of your marriage. There’s a fee for this service (read the table on this page).
+
+    <% elsif calculator.ceremony_country == 'nicaragua' %>
+      If you need a CNI, you must arrange this through the British Embassy in Costa Rica because there aren’t any British consular facilities in Nicaragua.
+
+
+    <% elsif %w(kazakhstan macedonia russia).exclude?(calculator.ceremony_country) %>
+      To get a CNI, you must post notice of your intended marriage in <%= calculator.country_name_lowercase_prefix %>. You can do this at the British embassy or in front of a notary public.
+
+
+    <% end %>
+
+    <% if %w(croatia italy russia).exclude?(calculator.ceremony_country) && calculator.three_day_residency_requirement_applies? %>
+      <%= render partial: "three_day_residency_requirement.govspeak.erb",
+                 locals: {
+                   country_name_lowercase_prefix: calculator.country_name_lowercase_prefix
+                 } %>
+    <% end %>
+
+    <% if calculator.ceremony_country == 'greece' %>
+      ### Posting notice in front of a notary public
+      If you choose to post notice before a local notary public, you must email the embassy in advance to get the forms you need.
+
+      <consular.athens@fco.gov.uk>
+
+      <% if calculator.resident_of_ceremony_country? %>
+        ^Some notaries public might not let you post notice. If a local notary public doesn’t sign your forms you’ll have to post notice at the British Embassy in Athens.^
+      <% end %>
+
+      ### Posting notice at the embassy
+
+    <% end %>
+    <% if calculator.ceremony_country == 'estonia' && calculator.resident_of_ceremony_country? %>
+      ^You may be able to get married without a CNI if you have a permanent address in Estonia and have a 6 month residence permit - contact the local authorities to find out.^
+
+    <% end %>
+    <% if calculator.ceremony_country == 'kyrgyzstan' %>
+      If you need a CNI, you’ll first need to give notice of your intended marriage (banns) at the British Embassy Office in Bishkek.
+
+    <% elsif calculator.ceremony_country == 'kazakhstan' %>
+      If you need a CNI, you’ll first need to give notice of your intended marriage (banns) at the British Embassy Office in Astana.
+
+    <% elsif calculator.ceremony_country == 'russia' %>
+      If you need a CNI, you’ll first need to give notice of your intended marriage at your nearest British <%= calculator.embassy_or_consulate_ceremony_country %>.
+
+      ###Applying for a CNI from the consulate
+
+      <%= render partial: "three_day_residency_requirement.govspeak.erb",
+                 locals: {
+                   country_name_lowercase_prefix: "the Russian Federation"
+                 } %>
+      You can then book an appointment at the consulate in the district you’re living in, to give notice of your marriage.
+
+
+    <% end %>
+    <% if calculator.ceremony_country == 'macedonia' %>
+      Contact a notary public or British Embassy in Macedonia to get advice:
+
+      $C
+      British Embassy Macedonia
+      Telephone: + 389 (2) 3299 299
+      <consular.skopje@fco.gov.uk>
+      $C
+
+      %You can’t book an appointment to get advice at the embassy in person.%
+
+    <% elsif calculator.ceremony_country == 'sudan' %>
+      Contact the embassy or consulate to make an appointment.
+
+      $A
+      British Embassy Khartoum
+      off Sharia Al Baladia
+      PO Box No 801, Khartoum East
+      Khartoum
+      Sudan
+      $A
+
+      $C
+      Telephone: +249 (0)156 775500
+      Fax: +249 (0)156 775501
+
+      Email: <information.khartoum@fco.gov.uk>
+
+      [British Embassy Khartoum - opening hours](/government/world/organisations/british-embassy-khartoum/office/british-embassy-khartoum-main-contact)
+      $C
+
+    <% elsif calculator.ceremony_country == 'moldova' %>
+      Contact the embassy or consulate to make an appointment.
+
+      $A
+      British Embassy Chisinau
+      18 Nicolae Iorga Str.
+      Chisinau
+      MD-2012
+      Moldova
+      $A
+
+      $C
+      Telephone: (+373) (22) 225 902
+      Fax: (+373) (22) 251 859
+
+      Email: <Enquiries.Chisinau@fco.gov.uk>
+
+      [British Embassy Chisinau - opening hours](/government/world/organisations/british-embassy-chisinau/office/british-embassy)
+      $C
+
+    <% else %>
+      <%= render partial: 'contact_method.govspeak.erb',
+                 locals: { calculator: calculator } %>
+    <% end %>
+  <% end %>
+  <% if calculator.resident_outside_of_uk? && calculator.ceremony_country == 'egypt' %>
+    <%= render partial: 'required_supporting_documents_egypt.govspeak.erb' %>
+  <% elsif calculator.resident_outside_of_uk? && calculator.ceremony_country == 'greece' %>
+    You’ll need to provide supporting documents, including:
+
+    - your passport
+    - Greek ID card (if available)
+    - proof of residence, such as a residence permit - check with the embassy or notary public to find out what you need
+    - equivalent documents for your partner
+
+
+  <% elsif calculator.resident_outside_of_uk? && calculator.ceremony_country == 'philippines' %>
+    <%= render partial: 'required_supporting_documents_philippines.govspeak.erb' %>
+  <% elsif calculator.resident_outside_of_uk? && calculator.ceremony_country == 'macao' %>
+    <%= render partial: 'required_supporting_documents_macao.govspeak.erb' %>
+  <% elsif calculator.resident_of_ceremony_country? %>
+    <% if calculator.birth_certificate_required_as_supporting_document? && (calculator.notary_public_ceremony_country? || %w(japan macedonia).include?(calculator.ceremony_country)) %>
+      You’ll need to provide supporting documents, including:
+
+      - your passport
+      - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
+      - proof of residence, such as a residence certificate - check with the <%= calculator.embassy_or_consulate_ceremony_country %> or notary public to find out what you need
+      - equivalent documents for your partner
+
+
+    <% elsif calculator.birth_certificate_required_as_supporting_document? %>
+      You’ll need to provide supporting documents, including:
+
+      - your passport
+      - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
+      - proof of residence, such as a residence certificate - check with the <%= calculator.embassy_or_consulate_ceremony_country %> to find out what you need
+      - equivalent documents for your partner
+
+
+    <% elsif (calculator.notary_public_ceremony_country? || %w(japan macedonia).include?(calculator.ceremony_country)) %>
+      You’ll need to provide supporting documents, including:
+
+      - your passport
+      - proof of residence, such as a residence certificate - check with the <%= calculator.embassy_or_consulate_ceremony_country %> or notary public to find out what you need
+      - equivalent documents for your partner
+
+
+    <% else %>
+      <%= render partial: 'required_supporting_documents.govspeak.erb',
+                 locals: { calculator: calculator } %>
+
+    <% end %>
+    <% if calculator.ceremony_country == 'jordan' %>
+      ^Documents must be originals if you are getting married at the Sharia Court.^
+
+    <% end %>
+  <% end %>
+
+  <% if calculator.resident_of_ceremony_country? %>
+    <% if calculator.ceremony_country == 'greece' %>
+      You’ll need to fill in forms for your notice of marriage, and complete an affirmation (non-religious) or affidavit (religious) stating that you’re free to marry.
+
+      You can download and fill in (but not sign) the forms in advance. You’ll need to take the forms with you to your appointment.
+
+
+      $D
+      [Download ‘Notice of marriage’](/government/publications/notice-of-marriage-form--2)
+
+      [Download ‘Affidavit and affirmation for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form)
+      $D
+
+
+    <% else %>
+      <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
+
+    <% end %>
+  <% else %>
+    <% if calculator.partner_is_same_sex? ||
+      (
+        calculator.document_download_link_if_opposite_sex_resident_of_uk_countries? &&
+        (calculator.notary_public_ceremony_country? || %w(macedonia).include?(calculator.ceremony_country)) &&
+        %w(greece tunisia).exclude?(calculator.ceremony_country)
+      ) %>
+      <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
+
+    <% end %>
+  <% end %>
+
+  <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
+
+  <% if calculator.resident_of_ceremony_country? %>
+
+    <% if calculator.partner_british? && %w(finland).exclude?(calculator.ceremony_country) %>
+      ^Your partner will need to follow the same process and pay the fees to get their own CNI.^
+    <% end %>
+
+    <% if calculator.ceremony_country == 'kazakhstan' %>
+      <%= render partial: 'display_notice_of_marriage_7_days.govspeak.erb',
+                 locals: { calculator: calculator } %>
+
+    <% end %>
+
+    <% if calculator.resident_outside_of_uk? %>
+      <% if calculator.ceremony_country == 'jordan' %>
+
+        If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
+
+        - a [single divorced declaration document](/government/publications/single-declaration-form-for-islamic-marriages-if-you-are-divorced-jordan) if you’re getting married at the Sharia Court
+        - a [decree absolute or final order](/copy-decree-absolute-final-order)
+        - a civil partnership dissolution or annulment certificate
+        - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
+
+      <% else %>
+        <%= render partial: 'consular_cni_os_not_uk_resident_ceremony_not_germany.govspeak.erb' %>
+
+      <% end %>
+
+      ^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
+
+    <% end %>
+
+    <% if calculator.ceremony_country == 'greece' %>
+      ###What happens next
+
+      The embassy or notary public can take your oath or affirmation and witness your notice of marriage. The notary public may charge 2 separate fees for this.
+
+      If you give notice at a notary public, you must post the signed forms and any supporting documents to the British Embassy in Athens afterwards.
+
+      The embassy will display your notice of marriage publicly for 7 days (from the day after they receive your payment). They’ll then issue the CNI on the 8th day (as long as nobody has registered an objection).
+
+      There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
+
+      You can then collect your CNI at the British embassy in Athens or ask for it to be sent to you by post. You must provide the registrar’s original Notice of Marriage if you posted notice in the UK.
+
+      [Make an appointment to collect your CNI at the embassy in Athens](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-athens/certificate-of-no-impediment/slot_picker).
+
+    <% elsif calculator.notary_public_ceremony_country? %>
+      ###What happens next
+
+      The embassy or notary public will charge a fee for taking the oath.
+
+      If you give notice at a notary public, you must post the signed forms and any supporting documents to your nearest British embassy or consulate afterwards.
+
+      ^The embassy or consulate may charge a fee to return your documents to you.^
+
+      The consulate will display your notice of marriage publicly for 7 days.
+
+      They’ll then send all of your documentation to the British embassy or consulate nearest to where you’re getting married in <%= calculator.country_name_lowercase_prefix %>, who will issue your CNI (as long as nobody has registered an objection).
+
+      There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
+
+
+    <% else %>
+      <%= render partial: 'display_notice_of_marriage_7_days.govspeak.erb',
+                 locals: { calculator: calculator } %>
+
+    <% end %>
+  <% elsif calculator.requires_7_day_notice? %>
+    <%= render partial: 'display_notice_of_marriage_7_days.govspeak.erb',
+               locals: { calculator: calculator } %>
+
+  <% end %>
+  <% if calculator.resident_of_uk? && calculator.partner_is_neither_british_nor_a_national_of_ceremony_country? && "finland" == calculator.ceremony_country %>
+    <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>
+
+  <% end %>
+
+  <% if calculator.resident_outside_of_uk? %>
+    <%= render partial: 'check_if_cni_needs_to_be_legalised.govspeak.erb',
+               locals: { calculator: calculator } %>
+
+  <% end %>
+  <% if calculator.resident_of_ceremony_country? %>
+    <%= render partial: 'you_dont_need_to_stay_in_country.govspeak.erb' %>
+
+  <% end %>
+  <% if calculator.partner_not_british? %>
+
+    <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
+
+  <% end %>
+
+  <% if calculator.ceremony_country == 'poland' %>
+    <% if calculator.resident_of_uk? %>
+      ## What happens next
+    <% end %>
+
+    If you’re getting married in a registry office, you must give them your CNI at least 2 months before your wedding. If you’re getting married in a church, you can do this 2 days before the wedding.
+
+    You may be asked to provide a copy of your birth certificate. Make sure you send a [certified copy](/order-copy-birth-death-marriage-certificate) as you won’t get it back.
+  <% end %>
+
+  <%= render partial: 'consular_fees_table.govspeak.erb',
+             locals: { calculator: calculator } %>
+
+  <% unless calculator.country_without_consular_facilities? || calculator.ceremony_country == 'cote-d-ivoire' %>
+    <% if %w(kazakhstan kyrgyzstan).include?(calculator.ceremony_country) %>
+      You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Kazakhstan](/government/publications/kazakhstan-kyrgyzstan-consular-fees).
+
+    <% else %>
+      <%= render partial: 'link_to_consular_fees.govspeak.erb',
+                 locals: { calculator: calculator } %>
+    <% end %>
+  <% end %>
+
+  <%= render partial: 'payment_information.govspeak.erb',
+             locals: { calculator: calculator } %>
+
+  *[CNI]:certificate of no impediment
+<% end %>
