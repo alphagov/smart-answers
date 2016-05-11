@@ -16,6 +16,10 @@ module SmartAnswer::Calculators
       StatePensionDateQuery.state_pension_date(dob, gender)
     end
 
+    def can_apply?
+      Date.today >= earliest_application_date
+    end
+
     def state_pension_age
       if birthday_on_feb_29?
         friendly_time_diff(dob, state_pension_date - 1.day)
@@ -50,6 +54,12 @@ module SmartAnswer::Calculators
 
     def over_16_years_old?
       dob < 16.years.ago
+    end
+
+  private
+
+    def earliest_application_date
+      state_pension_date - 4.months - 4.days
     end
   end
 end
