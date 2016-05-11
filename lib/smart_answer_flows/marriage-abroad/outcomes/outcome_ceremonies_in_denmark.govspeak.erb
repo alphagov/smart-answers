@@ -1,8 +1,16 @@
 <% content_for :title do %>
-  Marriage in <%= calculator.country_name_lowercase_prefix %>
+  <% if calculator.partner_is_same_sex?  %>
+    Civil partnership in <%= calculator.country_name_lowercase_prefix %>
+  <% else  %>
+    Marriage in <%= calculator.country_name_lowercase_prefix %>
+  <% end  %>
 <% end %>
 
 <% content_for :body do %>
+  <% if calculator.partner_is_same_sex?  %>
+    <%= render partial: 'synonyms_of_cp.govspeak.erb',
+               locals: { calculator: calculator } %>
+  <% end  %>
   <% if calculator.resident_of_uk? %>
     <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_marriage.govspeak.erb',
                locals: { calculator: calculator } %>
@@ -65,6 +73,13 @@
   <% end %>
 
   <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
+
+  <% if calculator.resident_of_ceremony_country? %>
+    <%= render partial: 'consular_cni_os_not_uk_resident_ceremony_not_germany.govspeak.erb' %>
+
+    ^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
+
+  <% end %>
 
   ###No trace letters
 
