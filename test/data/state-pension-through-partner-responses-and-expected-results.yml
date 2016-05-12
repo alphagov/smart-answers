@@ -10,30 +10,6 @@
   - your_pension_age_before_specific_date
   :next_node: :when_will_your_partner_reach_pension_age?
   :outcome_node: false
-- :current_node: :when_will_you_reach_pension_age?
-  :responses:
-  - married
-  - your_pension_age_after_specific_date
-  :next_node: :when_will_your_partner_reach_pension_age?
-  :outcome_node: false
-- :current_node: :when_will_your_partner_reach_pension_age?
-  :responses:
-  - married
-  - your_pension_age_after_specific_date
-  - partner_pension_age_after_specific_date
-  :next_node: :what_is_your_gender?
-  :outcome_node: false
-- :current_node: :what_is_your_marital_status?
-  :responses:
-  - married
-  :next_node: :when_will_you_reach_pension_age?
-  :outcome_node: false
-- :current_node: :when_will_you_reach_pension_age?
-  :responses:
-  - married
-  - your_pension_age_before_specific_date
-  :next_node: :when_will_your_partner_reach_pension_age?
-  :outcome_node: false
 - :current_node: :when_will_your_partner_reach_pension_age?
   :responses:
   - married
