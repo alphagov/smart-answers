@@ -1,3 +1,5 @@
+ENV['PLEK_SERVICE_WHITEHALL_ADMIN_URI'] = 'https://www.gov.uk'
+
 require 'timecop'
 
 Timecop.freeze(Date.parse('2015-01-01'))
