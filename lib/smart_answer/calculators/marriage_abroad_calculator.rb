@@ -284,6 +284,8 @@ module SmartAnswer::Calculators
         @services_data[ceremony_country][@sex_of_your_partner][@resident_of]['default']
       elsif services_for_country_and_partner_sex_and_default_residency_and_default_nationality?
         @services_data[ceremony_country][@sex_of_your_partner]['default']['default']
+      elsif services_data_for_country_and_default_partner_sex?
+        @services_data[ceremony_country]['default']
       else
         []
       end
@@ -327,6 +329,11 @@ module SmartAnswer::Calculators
     def services_data_for_country_and_partner_sex?
       services_data_for_ceremony_country? &&
         @services_data[ceremony_country].has_key?(@sex_of_your_partner)
+    end
+
+    def services_data_for_country_and_default_partner_sex?
+      services_data_for_ceremony_country? &&
+        @services_data[ceremony_country].has_key?('default')
     end
 
     def services_data_for_ceremony_country?

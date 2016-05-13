@@ -861,6 +861,7 @@ module SmartAnswer
         setup do
           services_data = {
             'albania' => {
+              'default' => [:default_service],
               'opposite_sex' => {
                 'default' => {
                   'default' => [:partner_sex_specific_default_service],
@@ -882,11 +883,17 @@ module SmartAnswer
           assert_equal [], @calculator.services
         end
 
-        should 'return empty array if country found but no services available for type of ceremony' do
+        should 'return default services if country found but no services available for type of ceremony' do
           @calculator.ceremony_country = 'albania'
           @calculator.sex_of_your_partner = 'same_sex'
 
-          assert_equal [], @calculator.services
+          assert_equal [:default_service], @calculator.services
+        end
+
+        should 'return default services matching the country if sex of partner is not defined' do
+          @calculator.ceremony_country = 'albania'
+
+          assert_equal [:default_service], @calculator.services
         end
 
         should 'return default services matching the country and sex of partner' do
