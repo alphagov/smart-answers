@@ -99,6 +99,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
 
       should "render and save the landing page" do
         get :show, id: flow_name, format: 'txt'
+        assert_response :success
 
         artefact_path = smart_answer_helper.save_output([flow_name], response)
         assert_no_output_diff artefact_path if ENV['ASSERT_EACH_ARTEFACT'].present?
@@ -106,6 +107,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
 
       should "render and save the first question page" do
         get :show, id: flow_name, started: 'y', format: 'html'
+        assert_response :success
 
         artefact_path = smart_answer_helper.save_output(['y'], response, extension: 'html')
         assert_no_output_diff artefact_path if ENV['ASSERT_EACH_ARTEFACT'].present?
@@ -122,6 +124,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
           should "render and save output for responses: #{responses.join(', ')}" do
             format = outcome_node ? 'txt' : 'html'
             get :show, id: flow_name, started: 'y', responses: responses.join('/'), format: format
+            assert_response :success
 
             artefact_path = smart_answer_helper.save_output(responses, response, extension: format)
 
