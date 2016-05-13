@@ -630,7 +630,7 @@
   - kuwait
   - work
   - six_months_or_less
-  :next_node: :outcome_work_m
+  :next_node: :outcome_work_waiver
   :outcome_node: true
 - :current_node: :staying_for_how_long?
   :responses:
@@ -650,7 +650,7 @@
   - kuwait
   - study
   - six_months_or_less
-  :next_node: :outcome_visit_waiver
+  :next_node: :outcome_study_waiver
   :outcome_node: true
 - :current_node: :staying_for_how_long?
   :responses:
@@ -695,7 +695,7 @@
   :responses:
   - kuwait
   - school
-  :next_node: :outcome_visit_waiver
+  :next_node: :outcome_school_waiver
   :outcome_node: true
 - :current_node: :purpose_of_visit?
   :responses:

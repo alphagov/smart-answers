@@ -45,7 +45,7 @@
 :deduct_from_premises?:
 - '789' # :deduct_from_premises? -> :people_live_on_premises?
 :people_live_on_premises?:
--- '0' # simple_business_costs == 0
--- '1' # simple_business_costs == 4200
--- '2' # simple_business_costs == 6000
--- '5' # simple_business_costs == 7800
+- '0' # simple_business_costs == 0
+- '1' # simple_business_costs == 4200
+- '2' # simple_business_costs == 6000
+- '5' # simple_business_costs == 7800
