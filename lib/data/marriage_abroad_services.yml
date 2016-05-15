@@ -801,93 +801,35 @@ colombia:
       - :affidavit_or_affirmation_for_marriage
   payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 france:
-  opposite_sex:
-    default:
-      default:
-      - :issuing_custom_and_law_certificate
-  same_sex:
-    default:
-      default:
-      - :issuing_custom_and_law_certificate
+  default:
+  - :issuing_custom_and_law_certificate
 french-guiana:
-  opposite_sex:
-    default:
-      default:
-      - :issuing_custom_and_law_certificate
-  same_sex:
-    default:
-      default:
-      - :issuing_custom_and_law_certificate
+  default:
+  - :issuing_custom_and_law_certificate
 french-polynesia:
-  opposite_sex:
-    default:
-      default:
-      - :issuing_custom_and_law_certificate
-  same_sex:
-    default:
-      default:
-      - :issuing_custom_and_law_certificate
+  default:
+  - :issuing_custom_and_law_certificate
 guadeloupe:
-  opposite_sex:
-    default:
-      default:
-      - :issuing_custom_and_law_certificate
-  same_sex:
-    default:
-      default:
-      - :issuing_custom_and_law_certificate
+  default:
+  - :issuing_custom_and_law_certificate
 martinique:
-  opposite_sex:
-    default:
-      default:
-      - :issuing_custom_and_law_certificate
-  same_sex:
-    default:
-      default:
-      - :issuing_custom_and_law_certificate
+  default:
+  - :issuing_custom_and_law_certificate
 mayotte:
-  opposite_sex:
-    default:
-      default:
-      - :issuing_custom_and_law_certificate
-  same_sex:
-    default:
-      default:
-      - :issuing_custom_and_law_certificate
+  default:
+  - :issuing_custom_and_law_certificate
 monaco:
-  opposite_sex:
-    default:
-      default:
-      - :issuing_custom_and_law_certificate
-  same_sex:
-    default:
-      default:
-      - :issuing_custom_and_law_certificate
+  default:
+  - :issuing_custom_and_law_certificate
 new-caledonia:
-  opposite_sex:
-    default:
-      default:
-      - :issuing_custom_and_law_certificate
+  default:
+  - :issuing_custom_and_law_certificate
 reunion:
-  opposite_sex:
-    default:
-      default:
-      - :issuing_custom_and_law_certificate
-  same_sex:
-    default:
-      default:
-      - :issuing_custom_and_law_certificate
+  default:
+  - :issuing_custom_and_law_certificate
 st-pierre-and-miquelon:
-  opposite_sex:
-    default:
-      default:
-      - :issuing_custom_and_law_certificate
+  default:
+  - :issuing_custom_and_law_certificate
 wallis-and-futuna:
-  opposite_sex:
-    default:
-      default:
-      - :issuing_custom_and_law_certificate
-  same_sex:
-    default:
-      default:
-      - :issuing_custom_and_law_certificate
+  default:
+  - :issuing_custom_and_law_certificate
