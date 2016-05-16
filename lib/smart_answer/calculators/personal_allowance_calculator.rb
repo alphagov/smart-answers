@@ -26,11 +26,11 @@ module SmartAnswer::Calculators
     def age_related_allowance(birth_date)
       age = age_on_fifth_april(birth_date)
       if age < 65
-        age_related_allowance = personal_allowance
+        personal_allowance
       elsif age < 75
-        age_related_allowance = higher_allowance_1
+        higher_allowance_1
       else
-        age_related_allowance = higher_allowance_2
+        higher_allowance_2
       end
     end
 
