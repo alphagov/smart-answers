@@ -85,10 +85,10 @@ module SmartAnswer
         validate { calculator.valid_income? }
 
         next_node do
-          if calculator.income_equal_to_or_more_than_limit_for_personal_allowance?
-            question :paying_into_a_pension?
-          else
+          if calculator.income_within_limit_for_personal_allowance?
             outcome :husband_done
+          else
+            question :paying_into_a_pension?
           end
         end
       end
@@ -101,10 +101,10 @@ module SmartAnswer
         validate { calculator.valid_income? }
 
         next_node do
-          if calculator.income_equal_to_or_more_than_limit_for_personal_allowance?
-            question :paying_into_a_pension?
-          else
+          if calculator.income_within_limit_for_personal_allowance?
             outcome :highest_earner_done
+          else
+            question :paying_into_a_pension?
           end
         end
       end

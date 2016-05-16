@@ -17,8 +17,8 @@ module SmartAnswer::Calculators
       marriage_or_civil_partnership_before_5_december_2005 == 'yes'
     end
 
-    def income_equal_to_or_more_than_limit_for_personal_allowance?
-      income.to_f >= income_limit_for_personal_allowances
+    def income_within_limit_for_personal_allowance?
+      income.to_f < income_limit_for_personal_allowances
     end
 
     def valid_income?
