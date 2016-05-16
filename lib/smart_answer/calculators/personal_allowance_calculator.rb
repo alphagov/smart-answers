@@ -28,9 +28,9 @@ module SmartAnswer::Calculators
       if age < 65
         age_related_allowance = personal_allowance
       elsif age < 75
-        age_related_allowance = over_65_allowance
+        age_related_allowance = higher_allowance_1
       else
-        age_related_allowance = over_75_allowance
+        age_related_allowance = higher_allowance_2
       end
     end
 
@@ -44,12 +44,12 @@ module SmartAnswer::Calculators
 
   private
 
-    def over_65_allowance
-      rates.over_65_allowance
+    def higher_allowance_1
+      rates.higher_allowance_1
     end
 
-    def over_75_allowance
-      rates.over_75_allowance
+    def higher_allowance_2
+      rates.higher_allowance_2
     end
 
     def rates
