@@ -52,7 +52,10 @@ module SmartAnswer
         from { Date.today.end_of_year }
         to { Date.parse('1 Jan 1896') }
 
-        save_input_as :birth_date
+        on_response do |response|
+          calculator.birth_date = response
+        end
+
         next_node do
           question :whats_the_husbands_income?
         end
@@ -62,7 +65,10 @@ module SmartAnswer
         to { Date.parse('1 Jan 1896') }
         from { Date.today.end_of_year }
 
-        save_input_as :birth_date
+        on_response do |response|
+          calculator.birth_date = response
+        end
+
         next_node do
           question :whats_the_highest_earners_income?
         end
@@ -142,12 +148,12 @@ module SmartAnswer
 
       outcome :husband_done do
         precalculate :allowance do
-          calculator.calculate_allowance(birth_date, income)
+          calculator.calculate_allowance(calculator.birth_date, income)
         end
       end
       outcome :highest_earner_done do
         precalculate :allowance do
-          calculator.calculate_allowance(birth_date, income)
+          calculator.calculate_allowance(calculator.birth_date, income)
         end
       end
       outcome :sorry
