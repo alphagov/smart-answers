@@ -4,6 +4,7 @@ module SmartAnswer::Calculators
     attr_accessor :marriage_or_civil_partnership_before_5_december_2005
     attr_accessor :birth_date
     attr_accessor :income
+    attr_accessor :paying_into_a_pension
 
     def initialize
       @personal_allowance_calculator = PersonalAllowanceCalculator.new
