@@ -104,12 +104,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
                 should "calculate allowance using calculators" do
                   SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
-                    expects(:calculate_adjusted_net_income)
-                    .returns("Adjusted net income")
-
-                  SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                     expects(:calculate_allowance).
-                    with('Adjusted net income').
                     returns("Calculated allowance")
 
                   assert_state_variable :allowance, "Calculated allowance"
@@ -141,12 +136,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
             should "calculate allowance using calculators" do
               SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
-                expects(:calculate_adjusted_net_income)
-                .returns("Adjusted net income")
-
-              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_allowance).
-                with('Adjusted net income').
                 returns("Calculated allowance")
 
               add_response "0"
@@ -175,12 +165,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
             should "calculate allowance using calculators" do
               SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
-                expects(:calculate_adjusted_net_income)
-                .returns("Adjusted net income")
-
-              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_allowance).
-                with('Adjusted net income').
                 returns("Calculated allowance")
 
               assert_state_variable :allowance, "Calculated allowance"
@@ -198,12 +183,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
             should "calculate allowance using calculators" do
               SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
-                expects(:calculate_adjusted_net_income)
-                .returns("Adjusted net income")
-
-              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_allowance).
-                with('Adjusted net income').
                 returns("Calculated allowance")
 
               assert_state_variable :allowance, "Calculated allowance"
@@ -225,7 +205,6 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
         should "calculate allowance using calculators" do
           SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
             expects(:calculate_allowance).
-            with(14500.0).
             returns("Calculated allowance")
 
           assert_state_variable :allowance, "Calculated allowance"
@@ -295,12 +274,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
                 should "calculate allowance using calculators" do
                   SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
-                    expects(:calculate_adjusted_net_income)
-                    .returns("Adjusted net income")
-
-                  SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                     expects(:calculate_allowance).
-                    with('Adjusted net income').
                     returns("Calculated allowance")
 
                   assert_state_variable :allowance, "Calculated allowance"
@@ -340,12 +314,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
             should "calculate allowance using calculators" do
               SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
-                expects(:calculate_adjusted_net_income)
-                .returns("Adjusted net income")
-
-              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_allowance).
-                with('Adjusted net income').
                 returns("Calculated allowance")
 
               assert_state_variable :allowance, "Calculated allowance"
@@ -363,12 +332,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
             should "calculate allowance using calculators" do
               SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
-                expects(:calculate_adjusted_net_income)
-                .returns("Adjusted net income")
-
-              SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_allowance).
-                with('Adjusted net income').
                 returns("Calculated allowance")
 
               assert_state_variable :allowance, "Calculated allowance"
@@ -388,7 +352,6 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
         should "calculate allowance using calculators" do
           SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
             expects(:calculate_allowance).
-            with(13850.5).
             returns("Calculated allowance")
 
           add_response '1930-05-14'
