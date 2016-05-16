@@ -45,8 +45,6 @@ module SmartAnswer
             "husband"
           when 'no'
             "highest earner"
-          else
-            raise SmartAnswer::InvalidResponse
           end
         end
 
