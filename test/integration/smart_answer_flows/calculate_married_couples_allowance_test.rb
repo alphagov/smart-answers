@@ -108,7 +108,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
                     .with(30000.0, 1000.0, 500.0, 100.0)
                     .returns("Adjusted net income")
 
-                  SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
+                  SmartAnswer::Calculators::AgeRelatedAllowanceChooser.any_instance.
                     expects(:get_age_related_allowance).
                     with(Date.parse '1930-05-25').
                     returns("Age related allowance")
@@ -150,7 +150,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
                 .with(30000.0, 40000.0, 0, 0)
                 .returns("Adjusted net income")
 
-              SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
+              SmartAnswer::Calculators::AgeRelatedAllowanceChooser.any_instance.
                 expects(:get_age_related_allowance).
                 with(Date.parse '1930-05-25').
                 returns("Age related allowance")
@@ -189,7 +189,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
                 .with(30000.0, 0, 0, 100.0)
                 .returns("Adjusted net income")
 
-              SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
+              SmartAnswer::Calculators::AgeRelatedAllowanceChooser.any_instance.
                 expects(:get_age_related_allowance).
                 with(Date.parse '1930-05-25').
                 returns("Age related allowance")
@@ -217,7 +217,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
                 .with(30000.0, 0, 0, 0)
                 .returns("Adjusted net income")
 
-              SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
+              SmartAnswer::Calculators::AgeRelatedAllowanceChooser.any_instance.
                 expects(:get_age_related_allowance).
                 with(Date.parse '1930-05-25').
                 returns("Age related allowance")
@@ -243,7 +243,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
         end
 
         should "calculate allowance using calculators" do
-          SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
+          SmartAnswer::Calculators::AgeRelatedAllowanceChooser.any_instance.
             expects(:get_age_related_allowance).
             with(Date.parse '1930-05-25').
             returns("Age related allowance")
@@ -323,7 +323,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
                     .with(30000.0, 1000.0, 500.0, 100.0)
                     .returns("Adjusted net income")
 
-                  SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
+                  SmartAnswer::Calculators::AgeRelatedAllowanceChooser.any_instance.
                     expects(:get_age_related_allowance).
                     with(Date.parse '1930-05-14').
                     returns("Age related allowance")
@@ -373,7 +373,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
                 .with(30000.0, 0, 0, 100.0)
                 .returns("Adjusted net income")
 
-              SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
+              SmartAnswer::Calculators::AgeRelatedAllowanceChooser.any_instance.
                 expects(:get_age_related_allowance).
                 with(Date.parse '1930-05-14').
                 returns("Age related allowance")
@@ -401,7 +401,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
                 .with(30000.0, 0, 0, 0)
                 .returns("Adjusted net income")
 
-              SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
+              SmartAnswer::Calculators::AgeRelatedAllowanceChooser.any_instance.
                 expects(:get_age_related_allowance).
                 with(Date.parse '1930-05-14').
                 returns("Age related allowance")
@@ -425,7 +425,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
         end
 
         should "calculate allowance using calculators" do
-          SmartAnswer::AgeRelatedAllowanceChooser.any_instance.
+          SmartAnswer::Calculators::AgeRelatedAllowanceChooser.any_instance.
             expects(:get_age_related_allowance).
             with(Date.parse '1930-05-14').
             returns("Age related allowance")
