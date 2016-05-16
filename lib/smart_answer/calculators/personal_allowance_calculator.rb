@@ -27,11 +27,6 @@ module SmartAnswer
       # so this class could be extended so that it returns the personal allowance
       # you are entitled to based on your age and income.
 
-      def age_at_end_of_current_tax_year(birth_date)
-        end_of_tax_year = TaxYear.current.ends_on
-        DateOfBirth.new(birth_date).age(on: end_of_tax_year)
-      end
-
       def age_related_allowance(birth_date)
         if Date.today > AGE_VERSUS_DOB_CHANGEOVER_DATE
           if birth_date > HIGHER_ALLOWANCE_1_DOB
@@ -62,6 +57,11 @@ module SmartAnswer
       end
 
     private
+
+      def age_at_end_of_current_tax_year(birth_date)
+        end_of_tax_year = TaxYear.current.ends_on
+        DateOfBirth.new(birth_date).age(on: end_of_tax_year)
+      end
 
       def higher_allowance_1
         rates.higher_allowance_1
