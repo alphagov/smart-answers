@@ -5,6 +5,7 @@ module SmartAnswer::Calculators
     attr_accessor :birth_date
     attr_accessor :income
     attr_accessor :paying_into_a_pension
+    attr_accessor :gross_pension_contributions
 
     def initialize
       @personal_allowance_calculator = PersonalAllowanceCalculator.new

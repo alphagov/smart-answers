@@ -15,9 +15,6 @@ module SmartAnswer
           calculator.born_on_or_before_6_april_1935 = response
         end
 
-        calculate :gross_pension_contributions do
-          nil
-        end
         calculate :net_pension_contributions do
           nil
         end
@@ -127,7 +124,9 @@ module SmartAnswer
       end
 
       money_question :how_much_expected_contributions_before_tax? do
-        save_input_as :gross_pension_contributions
+        on_response do |response|
+          calculator.gross_pension_contributions = response
+        end
 
         next_node do
           question :how_much_expected_contributions_with_tax_relief?
@@ -156,13 +155,13 @@ module SmartAnswer
 
       outcome :husband_done do
         precalculate :allowance do
-          adjusted_income = calculator.calculate_adjusted_net_income(calculator.income.to_f, gross_pension_contributions.to_f, net_pension_contributions.to_f, gift_aided_donations.to_f)
+          adjusted_income = calculator.calculate_adjusted_net_income(calculator.income.to_f, calculator.gross_pension_contributions.to_f, net_pension_contributions.to_f, gift_aided_donations.to_f)
           calculator.calculate_allowance(adjusted_income)
         end
       end
       outcome :highest_earner_done do
         precalculate :allowance do
-          adjusted_income = calculator.calculate_adjusted_net_income(calculator.income.to_f, gross_pension_contributions.to_f, net_pension_contributions.to_f, gift_aided_donations.to_f)
+          adjusted_income = calculator.calculate_adjusted_net_income(calculator.income.to_f, calculator.gross_pension_contributions.to_f, net_pension_contributions.to_f, gift_aided_donations.to_f)
           calculator.calculate_allowance(adjusted_income)
         end
       end
