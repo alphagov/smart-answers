@@ -20,10 +20,6 @@ module SmartAnswer
           nil
         end
 
-        calculate :personal_allowance_calculator do
-          Calculators::PersonalAllowanceCalculator.new
-        end
-
         calculate :calculator do
           Calculators::MarriedCouplesAllowanceCalculator.new
         end
@@ -159,14 +155,12 @@ module SmartAnswer
 
       outcome :husband_done do
         precalculate :allowance do
-          age_related_allowance = personal_allowance_calculator.get_age_related_allowance(birth_date)
-          calculator.calculate_allowance(age_related_allowance, income)
+          calculator.calculate_allowance(birth_date, income)
         end
       end
       outcome :highest_earner_done do
         precalculate :allowance do
-          age_related_allowance = personal_allowance_calculator.get_age_related_allowance(birth_date)
-          calculator.calculate_allowance(age_related_allowance, income)
+          calculator.calculate_allowance(birth_date, income)
         end
       end
       outcome :sorry

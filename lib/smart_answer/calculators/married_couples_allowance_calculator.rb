@@ -1,10 +1,14 @@
 module SmartAnswer::Calculators
   class MarriedCouplesAllowanceCalculator
+    def initialize
+      @personal_allowance_calculator = PersonalAllowanceCalculator.new
+    end
+
     def calculate_adjusted_net_income(income, gross_pension_contributions, net_pension_contributions, gift_aided_donations)
       income - gross_pension_contributions - (net_pension_contributions * 1.25) - (gift_aided_donations * 1.25)
     end
 
-    def calculate_allowance(age_related_allowance, income)
+    def calculate_allowance(birth_date, income)
       income = 1 if income < 1
 
       mca_entitlement = maximum_mca
@@ -15,7 +19,7 @@ module SmartAnswer::Calculators
         # \/ this reduction actually applies across the board for personal allowances,
         # but extracting that was more than required for this piece of work. Please see
         # note in PersonalAllowanceCalculator
-        maximum_reduction_of_allowances = age_related_allowance - personal_allowance
+        maximum_reduction_of_allowances = age_related_allowance(birth_date) - personal_allowance
         remaining_reduction = attempted_reduction - maximum_reduction_of_allowances
 
         if remaining_reduction > 0
@@ -48,6 +52,10 @@ module SmartAnswer::Calculators
 
     def personal_allowance
       personal_allowance_rates.personal_allowance
+    end
+
+    def age_related_allowance(birth_date)
+      @personal_allowance_calculator.get_age_related_allowance(birth_date)
     end
 
     def married_couples_allowance_rates
