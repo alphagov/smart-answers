@@ -1,16 +1,14 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
-require 'gds_api/test_helpers/worldwide'
 
 require "smart_answer_flows/register-a-death"
 
 class RegisterADeathTest < ActiveSupport::TestCase
   include FlowTestHelper
-  include GdsApi::TestHelpers::Worldwide
 
   setup do
     @location_slugs = %w(afghanistan algeria andorra argentina australia austria barbados belgium brazil cameroon dominica egypt france germany iran italy kenya libya morocco nigeria north-korea pakistan pitcairn-island poland saint-barthelemy serbia slovakia spain st-kitts-and-nevis st-martin uganda)
-    worldwide_api_has_locations(@location_slugs)
+    stub_worldwide_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::RegisterADeathFlow
   end
 
@@ -188,7 +186,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
     end # Australia (commonwealth country)
     context "answer Spain" do
       setup do
-        worldwide_api_has_organisations_for_location('spain', read_fixture_file('worldwide/spain_organisations.json'))
         add_response 'spain'
       end
       should "ask where you are now" do
@@ -218,7 +215,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
 
     context "answer Morocco - currently in the UK" do
       setup do
-        worldwide_api_has_organisations_for_location('morocco', read_fixture_file('worldwide/morocco_organisations.json'))
         add_response 'morocco'
       end
       should "ask where are you now" do
@@ -238,7 +234,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
 
     context "answer Italy" do
       setup do
-        worldwide_api_has_organisations_for_location('italy', read_fixture_file('worldwide/italy_organisations.json'))
         add_response 'italy'
         add_response 'same_country'
       end
@@ -251,7 +246,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
 
     context "death occurred in Andorra, but they are now in France" do
       setup do
-        worldwide_api_has_organisations_for_location('france', read_fixture_file('worldwide/france_organisations.json'))
         add_response 'andorra'
         add_response 'another_country'
         add_response 'france'
@@ -265,7 +259,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
 
     context "answer Afghanistan" do
       setup do
-        worldwide_api_has_organisations_for_location('afghanistan', read_fixture_file('worldwide/afghanistan_organisations.json'))
         add_response 'afghanistan'
       end
       context "currently still in the country" do
@@ -288,7 +281,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
 
     context "answer Algeria" do
       setup do
-        worldwide_api_has_organisations_for_location('algeria', read_fixture_file('worldwide/algeria_organisations.json'))
         add_response 'algeria'
       end
 
@@ -314,7 +306,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
 
     context "answer Iran" do
       setup do
-        worldwide_api_has_organisations_for_location('iran', read_fixture_file('worldwide/iran_organisations.json'))
         add_response 'iran'
       end
       should "give the no embassy result" do
@@ -325,7 +316,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
 
     context "answer Libya" do
       setup do
-        worldwide_api_has_organisations_for_location('libya', read_fixture_file('worldwide/libya_organisations.json'))
         add_response 'libya'
       end
 
@@ -336,7 +326,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
       end
 
       should "give a custom algerian payment method if currently in Algeria " do
-        worldwide_api_has_organisations_for_location('algeria', read_fixture_file('worldwide/algeria_organisations.json'))
         add_response 'another_country'
         add_response 'algeria'
         assert_current_node :oru_result
@@ -345,8 +334,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
 
     context "answer Brazil, registered in north-korea" do
       setup do
-        worldwide_api_has_organisations_for_location('brazil', read_fixture_file('worldwide/brazil_organisations.json'))
-        worldwide_api_has_organisations_for_location('north-korea', read_fixture_file('worldwide/north-korea_organisations.json'))
         add_response 'brazil'
         add_response 'another_country'
         add_response 'north-korea'
@@ -357,7 +344,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
     end # Answer Brazil
     context "Death in Poland, currently in Cameroon" do
       setup do
-        worldwide_api_has_organisations_for_location('cameroon', read_fixture_file('worldwide/cameroon_organisations.json'))
         add_response 'poland'
         add_response 'another_country'
         add_response 'cameroon'
@@ -369,7 +355,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
 
     context "answer death in Serbia, user in the UK" do
       setup do
-        worldwide_api_has_organisations_for_location('serbia', read_fixture_file('worldwide/serbia_organisations.json'))
         add_response 'serbia'
         add_response 'in_the_uk'
       end
@@ -379,7 +364,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
     end # Answer Serbia
     context "answer Pakistan, user in the UK" do
       should "give the oru result" do
-        worldwide_api_has_organisations_for_location('pakistan', read_fixture_file('worldwide/pakistan_organisations.json'))
         add_response "pakistan"
         add_response "in_the_uk"
         assert_current_node :oru_result
@@ -387,7 +371,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
     end # Pakistan and in UK
     context "answer death in dominica, user in st kitts" do
       setup do
-        worldwide_api_has_organisations_for_location('barbados', read_fixture_file('worldwide/barbados_organisations.json'))
         add_response 'dominica'
         add_response 'another_country'
         add_response 'st-kitts-and-nevis'
@@ -398,7 +381,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
     end # Answer Dominica
     context "answer death in Egypt, user in Belgium" do
       setup do
-        worldwide_api_has_organisations_for_location('belgium', read_fixture_file('worldwide/belgium_organisations.json'))
         add_response 'egypt'
         add_response 'another_country'
         add_response 'belgium'
@@ -413,7 +395,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
 
     context "answer North Korea" do
       setup do
-        worldwide_api_has_organisations_for_location('north-korea', read_fixture_file('worldwide/north-korea_organisations.json'))
         add_response 'north-korea'
       end
       context "still in North Korea" do
@@ -433,10 +414,8 @@ class RegisterADeathTest < ActiveSupport::TestCase
 
     context "died in austria, user in north-korea" do
       setup do
-        worldwide_api_has_organisations_for_location('austria', read_fixture_file('worldwide/austria_organisations.json'))
         add_response 'austria'
         add_response 'another_country'
-        worldwide_api_has_organisations_for_location('north-korea', read_fixture_file('worldwide/north-korea_organisations.json'))
         add_response 'north-korea'
       end
       should "take you to the embassy outcome with specific phrasing" do
@@ -446,7 +425,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
 
     context "death in Kenya, now in the UK" do
       setup do
-        worldwide_api_has_organisations_for_location('kenya', read_fixture_file('worldwide/kenya_organisations.json'))
         add_response 'kenya'
         add_response 'in_the_uk'
       end
@@ -458,7 +436,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
 
     context "death in Nigeria, now in the UK" do
       setup do
-        worldwide_api_has_organisations_for_location('nigeria', read_fixture_file('worldwide/nigeria_organisations.json'))
         add_response 'nigeria'
         add_response 'in_the_uk'
       end
@@ -470,7 +447,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
 
     context "death in Uganda, now in the UK" do
       setup do
-        worldwide_api_has_organisations_for_location('uganda', read_fixture_file('worldwide/uganda_organisations.json'))
         add_response 'uganda'
         add_response 'in_the_uk'
       end
