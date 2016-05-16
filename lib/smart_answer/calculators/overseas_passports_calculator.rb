@@ -155,7 +155,7 @@ module SmartAnswer::Calculators
     end
 
     def supporting_documents
-      if birth_location.blank? || birth_location == 'united_kingdom'
+      if birth_location.blank? || birth_location == 'united-kingdom'
         application_group(current_location)
       else
         application_group(birth_location)

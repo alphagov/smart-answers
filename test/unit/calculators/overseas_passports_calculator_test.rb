@@ -528,6 +528,12 @@ module SmartAnswer
 
             assert_equal 'supporting docs', @calculator.supporting_documents
           end
+
+          should 'return application group for current location if born in the UK' do
+            @calculator.birth_location = 'united-kingdom'
+            @calculator.current_location = 'india'
+            assert_equal 'ips_documents_group_3', @calculator.supporting_documents
+          end
         end
 
         context '#ips_application?' do
