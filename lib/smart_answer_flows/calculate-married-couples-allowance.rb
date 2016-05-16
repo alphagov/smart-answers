@@ -23,7 +23,7 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.born_on_or_before_6_april_1935 == 'yes'
+          if calculator.qualifies?
             question :did_you_marry_or_civil_partner_before_5_december_2005?
           else
             outcome :sorry

@@ -7,6 +7,10 @@ module SmartAnswer::Calculators
       @personal_allowance_calculator = PersonalAllowanceCalculator.new
     end
 
+    def qualifies?
+      born_on_or_before_6_april_1935 == 'yes'
+    end
+
     def husband_income_measured?
       marriage_or_civil_partnership_before_5_december_2005 == 'yes'
     end
