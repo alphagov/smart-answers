@@ -20,7 +20,7 @@ module SmartAnswer::Calculators
 
     def age_on_fifth_april(birth_date)
       fifth_april = Date.new(Date.today.year, 4, 5)
-      age_on_fifth_april = fifth_april.year - birth_date.year
+      SmartAnswer::DateOfBirth.new(birth_date).age(on: fifth_april)
     end
 
     def age_related_allowance(birth_date)
