@@ -10,15 +10,15 @@ module SmartAnswer
         option :yes
         option :no
 
+        on_response do |response|
+          self.calculator = Calculators::MarriedCouplesAllowanceCalculator.new
+        end
+
         calculate :gross_pension_contributions do
           nil
         end
         calculate :net_pension_contributions do
           nil
-        end
-
-        calculate :calculator do
-          Calculators::MarriedCouplesAllowanceCalculator.new
         end
 
         next_node do |response|
