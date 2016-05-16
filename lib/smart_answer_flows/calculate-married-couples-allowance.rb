@@ -21,6 +21,9 @@ module SmartAnswer
         calculate :net_pension_contributions do
           nil
         end
+        calculate :gift_aided_donations do
+          nil
+        end
 
         next_node do
           if calculator.qualifies?
@@ -133,9 +136,7 @@ module SmartAnswer
       end
 
       money_question :how_much_expected_gift_aided_donations? do
-        calculate :income do |response|
-          calculator.calculate_adjusted_net_income(income.to_f, (gross_pension_contributions.to_f || 0), (net_pension_contributions.to_f || 0), response)
-        end
+        save_input_as :gift_aided_donations
 
         next_node do
           if calculator.husband_income_measured?
@@ -148,12 +149,14 @@ module SmartAnswer
 
       outcome :husband_done do
         precalculate :allowance do
-          calculator.calculate_allowance(income)
+          adjusted_income = calculator.calculate_adjusted_net_income(income.to_f, (gross_pension_contributions.to_f || 0), (net_pension_contributions.to_f || 0), (gift_aided_donations.to_f || 0))
+          calculator.calculate_allowance(adjusted_income)
         end
       end
       outcome :highest_earner_done do
         precalculate :allowance do
-          calculator.calculate_allowance(income)
+          adjusted_income = calculator.calculate_adjusted_net_income(income.to_f, (gross_pension_contributions.to_f || 0), (net_pension_contributions.to_f || 0), (gift_aided_donations.to_f || 0))
+          calculator.calculate_allowance(adjusted_income)
         end
       end
       outcome :sorry
