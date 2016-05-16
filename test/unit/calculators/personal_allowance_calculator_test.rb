@@ -18,7 +18,7 @@ module SmartAnswer::Calculators
     test "someone aged 64 who will be 65 after 5th April has the basic personal allowance" do
       date_of_birth = Date.new(Date.today.year - 65, 4, 6)
       result = @calculator.age_related_allowance(date_of_birth)
-      assert_equal(@over_65_allowance, result)
+      assert_equal(@personal_allowance, result)
     end
 
     test "someone aged 64 who will be 65 on 5th April has the 65-75 personal allowance" do
@@ -30,7 +30,7 @@ module SmartAnswer::Calculators
     test "someone aged 74 who will be 75 after 5th April has the 65-75 personal allowance" do
       date_of_birth = Date.new(Date.today.year - 75, 4, 6)
       result = @calculator.age_related_allowance(date_of_birth)
-      assert_equal(@over_75_allowance, result)
+      assert_equal(@over_65_allowance, result)
     end
 
     test "someone aged 74 who will be 75 on 5th April has the 75+ personal allowance" do
