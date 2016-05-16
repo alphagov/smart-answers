@@ -118,7 +118,7 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.paying_into_a_pension == 'yes'
+          if calculator.paying_into_a_pension?
             question :how_much_expected_contributions_before_tax?
           else
             question :how_much_expected_gift_aided_donations?
