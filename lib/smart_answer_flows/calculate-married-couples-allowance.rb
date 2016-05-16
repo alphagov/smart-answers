@@ -113,11 +113,14 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node do |response|
-          case response
-          when 'yes'
+        on_response do |response|
+          calculator.paying_into_a_pension = response
+        end
+
+        next_node do
+          if calculator.paying_into_a_pension == 'yes'
             question :how_much_expected_contributions_before_tax?
-          when 'no'
+          else
             question :how_much_expected_gift_aided_donations?
           end
         end
