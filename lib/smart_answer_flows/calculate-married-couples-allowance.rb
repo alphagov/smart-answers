@@ -78,7 +78,9 @@ module SmartAnswer
       end
 
       money_question :whats_the_husbands_income? do
-        save_input_as :income
+        on_response do |response|
+          calculator.income = response
+        end
 
         validate { |response| response > 0 }
 
@@ -92,7 +94,9 @@ module SmartAnswer
       end
 
       money_question :whats_the_highest_earners_income? do
-        save_input_as :income
+        on_response do |response|
+          calculator.income = response
+        end
 
         validate { |response| response > 0 }
 
@@ -149,13 +153,13 @@ module SmartAnswer
 
       outcome :husband_done do
         precalculate :allowance do
-          adjusted_income = calculator.calculate_adjusted_net_income(income.to_f, gross_pension_contributions.to_f, net_pension_contributions.to_f, gift_aided_donations.to_f)
+          adjusted_income = calculator.calculate_adjusted_net_income(calculator.income.to_f, gross_pension_contributions.to_f, net_pension_contributions.to_f, gift_aided_donations.to_f)
           calculator.calculate_allowance(adjusted_income)
         end
       end
       outcome :highest_earner_done do
         precalculate :allowance do
-          adjusted_income = calculator.calculate_adjusted_net_income(income.to_f, gross_pension_contributions.to_f, net_pension_contributions.to_f, gift_aided_donations.to_f)
+          adjusted_income = calculator.calculate_adjusted_net_income(calculator.income.to_f, gross_pension_contributions.to_f, net_pension_contributions.to_f, gift_aided_donations.to_f)
           calculator.calculate_allowance(adjusted_income)
         end
       end
