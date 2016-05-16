@@ -1,20 +1,14 @@
 require_relative "../../test_helper"
 require_relative "flow_test_helper"
-require 'gds_api/test_helpers/worldwide'
 
 require "smart_answer_flows/report-a-lost-or-stolen-passport"
 
 class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
   include FlowTestHelper
-  include GdsApi::TestHelpers::Worldwide
 
   setup do
     @location_slugs = %w(azerbaijan canada)
-    worldwide_api_has_locations(@location_slugs)
-    @location_slugs.each do |location|
-      json = read_fixture_file("worldwide/#{location}_organisations.json")
-      worldwide_api_has_organisations_for_location(location, json)
-    end
+    stub_worldwide_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::ReportALostOrStolenPassportFlow
   end
 
@@ -48,7 +42,6 @@ class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
 
       should "tell you to report it to the embassy" do
         assert_current_node :contact_the_embassy
-        assert_match /British Embassy Baku/, outcome_body
       end
     end
   end
