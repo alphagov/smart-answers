@@ -24,13 +24,23 @@ module SmartAnswer::Calculators
     end
 
     def age_related_allowance(birth_date)
-      age = age_on_fifth_april(birth_date)
-      if age < 65
-        personal_allowance
-      elsif age < 75
-        higher_allowance_1
+      if Date.today > Date.parse('2013-04-05')
+        if birth_date > Date.parse('1948-04-05')
+          personal_allowance
+        elsif birth_date > Date.parse('1938-04-05')
+          higher_allowance_1
+        else
+          higher_allowance_2
+        end
       else
-        higher_allowance_2
+        age = age_on_fifth_april(birth_date)
+        if age < 65
+          personal_allowance
+        elsif age < 75
+          higher_allowance_1
+        else
+          higher_allowance_2
+        end
       end
     end
 
