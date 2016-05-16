@@ -30,14 +30,6 @@
   - 'yes'
   - 'yes'
   - '1950-01-01'
-  - '27001'
-  :next_node: :husband_done
-  :outcome_node: true
-- :current_node: :whats_the_husbands_income?
-  :responses:
-  - 'yes'
-  - 'yes'
-  - '1950-01-01'
   - '27701'
   :next_node: :paying_into_a_pension?
   :outcome_node: false
