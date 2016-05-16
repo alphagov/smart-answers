@@ -14,7 +14,7 @@ module SmartAnswer::Calculators
 
         # \/ this reduction actually applies across the board for personal allowances,
         # but extracting that was more than required for this piece of work. Please see
-        # note in AgeRelatedAllowanceChooser
+        # note in PersonalAllowanceCalculator
         maximum_reduction_of_allowances = age_related_allowance - personal_allowance
         remaining_reduction = attempted_reduction - maximum_reduction_of_allowances
 

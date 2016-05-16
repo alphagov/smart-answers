@@ -1,5 +1,5 @@
 module SmartAnswer::Calculators
-  class AgeRelatedAllowanceChooser
+  class PersonalAllowanceCalculator
     # created for married couples allowance calculator.
     # this could be extended for use across smart answers
     # and/or GOV.UK
@@ -30,10 +30,10 @@ module SmartAnswer::Calculators
     end
 
     def get_age_related_allowance(birth_date)
-      age_for_chooser = age_on_fifth_april(birth_date)
-      if age_for_chooser < 65
+      age = age_on_fifth_april(birth_date)
+      if age < 65
         age_related_allowance = @personal_allowance
-      elsif age_for_chooser < 75
+      elsif age < 75
         age_related_allowance = @over_65_allowance
       else
         age_related_allowance = @over_75_allowance
