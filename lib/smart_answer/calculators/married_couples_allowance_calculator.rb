@@ -3,6 +3,7 @@ module SmartAnswer::Calculators
     attr_accessor :born_on_or_before_6_april_1935
     attr_accessor :marriage_or_civil_partnership_before_5_december_2005
     attr_accessor :birth_date
+    attr_accessor :income
 
     def initialize
       @personal_allowance_calculator = PersonalAllowanceCalculator.new
