@@ -21,12 +21,7 @@ module SmartAnswer
         end
 
         calculate :personal_allowance_calculator do
-          rates = Calculators::RatesQuery.from_file('personal_allowance').rates
-          Calculators::PersonalAllowanceCalculator.new(
-            personal_allowance: rates.personal_allowance,
-            over_65_allowance: rates.over_65_allowance,
-            over_75_allowance: rates.over_75_allowance
-          )
+          Calculators::PersonalAllowanceCalculator.new
         end
 
         calculate :calculator do

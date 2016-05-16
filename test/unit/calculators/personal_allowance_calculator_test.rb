@@ -7,10 +7,12 @@ module SmartAnswer::Calculators
       @over_65_allowance = 10500
       @over_75_allowance = 10660
 
-      @calculator = PersonalAllowanceCalculator.new(
+      @calculator = PersonalAllowanceCalculator.new
+      @calculator.stubs(
         personal_allowance: @personal_allowance,
         over_65_allowance: @over_65_allowance,
-        over_75_allowance: @over_75_allowance)
+        over_75_allowance: @over_75_allowance
+      )
     end
 
     test "someone aged 40 has the basic personal allowance" do
