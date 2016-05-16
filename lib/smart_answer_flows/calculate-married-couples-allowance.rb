@@ -12,6 +12,7 @@ module SmartAnswer
 
         on_response do |response|
           self.calculator = Calculators::MarriedCouplesAllowanceCalculator.new
+          calculator.born_on_or_before_6_april_1935 = response
         end
 
         calculate :gross_pension_contributions do
@@ -21,11 +22,10 @@ module SmartAnswer
           nil
         end
 
-        next_node do |response|
-          case response
-          when 'yes'
+        next_node do
+          if calculator.born_on_or_before_6_april_1935 == 'yes'
             question :did_you_marry_or_civil_partner_before_5_december_2005?
-          when 'no'
+          else
             outcome :sorry
           end
         end
