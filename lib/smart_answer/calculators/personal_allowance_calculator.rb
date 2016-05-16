@@ -1,5 +1,13 @@
 module SmartAnswer::Calculators
   class PersonalAllowanceCalculator
+    AGE_VERSUS_DOB_CHANGEOVER_DATE = Date.parse('2013-04-05')
+
+    HIGHER_ALLOWANCE_1_DOB = Date.parse('1948-04-05')
+    HIGHER_ALLOWANCE_2_DOB = Date.parse('1938-04-05')
+
+    HIGHER_ALLOWANCE_1_AGE = 65
+    HIGHER_ALLOWANCE_2_AGE = 75
+
     # created for married couples allowance calculator.
     # this could be extended for use across smart answers
     # and/or GOV.UK
@@ -24,19 +32,19 @@ module SmartAnswer::Calculators
     end
 
     def age_related_allowance(birth_date)
-      if Date.today > Date.parse('2013-04-05')
-        if birth_date > Date.parse('1948-04-05')
+      if Date.today > AGE_VERSUS_DOB_CHANGEOVER_DATE
+        if birth_date > HIGHER_ALLOWANCE_1_DOB
           personal_allowance
-        elsif birth_date > Date.parse('1938-04-05')
+        elsif birth_date > HIGHER_ALLOWANCE_2_DOB
           higher_allowance_1
         else
           higher_allowance_2
         end
       else
         age = age_on_fifth_april(birth_date)
-        if age < 65
+        if age < HIGHER_ALLOWANCE_1_AGE
           personal_allowance
-        elsif age < 75
+        elsif age < HIGHER_ALLOWANCE_2_AGE
           higher_allowance_1
         else
           higher_allowance_2
