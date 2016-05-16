@@ -7,7 +7,7 @@ module SmartAnswer::Calculators
     end
 
     should "have all required rates defined for the current fiscal year" do
-      %w(personal_allowance over_65_allowance over_75_allowance income_limit_for_personal_allowances).each do |rate|
+      %w(personal_allowance higher_allowance_1 higher_allowance_2 income_limit_for_personal_allowances).each do |rate|
         assert @query.rates.send(rate).is_a?(Numeric)
       end
     end
