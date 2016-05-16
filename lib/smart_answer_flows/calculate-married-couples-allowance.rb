@@ -15,10 +15,6 @@ module SmartAnswer
           calculator.born_on_or_before_6_april_1935 = response
         end
 
-        calculate :gift_aided_donations do
-          nil
-        end
-
         next_node do
           if calculator.qualifies?
             question :did_you_marry_or_civil_partner_before_5_december_2005?
@@ -141,7 +137,9 @@ module SmartAnswer
       end
 
       money_question :how_much_expected_gift_aided_donations? do
-        save_input_as :gift_aided_donations
+        on_response do |response|
+          calculator.gift_aided_donations = response
+        end
 
         next_node do
           if calculator.husband_income_measured?
@@ -154,13 +152,13 @@ module SmartAnswer
 
       outcome :husband_done do
         precalculate :allowance do
-          adjusted_income = calculator.calculate_adjusted_net_income(calculator.income.to_f, calculator.gross_pension_contributions.to_f, calculator.net_pension_contributions.to_f, gift_aided_donations.to_f)
+          adjusted_income = calculator.calculate_adjusted_net_income(calculator.income.to_f, calculator.gross_pension_contributions.to_f, calculator.net_pension_contributions.to_f, calculator.gift_aided_donations.to_f)
           calculator.calculate_allowance(adjusted_income)
         end
       end
       outcome :highest_earner_done do
         precalculate :allowance do
-          adjusted_income = calculator.calculate_adjusted_net_income(calculator.income.to_f, calculator.gross_pension_contributions.to_f, calculator.net_pension_contributions.to_f, gift_aided_donations.to_f)
+          adjusted_income = calculator.calculate_adjusted_net_income(calculator.income.to_f, calculator.gross_pension_contributions.to_f, calculator.net_pension_contributions.to_f, calculator.gift_aided_donations.to_f)
           calculator.calculate_allowance(adjusted_income)
         end
       end
