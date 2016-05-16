@@ -23,7 +23,7 @@ module SmartAnswer::Calculators
       age_on_fifth_april = fifth_april.year - birth_date.year
     end
 
-    def get_age_related_allowance(birth_date)
+    def age_related_allowance(birth_date)
       age = age_on_fifth_april(birth_date)
       if age < 65
         age_related_allowance = personal_allowance
