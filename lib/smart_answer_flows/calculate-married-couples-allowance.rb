@@ -10,9 +10,6 @@ module SmartAnswer
         option :yes
         option :no
 
-        calculate :is_before_april_changes do
-          nil
-        end
         calculate :gross_pension_contributions do
           nil
         end
@@ -85,8 +82,7 @@ module SmartAnswer
         validate { |response| response > 0 }
 
         next_node do |response|
-          limit = (is_before_april_changes ? 26100.0 : 27000.0)
-          if response.to_f >= limit
+          if response.to_f >= calculator.income_limit_for_personal_allowances
             question :paying_into_a_pension?
           else
             outcome :husband_done
@@ -100,8 +96,7 @@ module SmartAnswer
         validate { |response| response > 0 }
 
         next_node do |response|
-          limit = (is_before_april_changes ? 26100.0 : 27000.0)
-          if response.to_f >= limit
+          if response.to_f >= calculator.income_limit_for_personal_allowances
             question :paying_into_a_pension?
           else
             outcome :highest_earner_done
