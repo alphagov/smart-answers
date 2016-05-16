@@ -86,7 +86,7 @@ module SmartAnswer::Calculators
     end
 
     def age_related_allowance(birth_date)
-      @personal_allowance_calculator.get_age_related_allowance(birth_date)
+      @personal_allowance_calculator.age_related_allowance(birth_date)
     end
 
     def married_couples_allowance_rates
