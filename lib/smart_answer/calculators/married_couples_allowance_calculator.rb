@@ -17,6 +17,10 @@ module SmartAnswer::Calculators
       marriage_or_civil_partnership_before_5_december_2005 == 'yes'
     end
 
+    def income_equal_to_or_more_than_limit_for_personal_allowance?
+      income.to_f >= income_limit_for_personal_allowances
+    end
+
     def calculate_adjusted_net_income(income, gross_pension_contributions, net_pension_contributions, gift_aided_donations)
       income - gross_pension_contributions - (net_pension_contributions * 1.25) - (gift_aided_donations * 1.25)
     end

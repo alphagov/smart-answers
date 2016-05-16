@@ -84,8 +84,8 @@ module SmartAnswer
 
         validate { |response| response > 0 }
 
-        next_node do |response|
-          if response.to_f >= calculator.income_limit_for_personal_allowances
+        next_node do
+          if calculator.income_equal_to_or_more_than_limit_for_personal_allowance?
             question :paying_into_a_pension?
           else
             outcome :husband_done
@@ -100,8 +100,8 @@ module SmartAnswer
 
         validate { |response| response > 0 }
 
-        next_node do |response|
-          if response.to_f >= calculator.income_limit_for_personal_allowances
+        next_node do
+          if calculator.income_equal_to_or_more_than_limit_for_personal_allowance?
             question :paying_into_a_pension?
           else
             outcome :highest_earner_done
