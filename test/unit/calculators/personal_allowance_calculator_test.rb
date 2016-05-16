@@ -15,13 +15,13 @@ module SmartAnswer::Calculators
       )
     end
 
+    teardown do
+      Timecop.return
+    end
+
     context 'before 2013 to 2014 tax year' do
       setup do
         Timecop.freeze(Date.parse('2013-04-05'))
-      end
-
-      teardown do
-        Timecop.return
       end
 
       should "return the basic allowance for someone aged 64 who will be 65 after 5th April" do
@@ -52,10 +52,6 @@ module SmartAnswer::Calculators
     context 'in or after 2013 to 2014 tax year' do
       setup do
         Timecop.freeze(Date.parse('2014-04-06'))
-      end
-
-      teardown do
-        Timecop.return
       end
 
       should "return the basic allowance for someone born on 6th April 1948" do
