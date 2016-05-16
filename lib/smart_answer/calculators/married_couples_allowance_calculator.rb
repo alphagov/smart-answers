@@ -33,8 +33,8 @@ module SmartAnswer::Calculators
       paying_into_a_pension == 'yes'
     end
 
-    def calculate_adjusted_net_income(income, gross_pension_contributions, net_pension_contributions, gift_aided_donations)
-      income - gross_pension_contributions - (net_pension_contributions * 1.25) - (gift_aided_donations * 1.25)
+    def calculate_adjusted_net_income
+      income.to_f - gross_pension_contributions.to_f - (net_pension_contributions.to_f * 1.25) - (gift_aided_donations.to_f * 1.25)
     end
 
     def calculate_allowance(income)

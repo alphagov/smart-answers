@@ -88,12 +88,13 @@ module SmartAnswer::Calculators
     end
 
     test "adjusted net income calculation" do
-      income = 35000
-      gross_pension_contributions = 3000
-      net_pension_contributions = 2000
-      gift_aided_donations = 1000
+      calculator = default_calculator
+      calculator.income = 35000
+      calculator.gross_pension_contributions = 3000
+      calculator.net_pension_contributions = 2000
+      calculator.gift_aided_donations = 1000
 
-      result = default_calculator.calculate_adjusted_net_income(income, gross_pension_contributions, net_pension_contributions, gift_aided_donations)
+      result = calculator.calculate_adjusted_net_income
       assert_equal SmartAnswer::Money.new("28250"), result
     end
 
