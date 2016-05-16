@@ -75,7 +75,6 @@ Lint/UselessAssignment:
     - 'app/controllers/application_controller.rb'
     - 'app/presenters/flow_registration_presenter.rb'
     - 'lib/method_missing_object.rb'
-    - 'lib/smart_answer/calculators/personal_allowance_calculator.rb'
     - 'lib/smart_answer_flows/help-if-you-are-arrested-abroad.rb'
     - 'lib/smart_answer_flows/legalisation-document-checker.rb'
     - 'lib/smart_answer_flows/simplified-expenses-checker.rb'
