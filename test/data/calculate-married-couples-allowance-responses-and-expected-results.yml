@@ -189,14 +189,6 @@
   - 'yes'
   - 'no'
   - '1955-01-01'
-  - '27001'
-  :next_node: :highest_earner_done
-  :outcome_node: true
-- :current_node: :whats_the_highest_earners_income?
-  :responses:
-  - 'yes'
-  - 'no'
-  - '1955-01-01'
   - '27701'
   :next_node: :paying_into_a_pension?
   :outcome_node: false
