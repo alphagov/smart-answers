@@ -34,11 +34,15 @@ module SmartAnswer::Calculators
       end
     end
 
-  private
-
     def personal_allowance
       rates.personal_allowance
     end
+
+    def income_limit_for_personal_allowances
+      rates.income_limit_for_personal_allowances
+    end
+
+  private
 
     def over_65_allowance
       rates.over_65_allowance

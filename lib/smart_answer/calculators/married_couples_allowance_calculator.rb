@@ -47,11 +47,11 @@ module SmartAnswer::Calculators
     end
 
     def income_limit_for_personal_allowances
-      personal_allowance_rates.income_limit_for_personal_allowances
+      @personal_allowance_calculator.income_limit_for_personal_allowances
     end
 
     def personal_allowance
-      personal_allowance_rates.personal_allowance
+      @personal_allowance_calculator.personal_allowance
     end
 
     def age_related_allowance(birth_date)
@@ -60,10 +60,6 @@ module SmartAnswer::Calculators
 
     def married_couples_allowance_rates
       @married_couples_allowance_rates ||= RatesQuery.from_file('married_couples_allowance').rates
-    end
-
-    def personal_allowance_rates
-      @personal_allowance_rates ||= RatesQuery.from_file('personal_allowance').rates
     end
   end
 end
