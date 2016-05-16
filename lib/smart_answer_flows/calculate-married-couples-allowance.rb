@@ -40,10 +40,9 @@ module SmartAnswer
         end
 
         next_node do
-          case calculator.marriage_or_civil_partnership_before_5_december_2005
-          when 'yes'
+          if calculator.husband_income_measured?
             question :whats_the_husbands_date_of_birth?
-          when 'no'
+          else
             question :whats_the_highest_earners_date_of_birth?
           end
         end
@@ -133,7 +132,7 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.income_measure == "husband"
+          if calculator.husband_income_measured?
             outcome :husband_done
           else
             outcome :highest_earner_done
