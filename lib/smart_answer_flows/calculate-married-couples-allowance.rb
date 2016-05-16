@@ -82,7 +82,7 @@ module SmartAnswer
           calculator.income = response
         end
 
-        validate { |response| response > 0 }
+        validate { calculator.valid_income? }
 
         next_node do
           if calculator.income_equal_to_or_more_than_limit_for_personal_allowance?
@@ -98,7 +98,7 @@ module SmartAnswer
           calculator.income = response
         end
 
-        validate { |response| response > 0 }
+        validate { calculator.valid_income? }
 
         next_node do
           if calculator.income_equal_to_or_more_than_limit_for_personal_allowance?

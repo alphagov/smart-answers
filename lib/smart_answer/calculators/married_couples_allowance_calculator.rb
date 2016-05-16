@@ -21,6 +21,10 @@ module SmartAnswer::Calculators
       income.to_f >= income_limit_for_personal_allowances
     end
 
+    def valid_income?
+      income > 0
+    end
+
     def calculate_adjusted_net_income(income, gross_pension_contributions, net_pension_contributions, gift_aided_donations)
       income - gross_pension_contributions - (net_pension_contributions * 1.25) - (gift_aided_donations * 1.25)
     end
