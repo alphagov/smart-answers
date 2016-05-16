@@ -21,7 +21,7 @@ module SmartAnswer
         end
 
         calculate :age_related_allowance_chooser do
-          rates = Calculators::RatesQuery.from_file('married_couples_allowance').rates
+          rates = Calculators::RatesQuery.from_file('personal_allowance').rates
           AgeRelatedAllowanceChooser.new(
             personal_allowance: rates.personal_allowance,
             over_65_allowance: rates.over_65_allowance,

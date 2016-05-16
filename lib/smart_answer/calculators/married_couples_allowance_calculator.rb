@@ -35,23 +35,27 @@ module SmartAnswer::Calculators
     end
 
     def maximum_mca
-      rates.maximum_married_couple_allowance
+      married_couples_allowance_rates.maximum_married_couple_allowance
     end
 
     def minimum_mca
-      rates.minimum_married_couple_allowance
+      married_couples_allowance_rates.minimum_married_couple_allowance
     end
 
     def income_limit_for_personal_allowances
-      rates.income_limit_for_personal_allowances
+      personal_allowance_rates.income_limit_for_personal_allowances
     end
 
     def personal_allowance
-      rates.personal_allowance
+      personal_allowance_rates.personal_allowance
     end
 
-    def rates
-      @rates ||= RatesQuery.from_file('married_couples_allowance').rates
+    def married_couples_allowance_rates
+      @married_couples_allowance_rates ||= RatesQuery.from_file('married_couples_allowance').rates
+    end
+
+    def personal_allowance_rates
+      @personal_allowance_rates ||= RatesQuery.from_file('personal_allowance').rates
     end
   end
 end
