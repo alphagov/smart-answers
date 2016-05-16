@@ -20,9 +20,9 @@ module SmartAnswer
           nil
         end
 
-        calculate :age_related_allowance_chooser do
+        calculate :personal_allowance_calculator do
           rates = Calculators::RatesQuery.from_file('personal_allowance').rates
-          Calculators::AgeRelatedAllowanceChooser.new(
+          Calculators::PersonalAllowanceCalculator.new(
             personal_allowance: rates.personal_allowance,
             over_65_allowance: rates.over_65_allowance,
             over_75_allowance: rates.over_75_allowance
@@ -164,13 +164,13 @@ module SmartAnswer
 
       outcome :husband_done do
         precalculate :allowance do
-          age_related_allowance = age_related_allowance_chooser.get_age_related_allowance(birth_date)
+          age_related_allowance = personal_allowance_calculator.get_age_related_allowance(birth_date)
           calculator.calculate_allowance(age_related_allowance, income)
         end
       end
       outcome :highest_earner_done do
         precalculate :allowance do
-          age_related_allowance = age_related_allowance_chooser.get_age_related_allowance(birth_date)
+          age_related_allowance = personal_allowance_calculator.get_age_related_allowance(birth_date)
           calculator.calculate_allowance(age_related_allowance, income)
         end
       end
