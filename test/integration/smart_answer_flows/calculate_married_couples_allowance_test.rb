@@ -110,7 +110,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
                   SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                     expects(:calculate_allowance).
-                    with(Date.parse('1930-05-25'), 'Adjusted net income').
+                    with('Adjusted net income').
                     returns("Calculated allowance")
 
                   assert_state_variable :allowance, "Calculated allowance"
@@ -148,7 +148,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
               SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_allowance).
-                with(Date.parse('1930-05-25'), 'Adjusted net income').
+                with('Adjusted net income').
                 returns("Calculated allowance")
 
               add_response "0"
@@ -183,7 +183,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
               SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_allowance).
-                with(Date.parse('1930-05-25'), 'Adjusted net income').
+                with('Adjusted net income').
                 returns("Calculated allowance")
 
               assert_state_variable :allowance, "Calculated allowance"
@@ -207,7 +207,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
               SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_allowance).
-                with(Date.parse('1930-05-25'), 'Adjusted net income').
+                with('Adjusted net income').
                 returns("Calculated allowance")
 
               assert_state_variable :allowance, "Calculated allowance"
@@ -229,7 +229,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
         should "calculate allowance using calculators" do
           SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
             expects(:calculate_allowance).
-            with(Date.parse('1930-05-25'), 14500.0).
+            with(14500.0).
             returns("Calculated allowance")
 
           assert_state_variable :allowance, "Calculated allowance"
@@ -305,7 +305,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
                   SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                     expects(:calculate_allowance).
-                    with(Date.parse('1930-05-14'), 'Adjusted net income').
+                    with('Adjusted net income').
                     returns("Calculated allowance")
 
                   assert_state_variable :allowance, "Calculated allowance"
@@ -351,7 +351,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
               SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_allowance).
-                with(Date.parse('1930-05-14'), 'Adjusted net income').
+                with('Adjusted net income').
                 returns("Calculated allowance")
 
               assert_state_variable :allowance, "Calculated allowance"
@@ -375,7 +375,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
               SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
                 expects(:calculate_allowance).
-                with(Date.parse('1930-05-14'), 'Adjusted net income').
+                with('Adjusted net income').
                 returns("Calculated allowance")
 
               assert_state_variable :allowance, "Calculated allowance"
@@ -395,7 +395,7 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
         should "calculate allowance using calculators" do
           SmartAnswer::Calculators::MarriedCouplesAllowanceCalculator.any_instance.
             expects(:calculate_allowance).
-            with(Date.parse('1930-05-14'), 13850.5).
+            with(13850.5).
             returns("Calculated allowance")
 
           add_response '1930-05-14'

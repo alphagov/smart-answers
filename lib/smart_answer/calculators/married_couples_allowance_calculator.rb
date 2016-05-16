@@ -20,7 +20,7 @@ module SmartAnswer::Calculators
       income - gross_pension_contributions - (net_pension_contributions * 1.25) - (gift_aided_donations * 1.25)
     end
 
-    def calculate_allowance(birth_date, income)
+    def calculate_allowance(income)
       income = 1 if income < 1
 
       mca_entitlement = maximum_mca
