@@ -6,6 +6,15 @@ module SmartAnswer::Calculators
       @personal_allowance_calculator = PersonalAllowanceCalculator.new
     end
 
+    def income_measure
+      case marriage_or_civil_partnership_before_5_december_2005
+      when 'yes'
+        "husband"
+      when 'no'
+        "highest earner"
+      end
+    end
+
     def calculate_adjusted_net_income(income, gross_pension_contributions, net_pension_contributions, gift_aided_donations)
       income - gross_pension_contributions - (net_pension_contributions * 1.25) - (gift_aided_donations * 1.25)
     end
