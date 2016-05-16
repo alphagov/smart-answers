@@ -1,7 +1,7 @@
 ---
-lib/smart_answer_flows/calculate-married-couples-allowance.rb: a9b38bcfad0cf386b188773ffa6b34f0
-test/data/calculate-married-couples-allowance-questions-and-responses.yml: 3cdcbf373de49fa6383b7dcb1967eb80
-test/data/calculate-married-couples-allowance-responses-and-expected-results.yml: 3a6d219be3fceda5e5e091520ab5227f
+lib/smart_answer_flows/calculate-married-couples-allowance.rb: cfddc8e729b2888a926ac002ef2765df
+test/data/calculate-married-couples-allowance-questions-and-responses.yml: e545284fadb5962a78fbd75f1c4a504f
+test/data/calculate-married-couples-allowance-responses-and-expected-results.yml: 35211b799802e4e8161a055ef64d30c2
 lib/smart_answer_flows/calculate-married-couples-allowance/calculate_married_couples_allowance.govspeak.erb: 2a107c5f5eccf492a1bbb055fb87ee2c
 lib/smart_answer_flows/calculate-married-couples-allowance/outcomes/_done_body.govspeak.erb: cb025369e07d6cdbedbfe7d54df39eee
 lib/smart_answer_flows/calculate-married-couples-allowance/outcomes/_done_next_steps.govspeak.erb: bd570369ab0b5cf668541917daa5ef9b
@@ -23,4 +23,4 @@ lib/smart_answer_flows/calculate-married-couples-allowance/questions/whats_the_h
 lib/smart_answer_flows/calculate-married-couples-allowance/questions/whats_the_husbands_income.govspeak.erb: dd71c9678c1f2b9eba3471151b2ba839
 lib/data/rates/personal_allowance.yml: dbbb65f9bd2e09627f15f38991357841
 lib/data/rates/married_couples_allowance.yml: 298d9f701fa1d02aeb7801df462e0605
-lib/smart_answer/calculators/married_couples_allowance_calculator.rb: 637cb786cb61963adb3d819a1a86fc56
+lib/smart_answer/calculators/married_couples_allowance_calculator.rb: 3bc336452bff039217540d270312125e
