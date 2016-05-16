@@ -148,12 +148,12 @@ module SmartAnswer
 
       outcome :husband_done do
         precalculate :allowance do
-          calculator.calculate_allowance(calculator.birth_date, income)
+          calculator.calculate_allowance(income)
         end
       end
       outcome :highest_earner_done do
         precalculate :allowance do
-          calculator.calculate_allowance(calculator.birth_date, income)
+          calculator.calculate_allowance(income)
         end
       end
       outcome :sorry

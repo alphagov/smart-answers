@@ -36,7 +36,7 @@ module SmartAnswer::Calculators
         age_related_allowance: 10090
       )
 
-      result = hmrc_example_calculator.calculate_allowance(anything, 29600)
+      result = hmrc_example_calculator.calculate_allowance(29600)
       assert_equal SmartAnswer::Money.new("711"), result
     end
 
@@ -50,40 +50,40 @@ module SmartAnswer::Calculators
         age_related_allowance: 10660
       )
 
-      result = hmrc_example_calculator.calculate_allowance(anything, 31500)
+      result = hmrc_example_calculator.calculate_allowance(31500)
       assert_equal SmartAnswer::Money.new("721"), result
     end
 
     test "allow an income less than 1" do
-      result = default_calculator.calculate_allowance(anything, 0)
+      result = default_calculator.calculate_allowance(0)
       assert_equal SmartAnswer::Money.new("802"), result
     end
 
     test "minimum allowance when annual income over income limit" do
-      result = default_calculator.calculate_allowance(anything, 90000)
+      result = default_calculator.calculate_allowance(90000)
       assert_equal SmartAnswer::Money.new("301"), result
     end
 
     test "maximum allowance when low annual income" do
-      result = default_calculator.calculate_allowance(anything, 100)
+      result = default_calculator.calculate_allowance(100)
       assert_equal SmartAnswer::Money.new("802"), result
     end
 
     test "maximum allowance when income is greater than income limit but not enough to reduce personal allowance" do
       maximum_reduction = @age_related_allowance - @personal_allowance
       test_income = @income_limit + (maximum_reduction - 100)
-      result = default_calculator.calculate_allowance(anything, test_income)
+      result = default_calculator.calculate_allowance(test_income)
       assert_equal SmartAnswer::Money.new("802"), result
     end
 
     test "maximum allowance when income is same as income limit" do
-      result = default_calculator.calculate_allowance(anything, @income_limit)
+      result = default_calculator.calculate_allowance(@income_limit)
       assert_equal SmartAnswer::Money.new("802"), result
     end
 
     test "maximum allowance when just over income limit" do
       test_income = @income_limit + 1
-      result = default_calculator.calculate_allowance(anything, test_income)
+      result = default_calculator.calculate_allowance(test_income)
       assert_equal SmartAnswer::Money.new("802"), result
     end
 
