@@ -155,11 +155,13 @@ module SmartAnswer
           calculator.calculate_allowance
         end
       end
+
       outcome :highest_earner_done do
         precalculate :allowance do
           calculator.calculate_allowance
         end
       end
+
       outcome :sorry
     end
   end
