@@ -24,8 +24,12 @@
     Contact the <%= calculator.ceremony_country_name %> Government to find out about getting married there, including what documents you’ll need.
 
 
+    <% if calculator.ceremony_country == 'gibraltar' %>
+      <%= render partial: 'contact_details_for_gibraltar.govspeak.erb' %>
+    <% else %>
       <%= render partial: 'contact_method.govspeak.erb',
                  locals: { calculator: calculator } %>
+    <% end %>
 
     <% if calculator.resident_of_ceremony_country? %>
       <%= render partial: 'get_legal_advice.govspeak.erb' %>

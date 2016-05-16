@@ -8078,6 +8078,236 @@
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:
+  - gibraltar
+  :next_node: :legal_residency?
+  :outcome_node: false
+- :current_node: :legal_residency?
+  :responses:
+  - gibraltar
+  - uk
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - gibraltar
+  - uk
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - gibraltar
+  - uk
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_british_overseas_territory
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - gibraltar
+  - uk
+  - partner_british
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - gibraltar
+  - uk
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - gibraltar
+  - uk
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_british_overseas_territory
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - gibraltar
+  - uk
+  - partner_local
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - gibraltar
+  - uk
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - gibraltar
+  - uk
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_british_overseas_territory
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - gibraltar
+  - uk
+  - partner_other
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :legal_residency?
+  :responses:
+  - gibraltar
+  - ceremony_country
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - gibraltar
+  - ceremony_country
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - gibraltar
+  - ceremony_country
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_british_overseas_territory
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - gibraltar
+  - ceremony_country
+  - partner_british
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - gibraltar
+  - ceremony_country
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - gibraltar
+  - ceremony_country
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_british_overseas_territory
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - gibraltar
+  - ceremony_country
+  - partner_local
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - gibraltar
+  - ceremony_country
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - gibraltar
+  - ceremony_country
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_british_overseas_territory
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - gibraltar
+  - ceremony_country
+  - partner_other
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :legal_residency?
+  :responses:
+  - gibraltar
+  - third_country
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - gibraltar
+  - third_country
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - gibraltar
+  - third_country
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_british_overseas_territory
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - gibraltar
+  - third_country
+  - partner_british
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - gibraltar
+  - third_country
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - gibraltar
+  - third_country
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_british_overseas_territory
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - gibraltar
+  - third_country
+  - partner_local
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - gibraltar
+  - third_country
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - gibraltar
+  - third_country
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_british_overseas_territory
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - gibraltar
+  - third_country
+  - partner_other
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :country_of_ceremony?
+  :responses:
   - greece
   :next_node: :legal_residency?
   :outcome_node: false
