@@ -152,13 +152,13 @@ module SmartAnswer
 
       outcome :husband_done do
         precalculate :allowance do
-          adjusted_income = calculator.calculate_adjusted_net_income(calculator.income.to_f, calculator.gross_pension_contributions.to_f, calculator.net_pension_contributions.to_f, calculator.gift_aided_donations.to_f)
+          adjusted_income = calculator.calculate_adjusted_net_income
           calculator.calculate_allowance(adjusted_income)
         end
       end
       outcome :highest_earner_done do
         precalculate :allowance do
-          adjusted_income = calculator.calculate_adjusted_net_income(calculator.income.to_f, calculator.gross_pension_contributions.to_f, calculator.net_pension_contributions.to_f, calculator.gift_aided_donations.to_f)
+          adjusted_income = calculator.calculate_adjusted_net_income
           calculator.calculate_allowance(adjusted_income)
         end
       end
