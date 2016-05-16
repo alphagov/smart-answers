@@ -26,9 +26,9 @@ module SmartAnswer::Calculators
     # so this class could be extended so that it returns the personal allowance
     # you are entitled to based on your age and income.
 
-    def age_on_fifth_april(birth_date)
-      fifth_april = Date.new(Date.today.year, 4, 5)
-      SmartAnswer::DateOfBirth.new(birth_date).age(on: fifth_april)
+    def age_at_end_of_current_tax_year(birth_date)
+      end_of_tax_year = SmartAnswer::TaxYear.current.ends_on
+      SmartAnswer::DateOfBirth.new(birth_date).age(on: end_of_tax_year)
     end
 
     def age_related_allowance(birth_date)
@@ -41,7 +41,7 @@ module SmartAnswer::Calculators
           higher_allowance_2
         end
       else
-        age = age_on_fifth_april(birth_date)
+        age = age_at_end_of_current_tax_year(birth_date)
         if age < HIGHER_ALLOWANCE_1_AGE
           personal_allowance
         elsif age < HIGHER_ALLOWANCE_2_AGE

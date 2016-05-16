@@ -21,29 +21,29 @@ module SmartAnswer::Calculators
 
     context 'before 2013 to 2014 tax year' do
       setup do
-        Timecop.freeze(Date.parse('2013-04-05'))
+        Timecop.freeze(Date.parse('2012-11-11'))
       end
 
-      should "return the basic allowance for someone aged 64 who will be 65 after 5th April" do
-        date_of_birth = Date.new(Date.today.year - 65, 4, 6)
+      should "return the basic allowance for someone aged 64 at end of tax year" do
+        date_of_birth = Date.parse('1948-04-06')
         result = @calculator.age_related_allowance(date_of_birth)
         assert_equal(@personal_allowance, result)
       end
 
-      should "return the 1st higher allowance for someone aged 64 who will be 65 on 5th April" do
-        date_of_birth = Date.new(Date.today.year - 65, 4, 5)
+      should "return the 1st higher allowance for someone aged 65 at end of tax year" do
+        date_of_birth = Date.parse('1948-04-05')
         result = @calculator.age_related_allowance(date_of_birth)
         assert_equal(@higher_allowance_1, result)
       end
 
-      should "return the 1st higher allowance for someone aged 74 who will be 75 after 5th April" do
-        date_of_birth = Date.new(Date.today.year - 75, 4, 6)
+      should "return the 1st higher allowance for someone aged 74 at end of tax year" do
+        date_of_birth = Date.parse('1938-04-06')
         result = @calculator.age_related_allowance(date_of_birth)
         assert_equal(@higher_allowance_1, result)
       end
 
-      should "return the 2nd higher allowance for someone aged 74 who will be 75 on 5th April" do
-        date_of_birth = Date.new(Date.today.year - 75, 4, 5)
+      should "return the 2nd higher allowance for someone aged 75 at end of tax year" do
+        date_of_birth = Date.parse('1938-04-05')
         result = @calculator.age_related_allowance(date_of_birth)
         assert_equal(@higher_allowance_2, result)
       end
