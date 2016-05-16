@@ -35,8 +35,12 @@ module SmartAnswer
         option :yes
         option :no
 
-        calculate :income_measure do |response|
-          case response
+        on_response do |response|
+          calculator.marriage_or_civil_partnership_before_5_december_2005 = response
+        end
+
+        calculate :income_measure do
+          case calculator.marriage_or_civil_partnership_before_5_december_2005
           when 'yes'
             "husband"
           when 'no'
@@ -46,8 +50,8 @@ module SmartAnswer
           end
         end
 
-        next_node do |response|
-          case response
+        next_node do
+          case calculator.marriage_or_civil_partnership_before_5_december_2005
           when 'yes'
             question :whats_the_husbands_date_of_birth?
           when 'no'

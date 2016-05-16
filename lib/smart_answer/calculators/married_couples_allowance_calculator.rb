@@ -1,5 +1,7 @@
 module SmartAnswer::Calculators
   class MarriedCouplesAllowanceCalculator
+    attr_accessor :marriage_or_civil_partnership_before_5_december_2005
+
     def initialize
       @personal_allowance_calculator = PersonalAllowanceCalculator.new
     end
