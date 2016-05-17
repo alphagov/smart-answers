@@ -219,6 +219,8 @@ module SmartAnswer
               outcome :outcome_same_sex_marriage_and_civil_partnership_not_possible
             elsif calculator.ceremony_country == "germany" && calculator.partner_is_national_of_ceremony_country?
               outcome :outcome_same_sex_civil_partnership
+            elsif calculator.ceremony_country == "romania" && calculator.partner_is_not_national_of_ceremony_country?
+              outcome :outcome_same_sex_for_non_romanians
             elsif calculator.same_sex_marriage_country? ||
                 (
                   calculator.same_sex_marriage_country_when_couple_british? &&
@@ -268,6 +270,7 @@ module SmartAnswer
       outcome :outcome_opposite_sex_marriage_in_indonesia
       outcome :outcome_opposite_sex_marriage_in_italy_when_residing_in_uk_or_italy
       outcome :outcome_opposite_sex_marriage_in_japan
+      outcome :outcome_same_sex_for_non_romanians
       outcome :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_uk_or_kosovo
       outcome :outcome_opposite_sex_marriage_in_kuwait
       outcome :outcome_opposite_sex_marriage_in_laos_with_lao_national
