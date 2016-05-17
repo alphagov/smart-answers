@@ -2,12 +2,13 @@ ENV['PLEK_SERVICE_WHITEHALL_ADMIN_URI'] = 'https://www.gov.uk'
 
 require 'timecop'
 
-Timecop.freeze(Date.parse('2015-01-01'))
-
 unless flow_name = ARGV.shift
   puts "Usage: #{__FILE__} <flow-name>"
   exit 1
 end
+
+helper = SmartAnswerTestHelper.new(flow_name)
+Timecop.freeze(helper.current_time)
 
 if ENV["TEST_COVERAGE"]
   require 'simplecov'
