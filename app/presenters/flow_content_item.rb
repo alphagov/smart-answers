@@ -9,6 +9,7 @@ class FlowContentItem
     {
       base_path: base_path,
       title: flow_presenter.title,
+      details: {},
       format: 'placeholder_smart_answer',
       publishing_app: 'smartanswers',
       rendering_app: 'smartanswers',
