@@ -1,16 +1,14 @@
 require_relative "../../test_helper"
 require_relative "flow_test_helper"
-require 'gds_api/test_helpers/worldwide'
 
 require "smart_answer_flows/help-if-you-are-arrested-abroad"
 
 class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
   include FlowTestHelper
-  include GdsApi::TestHelpers::Worldwide
 
   setup do
     @location_slugs = %w(aruba belgium greece iran syria)
-    worldwide_api_has_locations(@location_slugs)
+    stub_worldwide_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::HelpIfYouAreArrestedAbroadFlow
   end
 
@@ -22,7 +20,6 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
     context "Answering with a country without any specific downloads / information" do
       context "Answering Aruba" do
         setup do
-          worldwide_api_has_organisations_for_location('aruba', read_fixture_file('worldwide/aruba_organisations.json'))
           add_response :aruba
         end
 
@@ -44,7 +41,6 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
     context "Answering with a country that has specific downloads / information" do
       context "Answering Belgium" do
         setup do
-          worldwide_api_has_organisations_for_location('belgium', read_fixture_file('worldwide/belgium_organisations.json'))
           add_response :belgium
         end
 
@@ -59,7 +55,6 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
 
       context "Answering Greece" do
         setup do
-          worldwide_api_has_organisations_for_location('greece', read_fixture_file('worldwide/greece_organisations.json'))
           add_response :greece
         end
 
@@ -76,7 +71,6 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
 
   context "In Iran" do
     setup do
-      worldwide_api_has_organisations_for_location('iran', read_fixture_file('worldwide/iran_organisations.json'))
       add_response :iran
     end
 
@@ -87,7 +81,6 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
 
   context "In Syria" do
     setup do
-      worldwide_api_has_organisations_for_location('syria', read_fixture_file('worldwide/syria_organisations.json'))
       add_response :syria
     end
 
