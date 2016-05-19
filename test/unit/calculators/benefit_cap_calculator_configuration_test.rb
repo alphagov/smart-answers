@@ -154,7 +154,7 @@ module SmartAnswer::Calculators
             )
           end
           should "return false" do
-            assert_equal false, @config.is_london?("B1%201PW")
+            assert_equal false, @config.london?("B1%201PW")
           end
         end
         context "lives in London" do
@@ -176,7 +176,7 @@ module SmartAnswer::Calculators
             )
           end
           should "return true" do
-            assert_equal true, @config.is_london?("WC2B%206SE")
+            assert_equal true, @config.london?("WC2B%206SE")
           end
         end
       end
