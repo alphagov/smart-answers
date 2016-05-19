@@ -126,7 +126,7 @@ module SmartAnswer::Calculators
           end
         end
         context "merge questions" do
-          should "get all benefit questions from multiple configuration sets" do
+          should "get all unique benefit questions from multiple configuration sets" do
             questions = @config.all_questions
             refute_includes questions.values, "first_question"
             refute_includes questions.values, "second_question"
