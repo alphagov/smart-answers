@@ -42,10 +42,10 @@ module SmartAnswer::Calculators
     end
 
     def region(postcode)
-      is_london?(postcode) ? :london : :national
+      london?(postcode) ? :london : :national
     end
 
-    def is_london?(postcode)
+    def london?(postcode)
       area(postcode).any? { |result| result[:slug] == "london" }
     end
 
