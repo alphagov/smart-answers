@@ -1,7 +1,7 @@
 ---
-lib/smart_answer_flows/calculate-married-couples-allowance.rb: 26e5b73a363f0083644daa025e6312a3
-test/data/calculate-married-couples-allowance-questions-and-responses.yml: 3cdcbf373de49fa6383b7dcb1967eb80
-test/data/calculate-married-couples-allowance-responses-and-expected-results.yml: 3a6d219be3fceda5e5e091520ab5227f
+lib/smart_answer_flows/calculate-married-couples-allowance.rb: a44320a21996baa413085565016c9c3b
+test/data/calculate-married-couples-allowance-questions-and-responses.yml: 955f78a0c50d1c260828db0b5905e0d7
+test/data/calculate-married-couples-allowance-responses-and-expected-results.yml: 2c5f56312d1f3d3c52552a40a0976c5c
 lib/smart_answer_flows/calculate-married-couples-allowance/calculate_married_couples_allowance.govspeak.erb: 2a107c5f5eccf492a1bbb055fb87ee2c
 lib/smart_answer_flows/calculate-married-couples-allowance/outcomes/_done_body.govspeak.erb: cb025369e07d6cdbedbfe7d54df39eee
 lib/smart_answer_flows/calculate-married-couples-allowance/outcomes/_done_next_steps.govspeak.erb: bd570369ab0b5cf668541917daa5ef9b
@@ -21,5 +21,6 @@ lib/smart_answer_flows/calculate-married-couples-allowance/questions/whats_the_h
 lib/smart_answer_flows/calculate-married-couples-allowance/questions/whats_the_highest_earners_income.govspeak.erb: 412dc17e132e6eac48e7b19de53568e5
 lib/smart_answer_flows/calculate-married-couples-allowance/questions/whats_the_husbands_date_of_birth.govspeak.erb: e4fc026bed0343ef3a2727da6c8ed30a
 lib/smart_answer_flows/calculate-married-couples-allowance/questions/whats_the_husbands_income.govspeak.erb: dd71c9678c1f2b9eba3471151b2ba839
-lib/data/rates/married_couples_allowance.yml: 4963b39377d58a433c033b657f595810
-lib/smart_answer/calculators/married_couples_allowance_calculator.rb: da03eb7f2e9058aff0bd4ef8fb34f7c2
+lib/data/rates/personal_allowance.yml: 53b723ddd482932c28e585aa778ffce4
+lib/data/rates/married_couples_allowance.yml: 298d9f701fa1d02aeb7801df462e0605
+lib/smart_answer/calculators/married_couples_allowance_calculator.rb: 6e3a825124b3e11dffc5c5ab08e31c93

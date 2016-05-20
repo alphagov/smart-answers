@@ -10,34 +10,15 @@ module SmartAnswer
         option :yes
         option :no
 
-        calculate :is_before_april_changes do
-          nil
-        end
-        calculate :gross_pension_contributions do
-          nil
-        end
-        calculate :net_pension_contributions do
-          nil
+        on_response do |response|
+          self.calculator = Calculators::MarriedCouplesAllowanceCalculator.new
+          calculator.born_on_or_before_6_april_1935 = response
         end
 
-        calculate :age_related_allowance_chooser do
-          rates = Calculators::RatesQuery.from_file('married_couples_allowance').rates
-          AgeRelatedAllowanceChooser.new(
-            personal_allowance: rates.personal_allowance,
-            over_65_allowance: rates.over_65_allowance,
-            over_75_allowance: rates.over_75_allowance
-          )
-        end
-
-        calculate :calculator do
-          Calculators::MarriedCouplesAllowanceCalculator.new
-        end
-
-        next_node do |response|
-          case response
-          when 'yes'
+        next_node do
+          if calculator.qualifies?
             question :did_you_marry_or_civil_partner_before_5_december_2005?
-          when 'no'
+          else
             outcome :sorry
           end
         end
@@ -47,22 +28,14 @@ module SmartAnswer
         option :yes
         option :no
 
-        calculate :income_measure do |response|
-          case response
-          when 'yes'
-            "husband"
-          when 'no'
-            "highest earner"
-          else
-            raise SmartAnswer::InvalidResponse
-          end
+        on_response do |response|
+          calculator.marriage_or_civil_partnership_before_5_december_2005 = response
         end
 
-        next_node do |response|
-          case response
-          when 'yes'
+        next_node do
+          if calculator.husband_income_measured?
             question :whats_the_husbands_date_of_birth?
-          when 'no'
+          else
             question :whats_the_highest_earners_date_of_birth?
           end
         end
@@ -72,7 +45,10 @@ module SmartAnswer
         from { Date.today.end_of_year }
         to { Date.parse('1 Jan 1896') }
 
-        save_input_as :birth_date
+        on_response do |response|
+          calculator.birth_date = response
+        end
+
         next_node do
           question :whats_the_husbands_income?
         end
@@ -82,38 +58,43 @@ module SmartAnswer
         to { Date.parse('1 Jan 1896') }
         from { Date.today.end_of_year }
 
-        save_input_as :birth_date
+        on_response do |response|
+          calculator.birth_date = response
+        end
+
         next_node do
           question :whats_the_highest_earners_income?
         end
       end
 
       money_question :whats_the_husbands_income? do
-        save_input_as :income
+        on_response do |response|
+          calculator.income = response
+        end
 
-        validate { |response| response > 0 }
+        validate { calculator.valid_income? }
 
-        next_node do |response|
-          limit = (is_before_april_changes ? 26100.0 : 27000.0)
-          if response.to_f >= limit
-            question :paying_into_a_pension?
-          else
+        next_node do
+          if calculator.income_within_limit_for_personal_allowance?
             outcome :husband_done
+          else
+            question :paying_into_a_pension?
           end
         end
       end
 
       money_question :whats_the_highest_earners_income? do
-        save_input_as :income
+        on_response do |response|
+          calculator.income = response
+        end
 
-        validate { |response| response > 0 }
+        validate { calculator.valid_income? }
 
-        next_node do |response|
-          limit = (is_before_april_changes ? 26100.0 : 27000.0)
-          if response.to_f >= limit
-            question :paying_into_a_pension?
-          else
+        next_node do
+          if calculator.income_within_limit_for_personal_allowance?
             outcome :highest_earner_done
+          else
+            question :paying_into_a_pension?
           end
         end
       end
@@ -122,18 +103,23 @@ module SmartAnswer
         option :yes
         option :no
 
-        next_node do |response|
-          case response
-          when 'yes'
+        on_response do |response|
+          calculator.paying_into_a_pension = response
+        end
+
+        next_node do
+          if calculator.paying_into_a_pension?
             question :how_much_expected_contributions_before_tax?
-          when 'no'
+          else
             question :how_much_expected_gift_aided_donations?
           end
         end
       end
 
       money_question :how_much_expected_contributions_before_tax? do
-        save_input_as :gross_pension_contributions
+        on_response do |response|
+          calculator.gross_pension_contributions = response
+        end
 
         next_node do
           question :how_much_expected_contributions_with_tax_relief?
@@ -141,7 +127,9 @@ module SmartAnswer
       end
 
       money_question :how_much_expected_contributions_with_tax_relief? do
-        save_input_as :net_pension_contributions
+        on_response do |response|
+          calculator.net_pension_contributions = response
+        end
 
         next_node do
           question :how_much_expected_gift_aided_donations?
@@ -149,12 +137,12 @@ module SmartAnswer
       end
 
       money_question :how_much_expected_gift_aided_donations? do
-        calculate :income do |response|
-          calculator.calculate_adjusted_net_income(income.to_f, (gross_pension_contributions.to_f || 0), (net_pension_contributions.to_f || 0), response)
+        on_response do |response|
+          calculator.gift_aided_donations = response
         end
 
         next_node do
-          if income_measure == "husband"
+          if calculator.husband_income_measured?
             outcome :husband_done
           else
             outcome :highest_earner_done
@@ -164,16 +152,16 @@ module SmartAnswer
 
       outcome :husband_done do
         precalculate :allowance do
-          age_related_allowance = age_related_allowance_chooser.get_age_related_allowance(birth_date)
-          calculator.calculate_allowance(age_related_allowance, income)
+          calculator.calculate_allowance
         end
       end
+
       outcome :highest_earner_done do
         precalculate :allowance do
-          age_related_allowance = age_related_allowance_chooser.get_age_related_allowance(birth_date)
-          calculator.calculate_allowance(age_related_allowance, income)
+          calculator.calculate_allowance
         end
       end
+
       outcome :sorry
     end
   end
