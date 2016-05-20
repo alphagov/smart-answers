@@ -1,5 +1,4 @@
 require 'gds_api/base'
-require 'gds_api/json_client'
 
 class WorkingDays
   WEEKDAYS = 1..5
