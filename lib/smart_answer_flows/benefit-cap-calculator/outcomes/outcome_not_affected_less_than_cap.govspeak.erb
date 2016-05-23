@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  Based on the answers you’ve given, you won’t be affected by the benefit cap. This is because the total amount of benefits you get are less than the benefit cap.
+  Based on your answers, you won’t be affected by the benefit cap. This is because the total amount of benefits you get are less than the benefit cap.
 <% end %>
 
 <% content_for :body do %>
@@ -7,7 +7,7 @@
 
   The total amount of your benefits are added together:
 
-  Total amount of benefits affected by cap: £<%= total_benefits %>
+  Total amount of benefits affected by cap: £<%= total_benefits_amount %>
 
   As this amount is lower than your benefit cap of £<%= benefit_cap %>, your benefits won’t change.
 
