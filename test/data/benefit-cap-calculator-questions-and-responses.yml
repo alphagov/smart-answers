@@ -1,7 +1,7 @@
 ---
 :choose_cap_to_calculate?:
-- 'default'
-- 'future'
+- default
+- future
 :receive_housing_benefit?:
 - 'yes'
 - 'no'
