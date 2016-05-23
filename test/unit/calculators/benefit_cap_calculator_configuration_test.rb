@@ -1,9 +1,10 @@
 require_relative "../../test_helper"
-require 'gds_api/test_helpers/content_api'
-require 'gds_api/imminence'
+require 'gds_api/test_helpers/imminence'
 
 module SmartAnswer::Calculators
   class BenefitCapCalculatorConfigurationTest < ActiveSupport::TestCase
+    include GdsApi::TestHelpers::Imminence
+
     context BenefitCapCalculatorConfiguration do
       setup do
         @config = BenefitCapCalculatorConfiguration.new
@@ -141,17 +142,7 @@ module SmartAnswer::Calculators
       context "location of user" do
         context "lives outside of London" do
           setup do
-            GdsApi::Imminence.any_instance.stubs(:areas_for_postcode).returns(
-              OpenStruct.new(
-                code: 200,
-                results: [
-                  {
-                    slug: "birmingham-city-council",
-                    country_name: "England"
-                  }
-                ]
-              )
-            )
+            imminence_has_areas_for_postcode("B1%201PW", [{ slug: "birmingham-city-council", country_name: 'England' }])
           end
           should "return false" do
             assert_equal false, @config.london?("B1%201PW")
@@ -159,21 +150,7 @@ module SmartAnswer::Calculators
         end
         context "lives in London" do
           setup do
-            GdsApi::Imminence.any_instance.stubs(:areas_for_postcode).returns(
-              OpenStruct.new(
-                code: 200,
-                results: [
-                  {
-                    slug: "camden-borough-council",
-                    country_name: "England"
-                  },
-                  {
-                    slug: "london",
-                    country_name: "England"
-                  }
-                ]
-              )
-            )
+            imminence_has_areas_for_postcode("WC2B%206SE", [{ slug: 'london', country_name: 'England' }])
           end
           should "return true" do
             assert_equal true, @config.london?("WC2B%206SE")

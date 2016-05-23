@@ -1,10 +1,12 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
+require 'gds_api/test_helpers/imminence'
 
 require "smart_answer_flows/benefit-cap-calculator"
 
 class BenefitCapCalculatorTest < ActiveSupport::TestCase
   include FlowTestHelper
+  include GdsApi::TestHelpers::Imminence
 
   setup do
     setup_for_testing_flow SmartAnswer::BenefitCapCalculatorFlow
@@ -12,10 +14,8 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
 
   context "Benefit cap calculator" do
     setup do
-      WebMock.stub_request(:get, "#{Plek.new.find('imminence')}/areas/IG6%202BA.json").
-        to_return(body: File.open(fixture_file('imminence/london.json')))
-      WebMock.stub_request(:get, "#{Plek.new.find('imminence')}/areas/B1%201PW.json").
-        to_return(body: File.open(fixture_file('imminence/national.json')))
+      imminence_has_areas_for_postcode("IG6%202BA",  [{ slug: 'london', country_name: 'England' }])
+      imminence_has_areas_for_postcode("B1%201PW",   [{ slug: "birmingham-city-council", country_name: 'England' }])
     end
     context "default flow" do
       setup { add_response :default }
