@@ -67,6 +67,14 @@ module SmartAnswer::Calculators
       COUNTRIES_WITH_CONSULATE_GENERALS.include?(country_slug)
     end
 
+    def higher_risk_country?(country_slug)
+      HIGHER_RISK_COUNTRIES.include?(country_slug)
+    end
+
+    def lower_risk_country?(country_slug)
+      !higher_risk_country?(country_slug)
+    end
+
     def may_require_dna_tests?(country_slug)
       MAY_REQUIRE_DNA_TESTS.include?(country_slug)
     end
