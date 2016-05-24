@@ -300,7 +300,7 @@
       <% when 'uganda' %>
         Your documents will be returned to the British High Commission in Kampala after the birth has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
     <% end %>
-    <% unless registration_country.in?(reg_data_query.class::ORU_COURIER_BY_HIGH_COMISSION) %>
+    <% unless reg_data_query.oru_courier_by_high_commission?(registration_country) %>
 
       You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
     <% end %>

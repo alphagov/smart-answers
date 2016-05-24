@@ -118,7 +118,7 @@
       Your documents will be returned to the British High Commission in Kampala after the death has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
     <% end %>
 
-    <% unless current_location.in?(reg_data_query.class::ORU_COURIER_BY_HIGH_COMISSION) %>
+    <% unless reg_data_query.oru_courier_by_high_commission?(current_location) %>
       You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
     <% end %>
   <% else %>
