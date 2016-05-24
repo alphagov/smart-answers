@@ -754,7 +754,7 @@
   - '50.0'
   - single
   - WC2B 6SE
-  :next_node: :outcome_not_affected_less_than_cap
+  :next_node: :outcome_not_affected_less_than_cap_future_london
   :outcome_node: true
 - :current_node: :single_couple_lone_parent_future?
   :responses:
@@ -792,7 +792,7 @@
   - '50.0'
   - couple
   - WC2B 6SE
-  :next_node: :outcome_not_affected_less_than_cap
+  :next_node: :outcome_not_affected_less_than_cap_future_london
   :outcome_node: true
 - :current_node: :single_couple_lone_parent_future?
   :responses:
@@ -830,7 +830,7 @@
   - '50.0'
   - parent
   - WC2B 6SE
-  :next_node: :outcome_not_affected_less_than_cap
+  :next_node: :outcome_not_affected_less_than_cap_future_london
   :outcome_node: true
 - :current_node: :housing_benefit_amount?
   :responses:
@@ -917,7 +917,7 @@
   - '350.0'
   - couple
   - WC2B 6SE
-  :next_node: :outcome_not_affected_less_than_cap
+  :next_node: :outcome_not_affected_less_than_cap_future_london
   :outcome_node: true
 - :current_node: :single_couple_lone_parent_future?
   :responses:
@@ -955,7 +955,7 @@
   - '350.0'
   - parent
   - WC2B 6SE
-  :next_node: :outcome_not_affected_less_than_cap
+  :next_node: :outcome_not_affected_less_than_cap_future_london
   :outcome_node: true
 - :current_node: :receiving_non_exemption_benefits_future?
   :responses:

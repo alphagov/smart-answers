@@ -231,7 +231,11 @@ module SmartAnswer
               outcome :outcome_affected_greater_than_cap_future_national
             end
           else
-            outcome :outcome_not_affected_less_than_cap
+            if region == :london
+              outcome :outcome_not_affected_less_than_cap_future_london
+            else
+              outcome :outcome_not_affected_less_than_cap
+            end
           end
         end
       end
@@ -333,6 +337,11 @@ module SmartAnswer
 
       ## Outcome 4
       outcome :outcome_not_affected_less_than_cap do
+        precalculate :total_benefits do
+          sprintf("%.2f", total_benefits)
+        end
+      end
+      outcome :outcome_not_affected_less_than_cap_future_london do
         precalculate :total_benefits do
           sprintf("%.2f", total_benefits)
         end

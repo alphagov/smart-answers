@@ -357,7 +357,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
                       setup { add_response 'WC2B 6SE' }
 
                       should "go to outcome" do
-                        assert_current_node :outcome_not_affected_less_than_cap
+                        assert_current_node :outcome_not_affected_less_than_cap_future_london
                       end
                     end
 
