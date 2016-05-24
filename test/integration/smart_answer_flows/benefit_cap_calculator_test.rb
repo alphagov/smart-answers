@@ -285,8 +285,16 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
                   context "answer single above cap" do
                     setup { add_response "single" }
 
-                    should "go to outcome 3" do
-                      assert_current_node :outcome_affected_greater_than_cap
+                    should "ask for postcode" do
+                      assert_current_node :enter_postcode?
+                    end
+
+                    context "answer postcode question" do
+                      setup { add_response 'WC2B 6SE' }
+
+                      should "go to outcome 3" do
+                        assert_current_node :outcome_affected_greater_than_cap
+                      end
                     end
                   end #Q6 single greater than cap, at Outcome 3
                 end #Q5p how much for housing benefit
@@ -328,9 +336,18 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
                   context "answer lone parent" do
                     setup { add_response 'parent' }
 
-                    should "go to outcome" do
-                      assert_current_node :outcome_not_affected_less_than_cap
+                    should "ask for postcode" do
+                      assert_current_node :enter_postcode?
                     end
+
+                    context "answer postcode question" do
+                      setup { add_response 'WC2B 6SE' }
+
+                      should "go to outcome" do
+                        assert_current_node :outcome_not_affected_less_than_cap
+                      end
+                    end
+
                   end #Q6 lone parent, under cap, at Outcome 4
                 end #Q5p how much for housing, under cap
               end #Q5j how much for maternity, under cap
@@ -367,6 +384,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
         add_response "100"
         add_response "400"
         add_response :single
+        add_response 'WC2B 6SE'
         assert_current_node :outcome_affected_greater_than_cap
       end
     end
