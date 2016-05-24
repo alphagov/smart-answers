@@ -223,8 +223,13 @@ module SmartAnswer
         end
 
         next_node do |response|
-          if total_benefits > config.weekly_benefit_cap_amount(chosen_cap, family_type, config.region(response))
-            outcome :outcome_affected_greater_than_cap
+          region = config.region(response)
+          if total_benefits > config.weekly_benefit_cap_amount(chosen_cap, family_type, region)
+            if region == :london
+              outcome :outcome_affected_greater_than_cap_future_london
+            else
+              outcome :outcome_affected_greater_than_cap
+            end
           else
             outcome :outcome_not_affected_less_than_cap
           end
@@ -251,6 +256,31 @@ module SmartAnswer
 
       ## Outcome 3
       outcome :outcome_affected_greater_than_cap do
+        precalculate :total_benefits do
+          sprintf("%.2f", total_benefits)
+        end
+
+        precalculate :housing_benefit_amount do
+          sprintf("%.2f", housing_benefit_amount)
+        end
+
+        precalculate :total_over_cap do
+          sprintf("%.2f", (total_benefits.to_f - benefit_cap.to_f))
+        end
+
+        precalculate :new_housing_benefit_amount do
+          housing_benefit_amount.to_f - total_over_cap.to_f
+        end
+
+        precalculate :new_housing_benefit do
+          amount = sprintf("%.2f", new_housing_benefit_amount)
+          if amount < "0.5"
+            amount = sprintf("%.2f", 0.5)
+          end
+          amount
+        end
+      end
+      outcome :outcome_affected_greater_than_cap_future_london do
         precalculate :total_benefits do
           sprintf("%.2f", total_benefits)
         end

@@ -879,7 +879,7 @@
   - '350.0'
   - single
   - WC2B 6SE
-  :next_node: :outcome_affected_greater_than_cap
+  :next_node: :outcome_affected_greater_than_cap_future_london
   :outcome_node: true
 - :current_node: :single_couple_lone_parent_future?
   :responses:
@@ -1269,7 +1269,7 @@
   - '50.0'
   - single
   - WC2B 6SE
-  :next_node: :outcome_affected_greater_than_cap
+  :next_node: :outcome_affected_greater_than_cap_future_london
   :outcome_node: true
 - :current_node: :single_couple_lone_parent_future?
   :responses:
@@ -1343,7 +1343,7 @@
   - '50.0'
   - couple
   - WC2B 6SE
-  :next_node: :outcome_affected_greater_than_cap
+  :next_node: :outcome_affected_greater_than_cap_future_london
   :outcome_node: true
 - :current_node: :single_couple_lone_parent_future?
   :responses:
@@ -1417,7 +1417,7 @@
   - '50.0'
   - parent
   - WC2B 6SE
-  :next_node: :outcome_affected_greater_than_cap
+  :next_node: :outcome_affected_greater_than_cap_future_london
   :outcome_node: true
 - :current_node: :housing_benefit_amount?
   :responses:
@@ -1514,7 +1514,7 @@
   - '350.0'
   - single
   - WC2B 6SE
-  :next_node: :outcome_affected_greater_than_cap
+  :next_node: :outcome_affected_greater_than_cap_future_london
   :outcome_node: true
 - :current_node: :single_couple_lone_parent_future?
   :responses:
@@ -1588,7 +1588,7 @@
   - '350.0'
   - couple
   - WC2B 6SE
-  :next_node: :outcome_affected_greater_than_cap
+  :next_node: :outcome_affected_greater_than_cap_future_london
   :outcome_node: true
 - :current_node: :single_couple_lone_parent_future?
   :responses:
@@ -1662,7 +1662,7 @@
   - '350.0'
   - parent
   - WC2B 6SE
-  :next_node: :outcome_affected_greater_than_cap
+  :next_node: :outcome_affected_greater_than_cap_future_london
   :outcome_node: true
 - :current_node: :receive_housing_benefit?
   :responses:

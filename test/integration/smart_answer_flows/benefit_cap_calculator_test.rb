@@ -298,7 +298,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
                       setup { add_response 'WC2B 6SE' }
 
                       should "go to outcome 3" do
-                        assert_current_node :outcome_affected_greater_than_cap
+                        assert_current_node :outcome_affected_greater_than_cap_future_london
                       end
                     end
                   end #Q6 single greater than cap, at Outcome 3
@@ -390,7 +390,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
         add_response "400"
         add_response :single
         add_response 'WC2B 6SE'
-        assert_current_node :outcome_affected_greater_than_cap
+        assert_current_node :outcome_affected_greater_than_cap_future_london
       end
     end
   end
