@@ -1,4 +1,5 @@
 ENV['PLEK_SERVICE_WHITEHALL_ADMIN_URI'] = 'https://www.gov.uk'
+ENV['PLEK_SERVICE_IMMINENCE_URI'] = 'https://imminence.publishing.service.gov.uk'
 
 require 'timecop'
 
