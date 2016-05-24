@@ -48,20 +48,12 @@ class FlowRegistrationPresenter
         when SmartAnswer::Question::Base
           pres = QuestionPresenter.new(node, nil, helpers: [MethodMissingHelper])
           acc.concat([:title, :body, :hint].map { |method|
-            begin
-              pres.send(method)
-            rescue ActionView::Template::Error
-              ''
-            end
+            pres.send(method)
           })
         when SmartAnswer::Outcome
           pres = OutcomePresenter.new(node, nil, helpers: [MethodMissingHelper])
           acc.concat([:title, :body].map { |method|
-            begin
-              pres.send(method)
-            rescue ActionView::Template::Error
-              ''
-            end
+            pres.send(method)
           })
         end
       }.compact.join(" ").gsub(/(?:<[^>]+>|\s)+/, " ")
