@@ -82,6 +82,16 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "oru_courier_by_high_commission?" do
+        should "return true for countries in the list" do
+          assert @query.oru_courier_by_high_commission?('cameroon')
+        end
+
+        should "return false for countries not in the list" do
+          refute @query.oru_courier_by_high_commission?('argentina')
+        end
+      end
+
       context "fetching document return fees" do
         context "when before 2015-08-01" do
           setup do

@@ -99,6 +99,10 @@ module SmartAnswer::Calculators
       ORU_COURIER_VARIANTS.include?(country_slug)
     end
 
+    def oru_courier_by_high_commission?(country_slug)
+      ORU_COURIER_BY_HIGH_COMISSION.include?(country_slug)
+    end
+
     def document_return_fees
       RatesQuery.from_file('births_and_deaths_document_return_fees').rates
     end
