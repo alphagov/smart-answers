@@ -197,7 +197,7 @@ module SmartAnswer
         end
 
         precalculate :born_in_lower_risk_country do
-          reg_data_query.class::HIGHER_RISK_COUNTRIES.exclude?(country_of_birth)
+          reg_data_query.lower_risk_country?(country_of_birth)
         end
 
         precalculate :location do

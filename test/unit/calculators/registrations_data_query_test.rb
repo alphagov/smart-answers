@@ -24,6 +24,21 @@ module SmartAnswer::Calculators
           refute @query.has_consulate?('uganda')
         end
       end
+
+      context "higher_risk_country?" do
+        should "be true for higher risk countries" do
+          assert @query.higher_risk_country?('afghanistan')
+          refute @query.higher_risk_country?('france')
+        end
+      end
+
+      context "lower_risk_country?" do
+        should "be true for lower risk countries" do
+          assert @query.lower_risk_country?('france')
+          refute @query.lower_risk_country?('afghanistan')
+        end
+      end
+
       context "registration_country_slug" do
         should "map the country to a registration country if one exists" do
           assert_equal "spain", @query.registration_country_slug('andorra')
