@@ -13,9 +13,7 @@ module SmartAnswer
         option :default
         option :future
 
-        calculate :chosen_cap do
-          :default
-        end
+        save_input_as :chosen_cap
 
         next_node do
           question :receive_housing_benefit?
