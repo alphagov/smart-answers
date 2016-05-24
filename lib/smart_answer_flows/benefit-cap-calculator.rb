@@ -156,17 +156,44 @@ module SmartAnswer
         end
 
         next_node do
-          question :single_couple_lone_parent?
+          if chosen_cap == "future"
+            question :single_couple_lone_parent_future?
+          else
+            question :single_couple_lone_parent?
+          end
         end
       end
 
-      #Q6
+      #Q6 current flow
       multiple_choice :single_couple_lone_parent? do
         precalculate :weekly_benefit_cap_descriptions do
           config.weekly_benefit_cap_descriptions(chosen_cap)
         end
 
         config.weekly_benefit_caps(:default).keys.each do |weekly_benefit_cap|
+          option weekly_benefit_cap
+        end
+
+        calculate :benefit_cap do |response|
+          sprintf("%.2f", config.weekly_benefit_cap_amount(chosen_cap, response))
+        end
+
+        next_node do |response|
+          if total_benefits > config.weekly_benefit_cap_amount(chosen_cap, response)
+            outcome :outcome_affected_greater_than_cap
+          else
+            outcome :outcome_not_affected_less_than_cap
+          end
+        end
+      end
+
+      #Q6 future
+      multiple_choice :single_couple_lone_parent_future? do
+        precalculate :weekly_benefit_cap_descriptions do
+          config.weekly_benefit_cap_descriptions(chosen_cap)
+        end
+
+        config.weekly_benefit_caps(:future).keys.each do |weekly_benefit_cap|
           option weekly_benefit_cap
         end
 

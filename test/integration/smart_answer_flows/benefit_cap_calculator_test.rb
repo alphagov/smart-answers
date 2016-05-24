@@ -279,7 +279,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
 
                   #Q6
                   should "ask whether single, living with couple or lone parent" do
-                    assert_current_node :single_couple_lone_parent?
+                    assert_current_node :single_couple_lone_parent_future?
                   end
 
                   context "answer single above cap" do
@@ -322,7 +322,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
                   setup { add_response "10" }
 
                   should "ask if single, couple or lone parent" do
-                    assert_current_node :single_couple_lone_parent?
+                    assert_current_node :single_couple_lone_parent_future?
                   end
 
                   context "answer lone parent" do
