@@ -353,7 +353,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
                       assert_current_node :enter_postcode?
                     end
 
-                    context "answer postcode question" do
+                    context "answer postcode question with London postcode" do
                       setup { add_response 'WC2B 6SE' }
 
                       should "go to outcome" do
@@ -361,6 +361,13 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
                       end
                     end
 
+                    context "answer postcode question with Birmingham postcode" do
+                      setup { add_response 'B1 1PW' }
+
+                      should "go to outcome" do
+                        assert_current_node :outcome_not_affected_less_than_cap_future_national
+                      end
+                    end
                   end #Q6 lone parent, under cap, at Outcome 4
                 end #Q5p how much for housing, under cap
               end #Q5j how much for maternity, under cap

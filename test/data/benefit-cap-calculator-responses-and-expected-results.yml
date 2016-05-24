@@ -741,7 +741,7 @@
   - '50.0'
   - single
   - B1 1PW
-  :next_node: :outcome_not_affected_less_than_cap
+  :next_node: :outcome_not_affected_less_than_cap_future_national
   :outcome_node: true
 - :current_node: :enter_postcode?
   :responses:
@@ -779,7 +779,7 @@
   - '50.0'
   - couple
   - B1 1PW
-  :next_node: :outcome_not_affected_less_than_cap
+  :next_node: :outcome_not_affected_less_than_cap_future_national
   :outcome_node: true
 - :current_node: :enter_postcode?
   :responses:
@@ -817,7 +817,7 @@
   - '50.0'
   - parent
   - B1 1PW
-  :next_node: :outcome_not_affected_less_than_cap
+  :next_node: :outcome_not_affected_less_than_cap_future_national
   :outcome_node: true
 - :current_node: :enter_postcode?
   :responses:
