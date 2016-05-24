@@ -686,7 +686,7 @@
   - 'no'
   - 'no'
   - none
-  :next_node: :outcome_not_affected
+  :next_node: :outcome_not_affected_future
   :outcome_node: true
 - :current_node: :receiving_non_exemption_benefits_future?
   :responses:

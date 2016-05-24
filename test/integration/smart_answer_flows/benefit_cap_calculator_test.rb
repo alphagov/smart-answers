@@ -364,7 +364,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
             setup { add_response 'none' }
 
             should "go to outcome" do
-              assert_current_node :outcome_not_affected
+              assert_current_node :outcome_not_affected_future
             end
           end #Q4 no additional benefits at Outcome 5
         end #Q3 not receiving benefits

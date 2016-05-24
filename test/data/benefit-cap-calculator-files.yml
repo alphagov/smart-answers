@@ -1,13 +1,14 @@
 ---
-lib/smart_answer_flows/benefit-cap-calculator.rb: a9674c08e8186a41c57dc7573898778d
+lib/smart_answer_flows/benefit-cap-calculator.rb: 1421e56cdf24dea5a23b5cfd93481033
 test/data/benefit-cap-calculator-questions-and-responses.yml: c49cc1cdb19e8b0e46f3a8146d83e0ef
-test/data/benefit-cap-calculator-responses-and-expected-results.yml: b96cfc0ab740ef88009d259cb1e0c4d3
+test/data/benefit-cap-calculator-responses-and-expected-results.yml: b2133d523007c34f33f95739adade9b7
 lib/smart_answer_flows/benefit-cap-calculator/benefit_cap_calculator.govspeak.erb: ce5203f11989c0b35bd9c53ade1f3f82
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/_dwp_contact_details.govspeak.erb: 3bab6f0d1df0457dbf0ff7548150ba4f
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_affected_greater_than_cap.govspeak.erb: cafd15b3ab7a6cc4931a8410529c76ff
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected.govspeak.erb: 4dc17c29820007d202f8d59723de2892
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected_exemptions.govspeak.erb: 41d68ee32bba9ebe50e60bc6dc4929b5
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected_exemptions_future.govspeak.erb: 41d68ee32bba9ebe50e60bc6dc4929b5
+lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected_future.govspeak.erb: 4dc17c29820007d202f8d59723de2892
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected_less_than_cap.govspeak.erb: 547dc8a354a8b1aa74de1340c527fc0d
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected_no_housing_benefit.govspeak.erb: b30dc987dd60f9ec355cdb6e2903a4b8
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected_no_housing_benefit_future.govspeak.erb: b30dc987dd60f9ec355cdb6e2903a4b8
