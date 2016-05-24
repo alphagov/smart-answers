@@ -1,4 +1,4 @@
-Based on the answers you’ve given, you won’t be affected by the benefit cap. This is because the total amount of benefits you get are less than the benefit cap.
+Based on the answers you’ve given, you won’t be affected by the outside London benefit cap. This is because the total amount of benefits you get are the same as or lower than this benefit cap.
 
 ##How this is worked out
 
@@ -6,7 +6,9 @@ The total amount of your benefits are added together:
 
 Total amount of benefits affected by cap: £100.00
 
-As this amount is lower than your benefit cap of £384.62, your benefits won’t change.
+As this amount is lower than the outside London benefit cap of  £384.62, your benefits won’t change.
+
+You can check if you’re affected by the [current benefits cap](/benefit-cap-calculator/y/default).
 
 This is an estimate only. Contact the Department for Work and Pensions if you need further help.
 
