@@ -25,5 +25,5 @@ lib/data/rates/births_and_deaths_document_return_fees.yml: 4ac203e9fd076c12f62b5
 lib/data/translators.yml: f51e2bb27d2e33a3ac05032988ccd573
 lib/data/registrations.yml: 2eb5c61678f21bd9cc06af67c230279f
 lib/smart_answer/calculators/country_name_formatter.rb: 16b57a11261644a0bda0d609a60d1c62
-lib/smart_answer/calculators/registrations_data_query.rb: f123e65a59ab2951930c233967cfa453
+lib/smart_answer/calculators/registrations_data_query.rb: ce987f05eaa58bf2528f9c8737bbb703
 lib/smart_answer/calculators/translator_links.rb: 079592f6c5ede06d7c6ae4e8c5553127

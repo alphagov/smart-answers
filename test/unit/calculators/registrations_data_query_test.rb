@@ -62,6 +62,16 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "oru_documents_variant_for_birth?" do
+        should "return true for Papua New Guinea" do
+          assert @query.oru_documents_variant_for_death?('papua-new-guinea')
+        end
+
+        should "return false for Argentina" do
+          refute @query.oru_documents_variant_for_death?('argentina')
+        end
+      end
+
       context "oru_courier_variant?" do
         should "return true for countries in the list" do
           assert @query.oru_courier_variant?('cambodia')
