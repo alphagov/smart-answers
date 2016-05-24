@@ -31,7 +31,11 @@ module SmartAnswer
           if response == 'yes'
             question :working_tax_credit?
           else
-            outcome :outcome_not_affected_no_housing_benefit
+            if chosen_cap == 'future'
+              outcome :outcome_not_affected_no_housing_benefit_future
+            else
+              outcome :outcome_not_affected_no_housing_benefit
+            end
           end
         end
       end
@@ -230,6 +234,7 @@ module SmartAnswer
 
       ## Outcome 2
       outcome :outcome_not_affected_no_housing_benefit
+      outcome :outcome_not_affected_no_housing_benefit_future
 
       ## Outcome 3
       outcome :outcome_affected_greater_than_cap do

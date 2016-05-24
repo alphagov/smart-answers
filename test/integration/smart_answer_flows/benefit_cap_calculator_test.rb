@@ -376,7 +376,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
       setup { add_response :no }
 
       should "go to Outcome 1" do
-        assert_current_node :outcome_not_affected_no_housing_benefit
+        assert_current_node :outcome_not_affected_no_housing_benefit_future
       end
     end # Q1 not receving housing benefit at Outcome 2
 

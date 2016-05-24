@@ -1668,5 +1668,5 @@
   :responses:
   - future
   - 'no'
-  :next_node: :outcome_not_affected_no_housing_benefit
+  :next_node: :outcome_not_affected_no_housing_benefit_future
   :outcome_node: true
