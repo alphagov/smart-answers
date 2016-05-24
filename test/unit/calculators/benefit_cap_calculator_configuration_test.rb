@@ -1,7 +1,10 @@
 require_relative "../../test_helper"
+require 'gds_api/test_helpers/imminence'
 
 module SmartAnswer::Calculators
   class BenefitCapCalculatorConfigurationTest < ActiveSupport::TestCase
+    include GdsApi::TestHelpers::Imminence
+
     context BenefitCapCalculatorConfiguration do
       setup do
         @config = BenefitCapCalculatorConfiguration.new
@@ -132,6 +135,25 @@ module SmartAnswer::Calculators
             assert_includes questions.values, "other_second_question"
             assert_includes questions.values, "third_question"
             assert_includes questions.values, "other_third_question"
+          end
+        end
+      end
+
+      context "location of user" do
+        context "lives outside of London" do
+          setup do
+            imminence_has_areas_for_postcode("B1%201PW", [{ slug: "birmingham-city-council", country_name: 'England' }])
+          end
+          should "return false" do
+            assert_equal false, @config.is_london?("B1%201PW")
+          end
+        end
+        context "lives in London" do
+          setup do
+            imminence_has_areas_for_postcode("WC2B%206SE", [{ slug: 'london', country_name: 'England' }])
+          end
+          should "return true" do
+            assert_equal true, @config.is_london?("WC2B%206SE")
           end
         end
       end

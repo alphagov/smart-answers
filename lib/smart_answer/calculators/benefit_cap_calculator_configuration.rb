@@ -41,6 +41,19 @@ module SmartAnswer::Calculators
       dataset.keys.inject({}) { |versions, version| versions.merge(questions(version)) }
     end
 
+    def region(postcode)
+      is_london?(postcode) ? :london : :national
+    end
+
+    def is_london?(postcode)
+      area(postcode).any? { |result| result[:slug] == "london" }
+    end
+
+    def area(postcode)
+      response = Services.imminence_api.areas_for_postcode(postcode)
+      (response&.results || {})
+    end
+
   private
 
     def dataset

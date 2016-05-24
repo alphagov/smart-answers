@@ -207,11 +207,11 @@ module SmartAnswer
       #Q7 Future flow - Enter a postcode
       postcode_question :enter_postcode? do
         calculate :benefit_cap do |response|
-          sprintf("%.2f", config.weekly_benefit_cap_amount(chosen_cap, family_type))
+          sprintf("%.2f", config.weekly_benefit_cap_amount(chosen_cap, family_type, config.region(response)))
         end
 
         next_node do |response|
-          if total_benefits > config.weekly_benefit_cap_amount(chosen_cap, family_type)
+          if total_benefits > config.weekly_benefit_cap_amount(chosen_cap, family_type, config.region(response))
             outcome :outcome_affected_greater_than_cap
           else
             outcome :outcome_not_affected_less_than_cap

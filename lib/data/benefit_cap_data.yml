@@ -78,6 +78,16 @@ future:
       parent:
         amount: 500
         description: "A lone parent with 1 or more dependent children"
+    london:
+      single:
+        amount: 350
+        description: "Single"
+      couple:
+        amount: 500
+        description: "Living as a couple (with or without children)"
+      parent:
+        amount: 500
+        description: "A lone parent with 1 or more dependent children"
   exempt_benefits:
     - Attendance Allowance
     - Carer's Allowance
