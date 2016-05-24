@@ -9,7 +9,7 @@ lib/smart_answer_flows/register-a-birth/outcomes/no_birth_certificate_result.gov
 lib/smart_answer_flows/register-a-birth/outcomes/no_embassy_result.govspeak.erb: ed56d500311fbe441649c92193f0e631
 lib/smart_answer_flows/register-a-birth/outcomes/no_registration_result.govspeak.erb: 7b60252b078e6aec6f5759e894ce4ffb
 lib/smart_answer_flows/register-a-birth/outcomes/north_korea_result.govspeak.erb: e5ca7dae52d4d1bdded7ac60e7e0525e
-lib/smart_answer_flows/register-a-birth/outcomes/oru_result.govspeak.erb: e0f252348e6306a0946d5e0ce503b8d0
+lib/smart_answer_flows/register-a-birth/outcomes/oru_result.govspeak.erb: 3bc5da2d6c84597a2170e3571b95d139
 lib/smart_answer_flows/register-a-birth/questions/childs_date_of_birth.govspeak.erb: e911daf1dc69ce85db372dc4ea3bdd50
 lib/smart_answer_flows/register-a-birth/questions/country_of_birth.govspeak.erb: 31c306c928e71eee86c60352f51ccf83
 lib/smart_answer_flows/register-a-birth/questions/have_you_adopted_the_child.govspeak.erb: 3a9d66656446a508c7232b26778dfa23
@@ -25,5 +25,5 @@ lib/data/rates/births_and_deaths_document_return_fees.yml: 4ac203e9fd076c12f62b5
 lib/data/translators.yml: f51e2bb27d2e33a3ac05032988ccd573
 lib/data/registrations.yml: 2eb5c61678f21bd9cc06af67c230279f
 lib/smart_answer/calculators/country_name_formatter.rb: 16b57a11261644a0bda0d609a60d1c62
-lib/smart_answer/calculators/registrations_data_query.rb: 270d7ce02643e9b14cefee6b157d3759
+lib/smart_answer/calculators/registrations_data_query.rb: 1cd15dca24f5d36eef52da4279db17bb
 lib/smart_answer/calculators/translator_links.rb: 079592f6c5ede06d7c6ae4e8c5553127
