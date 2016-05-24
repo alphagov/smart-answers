@@ -62,6 +62,16 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "oru_courier_variant?" do
+        should "return true for countries in the list" do
+          assert @query.oru_courier_variant?('cambodia')
+        end
+
+        should "return false for countries not in the list" do
+          refute @query.oru_courier_variant?('argentina')
+        end
+      end
+
       context "fetching document return fees" do
         context "when before 2015-08-01" do
           setup do
