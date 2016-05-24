@@ -245,16 +245,16 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
           end
 
           context "answer receiving additional benefits" do
-            setup { add_response 'guardian,sda' }
+            setup { add_response 'incapacity,sda' }
 
             #Q5f
-            should "ask how much for guardian allowance benefit" do
+            should "ask how much for incapacity allowance benefit" do
               assert_state_variable :benefit_types, [:sda]
-              assert_current_node :guardian_amount?
+              assert_current_node :incapacity_amount?
               assert_state_variable :total_benefits, 0
             end
 
-            context "answer guardian allowance amount" do
+            context "answer incapacity allowance amount" do
               setup { add_response "300" }
 
               #Q5k

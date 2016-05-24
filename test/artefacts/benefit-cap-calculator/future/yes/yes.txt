@@ -6,6 +6,7 @@ These benefits are exempt from the benefit cap:
 - Attendance Allowance
 - Carer&#39;s Allowance
 - Disability Living Allowance
+- Guardian&#39;s Allowance
 - Industrial Injuries Benefit
 - Personal Independence Payment
 - Employment and Support Allowance (support component)

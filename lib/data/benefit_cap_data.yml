@@ -80,6 +80,7 @@ future:
     - Attendance Allowance
     - Carer's Allowance
     - Disability Living Allowance
+    - Guardian's Allowance
     - Industrial Injuries Benefit
     - Personal Independence Payment
     - Employment and Support Allowance (support component)
@@ -99,9 +100,6 @@ future:
     esa:
       question: :esa_amount?
       description: "Employment and Support Allowance"
-    guardian:
-      question: :guardian_amount?
-      description: "Guardian's Allowance"
     incapacity:
       question: :incapacity_amount?
       description: "Incapacity Benefit"
