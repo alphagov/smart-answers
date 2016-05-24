@@ -15,6 +15,10 @@
 - none
 - bereavement
 - bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widowed_mother,widowed_parent,widow_pension,widows_aged
+:receiving_non_exemption_benefits_future?:
+- none
+- bereavement
+- bereavement,carers,child_benefit,child_tax,esa,guardian,incapacity,income_support,jsa,maternity,sda,widowed_mother,widowed_parent,widow_pension,widows_aged
 :bereavement_amount?:
 - 50
 :carers_amount?:

@@ -63,14 +63,49 @@ module SmartAnswer
           if response == 'yes'
             outcome :outcome_not_affected_exemptions
           else
-            question :receiving_non_exemption_benefits?
+            if chosen_cap == 'future'
+              question :receiving_non_exemption_benefits_future?
+            else
+              question :receiving_non_exemption_benefits?
+            end
           end
         end
       end
 
-      #Q4
+      #Q4 default flow
       checkbox_question :receiving_non_exemption_benefits? do
         config.benefits(:default).keys.each do |benefit|
+          option benefit
+        end
+
+        next_node_calculation :benefit_types do |response|
+          response.split(",").map(&:to_sym)
+        end
+
+        precalculate :benefit_options do
+          config.descriptions(chosen_cap).merge(none_above: "None of the above")
+        end
+
+        calculate :total_benefits do
+          0
+        end
+
+        calculate :benefit_cap do
+          0
+        end
+
+        next_node do |response|
+          if response == "none"
+            outcome :outcome_not_affected
+          else
+            question BenefitCapCalculatorFlow.next_benefit_amount_question(config.questions(chosen_cap), benefit_types)
+          end
+        end
+      end
+
+      #Q4 future flow
+      checkbox_question :receiving_non_exemption_benefits_future? do
+        config.benefits(:future).keys.each do |benefit|
           option benefit
         end
 

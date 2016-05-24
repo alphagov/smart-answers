@@ -240,8 +240,8 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
           setup { add_response :no }
 
           #Q4
-          should "ask if household receiving other benefits" do
-            assert_current_node :receiving_non_exemption_benefits?
+          should "ask if household receiving other benefits in future path" do
+            assert_current_node :receiving_non_exemption_benefits_future?
           end
 
           context "answer receiving additional benefits" do
