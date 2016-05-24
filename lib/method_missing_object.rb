@@ -16,4 +16,6 @@ class MethodMissingObject
   def to_s
     @blank_to_s ? "" : "<%= #{description} %>".html_safe
   end
+
+  alias to_str to_s
 end
