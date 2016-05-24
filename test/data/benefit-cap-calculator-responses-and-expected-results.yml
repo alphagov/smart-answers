@@ -654,7 +654,7 @@
   - future
   - 'yes'
   - 'yes'
-  :next_node: :outcome_not_affected_exemptions
+  :next_node: :outcome_not_affected_exemptions_future
   :outcome_node: true
 - :current_node: :working_tax_credit?
   :responses:
@@ -669,7 +669,7 @@
   - 'yes'
   - 'no'
   - 'yes'
-  :next_node: :outcome_not_affected_exemptions
+  :next_node: :outcome_not_affected_exemptions_future
   :outcome_node: true
 - :current_node: :receiving_exemption_benefits?
   :responses:

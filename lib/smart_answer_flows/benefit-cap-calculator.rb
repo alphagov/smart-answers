@@ -47,7 +47,11 @@ module SmartAnswer
 
         next_node do |response|
           if response == 'yes'
-            outcome :outcome_not_affected_exemptions
+            if chosen_cap == 'future'
+              outcome :outcome_not_affected_exemptions_future
+            else
+              outcome :outcome_not_affected_exemptions
+            end
           else
             question :receiving_exemption_benefits?
           end
@@ -65,7 +69,11 @@ module SmartAnswer
 
         next_node do |response|
           if response == 'yes'
-            outcome :outcome_not_affected_exemptions
+            if chosen_cap == 'future'
+              outcome :outcome_not_affected_exemptions_future
+            else
+              outcome :outcome_not_affected_exemptions
+            end
           else
             if chosen_cap == 'future'
               question :receiving_non_exemption_benefits_future?
@@ -227,6 +235,11 @@ module SmartAnswer
 
       ## Outcome 1
       outcome :outcome_not_affected_exemptions do
+        precalculate :exempt_benefits do
+          config.exempt_benefits(chosen_cap)
+        end
+      end
+      outcome :outcome_not_affected_exemptions_future do
         precalculate :exempt_benefits do
           config.exempt_benefits(chosen_cap)
         end
