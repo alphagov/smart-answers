@@ -2,7 +2,7 @@ require_relative "../date_helper"
 
 module SmartAnswer::Calculators
   class MaternityPaternityCalculator
-    include DateHelper
+    include SmartAnswer::DateHelper
 
     attr_reader :due_date, :expected_week, :qualifying_week, :employment_start, :notice_of_leave_deadline,
       :leave_earliest_start_date, :adoption_placement_date, :ssp_stop,
