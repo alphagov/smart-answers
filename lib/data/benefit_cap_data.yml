@@ -78,6 +78,7 @@ future:
       description: "A lone parent with 1 or more dependent children"
   exempt_benefits:
     - Attendance Allowance
+    - Carer's Allowance
     - Disability Living Allowance
     - Industrial Injuries Benefit
     - Personal Independence Payment
@@ -89,9 +90,6 @@ future:
     bereavement:
       question: :bereavement_amount?
       description: "Bereavement Allowance"
-    carers:
-      question: :carers_amount?
-      description: "Carer's Allowance"
     child_benefit:
       question: :child_benefit_amount?
       description: "Child Benefit"
