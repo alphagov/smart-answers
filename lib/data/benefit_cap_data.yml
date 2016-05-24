@@ -70,13 +70,13 @@ future:
   weekly_benefit_caps:
     national:
       single:
-        amount: 350
+        amount: 257.69
         description: "Single"
       couple:
-        amount: 500
+        amount: 384.62
         description: "Living as a couple (with or without children)"
       parent:
-        amount: 500
+        amount: 384.62
         description: "A lone parent with 1 or more dependent children"
     london:
       single:
