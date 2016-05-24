@@ -21,6 +21,10 @@ class MethodMissingObjectTest < ActiveSupport::TestCase
     assert @object.to_s.html_safe?
   end
 
+  should 'alias to_str to to_s' do
+    assert_equal @object.to_s, @object.to_str
+  end
+
   context 'child object' do
     setup do
       @child = @object.method_two
