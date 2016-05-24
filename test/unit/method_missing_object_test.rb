@@ -62,4 +62,19 @@ class MethodMissingObjectTest < ActiveSupport::TestCase
       end
     end
   end
+
+  context 'when object has to_s overrides' do
+    setup do
+      overrides = {
+        'method_one.method_two' => 'overridden-value-one-two',
+        'method_one.method_three' => 'overridden-value-one-three'
+      }
+      @object = MethodMissingObject.new(:method_one, nil, false, overrides)
+    end
+
+    should 'return relevant overridden values from to_s when description matches' do
+      assert_equal 'overridden-value-one-two', @object.method_two.to_s
+      assert_equal 'overridden-value-one-three', @object.method_three.to_s
+    end
+  end
 end
