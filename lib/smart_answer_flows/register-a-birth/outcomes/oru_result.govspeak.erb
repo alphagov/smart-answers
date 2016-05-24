@@ -39,7 +39,7 @@
 
   You must send the original versions of:
 
-  <% if reg_data_query.class::ORU_DOCUMENTS_VARIANT_COUNTRIES_BIRTH.include?(country_of_birth) %>
+  <% if reg_data_query.oru_documents_variant_for_birth?(country_of_birth) %>
     <% if country_of_birth == 'united-arab-emirates' && paternity_declaration %>
       - both English and Arabic versions of your child’s full local birth certificate, attested by the Ministry of Foreign Affairs (email <birthregistrationenquiries@fco.gov.uk> if the local authorities will not provide a birth certificate)
     <% else %>

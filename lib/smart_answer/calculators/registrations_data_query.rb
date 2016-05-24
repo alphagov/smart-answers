@@ -87,6 +87,10 @@ module SmartAnswer::Calculators
       ORU_REGISTRATION_DURATION[country_slug]
     end
 
+    def oru_documents_variant_for_birth?(country_slug)
+      ORU_DOCUMENTS_VARIANT_COUNTRIES_BIRTH.include?(country_slug)
+    end
+
     def document_return_fees
       RatesQuery.from_file('births_and_deaths_document_return_fees').rates
     end
