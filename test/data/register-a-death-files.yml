@@ -7,7 +7,7 @@ lib/smart_answer_flows/register-a-death/outcomes/_footnote_oru_variants.govspeak
 lib/smart_answer_flows/register-a-death/outcomes/commonwealth_result.govspeak.erb: f343aa2ce9258acca94c986109618ca4
 lib/smart_answer_flows/register-a-death/outcomes/no_embassy_result.govspeak.erb: fabd0de7b88ffeb54783f87cfd4a3582
 lib/smart_answer_flows/register-a-death/outcomes/north_korea_result.govspeak.erb: 5b2162fe6d3c2cb9a50bfd41efb89095
-lib/smart_answer_flows/register-a-death/outcomes/oru_result.govspeak.erb: 0e1e0a12dc810fd69835223131b206d4
+lib/smart_answer_flows/register-a-death/outcomes/oru_result.govspeak.erb: 321f5c353d567b5e9c08491947a9d84b
 lib/smart_answer_flows/register-a-death/outcomes/uk_result.govspeak.erb: 662da9367c5992191471f8722b3c2636
 lib/smart_answer_flows/register-a-death/questions/did_the_person_die_at_home_hospital.govspeak.erb: 3405db8cb8b24782fc49981c2fce12e7
 lib/smart_answer_flows/register-a-death/questions/was_death_expected.govspeak.erb: 132d4a52801b619af05519a69f2767dd
@@ -21,6 +21,6 @@ lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1d83fa
 lib/smart_answer_flows/shared/births_and_deaths_registration/_button.govspeak.erb: bdd3818dfd2b9d6396daf6f60fd887a0
 lib/data/rates/births_and_deaths_document_return_fees.yml: 4ac203e9fd076c12f62b57f8d1b64ffc
 lib/data/translators.yml: f51e2bb27d2e33a3ac05032988ccd573
-lib/smart_answer/calculators/registrations_data_query.rb: f123e65a59ab2951930c233967cfa453
+lib/smart_answer/calculators/registrations_data_query.rb: ce987f05eaa58bf2528f9c8737bbb703
 lib/smart_answer/calculators/country_name_formatter.rb: 16b57a11261644a0bda0d609a60d1c62
 lib/smart_answer/calculators/translator_links.rb: 079592f6c5ede06d7c6ae4e8c5553127
