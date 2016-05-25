@@ -42,9 +42,10 @@ private
 
     def month_difference
       m = 0
-      begin
+      loop do
         m += 1
-      end while (from_date >> m) <= to_date
+        break unless (from_date >> m) <= to_date
+      end
       m - 1
     end
 
