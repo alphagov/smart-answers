@@ -8,7 +8,7 @@ module SmartAnswer
 
       postcode_question :property? do
         next_node_calculation :calculator do |response|
-          Calculators::LandlordImmigrationCheckCalculator.new(response)
+          Calculators::LandlordImmigrationCheckCalculator.new(postcode: response)
         end
 
         next_node do

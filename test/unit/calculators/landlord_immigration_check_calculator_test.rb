@@ -19,31 +19,31 @@ module SmartAnswer::Calculators
       stub_request(:get, %r{\A#{Plek.new.find('imminence')}/areas/E15\.json}).
         to_return(body: { _response_info: { status: 404 }, total: 0, results: [] }.to_json)
 
-      calculator = LandlordImmigrationCheckCalculator.new("E15")
+      calculator = LandlordImmigrationCheckCalculator.new(postcode: "E15")
 
       assert_equal [], calculator.areas_for_postcode
     end
 
     test "with a postcode in Scotland" do
-      calculator = LandlordImmigrationCheckCalculator.new("PA3 2SW")
+      calculator = LandlordImmigrationCheckCalculator.new(postcode: "PA3 2SW")
 
       refute calculator.rules_apply?
     end
 
     test "with a postcode in Wales" do
-      calculator = LandlordImmigrationCheckCalculator.new("SA2 7JU")
+      calculator = LandlordImmigrationCheckCalculator.new(postcode: "SA2 7JU")
 
       refute calculator.rules_apply?
     end
 
     test "with a postcode in Northern Ireland" do
-      calculator = LandlordImmigrationCheckCalculator.new("BT29 4AB")
+      calculator = LandlordImmigrationCheckCalculator.new(postcode: "BT29 4AB")
 
       refute calculator.rules_apply?
     end
 
     test "with a postcode in England" do
-      calculator = LandlordImmigrationCheckCalculator.new("RH6 0NP")
+      calculator = LandlordImmigrationCheckCalculator.new(postcode: "RH6 0NP")
 
       assert calculator.rules_apply?
     end
