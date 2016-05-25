@@ -103,7 +103,7 @@ class StatePensionAgeTest < ActiveSupport::TestCase
     end
 
     should 'show you the date you reach your bus pass qualification result' do
-      assert_match /5 December 2042/, outcome_body
+      assert_match(/5 December 2042/, outcome_body)
     end
   end
 end

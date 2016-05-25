@@ -100,7 +100,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           end
           should "give the result and be done" do
             assert_current_node :ips_application_result
-            assert_match /Millburngate House/, outcome_body
+            assert_match(/Millburngate House/, outcome_body)
           end
         end
       end
@@ -187,7 +187,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result_online
-      assert_match /the passport numbers of both parents/, outcome_body
+      assert_match(/the passport numbers of both parents/, outcome_body)
     end
     should "show how to replace your passport online" do
       add_response 'replacing'
@@ -395,7 +395,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_match /Millburngate House/, outcome_body
+      assert_match(/Millburngate House/, outcome_body)
     end
   end # Jordan (IPS1 with custom phrases)
 
@@ -473,7 +473,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'renewing_new'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_match /Millburngate House/, outcome_body
+      assert_match(/Millburngate House/, outcome_body)
     end
   end # Cameroon (custom phrases)
 
@@ -484,7 +484,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_match /Millburngate House/, outcome_body
+      assert_match(/Millburngate House/, outcome_body)
     end
   end # Kenya (custom phrases)
 
@@ -495,7 +495,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_match /Millburngate House/, outcome_body
+      assert_match(/Millburngate House/, outcome_body)
     end
   end # Kenya (custom phrases)
 
@@ -562,7 +562,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'replacing'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_match /Millburngate House/, outcome_body
+      assert_match(/Millburngate House/, outcome_body)
     end
   end # Jamaica
 
@@ -717,7 +717,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result_online
-      assert_match /the passport numbers of both parents/, outcome_body
+      assert_match(/the passport numbers of both parents/, outcome_body)
     end
   end
 

@@ -13,7 +13,7 @@ class ReportAProblemTest < EngineIntegrationTest
         end
 
         should "have current url in report-a-problem" do
-          assert_match /\/bridge-of-death$/, page.find('#url', visible: false).value
+          assert_match(/\/bridge-of-death$/, page.find('#url', visible: false).value)
         end
       end
 

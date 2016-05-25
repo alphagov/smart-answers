@@ -6,18 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 20
-Lint/AmbiguousRegexpLiteral:
-  Exclude:
-    - 'test/functional/smart_answers_controller_money_question_test.rb'
-    - 'test/functional/smart_answers_controller_test.rb'
-    - 'test/functional/smart_answers_controller_value_question_test.rb'
-    - 'test/integration/engine/report_a_problem_test.rb'
-    - 'test/integration/smart_answer_flows/marriage_abroad_test.rb'
-    - 'test/integration/smart_answer_flows/overseas_passports_test.rb'
-    - 'test/integration/smart_answer_flows/report_a_lost_or_stolen_passport_test.rb'
-    - 'test/integration/smart_answer_flows/state_pension_age_test.rb'
-
 # Offense count: 5
 # Configuration parameters: AllowSafeAssignment.
 Lint/AssignmentInCondition:
