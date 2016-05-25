@@ -1,6 +1,6 @@
 module SmartAnswer::Calculators
   class LandlordImmigrationCheckCalculator
-    VALID_COUNTRIES = %w( England )
+    COUNTRIES_WHERE_RULES_APPLY = %w( England )
 
     attr_reader :postcode
 
@@ -9,7 +9,7 @@ module SmartAnswer::Calculators
     end
 
     def rules_apply?
-      postcode_within?(VALID_COUNTRIES, 'country_name')
+      postcode_within?(COUNTRIES_WHERE_RULES_APPLY, 'country_name')
     end
 
     def postcode_within?(included_areas, key_name)
