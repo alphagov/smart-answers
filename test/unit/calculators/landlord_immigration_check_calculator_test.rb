@@ -19,11 +19,9 @@ module SmartAnswer::Calculators
       stub_request(:get, %r{\A#{Plek.new.find('imminence')}/areas/E15\.json}).
         to_return(body: { _response_info: { status: 404 }, total: 0, results: [] }.to_json)
 
-      response = Services.imminence_api.areas_for_postcode("E15")
+      calculator = LandlordImmigrationCheckCalculator.new("E15")
 
-      assert_equal 404, response["_response_info"]["status"]
-      assert_equal 0, response["total"]
-      assert_empty response["results"]
+      assert_equal [], calculator.areas_for_postcode
     end
 
     test "with a valid postcode in Scotland" do
