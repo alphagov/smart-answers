@@ -25,12 +25,12 @@ class StatePensionAgeTest < ActiveSupport::TestCase
     end
 
     should "prevent from providing future dates" do
-      add_response (Date.today + 1).to_s
+      add_response(Date.today + 1).to_s
       assert_current_node_is_error
     end
 
     should "prevent from providing dates too far in the past" do
-      add_response (200.years.ago).to_s
+      add_response(200.years.ago).to_s
       assert_current_node_is_error
     end
   end
@@ -82,12 +82,12 @@ class StatePensionAgeTest < ActiveSupport::TestCase
     end
 
     should "prevent from providing future dates" do
-      add_response (Date.today + 1).to_s
+      add_response(Date.today + 1).to_s
       assert_current_node_is_error
     end
 
     should "prevent from providing dates too far in the past" do
-      add_response (200.years.ago).to_s
+      add_response(200.years.ago).to_s
       assert_current_node_is_error
     end
   end

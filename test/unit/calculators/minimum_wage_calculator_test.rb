@@ -876,14 +876,14 @@ module SmartAnswer::Calculators
         assert_equal 0, @calculator.accommodation_adjustment("3.50", 5)
       end
       should "return the number of nights times the threshold if the accommodation is free" do
-        assert_equal (4.73 * 4), @calculator.accommodation_adjustment("0", 4)
+        assert_equal((4.73 * 4), @calculator.accommodation_adjustment("0", 4))
       end
       should "subtract the charged fee from the free fee where the accommodation costs more than the threshold" do
         charge = 10.12
         number_of_nights = 5
         free_adjustment = (4.73 * number_of_nights).round(2)
         charged_adjustment = @calculator.accommodation_adjustment(charge, number_of_nights)
-        assert_equal (free_adjustment - (charge * number_of_nights)).round(2), charged_adjustment
+        assert_equal((free_adjustment - (charge * number_of_nights)).round(2), charged_adjustment)
         assert 0 > charged_adjustment # this should always be less than zero
       end
     end

@@ -6,19 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 23
-Lint/ParenthesesAsGroupedExpression:
-  Exclude:
-    - 'lib/smart_answer/question/country_select.rb'
-    - 'lib/smart_answer_flows/calculate-agricultural-holiday-entitlement.rb'
-    - 'lib/smart_answer_flows/maternity-paternity-calculator.rb'
-    - 'test/integration/smart_answer_flows/calculate_statutory_sick_pay_test.rb'
-    - 'test/integration/smart_answer_flows/energy_grants_calculator_test.rb'
-    - 'test/integration/smart_answer_flows/pip_checker_test.rb'
-    - 'test/integration/smart_answer_flows/state_pension_age_test.rb'
-    - 'test/unit/calculators/maternity_paternity_calculator_test.rb'
-    - 'test/unit/calculators/minimum_wage_calculator_test.rb'
-
 # Offense count: 1
 Lint/RescueException:
   Exclude:
