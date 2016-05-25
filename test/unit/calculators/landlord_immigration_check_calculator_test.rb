@@ -11,8 +11,7 @@ module SmartAnswer::Calculators
 
     context 'when postcode is unknown' do
       setup do
-        stub_request(:get, %r{\A#{Plek.new.find('imminence')}/areas/E15\.json}).
-          to_return(body: { _response_info: { status: 404 }, total: 0, results: [] }.to_json)
+        imminence_has_areas_for_postcode("E15", [])
         @calculator.postcode = "E15"
       end
 
