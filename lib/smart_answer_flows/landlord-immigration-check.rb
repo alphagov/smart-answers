@@ -12,7 +12,7 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.included_country?
+          if calculator.rules_apply?
             question :main_home?
           else
             outcome :outcome_check_not_needed

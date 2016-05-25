@@ -8,7 +8,7 @@ module SmartAnswer::Calculators
       @postcode = postcode
     end
 
-    def included_country?
+    def rules_apply?
       postcode_within?(VALID_COUNTRIES, 'country_name')
     end
 

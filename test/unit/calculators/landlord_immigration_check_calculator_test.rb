@@ -27,25 +27,25 @@ module SmartAnswer::Calculators
     test "with a postcode in Scotland" do
       calculator = LandlordImmigrationCheckCalculator.new("PA3 2SW")
 
-      refute calculator.included_country?
+      refute calculator.rules_apply?
     end
 
     test "with a postcode in Wales" do
       calculator = LandlordImmigrationCheckCalculator.new("SA2 7JU")
 
-      refute calculator.included_country?
+      refute calculator.rules_apply?
     end
 
     test "with a postcode in Northern Ireland" do
       calculator = LandlordImmigrationCheckCalculator.new("BT29 4AB")
 
-      refute calculator.included_country?
+      refute calculator.rules_apply?
     end
 
     test "with a postcode in England" do
       calculator = LandlordImmigrationCheckCalculator.new("RH6 0NP")
 
-      assert calculator.included_country?
+      assert calculator.rules_apply?
     end
   end
 end
