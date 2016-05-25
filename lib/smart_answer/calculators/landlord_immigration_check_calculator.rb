@@ -11,7 +11,7 @@ module SmartAnswer::Calculators
     end
 
     def countries_for_postcode
-      areas_for_postcode.map { |a| a['country_name'] }.uniq
+      areas_for_postcode.map(&:country_name).uniq
     end
 
     def areas_for_postcode
