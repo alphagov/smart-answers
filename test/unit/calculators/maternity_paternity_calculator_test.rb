@@ -568,12 +568,6 @@ module SmartAnswer::Calculators
           assert_equal '2013-10-11', paydates_and_pay.last[:date].to_s
           assert_equal 371.27, paydates_and_pay.last[:pay]
         end
-        should "calculate pay due for the last working day of the month" do
-          @calculator.pay_method = 'last_working_day_of_the_month'
-          @calculator.pay_day_in_week = 5
-          @calculator.work_days = [1, 2, 4]
-          @calculator.average_weekly_earnings = 250.0
-        end
       end
       context "HMRC test scenario for SMP Pay week offset" do
         setup do
