@@ -86,9 +86,9 @@ class SmartAnswersRegressionTest < ActionController::TestCase
       should "ensure all nodes are being exercised" do
         flow = SmartAnswer::FlowRegistry.instance.find(flow_name)
 
-        nodes_exercised_in_test = responses_and_expected_results.inject([]) do |array, responses_and_expected_results|
-          current_node = responses_and_expected_results[:current_node]
-          next_node    = responses_and_expected_results[:next_node]
+        nodes_exercised_in_test = responses_and_expected_results.inject([]) do |array, hash|
+          current_node = hash[:current_node]
+          next_node    = hash[:next_node]
           array << current_node unless array.include?(current_node)
           array << next_node unless array.include?(next_node)
           array

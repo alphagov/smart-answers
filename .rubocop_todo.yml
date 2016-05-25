@@ -6,13 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 8
-Lint/ShadowingOuterLocalVariable:
-  Exclude:
-    - 'lib/smart_answer/question/base.rb'
-    - 'lib/tasks/links.rake'
-    - 'test/regression/smart_answers_regression_test.rb'
-
 # Offense count: 32
 Lint/UselessAssignment:
   Exclude:
