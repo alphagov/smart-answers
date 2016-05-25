@@ -48,7 +48,8 @@ class ActionDispatch::IntegrationTest
         Timeout.timeout(Capybara.default_wait_time) do
           sleep(0.1) until yield
         end
-      rescue TimeoutError
+      rescue TimeoutError => e
+        p e
       end
     end
   end

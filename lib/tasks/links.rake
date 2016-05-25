@@ -25,6 +25,7 @@ def check_links(links_to_check, broken, file)
     rescue Exception => e
       # this is here as sometimes we find wrong links through the Regexes
       # dont need to do anything, just capture it to avoid the script breaking
+      p e
     end
   }
   broken
