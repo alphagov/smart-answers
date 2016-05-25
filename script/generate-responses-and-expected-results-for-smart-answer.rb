@@ -3,7 +3,8 @@ ENV['PLEK_SERVICE_IMMINENCE_URI'] = 'https://imminence.publishing.service.gov.uk
 
 require 'timecop'
 
-unless flow_name = ARGV.shift
+flow_name = ARGV.shift
+unless flow_name
   puts "Usage: #{__FILE__} <flow-name>"
   exit 1
 end

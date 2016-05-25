@@ -6,16 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 5
-# Configuration parameters: AllowSafeAssignment.
-Lint/AssignmentInCondition:
-  Exclude:
-    - 'lib/smart_answer/calculators/holiday_entitlement.rb'
-    - 'script/generate-checksums-for-smart-answer.rb'
-    - 'script/generate-questions-and-responses-for-smart-answer.rb'
-    - 'script/generate-responses-and-expected-results-for-smart-answer.rb'
-    - 'script/update-worldwide-location-organisations.rb'
-
 # Offense count: 2
 Lint/HandleExceptions:
   Exclude:

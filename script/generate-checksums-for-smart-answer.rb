@@ -1,4 +1,5 @@
-unless flow_name = ARGV.shift
+flow_name = ARGV.shift
+unless flow_name
   puts "Usage: #{__FILE__} <flow-name> <additional-flow-file-paths>"
   exit 1
 end

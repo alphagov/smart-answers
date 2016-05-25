@@ -91,7 +91,8 @@ module SmartAnswer::Calculators
 
     def method_missing(symbol, *args)
       # formatted_foo calls format_number on foo
-      if formatting_method = formatting_method(symbol)
+      formatting_method = formatting_method(symbol)
+      if formatting_method
         format_number(send(formatting_method), args.first || 1)
       else
         super
