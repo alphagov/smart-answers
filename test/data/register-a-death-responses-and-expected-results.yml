@@ -520,3 +520,9 @@
   - in_the_uk
   :next_node: :oru_result
   :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - overseas
+  - rwanda
+  :next_node: :commonwealth_result
+  :outcome_node: true

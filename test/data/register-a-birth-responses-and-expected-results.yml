@@ -5219,6 +5219,11 @@
   :outcome_node: true
 - :current_node: :country_of_birth?
   :responses:
+  - rwanda
+  :next_node: :commonwealth_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
   - sierra-leone
   :next_node: :who_has_british_nationality?
   :outcome_node: false
