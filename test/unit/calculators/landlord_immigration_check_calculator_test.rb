@@ -9,18 +9,14 @@ module SmartAnswer::Calculators
       @calculator = LandlordImmigrationCheckCalculator.new
     end
 
-    context 'when postcode is unknown' do
+    context 'when postcode is in England' do
       setup do
-        imminence_has_areas_for_postcode("E15", [])
-        @calculator.postcode = "E15"
-      end
-
-      should 'return no areas for postcode' do
-        assert_equal [], @calculator.areas_for_postcode
+        imminence_has_areas_for_postcode("RH6 0NP", [{ slug: 'crawley-borough-council', country_name: 'England' }])
+        @calculator.postcode = "RH6 0NP"
       end
 
       should 'determine that the rules do not apply' do
-        refute @calculator.rules_apply?
+        assert @calculator.rules_apply?
       end
     end
 
@@ -35,14 +31,18 @@ module SmartAnswer::Calculators
       end
     end
 
-    context 'when postcode is in England' do
+    context 'when postcode is unknown' do
       setup do
-        imminence_has_areas_for_postcode("RH6 0NP", [{ slug: 'crawley-borough-council', country_name: 'England' }])
-        @calculator.postcode = "RH6 0NP"
+        imminence_has_areas_for_postcode("E15", [])
+        @calculator.postcode = "E15"
+      end
+
+      should 'return no areas for postcode' do
+        assert_equal [], @calculator.areas_for_postcode
       end
 
       should 'determine that the rules do not apply' do
-        assert @calculator.rules_apply?
+        refute @calculator.rules_apply?
       end
     end
   end
