@@ -31,6 +31,42 @@ module SmartAnswer::Calculators
       end
     end
 
+    context 'when postcode has multiple areas all in England' do
+      setup do
+        imminence_has_areas_for_postcode("RH6 0NP", [
+          { slug: 'crawley-borough-council', country_name: 'England' },
+          { slug: 'west-sussex-county-council', country_name: 'England' },
+        ])
+        @calculator.postcode = "RH6 0NP"
+      end
+
+      should 'return single country for postcode' do
+        assert_equal ['England'], @calculator.countries_for_postcode
+      end
+
+      should 'determine that the rules do apply' do
+        assert @calculator.rules_apply?
+      end
+    end
+
+    context 'when postcode has multiple areas some in England and some not' do
+      setup do
+        imminence_has_areas_for_postcode("XY1 0AB", [
+          { slug: 'xy-borough-council', country_name: 'England' },
+          { slug: 'xy-county-council', country_name: 'Scotland' },
+        ])
+        @calculator.postcode = "XY1 0AB"
+      end
+
+      should 'return all countries for postcode' do
+        assert_equal %w(England Scotland), @calculator.countries_for_postcode
+      end
+
+      should 'determine that the rules do apply' do
+        assert @calculator.rules_apply?
+      end
+    end
+
     context 'when postcode is unknown' do
       setup do
         imminence_has_areas_for_postcode("E15", [])
