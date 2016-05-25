@@ -34,5 +34,5 @@ lib/smart_answer_flows/am-i-getting-minimum-wage/questions/what_was_overtime_pay
 lib/smart_answer_flows/am-i-getting-minimum-wage/questions/what_would_you_like_to_check.govspeak.erb: 87c99cfe4ba95500674d8a125e7cb90e
 lib/smart_answer_flows/shared/minimum_wage_flow.rb: dc87753ecdaa04320b7d8ec75fdac243
 lib/smart_answer_flows/shared/minimum_wage/_acas_information.govspeak.erb: 582cdf982fa5619072ddd883bf4c1555
-lib/smart_answer/calculators/minimum_wage_calculator.rb: 1f836ffd6a469e3baf4ef5db30952b3c
+lib/smart_answer/calculators/minimum_wage_calculator.rb: fab7fd77494d4de6507db2c0687e98ad
 lib/data/minimum_wage_data.yml: 3eab0fe85f2d8687f486964580df51ff

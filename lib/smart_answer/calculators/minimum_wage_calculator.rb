@@ -152,7 +152,7 @@ module SmartAnswer::Calculators
     end
 
     def minimum_wage_data_for_date(date = Date.today)
-      historical_minimum_wage_data.find do |d|
+      self.class.historical_minimum_wage_data.find do |d|
         date >= d[:start_date] && date <= d[:end_date]
       end
     end
@@ -204,8 +204,8 @@ module SmartAnswer::Calculators
       end
     end
 
-    def historical_minimum_wage_data
-      @@historical_minimum_wage_data ||= YAML.load_file(Rails.root.join("lib/data/minimum_wage_data.yml"))[:minimum_wage_data]
+    def self.historical_minimum_wage_data
+      @historical_minimum_wage_data ||= YAML.load_file(Rails.root.join("lib/data/minimum_wage_data.yml"))[:minimum_wage_data]
     end
   end
 end
