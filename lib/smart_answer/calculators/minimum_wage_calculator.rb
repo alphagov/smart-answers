@@ -145,9 +145,10 @@ module SmartAnswer::Calculators
         data[:apprentice_rate]
       else
         rates = data[:minimum_rates]
-        rates.find do |r|
+        rate_data = rates.find do |r|
           @age >= r[:min_age] && @age < r[:max_age]
-        end[:rate]
+        end
+        rate_data[:rate]
       end
     end
 

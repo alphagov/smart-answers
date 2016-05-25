@@ -52,15 +52,11 @@ private
     when SmartAnswer::Question::MultipleChoice
       text << word_wrap(node_title(node))
       text << "\n\n"
-      text << node.permitted_options.map do |option|
-        "( ) #{option}"
-      end.join("\n")
+      text << node.permitted_options.map { |o| "( ) #{o}" }.join("\n")
     when SmartAnswer::Question::Checkbox
       text << word_wrap(node_title(node))
       text << "\n\n"
-      text << node.options.map do |option|
-        "[ ] #{option}"
-      end.join("\n")
+      text << node.options.map { |o| "[ ] #{o}" }.join("\n")
     when SmartAnswer::Question::Base
       text << word_wrap(node_title(node))
     when SmartAnswer::Outcome
@@ -72,9 +68,10 @@ private
   end
 
   def word_wrap(text, line_width = 40)
-    text.split("\n").collect! do |line|
+    lines = text.split("\n").collect! do |line|
       line.length > line_width ? line.gsub(/(.{1,#{line_width}})(\s+|$)/, "\\1\n").strip : line
-    end * "\n"
+    end
+    lines * "\n"
   end
 
   module MethodMissingHelper
