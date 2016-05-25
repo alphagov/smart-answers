@@ -17,8 +17,7 @@ module SmartAnswer::Calculators
     end
 
     def areas_for_postcode
-      response = Services.imminence_api.areas_for_postcode(postcode)
-      response.results
+      Services.imminence_api.areas_for_postcode(postcode).results
     end
   end
 end
