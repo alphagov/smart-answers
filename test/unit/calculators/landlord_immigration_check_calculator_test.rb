@@ -27,7 +27,7 @@ module SmartAnswer::Calculators
 
     context 'when postcode is outside England' do
       setup do
-        imminence_has_areas_for_postcode("PA3%202SW", [{ slug: 'renfrewshire-council', country_name: 'Scotland' }])
+        imminence_has_areas_for_postcode("PA3 2SW", [{ slug: 'renfrewshire-council', country_name: 'Scotland' }])
         @calculator.postcode = "PA3 2SW"
       end
 
@@ -38,7 +38,7 @@ module SmartAnswer::Calculators
 
     context 'when postcode is in England' do
       setup do
-        imminence_has_areas_for_postcode("RH6%200NP", [{ slug: 'crawley-borough-council', country_name: 'England' }])
+        imminence_has_areas_for_postcode("RH6 0NP", [{ slug: 'crawley-borough-council', country_name: 'England' }])
         @calculator.postcode = "RH6 0NP"
       end
 
