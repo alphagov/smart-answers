@@ -2135,15 +2135,102 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "Marriage in Rwanda, living elsewhere" do
+  context "ceremony in Rwanda," do
     setup do
       add_response 'rwanda'
-      add_response 'third_country'
-      add_response 'partner_british'
-      add_response 'opposite_sex'
     end
-    should "show 7 day notice" do
-      assert_current_node :outcome_opposite_sex_in_no_cni_countries_when_residing_in_ceremony_or_third_country
+
+    context "resident in ceremony country," do
+      setup { add_response 'ceremony_country' }
+      context "partner is british," do
+        setup { add_response 'partner_british' }
+        context "opposite sex" do
+          setup { add_response 'opposite_sex' }
+          should "go to rwandan marriage outcome mirroring other commonwealth countries" do
+            assert_current_node :outcome_opposite_sex_marriage_in_commonwealth_countries
+          end
+        end
+      end
+      context "partner is elsewhere," do
+        setup { add_response 'partner_other' }
+        context "opposite sex" do
+          setup { add_response 'opposite_sex' }
+          should "go to rwandan marriage outcome mirroring other commonwealth countries" do
+            assert_current_node :outcome_opposite_sex_marriage_in_commonwealth_countries
+          end
+        end
+      end
+
+      context "partner is ceremony country," do
+        setup { add_response 'partner_local' }
+        context "opposite sex" do
+          setup { add_response 'opposite_sex' }
+          should "go to rwandan marriage outcome mirroring other commonwealth countries" do
+            assert_current_node :outcome_opposite_sex_marriage_in_commonwealth_countries
+          end
+        end
+      end
+    end
+    context "resident in third country," do
+      setup { add_response 'third_country' }
+      context "partner is british," do
+        setup { add_response 'partner_british' }
+        context "opposite sex" do
+          setup { add_response 'opposite_sex' }
+          should "go to rwandan marriage outcome mirroring other commonwealth countries" do
+            assert_current_node :outcome_opposite_sex_marriage_in_commonwealth_countries
+          end
+        end
+      end
+      context "partner is elsewhere," do
+        setup { add_response 'partner_other' }
+        context "opposite sex" do
+          setup { add_response 'opposite_sex' }
+          should "go to rwandan marriage outcome mirroring other commonwealth countries" do
+            assert_current_node :outcome_opposite_sex_marriage_in_commonwealth_countries
+          end
+        end
+      end
+
+      context "partner is ceremony country," do
+        setup { add_response 'partner_local' }
+        context "opposite sex" do
+          setup { add_response 'opposite_sex' }
+          should "go to rwandan marriage outcome mirroring other commonwealth countries" do
+            assert_current_node :outcome_opposite_sex_marriage_in_commonwealth_countries
+          end
+        end
+      end
+    end
+    context "resident in uk," do
+      setup { add_response 'uk' }
+      context "partner is british," do
+        setup { add_response 'partner_british' }
+        context "opposite sex" do
+          setup { add_response 'opposite_sex' }
+          should "go to rwandan marriage outcome mirroring other commonwealth countries" do
+            assert_current_node :outcome_opposite_sex_marriage_in_commonwealth_countries
+          end
+        end
+      end
+      context "partner is elsewhere," do
+        setup { add_response 'partner_other' }
+        context "opposite sex" do
+          setup { add_response 'opposite_sex' }
+          should "go to rwandan marriage outcome mirroring other commonwealth countries" do
+            assert_current_node :outcome_opposite_sex_marriage_in_commonwealth_countries
+          end
+        end
+      end
+      context "partner is ceremony country," do
+        setup { add_response 'partner_local' }
+        context "opposite sex" do
+          setup { add_response 'opposite_sex' }
+          should "go to rwandan marriage outcome mirroring other commonwealth countries" do
+            assert_current_node :outcome_opposite_sex_marriage_in_commonwealth_countries
+          end
+        end
+      end
     end
   end
 

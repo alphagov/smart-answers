@@ -8,11 +8,18 @@
 
       Contact the [Zimbabwean Embassy in the UK](http://www.zimlondon.gov.zw/index.php/contact-us) to find out about local marriage laws, including what documents you’ll need.
 
+    <% elsif calculator.ceremony_country == 'rwanda' %>
+      Contact the [Embassy of Rwanda](/government/publications/foreign-embassies-in-the-uk) to find out about local marriage laws, including what documents you’ll need.
+
     <% else %>
 
       Contact the [High Commission of <%= calculator.country_name_lowercase_prefix %>](/government/publications/foreign-embassies-in-the-uk) to find out about local marriage laws, including what documents you’ll need.
 
     <% end %>
+
+  <% elsif calculator.ceremony_country == 'rwanda' %>
+    Contact the relevant local authorities in Rwanda to find out about local marriage laws, including what documents you’ll need.
+
   <% else %>
 
     <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
@@ -105,7 +112,7 @@
 
     <% end %>
   <% end %>
-  <% unless calculator.partner_british? %>
+  <% if calculator.partner_not_british? %>
 
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
   <% end %>
