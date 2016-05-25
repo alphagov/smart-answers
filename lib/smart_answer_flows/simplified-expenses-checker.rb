@@ -203,8 +203,11 @@ module SmartAnswer
 
         next_node do |response|
           raise InvalidResponse if response.to_i > 100
-          list_of_expenses.include?("car_or_van") ?
-            question(:drive_business_miles_car_van?) : question(:drive_business_miles_motorcycle?)
+          if list_of_expenses.include?("car_or_van")
+            question(:drive_business_miles_car_van?)
+          else
+            question(:drive_business_miles_motorcycle?)
+          end
         end
       end
 
