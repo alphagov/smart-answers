@@ -328,7 +328,7 @@ module SmartAnswer::Calculators
         end
 
         should "calculate the accommodation cost" do
-          assert_equal -13.52, @calculator.accommodation_cost
+          assert_equal(-13.52, @calculator.accommodation_cost)
         end
 
         should "be included the total pay calculation" do
@@ -406,7 +406,7 @@ module SmartAnswer::Calculators
 
           should "adjust for charged accommodation above threshold" do
             @calculator.accommodation_adjustment(7.5, 7)
-            assert_equal -19.39, @calculator.accommodation_cost
+            assert_equal(-19.39, @calculator.accommodation_cost)
             assert_equal 3.79, @calculator.total_hourly_rate
           end
 
@@ -455,7 +455,7 @@ module SmartAnswer::Calculators
 
           should "adjust for charged accommodation above threshold" do
             @calculator.accommodation_adjustment(7.5, 6)
-            assert_equal -32.16, @calculator.accommodation_cost
+            assert_equal(-32.16, @calculator.accommodation_cost)
             assert_equal 5.55, @calculator.total_hourly_rate
             assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
           end
@@ -497,7 +497,7 @@ module SmartAnswer::Calculators
 
         should "adjust for accommodation charged above the threshold" do
           @calculator.accommodation_adjustment(6, 5)
-          assert_equal -6.35, @calculator.accommodation_cost
+          assert_equal(-6.35, @calculator.accommodation_cost)
           assert_equal 2.34, @calculator.total_hourly_rate
           assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
@@ -567,7 +567,7 @@ module SmartAnswer::Calculators
 
         should "adjust for accommodation charged above the threshold" do
           @calculator.accommodation_adjustment(4.6, 5)
-          assert_equal -0.77, @calculator.accommodation_cost
+          assert_equal(-0.77, @calculator.accommodation_cost)
           assert_equal 4.82, @calculator.total_hourly_rate
           assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
@@ -645,7 +645,7 @@ module SmartAnswer::Calculators
 
         should "account for charged accommodation" do
           @calculator.accommodation_adjustment 7.5, 7
-          assert_equal -21.28, @calculator.accommodation_cost
+          assert_equal(-21.28, @calculator.accommodation_cost)
           assert_equal 3.75, @calculator.total_hourly_rate
           assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
@@ -681,7 +681,7 @@ module SmartAnswer::Calculators
 
         should "account for charged accommodation" do
           @calculator.accommodation_adjustment 5, 7
-          assert_equal -21, @calculator.accommodation_cost
+          assert_equal(-21, @calculator.accommodation_cost)
           assert_equal 2.87, @calculator.total_hourly_rate
           assert_equal 537.20, @calculator.historical_entitlement
           assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
@@ -718,7 +718,7 @@ module SmartAnswer::Calculators
 
         should "account for charged accommodation" do
           @calculator.accommodation_adjustment 30, 7
-          assert_equal -176.89, @calculator.accommodation_cost
+          assert_equal(-176.89, @calculator.accommodation_cost)
           assert_equal 6.07, @calculator.total_hourly_rate
           assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
@@ -755,7 +755,7 @@ module SmartAnswer::Calculators
 
         should "account for charged accommodation" do
           @calculator.accommodation_adjustment 10, 7
-          assert_equal -166.21, @calculator.accommodation_cost
+          assert_equal(-166.21, @calculator.accommodation_cost)
           assert_equal 3.21, @calculator.total_hourly_rate
           assert_equal 741.30, @calculator.historical_entitlement
           assert_equal 70.38, @calculator.historical_adjustment

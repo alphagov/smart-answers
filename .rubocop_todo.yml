@@ -6,11 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 9
-Lint/AmbiguousOperator:
-  Exclude:
-    - 'test/unit/calculators/minimum_wage_calculator_test.rb'
-
 # Offense count: 20
 Lint/AmbiguousRegexpLiteral:
   Exclude:
