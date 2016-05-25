@@ -6,6 +6,8 @@ module SmartAnswer::Calculators
     include GdsApi::TestHelpers::Imminence
 
     setup do
+      @calculator = LandlordImmigrationCheckCalculator.new
+
       # Excluded countries
       imminence_has_areas_for_postcode("PA3%202SW",   [{ slug: 'renfrewshire-council', country_name: 'Scotland' }])
       imminence_has_areas_for_postcode("SA2%207JU",   [{ slug: 'swansea-council', country_name: 'Wales' }])
@@ -19,33 +21,33 @@ module SmartAnswer::Calculators
       stub_request(:get, %r{\A#{Plek.new.find('imminence')}/areas/E15\.json}).
         to_return(body: { _response_info: { status: 404 }, total: 0, results: [] }.to_json)
 
-      calculator = LandlordImmigrationCheckCalculator.new(postcode: "E15")
+      @calculator.postcode = "E15"
 
-      assert_equal [], calculator.areas_for_postcode
+      assert_equal [], @calculator.areas_for_postcode
     end
 
     test "with a postcode in Scotland" do
-      calculator = LandlordImmigrationCheckCalculator.new(postcode: "PA3 2SW")
+      @calculator.postcode = "PA3 2SW"
 
-      refute calculator.rules_apply?
+      refute @calculator.rules_apply?
     end
 
     test "with a postcode in Wales" do
-      calculator = LandlordImmigrationCheckCalculator.new(postcode: "SA2 7JU")
+      @calculator.postcode = "SA2 7JU"
 
-      refute calculator.rules_apply?
+      refute @calculator.rules_apply?
     end
 
     test "with a postcode in Northern Ireland" do
-      calculator = LandlordImmigrationCheckCalculator.new(postcode: "BT29 4AB")
+      @calculator.postcode = "BT29 4AB"
 
-      refute calculator.rules_apply?
+      refute @calculator.rules_apply?
     end
 
     test "with a postcode in England" do
-      calculator = LandlordImmigrationCheckCalculator.new(postcode: "RH6 0NP")
+      @calculator.postcode = "RH6 0NP"
 
-      assert calculator.rules_apply?
+      assert @calculator.rules_apply?
     end
   end
 end
