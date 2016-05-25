@@ -573,8 +573,6 @@ module SmartAnswer::Calculators
           @calculator.pay_day_in_week = 5
           @calculator.work_days = [1, 2, 4]
           @calculator.average_weekly_earnings = 250.0
-
-          paydates_and_pay = @calculator.paydates_and_pay
         end
       end
       context "HMRC test scenario for SMP Pay week offset" do

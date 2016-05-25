@@ -108,7 +108,7 @@ private
 
       yield files
     ensure
-      FileUtils.remove_dir(erb_template_directory, force = true)
+      FileUtils.remove_dir(erb_template_directory, true)
       files.each do |file|
         file.unlink
         file.close

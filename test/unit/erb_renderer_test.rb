@@ -182,7 +182,6 @@ Hello world
     end
 
     test '#single_line_of_content_for disables HTML rendering' do
-      erb_template = content_for(:key, 'single-line-of-content-for-key')
       renderer = ErbRenderer.new(template_directory: nil, template_name: nil)
       renderer.stubs(:content_for).with(:key, html: false).returns('single-line-of-content-for-key')
       assert_equal 'single-line-of-content-for-key', renderer.single_line_of_content_for(:key)
@@ -205,7 +204,7 @@ Hello world
       with_erb_template_file('template-name', erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: 'template-name')
 
-        e = assert_raises(KeyError) do
+        assert_raises(KeyError) do
           renderer.option_text(:option_three)
         end
       end
@@ -217,7 +216,7 @@ Hello world
       with_erb_template_file('template-name', erb_template) do |erb_template_directory|
         renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: 'template-name')
 
-        e = assert_raises(KeyError) do
+        assert_raises(KeyError) do
           renderer.option_text(:option_key)
         end
       end

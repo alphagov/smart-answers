@@ -69,7 +69,6 @@ module SmartAnswer
         end
 
         next_node do |response|
-          next_question = nil
           if response == "none"
             outcome :you_cant_use_result
           else

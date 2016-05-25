@@ -25,7 +25,7 @@ module SmartAnswer
       end
 
       assert_raises InvalidResponse do
-        new_state = q.transition(@initial_state, "bad")
+        q.transition(@initial_state, "bad")
       end
     end
   end

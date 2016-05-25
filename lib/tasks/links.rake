@@ -65,7 +65,6 @@ namespace :links do
     # check a single file the user has passed in
     if args.file
       file = args.file
-      path = File.expand_path("#{pwd}#{file}")
       puts "Checking #{file}"
       links_to_check = check_locales_file(IO.read(file))
       broken = check_links(links_to_check, broken, file)

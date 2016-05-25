@@ -310,7 +310,6 @@ class RegisterADeathTest < ActiveSupport::TestCase
       end
       should "give the no embassy result" do
         add_response :no_embassy_result
-        expected_location = WorldLocation.find('iran')
       end
     end # Iran
 

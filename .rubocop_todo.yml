@@ -6,30 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 32
-Lint/UselessAssignment:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
-    - 'app/presenters/flow_registration_presenter.rb'
-    - 'lib/method_missing_object.rb'
-    - 'lib/smart_answer/age_related_allowance_chooser.rb'
-    - 'lib/smart_answer_flows/help-if-you-are-arrested-abroad.rb'
-    - 'lib/smart_answer_flows/legalisation-document-checker.rb'
-    - 'lib/smart_answer_flows/simplified-expenses-checker.rb'
-    - 'lib/tasks/links.rake'
-    - 'test/integration/smart_answer_flows/register_a_death_test.rb'
-    - 'test/unit/calculators/maternity_paternity_calculator_test.rb'
-    - 'test/unit/checkbox_question_test.rb'
-    - 'test/unit/erb_renderer_test.rb'
-    - 'test/unit/money_question_test.rb'
-    - 'test/unit/multiple_choice_question_test.rb'
-    - 'test/unit/outcome_presenter_test.rb'
-    - 'test/unit/question_presenter_test.rb'
-    - 'test/unit/salary_question_test.rb'
-    - 'test/unit/smart_answer_files_test.rb'
-    - 'test/unit/start_node_presenter_test.rb'
-    - 'test/unit/state_test.rb'
-
 # Offense count: 1
 Style/ClassVars:
   Exclude:

@@ -94,7 +94,7 @@ module SmartAnswer
 
         precalculate :no_content do
           # all apart from birth_death, certificate_impediment and vet_health
-          no_content = (groups_selected - %w(birth_death certificate_impediment vet_health)).size > 0
+          (groups_selected - %w(birth_death certificate_impediment vet_health)).size > 0
         end
       end
     end

@@ -7,7 +7,6 @@ module SmartAnswer
       satisfies_need "100220"
 
       arrested_calc = Calculators::ArrestedAbroad.new
-      prisoner_packs = arrested_calc.data
       exclude_countries = %w(holy-see british-antarctic-territory)
 
       #Q1

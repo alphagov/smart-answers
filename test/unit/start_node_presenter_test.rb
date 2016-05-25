@@ -5,7 +5,7 @@ module SmartAnswer
     setup do
       start_node = Node.new(nil, :start_node_name)
       @renderer = stub('renderer')
-      @presenter = StartNodePresenter.new(start_node, state = nil, renderer: @renderer)
+      @presenter = StartNodePresenter.new(start_node, nil, renderer: @renderer)
     end
 
     test 'renderer is constructed using template name and directory obtained from start node' do
