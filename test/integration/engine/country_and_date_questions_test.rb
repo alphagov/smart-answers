@@ -1,9 +1,6 @@
 require_relative 'engine_test_helper'
-require 'gds_api/test_helpers/worldwide'
 
 class CountryAndDateQuestionsTest < EngineIntegrationTest
-  include GdsApi::TestHelpers::Worldwide
-
   with_and_without_javascript do
     setup do
       @location_slugs = %w(
@@ -13,7 +10,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         panama portugal sao-tome-and-principe singapore south-korea
         sri-lanka venezuela vietnam
       )
-      worldwide_api_has_locations(@location_slugs)
+      stub_worldwide_locations(@location_slugs)
       Timecop.travel("2013-01-01")
     end
 
