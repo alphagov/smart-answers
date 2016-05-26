@@ -1,11 +1,7 @@
 
 require_relative '../test_helper'
 
-require 'gds_api/test_helpers/worldwide'
-
 class FlowTest < ActiveSupport::TestCase
-  include GdsApi::TestHelpers::Worldwide
-
   test "Can set the name" do
     s = SmartAnswer::Flow.new do
       name "sweet-or-savoury"
@@ -65,8 +61,7 @@ class FlowTest < ActiveSupport::TestCase
   end
 
   test "Can build country select question nodes" do
-    location_slugs = YAML.load(read_fixture_file("worldwide_locations.yml"))
-    worldwide_api_has_locations(location_slugs)
+    stub_worldwide_locations(%w(afghanistan))
 
     s = SmartAnswer::Flow.new do
       country_select :which_country?
