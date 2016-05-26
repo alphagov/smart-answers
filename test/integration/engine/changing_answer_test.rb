@@ -1,12 +1,9 @@
 require_relative 'engine_test_helper'
-require 'gds_api/test_helpers/worldwide'
 
 class ChangingAnswerTest < EngineIntegrationTest
-  include GdsApi::TestHelpers::Worldwide
-
   with_and_without_javascript do
     should "be able to change country and date answers" do
-      worldwide_api_has_selection_of_locations
+      stub_worldwide_locations(%w(argentina belarus))
 
       visit "/country-and-date-sample/y"
 
@@ -28,10 +25,10 @@ class ChangingAnswerTest < EngineIntegrationTest
         assert page.has_selector? :select, "response", selected: "Belarus"
       end
 
-      select "South Korea", from: "response"
+      select "Argentina", from: "response"
       click_on "Next step"
 
-      assert_current_url "/country-and-date-sample/y/south-korea"
+      assert_current_url "/country-and-date-sample/y/argentina"
 
       select "10", from: "Day"
       select "June", from: "Month"
@@ -51,7 +48,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       select "2000", from: "Year"
       click_on "Next step"
 
-      assert_current_url "/country-and-date-sample/y/south-korea/2000-04-15"
+      assert_current_url "/country-and-date-sample/y/argentina/2000-04-15"
     end
 
     should "be able to change money and salary answers" do
