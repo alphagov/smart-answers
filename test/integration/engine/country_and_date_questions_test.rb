@@ -11,9 +11,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         cambodia chad croatia denmark eritrea france ghana iceland
         japan laos luxembourg malta micronesia mozambique nicaragua
         panama portugal sao-tome-and-principe singapore south-korea
-        sri-lanka uk-delegation-to-council-of-europe
-        uk-delegation-to-organization-for-security-and-co-operation-in-europe
-        venezuela vietnam
+        sri-lanka venezuela vietnam
       )
       worldwide_api_has_locations(@location_slugs)
       Timecop.travel("2013-01-01")
@@ -29,7 +27,6 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       end
       within '.question-body' do
         assert page.has_select?("response")
-        # Options above missing delegations
         expected = %w(
           angola aruba bangladesh belarus brazil brunei
           cambodia chad croatia denmark eritrea france ghana iceland
@@ -104,7 +101,6 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       end
       within '.question-body' do
         assert page.has_select?("response")
-        # Options above excluding delegations
         expected = %w(
           angola aruba bangladesh belarus brazil brunei
           cambodia chad croatia denmark eritrea france ghana iceland
