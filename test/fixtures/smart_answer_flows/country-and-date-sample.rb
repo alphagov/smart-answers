@@ -4,7 +4,7 @@ module SmartAnswer
       name 'country-and-date-sample'
       status :draft
 
-      country_select :which_country_do_you_live_in?, exclude_countries: %w(afghanistan united-kingdom) do
+      country_select :which_country_do_you_live_in? do
         save_input_as :country
         next_node do
           question :what_date_did_you_move_there?
@@ -25,7 +25,7 @@ module SmartAnswer
         end
       end
 
-      country_select :which_country_were_you_born_in?, include_uk: true do
+      country_select :which_country_were_you_born_in? do
         save_input_as :birth_country
         next_node do
           outcome :ok
