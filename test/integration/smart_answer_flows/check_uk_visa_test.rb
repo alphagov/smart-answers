@@ -8,7 +8,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
 
   setup do
     @location_slugs = %w(andorra anguilla armenia bolivia canada china colombia croatia mexico south-africa stateless-or-refugee syria turkey yemen oman united-arab-emirates qatar taiwan venezuela)
-    stub_worldwide_locations(@location_slugs)
+    stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::CheckUkVisaFlow
   end
 
