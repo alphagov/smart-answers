@@ -18,7 +18,7 @@ You could install:
 
 - [Solid Wall insulation](http://www.energysavingtrust.org.uk/domestic/solid-wall)
 
-- [Draught proofing](http://www.energysavingtrust.org.uk/Insulation/Draught-proofing)
+- [draught proofing](http://www.energysavingtrust.org.uk/Insulation/Draught-proofing)
 
 - Room in roof insulation
 
