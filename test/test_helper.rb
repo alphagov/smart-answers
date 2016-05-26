@@ -31,25 +31,11 @@ end
 
 require 'gds_api/test_helpers/json_client_helper'
 require_relative 'support/fixture_methods'
+require_relative 'support/world_location_stubbing_methods'
 
 class ActiveSupport::TestCase
   include FixtureMethods
-
-  def stub_worldwide_location(location_slug)
-    location = stub.quacks_like(WorldLocation.new({}))
-    location.stubs(:slug).returns(location_slug)
-    location.stubs(:name).returns(location_slug.humanize)
-    location.stubs(:fco_organisation).returns(nil)
-    WorldLocation.stubs(:find).with(location_slug).returns(location)
-    location
-  end
-
-  def stub_worldwide_locations(location_slugs)
-    locations = location_slugs.map do |slug|
-      stub_worldwide_location(slug)
-    end
-    WorldLocation.stubs(:all).returns(locations)
-  end
+  include WorldLocationStubbingMethods
 end
 
 require 'govuk-content-schema-test-helpers/test_unit'
