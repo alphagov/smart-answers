@@ -27,15 +27,8 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       end
       within '.question-body' do
         assert page.has_select?("response")
-        expected = %w(
-          angola aruba bangladesh belarus brazil brunei
-          cambodia chad croatia denmark eritrea france ghana iceland
-          japan laos luxembourg malta micronesia mozambique nicaragua
-          panama portugal sao-tome-and-principe singapore south-korea
-          sri-lanka venezuela vietnam
-        )
         actual = page.all('select option').map(&:value)
-        assert_equal expected, actual
+        assert_equal @location_slugs, actual
       end
 
       select "Belarus", from: "response"
@@ -101,15 +94,8 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       end
       within '.question-body' do
         assert page.has_select?("response")
-        expected = %w(
-          angola aruba bangladesh belarus brazil brunei
-          cambodia chad croatia denmark eritrea france ghana iceland
-          japan laos luxembourg malta micronesia mozambique nicaragua
-          panama portugal sao-tome-and-principe singapore south-korea
-          sri-lanka venezuela vietnam
-        )
         actual = page.all('select option').map(&:value)
-        assert_equal expected, actual
+        assert_equal @location_slugs, actual
       end
 
       select "Venezuela", from: "response"
