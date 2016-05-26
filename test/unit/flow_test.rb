@@ -61,7 +61,7 @@ class FlowTest < ActiveSupport::TestCase
   end
 
   test "Can build country select question nodes" do
-    stub_worldwide_locations(%w(afghanistan))
+    stub_world_locations(%w(afghanistan))
 
     s = SmartAnswer::Flow.new do
       country_select :which_country?

@@ -8,7 +8,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
 
   setup do
     @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cambodia cameroon china congo georgia greece haiti hong-kong india iran iraq ireland italy jamaica jordan kenya kyrgyzstan laos malta nepal nigeria pakistan pitcairn-island saint-barthelemy saudi-arabia syria south-africa spain sri-lanka st-helena-ascension-and-tristan-da-cunha st-maarten st-martin tajikistan tanzania timor-leste turkey turkmenistan ukraine united-kingdom united-arab-emirates usa uzbekistan yemen zimbabwe venezuela vietnam zambia)
-    stub_worldwide_locations(@location_slugs)
+    stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::OverseasPassportsFlow
   end
 

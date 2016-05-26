@@ -12,7 +12,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
   setup do
     @location_slugs = %w(albania american-samoa anguilla argentina armenia aruba australia austria azerbaijan bahamas belarus belgium bonaire-st-eustatius-saba brazil british-indian-ocean-territory burma burundi cambodia canada china costa-rica cote-d-ivoire croatia colombia cyprus czech-republic democratic-republic-of-congo denmark ecuador egypt estonia finland france germany greece hong-kong indonesia iran ireland italy japan jordan kazakhstan kosovo kyrgyzstan laos latvia lebanon lithuania macao macedonia malta mayotte mexico monaco montenegro morocco netherlands nicaragua north-korea norway oman guatemala paraguay peru philippines poland portugal qatar romania russia rwanda saint-barthelemy san-marino saudi-arabia serbia seychelles slovakia slovenia south-africa st-maarten st-martin south-korea spain sweden switzerland thailand turkey turkmenistan ukraine united-arab-emirates usa uzbekistan vietnam wallis-and-futuna yemen zimbabwe).uniq
-    stub_worldwide_locations(@location_slugs)
+    stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::MarriageAbroadFlow
   end
 
@@ -22,7 +22,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
   context "newly added country that has no logic to handle opposite sex marriages" do
     setup do
-      stub_worldwide_locations(['narnia'])
+      stub_world_locations(['narnia'])
       add_response 'ceremony_country'
       add_response 'partner_local'
       assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do

@@ -10,7 +10,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         panama portugal sao-tome-and-principe singapore south-korea
         sri-lanka venezuela vietnam
       )
-      stub_worldwide_locations(@location_slugs)
+      stub_world_locations(@location_slugs)
       Timecop.travel("2013-01-01")
     end
 

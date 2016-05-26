@@ -8,7 +8,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
 
   setup do
     setup_for_testing_flow SmartAnswer::UkBenefitsAbroadFlow
-    stub_worldwide_locations %w(albania austria canada jamaica kosovo)
+    stub_world_locations %w(albania austria canada jamaica kosovo)
   end
 
   # Q1
