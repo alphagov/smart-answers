@@ -43,14 +43,18 @@ GovukContentSchemaTestHelpers.configure do |config|
   config.project_root = Rails.root
 end
 
+def stub_worldwide_location(location_slug)
+  location = stub.quacks_like(WorldLocation.new({}))
+  location.stubs(:slug).returns(location_slug)
+  location.stubs(:name).returns(location_slug.humanize)
+  location.stubs(:fco_organisation).returns(nil)
+  WorldLocation.stubs(:find).with(location_slug).returns(location)
+  location
+end
+
 def stub_worldwide_locations(location_slugs)
   locations = location_slugs.map do |slug|
-    location = stub.quacks_like(WorldLocation.new({}))
-    location.stubs(:slug).returns(slug)
-    location.stubs(:name).returns(slug.humanize)
-    location.stubs(:fco_organisation).returns(nil)
-    WorldLocation.stubs(:find).with(slug).returns(location)
-    location
+    stub_worldwide_location(slug)
   end
   WorldLocation.stubs(:all).returns(locations)
 end
