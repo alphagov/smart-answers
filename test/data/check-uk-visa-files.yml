@@ -1,7 +1,7 @@
 ---
-lib/smart_answer_flows/check-uk-visa.rb: 18ff6d2173bdb8d0e10ad4c986d03c96
-test/data/check-uk-visa-questions-and-responses.yml: db3081a2a7162f108baa5ff00706c9fd
-test/data/check-uk-visa-responses-and-expected-results.yml: 0c16e3dad5ca56436cc8c4b14eb9b3a1
+lib/smart_answer_flows/check-uk-visa.rb: c6a304e47c40fea590383f89a03f64a1
+test/data/check-uk-visa-questions-and-responses.yml: 8c07630c400de03f7819e71c8d487029
+test/data/check-uk-visa-responses-and-expected-results.yml: 7d934861d88ed5ad360e706b02a6ed52
 lib/smart_answer_flows/check-uk-visa/check_uk_visa.govspeak.erb: a442b4ddd169b26a401c70d145e5b44e
 lib/smart_answer_flows/check-uk-visa/outcomes/_b1_b2_visa_exception.govspeak.erb: 410e39d565d0a5caed2d1b8c20c1ca77
 lib/smart_answer_flows/check-uk-visa/outcomes/_stateless_or_refugee.govspeak.erb: a14d7807087e4f05e9fada8ac755ee2e
@@ -27,6 +27,7 @@ lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_not_leaving_airpor
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_refugee_not_leaving_airport.govspeak.erb: a344b0c62367eac3e00d048563b636dd
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_taiwan.govspeak.erb: 72a43a01e16942fd7ffce864e5b1bdee
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_taiwan_through_border_control.govspeak.erb: ee519450526cc90ead79ee29021f04a6
+lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_to_the_cta.govspeak.erb: a222c601ece2a555d7ca97eb00c41e06
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_venezuela.govspeak.erb: bae2c1566964317ca3d92b5b1d8a21f3
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_visit_waiver.govspeak.erb: 02d5c593f767fe5201de2afe81e65963
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_work_m.govspeak.erb: 7502173e6c4f65cb85ca5559c7ebb2e6
@@ -34,9 +35,10 @@ lib/smart_answer_flows/check-uk-visa/outcomes/outcome_work_n.govspeak.erb: da229
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_work_waiver.govspeak.erb: 916d5d06e4f6958d2dc287f128fd0bc9
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_work_y.govspeak.erb: 08ec2892f3d1501909183d0db908891e
 lib/smart_answer_flows/check-uk-visa/questions/israeli_document_type.govspeak.erb: 6e6ea79788922c6e4a76f87cac040193
-lib/smart_answer_flows/check-uk-visa/questions/passing_through_uk_border_control.govspeak.erb: 06c6cc3553ff2ce5b62364f3430e9394
+lib/smart_answer_flows/check-uk-visa/questions/passing_through_uk_border_control.govspeak.erb: 6dc27a34bc9dcfd1cb1184ec4c645728
 lib/smart_answer_flows/check-uk-visa/questions/purpose_of_visit.govspeak.erb: b778204d9ab13cc9163e1224c22dc5f1
 lib/smart_answer_flows/check-uk-visa/questions/staying_for_how_long.govspeak.erb: 3d00e24db2c951d6853808b7c1c33ed4
+lib/smart_answer_flows/check-uk-visa/questions/travelling_to_cta.govspeak.erb: 6c9f49d8c4344f770145e8cedd6323ca
 lib/smart_answer_flows/check-uk-visa/questions/what_passport_do_you_have.govspeak.erb: 45a59c18a7b570142f32d3b93f8f7db4
 app/models/ukba_country.rb: 56879bb5efb4225cbf56850269385d44
 lib/data/ukba_additional_countries.yml: 5e84d01caf6b2841d0ea9f03f0f4974c
