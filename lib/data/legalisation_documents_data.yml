@@ -178,7 +178,7 @@ letter-of-invitation:
 letter-of-no-trace:
   heading: Letter of no trace
   type: letter of no trace
-  group: birth_death
+  group: letter_no_trace
 medical-report:
   heading: Medical report
   type: medical report
