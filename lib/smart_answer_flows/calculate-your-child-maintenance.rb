@@ -1,3 +1,5 @@
+require "smart_answer_flows/calculate-your-child-maintenance/calculator"
+
 module SmartAnswer
   class CalculateYourChildMaintenanceFlow < Flow
     def define
@@ -63,7 +65,7 @@ module SmartAnswer
         end
 
         calculate :calculator do
-          Calculators::ChildMaintenanceCalculator.new(number_of_children, benefits, paying_or_receiving)
+          Calculator.new(number_of_children, benefits, paying_or_receiving)
         end
 
         next_node do |response|
