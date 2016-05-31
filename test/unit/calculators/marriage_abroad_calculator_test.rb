@@ -99,6 +99,23 @@ module SmartAnswer
         end
       end
 
+      context "#diplomatic_mission" do
+        #TODO: expand test and implementation to properly cover members and none members of the commonwealth
+        setup do
+          @calculator = MarriageAbroadCalculator.new
+        end
+
+        should "return High Commission for Australia" do
+          @calculator.ceremony_country = "australia"
+          assert_equal "High Commission", @calculator.diplomatic_mission
+        end
+
+        should "return embassy for other countries" do
+          @calculator.ceremony_country = "brazil"
+          assert_equal "embassy", @calculator.diplomatic_mission
+        end
+      end
+
       context '#resident_outside_of_uk?' do
         setup do
           @calculator = MarriageAbroadCalculator.new
