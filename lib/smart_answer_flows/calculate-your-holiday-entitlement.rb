@@ -1,3 +1,5 @@
+require "smart_answer_flows/calculate-your-holiday-entitlement/calculator"
+
 module SmartAnswer
   class CalculateYourHolidayEntitlementFlow < Flow
     def define
@@ -244,7 +246,7 @@ module SmartAnswer
 
       outcome :shift_worker_done do
         precalculate :calculator do
-          Calculators::HolidayEntitlement.new(
+          Calculator.new(
             start_date: start_date,
             leaving_date: leaving_date,
             leave_year_start_date: leave_year_start_date,
@@ -266,7 +268,7 @@ module SmartAnswer
           (days_per_week < 5 ? days_per_week : 5)
         end
         precalculate :calculator do
-          Calculators::HolidayEntitlement.new(
+          Calculator.new(
             days_per_week: (leave_year_start_date.nil? ? days_per_week : days_per_week_calculated),
             start_date: start_date,
             leaving_date: leaving_date,
@@ -280,7 +282,7 @@ module SmartAnswer
 
       outcome :hours_per_week_done do
         precalculate :calculator do
-          Calculators::HolidayEntitlement.new(
+          Calculator.new(
             hours_per_week: hours_per_week,
             start_date: start_date,
             leaving_date: leaving_date,
@@ -300,7 +302,7 @@ module SmartAnswer
 
       outcome :casual_or_irregular_hours_done do
         precalculate :calculator do
-          Calculators::HolidayEntitlement.new(total_hours: total_hours)
+          Calculator.new(total_hours: total_hours)
         end
         precalculate :holiday_entitlement_hours do
           calculator.casual_irregular_entitlement.first
@@ -312,7 +314,7 @@ module SmartAnswer
 
       outcome :compressed_hours_done do
         precalculate :calculator do
-          Calculators::HolidayEntitlement.new(
+          Calculator.new(
             hours_per_week: hours_per_week,
             days_per_week: days_per_week
           )
@@ -333,7 +335,7 @@ module SmartAnswer
 
       outcome :annualised_hours_done do
         precalculate :calculator do
-          Calculators::HolidayEntitlement.new(total_hours: total_hours)
+          Calculator.new(total_hours: total_hours)
         end
         precalculate :average_hours_per_week do
           calculator.formatted_annualised_hours_per_week

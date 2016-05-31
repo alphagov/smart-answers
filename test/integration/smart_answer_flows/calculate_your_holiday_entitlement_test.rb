@@ -2,13 +2,14 @@ require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
 require "smart_answer_flows/calculate-your-holiday-entitlement"
+require "smart_answer_flows/calculate-your-holiday-entitlement/calculator"
 
 class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
     setup_for_testing_flow SmartAnswer::CalculateYourHolidayEntitlementFlow
-    @stubbed_calculator = SmartAnswer::Calculators::HolidayEntitlement.new
+    @stubbed_calculator = SmartAnswer::CalculateYourHolidayEntitlementFlow::Calculator.new
   end
 
   should "ask what the basis of the calculation is" do
@@ -34,7 +35,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       end
 
       should "calculate and be done when 5 days a week" do
-        SmartAnswer::Calculators::HolidayEntitlement
+        SmartAnswer::CalculateYourHolidayEntitlementFlow::Calculator
           .expects(:new)
           .with(
             days_per_week: 5,
@@ -50,7 +51,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       end
 
       should "calculate and be done when more than 5 days a week" do
-        SmartAnswer::Calculators::HolidayEntitlement
+        SmartAnswer::CalculateYourHolidayEntitlementFlow::Calculator
           .expects(:new)
           .with(
             days_per_week: 6,
@@ -94,7 +95,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           end
 
           should "calculate and be done part year when 5 days" do
-            SmartAnswer::Calculators::HolidayEntitlement
+            SmartAnswer::CalculateYourHolidayEntitlementFlow::Calculator
               .expects(:new)
               .with(
                 days_per_week: 5,
@@ -111,7 +112,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           end
 
           should "calculate and be done part year when 6 or 7 days" do
-            SmartAnswer::Calculators::HolidayEntitlement
+            SmartAnswer::CalculateYourHolidayEntitlementFlow::Calculator
               .expects(:new)
               .with(
                 days_per_week: 5,
@@ -159,7 +160,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           end
 
           should "calculate and be done part year when 5 days" do
-            SmartAnswer::Calculators::HolidayEntitlement
+            SmartAnswer::CalculateYourHolidayEntitlementFlow::Calculator
               .expects(:new)
               .with(
                 days_per_week: 5,
@@ -176,7 +177,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           end
 
           should "calculate and be done part year when 6 days" do
-            SmartAnswer::Calculators::HolidayEntitlement
+            SmartAnswer::CalculateYourHolidayEntitlementFlow::Calculator
               .expects(:new)
               .with(
                 days_per_week: 5,
@@ -217,7 +218,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             assert_current_node :how_many_days_per_week?
           end
           should "calculate and be done part year when 5 days" do
-            SmartAnswer::Calculators::HolidayEntitlement
+            SmartAnswer::CalculateYourHolidayEntitlementFlow::Calculator
               .expects(:new)
               .with(
                 days_per_week: 5,
@@ -256,7 +257,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           add_response '32'
         end
         should "calculate the holiday entitlement" do
-          SmartAnswer::Calculators::HolidayEntitlement
+          SmartAnswer::CalculateYourHolidayEntitlementFlow::Calculator
             .expects(:new)
             .with(
               hours_per_week: 32.0,
@@ -299,7 +300,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
               add_response '37'
             end
             should "calculate the holiday entitlement" do
-              SmartAnswer::Calculators::HolidayEntitlement.
+              SmartAnswer::CalculateYourHolidayEntitlementFlow::Calculator.
                 expects(:new).
                 with(
                   hours_per_week: 37.0,
@@ -345,7 +346,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
               add_response '26.5'
             end
             should "calculate the holiday entitlement" do
-              SmartAnswer::Calculators::HolidayEntitlement.
+              SmartAnswer::CalculateYourHolidayEntitlementFlow::Calculator.
                 expects(:new).
                 with(
                   hours_per_week: 26.5,
@@ -387,7 +388,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             assert_current_node :how_many_hours_per_week?
           end
           should "calculate and be done part year when 5 days" do
-            SmartAnswer::Calculators::HolidayEntitlement
+            SmartAnswer::CalculateYourHolidayEntitlementFlow::Calculator
               .expects(:new)
               .with(
                 hours_per_week: 37,
@@ -422,7 +423,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
     end
 
     should "calculate and be done with a response" do
-      SmartAnswer::Calculators::HolidayEntitlement
+      SmartAnswer::CalculateYourHolidayEntitlementFlow::Calculator
         .expects(:new)
         .with(total_hours: 1500)
         .returns(@stubbed_calculator)
@@ -451,7 +452,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
     end
 
     should "calculate and be done with a response" do
-      SmartAnswer::Calculators::HolidayEntitlement
+      SmartAnswer::CalculateYourHolidayEntitlementFlow::Calculator
         .expects(:new)
         .with(total_hours: 1400.5)
         .returns(@stubbed_calculator)
@@ -504,7 +505,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
     end
 
     should "calculate and be done with hours and days entered" do
-      SmartAnswer::Calculators::HolidayEntitlement
+      SmartAnswer::CalculateYourHolidayEntitlementFlow::Calculator
         .expects(:new)
         .with(hours_per_week: 20.5, days_per_week: 3)
         .returns(@stubbed_calculator)
@@ -557,7 +558,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         add_response '4'
         add_response '8'
 
-        SmartAnswer::Calculators::HolidayEntitlement
+        SmartAnswer::CalculateYourHolidayEntitlementFlow::Calculator
           .expects(:new)
           .with(
             start_date: nil,
@@ -622,7 +623,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             add_response '4'
             add_response '8'
 
-            SmartAnswer::Calculators::HolidayEntitlement
+            SmartAnswer::CalculateYourHolidayEntitlementFlow::Calculator
               .expects(:new)
               .with(
                 start_date: Date.parse("#{Date.today.year}-02-16"),
@@ -689,7 +690,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             add_response '4'
             add_response '8'
 
-            SmartAnswer::Calculators::HolidayEntitlement
+            SmartAnswer::CalculateYourHolidayEntitlementFlow::Calculator
               .expects(:new)
               .with(
                 start_date: nil,
@@ -756,7 +757,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             add_response '4'
             add_response '8'
 
-            SmartAnswer::Calculators::HolidayEntitlement
+            SmartAnswer::CalculateYourHolidayEntitlementFlow::Calculator
               .expects(:new)
               .with(
                 start_date: Date.parse("#{Date.today.year}-02-16"),
