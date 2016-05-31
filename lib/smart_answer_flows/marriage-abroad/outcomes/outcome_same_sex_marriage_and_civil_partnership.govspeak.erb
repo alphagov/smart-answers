@@ -10,7 +10,11 @@
 <% content_for :body do %>
   <% case calculator.marriage_and_partnership_phrases %>
   <% when 'ss_marriage' %>
-    You may be able to get married at the British embassy or consulate in <%= calculator.country_name_lowercase_prefix %>.
+    <% if calculator.ceremony_country == 'australia' %>
+      You may be able to get married at the British High Commission or a British consulate in Australia.
+    <% else %>
+      You may be able to get married at the British embassy or consulate in <%= calculator.country_name_lowercase_prefix %>.
+    <% end %>
   <% when 'ss_marriage_and_partnership' %>
     You may be able to register a civil partnership or get married at the British embassy or consulate in <%= calculator.country_name_lowercase_prefix %>.
   <% end %>
@@ -81,7 +85,7 @@
   <% when 'ss_marriage' %>
     ##What you need to do
 
-    At your appointment the embassy or consulate will give you:
+    At your appointment the <%= calculator.diplomatic_mission %> or consulate will give you:
 
     - a notice of registration
     - a declaration that you and your partner will need to swear, stating that you’re legally entitled to marry
@@ -100,7 +104,7 @@
 
   <% end %>
 
-  Once you’ve completed these and paid the registration fee, the embassy or consulate will display your notice publicly for 14 days.
+  Once you’ve completed these and paid the registration fee, the <%= calculator.diplomatic_mission %> or consulate will display your notice publicly for 14 days.
 
   <% if calculator.ceremony_country == 'vietnam' %>
     ^You must stay in <%= calculator.country_name_lowercase_prefix %> while your notice is posted.^
@@ -118,7 +122,7 @@
              locals: { calculator: calculator } %>
 
   <% if calculator.ceremony_country == 'australia' %>
-    You can’t have a same-sex marriage in a British embassy or consulate if you’re already in one of these relationships:
+    You can’t have a same-sex marriage in a British <%= calculator.diplomatic_mission %> or consulate if you’re already in one of these relationships:
 
     * civil partnership (Australian Capital Territory)
     * relationship registered under the Relationships Register Act 2010 (New South Wales)
@@ -127,7 +131,7 @@
     * registered domestic relationship (Victoria)
 
   <% end %>
-  ^All same-sex marriages must take place under English and Welsh or Scottish law even if you live in or are from Northern Ireland. Tell the embassy or consulate which law you want to get married under at your appointment.^
+  ^All same-sex marriages must take place under English and Welsh or Scottish law even if you live in or are from Northern Ireland. Tell the <%= calculator.diplomatic_mission %> or consulate which law you want to get married under at your appointment.^
 
   <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 
