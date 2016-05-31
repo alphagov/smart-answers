@@ -1,3 +1,5 @@
+require 'smart_answer_flows/additional-commodity-code/calculator'
+
 module SmartAnswer
   class AdditionalCommodityCodeFlow < Flow
     def define
@@ -189,7 +191,7 @@ module SmartAnswer
 
       outcome :commodity_code_result do
         precalculate :calculator do
-          Calculators::CommodityCodeCalculator.new(
+          Calculator.new(
             starch_glucose_weight: starch_glucose_weight,
             sucrose_weight: sucrose_weight,
             milk_fat_weight: milk_fat_weight,
