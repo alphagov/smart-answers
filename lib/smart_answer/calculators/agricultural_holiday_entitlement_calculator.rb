@@ -14,9 +14,14 @@ module SmartAnswer::Calculators
       # This is calculated as a flat number based on the days you work
       # per week
       if !days_worked_per_week.nil?
-        holiday_days(days_worked_per_week)
+        days = holiday_days(days_worked_per_week)
       elsif !weeks_from_october_1.nil?
-        holiday_days(total_days_worked.to_f / weeks_from_october_1.to_f).round(10)
+        days = holiday_days(total_days_worked.to_f / weeks_from_october_1.to_f).round(10)
+      end
+      if weeks_at_current_employer.nil?
+        days
+      else
+        (days * (weeks_at_current_employer / 52.0)).round(10)
       end
     end
 

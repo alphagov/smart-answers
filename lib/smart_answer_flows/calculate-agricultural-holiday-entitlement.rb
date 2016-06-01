@@ -100,8 +100,7 @@ module SmartAnswer
         end
 
         calculate :holiday_entitlement_days do
-          days = calculator.holiday_entitlement_days
-          (days * (calculator.weeks_at_current_employer / 52.0)).round(10)
+          calculator.holiday_entitlement_days
         end
 
         next_node do
