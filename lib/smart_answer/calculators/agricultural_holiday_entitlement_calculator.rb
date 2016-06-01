@@ -8,6 +8,10 @@ module SmartAnswer::Calculators
     attr_accessor :days_worked_per_week
     attr_accessor :holiday_starts_on
 
+    def weeks_from_october_1
+      weeks_worked(holiday_starts_on)
+    end
+
     def calculation_period
       # Agricultural holiday calculations run from Oct 1 - Oct 1
       this_year_period = Date.civil(Date.today.year, 10, 1)

@@ -171,7 +171,7 @@ class CalculateAgriculturalHolidayEntitlementTest < ActiveSupport::TestCase
       end
 
       should "have the number of weeks calculated" do
-        assert_state_variable :weeks_from_october_1, 43
+        assert_equal 43, current_state.calculator.weeks_from_october_1
       end
 
       context "worked 50 days" do
@@ -210,7 +210,7 @@ class CalculateAgriculturalHolidayEntitlementTest < ActiveSupport::TestCase
       end
 
       should "have the number of weeks calculated" do
-        assert_state_variable :weeks_from_october_1, 17
+        assert_equal 17, current_state.calculator.weeks_from_october_1
       end
 
       context "worked 28 days" do

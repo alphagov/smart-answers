@@ -52,10 +52,6 @@ module SmartAnswer
           calculator.holiday_starts_on = response
         end
 
-        calculate :weeks_from_october_1 do
-          calculator.weeks_worked(calculator.holiday_starts_on)
-        end
-
         next_node do
           question :how_many_total_days?
         end
@@ -71,8 +67,8 @@ module SmartAnswer
             # per week
             if !calculator.days_worked_per_week.nil?
               calculator.holiday_days(calculator.days_worked_per_week)
-            elsif !weeks_from_october_1.nil?
-              calculator.holiday_days(total_days_worked.to_f / weeks_from_october_1.to_f).round(10)
+            elsif !calculator.weeks_from_october_1.nil?
+              calculator.holiday_days(total_days_worked.to_f / calculator.weeks_from_october_1.to_f).round(10)
             end
           end
         end
@@ -114,8 +110,8 @@ module SmartAnswer
         calculate :holiday_entitlement_days do |response|
           if !calculator.days_worked_per_week.nil?
             days = calculator.holiday_days(calculator.days_worked_per_week)
-          elsif !weeks_from_october_1.nil?
-            days = calculator.holiday_days(total_days_worked.to_f / weeks_from_october_1.to_f).round(10)
+          elsif !calculator.weeks_from_october_1.nil?
+            days = calculator.holiday_days(total_days_worked.to_f / calculator.weeks_from_october_1.to_f).round(10)
           end
           sprintf("%.1f", (days * (response / 52.0)).round(10))
         end
