@@ -85,7 +85,7 @@ module SmartAnswer
 
       value_question :how_many_weeks_at_current_employer?, parse: Integer do
         #Has to be less than a full year
-        validate { |response| response < 52 }
+        validate { calculator.valid_weeks_at_current_employer? }
 
         on_response do |response|
           calculator.weeks_at_current_employer = response
