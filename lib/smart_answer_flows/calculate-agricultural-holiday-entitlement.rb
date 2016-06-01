@@ -14,10 +14,6 @@ module SmartAnswer
           self.calculator = Calculators::AgriculturalHolidayEntitlementCalculator.new
         end
 
-        calculate :days_worked_per_week do
-          nil
-        end
-
         next_node do |response|
           case response
           when 'same-number-of-days'
@@ -37,13 +33,11 @@ module SmartAnswer
         option "2-days"
         option "1-day"
 
-        # rubocop:disable Style/SymbolProc
-        calculate :days_worked_per_week do |response|
+        on_response do |response|
           # XXX: this is a bit nasty and takes advantage of the fact that
           # to_i only looks for the very first integer
-          response.to_i
+          calculator.days_worked_per_week = response.to_i
         end
-        # rubocop:enable Style/SymbolProc
 
         next_node do
           question :worked_for_same_employer?
@@ -71,8 +65,8 @@ module SmartAnswer
           if response == 'same-employer'
             # This is calculated as a flat number based on the days you work
             # per week
-            if !days_worked_per_week.nil?
-              calculator.holiday_days(days_worked_per_week)
+            if !calculator.days_worked_per_week.nil?
+              calculator.holiday_days(calculator.days_worked_per_week)
             elsif !weeks_from_october_1.nil?
               calculator.holiday_days(total_days_worked.to_f / weeks_from_october_1.to_f).round(10)
             end
@@ -114,8 +108,8 @@ module SmartAnswer
         validate { |response| response < 52 }
 
         calculate :holiday_entitlement_days do |response|
-          if !days_worked_per_week.nil?
-            days = calculator.holiday_days(days_worked_per_week)
+          if !calculator.days_worked_per_week.nil?
+            days = calculator.holiday_days(calculator.days_worked_per_week)
           elsif !weeks_from_october_1.nil?
             days = calculator.holiday_days(total_days_worked.to_f / weeks_from_october_1.to_f).round(10)
           end

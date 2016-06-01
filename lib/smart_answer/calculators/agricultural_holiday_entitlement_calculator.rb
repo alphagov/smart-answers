@@ -3,6 +3,9 @@ require 'date'
 module SmartAnswer::Calculators
   class AgriculturalHolidayEntitlementCalculator
     # created for the agricultural holiday entitlement calculator
+    include ActiveModel::Model
+
+    attr_accessor :days_worked_per_week
 
     def calculation_period
       # Agricultural holiday calculations run from Oct 1 - Oct 1
