@@ -100,10 +100,6 @@ module SmartAnswer
       end
 
       value_question :how_many_weeks_at_current_employer?, parse: Integer do
-        next_node do
-          outcome :done_with_number_formatting
-        end
-
         #Has to be less than a full year
         validate { |response| response < 52 }
 
@@ -114,6 +110,10 @@ module SmartAnswer
             days = calculator.holiday_days(total_days_worked.to_f / calculator.weeks_from_october_1.to_f).round(10)
           end
           (days * (response / 52.0)).round(10)
+        end
+
+        next_node do
+          outcome :done_with_number_formatting
         end
       end
 
