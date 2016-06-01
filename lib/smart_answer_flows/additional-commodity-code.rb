@@ -15,10 +15,9 @@ module SmartAnswer
         option 50
         option 75
 
-        save_input_as :starch_glucose_weight
-
-        calculate :milk_protein_weight do
-          nil
+        on_response do |response|
+          self.calculator = Calculators::CommodityCodeCalculator.new
+          calculator.starch_glucose_weight = response.to_i
         end
 
         next_node do |response|
@@ -43,7 +42,10 @@ module SmartAnswer
         option 50
         option 70
 
-        save_input_as :sucrose_weight
+        on_response do |response|
+          calculator.sucrose_weight = response.to_i
+        end
+
         next_node do
           question :how_much_milk_fat?
         end
@@ -56,7 +58,10 @@ module SmartAnswer
         option 30
         option 50
 
-        save_input_as :sucrose_weight
+        on_response do |response|
+          calculator.sucrose_weight = response.to_i
+        end
+
         next_node do
           question :how_much_milk_fat?
         end
@@ -68,7 +73,10 @@ module SmartAnswer
         option 5
         option 30
 
-        save_input_as :sucrose_weight
+        on_response do |response|
+          calculator.sucrose_weight = response.to_i
+        end
+
         next_node do
           question :how_much_milk_fat?
         end
@@ -79,7 +87,10 @@ module SmartAnswer
         option 0
         option 5
 
-        save_input_as :sucrose_weight
+        on_response do |response|
+          calculator.sucrose_weight = response.to_i
+        end
+
         next_node do
           question :how_much_milk_fat?
         end
@@ -100,7 +111,9 @@ module SmartAnswer
         option 70
         option 85
 
-        save_input_as :milk_fat_weight
+        on_response do |response|
+          calculator.milk_fat_weight = response.to_i
+        end
 
         next_node do |response|
           case response.to_i
@@ -129,7 +142,9 @@ module SmartAnswer
         option 30
         option 60
 
-        save_input_as :milk_protein_weight
+        on_response do |response|
+          calculator.milk_protein_weight = response.to_i
+        end
 
         next_node do
           outcome :commodity_code_result
@@ -142,7 +157,9 @@ module SmartAnswer
         option 2
         option 12
 
-        save_input_as :milk_protein_weight
+        on_response do |response|
+          calculator.milk_protein_weight = response.to_i
+        end
 
         next_node do
           outcome :commodity_code_result
@@ -155,7 +172,9 @@ module SmartAnswer
         option 4
         option 15
 
-        save_input_as :milk_protein_weight
+        on_response do |response|
+          calculator.milk_protein_weight = response.to_i
+        end
 
         next_node do
           outcome :commodity_code_result
@@ -168,7 +187,9 @@ module SmartAnswer
         option 6
         option 18
 
-        save_input_as :milk_protein_weight
+        on_response do |response|
+          calculator.milk_protein_weight = response.to_i
+        end
 
         next_node do
           outcome :commodity_code_result
@@ -180,22 +201,16 @@ module SmartAnswer
         option 0
         option 6
 
-        save_input_as :milk_protein_weight
+        on_response do |response|
+          calculator.milk_protein_weight = response.to_i
+        end
 
         next_node do
           outcome :commodity_code_result
         end
       end
 
-      outcome :commodity_code_result do
-        precalculate :calculator do
-          Calculators::CommodityCodeCalculator.new(
-            starch_glucose_weight: starch_glucose_weight.to_i,
-            sucrose_weight: sucrose_weight.to_i,
-            milk_fat_weight: milk_fat_weight.to_i,
-            milk_protein_weight: milk_protein_weight.to_i)
-        end
-      end
+      outcome :commodity_code_result
     end
   end
 end

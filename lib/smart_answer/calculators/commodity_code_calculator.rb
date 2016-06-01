@@ -13,6 +13,10 @@ module SmartAnswer::Calculators
       super
       @matrix_data = self.class.commodity_codes_data
       @commodity_code_matrix = self.class.commodity_code_matrix
+      @starch_glucose_weight ||= 0
+      @sucrose_weight ||= 0
+      @milk_fat_weight ||= 0
+      @milk_protein_weight ||= 0
     end
 
     def commodity_code
