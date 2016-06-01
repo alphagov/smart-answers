@@ -271,6 +271,14 @@ module SmartAnswer::Calculators
       MarriageAbroadDataQuery::NO_DOCUMENT_DOWNLOAD_LINK_IF_OS_RESIDENT_OF_UK_COUNTRIES.exclude?(ceremony_country)
     end
 
+    def diplomatic_mission
+      if ceremony_country == 'australia'
+        'High Commission'
+      else
+        'embassy'
+      end
+    end
+
     def consular_fee(service)
       @rates_query.rates[service]
     end
