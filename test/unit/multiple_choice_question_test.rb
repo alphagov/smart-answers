@@ -52,7 +52,7 @@ module SmartAnswer
 
       current_state = State.new(:example)
       assert_raises SmartAnswer::InvalidResponse do
-        new_state = q.transition(current_state, :invalid)
+        q.transition(current_state, :invalid)
       end
     end
   end

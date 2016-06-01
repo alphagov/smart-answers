@@ -62,7 +62,7 @@ class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
 
       should "tell you to fill in a form and visit the embassy" do
         assert_current_node :contact_the_embassy_canada
-        assert_match /Fill in form LS01 and post it to your nearest British embassy, high commission or consulate./, outcome_body
+        assert_match(/Fill in form LS01 and post it to your nearest British embassy, high commission or consulate./, outcome_body)
       end
     end
   end

@@ -152,7 +152,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
         data = JSON.parse(response.body)
         assert_equal '/smart-answers-controller-sample/y/no', data['url']
         doc = Nokogiri::HTML(data['html_fragment'])
-        assert_match /Smart answers controller sample/, doc.css('h1').first.to_s
+        assert_match(/Smart answers controller sample/, doc.css('h1').first.to_s)
         assert_equal 0, doc.css('head').size, "Should not have layout"
         assert_equal '/smart-answers-controller-sample/y/no', doc.css('form').first.attributes['action'].to_s
         assert_equal 'Do you like jam?', data['title']
@@ -166,9 +166,9 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
         get :show, id: 'smart-answers-controller-sample', started: 'y', responses: "yes", format: "txt"
 
-        assert_match /sweet-tooth-outcome-title/, response.body
-        assert_match /sweet-tooth-outcome-govspeak-body/, response.body
-        assert_match /sweet-tooth-outcome-govspeak-next-steps/, response.body
+        assert_match(/sweet-tooth-outcome-title/, response.body)
+        assert_match(/sweet-tooth-outcome-govspeak-body/, response.body)
+        assert_match(/sweet-tooth-outcome-govspeak-next-steps/, response.body)
       end
 
       should "render govspeak text for the landing page" do

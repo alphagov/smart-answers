@@ -22,9 +22,10 @@ def check_links(links_to_check, broken, file)
         end
         broken.push(new_hash)
       end
-    rescue Exception => e
+    rescue => e
       # this is here as sometimes we find wrong links through the Regexes
       # dont need to do anything, just capture it to avoid the script breaking
+      p e
     end
   }
   broken
@@ -64,45 +65,36 @@ namespace :links do
     # check a single file the user has passed in
     if args.file
       file = args.file
-      path = File.expand_path("#{pwd}#{file}")
       puts "Checking #{file}"
       links_to_check = check_locales_file(IO.read(file))
       broken = check_links(links_to_check, broken, file)
     else
       base_path = File.expand_path("#{pwd}/lib")
-      Dir.glob("#{base_path}/smart_answer_flows/locales/**/*.yml") { |file|
-        puts "Checking #{file}"
-        links_to_check = check_locales_file(IO.read(file))
-        broken = check_links(links_to_check, broken, file)
+      Dir.glob("#{base_path}/smart_answer_flows/locales/**/*.yml") { |filename|
+        puts "Checking #{filename}"
+        links_to_check = check_locales_file(IO.read(filename))
+        broken = check_links(links_to_check, broken, filename)
       }
 
-      Dir.glob("#{base_path}/data/*.yml") { |file|
-        puts "Checking #{file}"
-        links_to_check = check_data_file(IO.read(file))
-        broken = check_links(links_to_check, broken, file)
+      Dir.glob("#{base_path}/data/*.yml") { |filename|
+        puts "Checking #{filename}"
+        links_to_check = check_data_file(IO.read(filename))
+        broken = check_links(links_to_check, broken, filename)
       }
     end
 
-    File.open("log/broken_links.log", "w") { |file|
-      file.puts broken
-    }
+    File.open("log/broken_links.log", "w") { |f| f.puts broken }
 
 
     fives = broken.select { |item| item[:resp][0] == "5" }
     four_oh_fours = broken.select { |item| item[:resp][0] == "4" }
     three_oh_threes = broken.select { |item| item[:resp][0] == "3" }
 
-    File.open("log/300_links.log", "w") { |file|
-      file.puts three_oh_threes
-    }
+    File.open("log/300_links.log", "w") { |f| f.puts three_oh_threes }
 
-    File.open("log/404_links.log", "w") { |file|
-      file.puts four_oh_fours
-    }
+    File.open("log/404_links.log", "w") { |f| f.puts four_oh_fours }
 
-    File.open("log/500_links.log", "w") { |file|
-      file.puts fives
-    }
+    File.open("log/500_links.log", "w") { |f| f.puts fives }
 
     if three_oh_threes.length > 0
       puts "Warning: Found links that give a 3XX response. Look in log/300_links.log"

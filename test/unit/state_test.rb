@@ -10,7 +10,7 @@ module SmartAnswer
         old_state.responses << 'yes'
         old_state.freeze
 
-        new_state = old_state.transition_to(:state3, 'fooey')
+        old_state.transition_to(:state3, 'fooey')
 
         assert_equal ['yes'], old_state.responses
         assert_equal [:state1], old_state.path

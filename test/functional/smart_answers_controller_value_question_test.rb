@@ -43,7 +43,7 @@ class SmartAnswersControllerValueQuestionTest < ActionController::TestCase
           get :show, id: 'smart-answers-controller-sample-with-value-question', started: 'y', responses: "12345"
         end
         should "show the label text before the question input" do
-          assert_match /value-question-label.*?input.*?name="response".*?/, response.body
+          assert_match(/value-question-label.*?input.*?name="response".*?/, response.body)
           assert_select "label > input[type=text][name=response]"
         end
       end
@@ -54,7 +54,7 @@ class SmartAnswersControllerValueQuestionTest < ActionController::TestCase
         end
 
         should "show the label text after the question input" do
-          assert_match /input.*?name="response".*?value-question-suffix-label/, response.body
+          assert_match(/input.*?name="response".*?value-question-suffix-label/, response.body)
           assert_select "label > input[type=text][name=response]"
         end
       end

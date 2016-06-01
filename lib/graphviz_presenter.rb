@@ -46,12 +46,13 @@ class GraphvizPresenter < GraphPresenter
   end
 
   def edge_lines
-    adjacency_list.map do |name, exits|
+    unflattened = adjacency_list.map do |name, exits|
       exits.map do |nextnode, label|
         next unless nextnode
         %{#{normalize_name(name)}->#{normalize_name(nextnode)} [label="#{label}"];}
       end
-    end.flatten
+    end
+    unflattened.flatten
   end
 
   def metadata_lines

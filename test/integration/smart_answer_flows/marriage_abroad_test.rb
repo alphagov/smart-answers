@@ -2012,7 +2012,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'opposite_sex'
       assert_current_node :outcome_opposite_sex_marriage_in_belarus
-      assert_match /Make an appointment at the embassy in Minsk/, outcome_body
+      assert_match(/Make an appointment at the embassy in Minsk/, outcome_body)
     end
 
     should "go to outcome_opposite_sex_marriage_in_belarus when in third country" do

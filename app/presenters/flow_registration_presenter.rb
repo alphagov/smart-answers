@@ -33,7 +33,7 @@ class FlowRegistrationPresenter
 
   module MethodMissingHelper
     def method_missing(method, *_args, &_block)
-      MethodMissingObject.new(method, parent_method = nil, blank_to_s = true)
+      MethodMissingObject.new(method, nil, true)
     end
   end
 

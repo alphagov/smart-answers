@@ -5,7 +5,7 @@ module SmartAnswer
     setup do
       @question = Question::Base.new(nil, :question_name?)
       @renderer = stub('renderer')
-      @presenter = QuestionPresenter.new(@question, state = nil, renderer: @renderer)
+      @presenter = QuestionPresenter.new(@question, nil, renderer: @renderer)
     end
 
     test 'renderer is constructed using template name and directory obtained from question node' do
@@ -71,7 +71,7 @@ module SmartAnswer
 
       @renderer.stubs(:option_text).with(:option_one).returns('option-one-text')
       @renderer.stubs(:option_text).with(:option_two).returns('option-two-text')
-      presenter = QuestionPresenter.new(question, state = nil, renderer: @renderer)
+      presenter = QuestionPresenter.new(question, nil, renderer: @renderer)
 
       assert_equal %w(option_one option_two), presenter.options.map(&:value)
       assert_equal %w(option-one-text option-two-text), presenter.options.map(&:label)

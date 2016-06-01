@@ -517,7 +517,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "not allow dates next year" do
-      add_response (Date.today.end_of_year + 1.day).to_s
+      add_response(Date.today.end_of_year + 1.day).to_s
       assert_current_node_is_error
     end
   end
@@ -537,7 +537,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "not allow dates next year" do
-      add_response (Date.today.end_of_year + 1.day).to_s
+      add_response(Date.today.end_of_year + 1.day).to_s
       assert_current_node_is_error
     end
 
@@ -564,7 +564,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "not allow dates next year" do
-      add_response (Date.today.end_of_year + 1.day).to_s
+      add_response(Date.today.end_of_year + 1.day).to_s
       assert_current_node_is_error
     end
 
@@ -593,7 +593,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "not allow dates next year" do
-      add_response (Date.today.end_of_year + 1.day).to_s
+      add_response(Date.today.end_of_year + 1.day).to_s
       assert_current_node_is_error
     end
 
@@ -632,7 +632,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "not allow dates next year" do
-      add_response (Date.today.end_of_year + 1.day).to_s
+      add_response(Date.today.end_of_year + 1.day).to_s
       assert_current_node_is_error
     end
   end
@@ -657,7 +657,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "not allow dates next year" do
-      add_response (Date.today.end_of_year + 1.day).to_s
+      add_response(Date.today.end_of_year + 1.day).to_s
       assert_current_node_is_error
     end
   end

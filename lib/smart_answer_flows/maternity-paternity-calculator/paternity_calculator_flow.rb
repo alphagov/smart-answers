@@ -549,9 +549,10 @@ module SmartAnswer
 
           precalculate :pay_dates_and_pay do
             if entitled_to_pay && above_lower_earning_limit
-              calculator.paydates_and_pay.map do |date_and_pay|
+              lines = calculator.paydates_and_pay.map do |date_and_pay|
                 %(#{date_and_pay[:date].strftime('%e %B %Y')}|£#{sprintf('%.2f', date_and_pay[:pay])})
-              end.join("\n")
+              end
+              lines.join("\n")
             end
           end
 

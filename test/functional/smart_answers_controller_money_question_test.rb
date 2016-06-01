@@ -41,7 +41,7 @@ class SmartAnswersControllerMoneyQuestionTest < ActionController::TestCase
 
         should "show the label after the question input" do
           assert_select "label > input[type=text][name=response]"
-          assert_match /input.*?name="response".*?money-question-suffix-label/, response.body
+          assert_match(/input.*?name="response".*?money-question-suffix-label/, response.body)
         end
       end
     end

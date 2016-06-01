@@ -6,7 +6,7 @@ class MethodMissingObject
   end
 
   def method_missing(method, *_args, &_block)
-    MethodMissingObject.new(method, parent_method = self, blank_to_s = @blank_to_s)
+    MethodMissingObject.new(method, self, @blank_to_s)
   end
 
   def description

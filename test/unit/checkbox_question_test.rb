@@ -18,16 +18,16 @@ module SmartAnswer
 
       should "not be able to use reserved 'none' option" do
         assert_raise InvalidNode do
-          q = Question::Checkbox.new(nil, :something) { option :none }
+          Question::Checkbox.new(nil, :something) { option :none }
         end
       end
 
       should "not be able to use options with non URL safe characters" do
         assert_raise InvalidNode do
-          q = Question::Checkbox.new(nil, :something) { option 'a space' }
+          Question::Checkbox.new(nil, :something) { option 'a space' }
         end
         assert_raise InvalidNode do
-          q = Question::Checkbox.new(nil, :something) { option 'a,comma' }
+          Question::Checkbox.new(nil, :something) { option 'a,comma' }
         end
       end
     end

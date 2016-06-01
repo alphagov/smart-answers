@@ -72,7 +72,7 @@ module SmartAnswer
             if !days_worked_per_week.nil?
               calculator.holiday_days(days_worked_per_week)
             elsif !weeks_from_october_1.nil?
-              calculator.holiday_days (total_days_worked.to_f / weeks_from_october_1.to_f).round(10)
+              calculator.holiday_days(total_days_worked.to_f / weeks_from_october_1.to_f).round(10)
             end
           end
         end
@@ -115,7 +115,7 @@ module SmartAnswer
           if !days_worked_per_week.nil?
             days = calculator.holiday_days(days_worked_per_week)
           elsif !weeks_from_october_1.nil?
-            days = calculator.holiday_days (total_days_worked.to_f / weeks_from_october_1.to_f).round(10)
+            days = calculator.holiday_days(total_days_worked.to_f / weeks_from_october_1.to_f).round(10)
           end
           sprintf("%.1f", (days * (response / 52.0)).round(10))
         end

@@ -84,11 +84,11 @@ module SmartAnswer::Calculators
           end
 
           should "calculate the statutory maternity rate" do
-            assert_equal (193.00 * 0.9).round(2), @calculator.statutory_maternity_rate.round(2)
+            assert_equal((193.00 * 0.9).round(2), @calculator.statutory_maternity_rate.round(2))
           end
 
           should "calculate the maternity pay at rate A" do
-            assert_equal (193.00 * 0.9).round(2), @calculator.statutory_maternity_rate_a.round(2)
+            assert_equal((193.00 * 0.9).round(2), @calculator.statutory_maternity_rate_a.round(2))
           end
 
           should "calculate the maternity pay at rate B using the base rate" do
@@ -568,14 +568,6 @@ module SmartAnswer::Calculators
           assert_equal '2013-10-11', paydates_and_pay.last[:date].to_s
           assert_equal 371.27, paydates_and_pay.last[:pay]
         end
-        should "calculate pay due for the last working day of the month" do
-          @calculator.pay_method = 'last_working_day_of_the_month'
-          @calculator.pay_day_in_week = 5
-          @calculator.work_days = [1, 2, 4]
-          @calculator.average_weekly_earnings = 250.0
-
-          paydates_and_pay = @calculator.paydates_and_pay
-        end
       end
       context "HMRC test scenario for SMP Pay week offset" do
         setup do
@@ -704,7 +696,7 @@ module SmartAnswer::Calculators
         should "produce 1 week of pay dates and pay at maximum amount" do
           paydates_and_pay = @calculator.paydates_and_pay
           assert_equal '2015-05-31', paydates_and_pay.first[:date].to_s
-          assert_equal (139.58 * 2), paydates_and_pay.first[:pay]
+          assert_equal((139.58 * 2), paydates_and_pay.first[:pay])
         end
       end
 
