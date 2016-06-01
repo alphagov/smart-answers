@@ -95,9 +95,13 @@ module SmartAnswer
         #Has to be less than a full year
         validate { |response| response < 52 }
 
-        calculate :holiday_entitlement_days do |response|
+        on_response do |response|
+          calculator.weeks_at_current_employer = response
+        end
+
+        calculate :holiday_entitlement_days do
           days = calculator.holiday_entitlement_days
-          (days * (response / 52.0)).round(10)
+          (days * (calculator.weeks_at_current_employer / 52.0)).round(10)
         end
 
         next_node do
