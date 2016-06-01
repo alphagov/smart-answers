@@ -190,10 +190,10 @@ module SmartAnswer
       outcome :commodity_code_result do
         precalculate :calculator do
           Calculators::CommodityCodeCalculator.new(
-            starch_glucose_weight: starch_glucose_weight,
-            sucrose_weight: sucrose_weight,
-            milk_fat_weight: milk_fat_weight,
-            milk_protein_weight: milk_protein_weight)
+            starch_glucose_weight: starch_glucose_weight.to_i,
+            sucrose_weight: sucrose_weight.to_i,
+            milk_fat_weight: milk_fat_weight.to_i,
+            milk_protein_weight: milk_protein_weight.to_i)
         end
       end
     end
