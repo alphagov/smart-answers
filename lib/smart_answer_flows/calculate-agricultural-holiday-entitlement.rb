@@ -63,13 +63,7 @@ module SmartAnswer
 
         calculate :holiday_entitlement_days do |response|
           if response == 'same-employer'
-            # This is calculated as a flat number based on the days you work
-            # per week
-            if !calculator.days_worked_per_week.nil?
-              calculator.holiday_days(calculator.days_worked_per_week)
-            elsif !calculator.weeks_from_october_1.nil?
-              calculator.holiday_days(calculator.total_days_worked.to_f / calculator.weeks_from_october_1.to_f).round(10)
-            end
+            calculator.holiday_entitlement_days
           end
         end
 

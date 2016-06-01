@@ -9,6 +9,16 @@ module SmartAnswer::Calculators
     attr_accessor :holiday_starts_on
     attr_accessor :total_days_worked
 
+    def holiday_entitlement_days
+      # This is calculated as a flat number based on the days you work
+      # per week
+      if !days_worked_per_week.nil?
+        holiday_days(days_worked_per_week)
+      elsif !weeks_from_october_1.nil?
+        holiday_days(total_days_worked.to_f / weeks_from_october_1.to_f).round(10)
+      end
+    end
+
     def weeks_from_october_1
       weeks_worked(holiday_starts_on)
     end
