@@ -43,5 +43,37 @@ module SmartAnswer
         end
       end
     end
+
+    context 'when answering how_many_weeks_at_current_employer? question' do
+      setup do
+        @calculator.stubs(:valid_weeks_at_current_employer?).returns(true)
+        setup_states_for_question(:how_many_weeks_at_current_employer?,
+          responding_with: '25',
+          initial_state: { calculator: @calculator })
+      end
+
+      should 'store parsed response on calculator as weeks_at_current_employer' do
+        assert_equal 25, @calculator.weeks_at_current_employer
+      end
+
+      should 'go to done_with_number_formatting outcomeuestion' do
+        assert_equal :done_with_number_formatting, @new_state.current_node
+        assert_node_exists :done_with_number_formatting
+      end
+
+      context 'responding with an invalid response' do
+        setup do
+          @calculator.stubs(:valid_weeks_at_current_employer?).returns(false)
+        end
+
+        should 'raise an exception' do
+          assert_raise(SmartAnswer::InvalidResponse) do
+            setup_states_for_question(:how_many_weeks_at_current_employer?,
+              responding_with: '55',
+              initial_state: { calculator: @calculator })
+          end
+        end
+      end
+    end
   end
 end

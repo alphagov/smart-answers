@@ -50,6 +50,18 @@ module SmartAnswer::Calculators
           refute @calc.valid_total_days_worked?
         end
       end
+
+      context "valid_weeks_at_current_employer?" do
+        should "be truthy if weeks at current employer is less than 52" do
+          @calc.weeks_at_current_employer = 51
+          assert @calc.valid_weeks_at_current_employer?
+        end
+
+        should "be falsey if weeks at current employer is equal to or more than 52" do
+          @calc.weeks_at_current_employer = 52
+          refute @calc.valid_weeks_at_current_employer?
+        end
+      end
     end
   end
 end
