@@ -33,7 +33,8 @@ class FlowRegistrationPresenter
 
   module MethodMissingHelper
     OVERRIDES = {
-      'calculator.services_payment_partial_name' => 'pay_by_cash_only'
+      'calculator.services_payment_partial_name' => 'pay_by_cash_only',
+      'holiday_entitlement_days' => 10
     }
 
     def method_missing(method, *_args, &_block)
