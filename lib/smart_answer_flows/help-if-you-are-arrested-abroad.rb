@@ -1,3 +1,5 @@
+require "smart_answer_flows/help-if-you-are-arrested-abroad/calculator"
+
 module SmartAnswer
   class HelpIfYouAreArrestedAbroadFlow < Flow
     def define
@@ -6,7 +8,7 @@ module SmartAnswer
       status :published
       satisfies_need "100220"
 
-      arrested_calc = Calculators::ArrestedAbroad.new
+      arrested_calc = Calculator.new
       prisoner_packs = arrested_calc.data
       exclude_countries = %w(holy-see british-antarctic-territory)
 

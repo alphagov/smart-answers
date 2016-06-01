@@ -1,3 +1,5 @@
+require "smart_answer_flows/landlord-immigration-check/calculator"
+
 module SmartAnswer
   class LandlordImmigrationCheckFlow < Flow
     def define
@@ -8,7 +10,7 @@ module SmartAnswer
 
       postcode_question :property? do
         next_node_calculation :calculator do |response|
-          Calculators::LandlordImmigrationCheckCalculator.new(response)
+          Calculator.new(response)
         end
 
         next_node do
