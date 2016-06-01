@@ -61,10 +61,6 @@ module SmartAnswer
         option "same-employer"
         option "multiple-employers"
 
-        calculate :holiday_entitlement_days do |response|
-          calculator.holiday_entitlement_days
-        end
-
         next_node do |response|
           case response
           when 'same-employer'
@@ -97,10 +93,6 @@ module SmartAnswer
 
         on_response do |response|
           calculator.weeks_at_current_employer = response
-        end
-
-        calculate :holiday_entitlement_days do
-          calculator.holiday_entitlement_days
         end
 
         next_node do

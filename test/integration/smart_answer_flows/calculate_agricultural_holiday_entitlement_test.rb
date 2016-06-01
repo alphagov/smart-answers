@@ -42,7 +42,7 @@ class CalculateAgriculturalHolidayEntitlementTest < ActiveSupport::TestCase
         end
 
         should "have 38 days holiday" do
-          assert_state_variable :holiday_entitlement_days, 38
+          assert_equal 38, current_state.calculator.holiday_entitlement_days
         end
       end
 
@@ -67,7 +67,7 @@ class CalculateAgriculturalHolidayEntitlementTest < ActiveSupport::TestCase
           should "show outcome of holidays" do
             # this should be exactly a quarter of the normal outcome
             # which is 38.
-            assert_state_variable :holiday_entitlement_days, 9.5
+            assert_equal 9.5, current_state.calculator.holiday_entitlement_days
           end
         end
 
@@ -90,7 +90,7 @@ class CalculateAgriculturalHolidayEntitlementTest < ActiveSupport::TestCase
 
       should "show outcome of holidays" do
         add_response "same-employer"
-        assert_state_variable :holiday_entitlement_days, 35
+        assert_equal 35, current_state.calculator.holiday_entitlement_days
       end
     end
 
@@ -101,7 +101,7 @@ class CalculateAgriculturalHolidayEntitlementTest < ActiveSupport::TestCase
 
       should "show outcome of holidays" do
         add_response "same-employer"
-        assert_state_variable :holiday_entitlement_days, 31
+        assert_equal 31, current_state.calculator.holiday_entitlement_days
       end
     end
 
@@ -112,7 +112,7 @@ class CalculateAgriculturalHolidayEntitlementTest < ActiveSupport::TestCase
 
       should "show outcome of holidays" do
         add_response "same-employer"
-        assert_state_variable :holiday_entitlement_days, 25
+        assert_equal 25, current_state.calculator.holiday_entitlement_days
       end
     end
 
@@ -123,7 +123,7 @@ class CalculateAgriculturalHolidayEntitlementTest < ActiveSupport::TestCase
 
       should "show outcome of holidays" do
         add_response "same-employer"
-        assert_state_variable :holiday_entitlement_days, 20
+        assert_equal 20, current_state.calculator.holiday_entitlement_days
       end
     end
 
@@ -134,7 +134,7 @@ class CalculateAgriculturalHolidayEntitlementTest < ActiveSupport::TestCase
 
       should "show outcome of holidays" do
         add_response "same-employer"
-        assert_state_variable :holiday_entitlement_days, 13
+        assert_equal 13, current_state.calculator.holiday_entitlement_days
       end
     end
 
@@ -145,7 +145,7 @@ class CalculateAgriculturalHolidayEntitlementTest < ActiveSupport::TestCase
 
       should "show outcome of holidays" do
         add_response "same-employer"
-        assert_state_variable :holiday_entitlement_days, 7.5
+        assert_equal 7.5, current_state.calculator.holiday_entitlement_days
       end
     end
   end
@@ -193,7 +193,7 @@ class CalculateAgriculturalHolidayEntitlementTest < ActiveSupport::TestCase
           end
 
           should "have some holidays" do
-            assert_state_variable :holiday_entitlement_days, 13
+            assert_equal 13, current_state.calculator.holiday_entitlement_days
           end
         end
       end
@@ -232,7 +232,7 @@ class CalculateAgriculturalHolidayEntitlementTest < ActiveSupport::TestCase
           end
 
           should "have some holidays" do
-            assert_state_variable :holiday_entitlement_days, 13
+            assert_equal 13, current_state.calculator.holiday_entitlement_days
           end
         end
       end
