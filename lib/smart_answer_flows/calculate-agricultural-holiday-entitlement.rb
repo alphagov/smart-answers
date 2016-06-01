@@ -68,7 +68,7 @@ module SmartAnswer
             if !calculator.days_worked_per_week.nil?
               calculator.holiday_days(calculator.days_worked_per_week)
             elsif !calculator.weeks_from_october_1.nil?
-              calculator.holiday_days(total_days_worked.to_f / calculator.weeks_from_october_1.to_f).round(10)
+              calculator.holiday_days(calculator.total_days_worked.to_f / calculator.weeks_from_october_1.to_f).round(10)
             end
           end
         end
@@ -90,8 +90,8 @@ module SmartAnswer
 
         validate { |response| response <= available_days }
 
-        calculate :total_days_worked do |response|
-          response
+        on_response do |response|
+          calculator.total_days_worked = response
         end
 
         next_node do
@@ -107,7 +107,7 @@ module SmartAnswer
           if !calculator.days_worked_per_week.nil?
             days = calculator.holiday_days(calculator.days_worked_per_week)
           elsif !calculator.weeks_from_october_1.nil?
-            days = calculator.holiday_days(total_days_worked.to_f / calculator.weeks_from_october_1.to_f).round(10)
+            days = calculator.holiday_days(calculator.total_days_worked.to_f / calculator.weeks_from_october_1.to_f).round(10)
           end
           (days * (response / 52.0)).round(10)
         end

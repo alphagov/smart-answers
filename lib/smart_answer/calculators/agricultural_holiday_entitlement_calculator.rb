@@ -7,6 +7,7 @@ module SmartAnswer::Calculators
 
     attr_accessor :days_worked_per_week
     attr_accessor :holiday_starts_on
+    attr_accessor :total_days_worked
 
     def weeks_from_october_1
       weeks_worked(holiday_starts_on)
