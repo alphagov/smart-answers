@@ -48,8 +48,12 @@ module SmartAnswer
         from { Date.civil(Date.today.year, 1, 1) }
         to { Date.civil(Date.today.year + 1, 12, 31) }
 
-        calculate :weeks_from_october_1 do |response|
-          calculator.weeks_worked(response)
+        on_response do |response|
+          calculator.holiday_starts_on = response
+        end
+
+        calculate :weeks_from_october_1 do
+          calculator.weeks_worked(calculator.holiday_starts_on)
         end
 
         next_node do

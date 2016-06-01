@@ -6,6 +6,7 @@ module SmartAnswer::Calculators
     include ActiveModel::Model
 
     attr_accessor :days_worked_per_week
+    attr_accessor :holiday_starts_on
 
     def calculation_period
       # Agricultural holiday calculations run from Oct 1 - Oct 1
