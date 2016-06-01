@@ -72,15 +72,11 @@ module SmartAnswer
       end
 
       value_question :how_many_total_days?, parse: Integer do
-        precalculate :available_days do
-          calculator.available_days
-        end
-
-        validate { |response| response <= available_days }
-
         on_response do |response|
           calculator.total_days_worked = response
         end
+
+        validate { calculator.valid_total_days_worked? }
 
         next_node do
           question :worked_for_same_employer?

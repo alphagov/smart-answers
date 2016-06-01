@@ -25,6 +25,10 @@ module SmartAnswer::Calculators
       end
     end
 
+    def valid_total_days_worked?
+      total_days_worked <= available_days
+    end
+
     def weeks_from_october_1
       weeks_worked(holiday_starts_on)
     end
