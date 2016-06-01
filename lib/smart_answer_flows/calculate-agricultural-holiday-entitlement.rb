@@ -96,11 +96,7 @@ module SmartAnswer
         validate { |response| response < 52 }
 
         calculate :holiday_entitlement_days do |response|
-          if !calculator.days_worked_per_week.nil?
-            days = calculator.holiday_days(calculator.days_worked_per_week)
-          elsif !calculator.weeks_from_october_1.nil?
-            days = calculator.holiday_days(calculator.total_days_worked.to_f / calculator.weeks_from_october_1.to_f).round(10)
-          end
+          days = calculator.holiday_entitlement_days
           (days * (response / 52.0)).round(10)
         end
 
