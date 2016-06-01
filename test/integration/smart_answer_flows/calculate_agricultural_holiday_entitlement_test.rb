@@ -61,13 +61,13 @@ class CalculateAgriculturalHolidayEntitlementTest < ActiveSupport::TestCase
           end
 
           should "be finished" do
-            assert_current_node :done
+            assert_current_node :done_with_number_formatting
           end
 
           should "show outcome of holidays" do
             # this should be exactly a quarter of the normal outcome
             # which is 38.
-            assert_state_variable :holiday_entitlement_days, "9.5"
+            assert_state_variable :holiday_entitlement_days, 9.5
           end
         end
 
