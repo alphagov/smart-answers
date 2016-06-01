@@ -47,8 +47,7 @@
     You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry. Contact the local notary public to check if you need a CNI.
 
   <% elsif calculator.ceremony_country == 'jordan' %>
-    You need to have been living in <%= calculator.country_name_lowercase_prefix %> for 21 days.
-
+  
     If you’re getting married at the Sharia Court, you’ll need to provide a [single declaration document](/government/publications/single-declaration-form-for-islamic-marriages-jordan) to prove you’re allowed to marry, or a [single divorced declaration document](/government/publications/single-declaration-form-for-islamic-marriages-if-you-are-divorced-jordan) if you’re divorced.
 
     Make an appointment at the local British embassy or consulate to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring the single declaration, your passport, your partner’s passport and pay a fee.
@@ -269,7 +268,9 @@
       You’ll need to provide supporting documents, including:
 
       - your passport
-      - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
+      <% unless calculator.ceremony_country == 'jordan' && calculator.resident_of_ceremony_country? %>
+        - your [full birth certificate](/order-copy-birth-death-marriage-certificate/) or [naturalisation certificate](/get-replacement-citizenship-certificate)
+      <% end %>
       - proof of residence, such as a residence certificate - check with the <%= calculator.embassy_or_consulate_ceremony_country %> to find out what you need
       - equivalent documents for your partner
 
