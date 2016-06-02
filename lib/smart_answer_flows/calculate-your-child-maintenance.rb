@@ -58,8 +58,11 @@ module SmartAnswer
 
       ## Q3
       money_question :gross_income_of_payee? do
-        next_node_calculation :rate_type do |response|
+        on_response do |response|
           calculator.income = response
+        end
+
+        next_node_calculation :rate_type do
           calculator.rate_type
         end
 
