@@ -32,8 +32,12 @@ class FlowRegistrationPresenter
   end
 
   module MethodMissingHelper
+    TO_S_OVERRIDES = {
+      'calculator.services_payment_partial_name' => 'pay_by_cash_only'
+    }
+
     def method_missing(method, *_args, &_block)
-      MethodMissingObject.new(method, nil, true)
+      MethodMissingObject.new(method, nil, true, TO_S_OVERRIDES)
     end
   end
 
@@ -44,20 +48,12 @@ class FlowRegistrationPresenter
         when SmartAnswer::Question::Base
           pres = QuestionPresenter.new(node, nil, helpers: [MethodMissingHelper])
           acc.concat([:title, :body, :hint].map { |method|
-            begin
-              pres.send(method)
-            rescue ActionView::Template::Error
-              ''
-            end
+            pres.send(method)
           })
         when SmartAnswer::Outcome
           pres = OutcomePresenter.new(node, nil, helpers: [MethodMissingHelper])
           acc.concat([:title, :body].map { |method|
-            begin
-              pres.send(method)
-            rescue ActionView::Template::Error
-              ''
-            end
+            pres.send(method)
           })
         end
       }.compact.join(" ").gsub(/(?:<[^>]+>|\s)+/, " ")

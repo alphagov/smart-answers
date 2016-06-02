@@ -5,7 +5,7 @@
     %You’ll need to get a court order to have the father named on the birth certificate before registering if you’re unmarried and only the father has British nationality.%
   <% end %>
 
-  <% if reg_data_query.class::HIGHER_RISK_COUNTRIES.include?(registration_country) %>
+  <% if reg_data_query.higher_risk_country?(registration_country) %>
     <% if registration_country == 'libya' %>
       You can also register the birth with the UK authorities.
 
@@ -39,7 +39,7 @@
 
   You must send the original versions of:
 
-  <% if reg_data_query.class::ORU_DOCUMENTS_VARIANT_COUNTRIES_BIRTH.include?(country_of_birth) %>
+  <% if reg_data_query.oru_documents_variant_for_birth?(country_of_birth) %>
     <% if country_of_birth == 'united-arab-emirates' && paternity_declaration %>
       - both English and Arabic versions of your child’s full local birth certificate, attested by the Ministry of Foreign Affairs (email <birthregistrationenquiries@fco.gov.uk> if the local authorities will not provide a birth certificate)
     <% else %>
@@ -277,7 +277,7 @@
     They’ll contact you within the 5 working days if they need more information or if they need to verify your documents. If this happens then it could take up to 3 months for the birth to be registered.
   <% end %>
 
-  <% if reg_data_query.class::ORU_COURIER_VARIANTS.include?(registration_country) && !in_the_uk %>
+  <% if reg_data_query.oru_courier_variant?(registration_country) && !in_the_uk %>
     <% case registration_country %>
       <% when 'cambodia' %>
         Your documents will be returned to the British Embassy in Phnom Penh after the birth has been registered.
@@ -300,7 +300,7 @@
       <% when 'uganda' %>
         Your documents will be returned to the British High Commission in Kampala after the birth has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
     <% end %>
-    <% unless registration_country.in?(reg_data_query.class::ORU_COURIER_BY_HIGH_COMISSION) %>
+    <% unless reg_data_query.oru_courier_by_high_commission?(registration_country) %>
 
       You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
     <% end %>

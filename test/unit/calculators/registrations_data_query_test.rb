@@ -24,6 +24,21 @@ module SmartAnswer::Calculators
           refute @query.has_consulate?('uganda')
         end
       end
+
+      context "higher_risk_country?" do
+        should "be true for higher risk countries" do
+          assert @query.higher_risk_country?('afghanistan')
+          refute @query.higher_risk_country?('france')
+        end
+      end
+
+      context "lower_risk_country?" do
+        should "be true for lower risk countries" do
+          assert @query.lower_risk_country?('france')
+          refute @query.lower_risk_country?('afghanistan')
+        end
+      end
+
       context "registration_country_slug" do
         should "map the country to a registration country if one exists" do
           assert_equal "spain", @query.registration_country_slug('andorra')
@@ -33,13 +48,47 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "oru birth documents variant countries" do
+      context "oru_documents_variant_for_birth?" do
         should "be true for Netherlands" do
-          assert @described_class::ORU_DOCUMENTS_VARIANT_COUNTRIES_BIRTH.include?('netherlands')
+          assert @query.oru_documents_variant_for_birth?('netherlands')
         end
 
         should "be true for Belgium" do
-          assert @described_class::ORU_DOCUMENTS_VARIANT_COUNTRIES_BIRTH.include?('belgium')
+          assert @query.oru_documents_variant_for_birth?('belgium')
+        end
+
+        should "be false for Argentina" do
+          refute @query.oru_documents_variant_for_birth?('argentina')
+        end
+      end
+
+      context "oru_documents_variant_for_birth?" do
+        should "return true for Papua New Guinea" do
+          assert @query.oru_documents_variant_for_death?('papua-new-guinea')
+        end
+
+        should "return false for Argentina" do
+          refute @query.oru_documents_variant_for_death?('argentina')
+        end
+      end
+
+      context "oru_courier_variant?" do
+        should "return true for countries in the list" do
+          assert @query.oru_courier_variant?('cambodia')
+        end
+
+        should "return false for countries not in the list" do
+          refute @query.oru_courier_variant?('argentina')
+        end
+      end
+
+      context "oru_courier_by_high_commission?" do
+        should "return true for countries in the list" do
+          assert @query.oru_courier_by_high_commission?('cameroon')
+        end
+
+        should "return false for countries not in the list" do
+          refute @query.oru_courier_by_high_commission?('argentina')
         end
       end
 

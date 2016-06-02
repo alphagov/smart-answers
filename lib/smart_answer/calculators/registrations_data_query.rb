@@ -67,6 +67,14 @@ module SmartAnswer::Calculators
       COUNTRIES_WITH_CONSULATE_GENERALS.include?(country_slug)
     end
 
+    def higher_risk_country?(country_slug)
+      HIGHER_RISK_COUNTRIES.include?(country_slug)
+    end
+
+    def lower_risk_country?(country_slug)
+      !higher_risk_country?(country_slug)
+    end
+
     def may_require_dna_tests?(country_slug)
       MAY_REQUIRE_DNA_TESTS.include?(country_slug)
     end
@@ -77,6 +85,22 @@ module SmartAnswer::Calculators
 
     def custom_registration_duration(country_slug)
       ORU_REGISTRATION_DURATION[country_slug]
+    end
+
+    def oru_documents_variant_for_birth?(country_slug)
+      ORU_DOCUMENTS_VARIANT_COUNTRIES_BIRTH.include?(country_slug)
+    end
+
+    def oru_documents_variant_for_death?(country_slug)
+      ORU_DOCUMENTS_VARIANT_COUNTRIES_DEATH.include?(country_slug)
+    end
+
+    def oru_courier_variant?(country_slug)
+      ORU_COURIER_VARIANTS.include?(country_slug)
+    end
+
+    def oru_courier_by_high_commission?(country_slug)
+      ORU_COURIER_BY_HIGH_COMISSION.include?(country_slug)
     end
 
     def document_return_fees
