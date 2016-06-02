@@ -63,7 +63,11 @@ module SmartAnswer
         end
 
         calculate :calculator do
-          Calculators::ChildMaintenanceCalculator.new(number_of_children, benefits, paying_or_receiving)
+          Calculators::ChildMaintenanceCalculator.new(
+            number_of_children: number_of_children,
+            benefits: benefits,
+            paying_or_receiving: paying_or_receiving
+          )
         end
 
         next_node do |response|
