@@ -27,10 +27,6 @@ module SmartAnswer
         option "2_children"
         option "3_children"
 
-        precalculate :paying_or_receiving_text do
-          calculator.paying? ? "paying" : "receiving"
-        end
-
         precalculate :paying_or_receiving_hint do
           if calculator.paying?
             "Enter the total number of children - including children that you have family based arrangements for. They will be included in the calculation and you'll need to supply information about them when arranging Child Maintenance.".html_safe

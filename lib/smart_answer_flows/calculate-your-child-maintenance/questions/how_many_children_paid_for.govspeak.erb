@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  How many children are you <%= paying_or_receiving_text %> child maintenance for?
+  How many children are you <%= calculator.paying? ? "paying" : "receiving" %> child maintenance for?
 <% end %>
 
 <% options(
