@@ -77,13 +77,6 @@ module SmartAnswer
 
       ## Q4
       value_question :how_many_other_children_in_payees_household?, parse: Integer do
-        precalculate :number_of_children_title do
-          if calculator.paying?
-            "How many other children live in your household?"
-          else
-            "How many other children live in the household of the parent paying child maintenance?"
-          end
-        end
 
         calculate :calculator do |response|
           calculator.number_of_other_children = response
