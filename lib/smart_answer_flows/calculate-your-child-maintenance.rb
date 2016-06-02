@@ -131,14 +131,6 @@ module SmartAnswer
       end
 
       outcome :reduced_and_basic_rates_result do
-        precalculate :rate_type_formatted do
-          rate_type = calculator.rate_type
-          if rate_type.to_s == 'basic_plus'
-            'basic plus'
-          else
-            rate_type.to_s
-          end
-        end
         precalculate :child_maintenance_payment do
           sprintf('%.2f', child_maintenance_payment)
         end

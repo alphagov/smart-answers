@@ -1,5 +1,5 @@
 <% content_for :body do %>
-  Based on your answers the child maintenance payment is the <%= rate_type_formatted %> rate of £<%= child_maintenance_payment %> per week.
+  Based on your answers the child maintenance payment is the <%= calculator.rate_type.to_s.humanize(capitalize: false) %> rate of £<%= child_maintenance_payment %> per week.
 
   ^This is the total weekly amount, not the amount per child.^
 

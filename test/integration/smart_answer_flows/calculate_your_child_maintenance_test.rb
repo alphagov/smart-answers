@@ -83,7 +83,6 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
             add_response 1
             add_response 1
             assert_current_node :reduced_and_basic_rates_result
-            assert_state_variable "rate_type_formatted", "basic"
           end
         end
         context "answer 4000" do
