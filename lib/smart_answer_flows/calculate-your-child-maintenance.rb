@@ -11,6 +11,10 @@ module SmartAnswer
         option :pay
         option :receive
 
+        on_response do
+          self.calculator = Calculators::ChildMaintenanceCalculator.new
+        end
+
         save_input_as :paying_or_receiving
 
         next_node do
@@ -62,12 +66,10 @@ module SmartAnswer
           end
         end
 
-        calculate :calculator do
-          Calculators::ChildMaintenanceCalculator.new(
-            number_of_children: number_of_children,
-            benefits: benefits,
-            paying_or_receiving: paying_or_receiving
-          )
+        on_response do |response|
+          calculator.number_of_children = number_of_children
+          calculator.benefits = response
+          calculator.paying_or_receiving = paying_or_receiving
         end
 
         next_node do |response|
