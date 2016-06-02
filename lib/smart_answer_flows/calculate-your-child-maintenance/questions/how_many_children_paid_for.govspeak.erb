@@ -9,5 +9,9 @@
 ) %>
 
 <% content_for :hint do %>
-  <%= paying_or_receiving_hint %>
+  <% if calculator.paying? %>
+    Enter the total number of children - including children that you have family based arrangements for. They will be included in the calculation and you'll need to supply information about them when arranging Child Maintenance.
+  <% else %>
+    Enter children from 1 partner only and make a separate calculation for each partner.
+  <% end %>
 <% end %>

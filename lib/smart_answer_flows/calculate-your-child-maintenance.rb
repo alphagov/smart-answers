@@ -27,14 +27,6 @@ module SmartAnswer
         option "2_children"
         option "3_children"
 
-        precalculate :paying_or_receiving_hint do
-          if calculator.paying?
-            "Enter the total number of children - including children that you have family based arrangements for. They will be included in the calculation and you'll need to supply information about them when arranging Child Maintenance.".html_safe
-          else
-            "Enter children from 1 partner only and make a separate calculation for each partner."
-          end
-        end
-
         on_response do |response|
           ## to_i will look for the first integer in the string
           calculator.number_of_children = response.to_i
