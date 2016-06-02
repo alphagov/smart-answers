@@ -1,9 +1,4 @@
 <% content_for :body do %>
-  <% if calculator.paying?
-    fees_title = 'Additional weekly fees | Total amount to pay per week'
-  else
-    fees_title = 'Fees | Total amount you’ll receive'
-  end %>
   Based on your answers the child maintenance payment is the flat rate of £<%= flat_rate_amount %> per week. This is an estimate. The exact amount the Child Maintenance Service would calculate might be different.
 
   This is the total weekly amount, not the amount per child.
@@ -12,7 +7,11 @@
     Depending on how child maintenance is arranged, fees may be added to this amount.
   <% end %>
 
-  Payment type | Weekly flat rate payment | <%= fees_title %> | Application fee  - you only pay this once
+  <% if calculator.paying? %>
+    Payment type | Weekly flat rate payment | Additional weekly fees | Total amount to pay per week | Application fee  - you only pay this once
+  <% else %>
+    Payment type | Weekly flat rate payment | Fees | Total amount you’ll receive | Application fee  - you only pay this once
+  <% end %>
   - | -
   [Collect and Pay](/child-maintenance/how-to-pay) | £<%= flat_rate_amount %> | £<%= collect_fees %> | £<%= total_fees %> | £20.00
   [Direct pay](/child-maintenance/how-to-pay) | £<%= flat_rate_amount %> | No fees | £<%= flat_rate_amount %> | £20.00
