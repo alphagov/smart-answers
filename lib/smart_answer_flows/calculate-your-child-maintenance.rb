@@ -62,12 +62,8 @@ module SmartAnswer
           calculator.income = response
         end
 
-        next_node_calculation :rate_type do
-          calculator.rate_type
-        end
-
         next_node do
-          case rate_type
+          case calculator.rate_type
           when :nil
             outcome :nil_rate_result
           when :flat
