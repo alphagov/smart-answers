@@ -1,5 +1,5 @@
 <% content_for :body do %>
-  <% if paying_or_receiving == 'pay'
+  <% if calculator.paying_or_receiving == 'pay'
     fees_title = 'Additional weekly fees | Total amount to pay per week'
   else
     fees_title = 'Fees | Total amount you’ll receive'
@@ -9,11 +9,11 @@
   ^This is the total weekly amount, not the amount per child.^
 
   The calculator gives an estimate. The exact amount the Child Maintenance Service calculates might be different.
-  <% if paying_or_receiving == 'receive' %>
+  <% if calculator.paying_or_receiving == 'receive' %>
     For example, if the paying parent also supports other children, the amount you receive may be less than this.
   <% end %>
 
-  <% if paying_or_receiving == 'pay' %>
+  <% if calculator.paying_or_receiving == 'pay' %>
     Depending on how child maintenance is arranged, fees may be added to this amount.
   <% end %>
 
@@ -24,11 +24,11 @@
   [Arranging child maintenance yourself](/arranging-child-maintenance-yourself) | £<%= child_maintenance_payment %> | No fees | £<%= child_maintenance_payment %> | No fee
 
 
-  You will pay up to £<%= total_yearly_fees %> in fees per year if you <%= paying_or_receiving %> child maintenance through the Collect and Pay service.
+  You will pay up to £<%= total_yearly_fees %> in fees per year if you <%= calculator.paying_or_receiving %> child maintenance through the Collect and Pay service.
 
   ^You don’t have to pay an application fee if you’re in Northern Ireland.^
 
-  <% if paying_or_receiving == 'pay' %>
+  <% if calculator.paying_or_receiving == 'pay' %>
     You may also have to pay an enforcement charge if you don’t make your full payments on time.
   <% end %>
 
