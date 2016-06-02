@@ -39,12 +39,10 @@ module SmartAnswer
           end
         end
 
-        # rubocop:disable Style/SymbolProc
-        calculate :number_of_children do |response|
+        on_response do |response|
           ## to_i will look for the first integer in the string
-          response.to_i
+          calculator.number_of_children = response.to_i
         end
-        # rubocop:enable Style/SymbolProc
 
         next_node do
           question :gets_benefits?
@@ -65,7 +63,6 @@ module SmartAnswer
         end
 
         on_response do |response|
-          calculator.number_of_children = number_of_children
           calculator.benefits = response
         end
 
