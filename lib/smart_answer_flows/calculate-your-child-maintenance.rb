@@ -58,14 +58,6 @@ module SmartAnswer
 
       ## Q3
       money_question :gross_income_of_payee? do
-        precalculate :income_title do
-          if calculator.paying?
-            "What is your weekly gross income?"
-          else
-            "What is the weekly gross income of the parent paying child maintenance?"
-          end
-        end
-
         next_node_calculation :rate_type do |response|
           calculator.income = response
           calculator.rate_type

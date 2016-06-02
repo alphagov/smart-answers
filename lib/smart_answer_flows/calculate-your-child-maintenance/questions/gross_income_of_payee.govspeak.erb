@@ -1,5 +1,9 @@
 <% content_for :title do %>
-  <%= income_title %>
+  <% if calculator.paying? %>
+    What is your weekly gross income?
+  <% else %>
+    What is the weekly gross income of the parent paying child maintenance?
+  <% end %>
 <% end %>
 
 <% content_for :hint do %>
