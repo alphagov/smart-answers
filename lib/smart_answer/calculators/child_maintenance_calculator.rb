@@ -9,7 +9,7 @@ module SmartAnswer::Calculators
     SCHEME_MAX_INCOME = 3000
 
     def initialize(number_of_children, benefits, paying_or_receiving)
-      @number_of_children = number_of_children.to_i
+      @number_of_children = number_of_children
       @benefits = benefits
       @paying_or_receiving = paying_or_receiving
       @calculator_data = self.class.child_maintenance_data
