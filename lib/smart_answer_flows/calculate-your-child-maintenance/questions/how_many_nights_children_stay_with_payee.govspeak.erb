@@ -1,5 +1,9 @@
 <% content_for :title do %>
-  <%= how_many_nights_title %>
+  <% if calculator.paying? %>
+    On average, how many nights a year do the children stay over with you?
+  <% else %>
+    On average, how many nights a year do the children stay over with the parent paying child maintenance?
+  <% end %>
 <% end %>
 
 <% options(

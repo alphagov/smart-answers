@@ -95,14 +95,6 @@ module SmartAnswer
         option 3
         option 4
 
-        precalculate :how_many_nights_title do
-          if calculator.paying?
-            "On average, how many nights a year do the children stay over with you?"
-          else
-            "On average, how many nights a year do the children stay over with the parent paying child maintenance?"
-          end
-        end
-
         calculate :child_maintenance_payment do |response|
           calculator.number_of_shared_care_nights = response.to_i
           sprintf("%.0f", calculator.calculate_maintenance_payment)
