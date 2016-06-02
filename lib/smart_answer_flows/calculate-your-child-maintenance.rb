@@ -77,11 +77,10 @@ module SmartAnswer
 
       ## Q4
       value_question :how_many_other_children_in_payees_household?, parse: Integer do
-
-        calculate :calculator do |response|
+        on_response do |response|
           calculator.number_of_other_children = response
-          calculator
         end
+
         next_node do
           question :how_many_nights_children_stay_with_payee?
         end
