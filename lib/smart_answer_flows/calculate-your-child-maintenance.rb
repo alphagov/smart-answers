@@ -54,7 +54,6 @@ module SmartAnswer
 
       ## Q2
       multiple_choice :gets_benefits? do
-        save_input_as :benefits
         option "yes"
         option "no"
 
