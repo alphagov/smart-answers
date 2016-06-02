@@ -42,14 +42,6 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        precalculate :benefits_title do
-          if calculator.paying?
-            "Do you get any of these benefits?"
-          else
-            "Does the parent paying child maintenance get any of these benefits?"
-          end
-        end
-
         on_response do |response|
           calculator.benefits = response
         end

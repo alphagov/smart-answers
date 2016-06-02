@@ -1,5 +1,9 @@
 <% content_for :title do %>
-  <%= benefits_title %>
+  <% if calculator.paying? %>
+    Do you get any of these benefits?
+  <% else %>
+    Does the parent paying child maintenance get any of these benefits?
+  <% end %>
 <% end %>
 
 <% options(
