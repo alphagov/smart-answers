@@ -124,6 +124,10 @@ module SmartAnswer::Calculators
       @paying_or_receiving == "pay"
     end
 
+    def receiving?
+      @paying_or_receiving == "receive"
+    end
+
     def collect_fees
       if paying?
         (base_amount * 0.2).round(2)

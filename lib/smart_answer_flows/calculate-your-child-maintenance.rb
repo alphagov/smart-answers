@@ -28,11 +28,11 @@ module SmartAnswer
         option "3_children"
 
         precalculate :paying_or_receiving_text do
-          calculator.paying_or_receiving == "pay" ? "paying" : "receiving"
+          calculator.paying? ? "paying" : "receiving"
         end
 
         precalculate :paying_or_receiving_hint do
-          if calculator.paying_or_receiving == "pay"
+          if calculator.paying?
             "Enter the total number of children - including children that you have family based arrangements for. They will be included in the calculation and you'll need to supply information about them when arranging Child Maintenance.".html_safe
           else
             "Enter children from 1 partner only and make a separate calculation for each partner."
@@ -55,7 +55,7 @@ module SmartAnswer
         option "no"
 
         precalculate :benefits_title do
-          if calculator.paying_or_receiving == "pay"
+          if calculator.paying?
             "Do you get any of these benefits?"
           else
             "Does the parent paying child maintenance get any of these benefits?"
@@ -79,7 +79,7 @@ module SmartAnswer
       ## Q3
       money_question :gross_income_of_payee? do
         precalculate :income_title do
-          if calculator.paying_or_receiving == "pay"
+          if calculator.paying?
             "What is your weekly gross income?"
           else
             "What is the weekly gross income of the parent paying child maintenance?"
@@ -106,7 +106,7 @@ module SmartAnswer
       ## Q4
       value_question :how_many_other_children_in_payees_household?, parse: Integer do
         precalculate :number_of_children_title do
-          if calculator.paying_or_receiving == "pay"
+          if calculator.paying?
             "How many other children live in your household?"
           else
             "How many other children live in the household of the parent paying child maintenance?"
@@ -131,7 +131,7 @@ module SmartAnswer
         option 4
 
         precalculate :how_many_nights_title do
-          if calculator.paying_or_receiving == "pay"
+          if calculator.paying?
             "On average, how many nights a year do the children stay over with you?"
           else
             "On average, how many nights a year do the children stay over with the parent paying child maintenance?"
