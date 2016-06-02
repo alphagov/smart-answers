@@ -94,13 +94,15 @@ module SmartAnswer
         option 3
         option 4
 
-        calculate :child_maintenance_payment do |response|
+        on_response do |response|
           calculator.number_of_shared_care_nights = response.to_i
+        end
+
+        calculate :child_maintenance_payment do
           sprintf("%.0f", calculator.calculate_maintenance_payment)
         end
 
-        next_node_calculation :rate_type do |response|
-          calculator.number_of_shared_care_nights = response.to_i
+        next_node_calculation :rate_type do
           calculator.rate_type
         end
 
