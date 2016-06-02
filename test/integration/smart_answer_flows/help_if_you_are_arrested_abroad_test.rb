@@ -8,7 +8,7 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
 
   setup do
     @location_slugs = %w(aruba belgium greece iran syria)
-    stub_worldwide_locations(@location_slugs)
+    stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::HelpIfYouAreArrestedAbroadFlow
   end
 

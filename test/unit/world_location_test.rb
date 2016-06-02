@@ -22,12 +22,12 @@ class WorldLocationTest < ActiveSupport::TestCase
       assert_equal @location_slugs, results.map(&:slug)
     end
 
-    should "filter out any results that aren't locations" do
-      @location_slugs = %w(the-shire rivendel rohan delegation-to-lorien gondor arnor mordor)
+    should "filter out any results that are delegations or missions" do
+      @location_slugs = %w(the-shire rivendel rohan delegation-to-lorien gondor arnor mission-to-mordor)
       worldwide_api_has_locations(@location_slugs)
 
       results = WorldLocation.all
-      assert_equal %w(the-shire rivendel rohan gondor arnor mordor), results.map(&:slug)
+      assert_equal %w(the-shire rivendel rohan gondor arnor), results.map(&:slug)
     end
 
     should "filter out any results that don't have a slug" do
