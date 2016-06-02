@@ -6,48 +6,80 @@ module SmartAnswer::Calculators
     include GdsApi::TestHelpers::Imminence
 
     setup do
-      # Excluded countries
-      imminence_has_areas_for_postcode("PA3%202SW",   [{ slug: 'renfrewshire-council', country_name: 'Scotland' }])
-      imminence_has_areas_for_postcode("SA2%207JU",   [{ slug: 'swansea-council', country_name: 'Wales' }])
-      imminence_has_areas_for_postcode("BT29%204AB",  [{ slug: 'antrim-south-east', country_name: 'Northern Ireland' }])
-
-      # Included country
-      imminence_has_areas_for_postcode("RH6%200NP",   [{ slug: 'crawley-borough-council', country_name: 'England' }])
+      @calculator = LandlordImmigrationCheckCalculator.new
     end
 
-    test "with an invalid postcode" do
-      stub_request(:get, %r{\A#{Plek.new.find('imminence')}/areas/E15\.json}).
-        to_return(body: { _response_info: { status: 404 }, total: 0, results: [] }.to_json)
+    context 'when postcode is in England' do
+      setup do
+        imminence_has_areas_for_postcode("RH6 0NP", [{ slug: 'crawley-borough-council', country_name: 'England' }])
+        @calculator.postcode = "RH6 0NP"
+      end
 
-      response = Services.imminence_api.areas_for_postcode("E15")
-
-      assert_equal 404, response["_response_info"]["status"]
-      assert_equal 0, response["total"]
-      assert_empty response["results"]
+      should 'determine that the rules do not apply' do
+        assert @calculator.rules_apply?
+      end
     end
 
-    test "with a valid postcode in Scotland" do
-      calculator = LandlordImmigrationCheckCalculator.new("PA3 2SW")
+    context 'when postcode is outside England' do
+      setup do
+        imminence_has_areas_for_postcode("PA3 2SW", [{ slug: 'renfrewshire-council', country_name: 'Scotland' }])
+        @calculator.postcode = "PA3 2SW"
+      end
 
-      refute calculator.included_country?
+      should 'determine that the rules do not apply' do
+        refute @calculator.rules_apply?
+      end
     end
 
-    test "with a valid postcode in Wales" do
-      calculator = LandlordImmigrationCheckCalculator.new("SA2 7JU")
+    context 'when postcode has multiple areas all in England' do
+      setup do
+        imminence_has_areas_for_postcode("RH6 0NP", [
+          { slug: 'crawley-borough-council', country_name: 'England' },
+          { slug: 'west-sussex-county-council', country_name: 'England' },
+        ])
+        @calculator.postcode = "RH6 0NP"
+      end
 
-      refute calculator.included_country?
+      should 'return single country for postcode' do
+        assert_equal ['England'], @calculator.countries_for_postcode
+      end
+
+      should 'determine that the rules do apply' do
+        assert @calculator.rules_apply?
+      end
     end
 
-    test "with a valid postcode in Northern Ireland" do
-      calculator = LandlordImmigrationCheckCalculator.new("BT29 4AB")
+    context 'when postcode has multiple areas some in England and some not' do
+      setup do
+        imminence_has_areas_for_postcode("XY1 0AB", [
+          { slug: 'xy-borough-council', country_name: 'England' },
+          { slug: 'xy-county-council', country_name: 'Scotland' },
+        ])
+        @calculator.postcode = "XY1 0AB"
+      end
 
-      refute calculator.included_country?
+      should 'return all countries for postcode' do
+        assert_equal %w(England Scotland), @calculator.countries_for_postcode
+      end
+
+      should 'determine that the rules do apply' do
+        assert @calculator.rules_apply?
+      end
     end
 
-    test "with a valid postcode in England" do
-      calculator = LandlordImmigrationCheckCalculator.new("RH6 0NP")
+    context 'when postcode is unknown' do
+      setup do
+        imminence_has_areas_for_postcode("E15", [])
+        @calculator.postcode = "E15"
+      end
 
-      assert calculator.included_country?
+      should 'return no areas for postcode' do
+        assert_equal [], @calculator.areas_for_postcode
+      end
+
+      should 'determine that the rules do not apply' do
+        refute @calculator.rules_apply?
+      end
     end
   end
 end

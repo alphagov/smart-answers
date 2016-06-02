@@ -7,12 +7,13 @@ module SmartAnswer
       satisfies_need "102373"
 
       postcode_question :property? do
-        next_node_calculation :calculator do |response|
-          Calculators::LandlordImmigrationCheckCalculator.new(response)
+        on_response do |response|
+          self.calculator = Calculators::LandlordImmigrationCheckCalculator.new
+          calculator.postcode = response
         end
 
         next_node do
-          if calculator.included_country?
+          if calculator.rules_apply?
             question :main_home?
           else
             outcome :outcome_check_not_needed

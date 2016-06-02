@@ -1,26 +1,19 @@
 module SmartAnswer::Calculators
   class LandlordImmigrationCheckCalculator
-    VALID_COUNTRIES = %w( England )
+    include ActiveModel::Model
 
-    attr_reader :postcode
+    attr_accessor :postcode
 
-    def initialize(postcode)
-      @postcode = postcode
+    def rules_apply?
+      countries_for_postcode.include?('England')
     end
 
-    def included_country?
-      postcode_within?(VALID_COUNTRIES, 'country_name')
-    end
-
-  private
-
-    def postcode_within?(included_areas, key_name)
-      areas_for_postcode.select { |a| included_areas.include?(a[key_name]) }.any?
+    def countries_for_postcode
+      areas_for_postcode.map(&:country_name).uniq
     end
 
     def areas_for_postcode
-      response = Services.imminence_api.areas_for_postcode(postcode)
-      response.try(:code) == 200 ? response.to_hash["results"] : {}
+      Services.imminence_api.areas_for_postcode(postcode).results
     end
   end
 end
