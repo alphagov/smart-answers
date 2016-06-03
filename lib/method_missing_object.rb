@@ -1,12 +1,13 @@
 class MethodMissingObject
-  def initialize(method, parent_method = nil, blank_to_s = false)
+  def initialize(method, parent_method = nil, blank_to_s = false, to_s_overrides = {})
     @method = method
     @parent_method = parent_method
     @blank_to_s = blank_to_s
+    @to_s_overrides = to_s_overrides
   end
 
   def method_missing(method, *_args, &_block)
-    MethodMissingObject.new(method, self, @blank_to_s)
+    MethodMissingObject.new(method, self, @blank_to_s, @to_s_overrides)
   end
 
   def description
@@ -14,6 +15,10 @@ class MethodMissingObject
   end
 
   def to_s
-    @blank_to_s ? "" : "<%= #{description} %>".html_safe
+    @to_s_overrides.fetch(description) do
+      @blank_to_s ? "" : "<%= #{description} %>".html_safe
+    end
   end
+
+  alias to_str to_s
 end
