@@ -6546,7 +6546,7 @@
   - ceremony_country
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_civil_partnership
+  :next_node: :outcome_ceremonies_in_denmark
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -6569,7 +6569,7 @@
   - ceremony_country
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_civil_partnership
+  :next_node: :outcome_ceremonies_in_denmark
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -6592,7 +6592,7 @@
   - ceremony_country
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_civil_partnership
+  :next_node: :outcome_ceremonies_in_denmark
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
