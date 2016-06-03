@@ -32,12 +32,13 @@ class FlowRegistrationPresenter
   end
 
   module MethodMissingHelper
-    TO_S_OVERRIDES = {
+    OVERRIDES = {
       'calculator.services_payment_partial_name' => 'pay_by_cash_only'
     }
 
     def method_missing(method, *_args, &_block)
-      MethodMissingObject.new(method, nil, true, TO_S_OVERRIDES)
+      object = MethodMissingObject.new(method, nil, true, OVERRIDES)
+      OVERRIDES.fetch(object.description) { object }
     end
   end
 
