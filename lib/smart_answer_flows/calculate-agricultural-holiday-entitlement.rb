@@ -62,9 +62,7 @@ module SmartAnswer
         option "multiple-employers"
 
         calculate :holiday_entitlement_days do |response|
-          if response == 'same-employer'
-            calculator.holiday_entitlement_days
-          end
+          calculator.holiday_entitlement_days
         end
 
         next_node do |response|
