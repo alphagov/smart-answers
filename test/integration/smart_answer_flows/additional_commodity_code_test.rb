@@ -18,7 +18,7 @@ class AdditionalCommodityCodeTest < ActiveSupport::TestCase
     ## Q2c
     should "ask how much sucrose the product contains" do
       add_response 25
-      assert_state_variable "starch_glucose_weight", "25"
+      assert_equal 25, current_state.calculator.starch_glucose_weight
       assert_current_node :how_much_sucrose_2?
     end
   end
@@ -26,7 +26,7 @@ class AdditionalCommodityCodeTest < ActiveSupport::TestCase
     ## Q2d
     should "ask how much sucrose the product contains" do
       add_response 50
-      assert_state_variable "starch_glucose_weight", "50"
+      assert_equal 50, current_state.calculator.starch_glucose_weight
       assert_current_node :how_much_sucrose_3?
     end
   end
@@ -34,7 +34,7 @@ class AdditionalCommodityCodeTest < ActiveSupport::TestCase
     ## Q2e
     should "ask how much sucrose the product contains" do
       add_response 75
-      assert_state_variable "starch_glucose_weight", "75"
+      assert_equal 75, current_state.calculator.starch_glucose_weight
       assert_current_node :how_much_sucrose_4?
     end
   end
@@ -44,7 +44,7 @@ class AdditionalCommodityCodeTest < ActiveSupport::TestCase
     end
     ## Q2ab
     should "ask how much sucrose the product contains" do
-      assert_state_variable "starch_glucose_weight", "5"
+      assert_equal 5, current_state.calculator.starch_glucose_weight
       assert_current_node :how_much_sucrose_1?
     end
     context "answer 30" do
@@ -53,7 +53,7 @@ class AdditionalCommodityCodeTest < ActiveSupport::TestCase
       end
       ## Q3
       should "save the input" do
-        assert_state_variable "sucrose_weight", "30"
+        assert_equal 30, current_state.calculator.sucrose_weight
       end
       should "ask how much milk fat the product contains" do
         assert_current_node :how_much_milk_fat?

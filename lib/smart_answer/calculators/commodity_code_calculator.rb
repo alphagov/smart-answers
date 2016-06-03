@@ -1,16 +1,22 @@
 module SmartAnswer::Calculators
   class CommodityCodeCalculator
+    include ActiveModel::Model
+
     attr_reader :matrix_data, :commodity_code_matrix
+
+    attr_accessor :starch_glucose_weight
+    attr_accessor :sucrose_weight
+    attr_accessor :milk_fat_weight
     attr_accessor :milk_protein_weight
 
-    def initialize(weights)
+    def initialize(attributes = {})
+      super
       @matrix_data = self.class.commodity_codes_data
       @commodity_code_matrix = self.class.commodity_code_matrix
-
-      @starch_glucose_weight = weights[:starch_glucose_weight].to_i
-      @sucrose_weight = weights[:sucrose_weight].to_i
-      @milk_fat_weight = weights[:milk_fat_weight].to_i
-      @milk_protein_weight = weights[:milk_protein_weight].to_i
+      @starch_glucose_weight ||= 0
+      @sucrose_weight ||= 0
+      @milk_fat_weight ||= 0
+      @milk_protein_weight ||= 0
     end
 
     def commodity_code
@@ -24,11 +30,11 @@ module SmartAnswer::Calculators
   private
 
     def glucose_sucrose_index
-      starch_glucose_to_sucrose[@starch_glucose_weight][@sucrose_weight]
+      starch_glucose_to_sucrose[starch_glucose_weight][sucrose_weight]
     end
 
     def milk_fat_milk_protein_index
-      milk_fat_to_milk_protein[@milk_fat_weight][@milk_protein_weight]
+      milk_fat_to_milk_protein[milk_fat_weight][milk_protein_weight]
     end
 
     def starch_glucose_to_sucrose
