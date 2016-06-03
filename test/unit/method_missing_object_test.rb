@@ -10,7 +10,7 @@ class MethodMissingObjectTest < ActiveSupport::TestCase
   end
 
   should 'use method name as description' do
-    assert_equal :method_one, @object.description
+    assert_equal 'method_one', @object.description
   end
 
   should 'use description within ERB tags as to_s' do

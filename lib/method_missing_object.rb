@@ -11,7 +11,7 @@ class MethodMissingObject
   end
 
   def description
-    @parent_method ? "#{@parent_method.description}.#{@method}" : @method
+    @parent_method ? "#{@parent_method.description}.#{@method}" : @method.to_s
   end
 
   def to_s
