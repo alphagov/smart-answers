@@ -29,16 +29,15 @@ module SmartAnswer
         option :"2012-13"
         option :"2013-14"
 
-        on_response do
+        on_response do |response|
           self.calculator = Calculators::SelfAssessmentPenalties.new
+          calculator.tax_year = response
         end
 
-        save_input_as :tax_year
-
-        calculate :start_of_next_tax_year do |response|
-          if response == '2011-12'
+        calculate :start_of_next_tax_year do
+          if calculator.tax_year == '2011-12'
             Date.new(2012, 4, 6)
-          elsif response == '2012-13'
+          elsif calculator.tax_year == '2012-13'
             Date.new(2013, 4, 6)
           else
             Date.new(2014, 4, 6)
@@ -48,10 +47,10 @@ module SmartAnswer
           start_of_next_tax_year.strftime("%e %B %Y")
         end
 
-        calculate :one_year_after_start_date_for_penalties do |response|
-          if response == '2011-12'
+        calculate :one_year_after_start_date_for_penalties do
+          if calculator.tax_year == '2011-12'
             Date.new(2014, 2, 01)
-          elsif response == '2012-13'
+          elsif calculator.tax_year == '2012-13'
             Date.new(2015, 2, 01)
           else
             Date.new(2016, 2, 01)
@@ -106,7 +105,6 @@ module SmartAnswer
             calculator.filing_date = filing_date
             calculator.payment_date = response
             calculator.dates = calculator_dates
-            calculator.tax_year = tax_year
 
             if calculator.paid_on_time?
               outcome :filed_and_paid_on_time
@@ -132,7 +130,6 @@ module SmartAnswer
           calculator.payment_date = payment_date
           calculator.estimated_bill = estimated_bill
           calculator.dates = calculator_dates
-          calculator.tax_year = tax_year
           calculator
         end
 
