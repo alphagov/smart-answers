@@ -60,12 +60,10 @@ module SmartAnswer
           calculator.filing_date = response
         end
 
+        validate { calculator.filing_date >= calculator.start_of_next_tax_year }
+
         next_node do
-          if calculator.filing_date < calculator.start_of_next_tax_year
-            raise SmartAnswer::InvalidResponse
-          else
-            question :when_paid?
-          end
+          question :when_paid?
         end
       end
 
