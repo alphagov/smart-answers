@@ -5,7 +5,7 @@
 <% content_for :body do %>
   | Key facts | Your results |
   |-----------|--------------|
-  | Your penalty for sending the return late | <%= late_filing_penalty == 0 ? 'none' : format_money(late_filing_penalty) %> |
+  | Your penalty for sending the return late | <%= calculator.late_filing_penalty == 0 ? 'none' : format_money(calculator.late_filing_penalty) %> |
   <% if calculator.late_payment_penalty == 0 %>
     | What you said your tax bill was | <%= format_money(calculator.estimated_bill) %> |
     | Interest added for paying your bill late | <%= interest == 0 ? 0 : format_money(interest) %> |
