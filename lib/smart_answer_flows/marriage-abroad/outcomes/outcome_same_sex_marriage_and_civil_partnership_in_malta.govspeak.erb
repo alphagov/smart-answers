@@ -34,13 +34,7 @@
 
   <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 
-  <%= render partial: 'consular_fees_table.govspeak.erb',
-             locals: { calculator: calculator } %>
-
-  <%= render partial: 'link_to_consular_fees.govspeak.erb',
-             locals: { calculator: calculator } %>
-
-  <%= render partial: 'payment_information.govspeak.erb',
+  <%= render partial: 'os_affirmation/fees.govspeak.erb',
              locals: { calculator: calculator } %>
 
   <%= render partial: 'convert_cc_to_ss_marriage.govspeak.erb' %>
