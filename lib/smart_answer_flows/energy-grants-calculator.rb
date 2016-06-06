@@ -15,11 +15,10 @@ module SmartAnswer
         option :help_boiler_measure
         option :all_help
 
-        on_response do
+        on_response do |response|
           self.calculator = Calculators::EnergyGrantsCalculator.new
+          calculator.which_help = response
         end
-
-        save_input_as :which_help
 
         calculate :flat_type do
           nil
@@ -37,22 +36,22 @@ module SmartAnswer
           nil
         end
 
-        calculate :bills_help do |response|
-          %w(help_with_fuel_bill).include?(response) ? :bills_help : nil
+        calculate :bills_help do
+          %w(help_with_fuel_bill).include?(calculator.which_help) ? :bills_help : nil
         end
-        calculate :measure_help do |response|
-          %w(help_energy_efficiency help_boiler_measure).include?(response) ? :measure_help : nil
+        calculate :measure_help do
+          %w(help_energy_efficiency help_boiler_measure).include?(calculator.which_help) ? :measure_help : nil
         end
-        calculate :both_help do |response|
-          %w(all_help).include?(response) ? :both_help : nil
+        calculate :both_help do
+          %w(all_help).include?(calculator.which_help) ? :both_help : nil
         end
 
         calculate :warm_home_discount_amount do
           ''
         end
 
-        next_node do |response|
-          case response
+        next_node do
+          case calculator.which_help
           when 'help_with_fuel_bill'
             question :what_are_your_circumstances? # Q2
           else
@@ -103,7 +102,7 @@ module SmartAnswer
         validate(:error_perm_prop) { |r| ! r.include?('permission,property') }
 
         next_node_calculation(:measure) {
-          %w(help_energy_efficiency help_boiler_measure).include?(which_help)
+          %w(help_energy_efficiency help_boiler_measure).include?(calculator.which_help)
         }
 
         next_node do |response|
