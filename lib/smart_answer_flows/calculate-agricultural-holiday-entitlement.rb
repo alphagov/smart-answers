@@ -6,14 +6,12 @@ module SmartAnswer
       status :published
       satisfies_need "100143"
 
-      calculator = Calculators::AgriculturalHolidayEntitlementCalculator.new
-
       multiple_choice :work_the_same_number_of_days_each_week? do
         option "same-number-of-days"
         option "different-number-of-days"
 
-        calculate :days_worked_per_week do
-          nil
+        on_response do
+          self.calculator = Calculators::AgriculturalHolidayEntitlementCalculator.new
         end
 
         next_node do |response|
@@ -35,13 +33,11 @@ module SmartAnswer
         option "2-days"
         option "1-day"
 
-        # rubocop:disable Style/SymbolProc
-        calculate :days_worked_per_week do |response|
+        on_response do |response|
           # XXX: this is a bit nasty and takes advantage of the fact that
           # to_i only looks for the very first integer
-          response.to_i
+          calculator.days_worked_per_week = response.to_i
         end
-        # rubocop:enable Style/SymbolProc
 
         next_node do
           question :worked_for_same_employer?
@@ -52,8 +48,8 @@ module SmartAnswer
         from { Date.civil(Date.today.year, 1, 1) }
         to { Date.civil(Date.today.year + 1, 12, 31) }
 
-        calculate :weeks_from_october_1 do |response|
-          calculator.weeks_worked(response)
+        on_response do |response|
+          calculator.holiday_starts_on = response
         end
 
         next_node do
@@ -64,18 +60,6 @@ module SmartAnswer
       multiple_choice :worked_for_same_employer? do
         option "same-employer"
         option "multiple-employers"
-
-        calculate :holiday_entitlement_days do |response|
-          if response == 'same-employer'
-            # This is calculated as a flat number based on the days you work
-            # per week
-            if !days_worked_per_week.nil?
-              calculator.holiday_days(days_worked_per_week)
-            elsif !weeks_from_october_1.nil?
-              calculator.holiday_days(total_days_worked.to_f / weeks_from_october_1.to_f).round(10)
-            end
-          end
-        end
 
         next_node do |response|
           case response
@@ -88,15 +72,11 @@ module SmartAnswer
       end
 
       value_question :how_many_total_days?, parse: Integer do
-        precalculate :available_days do
-          calculator.available_days
+        on_response do |response|
+          calculator.total_days_worked = response
         end
 
-        validate { |response| response <= available_days }
-
-        calculate :total_days_worked do |response|
-          response
-        end
+        validate { calculator.valid_total_days_worked? }
 
         next_node do
           question :worked_for_same_employer?
@@ -104,24 +84,20 @@ module SmartAnswer
       end
 
       value_question :how_many_weeks_at_current_employer?, parse: Integer do
-        next_node do
-          outcome :done
+        #Has to be less than a full year
+        validate { calculator.valid_weeks_at_current_employer? }
+
+        on_response do |response|
+          calculator.weeks_at_current_employer = response
         end
 
-        #Has to be less than a full year
-        validate { |response| response < 52 }
-
-        calculate :holiday_entitlement_days do |response|
-          if !days_worked_per_week.nil?
-            days = calculator.holiday_days(days_worked_per_week)
-          elsif !weeks_from_october_1.nil?
-            days = calculator.holiday_days(total_days_worked.to_f / weeks_from_october_1.to_f).round(10)
-          end
-          sprintf("%.1f", (days * (response / 52.0)).round(10))
+        next_node do
+          outcome :done_with_number_formatting
         end
       end
 
       outcome :done
+      outcome :done_with_number_formatting
     end
   end
 end

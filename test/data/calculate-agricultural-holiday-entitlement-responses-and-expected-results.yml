@@ -30,7 +30,7 @@
   - 7-days
   - multiple-employers
   - '1'
-  :next_node: :done
+  :next_node: :done_with_number_formatting
   :outcome_node: true
 - :current_node: :how_many_weeks_at_current_employer?
   :responses:
@@ -66,7 +66,7 @@
   - 6-days
   - multiple-employers
   - '1'
-  :next_node: :done
+  :next_node: :done_with_number_formatting
   :outcome_node: true
 - :current_node: :how_many_weeks_at_current_employer?
   :responses:
@@ -102,7 +102,7 @@
   - 5-days
   - multiple-employers
   - '1'
-  :next_node: :done
+  :next_node: :done_with_number_formatting
   :outcome_node: true
 - :current_node: :how_many_weeks_at_current_employer?
   :responses:
@@ -138,7 +138,7 @@
   - 4-days
   - multiple-employers
   - '1'
-  :next_node: :done
+  :next_node: :done_with_number_formatting
   :outcome_node: true
 - :current_node: :how_many_weeks_at_current_employer?
   :responses:
@@ -174,7 +174,7 @@
   - 3-days
   - multiple-employers
   - '1'
-  :next_node: :done
+  :next_node: :done_with_number_formatting
   :outcome_node: true
 - :current_node: :how_many_weeks_at_current_employer?
   :responses:
@@ -210,7 +210,7 @@
   - 2-days
   - multiple-employers
   - '1'
-  :next_node: :done
+  :next_node: :done_with_number_formatting
   :outcome_node: true
 - :current_node: :how_many_weeks_at_current_employer?
   :responses:
@@ -246,7 +246,7 @@
   - 1-day
   - multiple-employers
   - '1'
-  :next_node: :done
+  :next_node: :done_with_number_formatting
   :outcome_node: true
 - :current_node: :how_many_weeks_at_current_employer?
   :responses:
@@ -297,7 +297,7 @@
   - '1'
   - multiple-employers
   - '1'
-  :next_node: :done
+  :next_node: :done_with_number_formatting
   :outcome_node: true
 - :current_node: :how_many_weeks_at_current_employer?
   :responses:

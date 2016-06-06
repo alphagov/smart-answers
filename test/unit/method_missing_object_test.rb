@@ -10,7 +10,7 @@ class MethodMissingObjectTest < ActiveSupport::TestCase
   end
 
   should 'use method name as description' do
-    assert_equal :method_one, @object.description
+    assert_equal 'method_one', @object.description
   end
 
   should 'use description within ERB tags as to_s' do
@@ -63,18 +63,18 @@ class MethodMissingObjectTest < ActiveSupport::TestCase
     end
   end
 
-  context 'when object has to_s overrides' do
+  context 'when object has overrides' do
     setup do
       overrides = {
-        'method_one.method_two' => 'overridden-value-one-two',
-        'method_one.method_three' => 'overridden-value-one-three'
+        'method_one.method_two' => 222,
+        'method_one.method_three' => 333
       }
       @object = MethodMissingObject.new(:method_one, nil, false, overrides)
     end
 
-    should 'return relevant overridden values from to_s when description matches' do
-      assert_equal 'overridden-value-one-two', @object.method_two.to_s
-      assert_equal 'overridden-value-one-three', @object.method_three.to_s
+    should 'return relevant overridden values when description matches' do
+      assert_equal 222, @object.method_two
+      assert_equal 333, @object.method_three
     end
   end
 end

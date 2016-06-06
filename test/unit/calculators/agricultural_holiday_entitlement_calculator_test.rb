@@ -34,6 +34,34 @@ module SmartAnswer::Calculators
           assert_equal 85, @calc.available_days
         end
       end
+
+      context "valid_total_days_worked?" do
+        setup do
+          @calc.stubs(:available_days).returns(100)
+        end
+
+        should "be truthy if total days worked is less than or equal to available days" do
+          @calc.total_days_worked = 100
+          assert @calc.valid_total_days_worked?
+        end
+
+        should "be falsey if total days worked is more than available days" do
+          @calc.total_days_worked = 101
+          refute @calc.valid_total_days_worked?
+        end
+      end
+
+      context "valid_weeks_at_current_employer?" do
+        should "be truthy if weeks at current employer is less than 52" do
+          @calc.weeks_at_current_employer = 51
+          assert @calc.valid_weeks_at_current_employer?
+        end
+
+        should "be falsey if weeks at current employer is equal to or more than 52" do
+          @calc.weeks_at_current_employer = 52
+          refute @calc.valid_weeks_at_current_employer?
+        end
+      end
     end
   end
 end
