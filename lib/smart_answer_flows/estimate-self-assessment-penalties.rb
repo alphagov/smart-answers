@@ -75,17 +75,15 @@ module SmartAnswer
           calculator.payment_date = response
         end
 
-        next_node do
-          if calculator.filing_date > calculator.payment_date
-            raise SmartAnswer::InvalidResponse
-          else
-            calculator.dates = calculator_dates
+        validate { calculator.filing_date <= calculator.payment_date }
 
-            if calculator.paid_on_time?
-              outcome :filed_and_paid_on_time
-            else
-              question :how_much_tax?
-            end
+        next_node do
+          calculator.dates = calculator_dates
+
+          if calculator.paid_on_time?
+            outcome :filed_and_paid_on_time
+          else
+            question :how_much_tax?
           end
         end
       end
