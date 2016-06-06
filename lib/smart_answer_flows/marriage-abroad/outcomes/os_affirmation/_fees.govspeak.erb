@@ -8,7 +8,7 @@
   <% if calculator.ceremony_country == 'vietnam' %>
     <%= render partial: 'link_to_consular_fees_pay_in_sterling_or_local_currency.govspeak.erb',
                locals: { calculator: calculator } %>
-  <% else %>
+  <% elsif calculator.ceremony_country != 'cambodia' %>
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: { calculator: calculator } %>
   <% end %>
