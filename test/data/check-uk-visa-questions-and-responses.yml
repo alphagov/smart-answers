@@ -29,6 +29,9 @@
 - school
 - medical
 - diplomatic
+:travelling_to_cta?:
+- 'yes'
+- 'no'
 :passing_through_uk_border_control?:
 - 'yes'
 - 'no'
