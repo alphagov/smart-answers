@@ -14,7 +14,7 @@
   <% else %>
     | What you said your tax bill was | <%= format_money(calculator.estimated_bill) %> |
     | Interest added for paying your bill late | <%= calculator.interest == 0 ? 0 : format_money(calculator.interest) %> |
-    | Penalty for paying your bill late | <%= format_money(late_payment_penalty) %> |
+    | Penalty for paying your bill late | <%= format_money(calculator.late_payment_penalty) %> |
     | Estimate of the total you owe | <%= format_money(calculator.total_owed_plus_filing_penalty) %> |
   <% end %>
 

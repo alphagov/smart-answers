@@ -78,11 +78,7 @@ module SmartAnswer
         end
       end
 
-      outcome :late do
-        precalculate :late_payment_penalty do
-          calculator.late_payment_penalty
-        end
-      end
+      outcome :late
 
       outcome :filed_and_paid_on_time
     end
