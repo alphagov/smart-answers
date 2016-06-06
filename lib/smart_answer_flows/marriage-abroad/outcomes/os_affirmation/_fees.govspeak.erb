@@ -3,7 +3,8 @@
 
 
 <% unless calculator.country_without_consular_facilities? ||
-   calculator.ceremony_country == 'indonesia' %>
+   calculator.ceremony_country == 'indonesia' ||
+   calculator.ceremony_country == 'monaco' %>
 
   <% if calculator.ceremony_country == 'vietnam' %>
     <%= render partial: 'link_to_consular_fees_pay_in_sterling_or_local_currency.govspeak.erb',
