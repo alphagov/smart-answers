@@ -29,6 +29,18 @@ module SmartAnswer::Calculators
       )
     end
 
+    context "valid_filing_date?" do
+      should "be valid if filing date is on or after start of next tax year" do
+        @calculator.filing_date = @calculator.start_of_next_tax_year
+        assert @calculator.valid_filing_date?
+      end
+
+      should "be invalid if filing date is before start of next tax year" do
+        @calculator.filing_date = @calculator.start_of_next_tax_year - 1
+        refute @calculator.valid_filing_date?
+      end
+    end
+
     context "online submission" do
       context "filed and paid on time" do
         setup do
