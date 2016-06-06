@@ -75,7 +75,7 @@ module SmartAnswer
           calculator.payment_date = response
         end
 
-        validate { calculator.filing_date <= calculator.payment_date }
+        validate { calculator.valid_payment_date? }
 
         next_node do
           calculator.dates = calculator_dates

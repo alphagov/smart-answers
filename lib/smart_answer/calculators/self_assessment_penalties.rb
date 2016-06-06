@@ -26,6 +26,10 @@ module SmartAnswer::Calculators
       filing_date >= start_of_next_tax_year
     end
 
+    def valid_payment_date?
+      filing_date <= payment_date
+    end
+
     def paid_on_time?
       (filing_date <= filing_deadline) && (payment_date <= payment_deadline)
     end

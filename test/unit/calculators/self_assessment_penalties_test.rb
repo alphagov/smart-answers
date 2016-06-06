@@ -41,6 +41,18 @@ module SmartAnswer::Calculators
       end
     end
 
+    context "valid_payment_date?" do
+      should "be valid if payment date is on or after filing date" do
+        @calculator.payment_date = @calculator.filing_date
+        assert @calculator.valid_payment_date?
+      end
+
+      should "be invalid if filing date is before filing date" do
+        @calculator.payment_date = @calculator.filing_date - 1
+        refute @calculator.valid_payment_date?
+      end
+    end
+
     context "online submission" do
       context "filed and paid on time" do
         setup do
