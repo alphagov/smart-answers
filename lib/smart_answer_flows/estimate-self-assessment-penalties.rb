@@ -34,10 +34,6 @@ module SmartAnswer
           calculator.tax_year = response
         end
 
-        calculate :start_of_next_tax_year_formatted do
-          calculator.start_of_next_tax_year.strftime("%e %B %Y")
-        end
-
         calculate :one_year_after_start_date_for_penalties do
           if calculator.tax_year == '2011-12'
             Date.new(2014, 2, 01)
