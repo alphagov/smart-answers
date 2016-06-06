@@ -34,17 +34,8 @@ module SmartAnswer
           calculator.tax_year = response
         end
 
-        calculate :start_of_next_tax_year do
-          if calculator.tax_year == '2011-12'
-            Date.new(2012, 4, 6)
-          elsif calculator.tax_year == '2012-13'
-            Date.new(2013, 4, 6)
-          else
-            Date.new(2014, 4, 6)
-          end
-        end
         calculate :start_of_next_tax_year_formatted do
-          start_of_next_tax_year.strftime("%e %B %Y")
+          calculator.start_of_next_tax_year.strftime("%e %B %Y")
         end
 
         calculate :one_year_after_start_date_for_penalties do
@@ -83,7 +74,7 @@ module SmartAnswer
         end
 
         next_node do |response|
-          if response < start_of_next_tax_year
+          if response < calculator.start_of_next_tax_year
             raise SmartAnswer::InvalidResponse
           else
             question :when_paid?

@@ -2,6 +2,16 @@ require "ostruct"
 
 module SmartAnswer::Calculators
   class SelfAssessmentPenalties < OpenStruct
+    def start_of_next_tax_year
+      if tax_year == '2011-12'
+        Date.new(2012, 4, 6)
+      elsif tax_year == '2012-13'
+        Date.new(2013, 4, 6)
+      else
+        Date.new(2014, 4, 6)
+      end
+    end
+
     def paid_on_time?
       (filing_date <= filing_deadline) && (payment_date <= payment_deadline)
     end
