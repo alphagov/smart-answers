@@ -60,10 +60,6 @@ module SmartAnswer
           calculator.filing_date = response
         end
 
-        calculate :filing_date_formatted do
-          calculator.filing_date.strftime("%e %B %Y")
-        end
-
         next_node do
           if calculator.filing_date < calculator.start_of_next_tax_year
             raise SmartAnswer::InvalidResponse
