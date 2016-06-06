@@ -1,3 +1,5 @@
+require 'smart_answer/calculators/energy_grants_calculator'
+
 module SmartAnswer
   class EnergyGrantsCalculatorFlow < Flow
     def define
@@ -12,6 +14,11 @@ module SmartAnswer
         option :help_energy_efficiency
         option :help_boiler_measure
         option :all_help
+
+        on_response do
+          self.calculator = Calculators::EnergyGrantsCalculator.new
+        end
+
         save_input_as :which_help
 
         calculate :flat_type do
