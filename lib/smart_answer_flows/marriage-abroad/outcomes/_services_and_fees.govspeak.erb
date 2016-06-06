@@ -1,6 +1,13 @@
-<%= render partial: 'consular_fees_table.govspeak.erb',
-           locals: { calculator: calculator } %>
+<% if calculator.services.any? %>
+  ## Fees
 
+  Service | Fee
+  -|-
+  <%= render partial: 'consular_fees_table_items.govspeak.erb',
+             collection: calculator.services,
+             as: :service,
+             locals: { calculator: calculator } %>
+<% end %>
 
 <% unless calculator.country_without_consular_facilities? ||
    calculator.ceremony_country == 'indonesia' ||
