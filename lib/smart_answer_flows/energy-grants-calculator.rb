@@ -152,15 +152,16 @@ module SmartAnswer
           calculator.benefits_claimed = response.split(",")
         end
 
-        calculate :incomesupp_jobseekers_2 do |response|
-          if %w(working_tax_credit).include?(response)
+        calculate :incomesupp_jobseekers_2 do
+          if calculator.benefits_claimed == %w(working_tax_credit)
             if age_variant == :over_60
               :incomesupp_jobseekers_2
             end
           end
         end
 
-        next_node_calculation(:disabled_or_have_children_question) do |response|
+        next_node_calculation(:disabled_or_have_children_question) do
+          response = calculator.benefits_claimed.join(",")
           response == 'income_support' ||
             response == 'jsa' ||
             response == 'esa' ||
@@ -171,8 +172,8 @@ module SmartAnswer
             %w{child_tax_credit esa jsa pension_credit}.all? { |key| response.include? key }
         end
 
-        next_node do |response|
-          if %w{pension_credit child_tax_credit}.include?(response)
+        next_node do
+          if calculator.benefits_claimed == %w(pension_credit) || calculator.benefits_claimed == %w(child_tax_credit)
             if bills_help
               outcome :outcome_help_with_bills # outcome 1
             else
