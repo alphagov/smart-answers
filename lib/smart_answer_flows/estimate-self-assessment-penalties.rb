@@ -79,10 +79,6 @@ module SmartAnswer
       end
 
       outcome :late do
-        precalculate :interest do
-          calculator.interest
-        end
-
         precalculate :late_payment_penalty do
           calculator.late_payment_penalty
         end
