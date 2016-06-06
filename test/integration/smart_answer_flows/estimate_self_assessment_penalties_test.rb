@@ -194,7 +194,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
       end
       should "show results" do
         assert_state_variable :late_filing_penalty, 1500
-        assert_state_variable :estimated_bill, 10000
+        assert_equal 10000, current_state.calculator.estimated_bill
         assert_state_variable :interest, 148.77
         assert_state_variable :late_payment_penalty, 1000
         assert_state_variable :total_owed, 12648
@@ -223,7 +223,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
       end
       should "show results" do
         assert_state_variable :late_filing_penalty, 2000
-        assert_state_variable :estimated_bill, 10000
+        assert_equal 10000, current_state.calculator.estimated_bill
         assert_state_variable :interest, 300
         assert_state_variable :late_payment_penalty, 1500
         assert_state_variable :total_owed, 13800

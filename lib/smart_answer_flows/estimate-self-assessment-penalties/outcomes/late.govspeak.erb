@@ -7,12 +7,12 @@
   |-----------|--------------|
   | Your penalty for sending the return late | <%= late_filing_penalty == 0 ? 'none' : format_money(late_filing_penalty) %> |
   <% if calculator.late_payment_penalty == 0 %>
-    | What you said your tax bill was | <%= format_money(estimated_bill) %> |
+    | What you said your tax bill was | <%= format_money(calculator.estimated_bill) %> |
     | Interest added for paying your bill late | <%= interest == 0 ? 0 : format_money(interest) %> |
     | Penalty for paying your bill late | none |
     | Estimate of the total you owe | <%= format_money(total_owed) %> |
   <% else %>
-    | What you said your tax bill was | <%= format_money(estimated_bill) %> |
+    | What you said your tax bill was | <%= format_money(calculator.estimated_bill) %> |
     | Interest added for paying your bill late | <%= interest == 0 ? 0 : format_money(interest) %> |
     | Penalty for paying your bill late | <%= format_money(late_payment_penalty) %> |
     | Estimate of the total you owe | <%= format_money(total_owed) %> |

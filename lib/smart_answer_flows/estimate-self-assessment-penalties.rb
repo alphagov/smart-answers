@@ -69,7 +69,9 @@ module SmartAnswer
       end
 
       money_question :how_much_tax? do
-        save_input_as :estimated_bill
+        on_response do |response|
+          calculator.estimated_bill = response
+        end
 
         next_node do
           outcome :late
@@ -78,7 +80,6 @@ module SmartAnswer
 
       outcome :late do
         precalculate :calculator do
-          calculator.estimated_bill = estimated_bill
           calculator
         end
 
