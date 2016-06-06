@@ -8,24 +8,21 @@ You should also check the [travel advice for Germany](/foreign-travel-advice/ger
 
 ##What you need to do
 
-You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to enter into a civil partnership or equivalent in Germany.
+You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
 
-Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.
+You can normally get a CNI by giving a notice of marriage at your local register office or registrar in the UK. Find your local office or registrar in [England and Wales](https://www.gov.uk/register-offices), [Scotland](http://www.nrscotland.gov.uk/files/registration/reglist.pdf), [Northern Ireland](http://www.nidirect.gov.uk/index/information-and-services/government-citizens-and-rights/births-and-registration/district-registrars-in-northern-ireland.htm), [Isle of Man](http://www.gov.im/registries/general/civilregistry), [Jersey](http://www.gov.je/pages/contacts.aspx?contactId=71) or [Guernsey](http://www.guernseyroyalcourt.gg/article/1663/Contact-Us).
 
-$A
-British Embassy Berlin
-Wilhelmstraße 70/71
-10117  Berlin
-Germany
-$A
+^A CNI issued in Scotland is valid for 3 months. A CNI issued in England, Wales or Northern Ireland will not expire. Check with your local register office to find out how long a CNI is valid if you live in the Channel Islands or the Isle of Man. You should also check with the local authorities in Germany to find out how long a CNI is valid under local law.^
 
-$C
-Telephone : +49 (0) 30 204 570
+###Translation
 
-Email: <ukingermany@fco.gov.uk>
+Check with the local authorities (standesamt) in Germany if you need to get your UK-issued CNI translated.
 
-[British Embassy Berlin - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-berlin/office/british-embassy)
-$C
+[Find a translator abroad](/government/collections/list-of-lawyers), or in the UK through the [Institute of Linguists](http://www.ciol.org.uk)
+
+You should also check with the local authorities if you need to provide [legalised](/get-document-legalised) and translated copies of any other documents.
+
+%The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
 
 ##Naturalisation of your partner if they move to the UK
 

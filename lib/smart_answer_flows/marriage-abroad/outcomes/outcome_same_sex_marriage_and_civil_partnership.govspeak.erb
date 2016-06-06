@@ -84,11 +84,33 @@
   <% case calculator.marriage_and_partnership_phrases %>
   <% when 'ss_marriage' %>
     ##What you need to do
+    <% if calculator.ceremony_country == 'germany' %>
+      You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to enter into a civil partnership or equivalent in Germany.
 
-    At your appointment the <%= calculator.diplomatic_mission %> or consulate will give you:
+      Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.
 
-    - a notice of registration
-    - a declaration that you and your partner will need to swear, stating that you’re legally entitled to marry
+      $A
+      British Embassy Berlin
+      Wilhelmstraße 70/71
+      10117 Berlin
+      Germany
+      Telephone : +49 (0) 30 204 570
+      $A
+
+      $C
+      Email: <germany.consulate@fco.gov.uk>
+      $C
+
+      [British Embassy Berlin - opening hours](/government/world/organisations/british-embassy-berlin/office/british-embassy)
+
+    <% else %>
+    
+      At your appointment the <%= calculator.diplomatic_mission %> or consulate will give you:
+
+      - a notice of registration
+      - a declaration that you and your partner will need to swear, stating that you’re legally entitled to marry
+
+    <% end %>
 
   <% when 'ss_marriage_and_partnership' %>
     ##What you need to do
@@ -104,7 +126,9 @@
 
   <% end %>
 
-  Once you’ve completed these and paid the registration fee, the <%= calculator.diplomatic_mission %> or consulate will display your notice publicly for 14 days.
+  <% unless calculator.ceremony_country == 'germany' %>
+    Once you’ve completed these and paid the registration fee, the <%= calculator.diplomatic_mission %> or consulate will display your notice publicly for 14 days.
+  <% end %>
 
   <% if calculator.ceremony_country == 'vietnam' %>
     ^You must stay in <%= calculator.country_name_lowercase_prefix %> while your notice is posted.^
@@ -112,14 +136,18 @@
 
   <% case calculator.marriage_and_partnership_phrases %>
   <% when 'ss_marriage' %>
-    As long as nobody registers an objection you can get married up to 3 months after you gave notice.
+    <% unless calculator.ceremony_country == 'germany' %>
+      As long as nobody registers an objection you can get married up to 3 months after you gave notice.
+    <% end %>
   <% when 'ss_marriage_and_partnership' %>
     <%= render partial: 'no_objection_ss_marriage_and_partnership.govspeak.erb' %>
   <% end %>
 
-  <%= render partial: 'provide_two_witnesses_ss_marriage_and_partnership.govspeak.erb' %>
-  <%= render partial: 'pay_for_ss_registration_and_certificate.govspeak.erb',
+  <% unless calculator.ceremony_country == 'germany' %>
+    <%= render partial: 'provide_two_witnesses_ss_marriage_and_partnership.govspeak.erb' %>
+    <%= render partial: 'pay_for_ss_registration_and_certificate.govspeak.erb',
              locals: { calculator: calculator } %>
+  <% end %>
 
   <% if calculator.ceremony_country == 'australia' %>
     You can’t have a same-sex marriage in a British <%= calculator.diplomatic_mission %> or consulate if you’re already in one of these relationships:
@@ -131,9 +159,15 @@
     * registered domestic relationship (Victoria)
 
   <% end %>
-  ^All same-sex marriages must take place under English and Welsh or Scottish law even if you live in or are from Northern Ireland. Tell the <%= calculator.diplomatic_mission %> or consulate which law you want to get married under at your appointment.^
+  <% unless calculator.ceremony_country == 'germany' %>
+    ^All same-sex marriages must take place under English and Welsh or Scottish law even if you live in or are from Northern Ireland. Tell the <%= calculator.diplomatic_mission %> or consulate which law you want to get married under at your appointment.^
+  <% end %>
 
-  <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
+  <% if calculator.partner_not_british? %>
+
+    <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
+
+  <% end %>
 
   <%= render partial: 'consular_fees_table.govspeak.erb',
              locals: { calculator: calculator } %>
