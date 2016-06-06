@@ -6,24 +6,6 @@ module SmartAnswer
       status :published
       satisfies_need "100615"
 
-      calculator_dates = {
-        online_filing_deadline: {
-          "2011-12": Date.new(2013, 1, 31),
-          "2012-13": Date.new(2014, 1, 31),
-          "2013-14": Date.new(2015, 1, 31),
-        },
-        offline_filing_deadline: {
-          "2011-12": Date.new(2012, 10, 31),
-          "2012-13": Date.new(2013, 10, 31),
-          "2013-14": Date.new(2014, 10, 31),
-        },
-        payment_deadline: {
-          "2011-12": Date.new(2013, 1, 31),
-          "2012-13": Date.new(2014, 1, 31),
-          "2013-14": Date.new(2015, 1, 31),
-        },
-      }
-
       multiple_choice :which_year? do
         option :"2011-12"
         option :"2012-13"
@@ -78,8 +60,6 @@ module SmartAnswer
         validate { calculator.valid_payment_date? }
 
         next_node do
-          calculator.dates = calculator_dates
-
           if calculator.paid_on_time?
             outcome :filed_and_paid_on_time
           else
@@ -99,7 +79,6 @@ module SmartAnswer
       outcome :late do
         precalculate :calculator do
           calculator.estimated_bill = estimated_bill
-          calculator.dates = calculator_dates
           calculator
         end
 

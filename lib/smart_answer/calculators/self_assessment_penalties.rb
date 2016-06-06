@@ -2,6 +2,24 @@ require "ostruct"
 
 module SmartAnswer::Calculators
   class SelfAssessmentPenalties < OpenStruct
+    DEADLINES = {
+      online_filing_deadline: {
+        "2011-12": Date.new(2013, 1, 31),
+        "2012-13": Date.new(2014, 1, 31),
+        "2013-14": Date.new(2015, 1, 31),
+      },
+      offline_filing_deadline: {
+        "2011-12": Date.new(2012, 10, 31),
+        "2012-13": Date.new(2013, 10, 31),
+        "2013-14": Date.new(2014, 10, 31),
+      },
+      payment_deadline: {
+        "2011-12": Date.new(2013, 1, 31),
+        "2012-13": Date.new(2014, 1, 31),
+        "2013-14": Date.new(2015, 1, 31),
+      },
+    }
+
     def start_of_next_tax_year
       if tax_year == '2011-12'
         Date.new(2012, 4, 6)
@@ -123,11 +141,11 @@ module SmartAnswer::Calculators
     end
 
     def filing_deadline
-      submission_method == "online" ? dates[:online_filing_deadline][tax_year.to_sym] : dates[:offline_filing_deadline][tax_year.to_sym]
+      submission_method == "online" ? DEADLINES[:online_filing_deadline][tax_year.to_sym] : DEADLINES[:offline_filing_deadline][tax_year.to_sym]
     end
 
     def payment_deadline
-      dates[:payment_deadline][tax_year.to_sym]
+      DEADLINES[:payment_deadline][tax_year.to_sym]
     end
 
     #interest is 3% per annum
