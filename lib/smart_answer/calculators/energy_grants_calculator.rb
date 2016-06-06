@@ -5,10 +5,12 @@ module SmartAnswer::Calculators
     attr_accessor :which_help
     attr_accessor :circumstances
     attr_accessor :date_of_birth
+    attr_accessor :benefits_claimed
 
     def initialize(attributes = {})
       super
       @circumstances ||= []
+      @benefits_claimed ||= []
     end
   end
 end
