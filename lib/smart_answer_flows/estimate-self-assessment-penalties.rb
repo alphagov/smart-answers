@@ -71,13 +71,14 @@ module SmartAnswer
         from { 3.year.ago(Date.today) }
         to { 2.years.since(Date.today) }
 
-        save_input_as :payment_date
+        on_response do |response|
+          calculator.payment_date = response
+        end
 
-        next_node do |response|
-          if calculator.filing_date > response
+        next_node do
+          if calculator.filing_date > calculator.payment_date
             raise SmartAnswer::InvalidResponse
           else
-            calculator.payment_date = response
             calculator.dates = calculator_dates
 
             if calculator.paid_on_time?
@@ -99,7 +100,6 @@ module SmartAnswer
 
       outcome :late do
         precalculate :calculator do
-          calculator.payment_date = payment_date
           calculator.estimated_bill = estimated_bill
           calculator.dates = calculator_dates
           calculator

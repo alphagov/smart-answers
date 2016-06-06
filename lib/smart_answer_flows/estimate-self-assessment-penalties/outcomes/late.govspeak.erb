@@ -18,7 +18,7 @@
     | Estimate of the total you owe | <%= format_money(total_owed) %> |
   <% end %>
 
-  <% if payment_date >= calculator.one_year_after_start_date_for_penalties %>
+  <% if calculator.payment_date >= calculator.one_year_after_start_date_for_penalties %>
     Your penalty can be up to 100% of your tax bill if you deliberately don’t pay it.
   <% end %>
 
