@@ -43,7 +43,9 @@ module SmartAnswer
         option :online
         option :paper
 
-        save_input_as :submission_method
+        on_response do |response|
+          calculator.submission_method = response
+        end
 
         next_node do
           question :when_submitted?
@@ -79,7 +81,6 @@ module SmartAnswer
           if filing_date > response
             raise SmartAnswer::InvalidResponse
           else
-            calculator.submission_method = submission_method
             calculator.filing_date = filing_date
             calculator.payment_date = response
             calculator.dates = calculator_dates
@@ -103,7 +104,6 @@ module SmartAnswer
 
       outcome :late do
         precalculate :calculator do
-          calculator.submission_method = submission_method
           calculator.filing_date = filing_date
           calculator.payment_date = payment_date
           calculator.estimated_bill = estimated_bill
