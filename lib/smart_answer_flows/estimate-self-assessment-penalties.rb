@@ -29,6 +29,10 @@ module SmartAnswer
         option :"2012-13"
         option :"2013-14"
 
+        on_response do
+          self.calculator = Calculators::SelfAssessmentPenalties.new
+        end
+
         save_input_as :tax_year
 
         calculate :start_of_next_tax_year do |response|
@@ -98,13 +102,12 @@ module SmartAnswer
           if filing_date > response
             raise SmartAnswer::InvalidResponse
           else
-            calculator = Calculators::SelfAssessmentPenalties.new(
-              submission_method: submission_method,
-              filing_date: filing_date,
-              payment_date: response,
-              dates: calculator_dates,
-              tax_year: tax_year
-            )
+            calculator.submission_method = submission_method
+            calculator.filing_date = filing_date
+            calculator.payment_date = response
+            calculator.dates = calculator_dates
+            calculator.tax_year = tax_year
+
             if calculator.paid_on_time?
               outcome :filed_and_paid_on_time
             else
@@ -124,14 +127,13 @@ module SmartAnswer
 
       outcome :late do
         precalculate :calculator do
-          Calculators::SelfAssessmentPenalties.new(
-            submission_method: submission_method,
-            filing_date: filing_date,
-            payment_date: payment_date,
-            estimated_bill: estimated_bill,
-            dates: calculator_dates,
-            tax_year: tax_year
-          )
+          calculator.submission_method = submission_method
+          calculator.filing_date = filing_date
+          calculator.payment_date = payment_date
+          calculator.estimated_bill = estimated_bill
+          calculator.dates = calculator_dates
+          calculator.tax_year = tax_year
+          calculator
         end
 
         precalculate :late_filing_penalty do
