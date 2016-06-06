@@ -122,8 +122,12 @@ module SmartAnswer
       date_question :date_of_birth? do
         date_of_birth_defaults
 
-        calculate :age_variant do |response|
-          dob = response
+        on_response do |response|
+          calculator.date_of_birth = response
+        end
+
+        calculate :age_variant do
+          dob = calculator.date_of_birth
           if dob < Date.new(1951, 7, 5)
             :winter_fuel_payment
           elsif dob < 60.years.ago(Date.today + 1)

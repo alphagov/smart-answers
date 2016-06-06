@@ -4,6 +4,7 @@ module SmartAnswer::Calculators
 
     attr_accessor :which_help
     attr_accessor :circumstances
+    attr_accessor :date_of_birth
 
     def initialize(attributes = {})
       super
