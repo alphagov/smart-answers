@@ -1182,7 +1182,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to cp or equivalent outcome" do
-      assert_current_node :outcome_same_sex_civil_partnership
+      assert_current_node :outcome_ceremonies_in_denmark
     end
   end
 
