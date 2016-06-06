@@ -67,8 +67,8 @@ module SmartAnswer
         option :permission
         option :social_housing
 
-        calculate :circumstances do |response|
-          response.split(",")
+        on_response do |response|
+          calculator.circumstances = response.split(",")
         end
 
         calculate :benefits_claimed do
@@ -91,8 +91,8 @@ module SmartAnswer
         option :property
         option :permission
 
-        calculate :circumstances do |response|
-          response.split(",")
+        on_response do |response|
+          calculator.circumstances = response.split(",")
         end
 
         calculate :benefits_claimed do
@@ -132,7 +132,7 @@ module SmartAnswer
         end
 
         next_node do
-          if circumstances.include?('benefits')
+          if calculator.circumstances.include?('benefits')
             question :which_benefits?
           elsif bills_help
             outcome :outcome_help_with_bills # outcome 1
@@ -209,7 +209,7 @@ module SmartAnswer
         calculate :incomesupp_jobseekers_2 do |response|
           case response
           when 'child_under_16', 'work_support_esa'
-            if circumstances.include?('social_housing') || (benefits_claimed.include?('working_tax_credit') && age_variant != :over_60)
+            if calculator.circumstances.include?('social_housing') || (benefits_claimed.include?('working_tax_credit') && age_variant != :over_60)
               nil
             else
               :incomesupp_jobseekers_2
@@ -307,13 +307,13 @@ module SmartAnswer
         end
 
         next_node_calculation(:measure_help_and_property_permission_circumstance) do
-          measure_help && (circumstances & %w(property permission)).any?
+          measure_help && (calculator.circumstances & %w(property permission)).any?
         end
 
-        next_node_calculation(:no_benefits) { circumstances.exclude?('benefits') }
+        next_node_calculation(:no_benefits) { calculator.circumstances.exclude?('benefits') }
 
         next_node_calculation(:property_permission_circumstance_and_benefits) do
-          (circumstances & %w(property permission)).any? && ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2)
+          (calculator.circumstances & %w(property permission)).any? && ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2)
         end
 
         next_node do
@@ -347,13 +347,13 @@ module SmartAnswer
         end
 
         next_node_calculation(:measure_help_and_property_permission_circumstance) do
-          measure_help && (circumstances & %w(property permission)).any?
+          measure_help && (calculator.circumstances & %w(property permission)).any?
         end
 
-        next_node_calculation(:no_benefits) { circumstances.exclude?('benefits') }
+        next_node_calculation(:no_benefits) { calculator.circumstances.exclude?('benefits') }
 
         next_node_calculation(:property_permission_circumstance_and_benefits) do
-          (circumstances & %w(property permission)).any? && ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2)
+          (calculator.circumstances & %w(property permission)).any? && ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2)
         end
 
         next_node do
@@ -386,13 +386,13 @@ module SmartAnswer
         end
 
         next_node_calculation(:measure_help_and_property_permission_circumstance) do
-          measure_help && (circumstances & %w(property permission)).any?
+          measure_help && (calculator.circumstances & %w(property permission)).any?
         end
 
-        next_node_calculation(:no_benefits) { circumstances.exclude?('benefits') }
+        next_node_calculation(:no_benefits) { calculator.circumstances.exclude?('benefits') }
 
         next_node_calculation(:property_permission_circumstance_and_benefits) do
-          (circumstances & %w(property permission)).any? && ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2)
+          (calculator.circumstances & %w(property permission)).any? && ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2)
         end
 
         next_node do
@@ -428,7 +428,7 @@ module SmartAnswer
           flat_type
         end
         precalculate :under_green_deal do
-          both_help && !circumstances.include?('benefits')
+          both_help && !calculator.circumstances.include?('benefits')
         end
       end
 
@@ -443,7 +443,7 @@ module SmartAnswer
           flat_type
         end
         precalculate :under_green_deal do
-          !((both_help && circumstances.include?('property')) || (circumstances.include?('permission') && circumstances.include?('pension_credit')) || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || (benefits_claimed & %w(esa child_tax_credit working_tax_credit)).any?)
+          !((both_help && calculator.circumstances.include?('property')) || (calculator.circumstances.include?('permission') && calculator.circumstances.include?('pension_credit')) || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || (benefits_claimed & %w(esa child_tax_credit working_tax_credit)).any?)
         end
       end
 
