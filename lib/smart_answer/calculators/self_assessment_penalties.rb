@@ -12,6 +12,16 @@ module SmartAnswer::Calculators
       end
     end
 
+    def one_year_after_start_date_for_penalties
+      if tax_year == '2011-12'
+        Date.new(2014, 2, 01)
+      elsif tax_year == '2012-13'
+        Date.new(2015, 2, 01)
+      else
+        Date.new(2016, 2, 01)
+      end
+    end
+
     def paid_on_time?
       (filing_date <= filing_deadline) && (payment_date <= payment_deadline)
     end

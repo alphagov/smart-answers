@@ -34,15 +34,6 @@ module SmartAnswer
           calculator.tax_year = response
         end
 
-        calculate :one_year_after_start_date_for_penalties do
-          if calculator.tax_year == '2011-12'
-            Date.new(2014, 2, 01)
-          elsif calculator.tax_year == '2012-13'
-            Date.new(2015, 2, 01)
-          else
-            Date.new(2016, 2, 01)
-          end
-        end
         next_node do
           question :how_submitted?
         end
