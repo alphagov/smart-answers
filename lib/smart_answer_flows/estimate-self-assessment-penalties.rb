@@ -56,14 +56,16 @@ module SmartAnswer
         from { 3.year.ago(Date.today) }
         to { 2.years.since(Date.today) }
 
-        save_input_as :filing_date
-
-        calculate :filing_date_formatted do
-          filing_date.strftime("%e %B %Y")
+        on_response do |response|
+          calculator.filing_date = response
         end
 
-        next_node do |response|
-          if response < calculator.start_of_next_tax_year
+        calculate :filing_date_formatted do
+          calculator.filing_date.strftime("%e %B %Y")
+        end
+
+        next_node do
+          if calculator.filing_date < calculator.start_of_next_tax_year
             raise SmartAnswer::InvalidResponse
           else
             question :when_paid?
@@ -78,10 +80,9 @@ module SmartAnswer
         save_input_as :payment_date
 
         next_node do |response|
-          if filing_date > response
+          if calculator.filing_date > response
             raise SmartAnswer::InvalidResponse
           else
-            calculator.filing_date = filing_date
             calculator.payment_date = response
             calculator.dates = calculator_dates
 
@@ -104,7 +105,6 @@ module SmartAnswer
 
       outcome :late do
         precalculate :calculator do
-          calculator.filing_date = filing_date
           calculator.payment_date = payment_date
           calculator.estimated_bill = estimated_bill
           calculator.dates = calculator_dates
