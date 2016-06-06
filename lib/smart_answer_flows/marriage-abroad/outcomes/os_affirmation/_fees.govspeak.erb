@@ -2,7 +2,9 @@
            locals: { calculator: calculator } %>
 
 
-<% unless calculator.country_without_consular_facilities? %>
+<% unless calculator.country_without_consular_facilities? ||
+   calculator.ceremony_country == 'indonesia' %>
+
   <% if calculator.ceremony_country == 'vietnam' %>
     <%= render partial: 'link_to_consular_fees_pay_in_sterling_or_local_currency.govspeak.erb',
                locals: { calculator: calculator } %>
