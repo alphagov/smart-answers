@@ -127,16 +127,7 @@
     You may be asked to provide a copy of your birth certificate. Make sure you send a [certified copy](/order-copy-birth-death-marriage-certificate) as you won’t get it back.
   <% end %>
 
-  <%= render partial: 'consular_fees_table.govspeak.erb',
-             locals: { calculator: calculator } %>
-
-  <% unless calculator.country_without_consular_facilities? || calculator.ceremony_country == 'cote-d-ivoire' %>
-    <% unless calculator.ceremony_country == 'brazil' %>
-      <%= render partial: 'link_to_consular_fees.govspeak.erb', locals: { calculator: calculator } %>
-    <% end %>
-  <% end %>
-
-  <%= render partial: 'payment_information.govspeak.erb',
+  <%= render partial: 'os_affirmation/fees.govspeak.erb',
              locals: { calculator: calculator } %>
 
   *[CNI]:certificate of no impediment

@@ -19,7 +19,9 @@
   <% if calculator.ceremony_country == 'vietnam' %>
     <%= render partial: 'link_to_consular_fees_pay_in_sterling_or_local_currency.govspeak.erb',
                locals: { calculator: calculator } %>
-  <% elsif calculator.ceremony_country != 'cambodia' %>
+
+  <% elsif calculator.ceremony_country != 'cambodia' &&
+    !(calculator.ceremony_country == 'brazil' && calculator.resident_outside_of_third_country?) %>
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: { calculator: calculator } %>
   <% end %>
