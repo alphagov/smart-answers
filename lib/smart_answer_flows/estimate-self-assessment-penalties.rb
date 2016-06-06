@@ -79,10 +79,6 @@ module SmartAnswer
       end
 
       outcome :late do
-        precalculate :calculator do
-          calculator
-        end
-
         precalculate :late_filing_penalty do
           calculator.late_filing_penalty
         end
