@@ -50,7 +50,7 @@
       <%= render partial: 'opt_under_floor_insulation.govspeak.erb' %>
     <% end %>
   <% end %>
-  <% if may_qualify_for_affordable_warmth_obligation %>
+  <% if calculator.may_qualify_for_affordable_warmth_obligation? %>
     <%= render partial: 'may_qualify_for_affordable_warmth_obligation.govspeak.erb' %>
   <% end %>
   <%= render partial: 'opt_eco_help.govspeak.erb' %>

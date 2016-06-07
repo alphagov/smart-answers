@@ -410,9 +410,6 @@ module SmartAnswer
       end
 
       outcome :outcome_help_with_bills do
-        precalculate :may_qualify_for_affordable_warmth_obligation do
-          calculator.may_qualify_for_affordable_warmth_obligation?
-        end
         precalculate :incomesupp_jobseekers_1 do
           incomesupp_jobseekers_1
         end
@@ -427,9 +424,6 @@ module SmartAnswer
       end
 
       outcome :outcome_bills_and_measures_on_benefits_eco_eligible do
-        precalculate :may_qualify_for_affordable_warmth_obligation do
-          calculator.may_qualify_for_affordable_warmth_obligation?
-        end
         precalculate :incomesupp_jobseekers_1 do
           incomesupp_jobseekers_1
         end
@@ -439,9 +433,6 @@ module SmartAnswer
       end
 
       outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible do
-        precalculate :may_qualify_for_affordable_warmth_obligation do
-          calculator.may_qualify_for_affordable_warmth_obligation?
-        end
         precalculate :incomesupp_jobseekers_1 do
           incomesupp_jobseekers_1
         end

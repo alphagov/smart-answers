@@ -33,7 +33,7 @@
       <%= render partial: 'winter_fuel_payments.govspeak.erb' %>
     <% end %>
   <% end %>
-  <% if may_qualify_for_affordable_warmth_obligation %>
+  <% if calculator.may_qualify_for_affordable_warmth_obligation? %>
     <%= render partial: 'may_qualify_for_affordable_warmth_obligation.govspeak.erb' %>
   <% end %>
   <%= render partial: 'smartmeters.govspeak.erb' %>
