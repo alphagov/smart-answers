@@ -352,6 +352,20 @@ module SmartAnswer
           refute calculator.passing_through_uk_border_control?
         end
       end
+
+      context '#travelling_to_cta?' do
+        should 'return true if travelling_to_cta_answer is "yes"' do
+          calculator = UkVisaCalculator.new
+          calculator.travelling_to_cta_answer = 'yes'
+          assert calculator.travelling_to_cta?
+        end
+
+        should 'return false if travelling_to_cta_answer is "no"' do
+          calculator = UkVisaCalculator.new
+          calculator.travelling_to_cta_answer = 'no'
+          refute calculator.travelling_to_cta?
+        end
+      end
     end
   end
 end
