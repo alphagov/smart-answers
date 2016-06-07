@@ -6,6 +6,7 @@ module SmartAnswer::Calculators
     attr_accessor :circumstances
     attr_accessor :date_of_birth
     attr_accessor :benefits_claimed
+    attr_accessor :disabled_or_have_children
 
     def initialize(attributes = {})
       super

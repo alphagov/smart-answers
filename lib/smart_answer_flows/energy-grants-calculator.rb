@@ -198,14 +198,18 @@ module SmartAnswer
         option :pensioner_premium
         option :work_support_esa
 
-        calculate :incomesupp_jobseekers_1 do |response|
-          case response
+        on_response do |response|
+          calculator.disabled_or_have_children = response
+        end
+
+        calculate :incomesupp_jobseekers_1 do
+          case calculator.disabled_or_have_children
           when 'disabled', 'disabled_child', 'child_under_5', 'pensioner_premium'
             :incomesupp_jobseekers_1
           end
         end
-        calculate :incomesupp_jobseekers_2 do |response|
-          case response
+        calculate :incomesupp_jobseekers_2 do
+          case calculator.disabled_or_have_children
           when 'child_under_16', 'work_support_esa'
             if calculator.circumstances.include?('social_housing') || (calculator.benefits_claimed.include?('working_tax_credit') && age_variant != :over_60)
               nil
@@ -215,8 +219,8 @@ module SmartAnswer
           end
         end
 
-        calculate :may_qualify_for_affordable_warmth_obligation do |response|
-          response != 'none' && calculator.benefits_claimed.include?('universal_credit')
+        calculate :may_qualify_for_affordable_warmth_obligation do
+          calculator.disabled_or_have_children != 'none' && calculator.benefits_claimed.include?('universal_credit')
         end
 
         next_node do
