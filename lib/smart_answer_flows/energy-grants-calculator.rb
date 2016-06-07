@@ -237,16 +237,19 @@ module SmartAnswer
         option :"on-or-after-1995"
         option :"1940s-1984"
         option :"before-1940"
-        save_input_as :property_age
 
-        calculate :modern do |response|
-          %w(on-or-after-1995).include?(response)
+        on_response do |response|
+          calculator.property_age = response
         end
-        calculate :older do |response|
-          %w(1940s-1984).include?(response)
+
+        calculate :modern do
+          %w(on-or-after-1995).include?(calculator.property_age)
         end
-        calculate :historic do |response|
-          %w(before-1940).include?(response)
+        calculate :older do
+          %w(1940s-1984).include?(calculator.property_age)
+        end
+        calculate :historic do
+          %w(before-1940).include?(calculator.property_age)
         end
 
         next_node do
