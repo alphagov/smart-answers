@@ -37,7 +37,7 @@
     <%= render partial: 'may_qualify_for_affordable_warmth_obligation.govspeak.erb' %>
   <% end %>
   <%= render partial: 'smartmeters.govspeak.erb' %>
-  <% if calculator.circumstances.include?('benefits') or bills_help %>
+  <% if calculator.circumstances.include?('benefits') or calculator.bills_help? %>
 
     Renewable heating and Microgeneration measures could also help reduce your bill.
   <% end %>

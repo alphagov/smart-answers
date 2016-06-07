@@ -23,9 +23,6 @@ module SmartAnswer
         calculate :incomesupp_jobseekers_2 do
           nil
         end
-        calculate :bills_help do
-          %w(help_with_fuel_bill).include?(calculator.which_help) ? :bills_help : nil
-        end
         calculate :measure_help do
           %w(help_energy_efficiency help_boiler_measure).include?(calculator.which_help) ? :measure_help : nil
         end
@@ -108,7 +105,7 @@ module SmartAnswer
         next_node do
           if calculator.circumstances.include?('benefits')
             question :which_benefits?
-          elsif bills_help
+          elsif calculator.bills_help?
             outcome :outcome_help_with_bills # outcome 1
           else
             question :when_property_built? # Q6
@@ -152,14 +149,14 @@ module SmartAnswer
 
         next_node do
           if calculator.benefits_claimed == %w(pension_credit) || calculator.benefits_claimed == %w(child_tax_credit)
-            if bills_help
+            if calculator.bills_help?
               outcome :outcome_help_with_bills # outcome 1
             else
               question :when_property_built? # Q6
             end
           elsif disabled_or_have_children_question
             question :disabled_or_have_children? # Q5
-          elsif bills_help
+          elsif calculator.bills_help?
             outcome :outcome_help_with_bills # outcome 1
           else
             question :when_property_built? # Q6
@@ -192,7 +189,7 @@ module SmartAnswer
         end
 
         next_node do
-          if bills_help
+          if calculator.bills_help?
             outcome :outcome_help_with_bills # outcome 1
           else
             question :when_property_built? # Q6

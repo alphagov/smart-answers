@@ -39,5 +39,9 @@ module SmartAnswer::Calculators
         :over_60
       end
     end
+
+    def bills_help?
+      %w(help_with_fuel_bill).include?(which_help) ? :bills_help : nil
+    end
   end
 end

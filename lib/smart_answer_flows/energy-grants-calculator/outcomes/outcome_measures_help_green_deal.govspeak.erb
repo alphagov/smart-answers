@@ -37,7 +37,7 @@
     <%= render partial: 'header_windows_and_doors.govspeak.erb' %>
     <%= render partial: 'opt_replacement_glazing.govspeak.erb' %>
   <% end %>
-  <% unless bills_help %>
+  <% unless calculator.bills_help? %>
     <%= render partial: 'opt_renewal_heat.govspeak.erb' %>
   <% end %>
   <%= render partial: 'help_and_advice.govspeak.erb' %>
