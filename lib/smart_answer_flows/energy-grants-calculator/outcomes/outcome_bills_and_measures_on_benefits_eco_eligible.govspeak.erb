@@ -10,7 +10,7 @@
   <% if under_green_deal %>
     <%= render partial: 'callout_under_green_deal.govspeak.erb' %>
   <% end %>
-  <% if both_help %>
+  <% if calculator.both_help? %>
     <% if calculator.age_variant == :winter_fuel_payment %>
       <%= render partial: 'winter_fuel_payments.govspeak.erb' %>
     <% end %>

@@ -47,5 +47,9 @@ module SmartAnswer::Calculators
     def measure_help?
       %w(help_energy_efficiency help_boiler_measure).include?(which_help)
     end
+
+    def both_help?
+      %w(all_help).include?(which_help) ? :both_help : nil
+    end
   end
 end

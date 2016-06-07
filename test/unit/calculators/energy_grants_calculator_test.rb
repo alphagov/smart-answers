@@ -68,6 +68,18 @@ module SmartAnswer::Calculators
       end
     end
 
+    context '#both_help?' do
+      should 'return true if which_help is the all_help option' do
+        @calculator.which_help = 'all_help'
+        assert @calculator.both_help?
+      end
+
+      should 'return false if which_help is not the all_help option' do
+        @calculator.which_help = 'help_energy_efficiency'
+        refute @calculator.both_help?
+      end
+    end
+
     context '#incomesupp_jobseekers_1' do
       should 'return nil by default i.e. when no responses have been set' do
         assert_nil @calculator.incomesupp_jobseekers_1
