@@ -175,7 +175,7 @@ module SmartAnswer
               outcome :outcome_opposite_sex_marriage_in_poland_when_residing_in_uk_or_poland
             elsif calculator.ceremony_country == 'slovenia'
               outcome :outcome_opposite_sex_marriage_in_slovenia_when_residing_in_uk_or_slovenia
-            elsif calculator.ceremony_country == 'denmark' && calculator.resident_of_uk?
+            elsif calculator.ceremony_country == 'denmark' && (calculator.resident_of_uk? || calculator.resident_of_ceremony_country?)
               outcome :outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark
             elsif calculator.opposite_sex_consular_cni_country? ||
                 (
