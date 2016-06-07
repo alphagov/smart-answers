@@ -8,6 +8,7 @@ module SmartAnswer::Calculators
     attr_accessor :benefits_claimed
     attr_accessor :disabled_or_have_children
     attr_accessor :property_age
+    attr_accessor :property_type
 
     def initialize(attributes = {})
       super

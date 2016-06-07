@@ -14,11 +14,11 @@
   <% unless (features & %w(draught_proofing)).any? %>
     <%= render partial: 'opt_draught_proofing.govspeak.erb' %>
   <% end %>
-  <% unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat' %>
+  <% unless (features & %w(loft_insulation loft_attic_conversion)).any? || calculator.property_type == 'flat' %>
     <%= render partial: 'opt_loft_roof_insulation.govspeak.erb' %>
   <% end %>
   <% unless flat_type == "top_floor" %>
-    <% if (features & %w(loft_attic_conversion)).any? || property_type == 'flat' %>
+    <% if (features & %w(loft_attic_conversion)).any? || calculator.property_type == 'flat' %>
       <%= render partial: 'opt_room_roof_insulation.govspeak.erb' %>
     <% end %>
     <% unless modern %>

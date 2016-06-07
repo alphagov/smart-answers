@@ -729,7 +729,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         add_response 'none'
       end
       should "take you to the green deal outcome with these variations" do
-        assert_state_variable :property_type, "house"
+        assert_equal "house", current_state.calculator.property_type
         assert_current_node :outcome_measures_help_green_deal
       end
     end
@@ -742,7 +742,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         add_response 'mains_gas'
       end
       should "take you to green deal outcome with mains gas variants" do
-        assert_state_variable :property_type, "house"
+        assert_equal "house", current_state.calculator.property_type
         assert_current_node :outcome_measures_help_green_deal
       end
     end
@@ -774,7 +774,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         add_response 'loft_attic_conversion'
       end
       should "take you to the green deal outcome with these variations" do
-        assert_state_variable :property_type, "flat"
+        assert_equal "flat", current_state.calculator.property_type
         assert_current_node :outcome_measures_help_green_deal
       end
     end
@@ -789,7 +789,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         add_response 'loft_attic_conversion'
       end
       should "take you to the green deal outcome with these variations" do
-        assert_state_variable :property_type, "flat"
+        assert_equal "flat", current_state.calculator.property_type
         assert_current_node :outcome_measures_help_green_deal
       end
     end
@@ -803,7 +803,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         add_response 'mains_gas'
       end
       should "take you to green deal outcome with mains gas variants" do
-        assert_state_variable :property_type, "house"
+        assert_equal "house", current_state.calculator.property_type
         assert_current_node :outcome_measures_help_green_deal
       end
     end

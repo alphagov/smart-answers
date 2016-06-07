@@ -261,10 +261,13 @@ module SmartAnswer
       multiple_choice :type_of_property? do
         option :house
         option :flat
-        save_input_as :property_type
 
-        next_node do |response|
-          case response
+        on_response do |response|
+          calculator.property_type = response
+        end
+
+        next_node do
+          case calculator.property_type
           when 'house'
             if modern
               question :home_features_modern?
