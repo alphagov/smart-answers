@@ -309,12 +309,12 @@ module SmartAnswer
         option :loft_attic_conversion
         option :draught_proofing
 
-        calculate :features do |response|
-          response.split(",")
+        on_response do |response|
+          calculator.features = response.split(",")
         end
 
-        next_node_calculation(:modern_and_gas_and_electric_heating) do |response|
-          modern && response.include?('mains_gas') && response.include?('electric_heating')
+        next_node_calculation(:modern_and_gas_and_electric_heating) do
+          modern && calculator.features.include?('mains_gas') && calculator.features.include?('electric_heating')
         end
 
         next_node_calculation(:measure_help_and_property_permission_circumstance) do
@@ -353,8 +353,8 @@ module SmartAnswer
         option :modern_boiler
         option :draught_proofing
 
-        calculate :features do |response|
-          response.split(",")
+        on_response do |response|
+          calculator.features = response.split(",")
         end
 
         next_node_calculation(:measure_help_and_property_permission_circumstance) do
@@ -392,8 +392,8 @@ module SmartAnswer
         option :modern_boiler
         option :draught_proofing
 
-        calculate :features do |response|
-          response.split(",")
+        on_response do |response|
+          calculator.features = response.split(",")
         end
 
         next_node_calculation(:measure_help_and_property_permission_circumstance) do

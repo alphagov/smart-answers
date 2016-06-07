@@ -10,11 +10,13 @@ module SmartAnswer::Calculators
     attr_accessor :property_age
     attr_accessor :property_type
     attr_accessor :flat_type
+    attr_accessor :features
 
     def initialize(attributes = {})
       super
       @circumstances ||= []
       @benefits_claimed ||= []
+      @features ||= []
     end
   end
 end
