@@ -17,7 +17,7 @@
   <% unless (calculator.features & %w(loft_insulation loft_attic_conversion)).any? || calculator.property_type == 'flat' %>
     <%= render partial: 'opt_loft_roof_insulation.govspeak.erb' %>
   <% end %>
-  <% unless flat_type == "top_floor" %>
+  <% unless calculator.flat_type == "top_floor" %>
     <% if (calculator.features & %w(loft_attic_conversion)).any? || calculator.property_type == 'flat' %>
       <%= render partial: 'opt_room_roof_insulation.govspeak.erb' %>
     <% end %>

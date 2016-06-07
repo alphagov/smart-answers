@@ -20,9 +20,6 @@ module SmartAnswer
           calculator.which_help = response
         end
 
-        calculate :flat_type do
-          nil
-        end
         calculate :may_qualify_for_affordable_warmth_obligation do
           nil
         end
@@ -428,16 +425,9 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_measures_help_green_deal do
-        precalculate :flat_type do
-          calculator.flat_type
-        end
-      end
+      outcome :outcome_measures_help_green_deal
 
       outcome :outcome_bills_and_measures_no_benefits do
-        precalculate :flat_type do
-          calculator.flat_type
-        end
         precalculate :under_green_deal do
           both_help && !calculator.circumstances.include?('benefits')
         end
@@ -450,9 +440,6 @@ module SmartAnswer
         precalculate :incomesupp_jobseekers_1 do
           incomesupp_jobseekers_1
         end
-        precalculate :flat_type do
-          calculator.flat_type
-        end
         precalculate :under_green_deal do
           !((both_help && calculator.circumstances.include?('property')) || (calculator.circumstances.include?('permission') && calculator.circumstances.include?('pension_credit')) || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || (calculator.benefits_claimed & %w(esa child_tax_credit working_tax_credit)).any?)
         end
@@ -464,9 +451,6 @@ module SmartAnswer
         end
         precalculate :incomesupp_jobseekers_1 do
           incomesupp_jobseekers_1
-        end
-        precalculate :flat_type do
-          calculator.flat_type
         end
         precalculate :under_green_deal do
           both_help && age_variant == :over_60 && (calculator.benefits_claimed & %w(esa child_tax_credit working_tax_credit) || incomesupp_jobseekers_1 || incomesupp_jobseekers_2)
