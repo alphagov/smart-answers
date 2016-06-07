@@ -17,5 +17,11 @@ module SmartAnswer::Calculators
         assert_equal [], @calculator.benefits_claimed
       end
     end
+
+    context '#incomesupp_jobseekers_1' do
+      should 'return nil by default i.e. when no responses have been set' do
+        assert_nil @calculator.incomesupp_jobseekers_1
+      end
+    end
   end
 end

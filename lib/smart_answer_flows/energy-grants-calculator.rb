@@ -20,9 +20,6 @@ module SmartAnswer
           calculator.which_help = response
         end
 
-        calculate :incomesupp_jobseekers_1 do
-          nil
-        end
         calculate :incomesupp_jobseekers_2 do
           nil
         end
@@ -403,11 +400,7 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_help_with_bills do
-        precalculate :incomesupp_jobseekers_1 do
-          calculator.incomesupp_jobseekers_1
-        end
-      end
+      outcome :outcome_help_with_bills
 
       outcome :outcome_measures_help_green_deal
 
@@ -418,18 +411,12 @@ module SmartAnswer
       end
 
       outcome :outcome_bills_and_measures_on_benefits_eco_eligible do
-        precalculate :incomesupp_jobseekers_1 do
-          calculator.incomesupp_jobseekers_1
-        end
         precalculate :under_green_deal do
           !((both_help && calculator.circumstances.include?('property')) || (calculator.circumstances.include?('permission') && calculator.circumstances.include?('pension_credit')) || calculator.incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || (calculator.benefits_claimed & %w(esa child_tax_credit working_tax_credit)).any?)
         end
       end
 
       outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible do
-        precalculate :incomesupp_jobseekers_1 do
-          calculator.incomesupp_jobseekers_1
-        end
         precalculate :under_green_deal do
           both_help && age_variant == :over_60 && (calculator.benefits_claimed & %w(esa child_tax_credit working_tax_credit) || calculator.incomesupp_jobseekers_1 || incomesupp_jobseekers_2)
         end
