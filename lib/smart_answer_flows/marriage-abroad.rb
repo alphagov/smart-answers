@@ -173,6 +173,8 @@ module SmartAnswer
               outcome :outcome_opposite_sex_marriage_in_poland_when_residing_in_uk_or_poland
             elsif calculator.ceremony_country == 'slovenia'
               outcome :outcome_opposite_sex_marriage_in_slovenia_when_residing_in_uk_or_slovenia
+            elsif calculator.ceremony_country == 'denmark' && (calculator.resident_of_uk? || calculator.resident_of_ceremony_country?)
+              outcome :outcome_ceremonies_in_denmark
             elsif calculator.opposite_sex_consular_cni_country? ||
                 (
                   calculator.resident_of_uk? &&
@@ -230,6 +232,8 @@ module SmartAnswer
                 ) ||
                 calculator.same_sex_marriage_and_civil_partnership?
               outcome :outcome_same_sex_marriage_and_civil_partnership
+            elsif calculator.ceremony_country == 'denmark' && (calculator.resident_of_uk? || calculator.resident_of_ceremony_country?)
+              outcome :outcome_ceremonies_in_denmark
             elsif calculator.civil_partnership_equivalent_country?
               outcome :outcome_same_sex_civil_partnership
             elsif calculator.civil_partnership_cni_not_required_country?
@@ -245,6 +249,7 @@ module SmartAnswer
         end
       end
 
+      outcome :outcome_ceremonies_in_denmark
       outcome :outcome_ceremonies_in_dominican_republic
       outcome :outcome_ceremonies_in_ireland
       outcome :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
