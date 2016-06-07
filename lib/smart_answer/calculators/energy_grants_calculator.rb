@@ -22,5 +22,12 @@ module SmartAnswer::Calculators
     def may_qualify_for_affordable_warmth_obligation?
       disabled_or_have_children != 'none' && benefits_claimed.include?('universal_credit')
     end
+
+    def incomesupp_jobseekers_1
+      case disabled_or_have_children
+      when 'disabled', 'disabled_child', 'child_under_5', 'pensioner_premium'
+        :incomesupp_jobseekers_1
+      end
+    end
   end
 end

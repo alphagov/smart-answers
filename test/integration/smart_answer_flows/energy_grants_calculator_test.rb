@@ -116,7 +116,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
               end
               should "take you to help with bills outcome" do
                 assert_current_node :outcome_help_with_bills # outcome 1
-                assert_state_variable 'incomesupp_jobseekers_1', :incomesupp_jobseekers_1
+                assert_equal :incomesupp_jobseekers_1, current_state.calculator.incomesupp_jobseekers_1
               end
             end
           end
@@ -311,7 +311,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             end
             should "ask when property built" do
               assert_current_node :when_property_built?
-              assert_state_variable 'incomesupp_jobseekers_1', :incomesupp_jobseekers_1
+              assert_equal :incomesupp_jobseekers_1, current_state.calculator.incomesupp_jobseekers_1
             end
             context "answer older" do
               setup do
