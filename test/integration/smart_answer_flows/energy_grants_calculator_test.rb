@@ -758,7 +758,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         add_response 'mains_gas,electric_heating'
       end
       should "take you to result 4 no help" do
-        assert_state_variable :flat_type, "top_floor"
+        assert_equal "top_floor", current_state.calculator.flat_type
         assert_current_node :outcome_no_green_deal_no_energy_measures
       end
     end

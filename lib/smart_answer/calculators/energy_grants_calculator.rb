@@ -9,6 +9,7 @@ module SmartAnswer::Calculators
     attr_accessor :disabled_or_have_children
     attr_accessor :property_age
     attr_accessor :property_type
+    attr_accessor :flat_type
 
     def initialize(attributes = {})
       super

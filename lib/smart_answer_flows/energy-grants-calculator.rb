@@ -286,7 +286,10 @@ module SmartAnswer
       multiple_choice :type_of_flat? do
         option :top_floor
         option :ground_floor
-        save_input_as :flat_type
+
+        on_response do |response|
+          calculator.flat_type = response
+        end
 
         next_node do
           if modern
@@ -427,13 +430,13 @@ module SmartAnswer
 
       outcome :outcome_measures_help_green_deal do
         precalculate :flat_type do
-          flat_type
+          calculator.flat_type
         end
       end
 
       outcome :outcome_bills_and_measures_no_benefits do
         precalculate :flat_type do
-          flat_type
+          calculator.flat_type
         end
         precalculate :under_green_deal do
           both_help && !calculator.circumstances.include?('benefits')
@@ -448,7 +451,7 @@ module SmartAnswer
           incomesupp_jobseekers_1
         end
         precalculate :flat_type do
-          flat_type
+          calculator.flat_type
         end
         precalculate :under_green_deal do
           !((both_help && calculator.circumstances.include?('property')) || (calculator.circumstances.include?('permission') && calculator.circumstances.include?('pension_credit')) || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || (calculator.benefits_claimed & %w(esa child_tax_credit working_tax_credit)).any?)
@@ -463,7 +466,7 @@ module SmartAnswer
           incomesupp_jobseekers_1
         end
         precalculate :flat_type do
-          flat_type
+          calculator.flat_type
         end
         precalculate :under_green_deal do
           both_help && age_variant == :over_60 && (calculator.benefits_claimed & %w(esa child_tax_credit working_tax_credit) || incomesupp_jobseekers_1 || incomesupp_jobseekers_2)
