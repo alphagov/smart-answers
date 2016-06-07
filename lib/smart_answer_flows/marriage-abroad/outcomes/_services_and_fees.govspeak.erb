@@ -7,30 +7,30 @@
              collection: calculator.services,
              as: :service,
              locals: { calculator: calculator } %>
-<% end %>
 
-<% unless calculator.country_without_consular_facilities? ||
-   calculator.ceremony_country == 'indonesia' ||
-   calculator.ceremony_country == 'monaco' ||
-   calculator.ceremony_country == 'france' ||
-   calculator.ceremony_country == 'new-caledonia' ||
-   calculator.ceremony_country == 'wallis-and-futuna' ||
-   calculator.ceremony_country == 'french-guiana' ||
-   calculator.ceremony_country == 'french-polynesia' ||
-   calculator.ceremony_country == 'guadeloupe' ||
-   calculator.ceremony_country == 'martinique' ||
-   calculator.ceremony_country == 'mayotte' ||
-   calculator.ceremony_country == 'reunion' ||
-   calculator.ceremony_country == 'st-pierre-and-miquelon' %>
+  <% unless calculator.country_without_consular_facilities? ||
+     calculator.ceremony_country == 'indonesia' ||
+     calculator.ceremony_country == 'monaco' ||
+     calculator.ceremony_country == 'france' ||
+     calculator.ceremony_country == 'new-caledonia' ||
+     calculator.ceremony_country == 'wallis-and-futuna' ||
+     calculator.ceremony_country == 'french-guiana' ||
+     calculator.ceremony_country == 'french-polynesia' ||
+     calculator.ceremony_country == 'guadeloupe' ||
+     calculator.ceremony_country == 'martinique' ||
+     calculator.ceremony_country == 'mayotte' ||
+     calculator.ceremony_country == 'reunion' ||
+     calculator.ceremony_country == 'st-pierre-and-miquelon' %>
 
-  <% if calculator.ceremony_country == 'vietnam' %>
-    <%= render partial: 'link_to_consular_fees_pay_in_sterling_or_local_currency.govspeak.erb',
-               locals: { calculator: calculator } %>
+    <% if calculator.ceremony_country == 'vietnam' %>
+      <%= render partial: 'link_to_consular_fees_pay_in_sterling_or_local_currency.govspeak.erb',
+                 locals: { calculator: calculator } %>
 
-  <% elsif calculator.ceremony_country != 'cambodia' &&
-    !(calculator.ceremony_country == 'brazil' && calculator.resident_outside_of_third_country?) %>
-    <%= render partial: 'link_to_consular_fees.govspeak.erb',
-               locals: { calculator: calculator } %>
+    <% elsif calculator.ceremony_country != 'cambodia' &&
+      !(calculator.ceremony_country == 'brazil' && calculator.resident_outside_of_third_country?) %>
+      <%= render partial: 'link_to_consular_fees.govspeak.erb',
+                 locals: { calculator: calculator } %>
+    <% end %>
   <% end %>
 <% end %>
 
