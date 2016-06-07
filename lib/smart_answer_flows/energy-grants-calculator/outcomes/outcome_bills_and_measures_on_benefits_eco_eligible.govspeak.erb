@@ -11,7 +11,7 @@
     <%= render partial: 'callout_under_green_deal.govspeak.erb' %>
   <% end %>
   <% if both_help %>
-    <% if age_variant == :winter_fuel_payment %>
+    <% if calculator.age_variant == :winter_fuel_payment %>
       <%= render partial: 'winter_fuel_payments.govspeak.erb' %>
     <% end %>
     <% if (calculator.benefits_claimed & %w(esa pension_credit)).any? || calculator.incomesupp_jobseekers_1 %>
@@ -20,7 +20,7 @@
       <% end %>
       <%= render partial: 'cold_weather_payment.govspeak.erb' %>
     <% end %>
-    <% if (calculator.benefits_claimed & %w(esa child_tax_credit pension_credit)).any? || calculator.incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || calculator.benefits_claimed.include?('working_tax_credit') && age_variant == :over_60 %>
+    <% if (calculator.benefits_claimed & %w(esa child_tax_credit pension_credit)).any? || calculator.incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || calculator.benefits_claimed.include?('working_tax_credit') && calculator.age_variant == :over_60 %>
       <%= render partial: 'energy_company_obligation.govspeak.erb' %>
     <% end %>
   <% end %>

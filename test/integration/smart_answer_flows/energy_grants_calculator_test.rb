@@ -49,7 +49,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             add_response ' 4/07/1951'
           end
           should "be eligible for winter fuel payment" do
-            assert_state_variable 'age_variant', :winter_fuel_payment
+            assert_equal :winter_fuel_payment, current_state.calculator.age_variant
           end
           should "take you to help with bills outcome" do
             assert_current_node :outcome_help_with_bills # outcome 1
@@ -60,7 +60,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             add_response 60.years.ago(Date.today).strftime("%Y-%m-%d")
           end
           should "store over 60 variable" do
-            assert_state_variable 'age_variant', :over_60
+            assert_equal :over_60, current_state.calculator.age_variant
           end
           should "take you to help with bills outcome" do
             assert_current_node :outcome_help_with_bills # outcome 1
@@ -89,7 +89,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             add_response ' 4/07/1951'
           end
           should "be eligible for winter fuel payment" do
-            assert_state_variable 'age_variant', :winter_fuel_payment
+            assert_equal :winter_fuel_payment, current_state.calculator.age_variant
           end
           should "ask which benefits you're claiming" do
             assert_current_node :which_benefits?
@@ -187,7 +187,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             add_response 60.years.ago(Date.today).strftime("%Y-%m-%d")
           end
           should "store over 60 variable" do
-            assert_state_variable 'age_variant', :over_60
+            assert_equal :over_60, current_state.calculator.age_variant
           end
           should "ask which benefits you're claiming" do
             assert_current_node :which_benefits?

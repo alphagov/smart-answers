@@ -23,10 +23,6 @@ module SmartAnswer
         calculate :incomesupp_jobseekers_2 do
           nil
         end
-        calculate :age_variant do
-          nil
-        end
-
         calculate :bills_help do
           %w(help_with_fuel_bill).include?(calculator.which_help) ? :bills_help : nil
         end
@@ -109,15 +105,6 @@ module SmartAnswer
           calculator.date_of_birth = response
         end
 
-        calculate :age_variant do
-          dob = calculator.date_of_birth
-          if dob < Date.new(1951, 7, 5)
-            :winter_fuel_payment
-          elsif dob < 60.years.ago(Date.today + 1)
-            :over_60
-          end
-        end
-
         next_node do
           if calculator.circumstances.include?('benefits')
             question :which_benefits?
@@ -145,7 +132,7 @@ module SmartAnswer
 
         calculate :incomesupp_jobseekers_2 do
           if calculator.benefits_claimed == %w(working_tax_credit)
-            if age_variant == :over_60
+            if calculator.age_variant == :over_60
               :incomesupp_jobseekers_2
             end
           end
@@ -196,7 +183,7 @@ module SmartAnswer
         calculate :incomesupp_jobseekers_2 do
           case calculator.disabled_or_have_children
           when 'child_under_16', 'work_support_esa'
-            if calculator.circumstances.include?('social_housing') || (calculator.benefits_claimed.include?('working_tax_credit') && age_variant != :over_60)
+            if calculator.circumstances.include?('social_housing') || (calculator.benefits_claimed.include?('working_tax_credit') && calculator.age_variant != :over_60)
               nil
             else
               :incomesupp_jobseekers_2
@@ -418,7 +405,7 @@ module SmartAnswer
 
       outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible do
         precalculate :under_green_deal do
-          both_help && age_variant == :over_60 && (calculator.benefits_claimed & %w(esa child_tax_credit working_tax_credit) || calculator.incomesupp_jobseekers_1 || incomesupp_jobseekers_2)
+          both_help && calculator.age_variant == :over_60 && (calculator.benefits_claimed & %w(esa child_tax_credit working_tax_credit) || calculator.incomesupp_jobseekers_1 || incomesupp_jobseekers_2)
         end
       end
 

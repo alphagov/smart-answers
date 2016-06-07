@@ -15,6 +15,7 @@ module SmartAnswer::Calculators
     def initialize(attributes = {})
       super
       @circumstances ||= []
+      @date_of_birth ||= Date.today
       @benefits_claimed ||= []
       @features ||= []
     end
@@ -27,6 +28,15 @@ module SmartAnswer::Calculators
       case disabled_or_have_children
       when 'disabled', 'disabled_child', 'child_under_5', 'pensioner_premium'
         :incomesupp_jobseekers_1
+      end
+    end
+
+    def age_variant
+      dob = date_of_birth
+      if dob < Date.new(1951, 7, 5)
+        :winter_fuel_payment
+      elsif dob < 60.years.ago(Date.today + 1)
+        :over_60
       end
     end
   end

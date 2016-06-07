@@ -18,6 +18,27 @@ module SmartAnswer::Calculators
       end
     end
 
+    context '#age_variant' do
+      should 'return :winter_fuel_payment if date of birth before 05-07-1951' do
+        @calculator.date_of_birth = Date.new(1951, 7, 5) - 1
+        assert_equal :winter_fuel_payment, @calculator.age_variant
+      end
+
+      should 'return :over_60 if date of birth before 60 years ago tomorrow' do
+        @calculator.date_of_birth = 60.years.ago(Date.tomorrow) - 1
+        assert_equal :over_60, @calculator.age_variant
+      end
+
+      should 'return nil if date of birth on or after 60 years ago tomorrow' do
+        @calculator.date_of_birth = 60.years.ago(Date.tomorrow)
+        assert_nil @calculator.age_variant
+      end
+
+      should 'return nil by default i.e. no date of birth specified' do
+        assert_nil @calculator.age_variant
+      end
+    end
+
     context '#incomesupp_jobseekers_1' do
       should 'return nil by default i.e. when no responses have been set' do
         assert_nil @calculator.incomesupp_jobseekers_1
