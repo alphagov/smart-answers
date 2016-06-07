@@ -23,9 +23,6 @@ module SmartAnswer
         calculate :incomesupp_jobseekers_2 do
           nil
         end
-        calculate :measure_help do
-          %w(help_energy_efficiency help_boiler_measure).include?(calculator.which_help) ? :measure_help : nil
-        end
         calculate :both_help do
           %w(all_help).include?(calculator.which_help) ? :both_help : nil
         end
@@ -283,7 +280,7 @@ module SmartAnswer
         end
 
         next_node_calculation(:measure_help_and_property_permission_circumstance) do
-          measure_help && (calculator.circumstances & %w(property permission)).any?
+          calculator.measure_help? && (calculator.circumstances & %w(property permission)).any?
         end
 
         next_node_calculation(:no_benefits) { calculator.circumstances.exclude?('benefits') }
@@ -323,7 +320,7 @@ module SmartAnswer
         end
 
         next_node_calculation(:measure_help_and_property_permission_circumstance) do
-          measure_help && (calculator.circumstances & %w(property permission)).any?
+          calculator.measure_help? && (calculator.circumstances & %w(property permission)).any?
         end
 
         next_node_calculation(:no_benefits) { calculator.circumstances.exclude?('benefits') }
@@ -362,7 +359,7 @@ module SmartAnswer
         end
 
         next_node_calculation(:measure_help_and_property_permission_circumstance) do
-          measure_help && (calculator.circumstances & %w(property permission)).any?
+          calculator.measure_help? && (calculator.circumstances & %w(property permission)).any?
         end
 
         next_node_calculation(:no_benefits) { calculator.circumstances.exclude?('benefits') }

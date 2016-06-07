@@ -43,5 +43,9 @@ module SmartAnswer::Calculators
     def bills_help?
       %w(help_with_fuel_bill).include?(which_help)
     end
+
+    def measure_help?
+      %w(help_energy_efficiency help_boiler_measure).include?(which_help) ? :measure_help : nil
+    end
   end
 end

@@ -51,6 +51,23 @@ module SmartAnswer::Calculators
       end
     end
 
+    context '#measure_help?' do
+      should 'return true if which_help is the help_energy_efficiency option' do
+        @calculator.which_help = 'help_energy_efficiency'
+        assert @calculator.measure_help?
+      end
+
+      should 'return true if which_help is the help_boiler_measure option' do
+        @calculator.which_help = 'help_boiler_measure'
+        assert @calculator.measure_help?
+      end
+
+      should 'return false if which_help is any other option' do
+        @calculator.which_help = 'help_with_fuel_bill'
+        refute @calculator.measure_help?
+      end
+    end
+
     context '#incomesupp_jobseekers_1' do
       should 'return nil by default i.e. when no responses have been set' do
         assert_nil @calculator.incomesupp_jobseekers_1
