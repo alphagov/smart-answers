@@ -20,9 +20,6 @@ module SmartAnswer
           calculator.which_help = response
         end
 
-        calculate :may_qualify_for_affordable_warmth_obligation do
-          nil
-        end
         calculate :incomesupp_jobseekers_1 do
           nil
         end
@@ -214,10 +211,6 @@ module SmartAnswer
               :incomesupp_jobseekers_2
             end
           end
-        end
-
-        calculate :may_qualify_for_affordable_warmth_obligation do
-          calculator.disabled_or_have_children != 'none' && calculator.benefits_claimed.include?('universal_credit')
         end
 
         next_node do
@@ -418,7 +411,7 @@ module SmartAnswer
 
       outcome :outcome_help_with_bills do
         precalculate :may_qualify_for_affordable_warmth_obligation do
-          may_qualify_for_affordable_warmth_obligation
+          calculator.may_qualify_for_affordable_warmth_obligation?
         end
         precalculate :incomesupp_jobseekers_1 do
           incomesupp_jobseekers_1
@@ -435,7 +428,7 @@ module SmartAnswer
 
       outcome :outcome_bills_and_measures_on_benefits_eco_eligible do
         precalculate :may_qualify_for_affordable_warmth_obligation do
-          may_qualify_for_affordable_warmth_obligation
+          calculator.may_qualify_for_affordable_warmth_obligation?
         end
         precalculate :incomesupp_jobseekers_1 do
           incomesupp_jobseekers_1
@@ -447,7 +440,7 @@ module SmartAnswer
 
       outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible do
         precalculate :may_qualify_for_affordable_warmth_obligation do
-          may_qualify_for_affordable_warmth_obligation
+          calculator.may_qualify_for_affordable_warmth_obligation?
         end
         precalculate :incomesupp_jobseekers_1 do
           incomesupp_jobseekers_1

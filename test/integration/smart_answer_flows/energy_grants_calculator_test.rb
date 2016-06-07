@@ -150,7 +150,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
               end
               should "take you to help with bills outcome with may_qualify_for_affordable_warmth_obligation" do
                 assert_current_node :outcome_help_with_bills
-                assert_state_variable 'may_qualify_for_affordable_warmth_obligation', true
+                assert current_state.calculator.may_qualify_for_affordable_warmth_obligation?
               end
             end
             context "answer with none" do
@@ -159,7 +159,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
               end
               should "take you to help with bills outcome without may_qualify_for_affordable_warmth_obligation" do
                 assert_current_node :outcome_help_with_bills
-                assert_state_variable 'may_qualify_for_affordable_warmth_obligation', false
+                refute current_state.calculator.may_qualify_for_affordable_warmth_obligation?
               end
             end
           end

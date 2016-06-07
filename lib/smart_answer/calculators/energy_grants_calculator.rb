@@ -18,5 +18,9 @@ module SmartAnswer::Calculators
       @benefits_claimed ||= []
       @features ||= []
     end
+
+    def may_qualify_for_affordable_warmth_obligation?
+      disabled_or_have_children != 'none' && benefits_claimed.include?('universal_credit')
+    end
   end
 end
