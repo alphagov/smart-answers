@@ -1,7 +1,7 @@
 ---
-lib/smart_answer_flows/marriage-abroad.rb: 6e4450d1775032d2a0172f61596ebc8d
+lib/smart_answer_flows/marriage-abroad.rb: 88a25183a10a948b49ad076a844fca23
 test/data/marriage-abroad-questions-and-responses.yml: e6c8cd0871dc2f7e7fb166998de030fd
-test/data/marriage-abroad-responses-and-expected-results.yml: 52050d780eb6fcaeb6822b25c2d2913d
+test/data/marriage-abroad-responses-and-expected-results.yml: ed52824cc600aaca52f0e29f3ecb8971
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
 lib/smart_answer_flows/marriage-abroad/outcomes/_affirmation_os_translation_in_local_language_text.govspeak.erb: 4ac964ce5e41e3efaf0f43d11c71b2b7
 lib/smart_answer_flows/marriage-abroad/outcomes/_appointment_documents_in_vietnam.govspeak.erb: 6390e13560110a71b8a3c0dc018ff4cf
@@ -82,7 +82,11 @@ lib/smart_answer_flows/marriage-abroad/outcomes/_you_will_have_to_wait_to_get_ma
 lib/smart_answer_flows/marriage-abroad/outcomes/os_affirmation/_contact.govspeak.erb: 6cc6f30f8f2b076c5ccfc5e865663bc0
 lib/smart_answer_flows/marriage-abroad/outcomes/os_affirmation/_fees.govspeak.erb: 5682dcf976c23be3105eb3594fb78b49
 lib/smart_answer_flows/marriage-abroad/outcomes/os_affirmation/_what_you_need_to_do.govspeak.erb: d2a5e55dab4325f9a4ef7c912c8ae7a9
+<<<<<<< HEAD
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark.govspeak.erb: 0b12e7b2bcb3bd6ce15c1dcef56acc1c
+=======
+lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_denmark.govspeak.erb: b3b46bae0cd17348da1b62ace5eec633
+>>>>>>> ff6d7fb... Regenerate artefacts for marriage-abroad
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_dominican_republic.govspeak.erb: 46fd27d1f77099b3bd6b4082d67a5e03
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_ireland.govspeak.erb: 1c1f2dc4f9aafbfe87b91df96047ace6
 ? lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries.govspeak.erb
