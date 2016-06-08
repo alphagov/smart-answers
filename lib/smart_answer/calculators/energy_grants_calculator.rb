@@ -49,7 +49,7 @@ module SmartAnswer::Calculators
     end
 
     def both_help?
-      %w(all_help).include?(which_help) ? :both_help : nil
+      %w(all_help).include?(which_help)
     end
   end
 end
