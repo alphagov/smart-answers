@@ -118,10 +118,8 @@ module SmartAnswer
         end
 
         calculate :incomesupp_jobseekers_2 do
-          if calculator.benefits_claimed == %w(working_tax_credit)
-            if calculator.age_variant == :over_60
-              :incomesupp_jobseekers_2
-            end
+          if (calculator.benefits_claimed == %w(working_tax_credit)) && (calculator.age_variant == :over_60)
+            :incomesupp_jobseekers_2
           end
         end
 
