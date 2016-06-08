@@ -20,10 +20,6 @@ module SmartAnswer
           calculator.which_help = response
         end
 
-        calculate :incomesupp_jobseekers_2 do
-          nil
-        end
-
         next_node do
           case calculator.which_help
           when 'help_with_fuel_bill'
@@ -117,10 +113,6 @@ module SmartAnswer
           calculator.benefits_claimed = response.split(",")
         end
 
-        calculate :incomesupp_jobseekers_2 do
-          calculator.incomesupp_jobseekers_2
-        end
-
         next_node do
           if calculator.benefits_claimed == %w(pension_credit) || calculator.benefits_claimed == %w(child_tax_credit)
             if calculator.bills_help?
@@ -149,10 +141,6 @@ module SmartAnswer
 
         on_response do |response|
           calculator.disabled_or_have_children = response
-        end
-
-        calculate :incomesupp_jobseekers_2 do
-          calculator.incomesupp_jobseekers_2
         end
 
         next_node do
@@ -256,7 +244,7 @@ module SmartAnswer
         next_node_calculation(:no_benefits) { calculator.circumstances.exclude?('benefits') }
 
         next_node_calculation(:property_permission_circumstance_and_benefits) do
-          (calculator.circumstances & %w(property permission)).any? && ((calculator.benefits_claimed & %w(child_tax_credit esa pension_credit)).any? || calculator.incomesupp_jobseekers_1 || incomesupp_jobseekers_2)
+          (calculator.circumstances & %w(property permission)).any? && ((calculator.benefits_claimed & %w(child_tax_credit esa pension_credit)).any? || calculator.incomesupp_jobseekers_1 || calculator.incomesupp_jobseekers_2)
         end
 
         next_node do
@@ -296,7 +284,7 @@ module SmartAnswer
         next_node_calculation(:no_benefits) { calculator.circumstances.exclude?('benefits') }
 
         next_node_calculation(:property_permission_circumstance_and_benefits) do
-          (calculator.circumstances & %w(property permission)).any? && ((calculator.benefits_claimed & %w(child_tax_credit esa pension_credit)).any? || calculator.incomesupp_jobseekers_1 || incomesupp_jobseekers_2)
+          (calculator.circumstances & %w(property permission)).any? && ((calculator.benefits_claimed & %w(child_tax_credit esa pension_credit)).any? || calculator.incomesupp_jobseekers_1 || calculator.incomesupp_jobseekers_2)
         end
 
         next_node do
@@ -335,7 +323,7 @@ module SmartAnswer
         next_node_calculation(:no_benefits) { calculator.circumstances.exclude?('benefits') }
 
         next_node_calculation(:property_permission_circumstance_and_benefits) do
-          (calculator.circumstances & %w(property permission)).any? && ((calculator.benefits_claimed & %w(child_tax_credit esa pension_credit)).any? || calculator.incomesupp_jobseekers_1 || incomesupp_jobseekers_2)
+          (calculator.circumstances & %w(property permission)).any? && ((calculator.benefits_claimed & %w(child_tax_credit esa pension_credit)).any? || calculator.incomesupp_jobseekers_1 || calculator.incomesupp_jobseekers_2)
         end
 
         next_node do
@@ -363,13 +351,13 @@ module SmartAnswer
 
       outcome :outcome_bills_and_measures_on_benefits_eco_eligible do
         precalculate :under_green_deal do
-          !((calculator.both_help? && calculator.circumstances.include?('property')) || (calculator.circumstances.include?('permission') && calculator.circumstances.include?('pension_credit')) || calculator.incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || (calculator.benefits_claimed & %w(esa child_tax_credit working_tax_credit)).any?)
+          !((calculator.both_help? && calculator.circumstances.include?('property')) || (calculator.circumstances.include?('permission') && calculator.circumstances.include?('pension_credit')) || calculator.incomesupp_jobseekers_1 || calculator.incomesupp_jobseekers_2 || (calculator.benefits_claimed & %w(esa child_tax_credit working_tax_credit)).any?)
         end
       end
 
       outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible do
         precalculate :under_green_deal do
-          calculator.both_help? && calculator.age_variant == :over_60 && (calculator.benefits_claimed & %w(esa child_tax_credit working_tax_credit) || calculator.incomesupp_jobseekers_1 || incomesupp_jobseekers_2)
+          calculator.both_help? && calculator.age_variant == :over_60 && (calculator.benefits_claimed & %w(esa child_tax_credit working_tax_credit) || calculator.incomesupp_jobseekers_1 || calculator.incomesupp_jobseekers_2)
         end
       end
 

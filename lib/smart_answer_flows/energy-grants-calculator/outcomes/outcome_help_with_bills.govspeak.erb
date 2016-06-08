@@ -2,7 +2,7 @@
   <% if calculator.age_variant == :winter_fuel_payment %>
     <%= render partial: 'title_help_with_bills_outcome.govspeak.erb' %>
   <% elsif calculator.circumstances.include?('benefits') %>
-    <% if (calculator.benefits_claimed & %w(esa child_tax_credit pension_credit)).any? || calculator.incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || calculator.benefits_claimed.include?('working_tax_credit') && calculator.age_variant == :over_60 %>
+    <% if (calculator.benefits_claimed & %w(esa child_tax_credit pension_credit)).any? || calculator.incomesupp_jobseekers_1 || calculator.incomesupp_jobseekers_2 || calculator.benefits_claimed.include?('working_tax_credit') && calculator.age_variant == :over_60 %>
       <%= render partial: 'title_help_with_bills_outcome.govspeak.erb' %>
     <% else %>
       <%= render partial: 'title_no_help_with_bills_outcome.govspeak.erb' %>
@@ -25,7 +25,7 @@
         <%= render partial: 'cold_weather_payment.govspeak.erb' %>
       <% end %>
     <% end %>
-    <% if (calculator.benefits_claimed & %w(esa child_tax_credit pension_credit)).any? || calculator.incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || calculator.benefits_claimed.include?('working_tax_credit') && calculator.age_variant == :over_60 %>
+    <% if (calculator.benefits_claimed & %w(esa child_tax_credit pension_credit)).any? || calculator.incomesupp_jobseekers_1 || calculator.incomesupp_jobseekers_2 || calculator.benefits_claimed.include?('working_tax_credit') && calculator.age_variant == :over_60 %>
       <%= render partial: 'energy_company_obligation.govspeak.erb' %>
     <% end %>
   <% else %>

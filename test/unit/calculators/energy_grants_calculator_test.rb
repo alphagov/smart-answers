@@ -225,6 +225,10 @@ module SmartAnswer::Calculators
     end
 
     context '#incomesupp_jobseekers_2' do
+      should 'return nil by default i.e. when no responses have been set' do
+        assert_nil @calculator.incomesupp_jobseekers_2
+      end
+
       context 'when disabled_or_have_children? question has been answered' do
         setup do
           @calculator.disabled_or_have_children = 'disabled_child'
