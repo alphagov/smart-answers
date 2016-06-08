@@ -125,18 +125,6 @@ module SmartAnswer
           end
         end
 
-        next_node_calculation(:disabled_or_have_children_question) do
-          response = calculator.benefits_claimed.join(",")
-          response == 'income_support' ||
-            response == 'jsa' ||
-            response == 'esa' ||
-            response == 'working_tax_credit' ||
-            response.include?('universal_credit') ||
-            %w{child_tax_credit esa income_support jsa pension_credit}.all? { |key| response.include? key } ||
-            %w{child_tax_credit esa income_support pension_credit}.all? { |key| response.include? key } ||
-            %w{child_tax_credit esa jsa pension_credit}.all? { |key| response.include? key }
-        end
-
         next_node do
           if calculator.benefits_claimed == %w(pension_credit) || calculator.benefits_claimed == %w(child_tax_credit)
             if calculator.bills_help?
@@ -144,7 +132,7 @@ module SmartAnswer
             else
               question :when_property_built? # Q6
             end
-          elsif disabled_or_have_children_question
+          elsif calculator.disabled_or_have_children_question?
             question :disabled_or_have_children? # Q5
           elsif calculator.bills_help?
             outcome :outcome_help_with_bills # outcome 1

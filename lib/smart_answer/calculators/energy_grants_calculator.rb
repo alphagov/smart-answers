@@ -55,5 +55,17 @@ module SmartAnswer::Calculators
     def warm_home_discount_amount
       ''
     end
+
+    def disabled_or_have_children_question?
+      response = benefits_claimed.join(",")
+      response == 'income_support' ||
+        response == 'jsa' ||
+        response == 'esa' ||
+        response == 'working_tax_credit' ||
+        response.include?('universal_credit') ||
+        %w{child_tax_credit esa income_support jsa pension_credit}.all? { |key| response.include? key } ||
+        %w{child_tax_credit esa income_support pension_credit}.all? { |key| response.include? key } ||
+        %w{child_tax_credit esa jsa pension_credit}.all? { |key| response.include? key }
+    end
   end
 end

@@ -85,5 +85,143 @@ module SmartAnswer::Calculators
         assert_nil @calculator.incomesupp_jobseekers_1
       end
     end
+
+    context '#disabled_or_have_children_question?' do
+      should 'return false by default i.e. when no responses have been set' do
+        refute @calculator.disabled_or_have_children_question?
+      end
+
+      should 'return true if only claiming income_support benefit' do
+        @calculator.benefits_claimed = %w(income_support)
+        assert @calculator.disabled_or_have_children_question?
+      end
+
+      should 'return false if claiming income_support benefit with other benefits' do
+        @calculator.benefits_claimed = %w(income_support jsa)
+        refute @calculator.disabled_or_have_children_question?
+      end
+
+      should 'return true if only claiming jsa benefit' do
+        @calculator.benefits_claimed = %w(jsa)
+        assert @calculator.disabled_or_have_children_question?
+      end
+
+      should 'return false if claiming jsa benefit with other benefits' do
+        @calculator.benefits_claimed = %w(jsa esa)
+        refute @calculator.disabled_or_have_children_question?
+      end
+
+      should 'return true if only claiming esa benefit' do
+        @calculator.benefits_claimed = %w(esa)
+        assert @calculator.disabled_or_have_children_question?
+      end
+
+      should 'return false if claiming esa benefit with other benefits' do
+        @calculator.benefits_claimed = %w(esa working_tax_credit)
+        refute @calculator.disabled_or_have_children_question?
+      end
+
+      should 'return true if only claiming working_tax_credit benefit' do
+        @calculator.benefits_claimed = %w(working_tax_credit)
+        assert @calculator.disabled_or_have_children_question?
+      end
+
+      should 'return false if claiming working_tax_credit benefit with other benefits' do
+        @calculator.benefits_claimed = %w(working_tax_credit income_support)
+        refute @calculator.disabled_or_have_children_question?
+      end
+
+      should 'return true if claiming universal_credit benefit' do
+        @calculator.benefits_claimed = %w(universal_credit income_support)
+        assert @calculator.disabled_or_have_children_question?
+      end
+
+      should 'return false if only claiming pension_credit benefit' do
+        @calculator.benefits_claimed = %w(pension_credit)
+        refute @calculator.disabled_or_have_children_question?
+      end
+
+      should 'return false if only claiming child_tax_credit benefit' do
+        @calculator.benefits_claimed = %w(child_tax_credit)
+        refute @calculator.disabled_or_have_children_question?
+      end
+
+      context 'when claiming income_support benefit' do
+        setup do
+          @calculator.benefits_claimed = %w(income_support)
+        end
+
+        should 'return false even if also claiming child_tax_credit & esa benefits' do
+          @calculator.benefits_claimed += %w(child_tax_credit income_support)
+          refute @calculator.disabled_or_have_children_question?
+        end
+
+        should 'return false even if also claiming esa & pension_credit benefits' do
+          @calculator.benefits_claimed += %w(esa pension_credit)
+          refute @calculator.disabled_or_have_children_question?
+        end
+
+        should 'return false even if claiming child_tax_credit & pension_credit benefits' do
+          @calculator.benefits_claimed += %w(child_tax_credit pension_credit)
+          refute @calculator.disabled_or_have_children_question?
+        end
+      end
+
+      context 'when claiming jsa benefit' do
+        setup do
+          @calculator.benefits_claimed = %w(jsa)
+        end
+
+        should 'return false even if also claiming child_tax_credit & esa benefits' do
+          @calculator.benefits_claimed += %w(child_tax_credit income_support)
+          refute @calculator.disabled_or_have_children_question?
+        end
+
+        should 'return false even if also claiming esa & pension_credit benefits' do
+          @calculator.benefits_claimed += %w(esa pension_credit)
+          refute @calculator.disabled_or_have_children_question?
+        end
+
+        should 'return false even if claiming child_tax_credit & pension_credit benefits' do
+          @calculator.benefits_claimed += %w(child_tax_credit pension_credit)
+          refute @calculator.disabled_or_have_children_question?
+        end
+      end
+
+      context 'when claiming child_tax_credit, esa & pension_credit benefits' do
+        setup do
+          @calculator.benefits_claimed = %w(child_tax_credit esa pension_credit)
+        end
+
+        should 'return false if not claiming any other benefits' do
+          refute @calculator.disabled_or_have_children_question?
+        end
+
+        should 'return true if also claiming income_support benefit' do
+          @calculator.benefits_claimed << 'income_support'
+          assert @calculator.disabled_or_have_children_question?
+        end
+
+        should 'return true if also claiming income_support benefit with other benefits' do
+          @calculator.benefits_claimed += %w(income_support working_tax_credit)
+          assert @calculator.disabled_or_have_children_question?
+        end
+
+        should 'return true if also claiming jsa benefit' do
+          @calculator.benefits_claimed << 'income_support'
+          assert @calculator.disabled_or_have_children_question?
+        end
+
+        should 'return true if also claiming jsa benefit with other benefits' do
+          @calculator.benefits_claimed += %w(jsa working_tax_credit)
+          assert @calculator.disabled_or_have_children_question?
+        end
+
+        should 'return true if also claiming income_support & jsa benefits' do
+          @calculator.benefits_claimed += %w(income_support jsa)
+          assert @calculator.disabled_or_have_children_question?
+        end
+      end
+    end
   end
 end
