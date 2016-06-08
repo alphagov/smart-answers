@@ -120,5 +120,13 @@ module SmartAnswer::Calculators
     def property_permission_circumstance_and_benefits?
       (circumstances & %w(property permission)).any? && ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2)
     end
+
+    def house_property_type?
+      property_type == 'house'
+    end
+
+    def flat_property_type?
+      property_type == 'flat'
+    end
   end
 end

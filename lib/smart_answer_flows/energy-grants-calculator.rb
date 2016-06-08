@@ -172,8 +172,7 @@ module SmartAnswer
         end
 
         next_node do
-          case calculator.property_type
-          when 'house'
+          if calculator.house_property_type?
             if calculator.modern_property?
               question :home_features_modern?
             elsif calculator.older_property?
@@ -181,7 +180,7 @@ module SmartAnswer
             elsif calculator.historic_property?
               question :home_features_historic?
             end
-          else
+          elsif calculator.flat_property_type?
             question :type_of_flat?
           end
         end
