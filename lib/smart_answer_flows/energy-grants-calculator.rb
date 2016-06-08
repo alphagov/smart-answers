@@ -21,8 +21,7 @@ module SmartAnswer
         end
 
         next_node do
-          case calculator.which_help
-          when 'help_with_fuel_bill'
+          if calculator.bills_help?
             question :what_are_your_circumstances? # Q2
           else
             question :what_are_your_circumstances_without_bills_help? # Q2A
