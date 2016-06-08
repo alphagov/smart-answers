@@ -128,5 +128,17 @@ module SmartAnswer::Calculators
     def flat_property_type?
       property_type == 'flat'
     end
+
+    def under_green_deal_part_1?
+      both_help? && no_benefits?
+    end
+
+    def under_green_deal_part_2?
+      !((both_help? && circumstances.include?('property')) || (circumstances.include?('permission') && circumstances.include?('pension_credit')) || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || (benefits_claimed & %w(esa child_tax_credit working_tax_credit)).any?)
+    end
+
+    def under_green_deal_part_3?
+      both_help? && age_variant == :over_60 && (benefits_claimed & %w(esa child_tax_credit working_tax_credit) || incomesupp_jobseekers_1 || incomesupp_jobseekers_2)
+    end
   end
 end

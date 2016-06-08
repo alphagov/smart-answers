@@ -295,19 +295,19 @@ module SmartAnswer
 
       outcome :outcome_bills_and_measures_no_benefits do
         precalculate :under_green_deal do
-          calculator.both_help? && calculator.no_benefits?
+          calculator.under_green_deal_part_1?
         end
       end
 
       outcome :outcome_bills_and_measures_on_benefits_eco_eligible do
         precalculate :under_green_deal do
-          !((calculator.both_help? && calculator.circumstances.include?('property')) || (calculator.circumstances.include?('permission') && calculator.circumstances.include?('pension_credit')) || calculator.incomesupp_jobseekers_1 || calculator.incomesupp_jobseekers_2 || (calculator.benefits_claimed & %w(esa child_tax_credit working_tax_credit)).any?)
+          calculator.under_green_deal_part_2?
         end
       end
 
       outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible do
         precalculate :under_green_deal do
-          calculator.both_help? && calculator.age_variant == :over_60 && (calculator.benefits_claimed & %w(esa child_tax_credit working_tax_credit) || calculator.incomesupp_jobseekers_1 || calculator.incomesupp_jobseekers_2)
+          calculator.under_green_deal_part_3?
         end
       end
 
