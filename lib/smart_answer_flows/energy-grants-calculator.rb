@@ -218,10 +218,6 @@ module SmartAnswer
           calculator.features = response.split(",")
         end
 
-        next_node_calculation(:modern_and_gas_and_electric_heating) do
-          calculator.modern_property? && calculator.features.include?('mains_gas') && calculator.features.include?('electric_heating')
-        end
-
         next_node_calculation(:no_benefits) { calculator.circumstances.exclude?('benefits') }
 
         next_node_calculation(:property_permission_circumstance_and_benefits) do
@@ -229,7 +225,7 @@ module SmartAnswer
         end
 
         next_node do
-          if modern_and_gas_and_electric_heating
+          if calculator.modern_and_gas_and_electric_heating?
             outcome :outcome_no_green_deal_no_energy_measures
           elsif calculator.measure_help_and_property_permission_circumstance?
             outcome :outcome_measures_help_green_deal

@@ -108,5 +108,9 @@ module SmartAnswer::Calculators
     def measure_help_and_property_permission_circumstance?
       measure_help? && (circumstances & %w(property permission)).any?
     end
+
+    def modern_and_gas_and_electric_heating?
+      modern_property? && features.include?('mains_gas') && features.include?('electric_heating')
+    end
   end
 end
