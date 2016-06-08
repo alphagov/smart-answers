@@ -51,5 +51,9 @@ module SmartAnswer::Calculators
     def both_help?
       %w(all_help).include?(which_help)
     end
+
+    def warm_home_discount_amount
+      ''
+    end
   end
 end

@@ -24,10 +24,6 @@ module SmartAnswer
           nil
         end
 
-        calculate :warm_home_discount_amount do
-          ''
-        end
-
         next_node do
           case calculator.which_help
           when 'help_with_fuel_bill'

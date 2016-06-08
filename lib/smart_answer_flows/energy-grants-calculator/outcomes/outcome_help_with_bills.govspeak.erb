@@ -19,7 +19,7 @@
     <% end %>
     <% if (calculator.benefits_claimed & %w(esa pension_credit)).any? || calculator.incomesupp_jobseekers_1 %>
       <% if calculator.benefits_claimed.include?('pension_credit') %>
-        <%= render partial: 'warm_home_discount.govspeak.erb', locals: {warm_home_discount_amount: warm_home_discount_amount} %>
+        <%= render partial: 'warm_home_discount.govspeak.erb', locals: {calculator: calculator} %>
         <%= render partial: 'cold_weather_payment.govspeak.erb' %>
       <% else %>
         <%= render partial: 'cold_weather_payment.govspeak.erb' %>
