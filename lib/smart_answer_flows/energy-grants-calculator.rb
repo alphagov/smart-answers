@@ -62,11 +62,11 @@ module SmartAnswer
 
         validate(:error_perm_prop) { |r| ! r.include?('permission,property') }
 
-        next_node do |response|
+        next_node do
           if calculator.both_help?
             question :date_of_birth?
           elsif calculator.measure_help?
-            if response == 'benefits'
+            if calculator.circumstances == %w(benefits)
               question :which_benefits?
             else
               question :when_property_built?
