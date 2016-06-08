@@ -92,5 +92,17 @@ module SmartAnswer::Calculators
         end
       end
     end
+
+    def modern_property?
+      %w(on-or-after-1995).include?(property_age)
+    end
+
+    def older_property?
+      %w(1940s-1984).include?(property_age)
+    end
+
+    def historic_property?
+      %w(before-1940).include?(property_age)
+    end
   end
 end

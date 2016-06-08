@@ -157,16 +157,6 @@ module SmartAnswer
           calculator.property_age = response
         end
 
-        calculate :modern do
-          %w(on-or-after-1995).include?(calculator.property_age)
-        end
-        calculate :older do
-          %w(1940s-1984).include?(calculator.property_age)
-        end
-        calculate :historic do
-          %w(before-1940).include?(calculator.property_age)
-        end
-
         next_node do
           question :type_of_property?
         end
@@ -184,11 +174,11 @@ module SmartAnswer
         next_node do
           case calculator.property_type
           when 'house'
-            if modern
+            if calculator.modern_property?
               question :home_features_modern?
-            elsif older
+            elsif calculator.older_property?
               question :home_features_older?
-            else
+            elsif calculator.historic_property?
               question :home_features_historic?
             end
           else
@@ -207,11 +197,11 @@ module SmartAnswer
         end
 
         next_node do
-          if modern
+          if calculator.modern_property?
             question :home_features_modern?
-          elsif older
+          elsif calculator.older_property?
             question :home_features_older?
-          else
+          elsif calculator.historic_property?
             question :home_features_historic?
           end
         end
@@ -229,7 +219,7 @@ module SmartAnswer
         end
 
         next_node_calculation(:modern_and_gas_and_electric_heating) do
-          modern && calculator.features.include?('mains_gas') && calculator.features.include?('electric_heating')
+          calculator.modern_property? && calculator.features.include?('mains_gas') && calculator.features.include?('electric_heating')
         end
 
         next_node_calculation(:measure_help_and_property_permission_circumstance) do

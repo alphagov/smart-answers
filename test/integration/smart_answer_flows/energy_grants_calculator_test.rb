@@ -284,7 +284,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
               end
               should "ask which of these do you have?" do
                 assert_current_node :home_features_modern?
-                assert_state_variable 'modern', true
+                assert current_state.calculator.modern_property?
               end
               context "answer mains gas" do
                 setup do
@@ -326,7 +326,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
                 end
                 should "ask what features does it have" do
                   assert_current_node :home_features_older?
-                  assert_state_variable 'older', true
+                  assert current_state.calculator.older_property?
                 end
                 context "answer cavity wall insulation, loft insulation, mains gas, modern boiler" do
                   setup do
