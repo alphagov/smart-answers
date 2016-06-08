@@ -112,5 +112,9 @@ module SmartAnswer::Calculators
     def modern_and_gas_and_electric_heating?
       modern_property? && features.include?('mains_gas') && features.include?('electric_heating')
     end
+
+    def property_permission_circumstance_and_benefits?
+      (circumstances & %w(property permission)).any? && ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2)
+    end
   end
 end

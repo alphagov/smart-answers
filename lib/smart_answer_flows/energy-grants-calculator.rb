@@ -220,10 +220,6 @@ module SmartAnswer
 
         next_node_calculation(:no_benefits) { calculator.circumstances.exclude?('benefits') }
 
-        next_node_calculation(:property_permission_circumstance_and_benefits) do
-          (calculator.circumstances & %w(property permission)).any? && ((calculator.benefits_claimed & %w(child_tax_credit esa pension_credit)).any? || calculator.incomesupp_jobseekers_1 || calculator.incomesupp_jobseekers_2)
-        end
-
         next_node do
           if calculator.modern_and_gas_and_electric_heating?
             outcome :outcome_no_green_deal_no_energy_measures
@@ -231,7 +227,7 @@ module SmartAnswer
             outcome :outcome_measures_help_green_deal
           elsif no_benefits
             outcome :outcome_bills_and_measures_no_benefits
-          elsif property_permission_circumstance_and_benefits
+          elsif calculator.property_permission_circumstance_and_benefits?
             outcome :outcome_bills_and_measures_on_benefits_eco_eligible
           else
             outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible
@@ -256,16 +252,12 @@ module SmartAnswer
 
         next_node_calculation(:no_benefits) { calculator.circumstances.exclude?('benefits') }
 
-        next_node_calculation(:property_permission_circumstance_and_benefits) do
-          (calculator.circumstances & %w(property permission)).any? && ((calculator.benefits_claimed & %w(child_tax_credit esa pension_credit)).any? || calculator.incomesupp_jobseekers_1 || calculator.incomesupp_jobseekers_2)
-        end
-
         next_node do
           if calculator.measure_help_and_property_permission_circumstance?
             outcome :outcome_measures_help_green_deal
           elsif no_benefits
             outcome :outcome_bills_and_measures_no_benefits
-          elsif property_permission_circumstance_and_benefits
+          elsif calculator.property_permission_circumstance_and_benefits?
             outcome :outcome_bills_and_measures_on_benefits_eco_eligible
           else
             outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible
@@ -291,16 +283,12 @@ module SmartAnswer
 
         next_node_calculation(:no_benefits) { calculator.circumstances.exclude?('benefits') }
 
-        next_node_calculation(:property_permission_circumstance_and_benefits) do
-          (calculator.circumstances & %w(property permission)).any? && ((calculator.benefits_claimed & %w(child_tax_credit esa pension_credit)).any? || calculator.incomesupp_jobseekers_1 || calculator.incomesupp_jobseekers_2)
-        end
-
         next_node do
           if calculator.measure_help_and_property_permission_circumstance?
             outcome :outcome_measures_help_green_deal
           elsif no_benefits
             outcome :outcome_bills_and_measures_no_benefits
-          elsif property_permission_circumstance_and_benefits
+          elsif calculator.property_permission_circumstance_and_benefits?
             outcome :outcome_bills_and_measures_on_benefits_eco_eligible
           else
             outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible
