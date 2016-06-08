@@ -295,19 +295,19 @@ module SmartAnswer
 
       outcome :outcome_bills_and_measures_no_benefits do
         precalculate :under_green_deal do
-          calculator.under_green_deal_part_1?
+          calculator.under_green_deal?
         end
       end
 
       outcome :outcome_bills_and_measures_on_benefits_eco_eligible do
         precalculate :under_green_deal do
-          calculator.under_green_deal_part_2?
+          calculator.under_green_deal?
         end
       end
 
       outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible do
         precalculate :under_green_deal do
-          calculator.under_green_deal_part_3?
+          calculator.under_green_deal?
         end
       end
 
