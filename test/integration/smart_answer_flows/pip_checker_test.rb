@@ -36,19 +36,19 @@ class PIPCheckerTest < ActiveSupport::TestCase
       end
     end
 
-    should "be result 1 if born on or after 08-06-1997" do
-      add_response '1997-06-08'
-      assert_current_node :result_1
+    should "be under 16, if born on or after 08-06-2000" do
+      add_response '2000-06-08'
+      assert_current_node :under_16
     end
 
-    should "be result 2 if born on or before 08-04-1948" do
+    should "be over 65, if born on or before 08-04-1948" do
       add_response "1948-04-08"
-      assert_current_node :result_2
+      assert_current_node :over_65
     end
 
-    should "be result 3 if born between 09-04-1948 and 07-04-1997" do
+    should "not claim for dla, if born between 09-04-1948 and 07-04-1997" do
       add_response "1996-05-24"
-      assert_current_node :result_3
+      assert_current_node :no_claim_for_dla
     end
   end # not getting DLA
 
@@ -62,24 +62,24 @@ class PIPCheckerTest < ActiveSupport::TestCase
       assert_current_node :what_is_your_dob?
     end
 
-    should "be result 6 if born on or before 08-04-1948 (03/03/14)" do
+    should "be over 65 by 2013, if born on or before 08-04-1948 (03/03/14)" do
       add_response "1948-04-08"
-      assert_current_node :result_6
+      assert_current_node :over_65_in_2013
     end
 
-    should "be result 7 if born between 08-06-1997 and 06-10-1997 (03/03/14)" do
+    should "qualify for pip, if born between 08-06-1997 and 06-10-1997 (03/03/14)" do
       add_response '1997-06-08'
-      assert_current_node :result_7
+      assert_current_node :qualifies_for_pip
     end
 
-    should "be result 5 if born on or after 07-10-1997 (03/03/14)" do
+    should "qualify for pip at 16, if born on or after 07-10-1997 (03/03/14)" do
       add_response '1997-10-07'
-      assert_current_node :result_5
+      assert_current_node :qualifies_for_pip_at_16
     end
 
-    should "be result 7 if born between 09-04-1948 and 07-04-1997 (03/03/14)" do
+    should "qualify for pip, if born between 09-04-1948 and 07-04-1997 (03/03/14)" do
       add_response "1996-05-24"
-      assert_current_node :result_7
+      assert_current_node :qualifies_for_pip
     end
   end # getting DLA
 end
