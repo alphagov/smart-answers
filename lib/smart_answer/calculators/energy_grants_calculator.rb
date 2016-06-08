@@ -67,5 +67,22 @@ module SmartAnswer::Calculators
         %w{child_tax_credit esa income_support pension_credit}.all? { |key| response.include? key } ||
         %w{child_tax_credit esa jsa pension_credit}.all? { |key| response.include? key }
     end
+
+    def incomesupp_jobseekers_2_part_1
+      if (benefits_claimed == %w(working_tax_credit)) && (age_variant == :over_60)
+        :incomesupp_jobseekers_2
+      end
+    end
+
+    def incomesupp_jobseekers_2_part_2
+      case disabled_or_have_children
+      when 'child_under_16', 'work_support_esa'
+        if circumstances.include?('social_housing') || (benefits_claimed.include?('working_tax_credit') && age_variant != :over_60)
+          nil
+        else
+          :incomesupp_jobseekers_2
+        end
+      end
+    end
   end
 end

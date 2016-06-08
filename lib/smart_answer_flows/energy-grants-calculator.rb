@@ -118,9 +118,7 @@ module SmartAnswer
         end
 
         calculate :incomesupp_jobseekers_2 do
-          if (calculator.benefits_claimed == %w(working_tax_credit)) && (calculator.age_variant == :over_60)
-            :incomesupp_jobseekers_2
-          end
+          calculator.incomesupp_jobseekers_2_part_1
         end
 
         next_node do
@@ -154,14 +152,7 @@ module SmartAnswer
         end
 
         calculate :incomesupp_jobseekers_2 do
-          case calculator.disabled_or_have_children
-          when 'child_under_16', 'work_support_esa'
-            if calculator.circumstances.include?('social_housing') || (calculator.benefits_claimed.include?('working_tax_credit') && calculator.age_variant != :over_60)
-              nil
-            else
-              :incomesupp_jobseekers_2
-            end
-          end
+          calculator.incomesupp_jobseekers_2_part_2
         end
 
         next_node do
