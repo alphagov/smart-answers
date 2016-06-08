@@ -295,7 +295,7 @@ module SmartAnswer
 
       outcome :outcome_bills_and_measures_no_benefits do
         precalculate :under_green_deal do
-          calculator.both_help? && !calculator.circumstances.include?('benefits')
+          calculator.both_help? && calculator.no_benefits?
         end
       end
 
