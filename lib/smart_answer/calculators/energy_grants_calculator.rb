@@ -41,7 +41,7 @@ module SmartAnswer::Calculators
     end
 
     def bills_help?
-      %w(help_with_fuel_bill).include?(which_help) ? :bills_help : nil
+      %w(help_with_fuel_bill).include?(which_help)
     end
   end
 end
