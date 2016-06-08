@@ -223,5 +223,35 @@ module SmartAnswer::Calculators
         end
       end
     end
+
+    context '#incomesupp_jobseekers_2' do
+      context 'when disabled_or_have_children? question has been answered' do
+        setup do
+          @calculator.disabled_or_have_children = 'disabled_child'
+          @calculator.stubs(
+            incomesupp_jobseekers_2_part_1: :incomesupp_jobseekers_2_part_1,
+            incomesupp_jobseekers_2_part_2: :incomesupp_jobseekers_2_part_2
+          )
+        end
+
+        should 'return incomesupp_jobseekers_2_part_2' do
+          assert_equal :incomesupp_jobseekers_2_part_2, @calculator.incomesupp_jobseekers_2
+        end
+      end
+
+      context 'when disabled_or_have_children? question has not been answered' do
+        setup do
+          @calculator.disabled_or_have_children = nil
+          @calculator.stubs(
+            incomesupp_jobseekers_2_part_1: :incomesupp_jobseekers_2_part_1,
+            incomesupp_jobseekers_2_part_2: :incomesupp_jobseekers_2_part_2
+          )
+        end
+
+        should 'return incomesupp_jobseekers_2_part_1' do
+          assert_equal :incomesupp_jobseekers_2_part_1, @calculator.incomesupp_jobseekers_2
+        end
+      end
+    end
   end
 end

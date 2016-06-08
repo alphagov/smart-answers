@@ -118,7 +118,7 @@ module SmartAnswer
         end
 
         calculate :incomesupp_jobseekers_2 do
-          calculator.incomesupp_jobseekers_2_part_1
+          calculator.incomesupp_jobseekers_2
         end
 
         next_node do
@@ -152,7 +152,7 @@ module SmartAnswer
         end
 
         calculate :incomesupp_jobseekers_2 do
-          calculator.incomesupp_jobseekers_2_part_2
+          calculator.incomesupp_jobseekers_2
         end
 
         next_node do
