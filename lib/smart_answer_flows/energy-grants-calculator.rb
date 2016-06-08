@@ -222,10 +222,6 @@ module SmartAnswer
           calculator.modern_property? && calculator.features.include?('mains_gas') && calculator.features.include?('electric_heating')
         end
 
-        next_node_calculation(:measure_help_and_property_permission_circumstance) do
-          calculator.measure_help? && (calculator.circumstances & %w(property permission)).any?
-        end
-
         next_node_calculation(:no_benefits) { calculator.circumstances.exclude?('benefits') }
 
         next_node_calculation(:property_permission_circumstance_and_benefits) do
@@ -235,7 +231,7 @@ module SmartAnswer
         next_node do
           if modern_and_gas_and_electric_heating
             outcome :outcome_no_green_deal_no_energy_measures
-          elsif measure_help_and_property_permission_circumstance
+          elsif calculator.measure_help_and_property_permission_circumstance?
             outcome :outcome_measures_help_green_deal
           elsif no_benefits
             outcome :outcome_bills_and_measures_no_benefits
@@ -262,10 +258,6 @@ module SmartAnswer
           calculator.features = response.split(",")
         end
 
-        next_node_calculation(:measure_help_and_property_permission_circumstance) do
-          calculator.measure_help? && (calculator.circumstances & %w(property permission)).any?
-        end
-
         next_node_calculation(:no_benefits) { calculator.circumstances.exclude?('benefits') }
 
         next_node_calculation(:property_permission_circumstance_and_benefits) do
@@ -273,7 +265,7 @@ module SmartAnswer
         end
 
         next_node do
-          if measure_help_and_property_permission_circumstance
+          if calculator.measure_help_and_property_permission_circumstance?
             outcome :outcome_measures_help_green_deal
           elsif no_benefits
             outcome :outcome_bills_and_measures_no_benefits
@@ -301,10 +293,6 @@ module SmartAnswer
           calculator.features = response.split(",")
         end
 
-        next_node_calculation(:measure_help_and_property_permission_circumstance) do
-          calculator.measure_help? && (calculator.circumstances & %w(property permission)).any?
-        end
-
         next_node_calculation(:no_benefits) { calculator.circumstances.exclude?('benefits') }
 
         next_node_calculation(:property_permission_circumstance_and_benefits) do
@@ -312,7 +300,7 @@ module SmartAnswer
         end
 
         next_node do
-          if measure_help_and_property_permission_circumstance
+          if calculator.measure_help_and_property_permission_circumstance?
             outcome :outcome_measures_help_green_deal
           elsif no_benefits
             outcome :outcome_bills_and_measures_no_benefits

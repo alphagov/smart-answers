@@ -104,5 +104,9 @@ module SmartAnswer::Calculators
     def historic_property?
       %w(before-1940).include?(property_age)
     end
+
+    def measure_help_and_property_permission_circumstance?
+      measure_help? && (circumstances & %w(property permission)).any?
+    end
   end
 end
