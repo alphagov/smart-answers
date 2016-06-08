@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/marriage-abroad.rb: c395e1d7a9652e62b1f6e295eb831cd4
+lib/smart_answer_flows/marriage-abroad.rb: a58d8a9d8334a517549632dbc79b6e86
 test/data/marriage-abroad-questions-and-responses.yml: 9bc7a99045b6a7c55db25446058e2c98
 test/data/marriage-abroad-responses-and-expected-results.yml: 095e234c6124154566ad698bf2446b4b
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
@@ -82,6 +82,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/_you_have_been_divorced_or_widow
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_will_be_asked_for_cni.govspeak.erb: cd1226b515c6a1723da99be2cb207c51
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_will_have_to_wait_to_get_married.govspeak.erb: c9fa9fa95d1133789ae786d5b0bb6749
 lib/smart_answer_flows/marriage-abroad/outcomes/os_affirmation/_fees.govspeak.erb: 5682dcf976c23be3105eb3594fb78b49
+lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark.govspeak.erb: 09cc430292eddcf1f90bffe5a6ca2006
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_ireland.govspeak.erb: 1c1f2dc4f9aafbfe87b91df96047ace6
 ? lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries.govspeak.erb
 : e68905e2106942e14c968512f06c1d84
@@ -112,7 +113,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in
 ? lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country.govspeak.erb
 : 9f9684fdb5bfcee8e131654dae5b31eb
 ? lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk_or_ceremony_country.govspeak.erb
-: 8d2d26cbd320ac0e013aed4f03945065
+: b7dbd99b2827bd61ff9a395d7010dc06
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_dominican_republic.govspeak.erb: 12921301af7691afefafeaefcbbe0233
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_ecuador.govspeak.erb: 002867fdd9e88ea3b743db95e5545fd7
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_egypt.govspeak.erb: 4f17b21c3be607df2415abd148e38766
