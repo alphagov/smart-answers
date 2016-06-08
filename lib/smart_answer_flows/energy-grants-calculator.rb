@@ -218,14 +218,12 @@ module SmartAnswer
           calculator.features = response.split(",")
         end
 
-        next_node_calculation(:no_benefits) { calculator.circumstances.exclude?('benefits') }
-
         next_node do
           if calculator.modern_and_gas_and_electric_heating?
             outcome :outcome_no_green_deal_no_energy_measures
           elsif calculator.measure_help_and_property_permission_circumstance?
             outcome :outcome_measures_help_green_deal
-          elsif no_benefits
+          elsif calculator.no_benefits?
             outcome :outcome_bills_and_measures_no_benefits
           elsif calculator.property_permission_circumstance_and_benefits?
             outcome :outcome_bills_and_measures_on_benefits_eco_eligible
@@ -250,12 +248,10 @@ module SmartAnswer
           calculator.features = response.split(",")
         end
 
-        next_node_calculation(:no_benefits) { calculator.circumstances.exclude?('benefits') }
-
         next_node do
           if calculator.measure_help_and_property_permission_circumstance?
             outcome :outcome_measures_help_green_deal
-          elsif no_benefits
+          elsif calculator.no_benefits?
             outcome :outcome_bills_and_measures_no_benefits
           elsif calculator.property_permission_circumstance_and_benefits?
             outcome :outcome_bills_and_measures_on_benefits_eco_eligible
@@ -281,12 +277,10 @@ module SmartAnswer
           calculator.features = response.split(",")
         end
 
-        next_node_calculation(:no_benefits) { calculator.circumstances.exclude?('benefits') }
-
         next_node do
           if calculator.measure_help_and_property_permission_circumstance?
             outcome :outcome_measures_help_green_deal
-          elsif no_benefits
+          elsif calculator.no_benefits?
             outcome :outcome_bills_and_measures_no_benefits
           elsif calculator.property_permission_circumstance_and_benefits?
             outcome :outcome_bills_and_measures_on_benefits_eco_eligible
