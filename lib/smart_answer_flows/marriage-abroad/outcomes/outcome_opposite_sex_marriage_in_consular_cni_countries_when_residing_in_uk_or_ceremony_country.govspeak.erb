@@ -66,10 +66,6 @@
     <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
 
   <% end %>
-  <% if calculator.ceremony_country == 'denmark' && !calculator.resident_of_uk? %>
-    ^You don’t need a CNI if you’re getting married in the main town hall in Copenhagen.^
-
-  <% end %>
   <% if calculator.resident_of_uk? %>
     <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
     <%= render partial: 'cni_issued_locally_validity.govspeak.erb',
