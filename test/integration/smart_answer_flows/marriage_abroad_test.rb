@@ -634,8 +634,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_other'
       add_response 'opposite_sex'
     end
-    should "go to consular cni os outcome" do
-      assert_current_node :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk_or_ceremony_country
+    should "go to outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark" do
+      assert_current_node :outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark
     end
   end
 
@@ -1181,8 +1181,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_other'
       add_response 'same_sex'
     end
-    should "go to cp or equivalent outcome" do
-      assert_current_node :outcome_same_sex_civil_partnership
+    should "go to outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark" do
+      assert_current_node :outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark
     end
   end
 
