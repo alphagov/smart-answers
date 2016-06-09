@@ -1,7 +1,7 @@
 ---
 lib/smart_answer_flows/marriage-abroad.rb: cb7f452f4f9dda5f7945d10c311c13d0
 test/data/marriage-abroad-questions-and-responses.yml: 9bc7a99045b6a7c55db25446058e2c98
-test/data/marriage-abroad-responses-and-expected-results.yml: c06a78272386d2283daf13ae20a1f326
+test/data/marriage-abroad-responses-and-expected-results.yml: 0f360a6f988452c0f64ed5325fc90043
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
 lib/smart_answer_flows/marriage-abroad/outcomes/_affirmation_os_translation_in_local_language_text.govspeak.erb: 4ac964ce5e41e3efaf0f43d11c71b2b7
 lib/smart_answer_flows/marriage-abroad/outcomes/_appointment_documents_in_vietnam.govspeak.erb: 6390e13560110a71b8a3c0dc018ff4cf
@@ -162,7 +162,7 @@ lib/smart_answer_flows/marriage-abroad/questions/marriage_or_pacs.govspeak.erb: 
 lib/smart_answer_flows/marriage-abroad/questions/partner_opposite_or_same_sex.govspeak.erb: 40d0c99a5be50f0625c6562f06fe4afd
 lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationality.govspeak.erb: 80e04f36c75c232bede1a244d621471e
 lib/data/rates/marriage_abroad_consular_fees.yml: db466bd97c7ee1b9a275dec70590d61f
-lib/data/marriage_abroad_services.yml: 752945170062a4ed7cf13fedb387631e
+lib/data/marriage_abroad_services.yml: 9c80ad3edd99ccfc79071e0dbd69ab8a
 lib/smart_answer/calculators/marriage_abroad_calculator.rb: 292313548cb6db927103d103f25dbda7
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1d83fae34e0ee72ce1c1554bdb766d21
 lib/smart_answer/calculators/marriage_abroad_data_query.rb: 6517ecfddbbca722dc23066a055cc433
