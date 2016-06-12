@@ -432,7 +432,7 @@
              locals: { calculator: calculator } %>
 
   <% unless calculator.country_without_consular_facilities? || calculator.ceremony_country == 'cote-d-ivoire' %>
-    <% if %w(kazakhstan kyrgyzstan).include?(calculator.ceremony_country) %>
+    <% if %w(kazakhstan kyrgyzstan).include?(calculator.ceremony_country) && calculator.services.any? %>
       You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Kazakhstan](/government/publications/kazakhstan-kyrgyzstan-consular-fees).
 
     <% else %>
