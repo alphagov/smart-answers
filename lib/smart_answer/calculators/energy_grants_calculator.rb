@@ -61,6 +61,10 @@ module SmartAnswer::Calculators
       ''
     end
 
+    def claiming_pension_credit_only_or_child_tax_credit_only?
+      benefits_claimed == %w(pension_credit) || benefits_claimed == %w(child_tax_credit)
+    end
+
     def disabled_or_have_children_question?
       response = benefits_claimed.join(",")
       response == 'income_support' ||

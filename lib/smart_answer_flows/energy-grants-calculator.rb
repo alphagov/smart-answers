@@ -109,7 +109,7 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.benefits_claimed == %w(pension_credit) || calculator.benefits_claimed == %w(child_tax_credit)
+          if calculator.claiming_pension_credit_only_or_child_tax_credit_only?
             if calculator.bills_help?
               outcome :outcome_help_with_bills # outcome 1
             else
