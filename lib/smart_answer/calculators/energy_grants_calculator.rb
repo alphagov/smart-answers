@@ -71,7 +71,7 @@ module SmartAnswer::Calculators
 
     def incomesupp_jobseekers_2
       if disabled_or_have_children.any?
-        incomesupp_jobseekers_2_part_2
+        incomesupp_jobseekers_2_part_2?
       else
         incomesupp_jobseekers_2_part_1?
       end
@@ -81,12 +81,12 @@ module SmartAnswer::Calculators
       (benefits_claimed == %w(working_tax_credit)) && (age_variant == :over_60)
     end
 
-    def incomesupp_jobseekers_2_part_2
+    def incomesupp_jobseekers_2_part_2?
       if disabled_or_have_children == %w(child_under_16) || disabled_or_have_children == %w(work_support_esa)
         if circumstances.include?('social_housing') || (benefits_claimed.include?('working_tax_credit') && age_variant != :over_60)
-          nil
+          false
         else
-          :incomesupp_jobseekers_2
+          true
         end
       end
     end

@@ -297,9 +297,9 @@ module SmartAnswer::Calculators
       end
     end
 
-    context '#incomesupp_jobseekers_2_part_2' do
-      should 'return nil by default i.e. when no responses have been set' do
-        assert_nil @calculator.incomesupp_jobseekers_2_part_2
+    context '#incomesupp_jobseekers_2_part_2?' do
+      should 'return false by default i.e. when no responses have been set' do
+        refute @calculator.incomesupp_jobseekers_2_part_2?
       end
 
       context 'when only child_under_16 option selected' do
@@ -307,15 +307,15 @@ module SmartAnswer::Calculators
           @calculator.disabled_or_have_children = %w(child_under_16)
         end
 
-        should 'return nil when social housing tenant' do
+        should 'return false when social housing tenant' do
           @calculator.circumstances = %w(social_housing)
-          assert_nil @calculator.incomesupp_jobseekers_2_part_2
+          refute @calculator.incomesupp_jobseekers_2_part_2?
         end
 
-        should 'return nil when claiming working tax credit and not over 60' do
+        should 'return false when claiming working tax credit and not over 60' do
           @calculator.benefits_claimed = %(working_tax_credit)
           @calculator.stubs(:age_variant).returns(:winter_fuel_payment)
-          assert_nil @calculator.incomesupp_jobseekers_2_part_2
+          refute @calculator.incomesupp_jobseekers_2_part_2?
         end
 
         context 'when not social housing tenant' do
@@ -323,14 +323,14 @@ module SmartAnswer::Calculators
             @calculator.circumstances = %w(permission)
           end
 
-          should 'return :incomesupp_jobseekers_2 when not claiming working tax credit' do
+          should 'return true when not claiming working tax credit' do
             @calculator.benefits_claimed = %(income_support)
-            assert_equal :incomesupp_jobseekers_2, @calculator.incomesupp_jobseekers_2_part_2
+            assert @calculator.incomesupp_jobseekers_2_part_2?
           end
 
-          should 'return :incomesupp_jobseekers_2 when over 60' do
+          should 'return true when over 60' do
             @calculator.stubs(:age_variant).returns(:over_60)
-            assert_equal :incomesupp_jobseekers_2, @calculator.incomesupp_jobseekers_2_part_2
+            assert @calculator.incomesupp_jobseekers_2_part_2?
           end
         end
       end
@@ -340,15 +340,15 @@ module SmartAnswer::Calculators
           @calculator.disabled_or_have_children = %w(work_support_esa)
         end
 
-        should 'return nil when social housing tenant' do
+        should 'return false when social housing tenant' do
           @calculator.circumstances = %w(social_housing)
-          assert_nil @calculator.incomesupp_jobseekers_2_part_2
+          refute @calculator.incomesupp_jobseekers_2_part_2?
         end
 
-        should 'return nil when claiming working tax credit and not over 60' do
+        should 'return false when claiming working tax credit and not over 60' do
           @calculator.benefits_claimed = %(working_tax_credit)
           @calculator.stubs(:age_variant).returns(:winter_fuel_payment)
-          assert_nil @calculator.incomesupp_jobseekers_2_part_2
+          refute @calculator.incomesupp_jobseekers_2_part_2?
         end
 
         context 'when not social housing tenant' do
@@ -356,14 +356,14 @@ module SmartAnswer::Calculators
             @calculator.circumstances = %w(permission)
           end
 
-          should 'return :incomesupp_jobseekers_2 when not claiming working tax credit' do
+          should 'return true when not claiming working tax credit' do
             @calculator.benefits_claimed = %(income_support)
-            assert_equal :incomesupp_jobseekers_2, @calculator.incomesupp_jobseekers_2_part_2
+            assert @calculator.incomesupp_jobseekers_2_part_2?
           end
 
-          should 'return :incomesupp_jobseekers_2 when over 60' do
+          should 'return true when over 60' do
             @calculator.stubs(:age_variant).returns(:over_60)
-            assert_equal :incomesupp_jobseekers_2, @calculator.incomesupp_jobseekers_2_part_2
+            assert @calculator.incomesupp_jobseekers_2_part_2?
           end
         end
       end
@@ -373,10 +373,10 @@ module SmartAnswer::Calculators
           @calculator.disabled_or_have_children = %w(disabled_child)
         end
 
-        should 'always return nil' do
+        should 'always return false' do
           @calculator.circumstances = %w(permission)
           @calculator.benefits_claimed = %(income_support)
-          assert_nil @calculator.incomesupp_jobseekers_2_part_2
+          refute @calculator.incomesupp_jobseekers_2_part_2?
         end
       end
 
@@ -385,10 +385,10 @@ module SmartAnswer::Calculators
           @calculator.disabled_or_have_children = %w(child_under_16 work_support_esa)
         end
 
-        should 'always return nil' do
+        should 'always return false' do
           @calculator.circumstances = %w(permission)
           @calculator.benefits_claimed = %(income_support)
-          assert_nil @calculator.incomesupp_jobseekers_2_part_2
+          refute @calculator.incomesupp_jobseekers_2_part_2?
         end
       end
     end
@@ -403,7 +403,7 @@ module SmartAnswer::Calculators
           @calculator.disabled_or_have_children = %w(disabled_child)
           @calculator.stubs(
             incomesupp_jobseekers_2_part_1?: :incomesupp_jobseekers_2_part_1,
-            incomesupp_jobseekers_2_part_2: :incomesupp_jobseekers_2_part_2
+            incomesupp_jobseekers_2_part_2?: :incomesupp_jobseekers_2_part_2
           )
         end
 
@@ -417,7 +417,7 @@ module SmartAnswer::Calculators
           @calculator.disabled_or_have_children = []
           @calculator.stubs(
             incomesupp_jobseekers_2_part_1?: :incomesupp_jobseekers_2_part_1,
-            incomesupp_jobseekers_2_part_2: :incomesupp_jobseekers_2_part_2
+            incomesupp_jobseekers_2_part_2?: :incomesupp_jobseekers_2_part_2
           )
         end
 

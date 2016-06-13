@@ -133,7 +133,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
               end
               should "take you to help with bills outcome with incomesupp_jobseekers_2" do
                 assert_current_node :outcome_help_with_bills # outcome 1
-                assert_equal :incomesupp_jobseekers_2, current_state.calculator.incomesupp_jobseekers_2
+                assert current_state.calculator.incomesupp_jobseekers_2
               end
             end
           end
