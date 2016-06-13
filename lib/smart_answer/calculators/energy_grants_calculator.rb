@@ -130,6 +130,10 @@ module SmartAnswer::Calculators
       (features & %w(loft_insulation loft_attic_conversion)).any?
     end
 
+    def loft_attic_conversion?
+      (features & %w(loft_attic_conversion)).any?
+    end
+
     def no_benefits?
       circumstances.exclude?('benefits')
     end
