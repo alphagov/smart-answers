@@ -84,6 +84,41 @@ module SmartAnswer::Calculators
       should 'return nil by default i.e. when no responses have been set' do
         assert_nil @calculator.incomesupp_jobseekers_1
       end
+
+      should 'return :incomesupp_jobseekers_1 when only disabled option selected' do
+        @calculator.disabled_or_have_children = 'disabled'
+        assert_equal :incomesupp_jobseekers_1, @calculator.incomesupp_jobseekers_1
+      end
+
+      should 'return :incomesupp_jobseekers_1 when only disabled_child option selected' do
+        @calculator.disabled_or_have_children = 'disabled_child'
+        assert_equal :incomesupp_jobseekers_1, @calculator.incomesupp_jobseekers_1
+      end
+
+      should 'return :incomesupp_jobseekers_1 when only child_under_5 option selected' do
+        @calculator.disabled_or_have_children = 'child_under_5'
+        assert_equal :incomesupp_jobseekers_1, @calculator.incomesupp_jobseekers_1
+      end
+
+      should 'return :incomesupp_jobseekers_1 when only pensioner_premium option selected' do
+        @calculator.disabled_or_have_children = 'pensioner_premium'
+        assert_equal :incomesupp_jobseekers_1, @calculator.incomesupp_jobseekers_1
+      end
+
+      should 'return nil when only child_under_16 option selected' do
+        @calculator.disabled_or_have_children = 'child_under_16'
+        assert_nil @calculator.incomesupp_jobseekers_1
+      end
+
+      should 'return nil when only work_support_esa option selected' do
+        @calculator.disabled_or_have_children = 'work_support_esa'
+        assert_nil @calculator.incomesupp_jobseekers_1
+      end
+
+      should 'return nil when any two options selected' do
+        @calculator.disabled_or_have_children = 'disabled,child_under_5'
+        assert_nil @calculator.incomesupp_jobseekers_1
+      end
     end
 
     context '#disabled_or_have_children_question?' do
