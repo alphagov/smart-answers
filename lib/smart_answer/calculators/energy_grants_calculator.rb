@@ -138,6 +138,10 @@ module SmartAnswer::Calculators
       (features & %w(modern_double_glazing)).any?
     end
 
+    def cavity_wall_insulation_or_mains_gas?
+      (features & %w(cavity_wall_insulation mains_gas)).any?
+    end
+
     def eligible_for_cold_weather_payment?
       (benefits_claimed & %w(esa pension_credit)).any? || incomesupp_jobseekers_1?
     end
