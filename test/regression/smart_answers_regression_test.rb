@@ -15,8 +15,9 @@ require 'gds_api/test_helpers/content_api'
 require 'gds_api/test_helpers/worldwide'
 require 'gds_api/test_helpers/imminence'
 
-require 'mocha/setup'
-Mocha::Configuration.prevent(:stubbing_non_existent_method)
+# require 'mocha/setup'
+# Mocha::Configuration.prevent(:stubbing_non_existent_method)
+require 'mocha/api'
 
 class SmartAnswersRegressionTest < ActionController::TestCase
   i_suck_and_my_tests_are_order_dependent!
@@ -49,6 +50,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
   include GdsApi::TestHelpers::Imminence
   include WebMock::API
   include FixtureMethods
+  include Mocha::API
   include WorldLocationStubbingMethods
 
   tests SmartAnswersController
@@ -67,11 +69,12 @@ class SmartAnswersRegressionTest < ActionController::TestCase
     context "Smart Answer: #{flow_name}" do
       setup do
         Timecop.freeze(smart_answer_helper.current_time)
-        setup_worldwide_locations
 
         next if self.class.setup_has_run? && !self.class.teardown_hooks_installed?
         stub_content_api_default_artefact
         WebMock.stub_request(:get, WorkingDays::BANK_HOLIDAYS_URL).to_return(body: File.open(fixture_file('bank_holidays.json')))
+
+        setup_worldwide_locations
 
         imminence_has_areas_for_postcode("PA3%202SW",  [{ slug: 'renfrewshire-council', country_name: 'Scotland' }])
         imminence_has_areas_for_postcode("B1%201PW",   [{ slug: "birmingham-city-council", country_name: 'England' }])
