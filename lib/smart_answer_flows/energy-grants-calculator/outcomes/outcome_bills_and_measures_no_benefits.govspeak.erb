@@ -21,7 +21,7 @@
   <% unless calculator.modern_boiler? %>
     <%= render partial: 'opt_condensing_boiler.govspeak.erb' %>
   <% end %>
-  <% unless (calculator.features & %w(mains_gas)).any? %>
+  <% unless calculator.mains_gas? %>
     <%= render partial: 'opt_cavity_wall_insulation.govspeak.erb' %>
   <% end %>
   <% unless (calculator.features & %w(mains_gas solid_wall_insulation)).any? %>
@@ -43,7 +43,7 @@
   <% end %>
   <%= render partial: 'header_heating.govspeak.erb' %>
   <%= render partial: 'opt_better_heating_controls.govspeak.erb' %>
-  <% unless (calculator.features & %w(mains_gas)).any? %>
+  <% unless calculator.mains_gas? %>
     <%= render partial: 'opt_heat_pump.govspeak.erb' %>
     <%= render partial: 'opt_biomass_boilers_heaters.govspeak.erb' %>
     <%= render partial: 'opt_solar_water_heating.govspeak.erb' %>

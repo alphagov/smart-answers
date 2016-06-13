@@ -114,6 +114,10 @@ module SmartAnswer::Calculators
       (features & %w(modern_boiler)).any?
     end
 
+    def mains_gas?
+      (features & %w(mains_gas)).any?
+    end
+
     def no_benefits?
       circumstances.exclude?('benefits')
     end
