@@ -290,15 +290,10 @@ module SmartAnswer
       end
 
       outcome :outcome_help_with_bills
-
       outcome :outcome_measures_help_green_deal
-
       outcome :outcome_bills_and_measures_no_benefits
-
       outcome :outcome_bills_and_measures_on_benefits_eco_eligible
-
       outcome :outcome_bills_and_measures_on_benefits_not_eco_eligible
-
       outcome :outcome_no_green_deal_no_energy_measures
     end
   end
