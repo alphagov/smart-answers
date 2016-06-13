@@ -142,6 +142,10 @@ module SmartAnswer::Calculators
       (benefits_claimed & %w(esa pension_credit)).any? || incomesupp_jobseekers_1?
     end
 
+    def eligible_for_warm_home_discount?
+      eligible_for_cold_weather_payment? && benefits_claimed.include?('pension_credit')
+    end
+
     def no_benefits?
       circumstances.exclude?('benefits')
     end
