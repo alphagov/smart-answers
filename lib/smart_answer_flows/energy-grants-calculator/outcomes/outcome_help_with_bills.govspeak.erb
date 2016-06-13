@@ -17,7 +17,7 @@
     <% if calculator.eligible_for_winter_fuel_payment? %>
       <%= render partial: 'winter_fuel_payments.govspeak.erb' %>
     <% end %>
-    <% if (calculator.benefits_claimed & %w(esa pension_credit)).any? || calculator.incomesupp_jobseekers_1? %>
+    <% if calculator.eligible_for_cold_weather_payment? %>
       <% if calculator.benefits_claimed.include?('pension_credit') %>
         <%= render partial: 'warm_home_discount.govspeak.erb', locals: {calculator: calculator} %>
         <%= render partial: 'cold_weather_payment.govspeak.erb' %>

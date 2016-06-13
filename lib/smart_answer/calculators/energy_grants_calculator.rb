@@ -138,6 +138,10 @@ module SmartAnswer::Calculators
       (features & %w(modern_double_glazing)).any?
     end
 
+    def eligible_for_cold_weather_payment?
+      (benefits_claimed & %w(esa pension_credit)).any? || incomesupp_jobseekers_1?
+    end
+
     def no_benefits?
       circumstances.exclude?('benefits')
     end
