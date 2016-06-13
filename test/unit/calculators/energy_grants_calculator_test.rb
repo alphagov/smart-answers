@@ -297,6 +297,102 @@ module SmartAnswer::Calculators
       end
     end
 
+    context '#incomesupp_jobseekers_2_part_2' do
+      should 'return nil by default i.e. when no responses have been set' do
+        assert_nil @calculator.incomesupp_jobseekers_2_part_2
+      end
+
+      context 'when only child_under_16 option selected' do
+        setup do
+          @calculator.disabled_or_have_children = 'child_under_16'
+        end
+
+        should 'return nil when social housing tenant' do
+          @calculator.circumstances = %w(social_housing)
+          assert_nil @calculator.incomesupp_jobseekers_2_part_2
+        end
+
+        should 'return nil when claiming working tax credit and not over 60' do
+          @calculator.benefits_claimed = %(working_tax_credit)
+          @calculator.stubs(:age_variant).returns(:winter_fuel_payment)
+          assert_nil @calculator.incomesupp_jobseekers_2_part_2
+        end
+
+        context 'when not social housing tenant' do
+          setup do
+            @calculator.circumstances = %w(permission)
+          end
+
+          should 'return :incomesupp_jobseekers_2 when not claiming working tax credit' do
+            @calculator.benefits_claimed = %(income_support)
+            assert_equal :incomesupp_jobseekers_2, @calculator.incomesupp_jobseekers_2_part_2
+          end
+
+          should 'return :incomesupp_jobseekers_2 when over 60' do
+            @calculator.stubs(:age_variant).returns(:over_60)
+            assert_equal :incomesupp_jobseekers_2, @calculator.incomesupp_jobseekers_2_part_2
+          end
+        end
+      end
+
+      context 'when only work_support_esa option selected' do
+        setup do
+          @calculator.disabled_or_have_children = 'work_support_esa'
+        end
+
+        should 'return nil when social housing tenant' do
+          @calculator.circumstances = %w(social_housing)
+          assert_nil @calculator.incomesupp_jobseekers_2_part_2
+        end
+
+        should 'return nil when claiming working tax credit and not over 60' do
+          @calculator.benefits_claimed = %(working_tax_credit)
+          @calculator.stubs(:age_variant).returns(:winter_fuel_payment)
+          assert_nil @calculator.incomesupp_jobseekers_2_part_2
+        end
+
+        context 'when not social housing tenant' do
+          setup do
+            @calculator.circumstances = %w(permission)
+          end
+
+          should 'return :incomesupp_jobseekers_2 when not claiming working tax credit' do
+            @calculator.benefits_claimed = %(income_support)
+            assert_equal :incomesupp_jobseekers_2, @calculator.incomesupp_jobseekers_2_part_2
+          end
+
+          should 'return :incomesupp_jobseekers_2 when over 60' do
+            @calculator.stubs(:age_variant).returns(:over_60)
+            assert_equal :incomesupp_jobseekers_2, @calculator.incomesupp_jobseekers_2_part_2
+          end
+        end
+      end
+
+      context 'when another option is selected' do
+        setup do
+          @calculator.disabled_or_have_children = 'disabled_child'
+        end
+
+        should 'always return nil' do
+          @calculator.circumstances = %w(permission)
+          @calculator.benefits_claimed = %(income_support)
+          assert_nil @calculator.incomesupp_jobseekers_2_part_2
+        end
+      end
+
+      context 'when more than one option is selectedd' do
+        setup do
+          @calculator.disabled_or_have_children = 'child_under_16,work_support_esa'
+        end
+
+        should 'always return nil' do
+          @calculator.circumstances = %w(permission)
+          @calculator.benefits_claimed = %(income_support)
+          assert_nil @calculator.incomesupp_jobseekers_2_part_2
+        end
+      end
+    end
+
     context '#incomesupp_jobseekers_2' do
       should 'return nil by default i.e. when no responses have been set' do
         assert_nil @calculator.incomesupp_jobseekers_2
