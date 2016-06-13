@@ -259,6 +259,44 @@ module SmartAnswer::Calculators
       end
     end
 
+    context '#incomesupp_jobseekers_2_part_1' do
+      should 'return nil by default i.e. when no responses have been set' do
+        assert_nil @calculator.incomesupp_jobseekers_2_part_1
+      end
+
+      context 'when only working_tax_credit benefit is claimed' do
+        setup do
+          @calculator.benefits_claimed = %w(working_tax_credit)
+        end
+
+        should 'return :incomesupp_jobseekers_2 when age_variant is :over_60' do
+          @calculator.stubs(:age_variant).returns(:over_60)
+          assert_equal :incomesupp_jobseekers_2, @calculator.incomesupp_jobseekers_2_part_1
+        end
+
+        should 'return nil when age_variant is not :over_60' do
+          @calculator.stubs(:age_variant).returns(:winter_fuel_payment)
+          assert_nil @calculator.incomesupp_jobseekers_2_part_1
+        end
+      end
+
+      context 'when when not only working_tax_credit benefit is claimed' do
+        setup do
+          @calculator.benefits_claimed = %w(income_support working_tax_credit)
+        end
+
+        should 'return nil when age_variant is :over_60' do
+          @calculator.stubs(:age_variant).returns(:over_60)
+          assert_nil @calculator.incomesupp_jobseekers_2_part_1
+        end
+
+        should 'return nil when age_variant is not :over_60' do
+          @calculator.stubs(:age_variant).returns(:winter_fuel_payment)
+          assert_nil @calculator.incomesupp_jobseekers_2_part_1
+        end
+      end
+    end
+
     context '#incomesupp_jobseekers_2' do
       should 'return nil by default i.e. when no responses have been set' do
         assert_nil @calculator.incomesupp_jobseekers_2
