@@ -6,7 +6,7 @@
   <%= render partial: 'callout_under_green_deal.govspeak.erb' %>
   <%= render partial: 'header_boilers_and_insulation.govspeak.erb' %>
 
-  <% unless (calculator.features & %w(modern_boiler)).any? %>
+  <% unless calculator.modern_boiler? %>
     <%= render partial: 'opt_condensing_boiler.govspeak.erb' %>
   <% end %>
   <%= render partial: 'opt_cavity_wall_insulation.govspeak.erb' %>

@@ -27,7 +27,7 @@
 
 
   <%= render partial: 'header_boilers_and_insulation.govspeak.erb' %>
-  <% unless (calculator.features & %w(modern_boiler)).any? %>
+  <% unless calculator.modern_boiler? %>
     <%= render partial: 'opt_condensing_boiler.govspeak.erb' %>
   <% end %>
   <% unless (calculator.features & %w(cavity_wall_insulation mains_gas)).any? %>

@@ -110,6 +110,10 @@ module SmartAnswer::Calculators
       modern_property? && features.include?('mains_gas') && features.include?('electric_heating')
     end
 
+    def modern_boiler?
+      (features & %w(modern_boiler)).any?
+    end
+
     def no_benefits?
       circumstances.exclude?('benefits')
     end
