@@ -142,6 +142,10 @@ module SmartAnswer::Calculators
       (features & %w(cavity_wall_insulation mains_gas)).any?
     end
 
+    def draught_proofing?
+      (features & %w(draught_proofing)).any?
+    end
+
     def eligible_for_cold_weather_payment?
       (benefits_claimed & %w(esa pension_credit)).any? || incomesupp_jobseekers_1?
     end

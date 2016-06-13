@@ -11,7 +11,7 @@
   <% end %>
   <%= render partial: 'opt_cavity_wall_insulation.govspeak.erb' %>
   <%= render partial: 'opt_solid_wall_insulation.govspeak.erb' %>
-  <% unless (calculator.features & %w(draught_proofing)).any? %>
+  <% unless calculator.draught_proofing? %>
     <%= render partial: 'opt_draught_proofing.govspeak.erb' %>
   <% end %>
   <% unless calculator.loft_insulation_or_loft_attic_conversion? || calculator.flat_property_type? %>
