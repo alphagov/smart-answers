@@ -9,6 +9,7 @@ require 'webmock'
 WebMock.disable_net_connect!(allow_localhost: true)
 
 require_relative '../support/fixture_methods'
+require_relative '../support/world_location_stubbing_methods'
 
 require 'gds_api/test_helpers/content_api'
 require 'gds_api/test_helpers/worldwide'
@@ -48,6 +49,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
   include GdsApi::TestHelpers::Imminence
   include WebMock::API
   include FixtureMethods
+  include WorldLocationStubbingMethods
 
   tests SmartAnswersController
 
@@ -153,7 +155,8 @@ private
 
   def setup_worldwide_locations
     location_slugs = YAML.load(read_fixture_file("worldwide_locations.yml"))
-    stub_worldwide_locations(location_slugs)
+    stub_world_locations(location_slugs)
+    # stub_worldwide_locations(location_slugs)
     # worldwide_api_has_locations(location_slugs)
     # location_slugs.each do |location|
     #   path_to_organisations_fixture = fixture_file("worldwide/#{location}_organisations.json")
@@ -162,17 +165,5 @@ private
     #     worldwide_api_has_organisations_for_location(location, json)
     #   end
     # end
-  end
-
-  def stub_worldwide_locations(location_slugs)
-    locations = location_slugs.map do |slug|
-      location = stub.quacks_like(WorldLocation.new({}))
-      location.stubs(:slug).returns(slug)
-      location.stubs(:name).returns(slug.humanize)
-      location.stubs(:fco_organisation).returns(nil)
-      WorldLocation.stubs(:find).with(slug).returns(location)
-      location
-    end
-    WorldLocation.stubs(:all).returns(locations)
   end
 end
