@@ -134,6 +134,10 @@ module SmartAnswer::Calculators
       (features & %w(loft_attic_conversion)).any?
     end
 
+    def modern_double_glazing?
+      (features & %w(modern_double_glazing)).any?
+    end
+
     def no_benefits?
       circumstances.exclude?('benefits')
     end

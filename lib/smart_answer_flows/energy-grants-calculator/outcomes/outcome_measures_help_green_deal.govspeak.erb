@@ -33,7 +33,7 @@
     <%= render partial: 'opt_biomass_boilers_heaters.govspeak.erb' %>
     <%= render partial: 'opt_solar_water_heating.govspeak.erb' %>
   <% end %>
-  <% unless (calculator.features & %w(modern_double_glazing)).any? %>
+  <% unless calculator.modern_double_glazing? %>
     <%= render partial: 'header_windows_and_doors.govspeak.erb' %>
     <%= render partial: 'opt_replacement_glazing.govspeak.erb' %>
   <% end %>
