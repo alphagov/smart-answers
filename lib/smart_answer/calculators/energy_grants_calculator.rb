@@ -150,6 +150,10 @@ module SmartAnswer::Calculators
       property_type == 'flat'
     end
 
+    def top_floor_flat?
+      flat_type == 'top_floor'
+    end
+
     def under_green_deal?
       part_1 = !measure_help_and_property_permission_circumstance? && no_benefits?
       part_2 = !part_1 && property_permission_circumstance_and_benefits?
