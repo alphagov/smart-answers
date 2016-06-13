@@ -122,6 +122,10 @@ module SmartAnswer::Calculators
       (features & %w(mains_gas solid_wall_insulation)).any?
     end
 
+    def draught_proofing_or_mains_gas?
+      (features & %w(draught_proofing mains_gas)).any?
+    end
+
     def no_benefits?
       circumstances.exclude?('benefits')
     end

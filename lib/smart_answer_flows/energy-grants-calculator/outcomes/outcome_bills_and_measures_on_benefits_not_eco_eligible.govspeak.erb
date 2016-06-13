@@ -32,7 +32,7 @@
     <%= render partial: 'opt_cavity_wall_insulation.govspeak.erb' %>
     <%= render partial: 'opt_solid_wall_insulation.govspeak.erb' %>
   <% end %>
-  <% unless (calculator.features & %w(draught_proofing mains_gas)).any? %>
+  <% unless calculator.draught_proofing_or_mains_gas? %>
     <%= render partial: 'opt_draught_proofing.govspeak.erb' %>
   <% end %>
   <% unless (calculator.features & %w(loft_insulation loft_attic_conversion)).any? || calculator.flat_property_type? %>
