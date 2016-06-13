@@ -41,6 +41,10 @@ module SmartAnswer::Calculators
       end
     end
 
+    def eligible_for_winter_fuel_payment?
+      age_variant == :winter_fuel_payment
+    end
+
     def bills_help?
       %w(help_with_fuel_bill).include?(which_help)
     end

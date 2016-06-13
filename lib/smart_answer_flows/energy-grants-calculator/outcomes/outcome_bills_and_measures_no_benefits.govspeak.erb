@@ -11,7 +11,7 @@
     <%= render partial: 'callout_under_green_deal.govspeak.erb' %>
   <% end %>
   <% if calculator.both_help? %>
-    <% if calculator.age_variant == :winter_fuel_payment %>
+    <% if calculator.eligible_for_winter_fuel_payment? %>
       <%= render partial: 'winter_fuel_payments.govspeak.erb' %>
       <%= render partial: 'cold_weather_payment.govspeak.erb' %>
     <% end %>
