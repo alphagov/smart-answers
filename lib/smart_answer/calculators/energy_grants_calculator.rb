@@ -118,6 +118,10 @@ module SmartAnswer::Calculators
       (features & %w(mains_gas)).any?
     end
 
+    def mains_gas_or_solid_wall_insulation?
+      (features & %w(mains_gas solid_wall_insulation)).any?
+    end
+
     def no_benefits?
       circumstances.exclude?('benefits')
     end
