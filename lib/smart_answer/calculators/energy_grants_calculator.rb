@@ -69,7 +69,7 @@ module SmartAnswer::Calculators
         %w{child_tax_credit esa jsa pension_credit}.all? { |key| response.include? key }
     end
 
-    def incomesupp_jobseekers_2
+    def incomesupp_jobseekers_2?
       if disabled_or_have_children.any?
         incomesupp_jobseekers_2_part_2?
       else
@@ -111,7 +111,7 @@ module SmartAnswer::Calculators
     end
 
     def property_permission_circumstance_and_benefits?
-      (circumstances & %w(property permission)).any? && ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? || incomesupp_jobseekers_1? || incomesupp_jobseekers_2)
+      (circumstances & %w(property permission)).any? && ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? || incomesupp_jobseekers_1? || incomesupp_jobseekers_2?)
     end
 
     def house_property_type?
@@ -134,11 +134,11 @@ module SmartAnswer::Calculators
     end
 
     def under_green_deal_part_2?
-      !((both_help? && circumstances.include?('property')) || (circumstances.include?('permission') && circumstances.include?('pension_credit')) || incomesupp_jobseekers_1? || incomesupp_jobseekers_2 || (benefits_claimed & %w(esa child_tax_credit working_tax_credit)).any?)
+      !((both_help? && circumstances.include?('property')) || (circumstances.include?('permission') && circumstances.include?('pension_credit')) || incomesupp_jobseekers_1? || incomesupp_jobseekers_2? || (benefits_claimed & %w(esa child_tax_credit working_tax_credit)).any?)
     end
 
     def under_green_deal_part_3?
-      both_help? && age_variant == :over_60 && (benefits_claimed & %w(esa child_tax_credit working_tax_credit) || incomesupp_jobseekers_1? || incomesupp_jobseekers_2)
+      both_help? && age_variant == :over_60 && (benefits_claimed & %w(esa child_tax_credit working_tax_credit) || incomesupp_jobseekers_1? || incomesupp_jobseekers_2?)
     end
   end
 end

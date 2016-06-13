@@ -131,9 +131,9 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
               setup do
                 add_response 'child_under_16'
               end
-              should "take you to help with bills outcome with incomesupp_jobseekers_2" do
+              should "take you to help with bills outcome with incomesupp_jobseekers_2?" do
                 assert_current_node :outcome_help_with_bills # outcome 1
-                assert current_state.calculator.incomesupp_jobseekers_2
+                assert current_state.calculator.incomesupp_jobseekers_2?
               end
             end
           end
@@ -206,14 +206,14 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
               add_response 'working_tax_credit'
             end
             should "ask if you're elderly or disabled" do
-              assert current_state.calculator.incomesupp_jobseekers_2
+              assert current_state.calculator.incomesupp_jobseekers_2?
               assert_current_node :disabled_or_have_children?
             end
             context "answer pensioner premium" do
               setup do
                 add_response 'pensioner_premium'
               end
-              should "take you to help with bills outcome with incomesupp_jobseekers_2" do
+              should "take you to help with bills outcome with incomesupp_jobseekers_2?" do
                 assert_current_node :outcome_help_with_bills # outcome 1
                 assert current_state.calculator.incomesupp_jobseekers_1?
               end
@@ -626,8 +626,8 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       end
     end
 
-    # test for incomesupp_jobseekers_2
-    context "test that incomesupp_jobseekers_2 is being calculated correctly at Q4" do
+    # test for incomesupp_jobseekers_2?
+    context "test that incomesupp_jobseekers_2? is being calculated correctly at Q4" do
       setup do
         add_response 'all_help'
         add_response 'benefits'
@@ -636,7 +636,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       end
       should "take you to next question" do
         assert_current_node :disabled_or_have_children?
-        assert current_state.calculator.incomesupp_jobseekers_2
+        assert current_state.calculator.incomesupp_jobseekers_2?
       end
     end
 

@@ -393,9 +393,9 @@ module SmartAnswer::Calculators
       end
     end
 
-    context '#incomesupp_jobseekers_2' do
+    context '#incomesupp_jobseekers_2?' do
       should 'return false by default i.e. when no responses have been set' do
-        refute @calculator.incomesupp_jobseekers_2
+        refute @calculator.incomesupp_jobseekers_2?
       end
 
       context 'when disabled_or_have_children? question has been answered' do
@@ -408,7 +408,7 @@ module SmartAnswer::Calculators
         end
 
         should 'return incomesupp_jobseekers_2_part_2' do
-          assert_equal :incomesupp_jobseekers_2_part_2, @calculator.incomesupp_jobseekers_2
+          assert_equal :incomesupp_jobseekers_2_part_2, @calculator.incomesupp_jobseekers_2?
         end
       end
 
@@ -422,7 +422,7 @@ module SmartAnswer::Calculators
         end
 
         should 'return incomesupp_jobseekers_2_part_1' do
-          assert_equal :incomesupp_jobseekers_2_part_1, @calculator.incomesupp_jobseekers_2
+          assert_equal :incomesupp_jobseekers_2_part_1, @calculator.incomesupp_jobseekers_2?
         end
       end
     end
