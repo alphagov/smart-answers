@@ -259,9 +259,9 @@ module SmartAnswer::Calculators
       end
     end
 
-    context '#incomesupp_jobseekers_2_part_1' do
-      should 'return nil by default i.e. when no responses have been set' do
-        assert_nil @calculator.incomesupp_jobseekers_2_part_1
+    context '#incomesupp_jobseekers_2_part_1?' do
+      should 'return false by default i.e. when no responses have been set' do
+        refute @calculator.incomesupp_jobseekers_2_part_1?
       end
 
       context 'when only working_tax_credit benefit is claimed' do
@@ -269,14 +269,14 @@ module SmartAnswer::Calculators
           @calculator.benefits_claimed = %w(working_tax_credit)
         end
 
-        should 'return :incomesupp_jobseekers_2 when age_variant is :over_60' do
+        should 'return true when age_variant is :over_60' do
           @calculator.stubs(:age_variant).returns(:over_60)
-          assert_equal :incomesupp_jobseekers_2, @calculator.incomesupp_jobseekers_2_part_1
+          assert @calculator.incomesupp_jobseekers_2_part_1?
         end
 
-        should 'return nil when age_variant is not :over_60' do
+        should 'return false when age_variant is not :over_60' do
           @calculator.stubs(:age_variant).returns(:winter_fuel_payment)
-          assert_nil @calculator.incomesupp_jobseekers_2_part_1
+          refute @calculator.incomesupp_jobseekers_2_part_1?
         end
       end
 
@@ -285,14 +285,14 @@ module SmartAnswer::Calculators
           @calculator.benefits_claimed = %w(income_support working_tax_credit)
         end
 
-        should 'return nil when age_variant is :over_60' do
+        should 'return false when age_variant is :over_60' do
           @calculator.stubs(:age_variant).returns(:over_60)
-          assert_nil @calculator.incomesupp_jobseekers_2_part_1
+          refute @calculator.incomesupp_jobseekers_2_part_1?
         end
 
-        should 'return nil when age_variant is not :over_60' do
+        should 'return false when age_variant is not :over_60' do
           @calculator.stubs(:age_variant).returns(:winter_fuel_payment)
-          assert_nil @calculator.incomesupp_jobseekers_2_part_1
+          refute @calculator.incomesupp_jobseekers_2_part_1?
         end
       end
     end
@@ -394,15 +394,15 @@ module SmartAnswer::Calculators
     end
 
     context '#incomesupp_jobseekers_2' do
-      should 'return nil by default i.e. when no responses have been set' do
-        assert_nil @calculator.incomesupp_jobseekers_2
+      should 'return false by default i.e. when no responses have been set' do
+        refute @calculator.incomesupp_jobseekers_2
       end
 
       context 'when disabled_or_have_children? question has been answered' do
         setup do
           @calculator.disabled_or_have_children = %w(disabled_child)
           @calculator.stubs(
-            incomesupp_jobseekers_2_part_1: :incomesupp_jobseekers_2_part_1,
+            incomesupp_jobseekers_2_part_1?: :incomesupp_jobseekers_2_part_1,
             incomesupp_jobseekers_2_part_2: :incomesupp_jobseekers_2_part_2
           )
         end
@@ -416,7 +416,7 @@ module SmartAnswer::Calculators
         setup do
           @calculator.disabled_or_have_children = []
           @calculator.stubs(
-            incomesupp_jobseekers_2_part_1: :incomesupp_jobseekers_2_part_1,
+            incomesupp_jobseekers_2_part_1?: :incomesupp_jobseekers_2_part_1,
             incomesupp_jobseekers_2_part_2: :incomesupp_jobseekers_2_part_2
           )
         end

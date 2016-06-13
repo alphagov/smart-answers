@@ -206,7 +206,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
               add_response 'working_tax_credit'
             end
             should "ask if you're elderly or disabled" do
-              assert_equal :incomesupp_jobseekers_2, current_state.calculator.incomesupp_jobseekers_2
+              assert current_state.calculator.incomesupp_jobseekers_2
               assert_current_node :disabled_or_have_children?
             end
             context "answer pensioner premium" do
@@ -636,7 +636,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       end
       should "take you to next question" do
         assert_current_node :disabled_or_have_children?
-        assert_equal :incomesupp_jobseekers_2, current_state.calculator.incomesupp_jobseekers_2
+        assert current_state.calculator.incomesupp_jobseekers_2
       end
     end
 
