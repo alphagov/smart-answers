@@ -25,13 +25,11 @@ module SmartAnswer::Calculators
       disabled_or_have_children != %w(none) && benefits_claimed.include?('universal_credit')
     end
 
-    def incomesupp_jobseekers_1
-      if disabled_or_have_children == %w(disabled) ||
+    def incomesupp_jobseekers_1?
+      disabled_or_have_children == %w(disabled) ||
         disabled_or_have_children == %w(disabled_child) ||
         disabled_or_have_children == %w(child_under_5) ||
         disabled_or_have_children == %w(pensioner_premium)
-        :incomesupp_jobseekers_1
-      end
     end
 
     def age_variant
@@ -120,7 +118,7 @@ module SmartAnswer::Calculators
     end
 
     def property_permission_circumstance_and_benefits?
-      (circumstances & %w(property permission)).any? && ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2)
+      (circumstances & %w(property permission)).any? && ((benefits_claimed & %w(child_tax_credit esa pension_credit)).any? || incomesupp_jobseekers_1? || incomesupp_jobseekers_2)
     end
 
     def house_property_type?
@@ -143,11 +141,11 @@ module SmartAnswer::Calculators
     end
 
     def under_green_deal_part_2?
-      !((both_help? && circumstances.include?('property')) || (circumstances.include?('permission') && circumstances.include?('pension_credit')) || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || (benefits_claimed & %w(esa child_tax_credit working_tax_credit)).any?)
+      !((both_help? && circumstances.include?('property')) || (circumstances.include?('permission') && circumstances.include?('pension_credit')) || incomesupp_jobseekers_1? || incomesupp_jobseekers_2 || (benefits_claimed & %w(esa child_tax_credit working_tax_credit)).any?)
     end
 
     def under_green_deal_part_3?
-      both_help? && age_variant == :over_60 && (benefits_claimed & %w(esa child_tax_credit working_tax_credit) || incomesupp_jobseekers_1 || incomesupp_jobseekers_2)
+      both_help? && age_variant == :over_60 && (benefits_claimed & %w(esa child_tax_credit working_tax_credit) || incomesupp_jobseekers_1? || incomesupp_jobseekers_2)
     end
   end
 end

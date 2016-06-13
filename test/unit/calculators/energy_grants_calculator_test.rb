@@ -80,44 +80,44 @@ module SmartAnswer::Calculators
       end
     end
 
-    context '#incomesupp_jobseekers_1' do
-      should 'return nil by default i.e. when no responses have been set' do
-        assert_nil @calculator.incomesupp_jobseekers_1
+    context '#incomesupp_jobseekers_1?' do
+      should 'return false by default i.e. when no responses have been set' do
+        refute @calculator.incomesupp_jobseekers_1?
       end
 
-      should 'return :incomesupp_jobseekers_1 when only disabled option selected' do
+      should 'return true when only disabled option selected' do
         @calculator.disabled_or_have_children = %w(disabled)
-        assert_equal :incomesupp_jobseekers_1, @calculator.incomesupp_jobseekers_1
+        assert @calculator.incomesupp_jobseekers_1?
       end
 
-      should 'return :incomesupp_jobseekers_1 when only disabled_child option selected' do
+      should 'return true when only disabled_child option selected' do
         @calculator.disabled_or_have_children = %w(disabled_child)
-        assert_equal :incomesupp_jobseekers_1, @calculator.incomesupp_jobseekers_1
+        assert @calculator.incomesupp_jobseekers_1?
       end
 
-      should 'return :incomesupp_jobseekers_1 when only child_under_5 option selected' do
+      should 'return true when only child_under_5 option selected' do
         @calculator.disabled_or_have_children = %w(child_under_5)
-        assert_equal :incomesupp_jobseekers_1, @calculator.incomesupp_jobseekers_1
+        assert @calculator.incomesupp_jobseekers_1?
       end
 
-      should 'return :incomesupp_jobseekers_1 when only pensioner_premium option selected' do
+      should 'return true when only pensioner_premium option selected' do
         @calculator.disabled_or_have_children = %w(pensioner_premium)
-        assert_equal :incomesupp_jobseekers_1, @calculator.incomesupp_jobseekers_1
+        assert @calculator.incomesupp_jobseekers_1?
       end
 
-      should 'return nil when only child_under_16 option selected' do
+      should 'return false when only child_under_16 option selected' do
         @calculator.disabled_or_have_children = %w(child_under_16)
-        assert_nil @calculator.incomesupp_jobseekers_1
+        refute @calculator.incomesupp_jobseekers_1?
       end
 
-      should 'return nil when only work_support_esa option selected' do
+      should 'return false when only work_support_esa option selected' do
         @calculator.disabled_or_have_children = %w(work_support_esa)
-        assert_nil @calculator.incomesupp_jobseekers_1
+        refute @calculator.incomesupp_jobseekers_1?
       end
 
-      should 'return nil when any two options selected' do
-        @calculator.disabled_or_have_children = %w(disabled child_under_5)
-        assert_nil @calculator.incomesupp_jobseekers_1
+      should 'return false when any two options selected' do
+        @calculator.disabled_or_have_children = %w(disabled,child_under_5)
+        refute @calculator.incomesupp_jobseekers_1?
       end
     end
 
