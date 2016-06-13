@@ -126,6 +126,10 @@ module SmartAnswer::Calculators
       (features & %w(draught_proofing mains_gas)).any?
     end
 
+    def loft_insulation_or_loft_attic_conversion?
+      (features & %w(loft_insulation loft_attic_conversion)).any?
+    end
+
     def no_benefits?
       circumstances.exclude?('benefits')
     end
