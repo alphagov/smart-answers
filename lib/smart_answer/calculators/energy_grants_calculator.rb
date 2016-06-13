@@ -146,6 +146,10 @@ module SmartAnswer::Calculators
       eligible_for_cold_weather_payment? && benefits_claimed.include?('pension_credit')
     end
 
+    def eligible_for_energy_company_obligation?
+      (benefits_claimed & %w(esa child_tax_credit pension_credit)).any? || incomesupp_jobseekers_1? || incomesupp_jobseekers_2? || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60
+    end
+
     def no_benefits?
       circumstances.exclude?('benefits')
     end
