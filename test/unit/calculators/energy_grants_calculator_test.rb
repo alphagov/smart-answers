@@ -86,37 +86,37 @@ module SmartAnswer::Calculators
       end
 
       should 'return :incomesupp_jobseekers_1 when only disabled option selected' do
-        @calculator.disabled_or_have_children = 'disabled'
+        @calculator.disabled_or_have_children = %w(disabled)
         assert_equal :incomesupp_jobseekers_1, @calculator.incomesupp_jobseekers_1
       end
 
       should 'return :incomesupp_jobseekers_1 when only disabled_child option selected' do
-        @calculator.disabled_or_have_children = 'disabled_child'
+        @calculator.disabled_or_have_children = %w(disabled_child)
         assert_equal :incomesupp_jobseekers_1, @calculator.incomesupp_jobseekers_1
       end
 
       should 'return :incomesupp_jobseekers_1 when only child_under_5 option selected' do
-        @calculator.disabled_or_have_children = 'child_under_5'
+        @calculator.disabled_or_have_children = %w(child_under_5)
         assert_equal :incomesupp_jobseekers_1, @calculator.incomesupp_jobseekers_1
       end
 
       should 'return :incomesupp_jobseekers_1 when only pensioner_premium option selected' do
-        @calculator.disabled_or_have_children = 'pensioner_premium'
+        @calculator.disabled_or_have_children = %w(pensioner_premium)
         assert_equal :incomesupp_jobseekers_1, @calculator.incomesupp_jobseekers_1
       end
 
       should 'return nil when only child_under_16 option selected' do
-        @calculator.disabled_or_have_children = 'child_under_16'
+        @calculator.disabled_or_have_children = %w(child_under_16)
         assert_nil @calculator.incomesupp_jobseekers_1
       end
 
       should 'return nil when only work_support_esa option selected' do
-        @calculator.disabled_or_have_children = 'work_support_esa'
+        @calculator.disabled_or_have_children = %w(work_support_esa)
         assert_nil @calculator.incomesupp_jobseekers_1
       end
 
       should 'return nil when any two options selected' do
-        @calculator.disabled_or_have_children = 'disabled,child_under_5'
+        @calculator.disabled_or_have_children = %w(disabled child_under_5)
         assert_nil @calculator.incomesupp_jobseekers_1
       end
     end
@@ -304,7 +304,7 @@ module SmartAnswer::Calculators
 
       context 'when only child_under_16 option selected' do
         setup do
-          @calculator.disabled_or_have_children = 'child_under_16'
+          @calculator.disabled_or_have_children = %w(child_under_16)
         end
 
         should 'return nil when social housing tenant' do
@@ -337,7 +337,7 @@ module SmartAnswer::Calculators
 
       context 'when only work_support_esa option selected' do
         setup do
-          @calculator.disabled_or_have_children = 'work_support_esa'
+          @calculator.disabled_or_have_children = %w(work_support_esa)
         end
 
         should 'return nil when social housing tenant' do
@@ -370,7 +370,7 @@ module SmartAnswer::Calculators
 
       context 'when another option is selected' do
         setup do
-          @calculator.disabled_or_have_children = 'disabled_child'
+          @calculator.disabled_or_have_children = %w(disabled_child)
         end
 
         should 'always return nil' do
@@ -382,7 +382,7 @@ module SmartAnswer::Calculators
 
       context 'when more than one option is selectedd' do
         setup do
-          @calculator.disabled_or_have_children = 'child_under_16,work_support_esa'
+          @calculator.disabled_or_have_children = %w(child_under_16 work_support_esa)
         end
 
         should 'always return nil' do
@@ -400,7 +400,7 @@ module SmartAnswer::Calculators
 
       context 'when disabled_or_have_children? question has been answered' do
         setup do
-          @calculator.disabled_or_have_children = 'disabled_child'
+          @calculator.disabled_or_have_children = %w(disabled_child)
           @calculator.stubs(
             incomesupp_jobseekers_2_part_1: :incomesupp_jobseekers_2_part_1,
             incomesupp_jobseekers_2_part_2: :incomesupp_jobseekers_2_part_2
@@ -414,7 +414,7 @@ module SmartAnswer::Calculators
 
       context 'when disabled_or_have_children? question has not been answered' do
         setup do
-          @calculator.disabled_or_have_children = nil
+          @calculator.disabled_or_have_children = []
           @calculator.stubs(
             incomesupp_jobseekers_2_part_1: :incomesupp_jobseekers_2_part_1,
             incomesupp_jobseekers_2_part_2: :incomesupp_jobseekers_2_part_2

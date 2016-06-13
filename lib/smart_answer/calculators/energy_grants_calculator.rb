@@ -17,16 +17,19 @@ module SmartAnswer::Calculators
       @circumstances ||= []
       @date_of_birth ||= Date.today
       @benefits_claimed ||= []
+      @disabled_or_have_children ||= []
       @features ||= []
     end
 
     def may_qualify_for_affordable_warmth_obligation?
-      disabled_or_have_children != 'none' && benefits_claimed.include?('universal_credit')
+      disabled_or_have_children != %w(none) && benefits_claimed.include?('universal_credit')
     end
 
     def incomesupp_jobseekers_1
-      case disabled_or_have_children
-      when 'disabled', 'disabled_child', 'child_under_5', 'pensioner_premium'
+      if disabled_or_have_children == %w(disabled) ||
+        disabled_or_have_children == %w(disabled_child) ||
+        disabled_or_have_children == %w(child_under_5) ||
+        disabled_or_have_children == %w(pensioner_premium)
         :incomesupp_jobseekers_1
       end
     end
@@ -69,7 +72,7 @@ module SmartAnswer::Calculators
     end
 
     def incomesupp_jobseekers_2
-      if disabled_or_have_children
+      if disabled_or_have_children.any?
         incomesupp_jobseekers_2_part_2
       else
         incomesupp_jobseekers_2_part_1
@@ -83,8 +86,7 @@ module SmartAnswer::Calculators
     end
 
     def incomesupp_jobseekers_2_part_2
-      case disabled_or_have_children
-      when 'child_under_16', 'work_support_esa'
+      if disabled_or_have_children == %w(child_under_16) || disabled_or_have_children == %w(work_support_esa)
         if circumstances.include?('social_housing') || (benefits_claimed.include?('working_tax_credit') && age_variant != :over_60)
           nil
         else

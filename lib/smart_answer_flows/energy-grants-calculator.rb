@@ -135,7 +135,7 @@ module SmartAnswer
         option :work_support_esa
 
         on_response do |response|
-          calculator.disabled_or_have_children = response
+          calculator.disabled_or_have_children = response.split(",")
         end
 
         next_node do
