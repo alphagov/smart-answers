@@ -28,7 +28,7 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.marital_status == 'divorced'
+          if calculator.divorced?
             question :what_is_your_gender?
           else
             question :when_will_you_reach_pension_age?
@@ -115,7 +115,7 @@ module SmartAnswer
         next_node do |response|
           case response
           when 'male_gender'
-            if calculator.marital_status == 'divorced'
+            if calculator.divorced?
               outcome :impossibility_due_to_divorce_outcome
             elsif calculator.marital_status == 'widowed'
               outcome :widow_male_reaching_pension_age
@@ -123,7 +123,7 @@ module SmartAnswer
               outcome :impossibility_to_increase_pension_outcome
             end
           when 'female_gender'
-            if calculator.marital_status == 'divorced'
+            if calculator.divorced?
               outcome :age_dependent_pension_outcome
             elsif calculator.marital_status == 'widowed'
               outcome :married_woman_and_state_pension_outcome

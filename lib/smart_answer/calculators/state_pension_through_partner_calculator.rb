@@ -12,6 +12,10 @@ module SmartAnswer::Calculators
       rates.weekly_rate
     end
 
+    def divorced?
+      marital_status == 'divorced'
+    end
+
   private
 
     def rates
