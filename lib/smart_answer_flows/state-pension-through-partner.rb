@@ -12,11 +12,10 @@ module SmartAnswer
         option :widowed
         option :divorced
 
-        on_response do
+        on_response do |response|
           self.calculator = Calculators::StatePensionThroughPartnerCalculator.new
+          calculator.marital_status = response
         end
-
-        save_input_as :marital_status
 
         calculate :answers do |response|
           answers = []
@@ -59,7 +58,7 @@ module SmartAnswer
           elsif response == "your_pension_age_after_specific_date"
             answers << :new2
           end
-          answers << :old3 if marital_status == "widowed"
+          answers << :old3 if calculator.marital_status == "widowed"
           answers
         end
 
@@ -125,17 +124,17 @@ module SmartAnswer
         next_node do |response|
           case response
           when 'male_gender'
-            if marital_status == 'divorced'
+            if calculator.marital_status == 'divorced'
               outcome :impossibility_due_to_divorce_outcome
-            elsif marital_status == 'widowed'
+            elsif calculator.marital_status == 'widowed'
               outcome :widow_male_reaching_pension_age
             else
               outcome :impossibility_to_increase_pension_outcome
             end
           when 'female_gender'
-            if marital_status == 'divorced'
+            if calculator.marital_status == 'divorced'
               outcome :age_dependent_pension_outcome
-            elsif marital_status == 'widowed'
+            elsif calculator.marital_status == 'widowed'
               outcome :married_woman_and_state_pension_outcome
             else
               outcome :married_woman_no_state_pension_outcome
