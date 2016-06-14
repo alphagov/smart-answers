@@ -5,11 +5,17 @@ module SmartAnswer::Calculators
     attr_accessor :marital_status
 
     def lower_basic_state_pension_rate
-      RatesQuery.from_file('state_pension').rates.lower_weekly_rate
+      rates.lower_weekly_rate
     end
 
     def higher_basic_state_pension_rate
-      RatesQuery.from_file('state_pension').rates.weekly_rate
+      rates.weekly_rate
+    end
+
+  private
+
+    def rates
+      @rates ||= RatesQuery.from_file('state_pension').rates
     end
   end
 end
