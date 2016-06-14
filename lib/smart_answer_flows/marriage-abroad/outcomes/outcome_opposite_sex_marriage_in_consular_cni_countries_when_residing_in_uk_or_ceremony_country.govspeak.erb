@@ -47,7 +47,7 @@
     You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry. Contact the local notary public to check if you need a CNI.
 
   <% elsif calculator.ceremony_country == 'jordan' %>
-  
+
     If you’re getting married at the Sharia Court, you’ll need to provide a [single declaration document](/government/publications/single-declaration-form-for-islamic-marriages-jordan) to prove you’re allowed to marry, or a [single divorced declaration document](/government/publications/single-declaration-form-for-islamic-marriages-if-you-are-divorced-jordan) if you’re divorced.
 
     Make an appointment at the local British embassy or consulate to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring the single declaration, your passport, your partner’s passport and pay a fee.
@@ -436,8 +436,10 @@
       You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Kazakhstan](/government/publications/kazakhstan-kyrgyzstan-consular-fees).
 
     <% else %>
-      <%= render partial: 'link_to_consular_fees.govspeak.erb',
-                 locals: { calculator: calculator } %>
+
+       <% unless calculator.ceremony_country == 'brazil' && calculator.resident_outside_of_third_country? %>
+         <%= render partial: 'link_to_consular_fees.govspeak.erb', locals: { calculator: calculator } %>
+       <% end %>
     <% end %>
   <% end %>
 
