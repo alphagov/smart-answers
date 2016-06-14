@@ -11,17 +11,23 @@ module WorldLocationStubbingMethods
     location.stubs(:name).returns(name)
 
     path_to_organisations_fixture = fixture_file("worldwide/#{location_slug}_organisations.json")
-    organisations = []
+    fco_organisation = nil
     if File.exist?(path_to_organisations_fixture)
       json = File.read(path_to_organisations_fixture)
       data = JSON.parse(json)
-      organisations = data['results'].map do |organisation_data|
-        organisation = organisation_data.to_hashugar
-        WorldwideOrganisation.new(organisation)
+      organisations_data = data['results']
+
+      fco_organisation_data = organisations_data.find do |organisation_data|
+        organisation_data['sponsors'].find do |sponsor_data|
+          sponsor_data['details']['acronym'] == 'FCO'
+        end
+      end
+
+      if fco_organisation_data
+        fco_organisation = WorldwideOrganisation.new(fco_organisation_data.to_hashugar)
       end
     end
-    location.stubs(:organisations).returns(organisations)
-    location.stubs(:fco_organisation).returns(organisations.find(&:fco_sponsored?))
+    location.stubs(:fco_organisation).returns(fco_organisation)
 
     WorldLocation.stubs(:find).with(location_slug).returns(location)
     location
