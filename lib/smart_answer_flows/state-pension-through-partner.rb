@@ -41,7 +41,9 @@ module SmartAnswer
         option :your_pension_age_before_specific_date
         option :your_pension_age_after_specific_date
 
-        save_input_as :when_will_you_reach_pension_age
+        on_response do |response|
+          calculator.when_will_you_reach_pension_age = response
+        end
 
         calculate :answers do |response|
           if response == "your_pension_age_before_specific_date"

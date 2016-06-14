@@ -3,6 +3,7 @@ module SmartAnswer::Calculators
     include ActiveModel::Model
 
     attr_accessor :marital_status
+    attr_accessor :when_will_you_reach_pension_age
 
     def lower_basic_state_pension_rate
       rates.lower_weekly_rate
