@@ -21,7 +21,7 @@ module SmartAnswer
           answers = []
           if calculator.married?
             answers << :old1
-          elsif calculator.marital_status == "widowed"
+          elsif calculator.widowed?
             answers << :widow
           end
           answers
@@ -49,7 +49,7 @@ module SmartAnswer
           elsif response == "your_pension_age_after_specific_date"
             answers << :new2
           end
-          answers << :old3 if calculator.marital_status == "widowed"
+          answers << :old3 if calculator.widowed?
           answers
         end
 
@@ -117,7 +117,7 @@ module SmartAnswer
           when 'male_gender'
             if calculator.divorced?
               outcome :impossibility_due_to_divorce_outcome
-            elsif calculator.marital_status == 'widowed'
+            elsif calculator.widowed?
               outcome :widow_male_reaching_pension_age
             else
               outcome :impossibility_to_increase_pension_outcome
@@ -125,7 +125,7 @@ module SmartAnswer
           when 'female_gender'
             if calculator.divorced?
               outcome :age_dependent_pension_outcome
-            elsif calculator.marital_status == 'widowed'
+            elsif calculator.widowed?
               outcome :married_woman_and_state_pension_outcome
             else
               outcome :married_woman_no_state_pension_outcome

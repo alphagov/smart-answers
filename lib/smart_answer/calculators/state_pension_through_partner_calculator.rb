@@ -20,6 +20,10 @@ module SmartAnswer::Calculators
       marital_status == 'married'
     end
 
+    def widowed?
+      marital_status == 'widowed'
+    end
+
   private
 
     def rates
