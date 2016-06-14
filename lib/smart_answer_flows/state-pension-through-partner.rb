@@ -27,8 +27,8 @@ module SmartAnswer
           answers
         end
 
-        next_node do |response|
-          if response == 'divorced'
+        next_node do
+          if calculator.marital_status == 'divorced'
             question :what_is_your_gender?
           else
             question :when_will_you_reach_pension_age?
