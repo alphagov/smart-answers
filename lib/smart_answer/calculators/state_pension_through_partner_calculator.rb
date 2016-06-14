@@ -7,5 +7,9 @@ module SmartAnswer::Calculators
     def lower_basic_state_pension_rate
       RatesQuery.from_file('state_pension').rates.lower_weekly_rate
     end
+
+    def higher_basic_state_pension_rate
+      RatesQuery.from_file('state_pension').rates.weekly_rate
+    end
   end
 end

@@ -27,10 +27,6 @@ module SmartAnswer
           answers
         end
 
-        calculate :higher_basic_state_pension_rate do
-          Calculators::RatesQuery.from_file('state_pension').rates.weekly_rate
-        end
-
         next_node do |response|
           if response == 'divorced'
             question :what_is_your_gender?
