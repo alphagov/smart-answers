@@ -17,11 +17,11 @@ module SmartAnswer
           calculator.marital_status = response
         end
 
-        calculate :answers do |response|
+        calculate :answers do
           answers = []
-          if response == "married"
+          if calculator.marital_status == "married"
             answers << :old1
-          elsif response == "widowed"
+          elsif calculator.marital_status == "widowed"
             answers << :widow
           end
           answers
