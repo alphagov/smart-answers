@@ -12,6 +12,10 @@ module SmartAnswer
         option :widowed
         option :divorced
 
+        on_response do
+          self.calculator = Calculators::StatePensionThroughPartnerCalculator.new
+        end
+
         save_input_as :marital_status
 
         calculate :answers do |response|
