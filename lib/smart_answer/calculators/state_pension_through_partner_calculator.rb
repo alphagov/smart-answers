@@ -25,6 +25,14 @@ module SmartAnswer::Calculators
       marital_status == 'widowed'
     end
 
+    def reached_pension_age_before_specific_date?
+      when_will_you_reach_pension_age == 'your_pension_age_before_specific_date'
+    end
+
+    def reached_pension_age_after_specific_date?
+      when_will_you_reach_pension_age == 'your_pension_age_after_specific_date'
+    end
+
   private
 
     def rates
