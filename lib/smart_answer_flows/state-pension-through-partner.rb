@@ -28,8 +28,7 @@ module SmartAnswer
         end
 
         calculate :lower_basic_state_pension_rate do
-          rate = Calculators::RatesQuery.from_file('state_pension').rates.lower_weekly_rate
-          "£#{'%.2f' % rate}"
+          Calculators::RatesQuery.from_file('state_pension').rates.lower_weekly_rate
         end
         calculate :higher_basic_state_pension_rate do
           rate = Calculators::RatesQuery.from_file('state_pension').rates.weekly_rate

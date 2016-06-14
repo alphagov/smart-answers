@@ -1,5 +1,5 @@
 <% content_for :body do %>
-  You might be able to increase the amount of [basic State Pension](/state-pension) to <%= lower_basic_state_pension_rate %> per week if:
+  You might be able to increase the amount of [basic State Pension](/state-pension) to <%= format_money(lower_basic_state_pension_rate) %> per week if:
 
   - your spouse or civil partner has enough National Insurance contributions
   - your spouse or civil partner was born on or after 6 April 1950 (this rule doesn’t apply to you if you’re a woman married to a man, or if you’re a woman married to a woman who legally changed their gender from male to female after the marriage began)
@@ -7,7 +7,7 @@
   One of the following must also apply:
 
   - you don’t qualify for any basic State Pension
-  - your basic State pension is less than <%= lower_basic_state_pension_rate %> per week  
+  - your basic State pension is less than <%= format_money(lower_basic_state_pension_rate) %> per week  
 
   You’ll normally have got the increase when either you or your spouse or civil partner reached State Pension age, whichever was later.  If you think you qualify but you’re not getting the increase, contact [The Pension Service](/contact-pension-service).
 
