@@ -27,9 +27,6 @@ module SmartAnswer
           answers
         end
 
-        calculate :lower_basic_state_pension_rate do
-          Calculators::RatesQuery.from_file('state_pension').rates.lower_weekly_rate
-        end
         calculate :higher_basic_state_pension_rate do
           Calculators::RatesQuery.from_file('state_pension').rates.weekly_rate
         end
