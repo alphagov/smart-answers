@@ -1,5 +1,9 @@
 <% content_for :title do %>
-  <%= number_of_children_title %>
+  <% if calculator.paying? %>
+    How many other children live in your household?
+  <% else %>
+    How many other children live in the household of the parent paying child maintenance?
+  <% end %>
 <% end %>
 
 <% content_for :hint do %>

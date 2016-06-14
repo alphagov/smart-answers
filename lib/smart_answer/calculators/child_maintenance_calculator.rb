@@ -1,5 +1,11 @@
 module SmartAnswer::Calculators
   class ChildMaintenanceCalculator
+    include ActiveModel::Model
+
+    attr_accessor :number_of_children
+    attr_accessor :benefits
+    attr_accessor :paying_or_receiving
+
     attr_accessor :income, :number_of_other_children, :number_of_shared_care_nights
 
     SCHEME_BASE_AMOUNT = 7.00
@@ -8,10 +14,8 @@ module SmartAnswer::Calculators
     SHARED_CARE_MAX_RELIEF_EXTRA_AMOUNT = 7.00
     SCHEME_MAX_INCOME = 3000
 
-    def initialize(number_of_children, benefits, paying_or_receiving)
-      @number_of_children = number_of_children.to_i
-      @benefits = benefits
-      @paying_or_receiving = paying_or_receiving
+    def initialize(attributes = {})
+      super
       @calculator_data = self.class.child_maintenance_data
     end
 
@@ -118,6 +122,10 @@ module SmartAnswer::Calculators
 
     def paying?
       @paying_or_receiving == "pay"
+    end
+
+    def receiving?
+      @paying_or_receiving == "receive"
     end
 
     def collect_fees
