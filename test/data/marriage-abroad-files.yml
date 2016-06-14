@@ -1,7 +1,7 @@
 ---
 lib/smart_answer_flows/marriage-abroad.rb: ee0940959af5b90770599769ddd90b76
-test/data/marriage-abroad-questions-and-responses.yml: 482f4fb1af63b65a13d2c7bf4495022d
-test/data/marriage-abroad-responses-and-expected-results.yml: 561590cfec6b19261cf17bf0617d74bc
+test/data/marriage-abroad-questions-and-responses.yml: 9bc7a99045b6a7c55db25446058e2c98
+test/data/marriage-abroad-responses-and-expected-results.yml: 328dc43db37bc03b144549321f606c3b
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
 lib/smart_answer_flows/marriage-abroad/outcomes/_affirmation_os_translation_in_local_language_text.govspeak.erb: 4ac964ce5e41e3efaf0f43d11c71b2b7
 lib/smart_answer_flows/marriage-abroad/outcomes/_appointment_documents_in_vietnam.govspeak.erb: 6390e13560110a71b8a3c0dc018ff4cf
