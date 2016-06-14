@@ -19,7 +19,7 @@ module SmartAnswer
 
         calculate :answers do
           answers = []
-          if calculator.marital_status == "married"
+          if calculator.married?
             answers << :old1
           elsif calculator.marital_status == "widowed"
             answers << :widow
