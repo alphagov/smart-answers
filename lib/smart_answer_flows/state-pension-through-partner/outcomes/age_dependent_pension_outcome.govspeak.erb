@@ -3,9 +3,9 @@
 
   ##You reached State Pension age before 6 April 2016
 
-  You may be able to increase your basic State Pension up to <%= higher_basic_state_pension_rate %> a week if:
+  You may be able to increase your basic State Pension up to <%= format_money(higher_basic_state_pension_rate) %> a week if:
 
-  - your own basic State Pension is less than <%= higher_basic_state_pension_rate %> a week
+  - your own basic State Pension is less than <%= format_money(higher_basic_state_pension_rate) %> a week
   - your former spouse or civil partner had enough National Insurance contributions
 
   If your former spouse or civil partner reached or will reach State Pension age on or after 6 April 2016, only their National Insurance contributions up to 5 April 2016 can be used.
@@ -41,9 +41,9 @@
 
   ##What you may get if you have a reduced rate election
 
-  You’ll get a pension of about <%= higher_basic_state_pension_rate %> a week plus any Additional State Pension and Graduated Retirement Benefit you built up before 6 April 2016.
+  You’ll get a pension of about <%= format_money(higher_basic_state_pension_rate) %> a week plus any Additional State Pension and Graduated Retirement Benefit you built up before 6 April 2016.
 
-  <%= higher_basic_state_pension_rate %> is the maximum rate of basic State Pension a divorced person who reached State Pension age before 6 April 2016 can get through their spouse or civil partner’s National Insurance record
+  <%= format_money(higher_basic_state_pension_rate) %> is the maximum rate of basic State Pension a divorced person who reached State Pension age before 6 April 2016 can get through their spouse or civil partner’s National Insurance record
 
   You’ll get this when you’re divorced or when you claim your State Pension, if later.
 
