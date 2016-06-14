@@ -1,36 +1,20 @@
 ---
 - start_date: 2013-04-06
   end_date: 2014-04-05
-  personal_allowance: 9440
-  over_65_allowance: 10500
-  over_75_allowance: 10660
-  income_limit_for_personal_allowances: 26100.0
   maximum_married_couple_allowance: 7915
   minimum_married_couple_allowance: 3040
 
 - start_date: 2014-04-06
   end_date: 2015-04-05
-  personal_allowance: 10000
-  over_65_allowance: 10500
-  over_75_allowance: 10660
-  income_limit_for_personal_allowances: 27000.0
   maximum_married_couple_allowance: 8165
   minimum_married_couple_allowance: 3140
 
 - start_date: 2015-04-06
   end_date: 2016-04-05
-  personal_allowance: 10600
-  over_65_allowance: 10600
-  over_75_allowance: 10660
-  income_limit_for_personal_allowances: 27700.0
   maximum_married_couple_allowance: 8355
   minimum_married_couple_allowance: 3220
 
 - start_date: 2016-04-06
   end_date: 2017-04-05
-  personal_allowance: 11000
-  over_65_allowance: 11000
-  over_75_allowance: 11000
-  income_limit_for_personal_allowances: 27700.0
   maximum_married_couple_allowance: 8355
   minimum_married_couple_allowance: 3220
