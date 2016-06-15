@@ -1,8 +1,8 @@
 <% content_for :title do %>
-  <% if age_variant == :winter_fuel_payment %>
+  <% if calculator.eligible_for_winter_fuel_payment? %>
     <%= render partial: 'title_help_with_bills_outcome.govspeak.erb' %>
-  <% elsif circumstances.include?('benefits') %>
-    <% if (benefits_claimed & %w(esa child_tax_credit pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60 %>
+  <% elsif calculator.circumstances.include?('benefits') %>
+    <% if calculator.eligible_for_energy_company_obligation? %>
       <%= render partial: 'title_help_with_bills_outcome.govspeak.erb' %>
     <% else %>
       <%= render partial: 'title_no_help_with_bills_outcome.govspeak.erb' %>
@@ -13,31 +13,29 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if circumstances.include?('benefits') %>
-    <% if age_variant == :winter_fuel_payment %>
+  <% if calculator.circumstances.include?('benefits') %>
+    <% if calculator.eligible_for_winter_fuel_payment? %>
       <%= render partial: 'winter_fuel_payments.govspeak.erb' %>
     <% end %>
-    <% if (benefits_claimed & %w(esa pension_credit)).any? || incomesupp_jobseekers_1 %>
-      <% if benefits_claimed.include?('pension_credit') %>
-        <%= render partial: 'warm_home_discount.govspeak.erb', locals: {warm_home_discount_amount: warm_home_discount_amount} %>
-        <%= render partial: 'cold_weather_payment.govspeak.erb' %>
-      <% else %>
-        <%= render partial: 'cold_weather_payment.govspeak.erb' %>
-      <% end %>
+    <% if calculator.eligible_for_warm_home_discount? %>
+      <%= render partial: 'warm_home_discount.govspeak.erb', locals: {calculator: calculator} %>
     <% end %>
-    <% if (benefits_claimed & %w(esa child_tax_credit pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60 %>
+    <% if calculator.eligible_for_cold_weather_payment? %>
+      <%= render partial: 'cold_weather_payment.govspeak.erb' %>
+    <% end %>
+    <% if calculator.eligible_for_energy_company_obligation? %>
       <%= render partial: 'energy_company_obligation.govspeak.erb' %>
     <% end %>
   <% else %>
-    <% if age_variant == :winter_fuel_payment %>
+    <% if calculator.eligible_for_winter_fuel_payment? %>
       <%= render partial: 'winter_fuel_payments.govspeak.erb' %>
     <% end %>
   <% end %>
-  <% if may_qualify_for_affordable_warmth_obligation %>
+  <% if calculator.may_qualify_for_affordable_warmth_obligation? %>
     <%= render partial: 'may_qualify_for_affordable_warmth_obligation.govspeak.erb' %>
   <% end %>
   <%= render partial: 'smartmeters.govspeak.erb' %>
-  <% if circumstances.include?('benefits') or bills_help %>
+  <% if calculator.circumstances.include?('benefits') or calculator.bills_help? %>
 
     Renewable heating and Microgeneration measures could also help reduce your bill.
   <% end %>

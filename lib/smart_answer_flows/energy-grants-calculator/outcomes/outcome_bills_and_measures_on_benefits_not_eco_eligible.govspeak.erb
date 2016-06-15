@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  <% if under_green_deal  %>
+  <% if calculator.under_green_deal?  %>
     <% render partial: 'title_under_green_deal.govspeak.erb' %>
   <% else %>
     <% render partial: 'title_energy_supplier.govspeak.erb' %>
@@ -7,57 +7,57 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if under_green_deal %>
+  <% if calculator.under_green_deal? %>
     <%= render partial: 'callout_under_green_deal.govspeak.erb' %>
   <% end %>
-  <% if both_help %>
-    <% if age_variant == :winter_fuel_payment %>
+  <% if calculator.both_help? %>
+    <% if calculator.eligible_for_winter_fuel_payment? %>
       <%= render partial: 'winter_fuel_payments.govspeak.erb' %>
     <% end %>
-    <% if (benefits_claimed & %w(esa pension_credit)).any? || incomesupp_jobseekers_1 %>
-      <% if benefits_claimed.include?('pension_credit') %>
-        <%= render partial: 'warm_home_discount.govspeak.erb', locals: {warm_home_discount_amount: warm_home_discount_amount} %>
-      <% end %>
+    <% if calculator.eligible_for_warm_home_discount? %>
+      <%= render partial: 'warm_home_discount.govspeak.erb', locals: {calculator: calculator} %>
+    <% end %>
+    <% if calculator.eligible_for_cold_weather_payment? %>
       <%= render partial: 'cold_weather_payment.govspeak.erb' %>
     <% end %>
-    <% if (benefits_claimed & %w(esa child_tax_credit pension_credit)).any? || incomesupp_jobseekers_1 || incomesupp_jobseekers_2 || benefits_claimed.include?('working_tax_credit') && age_variant == :over_60 %>
+    <% if calculator.eligible_for_energy_company_obligation? %>
       <%= render partial: 'energy_company_obligation.govspeak.erb' %>
     <% end %>
   <% end %>
   <%= render partial: 'header_boilers_and_insulation.govspeak.erb' %>
-  <% unless (features & %w(modern_boiler)).any? %>
+  <% unless calculator.modern_boiler? %>
     <%= render partial: 'opt_condensing_boiler.govspeak.erb' %>
   <% end %>
-  <% unless (features & %w(mains_gas)).any? %>
+  <% unless calculator.mains_gas? %>
     <%= render partial: 'opt_cavity_wall_insulation.govspeak.erb' %>
     <%= render partial: 'opt_solid_wall_insulation.govspeak.erb' %>
   <% end %>
-  <% unless (features & %w(draught_proofing mains_gas)).any? %>
+  <% unless calculator.draught_proofing_or_mains_gas? %>
     <%= render partial: 'opt_draught_proofing.govspeak.erb' %>
   <% end %>
-  <% unless (features & %w(loft_insulation loft_attic_conversion)).any? || property_type == 'flat' %>
+  <% unless calculator.loft_insulation_or_loft_attic_conversion? || calculator.flat_property_type? %>
     <%= render partial: 'opt_loft_roof_insulation.govspeak.erb' %>
   <% end %>
-  <% unless flat_type == "top_floor" %>
-    <% if (features & %w(loft_attic_conversion)).any? || property_type == 'flat' %>
+  <% unless calculator.top_floor_flat? %>
+    <% if calculator.loft_attic_conversion? || calculator.flat_property_type? %>
       <%= render partial: 'opt_room_roof_insulation.govspeak.erb' %>
     <% end %>
-    <% unless modern %>
+    <% unless calculator.modern_property? %>
       <%= render partial: 'opt_under_floor_insulation.govspeak.erb' %>
     <% end %>
   <% end %>
-  <% if may_qualify_for_affordable_warmth_obligation %>
+  <% if calculator.may_qualify_for_affordable_warmth_obligation? %>
     <%= render partial: 'may_qualify_for_affordable_warmth_obligation.govspeak.erb' %>
   <% end %>
   <%= render partial: 'opt_eco_help.govspeak.erb' %>
   <%= render partial: 'header_heating.govspeak.erb' %>
   <%= render partial: 'opt_better_heating_controls.govspeak.erb' %>
-  <% unless (features & %w(mains_gas)).any? %>
+  <% unless calculator.mains_gas? %>
     <%= render partial: 'opt_heat_pump.govspeak.erb' %>
     <%= render partial: 'opt_biomass_boilers_heaters.govspeak.erb' %>
     <%= render partial: 'opt_solar_water_heating.govspeak.erb' %>
   <% end %>
-  <% unless (features & %w(modern_double_glazing)).any? %>
+  <% unless calculator.modern_double_glazing? %>
     <%= render partial: 'header_windows_and_doors.govspeak.erb' %>
     <%= render partial: 'opt_replacement_glazing.govspeak.erb' %>
   <% end %>

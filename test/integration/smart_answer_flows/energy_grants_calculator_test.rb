@@ -49,7 +49,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             add_response ' 4/07/1951'
           end
           should "be eligible for winter fuel payment" do
-            assert_state_variable 'age_variant', :winter_fuel_payment
+            assert_equal :winter_fuel_payment, current_state.calculator.age_variant
           end
           should "take you to help with bills outcome" do
             assert_current_node :outcome_help_with_bills # outcome 1
@@ -60,7 +60,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             add_response 60.years.ago(Date.today).strftime("%Y-%m-%d")
           end
           should "store over 60 variable" do
-            assert_state_variable 'age_variant', :over_60
+            assert_equal :over_60, current_state.calculator.age_variant
           end
           should "take you to help with bills outcome" do
             assert_current_node :outcome_help_with_bills # outcome 1
@@ -89,7 +89,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             add_response ' 4/07/1951'
           end
           should "be eligible for winter fuel payment" do
-            assert_state_variable 'age_variant', :winter_fuel_payment
+            assert_equal :winter_fuel_payment, current_state.calculator.age_variant
           end
           should "ask which benefits you're claiming" do
             assert_current_node :which_benefits?
@@ -116,7 +116,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
               end
               should "take you to help with bills outcome" do
                 assert_current_node :outcome_help_with_bills # outcome 1
-                assert_state_variable 'incomesupp_jobseekers_1', :incomesupp_jobseekers_1
+                assert current_state.calculator.incomesupp_jobseekers_1?
               end
             end
           end
@@ -131,9 +131,9 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
               setup do
                 add_response 'child_under_16'
               end
-              should "take you to help with bills outcome with incomesupp_jobseekers_2" do
+              should "take you to help with bills outcome with incomesupp_jobseekers_2?" do
                 assert_current_node :outcome_help_with_bills # outcome 1
-                assert_state_variable 'incomesupp_jobseekers_2', :incomesupp_jobseekers_2
+                assert current_state.calculator.incomesupp_jobseekers_2?
               end
             end
           end
@@ -150,7 +150,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
               end
               should "take you to help with bills outcome with may_qualify_for_affordable_warmth_obligation" do
                 assert_current_node :outcome_help_with_bills
-                assert_state_variable 'may_qualify_for_affordable_warmth_obligation', true
+                assert current_state.calculator.may_qualify_for_affordable_warmth_obligation?
               end
             end
             context "answer with none" do
@@ -159,7 +159,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
               end
               should "take you to help with bills outcome without may_qualify_for_affordable_warmth_obligation" do
                 assert_current_node :outcome_help_with_bills
-                assert_state_variable 'may_qualify_for_affordable_warmth_obligation', false
+                refute current_state.calculator.may_qualify_for_affordable_warmth_obligation?
               end
             end
           end
@@ -187,7 +187,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             add_response 60.years.ago(Date.today).strftime("%Y-%m-%d")
           end
           should "store over 60 variable" do
-            assert_state_variable 'age_variant', :over_60
+            assert_equal :over_60, current_state.calculator.age_variant
           end
           should "ask which benefits you're claiming" do
             assert_current_node :which_benefits?
@@ -206,16 +206,16 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
               add_response 'working_tax_credit'
             end
             should "ask if you're elderly or disabled" do
-              assert_state_variable 'incomesupp_jobseekers_2', :incomesupp_jobseekers_2
+              assert current_state.calculator.incomesupp_jobseekers_2?
               assert_current_node :disabled_or_have_children?
             end
             context "answer pensioner premium" do
               setup do
                 add_response 'pensioner_premium'
               end
-              should "take you to help with bills outcome with incomesupp_jobseekers_2" do
+              should "take you to help with bills outcome with incomesupp_jobseekers_2?" do
                 assert_current_node :outcome_help_with_bills # outcome 1
-                assert_state_variable 'incomesupp_jobseekers_1', :incomesupp_jobseekers_1
+                assert current_state.calculator.incomesupp_jobseekers_1?
               end
             end
           end
@@ -284,7 +284,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
               end
               should "ask which of these do you have?" do
                 assert_current_node :home_features_modern?
-                assert_state_variable 'modern', true
+                assert current_state.calculator.modern_property?
               end
               context "answer mains gas" do
                 setup do
@@ -311,7 +311,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             end
             should "ask when property built" do
               assert_current_node :when_property_built?
-              assert_state_variable 'incomesupp_jobseekers_1', :incomesupp_jobseekers_1
+              assert current_state.calculator.incomesupp_jobseekers_1?
             end
             context "answer older" do
               setup do
@@ -326,7 +326,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
                 end
                 should "ask what features does it have" do
                   assert_current_node :home_features_older?
-                  assert_state_variable 'older', true
+                  assert current_state.calculator.older_property?
                 end
                 context "answer cavity wall insulation, loft insulation, mains gas, modern boiler" do
                   setup do
@@ -626,8 +626,8 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       end
     end
 
-    # test for incomesupp_jobseekers_2
-    context "test that incomesupp_jobseekers_2 is being calculated correctly at Q4" do
+    # test for incomesupp_jobseekers_2?
+    context "test that incomesupp_jobseekers_2? is being calculated correctly at Q4" do
       setup do
         add_response 'all_help'
         add_response 'benefits'
@@ -636,7 +636,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
       end
       should "take you to next question" do
         assert_current_node :disabled_or_have_children?
-        assert_state_variable 'incomesupp_jobseekers_2', :incomesupp_jobseekers_2
+        assert current_state.calculator.incomesupp_jobseekers_2?
       end
     end
 
@@ -729,7 +729,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         add_response 'none'
       end
       should "take you to the green deal outcome with these variations" do
-        assert_state_variable :property_type, "house"
+        assert_equal "house", current_state.calculator.property_type
         assert_current_node :outcome_measures_help_green_deal
       end
     end
@@ -742,7 +742,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         add_response 'mains_gas'
       end
       should "take you to green deal outcome with mains gas variants" do
-        assert_state_variable :property_type, "house"
+        assert_equal "house", current_state.calculator.property_type
         assert_current_node :outcome_measures_help_green_deal
       end
     end
@@ -758,7 +758,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         add_response 'mains_gas,electric_heating'
       end
       should "take you to result 4 no help" do
-        assert_state_variable :flat_type, "top_floor"
+        assert_equal "top_floor", current_state.calculator.flat_type
         assert_current_node :outcome_no_green_deal_no_energy_measures
       end
     end
@@ -774,7 +774,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         add_response 'loft_attic_conversion'
       end
       should "take you to the green deal outcome with these variations" do
-        assert_state_variable :property_type, "flat"
+        assert_equal "flat", current_state.calculator.property_type
         assert_current_node :outcome_measures_help_green_deal
       end
     end
@@ -789,7 +789,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         add_response 'loft_attic_conversion'
       end
       should "take you to the green deal outcome with these variations" do
-        assert_state_variable :property_type, "flat"
+        assert_equal "flat", current_state.calculator.property_type
         assert_current_node :outcome_measures_help_green_deal
       end
     end
@@ -803,7 +803,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         add_response 'mains_gas'
       end
       should "take you to green deal outcome with mains gas variants" do
-        assert_state_variable :property_type, "house"
+        assert_equal "house", current_state.calculator.property_type
         assert_current_node :outcome_measures_help_green_deal
       end
     end
