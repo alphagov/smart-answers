@@ -66,15 +66,14 @@ module SmartAnswer::Calculators
     end
 
     def disabled_or_have_children_question?
-      response = benefits_claimed.join(",")
-      response == 'income_support' ||
-        response == 'jsa' ||
-        response == 'esa' ||
-        response == 'working_tax_credit' ||
-        response.include?('universal_credit') ||
-        %w{child_tax_credit esa income_support jsa pension_credit}.all? { |key| response.include? key } ||
-        %w{child_tax_credit esa income_support pension_credit}.all? { |key| response.include? key } ||
-        %w{child_tax_credit esa jsa pension_credit}.all? { |key| response.include? key }
+      benefits_claimed == %w(income_support) ||
+        benefits_claimed == %w(jsa) ||
+        benefits_claimed == %w(esa) ||
+        benefits_claimed == %w(working_tax_credit) ||
+        benefits_claimed.include?('universal_credit') ||
+        %w{child_tax_credit esa income_support jsa pension_credit}.all? { |key| benefits_claimed.include? key } ||
+        %w{child_tax_credit esa income_support pension_credit}.all? { |key| benefits_claimed.include? key } ||
+        %w{child_tax_credit esa jsa pension_credit}.all? { |key| benefits_claimed.include? key }
     end
 
     def incomesupp_jobseekers_2?
