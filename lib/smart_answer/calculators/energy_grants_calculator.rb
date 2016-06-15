@@ -71,7 +71,6 @@ module SmartAnswer::Calculators
         benefits_claimed == %w(esa) ||
         benefits_claimed == %w(working_tax_credit) ||
         benefits_claimed.include?('universal_credit') ||
-        %w{child_tax_credit esa income_support jsa pension_credit}.all? { |key| benefits_claimed.include? key } ||
         %w{child_tax_credit esa income_support pension_credit}.all? { |key| benefits_claimed.include? key } ||
         %w{child_tax_credit esa jsa pension_credit}.all? { |key| benefits_claimed.include? key }
     end
