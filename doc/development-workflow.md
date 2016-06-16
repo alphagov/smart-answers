@@ -6,7 +6,13 @@ As the Pull Request author:
 
 1. Open a PR with the changes you want to merge.
 
-2. Add the "Needs factcheck" label if the changes require feedback from someone other than developers.
+2. Add the appropriate label(s):
+
+  * Documentation - if this change only affects docs within the app.
+  * Refactoring - if this change doesn't affect the external behaviour of the app.
+  * Spike - if this is an exploratory change to see whether a certain approach works.
+  * Don't merge - to make it very clear that this shouldn't be merged.
+  * Needs factcheck - if this requires fact-checking after code review.
 
 3. Add the "Ready for code review" label.
 
