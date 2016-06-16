@@ -56,7 +56,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
 
     next unless smart_answer_helper.run_regression_tests?
 
-    smart_answer_helper.delete_saved_output_files
+    # smart_answer_helper.delete_saved_output_files
     responses_and_expected_results = smart_answer_helper.read_responses_and_expected_results
 
     context "Smart Answer: #{flow_name}" do
@@ -119,6 +119,8 @@ class SmartAnswersRegressionTest < ActionController::TestCase
         next_node    = responses_and_expected_node[:next_node]
         responses    = responses_and_expected_node[:responses]
         outcome_node = responses_and_expected_node[:outcome_node]
+
+        next unless responses.first == 'denmark'
 
         if !visited_nodes.include?(next_node) || outcome_node
           visited_nodes << next_node
