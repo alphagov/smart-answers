@@ -33,3 +33,15 @@ As the Pull Request author:
 2. Move the associated Trello card from "Code review" to "Fact check".
 
 3. Add a comment to the associated Trello card to let the relevant people know it's ready to check.
+
+## Merging a Pull Request
+
+As the Pull Request author:
+
+1. Rebase the branch on master.
+
+2. Force push the branch to GitHub.
+
+3. Click "Merge pull request".
+
+4. Click "Delete branch".
