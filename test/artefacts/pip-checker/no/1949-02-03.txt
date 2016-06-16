@@ -1,12 +1,15 @@
 
 
-$!You aren’t affected by Personal Independence Payment (PIP) because you’re aged 65 or over.$!
+If you’ve received Disability Living Allowance (DLA) within the past year, you can:
 
-To qualify for PIP you must be aged 16 to 64.
+* make a [new claim for DLA](/dla-disability- living-allowance-benefit/eligibility) if you were born on or before 8 April 1948
 
-Instead of PIP, you can make a claim for [Attendance Allowance](/attendance-allowance).
+* [claim Personal Independence Payment (PIP)](/pip) if you were born after 8 April 1948
+
+If you haven’t received DLA within the past year, you can claim [Attendance Allowance](/attendance-allowance) instead.
 
 *[PIP]: Personal Independence Payment
+*[DLA]: Disability Living Allowance
 
 
 

@@ -1,8 +1,8 @@
 
 
-$!You can make a claim for [Personal Independence Payment (PIP)](/pip).$!
+$!You can claim [Personal Independence Payment (PIP)](/pip).$!
 
-You can no longer make a claim for Disability Living Allowance (DLA) because PIP is replacing DLA for people aged 16 to 64.
+PIP is replacing Disability Living Allowance (DLA) for people aged 16 to 64.
 
 *[PIP]: Personal Independence Payment
 *[DLA]: Disability Living Allowance
