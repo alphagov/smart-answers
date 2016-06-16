@@ -16,7 +16,7 @@
 
 3. If/when you're happy with the PR:
   * Add a comment to say that the PR looks good.
-  * Add the "LGTM" label to allow people to see at a glance that the PR has been reviewed.
+  * Add the "Passed code review" label to allow people to see at a glance that the PR has been reviewed.
 
 4. Move the associated Trello card from "Code review" to "Fact check".
 
