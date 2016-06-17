@@ -77,27 +77,9 @@
 
     <% end %>
 
-    <% if calculator.notary_public_ceremony_country? # CJR %>
-      ###What happens next
+    <%= render partial: 'display_notice_of_marriage_7_days.govspeak.erb',
+               locals: { calculator: calculator } %>
 
-      The embassy or notary public will charge a fee for taking the oath.
-
-      If you give notice at a notary public, you must post the signed forms and any supporting documents to your nearest British embassy or consulate afterwards.
-
-      ^The embassy or consulate may charge a fee to return your documents to you.^
-
-      The consulate will display your notice of marriage publicly for 7 days.
-
-      They’ll then send all of your documentation to the British embassy or consulate nearest to where you’re getting married in <%= calculator.country_name_lowercase_prefix %>, who will issue your CNI (as long as nobody has registered an objection).
-
-      There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
-
-
-    <% else %>
-      <%= render partial: 'display_notice_of_marriage_7_days.govspeak.erb',
-                 locals: { calculator: calculator } %>
-
-    <% end %>
   <% elsif calculator.requires_7_day_notice? # CJR %>
     <%= render partial: 'display_notice_of_marriage_7_days.govspeak.erb',
                locals: { calculator: calculator } %>
