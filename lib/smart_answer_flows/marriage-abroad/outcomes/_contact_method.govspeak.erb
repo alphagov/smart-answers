@@ -1,4 +1,7 @@
-<% if calculator.partner_is_opposite_sex? %>
+<% if calculator.ceremony_country == 'denmark' &&
+  (calculator.resident_of_uk? || calculator.resident_of_ceremony_country?) %>
+  [Make an appointment at the embassy in Copenhagen.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-copenhagen/notice-of-marriage-or-civil-partnership/slot_picker)
+<% elsif calculator.partner_is_opposite_sex? %>
   <% case calculator.ceremony_country %>
   <% when 'albania' %>
     [Make an appointment at the embassy in Tirana.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-tirana/notice-of-marriage-or-civil-partnership/slot_picker)

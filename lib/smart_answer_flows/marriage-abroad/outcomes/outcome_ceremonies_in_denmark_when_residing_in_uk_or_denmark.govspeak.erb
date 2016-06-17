@@ -1,8 +1,12 @@
 <% content_for :title do %>
-  Marriage in <%= calculator.country_name_lowercase_prefix %>
+  <%= ceremony_type(calculator) %> in <%= calculator.country_name_lowercase_prefix %>
 <% end %>
 
 <% content_for :body do %>
+  <% if calculator.partner_is_same_sex? %>
+    <%= render partial: 'synonyms_of_cp.govspeak.erb',
+               locals: { calculator: calculator } %>
+  <% end %>
   <% if calculator.resident_of_uk? %>
     <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_marriage.govspeak.erb',
                locals: { calculator: calculator } %>
