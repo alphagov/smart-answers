@@ -54,19 +54,8 @@
   <% end %>
 
   <% if calculator.resident_of_ceremony_country? %>
-    <% if (calculator.notary_public_ceremony_country? || %w(japan macedonia).include?(calculator.ceremony_country)) # CJR %>
-      You’ll need to provide supporting documents, including:
-
-      - your passport
-      - proof of residence, such as a residence certificate - check with the <%= calculator.embassy_or_consulate_ceremony_country %> or notary public to find out what you need
-      - equivalent documents for your partner
-
-
-    <% else %>
-      <%= render partial: 'required_supporting_documents.govspeak.erb',
-                 locals: { calculator: calculator } %>
-
-    <% end %>
+    <%= render partial: 'required_supporting_documents.govspeak.erb',
+               locals: { calculator: calculator } %>
   <% end %>
 
   <% if calculator.resident_of_ceremony_country? %>
