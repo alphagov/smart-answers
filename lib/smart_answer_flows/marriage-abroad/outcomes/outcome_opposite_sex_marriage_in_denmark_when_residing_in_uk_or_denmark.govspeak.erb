@@ -21,15 +21,8 @@
   <%= render partial: 'what_you_need_to_do.govspeak.erb',
       locals: { calculator: calculator } %>
 
-  <% if calculator.opposite_sex_21_days_residency_required? # CJR %>
-    You need to have been living in the country where you intend to marry for 21 full days.
+  <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
 
-    <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
-
-  <% else %>
-    <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
-
-  <% end %>
   <% if calculator.ceremony_country == 'denmark' %>
     ^You don’t need a CNI if you’re getting married in the main town hall in Copenhagen.^
 
