@@ -80,10 +80,6 @@
     <%= render partial: 'display_notice_of_marriage_7_days.govspeak.erb',
                locals: { calculator: calculator } %>
 
-  <% elsif calculator.requires_7_day_notice? # CJR %>
-    <%= render partial: 'display_notice_of_marriage_7_days.govspeak.erb',
-               locals: { calculator: calculator } %>
-
   <% end %>
 
   <% if calculator.resident_outside_of_uk? %>
