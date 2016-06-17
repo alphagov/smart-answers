@@ -6,16 +6,14 @@
   <% if calculator.resident_of_uk? %>
     <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_marriage.govspeak.erb',
                locals: { calculator: calculator } %>
+
+    <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
+               locals: { calculator: calculator } %>
   <% elsif calculator.resident_of_ceremony_country? %>
     <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
                locals: { calculator: calculator } %>
-  <% end %>
 
-  <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'get_legal_advice.govspeak.erb' %>
-  <% elsif calculator.resident_of_uk? %>
-    <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
-               locals: { calculator: calculator } %>
   <% end %>
 
   <%= render partial: 'what_you_need_to_do.govspeak.erb',
@@ -27,10 +25,9 @@
 
   <% if calculator.resident_of_uk? %>
     <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
+
     <%= render partial: 'cni_issued_locally_validity.govspeak.erb',
                locals: { calculator: calculator } %>
-  <% end %>
-  <% if calculator.resident_of_uk? %>
 
     <%= render partial: 'legisation_and_translation_intro_uk.govspeak.erb',
                locals: { calculator: calculator } %>
@@ -38,6 +35,7 @@
     <%= render partial: 'legalise_translate_and_check_with_authorities.govspeak.erb',
                locals: { calculator: calculator } %>
   <% end %>
+
   <% if calculator.resident_of_ceremony_country? %>
 
     To get a CNI, you must post notice of your intended marriage in <%= calculator.country_name_lowercase_prefix %>. You can do this at the British embassy or in front of a notary public.
@@ -54,9 +52,7 @@
   <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'required_supporting_documents.govspeak.erb',
                locals: { calculator: calculator } %>
-  <% end %>
 
-  <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
   <% end %>
 
@@ -75,17 +71,13 @@
     <%= render partial: 'display_notice_of_marriage_7_days.govspeak.erb',
                locals: { calculator: calculator } %>
 
-  <% end %>
-
-  <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'check_if_cni_needs_to_be_legalised.govspeak.erb',
                locals: { calculator: calculator } %>
 
-  <% end %>
-  <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'you_dont_need_to_stay_in_country.govspeak.erb' %>
 
   <% end %>
+
   <% if calculator.partner_not_british? %>
 
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
