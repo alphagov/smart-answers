@@ -68,12 +68,9 @@
       ^Your partner will need to follow the same process and pay the fees to get their own CNI.^
     <% end %>
 
-    <% if calculator.resident_outside_of_uk? %>
-      <%= render partial: 'consular_cni_os_not_uk_resident_ceremony_not_germany.govspeak.erb' %>
+    <%= render partial: 'consular_cni_os_not_uk_resident_ceremony_not_germany.govspeak.erb' %>
 
-      ^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
-
-    <% end %>
+    ^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
 
     <%= render partial: 'display_notice_of_marriage_7_days.govspeak.erb',
                locals: { calculator: calculator } %>
