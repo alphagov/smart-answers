@@ -6,14 +6,14 @@
   <% if calculator.resident_of_uk? %>
     <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_marriage.govspeak.erb',
                locals: { calculator: calculator } %>
-  <% else %>
+  <% elsif calculator.resident_of_ceremony_country? %>
     <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
                locals: { calculator: calculator } %>
   <% end %>
 
   <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'get_legal_advice.govspeak.erb' %>
-  <% else %>
+  <% elsif calculator.resident_of_uk? %>
     <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
                locals: { calculator: calculator } %>
   <% end %>
@@ -77,7 +77,7 @@
 
   <% end %>
 
-  <% if calculator.resident_outside_of_uk? %>
+  <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'check_if_cni_needs_to_be_legalised.govspeak.erb',
                locals: { calculator: calculator } %>
 
