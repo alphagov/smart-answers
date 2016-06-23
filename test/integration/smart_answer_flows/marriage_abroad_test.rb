@@ -2286,7 +2286,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'ceremony_country'
       add_response 'partner_local'
       add_response 'opposite_sex'
-      assert_current_node :outcome_marriage_in_brazil_when_residing_in_brazil_or_third_country
+      assert_current_node :outcome_marriage_in_brazil_when_residing_in_brazil
     end
   end
 
