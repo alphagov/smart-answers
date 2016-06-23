@@ -11187,7 +11187,7 @@
   - ceremony_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_uk_or_kosovo
+  :next_node: :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_kosovo
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -11210,7 +11210,7 @@
   - ceremony_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_uk_or_kosovo
+  :next_node: :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_kosovo
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -11233,7 +11233,7 @@
   - ceremony_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_uk_or_kosovo
+  :next_node: :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_kosovo
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
