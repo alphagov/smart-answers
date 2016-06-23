@@ -216,7 +216,7 @@ module SmartAnswer
             if %w(belgium norway).include?(calculator.ceremony_country)
               outcome :outcome_same_sex_civil_partnership_in_affirmation_countries
             elsif calculator.ceremony_country == 'dominican-republic'
-              outcome :outcome_ceremonies_in_dominican_republic
+              outcome :outcome_same_sex_marriage_in_dominican_republic
             elsif calculator.same_sex_ceremony_country_unknown_or_has_no_embassies?
               outcome :outcome_opposite_sex_in_no_cni_countries_when_residing_in_ceremony_or_third_country
             elsif calculator.ceremony_country == "malta"
@@ -298,6 +298,7 @@ module SmartAnswer
       outcome :outcome_same_sex_marriage_and_civil_partnership_in_malta
       outcome :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
       outcome :outcome_same_sex_marriage_and_civil_partnership_not_possible
+      outcome :outcome_same_sex_marriage_in_dominican_republic
     end
   end
 end
