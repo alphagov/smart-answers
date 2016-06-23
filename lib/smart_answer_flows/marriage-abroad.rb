@@ -166,7 +166,7 @@ module SmartAnswer
             elsif calculator.ceremony_country == 'italy' && calculator.resident_of_uk?
               outcome :outcome_opposite_sex_marriage_in_italy_when_residing_in_uk
             elsif calculator.ceremony_country == 'italy' && calculator.resident_of_ceremony_country?
-              outcome :outcome_opposite_sex_marriage_in_italy_when_residing_in_uk_or_italy
+              outcome :outcome_opposite_sex_marriage_in_italy_when_residing_in_italy
             elsif calculator.ceremony_country == 'cambodia'
               outcome :outcome_opposite_sex_marriage_in_cambodia
             elsif calculator.ceremony_country == "colombia"
@@ -338,7 +338,7 @@ module SmartAnswer
       outcome :outcome_opposite_sex_marriage_in_georgia
       outcome :outcome_opposite_sex_marriage_in_hong_kong
       outcome :outcome_opposite_sex_marriage_in_indonesia
-      outcome :outcome_opposite_sex_marriage_in_italy_when_residing_in_uk_or_italy
+      outcome :outcome_opposite_sex_marriage_in_italy_when_residing_in_italy
       outcome :outcome_opposite_sex_marriage_in_italy_when_residing_in_uk
       outcome :outcome_opposite_sex_marriage_in_japan
       outcome :outcome_same_sex_for_non_romanians
