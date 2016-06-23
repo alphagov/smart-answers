@@ -123,8 +123,6 @@ module SmartAnswer
             outcome :outcome_ceremonies_in_switzerland
           elsif calculator.ceremony_country == "spain"
             outcome :outcome_ceremonies_in_spain
-          elsif calculator.ceremony_country == 'dominican-republic'
-            outcome :outcome_ceremonies_in_dominican_republic
           elsif calculator.ceremony_country == 'sweden' && calculator.resident_of_ceremony_country?
             outcome :outcome_ceremonies_in_sweden_when_residing_in_sweden
           elsif calculator.ceremony_country == 'south-africa'
@@ -132,6 +130,8 @@ module SmartAnswer
           elsif calculator.partner_is_opposite_sex?
             if calculator.ceremony_country == 'hong-kong'
               outcome :outcome_opposite_sex_marriage_in_hong_kong
+            elsif calculator.ceremony_country == 'dominican-republic'
+              outcome :outcome_ceremonies_in_dominican_republic
             elsif calculator.ceremony_country == 'germany'
               outcome :outcome_opposite_sex_marriage_in_germany
             elsif calculator.ceremony_country == 'georgia'
@@ -215,6 +215,8 @@ module SmartAnswer
           elsif calculator.partner_is_same_sex?
             if %w(belgium norway).include?(calculator.ceremony_country)
               outcome :outcome_same_sex_civil_partnership_in_affirmation_countries
+            elsif calculator.ceremony_country == 'dominican-republic'
+              outcome :outcome_ceremonies_in_dominican_republic
             elsif calculator.same_sex_ceremony_country_unknown_or_has_no_embassies?
               outcome :outcome_opposite_sex_in_no_cni_countries_when_residing_in_ceremony_or_third_country
             elsif calculator.ceremony_country == "malta"
