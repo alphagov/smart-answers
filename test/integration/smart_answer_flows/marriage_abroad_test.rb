@@ -2421,7 +2421,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'opposite_sex'
 
-      assert_current_node :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_uk_or_kosovo
+      assert_current_node :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_uk
     end
 
     should "lead to a :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_uk_or_kosovo outcome for ceremony_country, partner_local and opposite_sex" do
