@@ -4,59 +4,26 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if calculator.resident_of_ceremony_country? %>
-    <%= render partial: 'contact_local_authorities.govspeak.erb' %>
+  <%= render partial: 'contact_local_authorities.govspeak.erb' %>
 
-    <%= render partial: 'get_legal_advice.govspeak.erb' %>
+  <%= render partial: 'get_legal_advice.govspeak.erb' %>
 
-    You’ll need to swear an oath or affidavit (written statement of facts) in front of a notary public stating that you’re free to marry.
+  You’ll need to swear an oath or affidavit (written statement of facts) in front of a notary public stating that you’re free to marry.
 
-    You can download and fill in (but not sign) the forms in advance.
-
-
-    $D
-    [Download ‘Notice of marriage’](/government/publications/notice-of-marriage-form--2)
-
-    [Download ‘Affidavit for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form)
-    $D
+  You can download and fill in (but not sign) the forms in advance.
 
 
-    The notary public will charge a fee for taking the oath, and then give you your notice of marriage. You should take this notice to the local authorities where you’re getting married.
+  $D
+  [Download ‘Notice of marriage’](/government/publications/notice-of-marriage-form--2)
+
+  [Download ‘Affidavit for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form)
+  $D
 
 
-    <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
-
-    <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
-  <% else %>
-    <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
-               locals: { calculator: calculator } %>
-
-    <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
-               locals: { calculator: calculator } %>
-
-    <%= render partial: 'what_you_need_to_do.govspeak.erb',
-        locals: { calculator: calculator } %>
-
-    Make an appointment at the British embassy or consulate in Brazil to swear an affidavit (written statement of facts) that you’re free to marry.
-
-    <%= render partial: 'contact_method.govspeak.erb',
-               locals: { calculator: calculator } %>
+  The notary public will charge a fee for taking the oath, and then give you your notice of marriage. You should take this notice to the local authorities where you’re getting married.
 
 
-    You’ll need to complete an ‘Affidavit for marriage’ form that will be used for your affidavit. You can download and fill in (but not sign) the forms in advance.
+  <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
 
-
-    $D
-    [Download ’Affidavit for Marriage’ (PDF, 60KB)](/government/uploads/system/uploads/attachment_data/file/286008/Declaration_Marriage.pdf)
-    $D
-
-    <%= render partial: 'documents_for_divorced_or_widowed.govspeak.erb' %>
-
-    <%= render partial: 'consular_fees_table.govspeak.erb',
-               locals: { calculator: calculator } %>
-
-    <% if calculator.resident_of_third_country? %>
-      <%= render partial: 'link_to_consular_fees.govspeak.erb', locals: { calculator: calculator } %>
-    <% end %>
-  <% end %>
+  <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 <% end %>
