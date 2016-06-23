@@ -31,7 +31,5 @@
   <%= render partial: 'consular_fees_table.govspeak.erb',
              locals: { calculator: calculator } %>
 
-  <% if calculator.resident_of_third_country? %>
-    <%= render partial: 'link_to_consular_fees.govspeak.erb', locals: { calculator: calculator } %>
-  <% end %>
+  <%= render partial: 'link_to_consular_fees.govspeak.erb', locals: { calculator: calculator } %>
 <% end %>
