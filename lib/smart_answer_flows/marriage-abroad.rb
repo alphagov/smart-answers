@@ -164,7 +164,7 @@ module SmartAnswer
             elsif calculator.ceremony_country == 'norway' && calculator.resident_of_third_country?
               outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
             elsif calculator.ceremony_country == 'italy' && calculator.resident_of_uk?
-              outcome :outcome_opposite_sex_marriage_in_italy_when_residing_in_uk_or_italy
+              outcome :outcome_opposite_sex_marriage_in_italy_when_residing_in_uk
             elsif calculator.ceremony_country == 'italy' && calculator.resident_of_ceremony_country?
               outcome :outcome_opposite_sex_marriage_in_italy_when_residing_in_uk_or_italy
             elsif calculator.ceremony_country == 'cambodia'
@@ -339,6 +339,7 @@ module SmartAnswer
       outcome :outcome_opposite_sex_marriage_in_hong_kong
       outcome :outcome_opposite_sex_marriage_in_indonesia
       outcome :outcome_opposite_sex_marriage_in_italy_when_residing_in_uk_or_italy
+      outcome :outcome_opposite_sex_marriage_in_italy_when_residing_in_uk
       outcome :outcome_opposite_sex_marriage_in_japan
       outcome :outcome_same_sex_for_non_romanians
       outcome :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_kosovo
