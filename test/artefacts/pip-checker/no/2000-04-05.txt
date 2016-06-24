@@ -1,6 +1,6 @@
 
 
-$!You aren't affected by Personal Independence Payment (PIP) because you’re under 16.$!
+$!You can’t claim Personal Independence Payment (PIP) because you’re under 16.$!
 
 You can claim [Disability Living Allowance (DLA)](/disability-living-allowance-children) instead, until you turn 16.
 
