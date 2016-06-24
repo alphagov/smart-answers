@@ -1,25 +1,18 @@
 
 
-$!Some people in England, Scotland and Wales have already been invited to claim Personal Independence Payment (PIP).$!
+$! You can’t currently claim Personal Independence Payment (PIP) because you’re under 16.$!
 
-If your child is still getting Disability Living Allowance (DLA), when they’ll be invited to claim PIP depends on when their DLA ends.
+If you’re still getting [Disability Living Allowance (DLA)](/disability-living-allowance-children) at 16 you’ll be sent a letter inviting you to apply for PIP:
 
-You must tell the Department for Work and Pensions (DWP) if your child’s care or mobility needs change while they're still getting DLA. They’ll be invited to claim PIP if this happens.
+* shortly after your 16th birthday
 
-###Your child's DLA ends before September 2017
+* about 20 weeks before your DLA award ends, if you were awarded DLA under the rules for people who are terminally ill
 
-Your child will normally get a letter before they turn 16 inviting them to apply for PIP.
+You must claim PIP within 28 days of the date on the letter.
 
-^Contact the [Disability Benefits helpline](/disability-benefits-helpline) if your child's sixteenth birthday is in less than 4 weeks and you haven’t received a letter. Your child's payment may stop if you don’t.^
-
-###Your child's DLA ends after September 2017 or DLA awards with no end date
-
-You can be contacted anytime from 13 July 2015 to claim PIP for your child. This includes if they have a long-term award of DLA or if they have an indefinite award with no end date.
-
-Not everyone will be contacted to claim PIP right away. Your child will continue to get DLA until DWP writes to you about when it will end.
+You’ll continue to receive DLA until your PIP claim has been assessed.
 
 *[DLA]: Disability Living Allowance
-*[DWP]: Department for Work and Pensions
 *[PIP]: Personal Independence Payment
 
 

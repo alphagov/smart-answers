@@ -33,30 +33,30 @@ module SmartAnswer
           calculator.dob = response
           if getting_dla
             if calculator.in_group_65?
-              outcome :result_6
+              outcome :over_65_in_2013
             elsif calculator.turning_16_before_oct_2013? || calculator.in_middle_group?
-              outcome :result_7
+              outcome :qualifies_for_pip
             else
-              outcome :result_5
+              outcome :qualifies_for_pip_at_16
             end
           else
             if calculator.is_65_or_over?
-              outcome :result_2
+              outcome :over_65
             elsif calculator.is_16_to_64?
-              outcome :result_3
+              outcome :no_claim_for_dla
             else
-              outcome :result_1
+              outcome :under_16
             end
           end
         end
       end
 
-      outcome :result_1
-      outcome :result_2
-      outcome :result_3
-      outcome :result_5
-      outcome :result_6
-      outcome :result_7
+      outcome :under_16
+      outcome :over_65
+      outcome :no_claim_for_dla
+      outcome :qualifies_for_pip_at_16
+      outcome :over_65_in_2013
+      outcome :qualifies_for_pip
     end
   end
 end
