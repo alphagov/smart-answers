@@ -63,10 +63,7 @@ module SmartAnswer::Calculators
       elsif reached_pension_age_after_specific_date?
         answers << :new2
       end
-      if widowed?
-        answers << :old3
-      end
-      if partner_reached_pension_age_before_specific_date?
+      if widowed? || partner_reached_pension_age_before_specific_date?
         answers << :old3
       elsif partner_reached_pension_age_after_specific_date?
         answers << :new3
