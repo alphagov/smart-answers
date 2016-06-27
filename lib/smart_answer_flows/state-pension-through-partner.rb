@@ -76,11 +76,11 @@ module SmartAnswer
         end
 
         next_node_calculation(:current_rules_no_additional_pension) {
-          answers == [:old1, :old2, :old3] || answers == [:new1, :old2, :old3]
+          calculator.answers_part_3 == [:old1, :old2, :old3] || calculator.answers_part_3 == [:new1, :old2, :old3]
         }
 
         next_node_calculation(:current_rules_national_insurance_no_state_pension) {
-          answers == [:old1, :old2, :new3] || answers == [:new1, :old2, :new3]
+          calculator.answers_part_3 == [:old1, :old2, :new3] || calculator.answers_part_3 == [:new1, :old2, :new3]
         }
 
         next_node do
