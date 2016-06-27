@@ -90,6 +90,10 @@ module SmartAnswer::Calculators
       answers_part_1 == [:widow] && reached_pension_age_before_specific_date?
     end
 
+    def current_rules_no_additional_pension?
+      answers_part_3 == [:old1, :old2, :old3] || answers_part_3 == [:new1, :old2, :old3]
+    end
+
   private
 
     def rates

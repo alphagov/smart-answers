@@ -55,16 +55,12 @@ module SmartAnswer
           calculator.when_will_your_partner_reach_pension_age = response
         end
 
-        next_node_calculation(:current_rules_no_additional_pension) {
-          calculator.answers_part_3 == [:old1, :old2, :old3] || calculator.answers_part_3 == [:new1, :old2, :old3]
-        }
-
         next_node_calculation(:current_rules_national_insurance_no_state_pension) {
           calculator.answers_part_3 == [:old1, :old2, :new3] || calculator.answers_part_3 == [:new1, :old2, :new3]
         }
 
         next_node do
-          if current_rules_no_additional_pension
+          if calculator.current_rules_no_additional_pension?
             outcome :current_rules_no_additional_pension_outcome
           elsif current_rules_national_insurance_no_state_pension
             outcome :current_rules_national_insurance_no_state_pension_outcome
