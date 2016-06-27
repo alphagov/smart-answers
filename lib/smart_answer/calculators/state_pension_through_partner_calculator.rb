@@ -94,6 +94,10 @@ module SmartAnswer::Calculators
       answers_part_3 == [:old1, :old2, :old3] || answers_part_3 == [:new1, :old2, :old3]
     end
 
+    def current_rules_national_insurance_no_state_pension?
+      answers_part_3 == [:old1, :old2, :new3] || answers_part_3 == [:new1, :old2, :new3]
+    end
+
   private
 
     def rates
