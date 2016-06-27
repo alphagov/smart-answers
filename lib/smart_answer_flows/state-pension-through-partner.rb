@@ -79,6 +79,10 @@ module SmartAnswer
         option :partner_pension_age_before_specific_date
         option :partner_pension_age_after_specific_date
 
+        on_response do |response|
+          calculator.when_will_your_partner_reach_pension_age = response
+        end
+
         next_node_calculation :answers do |response|
           if response == "partner_pension_age_before_specific_date"
             answers << :old3
