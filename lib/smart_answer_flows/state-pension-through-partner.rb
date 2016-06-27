@@ -120,8 +120,8 @@ module SmartAnswer
           calculator.gender = response
         end
 
-        next_node do |response|
-          case response
+        next_node do
+          case calculator.gender
           when 'male_gender'
             if calculator.divorced?
               outcome :impossibility_due_to_divorce_outcome
