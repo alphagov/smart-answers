@@ -34,6 +34,14 @@ module SmartAnswer::Calculators
       when_will_you_reach_pension_age == 'your_pension_age_after_specific_date'
     end
 
+    def partner_reached_pension_age_before_specific_date?
+      when_will_your_partner_reach_pension_age == 'partner_pension_age_before_specific_date'
+    end
+
+    def partner_reached_pension_age_after_specific_date?
+      when_will_your_partner_reach_pension_age == 'partner_pension_age_after_specific_date'
+    end
+
   private
 
     def rates
