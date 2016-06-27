@@ -17,16 +17,16 @@ module SmartAnswer
           calculator.marital_status = response
         end
 
-        calculate :answers do
-          calculator.answers_part_1
-        end
-
         next_node do
           if calculator.divorced?
             question :what_is_your_gender?
           else
             question :when_will_you_reach_pension_age?
           end
+        end
+
+        calculate :answers do
+          calculator.answers_part_1
         end
       end
 
@@ -37,10 +37,6 @@ module SmartAnswer
 
         on_response do |response|
           calculator.when_will_you_reach_pension_age = response
-        end
-
-        calculate :answers do
-          calculator.answers_part_2
         end
 
         next_node_calculation(:widow_and_new_pension) do
@@ -59,6 +55,10 @@ module SmartAnswer
           else
             question :when_will_your_partner_reach_pension_age?
           end
+        end
+
+        calculate :answers do
+          calculator.answers_part_2
         end
       end
 
