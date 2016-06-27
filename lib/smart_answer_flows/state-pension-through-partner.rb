@@ -116,7 +116,9 @@ module SmartAnswer
         option :male_gender
         option :female_gender
 
-        save_input_as :gender
+        on_response do |response|
+          calculator.gender = response
+        end
 
         next_node do |response|
           case response

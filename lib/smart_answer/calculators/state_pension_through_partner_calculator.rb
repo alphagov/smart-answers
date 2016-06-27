@@ -5,6 +5,7 @@ module SmartAnswer::Calculators
     attr_accessor :marital_status
     attr_accessor :when_will_you_reach_pension_age
     attr_accessor :when_will_your_partner_reach_pension_age
+    attr_accessor :gender
 
     def lower_basic_state_pension_rate
       rates.lower_weekly_rate
