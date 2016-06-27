@@ -51,18 +51,13 @@ module SmartAnswer::Calculators
       gender == 'female_gender'
     end
 
-    def answers_part_1
+    def answers_part_2
       answers = []
       if married?
         answers << :old1
       elsif widowed?
         answers << :widow
       end
-      answers
-    end
-
-    def answers_part_2
-      answers = answers_part_1
       if reached_pension_age_before_specific_date?
         answers << :old2
       elsif reached_pension_age_after_specific_date?
