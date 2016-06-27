@@ -82,6 +82,10 @@ module SmartAnswer::Calculators
       answers
     end
 
+    def widow_and_new_pension?
+      answers_part_1 == [:widow] && reached_pension_age_after_specific_date?
+    end
+
   private
 
     def rates
