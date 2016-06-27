@@ -15,8 +15,8 @@ module SmartAnswer
           calculator.date_of_birth = response
         end
 
-        next_node_calculation(:too_young) do |response|
-          calculator.too_young?(response)
+        next_node_calculation(:too_young) do
+          calculator.too_young?(calculator.date_of_birth)
         end
 
         next_node do
