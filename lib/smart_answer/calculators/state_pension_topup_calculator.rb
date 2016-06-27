@@ -10,6 +10,7 @@ module SmartAnswer::Calculators
     MALE_RETIREMENT_AGE = 65
 
     attr_accessor :date_of_birth
+    attr_accessor :gender
 
     def lump_sum_and_age(dob, weekly_amount, gender)
       return [] if too_young?(dob, gender)

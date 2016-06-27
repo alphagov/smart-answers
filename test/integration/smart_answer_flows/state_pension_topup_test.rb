@@ -107,7 +107,7 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
         { amount: SmartAnswer::Money.new(127), age: 100 },
         { amount: SmartAnswer::Money.new(127), age: 101 }
       ]
-      assert_state_variable :gender, "male"
+      assert_equal "male", current_state.calculator.gender
     end
   end
   context "Woman who is 62 on 6 April 2016 = DOB 7/4/1953 = new rules (A2)" do

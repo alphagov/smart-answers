@@ -33,7 +33,9 @@ module SmartAnswer
         option :male
         option :female
 
-        save_input_as :gender
+        on_response do |response|
+          calculator.gender = response
+        end
 
         next_node_calculation(:male_and_too_young) do |response|
           calculator.too_young?(calculator.date_of_birth, response)
@@ -67,7 +69,7 @@ module SmartAnswer
       #A1
       outcome :outcome_topup_calculations do
         precalculate :amounts_vs_ages do
-          calculator.lump_sum_and_age(calculator.date_of_birth, weekly_amount, gender)
+          calculator.lump_sum_and_age(calculator.date_of_birth, weekly_amount, calculator.gender)
         end
       end
       #A2
