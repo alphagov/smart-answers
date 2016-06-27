@@ -121,8 +121,7 @@ module SmartAnswer
         end
 
         next_node do
-          case calculator.gender
-          when 'male_gender'
+          if calculator.male?
             if calculator.divorced?
               outcome :impossibility_due_to_divorce_outcome
             elsif calculator.widowed?
@@ -130,7 +129,7 @@ module SmartAnswer
             else
               outcome :impossibility_to_increase_pension_outcome
             end
-          when 'female_gender'
+          elsif calculator.female?
             if calculator.divorced?
               outcome :age_dependent_pension_outcome
             elsif calculator.widowed?

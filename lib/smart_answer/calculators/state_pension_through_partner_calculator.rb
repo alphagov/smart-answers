@@ -43,6 +43,14 @@ module SmartAnswer::Calculators
       when_will_your_partner_reach_pension_age == 'partner_pension_age_after_specific_date'
     end
 
+    def male?
+      gender == 'male_gender'
+    end
+
+    def female?
+      gender == 'female_gender'
+    end
+
   private
 
     def rates
