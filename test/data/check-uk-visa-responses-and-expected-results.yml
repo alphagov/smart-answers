@@ -54,12 +54,27 @@
   :responses:
   - afghanistan
   - transit
+  :next_node: :travelling_to_cta?
+  :outcome_node: false
+- :current_node: :travelling_to_cta?
+  :responses:
+  - afghanistan
+  - transit
+  - 'yes'
+  :next_node: :outcome_transit_to_the_cta
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - afghanistan
+  - transit
+  - 'no'
   :next_node: :passing_through_uk_border_control?
   :outcome_node: false
 - :current_node: :passing_through_uk_border_control?
   :responses:
   - afghanistan
   - transit
+  - 'no'
   - 'yes'
   :next_node: :outcome_transit_leaving_airport_datv
   :outcome_node: true
@@ -67,6 +82,7 @@
   :responses:
   - afghanistan
   - transit
+  - 'no'
   - 'no'
   :next_node: :outcome_transit_not_leaving_airport
   :outcome_node: true
@@ -334,12 +350,27 @@
   :responses:
   - china
   - transit
+  :next_node: :travelling_to_cta?
+  :outcome_node: false
+- :current_node: :travelling_to_cta?
+  :responses:
+  - china
+  - transit
+  - 'yes'
+  :next_node: :outcome_transit_to_the_cta
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - china
+  - transit
+  - 'no'
   :next_node: :passing_through_uk_border_control?
   :outcome_node: false
 - :current_node: :passing_through_uk_border_control?
   :responses:
   - china
   - transit
+  - 'no'
   - 'yes'
   :next_node: :outcome_transit_leaving_airport_datv
   :outcome_node: true
@@ -347,6 +378,7 @@
   :responses:
   - china
   - transit
+  - 'no'
   - 'no'
   :next_node: :outcome_transit_not_leaving_airport
   :outcome_node: true
@@ -555,6 +587,22 @@
   - israel
   - provisional-passport
   - transit
+  :next_node: :travelling_to_cta?
+  :outcome_node: false
+- :current_node: :travelling_to_cta?
+  :responses:
+  - israel
+  - provisional-passport
+  - transit
+  - 'yes'
+  :next_node: :outcome_transit_to_the_cta
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - israel
+  - provisional-passport
+  - transit
+  - 'no'
   :next_node: :passing_through_uk_border_control?
   :outcome_node: false
 - :current_node: :passing_through_uk_border_control?
@@ -562,6 +610,7 @@
   - israel
   - provisional-passport
   - transit
+  - 'no'
   - 'yes'
   :next_node: :outcome_transit_leaving_airport_datv
   :outcome_node: true
@@ -570,6 +619,7 @@
   - israel
   - provisional-passport
   - transit
+  - 'no'
   - 'no'
   :next_node: :outcome_transit_not_leaving_airport
   :outcome_node: true
@@ -663,12 +713,27 @@
   :responses:
   - kuwait
   - transit
+  :next_node: :travelling_to_cta?
+  :outcome_node: false
+- :current_node: :travelling_to_cta?
+  :responses:
+  - kuwait
+  - transit
+  - 'yes'
+  :next_node: :outcome_transit_to_the_cta
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - kuwait
+  - transit
+  - 'no'
   :next_node: :passing_through_uk_border_control?
   :outcome_node: false
 - :current_node: :passing_through_uk_border_control?
   :responses:
   - kuwait
   - transit
+  - 'no'
   - 'yes'
   :next_node: :outcome_transit_leaving_airport
   :outcome_node: true
@@ -676,6 +741,7 @@
   :responses:
   - kuwait
   - transit
+  - 'no'
   - 'no'
   :next_node: :outcome_no_visa_needed
   :outcome_node: true
@@ -764,12 +830,27 @@
   :responses:
   - oman
   - transit
+  :next_node: :travelling_to_cta?
+  :outcome_node: false
+- :current_node: :travelling_to_cta?
+  :responses:
+  - oman
+  - transit
+  - 'yes'
+  :next_node: :outcome_transit_to_the_cta
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - oman
+  - transit
+  - 'no'
   :next_node: :passing_through_uk_border_control?
   :outcome_node: false
 - :current_node: :passing_through_uk_border_control?
   :responses:
   - oman
   - transit
+  - 'no'
   - 'yes'
   :next_node: :outcome_transit_leaving_airport
   :outcome_node: true
@@ -777,6 +858,7 @@
   :responses:
   - oman
   - transit
+  - 'no'
   - 'no'
   :next_node: :outcome_no_visa_needed
   :outcome_node: true
@@ -870,12 +952,27 @@
   :responses:
   - stateless-or-refugee
   - transit
+  :next_node: :travelling_to_cta?
+  :outcome_node: false
+- :current_node: :travelling_to_cta?
+  :responses:
+  - stateless-or-refugee
+  - transit
+  - 'yes'
+  :next_node: :outcome_transit_to_the_cta
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - stateless-or-refugee
+  - transit
+  - 'no'
   :next_node: :passing_through_uk_border_control?
   :outcome_node: false
 - :current_node: :passing_through_uk_border_control?
   :responses:
   - stateless-or-refugee
   - transit
+  - 'no'
   - 'yes'
   :next_node: :outcome_transit_leaving_airport
   :outcome_node: true
@@ -883,6 +980,7 @@
   :responses:
   - stateless-or-refugee
   - transit
+  - 'no'
   - 'no'
   :next_node: :outcome_transit_refugee_not_leaving_airport
   :outcome_node: true
@@ -976,12 +1074,27 @@
   :responses:
   - syria
   - transit
+  :next_node: :travelling_to_cta?
+  :outcome_node: false
+- :current_node: :travelling_to_cta?
+  :responses:
+  - syria
+  - transit
+  - 'yes'
+  :next_node: :outcome_transit_to_the_cta
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - syria
+  - transit
+  - 'no'
   :next_node: :passing_through_uk_border_control?
   :outcome_node: false
 - :current_node: :passing_through_uk_border_control?
   :responses:
   - syria
   - transit
+  - 'no'
   - 'yes'
   :next_node: :outcome_transit_leaving_airport_datv
   :outcome_node: true
@@ -989,6 +1102,7 @@
   :responses:
   - syria
   - transit
+  - 'no'
   - 'no'
   :next_node: :outcome_transit_not_leaving_airport
   :outcome_node: true
@@ -1077,12 +1191,27 @@
   :responses:
   - taiwan
   - transit
+  :next_node: :travelling_to_cta?
+  :outcome_node: false
+- :current_node: :travelling_to_cta?
+  :responses:
+  - taiwan
+  - transit
+  - 'yes'
+  :next_node: :outcome_transit_to_the_cta
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - taiwan
+  - transit
+  - 'no'
   :next_node: :passing_through_uk_border_control?
   :outcome_node: false
 - :current_node: :passing_through_uk_border_control?
   :responses:
   - taiwan
   - transit
+  - 'no'
   - 'yes'
   :next_node: :outcome_transit_taiwan_through_border_control
   :outcome_node: true
@@ -1090,6 +1219,7 @@
   :responses:
   - taiwan
   - transit
+  - 'no'
   - 'no'
   :next_node: :outcome_transit_taiwan
   :outcome_node: true
@@ -1178,12 +1308,27 @@
   :responses:
   - turkey
   - transit
+  :next_node: :travelling_to_cta?
+  :outcome_node: false
+- :current_node: :travelling_to_cta?
+  :responses:
+  - turkey
+  - transit
+  - 'yes'
+  :next_node: :outcome_transit_to_the_cta
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - turkey
+  - transit
+  - 'no'
   :next_node: :passing_through_uk_border_control?
   :outcome_node: false
 - :current_node: :passing_through_uk_border_control?
   :responses:
   - turkey
   - transit
+  - 'no'
   - 'yes'
   :next_node: :outcome_transit_leaving_airport_datv
   :outcome_node: true
@@ -1191,6 +1336,7 @@
   :responses:
   - turkey
   - transit
+  - 'no'
   - 'no'
   :next_node: :outcome_transit_not_leaving_airport
   :outcome_node: true
@@ -1279,12 +1425,27 @@
   :responses:
   - venezuela
   - transit
+  :next_node: :travelling_to_cta?
+  :outcome_node: false
+- :current_node: :travelling_to_cta?
+  :responses:
+  - venezuela
+  - transit
+  - 'yes'
+  :next_node: :outcome_transit_to_the_cta
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - venezuela
+  - transit
+  - 'no'
   :next_node: :passing_through_uk_border_control?
   :outcome_node: false
 - :current_node: :passing_through_uk_border_control?
   :responses:
   - venezuela
   - transit
+  - 'no'
   - 'yes'
   :next_node: :outcome_transit_leaving_airport_datv
   :outcome_node: true
@@ -1292,6 +1453,7 @@
   :responses:
   - venezuela
   - transit
+  - 'no'
   - 'no'
   :next_node: :outcome_transit_venezuela
   :outcome_node: true

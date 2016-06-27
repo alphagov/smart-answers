@@ -7,9 +7,40 @@ class CheckUkVisaTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    @location_slugs = %w(andorra anguilla armenia bolivia canada china colombia croatia mexico south-africa stateless-or-refugee syria turkey yemen oman united-arab-emirates qatar taiwan venezuela)
+    @location_slugs = %w(afghanistan andorra anguilla armenia bolivia canada china colombia croatia mexico south-africa stateless-or-refugee syria turkey yemen oman united-arab-emirates qatar taiwan venezuela)
     stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::CheckUkVisaFlow
+  end
+
+  context "transit" do
+    setup do
+      add_response 'afghanistan'
+      add_response 'transit'
+    end
+
+    should "direct user to cta question (q2a)" do
+      assert_current_node :travelling_to_cta?
+    end
+
+    context "yes" do
+      setup do
+        add_response 'yes'
+      end
+
+      should "go to outcome_transit_to_the_cta" do
+        assert_current_node :outcome_transit_to_the_cta
+      end
+    end
+
+    context "no" do
+      setup do
+        add_response 'no'
+      end
+
+      should "go to outcome_transit_to_the_cta" do
+        assert_current_node :passing_through_uk_border_control?
+      end
+    end
   end
 
   should "ask what passport do you have" do
@@ -55,6 +86,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
 
     should "suggest to apply in country of originallity or residence for outcome_transit_leaving_airport" do
       add_response 'transit'
+      add_response 'no'
       add_response 'yes'
 
       assert_current_node :outcome_transit_leaving_airport
@@ -62,6 +94,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
 
     should "suggests to get a Direct Airside Transit visa if not leaving the airport" do
       add_response 'transit'
+      add_response 'no'
       add_response 'no'
 
       assert_current_node :outcome_transit_refugee_not_leaving_airport
@@ -253,6 +286,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       context "coming to the UK on the way somewhere else" do
         setup do
           add_response 'transit'
+          add_response 'no'
         end
         should "ask you if you're planning to leave the airport" do
           assert_current_node :passing_through_uk_border_control?
@@ -427,6 +461,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     context "coming to the UK on the way somewhere else" do
       setup do
         add_response 'transit'
+        add_response 'no'
       end
       should " ask you if you're planning to leave the airport" do
         assert_current_node :passing_through_uk_border_control?
@@ -452,6 +487,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           reset_responses
           add_response "venezuela"
           add_response "transit"
+          add_response "no"
         end
         should "be asked if they are leaving the airport" do
           assert_current_node :passing_through_uk_border_control?
@@ -670,6 +706,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     setup do
       add_response 'taiwan'
       add_response 'transit'
+      add_response 'no'
     end
     should "take you to outcome taiwan exception" do
       assert_current_node :passing_through_uk_border_control?
@@ -744,6 +781,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     setup do
       add_response 'syria'
       add_response 'transit'
+      add_response 'no'
     end
 
     should "mention B1 and B2 visas when leaving the airport" do
