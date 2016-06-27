@@ -1,6 +1,102 @@
 # Regression tests
 
-The project includes a set of regression tests. These tests are not *normally* run as part of the standard build, because they take a long time to run. You can run just the regression tests with the following command:
+## Overview
+
+Unusually this project includes a set of regression tests. These tests are not *normally* run as part of the `default` Rake task, because they take a long time to run. Thus they do not normally run as part of the [main CI build](continuous-integration#main). However, they *always* run as part of the [regression CI build](continuous-integration#regression) (currently every 2 hours).
+
+Having said all that, there is a [primitive mechanism](#checksum-file) which detects changes to the files associated with a given flow since the last time the regression tests ran successfully for that flow.
+
+## Motivation
+
+These tests were introduced by @chrisroos & @floehopper in 2015 to reduce the risk of doing large-scale refactoring within the application. In particular, they wanted to make a substantial change to the way that landing, question & outcome pages were rendered. The vast majority of the integration tests did not (and still don't) render these pages and in general test coverage was very patchy. The regression tests were created to fulfil this requirement.
+
+The plan is to [refactor all the existing flows](refactoring.md) to separate the "model", "view" & "controller" concerns and use a [new testing approach](new-style-testing.md) which would render the regression tests obsolete.
+
+The regression tests are quite brittle and some of them take a long time to run which can make development a bit painful. However, they are serving an important purpose and we hope to remove them as soon as possible.
+
+## Coverage
+
+At the time of their introduction, Rcov was used to pick a minimal combinations of responses which exercised as much of the logic in the flow as possible. However, coverage is not exhaustive, particularly in flows which use country drop-downs (e.g. Marriage Abroad), or numeric inputs.
+
+Thus it is possible to make a change to the behaviour of a flow and for the regression tests to continue to pass, because you have affected a path that is not covered by the regression tests. In this case, if the new behaviour is significantly different from anything already covered, you should consider adding test coverage for the new behaviour.
+
+However, this new test coverage doesn't have to be at the regression test level, it might be sufficient to do it at the integration test or unit test level.
+
+## Regression test files
+
+### Questions & responses file
+
+This file stores the responses to be used for each question when running the tests. The filenames are of the form: `test/data/<smart-answer-flow-name>-questions-and-responses.yml`.
+
+The `script/generate-questions-and-responses-for-smart-answer.rb` script can be used to generate this file, but it requires manual intervention for questions which don't have a limited/known set of options (i.e. questions other than multi-choice/checkbox questions).
+
+You *will* need to update it if you:
+
+  * add a question
+  * remove a question
+  * rename a question key
+  * remove an option from a multi-choice/checkbox question (if being exercised)
+
+You *might* want to consider updating it (for [coverage purposes](#coverage)) if you:
+
+  * add an option to a multi-choice/checkbox question
+  * change the routing logic i.e. the logic deciding which questions are asked in what order
+
+### Responses & expected results file
+
+This file is effectively a cache of the nodes reached by particular combinations of responses. This is an optimisation which makes running the regression tests faster when this cached data does not need to change. The filenames are of the form: `test/data/<smart-answer-flow-name>-responses-and-expected-results.yml`
+
+The `script/generate-responses-and-expected-results-for-smart-answer.rb` script should always be used to generate this file.
+
+You *will* need to update it if you:
+
+  * change the "questions & responses" file
+  * change the routing logic
+
+### Artefact files
+
+Each of these files captures the content of the page reached by a particular combination of responses. The path to the artefact file represents the responses used to reach that page closely resembles the relevant URL path (although the initial `/y` is not included).
+
+Landing pages and outcome pages are stored in their Govspeak form, i.e. before they are converted into HTML. Question pages are stored in their HTML form.
+
+* `test/artefacts/<smart-answer-flow-name>/<smart-answer-flow-name>.txt` - rendered Govspeak for landing page
+* `test/artefacts/<smart-answer-flow-name>/<responses-sequence>.html` - rendered HTML for question page
+* `test/artefacts/<smart-answer-flow-name>/<responses-sequence>.txt` - rendered Govspeak for outcome pages
+
+When you run the regression tests, it deletes all the existing artefacts, regenerates them using the responses & expected results file, and then compares the newly generated artefacts with the *version stored in the git repository*. If they differ at all the test will fail. Note that this means you must *commit* any expected changes to the artefacts before running the tests.
+
+The regression tests will also fail if not all nodes are exercised by the test data, or if the checksum data is out-of-date (see below).
+
+You will need to update the artefacts if you:
+
+  * change the "responses & expected results" file
+  * change anything that will affect the content displayed in landing, question, or outcome pages
+
+If there's a difference in the artefacts, you should carefully review the changes to the newly generated artefacts to make sure they all relate to the changes you have made before you commit them.
+
+### Checksum file
+
+This file is used to determine whether or not the regression tests for a given flow should be run as part of the `default` Rake task. It is another optimisation in that running all the regression tests takes too long for them to be incorporated into the default Rake task. The filenames are of the form: `test/data/<smart-answer-flow-name>-files.yml`.
+
+The idea of the checksums is to detect changes to files which might affect the outward behaviour of the flow and thus cause the regression tests to fail.
+
+You will need to update it if you:
+
+  * change any of the checksummed files
+  * add a checksummed file
+  * remove a checksummed file
+
+Note that both the "questions & responses" file and the "responses & expected results" file are checksummed by default.
+
+The `script/generate-checksums-for-smart-answer.rb` script should be used to update the checksums. You can supply paths to any new files as command line arguments to this script.
+
+You should *only* update the checksums if you have run the regression tests for the flow and they have all passed. By updating them you are telling the [main CI build](continuous-integration.md#main) that it doesn't need to run the regression tests for this flow.
+
+If you update the checksums when the regression tests are failing, the main CI build will pass (because it's not running the regression tests), but sometime later the [regression test CI build](continuous-integration.md#regression) will fail. The latter CI build is intended to be a safety net - it's not good if the `master` branch contains failing tests.
+
+## Running regression tests
+
+You can run just the regression tests (i.e. not the main test suite) with the following command:
 
 ```bash
 $ RUN_REGRESSION_TESTS=true ruby test/regression/smart_answers_regression_test.rb
@@ -16,79 +112,83 @@ Note that the `RUN_REGRESSION_TESTS` environment variable can also be used in co
 
 By default most of the assertions in the regression tests are combined into a single assertion at the end. If you want the regression tests to fail fast then set `ASSERT_EACH_ARTEFACT=true`. However, you should note that this more than doubles the time it takes them to run.
 
-Running the test re-generates a set of HTML/Govspeak files in `test/artefacts` based on the files in `test/data`.
+Running the test re-generates a set of HTML/Govspeak files in `test/artefacts` based on the files in `test/data` and these are compared against the files in same directory in the git repository i.e. the *committed* versions of the files.
 
-## Test data
+## Making changes
 
-* `<smart-answer-flow-name>-questions-and-responses.yml` - defines a set of responses to the flow's questions
-* `<smart-answer-flow-name>-responses-and-expected-results.yml` - a record of the question & outcome nodes visited when the above responses are applied combinatorially
-* `<smart-answer-flow-name>-files.yml` - checksum data (see below)
+When making changes to a Smart Answer you will probably need to make changes to the regression test files for that flow. The following table aims to give some examples of which files are likely to need updating in a number of scenarios:
 
-## Artefacts
+| Scope of changes | Questions & responses | Responses & expected results | Artefacts | Checksums |
+|------------------|-----------------------|------------------------------|-----------|----------|
+| Internal refactoring | No | No | No | Yes |
+| Content change | No | No | Yes | Yes |
+| Routing logic change | No | Yes | Yes | Yes |
+| Question added/removed | Yes | Yes | Yes | Yes |
 
-The following artefacts are saved in `test/artefacts`:
+## Structuring commits
 
-* `<smart-answer-flow-name>/<smart-answer-flow-name>.txt` - rendered Govspeak for landing page
-* `<smart-answer-flow-name>/<responses-sequence>.html` - rendered HTML for question page
-* `<smart-answer-flow-name>/<responses-sequence>.txt` - rendered Govspeak for outcome pages
+As explained in [this article][1] (referenced by the [pull request styleguide][2]), it's good practice to make your commits atomic. This means that the code should all be in a consistent state and all the tests should be passing for every commit.
 
-The `<response-sequence>` is a forward-slash separated list of responses which closely relates to the URL paths to question & outcome pages in the app.
+Thus ideally we would include the changes to the regression test files in the *same commit* as the corresponding changes to the application code. However, there are some other considerations (outlined below) which mean that we don't always follow this ideal approach.
 
-The regression test fails if any of the following is true:
+Note that even when following one of these approaches, it's always important to carefully review the changes to the artefacts and to explain them in the relevant commit note as per the [Artefact changes](#artefact-changes) section below.
 
-* the newly generated artefact files differ at all from the committed files
-* not all nodes are exercised by the test data
-* the checksum data is out-of-date (see below)
+### Large diffs
 
-If you've added extra questions, responses or outcomes, then you should change the `test/data` files to exercise the new paths through the flow. See the instructions for [adding new regression tests](adding-new-regression-tests.md)
+We should always be thinking about making it easy for someone to review our changes in a pull request. Reviewing a diff with a lot of changes can be very hard, so this should be avoided. Having said that, just because a diff is large doesn't always mean it will be hard to review e.g. if the diff is just full of a single change repeated many times, this can be easily explained in the commit note.
 
-If there's a difference in the artefacts, you need to carefully review the changes to the artefacts to make sure they all relate to the changes you have made before committing them.
+If you think the diff is too large, the first thing to consider is whether you can split your changes to the application into multiple smaller (but still atomic) commits. That way you can reduce the number of changes to the artefacts needed in each commit.
 
-## Checksums
+If it's really not possible to split up the changes to the application code any further, it may be worth making the changes to the artefacts in a separate commit.
 
-Checksums for all flow-specific files are stored in a YAML file:
+### Slow tests
 
-    test/data/<smart-answer-flow-name>-files.yml
+The regression tests for some flows (e.g. Marriage Abroad) are very slow and it is prohibitively time-consuming to run them after each small change to the application code. In these cases, we sometimes batch up the changes to the artefacts into one or more separate commits.
 
-Once you're happy that the changes to the artefacts correspond to the changes you intended to make, commit the changes. Then you can update the checksums using the following command:
+We are investigating ways to speed up running the regression tests, so this problem may go away.
 
-```bash
-$ rails r script/generate-checksums-for-smart-answer.rb <smart-answer-flow-name>
-```
+You should only use this approach if the regression tests for the relevant flow really do take a long time. You should *not* adopt this as your default approach.
 
-When you've resolved all these issues, you should be able to run the regression tests for the flow as before and all the tests should pass:
+### Refactoring
 
-```bash
-$ RUN_REGRESSION_TESTS=<smart-answer-flow-name> ruby test/regression/smart_answers_regression_test.rb
-```
+If you are making changes which do not affect the outward behaviour of the Smart Answer (i.e. none of the artefacts need to change), then it is acceptable to only update the checksums in a single commit at the end of your pull request. In this case, there's not much to be gained by updating the checksums after every commit.
 
-## Automatic trigger
+## Artefact changes
 
-The regression test for a given flow is triggered automatically when you run the rake `test` task if you've made changes to any of the files whose checksums are listed in `test/data/<smart-answer-flow-name>-files.yml`. Although this won't always trigger the regression test when it should be run, it covers most common scenarios.
+If you have generated some changes to the regression test artefacts, it's important to *review* the changes before committing them to make sure that they are as you would expect. When you commit the changes, you should explain in the commit note why the various artefacts have changed in the way they have.
 
-If you've added new classes, modules or data which is used by a flow, you should add the relevant files to the checksums file.
+Coming up with such an explanation can be quite challenging and is another good reason to keep your commits as small as possible (see above). However, sometimes it's hard to avoid larger commits and in these cases there are a few tactics which can help:
 
-## How to get the regression tests to pass after a code change
+### Preparatory commits
 
-This list guides you through the steps you need to take to make the smallest change to a smart-answer, for example changing the text on a landing page.
+The idea is to make preparatory commits which add/remove/rename regression test artefacts in anticipation of what you expect to happen to them. We usually do this with the standard Unix commands, e.g. `cp`, `mv` & `rm`. This is particularly useful where the paths through the flow have changed. Here are a couple examples:
 
-1. Make the change to the code/template
-2. Commit the change
-3. Run the [regression tests](#regression-tests)
-4. Commit changes to the [test artefacts](#artefacts)
-5. Re-run the regression tests
-6. Regenerate the [checksums](#checksums)
-7. (Optional) Re-run the regression tests
-8. Commit the changes to the checksums
+* [PR #2035](https://github.com/alphagov/smart-answers/pull/2035) e.g. [Update pay-leave-for-parents artefacts: Rename no/2012-2-1 directory](https://github.com/alphagov/smart-answers/commit/5725e068a7a4e655a167f7f8eae0078f573557b8)
+* [PR #2051](https://github.com/alphagov/smart-answers/pull/2051) e.g. [Rename regression test artefacts for SSP](https://github.com/alphagov/smart-answers/commit/3374db3cb20644a0b9ee4542d9b0964760922711)
 
-Once the regression tests have passed you can prepare your changes for review as usual:
+### Programmatic diff checking
 
-1. Create a [pull request](pull-requests.md)
-2. (Optional) Deploy an app to [Heroku](factcheck.md#deploying-to-heroku) for factcheck
-  1. Add a "Waiting for factcheck" label to the pull request
+The idea is to use Unix command line tools (e.g. `grep`, `find`, `diff`, etc) to come up with automated ways to check that the changes to the artefacts are as you would expect. This is particularly useful when a lot of artefacts are affected by the same content change(s). It's useful to include the commands which you executed (and their output) in the commit note. Here are a couple of examples:
 
-## Continuous integration
+* [PR #2161](https://github.com/alphagov/smart-answers/pull/2161) e.g. [Regenerate test artefacts for am-i-getting-minimum-wage](https://github.com/alphagov/smart-answers/commit/f92e4e0033bbb1915f57e33cf749834c0d843987)
+* [PR #2181](https://github.com/alphagov/smart-answers/pull/2181) e.g. [Update regression test artefacts for question pages](https://github.com/alphagov/smart-answers/commit/023a64c4c288194d4a5f94a68e824cea8b272816)
 
-The [main CI instance](doc/continuous-integration.md#main) and the [corresponding branches one](doc/continuous-integration.md#branches) run the rake `test` task and so work in the same way as above.
+### Unix tree view
 
-We also have a [separate CI instance](doc/continuous-integration.md#regression) which runs **all** the regression tests every so often. This should catch any scenarios missed by the automatic trigger.
+The Unix `tree` command can be used to generate an ASCII-art view of the relevant artefacts directory or sub-directory. You can generate this view before and after a change and include them in the commit note with annotations explaining what has changed and why. Here is an example:
+
+* [PR #2529](https://github.com/alphagov/smart-answers/pull/2529) e.g. [Update regression test responses, expected results & artefacts](https://github.com/alphagov/smart-answers/commit/b225746fd044c5699075778fc1b507662c881df5)
+
+## Developer workflow
+
+It should be obvious from the [Structuring commits](#structuring-commits) & [Artefact changes](#artefact-changes) sections above that there isn't one "correct" way to organise your commits in a pull request. However, as a starting point, here are the steps you might use to implement a simple content change:
+
+1. Make the change to the relevant template file
+2. [Run the regression tests](#running-regression-tests) thus re-generating the artefacts
+3. Review the changes to the [artefacts](#artefact-files) and check they are as you expect
+4. If artefact changes are as expected, [re-generate the checksums](#checksum-file)
+5. Commit all the changes with a suitable explanation in the commit note
+6. Run the regression tests and check they all pass
+
+[1]: http://www.annashipman.co.uk/jfdi/good-pull-requests.html
+[2]: https://github.com/alphagov/styleguides/blob/master/pull-requests.md
