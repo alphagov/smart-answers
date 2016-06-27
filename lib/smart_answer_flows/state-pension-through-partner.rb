@@ -40,13 +40,7 @@ module SmartAnswer
         end
 
         calculate :answers do
-          if calculator.reached_pension_age_before_specific_date?
-            answers << :old2
-          elsif calculator.reached_pension_age_after_specific_date?
-            answers << :new2
-          end
-          answers << :old3 if calculator.widowed?
-          answers
+          calculator.answers_part_2
         end
 
         next_node_calculation(:widow_and_new_pension) do
