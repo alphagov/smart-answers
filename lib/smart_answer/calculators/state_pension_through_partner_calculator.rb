@@ -80,11 +80,11 @@ module SmartAnswer::Calculators
     end
 
     def current_rules_no_additional_pension?
-      answers_part_3 == [:old1, :old2, :old3]
+      married? && reached_pension_age_before_specific_date? && (widowed? || partner_reached_pension_age_before_specific_date?)
     end
 
     def current_rules_national_insurance_no_state_pension?
-      answers_part_3 == [:old1, :old2, :new3]
+      married? && reached_pension_age_before_specific_date? && partner_reached_pension_age_after_specific_date?
     end
 
   private
