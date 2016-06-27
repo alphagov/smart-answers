@@ -37,8 +37,8 @@ module SmartAnswer
           calculator.gender = response
         end
 
-        next_node_calculation(:male_and_too_young) do |response|
-          calculator.too_young?(calculator.date_of_birth, response)
+        next_node_calculation(:male_and_too_young) do
+          calculator.too_young?(calculator.date_of_birth, calculator.gender)
         end
 
         next_node do
