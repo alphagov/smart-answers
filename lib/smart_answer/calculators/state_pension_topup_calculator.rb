@@ -11,6 +11,7 @@ module SmartAnswer::Calculators
 
     attr_accessor :date_of_birth
     attr_accessor :gender
+    attr_accessor :weekly_amount
 
     def lump_sum_and_age(dob, weekly_amount, gender)
       return [] if too_young?(dob, gender)

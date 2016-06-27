@@ -44,7 +44,7 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
         end
         should "bring you to results outcome" do
           assert_current_node :outcome_topup_calculations
-          assert_state_variable :weekly_amount, 10.0
+          assert_equal 10.0, current_state.calculator.weekly_amount
           assert_equal Date.parse("1950-02-02"), current_state.calculator.date_of_birth
           assert_state_variable :amounts_vs_ages, [
             { amount: SmartAnswer::Money.new(8900), age: 65 },

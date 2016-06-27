@@ -52,7 +52,9 @@ module SmartAnswer
 
       #Q3
       money_question :how_much_extra_per_week? do
-        save_input_as :weekly_amount
+        on_response do |response|
+          calculator.weekly_amount = response
+        end
 
         calculate :integer_value do |response|
           money = response.to_f
@@ -68,8 +70,12 @@ module SmartAnswer
 
       #A1
       outcome :outcome_topup_calculations do
+        precalculate :weekly_amount do
+          calculator.weekly_amount
+        end
+
         precalculate :amounts_vs_ages do
-          calculator.lump_sum_and_age(calculator.date_of_birth, weekly_amount, calculator.gender)
+          calculator.lump_sum_and_age(calculator.date_of_birth, calculator.weekly_amount, calculator.gender)
         end
       end
       #A2
