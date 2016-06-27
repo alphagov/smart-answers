@@ -10,11 +10,10 @@ module SmartAnswer
       date_question :dob_age? do
         date_of_birth_defaults
 
-        on_response do
+        on_response do |response|
           self.calculator = Calculators::StatePensionTopupCalculator.new
+          calculator.date_of_birth = response
         end
-
-        save_input_as :date_of_birth
 
         next_node_calculation(:too_young) do |response|
           calculator.too_young?(response)
@@ -37,7 +36,7 @@ module SmartAnswer
         save_input_as :gender
 
         next_node_calculation(:male_and_too_young) do |response|
-          calculator.too_young?(date_of_birth, response)
+          calculator.too_young?(calculator.date_of_birth, response)
         end
 
         next_node do
@@ -68,7 +67,7 @@ module SmartAnswer
       #A1
       outcome :outcome_topup_calculations do
         precalculate :amounts_vs_ages do
-          calculator.lump_sum_and_age(date_of_birth, weekly_amount, gender)
+          calculator.lump_sum_and_age(calculator.date_of_birth, weekly_amount, gender)
         end
       end
       #A2
