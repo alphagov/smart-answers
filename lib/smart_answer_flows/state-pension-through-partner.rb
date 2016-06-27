@@ -72,12 +72,7 @@ module SmartAnswer
         end
 
         next_node_calculation :answers do
-          if calculator.partner_reached_pension_age_before_specific_date?
-            answers << :old3
-          elsif calculator.partner_reached_pension_age_after_specific_date?
-            answers << :new3
-          end
-          answers
+          calculator.answers_part_3
         end
 
         next_node_calculation(:current_rules_no_additional_pension) {

@@ -72,6 +72,16 @@ module SmartAnswer::Calculators
       answers
     end
 
+    def answers_part_3
+      answers = answers_part_2
+      if partner_reached_pension_age_before_specific_date?
+        answers << :old3
+      elsif partner_reached_pension_age_after_specific_date?
+        answers << :new3
+      end
+      answers
+    end
+
   private
 
     def rates
