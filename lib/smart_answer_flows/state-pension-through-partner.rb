@@ -24,10 +24,6 @@ module SmartAnswer
             question :when_will_you_reach_pension_age?
           end
         end
-
-        calculate :answers do
-          calculator.answers_part_1
-        end
       end
 
       # Q2
@@ -56,10 +52,6 @@ module SmartAnswer
             question :when_will_your_partner_reach_pension_age?
           end
         end
-
-        calculate :answers do
-          calculator.answers_part_2
-        end
       end
 
       #Q3
@@ -69,10 +61,6 @@ module SmartAnswer
 
         on_response do |response|
           calculator.when_will_your_partner_reach_pension_age = response
-        end
-
-        next_node_calculation :answers do
-          calculator.answers_part_3
         end
 
         next_node_calculation(:current_rules_no_additional_pension) {
