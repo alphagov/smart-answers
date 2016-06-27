@@ -40,11 +40,11 @@ module SmartAnswer
         end
 
         next_node_calculation(:widow_and_new_pension) do
-          answers == [:widow] && calculator.reached_pension_age_after_specific_date?
+          calculator.answers_part_1 == [:widow] && calculator.reached_pension_age_after_specific_date?
         end
 
         next_node_calculation(:widow_and_old_pension) do
-          answers == [:widow] && calculator.reached_pension_age_before_specific_date?
+          calculator.answers_part_1 == [:widow] && calculator.reached_pension_age_before_specific_date?
         end
 
         next_node do
