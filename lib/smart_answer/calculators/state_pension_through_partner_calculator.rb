@@ -51,6 +51,16 @@ module SmartAnswer::Calculators
       gender == 'female_gender'
     end
 
+    def answers_part_1
+      answers = []
+      if married?
+        answers << :old1
+      elsif widowed?
+        answers << :widow
+      end
+      answers
+    end
+
   private
 
     def rates

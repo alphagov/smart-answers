@@ -18,13 +18,7 @@ module SmartAnswer
         end
 
         calculate :answers do
-          answers = []
-          if calculator.married?
-            answers << :old1
-          elsif calculator.widowed?
-            answers << :widow
-          end
-          answers
+          calculator.answers_part_1
         end
 
         next_node do
