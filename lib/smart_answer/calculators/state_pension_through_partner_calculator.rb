@@ -83,11 +83,11 @@ module SmartAnswer::Calculators
     end
 
     def widow_and_new_pension?
-      (!married? && widowed?) && reached_pension_age_after_specific_date?
+      widowed? && reached_pension_age_after_specific_date?
     end
 
     def widow_and_old_pension?
-      (!married? && widowed?) && reached_pension_age_before_specific_date?
+      widowed? && reached_pension_age_before_specific_date?
     end
 
     def current_rules_no_additional_pension?
