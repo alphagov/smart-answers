@@ -35,14 +35,10 @@ module SmartAnswer
           calculator.when_will_you_reach_pension_age = response
         end
 
-        next_node_calculation(:widow_and_old_pension) do
-          calculator.answers_part_1 == [:widow] && calculator.reached_pension_age_before_specific_date?
-        end
-
         next_node do
           if calculator.widow_and_new_pension?
             question :what_is_your_gender?
-          elsif widow_and_old_pension
+          elsif calculator.widow_and_old_pension?
             outcome :widow_and_old_pension_outcome
           else
             question :when_will_your_partner_reach_pension_age?
