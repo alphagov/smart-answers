@@ -15,6 +15,7 @@ module SmartAnswer
     context 'when answering how_much_extra_per_week? question' do
       setup do
         @calculator.stubs(:valid_whole_number_weekly_amount?).returns(true)
+        @calculator.stubs(:valid_weekly_amount_in_range?).returns(true)
         setup_states_for_question(:how_much_extra_per_week?,
           responding_with: '12',
           initial_state: { calculator: @calculator })
@@ -41,6 +42,21 @@ module SmartAnswer
               initial_state: { calculator: @calculator })
           end
           assert_equal 'error_not_whole_number', e.message
+        end
+      end
+
+      context 'responding with an amount which is outside the range' do
+        setup do
+          @calculator.stubs(:valid_weekly_amount_in_range?).returns(false)
+        end
+
+        should 'raise an exception' do
+          e = assert_raise(SmartAnswer::InvalidResponse) do
+            setup_states_for_question(:how_much_extra_per_week?,
+              responding_with: '26',
+              initial_state: { calculator: @calculator })
+          end
+          assert_equal 'error_outside_range', e.message
         end
       end
     end

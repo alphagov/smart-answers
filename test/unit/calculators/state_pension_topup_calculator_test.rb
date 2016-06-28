@@ -144,5 +144,22 @@ module SmartAnswer::Calculators
         refute @calculator.valid_whole_number_weekly_amount?
       end
     end
+
+    context 'valid_weekly_amount_in_range?' do
+      should 'be true if weekly_amount is between 1 and 25 inclusive' do
+        @calculator.weekly_amount = SmartAnswer::Money.new(12.50)
+        assert @calculator.valid_weekly_amount_in_range?
+      end
+
+      should 'be false if weekly_amount is less than 1' do
+        @calculator.weekly_amount = SmartAnswer::Money.new(0.99)
+        refute @calculator.valid_weekly_amount_in_range?
+      end
+
+      should 'be false if weekly_amount is more than 25' do
+        @calculator.weekly_amount = SmartAnswer::Money.new(25.01)
+        refute @calculator.valid_weekly_amount_in_range?
+      end
+    end
   end
 end
