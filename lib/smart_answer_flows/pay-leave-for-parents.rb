@@ -40,9 +40,9 @@ module SmartAnswer
           calculator.employment_status_of_mother = response
         end
 
-        next_node do |response|
+        next_node do
           if calculator.two_carers == 'no'
-            case response
+            case calculator.employment_status_of_mother
             when 'employee', 'worker'
               question :mother_started_working_before_continuity_start_date
             when 'self-employed', 'unemployed'
