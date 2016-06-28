@@ -3,6 +3,7 @@ module SmartAnswer::Calculators
     include ActiveModel::Model
 
     attr_accessor :two_carers
+    attr_accessor :due_date
 
     def continuity_start_date(date)
       saturday_before(date - 39.weeks)
