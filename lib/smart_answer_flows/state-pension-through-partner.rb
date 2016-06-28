@@ -6,36 +6,19 @@ module SmartAnswer
       status :published
       satisfies_need "100578"
 
-      ### This will need updating before 6th April 2016 ###
       # Q1
       multiple_choice :what_is_your_marital_status? do
         option :married
         option :widowed
         option :divorced
 
-        save_input_as :marital_status
-
-        calculate :answers do |response|
-          answers = []
-          if response == "married"
-            answers << :old1
-          elsif response == "widowed"
-            answers << :widow
-          end
-          answers
+        on_response do |response|
+          self.calculator = Calculators::StatePensionThroughPartnerCalculator.new
+          calculator.marital_status = response
         end
 
-        calculate :lower_basic_state_pension_rate do
-          rate = Calculators::RatesQuery.from_file('state_pension').rates.lower_weekly_rate
-          "£#{'%.2f' % rate}"
-        end
-        calculate :higher_basic_state_pension_rate do
-          rate = Calculators::RatesQuery.from_file('state_pension').rates.weekly_rate
-          "£#{'%.2f' % rate}"
-        end
-
-        next_node do |response|
-          if response == 'divorced'
+        next_node do
+          if calculator.divorced?
             question :what_is_your_gender?
           else
             question :when_will_you_reach_pension_age?
@@ -48,30 +31,14 @@ module SmartAnswer
         option :your_pension_age_before_specific_date
         option :your_pension_age_after_specific_date
 
-        save_input_as :when_will_you_reach_pension_age
-
-        calculate :answers do |response|
-          if response == "your_pension_age_before_specific_date"
-            answers << :old2
-          elsif response == "your_pension_age_after_specific_date"
-            answers << :new2
-          end
-          answers << :old3 if marital_status == "widowed"
-          answers
-        end
-
-        next_node_calculation(:widow_and_new_pension) do |response|
-          answers == [:widow] && response == "your_pension_age_after_specific_date"
-        end
-
-        next_node_calculation(:widow_and_old_pension) do |response|
-          answers == [:widow] && response == "your_pension_age_before_specific_date"
+        on_response do |response|
+          calculator.when_will_you_reach_pension_age = response
         end
 
         next_node do
-          if widow_and_new_pension
+          if calculator.widow_and_new_pension?
             question :what_is_your_gender?
-          elsif widow_and_old_pension
+          elsif calculator.widow_and_old_pension?
             outcome :widow_and_old_pension_outcome
           else
             question :when_will_your_partner_reach_pension_age?
@@ -84,27 +51,14 @@ module SmartAnswer
         option :partner_pension_age_before_specific_date
         option :partner_pension_age_after_specific_date
 
-        next_node_calculation :answers do |response|
-          if response == "partner_pension_age_before_specific_date"
-            answers << :old3
-          elsif response == "partner_pension_age_after_specific_date"
-            answers << :new3
-          end
-          answers
+        on_response do |response|
+          calculator.when_will_your_partner_reach_pension_age = response
         end
 
-        next_node_calculation(:current_rules_no_additional_pension) {
-          answers == [:old1, :old2, :old3] || answers == [:new1, :old2, :old3]
-        }
-
-        next_node_calculation(:current_rules_national_insurance_no_state_pension) {
-          answers == [:old1, :old2, :new3] || answers == [:new1, :old2, :new3]
-        }
-
         next_node do
-          if current_rules_no_additional_pension
+          if calculator.current_rules_no_additional_pension?
             outcome :current_rules_no_additional_pension_outcome
-          elsif current_rules_national_insurance_no_state_pension
+          elsif calculator.current_rules_national_insurance_no_state_pension?
             outcome :current_rules_national_insurance_no_state_pension_outcome
           else
             question :what_is_your_gender?
@@ -117,22 +71,23 @@ module SmartAnswer
         option :male_gender
         option :female_gender
 
-        save_input_as :gender
+        on_response do |response|
+          calculator.gender = response
+        end
 
-        next_node do |response|
-          case response
-          when 'male_gender'
-            if marital_status == 'divorced'
+        next_node do
+          if calculator.male?
+            if calculator.divorced?
               outcome :impossibility_due_to_divorce_outcome
-            elsif marital_status == 'widowed'
+            elsif calculator.widowed?
               outcome :widow_male_reaching_pension_age
             else
               outcome :impossibility_to_increase_pension_outcome
             end
-          when 'female_gender'
-            if marital_status == 'divorced'
+          elsif calculator.female?
+            if calculator.divorced?
               outcome :age_dependent_pension_outcome
-            elsif marital_status == 'widowed'
+            elsif calculator.widowed?
               outcome :married_woman_and_state_pension_outcome
             else
               outcome :married_woman_no_state_pension_outcome
