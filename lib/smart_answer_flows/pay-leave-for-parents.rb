@@ -131,7 +131,7 @@ module SmartAnswer
         end
 
         precalculate :lower_earnings_end_date do
-          calculator.lower_earnings_end_date(calculator.due_date)
+          calculator.lower_earnings_end_date
         end
 
         next_node do
@@ -337,7 +337,7 @@ module SmartAnswer
         end
 
         precalculate :lower_earnings_end_date do
-          calculator.lower_earnings_end_date(calculator.due_date)
+          calculator.lower_earnings_end_date
         end
 
         next_node do |response|
