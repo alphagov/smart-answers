@@ -6,11 +6,12 @@ module SmartAnswer
       setup do
         @due_date = Date.parse('2015-1-1')
         @calculator = PayLeaveForParentsCalculator.new
+        @calculator.due_date = @due_date
       end
 
       test "continuity_start_date" do
         expected = Date.parse('2014-3-29')
-        assert_equal expected, @calculator.continuity_start_date(@due_date)
+        assert_equal expected, @calculator.continuity_start_date
       end
 
       test "continuity_end_date" do
