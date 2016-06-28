@@ -317,8 +317,6 @@ module SmartAnswer
       end
 
       salary_question :partner_salary do
-        save_input_as :partner_salary
-
         next_node do
           outcome :partner_earned_more_than_lower_earnings_limit
         end
