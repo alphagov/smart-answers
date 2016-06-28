@@ -105,8 +105,8 @@ module SmartAnswer::Calculators
       date_in_39_week_range?(2015, 2016, due_date)
     end
 
-    def start_of_maternity_allowance(date)
-      sunday_before(date - 11.weeks)
+    def start_of_maternity_allowance
+      sunday_before(due_date - 11.weeks)
     end
 
     def earliest_start_mat_leave(date)

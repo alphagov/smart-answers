@@ -40,8 +40,9 @@ module SmartAnswer
       end
 
       test "start_of_maternity_allowance" do
+        @calculator.due_date = @due_date
         expected = Date.parse("2014-10-12")
-        assert_equal expected, @calculator.start_of_maternity_allowance(@due_date)
+        assert_equal expected, @calculator.start_of_maternity_allowance
       end
 
       test "earliest_start_mat_leave" do
