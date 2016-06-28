@@ -1,5 +1,9 @@
 module SmartAnswer::Calculators
   class PayLeaveForParentsCalculator
+    include ActiveModel::Model
+
+    attr_accessor :two_carers
+
     def continuity_start_date(date)
       saturday_before(date - 39.weeks)
     end
