@@ -18,6 +18,10 @@ module SmartAnswer::Calculators
       @gender ||= 'female'
     end
 
+    def valid_whole_number_weekly_amount?
+      weekly_amount.to_f % 1 == 0
+    end
+
     def lump_sum_and_age
       return [] if too_young?
       rows = []
