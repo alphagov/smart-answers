@@ -109,8 +109,8 @@ module SmartAnswer::Calculators
       sunday_before(due_date - 11.weeks)
     end
 
-    def earliest_start_mat_leave(date)
-      sunday_before(date - 11.weeks)
+    def earliest_start_mat_leave
+      sunday_before(due_date - 11.weeks)
     end
 
     def maternity_leave_notice_date(date)
