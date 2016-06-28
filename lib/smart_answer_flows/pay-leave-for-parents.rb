@@ -114,10 +114,6 @@ module SmartAnswer
           calculator.mother_earned_more_than_lower_earnings_limit = response
         end
 
-        precalculate :lower_earnings_end_date do
-          calculator.lower_earnings_end_date
-        end
-
         next_node do
           if calculator.mother_continuity? && calculator.mother_lower_earnings?
             if calculator.two_carers?
@@ -304,10 +300,6 @@ module SmartAnswer
 
         on_response do |response|
           calculator.partner_earned_more_than_lower_earnings_limit = response
-        end
-
-        precalculate :lower_earnings_end_date do
-          calculator.lower_earnings_end_date
         end
 
         next_node do
