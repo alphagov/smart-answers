@@ -342,9 +342,9 @@ module SmartAnswer
           calculator.lower_earnings_end_date
         end
 
-        next_node do |response|
+        next_node do
           if calculator.employment_status_of_partner == 'employee'
-            if calculator.continuity(calculator.partner_started_working_before_continuity_start_date, calculator.partner_still_working_on_continuity_end_date) && calculator.lower_earnings(response)
+            if calculator.continuity(calculator.partner_started_working_before_continuity_start_date, calculator.partner_still_working_on_continuity_end_date) && calculator.lower_earnings(calculator.partner_earned_more_than_lower_earnings_limit)
               if calculator.employment_status_of_mother == 'employee'
                 if calculator.mother_continuity? && calculator.mother_lower_earnings?
                   if calculator.due_date >= Date.parse('2015-04-05')
@@ -554,7 +554,7 @@ module SmartAnswer
               end
             end
           elsif calculator.employment_status_of_partner == 'worker'
-            if calculator.continuity(calculator.partner_started_working_before_continuity_start_date, calculator.partner_still_working_on_continuity_end_date) && calculator.lower_earnings(response)
+            if calculator.continuity(calculator.partner_started_working_before_continuity_start_date, calculator.partner_still_working_on_continuity_end_date) && calculator.lower_earnings(calculator.partner_earned_more_than_lower_earnings_limit)
               if calculator.employment_status_of_mother == 'employee'
                 if calculator.mother_continuity? && calculator.mother_lower_earnings?
                   if calculator.due_date >= Date.parse('2015-04-05')
