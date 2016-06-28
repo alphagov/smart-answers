@@ -173,7 +173,7 @@ module SmartAnswer
         end
 
         precalculate :earnings_employment_start_date do
-          calculator.earnings_employment_start_date(calculator.due_date)
+          calculator.earnings_employment_start_date
         end
 
         precalculate :earnings_employment_end_date do
@@ -194,7 +194,7 @@ module SmartAnswer
         end
 
         precalculate :earnings_employment_start_date do
-          calculator.earnings_employment_start_date(calculator.due_date)
+          calculator.earnings_employment_start_date
         end
 
         precalculate :earnings_employment_end_date do
@@ -246,7 +246,7 @@ module SmartAnswer
         save_input_as :salary_1_66_weeks
 
         precalculate :earnings_employment_start_date do
-          calculator.earnings_employment_start_date(calculator.due_date)
+          calculator.earnings_employment_start_date
         end
 
         precalculate :earnings_employment_end_date do
@@ -744,7 +744,7 @@ module SmartAnswer
         save_input_as :partner_worked_at_least_26_weeks
 
         precalculate :earnings_employment_start_date do
-          calculator.earnings_employment_start_date(calculator.due_date)
+          calculator.earnings_employment_start_date
         end
 
         precalculate :earnings_employment_end_date do
@@ -763,7 +763,7 @@ module SmartAnswer
         save_input_as :partner_earned_at_least_390
 
         precalculate :earnings_employment_start_date do
-          calculator.earnings_employment_start_date(calculator.due_date)
+          calculator.earnings_employment_start_date
         end
 
         precalculate :earnings_employment_end_date do
