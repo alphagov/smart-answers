@@ -49,8 +49,7 @@ module SmartAnswer
         end
 
         validate :error_not_whole_number do
-          money = calculator.weekly_amount.to_f
-          money % 1 == 0
+          calculator.valid_whole_number_weekly_amount?
         end
 
         validate :error_outside_range do

@@ -132,5 +132,17 @@ module SmartAnswer::Calculators
         end
       end
     end
+
+    context 'valid_whole_number_weekly_amount?' do
+      should 'be true if weekly_amount is whole number of pounds' do
+        @calculator.weekly_amount = SmartAnswer::Money.new(12.00)
+        assert @calculator.valid_whole_number_weekly_amount?
+      end
+
+      should 'be false if weekly_amount is not whole number of pounds' do
+        @calculator.weekly_amount = SmartAnswer::Money.new(12.50)
+        refute @calculator.valid_whole_number_weekly_amount?
+      end
+    end
   end
 end
