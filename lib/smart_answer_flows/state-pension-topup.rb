@@ -73,10 +73,6 @@ module SmartAnswer
         precalculate :weekly_amount do
           calculator.weekly_amount
         end
-
-        precalculate :amounts_vs_ages do
-          calculator.lump_sum_and_age
-        end
       end
       #A2
       outcome :outcome_pension_age_not_reached

@@ -46,11 +46,11 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
           assert_current_node :outcome_topup_calculations
           assert_equal 10.0, current_state.calculator.weekly_amount
           assert_equal Date.parse("1950-02-02"), current_state.calculator.date_of_birth
-          assert_state_variable :amounts_vs_ages, [
+          assert_equal [
             { amount: SmartAnswer::Money.new(8900), age: 65 },
             { amount: SmartAnswer::Money.new(8710), age: 66 },
             { amount: SmartAnswer::Money.new(8470), age: 67 }
-          ]
+          ], current_state.calculator.lump_sum_and_age
         end
       end
     end
@@ -63,7 +63,7 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
     end
     should "qualify for top up" do
       assert_current_node :outcome_topup_calculations
-      assert current_state.amounts_vs_ages.present?
+      assert current_state.calculator.lump_sum_and_age.present?
     end
   end
   context "Man turns 65 on 6 April 2016 = DOB 6/4/1951 = not old enough" do
@@ -83,7 +83,7 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
     end
     should "qualify for top up" do
       assert_current_node :outcome_topup_calculations
-      assert current_state.amounts_vs_ages.present?
+      assert current_state.calculator.lump_sum_and_age.present?
     end
   end
   context "Woman turns 63 on 6 April 2016 = DOB 6/4/1953 = not old enough" do
@@ -102,11 +102,11 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
     end
     should "show three rates, two of them being the max age rate (100 => 127)" do
       assert_current_node :outcome_topup_calculations
-      assert_state_variable :amounts_vs_ages, [
+      assert_equal [
         { amount: SmartAnswer::Money.new(137), age: 99 },
         { amount: SmartAnswer::Money.new(127), age: 100 },
         { amount: SmartAnswer::Money.new(127), age: 101 }
-      ]
+      ], current_state.calculator.lump_sum_and_age
       assert_equal "male", current_state.calculator.gender
     end
   end
@@ -126,11 +126,11 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
     end
     should "go to calculations outcome and show 3 rates" do
       assert_current_node :outcome_topup_calculations
-      assert_state_variable :amounts_vs_ages, [
+      assert_equal [
         { amount: SmartAnswer::Money.new(694), age: 74 },
         { amount: SmartAnswer::Money.new(674), age: 75 },
         { amount: SmartAnswer::Money.new(646), age: 76 }
-      ]
+      ], current_state.calculator.lump_sum_and_age
     end
   end
 end
