@@ -22,6 +22,10 @@ module SmartAnswer::Calculators
       weekly_amount.to_f % 1 == 0
     end
 
+    def valid_weekly_amount_in_range?
+      (1..25).include?(weekly_amount.to_f)
+    end
+
     def lump_sum_and_age
       return [] if too_young?
       rows = []

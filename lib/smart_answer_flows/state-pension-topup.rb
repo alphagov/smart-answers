@@ -53,8 +53,7 @@ module SmartAnswer
         end
 
         validate :error_outside_range do
-          money = calculator.weekly_amount.to_f
-          (1..25).include?(money)
+          calculator.valid_weekly_amount_in_range?
         end
 
         next_node do
