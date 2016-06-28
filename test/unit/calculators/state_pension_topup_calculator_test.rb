@@ -2,7 +2,7 @@ require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class StatePensionTopupCalculatorTest < ActiveSupport::TestCase
-    context "checking lump sum amount" do
+    context "lump_sum_amount" do
       setup do
         @calculator = StatePensionTopupCalculator.new
       end
@@ -21,7 +21,7 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "check lump sum amount and age" do
+    context "age_at_date" do
       setup do
         @calculator = StatePensionTopupCalculator.new
       end
@@ -35,7 +35,7 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "check return value for lump sum amount and age male" do
+    context "lump_sum_and_age (male)" do
       setup do
         @calculator = StatePensionTopupCalculator.new
       end
@@ -48,7 +48,7 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "check return value for lump sum amount and age" do
+    context "lump_sum_and_age" do
       setup do
         @calculator = StatePensionTopupCalculator.new
       end
@@ -103,7 +103,7 @@ module SmartAnswer::Calculators
       end
     end
 
-    context '#too_young?' do
+    context 'too_young?' do
       setup do
         @calculator = StatePensionTopupCalculator.new
       end
