@@ -48,9 +48,14 @@ module SmartAnswer
           calculator.weekly_amount = response
         end
 
-        validate do
+        validate :error_not_whole_number do
           money = calculator.weekly_amount.to_f
-          (money % 1 == 0) && (1..25).include?(money)
+          money % 1 == 0
+        end
+
+        validate :error_outside_range do
+          money = calculator.weekly_amount.to_f
+          (1..25).include?(money)
         end
 
         next_node do
