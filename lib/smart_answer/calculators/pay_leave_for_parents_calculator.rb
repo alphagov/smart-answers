@@ -118,8 +118,8 @@ module SmartAnswer::Calculators
       saturday_before(due_date - 14.weeks)
     end
 
-    def paternity_leave_notice_date(date)
-      saturday_before(date - 14.weeks)
+    def paternity_leave_notice_date
+      saturday_before(due_date - 14.weeks)
     end
 
     def in_2013_2014_fin_year?(date)
