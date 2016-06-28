@@ -5,6 +5,7 @@ module SmartAnswer::Calculators
     attr_accessor :two_carers
     attr_accessor :due_date
     attr_accessor :employment_status_of_mother
+    attr_accessor :employment_status_of_partner
 
     def continuity_start_date(date)
       saturday_before(date - 39.weeks)
