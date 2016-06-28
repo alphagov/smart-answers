@@ -201,9 +201,9 @@ module SmartAnswer
           calculator.earnings_employment_end_date(calculator.due_date)
         end
 
-        next_node do |response|
+        next_node do
           if calculator.two_carers == 'no'
-            if calculator.earnings_employment(response, calculator.mother_worked_at_least_26_weeks)
+            if calculator.earnings_employment(calculator.mother_earned_at_least_390, calculator.mother_worked_at_least_26_weeks)
               question :salary_1_66_weeks
             elsif calculator.employment_status_of_mother == 'employee'
               if calculator.mother_still_working_on_continuity_end_date == 'yes'
@@ -215,7 +215,7 @@ module SmartAnswer
               outcome :outcome_single_birth_nothing
             end
           elsif calculator.two_carers == 'yes'
-            if calculator.earnings_employment(response, calculator.mother_worked_at_least_26_weeks)
+            if calculator.earnings_employment(calculator.mother_earned_at_least_390, calculator.mother_worked_at_least_26_weeks)
               question :salary_1_66_weeks
             elsif %w(employee worker).include?(calculator.employment_status_of_partner)
               question :partner_started_working_before_continuity_start_date
