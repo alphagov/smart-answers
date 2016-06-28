@@ -93,8 +93,8 @@ module SmartAnswer::Calculators
       earnings_employment == "yes" && work_employment == "yes"
     end
 
-    def range_in_2013_2014_fin_year?(date)
-      date_in_39_week_range?(2013, 2014, date)
+    def range_in_2013_2014_fin_year?
+      date_in_39_week_range?(2013, 2014, due_date)
     end
 
     def range_in_2014_2015_fin_year?(date)
