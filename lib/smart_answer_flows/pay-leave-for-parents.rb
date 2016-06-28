@@ -344,7 +344,7 @@ module SmartAnswer
 
         next_node do
           if calculator.employment_status_of_partner == 'employee'
-            if calculator.partner_continuity? && calculator.lower_earnings(calculator.partner_earned_more_than_lower_earnings_limit)
+            if calculator.partner_continuity? && calculator.partner_lower_earnings?
               if calculator.employment_status_of_mother == 'employee'
                 if calculator.mother_continuity? && calculator.mother_lower_earnings?
                   if calculator.due_date >= Date.parse('2015-04-05')
@@ -554,7 +554,7 @@ module SmartAnswer
               end
             end
           elsif calculator.employment_status_of_partner == 'worker'
-            if calculator.partner_continuity? && calculator.lower_earnings(calculator.partner_earned_more_than_lower_earnings_limit)
+            if calculator.partner_continuity? && calculator.partner_lower_earnings?
               if calculator.employment_status_of_mother == 'employee'
                 if calculator.mother_continuity? && calculator.mother_lower_earnings?
                   if calculator.due_date >= Date.parse('2015-04-05')
