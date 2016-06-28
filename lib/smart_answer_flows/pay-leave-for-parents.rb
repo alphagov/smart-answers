@@ -134,8 +134,8 @@ module SmartAnswer
           calculator.lower_earnings_end_date(calculator.due_date)
         end
 
-        next_node do |response|
-          if calculator.continuity(calculator.mother_started_working_before_continuity_start_date, calculator.mother_still_working_on_continuity_end_date) && calculator.lower_earnings(response)
+        next_node do
+          if calculator.continuity(calculator.mother_started_working_before_continuity_start_date, calculator.mother_still_working_on_continuity_end_date) && calculator.lower_earnings(calculator.mother_earned_more_than_lower_earnings_limit)
             if calculator.two_carers == 'no'
               if calculator.employment_status_of_mother == 'employee'
                 outcome :outcome_mat_leave_mat_pay
