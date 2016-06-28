@@ -15,12 +15,8 @@ module SmartAnswer
           calculator.date_of_birth = response
         end
 
-        next_node_calculation(:too_young) do
-          calculator.too_young?
-        end
-
         next_node do
-          if too_young
+          if calculator.too_young?
             outcome :outcome_pension_age_not_reached
           else
             question :gender?
