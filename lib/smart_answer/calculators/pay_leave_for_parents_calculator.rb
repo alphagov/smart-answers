@@ -11,6 +11,7 @@ module SmartAnswer::Calculators
     attr_accessor :mother_earned_more_than_lower_earnings_limit
     attr_accessor :mother_worked_at_least_26_weeks
     attr_accessor :mother_earned_at_least_390
+    attr_accessor :salary_1_66_weeks
 
     def two_carers?
       two_carers == 'yes'

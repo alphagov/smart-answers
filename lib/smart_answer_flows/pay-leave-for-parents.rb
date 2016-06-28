@@ -243,7 +243,9 @@ module SmartAnswer
       end
 
       salary_question :salary_1_66_weeks do
-        save_input_as :salary_1_66_weeks
+        on_response do |response|
+          calculator.salary_1_66_weeks = response
+        end
 
         precalculate :earnings_employment_start_date do
           calculator.earnings_employment_start_date
