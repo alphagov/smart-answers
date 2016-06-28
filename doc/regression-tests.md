@@ -112,7 +112,7 @@ Note that the `RUN_REGRESSION_TESTS` environment variable can also be used in co
 
 By default most of the assertions in the regression tests are combined into a single assertion at the end. If you want the regression tests to fail fast then set `ASSERT_EACH_ARTEFACT=true`. However, you should note that this more than doubles the time it takes them to run.
 
-Running the test re-generates a set of HTML/Govspeak files in `test/artefacts` based on the files in `test/data` and these are compared against the files in same directory in the git repository i.e. the *committed* versions of the files.
+Running the test regenerates a set of HTML/Govspeak files in `test/artefacts` based on the files in `test/data` and these are compared against the files in same directory in the git repository i.e. the *committed* versions of the files.
 
 ## Making changes
 
@@ -184,9 +184,9 @@ The Unix `tree` command can be used to generate an ASCII-art view of the relevan
 It should be obvious from the [Structuring commits](#structuring-commits) & [Artefact changes](#artefact-changes) sections above that there isn't one "correct" way to organise your commits in a pull request. However, as a starting point, here are the steps you might use to implement a simple content change:
 
 1. Make the change to the relevant template file
-2. [Run the regression tests](#running-regression-tests) thus re-generating the artefacts
+2. [Run the regression tests](#running-regression-tests) thus regenerating the artefacts
 3. Review the changes to the [artefacts](#artefact-files) and check they are as you expect
-4. If artefact changes are as expected, [re-generate the checksums](#checksum-file)
+4. If artefact changes are as expected, [regenerate the checksums](#checksum-file)
 5. Commit all the changes with a suitable explanation in the commit note
 6. Run the regression tests and check they all pass
 
