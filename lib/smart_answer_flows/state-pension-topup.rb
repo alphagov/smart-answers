@@ -48,11 +48,9 @@ module SmartAnswer
           calculator.weekly_amount = response
         end
 
-        calculate :integer_value do
+        validate do
           money = calculator.weekly_amount.to_f
-          if (money % 1 != 0) || (money > 25 || money < 1)
-            raise SmartAnswer::InvalidResponse
-          end
+          !((money % 1 != 0) || (money > 25 || money < 1))
         end
 
         next_node do
