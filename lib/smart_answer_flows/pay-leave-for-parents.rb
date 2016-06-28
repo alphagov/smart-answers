@@ -177,7 +177,7 @@ module SmartAnswer
         end
 
         precalculate :earnings_employment_end_date do
-          calculator.earnings_employment_end_date(calculator.due_date)
+          calculator.earnings_employment_end_date
         end
 
         next_node do
@@ -198,7 +198,7 @@ module SmartAnswer
         end
 
         precalculate :earnings_employment_end_date do
-          calculator.earnings_employment_end_date(calculator.due_date)
+          calculator.earnings_employment_end_date
         end
 
         next_node do
@@ -250,7 +250,7 @@ module SmartAnswer
         end
 
         precalculate :earnings_employment_end_date do
-          calculator.earnings_employment_end_date(calculator.due_date)
+          calculator.earnings_employment_end_date
         end
 
         next_node do
@@ -748,7 +748,7 @@ module SmartAnswer
         end
 
         precalculate :earnings_employment_end_date do
-          calculator.earnings_employment_end_date(calculator.due_date)
+          calculator.earnings_employment_end_date
         end
 
         next_node do
@@ -767,7 +767,7 @@ module SmartAnswer
         end
 
         precalculate :earnings_employment_end_date do
-          calculator.earnings_employment_end_date(calculator.due_date)
+          calculator.earnings_employment_end_date
         end
 
         next_node do |response|
