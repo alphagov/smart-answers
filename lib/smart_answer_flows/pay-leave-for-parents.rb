@@ -243,8 +243,6 @@ module SmartAnswer
       end
 
       salary_question :salary_1_66_weeks do
-        save_input_as :salary_1_66_weeks
-
         precalculate :earnings_employment_start_date do
           calculator.earnings_employment_start_date
         end
