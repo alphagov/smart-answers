@@ -101,8 +101,8 @@ module SmartAnswer::Calculators
       date_in_39_week_range?(2014, 2015, due_date)
     end
 
-    def range_in_2015_2016_fin_year?(date)
-      date_in_39_week_range?(2015, 2016, date)
+    def range_in_2015_2016_fin_year?
+      date_in_39_week_range?(2015, 2016, due_date)
     end
 
     def start_of_maternity_allowance(date)
