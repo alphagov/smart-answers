@@ -82,10 +82,6 @@ module SmartAnswer
           calculator.mother_started_working_before_continuity_start_date = response
         end
 
-        precalculate :continuity_start_date do
-          calculator.continuity_start_date
-        end
-
         next_node do
           outcome :mother_still_working_on_continuity_end_date
         end
@@ -288,10 +284,6 @@ module SmartAnswer
 
         on_response do |response|
           calculator.partner_started_working_before_continuity_start_date = response
-        end
-
-        precalculate :continuity_start_date do
-          calculator.continuity_start_date
         end
 
         next_node do
