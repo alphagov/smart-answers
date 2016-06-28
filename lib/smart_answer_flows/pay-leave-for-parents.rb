@@ -152,10 +152,6 @@ module SmartAnswer
           calculator.mother_worked_at_least_26_weeks = response
         end
 
-        precalculate :earnings_employment_end_date do
-          calculator.earnings_employment_end_date
-        end
-
         next_node do
           outcome :mother_earned_at_least_390
         end
@@ -167,10 +163,6 @@ module SmartAnswer
 
         on_response do |response|
           calculator.mother_earned_at_least_390 = response
-        end
-
-        precalculate :earnings_employment_end_date do
-          calculator.earnings_employment_end_date
         end
 
         next_node do
@@ -217,10 +209,6 @@ module SmartAnswer
       salary_question :salary_1_66_weeks do
         precalculate :earnings_employment_start_date do
           calculator.earnings_employment_start_date
-        end
-
-        precalculate :earnings_employment_end_date do
-          calculator.earnings_employment_end_date
         end
 
         next_node do
@@ -699,10 +687,6 @@ module SmartAnswer
           calculator.partner_worked_at_least_26_weeks = response
         end
 
-        precalculate :earnings_employment_end_date do
-          calculator.earnings_employment_end_date
-        end
-
         next_node do
           outcome :partner_earned_at_least_390
         end
@@ -714,10 +698,6 @@ module SmartAnswer
 
         on_response do |response|
           calculator.partner_earned_at_least_390 = response
-        end
-
-        precalculate :earnings_employment_end_date do
-          calculator.earnings_employment_end_date
         end
 
         next_node do
