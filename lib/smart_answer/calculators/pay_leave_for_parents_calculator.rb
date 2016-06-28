@@ -63,6 +63,10 @@ module SmartAnswer::Calculators
       continuity(mother_started_working_before_continuity_start_date, mother_still_working_on_continuity_end_date)
     end
 
+    def partner_continuity?
+      continuity(partner_started_working_before_continuity_start_date, partner_still_working_on_continuity_end_date)
+    end
+
     def continuity(job_before, job_after)
       job_before == "yes" && job_after == "yes"
     end
