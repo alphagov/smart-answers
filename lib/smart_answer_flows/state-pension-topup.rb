@@ -16,7 +16,7 @@ module SmartAnswer
         end
 
         next_node_calculation(:too_young) do
-          calculator.too_young?(calculator.date_of_birth)
+          calculator.too_young?
         end
 
         next_node do
@@ -38,7 +38,7 @@ module SmartAnswer
         end
 
         next_node_calculation(:male_and_too_young) do
-          calculator.too_young?(calculator.date_of_birth, calculator.gender)
+          calculator.too_young?
         end
 
         next_node do

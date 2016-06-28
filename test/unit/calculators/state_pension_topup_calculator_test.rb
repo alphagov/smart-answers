@@ -100,29 +100,35 @@ module SmartAnswer::Calculators
     context 'too_young?' do
       context 'when gender is female' do
         setup do
+          @calculator.gender = "female"
           @threshold_date = StatePensionTopupCalculator::FEMALE_YOUNGEST_DOB
         end
 
         should 'be true if date of birth is after threshold date' do
-          assert @calculator.too_young?(@threshold_date + 1, 'female')
+          @calculator.date_of_birth = @threshold_date + 1
+          assert @calculator.too_young?
         end
 
         should 'be false if date of birth is on threshold date' do
-          refute @calculator.too_young?(@threshold_date, 'female')
+          @calculator.date_of_birth = @threshold_date
+          refute @calculator.too_young?
         end
       end
 
       context 'when gender is male' do
         setup do
+          @calculator.gender = "male"
           @threshold_date = StatePensionTopupCalculator::MALE_YOUNGEST_DOB
         end
 
         should 'be true if date of birth is after threshold date' do
-          assert @calculator.too_young?(@threshold_date + 1, 'male')
+          @calculator.date_of_birth = @threshold_date + 1
+          assert @calculator.too_young?
         end
 
         should 'be false if date of birth is on threshold date' do
-          refute @calculator.too_young?(@threshold_date, 'male')
+          @calculator.date_of_birth = @threshold_date
+          refute @calculator.too_young?
         end
       end
     end
