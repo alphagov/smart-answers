@@ -37,10 +37,14 @@ module SmartAnswer::Calculators
           @calculator.gender = "male"
         end
 
-        should "show 2 rates for male ages 85 and 86" do
+        should "show two rates for male ages 85 and 86" do
           @calculator.date_of_birth = Date.parse('1930-04-06')
           @calculator.weekly_amount = 10
-          assert_equal [{ amount: 3940.0, age: 85 }, { amount: 3660.0, age: 86 }], @calculator.lump_sum_and_age
+          expectation = [
+            { amount: 3940.0, age: 85 },
+            { amount: 3660.0, age: 86 }
+          ]
+          assert_equal expectation, @calculator.lump_sum_and_age
         end
 
         should "show two rates for a man born on 1951-04-05 who wants to top up his pension by £1 a week" do
