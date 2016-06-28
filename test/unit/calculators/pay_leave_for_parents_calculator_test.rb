@@ -16,7 +16,7 @@ module SmartAnswer
 
       test "continuity_end_date" do
         expected = Date.parse('2014-9-14')
-        assert_equal expected, @calculator.continuity_end_date(@due_date)
+        assert_equal expected, @calculator.continuity_end_date
       end
 
       test "lower_earnings_start_date" do

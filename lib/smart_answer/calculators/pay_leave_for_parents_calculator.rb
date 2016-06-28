@@ -20,8 +20,8 @@ module SmartAnswer::Calculators
       saturday_before(due_date - 39.weeks)
     end
 
-    def continuity_end_date(date)
-      sunday_before(date - 15.weeks)
+    def continuity_end_date
+      sunday_before(due_date - 15.weeks)
     end
 
     def lower_earnings_amount(due_date)
