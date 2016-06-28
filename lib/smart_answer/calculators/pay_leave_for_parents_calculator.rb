@@ -15,6 +15,7 @@ module SmartAnswer::Calculators
     attr_accessor :partner_still_working_on_continuity_end_date
     attr_accessor :partner_earned_more_than_lower_earnings_limit
     attr_accessor :partner_worked_at_least_26_weeks
+    attr_accessor :partner_earned_at_least_390
 
     def two_carers?
       two_carers == 'yes'

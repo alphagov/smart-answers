@@ -764,7 +764,9 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        save_input_as :partner_earned_at_least_390
+        on_response do |response|
+          calculator.partner_earned_at_least_390 = response
+        end
 
         precalculate :earnings_employment_start_date do
           calculator.earnings_employment_start_date
