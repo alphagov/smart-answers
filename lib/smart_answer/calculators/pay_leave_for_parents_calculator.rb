@@ -12,6 +12,10 @@ module SmartAnswer::Calculators
     attr_accessor :mother_worked_at_least_26_weeks
     attr_accessor :mother_earned_at_least_390
 
+    def two_carers?
+      two_carers == 'yes'
+    end
+
     def continuity_start_date(date)
       saturday_before(date - 39.weeks)
     end
