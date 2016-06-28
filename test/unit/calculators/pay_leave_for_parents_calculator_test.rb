@@ -31,7 +31,7 @@ module SmartAnswer
 
       test "earnings_employment_start_date" do
         expected = Date.parse("2013-9-22")
-        assert_equal expected, @calculator.earnings_employment_start_date(@due_date)
+        assert_equal expected, @calculator.earnings_employment_start_date
       end
 
       test "earnings_employment_end_date" do

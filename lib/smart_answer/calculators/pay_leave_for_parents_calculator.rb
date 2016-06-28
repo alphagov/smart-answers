@@ -45,8 +45,8 @@ module SmartAnswer::Calculators
       saturday_before(due_date - 14.weeks)
     end
 
-    def earnings_employment_start_date(date)
-      sunday_before(date - 66.weeks)
+    def earnings_employment_start_date
+      sunday_before(due_date - 66.weeks)
     end
 
     def earnings_employment_end_date(date)
