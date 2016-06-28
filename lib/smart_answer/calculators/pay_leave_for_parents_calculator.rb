@@ -71,6 +71,10 @@ module SmartAnswer::Calculators
       lel == "yes"
     end
 
+    def mother_earnings_employment?
+      earnings_employment(mother_earned_at_least_390, mother_worked_at_least_26_weeks)
+    end
+
     #Earnings and employment test
     def earnings_employment(earnings_employment, work_employment)
       earnings_employment == "yes" && work_employment == "yes"
