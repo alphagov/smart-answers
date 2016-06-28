@@ -25,10 +25,6 @@ module SmartAnswer
           calculator.due_date = response
         end
 
-        next_node_calculation :due_date do
-          calculator.due_date
-        end
-
         next_node do
           outcome :employment_status_of_mother
         end
