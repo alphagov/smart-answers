@@ -10,11 +10,11 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        save_input_as :two_carers
-
-        next_node_calculation :calculator do
-          Calculators::PayLeaveForParentsCalculator.new
+        on_response do
+          self.calculator = Calculators::PayLeaveForParentsCalculator.new
         end
+
+        save_input_as :two_carers
 
         next_node do
           outcome :due_date
