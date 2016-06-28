@@ -13,6 +13,7 @@ module SmartAnswer::Calculators
     attr_accessor :mother_earned_at_least_390
     attr_accessor :partner_started_working_before_continuity_start_date
     attr_accessor :partner_still_working_on_continuity_end_date
+    attr_accessor :partner_earned_more_than_lower_earnings_limit
 
     def two_carers?
       two_carers == 'yes'

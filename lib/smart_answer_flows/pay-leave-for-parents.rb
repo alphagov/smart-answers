@@ -326,7 +326,9 @@ module SmartAnswer
         option "yes"
         option "no"
 
-        save_input_as :partner_earned_more_than_lower_earnings_limit
+        on_response do |response|
+          calculator.partner_earned_more_than_lower_earnings_limit = response
+        end
 
         precalculate :lower_earnings_amount do
           calculator.lower_earnings_amount
