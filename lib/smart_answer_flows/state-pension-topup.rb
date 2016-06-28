@@ -50,7 +50,7 @@ module SmartAnswer
 
         validate do
           money = calculator.weekly_amount.to_f
-          (money % 1 == 0) && (money >= 1 && money <= 25)
+          (money % 1 == 0) && (1..25).include?(money)
         end
 
         next_node do
