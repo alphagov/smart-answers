@@ -100,7 +100,7 @@ module SmartAnswer
         end
 
         precalculate :continuity_end_date do
-          calculator.continuity_end_date(calculator.due_date)
+          calculator.continuity_end_date
         end
 
         next_node do
@@ -306,7 +306,7 @@ module SmartAnswer
         save_input_as :partner_still_working_on_continuity_end_date
 
         precalculate :continuity_end_date do
-          calculator.continuity_end_date(calculator.due_date)
+          calculator.continuity_end_date
         end
 
         next_node do
