@@ -114,10 +114,6 @@ module SmartAnswer
           calculator.mother_earned_more_than_lower_earnings_limit = response
         end
 
-        precalculate :lower_earnings_start_date do
-          calculator.lower_earnings_start_date
-        end
-
         precalculate :lower_earnings_end_date do
           calculator.lower_earnings_end_date
         end
@@ -308,10 +304,6 @@ module SmartAnswer
 
         on_response do |response|
           calculator.partner_earned_more_than_lower_earnings_limit = response
-        end
-
-        precalculate :lower_earnings_start_date do
-          calculator.lower_earnings_start_date
         end
 
         precalculate :lower_earnings_end_date do
