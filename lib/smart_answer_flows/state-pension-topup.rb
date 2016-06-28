@@ -69,11 +69,7 @@ module SmartAnswer
       end
 
       #A1
-      outcome :outcome_topup_calculations do
-        precalculate :weekly_amount do
-          calculator.weekly_amount
-        end
-      end
+      outcome :outcome_topup_calculations
       #A2
       outcome :outcome_pension_age_not_reached
     end
