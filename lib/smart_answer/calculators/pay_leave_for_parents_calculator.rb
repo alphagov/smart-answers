@@ -61,6 +61,10 @@ module SmartAnswer::Calculators
       job_before == "yes" && job_after == "yes"
     end
 
+    def mother_lower_earnings?
+      lower_earnings(mother_earned_more_than_lower_earnings_limit)
+    end
+
     #Lower earnings test: person has earned more than
     #the lower earnings limit
     def lower_earnings(lel)
