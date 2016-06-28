@@ -19,7 +19,7 @@ module SmartAnswer::Calculators
     end
 
     def lump_sum_and_age
-      return [] if too_young?(date_of_birth, gender)
+      return [] if too_young?
       rows = []
       dob = leap_year_birthday?(date_of_birth) ? date_of_birth + 1.day : date_of_birth
       age = age_at_date(dob, TOPUP_START_DATE)
@@ -31,7 +31,7 @@ module SmartAnswer::Calculators
       rows
     end
 
-    def too_young?(date_of_birth, gender = 'female')
+    def too_young?
       case gender
       when 'female'
         date_of_birth > FEMALE_YOUNGEST_DOB
