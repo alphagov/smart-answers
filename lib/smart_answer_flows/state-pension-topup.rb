@@ -33,12 +33,8 @@ module SmartAnswer
           calculator.gender = response
         end
 
-        next_node_calculation(:male_and_too_young) do
-          calculator.too_young?
-        end
-
         next_node do
-          if male_and_too_young
+          if calculator.too_young?
             outcome :outcome_pension_age_not_reached
           else
             question :how_much_extra_per_week?
