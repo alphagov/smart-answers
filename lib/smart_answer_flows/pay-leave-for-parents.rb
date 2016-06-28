@@ -123,7 +123,7 @@ module SmartAnswer
         end
 
         precalculate :lower_earnings_amount do
-          calculator.lower_earnings_amount(calculator.due_date)
+          calculator.lower_earnings_amount
         end
 
         precalculate :lower_earnings_start_date do
@@ -329,7 +329,7 @@ module SmartAnswer
         save_input_as :partner_earned_more_than_lower_earnings_limit
 
         precalculate :lower_earnings_amount do
-          calculator.lower_earnings_amount(calculator.due_date)
+          calculator.lower_earnings_amount
         end
 
         precalculate :lower_earnings_start_date do
