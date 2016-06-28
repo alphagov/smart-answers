@@ -55,7 +55,6 @@ module SmartAnswer::Calculators
 
         should "show no rates for men born on 1951-04-06 or after because they're too young to qualify" do
           @calculator.date_of_birth = Date.parse('1953-04-06')
-          @calculator.weekly_amount = 1
           assert_equal [], @calculator.lump_sum_and_age
         end
       end
@@ -89,7 +88,6 @@ module SmartAnswer::Calculators
 
         should "show no rates for women born on 1953-04-06 or after because they're too young to qualify" do
           @calculator.date_of_birth = Date.parse('1953-04-06')
-          @calculator.weekly_amount = 1
           assert_equal [], @calculator.lump_sum_and_age
         end
       end
