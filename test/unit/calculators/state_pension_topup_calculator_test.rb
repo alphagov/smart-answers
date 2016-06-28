@@ -2,11 +2,11 @@ require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class StatePensionTopupCalculatorTest < ActiveSupport::TestCase
-    context "lump_sum_amount" do
-      setup do
-        @calculator = StatePensionTopupCalculator.new
-      end
+    setup do
+      @calculator = StatePensionTopupCalculator.new
+    end
 
+    context "lump_sum_amount" do
       should "be 8010 for age of 69" do
         assert_equal 8010, @calculator.send(:lump_sum_amount, 69, 10)
       end
@@ -22,10 +22,6 @@ module SmartAnswer::Calculators
     end
 
     context "age_at_date" do
-      setup do
-        @calculator = StatePensionTopupCalculator.new
-      end
-
       should "Show age of 64" do
         assert_equal 64, @calculator.send(:age_at_date, Date.parse('1951-04-06'), Date.parse('2015-10-12'))
       end
@@ -36,10 +32,6 @@ module SmartAnswer::Calculators
     end
 
     context "lump_sum_and_age (male)" do
-      setup do
-        @calculator = StatePensionTopupCalculator.new
-      end
-
       should "Show 2 rates for ages 85 and 86" do
         @calculator.date_of_birth = Date.parse('1930-04-06')
         @calculator.weekly_amount = 10
@@ -49,10 +41,6 @@ module SmartAnswer::Calculators
     end
 
     context "lump_sum_and_age" do
-      setup do
-        @calculator = StatePensionTopupCalculator.new
-      end
-
       should "show three rates for a woman born on 1953-04-05 who wants to top up her pension by £1 a week" do
         @calculator.date_of_birth = Date.parse('1953-04-05')
         @calculator.weekly_amount = 1
@@ -104,10 +92,6 @@ module SmartAnswer::Calculators
     end
 
     context 'too_young?' do
-      setup do
-        @calculator = StatePensionTopupCalculator.new
-      end
-
       context 'when gender is female' do
         setup do
           @threshold_date = StatePensionTopupCalculator::FEMALE_YOUNGEST_DOB
