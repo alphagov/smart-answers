@@ -24,7 +24,7 @@ module SmartAnswer::Calculators
       sunday_before(due_date - 15.weeks)
     end
 
-    def lower_earnings_amount(due_date)
+    def lower_earnings_amount
       start_date = lower_earnings_start_date(due_date)
       if in_2013_2014_fin_year?(start_date)
         SmartAnswer::Money.new(109)

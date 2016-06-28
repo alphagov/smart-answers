@@ -63,6 +63,7 @@ module SmartAnswer
         setup do
           @date = Date.parse("2014-1-1")
           @calculator = PayLeaveForParentsCalculator.new
+          @calculator.due_date = @date
         end
 
         should "be in 2013-2014 range" do
@@ -70,7 +71,7 @@ module SmartAnswer
         end
 
         should "return £ 109 for lower_earnings_amount" do
-          assert_equal 109, @calculator.lower_earnings_amount(@date)
+          assert_equal 109, @calculator.lower_earnings_amount
         end
       end
 
@@ -78,6 +79,7 @@ module SmartAnswer
         setup do
           @date = Date.parse("2015-1-1")
           @calculator = PayLeaveForParentsCalculator.new
+          @calculator.due_date = @date
         end
 
         should "be in 2013-2014 range" do
@@ -85,7 +87,7 @@ module SmartAnswer
         end
 
         should "return £ 111 for lower_earnings_amount" do
-          assert_equal 111, @calculator.lower_earnings_amount(@date)
+          assert_equal 111, @calculator.lower_earnings_amount
         end
       end
 
@@ -93,6 +95,7 @@ module SmartAnswer
         setup do
           @date = Date.parse("2016-1-1")
           @calculator = PayLeaveForParentsCalculator.new
+          @calculator.due_date = @date
         end
 
         should "be in 2015-2016 range" do
@@ -100,7 +103,7 @@ module SmartAnswer
         end
 
         should "return £ 112 for lower_earnings_amount" do
-          assert_equal 112, @calculator.lower_earnings_amount(@date)
+          assert_equal 112, @calculator.lower_earnings_amount
         end
       end
 
@@ -108,10 +111,11 @@ module SmartAnswer
         setup do
           @date = Date.parse("2022-1-1")
           @calculator = PayLeaveForParentsCalculator.new
+          @calculator.due_date = @date
         end
 
         should "return the latest_pat_leave known lower_earnings_amount" do
-          assert_equal 112, @calculator.lower_earnings_amount(@date)
+          assert_equal 112, @calculator.lower_earnings_amount
         end
       end
     end
