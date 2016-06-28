@@ -32,60 +32,64 @@ module SmartAnswer::Calculators
     end
 
     context "lump_sum_and_age" do
-      should "show 2 rates for male ages 85 and 86" do
-        @calculator.date_of_birth = Date.parse('1930-04-06')
-        @calculator.weekly_amount = 10
-        @calculator.gender = 'male'
-        assert_equal [{ amount: 3940.0, age: 85 }, { amount: 3660.0, age: 86 }], @calculator.lump_sum_and_age
+      context "when male" do
+        should "show 2 rates for male ages 85 and 86" do
+          @calculator.date_of_birth = Date.parse('1930-04-06')
+          @calculator.weekly_amount = 10
+          @calculator.gender = 'male'
+          assert_equal [{ amount: 3940.0, age: 85 }, { amount: 3660.0, age: 86 }], @calculator.lump_sum_and_age
+        end
+
+        should "show two rates for a man born on 1951-04-05 who wants to top up his pension by £1 a week" do
+          @calculator.date_of_birth = Date.parse('1951-04-05')
+          @calculator.weekly_amount = 1
+          @calculator.gender = 'male'
+          expectation = [
+            { amount: 890.0, age: 65 },
+            { amount: 871.0, age: 66 },
+          ]
+          assert_equal expectation, @calculator.lump_sum_and_age
+        end
+
+        should "show no rates for men born on 1951-04-06 or after because they're too young to qualify" do
+          @calculator.date_of_birth = Date.parse('1953-04-06')
+          @calculator.weekly_amount = 1
+          @calculator.gender = 'male'
+          assert_equal [], @calculator.lump_sum_and_age
+        end
       end
 
-      should "show two rates for a man born on 1951-04-05 who wants to top up his pension by £1 a week" do
-        @calculator.date_of_birth = Date.parse('1951-04-05')
-        @calculator.weekly_amount = 1
-        @calculator.gender = 'male'
-        expectation = [
-          { amount: 890.0, age: 65 },
-          { amount: 871.0, age: 66 },
-        ]
-        assert_equal expectation, @calculator.lump_sum_and_age
-      end
+      context "when female" do
+        should "show three rates for a woman born on 1953-04-05 who wants to top up her pension by £1 a week" do
+          @calculator.date_of_birth = Date.parse('1953-04-05')
+          @calculator.weekly_amount = 1
+          @calculator.gender = 'female'
+          expectation = [
+            { amount: 956.0, age: 62 },
+            { amount: 934.0, age: 63 },
+            { amount: 913.0, age: 64 },
+          ]
+          assert_equal expectation, @calculator.lump_sum_and_age
+        end
 
-      should "show no rates for men born on 1951-04-06 or after because they're too young to qualify" do
-        @calculator.date_of_birth = Date.parse('1953-04-06')
-        @calculator.weekly_amount = 1
-        @calculator.gender = 'male'
-        assert_equal [], @calculator.lump_sum_and_age
-      end
+        should "show three rates for a woman born on 1952-10-13 who wants to top up her pension by £1 a week" do
+          @calculator.date_of_birth = Date.parse('1952-10-13')
+          @calculator.weekly_amount = 1
+          @calculator.gender = 'female'
+          expectation = [
+            { amount: 956.0, age: 62 },
+            { amount: 934.0, age: 63 },
+            { amount: 913.0, age: 64 },
+          ]
+          assert_equal expectation, @calculator.lump_sum_and_age
+        end
 
-      should "show three rates for a woman born on 1953-04-05 who wants to top up her pension by £1 a week" do
-        @calculator.date_of_birth = Date.parse('1953-04-05')
-        @calculator.weekly_amount = 1
-        @calculator.gender = 'female'
-        expectation = [
-          { amount: 956.0, age: 62 },
-          { amount: 934.0, age: 63 },
-          { amount: 913.0, age: 64 },
-        ]
-        assert_equal expectation, @calculator.lump_sum_and_age
-      end
-
-      should "show three rates for a woman born on 1952-10-13 who wants to top up her pension by £1 a week" do
-        @calculator.date_of_birth = Date.parse('1952-10-13')
-        @calculator.weekly_amount = 1
-        @calculator.gender = 'female'
-        expectation = [
-          { amount: 956.0, age: 62 },
-          { amount: 934.0, age: 63 },
-          { amount: 913.0, age: 64 },
-        ]
-        assert_equal expectation, @calculator.lump_sum_and_age
-      end
-
-      should "show no rates for women born on 1953-04-06 or after because they're too young to qualify" do
-        @calculator.date_of_birth = Date.parse('1953-04-06')
-        @calculator.weekly_amount = 1
-        @calculator.gender = 'female'
-        assert_equal [], @calculator.lump_sum_and_age
+        should "show no rates for women born on 1953-04-06 or after because they're too young to qualify" do
+          @calculator.date_of_birth = Date.parse('1953-04-06')
+          @calculator.weekly_amount = 1
+          @calculator.gender = 'female'
+          assert_equal [], @calculator.lump_sum_and_age
+        end
       end
     end
 
