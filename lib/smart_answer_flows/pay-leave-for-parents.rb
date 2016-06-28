@@ -776,32 +776,32 @@ module SmartAnswer
           calculator.earnings_employment_end_date
         end
 
-        next_node do |response|
+        next_node do
           if calculator.employment_status_of_mother == 'employee'
             if calculator.mother_continuity? && calculator.mother_lower_earnings?
               if calculator.employment_status_of_partner == 'employee'
                 if calculator.continuity(calculator.partner_started_working_before_continuity_start_date, calculator.partner_still_working_on_continuity_end_date)
-                  if calculator.earnings_employment(response, calculator.partner_worked_at_least_26_weeks)
+                  if calculator.earnings_employment(calculator.partner_earned_at_least_390, calculator.partner_worked_at_least_26_weeks)
                     outcome :outcome_mat_leave_mat_pay_pat_leave_both_shared_leave_mat_shared_pay
-                  elsif !calculator.earnings_employment(response, calculator.partner_worked_at_least_26_weeks)
+                  elsif !calculator.earnings_employment(calculator.partner_earned_at_least_390, calculator.partner_worked_at_least_26_weeks)
                     outcome :outcome_mat_leave_mat_pay_pat_leave_pat_shared_leave
                   end
                 elsif !calculator.continuity(calculator.partner_started_working_before_continuity_start_date, calculator.partner_still_working_on_continuity_end_date)
-                  if calculator.earnings_employment(response, calculator.partner_worked_at_least_26_weeks)
+                  if calculator.earnings_employment(calculator.partner_earned_at_least_390, calculator.partner_worked_at_least_26_weeks)
                     outcome :outcome_mat_leave_mat_pay_mat_shared_leave_mat_shared_pay
-                  elsif !calculator.earnings_employment(response, calculator.partner_worked_at_least_26_weeks)
+                  elsif !calculator.earnings_employment(calculator.partner_earned_at_least_390, calculator.partner_worked_at_least_26_weeks)
                     outcome :outcome_mat_leave_mat_pay
                   end
                 end
               elsif %w(worker self-employed unemployed).include?(calculator.employment_status_of_partner)
-                if calculator.earnings_employment(response, calculator.partner_worked_at_least_26_weeks)
+                if calculator.earnings_employment(calculator.partner_earned_at_least_390, calculator.partner_worked_at_least_26_weeks)
                   outcome :outcome_mat_leave_mat_pay_mat_shared_leave_mat_shared_pay
-                elsif !calculator.earnings_employment(response, calculator.partner_worked_at_least_26_weeks)
+                elsif !calculator.earnings_employment(calculator.partner_earned_at_least_390, calculator.partner_worked_at_least_26_weeks)
                   outcome :outcome_mat_leave_mat_pay
                 end
               end
             elsif !calculator.mother_continuity? || !calculator.mother_lower_earnings?
-              if calculator.earnings_employment(response, calculator.partner_worked_at_least_26_weeks)
+              if calculator.earnings_employment(calculator.partner_earned_at_least_390, calculator.partner_worked_at_least_26_weeks)
                 if calculator.employment_status_of_partner == 'employee'
                   if calculator.continuity(calculator.partner_started_working_before_continuity_start_date, calculator.partner_still_working_on_continuity_end_date)
                     if calculator.mother_earnings_employment?
@@ -823,7 +823,7 @@ module SmartAnswer
                     outcome :outcome_mat_leave_mat_shared_leave
                   end
                 end
-              elsif !calculator.earnings_employment(response, calculator.partner_worked_at_least_26_weeks)
+              elsif !calculator.earnings_employment(calculator.partner_earned_at_least_390, calculator.partner_worked_at_least_26_weeks)
                 if calculator.employment_status_of_partner == 'employee'
                   if calculator.continuity(calculator.partner_started_working_before_continuity_start_date, calculator.partner_still_working_on_continuity_end_date)
                     if calculator.mother_earnings_employment?
@@ -850,22 +850,22 @@ module SmartAnswer
           elsif calculator.employment_status_of_mother == 'worker'
             if calculator.employment_status_of_partner == 'employee'
               if calculator.continuity(calculator.partner_started_working_before_continuity_start_date, calculator.partner_still_working_on_continuity_end_date)
-                if calculator.earnings_employment(response, calculator.partner_worked_at_least_26_weeks)
+                if calculator.earnings_employment(calculator.partner_earned_at_least_390, calculator.partner_worked_at_least_26_weeks)
                   outcome :outcome_mat_pay_pat_leave_pat_shared_leave_mat_shared_pay
-                elsif !calculator.earnings_employment(response, calculator.partner_worked_at_least_26_weeks)
+                elsif !calculator.earnings_employment(calculator.partner_earned_at_least_390, calculator.partner_worked_at_least_26_weeks)
                   outcome :outcome_mat_pay_pat_leave
                 end
               elsif !calculator.continuity(calculator.partner_started_working_before_continuity_start_date, calculator.partner_still_working_on_continuity_end_date)
-                if calculator.earnings_employment(response, calculator.partner_worked_at_least_26_weeks)
+                if calculator.earnings_employment(calculator.partner_earned_at_least_390, calculator.partner_worked_at_least_26_weeks)
                   outcome :outcome_mat_pay_mat_shared_pay
-                elsif !calculator.earnings_employment(response, calculator.partner_worked_at_least_26_weeks)
+                elsif !calculator.earnings_employment(calculator.partner_earned_at_least_390, calculator.partner_worked_at_least_26_weeks)
                   outcome :outcome_mat_pay
                 end
               end
             elsif %w(worker self-employed unemployed).include?(calculator.employment_status_of_partner)
-              if calculator.earnings_employment(response, calculator.partner_worked_at_least_26_weeks)
+              if calculator.earnings_employment(calculator.partner_earned_at_least_390, calculator.partner_worked_at_least_26_weeks)
                 outcome :outcome_mat_pay_mat_shared_pay
-              elsif !calculator.earnings_employment(response, calculator.partner_worked_at_least_26_weeks)
+              elsif !calculator.earnings_employment(calculator.partner_earned_at_least_390, calculator.partner_worked_at_least_26_weeks)
                 outcome :outcome_mat_pay
               end
             end
