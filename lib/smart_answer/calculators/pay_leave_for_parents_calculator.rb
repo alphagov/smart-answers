@@ -7,6 +7,7 @@ module SmartAnswer::Calculators
     attr_accessor :employment_status_of_mother
     attr_accessor :employment_status_of_partner
     attr_accessor :mother_started_working_before_continuity_start_date
+    attr_accessor :mother_still_working_on_continuity_end_date
 
     def continuity_start_date(date)
       saturday_before(date - 39.weeks)
