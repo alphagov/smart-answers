@@ -75,7 +75,7 @@ module SmartAnswer
         end
 
         precalculate :amounts_vs_ages do
-          calculator.lump_sum_and_age(calculator.date_of_birth, calculator.weekly_amount, calculator.gender)
+          calculator.lump_sum_and_age
         end
       end
       #A2
