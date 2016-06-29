@@ -1,12 +1,12 @@
 <% content_for :body do %>
   $!You must register the birth in the country where the child was born. You'll be given a local birth certificate.$!
 
-  <% if registration_country == 'indonesia' and calculator.british_national_parent == 'father' and calculator.paternity_declaration? %>
+  <% if calculator.registration_country == 'indonesia' and calculator.british_national_parent == 'father' and calculator.paternity_declaration? %>
     %You’ll need to get a court order to have the father named on the birth certificate before registering if you’re unmarried and only the father has British nationality.%
   <% end %>
 
-  <% if reg_data_query.higher_risk_country?(registration_country) %>
-    <% if registration_country == 'libya' %>
+  <% if reg_data_query.higher_risk_country?(calculator.registration_country) %>
+    <% if calculator.registration_country == 'libya' %>
       You can also register the birth with the UK authorities.
 
       ^It’s usually quicker to register the birth with the UK authorities if you [get a British passport](/overseas-passports) for the child first. You can’t apply for a passport in Libya but you can apply in a neighbouring country.^
@@ -191,7 +191,7 @@
 
   ##3. Pay
 
-  <% if !calculator.in_the_uk? && registration_country == 'algeria' %>
+  <% if !calculator.in_the_uk? && calculator.registration_country == 'algeria' %>
     Pay by credit or debit card - fill in the [credit card authorisation slip](/government/publications/credit-card-authorisation-form-algeria) and post it with your registration form.
   <% else %>
     You should pay online for the registration. Email <birthregistrationenquiries@fco.gov.uk> if you’re unable to pay online.
@@ -269,7 +269,7 @@
     * 5 working days if the child has a British passport
 
     The Overseas Registration Unit will contact you if they need more information or if they need to verify your documents. If this happens then it could take longer for the birth to be registered.
-  <% elsif registration_country == 'north-korea' and born_in_lower_risk_country %>
+  <% elsif calculator.registration_country == 'north-korea' and born_in_lower_risk_country %>
     ^Registration can take up to 3 months - your application will be sent to the Foreign and Commonwealth Office in London where the birth will be registered.^
   <% else %>
     It usually takes 5 working days for the birth to be registered, once the Overseas Registration Unit has received your form and the right documents.
@@ -277,8 +277,8 @@
     They’ll contact you within the 5 working days if they need more information or if they need to verify your documents. If this happens then it could take up to 3 months for the birth to be registered.
   <% end %>
 
-  <% if reg_data_query.oru_courier_variant?(registration_country) && !calculator.in_the_uk? %>
-    <% case registration_country %>
+  <% if reg_data_query.oru_courier_variant?(calculator.registration_country) && !calculator.in_the_uk? %>
+    <% case calculator.registration_country %>
       <% when 'cambodia' %>
         Your documents will be returned to the British Embassy in Phnom Penh after the birth has been registered.
       <% when 'kenya' %>
@@ -300,7 +300,7 @@
       <% when 'uganda' %>
         Your documents will be returned to the British High Commission in Kampala after the birth has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
     <% end %>
-    <% unless reg_data_query.oru_courier_by_high_commission?(registration_country) %>
+    <% unless reg_data_query.oru_courier_by_high_commission?(calculator.registration_country) %>
 
       You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
     <% end %>
