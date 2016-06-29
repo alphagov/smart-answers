@@ -6,6 +6,7 @@ module SmartAnswer::Calculators
     attr_accessor :british_national_parent
     attr_accessor :married_couple_or_civil_partnership
     attr_accessor :childs_date_of_birth
+    attr_accessor :current_location
 
     def initialize
       @reg_data_query = RegistrationsDataQuery.new
