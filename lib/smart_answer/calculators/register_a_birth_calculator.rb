@@ -26,5 +26,9 @@ module SmartAnswer::Calculators
     def responded_with_commonwealth_country?
       RegistrationsDataQuery::COMMONWEALTH_COUNTRIES.include?(country_of_birth)
     end
+
+    def paternity_declaration?
+      married_couple_or_civil_partnership == 'no'
+    end
   end
 end
