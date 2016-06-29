@@ -104,16 +104,16 @@ module SmartAnswer
           calculator.current_location = response
         end
 
-        calculate :same_country do |response|
-          response == 'same_country'
+        calculate :same_country do
+          calculator.current_location == 'same_country'
         end
 
         calculate :another_country do |response|
-          response == 'another_country'
+          calculator.current_location == 'another_country'
         end
 
         calculate :in_the_uk do |response|
-          response == 'in_the_uk'
+          calculator.current_location == 'in_the_uk'
         end
 
         next_node_calculation(:no_birth_certificate_exception) {
@@ -124,12 +124,12 @@ module SmartAnswer
           calculator.country_of_birth == 'north-korea'
         }
 
-        next_node do |response|
+        next_node do
           if no_birth_certificate_exception
             outcome :no_birth_certificate_result
-          elsif response == 'another_country'
+          elsif calculator.current_location == 'another_country'
             question :which_country?
-          elsif response == 'same_country' && born_in_north_korea
+          elsif calculator.current_location == 'same_country' && born_in_north_korea
             outcome :north_korea_result
           else
             outcome :oru_result
