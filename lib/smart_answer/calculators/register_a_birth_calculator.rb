@@ -3,6 +3,7 @@ module SmartAnswer::Calculators
     include ActiveModel::Model
 
     attr_accessor :country_of_birth
+    attr_accessor :british_national_parent
 
     def initialize
       @reg_data_query = RegistrationsDataQuery.new

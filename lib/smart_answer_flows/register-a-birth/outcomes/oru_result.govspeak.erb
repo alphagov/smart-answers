@@ -1,7 +1,7 @@
 <% content_for :body do %>
   $!You must register the birth in the country where the child was born. You'll be given a local birth certificate.$!
 
-  <% if registration_country == 'indonesia' and british_national_parent == 'father' and paternity_declaration %>
+  <% if registration_country == 'indonesia' and calculator.british_national_parent == 'father' and paternity_declaration %>
     %You’ll need to get a court order to have the father named on the birth certificate before registering if you’re unmarried and only the father has British nationality.%
   <% end %>
 
@@ -142,7 +142,7 @@
   <% if calculator.country_of_birth.in?(%w(philippines sierra-leone uganda)) %>
     If the child doesn't have a British passport you must also send the original copies of:
 
-    <% if calculator.country_of_birth == 'philippines' and british_national_parent.exclude?('mother') %>
+    <% if calculator.country_of_birth == 'philippines' and calculator.british_national_parent.exclude?('mother') %>
       - a Certificate of No Marriage ("Cenomar") issued by the National Statistics Office (NSO) or Philippine Statistics Authority (PSA) - if the Filipino mother is single
       - an Advisory on Marriage certificate issued by the NSO or PSA - if the Filipino mother is married
 
