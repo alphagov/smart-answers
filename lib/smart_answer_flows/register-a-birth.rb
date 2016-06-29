@@ -104,10 +104,6 @@ module SmartAnswer
           calculator.current_location = response
         end
 
-        calculate :same_country do
-          calculator.current_location == 'same_country'
-        end
-
         calculate :another_country do |response|
           calculator.current_location == 'another_country'
         end
@@ -129,7 +125,7 @@ module SmartAnswer
             outcome :no_birth_certificate_result
           elsif calculator.current_location == 'another_country'
             question :which_country?
-          elsif calculator.current_location == 'same_country' && born_in_north_korea
+          elsif calculator.same_country? && born_in_north_korea
             outcome :north_korea_result
           else
             outcome :oru_result

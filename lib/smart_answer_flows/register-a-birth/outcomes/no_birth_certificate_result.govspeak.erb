@@ -1,5 +1,5 @@
 <% content_for :body do %>
-  <% if same_country %>
+  <% if calculator.same_country? %>
     <% case calculator.country_of_birth %>
     <% when 'afghanistan' %>
       ^It’s illegal in Afghanistan to have a child outside of marriage. You can’t get a local birth certificate.^

@@ -36,5 +36,9 @@ module SmartAnswer::Calculators
     def before_july_2006?
       Date.new(2006, 07, 01) > childs_date_of_birth
     end
+
+    def same_country?
+      current_location == 'same_country'
+    end
   end
 end
