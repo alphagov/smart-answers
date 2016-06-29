@@ -31,5 +31,9 @@ module SmartAnswer::Calculators
     def paternity_declaration?
       married_couple_or_civil_partnership == 'no'
     end
+
+    def before_july_2006?
+      Date.new(2006, 07, 01) > childs_date_of_birth
+    end
   end
 end
