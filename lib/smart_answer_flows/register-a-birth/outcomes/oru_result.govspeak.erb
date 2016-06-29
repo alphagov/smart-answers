@@ -191,7 +191,7 @@
 
   ##3. Pay
 
-  <% if !in_the_uk && registration_country == 'algeria' %>
+  <% if !calculator.in_the_uk? && registration_country == 'algeria' %>
     Pay by credit or debit card - fill in the [credit card authorisation slip](/government/publications/credit-card-authorisation-form-algeria) and post it with your registration form.
   <% else %>
     You should pay online for the registration. Email <birthregistrationenquiries@fco.gov.uk> if you’re unable to pay online.
@@ -222,7 +222,7 @@
 
     Post the registration form and documents by secure post to:
 
-    <% if in_the_uk %>
+    <% if calculator.in_the_uk? %>
 
       $A
       Overseas Registration Unit
@@ -277,7 +277,7 @@
     They’ll contact you within the 5 working days if they need more information or if they need to verify your documents. If this happens then it could take up to 3 months for the birth to be registered.
   <% end %>
 
-  <% if reg_data_query.oru_courier_variant?(registration_country) && !in_the_uk %>
+  <% if reg_data_query.oru_courier_variant?(registration_country) && !calculator.in_the_uk? %>
     <% case registration_country %>
       <% when 'cambodia' %>
         Your documents will be returned to the British Embassy in Phnom Penh after the birth has been registered.
