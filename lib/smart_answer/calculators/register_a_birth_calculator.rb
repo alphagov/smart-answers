@@ -44,5 +44,9 @@ module SmartAnswer::Calculators
     def another_country?
       current_location == 'another_country'
     end
+
+    def in_the_uk?
+      current_location == 'in_the_uk'
+    end
   end
 end
