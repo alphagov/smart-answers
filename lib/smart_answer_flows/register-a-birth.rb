@@ -123,8 +123,8 @@ module SmartAnswer
           calculator.current_country = response
         end
 
-        calculate :registration_country do |response|
-          reg_data_query.registration_country_slug(response)
+        calculate :registration_country do
+          calculator.registration_country
         end
 
         calculate :registration_country_name_lowercase_prefix do

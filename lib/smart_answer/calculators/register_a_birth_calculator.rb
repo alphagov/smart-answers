@@ -15,7 +15,7 @@ module SmartAnswer::Calculators
     end
 
     def registration_country
-      @reg_data_query.registration_country_slug(country_of_birth)
+      @reg_data_query.registration_country_slug(current_country || country_of_birth)
     end
 
     def registration_country_name_lowercase_prefix
