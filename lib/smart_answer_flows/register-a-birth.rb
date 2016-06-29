@@ -81,8 +81,12 @@ module SmartAnswer
         from { Date.today.end_of_year }
         to { 50.years.ago(Date.today) }
 
-        next_node_calculation :before_july_2006 do |response|
-          Date.new(2006, 07, 01) > response
+        on_response do |response|
+          calculator.childs_date_of_birth = response
+        end
+
+        next_node_calculation :before_july_2006 do
+          Date.new(2006, 07, 01) > calculator.childs_date_of_birth
         end
 
         next_node do
