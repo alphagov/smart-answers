@@ -56,7 +56,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'father'
       add_response 'yes'
       add_response 'same_country'
-      assert_state_variable :registration_country, 'spain'
+      assert_equal 'spain', current_state.calculator.registration_country
     end
   end # Andorra
 
@@ -82,7 +82,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'spain'
     end
     should "store this as the registration country" do
-      assert_state_variable :registration_country, 'spain'
+      assert_equal 'spain', current_state.calculator.registration_country
     end
     should "ask which parent has british nationality" do
       assert_current_node :who_has_british_nationality?
@@ -134,7 +134,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
         context "answer back in the UK" do
           should "give the oru result" do
             add_response 'in_the_uk'
-            assert_state_variable :registration_country, 'spain'
+            assert_equal 'spain', current_state.calculator.registration_country
             assert_state_variable :button_data, text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start"
             assert_current_node :oru_result
             assert_state_variable :translator_link_url, "http://www.exteriores.gob.es/Portal/en/ServiciosAlCiudadano/Paginas/Traductoresas---Int%C3%A9rpretes-Juradosas.aspx"
@@ -317,7 +317,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'father'
       add_response 'yes'
       add_response 'same_country'
-      assert_state_variable :registration_country, "guatemala"
+      assert_equal 'guatemala', current_state.calculator.registration_country
       assert_state_variable :registration_country_name_lowercase_prefix, "Guatemala"
     end
   end
@@ -330,7 +330,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'father'
       add_response 'yes'
       add_response 'same_country'
-      assert_state_variable :registration_country, "laos"
+      assert_equal 'laos', current_state.calculator.registration_country
       assert_state_variable :registration_country_name_lowercase_prefix, "Laos"
     end
   end
@@ -342,7 +342,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'father'
       add_response 'yes'
       add_response 'same_country'
-      assert_state_variable :registration_country, "sri-lanka"
+      assert_equal 'sri-lanka', current_state.calculator.registration_country
     end
   end
   context "Sri Lanka" do
