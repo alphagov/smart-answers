@@ -207,7 +207,7 @@
   <%= render partial: 'shared/births_and_deaths_registration/document_return_fees.govspeak.erb', locals: { document_return_fees: document_return_fees } %>
   <%= render partial: 'shared/births_and_deaths_registration/button.govspeak.erb', locals: { button_data: button_data } %>
 
-  <% if calculator.country_of_birth == 'venezuela' && same_country %>
+  <% if calculator.country_of_birth == 'venezuela' && calculator.same_country? %>
 
     ##4. Go to the British embassy
 
