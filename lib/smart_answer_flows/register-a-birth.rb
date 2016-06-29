@@ -48,8 +48,8 @@ module SmartAnswer
           calculator.british_national_parent = response
         end
 
-        next_node do |response|
-          case response
+        next_node do
+          case calculator.british_national_parent
           when 'mother', 'father', 'mother_and_father'
             question :married_couple_or_civil_partnership?
           when 'neither'
