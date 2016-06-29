@@ -13,11 +13,10 @@ module SmartAnswer
 
       # Q1
       country_select :country_of_birth?, exclude_countries: exclude_countries do
-        on_response do
+        on_response do |response|
           self.calculator = Calculators::RegisterABirthCalculator.new
+          calculator.country_of_birth = response
         end
-
-        save_input_as :country_of_birth
 
         calculate :registration_country do |response|
           reg_data_query.registration_country_slug(response)
@@ -120,11 +119,11 @@ module SmartAnswer
         end
 
         next_node_calculation(:no_birth_certificate_exception) {
-          reg_data_query.has_birth_registration_exception?(country_of_birth) & paternity_declaration
+          reg_data_query.has_birth_registration_exception?(calculator.country_of_birth) & paternity_declaration
         }
 
         next_node_calculation(:born_in_north_korea) {
-          country_of_birth == 'north-korea'
+          calculator.country_of_birth == 'north-korea'
         }
 
         next_node do |response|
@@ -197,11 +196,11 @@ module SmartAnswer
         end
 
         precalculate :custom_waiting_time do
-          reg_data_query.custom_registration_duration(country_of_birth)
+          reg_data_query.custom_registration_duration(calculator.country_of_birth)
         end
 
         precalculate :born_in_lower_risk_country do
-          reg_data_query.lower_risk_country?(country_of_birth)
+          reg_data_query.lower_risk_country?(calculator.country_of_birth)
         end
 
         precalculate :location do
@@ -224,7 +223,7 @@ module SmartAnswer
         end
 
         precalculate :translator_link_url do
-          translator_query.links[country_of_birth]
+          translator_query.links[calculator.country_of_birth]
         end
       end
 
@@ -234,7 +233,7 @@ module SmartAnswer
       outcome :homeoffice_result
       outcome :no_birth_certificate_result do
         precalculate :location do
-          loc = WorldLocation.find(country_of_birth)
+          loc = WorldLocation.find(calculator.country_of_birth)
           raise InvalidResponse unless loc
           loc
         end

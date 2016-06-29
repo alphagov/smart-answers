@@ -1,6 +1,6 @@
 <% content_for :body do %>
   <% if same_country %>
-    <% case country_of_birth %>
+    <% case calculator.country_of_birth %>
     <% when 'afghanistan' %>
       ^It’s illegal in Afghanistan to have a child outside of marriage. You can’t get a local birth certificate.^
 
@@ -40,7 +40,7 @@
       A local birth certificate is normally needed to register an overseas birth. Contact the FCO at <birthregistrationenquiries@fco.gov.uk> for advice.
     <% end %>
   <% else %>
-    <% case country_of_birth %>
+    <% case calculator.country_of_birth %>
     <% when 'afghanistan' %>
       You can’t get a local birth certificate if you weren’t married when you had your child.
     <% when 'iraq' %>
