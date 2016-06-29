@@ -13,6 +13,10 @@ module SmartAnswer
 
       # Q1
       country_select :country_of_birth?, exclude_countries: exclude_countries do
+        on_response do
+          self.calculator = Calculators::RegisterABirthCalculator.new
+        end
+
         save_input_as :country_of_birth
 
         calculate :registration_country do |response|
