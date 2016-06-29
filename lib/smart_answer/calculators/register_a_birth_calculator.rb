@@ -16,5 +16,9 @@ module SmartAnswer::Calculators
     def registration_country_name_lowercase_prefix
       @country_name_query.definitive_article(registration_country)
     end
+
+    def country_has_no_embassy?
+      %w(iran syria yemen).include?(country_of_birth)
+    end
   end
 end

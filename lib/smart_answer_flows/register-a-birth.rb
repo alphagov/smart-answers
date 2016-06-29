@@ -6,6 +6,7 @@ module SmartAnswer
       status :published
       satisfies_need "101003"
 
+      country_name_query = Calculators::CountryNameFormatter.new
       reg_data_query = Calculators::RegistrationsDataQuery.new
       translator_query = Calculators::TranslatorLinks.new
       exclude_countries = %w(holy-see british-antarctic-territory)
@@ -25,16 +26,12 @@ module SmartAnswer
           calculator.registration_country_name_lowercase_prefix
         end
 
-        next_node_calculation :country_has_no_embassy do
-          %w(iran syria yemen).include?(calculator.country_of_birth)
-        end
-
         next_node_calculation :responded_with_commonwealth_country do
           Calculators::RegistrationsDataQuery::COMMONWEALTH_COUNTRIES.include?(calculator.country_of_birth)
         end
 
         next_node do
-          if country_has_no_embassy
+          if calculator.country_has_no_embassy?
             outcome :no_embassy_result
           elsif responded_with_commonwealth_country
             outcome :commonwealth_result
