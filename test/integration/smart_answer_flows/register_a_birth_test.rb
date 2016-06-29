@@ -153,7 +153,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "same_country"
       assert_current_node :oru_result
-      assert_state_variable :registration_country_name_lowercase_prefix, "Afghanistan"
+      assert_equal 'Afghanistan', current_state.calculator.registration_country_name_lowercase_prefix
       assert_equal 'mother_and_father', current_state.calculator.british_national_parent
       assert_state_variable :custom_waiting_time, '6 months'
       assert_state_variable :translator_link_url, '/government/publications/afghanistan-list-of-lawyers'
@@ -304,7 +304,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'yes'
       add_response 'same_country'
       assert_equal 'guatemala', current_state.calculator.registration_country
-      assert_state_variable :registration_country_name_lowercase_prefix, "Guatemala"
+      assert_equal 'Guatemala', current_state.calculator.registration_country_name_lowercase_prefix
     end
   end
 
@@ -317,7 +317,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'yes'
       add_response 'same_country'
       assert_equal 'laos', current_state.calculator.registration_country
-      assert_state_variable :registration_country_name_lowercase_prefix, "Laos"
+      assert_equal 'Laos', current_state.calculator.registration_country_name_lowercase_prefix
     end
   end
   context "maldives, where you have to register in sri lanka" do
