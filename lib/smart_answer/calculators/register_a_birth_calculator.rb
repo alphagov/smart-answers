@@ -50,7 +50,7 @@ module SmartAnswer::Calculators
     end
 
     def no_birth_certificate_exception?
-      @reg_data_query.has_birth_registration_exception?(country_of_birth) & paternity_declaration?
+      @reg_data_query.has_birth_registration_exception?(country_of_birth) && paternity_declaration?
     end
   end
 end
