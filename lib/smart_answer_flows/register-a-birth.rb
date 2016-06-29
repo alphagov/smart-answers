@@ -85,12 +85,8 @@ module SmartAnswer
           calculator.childs_date_of_birth = response
         end
 
-        next_node_calculation :before_july_2006 do
-          Date.new(2006, 07, 01) > calculator.childs_date_of_birth
-        end
-
         next_node do
-          if before_july_2006
+          if calculator.before_july_2006?
             outcome :homeoffice_result
           else
             question :where_are_you_now?
