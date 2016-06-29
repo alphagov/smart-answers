@@ -104,16 +104,12 @@ module SmartAnswer
           calculator.current_location = response
         end
 
-        next_node_calculation(:no_birth_certificate_exception) {
-          reg_data_query.has_birth_registration_exception?(calculator.country_of_birth) & calculator.paternity_declaration?
-        }
-
         next_node_calculation(:born_in_north_korea) {
           calculator.country_of_birth == 'north-korea'
         }
 
         next_node do
-          if no_birth_certificate_exception
+          if calculator.no_birth_certificate_exception?
             outcome :no_birth_certificate_result
           elsif calculator.another_country?
             question :which_country?
