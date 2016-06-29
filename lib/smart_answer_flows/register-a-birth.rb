@@ -63,12 +63,16 @@ module SmartAnswer
         option :yes
         option :no
 
-        calculate :paternity_declaration do |response|
-          response == 'no'
+        on_response do |response|
+          calculator.married_couple_or_civil_partnership = response
         end
 
-        next_node do |response|
-          if response == 'no' && calculator.british_national_parent == 'father'
+        calculate :paternity_declaration do
+          calculator.married_couple_or_civil_partnership == 'no'
+        end
+
+        next_node do
+          if calculator.married_couple_or_civil_partnership == 'no' && calculator.british_national_parent == 'father'
             question :childs_date_of_birth?
           else
             question :where_are_you_now?
