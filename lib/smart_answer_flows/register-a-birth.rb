@@ -68,7 +68,7 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.married_couple_or_civil_partnership == 'no' && calculator.british_national_parent == 'father'
+          if calculator.paternity_declaration? && calculator.british_national_parent == 'father'
             question :childs_date_of_birth?
           else
             question :where_are_you_now?
