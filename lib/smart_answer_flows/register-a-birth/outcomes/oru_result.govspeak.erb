@@ -1,7 +1,7 @@
 <% content_for :body do %>
   $!You must register the birth in the country where the child was born. You'll be given a local birth certificate.$!
 
-  <% if registration_country == 'indonesia' and calculator.british_national_parent == 'father' and paternity_declaration %>
+  <% if registration_country == 'indonesia' and calculator.british_national_parent == 'father' and calculator.paternity_declaration? %>
     %You’ll need to get a court order to have the father named on the birth certificate before registering if you’re unmarried and only the father has British nationality.%
   <% end %>
 
@@ -33,14 +33,14 @@
 
   ^Send English translations of all foreign documents. <%= translator_link_url ? "Use an [approved translator](#{translator_link_url}) and include their name and address with your application" : 'Use a professional translator and include their name and address with your application' %>. Don't send laminated documents.^
 
-  <% if calculator.country_of_birth == 'morocco' && paternity_declaration %>
+  <% if calculator.country_of_birth == 'morocco' && calculator.paternity_declaration? %>
     ^Only the mother will be named on the local birth certificate if you aren’t married. To add the father’s name you must swear a paternity declaration in a Moroccan court and you may be ordered to get married.^
   <% end %>
 
   You must send the original versions of:
 
   <% if reg_data_query.oru_documents_variant_for_birth?(calculator.country_of_birth) %>
-    <% if calculator.country_of_birth == 'united-arab-emirates' && paternity_declaration %>
+    <% if calculator.country_of_birth == 'united-arab-emirates' && calculator.paternity_declaration? %>
       - both English and Arabic versions of your child’s full local birth certificate, attested by the Ministry of Foreign Affairs (email <birthregistrationenquiries@fco.gov.uk> if the local authorities will not provide a birth certificate)
     <% else %>
       <% case calculator.country_of_birth %>

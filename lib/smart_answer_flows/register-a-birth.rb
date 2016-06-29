@@ -67,10 +67,6 @@ module SmartAnswer
           calculator.married_couple_or_civil_partnership = response
         end
 
-        calculate :paternity_declaration do
-          calculator.married_couple_or_civil_partnership == 'no'
-        end
-
         next_node do
           if calculator.married_couple_or_civil_partnership == 'no' && calculator.british_national_parent == 'father'
             question :childs_date_of_birth?
@@ -117,7 +113,7 @@ module SmartAnswer
         end
 
         next_node_calculation(:no_birth_certificate_exception) {
-          reg_data_query.has_birth_registration_exception?(calculator.country_of_birth) & paternity_declaration
+          reg_data_query.has_birth_registration_exception?(calculator.country_of_birth) & calculator.paternity_declaration?
         }
 
         next_node_calculation(:born_in_north_korea) {
