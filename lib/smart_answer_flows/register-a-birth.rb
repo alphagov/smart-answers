@@ -19,11 +19,11 @@ module SmartAnswer
         end
 
         calculate :registration_country do
-          reg_data_query.registration_country_slug(calculator.country_of_birth)
+          calculator.registration_country
         end
 
         calculate :registration_country_name_lowercase_prefix do
-          country_name_query.definitive_article(registration_country)
+          country_name_query.definitive_article(calculator.registration_country)
         end
 
         next_node_calculation :country_has_no_embassy do
