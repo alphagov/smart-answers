@@ -154,7 +154,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "same_country"
       assert_current_node :oru_result
       assert_state_variable :registration_country_name_lowercase_prefix, "Afghanistan"
-      assert_state_variable :british_national_parent, 'mother_and_father'
+      assert_equal 'mother_and_father', current_state.calculator.british_national_parent
       assert_state_variable :custom_waiting_time, '6 months'
       assert_state_variable :translator_link_url, '/government/publications/afghanistan-list-of-lawyers'
     end
@@ -265,7 +265,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "same_country"
 
       assert_current_node :oru_result
-      assert_state_variable :british_national_parent, 'father'
+      assert_equal 'father', current_state.calculator.british_national_parent
       assert_state_variable :custom_waiting_time, '6 months'
     end # Not married or CP
   end # Libya
@@ -277,7 +277,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "same_country"
       assert_current_node :oru_result
-      assert_state_variable :british_national_parent, 'father'
+      assert_equal 'father', current_state.calculator.british_national_parent
     end # Not married or CP
   end # Barbados
   context "answer united arab emirates" do
@@ -303,7 +303,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "same_country"
       assert_current_node :oru_result
-      assert_state_variable :british_national_parent, 'father'
+      assert_equal 'father', current_state.calculator.british_national_parent
       assert_state_variable :translator_link_url, "/government/publications/united-arab-emirates-list-of-lawyers"
     end
   end # UAE

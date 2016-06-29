@@ -44,7 +44,9 @@ module SmartAnswer
         option :mother_and_father
         option :neither
 
-        save_input_as :british_national_parent
+        on_response do |response|
+          calculator.british_national_parent = response
+        end
 
         next_node do |response|
           case response
@@ -66,7 +68,7 @@ module SmartAnswer
         end
 
         next_node do |response|
-          if response == 'no' && british_national_parent == 'father'
+          if response == 'no' && calculator.british_national_parent == 'father'
             question :childs_date_of_birth?
           else
             question :where_are_you_now?
