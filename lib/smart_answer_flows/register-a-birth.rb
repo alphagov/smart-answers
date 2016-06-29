@@ -143,7 +143,7 @@ module SmartAnswer
         end
 
         precalculate :overseas_passports_embassies do
-          location = WorldLocation.find(registration_country)
+          location = WorldLocation.find(calculator.registration_country)
           raise InvalidResponse unless location
           organisations = [location.fco_organisation]
           if organisations && organisations.any?
@@ -177,7 +177,7 @@ module SmartAnswer
         end
 
         precalculate :location do
-          loc = WorldLocation.find(registration_country)
+          loc = WorldLocation.find(calculator.registration_country)
           raise InvalidResponse unless loc
           loc
         end
