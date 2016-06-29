@@ -26,14 +26,10 @@ module SmartAnswer
           calculator.registration_country_name_lowercase_prefix
         end
 
-        next_node_calculation :responded_with_commonwealth_country do
-          Calculators::RegistrationsDataQuery::COMMONWEALTH_COUNTRIES.include?(calculator.country_of_birth)
-        end
-
         next_node do
           if calculator.country_has_no_embassy?
             outcome :no_embassy_result
-          elsif responded_with_commonwealth_country
+          elsif calculator.responded_with_commonwealth_country?
             outcome :commonwealth_result
           else
             question :who_has_british_nationality?
