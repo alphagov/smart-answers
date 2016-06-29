@@ -18,20 +18,20 @@ module SmartAnswer
           calculator.country_of_birth = response
         end
 
-        calculate :registration_country do |response|
-          reg_data_query.registration_country_slug(response)
+        calculate :registration_country do
+          reg_data_query.registration_country_slug(calculator.country_of_birth)
         end
 
         calculate :registration_country_name_lowercase_prefix do
           country_name_query.definitive_article(registration_country)
         end
 
-        next_node_calculation :country_has_no_embassy do |response|
-          %w(iran syria yemen).include?(response)
+        next_node_calculation :country_has_no_embassy do
+          %w(iran syria yemen).include?(calculator.country_of_birth)
         end
 
-        next_node_calculation :responded_with_commonwealth_country do |response|
-          Calculators::RegistrationsDataQuery::COMMONWEALTH_COUNTRIES.include?(response)
+        next_node_calculation :responded_with_commonwealth_country do
+          Calculators::RegistrationsDataQuery::COMMONWEALTH_COUNTRIES.include?(calculator.country_of_birth)
         end
 
         next_node do
