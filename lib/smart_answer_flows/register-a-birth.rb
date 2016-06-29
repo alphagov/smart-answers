@@ -17,10 +17,6 @@ module SmartAnswer
           calculator.country_of_birth = response
         end
 
-        calculate :registration_country do
-          calculator.registration_country
-        end
-
         next_node do
           if calculator.country_has_no_embassy?
             outcome :no_embassy_result
@@ -116,10 +112,6 @@ module SmartAnswer
       country_select :which_country?, exclude_countries: exclude_countries do
         on_response do |response|
           calculator.current_country = response
-        end
-
-        calculate :registration_country do
-          calculator.registration_country
         end
 
         next_node_calculation(:currently_in_north_korea) {
