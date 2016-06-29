@@ -6,7 +6,6 @@ module SmartAnswer
       status :published
       satisfies_need "101003"
 
-      country_name_query = Calculators::CountryNameFormatter.new
       reg_data_query = Calculators::RegistrationsDataQuery.new
       translator_query = Calculators::TranslatorLinks.new
       exclude_countries = %w(holy-see british-antarctic-territory)
