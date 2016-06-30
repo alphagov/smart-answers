@@ -5,7 +5,7 @@
     %You’ll need to get a court order to have the father named on the birth certificate before registering if you’re unmarried and only the father has British nationality.%
   <% end %>
 
-  <% if reg_data_query.higher_risk_country?(calculator.registration_country) %>
+  <% if calculator.higher_risk_country? %>
     <% if calculator.registration_country == 'libya' %>
       You can also register the birth with the UK authorities.
 
