@@ -15,7 +15,7 @@
       <%= render partial: 'winter_fuel_payments.govspeak.erb' %>
     <% end %>
     <% if calculator.eligible_for_warm_home_discount? %>
-      <%= render partial: 'warm_home_discount.govspeak.erb', locals: {calculator: calculator} %>
+      <%= render partial: 'warm_home_discount.govspeak.erb' %>
     <% end %>
     <% if calculator.eligible_for_cold_weather_payment? %>
       <%= render partial: 'cold_weather_payment.govspeak.erb' %>
