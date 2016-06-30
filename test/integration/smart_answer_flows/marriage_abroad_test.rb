@@ -913,7 +913,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'ceremony_country'
       add_response 'partner_other'
       add_response 'opposite_sex'
-      assert_current_node :outcome_opposite_sex_marriage_in_affirmation_countries
+      assert_current_node :outcome_opposite_sex_marriage_in_ecuador
     end
   end
 
