@@ -99,6 +99,10 @@ module SmartAnswer::Calculators
       @reg_data_query.higher_risk_country?(registration_country)
     end
 
+    def oru_documents_variant_for_birth?
+      @reg_data_query.oru_documents_variant_for_birth?(country_of_birth)
+    end
+
     def translator_link_url
       @translator_query.links[country_of_birth]
     end
