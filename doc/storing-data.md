@@ -1,6 +1,17 @@
 # Storing data for later use
 
-You can use the `precalculate`, `next_node_calculation`, `save_input_as` and `calculate` methods to store data for later use. These values are stored in the state and are available in the rest of the flow and in the ERB templates.
+You can use the `on_response`, `precalculate`, `next_node_calculation`, `save_input_as` and `calculate` methods to store data for later use. These values are stored in the state and are available in the rest of the flow and in the ERB templates.
+
+* `on_response` values are available in:
+  * The `precalculate` block
+  * The question template
+  * The `next_node_calculation` block
+  * The `validate` block
+  * The `next_node` block
+  * The `calculate` block
+  * All subsequent questions and outcomes
+
+__NOTE.__ `on_response` blocks are not named, because they don't automatically store a value in a state variable. In fact doing so is actively discouraged apart from when storing a calculator object in the first question of a flow.
 
 * `precalculate` values are available in:
   * The question template
