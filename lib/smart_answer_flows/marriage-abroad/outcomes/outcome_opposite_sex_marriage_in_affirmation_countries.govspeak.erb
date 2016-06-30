@@ -13,14 +13,11 @@
 
   <% end %>
 
-
-  <% if %w(ecuador).exclude?(calculator.ceremony_country) %>
-    <% if calculator.resident_of_ceremony_country? %>
-      <%= render partial: 'get_legal_advice.govspeak.erb' %>
-    <% else %>
-      <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
-                 locals: { calculator: calculator } %>
-    <% end %>
+  <% if calculator.resident_of_ceremony_country? %>
+    <%= render partial: 'get_legal_advice.govspeak.erb' %>
+  <% else %>
+    <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
+               locals: { calculator: calculator } %>
   <% end %>
 
   <% if calculator.ceremony_country == 'thailand' %>
@@ -219,13 +216,6 @@
     If you’ve been divorced or widowed, you’ll also need:
 
     - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/) - a [decree nisi](/divorce/apply-for-decree-nisi) won’t be accepted
-  <% elsif calculator.ceremony_country == 'ecuador' %>
-    If you’ve been divorced or widowed, you’ll need to provide:
-
-    - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/)
-    - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/collections/lists-of-translators-and-interpreters) if it’s not in English
-
-    You’ll also need to provide evidence if you’ve changed your name by deed poll.
 
   <% elsif calculator.ceremony_country == 'china' %>
     <%= render partial: 'documents_for_divorced_or_widowed_china.govspeak.erb' %>
@@ -244,10 +234,10 @@
     <%= render partial: 'docs_decree_and_death_certificate.govspeak.erb' %>
   <% end %>
 
-  <% if %w(china ecuador egypt philippines thailand turkey united-arab-emirates).exclude?(calculator.ceremony_country) %>
+  <% if %w(china egypt philippines thailand turkey united-arab-emirates).exclude?(calculator.ceremony_country) %>
     <%= render partial: 'divorced_or_widowed_evidences.govspeak.erb' %>
   <% end %>
-  <% if %w(ecuador philippines turkey).exclude?(calculator.ceremony_country) %>
+  <% if %w(philippines turkey).exclude?(calculator.ceremony_country) %>
     <%= render partial: 'change_of_name_evidence.govspeak.erb' %>
 
   <% end %>
@@ -284,7 +274,7 @@
         <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
       <% else %>
         <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>
-        <% if %w(belgium ecuador).include?(calculator.ceremony_country) %>
+        <% if %w(belgium).include?(calculator.ceremony_country) %>
           <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
         <% end %>
       <% end %>
