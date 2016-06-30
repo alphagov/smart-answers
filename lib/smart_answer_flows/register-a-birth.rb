@@ -129,10 +129,6 @@ module SmartAnswer
         precalculate :reg_data_query do
           reg_data_query
         end
-
-        precalculate :overseas_passports_embassies do
-          calculator.overseas_passports_embassies
-        end
       end
 
       outcome :oru_result do
@@ -156,10 +152,6 @@ module SmartAnswer
           reg_data_query.lower_risk_country?(calculator.country_of_birth)
         end
 
-        precalculate :overseas_passports_embassies do
-          calculator.overseas_passports_embassies
-        end
-
         precalculate :translator_link_url do
           translator_query.links[calculator.country_of_birth]
         end
@@ -169,11 +161,7 @@ module SmartAnswer
       outcome :no_registration_result
       outcome :no_embassy_result
       outcome :homeoffice_result
-      outcome :no_birth_certificate_result do
-        precalculate :overseas_passports_embassies do
-          calculator.overseas_passports_embassies
-        end
-      end
+      outcome :no_birth_certificate_result
     end
   end
 end
