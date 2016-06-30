@@ -7,15 +7,7 @@
   <% if calculator.resident_of_uk? %>
     <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_marriage.govspeak.erb',
                locals: { calculator: calculator } %>
-  <% elsif calculator.resident_of_ceremony_country? %>
-    <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
-               locals: { calculator: calculator } %>
-
-  <% elsif calculator.resident_of_third_country? %>
-    <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
-               locals: { calculator: calculator } %>
-
-  <% elsif calculator.resident_of_ceremony_country && calculator.ceremony_country == 'thailand' %>
+  <% else %>
     <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
                locals: { calculator: calculator } %>
 
