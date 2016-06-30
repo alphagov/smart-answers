@@ -27,16 +27,11 @@
 
     You’ll be asked to provide an affirmation or affidavit document to prove you’re allowed to marry.
 
-  <% elsif calculator.ceremony_country == 'philippines' %>
-    <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
   <% else %>
     <%= render partial: 'what_you_need_to_do_affirmation.govspeak.erb' %>
   <% end %>
 
-  <% if calculator.ceremony_country == 'philippines' %>
-    Make an appointment at the British embassy or consulate in <%= calculator.country_name_lowercase_prefix %> to swear an affirmation or affidavit (written statement of facts) that you’re free to marry.
-
-  <% elsif calculator.ceremony_country == 'norway' %>
+  <% if calculator.ceremony_country == 'norway' %>
     <%= render partial: 'appointment_for_affidavit_norway.govspeak.erb' %>
   <% elsif calculator.ceremony_country == 'south-korea' %>
     Make an appointment at the British embassy in South Korea to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport, your partner’s passport and pay a fee.
@@ -83,17 +78,6 @@
       <%= render partial: 'documents_guidance_belgium.govspeak.erb' %>
     <% end %>
 
-    <% if calculator.ceremony_country == 'philippines' %>
-      You’ll need to complete an [affirmation for marriage](/government/publications/marriage-in-the-philippines) (non-religious) form or an [affidavit for marriage](/government/publications/marriage-in-the-philippines) (religious) form.
-
-      You must download and fill in (but not sign) the forms in advance. It must be typed on a computer and printed.
-
-      ^Your partner will probably need to get an affirmation or affidavit as well.^
-
-      <%= render partial: 'required_supporting_documents_philippines.govspeak.erb' %>
-
-    <% end %>
-
     <% if calculator.ceremony_country == 'peru' %>
       You’ll need to complete an [affidavit form](/government/publications/affidavit-marriage-in-peru-spanish-only) to prove you’re allowed to marry.
 
@@ -113,32 +97,13 @@
 
     - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/) - a [decree nisi](/divorce/apply-for-decree-nisi) won’t be accepted
 
-  <% elsif calculator.ceremony_country == 'philippines' %>
-    If you’ve been divorced or widowed, you’ll also need:
-
-    - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/) - you’ll need to get the document [translated](/government/collections/lists-of-translators-and-interpreters) if it’s not in English (bring the original and English translation with you)
-    - the original marriage certificate, Advisory of Marriage and court documents (if the previous marriage was annulled in the Philippines)
-    - evidence if you’ve changed your name by deed poll
-
   <% else %>
     <%= render partial: 'docs_decree_and_death_certificate.govspeak.erb' %>
   <% end %>
 
-  <% if %w(philippines).exclude?(calculator.ceremony_country) %>
-    <%= render partial: 'divorced_or_widowed_evidences.govspeak.erb' %>
-  <% end %>
-  <% if %w(philippines).exclude?(calculator.ceremony_country) %>
-    <%= render partial: 'change_of_name_evidence.govspeak.erb' %>
+  <%= render partial: 'divorced_or_widowed_evidences.govspeak.erb' %>
 
-  <% end %>
-
-  <% if calculator.ceremony_country == 'philippines' %>
-    ##What happens next
-
-    You can usually get your affirmation or affidavit on the day of your appointment if you have all your supporting documents.
-
-    Once you have your affirmation or affidavit, you can apply for a marriage licence from the local civil registrar.
-  <% end %>
+  <%= render partial: 'change_of_name_evidence.govspeak.erb' %>
 
   <% if calculator.partner_british? %>
     <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
