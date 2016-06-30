@@ -12,6 +12,7 @@ module SmartAnswer::Calculators
     def initialize
       @reg_data_query = RegistrationsDataQuery.new
       @country_name_query = CountryNameFormatter.new
+      @translator_query = TranslatorLinks.new
     end
 
     def registration_country
@@ -92,6 +93,10 @@ module SmartAnswer::Calculators
 
     def born_in_lower_risk_country?
       @reg_data_query.lower_risk_country?(country_of_birth)
+    end
+
+    def translator_link_url
+      @translator_query.links[country_of_birth]
     end
   end
 end
