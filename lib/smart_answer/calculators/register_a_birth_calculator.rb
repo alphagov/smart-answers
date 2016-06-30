@@ -81,5 +81,9 @@ module SmartAnswer::Calculators
     def fee_for_copy_of_birth_registration_certificate
       @reg_data_query.register_a_birth_fees.copy_of_birth_registration_certificate
     end
+
+    def document_return_fees
+      @reg_data_query.document_return_fees
+    end
   end
 end

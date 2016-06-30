@@ -132,10 +132,6 @@ module SmartAnswer
           reg_data_query
         end
 
-        precalculate :document_return_fees do
-          reg_data_query.document_return_fees
-        end
-
         precalculate :button_data do
           { text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start" }
         end
