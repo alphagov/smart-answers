@@ -131,15 +131,7 @@ module SmartAnswer
         end
 
         precalculate :overseas_passports_embassies do
-          location = WorldLocation.find(calculator.registration_country)
-          raise InvalidResponse unless location
-          organisations = [location.fco_organisation]
-          if organisations && organisations.any?
-            service_title = 'Births and Deaths registration service'
-            organisations.first.offices_with_service(service_title)
-          else
-            []
-          end
+          calculator.overseas_passports_embassies
         end
       end
 
@@ -165,15 +157,7 @@ module SmartAnswer
         end
 
         precalculate :overseas_passports_embassies do
-          location = WorldLocation.find(calculator.registration_country)
-          raise InvalidResponse unless location
-          organisations = [location.fco_organisation]
-          if organisations && organisations.any?
-            service_title = 'Births and Deaths registration service'
-            organisations.first.offices_with_service(service_title)
-          else
-            []
-          end
+          calculator.overseas_passports_embassies
         end
 
         precalculate :translator_link_url do
@@ -187,15 +171,7 @@ module SmartAnswer
       outcome :homeoffice_result
       outcome :no_birth_certificate_result do
         precalculate :overseas_passports_embassies do
-          location = WorldLocation.find(calculator.registration_country)
-          raise InvalidResponse unless location
-          organisations = [location.fco_organisation]
-          if organisations && organisations.any?
-            service_title = 'Births and Deaths registration service'
-            organisations.first.offices_with_service(service_title)
-          else
-            []
-          end
+          calculator.overseas_passports_embassies
         end
       end
     end
