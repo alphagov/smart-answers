@@ -200,6 +200,8 @@ module SmartAnswer
               outcome :outcome_opposite_sex_marriage_in_macao
             elsif calculator.ceremony_country == 'morocco'
               outcome :outcome_opposite_sex_marriage_in_morocco
+            elsif calculator.ceremony_country == 'qatar'
+              outcome :outcome_opposite_sex_marriage_in_affirmation_countries
             elsif calculator.opposite_sex_affirmation_country?
               outcome :outcome_opposite_sex_marriage_in_affirmation_countries
             elsif calculator.ceremony_country_in_the_commonwealth? ||
