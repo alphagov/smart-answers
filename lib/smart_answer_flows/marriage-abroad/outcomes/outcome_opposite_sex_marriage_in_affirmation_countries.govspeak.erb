@@ -20,7 +20,7 @@
                locals: { calculator: calculator } %>
   <% end %>
 
-  <% if %w(turkey egypt china).include?(calculator.ceremony_country) %>
+  <% if %w(egypt china).include?(calculator.ceremony_country) %>
     <%= render partial: 'what_you_need_to_do.govspeak.erb',
         locals: { calculator: calculator } %>
   <% elsif calculator.opposite_sex_21_days_residency_required? %>
@@ -36,10 +36,7 @@
     <%= render partial: 'what_you_need_to_do_affirmation.govspeak.erb' %>
   <% end %>
 
-  <% if calculator.ceremony_country == 'turkey' && calculator.resident_of_uk? %>
-    Make an appointment with a UK [notary or commissioner of oaths](http://www.thenotariessociety.org.uk/find-a-notary) to swear an affidavit - a written statement that is used to formally declare that you’re free to marry.
-
-  <% elsif calculator.ceremony_country == 'philippines' %>
+  <% if calculator.ceremony_country == 'philippines' %>
     Make an appointment at the British embassy or consulate in <%= calculator.country_name_lowercase_prefix %> to swear an affirmation or affidavit (written statement of facts) that you’re free to marry.
 
   <% elsif calculator.ceremony_country == 'egypt' %>
@@ -89,7 +86,7 @@
 
     <%= render partial: 'legalisation_and_translation.govspeak.erb' %>
     <%= render partial: 'affirmation_os_translation_in_local_language_text.govspeak.erb' %>
-  <% elsif %w(china turkey).exclude?(calculator.ceremony_country) %>
+  <% elsif %w(china).exclude?(calculator.ceremony_country) %>
     <%= render partial: 'contact_method.govspeak.erb',
                locals: { calculator: calculator } %>
     <% if calculator.ceremony_country == 'south-korea' %>
@@ -149,31 +146,6 @@
     <% end %>
   <% end %>
 
-  <% if calculator.ceremony_country == 'turkey' && calculator.resident_outside_of_uk? %>
-    <%= render partial: 'contact_method.govspeak.erb',
-               locals: { calculator: calculator } %>
-
-  <% end %>
-  <% if calculator.ceremony_country == 'turkey' %>
-    You’ll need to complete an ‘Affidavit for marriage’ form that will be used for your affidavit. Take the completed form with you to your appointment.
-
-
-    $D
-    [Download ’Affidavit for Marriage’ (PDF, 446KB)](/government/uploads/system/uploads/attachment_data/file/293781/Affidavit_of_Marital_Status.pdf)
-    $D
-
-
-    <% if calculator.resident_of_ceremony_country? %>
-      You’ll need to get your affidavit ‘legalised’ (certified as genuine) by the local authorities, this is usually done on the same day - the embassy or consulate should be able to give you advice.
-
-    <% else %>
-      You’ll need to get your affidavit ‘[legalised](https://www.gov.uk/get-document-legalised)’ (certified as genuine) before you travel to Turkey.
-
-
-    <% end %>
-    <%= render partial: 'documents_for_divorced_or_widowed.govspeak.erb' %>
-  <% end %>
-
   <% if calculator.ceremony_country == 'south-korea' %>
     If you’ve been divorced or widowed, you’ll also need:
 
@@ -188,14 +160,14 @@
     - the original marriage certificate, Advisory of Marriage and court documents (if the previous marriage was annulled in the Philippines)
     - evidence if you’ve changed your name by deed poll
 
-  <% elsif calculator.ceremony_country != 'turkey' %>
+  <% else %>
     <%= render partial: 'docs_decree_and_death_certificate.govspeak.erb' %>
   <% end %>
 
-  <% if %w(china egypt philippines turkey).exclude?(calculator.ceremony_country) %>
+  <% if %w(china egypt philippines).exclude?(calculator.ceremony_country) %>
     <%= render partial: 'divorced_or_widowed_evidences.govspeak.erb' %>
   <% end %>
-  <% if %w(philippines turkey).exclude?(calculator.ceremony_country) %>
+  <% if %w(philippines).exclude?(calculator.ceremony_country) %>
     <%= render partial: 'change_of_name_evidence.govspeak.erb' %>
 
   <% end %>
@@ -217,31 +189,19 @@
     <% end %>
   <% end %>
   <% unless calculator.ceremony_country == 'egypt' %>
-    <% if calculator.ceremony_country == 'turkey' %>
-      <% if calculator.partner_british? %>
-        <%= render partial: 'partner_needs_affirmation.govspeak.erb' %>
-
-      <% else %>
-        <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>
-        Once the document is legalised you’ll need to have it checked at the local marriage office nearest to where your marriage will take place.
-
-
-      <% end %>
+    <% if calculator.partner_british? %>
+      <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
     <% else %>
-      <% if calculator.partner_british? %>
-        <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
-      <% else %>
-        <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>
-        <% if %w(belgium).include?(calculator.ceremony_country) %>
-          <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
-        <% end %>
+      <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>
+      <% if %w(belgium).include?(calculator.ceremony_country) %>
+        <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
       <% end %>
-
-      <% if calculator.partner_not_british? %>
-        <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
-      <% end %>
-
     <% end %>
+
+    <% if calculator.partner_not_british? %>
+      <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
+    <% end %>
+
   <% end %>
 
   <%= render partial: 'os_affirmation/fees.govspeak.erb',
