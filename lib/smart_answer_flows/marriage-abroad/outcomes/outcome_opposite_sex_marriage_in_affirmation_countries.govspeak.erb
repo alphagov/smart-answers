@@ -20,10 +20,6 @@
                locals: { calculator: calculator } %>
   <% end %>
 
-  <% if calculator.ceremony_country == 'thailand' %>
-    %You must register your marriage at an amphur office (district office) in Thailand - a religious ceremony on its own won’t be valid.%
-  <% end %>
-
   <% if calculator.ceremony_country == 'united-arab-emirates' %>
     ^There are no civil marriages in the United Arab Emirates, but you can get married through a religious ceremony at a church or Sharia court.^
 
@@ -166,13 +162,6 @@
 
 
       <% end %>
-    <% elsif calculator.ceremony_country == 'thailand' %>
-      You can prepare the affirmation in advance using a [template](/government/publications/information-for-british-nationals-intending-to-marry-in-thailand). You must type this out (but not sign it) and take it with you to your appointment.
-
-      <%= render partial: 'partner_needs_affirmation.govspeak.erb' %>
-      <%= render partial: 'legalisation_and_translation.govspeak.erb' %>
-
-      You’ll need to get your affirmation [translated](/government/collections/lists-of-translators-and-interpreters) into the local language and ‘[legalised](/get-document-legalised)’ (certified as genuine) by the [Ministry of Foreign Affairs](http://www.mfa.go.th/main/en/services/16265-Naturalization-Legalization.html) in Thailand.
     <% elsif calculator.ceremony_country == 'peru' %>
       You’ll need to complete an [affidavit form](/government/publications/affidavit-marriage-in-peru-spanish-only) to prove you’re allowed to marry.
 
@@ -226,15 +215,11 @@
     - the original marriage certificate, Advisory of Marriage and court documents (if the previous marriage was annulled in the Philippines)
     - evidence if you’ve changed your name by deed poll
 
-  <% elsif calculator.ceremony_country == 'thailand' %>
-    If you’ve been divorced or widowed, you’ll need the original [decree absolute or final order](/copy-decree-absolute-final-order) or the [death certificate](/order-copy-birth-death-marriage-certificate/).
-    Documents issued outside the UK or <%= calculator.country_name_lowercase_prefix %> must be certified by the country’s embassy in <%= calculator.country_name_lowercase_prefix %>, and [translated](/government/collections/lists-of-translators-and-interpreters) if they’re not in English.
-
   <% elsif calculator.ceremony_country != 'turkey' %>
     <%= render partial: 'docs_decree_and_death_certificate.govspeak.erb' %>
   <% end %>
 
-  <% if %w(china egypt philippines thailand turkey united-arab-emirates).exclude?(calculator.ceremony_country) %>
+  <% if %w(china egypt philippines turkey united-arab-emirates).exclude?(calculator.ceremony_country) %>
     <%= render partial: 'divorced_or_widowed_evidences.govspeak.erb' %>
   <% end %>
   <% if %w(philippines turkey).exclude?(calculator.ceremony_country) %>
@@ -277,12 +262,6 @@
         <% if %w(belgium).include?(calculator.ceremony_country) %>
           <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
         <% end %>
-      <% end %>
-
-      <% if calculator.ceremony_country == 'thailand' %>
-        ## What happens next
-
-        You must present your approved affirmation for marriage to a local registrar in <%= calculator.country_name_lowercase_prefix %>. They will register the marriage and provide you with 2 marriage certificates.
       <% end %>
 
       <% if calculator.partner_not_british? %>
