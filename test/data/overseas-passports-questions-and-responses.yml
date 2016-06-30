@@ -1,30 +1,30 @@
 ---
 :which_country_are_you_in?:
-- france # overseas_passports_embassies (organisation)
-- st-martin # overseas_passports_embassies (no organisation)
-- nigeria # #{response}_fco_forms_nigeria
-- st-helena-ascension-and-tristan-da-cunha # passport_costs_fee_only
-- american-samoa # ips_application_result passport_courier_costs_replacing_ips
-- south-georgia-and-south-sandwich-islands # apply_in_neighbouring_country
-- yemen # cannot_apply
-- tajikistan # passport_courier_costs_#{current_location}
-- algeria # passport_courier_costs_ips#{ips_number}_uk_visa
-- pitcairn-island # passport_courier_costs_ips3_#{current_location}
-- cuba # passport_costs_ips_cash
-- venezuela # passport_costs_pay_at_appointment
-- pakistan # send_application_ips1_pakistan
-- western-sahara # send_application_uk_visa_renew_new_colour_western_sahara
-- laos # send_application_uk_visa_renew_new_colour_laos
-- burundi # send_application_non_uk_visa_renew_new_colour
-- timor-leste # send_application_#{current_location}
-- falkland-islands # passport_courier_costs_replacing_ips#{ips_number}
-- cambodia # getting_your_passport_with_id
-- benin # ALT_EMBASSIES.has_key?(current_location)
-- north-korea # emergency_travel_help_#{current_location}
-- the-occupied-palestinian-territories # which_opt?
-- hong-kong # hong_kong_id_required
 - afghanistan # renewing_replacing_applying?
-- south-sudan 
+- algeria # passport_courier_costs_ips#{ips_number}_uk_visa
+- american-samoa # ips_application_result passport_courier_costs_replacing_ips
+- benin # ALT_EMBASSIES.has_key?(current_location)
+- burundi # send_application_non_uk_visa_renew_new_colour
+- cambodia # getting_your_passport_with_id
+- cuba # passport_costs_ips_cash
+- falkland-islands # passport_courier_costs_replacing_ips#{ips_number}
+- france # overseas_passports_embassies (organisation)
+- hong-kong # hong_kong_id_required
+- laos # send_application_uk_visa_renew_new_colour_laos
+- nigeria # #{response}_fco_forms_nigeria
+- north-korea # emergency_travel_help_#{current_location}
+- pakistan # send_application_ips1_pakistan
+- pitcairn-island # passport_courier_costs_ips3_#{current_location}
+- south-georgia-and-south-sandwich-islands # apply_in_neighbouring_country
+- south-sudan
+- st-helena-ascension-and-tristan-da-cunha # passport_costs_fee_only
+- st-martin # overseas_passports_embassies (no organisation)
+- tajikistan # passport_courier_costs_#{current_location}
+- the-occupied-palestinian-territories # which_opt?
+- timor-leste # send_application_#{current_location}
+- venezuela # passport_costs_pay_at_appointment
+- western-sahara # send_application_uk_visa_renew_new_colour_western_sahara
+- yemen # cannot_apply
 :which_opt?:
 - gaza
 - jerusalem-or-westbank
