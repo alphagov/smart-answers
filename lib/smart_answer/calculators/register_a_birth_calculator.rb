@@ -57,5 +57,10 @@ module SmartAnswer::Calculators
     def born_in_north_korea?
       country_of_birth == 'north-korea'
     end
+
+    def currently_in_north_korea?
+      # TODO: current_country == 'north-korea'
+      nil == 'north-korea'
+    end
   end
 end
