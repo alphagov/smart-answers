@@ -89,5 +89,9 @@ module SmartAnswer::Calculators
     def custom_waiting_time
       @reg_data_query.custom_registration_duration(country_of_birth)
     end
+
+    def born_in_lower_risk_country?
+      @reg_data_query.lower_risk_country?(country_of_birth)
+    end
   end
 end
