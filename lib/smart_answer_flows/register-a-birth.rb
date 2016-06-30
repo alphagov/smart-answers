@@ -6,7 +6,6 @@ module SmartAnswer
       status :published
       satisfies_need "101003"
 
-      reg_data_query = Calculators::RegistrationsDataQuery.new
       exclude_countries = %w(holy-see british-antarctic-territory)
 
       # Q1
@@ -125,13 +124,7 @@ module SmartAnswer
       # Outcomes
 
       outcome :north_korea_result
-
-      outcome :oru_result do
-        precalculate :reg_data_query do
-          reg_data_query
-        end
-      end
-
+      outcome :oru_result
       outcome :commonwealth_result
       outcome :no_registration_result
       outcome :no_embassy_result
