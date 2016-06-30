@@ -22,7 +22,7 @@ We've refactored a number of these Smart Answers and have a rough set of steps t
 
 * Move presentation from the flow/calculator to the ERB templates. See commit [a23e4c7ab8ed6b3ae4c53212d7cd4102fbeb1f37](https://github.com/alphagov/smart-answers/commit/a23e4c7ab8ed6b3ae4c53212d7cd4102fbeb1f37) for an example.
 
-* Define `calculate` blocks as late as possible. If something is only required by a single outcome then use a `precalculate` block in that outcome rather than defining it in a `calculate` block earlier in the flow. See commit [c98c60ddfeed70c6d60b89329f0e8fe3e030a171](https://github.com/alphagov/smart-answers/commit/c98c60ddfeed70c6d60b89329f0e8fe3e030a171) for an example.
+* Define `calculate` blocks as late as possible. If something is only required by a single outcome then use a `precalculate` block in that outcome rather than defining it in a `calculate` block earlier in the flow. See commit [c98c60ddfeed70c6d60b89329f0e8fe3e030a171](https://github.com/alphagov/smart-answers/commit/c98c60ddfeed70c6d60b89329f0e8fe3e030a171) for an example. However, eventually we shouldn't need *any* `calculate` blocks.
 
 [Pull request 2068][pr-2068] is a great example of incrementally applying the steps above to refactor the calculate-statutory-sick-pay Smart Answer. Pull requests [2095][pr-2095] and [1856][pr-1856] apply a similar refactoring to check-uk-visa and minimum-wage respectively.
 
