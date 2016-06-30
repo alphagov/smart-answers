@@ -222,7 +222,7 @@ module SmartAnswer
             elsif calculator.ceremony_country == 'yemen'
               outcome :outcome_opposite_sex_marriage_in_yemen
             elsif calculator.ceremony_country == 'saudi-arabia' && calculator.resident_of_ceremony_country?
-              outcome :outcome_opposite_sex_marriage_in_saudi_arabia
+              outcome :outcome_opposite_sex_marriage_in_saudi_arabia_when_residing_in_saudi_arabia
             elsif calculator.ceremony_country == 'saudi-arabia' && calculator.resident_outside_of_ceremony_country?
               outcome :outcome_opposite_sex_marriage_in_saudi_arabia
             elsif %w(iran somalia syria).include?(calculator.ceremony_country)
@@ -311,6 +311,7 @@ module SmartAnswer
       outcome :outcome_opposite_sex_marriage_in_poland_when_residing_in_poland
       outcome :outcome_opposite_sex_marriage_in_poland_when_residing_in_uk
       outcome :outcome_opposite_sex_marriage_in_saudi_arabia
+      outcome :outcome_opposite_sex_marriage_in_saudi_arabia_when_residing_in_saudi_arabia
       outcome :outcome_opposite_sex_marriage_in_slovenia_when_residing_in_uk_or_slovenia
       outcome :outcome_opposite_sex_marriage_in_yemen
       outcome :outcome_same_sex_civil_partnership

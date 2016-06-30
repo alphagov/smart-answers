@@ -1145,8 +1145,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'opposite_sex'
     end
-    should "go to outcome_opposite_sex_marriage_in_saudi_arabia" do
-      assert_current_node :outcome_opposite_sex_marriage_in_saudi_arabia
+    should "go to outcome_opposite_sex_marriage_in_saudi_arabia_when_residing_in_saudi_arabia" do
+      assert_current_node :outcome_opposite_sex_marriage_in_saudi_arabia_when_residing_in_saudi_arabia
     end
   end
 
@@ -1157,8 +1157,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_other'
       add_response 'opposite_sex'
     end
-    should "go to outcome_opposite_sex_marriage_in_saudi_arabia" do
-      assert_current_node :outcome_opposite_sex_marriage_in_saudi_arabia
+    should "go to outcome_opposite_sex_marriage_in_saudi_arabia_when_residing_in_saudi_arabia" do
+      assert_current_node :outcome_opposite_sex_marriage_in_saudi_arabia_when_residing_in_saudi_arabia
     end
   end
 
