@@ -164,17 +164,10 @@ module SmartAnswer
           reg_data_query.lower_risk_country?(calculator.country_of_birth)
         end
 
-        precalculate :location do
-          loc = WorldLocation.find(calculator.registration_country)
-          raise InvalidResponse unless loc
-          loc
-        end
-
-        precalculate :organisations do
-          [location.fco_organisation]
-        end
-
         precalculate :overseas_passports_embassies do
+          location = WorldLocation.find(calculator.registration_country)
+          raise InvalidResponse unless location
+          organisations = [location.fco_organisation]
           if organisations && organisations.any?
             service_title = 'Births and Deaths registration service'
             organisations.first.offices_with_service(service_title)
@@ -193,17 +186,10 @@ module SmartAnswer
       outcome :no_embassy_result
       outcome :homeoffice_result
       outcome :no_birth_certificate_result do
-        precalculate :location do
-          loc = WorldLocation.find(calculator.country_of_birth)
-          raise InvalidResponse unless loc
-          loc
-        end
-
-        precalculate :organisations do
-          [location.fco_organisation]
-        end
-
         precalculate :overseas_passports_embassies do
+          location = WorldLocation.find(calculator.country_of_birth)
+          raise InvalidResponse unless location
+          organisations = [location.fco_organisation]
           if organisations && organisations.any?
             service_title = 'Births and Deaths registration service'
             organisations.first.offices_with_service(service_title)
