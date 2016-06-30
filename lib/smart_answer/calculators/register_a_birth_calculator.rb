@@ -103,6 +103,10 @@ module SmartAnswer::Calculators
       @reg_data_query.oru_documents_variant_for_birth?(country_of_birth)
     end
 
+    def may_require_dna_tests?
+      @reg_data_query.may_require_dna_tests?(country_of_birth)
+    end
+
     def translator_link_url
       @translator_query.links[country_of_birth]
     end
