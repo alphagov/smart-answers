@@ -73,5 +73,13 @@ module SmartAnswer::Calculators
         []
       end
     end
+
+    def fee_for_registering_a_birth
+      @reg_data_query.register_a_birth_fees.register_a_birth
+    end
+
+    def fee_for_copy_of_birth_registration_certificate
+      @reg_data_query.register_a_birth_fees.copy_of_birth_registration_certificate
+    end
   end
 end

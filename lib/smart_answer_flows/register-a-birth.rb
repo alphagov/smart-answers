@@ -125,11 +125,7 @@ module SmartAnswer
 
       # Outcomes
 
-      outcome :north_korea_result do
-        precalculate :reg_data_query do
-          reg_data_query
-        end
-      end
+      outcome :north_korea_result
 
       outcome :oru_result do
         precalculate :reg_data_query do

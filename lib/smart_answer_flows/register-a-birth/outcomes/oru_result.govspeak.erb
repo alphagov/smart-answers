@@ -202,7 +202,7 @@
   Once you’ve paid you will be given a reference number to use on your birth registration form.
 
   <%= render partial: 'fees.govspeak.erb',
-             locals: { reg_data_query: reg_data_query } %>
+             locals: { calculator: calculator } %>
 
   <%= render partial: 'shared/births_and_deaths_registration/document_return_fees.govspeak.erb', locals: { document_return_fees: document_return_fees } %>
   <%= render partial: 'shared/births_and_deaths_registration/button.govspeak.erb', locals: { button_data: button_data } %>
