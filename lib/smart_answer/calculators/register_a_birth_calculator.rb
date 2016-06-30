@@ -62,5 +62,17 @@ module SmartAnswer::Calculators
       # TODO: current_country == 'north-korea'
       nil == 'north-korea'
     end
+
+    def overseas_passports_embassies
+      location = WorldLocation.find(registration_country)
+      raise SmartAnswer::InvalidResponse unless location
+      organisations = [location.fco_organisation]
+      if organisations && organisations.any?
+        service_title = 'Births and Deaths registration service'
+        organisations.first.offices_with_service(service_title)
+      else
+        []
+      end
+    end
   end
 end
