@@ -20,12 +20,6 @@
                locals: { calculator: calculator } %>
   <% end %>
 
-  <% if calculator.ceremony_country == 'united-arab-emirates' %>
-    ^There are no civil marriages in the United Arab Emirates, but you can get married through a religious ceremony at a church or Sharia court.^
-
-    You can only get married in the United Arab Emirates if you or your partner are resident there.
-  <% end %>
-
   <% if %w(turkey egypt china).include?(calculator.ceremony_country) %>
     <%= render partial: 'what_you_need_to_do.govspeak.erb',
         locals: { calculator: calculator } %>
@@ -133,27 +127,6 @@
 
     <% end %>
 
-    <% if calculator.ceremony_country == 'united-arab-emirates' %>
-      ^If you have dual nationality and you entered the United Arab Emirates on a non-British passport, you must contact the embassy of that country to get your affirmation or affidavit.^
-
-      You’ll need to complete an  [‘Affirmation for marriage’ (non-religious) or an ‘Affidavit for marriage’ (religious) form](/government/publications/affidavitaffirmatin-of-marital-status-forms-uae) in English.
-
-      You can download and fill in (but not sign) the form in advance.
-
-      <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
-
-      ### What you need to take
-
-      You’ll need to take all of the following to your appointment:
-
-      - your completed and typed affirmation or affidavit – you’ll be sent the form by email after booking your appointment
-      - your passport and UAE residency or entry visa
-      - the residency visa/UAE entry stamp in your partner’s passport if they’re resident in the United Arab Emirates
-      - a copy of your partner’s passport or ID if they aren’t resident in the United Arab Emirates
-
-      ^A marriage affirmation or affidavit is valid for 3 months.^
-    <% end %>
-
     <% if calculator.ceremony_country == 'egypt' %>
       <%= render partial: 'required_supporting_documents_egypt.govspeak.erb' %>
 
@@ -219,7 +192,7 @@
     <%= render partial: 'docs_decree_and_death_certificate.govspeak.erb' %>
   <% end %>
 
-  <% if %w(china egypt philippines turkey united-arab-emirates).exclude?(calculator.ceremony_country) %>
+  <% if %w(china egypt philippines turkey).exclude?(calculator.ceremony_country) %>
     <%= render partial: 'divorced_or_widowed_evidences.govspeak.erb' %>
   <% end %>
   <% if %w(philippines turkey).exclude?(calculator.ceremony_country) %>
@@ -270,12 +243,6 @@
 
     <% end %>
   <% end %>
-
-   <% if calculator.ceremony_country == 'united-arab-emirates' && calculator.resident_of_ceremony_country? %>
-     You may be able to get married at the British Embassy if you’re both resident in the United Arab Emirates and can prove that there are no other suitable facilities to get married locally.
-
-     Contact the [British Embassy in Abu Dhabi](/government/world/organisations/british-embassy-abu-dhabi) or the [British Embassy in Dubai](/government/world/organisations/british-embassy-dubai) for more information.
-   <% end %>
 
   <%= render partial: 'os_affirmation/fees.govspeak.erb',
              locals: { calculator: calculator } %>
