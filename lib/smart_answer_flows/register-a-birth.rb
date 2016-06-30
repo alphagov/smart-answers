@@ -132,10 +132,6 @@ module SmartAnswer
           reg_data_query
         end
 
-        precalculate :custom_waiting_time do
-          reg_data_query.custom_registration_duration(calculator.country_of_birth)
-        end
-
         precalculate :born_in_lower_risk_country do
           reg_data_query.lower_risk_country?(calculator.country_of_birth)
         end

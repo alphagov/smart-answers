@@ -154,7 +154,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_current_node :oru_result
       assert_equal 'Afghanistan', current_state.calculator.registration_country_name_lowercase_prefix
       assert_equal 'mother_and_father', current_state.calculator.british_national_parent
-      assert_state_variable :custom_waiting_time, '6 months'
+      assert_equal '6 months', current_state.calculator.custom_waiting_time
       assert_state_variable :translator_link_url, '/government/publications/afghanistan-list-of-lawyers'
     end
 
@@ -205,7 +205,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "another_country"
       add_response "pakistan"
       assert_current_node :oru_result
-      assert_state_variable :custom_waiting_time, '8 months'
+      assert_equal '8 months', current_state.calculator.custom_waiting_time
     end
   end # Afghanistan
   context "answer Pakistan" do
@@ -218,7 +218,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "in_the_uk"
       assert_current_node :oru_result
-      assert_state_variable :custom_waiting_time, '6 months'
+      assert_equal '6 months', current_state.calculator.custom_waiting_time
     end
 
     should "give the oru result with phase-5-specific introduction if currently in Pakistan" do
@@ -265,7 +265,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
 
       assert_current_node :oru_result
       assert_equal 'father', current_state.calculator.british_national_parent
-      assert_state_variable :custom_waiting_time, '6 months'
+      assert_equal '6 months', current_state.calculator.custom_waiting_time
     end # Not married or CP
   end # Libya
 
