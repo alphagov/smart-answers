@@ -31,7 +31,7 @@
 
   ##1. Check your documents
 
-  ^Send English translations of all foreign documents. <%= translator_link_url ? "Use an [approved translator](#{translator_link_url}) and include their name and address with your application" : 'Use a professional translator and include their name and address with your application' %>. Don't send laminated documents.^
+  ^Send English translations of all foreign documents. <%= calculator.translator_link_url ? "Use an [approved translator](#{calculator.translator_link_url}) and include their name and address with your application" : 'Use a professional translator and include their name and address with your application' %>. Don't send laminated documents.^
 
   <% if calculator.country_of_birth == 'morocco' && calculator.paternity_declaration? %>
     ^Only the mother will be named on the local birth certificate if you aren’t married. To add the father’s name you must swear a paternity declaration in a Moroccan court and you may be ordered to get married.^
