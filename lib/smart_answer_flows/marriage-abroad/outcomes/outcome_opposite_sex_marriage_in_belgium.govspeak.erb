@@ -20,16 +20,7 @@
                locals: { calculator: calculator } %>
   <% end %>
 
-  <% if calculator.opposite_sex_21_days_residency_required? %>
-    ##What you need to do
-
-    You need to have been living in <%= calculator.country_name_lowercase_prefix %> for 21 days.
-
-    You’ll be asked to provide an affirmation or affidavit document to prove you’re allowed to marry.
-
-  <% else %>
-    <%= render partial: 'what_you_need_to_do_affirmation.govspeak.erb' %>
-  <% end %>
+  <%= render partial: 'what_you_need_to_do_affirmation.govspeak.erb' %>
 
   <%= render partial: 'appointment_for_affidavit.govspeak.erb',
              locals: { calculator: calculator } %>
@@ -37,31 +28,19 @@
   <%= render partial: 'contact_method.govspeak.erb',
              locals: { calculator: calculator } %>
 
-  <% if calculator.ceremony_country == 'belgium' %>
-    <%= render partial: 'complete_affirmation_or_affidavit_forms.govspeak.erb' %>
-    <%= render partial: 'download_and_fill_but_not_sign.govspeak.erb' %>
-    <%= render partial: 'download_affidavit_and_affirmation_belgium.govspeak.erb' %>
+  <%= render partial: 'complete_affirmation_or_affidavit_forms.govspeak.erb' %>
+  <%= render partial: 'download_and_fill_but_not_sign.govspeak.erb' %>
+  <%= render partial: 'download_affidavit_and_affirmation_belgium.govspeak.erb' %>
 
-    <%= render partial: 'partner_needs_affirmation.govspeak.erb' %>
+  <%= render partial: 'partner_needs_affirmation.govspeak.erb' %>
 
-    <%= render partial: 'required_supporting_documents.govspeak.erb',
-               locals: { calculator: calculator } %>
+  <%= render partial: 'required_supporting_documents.govspeak.erb',
+             locals: { calculator: calculator } %>
 
-    <%= render partial: 'documents_guidance_belgium.govspeak.erb' %>
-  <% end %>
+  <%= render partial: 'documents_guidance_belgium.govspeak.erb' %>
 
-  <% if calculator.ceremony_country == 'peru' %>
-    You’ll need to complete an [affidavit form](/government/publications/affidavit-marriage-in-peru-spanish-only) to prove you’re allowed to marry.
-
-    You can download and fill in (but not sign) the form in advance. You must take the form with you to your appointment.
-
-    <%= render partial: 'legalisation_and_translation.govspeak.erb' %>
-    <%= render partial: 'affirmation_os_translation_in_local_language_text.govspeak.erb' %>
-  <% else %>
-    <%= render partial: 'legalisation_and_translation.govspeak.erb' %>
-    <%= render partial: 'affirmation_os_translation_in_local_language_text.govspeak.erb' %>
-
-  <% end %>
+  <%= render partial: 'legalisation_and_translation.govspeak.erb' %>
+  <%= render partial: 'affirmation_os_translation_in_local_language_text.govspeak.erb' %>
 
   <%= render partial: 'docs_decree_and_death_certificate.govspeak.erb' %>
 
@@ -73,9 +52,7 @@
     <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
   <% else %>
     <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>
-    <% if %w(belgium).include?(calculator.ceremony_country) %>
-      <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
-    <% end %>
+    <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
   <% end %>
 
   <% if calculator.partner_not_british? %>
