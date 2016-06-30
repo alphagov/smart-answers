@@ -9,12 +9,14 @@
 - cuba # passport_costs_ips_cash
 - falkland-islands # passport_courier_costs_replacing_ips#{ips_number}
 - france # overseas_passports_embassies (organisation)
+- georgia
 - hong-kong # hong_kong_id_required
 - laos # send_application_uk_visa_renew_new_colour_laos
 - nigeria # #{response}_fco_forms_nigeria
 - north-korea # emergency_travel_help_#{current_location}
 - pakistan # send_application_ips1_pakistan
 - pitcairn-island # passport_courier_costs_ips3_#{current_location}
+- russia
 - south-georgia-and-south-sandwich-islands # apply_in_neighbouring_country
 - south-sudan
 - st-helena-ascension-and-tristan-da-cunha # passport_costs_fee_only
@@ -22,6 +24,7 @@
 - tajikistan # passport_courier_costs_#{current_location}
 - the-occupied-palestinian-territories # which_opt?
 - timor-leste # send_application_#{current_location}
+- tunisia
 - venezuela # passport_costs_pay_at_appointment
 - western-sahara # send_application_uk_visa_renew_new_colour_western_sahara
 - yemen # cannot_apply
