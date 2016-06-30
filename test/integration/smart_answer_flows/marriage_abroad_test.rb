@@ -760,7 +760,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'third_country'
       add_response 'partner_other'
       add_response 'opposite_sex'
-      assert_current_node :outcome_opposite_sex_marriage_in_affirmation_countries
+      assert_current_node :outcome_opposite_sex_marriage_in_belgium
     end
 
     should "go to outcome_same_sex_civil_partnership_in_affirmation_countries for same sex marriages for residents in a third country" do
