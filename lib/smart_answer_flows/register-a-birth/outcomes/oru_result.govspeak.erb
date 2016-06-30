@@ -277,7 +277,7 @@
     They’ll contact you within the 5 working days if they need more information or if they need to verify your documents. If this happens then it could take up to 3 months for the birth to be registered.
   <% end %>
 
-  <% if reg_data_query.oru_courier_variant?(calculator.registration_country) && !calculator.in_the_uk? %>
+  <% if calculator.oru_courier_variant? && !calculator.in_the_uk? %>
     <% case calculator.registration_country %>
       <% when 'cambodia' %>
         Your documents will be returned to the British Embassy in Phnom Penh after the birth has been registered.
