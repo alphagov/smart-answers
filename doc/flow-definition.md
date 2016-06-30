@@ -8,4 +8,4 @@ The file should be named the same as the path that we want the Smart Answer to b
 * The flow class should be `ExampleSmartAnswerFlow`
 * The flow name should be 'example-smart-answer'
 
-The `Flow` class contains a single `#define` method that defines the questions (see "Question types" below), rules (see "Defining next node rules" below) and outcomes (see "Outcome templates" below).
+The `Flow` class contains a single `#define` method that defines the questions (see [Question types](doc/question-types.md)), rules (see [Next node rules](doc/next-node-rules.md)) and outcomes (see [Outcome templates](doc/outcome-templates.md)).
