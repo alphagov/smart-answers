@@ -867,7 +867,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
     end
     should "go to os affirmation outcome" do
-      assert_current_node :outcome_opposite_sex_marriage_in_affirmation_countries
+      assert_current_node :outcome_opposite_sex_marriage_in_united_arab_emirates
     end
   end
 

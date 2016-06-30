@@ -207,7 +207,7 @@ module SmartAnswer
             elsif calculator.ceremony_country == 'thailand'
               outcome :outcome_opposite_sex_marriage_in_thailand
             elsif calculator.ceremony_country == 'united-arab-emirates'
-              outcome :outcome_opposite_sex_marriage_in_affirmation_countries
+              outcome :outcome_opposite_sex_marriage_in_united_arab_emirates
             elsif calculator.opposite_sex_affirmation_country?
               outcome :outcome_opposite_sex_marriage_in_affirmation_countries
             elsif calculator.ceremony_country_in_the_commonwealth? ||
@@ -332,6 +332,7 @@ module SmartAnswer
       outcome :outcome_opposite_sex_marriage_in_saudi_arabia_when_residing_in_saudi_arabia
       outcome :outcome_opposite_sex_marriage_in_slovenia_when_residing_in_uk_or_slovenia
       outcome :outcome_opposite_sex_marriage_in_thailand
+      outcome :outcome_opposite_sex_marriage_in_united_arab_emirates
       outcome :outcome_opposite_sex_marriage_in_yemen
       outcome :outcome_same_sex_civil_partnership
       outcome :outcome_same_sex_civil_partnership_in_affirmation_countries
