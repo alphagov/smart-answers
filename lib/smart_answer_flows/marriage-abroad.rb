@@ -196,6 +196,8 @@ module SmartAnswer
               outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk_or_ceremony_country
             elsif calculator.ceremony_country == "norway" && calculator.resident_of_uk?
               outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk_or_ceremony_country
+            elsif calculator.ceremony_country == 'macao'
+              outcome :outcome_opposite_sex_marriage_in_affirmation_countries
             elsif calculator.opposite_sex_affirmation_country?
               outcome :outcome_opposite_sex_marriage_in_affirmation_countries
             elsif calculator.ceremony_country_in_the_commonwealth? ||
