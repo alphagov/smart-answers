@@ -107,6 +107,10 @@ module SmartAnswer::Calculators
       @reg_data_query.may_require_dna_tests?(country_of_birth)
     end
 
+    def oru_courier_variant?
+      @reg_data_query.oru_courier_variant?(registration_country)
+    end
+
     def translator_link_url
       @translator_query.links[country_of_birth]
     end
