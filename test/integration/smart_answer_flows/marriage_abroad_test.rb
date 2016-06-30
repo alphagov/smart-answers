@@ -2499,7 +2499,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'opposite_sex'
 
-      assert_current_node :outcome_opposite_sex_marriage_in_affirmation_countries
+      assert_current_node :outcome_opposite_sex_marriage_in_macao
     end
 
     should "lead to an affirmation outcome for opposite sex marriages directing users to Hong Kong with an intro about residency" do
@@ -2508,7 +2508,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'opposite_sex'
 
-      assert_current_node :outcome_opposite_sex_marriage_in_affirmation_countries
+      assert_current_node :outcome_opposite_sex_marriage_in_macao
     end
   end
 
