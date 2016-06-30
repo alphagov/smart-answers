@@ -6,10 +6,8 @@ module SmartAnswer
       status :published
       satisfies_need "101003"
 
-      exclude_countries = %w(holy-see british-antarctic-territory)
-
       # Q1
-      country_select :country_of_birth?, exclude_countries: exclude_countries do
+      country_select :country_of_birth?, exclude_countries: Calculators::RegisterABirthCalculator::EXCLUDE_COUNTRIES do
         on_response do |response|
           self.calculator = Calculators::RegisterABirthCalculator.new
           calculator.country_of_birth = response
@@ -107,7 +105,7 @@ module SmartAnswer
       end
 
       # Q6
-      country_select :which_country?, exclude_countries: exclude_countries do
+      country_select :which_country?, exclude_countries: Calculators::RegisterABirthCalculator::EXCLUDE_COUNTRIES do
         on_response do |response|
           calculator.current_country = response
         end
