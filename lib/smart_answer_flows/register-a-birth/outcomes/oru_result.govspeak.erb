@@ -1,12 +1,12 @@
 <% content_for :body do %>
   $!You must register the birth in the country where the child was born. You'll be given a local birth certificate.$!
 
-  <% if registration_country == 'indonesia' and british_national_parent == 'father' and paternity_declaration %>
+  <% if calculator.registration_country == 'indonesia' and calculator.british_national_father? and calculator.paternity_declaration? %>
     %You’ll need to get a court order to have the father named on the birth certificate before registering if you’re unmarried and only the father has British nationality.%
   <% end %>
 
-  <% if reg_data_query.higher_risk_country?(registration_country) %>
-    <% if registration_country == 'libya' %>
+  <% if calculator.higher_risk_country? %>
+    <% if calculator.registration_country == 'libya' %>
       You can also register the birth with the UK authorities.
 
       ^It’s usually quicker to register the birth with the UK authorities if you [get a British passport](/overseas-passports) for the child first. You can’t apply for a passport in Libya but you can apply in a neighbouring country.^
@@ -31,19 +31,19 @@
 
   ##1. Check your documents
 
-  ^Send English translations of all foreign documents. <%= translator_link_url ? "Use an [approved translator](#{translator_link_url}) and include their name and address with your application" : 'Use a professional translator and include their name and address with your application' %>. Don't send laminated documents.^
+  ^Send English translations of all foreign documents. <%= calculator.translator_link_url ? "Use an [approved translator](#{calculator.translator_link_url}) and include their name and address with your application" : 'Use a professional translator and include their name and address with your application' %>. Don't send laminated documents.^
 
-  <% if country_of_birth == 'morocco' && paternity_declaration %>
+  <% if calculator.country_of_birth == 'morocco' && calculator.paternity_declaration? %>
     ^Only the mother will be named on the local birth certificate if you aren’t married. To add the father’s name you must swear a paternity declaration in a Moroccan court and you may be ordered to get married.^
   <% end %>
 
   You must send the original versions of:
 
-  <% if reg_data_query.oru_documents_variant_for_birth?(country_of_birth) %>
-    <% if country_of_birth == 'united-arab-emirates' && paternity_declaration %>
+  <% if calculator.oru_documents_variant_for_birth? %>
+    <% if calculator.country_of_birth == 'united-arab-emirates' && calculator.paternity_declaration? %>
       - both English and Arabic versions of your child’s full local birth certificate, attested by the Ministry of Foreign Affairs (email <birthregistrationenquiries@fco.gov.uk> if the local authorities will not provide a birth certificate)
     <% else %>
-      <% case country_of_birth %>
+      <% case calculator.country_of_birth %>
       <% when 'oru_documents_variant_andorra' %>
         - the child’s full local birth certificate (‘declaració de naixement’) - it must have both parents’ names
       <% when 'belgium' %>
@@ -139,15 +139,15 @@
   - the photo page of the child’s British passport if they have one
   - the photo pages of both parents’ current passports regardless of nationality (if you don't have a passport, send a copy of another identity document that has a photo)
 
-  <% if country_of_birth.in?(%w(philippines sierra-leone uganda)) %>
+  <% if calculator.country_of_birth.in?(%w(philippines sierra-leone uganda)) %>
     If the child doesn't have a British passport you must also send the original copies of:
 
-    <% if country_of_birth == 'philippines' and british_national_parent.exclude?('mother') %>
+    <% if calculator.country_of_birth == 'philippines' and calculator.british_national_parent.exclude?('mother') %>
       - a Certificate of No Marriage ("Cenomar") issued by the National Statistics Office (NSO) or Philippine Statistics Authority (PSA) - if the Filipino mother is single
       - an Advisory on Marriage certificate issued by the NSO or PSA - if the Filipino mother is married
 
     <% end %>
-    <% case country_of_birth %>
+    <% case calculator.country_of_birth %>
     <% when 'philippines' %>
       - the mother’s antenatal, postnatal and delivery notes from the hospital (eg blood test results, ultrasound scans and doctors' notes) or copies certified by the hospital if you can't get the originals
       - health cards from the hospital, doctor or clinic
@@ -191,7 +191,7 @@
 
   ##3. Pay
 
-  <% if !in_the_uk && registration_country == 'algeria' %>
+  <% if !calculator.in_the_uk? && calculator.registration_country == 'algeria' %>
     Pay by credit or debit card - fill in the [credit card authorisation slip](/government/publications/credit-card-authorisation-form-algeria) and post it with your registration form.
   <% else %>
     You should pay online for the registration. Email <birthregistrationenquiries@fco.gov.uk> if you’re unable to pay online.
@@ -202,12 +202,12 @@
   Once you’ve paid you will be given a reference number to use on your birth registration form.
 
   <%= render partial: 'fees.govspeak.erb',
-             locals: { reg_data_query: reg_data_query } %>
+             locals: { calculator: calculator } %>
 
-  <%= render partial: 'shared/births_and_deaths_registration/document_return_fees.govspeak.erb', locals: { document_return_fees: document_return_fees } %>
-  <%= render partial: 'shared/births_and_deaths_registration/button.govspeak.erb', locals: { button_data: button_data } %>
+  <%= render partial: 'shared/births_and_deaths_registration/document_return_fees.govspeak.erb', locals: { document_return_fees: calculator.document_return_fees } %>
+  <%= render partial: 'shared/births_and_deaths_registration/button.govspeak.erb', locals: { button_data: { text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start" } } %>
 
-  <% if country_of_birth == 'venezuela' && same_country %>
+  <% if calculator.country_of_birth == 'venezuela' && calculator.same_country? %>
 
     ##4. Go to the British embassy
 
@@ -215,14 +215,14 @@
 
     Staff at the embassy will check your application and send it to the Overseas Registration Unit in the UK.
 
-    <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
+    <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: calculator.overseas_passports_embassies } %>
   <% else %>
 
     ##4. Send your registration
 
     Post the registration form and documents by secure post to:
 
-    <% if in_the_uk %>
+    <% if calculator.in_the_uk? %>
 
       $A
       Overseas Registration Unit
@@ -247,10 +247,10 @@
 
   ##Return of your documents
 
-  <% if reg_data_query.may_require_dna_tests?(country_of_birth) %>
+  <% if calculator.may_require_dna_tests? %>
     Once the Overseas Registration Unit gets your form and the right documents, registering the birth will usually take:
 
-    * at least <%= custom_waiting_time %> if the child doesn’t have a British passport
+    * at least <%= calculator.custom_waiting_time %> if the child doesn’t have a British passport
     * 5 working days if the child has a British passport
 
     The Overseas Registration Unit will contact you if they need:
@@ -262,14 +262,14 @@
     If this happens, it will take longer for the birth to be registered.
 
     ^You must pay all costs relating to DNA testing.^
-  <% elsif custom_waiting_time %>
+  <% elsif calculator.custom_waiting_time %>
     Once the Overseas Registration Unit gets your form and the right documents, registering the birth will usually take:
 
-    * at least <%= custom_waiting_time %> if the child doesn’t have a British passport
+    * at least <%= calculator.custom_waiting_time %> if the child doesn’t have a British passport
     * 5 working days if the child has a British passport
 
     The Overseas Registration Unit will contact you if they need more information or if they need to verify your documents. If this happens then it could take longer for the birth to be registered.
-  <% elsif registration_country == 'north-korea' and born_in_lower_risk_country %>
+  <% elsif calculator.registration_country == 'north-korea' and calculator.born_in_lower_risk_country? %>
     ^Registration can take up to 3 months - your application will be sent to the Foreign and Commonwealth Office in London where the birth will be registered.^
   <% else %>
     It usually takes 5 working days for the birth to be registered, once the Overseas Registration Unit has received your form and the right documents.
@@ -277,8 +277,8 @@
     They’ll contact you within the 5 working days if they need more information or if they need to verify your documents. If this happens then it could take up to 3 months for the birth to be registered.
   <% end %>
 
-  <% if reg_data_query.oru_courier_variant?(registration_country) && !in_the_uk %>
-    <% case registration_country %>
+  <% if calculator.oru_courier_variant? && !calculator.in_the_uk? %>
+    <% case calculator.registration_country %>
       <% when 'cambodia' %>
         Your documents will be returned to the British Embassy in Phnom Penh after the birth has been registered.
       <% when 'kenya' %>
@@ -300,7 +300,7 @@
       <% when 'uganda' %>
         Your documents will be returned to the British High Commission in Kampala after the birth has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
     <% end %>
-    <% unless reg_data_query.oru_courier_by_high_commission?(registration_country) %>
+    <% unless calculator.oru_courier_by_high_commission? %>
 
       You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
     <% end %>
