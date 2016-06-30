@@ -132,10 +132,6 @@ module SmartAnswer
           reg_data_query
         end
 
-        precalculate :button_data do
-          { text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start" }
-        end
-
         precalculate :custom_waiting_time do
           reg_data_query.custom_registration_duration(calculator.country_of_birth)
         end

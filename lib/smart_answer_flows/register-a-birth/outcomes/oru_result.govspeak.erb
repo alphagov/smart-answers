@@ -205,7 +205,7 @@
              locals: { calculator: calculator } %>
 
   <%= render partial: 'shared/births_and_deaths_registration/document_return_fees.govspeak.erb', locals: { document_return_fees: calculator.document_return_fees } %>
-  <%= render partial: 'shared/births_and_deaths_registration/button.govspeak.erb', locals: { button_data: button_data } %>
+  <%= render partial: 'shared/births_and_deaths_registration/button.govspeak.erb', locals: { button_data: { text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start" } } %>
 
   <% if calculator.country_of_birth == 'venezuela' && calculator.same_country? %>
 
