@@ -33,7 +33,7 @@ multiple_choice :question_1? do
 
   next_node do
     question :question_2?
-  end:
+  end
 
   calculate :q1_calculated_answer do
     'q1-calculated-answer'
