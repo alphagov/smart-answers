@@ -225,7 +225,7 @@ module SmartAnswer
             elsif calculator.ceremony_country == 'belgium'
               outcome :outcome_opposite_sex_marriage_in_belgium
             elsif calculator.ceremony_country == 'peru'
-              outcome :outcome_opposite_sex_marriage_in_affirmation_countries
+              outcome :outcome_opposite_sex_marriage_in_peru
             elsif calculator.opposite_sex_affirmation_country?
               outcome :outcome_opposite_sex_marriage_in_affirmation_countries
             elsif calculator.ceremony_country_in_the_commonwealth? ||
@@ -347,6 +347,7 @@ module SmartAnswer
       outcome :outcome_opposite_sex_marriage_in_norway
       outcome :outcome_opposite_sex_marriage_in_oman
       outcome :outcome_opposite_sex_marriage_in_other_countries
+      outcome :outcome_opposite_sex_marriage_in_peru
       outcome :outcome_opposite_sex_marriage_in_philippines
       outcome :outcome_opposite_sex_marriage_in_poland_when_residing_in_poland
       outcome :outcome_opposite_sex_marriage_in_poland_when_residing_in_uk
