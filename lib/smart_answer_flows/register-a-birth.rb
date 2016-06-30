@@ -187,7 +187,7 @@ module SmartAnswer
       outcome :homeoffice_result
       outcome :no_birth_certificate_result do
         precalculate :overseas_passports_embassies do
-          location = WorldLocation.find(calculator.country_of_birth)
+          location = WorldLocation.find(calculator.registration_country)
           raise InvalidResponse unless location
           organisations = [location.fco_organisation]
           if organisations && organisations.any?
