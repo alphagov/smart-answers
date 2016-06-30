@@ -2532,7 +2532,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'ceremony_country'
       add_response 'partner_british'
       add_response 'opposite_sex'
-      assert_current_node :outcome_opposite_sex_marriage_in_affirmation_countries
+      assert_current_node :outcome_opposite_sex_marriage_in_norway
     end
 
     should "lead to the CNI outcome for opposite sex marriages for UK residents" do
