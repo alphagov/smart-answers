@@ -1,7 +1,7 @@
 <% content_for :body do %>
   $!You must register the birth in the country where the child was born. You'll be given a local birth certificate.$!
 
-  <% if calculator.registration_country == 'indonesia' and calculator.british_national_parent == 'father' and calculator.paternity_declaration? %>
+  <% if calculator.registration_country == 'indonesia' and calculator.british_national_father? and calculator.paternity_declaration? %>
     %You’ll need to get a court order to have the father named on the birth certificate before registering if you’re unmarried and only the father has British nationality.%
   <% end %>
 

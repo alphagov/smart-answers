@@ -66,6 +66,10 @@ module SmartAnswer::Calculators
       nil == 'north-korea'
     end
 
+    def british_national_father?
+      british_national_parent == 'father'
+    end
+
     def overseas_passports_embassies
       location = WorldLocation.find(registration_country)
       organisations = [location.fco_organisation]
