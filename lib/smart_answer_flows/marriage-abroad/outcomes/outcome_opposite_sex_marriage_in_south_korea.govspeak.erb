@@ -1,0 +1,122 @@
+<% content_for :title do %>
+  Marriage in <%= calculator.country_name_lowercase_prefix %>
+<% end %>
+
+<% content_for :body do %>
+
+  <% if calculator.resident_of_uk? %>
+    <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_marriage.govspeak.erb',
+               locals: { calculator: calculator } %>
+  <% else %>
+    <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
+               locals: { calculator: calculator } %>
+
+  <% end %>
+
+  <% if calculator.resident_of_ceremony_country? %>
+    <%= render partial: 'get_legal_advice.govspeak.erb' %>
+  <% else %>
+    <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
+               locals: { calculator: calculator } %>
+  <% end %>
+
+  <% if calculator.opposite_sex_21_days_residency_required? %>
+    ##What you need to do
+
+    You need to have been living in <%= calculator.country_name_lowercase_prefix %> for 21 days.
+
+    You’ll be asked to provide an affirmation or affidavit document to prove you’re allowed to marry.
+
+  <% else %>
+    <%= render partial: 'what_you_need_to_do_affirmation.govspeak.erb' %>
+  <% end %>
+
+  <% if calculator.ceremony_country == 'south-korea' %>
+    Make an appointment at the British embassy in South Korea to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport, your partner’s passport and pay a fee.
+
+  <% elsif calculator.ceremony_country == 'vietnam' %>
+    Make an appointment at the British embassy in <%= calculator.country_name_lowercase_prefix %> to swear an affidavit (written statement of facts) that you’re free to marry.
+
+  <% else %>
+    <%= render partial: 'appointment_for_affidavit.govspeak.erb',
+               locals: { calculator: calculator } %>
+  <% end %>
+
+  <% if calculator.ceremony_country == 'vietnam' %>
+    Before booking your appointment, you must complete the following documents:
+
+    <%= render partial: "appointment_documents_in_vietnam.govspeak.erb" %>
+
+    <%= render partial: 'legalisation_and_translation.govspeak.erb' %>
+    <%= render partial: 'affirmation_os_translation_in_local_language_text.govspeak.erb' %>
+  <% else %>
+    <%= render partial: 'contact_method.govspeak.erb',
+               locals: { calculator: calculator } %>
+    <% if calculator.ceremony_country == 'south-korea' %>
+      You’ll need to fill in an [‘Affidavit for Marriage’](/government/publications/south-korea-affidavit-of-eligibility-for-marriage-form) form stating that you’re free to marry. You can download and fill in (but not sign) the form in advance. You’ll need to take the form with you to your appointment.
+
+      <% if calculator.partner_is_national_of_ceremony_country? %>
+        You’ll need to provide supporting documents, including:
+
+        - you partner’s Family Relationship Certificate and Marriage Status Certificate - these can be obtained from a local district office anywhere in South Korea and must be translated into English and notarised by a lawyer in Korea
+        - your partner’s valid Korean ID card
+        - your partner’s proof of termination of any prior marriage(s)
+      <% end %>
+    <% end %>
+    <% if calculator.ceremony_country == 'belgium' %>
+      <%= render partial: 'complete_affirmation_or_affidavit_forms.govspeak.erb' %>
+      <%= render partial: 'download_and_fill_but_not_sign.govspeak.erb' %>
+      <%= render partial: 'download_affidavit_and_affirmation_belgium.govspeak.erb' %>
+
+      <%= render partial: 'partner_needs_affirmation.govspeak.erb' %>
+
+      <%= render partial: 'required_supporting_documents.govspeak.erb',
+                 locals: { calculator: calculator } %>
+
+      <%= render partial: 'documents_guidance_belgium.govspeak.erb' %>
+    <% end %>
+
+    <% if calculator.ceremony_country == 'peru' %>
+      You’ll need to complete an [affidavit form](/government/publications/affidavit-marriage-in-peru-spanish-only) to prove you’re allowed to marry.
+
+      You can download and fill in (but not sign) the form in advance. You must take the form with you to your appointment.
+
+      <%= render partial: 'legalisation_and_translation.govspeak.erb' %>
+      <%= render partial: 'affirmation_os_translation_in_local_language_text.govspeak.erb' %>
+    <% else %>
+      <%= render partial: 'legalisation_and_translation.govspeak.erb' %>
+      <%= render partial: 'affirmation_os_translation_in_local_language_text.govspeak.erb' %>
+
+    <% end %>
+  <% end %>
+
+  <% if calculator.ceremony_country == 'south-korea' %>
+    If you’ve been divorced or widowed, you’ll also need:
+
+    - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/) - a [decree nisi](/divorce/apply-for-decree-nisi) won’t be accepted
+
+  <% else %>
+    <%= render partial: 'docs_decree_and_death_certificate.govspeak.erb' %>
+  <% end %>
+
+  <%= render partial: 'divorced_or_widowed_evidences.govspeak.erb' %>
+
+  <%= render partial: 'change_of_name_evidence.govspeak.erb' %>
+
+  <% if calculator.partner_british? %>
+    <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
+  <% else %>
+    <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>
+    <% if %w(belgium).include?(calculator.ceremony_country) %>
+      <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
+    <% end %>
+  <% end %>
+
+  <% if calculator.partner_not_british? %>
+    <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
+  <% end %>
+
+  <%= render partial: 'os_affirmation/fees.govspeak.erb',
+             locals: { calculator: calculator } %>
+
+<% end %>
