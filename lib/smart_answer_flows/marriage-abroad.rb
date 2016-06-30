@@ -259,7 +259,7 @@ module SmartAnswer
             elsif calculator.civil_partnership_consular_country?
               outcome :outcome_same_sex_civil_partnership_in_consular_countries
             elsif calculator.ceremony_country == 'gibraltar'
-              outcome :outcome_same_sex_marriage_and_civil_partnership_not_possible
+              outcome :outcome_same_sex_marriage_and_civil_partnership_in_gibraltar
             else
               outcome :outcome_same_sex_marriage_and_civil_partnership_not_possible
             end
@@ -322,6 +322,7 @@ module SmartAnswer
       outcome :outcome_same_sex_civil_partnership_in_consular_countries
       outcome :outcome_same_sex_civil_partnership_in_no_cni_countries
       outcome :outcome_same_sex_marriage_and_civil_partnership
+      outcome :outcome_same_sex_marriage_and_civil_partnership_in_gibraltar
       outcome :outcome_same_sex_marriage_and_civil_partnership_in_malta
       outcome :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
       outcome :outcome_same_sex_marriage_and_civil_partnership_not_possible
