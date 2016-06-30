@@ -4853,7 +4853,7 @@
   - uk
   - partner_british
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_affirmation_countries
+  :next_node: :outcome_opposite_sex_marriage_in_china
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -4876,7 +4876,7 @@
   - uk
   - partner_local
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_affirmation_countries
+  :next_node: :outcome_opposite_sex_marriage_in_china
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -4899,7 +4899,7 @@
   - uk
   - partner_other
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_affirmation_countries
+  :next_node: :outcome_opposite_sex_marriage_in_china
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -4928,7 +4928,7 @@
   - ceremony_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_affirmation_countries
+  :next_node: :outcome_opposite_sex_marriage_in_china
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -4951,7 +4951,7 @@
   - ceremony_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_affirmation_countries
+  :next_node: :outcome_opposite_sex_marriage_in_china
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -4974,7 +4974,7 @@
   - ceremony_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_affirmation_countries
+  :next_node: :outcome_opposite_sex_marriage_in_china
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -5003,7 +5003,7 @@
   - third_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_affirmation_countries
+  :next_node: :outcome_opposite_sex_marriage_in_china
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -5026,7 +5026,7 @@
   - third_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_affirmation_countries
+  :next_node: :outcome_opposite_sex_marriage_in_china
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -5049,7 +5049,7 @@
   - third_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_affirmation_countries
+  :next_node: :outcome_opposite_sex_marriage_in_china
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
