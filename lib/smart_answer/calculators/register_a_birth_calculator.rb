@@ -85,5 +85,9 @@ module SmartAnswer::Calculators
     def document_return_fees
       @reg_data_query.document_return_fees
     end
+
+    def custom_waiting_time
+      @reg_data_query.custom_registration_duration(country_of_birth)
+    end
   end
 end
