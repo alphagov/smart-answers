@@ -179,7 +179,9 @@ module SmartAnswer
               outcome :outcome_opposite_sex_marriage_in_laos_without_lao_national
             elsif calculator.ceremony_country == "laos"
               outcome :outcome_opposite_sex_marriage_in_laos_with_lao_national
-            elsif calculator.ceremony_country == 'poland'
+            elsif calculator.ceremony_country == 'poland' && calculator.resident_of_uk?
+              outcome :outcome_opposite_sex_marriage_in_poland_when_residing_in_uk_or_poland
+            elsif calculator.ceremony_country == 'poland' && calculator.resident_of_ceremony_country?
               outcome :outcome_opposite_sex_marriage_in_poland_when_residing_in_uk_or_poland
             elsif calculator.ceremony_country == 'slovenia'
               outcome :outcome_opposite_sex_marriage_in_slovenia_when_residing_in_uk_or_slovenia
