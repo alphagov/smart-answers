@@ -3,10 +3,6 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if calculator.ceremony_country == 'macao' && calculator.resident_outside_of_ceremony_country? %>
-    You can only get married in <%= calculator.country_name_lowercase_prefix %> if you or your partner live there, eg on a valid work visa.
-
-  <% end %>
 
   <% if calculator.resident_of_uk? %>
     <%= render partial: 'contact_embassy_of_ceremony_country_in_uk_marriage.govspeak.erb',
@@ -111,9 +107,6 @@
   <% elsif calculator.ceremony_country == 'south-korea' %>
     Make an appointment at the British embassy in South Korea to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport, your partner’s passport and pay a fee.
 
-  <% elsif calculator.ceremony_country == 'macao' %>
-    Make an appointment at the British Consulate General Hong Kong to swear an affirmation/affadavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport and pay a fee.
-
   <% elsif calculator.ceremony_country == 'vietnam' %>
     Make an appointment at the British embassy in <%= calculator.country_name_lowercase_prefix %> to swear an affidavit (written statement of facts) that you’re free to marry.
 
@@ -168,21 +161,6 @@
       ^Your partner will probably need to get an affirmation or affidavit as well.^
 
       <%= render partial: 'required_supporting_documents_philippines.govspeak.erb' %>
-
-    <% end %>
-
-    <% if calculator.ceremony_country == 'macao' %>
-      <%= render partial: 'complete_affirmation_or_affidavit_forms.govspeak.erb' %>
-      <%= render partial: 'download_and_fill_but_not_sign.govspeak.erb' %>
-      $D
-      [Download ‘Affidavit for marriage’](/government/publications/affidavit-form-macao)
-      [Download ’Affirmation for marriage’](/government/publications/affirmation-form-macao)
-      $D
-
-
-      <%= render partial: 'required_supporting_documents_macao.govspeak.erb' %>
-
-      <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
 
     <% end %>
 
