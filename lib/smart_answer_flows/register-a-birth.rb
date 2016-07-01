@@ -24,7 +24,7 @@ module SmartAnswer
         end
 
         next_node_calculation :country_has_no_embassy do |response|
-          %w(iran syria yemen).include?(response)
+          %w(iran libya syria yemen).include?(response)
         end
 
         next_node_calculation :responded_with_commonwealth_country do |response|
