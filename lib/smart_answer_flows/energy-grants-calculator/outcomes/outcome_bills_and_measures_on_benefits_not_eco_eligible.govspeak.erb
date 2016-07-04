@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  <% if calculator.under_green_deal?  %>
+  <% if calculator.under_green_deal? and !(calculator.eligible_for_winter_fuel_payment? or calculator.eligible_for_cold_weather_payment?) %>
     <% render partial: 'title_under_green_deal.govspeak.erb' %>
   <% else %>
     <% render partial: 'title_energy_supplier.govspeak.erb' %>
