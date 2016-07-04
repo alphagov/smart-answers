@@ -18,3 +18,6 @@ ips_application_2:
     jumbo:
       fee: 91
       total: 115.72
+  child:
+    fee: 53
+    total: 77.72
