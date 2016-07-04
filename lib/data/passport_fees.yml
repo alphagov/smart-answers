@@ -15,3 +15,6 @@ ips_application_2:
     standard:
       fee: 83
       total: 107.72
+    jumbo:
+      fee: 91
+      total: 115.72
