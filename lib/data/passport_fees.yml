@@ -10,3 +10,8 @@ ips_application_1:
   child:
     fee: 53
     total: 72.86
+ips_application_2:
+  adult:
+    standard:
+      fee: 83
+      total: 107.72
