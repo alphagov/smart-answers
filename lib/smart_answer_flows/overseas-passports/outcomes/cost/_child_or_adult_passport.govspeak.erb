@@ -33,6 +33,6 @@
   <% when 'child' %>
     | Passport type | Passport fee | Total to pay (including courier fee) |
     |---------------|--------------|--------------------------------------|
-    | Child passport | £53.00 | £76.01 |
+    | Child passport | <%= number_to_currency(calculator.passport_fee('ips_application_3','child', 'fee'), precision: 2) %> | <%= number_to_currency(calculator.passport_fee('ips_application_3','child', 'total'), precission: 2) %> |
   <% end %>
 <% end %>
