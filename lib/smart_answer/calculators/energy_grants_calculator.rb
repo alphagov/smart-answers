@@ -25,6 +25,10 @@ module SmartAnswer::Calculators
       disabled_or_have_children != %w(none) && benefits_claimed.include?('universal_credit')
     end
 
+    def benefits_claimed_and_can_install_boiler?
+      benefits_claimed.length > 0 && circumstances.include?('benefits') && (circumstances.include?('property') || circumstances.include?('permission'))
+    end
+
     def incomesupp_jobseekers_1?
       disabled_or_have_children == %w(disabled) ||
         disabled_or_have_children == %w(disabled_child) ||
