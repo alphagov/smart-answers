@@ -124,6 +124,10 @@ module SmartAnswer::Calculators
       @data_query.find_passport_data(location)
     end
 
+    def passport_fee(*path)
+      @data_query.find_passport_fee(*path)
+    end
+
     def application_type
       data = passport_data
       data ? data['type'] : nil

@@ -360,6 +360,16 @@ module SmartAnswer
           end
         end
 
+        context '#passport_fee' do
+          should 'return the default passport fee' do
+            data_query = PassportAndEmbassyDataQuery.new
+            data_query.stubs(:find_passport_fee).with(:path1, :path2).returns(:a_fee)
+            @calculator = OverseasPassportsCalculator.new(data_query: data_query)
+
+            assert_equal :a_fee, @calculator.passport_fee(:path1, :path2)
+          end
+        end
+
         context '#application_type' do
           setup do
             @calculator = OverseasPassportsCalculator.new
@@ -446,7 +456,7 @@ module SmartAnswer
           end
 
           should 'returns the waiting time for an application action from passport_data' do
-            actions = { 'renewing_new' => 1, 'renewing_old' => 2, 'applying' => 3, 'replacing' => 4 }
+            actions = {'renewing_new' => 1, 'renewing_old' => 2, 'applying' => 3, 'replacing' => 4}
             @calculator.stubs(:passport_data).returns(actions)
 
             actions.each do |action, time|
