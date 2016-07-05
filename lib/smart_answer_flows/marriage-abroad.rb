@@ -113,6 +113,9 @@ module SmartAnswer
         next_node do
           if calculator.ceremony_country == 'brazil' && calculator.resident_outside_of_uk?
             outcome :outcome_marriage_in_brazil_when_residing_in_brazil_or_third_country
+          elsif calculator.ceremony_country == 'denmark' &&
+              (calculator.resident_of_uk? || calculator.resident_of_ceremony_country?)
+            outcome :outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark
           elsif calculator.ceremony_country == "netherlands"
             outcome :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
           elsif calculator.ceremony_country == "portugal"
@@ -247,6 +250,7 @@ module SmartAnswer
         end
       end
 
+      outcome :outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark
       outcome :outcome_ceremonies_in_dominican_republic
       outcome :outcome_ceremonies_in_ireland
       outcome :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
