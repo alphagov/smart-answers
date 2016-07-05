@@ -17,7 +17,7 @@ $ git co -b <branch-on-local-repo> <owner-of-forked-repo>/<branch-on-forked-repo
 
 2. Review the changes in the commit(s)
 3. Remove any trailing whitespace
-4. Run the following command to re-generate the Govspeak artefacts (in `test/artefacts/<smart-answer-flow-name>`) for the regression tests:
+4. Run the following command to regenerate the Govspeak artefacts (in `test/artefacts/<smart-answer-flow-name>`) for the regression tests:
 
 ```bash
 $ RUN_REGRESSION_TESTS=<smart-answer-flow-name> ruby test/regression/smart_answers_regression_test.rb
