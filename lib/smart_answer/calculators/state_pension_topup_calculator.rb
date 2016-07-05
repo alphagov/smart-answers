@@ -1,5 +1,7 @@
 module SmartAnswer::Calculators
   class StatePensionTopupCalculator
+    include ActiveModel::Model
+
     FEMALE_YOUNGEST_DOB = Date.parse('1953-04-05')
     MALE_YOUNGEST_DOB = Date.parse('1951-04-05')
     TOPUP_START_DATE = Date.parse('2015-10-12')
@@ -7,10 +9,27 @@ module SmartAnswer::Calculators
     FEMALE_RETIREMENT_AGE = 62
     MALE_RETIREMENT_AGE = 65
 
-    def lump_sum_and_age(dob, weekly_amount, gender)
-      return [] if too_young?(dob, gender)
+    attr_accessor :date_of_birth
+    attr_accessor :gender
+    attr_accessor :weekly_amount
+
+    def initialize(attributes = {})
+      super
+      @gender ||= 'female'
+    end
+
+    def valid_whole_number_weekly_amount?
+      weekly_amount.to_f % 1 == 0
+    end
+
+    def valid_weekly_amount_in_range?
+      (1..25).include?(weekly_amount.to_f)
+    end
+
+    def lump_sum_and_age
+      return [] if too_young?
       rows = []
-      dob = leap_year_birthday?(dob) ? dob + 1.day : dob
+      dob = leap_year_birthday?(date_of_birth) ? date_of_birth + 1.day : date_of_birth
       age = age_at_date(dob, TOPUP_START_DATE)
       (TOPUP_START_DATE.year..TOPUP_END_DATE.year).each do |_|
         break if birthday_after_topup_end?(dob, age)
@@ -20,7 +39,7 @@ module SmartAnswer::Calculators
       rows
     end
 
-    def too_young?(date_of_birth, gender = 'female')
+    def too_young?
       case gender
       when 'female'
         date_of_birth > FEMALE_YOUNGEST_DOB
