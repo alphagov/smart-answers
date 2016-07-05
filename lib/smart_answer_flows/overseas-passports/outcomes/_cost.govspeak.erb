@@ -7,12 +7,12 @@
   <% when 'adult' %>
     | Passport type | Passport fee |
     |---------------|--------------|
-    | Adult standard 32-page passport | £83.00 |
-    | Adult jumbo 48-page passport | £91.00 |
+    | Adult standard 32-page passport | <%= number_to_currency(calculator.passport_fee('st-helena-ascension-and-tristan-da-cunha','adult', 'standard', 'fee'), precision: 2) %> |
+    | Adult jumbo 48-page passport | <%= number_to_currency(calculator.passport_fee('st-helena-ascension-and-tristan-da-cunha','adult', 'jumbo', 'fee'), precision: 2) %> |
   <% when 'child' %>
     | Passport type | Passport fee |
     |---------------|--------------|
-    | Child passport | £53.00 |
+    | Child passport | <%= number_to_currency(calculator.passport_fee('st-helena-ascension-and-tristan-da-cunha','child', 'fee'), precision: 2) %> |
   <% end %>
 
   You must pay in cash. In addition to the passport fee you’ll need to pay any local administration fees which apply from the office where you make your application.
