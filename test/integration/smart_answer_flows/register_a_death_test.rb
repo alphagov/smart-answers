@@ -318,16 +318,8 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'libya'
       end
 
-      should "give the oru result and a custom translators link if currently in Libya" do
-        add_response 'same_country'
-        assert_current_node :oru_result
-        assert_state_variable :translator_link_url, "/government/publications/libya-list-of-translators"
-      end
-
-      should "give a custom algerian payment method if currently in Algeria " do
-        add_response 'another_country'
-        add_response 'algeria'
-        assert_current_node :oru_result
+      should "give the no embassy if currently in Libya" do
+        assert_current_node :no_embassy_result
       end
     end # Answer Libya
 
