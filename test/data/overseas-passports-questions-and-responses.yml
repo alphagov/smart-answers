@@ -3,15 +3,27 @@
 - afghanistan # renewing_replacing_applying?
 - algeria # passport_courier_costs_ips#{ips_number}_uk_visa
 - american-samoa # ips_application_result passport_courier_costs_replacing_ips
+- azerbaijan
+- bangladesh
 - benin # ALT_EMBASSIES.has_key?(current_location)
+- belarus
+- burma
 - burundi # send_application_non_uk_visa_renew_new_colour
 - cambodia # getting_your_passport_with_id
+- china
 - cuba # passport_costs_ips_cash
 - falkland-islands # passport_courier_costs_replacing_ips#{ips_number}
 - france # overseas_passports_embassies (organisation)
 - georgia
 - hong-kong # hong_kong_id_required
+- india
+- indonesia
+- kazakhstan
 - laos # send_application_uk_visa_renew_new_colour_laos
+- lebanon
+- mauritania
+- morocco
+- nepal
 - nigeria # #{response}_fco_forms_nigeria
 - north-korea # emergency_travel_help_#{current_location}
 - pakistan # send_application_ips1_pakistan
@@ -19,13 +31,18 @@
 - russia
 - south-georgia-and-south-sandwich-islands # apply_in_neighbouring_country
 - south-sudan
+- thailand
 - st-helena-ascension-and-tristan-da-cunha # passport_costs_fee_only
 - st-martin # overseas_passports_embassies (no organisation)
 - tajikistan # passport_courier_costs_#{current_location}
 - the-occupied-palestinian-territories # which_opt?
 - timor-leste # send_application_#{current_location}
 - tunisia
+- turkmenistan
+- ukraine
+- uzbekistan
 - venezuela # passport_costs_pay_at_appointment
+- vietnam
 - western-sahara # send_application_uk_visa_renew_new_colour_western_sahara
 - yemen # cannot_apply
 :which_opt?:
@@ -42,3 +59,4 @@
 :country_of_birth?:
 - afghanistan # supporting_documents
 - south-africa # birth_certificate_#{birth_location}
+
