@@ -7,12 +7,12 @@
   <% when 'adult' %>
     | Passport type | Passport fee |
     |---------------|--------------|
-    | Adult standard 32-page passport | £83.00 |
-    | Adult jumbo 48-page passport | £91.00 |
+    | Adult standard 32-page passport | <%= number_to_currency(calculator.passport_fee('st-helena-ascension-and-tristan-da-cunha','adult', 'standard', 'fee'), precision: 2) %> |
+    | Adult jumbo 48-page passport | <%= number_to_currency(calculator.passport_fee('st-helena-ascension-and-tristan-da-cunha','adult', 'jumbo', 'fee'), precision: 2) %> |
   <% when 'child' %>
     | Passport type | Passport fee |
     |---------------|--------------|
-    | Child passport | £53.00 |
+    | Child passport | <%= number_to_currency(calculator.passport_fee('st-helena-ascension-and-tristan-da-cunha','child', 'fee'), precision: 2) %> |
   <% end %>
 
   You must pay in cash. In addition to the passport fee you’ll need to pay any local administration fees which apply from the office where you make your application.
@@ -21,14 +21,14 @@
 
   <% case calculator.child_or_adult %>
   <% when 'adult' %>
-    | Passport type | Passport fee | Total to pay (including courier fee) |
-    |---------------|--------------|--------------------------------------|
-    | Adult standard 32-page passport | £83.00 | £92.70 |
-    | Adult jumbo 48-page passport | £91.00 | £100.70 |
+      | Passport type | Passport fee | Total to pay (including courier fee) |
+      |---------------|--------------|--------------------------------------|
+      | Adult standard 32-page passport | <%= number_to_currency(calculator.passport_fee('replace','ips_application_1','ips_docs_number_1','adult', 'standard', 'fee'), precision: 2) %> | <%= number_to_currency(calculator.passport_fee('replace','ips_application_1','ips_docs_number_1','adult', 'standard', 'total'), precission: 2) %> |
+      | Adult jumbo 48-page passport | <%= number_to_currency(calculator.passport_fee('replace','ips_application_1','ips_docs_number_1','adult', 'jumbo', 'fee'), precision: 2) %> | <%= number_to_currency(calculator.passport_fee('replace','ips_application_1','ips_docs_number_1','adult', 'jumbo', 'total'), precission: 2) %> |
   <% when 'child' %>
-    | Passport type | Passport fee | Total to pay (including courier fee) |
-    |---------------|--------------|--------------------------------------|
-    | Child passport | £53.00 | £62.70 |
+      | Passport type | Passport fee | Total to pay (including courier fee) |
+      |---------------|--------------|--------------------------------------|
+      | Child passport | <%= number_to_currency(calculator.passport_fee('replace','ips_application_1','ips_docs_number_1','child', 'fee'), precision: 2) %> | <%= number_to_currency(calculator.passport_fee('replace','ips_application_1','ips_docs_number_1','child', 'total'), precission: 2) %> |
   <% end %>
 
   <%= render partial: 'cost/payment_instructions.govspeak.erb', locals: { calculator: calculator } %>
