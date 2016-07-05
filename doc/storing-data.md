@@ -61,11 +61,20 @@ multiple_choice :question_2? do
     'q2-precalculated-answer'
   end
 
+  on_response do |response|
+    # response             => 'q2_option'
+    # responses            => ['q1_option']
+    # q1_calculated_answer => 'q1-calculated-answer'
+
+    self.q2_saved_response = response
+  end
+
   next_node_calculation :q2_next_node_calculated_answer do |response|
     # response                => 'q2_option'
     # responses               => ['q1_option']
     # q1_calculated_answer    => 'q1-calculated-answer'
     # q2_precalculated_answer => 'q2-precalculated-answer'
+    # q2_saved_response      => 'q2_option'
 
     'q2-next-node-calculated-answer'
   end
@@ -75,6 +84,7 @@ multiple_choice :question_2? do
     # responses                      => ['q1_option']
     # q1_calculated_answer           => 'q1-calculated-answer'
     # q2_precalculated_answer        => 'q2-precalculated-answer'
+    # q2_saved_response              => 'q2_option'
     # q2_next_node_calculated_answer => 'q2-next-node-calculated-answer'
   end
 
@@ -83,6 +93,7 @@ multiple_choice :question_2? do
     # responses                      => ['q1_option']
     # q1_calculated_answer           => 'q1-calculated-answer'
     # q2_precalculated_answer        => 'q2-precalculated-answer'
+    # q2_saved_response              => 'q2_option'
     # q2_next_node_calculated_answer => 'q2-next-node-calculated-answer'
   end
 
@@ -94,6 +105,7 @@ multiple_choice :question_2? do
     # q1_calculated_answer           => 'q1-calculated-answer'
     # q2_answer                      => 'q2_option'
     # q2_precalculated_answer        => 'q2-precalculated-answer'
+    # q2_saved_response              => 'q2_option'
     # q2_next_node_calculated_answer => 'q2-next-node-calculated-answer'
   end
 end
