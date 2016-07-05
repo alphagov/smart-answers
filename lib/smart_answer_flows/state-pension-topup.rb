@@ -6,20 +6,17 @@ module SmartAnswer
       status :published
       satisfies_need "100865"
 
-      calculator = Calculators::StatePensionTopupCalculator.new
-
       #Q1
       date_question :dob_age? do
         date_of_birth_defaults
 
-        save_input_as :date_of_birth
-
-        next_node_calculation(:too_young) do |response|
-          calculator.too_young?(response)
+        on_response do |response|
+          self.calculator = Calculators::StatePensionTopupCalculator.new
+          calculator.date_of_birth = response
         end
 
         next_node do
-          if too_young
+          if calculator.too_young?
             outcome :outcome_pension_age_not_reached
           else
             question :gender?
@@ -32,14 +29,12 @@ module SmartAnswer
         option :male
         option :female
 
-        save_input_as :gender
-
-        next_node_calculation(:male_and_too_young) do |response|
-          calculator.too_young?(date_of_birth, response)
+        on_response do |response|
+          calculator.gender = response
         end
 
         next_node do
-          if male_and_too_young
+          if calculator.too_young?
             outcome :outcome_pension_age_not_reached
           else
             question :how_much_extra_per_week?
@@ -49,13 +44,16 @@ module SmartAnswer
 
       #Q3
       money_question :how_much_extra_per_week? do
-        save_input_as :weekly_amount
+        on_response do |response|
+          calculator.weekly_amount = response
+        end
 
-        calculate :integer_value do |response|
-          money = response.to_f
-          if (money % 1 != 0) || (money > 25 || money < 1)
-            raise SmartAnswer::InvalidResponse
-          end
+        validate :error_not_whole_number do
+          calculator.valid_whole_number_weekly_amount?
+        end
+
+        validate :error_outside_range do
+          calculator.valid_weekly_amount_in_range?
         end
 
         next_node do
@@ -64,11 +62,7 @@ module SmartAnswer
       end
 
       #A1
-      outcome :outcome_topup_calculations do
-        precalculate :amounts_vs_ages do
-          calculator.lump_sum_and_age(date_of_birth, weekly_amount, gender)
-        end
-      end
+      outcome :outcome_topup_calculations
       #A2
       outcome :outcome_pension_age_not_reached
     end
