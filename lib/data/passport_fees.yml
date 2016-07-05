@@ -32,6 +32,19 @@ ips_application_3:
   child:
     fee: 53
     total: 76.01
+replace:
+  ips_application_1:
+    ips_docs_number_1:
+      adult:
+        standard:
+          fee: 83
+          total: 92.70
+        jumbo:
+          fee: 91
+          total: 100.70
+      child:
+        fee: 53
+        total: 62.70
 st-helena-ascension-and-tristan-da-cunha:
   adult:
     standard:
