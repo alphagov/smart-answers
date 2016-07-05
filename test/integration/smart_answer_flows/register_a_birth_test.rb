@@ -166,14 +166,6 @@ class RegisterABirthTest < ActiveSupport::TestCase
 
       assert_current_node :no_birth_certificate_result
     end
-
-    should "give Libya-specific intro if currently there" do
-      add_response "mother"
-      add_response "yes"
-      add_response "another_country"
-      add_response "libya"
-      assert_current_node :oru_result
-    end
   end
 
   context "answer Iraq" do
@@ -258,16 +250,10 @@ class RegisterABirthTest < ActiveSupport::TestCase
   end # Belize
 
   context "answer libya" do
-    should "give the ORU result with a specific introduction and documents return waiting time" do
+    should "give the no embassy result" do
       add_response "libya"
-      add_response "father"
-      add_response "yes"
-      add_response "same_country"
-
-      assert_current_node :oru_result
-      assert_state_variable :british_national_parent, 'father'
-      assert_state_variable :custom_waiting_time, '6 months'
-    end # Not married or CP
+      assert_current_node :no_embassy_result
+    end
   end # Libya
 
   context "answer barbados" do
