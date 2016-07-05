@@ -9,10 +9,12 @@ require 'webmock'
 WebMock.disable_net_connect!(allow_localhost: true)
 
 require_relative '../support/fixture_methods'
+require_relative '../support/world_location_stubbing_methods'
 
 require 'gds_api/test_helpers/content_api'
-require 'gds_api/test_helpers/worldwide'
 require 'gds_api/test_helpers/imminence'
+
+require 'mocha/api'
 
 class SmartAnswersRegressionTest < ActionController::TestCase
   i_suck_and_my_tests_are_order_dependent!
@@ -41,10 +43,11 @@ class SmartAnswersRegressionTest < ActionController::TestCase
   end
 
   include GdsApi::TestHelpers::ContentApi
-  include GdsApi::TestHelpers::Worldwide
   include GdsApi::TestHelpers::Imminence
   include WebMock::API
   include FixtureMethods
+  include Mocha::API
+  include WorldLocationStubbingMethods
 
   tests SmartAnswersController
 
@@ -151,13 +154,6 @@ private
 
   def setup_worldwide_locations
     location_slugs = YAML.load(read_fixture_file("worldwide_locations.yml"))
-    worldwide_api_has_locations(location_slugs)
-    location_slugs.each do |location|
-      path_to_organisations_fixture = fixture_file("worldwide/#{location}_organisations.json")
-      if File.exist?(path_to_organisations_fixture)
-        json = File.read(path_to_organisations_fixture)
-        worldwide_api_has_organisations_for_location(location, json)
-      end
-    end
+    stub_world_locations(location_slugs, load_fco_organisation_data: true)
   end
 end
