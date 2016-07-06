@@ -61,9 +61,11 @@ end
 
 ### Arbitrary Ruby code
 
-Since the flow definition is just the body of a standard Ruby method, it's possible to write arbitrary Ruby code at any point within it.
+Since the flow definition is just the body of a standard Ruby method, it's possible to write arbitrary Ruby code at any point within it. Arbitrary Ruby code is pretty much anything other than calls to the DSL methods described in this document. The use of a local variable at the top-level of the `#define` method and used later within a block is an example of arbitrary Ruby code which is explained in more detail below.
 
 > It should be possible to implement the majority of flows *without* writing such arbitrary Ruby code. Any decision to introduce such arbitrary code should be very carefully considered, particularly regarding it's maintainability.
+
+> Some exceptions to the "no arbitrary Ruby" rule are: instantiating and storing a "calculator" object (in an `on_response` block), storing a response on the "calculator" object, and conditional logic within a `next_node` block. Although even the latter should be kept to a minimum by extracting predicate methods onto the "calculator" object.
 
 Since the flow definition is just the body of a `Flow` instance method (`#define`), the value of `self` at the "top-level" within the method is an instance of the flow.
 
