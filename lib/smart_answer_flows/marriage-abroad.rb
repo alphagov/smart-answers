@@ -149,7 +149,7 @@ module SmartAnswer
             elsif calculator.ceremony_country == 'kuwait' && calculator.resident_of_ceremony_country?
               outcome :outcome_opposite_sex_marriage_in_kuwait_when_residing_in_kuwait
             elsif calculator.ceremony_country == 'kuwait' && calculator.resident_of_third_country?
-              outcome :outcome_opposite_sex_marriage_in_kuwait
+              outcome :outcome_opposite_sex_marriage_in_kuwait_when_residing_in_third_country
             elsif calculator.ceremony_country == 'japan'
               outcome :outcome_opposite_sex_marriage_in_japan
             elsif calculator.ceremony_country == 'rwanda'
@@ -296,7 +296,7 @@ module SmartAnswer
       outcome :outcome_same_sex_for_non_romanians
       outcome :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_kosovo
       outcome :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_uk
-      outcome :outcome_opposite_sex_marriage_in_kuwait
+      outcome :outcome_opposite_sex_marriage_in_kuwait_when_residing_in_third_country
       outcome :outcome_opposite_sex_marriage_in_kuwait_when_residing_in_kuwait
       outcome :outcome_opposite_sex_marriage_in_kuwait_when_residing_in_uk
       outcome :outcome_opposite_sex_marriage_in_laos_with_lao_national
