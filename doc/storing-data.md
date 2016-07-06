@@ -19,7 +19,41 @@ __NOTE.__ `precalculate` blocks are not evaluated in the first question. This is
   * The `calculate` block
   * All subsequent questions and outcomes
 
-__NOTE.__ `on_response` blocks are not named, because they don't automatically store a value in a state variable. In fact doing so is actively discouraged apart from when storing a calculator object in the first question of a flow.
+__NOTE.__ `on_response` blocks are not named, because they don't automatically store a value in a state variable. In fact doing so is actively discouraged apart from when storing a calculator object in the first question of a flow:
+
+```ruby
+multiple_choice :question_1? do
+  option :option_1
+  option :option_2
+
+  on_response do |response|
+    self.calculator = ExampleCalculator.new
+    calculator.question_1_response = response
+  end
+
+  next_node do
+    if calculator.question_1_response == 'option_1'
+      outcome :outcome_1
+    else
+      outcome :outcome_2
+    end
+  end
+end
+
+value_question :question_2? do
+  on_response do |response|
+    calculator.question_2_response = response
+  end
+
+  next_node do
+    if calculator.question_1_response == 'option_1' && calculator.question_2_response == 'London'
+      outcome :outcome_1
+    else
+      outcome :outcome_2
+    end
+  end
+end
+```
 
 * `next_node_calculation` values are available in:
   * The `validate` block
