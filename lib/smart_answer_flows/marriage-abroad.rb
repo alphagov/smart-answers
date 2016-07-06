@@ -196,7 +196,7 @@ module SmartAnswer
             elsif calculator.ceremony_country == 'british-indian-ocean-territory'
               outcome :outcome_opposite_sex_marriage_in_british_indian_ocean_territory
             elsif calculator.ceremony_country == 'british-virgin-islands'
-              outcome :outcome_opposite_sex_marriage_in_british_overseas_territory
+              outcome :outcome_opposite_sex_marriage_in_british_virgin_islands
             elsif calculator.ceremony_country_is_british_overseas_territory?
               outcome :outcome_opposite_sex_marriage_in_british_overseas_territory
             elsif calculator.opposite_sex_no_consular_cni_country? ||
@@ -272,6 +272,7 @@ module SmartAnswer
       outcome :outcome_opposite_sex_marriage_in_belarus
       outcome :outcome_opposite_sex_marriage_in_british_indian_ocean_territory
       outcome :outcome_opposite_sex_marriage_in_british_overseas_territory
+      outcome :outcome_opposite_sex_marriage_in_british_virgin_islands
       outcome :outcome_opposite_sex_marriage_in_burma
       outcome :outcome_opposite_sex_marriage_in_cambodia
       outcome :outcome_opposite_sex_marriage_in_colombia
