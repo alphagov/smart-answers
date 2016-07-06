@@ -1,15 +1,36 @@
 module SmartAnswer::Calculators
   class PayLeaveForParentsCalculator
-    def continuity_start_date(date)
-      saturday_before(date - 39.weeks)
+    include ActiveModel::Model
+
+    attr_accessor :two_carers
+    attr_accessor :due_date
+    attr_accessor :employment_status_of_mother
+    attr_accessor :employment_status_of_partner
+    attr_accessor :mother_started_working_before_continuity_start_date
+    attr_accessor :mother_still_working_on_continuity_end_date
+    attr_accessor :mother_earned_more_than_lower_earnings_limit
+    attr_accessor :mother_worked_at_least_26_weeks
+    attr_accessor :mother_earned_at_least_390
+    attr_accessor :partner_started_working_before_continuity_start_date
+    attr_accessor :partner_still_working_on_continuity_end_date
+    attr_accessor :partner_earned_more_than_lower_earnings_limit
+    attr_accessor :partner_worked_at_least_26_weeks
+    attr_accessor :partner_earned_at_least_390
+
+    def two_carers?
+      two_carers == 'yes'
     end
 
-    def continuity_end_date(date)
-      sunday_before(date - 15.weeks)
+    def continuity_start_date
+      saturday_before(due_date - 39.weeks)
     end
 
-    def lower_earnings_amount(due_date)
-      start_date = lower_earnings_start_date(due_date)
+    def continuity_end_date
+      sunday_before(due_date - 15.weeks)
+    end
+
+    def lower_earnings_amount
+      start_date = lower_earnings_start_date
       if in_2013_2014_fin_year?(start_date)
         SmartAnswer::Money.new(109)
       elsif in_2014_2015_fin_year?(start_date)
@@ -21,24 +42,40 @@ module SmartAnswer::Calculators
       end
     end
 
-    def lower_earnings_start_date(date)
-      saturday_before(date - 22.weeks)
+    def lower_earnings_start_date
+      saturday_before(due_date - 22.weeks)
     end
 
-    def lower_earnings_end_date(date)
-      saturday_before(date - 14.weeks)
+    def lower_earnings_end_date
+      saturday_before(due_date - 14.weeks)
     end
 
-    def earnings_employment_start_date(date)
-      sunday_before(date - 66.weeks)
+    def earnings_employment_start_date
+      sunday_before(due_date - 66.weeks)
     end
 
-    def earnings_employment_end_date(date)
-      saturday_before(date)
+    def earnings_employment_end_date
+      saturday_before(due_date)
+    end
+
+    def mother_continuity?
+      continuity(mother_started_working_before_continuity_start_date, mother_still_working_on_continuity_end_date)
+    end
+
+    def partner_continuity?
+      continuity(partner_started_working_before_continuity_start_date, partner_still_working_on_continuity_end_date)
     end
 
     def continuity(job_before, job_after)
       job_before == "yes" && job_after == "yes"
+    end
+
+    def mother_lower_earnings?
+      lower_earnings(mother_earned_more_than_lower_earnings_limit)
+    end
+
+    def partner_lower_earnings?
+      lower_earnings(partner_earned_more_than_lower_earnings_limit)
     end
 
     #Lower earnings test: person has earned more than
@@ -47,37 +84,41 @@ module SmartAnswer::Calculators
       lel == "yes"
     end
 
+    def mother_earnings_employment?
+      earnings_employment(mother_earned_at_least_390, mother_worked_at_least_26_weeks)
+    end
+
     #Earnings and employment test
     def earnings_employment(earnings_employment, work_employment)
       earnings_employment == "yes" && work_employment == "yes"
     end
 
-    def range_in_2013_2014_fin_year?(date)
-      date_in_39_week_range?(2013, 2014, date)
+    def range_in_2013_2014_fin_year?
+      date_in_39_week_range?(2013, 2014, due_date)
     end
 
-    def range_in_2014_2015_fin_year?(date)
-      date_in_39_week_range?(2014, 2015, date)
+    def range_in_2014_2015_fin_year?
+      date_in_39_week_range?(2014, 2015, due_date)
     end
 
-    def range_in_2015_2016_fin_year?(date)
-      date_in_39_week_range?(2015, 2016, date)
+    def range_in_2015_2016_fin_year?
+      date_in_39_week_range?(2015, 2016, due_date)
     end
 
-    def start_of_maternity_allowance(date)
-      sunday_before(date - 11.weeks)
+    def start_of_maternity_allowance
+      sunday_before(due_date - 11.weeks)
     end
 
-    def earliest_start_mat_leave(date)
-      sunday_before(date - 11.weeks)
+    def earliest_start_mat_leave
+      sunday_before(due_date - 11.weeks)
     end
 
-    def maternity_leave_notice_date(date)
-      saturday_before(date - 14.weeks)
+    def maternity_leave_notice_date
+      saturday_before(due_date - 14.weeks)
     end
 
-    def paternity_leave_notice_date(date)
-      saturday_before(date - 14.weeks)
+    def paternity_leave_notice_date
+      saturday_before(due_date - 14.weeks)
     end
 
     def in_2013_2014_fin_year?(date)
