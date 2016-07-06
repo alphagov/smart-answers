@@ -34,7 +34,7 @@ The flow is defined within the `define` instance method of the `Flow` subclass u
 > * It's confusing that blocks of code are not necessarily executed in the order that they appear in the flow definition.
 > * The code in the blocks is not easily unit-testable.
 
-Each flow is instantiated in the `FlowRegistry` via the `Flow.build` method which, in turn, instantiates the flow and invokes its `Flow#define` method.
+Each flow is instantiated in the [`FlowRegistry`][flow-registry] via the `Flow.build` method which, in turn, instantiates the flow and invokes its `Flow#define` method.
 
 Currently in production a single instance of each flow class is instantiated at application start-up (or strictly speaking on the first request) and cached in the `FlowRegistry` i.e. the same instance of a particular flow class is used to service all the user requests involving that Smart Answer. Thus it's important that no request-specific state is stored on the flow instance, otherwise this could leak into other user requests.
 
@@ -306,3 +306,4 @@ See the [documentation for outcome templates](doc/outcome-templates.md).
 [object-dup]: http://ruby-doc.org/core-2.3.0/Object.html#method-i-dup
 [local-variable-in-flow-definition]: https://github.com/alphagov/smart-answers/blob/20d2d9f524e912a3edcb9256ce2d790059538641/lib/smart_answer_flows/register-a-birth.rb#L9-L12
 [introduction-of-on-response-blocks]: https://github.com/alphagov/smart-answers/pull/2408
+[flow-registry]: https://github.com/alphagov/smart-answers/blob/cc6c5050bb78d0085cffe0a40630784724aa062a/lib/smart_answer/flow_registry.rb
