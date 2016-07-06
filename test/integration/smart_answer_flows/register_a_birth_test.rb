@@ -37,7 +37,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
         should "ask where you are now and go to oru result" do
           add_response "same_country"
           assert_current_node :oru_result
-          assert current_state.send(:document_return_fees).present?
+          assert current_state.calculator.send(:document_return_fees).present?
         end
       end # not married/cp
     end # mother
@@ -56,7 +56,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'father'
       add_response 'yes'
       add_response 'same_country'
-      assert_state_variable :registration_country, 'spain'
+      assert_equal 'spain', current_state.calculator.registration_country
     end
   end # Andorra
 
@@ -82,7 +82,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'spain'
     end
     should "store this as the registration country" do
-      assert_state_variable :registration_country, 'spain'
+      assert_equal 'spain', current_state.calculator.registration_country
     end
     should "ask which parent has british nationality" do
       assert_current_node :who_has_british_nationality?
@@ -134,10 +134,9 @@ class RegisterABirthTest < ActiveSupport::TestCase
         context "answer back in the UK" do
           should "give the oru result" do
             add_response 'in_the_uk'
-            assert_state_variable :registration_country, 'spain'
-            assert_state_variable :button_data, text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start"
+            assert_equal 'spain', current_state.calculator.registration_country
             assert_current_node :oru_result
-            assert_state_variable :translator_link_url, "http://www.exteriores.gob.es/Portal/en/ServiciosAlCiudadano/Paginas/Traductoresas---Int%C3%A9rpretes-Juradosas.aspx"
+            assert_equal "http://www.exteriores.gob.es/Portal/en/ServiciosAlCiudadano/Paginas/Traductoresas---Int%C3%A9rpretes-Juradosas.aspx", current_state.calculator.translator_link_url
           end
         end
       end # married
@@ -153,10 +152,10 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "same_country"
       assert_current_node :oru_result
-      assert_state_variable :registration_country_name_lowercase_prefix, "Afghanistan"
-      assert_state_variable :british_national_parent, 'mother_and_father'
-      assert_state_variable :custom_waiting_time, '6 months'
-      assert_state_variable :translator_link_url, '/government/publications/afghanistan-list-of-lawyers'
+      assert_equal 'Afghanistan', current_state.calculator.registration_country_name_lowercase_prefix
+      assert_equal 'mother_and_father', current_state.calculator.british_national_parent
+      assert_equal '6 months', current_state.calculator.custom_waiting_time
+      assert_equal '/government/publications/afghanistan-list-of-lawyers', current_state.calculator.translator_link_url
     end
 
     should "give the no_birth_certificate_result if the child born outside of marriage" do
@@ -198,7 +197,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "another_country"
       add_response "pakistan"
       assert_current_node :oru_result
-      assert_state_variable :custom_waiting_time, '8 months'
+      assert_equal '8 months', current_state.calculator.custom_waiting_time
     end
   end # Afghanistan
   context "answer Pakistan" do
@@ -211,7 +210,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "in_the_uk"
       assert_current_node :oru_result
-      assert_state_variable :custom_waiting_time, '6 months'
+      assert_equal '6 months', current_state.calculator.custom_waiting_time
     end
 
     should "give the oru result with phase-5-specific introduction if currently in Pakistan" do
@@ -263,7 +262,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "same_country"
       assert_current_node :oru_result
-      assert_state_variable :british_national_parent, 'father'
+      assert_equal 'father', current_state.calculator.british_national_parent
     end # Not married or CP
   end # Barbados
   context "answer united arab emirates" do
@@ -289,8 +288,8 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "same_country"
       assert_current_node :oru_result
-      assert_state_variable :british_national_parent, 'father'
-      assert_state_variable :translator_link_url, "/government/publications/united-arab-emirates-list-of-lawyers"
+      assert_equal 'father', current_state.calculator.british_national_parent
+      assert_equal '/government/publications/united-arab-emirates-list-of-lawyers', current_state.calculator.translator_link_url
     end
   end # UAE
 
@@ -303,8 +302,8 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'father'
       add_response 'yes'
       add_response 'same_country'
-      assert_state_variable :registration_country, "guatemala"
-      assert_state_variable :registration_country_name_lowercase_prefix, "Guatemala"
+      assert_equal 'guatemala', current_state.calculator.registration_country
+      assert_equal 'Guatemala', current_state.calculator.registration_country_name_lowercase_prefix
     end
   end
 
@@ -316,8 +315,8 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'father'
       add_response 'yes'
       add_response 'same_country'
-      assert_state_variable :registration_country, "laos"
-      assert_state_variable :registration_country_name_lowercase_prefix, "Laos"
+      assert_equal 'laos', current_state.calculator.registration_country
+      assert_equal 'Laos', current_state.calculator.registration_country_name_lowercase_prefix
     end
   end
   context "maldives, where you have to register in sri lanka" do
@@ -328,7 +327,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'father'
       add_response 'yes'
       add_response 'same_country'
-      assert_state_variable :registration_country, "sri-lanka"
+      assert_equal 'sri-lanka', current_state.calculator.registration_country
     end
   end
   context "Sri Lanka" do
@@ -373,7 +372,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response 'yes'
       add_response 'same_country'
       assert_current_node :oru_result
-      assert_state_variable :translator_link_url, "/government/publications/netherlands-list-of-lawyers"
+      assert_equal '/government/publications/netherlands-list-of-lawyers', current_state.calculator.translator_link_url
     end
   end # Netherlands
   context "answer serbia" do
@@ -383,7 +382,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "same_country"
       assert_current_node :oru_result
-      assert_state_variable :translator_link_url, "/government/publications/list-of-translators-and-interpreters-in-serbia"
+      assert_equal '/government/publications/list-of-translators-and-interpreters-in-serbia', current_state.calculator.translator_link_url
     end
   end # Serbia
   context "answer estonia" do
@@ -403,7 +402,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "yes"
       add_response "same_country"
       assert_current_node :oru_result
-      assert_state_variable :translator_link_url, "/government/publications/united-arab-emirates-list-of-lawyers"
+      assert_equal '/government/publications/united-arab-emirates-list-of-lawyers', current_state.calculator.translator_link_url
     end
   end # UAE
 
@@ -513,7 +512,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "no"
       add_response "same_country"
       assert_current_node :oru_result
-      assert_state_variable :translator_link_url, '/government/publications/democratic-republic-of-congo-list-of-lawyers'
+      assert_equal '/government/publications/democratic-republic-of-congo-list-of-lawyers', current_state.calculator.translator_link_url
     end
   end
 
