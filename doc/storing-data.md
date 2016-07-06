@@ -13,7 +13,6 @@ You can use the `on_response`, `precalculate`, `next_node_calculation`, `save_in
 __NOTE.__ `precalculate` blocks are not evaluated in the first question. This is because they're evaluated during the transition of one question to the next.
 
 * `on_response` values are available in:
-  * The question template
   * The `next_node_calculation` block
   * The `validate` block
   * The `next_node` block
