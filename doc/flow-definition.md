@@ -1,6 +1,6 @@
 # Flow
 
-The Ruby flow file defines a subclass of `SmartAnswer::Flow` that specifies metadata, and defines all the question nodes, the outcome nodes, and the rules to control flow between the nodes.
+At the heart of each Smart Answer is a subclass of `SmartAnswer::Flow`. Subclasses like this make a DSL available for [specifying metadata](#metadata), and [defining](#definition) all the [question nodes](#question-nodes), the [outcome nodes](#outcome-nodes), and the [rules](doc/next-node-rules.md) to control routing between the nodes.
 
 ## Naming
 
