@@ -12,7 +12,24 @@ We've refactored a number of these Smart Answers and have a rough set of steps t
 
 * Instantiate the calculator in a `on_response` block in the first question. See commit [0df6fd7df9a00ec882edf249eeaaa68a291633c5](https://github.com/alphagov/smart-answers/commit/0df6fd7df9a00ec882edf249eeaaa68a291633c5) for an example.
 
+```ruby
+value_question :first_question? do
+  on_response do |response|
+    self.calculator = ExampleCalculator.new
+    calculator.first_response = response
+  end
+end
+```
+
 * Save the responses to questions on the calculator object using an `on_response` block rather than using `save_input_as`. See commit [b17128fb92b89941238a7e94b0c1abebe4351a83](https://github.com/alphagov/smart-answers/commit/b17128fb92b89941238a7e94b0c1abebe4351a83) for an example.
+
+```ruby
+value_question :subsequent_question? do
+  on_response do |response|
+    calculator.subsequent_response = response
+  end
+end
+```
 
 * Extract magic numbers into intention-revealing variables/constants. See commit [2e1f2ad117813cf0b8741ffbff6c711f5d838947](https://github.com/alphagov/smart-answers/commit/2e1f2ad117813cf0b8741ffbff6c711f5d838947) for an example.
 
