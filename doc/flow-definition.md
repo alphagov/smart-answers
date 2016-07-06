@@ -97,6 +97,8 @@ For example:
 module SmartAnswer
   class ExampleSmartAnswerFlow < Flow
     def define
+      # self = instance of SmartAnswer::Flow
+
       # metadata specified here
 
       multiple_choice :question_key do
