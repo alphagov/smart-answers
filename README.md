@@ -77,6 +77,7 @@ See:
 
 ### Smart Answers app development
 
+* [Development workflow](doc/development-workflow.md)
 * [Common errors you might run into during development](doc/common-errors.md)
 * [Environments](doc/environments.md)
 * [Continuous integration](doc/continuous-integration.md)
