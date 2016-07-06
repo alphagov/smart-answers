@@ -122,7 +122,7 @@ See [In-question blocks](#in-question-blocks) below for more information on the 
 
 The value of `self` inside the question node definition block (but outside other blocks) is the instance of the relevant question node. Thus in the example above, the calls to `#option` and `#next_node` are made on the instance of the question node.
 
-In the same way that there is a single instance of each flow class, there is only ever a single instance of each question definition in the system at any one time i.e. a flow instance has an invariant set of question node definition instances.
+In the same way that there is a single instance of each flow class, there is only ever a single instance of each question definition in the system at any one time i.e. a flow instance has a fixed set of question node definition instances.
 
 Since the same instance of a question definition is used across multiple requests, it's important that no request-specific state is stored on them.
 
