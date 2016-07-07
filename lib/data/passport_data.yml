@@ -20,7 +20,7 @@ albania:
   replacing: 6 weeks
   optimistic_processing_time?: false
 algeria:
-  type: ips_application_3
+  type: ips_application_2
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
   application_office: true
