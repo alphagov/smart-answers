@@ -23,8 +23,8 @@ module SmartAnswer
         option :northern_ireland
         option :overseas
 
-        next_node do |response|
-          case response
+        next_node do
+          case calculator.location_of_death
           when 'england_wales', 'scotland', 'northern_ireland'
             question :did_the_person_die_at_home_hospital?
           when 'overseas'
