@@ -1,11 +1,11 @@
 # Question types
 
-* `checkbox_question`
+## `checkbox_question`
   * User input: Choose zero to many options from a list of options.
   * Validation: Must be in the list of options.
   * Response: String containing comma-separated list of chosen options.
 
-* `country_select`
+## `country_select`
   * Options:
     * `exclude_countries`: Optional. Array of countries to exclude from the list.
     * `include_uk`: Optional. Boolean indicating whether to include 'united-kingdom' in the list.
@@ -14,32 +14,32 @@
   * Validation: Must be in the list of countries.
   * Response: String containing the chosen country.
 
-* `date_question`
+## `date_question`
   * User input: Choose a single date.
   * Validation: Must be a valid date.
   * Response: `Date` object.
 
-* `money_question`
+## `money_question`
   * User input: Enter a money amount.
   * Validation: Must be a number.
   * Response: `Money` object.
 
-* `multiple_choice`
+## `multiple_choice`
   * User input: Choose a single option from a list of options.
   * Validation: Must be in the list of options.
   * Response: String containing the chosen option.
 
-* `postcode_question`
+## `postcode_question`
   * User input: Enter a postcode.
   * Validation: Must be a valid postcode.
   * Response: String containing a normalised postcode (e.g. "wc2b6nh" becomes "WC2B 6NH").
 
-* `salary_question`
+## `salary_question`
   * User input: Enter an Amount and associated Period.
   * Validation: Amount must be a valid `Money` object and Period must be one of 'year', 'month' or 'week'.
   * Response: `Salary` object.
 
-* `value_question`
+## `value_question`
   * Options:
     * `parse`: Optional. One of `Integer`, `:to_i`, `Float` or `:to_f`
   * User input: Enter any text.
