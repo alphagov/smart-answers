@@ -248,7 +248,7 @@ Each of these block types and the point at which they are executed is explained 
 ##### `precalculate(variable_name, &block)`
 
 * These blocks were intended to be used to store state variables that are needed to render a question or outcome node template.
-* These blocks execute before the question/outcome template is rendered and before the user response is parsed from the request path.
+* These blocks are the first to execute for a given question/outcome. They execute before the relevant template is rendered, so that the state variables that they define are available in question/outcome templates. They also execute before the user response is parsed from the request path.
 * The parsed response is *not* passed to the block, because it has not been received at the point the block is executed.
 * The block return value is stored on the state object as a state variable named `variable_name`.
 
