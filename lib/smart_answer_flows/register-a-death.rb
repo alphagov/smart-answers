@@ -51,6 +51,10 @@ module SmartAnswer
         option :yes
         option :no
 
+        on_response do |response|
+          calculator.death_expected = response
+        end
+
         calculate :death_expected do |response|
           response == 'yes'
         end
