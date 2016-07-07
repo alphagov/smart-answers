@@ -326,16 +326,16 @@ See the [documentation for question templates](question-templates.md).
 
 ### Outcome nodes
 
-These are very similar to question nodes, however, only the following methods are available within the node definition:
+These are very similar to question nodes. However, it only makes sense to use `precalculate` blocks, because there should never be a response associated with an outcome node. Having said that, the following methods are all _technically_ available within the node definition, because they are instance methods on `SmartAnswer::Outcome` (or its superclasses):
 
 * [`precalculate`](#precalculatevariable_name-block)
 * [`on_response`](#on_responseblock)
 * [`next_node_calculation`](#next_node_calculationvariable_name-block)
 * [`calculate`](#calculatevariable_name-block)
 
-Having said that, no response is usually processed by an outcome node and so it only makes any sense to use `precalculate` blocks. Furthermore if any attempt is made to process a response when the current node is an outcome node (e.g. by hacking the URL path), an exception will be raised.
+If any attempt is made to process a response when the current node is an outcome node (e.g. by hacking the URL path), an exception will be raised.
 
-> The use of `precalculate` blocks in an outcome node definition is deprecated and should never be necessary; it should always be possible to call methods on the `calculator` state variable from within the templates instead.
+> Even the use of `precalculate` blocks in an outcome node definition is deprecated and should never be necessary; it should always be possible to call methods on the `calculator` state variable from within the templates instead.
 
 #### Templates
 
