@@ -14,7 +14,7 @@ The templates can contain content for any of the following keys:
 
 ### `options(hash)`
 
-* Valid for multiple choice & checkbox question types
+* Valid for [multiple choice](question-types.md#multiple_choice) & [checkbox question](question-types.md#checkbox_question) types
 * `hash` argument is a `Hash` of option keys (strings) and text values (also strings)
 * Used to "translate" options keys for multiple choice & checkbox questions into human-friendly text
 
@@ -35,7 +35,7 @@ The templates can contain content for any of the following keys:
 
 ### `suffix_label(text)`
 
-* Valid for value & money questions
+* Valid for [value questions](question-types.md#value_question) & [money questions](question-types.md#money_question)
 * `text` argument is a String
 * Used as the label (following the input control)
 
