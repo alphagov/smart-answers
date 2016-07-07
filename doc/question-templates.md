@@ -15,7 +15,7 @@ The templates can contain content for any of the following keys:
 ### `options(hash)`
 
 * Valid for multiple choice & checkbox question types
-* `hash` argument is a `Hash` of option key Strings versus option text Strings
+* `hash` argument is a `Hash` of option keys (strings) and text values (also strings)
 * Used to "translate" options keys for multiple choice & checkbox questions into human-friendly text
 
 ### `hint(text)`
