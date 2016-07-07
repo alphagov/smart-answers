@@ -55,10 +55,6 @@ module SmartAnswer
           calculator.death_expected = response
         end
 
-        calculate :death_expected do |response|
-          response == 'yes'
-        end
-
         next_node do
           outcome :uk_result
         end

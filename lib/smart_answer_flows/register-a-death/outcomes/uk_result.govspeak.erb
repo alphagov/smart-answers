@@ -27,7 +27,7 @@
       - the person making arrangements with the funeral directors
     <% end %>
 
-    <% if death_expected %>
+    <% if calculator.death_expected? %>
       What you need to do
       --------
 
@@ -78,7 +78,7 @@
 
     You should also take supporting documents that show your name and address (eg a utility bill) but you can still register a death without them.
 
-    <% if death_expected %>
+    <% if calculator.death_expected? %>
       Documents you’ll get
       --------
 

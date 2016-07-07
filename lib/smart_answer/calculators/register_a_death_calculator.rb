@@ -13,5 +13,9 @@ module SmartAnswer::Calculators
     def died_at_home_or_in_hospital?
       death_location_type == 'at_home_hospital'
     end
+
+    def death_expected?
+      death_expected == 'yes'
+    end
   end
 end
