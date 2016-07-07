@@ -1,6 +1,6 @@
 # Flow
 
-At the heart of each Smart Answer is a subclass of `SmartAnswer::Flow`. Subclasses like this make a DSL available for [specifying metadata](#metadata), and [defining](#definition) all the [question nodes](#question-nodes), the [outcome nodes](#outcome-nodes), and the [rules](doc/next-node-rules.md) to control routing between the nodes.
+At the heart of each Smart Answer is a subclass of `SmartAnswer::Flow`. Subclasses like this make a DSL available for [specifying metadata](#metadata), and [defining](#definition) all the [question nodes](#question-nodes), the [outcome nodes](#outcome-nodes), and the [rules](next-node-rules.md) to control routing between the nodes.
 
 ## Naming
 
@@ -77,11 +77,11 @@ Some flows (e.g. [register-a-birth][local-variable-in-flow-definition]) define l
 
 Every flow has an implicit start node which represents the "landing page" i.e. the page which displays the "Start" button. There is no representation of this start node in the flow definition. Clicking the "Start" button on the "landing page" takes you to the page for the first question node (see below).
 
-Also see the documentation for [landing page templates](doc/landing-page-template.md).
+Also see the documentation for [landing page templates](landing-page-template.md).
 
 ### Question nodes
 
-There is an implicit assumption that the question definition which appears first in the flow definition is the first question of the flow. All other "routing" between nodes is [done explicitly](doc/next-node-rules.md) in a single `next_node` block per question node.
+There is an implicit assumption that the question definition which appears first in the flow definition is the first question of the flow. All other "routing" between nodes is [done explicitly](next-node-rules.md) in a single `next_node` block per question node.
 
 By convention, question nodes are usually listed roughly in the order that a user would visit them. Although this isn't always straightforward when there are multiple paths through the flow.
 
@@ -89,7 +89,7 @@ Since all "routing" is done explicitly within `next_node` blocks, the order of t
 
 By convention, all question nodes are defined *before* any of the outcome nodes. However, again the order is functionally unimportant.
 
-Question nodes are defined by calls to one of the various [question-type methods](doc/question-types.md). Since the value of `self` at the "top-level" within the `#define` method is an instance of the flow, these question-type methods are defined on the `SmartAnswer::Flow` base class.
+Question nodes are defined by calls to one of the various [question-type methods](question-types.md). Since the value of `self` at the "top-level" within the `#define` method is an instance of the flow, these question-type methods are defined on the `SmartAnswer::Flow` base class.
 
 For example:
 
@@ -202,7 +202,7 @@ new_state.example_state_variable.equal?(state.example_state_variable)
 
 > Since a new instance of the state is created for each request, it's not obvious _why_ the state is duplicated in this way. I know that in the past there have been problems with state leaking between requests, so perhaps this was a mistaken attempt at preventing such leakage.
 
-It's possible to [view the state](doc/viewing-state.md) when you're running the app in the development environment.
+It's possible to [view the state](viewing-state.md) when you're running the app in the development environment.
 
 ##### Built-in state variables
 
@@ -284,7 +284,7 @@ Each of these block types and the point at which they are executed is explained 
   1. A `SmartAnswer::InvalidResponse` exception is raised with the `message_key` set as the exception message.
   2. This exception is handled within the app and prevents the transition to the next node.
   3. The `message_key` from the exception message is set on the built-in state variable, `error`.
-  4. When the question template is re-rendered, the `error` state variable is used to lookup the appropriate validation error message in the [question template](doc/question-templates.md#-error_message-message-).
+  4. When the question template is re-rendered, the `error` state variable is used to lookup the appropriate validation error message in the [question template](question-templates.md#error_messagemessage).
 
 > The use of these blocks is encouraged. However, they should call `valid_xxx?` methods on the `calculator` state variable and not rely on the `response` argument passed into the block.
 
@@ -294,7 +294,7 @@ Each of these block types and the point at which they are executed is explained 
 * This block is intended to determine which node comes next based on the user responses so far.
 * These blocks are executed after all the `validate` blocks have been executed and before any `save_input_as` blocks are executed.
 * The built-in state variables, `path`, `current_node` & `responses`, are updated if this block returns successfully.
-* The block return value must be the result of calling the `#question` or `#outcome` methods passing in the key of the next node - see the [next node documentation](doc/next-node-rules.md) for more details.
+* The block return value must be the result of calling the `#question` or `#outcome` methods passing in the key of the next node - see the [next node documentation](next-node-rules.md) for more details.
 
 > The use of this block type is *required*. However, it should call methods on the `calculator` state variable and not rely on the `response` argument passed into the block.
 
@@ -318,11 +318,11 @@ Each of these block types and the point at which they are executed is explained 
 
 #### Further information
 
-See the [documentation on storing data](doc/storing-data.md).
+See the [documentation on storing data](storing-data.md).
 
 #### Templates
 
-See the [documentation for question templates](doc/question-templates.md).
+See the [documentation for question templates](question-templates.md).
 
 ### Outcome nodes
 
@@ -339,7 +339,7 @@ Having said that, no response is usually processed by an outcome node and so it 
 
 #### Templates
 
-See the [documentation for outcome templates](doc/outcome-templates.md).
+See the [documentation for outcome templates](outcome-templates.md).
 
 [instance-eval]: http://ruby-doc.org/core-2.3.0/BasicObject.html#method-i-instance_eval
 [instance-exec]: http://ruby-doc.org/core-2.3.0/BasicObject.html#method-i-instance_exec
