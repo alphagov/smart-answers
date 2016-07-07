@@ -126,7 +126,7 @@ In the same way that there is a single instance of each flow class, there is onl
 
 Since the same instance of a question definition is used across multiple requests, it's important that no request-specific state is stored on them.
 
-The value of `self` inside the `next_node` blocks (or the other optional blocks) is an instance of `SmartAnswer::State` ([see below](#state)), i.e. *not* an instance of a question node.
+The value of `self` inside the `next_node` blocks (or the other [in-question blocks](#in-question-blocks)) is an instance of `SmartAnswer::State` ([see below](#state)), i.e. *not* an instance of a question node.
 
 ```ruby
 def define
