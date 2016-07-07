@@ -173,11 +173,34 @@ end
 The state object is intended to store all request-specific state, keeping that away from the instance of the flow which is reused across multiple requests. `SmartAnswer::State` inherits from `OpenStruct` and uses [`BasicObject#method_missing`][method-missing]
 to allow arbitrary "state variables" to be written and read.
 
+```ruby
+state = SmartAnswer::State.new(:first_node)
+state.example_state_variable = 123
+state.example_state_variable # => 123
+```
+
 Since the request path only includes the user's responses and *not* the question keys, and the app is stateless, *every* request has to be processed by walking through the question definition nodes starting at the first one. As a request is processed, the state is duplicated using [`Object#dup`][object-dup] in each "transition" to a new node.
 
-It's important to note that `Object#dup` does not do a "deep" copy. Thus any "state variables" set on the state which are references to other objects will continue to reference the same instances of those other object - those objects will *not* themselves be duplicated. The *only* exceptions to this are two built-in state variables, `responses` & `path` ([see below](#built-in-state-variables)) which are themselves duplicated using `Object#dup` in `State#initialize_copy`.
+```ruby
+state = SmartAnswer::State.new(:first_node)
+state.example_state_variable = 123
+new_state = state.transition_to(:second_node, 'first-response')
+new_state.equal?(state) # => false (i.e. they are *different* instances)
+new_state.example_state_variable # => 123
+```
 
-> Since a new instance of the state is created for each request, it's not obvious why the state is duplicated in this way. I know that in the past there have been problems with state leaking between requests, so perhaps this was a mistaken attempt at preventing such leakage.
+It's important to note that `Object#dup` does not do a "deep" copy. Thus any "state variables" set on the state which are references to other objects will continue to reference the _same_ instances of those other object - those objects will *not* themselves be duplicated. The *only* exceptions to this are two built-in state variables, `responses` & `path` ([see below](#built-in-state-variables)) which are themselves duplicated using `Object#dup` in `State#initialize_copy`.
+
+```ruby
+state = SmartAnswer::State.new(:first_node)
+state.example_state_variable = [1, 2, 3]
+new_state = state.transition_to(:second_node, 'first-response')
+new_state.example_state_variable # => [1, 2, 3]
+new_state.example_state_variable.equal?(state.example_state_variable)
+# => true (i.e. they are the *same* instance)
+```
+
+> Since a new instance of the state is created for each request, it's not obvious _why_ the state is duplicated in this way. I know that in the past there have been problems with state leaking between requests, so perhaps this was a mistaken attempt at preventing such leakage.
 
 It's possible to [view the state](doc/viewing-state.md) when you're running the app in the development environment.
 
@@ -188,6 +211,15 @@ It's possible to [view the state](doc/viewing-state.md) when you're running the 
 * `responses` - user responses parsed from request path; usually strings (?)
 * `response` - always `nil` (?)
 * `error` - key for validation error message to display; usually a string (?)
+
+```ruby
+state = SmartAnswer::State.new(:first_node)
+# => #<SmartAnswer::State current_node=:first_node, path=[], responses=[], response=nil, error=nil>
+first_state = state.transition_to(:second_node, 'first-response')
+# => #<SmartAnswer::State current_node=:second_node, path=[:first_node], responses=["first-response"], response=nil, error=nil>
+second_state = first_state.transition_to(:third_node, 'second-response')
+# => #<SmartAnswer::State current_node=:third_node, path=[:first_node, :second_node], responses=["first-response", "second-response"], response=nil, error=nil>
+```
 
 > Note that some of the application code (e.g. illegal multiple choice response) erroneously sets the error key to the validation error message *string*. Since this string is not the *key* to an error message, the default error message is displayed.
 
