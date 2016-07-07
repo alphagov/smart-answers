@@ -41,9 +41,6 @@ module SmartAnswer
           calculator.death_location_type = response
         end
 
-        calculate :died_at_home_hospital do |response|
-          response == 'at_home_hospital'
-        end
         next_node do
           question :was_death_expected?
         end
