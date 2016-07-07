@@ -13,11 +13,11 @@ module SmartAnswer
 
       # Q1
       multiple_choice :where_did_the_death_happen? do
-        on_response do
+        on_response do |response|
           self.calculator = Calculators::RegisterADeathCalculator.new
+          calculator.location_of_death = response
         end
 
-        save_input_as :where_death_happened
         option :england_wales
         option :scotland
         option :northern_ireland
