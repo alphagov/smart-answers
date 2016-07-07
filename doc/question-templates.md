@@ -43,7 +43,7 @@ The templates can contain content for any of the following keys:
 
 * Valid for all question types
 * `govspeak` argument is a String in [Govspeak][] format
-* Used to generate the main content (appearing above the input control)
+* Used to generate the main content (appearing above the input control, e.g. text input element)
 
 ### `post_body(govspeak)`
 
