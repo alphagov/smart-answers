@@ -225,7 +225,9 @@ second_state = first_state.transition_to(:third_node, 'second-response')
 
 #### In-question blocks
 
-All question definition blocks, must include a single `next_node` block. A number of other in-question blocks can optionally be defined by passing a block to any of the following methods on `SmartAnswer::Node` & `SmartAnswer::Question::Base`. The value of `self` inside all these blocks is an instance of `SmartAnswer::State` ([see above](#state)). The code inside these blocks is executed at request time, not at flow definition time.
+All question definition blocks, must include a single `next_node` block. A number of other in-question blocks can optionally be defined by passing a block to any of the following methods on `SmartAnswer::Node` & `SmartAnswer::Question::Base`: `precalculate`, `on_response`, `next_node_calculation`, `validate`, `next_node` & `calculate`. The `save_input_as` method is used in a similar way, but does not accept a block.
+
+The value of `self` inside all these blocks is an instance of `SmartAnswer::State` ([see above](#state)). The code inside these blocks is executed at request time, not at flow definition time.
 
 All blocks of a particular type (within a single question) are executed at particular points in the request processing sequence i.e. all `on_response` blocks are executed before all `next_node_calculation` blocks. The order in which the blocks are defined only affects the order in which they are executed within the group of blocks of the same type i.e. when two `on_response` blocks are defined, the one defined first will be executed before the one defined second; however, even if a `next_node_calculation` block is defined before both of these `on_response` blocks, it will always be executed after both of them.
 
