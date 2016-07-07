@@ -36,7 +36,7 @@ The flow is defined within the `define` instance method of the `Flow` subclass u
 
 Each flow is instantiated in the [`FlowRegistry`][flow-registry] via the `Flow.build` method which, in turn, instantiates the flow and invokes its `Flow#define` method.
 
-Currently in `development` & `production` environments (but not in `test`) a single instance of each flow class is instantiated at application start-up (or strictly speaking on the first request) and cached in the `FlowRegistry` i.e. the same instance of a particular flow class is used to service all the user requests involving that Smart Answer. Thus it's important that no request-specific state is stored on the flow instance, otherwise this could leak into other user requests.
+Currently when the app is running in the Rails `development` & `production` environments (but not in `test`) a single instance of each flow class is instantiated at application start-up (or strictly speaking on the first request) and cached in the `FlowRegistry` i.e. the same instance of a particular flow class is used to service all the user requests involving that Smart Answer. Thus it's important that no request-specific state is stored on the flow instance, otherwise this could leak into other user requests.
 
 It's important to understand this distinction between "flow definition time" and "request time" when trying to understand a flow definition. A number of the sections below refer to this distinction.
 
