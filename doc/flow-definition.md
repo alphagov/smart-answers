@@ -248,7 +248,8 @@ Each of these block types and the point at which they are executed is explained 
 ##### `precalculate(variable_name, &block)`
 
 * These blocks were intended to be used to store state variables that are needed to render a question or outcome node template.
-* It's simplest to think about these blocks executing before the user response is parsed from the request path.
+* These blocks execute before the question/outcome template is rendered and before the user response is parsed from the request path.
+* The parsed response is *not* passed to the block, because it has not been received at the point the block is executed.
 * The block return value is stored on the state object as a state variable named `variable_name`.
 
 > Note that due to an oversight in the implementation of `Flow#process`, it's not currently possible to use a `precalculate` block in the first question.
@@ -258,7 +259,7 @@ Each of these block types and the point at which they are executed is explained 
 ##### `on_response(&block)`
 
 * These blocks are intended to be used to store user responses on a `calculator` state variable. They are a [relatively new addition to the DSL][introduction-of-on-response-blocks].
-* These blocks are called  after the user response has been parsed from the request path and before any of the `next_node_calculation` blocks are executed.
+* These blocks are called after the question/outcome template has been rendered and after the user response has been parsed from the request path, but before any of the `next_node_calculation` blocks are executed.
 * The parsed response is passed to the block as the only argument and by convention is named `response`.
 * The block return value is not used and no state variable is stored.
 
