@@ -36,6 +36,11 @@ module SmartAnswer
       multiple_choice :did_the_person_die_at_home_hospital? do
         option :at_home_hospital
         option :elsewhere
+
+        on_response do |response|
+          calculator.death_location_type = response
+        end
+
         calculate :died_at_home_hospital do |response|
           response == 'at_home_hospital'
         end
