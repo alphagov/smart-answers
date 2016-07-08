@@ -5,7 +5,7 @@ module SmartAnswer::Calculators
     )
 
     BOOK_APPOINTMENT_ONLINE_COUNTRIES = %w(
-      kyrgyzstan tajikistan turkmenistan uzbekistan
+      kyrgyzstan tajikistan turkmenistan uzbekistan gaza
     )
 
     UK_VISA_APPLICATION_CENTRE_COUNTRIES = %w(
