@@ -198,5 +198,23 @@ module SmartAnswer::Calculators
     def under_green_deal_part_3?
       both_help? && age_variant == :over_60 && (benefits_claimed & %w(esa child_tax_credit working_tax_credit) || incomesupp_jobseekers_1? || incomesupp_jobseekers_2?)
     end
+
+    def home_features_modern
+      dataset.fetch(:home_features_modern)
+    end
+
+    def home_features_older
+      dataset.fetch(:home_features_older)
+    end
+
+    def home_features_historic
+      dataset.fetch(:home_features_historic)
+    end
+
+    private
+
+    def dataset
+      @dataset ||= YAML.load_file(Rails.root.join('lib', 'data', 'energy_grants_calculator.yml')).with_indifferent_access
+    end
   end
 end

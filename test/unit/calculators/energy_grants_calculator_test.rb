@@ -426,5 +426,49 @@ module SmartAnswer::Calculators
         end
       end
     end
+
+    context "#features" do
+      should 'get features for modern home' do
+        assert @calculator.home_features_modern.key?(:mains_gas)
+        assert @calculator.home_features_modern.key?(:electric_heating)
+        assert @calculator.home_features_modern.key?(:loft_attic_conversion)
+        assert @calculator.home_features_modern.key?(:draught_proofing)
+        refute @calculator.home_features_modern.key?(:modern_double_glazing)
+        refute @calculator.home_features_modern.key?(:loft_insulation)
+        refute @calculator.home_features_modern.key?(:solid_wall_insulation)
+        refute @calculator.home_features_modern.key?(:modern_boiler)
+        refute @calculator.home_features_modern.key?(:cavity_wall_insulation)
+
+        assert_equal 4, @calculator.home_features_modern.count
+      end
+
+      should 'get features for older home' do
+        assert @calculator.home_features_older.key?(:mains_gas)
+        assert @calculator.home_features_older.key?(:electric_heating)
+        assert @calculator.home_features_older.key?(:loft_attic_conversion)
+        assert @calculator.home_features_older.key?(:draught_proofing)
+        assert @calculator.home_features_older.key?(:modern_double_glazing)
+        assert @calculator.home_features_older.key?(:loft_insulation)
+        assert @calculator.home_features_older.key?(:solid_wall_insulation)
+        assert @calculator.home_features_older.key?(:modern_boiler)
+        assert @calculator.home_features_older.key?(:cavity_wall_insulation)
+
+        assert_equal 9, @calculator.home_features_older.count
+      end
+
+      should 'get features for historic home' do
+        assert @calculator.home_features_historic.key?(:mains_gas)
+        assert @calculator.home_features_historic.key?(:electric_heating)
+        assert @calculator.home_features_historic.key?(:loft_attic_conversion)
+        assert @calculator.home_features_historic.key?(:draught_proofing)
+        assert @calculator.home_features_historic.key?(:modern_double_glazing)
+        assert @calculator.home_features_historic.key?(:loft_insulation)
+        assert @calculator.home_features_historic.key?(:solid_wall_insulation)
+        assert @calculator.home_features_historic.key?(:modern_boiler)
+        refute @calculator.home_features_historic.key?(:cavity_wall_insulation)
+
+        assert_equal 8, @calculator.home_features_historic.count
+      end
+    end
   end
 end
