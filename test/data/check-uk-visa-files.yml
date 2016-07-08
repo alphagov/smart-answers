@@ -34,7 +34,7 @@ lib/smart_answer_flows/check-uk-visa/outcomes/outcome_work_n.govspeak.erb: 8167c
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_work_waiver.govspeak.erb: 916d5d06e4f6958d2dc287f128fd0bc9
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_work_y.govspeak.erb: d005b94c9d6e07281fc40c4b42a49b8d
 lib/smart_answer_flows/check-uk-visa/questions/israeli_document_type.govspeak.erb: 6e6ea79788922c6e4a76f87cac040193
-lib/smart_answer_flows/check-uk-visa/questions/passing_through_uk_border_control.govspeak.erb: 06c6cc3553ff2ce5b62364f3430e9394
+lib/smart_answer_flows/check-uk-visa/questions/passing_through_uk_border_control.govspeak.erb: 067c3f20d2e1ab4af70abc148c7661c1
 lib/smart_answer_flows/check-uk-visa/questions/purpose_of_visit.govspeak.erb: b778204d9ab13cc9163e1224c22dc5f1
 lib/smart_answer_flows/check-uk-visa/questions/staying_for_how_long.govspeak.erb: 3d00e24db2c951d6853808b7c1c33ed4
 lib/smart_answer_flows/check-uk-visa/questions/what_passport_do_you_have.govspeak.erb: 45a59c18a7b570142f32d3b93f8f7db4
