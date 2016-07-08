@@ -112,7 +112,7 @@ module SmartAnswer
           if calculator.transit_visit?
             if calculator.passport_country_in_datv_list? ||
                 calculator.passport_country_in_visa_national_list? || calculator.passport_country_is_taiwan? || calculator.passport_country_is_venezuela?
-              next question(:passing_through_uk_border_control?)
+              next question(:travelling_to_cta?)
             else
               next outcome(:outcome_no_visa_needed)
             end
@@ -128,6 +128,40 @@ module SmartAnswer
             end
           end
         end
+      end
+
+      #Q2a
+      multiple_choice :travelling_to_cta? do
+        option :channel_islands_or_isle_of_man
+        option :republic_of_ireland
+        option :somewhere_else
+
+        on_response do |response|
+          calculator.travelling_to_cta_answer = response
+        end
+
+        next_node do
+          if calculator.travelling_to_channel_islands_or_isle_of_man?
+            next question(:channel_islands_or_isle_of_man?)
+          elsif calculator.travelling_to_ireland?
+            next outcome(:outcome_transit_to_the_republic_of_ireland)
+          elsif calculator.travelling_to_elsewhere?
+            next question(:passing_through_uk_border_control?)
+          end
+        end
+      end
+
+      #Q2b
+      multiple_choice :channel_islands_or_isle_of_man? do
+        option :tourism
+        option :work
+        option :study
+        option :family
+        option :marriage
+        option :school
+        option :medical
+        option :diplomatic
+
       end
 
       #Q3
@@ -213,6 +247,7 @@ module SmartAnswer
       end
 
       outcome :outcome_diplomatic_business
+      outcome :outcome_transit_to_the_republic_of_ireland
       outcome :outcome_joining_family_m
       outcome :outcome_joining_family_nvn
       outcome :outcome_joining_family_y
