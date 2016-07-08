@@ -246,12 +246,41 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         assert_current_node :outcome_medical_n
       end
     end
-    context "coming to the on the way somewhere else" do
+    context "on transit" do
       setup do
         add_response 'transit'
       end
-      should "take you to outcome no visa needed" do
-        assert_current_node :outcome_no_visa_needed
+
+      should "take you to common travel area (cta) question" do
+        assert_current_node :travelling_to_cta?
+      end
+
+      context "to the channel islands" do
+        setup do
+          add_response 'channel_islands_or_isle_of_man'
+        end
+
+        should "take you to purpose of visit question" do
+          assert_current_node :channel_islands_or_isle_of_man?
+        end
+      end
+      context "to the Republis of Ireland" do
+        setup do
+          add_response 'republic_of_ireland'
+        end
+
+        should "take you to outcome no visa needed" do
+          assert_current_node :outcome_no_visa_needed
+        end
+      end
+      context "heading somewhere else" do
+        setup do
+          add_response 'somewhere_else'
+        end
+
+        should "take you to passing_through_uk_border_control question" do
+          assert_current_node :passing_through_uk_border_control?
+        end
       end
     end
     context "coming to join family" do

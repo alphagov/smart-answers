@@ -74,7 +74,11 @@ module SmartAnswer
           if calculator.travelling_to_channel_islands_or_isle_of_man?
             next question(:channel_islands_or_isle_of_man?)
           elsif calculator.travelling_to_ireland?
-            next outcome(:outcome_transit_to_the_republic_of_ireland)
+            if calculator.passport_country_in_non_visa_national_list?
+              next outcome(:outcome_no_visa_needed)
+            else
+              next outcome(:outcome_transit_to_the_republic_of_ireland)
+            end
           elsif calculator.travelling_to_elsewhere?
             next question(:passing_through_uk_border_control?)
           end
@@ -112,6 +116,8 @@ module SmartAnswer
               outcome :outcome_transit_leaving_airport
             elsif calculator.passport_country_in_datv_list?
               outcome :outcome_transit_leaving_airport_datv
+            elsif calculator.passport_country_in_non_visa_national_list?
+              outcome :outcome_no_visa_needed
             end
           else
             if calculator.passport_country_is_taiwan?
@@ -123,6 +129,8 @@ module SmartAnswer
             elsif calculator.passport_country_in_datv_list?
               outcome :outcome_transit_not_leaving_airport
             elsif calculator.passport_country_in_visa_national_list?
+              outcome :outcome_no_visa_needed
+            elsif calculator.passport_country_in_non_visa_national_list?
               outcome :outcome_no_visa_needed
             end
           end
@@ -264,7 +272,8 @@ module SmartAnswer
 
         if calculator.transit_visit?
           if calculator.passport_country_in_datv_list? ||
-              calculator.passport_country_in_visa_national_list? || calculator.passport_country_is_taiwan? || calculator.passport_country_is_venezuela?
+              calculator.passport_country_in_visa_national_list? || calculator.passport_country_is_taiwan? || calculator.passport_country_is_venezuela? ||
+              calculator.passport_country_in_non_visa_national_list?
             next question(:travelling_to_cta?)
           else
             next outcome(:outcome_no_visa_needed)
