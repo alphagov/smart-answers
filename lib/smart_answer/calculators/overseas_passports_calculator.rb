@@ -183,5 +183,9 @@ module SmartAnswer::Calculators
     def ips_docs_number
       supporting_documents.split("_")[3] if ips_application?
     end
+
+    def find_passport_fee(passport_type)
+      @data_query.find_passport_fee(passport_type)
+    end
   end
 end
