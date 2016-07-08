@@ -245,7 +245,12 @@ module SmartAnswer
           when 'year-1617'
             case response
             when 'course-start-before-01092012'
-              outcome :outcome_uk_pt_1617_grant
+              case continuing_student
+              when 'continuing-student'
+                outcome :outcome_uk_pt_1617_grant_continuing
+              when 'new-student'
+                outcome :outcome_uk_pt_1617_grant_new
+              end
             when 'course-start-after-01092012'
               case continuing_student
               when 'continuing-student'
@@ -280,7 +285,8 @@ module SmartAnswer
       outcome :outcome_proof_identity_1617
       outcome :outcome_travel
       outcome :outcome_uk_pt_1617_continuing
-      outcome :outcome_uk_pt_1617_grant
+      outcome :outcome_uk_pt_1617_grant_continuing
+      outcome :outcome_uk_pt_1617_grant_new
       outcome :outcome_uk_pt_1617_new
       outcome :outcome_uk_ft_1516_continuing
       outcome :outcome_uk_ft_1516_new

@@ -1,8 +1,9 @@
 ---
-lib/smart_answer_flows/student-finance-forms.rb: e2bdc0683b57d709bf3fbf571e158d4a
+lib/smart_answer_flows/student-finance-forms.rb: 54d798fccd0bbf3cb11f950693549580
 test/data/student-finance-forms-questions-and-responses.yml: 221dff2fa2821ce3fd5bc724d3ca7dd4
-test/data/student-finance-forms-responses-and-expected-results.yml: 9f7888f42cdca5f3da89a6de02b84e34
+test/data/student-finance-forms-responses-and-expected-results.yml: 6b5c09bef9fd9a9d905ff716101acb03
 lib/smart_answer_flows/student-finance-forms/outcomes/_circumstances_changed_co2_form.govspeak.erb: 236d81f3660a1958bb0dd3a8f229baf4
+lib/smart_answer_flows/student-finance-forms/outcomes/_uk_pt_1617_grant.govspeak.erb: 9325a15dc30fef3e934c34be055097ad
 lib/smart_answer_flows/student-finance-forms/outcomes/_when_you_can_apply.govspeak.erb: c3459b01f8733370279520306716f895
 lib/smart_answer_flows/student-finance-forms/outcomes/_where_to_send_your_forms_non_uk.govspeak.erb: 7cc0f616b4df674cd314ba6ffc0a675b
 lib/smart_answer_flows/student-finance-forms/outcomes/_where_to_send_your_forms_uk.govspeak.erb: e32479a47518d9f72b5786d00bbf8ca7
@@ -20,7 +21,7 @@ lib/smart_answer_flows/student-finance-forms/outcomes/outcome_eu_ft_1617_continu
 lib/smart_answer_flows/student-finance-forms/outcomes/outcome_eu_ft_1617_new.govspeak.erb: de40ad74ec044a07a702c9a4a72447a3
 lib/smart_answer_flows/student-finance-forms/outcomes/outcome_eu_pt_1516_continuing.govspeak.erb: 07189e16f1f8d4940fe6a778230ee479
 lib/smart_answer_flows/student-finance-forms/outcomes/outcome_eu_pt_1516_new.govspeak.erb: 02a6092382484da065e75e31194582b0
-lib/smart_answer_flows/student-finance-forms/outcomes/outcome_eu_pt_1617_continuing.govspeak.erb: e071401ec68ebe388556087dd0938bfb
+lib/smart_answer_flows/student-finance-forms/outcomes/outcome_eu_pt_1617_continuing.govspeak.erb: f2613a4435a7694756baad1b104d4f2e
 lib/smart_answer_flows/student-finance-forms/outcomes/outcome_eu_pt_1617_new.govspeak.erb: 320fa759eec25e2330a0581e84b27c2c
 lib/smart_answer_flows/student-finance-forms/outcomes/outcome_parent_partner_1516.govspeak.erb: 27880afc7ba3477ed3ee6c9a1e4c4182
 lib/smart_answer_flows/student-finance-forms/outcomes/outcome_parent_partner_1617.govspeak.erb: 41fea6bde7503488a9ee3e88fb3bbd90
@@ -34,7 +35,8 @@ lib/smart_answer_flows/student-finance-forms/outcomes/outcome_uk_ft_1617_new.gov
 lib/smart_answer_flows/student-finance-forms/outcomes/outcome_uk_pt_1516_continuing.govspeak.erb: c05b8ffbe69a266baeabf8e5f21e5a82
 lib/smart_answer_flows/student-finance-forms/outcomes/outcome_uk_pt_1516_new.govspeak.erb: eb4b7d72d488a1bef19c4a38fba2699a
 lib/smart_answer_flows/student-finance-forms/outcomes/outcome_uk_pt_1617_continuing.govspeak.erb: dc1540087c19c54be6180d0652922571
-lib/smart_answer_flows/student-finance-forms/outcomes/outcome_uk_pt_1617_grant.govspeak.erb: 913f0492262bd257f3f973342f1f6b56
+lib/smart_answer_flows/student-finance-forms/outcomes/outcome_uk_pt_1617_grant_continuing.govspeak.erb: fc3eda325266715d172ec0a7cd9fdbc0
+lib/smart_answer_flows/student-finance-forms/outcomes/outcome_uk_pt_1617_grant_new.govspeak.erb: 1794d81c3f1eb1ebf9ace499b6dd7228
 lib/smart_answer_flows/student-finance-forms/outcomes/outcome_uk_pt_1617_new.govspeak.erb: 44392e71e2ffe85dbb0b9522c60cda47
 lib/smart_answer_flows/student-finance-forms/outcomes/outcome_uk_ptgc_1516_grant.govspeak.erb: 87f7baad96e7af2774f38cad15a999bd
 lib/smart_answer_flows/student-finance-forms/outcomes/outcome_uk_ptgn_1516_grant.govspeak.erb: 484d5ba98b10f9dbf62e0d67b81d2b89

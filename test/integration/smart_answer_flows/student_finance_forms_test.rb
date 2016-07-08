@@ -226,7 +226,7 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
       assert_current_node :outcome_ccg_expenses
     end
 
-    should "lead to outcome_uk_pt_1617_grant for continuing students" do
+    should "lead to outcome_uk_pt_1617_grant_continuing for continuing students" do
       add_response 'uk-part-time'
       assert_current_node :form_needed_for_2?
       add_response 'apply-loans-grants'
@@ -236,7 +236,7 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
       add_response 'continuing-student'
       assert_current_node :pt_course_start?
       add_response 'course-start-before-01092012'
-      assert_current_node :outcome_uk_pt_1617_grant
+      assert_current_node :outcome_uk_pt_1617_grant_continuing
     end
 
     should "lead to outcome_uk_pt_1617_continuing" do
@@ -252,7 +252,7 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
       assert_current_node :outcome_uk_pt_1617_continuing
     end
 
-    should "lead to outcome_uk_pt_1617_grant for new students" do
+    should "lead to outcome_uk_pt_1617_grant_new for new students" do
       add_response 'uk-part-time'
       assert_current_node :form_needed_for_2?
       add_response 'apply-loans-grants'
@@ -262,7 +262,7 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
       add_response 'new-student'
       assert_current_node :pt_course_start?
       add_response 'course-start-before-01092012'
-      assert_current_node :outcome_uk_pt_1617_grant
+      assert_current_node :outcome_uk_pt_1617_grant_new
     end
 
     should "lead to outcome_uk_pt_1617_new" do

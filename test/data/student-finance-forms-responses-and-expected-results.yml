@@ -187,7 +187,7 @@
   - year-1617
   - continuing-student
   - course-start-before-01092012
-  :next_node: :outcome_uk_pt_1617_grant
+  :next_node: :outcome_uk_pt_1617_grant_continuing
   :outcome_node: true
 - :current_node: :pt_course_start?
   :responses:
@@ -213,7 +213,7 @@
   - year-1617
   - new-student
   - course-start-before-01092012
-  :next_node: :outcome_uk_pt_1617_grant
+  :next_node: :outcome_uk_pt_1617_grant_new
   :outcome_node: true
 - :current_node: :pt_course_start?
   :responses:
