@@ -213,6 +213,10 @@ module SmartAnswer
         option :loft_attic_conversion
         option :draught_proofing
 
+        precalculate :all_home_features do
+          calculator.home_features_modern
+        end
+
         on_response do |response|
           calculator.features = response.split(",")
         end
@@ -243,6 +247,10 @@ module SmartAnswer
         option :modern_boiler
         option :draught_proofing
 
+        precalculate :all_home_features do
+          calculator.home_features_historic
+        end
+
         on_response do |response|
           calculator.features = response.split(",")
         end
@@ -271,6 +279,10 @@ module SmartAnswer
         option :cavity_wall_insulation
         option :modern_boiler
         option :draught_proofing
+
+        precalculate :all_home_features do
+          calculator.home_features_older
+        end
 
         on_response do |response|
           calculator.features = response.split(",")

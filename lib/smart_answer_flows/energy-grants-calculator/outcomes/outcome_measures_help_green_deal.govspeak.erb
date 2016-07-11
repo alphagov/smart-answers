@@ -4,7 +4,9 @@
 
 <% content_for :body do %>
   <%= render partial: 'callout_under_green_deal.govspeak.erb' %>
-  <%= render partial: 'boilers_and_insulation.govspeak.erb' %>
+  <% if all_home_features.count > calculator.features.count %>
+    <%= render partial: 'boilers_and_insulation.govspeak.erb' %>
+  <% end %>
   <%= render partial: 'header_heating.govspeak.erb' %>
 
   <%= render partial: 'opt_better_heating_controls.govspeak.erb' %>

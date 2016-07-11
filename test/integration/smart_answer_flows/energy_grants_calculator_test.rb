@@ -285,6 +285,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
               should "ask which of these do you have?" do
                 assert_current_node :home_features_modern?
                 assert current_state.calculator.modern_property?
+                assert_equal 4, current_state.all_home_features.count
               end
               context "answer mains gas" do
                 setup do
@@ -292,6 +293,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
                 end
                 should "take you to measures_help and eco_eligible outcome" do
                   assert_current_node :outcome_bills_and_measures_on_benefits_not_eco_eligible
+                  assert_equal 1, current_state.calculator.features.count
                 end
               end
             end
@@ -327,6 +329,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
                 should "ask what features does it have" do
                   assert_current_node :home_features_older?
                   assert current_state.calculator.older_property?
+                  assert_equal 9, current_state.all_home_features.count
                 end
                 context "answer cavity wall insulation, loft insulation, mains gas, modern boiler" do
                   setup do
@@ -334,6 +337,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
                   end
                   should "take you to measures_help and eco_eligible outcome" do
                     assert_current_node :outcome_bills_and_measures_on_benefits_not_eco_eligible
+                    assert_equal 4, current_state.calculator.features.count
                   end
                 end
 
@@ -377,6 +381,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
                 end
                 should "ask which features your home has" do
                   assert_current_node :home_features_historic?
+                  assert_equal 8, current_state.all_home_features.count
                 end
                 context "answer loft_insulation, mains_gas, modern_boiler, modern_double_glazing" do
                   setup do
@@ -384,6 +389,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
                   end
                   should "take you to measure help and eco_eligible outcome with variants" do
                     assert_current_node :outcome_bills_and_measures_on_benefits_not_eco_eligible
+                    assert_equal 4, current_state.calculator.features.count
                   end
                 end
               end
@@ -411,6 +417,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
               end
               should "ask what features your home has" do
                 assert_current_node :home_features_older?
+                assert_equal 9, current_state.all_home_features.count
               end
               context "answer electric_heating and mains_gas" do
                 setup do
@@ -418,6 +425,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
                 end
                 should "take you to measure help & eco_eligible outcome, with electric heating & mains gas variants" do
                   assert_current_node :outcome_bills_and_measures_on_benefits_not_eco_eligible
+                  assert_equal 2, current_state.calculator.features.count
                 end
               end
             end
@@ -444,6 +452,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
               end
               should "ask which features your home has" do
                 assert_current_node :home_features_historic?
+                assert_equal 8, current_state.all_home_features.count
               end
               context "answer mains gas and modern boiler" do
                 setup do
@@ -451,6 +460,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
                 end
                 should "take you to measures help and eco eligible outcome" do
                   assert_current_node :outcome_bills_and_measures_on_benefits_not_eco_eligible
+                  assert_equal 2, current_state.calculator.features.count
                 end
               end
             end
@@ -520,6 +530,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
             end
             should "ask what features your modern home has" do
               assert_current_node :home_features_modern?
+              assert_equal 4, current_state.all_home_features.count
             end
             context "answer mains gas" do
               setup do
@@ -527,6 +538,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
               end
               should "take you to measure help & eco eligible outcome with mains gas variants" do
                 assert_current_node :outcome_measures_help_green_deal
+                assert_equal 1, current_state.calculator.features.count
               end
             end
           end

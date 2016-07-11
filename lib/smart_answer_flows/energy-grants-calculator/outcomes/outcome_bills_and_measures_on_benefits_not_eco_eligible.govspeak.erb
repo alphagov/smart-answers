@@ -26,13 +26,13 @@
     <%= render partial: 'opt_eco_help.govspeak.erb' %>
     <%= render partial: 'callout_under_green_deal.govspeak.erb' %>
   <% end %>
-  <% if !calculator.benefits_claimed_and_can_install_boiler? %>
+  <% if !calculator.benefits_claimed_and_can_install_boiler? && (all_home_features.count > calculator.features.count) %>
     <%= render partial: 'boilers_and_insulation.govspeak.erb', locals: {calculator: calculator} %>
   <% end %>
   <% if calculator.may_qualify_for_affordable_warmth_obligation? %>
     <%= render partial: 'may_qualify_for_affordable_warmth_obligation.govspeak.erb' %>
   <% end %>
-  <% if calculator.benefits_claimed_and_can_install_boiler? %>
+  <% if calculator.benefits_claimed_and_can_install_boiler? && (all_home_features.count > calculator.features.count) %>
     <%= render partial: 'boilers_and_insulation.govspeak.erb', locals: {calculator: calculator} %>
   <% end %>
   <%= render partial: 'header_heating.govspeak.erb' %>

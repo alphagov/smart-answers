@@ -20,7 +20,9 @@
     <% end %>
     <%= render partial: 'callout_under_green_deal.govspeak.erb' %>
   <% end %>
-  <%= render partial: 'boilers_and_insulation.govspeak.erb', locals: {calculator: calculator} %>
+  <% if all_home_features.count > calculator.features.count %>
+    <%= render partial: 'boilers_and_insulation.govspeak.erb', locals: {calculator: calculator} %>
+  <% end %>
   <%= render partial: 'header_heating.govspeak.erb' %>
   <%= render partial: 'opt_better_heating_controls.govspeak.erb' %>
   <% unless calculator.mains_gas? %>
