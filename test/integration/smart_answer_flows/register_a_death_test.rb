@@ -378,7 +378,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
       end
       should "give oru_result" do
         assert_current_node :oru_result
-        assert_state_variable :death_country_name_lowercase_prefix, 'Egypt'
+        assert_equal 'Egypt', current_state.calculator.death_country_name_lowercase_prefix
         assert_state_variable :registration_country_name_lowercase_prefix, 'Belgium'
         assert_state_variable :registration_country, 'belgium'
       end

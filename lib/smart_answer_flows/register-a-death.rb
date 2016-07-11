@@ -73,10 +73,6 @@ module SmartAnswer
           calculator.registration_country_name_lowercase_prefix
         end
 
-        calculate :death_country_name_lowercase_prefix do
-          calculator.death_country_name_lowercase_prefix
-        end
-
         next_node do
           if calculator.responded_with_commonwealth_country?
             outcome :commonwealth_result
