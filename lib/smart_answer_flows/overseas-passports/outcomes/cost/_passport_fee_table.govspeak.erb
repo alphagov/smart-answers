@@ -1,0 +1,11 @@
+<% case calculator.child_or_adult %>
+<% when 'adult' %>
+    | Passport type | Passport fee | Total to pay (including courier fee) |
+    |---------------|--------------|--------------------------------------|
+    | Adult standard 32-page passport | <%= number_to_currency(calculator.find_passport_fee('adult_standard'), precision: 2) %> | <%= number_to_currency(calculator.total_cost('adult_standard'), precision: 2) %> |
+    | Adult jumbo 48-page passport | <%= number_to_currency(calculator.find_passport_fee('adult_jumbo'), precision: 2) %> | <%= number_to_currency(calculator.total_cost('adult_jumbo'), precision: 2) %> |
+<% when 'child' %>
+    | Passport type | Passport fee | Total to pay (including courier fee) |
+    |---------------|--------------|--------------------------------------|
+    | Child passport | <%= number_to_currency(calculator.find_passport_fee('child'), precision: 2) %> | <%= number_to_currency(calculator.total_cost('child'), precision: 2) %> |
+<% end %>
