@@ -52,7 +52,7 @@
     The courier fee pays for your passport to be sent securely to the British Embassy in Tashkent for you to collect.
   <% end %>
 
-  <%= render partial: 'cost/child_or_adult_passport.govspeak.erb', locals: { calculator: calculator } %>
+  <%= render partial: 'cost/passport_fee_table.govspeak.erb', locals: { calculator: calculator } %>
 
   <%= render partial: 'cost/payment_instructions.govspeak.erb', locals: { calculator: calculator } %>
 <% else %>
@@ -91,7 +91,7 @@
     <% end %>
   <% end %>
 
-  <%= render partial: 'cost/child_or_adult_passport.govspeak.erb', locals: { calculator: calculator } %>
+  <%= render partial: 'cost/passport_fee_table.govspeak.erb', locals: { calculator: calculator } %>
 
   <% if calculator.cash_only_country? %>
     You must pay in cash using local currency - the prices above will be converted according to the exchange rate when you apply.
