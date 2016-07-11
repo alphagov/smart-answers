@@ -95,6 +95,10 @@ module SmartAnswer
         option :another_country
         option :in_the_uk
 
+        on_response do |response|
+          calculator.current_location = response
+        end
+
         calculate :another_country do |response|
           response == 'another_country'
         end
