@@ -37,20 +37,9 @@
   <%= render partial: 'cost/payment_instructions.govspeak.erb', locals: { calculator: calculator } %>
 
 <% elsif %w(tajikistan turkmenistan uzbekistan).include?(calculator.current_location) %>
-  <% case calculator.current_location %>
-  <% when 'tajikistan' %>
-    You’ll have to pay a fee for your passport and a courier fee of <%= number_to_currency(calculator.courier_fee, precision: 2) %>.
+  You’ll have to pay a fee for your passport and a courier fee of <%= number_to_currency(calculator.courier_fee, precision: 2) %>.
 
-    <%= render partial: 'cost/courier_fee_information.govspeak.erb', locals: { calculator: calculator } %>
-  <% when 'turkmenistan' %>
-    You’ll have to pay a fee for your passport and a courier fee of <%= number_to_currency(calculator.courier_fee, precision: 2) %>.
-
-    <%= render partial: 'cost/courier_fee_information.govspeak.erb', locals: { calculator: calculator } %>
-  <% when 'uzbekistan' %>
-    You’ll have to pay a fee for your passport and a courier fee of <%= number_to_currency(calculator.courier_fee, precision: 2) %>.
-
-    <%= render partial: 'cost/courier_fee_information.govspeak.erb', locals: { calculator: calculator } %>
-  <% end %>
+  <%= render partial: 'cost/courier_fee_information.govspeak.erb', locals: { calculator: calculator } %>
 
   <%= render partial: 'cost/passport_fee_table.govspeak.erb', locals: { calculator: calculator } %>
 
