@@ -62,14 +62,16 @@ module SmartAnswer
 
       # Q4
       country_select :which_country?, exclude_countries: exclude_countries do
-        save_input_as :country_of_death
+        on_response do |response|
+          calculator.country_of_death = response
+        end
 
         calculate :registration_country do |response|
           reg_data_query.registration_country_slug(response)
         end
 
         calculate :registration_country_name_lowercase_prefix do
-          country_name_query.definitive_article(country_of_death)
+          country_name_query.definitive_article(calculator.country_of_death)
         end
 
         calculate :death_country_name_lowercase_prefix do
@@ -110,7 +112,7 @@ module SmartAnswer
         end
 
         next_node_calculation(:died_in_north_korea) {
-          country_of_death == 'north-korea'
+          calculator.country_of_death == 'north-korea'
         }
 
         next_node do |response|
@@ -158,7 +160,7 @@ module SmartAnswer
         end
 
         precalculate :translator_link_url do
-          translator_query.links[country_of_death]
+          translator_query.links[calculator.country_of_death]
         end
 
         precalculate :reg_data_query do

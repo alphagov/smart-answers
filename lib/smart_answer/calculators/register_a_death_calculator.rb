@@ -5,6 +5,7 @@ module SmartAnswer::Calculators
     attr_accessor :location_of_death
     attr_accessor :death_location_type
     attr_accessor :death_expected
+    attr_accessor :country_of_death
 
     def died_in_uk?
       %w(england_wales scotland northern_ireland).include?(location_of_death)

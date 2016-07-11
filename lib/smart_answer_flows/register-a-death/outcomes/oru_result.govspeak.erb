@@ -24,10 +24,10 @@
 
   You must provide:
 
-  <% if reg_data_query.oru_documents_variant_for_death?(country_of_death) %>
-    <% if country_of_death == 'poland' %>
+  <% if reg_data_query.oru_documents_variant_for_death?(calculator.country_of_death) %>
+    <% if calculator.country_of_death == 'poland' %>
       - the full local death certificate ('zupelny')
-    <% elsif country_of_death == 'papua-new-guinea' %>
+    <% elsif calculator.country_of_death == 'papua-new-guinea' %>
       - the hospital medical death record
     <% end %>
   <% else %>
