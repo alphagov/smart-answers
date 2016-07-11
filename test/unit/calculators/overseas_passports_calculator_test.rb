@@ -658,6 +658,13 @@ module SmartAnswer
           @calculator.stubs(:current_location).returns('tunisia')
           assert_equal 21.57, @calculator.courier_fee
         end
+
+        should 'return 9.70 when replacing a passport and both ips_number and ips_docs_number return 1' do
+          @calculator.stubs(:replacing?).returns(true)
+          @calculator.stubs(:ips_number).returns('1')
+          @calculator.stubs(:ips_docs_number).returns('1')
+          assert_equal 9.70, @calculator.courier_fee
+        end
       end
     end
   end

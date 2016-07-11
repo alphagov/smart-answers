@@ -24,7 +24,7 @@
   ## Cost
 
   <% if calculator.replacing? and calculator.ips_number == '1' and calculator.ips_docs_number == '1' %>
-    You’ll have to pay a fee for your passport and a courier fee of £9.70.
+    You’ll have to pay a fee for your passport and a courier fee of <%= number_to_currency(calculator.courier_fee, precision: 2) %>.
 
     The courier fee pays for your passport to be sent back to you securely.
 

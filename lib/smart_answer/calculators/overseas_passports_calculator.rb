@@ -193,6 +193,10 @@ module SmartAnswer::Calculators
         return 21.57
       end
 
+      if replacing? && ips_number == '1' && ips_docs_number == '1'
+        return 9.70
+      end
+
       case ips_number
       when '1'
         19.86
