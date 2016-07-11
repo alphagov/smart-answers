@@ -666,6 +666,16 @@ module SmartAnswer
           assert_equal 9.70, @calculator.courier_fee
         end
       end
+
+      context '#total_cost' do
+        should 'return the total of the passport and courier fees' do
+          calculator = OverseasPassportsCalculator.new
+          calculator.stubs(:find_passport_fee).with('passport-type').returns(3)
+          calculator.stubs(:courier_fee).returns(4)
+
+          assert_equal 7, calculator.total_cost('passport-type')
+        end
+      end
     end
   end
 end

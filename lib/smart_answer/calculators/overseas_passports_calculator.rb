@@ -206,5 +206,9 @@ module SmartAnswer::Calculators
         23.01
       end
     end
+
+    def total_cost(passport_type)
+      find_passport_fee(passport_type) + courier_fee
+    end
   end
 end
