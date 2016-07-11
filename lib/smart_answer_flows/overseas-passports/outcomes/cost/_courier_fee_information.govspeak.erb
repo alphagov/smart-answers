@@ -1,0 +1,18 @@
+<% uk_visa_application_centre_countries = %w(afghanistan algeria azerbaijan bangladesh belarus burma cambodia china gaza georgia india indonesia kazakhstan laos lebanon mauritania morocco nepal pakistan russia thailand ukraine venezuela vietnam western-sahara) %>
+<% if uk_visa_application_centre_countries.include?(calculator.current_location) %>
+  <% case calculator.ips_number %>
+  <% when '2' %>
+    The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
+  <% when '3' %>
+    The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
+  <% end %>
+<% else %>
+  <% case calculator.ips_number %>
+  <% when '1' %>
+    The courier fee pays for your passport and supporting documents to be sent back to you securely.
+  <% when '2' %>
+    The courier fee pays for your passport to be sent securely to the British Embassy, high commission or consulate where you applied for you to collect.
+  <% when '3' %>
+    The courier fee pays for your passport to be sent securely to the British Embassy, high commission or consulate where you applied for you to collect.
+  <% end %>
+<% end %>
