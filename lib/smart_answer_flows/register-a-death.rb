@@ -78,10 +78,6 @@ module SmartAnswer
           registration_country_name_lowercase_prefix
         end
 
-        next_node_calculation :country_has_no_embassy do
-          %w(iran libya syria yemen).include?(calculator.country_of_death)
-        end
-
         next_node_calculation :responded_with_commonwealth_country do
           Calculators::RegistrationsDataQuery::COMMONWEALTH_COUNTRIES.include?(calculator.country_of_death)
         end
@@ -89,7 +85,7 @@ module SmartAnswer
         next_node do
           if responded_with_commonwealth_country
             outcome :commonwealth_result
-          elsif country_has_no_embassy
+          elsif calculator.country_has_no_embassy?
             outcome :no_embassy_result
           else
             question :where_are_you_now?

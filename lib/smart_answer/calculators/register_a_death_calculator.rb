@@ -27,5 +27,9 @@ module SmartAnswer::Calculators
     def registration_country
       @reg_data_query.registration_country_slug(country_of_death)
     end
+
+    def country_has_no_embassy?
+      %w(iran libya syria yemen).include?(country_of_death)
+    end
   end
 end
