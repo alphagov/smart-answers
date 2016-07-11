@@ -57,15 +57,15 @@
 <% elsif %w(tajikistan turkmenistan uzbekistan).include?(calculator.current_location) %>
   <% case calculator.current_location %>
   <% when 'tajikistan' %>
-    You’ll have to pay a fee for your passport and a courier fee of £23.01.
+    You’ll have to pay a fee for your passport and a courier fee of <%= number_to_currency(calculator.courier_fee, precision: 2) %>.
 
     The courier fee pays for your passport to be sent securely to the British Embassy in Dushanbe for you to collect.
   <% when 'turkmenistan' %>
-    You’ll have to pay a fee for your passport and a courier fee of £24.72.
+    You’ll have to pay a fee for your passport and a courier fee of <%= number_to_currency(calculator.courier_fee, precision: 2) %>.
 
     The courier fee pays for your passport to be sent securely to the British Embassy in Ashgabat for you to collect.
   <% when 'uzbekistan' %>
-    You’ll have to pay a fee for your passport and a courier fee of £23.01.
+    You’ll have to pay a fee for your passport and a courier fee of <%= number_to_currency(calculator.courier_fee, precision: 2) %>.
 
     The courier fee pays for your passport to be sent securely to the British Embassy in Tashkent for you to collect.
   <% end %>
@@ -80,30 +80,30 @@
   <% if uk_visa_application_centre_countries.include?(calculator.current_location) %>
     <% case calculator.ips_number %>
     <% when '2' %>
-      You’ll have to pay a fee for your passport and a courier fee of £24.72.
+      You’ll have to pay a fee for your passport and a courier fee of <%= number_to_currency(calculator.courier_fee, precision: 2) %>.
 
       The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
     <% when '3' %>
-      You’ll have to pay a fee for your passport and a courier fee of £23.01.
+      You’ll have to pay a fee for your passport and a courier fee of <%= number_to_currency(calculator.courier_fee, precision: 2) %>.
 
       The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
     <% end %>
   <% elsif %w(pitcairn-island).include?(calculator.current_location) %>
-    You’ll have to pay a fee for your passport and a courier fee of £23.01.
+    You’ll have to pay a fee for your passport and a courier fee of <%= number_to_currency(calculator.courier_fee, precision: 2) %>.
 
     The courier fee pays for your passport and supporting documents to be sent back to you securely via the Pitcairn Islands Office in Auckland.
   <% else %>
     <% case calculator.ips_number %>
     <% when '1' %>
-      You’ll have to pay a fee for your passport and a courier fee of £19.86.
+      You’ll have to pay a fee for your passport and a courier fee of <%= number_to_currency(calculator.courier_fee, precision: 2) %>.
 
       The courier fee pays for your passport and supporting documents to be sent back to you securely.
     <% when '2' %>
-      You’ll have to pay a fee for your passport and a courier fee of £24.72.
+      You’ll have to pay a fee for your passport and a courier fee of <%= number_to_currency(calculator.courier_fee, precision: 2) %>.
 
       The courier fee pays for your passport to be sent securely to the British Embassy, high commission or consulate where you applied for you to collect.
     <% when '3' %>
-      You’ll have to pay a fee for your passport and a courier fee of £23.01.
+      You’ll have to pay a fee for your passport and a courier fee of <%= number_to_currency(calculator.courier_fee, precision: 2) %>.
 
       The courier fee pays for your passport to be sent securely to the British Embassy, high commission or consulate where you applied for you to collect.
     <% end %>

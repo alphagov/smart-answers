@@ -633,6 +633,27 @@ module SmartAnswer
           refute @calculator.valid_current_location?
         end
       end
+
+      context '#courier_fee' do
+        setup do
+          @calculator = OverseasPassportsCalculator.new
+        end
+
+        should 'return 19.86 when #ips_number returns 1' do
+          @calculator.stubs(:ips_number).returns('1')
+          assert_equal 19.86, @calculator.courier_fee
+        end
+
+        should 'return 24.72 when #ips_number returns 2' do
+          @calculator.stubs(:ips_number).returns('2')
+          assert_equal 24.72, @calculator.courier_fee
+        end
+
+        should 'return 23.01 when #ips_number returns 3' do
+          @calculator.stubs(:ips_number).returns('3')
+          assert_equal 23.01, @calculator.courier_fee
+        end
+      end
     end
   end
 end

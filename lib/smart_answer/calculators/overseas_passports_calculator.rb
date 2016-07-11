@@ -187,5 +187,16 @@ module SmartAnswer::Calculators
     def find_passport_fee(passport_type)
       @data_query.find_passport_fee(passport_type)
     end
+
+    def courier_fee
+      case ips_number
+      when '1'
+        19.86
+      when '2'
+        24.72
+      when '3'
+        23.01
+      end
+    end
   end
 end

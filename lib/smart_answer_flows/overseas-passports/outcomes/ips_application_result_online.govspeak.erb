@@ -42,15 +42,15 @@
   <% else %>
     <% case calculator.ips_number %>
     <% when '1' %>
-      You’ll have to pay a fee for your passport and a courier fee of £19.86.
+      You’ll have to pay a fee for your passport and a courier fee of <%= number_to_currency(calculator.courier_fee, precision: 2) %>.
 
       The courier fee pays for your passport and supporting documents to be sent back to you securely.
     <% when '2' %>
-      You’ll have to pay a fee for your passport and a courier fee of £24.72.
+      You’ll have to pay a fee for your passport and a courier fee of <%= number_to_currency(calculator.courier_fee, precision: 2) %>.
 
       The courier fee pays for your passport to be sent securely to the British Embassy, high commission or consulate where you applied for you to collect.
     <% when '3' %>
-      You’ll have to pay a fee for your passport and a courier fee of £23.01.
+      You’ll have to pay a fee for your passport and a courier fee of <%= number_to_currency(calculator.courier_fee, precision: 2) %>.
 
       The courier fee pays for your passport to be sent securely to the British Embassy, high commission or consulate where you applied for you to collect.
     <% end %>
