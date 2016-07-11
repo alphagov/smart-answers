@@ -35,6 +35,10 @@ module SmartAnswer::Calculators
       @country_name_query.definitive_article(country_of_death)
     end
 
+    def death_country_name_lowercase_prefix
+      @country_name_query.definitive_article(country_of_death)
+    end
+
     def country_has_no_embassy?
       %w(iran libya syria yemen).include?(country_of_death)
     end

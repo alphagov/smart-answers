@@ -75,7 +75,7 @@ module SmartAnswer
         end
 
         calculate :death_country_name_lowercase_prefix do
-          registration_country_name_lowercase_prefix
+          calculator.death_country_name_lowercase_prefix
         end
 
         next_node do
