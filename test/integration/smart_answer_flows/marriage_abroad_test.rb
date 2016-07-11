@@ -423,8 +423,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'opposite_sex'
     end
-    should "go to bot os outcome" do
-      assert_current_node :outcome_opposite_sex_marriage_in_british_overseas_territory
+    should "go to outcome_opposite_sex_marriage_in_british_indian_ocean_territory" do
+      assert_current_node :outcome_opposite_sex_marriage_in_british_indian_ocean_territory
     end
   end
 
