@@ -59,16 +59,16 @@ module SmartAnswer
       country_select :which_country?, exclude_countries: exclude_countries do
         save_input_as :country_of_death
 
-        calculate :current_location do |response|
+        calculate :registration_country do |response|
           reg_data_query.registration_country_slug(response) || response
         end
 
-        calculate :current_location_name_lowercase_prefix do
+        calculate :registration_country_name_lowercase_prefix do
           country_name_query.definitive_article(country_of_death)
         end
 
         calculate :death_country_name_lowercase_prefix do
-          current_location_name_lowercase_prefix
+          registration_country_name_lowercase_prefix
         end
 
         next_node_calculation :country_has_no_embassy do |response|
@@ -121,12 +121,12 @@ module SmartAnswer
 
       # Q6
       country_select :which_country_are_you_in_now?, exclude_countries: exclude_countries do
-        calculate :current_location do |response|
+        calculate :registration_country do |response|
           reg_data_query.registration_country_slug(response) || response
         end
 
-        calculate :current_location_name_lowercase_prefix do
-          country_name_query.definitive_article(current_location)
+        calculate :registration_country_name_lowercase_prefix do
+          country_name_query.definitive_article(registration_country)
         end
 
         next_node_calculation(:currently_in_north_korea) {
@@ -171,7 +171,7 @@ module SmartAnswer
         end
 
         precalculate :overseas_passports_embassies do
-          location = WorldLocation.find(current_location)
+          location = WorldLocation.find(registration_country)
           raise InvalidResponse unless location
           organisation = location.fco_organisation
 

@@ -46,7 +46,7 @@
 
   ###3. Pay
 
-  <% if !in_the_uk && current_location == 'algeria' %>
+  <% if !in_the_uk && registration_country == 'algeria' %>
     Pay by credit or debit card - fill in the [credit card authorisation slip](/government/publications/credit-card-authorisation-form-algeria) and post it with your registration form.
   <% else %>
     Pay online for the registration. Email <deathregistrationenquiries@fco.gov.uk> if you are unable to pay online.
@@ -94,8 +94,8 @@
 
   They’ll contact you within the 3 working days if they need more information or if they need to verify your documents. If this happens then it could take up to 3 months for the death to be registered.
 
-  <% if reg_data_query.oru_courier_variant?(current_location) %>
-    <% case current_location %>
+  <% if reg_data_query.oru_courier_variant?(registration_country) %>
+    <% case registration_country %>
     <% when 'cambodia' %>
       Your documents will be returned to the British Embassy in Phnom Penh after the death has been registered.
     <% when 'cameroon' %>
@@ -118,7 +118,7 @@
       Your documents will be returned to the British High Commission in Kampala after the death has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
     <% end %>
 
-    <% unless reg_data_query.oru_courier_by_high_commission?(current_location) %>
+    <% unless reg_data_query.oru_courier_by_high_commission?(registration_country) %>
       You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
     <% end %>
   <% else %>
