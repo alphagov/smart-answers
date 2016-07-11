@@ -60,7 +60,7 @@ module SmartAnswer
         save_input_as :country_of_death
 
         calculate :registration_country do |response|
-          reg_data_query.registration_country_slug(response) || response
+          reg_data_query.registration_country_slug(response)
         end
 
         calculate :registration_country_name_lowercase_prefix do
@@ -122,7 +122,7 @@ module SmartAnswer
       # Q6
       country_select :which_country_are_you_in_now?, exclude_countries: exclude_countries do
         calculate :registration_country do |response|
-          reg_data_query.registration_country_slug(response) || response
+          reg_data_query.registration_country_slug(response)
         end
 
         calculate :registration_country_name_lowercase_prefix do
