@@ -124,12 +124,8 @@ module SmartAnswer
           country_name_query.definitive_article(registration_country)
         end
 
-        next_node_calculation(:currently_in_north_korea) {
-          response == 'north-korea'
-        }
-
         next_node do
-          if currently_in_north_korea
+          if calculator.currently_in_north_korea?
             outcome :north_korea_result
           else
             outcome :oru_result
