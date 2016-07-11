@@ -58,7 +58,7 @@
              locals: { reg_data_query: reg_data_query } %>
 
   <%= render partial: 'shared/births_and_deaths_registration/document_return_fees.govspeak.erb', locals: { document_return_fees: document_return_fees } %>
-  <%= render partial: 'shared/births_and_deaths_registration/button.govspeak.erb', locals: { button_data: button_data } %>
+  <%= render partial: 'shared/births_and_deaths_registration/button.govspeak.erb', locals: { button_data: { text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start" } } %>
 
 
   ###4. Send your registration

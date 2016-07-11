@@ -118,10 +118,6 @@ module SmartAnswer
       outcome :uk_result
 
       outcome :oru_result do
-        precalculate :button_data do
-          { text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start" }
-        end
-
         precalculate :translator_link_url do
           translator_query.links[calculator.country_of_death]
         end
