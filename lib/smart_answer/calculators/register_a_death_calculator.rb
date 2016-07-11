@@ -31,5 +31,9 @@ module SmartAnswer::Calculators
     def country_has_no_embassy?
       %w(iran libya syria yemen).include?(country_of_death)
     end
+
+    def responded_with_commonwealth_country?
+      RegistrationsDataQuery::COMMONWEALTH_COUNTRIES.include?(country_of_death)
+    end
   end
 end

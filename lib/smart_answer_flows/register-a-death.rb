@@ -78,12 +78,8 @@ module SmartAnswer
           registration_country_name_lowercase_prefix
         end
 
-        next_node_calculation :responded_with_commonwealth_country do
-          Calculators::RegistrationsDataQuery::COMMONWEALTH_COUNTRIES.include?(calculator.country_of_death)
-        end
-
         next_node do
-          if responded_with_commonwealth_country
+          if calculator.responded_with_commonwealth_country?
             outcome :commonwealth_result
           elsif calculator.country_has_no_embassy?
             outcome :no_embassy_result
