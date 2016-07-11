@@ -112,6 +112,10 @@ module SmartAnswer
 
       # Q6
       country_select :which_country_are_you_in_now?, exclude_countries: exclude_countries do
+        on_response do |response|
+          calculator.current_country = response
+        end
+
         calculate :registration_country do |response|
           reg_data_query.registration_country_slug(response)
         end

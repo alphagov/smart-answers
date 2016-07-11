@@ -7,6 +7,7 @@ module SmartAnswer::Calculators
     attr_accessor :death_expected
     attr_accessor :country_of_death
     attr_accessor :current_location
+    attr_accessor :current_country
 
     def initialize(attributes = {})
       super
