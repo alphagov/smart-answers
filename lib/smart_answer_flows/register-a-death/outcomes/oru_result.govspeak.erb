@@ -46,7 +46,7 @@
 
   ###3. Pay
 
-  <% if !in_the_uk && registration_country == 'algeria' %>
+  <% if !calculator.in_the_uk? && registration_country == 'algeria' %>
     Pay by credit or debit card - fill in the [credit card authorisation slip](/government/publications/credit-card-authorisation-form-algeria) and post it with your registration form.
   <% else %>
     Pay online for the registration. Email <deathregistrationenquiries@fco.gov.uk> if you are unable to pay online.
@@ -68,7 +68,7 @@
   Post your registration form and documents by secure post to:
 
 
-  <% if in_the_uk %>
+  <% if calculator.in_the_uk? %>
     $A
     Overseas Registration Unit
     Foreign and Commonwealth Office

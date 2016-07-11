@@ -99,10 +99,6 @@ module SmartAnswer
           calculator.current_location = response
         end
 
-        calculate :in_the_uk do
-          calculator.current_location == 'in_the_uk'
-        end
-
         next_node_calculation(:died_in_north_korea) {
           calculator.country_of_death == 'north-korea'
         }

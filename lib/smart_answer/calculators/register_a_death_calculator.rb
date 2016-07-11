@@ -36,5 +36,9 @@ module SmartAnswer::Calculators
     def responded_with_commonwealth_country?
       RegistrationsDataQuery::COMMONWEALTH_COUNTRIES.include?(country_of_death)
     end
+
+    def in_the_uk?
+      current_location == 'in_the_uk'
+    end
   end
 end
