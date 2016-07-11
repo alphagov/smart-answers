@@ -14,6 +14,8 @@
   The courier fee pays for your passport to be sent securely to the British Embassy in Ashgabat for you to collect.
 <% elsif %w(uzbekistan).include?(calculator.current_location)%>
   The courier fee pays for your passport to be sent securely to the British Embassy in Tashkent for you to collect.
+<% elsif %w(tunisia).include?(calculator.current_location)%>
+  The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
 <% else %>
   <% case calculator.ips_number %>
   <% when '1' %>
