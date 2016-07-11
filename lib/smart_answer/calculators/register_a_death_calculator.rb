@@ -13,6 +13,7 @@ module SmartAnswer::Calculators
       super
       @reg_data_query = RegistrationsDataQuery.new
       @country_name_query = CountryNameFormatter.new
+      @translator_query = TranslatorLinks.new
     end
 
     def died_in_uk?
@@ -66,6 +67,10 @@ module SmartAnswer::Calculators
     def currently_in_north_korea?
       # TODO: current_country == 'north-korea'
       nil == 'north-korea'
+    end
+
+    def translator_link_url
+      @translator_query.links[country_of_death]
     end
   end
 end

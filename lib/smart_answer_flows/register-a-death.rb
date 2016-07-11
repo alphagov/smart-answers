@@ -7,7 +7,6 @@ module SmartAnswer
       satisfies_need "101006"
 
       reg_data_query = Calculators::RegistrationsDataQuery.new
-      translator_query = Calculators::TranslatorLinks.new
       exclude_countries = %w(holy-see british-antarctic-territory)
 
       # Q1
@@ -119,7 +118,7 @@ module SmartAnswer
 
       outcome :oru_result do
         precalculate :translator_link_url do
-          translator_query.links[calculator.country_of_death]
+          calculator.translator_link_url
         end
 
         precalculate :reg_data_query do
