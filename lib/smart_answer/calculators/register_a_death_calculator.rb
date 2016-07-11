@@ -27,7 +27,7 @@ module SmartAnswer::Calculators
     end
 
     def registration_country
-      @reg_data_query.registration_country_slug(country_of_death)
+      @reg_data_query.registration_country_slug(current_country || country_of_death)
     end
 
     def country_has_no_embassy?
