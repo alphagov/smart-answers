@@ -32,7 +32,7 @@ module SmartAnswer::Calculators
     end
 
     def registration_country_name_lowercase_prefix
-      @country_name_query.definitive_article(country_of_death)
+      @country_name_query.definitive_article(registration_country)
     end
 
     def death_country_name_lowercase_prefix
