@@ -117,10 +117,6 @@ module SmartAnswer
       outcome :uk_result
 
       outcome :oru_result do
-        precalculate :translator_link_url do
-          calculator.translator_link_url
-        end
-
         precalculate :reg_data_query do
           Calculators::RegistrationsDataQuery.new
         end
