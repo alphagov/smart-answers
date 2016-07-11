@@ -75,7 +75,6 @@ module SmartAnswer::Calculators
 
     def overseas_passports_embassies
       location = WorldLocation.find(registration_country)
-      raise InvalidResponse unless location
       organisation = location.fco_organisation
 
       if organisation
