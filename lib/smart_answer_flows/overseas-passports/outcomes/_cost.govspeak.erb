@@ -73,7 +73,7 @@
   <% elsif %w(pitcairn-island).include?(calculator.current_location) %>
     You’ll have to pay a fee for your passport and a courier fee of <%= number_to_currency(calculator.courier_fee, precision: 2) %>.
 
-    The courier fee pays for your passport and supporting documents to be sent back to you securely via the Pitcairn Islands Office in Auckland.
+    <%= render partial: 'cost/courier_fee_information.govspeak.erb', locals: { calculator: calculator } %>
   <% else %>
     <% case calculator.ips_number %>
     <% when '1' %>
