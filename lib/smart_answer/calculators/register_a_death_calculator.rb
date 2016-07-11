@@ -41,6 +41,14 @@ module SmartAnswer::Calculators
       current_location == 'in_the_uk'
     end
 
+    def same_country?
+      current_location == 'same_country'
+    end
+
+    def another_country?
+      current_location == 'another_country'
+    end
+
     def died_in_north_korea?
       country_of_death == 'north-korea'
     end

@@ -100,9 +100,9 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.current_location == 'same_country' && calculator.died_in_north_korea?
+          if calculator.same_country? && calculator.died_in_north_korea?
             outcome :north_korea_result
-          elsif calculator.current_location == 'another_country'
+          elsif calculator.another_country?
             question :which_country_are_you_in_now?
           else
             outcome :oru_result
