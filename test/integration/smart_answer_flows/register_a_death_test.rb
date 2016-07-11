@@ -180,7 +180,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'australia'
       end
       should "give the commonwealth result" do
-        assert_state_variable :registration_country_name_lowercase_prefix, "Australia"
+        assert_equal "Australia", current_state.calculator.registration_country_name_lowercase_prefix
         assert_current_node :commonwealth_result
       end
     end # Australia (commonwealth country)
@@ -189,7 +189,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'spain'
       end
       should "ask where you are now" do
-        assert_state_variable :registration_country_name_lowercase_prefix, "Spain"
+        assert_equal "Spain", current_state.calculator.registration_country_name_lowercase_prefix
         assert_current_node :where_are_you_now?
       end
       context "answer same country" do
@@ -218,7 +218,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'morocco'
       end
       should "ask where are you now" do
-        assert_state_variable :registration_country_name_lowercase_prefix, "Morocco"
+        assert_equal "Morocco", current_state.calculator.registration_country_name_lowercase_prefix
         assert_current_node :where_are_you_now?
       end
       context "answer ORU office in the uk" do
@@ -379,7 +379,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
       should "give oru_result" do
         assert_current_node :oru_result
         assert_equal 'Egypt', current_state.calculator.death_country_name_lowercase_prefix
-        assert_state_variable :registration_country_name_lowercase_prefix, 'Belgium'
+        assert_equal "Belgium", current_state.calculator.registration_country_name_lowercase_prefix
         assert_state_variable :registration_country, 'belgium'
       end
     end # Death in Egypt user in Belgium
