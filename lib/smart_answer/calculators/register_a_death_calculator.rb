@@ -12,6 +12,7 @@ module SmartAnswer::Calculators
     def initialize(attributes = {})
       super
       @reg_data_query = RegistrationsDataQuery.new
+      @country_name_query = CountryNameFormatter.new
     end
 
     def died_in_uk?
@@ -28,6 +29,10 @@ module SmartAnswer::Calculators
 
     def registration_country
       @reg_data_query.registration_country_slug(current_country || country_of_death)
+    end
+
+    def registration_country_name_lowercase_prefix
+      @country_name_query.definitive_article(country_of_death)
     end
 
     def country_has_no_embassy?

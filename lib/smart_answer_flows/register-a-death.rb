@@ -71,7 +71,7 @@ module SmartAnswer
         end
 
         calculate :registration_country_name_lowercase_prefix do
-          country_name_query.definitive_article(calculator.country_of_death)
+          calculator.registration_country_name_lowercase_prefix
         end
 
         calculate :death_country_name_lowercase_prefix do
