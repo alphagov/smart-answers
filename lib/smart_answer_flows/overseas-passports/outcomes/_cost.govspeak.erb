@@ -49,7 +49,7 @@
   <% when 'uzbekistan' %>
     You’ll have to pay a fee for your passport and a courier fee of <%= number_to_currency(calculator.courier_fee, precision: 2) %>.
 
-    The courier fee pays for your passport to be sent securely to the British Embassy in Tashkent for you to collect.
+    <%= render partial: 'cost/courier_fee_information.govspeak.erb', locals: { calculator: calculator } %>
   <% end %>
 
   <%= render partial: 'cost/passport_fee_table.govspeak.erb', locals: { calculator: calculator } %>
