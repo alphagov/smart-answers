@@ -653,6 +653,11 @@ module SmartAnswer
           @calculator.stubs(:ips_number).returns('3')
           assert_equal 23.01, @calculator.courier_fee
         end
+
+        should 'return 21.57 when the country is tunisia' do
+          @calculator.stubs(:current_location).returns('tunisia')
+          assert_equal 21.57, @calculator.courier_fee
+        end
       end
     end
   end

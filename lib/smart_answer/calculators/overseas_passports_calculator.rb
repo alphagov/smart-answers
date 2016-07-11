@@ -189,6 +189,10 @@ module SmartAnswer::Calculators
     end
 
     def courier_fee
+      if current_location == 'tunisia'
+        return 21.57
+      end
+
       case ips_number
       when '1'
         19.86

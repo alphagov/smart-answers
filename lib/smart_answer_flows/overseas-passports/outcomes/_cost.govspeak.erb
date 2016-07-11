@@ -17,7 +17,7 @@
 
   You must pay in cash. In addition to the passport fee you’ll need to pay any local administration fees which apply from the office where you make your application.
 <% elsif calculator.current_location == 'tunisia' %>
-    You’ll have to pay a fee for your passport and a courier fee of £21.57.
+    You’ll have to pay a fee for your passport and a courier fee of <%= number_to_currency(calculator.courier_fee, precision: 2) %>.
 
     The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
 
