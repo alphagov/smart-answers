@@ -7,6 +7,11 @@ module SmartAnswer::Calculators
     attr_accessor :death_expected
     attr_accessor :country_of_death
 
+    def initialize(attributes = {})
+      super
+      @reg_data_query = RegistrationsDataQuery.new
+    end
+
     def died_in_uk?
       %w(england_wales scotland northern_ireland).include?(location_of_death)
     end
@@ -17,6 +22,10 @@ module SmartAnswer::Calculators
 
     def death_expected?
       death_expected == 'yes'
+    end
+
+    def registration_country
+      @reg_data_query.registration_country_slug(country_of_death)
     end
   end
 end
