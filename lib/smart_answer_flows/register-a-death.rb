@@ -99,10 +99,6 @@ module SmartAnswer
           calculator.current_location = response
         end
 
-        calculate :another_country do
-          calculator.current_location == 'another_country'
-        end
-
         calculate :in_the_uk do
           calculator.current_location == 'in_the_uk'
         end
