@@ -532,8 +532,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_other'
       add_response 'opposite_sex'
     end
-    should "go to consular cni os outcome" do
-      assert_current_node :outcome_opposite_sex_marriage_in_germany
+    should "go to outcome_opposite_sex_marriage_in_germany_when_residing_in_germany_or_third_country" do
+      assert_current_node :outcome_opposite_sex_marriage_in_germany_when_residing_in_germany_or_third_country
     end
   end
 
