@@ -65,10 +65,6 @@ module SmartAnswer
           calculator.country_of_death = response
         end
 
-        calculate :registration_country do
-          calculator.registration_country
-        end
-
         next_node do
           if calculator.responded_with_commonwealth_country?
             outcome :commonwealth_result
@@ -105,10 +101,6 @@ module SmartAnswer
       country_select :which_country_are_you_in_now?, exclude_countries: exclude_countries do
         on_response do |response|
           calculator.current_country = response
-        end
-
-        calculate :registration_country do
-          calculator.registration_country
         end
 
         next_node do
@@ -149,7 +141,7 @@ module SmartAnswer
         end
 
         precalculate :overseas_passports_embassies do
-          location = WorldLocation.find(registration_country)
+          location = WorldLocation.find(calculator.registration_country)
           raise InvalidResponse unless location
           organisation = location.fco_organisation
 

@@ -380,7 +380,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_current_node :oru_result
         assert_equal 'Egypt', current_state.calculator.death_country_name_lowercase_prefix
         assert_equal "Belgium", current_state.calculator.registration_country_name_lowercase_prefix
-        assert_state_variable :registration_country, 'belgium'
+        assert_equal 'belgium', current_state.calculator.registration_country
       end
     end # Death in Egypt user in Belgium
 
