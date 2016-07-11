@@ -72,5 +72,17 @@ module SmartAnswer::Calculators
     def translator_link_url
       @translator_query.links[country_of_death]
     end
+
+    def overseas_passports_embassies
+      location = WorldLocation.find(registration_country)
+      raise InvalidResponse unless location
+      organisation = location.fco_organisation
+
+      if organisation
+        organisation.offices_with_service 'Births and Deaths registration service'
+      else
+        []
+      end
+    end
   end
 end
