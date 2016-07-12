@@ -1,4 +1,14 @@
-You won’t need a visa to come to the UK
+Where are you travelling to?
+
+
+
+
+
+  * channel_islands_or_isle_of_man: Channel Islands or Isle of Man
+  * republic_of_ireland: Republic of Ireland
+  * somewhere_else: Somewhere else
+
+
 
 
 
