@@ -117,9 +117,9 @@ module SmartAnswer::Calculators
       @leave_earliest_start_date = 14.days.ago(date)
     end
 
-    def calculate_average_weekly_pay(pay_pattern, pay)
+    def calculate_average_weekly_pay(pay)
       @average_weekly_earnings = sprintf("%.5f", (
-        case pay_pattern
+        case pay_method
         when "monthly"
           pay.to_f / 2 * 12 / 52
         else
