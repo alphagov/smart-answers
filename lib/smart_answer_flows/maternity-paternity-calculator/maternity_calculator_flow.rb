@@ -189,7 +189,7 @@ module SmartAnswer
           end
 
           calculate :calculator do
-            calculator.calculate_average_weekly_pay(calculator.earnings_for_pay_period)
+            calculator.calculate_average_weekly_pay
             calculator
           end
           calculate :average_weekly_earnings do

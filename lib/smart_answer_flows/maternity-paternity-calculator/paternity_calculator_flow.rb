@@ -358,7 +358,7 @@ module SmartAnswer
           save_input_as :earnings
 
           next_node_calculation :calculator do
-            calculator.calculate_average_weekly_pay(calculator.earnings_for_pay_period)
+            calculator.calculate_average_weekly_pay
             calculator
           end
 
