@@ -12,6 +12,8 @@ module SmartAnswer::Calculators
       :a_notice_leave, :last_payday, :pre_offset_payday, :pay_date, :paternity_leave_duration,
       :pay_day_in_month, :pay_day_in_week, :pay_method, :pay_week_in_month, :work_days, :date_of_birth, :awe
 
+    attr_accessor :earnings_for_pay_period
+
     DAYS_OF_THE_WEEK = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
 
     def initialize(match_or_due_date, leave_type = "maternity")
