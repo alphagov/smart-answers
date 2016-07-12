@@ -16,5 +16,9 @@ module SmartAnswer::Calculators
     def former_yugoslavia?
       COUNTRIES_OF_FORMER_YUGOSLAVIA.include?(country)
     end
+
+    def social_security_countries_jsa?
+      (COUNTRIES_OF_FORMER_YUGOSLAVIA + %w(guernsey jersey new-zealand)).include?(country)
+    end
   end
 end

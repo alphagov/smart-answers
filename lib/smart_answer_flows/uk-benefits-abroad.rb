@@ -124,10 +124,6 @@ module SmartAnswer
           (WorldLocation.all + additional_countries).find { |c| c.slug == calculator.country }.name
         end
 
-        next_node_calculation :social_security_countries_jsa do |response|
-          (countries_of_former_yugoslavia + %w(guernsey jersey new-zealand)).include?(response)
-        end
-
         next_node_calculation :social_security_countries_iidb do |response|
           (countries_of_former_yugoslavia +
           %w(barbados bermuda guernsey jersey israel jamaica mauritius philippines turkey)).include?(response)
@@ -143,11 +139,11 @@ module SmartAnswer
           when 'jsa'
             if already_abroad && calculator.eea_country?
               outcome :jsa_eea_already_abroad_outcome # A3 already_abroad
-            elsif already_abroad && social_security_countries_jsa
+            elsif already_abroad && calculator.social_security_countries_jsa?
               outcome :jsa_social_security_already_abroad_outcome # A4 already_abroad
             elsif going_abroad && calculator.eea_country?
               outcome :jsa_eea_going_abroad_outcome # A5 going_abroad
-            elsif going_abroad && social_security_countries_jsa
+            elsif going_abroad && calculator.social_security_countries_jsa?
               outcome :jsa_social_security_going_abroad_outcome # A6 going_abroad
             else
               outcome :jsa_not_entitled_outcome # A7 going_abroad and A5 already_abroad
