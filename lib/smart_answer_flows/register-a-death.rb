@@ -112,11 +112,8 @@ module SmartAnswer
 
       outcome :commonwealth_result
       outcome :no_embassy_result
-
       outcome :uk_result
-
       outcome :oru_result
-
       outcome :north_korea_result
     end
   end
