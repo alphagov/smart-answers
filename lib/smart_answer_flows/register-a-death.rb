@@ -115,11 +115,7 @@ module SmartAnswer
 
       outcome :uk_result
 
-      outcome :oru_result do
-        precalculate :reg_data_query do
-          Calculators::RegistrationsDataQuery.new
-        end
-      end
+      outcome :oru_result
 
       outcome :north_korea_result
     end
