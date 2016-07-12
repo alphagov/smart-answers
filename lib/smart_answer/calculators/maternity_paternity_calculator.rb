@@ -120,13 +120,13 @@ module SmartAnswer::Calculators
       @leave_earliest_start_date = 14.days.ago(date)
     end
 
-    def calculate_average_weekly_pay(pay)
+    def calculate_average_weekly_pay
       @average_weekly_earnings = sprintf("%.5f", (
         case pay_pattern
         when "monthly"
-          pay.to_f / 2 * 12 / 52
+          earnings_for_pay_period.to_f / 2 * 12 / 52
         else
-          pay.to_f / 8
+          earnings_for_pay_period.to_f / 8
         end
       )).to_f # HMRC truncation at 5 places.
     end
