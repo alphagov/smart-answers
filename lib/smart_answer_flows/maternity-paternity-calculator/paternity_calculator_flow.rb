@@ -354,7 +354,7 @@ module SmartAnswer
           save_input_as :earnings
 
           next_node_calculation :calculator do |response|
-            calculator.calculate_average_weekly_pay(pay_pattern, response)
+            calculator.calculate_average_weekly_pay(calculator.pay_method, response)
             calculator
           end
 
