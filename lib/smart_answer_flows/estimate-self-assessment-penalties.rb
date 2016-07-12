@@ -10,6 +10,7 @@ module SmartAnswer
         option :"2011-12"
         option :"2012-13"
         option :"2013-14"
+        option :"2014-15"
 
         on_response do |response|
           self.calculator = Calculators::SelfAssessmentPenalties.new
