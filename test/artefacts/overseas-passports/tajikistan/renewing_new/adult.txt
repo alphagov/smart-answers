@@ -21,7 +21,7 @@ The courier fee pays for your passport to be sent securely to the British Embass
 
 | Passport type | Passport fee | Total to pay (including courier fee) |
 |---------------|--------------|--------------------------------------|
-| Adult standard 32-page passport | £83.00 | £106.01  |
+| Adult standard 32-page passport | £83.00 | £106.01 |
 | Adult jumbo 48-page passport | £91.00 | £114.01 |
 
 Fill in a [‘Paying by credit card or debit card’ form](/government/publications/overseas-passport-creditdebit-card-payment-authorisation) for each passport you’re applying for and submit it with your application. Your credit or debit card will be charged in sterling.

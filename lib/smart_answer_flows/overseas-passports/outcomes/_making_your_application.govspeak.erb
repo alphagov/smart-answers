@@ -53,7 +53,28 @@
       <% unless calculator.book_appointment_online? %>
         <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
       <% else %>
-        <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { calculator: calculator } %>
+        <% if 'gaza' == calculator.current_location %>
+            Call the Visa Application Centre to make an appointment.
+
+            $C
+            **Visa Application Centre**\\
+            +972 (08) 541 4100\\
+            Monday to Friday, 9am to 2pm\\
+            [Find out about call charges](/call-charges)
+            $C
+
+            $A
+            UK Visa Application Centre
+            British Information Service Office
+            1st Floor Al-Riyad Tower
+            Jerusalem St, Al-Rimal Sth
+            Gaza City
+            Israel
+            99903
+            $A
+        <% else %>
+            <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { calculator: calculator } %>
+        <% end %>
       <% end %>
     <% end %>
   <% else %>
@@ -105,6 +126,26 @@
         <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
       <% else %>
         <%= render partial: 'making_your_application/book_appointment_online.govspeak.erb', locals: { calculator: calculator } %>
+        <% if 'gaza' == calculator.current_location %>
+            Call the Visa Application Centre to make an appointment.
+
+            $C
+            **Visa Application Centre**\\
+            +972 (08) 541 4100\\
+            Monday to Friday, 9am to 2pm\\
+            [Find out about call charges](/call-charges)
+            $C
+
+            $A
+            UK Visa Application Centre
+            British Information Service Office
+            1st Floor Al-Riyad Tower
+            Jerusalem St, Al-Rimal Sth
+            Gaza City
+            Israel
+            99903
+            $A
+        <% end %>
       <% end %>
     <% end %>
   <% end %>
