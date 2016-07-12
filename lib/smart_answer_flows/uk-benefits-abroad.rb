@@ -17,6 +17,10 @@ module SmartAnswer
         option :already_abroad
         save_input_as :going_or_already_abroad
 
+        on_response do
+          self.calculator = Calculators::UkBenefitsAbroadCalculator.new
+        end
+
         calculate :country_question_title do
           if going_or_already_abroad == "going_abroad"
             "Which country are you moving to?"
