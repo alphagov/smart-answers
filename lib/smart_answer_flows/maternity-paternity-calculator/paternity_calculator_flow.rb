@@ -354,6 +354,10 @@ module SmartAnswer
 
         ## QP13
         money_question :earnings_for_pay_period_paternity? do
+          on_response do |response|
+            calculator.earnings_for_pay_period = response
+          end
+
           save_input_as :earnings
 
           next_node_calculation :calculator do |response|

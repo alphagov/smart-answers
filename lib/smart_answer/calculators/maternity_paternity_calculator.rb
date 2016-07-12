@@ -13,6 +13,7 @@ module SmartAnswer::Calculators
       :pay_day_in_month, :pay_day_in_week, :pay_method, :pay_week_in_month, :work_days, :date_of_birth, :awe
 
     attr_accessor :pay_pattern
+    attr_accessor :earnings_for_pay_period
 
     DAYS_OF_THE_WEEK = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
 

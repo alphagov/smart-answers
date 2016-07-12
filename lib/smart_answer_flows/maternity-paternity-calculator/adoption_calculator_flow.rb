@@ -224,6 +224,10 @@ module SmartAnswer
 
         ## QA10
         money_question :earnings_for_pay_period_adoption? do
+          on_response do |response|
+            calculator.earnings_for_pay_period = response
+          end
+
           calculate :lower_earning_limit do
             sprintf("%.2f", calculator.lower_earning_limit)
           end
