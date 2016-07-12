@@ -124,11 +124,6 @@ module SmartAnswer
           (WorldLocation.all + additional_countries).find { |c| c.slug == calculator.country }.name
         end
 
-        next_node_calculation :social_security_countries_bereavement_benefits do |response|
-          (countries_of_former_yugoslavia +
-          %w(barbados bermuda canada guernsey jersey israel jamaica mauritius new-zealand philippines turkey usa)).include?(response)
-        end
-
         next_node do |response|
           case benefit
           when 'jsa'
@@ -239,7 +234,7 @@ module SmartAnswer
             if going_abroad
               if calculator.eea_country?
                 outcome :bb_going_abroad_eea_outcome # A39 going_abroad
-              elsif social_security_countries_bereavement_benefits
+              elsif calculator.social_security_countries_bereavement_benefits?
                 outcome :bb_going_abroad_ss_outcome # A40 going_abroad
               else
                 outcome :bb_going_abroad_other_outcome # A38 going_abroad
@@ -247,7 +242,7 @@ module SmartAnswer
             elsif already_abroad
               if calculator.eea_country?
                 outcome :bb_already_abroad_eea_outcome # A37 already_abroad
-              elsif social_security_countries_bereavement_benefits
+              elsif calculator.social_security_countries_bereavement_benefits?
                 outcome :bb_already_abroad_ss_outcome # A38 already_abroad
               else
                 outcome :bb_already_abroad_other_outcome # A39 already_abroad
