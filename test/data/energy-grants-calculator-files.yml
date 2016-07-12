@@ -1,7 +1,7 @@
 ---
 lib/smart_answer_flows/energy-grants-calculator.rb: c74b992a88ed260c03625d17ba6de3b6
-test/data/energy-grants-calculator-questions-and-responses.yml: e725aa49320518369f4fdc601cd217b2
-test/data/energy-grants-calculator-responses-and-expected-results.yml: 8b1d6c6350f162a2d4efbc65362b5ae8
+test/data/energy-grants-calculator-questions-and-responses.yml: 159da2d1c27ebe89052a5f1bbd253cd4
+test/data/energy-grants-calculator-responses-and-expected-results.yml: 4b9af4ca4e34541045f3471621d17920
 lib/smart_answer_flows/energy-grants-calculator/energy_grants_calculator.govspeak.erb: 7df3ca7bdc65c932d84c51b4bd742bc2
 lib/smart_answer_flows/energy-grants-calculator/outcomes/_callout_under_green_deal.govspeak.erb: 81e4cc5ea99917a97826748ce796175a
 lib/smart_answer_flows/energy-grants-calculator/outcomes/_cold_weather_payment.govspeak.erb: 9976373a42df06bdb65e902166fb1d49
