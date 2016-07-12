@@ -9,7 +9,7 @@ module SmartAnswer
       exclude_countries = %w(british-antarctic-territory french-guiana guadeloupe holy-see martinique mayotte reunion st-maarten)
       additional_countries = [OpenStruct.new(slug: "jersey", name: "Jersey"), OpenStruct.new(slug: "guernsey", name: "Guernsey")]
 
-      countries_of_former_yugoslavia = %w(bosnia-and-herzegovina kosovo macedonia montenegro serbia).freeze
+      countries_of_former_yugoslavia = Calculators::UkBenefitsAbroadCalculator::COUNTRIES_OF_FORMER_YUGOSLAVIA
 
       # Q1
       multiple_choice :going_or_already_abroad? do
