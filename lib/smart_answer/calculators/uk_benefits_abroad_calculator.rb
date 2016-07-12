@@ -12,5 +12,9 @@ module SmartAnswer::Calculators
          latvia liechtenstein lithuania luxembourg malta netherlands norway
          poland portugal romania slovakia slovenia spain sweden switzerland).include?(country)
     end
+
+    def former_yugoslavia?
+      COUNTRIES_OF_FORMER_YUGOSLAVIA.include?(country)
+    end
   end
 end
