@@ -2,6 +2,8 @@ module SmartAnswer::Calculators
   class UkBenefitsAbroadCalculator
     include ActiveModel::Model
 
+    COUNTRIES_OF_FORMER_YUGOSLAVIA = %w(bosnia-and-herzegovina kosovo macedonia montenegro serbia).freeze
+
     attr_accessor :country
 
     def eea_country?
