@@ -36,7 +36,9 @@
   <%= render partial: 'cost/payment_instructions.govspeak.erb', locals: { calculator: calculator } %>
 
 <% elsif calculator.replacing? and calculator.ips_number == '1' and calculator.ips_docs_number == '1' %>
-  You’ll have to pay a fee for your passport and a courier fee of £9.70. The courier fee pays for your passport to be sent back to you securely.
+  You’ll have to pay a fee for your passport and a courier fee of £9.70.
+
+  The courier fee pays for your passport to be sent back to you securely.
 
   <% case calculator.child_or_adult %>
   <% when 'adult' %>
