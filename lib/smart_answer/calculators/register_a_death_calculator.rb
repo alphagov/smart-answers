@@ -99,5 +99,9 @@ module SmartAnswer::Calculators
     def oru_documents_variant_for_death?
       @reg_data_query.oru_documents_variant_for_death?(country_of_death)
     end
+
+    def oru_courier_variant?
+      @reg_data_query.oru_courier_variant?(registration_country)
+    end
   end
 end

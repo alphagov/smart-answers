@@ -94,7 +94,7 @@
 
   They’ll contact you within the 3 working days if they need more information or if they need to verify your documents. If this happens then it could take up to 3 months for the death to be registered.
 
-  <% if reg_data_query.oru_courier_variant?(calculator.registration_country) %>
+  <% if calculator.oru_courier_variant? %>
     <% case calculator.registration_country %>
     <% when 'cambodia' %>
       Your documents will be returned to the British Embassy in Phnom Penh after the death has been registered.
