@@ -116,10 +116,12 @@ module SmartAnswer
 
       ## Country Question - Shared
       country_select :which_country?, additional_countries: additional_countries, exclude_countries: exclude_countries do
-        save_input_as :country
+        on_response do |response|
+          calculator.country = response
+        end
 
         calculate :country_name do
-          (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
+          (WorldLocation.all + additional_countries).find { |c| c.slug == calculator.country }.name
         end
 
         next_node_calculation :responded_with_eea_country do |response|
@@ -330,7 +332,7 @@ module SmartAnswer
             #not SSP benefits
             if response == 'yes'
               question :eligible_for_smp? # Q9 going_abroad and Q8 already_abroad
-            elsif (countries_of_former_yugoslavia + %w(barbados guernsey jersey israel turkey)).include?(country)
+            elsif (countries_of_former_yugoslavia + %w(barbados guernsey jersey israel turkey)).include?(calculator.country)
               if already_abroad
                 outcome :maternity_benefits_social_security_already_abroad_outcome # A10 already_abroad
               else
