@@ -20,5 +20,10 @@ module SmartAnswer::Calculators
     def social_security_countries_jsa?
       (COUNTRIES_OF_FORMER_YUGOSLAVIA + %w(guernsey jersey new-zealand)).include?(country)
     end
+
+    def social_security_countries_iidb?
+      (COUNTRIES_OF_FORMER_YUGOSLAVIA +
+      %w(barbados bermuda guernsey jersey israel jamaica mauritius philippines turkey)).include?(country)
+    end
   end
 end
