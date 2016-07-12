@@ -9,13 +9,17 @@ module SmartAnswer
       exclude_countries = %w(british-antarctic-territory french-guiana guadeloupe holy-see martinique mayotte reunion st-maarten)
       additional_countries = [OpenStruct.new(slug: "jersey", name: "Jersey"), OpenStruct.new(slug: "guernsey", name: "Guernsey")]
 
-      countries_of_former_yugoslavia = %w(bosnia-and-herzegovina kosovo macedonia montenegro serbia).freeze
+      countries_of_former_yugoslavia = Calculators::UkBenefitsAbroadCalculator::COUNTRIES_OF_FORMER_YUGOSLAVIA
 
       # Q1
       multiple_choice :going_or_already_abroad? do
         option :going_abroad
         option :already_abroad
         save_input_as :going_or_already_abroad
+
+        on_response do
+          self.calculator = Calculators::UkBenefitsAbroadCalculator.new
+        end
 
         calculate :country_question_title do
           if going_or_already_abroad == "going_abroad"
@@ -112,59 +116,36 @@ module SmartAnswer
 
       ## Country Question - Shared
       country_select :which_country?, additional_countries: additional_countries, exclude_countries: exclude_countries do
-        save_input_as :country
+        on_response do |response|
+          calculator.country = response
+        end
 
         calculate :country_name do
-          (WorldLocation.all + additional_countries).find { |c| c.slug == country }.name
-        end
-
-        next_node_calculation :responded_with_eea_country do |response|
-          %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia
-             finland france germany gibraltar greece hungary iceland ireland italy
-             latvia liechtenstein lithuania luxembourg malta netherlands norway
-             poland portugal romania slovakia slovenia spain sweden switzerland).include?(response)
-        end
-
-        next_node_calculation :responded_with_former_yugoslavia do |response|
-          countries_of_former_yugoslavia.include?(response)
-        end
-
-        next_node_calculation :social_security_countries_jsa do |response|
-          (countries_of_former_yugoslavia + %w(guernsey jersey new-zealand)).include?(response)
-        end
-
-        next_node_calculation :social_security_countries_iidb do |response|
-          (countries_of_former_yugoslavia +
-          %w(barbados bermuda guernsey jersey israel jamaica mauritius philippines turkey)).include?(response)
-        end
-
-        next_node_calculation :social_security_countries_bereavement_benefits do |response|
-          (countries_of_former_yugoslavia +
-          %w(barbados bermuda canada guernsey jersey israel jamaica mauritius new-zealand philippines turkey usa)).include?(response)
+          (WorldLocation.all + additional_countries).find { |c| c.slug == calculator.country }.name
         end
 
         next_node do |response|
           case benefit
           when 'jsa'
-            if already_abroad && responded_with_eea_country
+            if already_abroad && calculator.eea_country?
               outcome :jsa_eea_already_abroad_outcome # A3 already_abroad
-            elsif already_abroad && social_security_countries_jsa
+            elsif already_abroad && calculator.social_security_countries_jsa?
               outcome :jsa_social_security_already_abroad_outcome # A4 already_abroad
-            elsif going_abroad && responded_with_eea_country
+            elsif going_abroad && calculator.eea_country?
               outcome :jsa_eea_going_abroad_outcome # A5 going_abroad
-            elsif going_abroad && social_security_countries_jsa
+            elsif going_abroad && calculator.social_security_countries_jsa?
               outcome :jsa_social_security_going_abroad_outcome # A6 going_abroad
             else
               outcome :jsa_not_entitled_outcome # A7 going_abroad and A5 already_abroad
             end
           when 'maternity_benefits'
-            if responded_with_eea_country
+            if calculator.eea_country?
               question :working_for_a_uk_employer? # Q8 going_abroad and Q7 already_abroad
             else
               question :employer_paying_ni? # Q10, Q11, Q16 going_abroad and Q9, Q10, Q15 already_abroad
             end
           when 'winter_fuel_payment'
-            if responded_with_eea_country
+            if calculator.eea_country?
               if going_abroad
                 outcome :wfp_going_abroad_outcome # A9 going_abroad
               else
@@ -174,9 +155,9 @@ module SmartAnswer
               outcome :wfp_not_eligible_outcome # A8 going_abroad and A6 already_abroad
             end
           when 'child_benefit'
-            if responded_with_eea_country
+            if calculator.eea_country?
               question :do_either_of_the_following_apply? # Q13 going_abroad and Q12 already_abroad
-            elsif responded_with_former_yugoslavia
+            elsif calculator.former_yugoslavia?
               if going_abroad
                 outcome :child_benefit_fy_going_abroad_outcome # A14 going_abroad
               else
@@ -191,24 +172,24 @@ module SmartAnswer
             end
           when 'iidb'
             if going_abroad
-              if responded_with_eea_country
+              if calculator.eea_country?
                 outcome :iidb_going_abroad_eea_outcome # A32 going_abroad
-              elsif social_security_countries_iidb
+              elsif calculator.social_security_countries_iidb?
                 outcome :iidb_going_abroad_ss_outcome # A33 going_abroad
               else
                 outcome :iidb_going_abroad_other_outcome # A34 going_abroad
               end
             elsif already_abroad
-              if responded_with_eea_country
+              if calculator.eea_country?
                 outcome :iidb_already_abroad_eea_outcome # A31 already_abroad
-              elsif social_security_countries_iidb
+              elsif calculator.social_security_countries_iidb?
                 outcome :iidb_already_abroad_ss_outcome # A32 already_abroad
               else
                 outcome :iidb_already_abroad_other_outcome # A33 already_abroad
               end
             end
           when 'disability_benefits'
-            if responded_with_eea_country
+            if calculator.eea_country?
               question :db_claiming_benefits? # Q30 going_abroad and Q29 already_abroad
             elsif going_abroad
               outcome :db_going_abroad_other_outcome # A36 going_abroad
@@ -216,22 +197,22 @@ module SmartAnswer
               outcome :db_already_abroad_other_outcome # A35 already_abroad
             end
           when 'ssp'
-            if responded_with_eea_country
+            if calculator.eea_country?
               question :working_for_uk_employer_ssp? # Q15 going_abroad and Q14 already_abroad
             else
               question :employer_paying_ni? # Q10, Q11, Q16 going_abroad and Q9, Q10, Q15 already_abroad
             end
           when 'tax_credits'
-            if responded_with_eea_country
+            if calculator.eea_country?
               question :tax_credits_currently_claiming? # Q20 already_abroad
             else
               outcome :tax_credits_unlikely_outcome # A21 already_abroad and A23 going_abroad
             end
           when 'esa'
             if going_abroad
-              if responded_with_eea_country
+              if calculator.eea_country?
                 outcome :esa_going_abroad_eea_outcome # A29 going_abroad
-              elsif responded_with_former_yugoslavia
+              elsif calculator.former_yugoslavia?
                 outcome :esa_going_abroad_eea_outcome
               elsif %w(barbados guernsey israel jersey jamaica turkey usa).include?(response)
                 outcome :esa_going_abroad_eea_outcome
@@ -239,9 +220,9 @@ module SmartAnswer
                 outcome :esa_going_abroad_other_outcome # A30 going_abroad
               end
             elsif already_abroad
-              if responded_with_eea_country
+              if calculator.eea_country?
                 outcome :esa_already_abroad_eea_outcome # A27 already_abroad
-              elsif responded_with_former_yugoslavia
+              elsif calculator.former_yugoslavia?
                 outcome :esa_already_abroad_ss_outcome # A28 already_abroad
               elsif %w(barbados jersey guernsey jamaica turkey usa).include?(response)
                 outcome :esa_already_abroad_ss_outcome
@@ -251,17 +232,17 @@ module SmartAnswer
             end
           when 'bereavement_benefits'
             if going_abroad
-              if responded_with_eea_country
+              if calculator.eea_country?
                 outcome :bb_going_abroad_eea_outcome # A39 going_abroad
-              elsif social_security_countries_bereavement_benefits
+              elsif calculator.social_security_countries_bereavement_benefits?
                 outcome :bb_going_abroad_ss_outcome # A40 going_abroad
               else
                 outcome :bb_going_abroad_other_outcome # A38 going_abroad
               end
             elsif already_abroad
-              if responded_with_eea_country
+              if calculator.eea_country?
                 outcome :bb_already_abroad_eea_outcome # A37 already_abroad
-              elsif social_security_countries_bereavement_benefits
+              elsif calculator.social_security_countries_bereavement_benefits?
                 outcome :bb_already_abroad_ss_outcome # A38 already_abroad
               else
                 outcome :bb_already_abroad_other_outcome # A39 already_abroad
@@ -326,7 +307,7 @@ module SmartAnswer
             #not SSP benefits
             if response == 'yes'
               question :eligible_for_smp? # Q9 going_abroad and Q8 already_abroad
-            elsif (countries_of_former_yugoslavia + %w(barbados guernsey jersey israel turkey)).include?(country)
+            elsif (countries_of_former_yugoslavia + %w(barbados guernsey jersey israel turkey)).include?(calculator.country)
               if already_abroad
                 outcome :maternity_benefits_social_security_already_abroad_outcome # A10 already_abroad
               else
