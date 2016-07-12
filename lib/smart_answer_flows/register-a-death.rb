@@ -6,8 +6,6 @@ module SmartAnswer
       status :published
       satisfies_need "101006"
 
-      exclude_countries = %w(holy-see british-antarctic-territory)
-
       # Q1
       multiple_choice :where_did_the_death_happen? do
         on_response do |response|
@@ -58,7 +56,7 @@ module SmartAnswer
       end
 
       # Q4
-      country_select :which_country?, exclude_countries: exclude_countries do
+      country_select :which_country?, exclude_countries: Calculators::RegisterADeathCalculator::EXCLUDE_COUNTRIES do
         on_response do |response|
           calculator.country_of_death = response
         end
@@ -96,7 +94,7 @@ module SmartAnswer
       end
 
       # Q6
-      country_select :which_country_are_you_in_now?, exclude_countries: exclude_countries do
+      country_select :which_country_are_you_in_now?, exclude_countries: Calculators::RegisterADeathCalculator::EXCLUDE_COUNTRIES do
         on_response do |response|
           calculator.current_country = response
         end

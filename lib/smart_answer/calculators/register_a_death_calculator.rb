@@ -2,6 +2,8 @@ module SmartAnswer::Calculators
   class RegisterADeathCalculator
     include ActiveModel::Model
 
+    EXCLUDE_COUNTRIES = %w(holy-see british-antarctic-territory)
+
     attr_accessor :location_of_death
     attr_accessor :death_location_type
     attr_accessor :death_expected
