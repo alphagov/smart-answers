@@ -183,7 +183,7 @@ module SmartAnswer
         ## QM9 Maternity only onwards
         money_question :earnings_for_pay_period? do
           calculate :calculator do |response|
-            calculator.calculate_average_weekly_pay(calculator.pay_pattern, response)
+            calculator.calculate_average_weekly_pay(response)
             calculator
           end
           calculate :average_weekly_earnings do

@@ -237,7 +237,7 @@ module SmartAnswer
           end
 
           next_node_calculation :calculator do |response|
-            calculator.calculate_average_weekly_pay(calculator.pay_pattern, response)
+            calculator.calculate_average_weekly_pay(response)
             calculator
           end
 
