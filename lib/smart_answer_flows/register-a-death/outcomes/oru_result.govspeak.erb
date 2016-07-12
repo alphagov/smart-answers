@@ -20,14 +20,14 @@
 
   ###1. Documents
 
-  ^Send English translations of all foreign documents. <% if translator_link_url %>Use an [approved translator](<%= translator_link_url %>) and include their name and address with your application<% else %>Use a professional translator and include their name and address with your application<% end %>. Don't send laminated documents.^
+  ^Send English translations of all foreign documents. <% if calculator.translator_link_url %>Use an [approved translator](<%= calculator.translator_link_url %>) and include their name and address with your application<% else %>Use a professional translator and include their name and address with your application<% end %>. Don't send laminated documents.^
 
   You must provide:
 
-  <% if reg_data_query.oru_documents_variant_for_death?(country_of_death) %>
-    <% if country_of_death == 'poland' %>
+  <% if calculator.oru_documents_variant_for_death? %>
+    <% if calculator.country_of_death == 'poland' %>
       - the full local death certificate ('zupelny')
-    <% elsif country_of_death == 'papua-new-guinea' %>
+    <% elsif calculator.country_of_death == 'papua-new-guinea' %>
       - the hospital medical death record
     <% end %>
   <% else %>
@@ -46,7 +46,7 @@
 
   ###3. Pay
 
-  <% if !in_the_uk && current_location == 'algeria' %>
+  <% if !calculator.in_the_uk? && calculator.registration_country == 'algeria' %>
     Pay by credit or debit card - fill in the [credit card authorisation slip](/government/publications/credit-card-authorisation-form-algeria) and post it with your registration form.
   <% else %>
     Pay online for the registration. Email <deathregistrationenquiries@fco.gov.uk> if you are unable to pay online.
@@ -55,10 +55,10 @@
   The registration fee doesn't include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office in the UK, but only from September the year after you register.
 
   <%= render partial: 'fees.govspeak.erb',
-             locals: { reg_data_query: reg_data_query } %>
+             locals: { calculator: calculator } %>
 
-  <%= render partial: 'shared/births_and_deaths_registration/document_return_fees.govspeak.erb', locals: { document_return_fees: document_return_fees } %>
-  <%= render partial: 'shared/births_and_deaths_registration/button.govspeak.erb', locals: { button_data: button_data } %>
+  <%= render partial: 'shared/births_and_deaths_registration/document_return_fees.govspeak.erb', locals: { document_return_fees: calculator.document_return_fees } %>
+  <%= render partial: 'shared/births_and_deaths_registration/button.govspeak.erb', locals: { button_data: { text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start" } } %>
 
 
   ###4. Send your registration
@@ -68,7 +68,7 @@
   Post your registration form and documents by secure post to:
 
 
-  <% if in_the_uk %>
+  <% if calculator.in_the_uk? %>
     $A
     Overseas Registration Unit
     Foreign and Commonwealth Office
@@ -94,8 +94,8 @@
 
   They’ll contact you within the 3 working days if they need more information or if they need to verify your documents. If this happens then it could take up to 3 months for the death to be registered.
 
-  <% if reg_data_query.oru_courier_variant?(current_location) %>
-    <% case current_location %>
+  <% if calculator.oru_courier_variant? %>
+    <% case calculator.registration_country %>
     <% when 'cambodia' %>
       Your documents will be returned to the British Embassy in Phnom Penh after the death has been registered.
     <% when 'cameroon' %>
@@ -118,7 +118,7 @@
       Your documents will be returned to the British High Commission in Kampala after the death has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
     <% end %>
 
-    <% unless reg_data_query.oru_courier_by_high_commission?(current_location) %>
+    <% unless calculator.oru_courier_by_high_commission? %>
       You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
     <% end %>
   <% else %>

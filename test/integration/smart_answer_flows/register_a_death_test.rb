@@ -180,7 +180,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'australia'
       end
       should "give the commonwealth result" do
-        assert_state_variable :current_location_name_lowercase_prefix, "Australia"
+        assert_equal "Australia", current_state.calculator.registration_country_name_lowercase_prefix
         assert_current_node :commonwealth_result
       end
     end # Australia (commonwealth country)
@@ -189,7 +189,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'spain'
       end
       should "ask where you are now" do
-        assert_state_variable :current_location_name_lowercase_prefix, "Spain"
+        assert_equal "Spain", current_state.calculator.registration_country_name_lowercase_prefix
         assert_current_node :where_are_you_now?
       end
       context "answer same country" do
@@ -198,8 +198,8 @@ class RegisterADeathTest < ActiveSupport::TestCase
         end
         should "give the embassy result and be done" do
           assert_current_node :oru_result
-          assert_state_variable :translator_link_url, "http://www.exteriores.gob.es/Portal/en/ServiciosAlCiudadano/Paginas/Traductoresas---Int%C3%A9rpretes-Juradosas.aspx"
-          assert current_state.send(:document_return_fees).present?
+          assert_equal "http://www.exteriores.gob.es/Portal/en/ServiciosAlCiudadano/Paginas/Traductoresas---Int%C3%A9rpretes-Juradosas.aspx", current_state.calculator.translator_link_url
+          assert current_state.calculator.document_return_fees.present?
         end
       end # Answer embassy
       context "answer ORU office in the uk" do
@@ -208,7 +208,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         end
         should "give the ORU result and be done" do
           assert_current_node :oru_result
-          assert_state_variable :translator_link_url, "http://www.exteriores.gob.es/Portal/en/ServiciosAlCiudadano/Paginas/Traductoresas---Int%C3%A9rpretes-Juradosas.aspx"
+          assert_equal "http://www.exteriores.gob.es/Portal/en/ServiciosAlCiudadano/Paginas/Traductoresas---Int%C3%A9rpretes-Juradosas.aspx", current_state.calculator.translator_link_url
         end
       end # Answer ORU
     end # Answer Spain
@@ -218,7 +218,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'morocco'
       end
       should "ask where are you now" do
-        assert_state_variable :current_location_name_lowercase_prefix, "Morocco"
+        assert_equal "Morocco", current_state.calculator.registration_country_name_lowercase_prefix
         assert_current_node :where_are_you_now?
       end
       context "answer ORU office in the uk" do
@@ -227,7 +227,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         end
         should "give the ORU result and be done" do
           assert_current_node :oru_result
-          assert_state_variable :translator_link_url, "/government/publications/morocco-list-of-lawyers"
+          assert_equal "/government/publications/morocco-list-of-lawyers", current_state.calculator.translator_link_url
         end
       end # Answer ORU
     end # Morocco
@@ -239,8 +239,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
       end
       should "give the ORU result and be done" do
         assert_current_node :oru_result
-        assert_state_variable :button_data, text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"
-        assert_state_variable :translator_link_url, "/government/publications/italy-list-of-lawyers"
+        assert_equal "/government/publications/italy-list-of-lawyers", current_state.calculator.translator_link_url
       end
     end # Answer Italy
 
@@ -252,8 +251,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
       end
       should "give the oru result and be done" do
         assert_current_node :oru_result
-        assert_state_variable :button_data, text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"
-        assert_state_variable :translator_link_url, "/government/publications/spain-list-of-lawyers"
+        assert_equal "/government/publications/spain-list-of-lawyers", current_state.calculator.translator_link_url
       end
     end # Answer Andorra, now in France
 
@@ -266,15 +264,14 @@ class RegisterADeathTest < ActiveSupport::TestCase
           add_response 'same_country'
 
           assert_current_node :oru_result
-          assert_state_variable :translator_link_url, "/government/publications/afghanistan-list-of-lawyers"
+          assert_equal "/government/publications/afghanistan-list-of-lawyers", current_state.calculator.translator_link_url
         end
       end
       context "now back in the UK" do
         should "give the ORU result with a translators link" do
           add_response 'in_the_uk'
           assert_current_node :oru_result
-          assert_state_variable :button_data, text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"
-          assert_state_variable :translator_link_url, "/government/publications/afghanistan-list-of-lawyers"
+          assert_equal "/government/publications/afghanistan-list-of-lawyers", current_state.calculator.translator_link_url
         end
       end
     end # Answer Afghanistan
@@ -288,8 +285,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         should "give the ORU result with a translator link and a standard payment method" do
           add_response 'in_the_uk'
           assert_current_node :oru_result
-          assert_state_variable :button_data, text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"
-          assert_state_variable :translator_link_url, "/government/publications/algeria-list-of-lawyers"
+          assert_equal "/government/publications/algeria-list-of-lawyers", current_state.calculator.translator_link_url
         end
       end
 
@@ -298,8 +294,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
           add_response 'another_country'
           add_response 'algeria'
           assert_current_node :oru_result
-          assert_state_variable :button_data, text: "Pay now", url: "https://pay-register-death-abroad.service.gov.uk/start"
-          assert_state_variable :translator_link_url, "/government/publications/algeria-list-of-lawyers"
+          assert_equal "/government/publications/algeria-list-of-lawyers", current_state.calculator.translator_link_url
         end
       end
     end # Answer Algeria
@@ -350,7 +345,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'in_the_uk'
       end
       should "give the embassy result and be done" do
-        assert_state_variable :translator_link_url, "/government/publications/list-of-translators-and-interpreters-in-serbia"
+        assert_equal "/government/publications/list-of-translators-and-interpreters-in-serbia", current_state.calculator.translator_link_url
       end
     end # Answer Serbia
     context "answer Pakistan, user in the UK" do
@@ -367,7 +362,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'st-kitts-and-nevis'
       end
       should "give the embassy result and be done" do
-        assert_state_variable :translator_link_url, nil
+        assert_nil current_state.calculator.translator_link_url
       end
     end # Answer Dominica
     context "answer death in Egypt, user in Belgium" do
@@ -378,9 +373,9 @@ class RegisterADeathTest < ActiveSupport::TestCase
       end
       should "give oru_result" do
         assert_current_node :oru_result
-        assert_state_variable :death_country_name_lowercase_prefix, 'Egypt'
-        assert_state_variable :current_location_name_lowercase_prefix, 'Belgium'
-        assert_state_variable :current_location, 'belgium'
+        assert_equal 'Egypt', current_state.calculator.death_country_name_lowercase_prefix
+        assert_equal "Belgium", current_state.calculator.registration_country_name_lowercase_prefix
+        assert_equal 'belgium', current_state.calculator.registration_country
       end
     end # Death in Egypt user in Belgium
 

@@ -1,14 +1,14 @@
 ---
-lib/smart_answer_flows/register-a-death.rb: 560ad77a9daa6fa486f967a70cd91f50
+lib/smart_answer_flows/register-a-death.rb: 1f7655d6cb1d3ae6df56f1c8e051f0cc
 test/data/register-a-death-questions-and-responses.yml: bae21b0a8be1bbaa2dd6febd505382d6
 test/data/register-a-death-responses-and-expected-results.yml: 9a00fab73baeba1d3d1be0013c405a3f
-lib/smart_answer_flows/register-a-death/outcomes/_fees.govspeak.erb: ea6d04bee0f4148fc2fa587df3cc8363
-lib/smart_answer_flows/register-a-death/outcomes/_footnote_oru_variants.govspeak.erb: 30e012cdde5aa7f4de5856a5db47a54c
-lib/smart_answer_flows/register-a-death/outcomes/commonwealth_result.govspeak.erb: f343aa2ce9258acca94c986109618ca4
-lib/smart_answer_flows/register-a-death/outcomes/no_embassy_result.govspeak.erb: fabd0de7b88ffeb54783f87cfd4a3582
-lib/smart_answer_flows/register-a-death/outcomes/north_korea_result.govspeak.erb: 5b2162fe6d3c2cb9a50bfd41efb89095
-lib/smart_answer_flows/register-a-death/outcomes/oru_result.govspeak.erb: 3572cdae4bfd39c27cc8e542c4bf80d2
-lib/smart_answer_flows/register-a-death/outcomes/uk_result.govspeak.erb: 662da9367c5992191471f8722b3c2636
+lib/smart_answer_flows/register-a-death/outcomes/_fees.govspeak.erb: 295a443bf733cdeb0fcd70282af042cc
+lib/smart_answer_flows/register-a-death/outcomes/_footnote_oru_variants.govspeak.erb: 5a3909331b2a97a9dac6a13d02e860a9
+lib/smart_answer_flows/register-a-death/outcomes/commonwealth_result.govspeak.erb: a04c0907f44a14d715689ce9182959de
+lib/smart_answer_flows/register-a-death/outcomes/no_embassy_result.govspeak.erb: 5a7be7180708c2cc38fb612cee1c8a41
+lib/smart_answer_flows/register-a-death/outcomes/north_korea_result.govspeak.erb: a6b37c903518230e682a1b852a60d103
+lib/smart_answer_flows/register-a-death/outcomes/oru_result.govspeak.erb: c0fe9e576c22269ebc678aef577faaca
+lib/smart_answer_flows/register-a-death/outcomes/uk_result.govspeak.erb: aed4dc1d27dc52b74bdf182e62df8705
 lib/smart_answer_flows/register-a-death/questions/did_the_person_die_at_home_hospital.govspeak.erb: 3405db8cb8b24782fc49981c2fce12e7
 lib/smart_answer_flows/register-a-death/questions/was_death_expected.govspeak.erb: 132d4a52801b619af05519a69f2767dd
 lib/smart_answer_flows/register-a-death/questions/where_are_you_now.govspeak.erb: b11b29b04cec875529be3714b5fba89e
@@ -16,6 +16,7 @@ lib/smart_answer_flows/register-a-death/questions/where_did_the_death_happen.gov
 lib/smart_answer_flows/register-a-death/questions/which_country.govspeak.erb: e816742682e96117df80d67faff13fc8
 lib/smart_answer_flows/register-a-death/questions/which_country_are_you_in_now.govspeak.erb: 9c9399d1588c7d5e01ebf1bf5efa31a1
 lib/smart_answer_flows/register-a-death/register_a_death.govspeak.erb: 1820ba3a5f3ed47816c7f151217be439
+lib/smart_answer/calculators/register_a_death_calculator.rb: 8483d0017c4a653602ff3dc09233ddc4
 lib/data/rates/register_a_death.yml: f24583d68edd4b06242b5a92e08e25c3
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1d83fae34e0ee72ce1c1554bdb766d21
 lib/smart_answer_flows/shared/births_and_deaths_registration/_button.govspeak.erb: bdd3818dfd2b9d6396daf6f60fd887a0

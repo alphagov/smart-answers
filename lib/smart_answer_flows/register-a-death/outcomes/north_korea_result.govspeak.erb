@@ -1,11 +1,11 @@
 <% content_for :body do %>
-  $!You must register the death according to the regulations in <%= death_country_name_lowercase_prefix %>. You will be given a local death certificate.$!
+  $!You must register the death according to the regulations in <%= calculator.death_country_name_lowercase_prefix %>. You will be given a local death certificate.$!
 
   This local death certificate will be accepted in the UK (it may need to be a [certified translation](/certifying-a-document) of the document if it’s not in English).
 
   ##Register the death with the UK authorities
 
-  You can also apply to register the death with the British embassy in <%= current_location_name_lowercase_prefix %>.
+  You can also apply to register the death with the British embassy in <%= calculator.registration_country_name_lowercase_prefix %>.
 
   You don’t have to do this, but it means:
 
@@ -32,7 +32,7 @@
   ##Cost
 
   <%= render partial: 'fees.govspeak.erb',
-             locals: { reg_data_query: reg_data_query } %>
+             locals: { calculator: calculator } %>
 
   You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees](/government/organisations/foreign-commonwealth-office/series/consular-fees).
 
@@ -48,5 +48,5 @@
 
   Your documents will be returned to the British Embassy in Pyongyang after the death has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
 
-  <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: overseas_passports_embassies } %>
+  <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: calculator.overseas_passports_embassies } %>
 <% end %>

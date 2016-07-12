@@ -1,5 +1,5 @@
 <% content_for :body do %>
-  <% case where_death_happened %>
+  <% case calculator.location_of_death %>
   <% when 'england_wales' %>
     You should register the death within 5 days.
 
@@ -14,7 +14,7 @@
 
     You can register the death if you’re:
 
-    <% if died_at_home_hospital %>
+    <% if calculator.died_at_home_or_in_hospital? %>
       - a relative
       - someone present at the death
       - an administrator from the hospital
@@ -27,7 +27,7 @@
       - the person making arrangements with the funeral directors
     <% end %>
 
-    <% if death_expected %>
+    <% if calculator.death_expected? %>
       What you need to do
       --------
 
@@ -78,7 +78,7 @@
 
     You should also take supporting documents that show your name and address (eg a utility bill) but you can still register a death without them.
 
-    <% if death_expected %>
+    <% if calculator.death_expected? %>
       Documents you’ll get
       --------
 
