@@ -51,4 +51,4 @@ lib/smart_answer_flows/energy-grants-calculator/questions/what_are_your_circumst
 lib/smart_answer_flows/energy-grants-calculator/questions/what_are_your_circumstances_without_bills_help.govspeak.erb: 6ae854b097a4d15979f199d18dbb1799
 lib/smart_answer_flows/energy-grants-calculator/questions/when_property_built.govspeak.erb: 263b4fbc03875cc1f84cbe9f514e76ef
 lib/smart_answer_flows/energy-grants-calculator/questions/which_benefits.govspeak.erb: a0508f489796a83add8babb487e8fae4
-lib/smart_answer/calculators/energy_grants_calculator.rb: ef269ae7cde33a5700ebf47d49da3b3b
+lib/smart_answer/calculators/energy_grants_calculator.rb: 7b6d0590bcb03ca4cf2bbf0d9503fd29
