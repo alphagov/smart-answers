@@ -6,7 +6,6 @@ module SmartAnswer
       status :published
       satisfies_need "101006"
 
-      reg_data_query = Calculators::RegistrationsDataQuery.new
       exclude_countries = %w(holy-see british-antarctic-territory)
 
       # Q1
@@ -119,10 +118,6 @@ module SmartAnswer
       outcome :oru_result do
         precalculate :reg_data_query do
           Calculators::RegistrationsDataQuery.new
-        end
-
-        precalculate :document_return_fees do
-          reg_data_query.document_return_fees
         end
       end
 

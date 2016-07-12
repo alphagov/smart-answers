@@ -83,5 +83,9 @@ module SmartAnswer::Calculators
         []
       end
     end
+
+    def document_return_fees
+      @reg_data_query.document_return_fees
+    end
   end
 end

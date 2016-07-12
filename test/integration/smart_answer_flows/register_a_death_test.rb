@@ -199,7 +199,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         should "give the embassy result and be done" do
           assert_current_node :oru_result
           assert_equal "http://www.exteriores.gob.es/Portal/en/ServiciosAlCiudadano/Paginas/Traductoresas---Int%C3%A9rpretes-Juradosas.aspx", current_state.calculator.translator_link_url
-          assert current_state.send(:document_return_fees).present?
+          assert current_state.calculator.document_return_fees.present?
         end
       end # Answer embassy
       context "answer ORU office in the uk" do
