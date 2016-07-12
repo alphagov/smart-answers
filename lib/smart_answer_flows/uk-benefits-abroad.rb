@@ -124,10 +124,6 @@ module SmartAnswer
           (WorldLocation.all + additional_countries).find { |c| c.slug == calculator.country }.name
         end
 
-        next_node_calculation :responded_with_former_yugoslavia do |response|
-          countries_of_former_yugoslavia.include?(response)
-        end
-
         next_node_calculation :social_security_countries_jsa do |response|
           (countries_of_former_yugoslavia + %w(guernsey jersey new-zealand)).include?(response)
         end
@@ -175,7 +171,7 @@ module SmartAnswer
           when 'child_benefit'
             if calculator.eea_country?
               question :do_either_of_the_following_apply? # Q13 going_abroad and Q12 already_abroad
-            elsif responded_with_former_yugoslavia
+            elsif calculator.former_yugoslavia?
               if going_abroad
                 outcome :child_benefit_fy_going_abroad_outcome # A14 going_abroad
               else
@@ -230,7 +226,7 @@ module SmartAnswer
             if going_abroad
               if calculator.eea_country?
                 outcome :esa_going_abroad_eea_outcome # A29 going_abroad
-              elsif responded_with_former_yugoslavia
+              elsif calculator.former_yugoslavia?
                 outcome :esa_going_abroad_eea_outcome
               elsif %w(barbados guernsey israel jersey jamaica turkey usa).include?(response)
                 outcome :esa_going_abroad_eea_outcome
@@ -240,7 +236,7 @@ module SmartAnswer
             elsif already_abroad
               if calculator.eea_country?
                 outcome :esa_already_abroad_eea_outcome # A27 already_abroad
-              elsif responded_with_former_yugoslavia
+              elsif calculator.former_yugoslavia?
                 outcome :esa_already_abroad_ss_outcome # A28 already_abroad
               elsif %w(barbados jersey guernsey jamaica turkey usa).include?(response)
                 outcome :esa_already_abroad_ss_outcome
