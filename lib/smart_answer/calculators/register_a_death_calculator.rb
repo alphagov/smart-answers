@@ -87,5 +87,13 @@ module SmartAnswer::Calculators
     def document_return_fees
       @reg_data_query.document_return_fees
     end
+
+    def fee_for_registering_a_death
+      @reg_data_query.register_a_death_fees.register_a_death
+    end
+
+    def fee_for_copy_of_death_registration_certificate
+      @reg_data_query.register_a_death_fees.copy_of_death_registration_certificate
+    end
   end
 end
