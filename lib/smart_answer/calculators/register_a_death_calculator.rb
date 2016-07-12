@@ -103,5 +103,9 @@ module SmartAnswer::Calculators
     def oru_courier_variant?
       @reg_data_query.oru_courier_variant?(registration_country)
     end
+
+    def oru_courier_by_high_commission?
+      @reg_data_query.oru_courier_by_high_commission?(registration_country)
+    end
   end
 end
