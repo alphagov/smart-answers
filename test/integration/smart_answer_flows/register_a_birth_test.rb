@@ -7,7 +7,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    @location_slugs = %w(afghanistan algeria andorra australia bangladesh barbados belize cambodia cameroon democratic-republic-of-congo el-salvador estonia germany guatemala grenada india iran iraq israel laos libya maldives morocco netherlands north-korea pakistan philippines pitcairn-island saint-barthelemy serbia sierra-leone spain sri-lanka st-kitts-and-nevis st-martin thailand turkey uganda united-arab-emirates venezuela)
+    @location_slugs = %w(afghanistan algeria andorra australia bangladesh barbados belize cambodia cameroon democratic-republic-of-congo el-salvador estonia germany guatemala grenada india iran iraq israel laos libya maldives morocco netherlands north-korea pakistan philippines pitcairn-island saint-barthelemy serbia sierra-leone somalia spain sri-lanka st-kitts-and-nevis st-martin thailand turkey uganda united-arab-emirates venezuela)
     stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::RegisterABirthFlow
   end
@@ -254,6 +254,13 @@ class RegisterABirthTest < ActiveSupport::TestCase
       assert_current_node :no_embassy_result
     end
   end # Libya
+
+  context 'answer Somalia' do
+    should 'give the no embassy result' do
+      add_response 'somalia'
+      assert_current_node :no_embassy_result
+    end
+  end # Somalia
 
   context "answer barbados" do
     should "give the oru result" do
