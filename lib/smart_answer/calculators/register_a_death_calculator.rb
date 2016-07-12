@@ -95,5 +95,9 @@ module SmartAnswer::Calculators
     def fee_for_copy_of_death_registration_certificate
       @reg_data_query.register_a_death_fees.copy_of_death_registration_certificate
     end
+
+    def oru_documents_variant_for_death?
+      @reg_data_query.oru_documents_variant_for_death?(country_of_death)
+    end
   end
 end
