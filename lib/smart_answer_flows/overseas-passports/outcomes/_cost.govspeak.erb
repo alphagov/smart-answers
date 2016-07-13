@@ -15,7 +15,7 @@
     | Child passport | <%= number_to_currency(calculator.find_passport_fee('child'), precision: 2) %> |
   <% end %>
 
-  You must pay in cash. In addition to the passport fee you’ll need to pay any local administration fees which apply from the office where you make your application.
+  <%= render partial: 'cost/payment_instructions.govspeak.erb', locals: { calculator: calculator } %>
 <% else %>
   <%= render partial: 'cost/fee_information.govspeak.erb', locals: { calculator: calculator } %>
 
