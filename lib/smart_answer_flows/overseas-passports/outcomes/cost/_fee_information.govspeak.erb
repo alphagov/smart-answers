@@ -1,1 +1,5 @@
-You’ll have to pay a fee for your passport and a courier fee of <%= number_to_currency(calculator.courier_fee, precision: 2) %>.
+<% if %w(st-helena-ascension-and-tristan-da-cunha).include?(calculator.current_location) %>
+  You’ll have to pay a fee for your passport.
+<% else %>
+  You’ll have to pay a fee for your passport and a courier fee of <%= number_to_currency(calculator.courier_fee, precision: 2) %>.
+<% end %>

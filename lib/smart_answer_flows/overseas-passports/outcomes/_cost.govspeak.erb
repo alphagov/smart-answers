@@ -1,7 +1,7 @@
 ## Cost
 
 <% if %w(st-helena-ascension-and-tristan-da-cunha).include?(calculator.current_location) %>
-  You’ll have to pay a fee for your passport.
+  <%= render partial: 'cost/fee_information.govspeak.erb', locals: { calculator: calculator } %>
 
   <% case calculator.child_or_adult %>
   <% when 'adult' %>
