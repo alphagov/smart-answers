@@ -1,4 +1,4 @@
-<% if %w(st-helena-ascension-and-tristan-da-cunha).include?(calculator.current_location) %>
+<% unless calculator.courier_service? %>
   <% case calculator.child_or_adult %>
   <% when 'adult' %>
     | Passport type | Passport fee |
