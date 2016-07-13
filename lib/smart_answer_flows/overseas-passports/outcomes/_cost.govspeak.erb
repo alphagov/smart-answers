@@ -52,9 +52,7 @@
 
   <%= render partial: 'cost/passport_fee_table.govspeak.erb', locals: { calculator: calculator } %>
 
-  <% if calculator.cash_only_country? %>
-    You must pay in cash using local currency - the prices above will be converted according to the exchange rate when you apply.
-  <% elsif pay_at_appointment_countries.include?(calculator.current_location) %>
+  <% if pay_at_appointment_countries.include?(calculator.current_location) %>
     You must pay at your scheduled appointment using a debit or credit card. American Express, Diner’s Club and Discovery cards aren’t accepted.
   <% else %>
     <%= render partial: 'cost/payment_instructions.govspeak.erb', locals: { calculator: calculator } %>
