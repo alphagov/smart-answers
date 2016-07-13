@@ -17,7 +17,9 @@ Don’t book travel until you have a valid passport. If you need to travel more 
 
 ## Cost
 
-You’ll have to pay a fee for your passport and a courier fee of £9.70. The courier fee pays for your passport to be sent back to you securely.
+You’ll have to pay a fee for your passport and a courier fee of £9.70.
+
+The courier fee pays for your passport to be sent back to you securely.
 
 | Passport type | Passport fee | Total to pay (including courier fee) |
 |---------------|--------------|--------------------------------------|

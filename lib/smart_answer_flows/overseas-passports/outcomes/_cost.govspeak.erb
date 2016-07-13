@@ -17,7 +17,9 @@
 
   You must pay in cash. In addition to the passport fee you’ll need to pay any local administration fees which apply from the office where you make your application.
 <% elsif calculator.current_location == 'tunisia' %>
-    You’ll have to pay a fee for your passport and a courier fee of £21.57. The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
+    You’ll have to pay a fee for your passport and a courier fee of £21.57.
+
+    The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
 
   <% case calculator.child_or_adult %>
   <% when 'adult' %>
@@ -34,7 +36,9 @@
   <%= render partial: 'cost/payment_instructions.govspeak.erb', locals: { calculator: calculator } %>
 
 <% elsif calculator.replacing? and calculator.ips_number == '1' and calculator.ips_docs_number == '1' %>
-  You’ll have to pay a fee for your passport and a courier fee of £9.70. The courier fee pays for your passport to be sent back to you securely.
+  You’ll have to pay a fee for your passport and a courier fee of £9.70.
+
+  The courier fee pays for your passport to be sent back to you securely.
 
   <% case calculator.child_or_adult %>
   <% when 'adult' %>
@@ -76,20 +80,32 @@
   <% if uk_visa_application_centre_countries.include?(calculator.current_location) %>
     <% case calculator.ips_number %>
     <% when '2' %>
-      You’ll have to pay a fee for your passport and a courier fee of £24.72. The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
+      You’ll have to pay a fee for your passport and a courier fee of £24.72.
+
+      The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
     <% when '3' %>
-      You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
+      You’ll have to pay a fee for your passport and a courier fee of £23.01.
+
+      The courier fee pays for your passport to be sent securely to the UK Visa Application Centre where you applied for you to collect.
     <% end %>
   <% elsif %w(pitcairn-island).include?(calculator.current_location) %>
-    You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport and supporting documents to be sent back to you securely via the Pitcairn Islands Office in Auckland.
+    You’ll have to pay a fee for your passport and a courier fee of £23.01.
+
+    The courier fee pays for your passport and supporting documents to be sent back to you securely via the Pitcairn Islands Office in Auckland.
   <% else %>
     <% case calculator.ips_number %>
     <% when '1' %>
-      You’ll have to pay a fee for your passport and a courier fee of £19.86. The courier fee pays for your passport and supporting documents to be sent back to you securely.
+      You’ll have to pay a fee for your passport and a courier fee of £19.86.
+
+      The courier fee pays for your passport and supporting documents to be sent back to you securely.
     <% when '2' %>
-      You’ll have to pay a fee for your passport and a courier fee of £24.72. The courier fee pays for your passport to be sent securely to the British Embassy, high commission or consulate where you applied for you to collect.
+      You’ll have to pay a fee for your passport and a courier fee of £24.72.
+
+      The courier fee pays for your passport to be sent securely to the British Embassy, high commission or consulate where you applied for you to collect.
     <% when '3' %>
-      You’ll have to pay a fee for your passport and a courier fee of £23.01. The courier fee pays for your passport to be sent securely to the British Embassy, high commission or consulate where you applied for you to collect.
+      You’ll have to pay a fee for your passport and a courier fee of £23.01.
+
+      The courier fee pays for your passport to be sent securely to the British Embassy, high commission or consulate where you applied for you to collect.
     <% end %>
   <% end %>
 
