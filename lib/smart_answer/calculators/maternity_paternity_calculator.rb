@@ -298,7 +298,7 @@ module SmartAnswer::Calculators
     end
 
     def adoption_rate_for(date)
-      awe = (@average_weekly_earnings.to_f * 0.9).round(2)
+      awe = (average_weekly_earnings.to_f * 0.9).round(2)
       if date < 6.weeks.since(leave_start_date) && @match_date >= Date.parse('5 April 2015')
         awe
       else
@@ -315,7 +315,7 @@ module SmartAnswer::Calculators
     end
 
     def paternity_rate_for(date)
-      awe = (@average_weekly_earnings.to_f * 0.9).round(2)
+      awe = (average_weekly_earnings.to_f * 0.9).round(2)
       [statutory_rate(date), awe].min
     end
 
