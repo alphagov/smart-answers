@@ -343,7 +343,7 @@ module SmartAnswer
           end
 
           precalculate :below_threshold do
-            calculator.average_weekly_earnings &&
+            calculator.earnings_for_pay_period &&
               calculator.average_weekly_earnings < calculator.lower_earning_limit
           end
 
