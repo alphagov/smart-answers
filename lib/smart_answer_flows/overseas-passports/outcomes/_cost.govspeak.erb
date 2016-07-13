@@ -3,6 +3,8 @@
 <% if %w(st-helena-ascension-and-tristan-da-cunha).include?(calculator.current_location) %>
   <%= render partial: 'cost/fee_information.govspeak.erb', locals: { calculator: calculator } %>
 
+  <%= render partial: 'cost/courier_fee_information.govspeak.erb', locals: { calculator: calculator } %>
+
   <%= render partial: 'cost/passport_fee_table.govspeak.erb',
              locals: { calculator: calculator } %>
 

@@ -676,6 +676,22 @@ module SmartAnswer
           assert_equal 7, calculator.total_cost('passport-type')
         end
       end
+
+      context '#courier_service?' do
+        setup do
+          @calculator = OverseasPassportsCalculator.new
+        end
+
+        should 'return true for countries that offer a courier service' do
+          @calculator.current_location = 'not-st-helena-ascension-and-tristan-da-cunha'
+          assert @calculator.courier_service?
+        end
+
+        should "return false for countries that don't offer a courier service" do
+          @calculator.current_location = 'st-helena-ascension-and-tristan-da-cunha'
+          refute @calculator.courier_service?
+        end
+      end
     end
   end
 end

@@ -24,6 +24,8 @@ module SmartAnswer::Calculators
 
     PAY_AT_APPOINTMENT_COUNTRIES = %w(venezuela)
 
+    NO_COURIER_SERVICE_COUNTRIES = %w(st-helena-ascension-and-tristan-da-cunha)
+
     EXCLUDE_COUNTRIES = %w(
       holy-see british-antarctic-territory
     )
@@ -45,6 +47,10 @@ module SmartAnswer::Calculators
 
     def initialize(data_query: nil)
       @data_query = data_query || PassportAndEmbassyDataQuery.new
+    end
+
+    def courier_service?
+      NO_COURIER_SERVICE_COUNTRIES.exclude?(current_location)
     end
 
     def book_appointment_online?
