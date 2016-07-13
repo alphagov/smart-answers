@@ -21,16 +21,7 @@
 
   Don’t book any travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document](/emergency-travel-document).
 
-  ## Cost
-
-  <%= render partial: 'cost/fee_information.govspeak.erb', locals: { calculator: calculator } %>
-
-  <%= render partial: 'cost/courier_fee_information.govspeak.erb', locals: { calculator: calculator } %>
-
-  <%= render partial: 'cost/passport_fee_table.govspeak.erb',
-             locals: { calculator: calculator } %>
-
-  <%= render partial: 'cost/payment_instructions.govspeak.erb', locals: { calculator: calculator } %>
+  <%= render partial: 'cost.govspeak.erb', locals: { calculator: calculator } %>
 
   ## How to apply
 
