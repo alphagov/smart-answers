@@ -1,5 +1,5 @@
 <% content_for :body do %>
-  <% if employee_has_contract_adoption == 'no' %>
+  <% if calculator.employee_has_contract_adoption == 'no' %>
     ##Statutory Adoption Leave
 
     The employee is not entitled to Statutory Adoption Leave because they don’t have an employment contract with you.
@@ -16,16 +16,16 @@
     |End                           | <%= format_date(leave_end_date) %>           |
   <% end %>
 
-  <% if on_payroll == 'no' || calculator.average_weekly_earnings < calculator.lower_earning_limit %>
+  <% if calculator.on_payroll == 'no' || calculator.average_weekly_earnings_under_lower_earning_limit? %>
 
     ##Statutory Adoption Pay
 
     The employee is not entitled to Statutory Adoption Pay. To qualify:
 
-    <% if on_payroll == 'no' %>
+    <% if calculator.on_payroll == 'no' %>
 
       <%= render partial: 'must_be_on_payroll.govspeak.erb' %>
-    <% elsif calculator.average_weekly_earnings < calculator.lower_earning_limit %>
+    <% elsif calculator.average_weekly_earnings_under_lower_earning_limit? %>
 
       <%= render partial: 'must_earn_over_threshold.govspeak.erb',
                  locals: {

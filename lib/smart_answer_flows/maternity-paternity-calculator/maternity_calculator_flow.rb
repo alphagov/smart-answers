@@ -172,6 +172,11 @@ module SmartAnswer
           option :every_4_weeks
           option :monthly
 
+          calculate :calculator do |response|
+            calculator.pay_method = response
+            calculator
+          end
+
           next_node do
             question :earnings_for_pay_period?
           end
@@ -179,10 +184,10 @@ module SmartAnswer
 
         ## QM9 Maternity only onwards
         money_question :earnings_for_pay_period? do
-          calculate :calculator do |response|
-            calculator.calculate_average_weekly_pay(pay_pattern, response)
-            calculator
+          on_response do |response|
+            calculator.earnings_for_pay_period = response
           end
+
           calculate :average_weekly_earnings do
             calculator.average_weekly_earnings
           end
@@ -334,8 +339,8 @@ module SmartAnswer
           end
 
           precalculate :below_threshold do
-            calculator.average_weekly_earnings &&
-              calculator.average_weekly_earnings < calculator.lower_earning_limit
+            calculator.earnings_for_pay_period &&
+              calculator.average_weekly_earnings_under_lower_earning_limit?
           end
 
           precalculate :not_entitled_to_pay_reason do

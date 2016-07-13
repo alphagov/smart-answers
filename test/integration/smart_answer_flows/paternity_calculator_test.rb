@@ -93,7 +93,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
 
                     #QP7
                     should "ask if employee is still employed on birth date" do
-                      assert_state_variable :on_payroll, "yes"
+                      assert_equal "yes", current_state.calculator.on_payroll
                       assert_current_node :employee_still_employed_on_birth_date?
                     end
 

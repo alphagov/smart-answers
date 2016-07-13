@@ -81,7 +81,9 @@ module SmartAnswer
           option :yes
           option :no
 
-          save_input_as :employee_has_contract_adoption
+          on_response do |response|
+            calculator.employee_has_contract_adoption = response
+          end
 
           next_node do
             question :adoption_is_the_employee_on_your_payroll?
@@ -93,7 +95,9 @@ module SmartAnswer
           option :yes
           option :no
 
-          save_input_as :on_payroll
+          on_response do |response|
+            calculator.on_payroll = response
+          end
 
           calculate :to_saturday do
             calculator.matched_week.last
@@ -103,12 +107,8 @@ module SmartAnswer
             calculator.format_date_day to_saturday
           end
 
-          next_node_calculation(:no_contract_not_on_payroll) do |response|
-            employee_has_contract_adoption == 'no' && response == 'no'
-          end
-
           next_node do
-            if no_contract_not_on_payroll
+            if calculator.no_contract_not_on_payroll?
               outcome :adoption_not_entitled_to_leave_or_pay
             else
               question :adoption_date_leave_starts?
@@ -144,12 +144,8 @@ module SmartAnswer
             calculator.format_date calculator.a_notice_leave
           end
 
-          next_node_calculation(:has_contract_not_on_payroll) do
-            employee_has_contract_adoption == 'yes' && on_payroll == 'no'
-          end
-
           next_node do
-            if has_contract_not_on_payroll
+            if calculator.has_contract_not_on_payroll?
               outcome :adoption_leave_and_pay
             else
               question :last_normal_payday_adoption?
@@ -221,6 +217,10 @@ module SmartAnswer
 
         ## QA10
         money_question :earnings_for_pay_period_adoption? do
+          on_response do |response|
+            calculator.earnings_for_pay_period = response
+          end
+
           calculate :lower_earning_limit do
             sprintf("%.2f", calculator.lower_earning_limit)
           end
@@ -233,17 +233,8 @@ module SmartAnswer
             calculator.average_weekly_earnings > calculator.lower_earning_limit
           end
 
-          next_node_calculation :calculator do |response|
-            calculator.calculate_average_weekly_pay(pay_pattern, response)
-            calculator
-          end
-
-          next_node_calculation(:average_weekly_earnings_under_lower_earning_limit) do
-            calculator.average_weekly_earnings < calculator.lower_earning_limit
-          end
-
           next_node do
-            if average_weekly_earnings_under_lower_earning_limit
+            if calculator.average_weekly_earnings_under_lower_earning_limit?
               outcome :adoption_leave_and_pay
             else
               question :how_do_you_want_the_sap_calculated?
