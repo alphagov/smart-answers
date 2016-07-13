@@ -51,9 +51,5 @@
 
   <%= render partial: 'cost/passport_fee_table.govspeak.erb', locals: { calculator: calculator } %>
 
-  <% if SmartAnswer::Calculators::OverseasPassportsCalculator::PAY_AT_APPOINTMENT_COUNTRIES.include?(calculator.current_location) %>
-    You must pay at your scheduled appointment using a debit or credit card. American Express, Diner’s Club and Discovery cards aren’t accepted.
-  <% else %>
-    <%= render partial: 'cost/payment_instructions.govspeak.erb', locals: { calculator: calculator } %>
-  <% end %>
+  <%= render partial: 'cost/payment_instructions.govspeak.erb', locals: { calculator: calculator } %>
 <% end %>

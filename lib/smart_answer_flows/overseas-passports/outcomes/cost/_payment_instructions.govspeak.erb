@@ -1,4 +1,6 @@
-<% if calculator.cash_only_country? %>
+<% if SmartAnswer::Calculators::OverseasPassportsCalculator::PAY_AT_APPOINTMENT_COUNTRIES.include?(calculator.current_location) %>
+  You must pay at your scheduled appointment using a debit or credit card. American Express, Diner’s Club and Discovery cards aren’t accepted.
+<% elsif calculator.cash_only_country? %>
   You must pay in cash using local currency - the prices above will be converted according to the exchange rate when you apply.
 <% else %>
   <% case calculator.ips_number %>
