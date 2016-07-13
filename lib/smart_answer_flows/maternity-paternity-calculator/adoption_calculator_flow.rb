@@ -107,12 +107,8 @@ module SmartAnswer
             calculator.format_date_day to_saturday
           end
 
-          next_node_calculation(:no_contract_not_on_payroll) do
-            calculator.employee_has_contract_adoption == 'no' && calculator.on_payroll == 'no'
-          end
-
           next_node do
-            if no_contract_not_on_payroll
+            if calculator.no_contract_not_on_payroll?
               outcome :adoption_not_entitled_to_leave_or_pay
             else
               question :adoption_date_leave_starts?
