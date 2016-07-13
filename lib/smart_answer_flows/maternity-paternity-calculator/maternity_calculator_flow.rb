@@ -340,7 +340,7 @@ module SmartAnswer
 
           precalculate :below_threshold do
             calculator.earnings_for_pay_period &&
-              calculator.average_weekly_earnings < calculator.lower_earning_limit
+              calculator.average_weekly_earnings_under_lower_earning_limit?
           end
 
           precalculate :not_entitled_to_pay_reason do

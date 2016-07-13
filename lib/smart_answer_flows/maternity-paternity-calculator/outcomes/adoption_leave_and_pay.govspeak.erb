@@ -16,7 +16,7 @@
     |End                           | <%= format_date(leave_end_date) %>           |
   <% end %>
 
-  <% if calculator.on_payroll == 'no' || calculator.average_weekly_earnings < calculator.lower_earning_limit %>
+  <% if calculator.on_payroll == 'no' || calculator.average_weekly_earnings_under_lower_earning_limit? %>
 
     ##Statutory Adoption Pay
 
@@ -25,7 +25,7 @@
     <% if calculator.on_payroll == 'no' %>
 
       <%= render partial: 'must_be_on_payroll.govspeak.erb' %>
-    <% elsif calculator.average_weekly_earnings < calculator.lower_earning_limit %>
+    <% elsif calculator.average_weekly_earnings_under_lower_earning_limit? %>
 
       <%= render partial: 'must_earn_over_threshold.govspeak.erb',
                  locals: {
