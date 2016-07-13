@@ -30,6 +30,8 @@
   <%= render partial: 'cost/passport_fee_table.govspeak.erb',
              locals: { calculator: calculator } %>
 
+  <%= render partial: 'cost/payment_instructions.govspeak.erb', locals: { calculator: calculator } %>
+
   ## How to apply
 
   <% if %w(hong-kong).include?(calculator.current_location) && %w(renewing replacing).include?(calculator.general_action) %>
