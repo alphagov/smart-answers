@@ -244,6 +244,10 @@ module SmartAnswer::Calculators
       statutory_rate(Date.today)
     end
 
+    def no_contract_not_on_payroll?
+      employee_has_contract_adoption == 'no' && on_payroll == 'no'
+    end
+
   private
 
     def paydates_every_n_days(days)
