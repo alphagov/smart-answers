@@ -186,7 +186,10 @@ module SmartAnswer
         multiple_choice :employee_on_payroll_paternity? do
           option :yes
           option :no
-          save_input_as :on_payroll
+
+          on_response do |response|
+            calculator.on_payroll = response
+          end
 
           calculate :leave_spp_claim_link do
             paternity_adoption ? 'adoption' : 'notice-period'
@@ -278,7 +281,7 @@ module SmartAnswer
           end
 
           next_node do
-            if has_contract == 'yes' && (on_payroll == 'no' || employed_dob == 'no')
+            if has_contract == 'yes' && (calculator.on_payroll == 'no' || employed_dob == 'no')
               outcome :paternity_not_entitled_to_leave_or_pay
             else
               question :last_normal_payday_paternity?
