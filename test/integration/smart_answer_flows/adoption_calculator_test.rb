@@ -50,7 +50,7 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
               setup { add_response :yes }
               ## QA5
               should "ask if the employee is on your payroll" do
-                assert_state_variable "employee_has_contract_adoption", 'yes'
+                assert_equal 'yes', current_state.calculator.employee_has_contract_adoption
                 assert_current_node :adoption_is_the_employee_on_your_payroll?
               end
               should 'render the question title with an interpolated date' do
