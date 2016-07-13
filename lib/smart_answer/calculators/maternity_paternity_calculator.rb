@@ -252,6 +252,10 @@ module SmartAnswer::Calculators
       employee_has_contract_adoption == 'yes' && on_payroll == 'no'
     end
 
+    def average_weekly_earnings_under_lower_earning_limit?
+      average_weekly_earnings < lower_earning_limit
+    end
+
   private
 
     def paydates_every_n_days(days)

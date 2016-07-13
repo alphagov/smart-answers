@@ -236,12 +236,8 @@ module SmartAnswer
             calculator.average_weekly_earnings > calculator.lower_earning_limit
           end
 
-          next_node_calculation(:average_weekly_earnings_under_lower_earning_limit) do
-            calculator.average_weekly_earnings < calculator.lower_earning_limit
-          end
-
           next_node do
-            if average_weekly_earnings_under_lower_earning_limit
+            if calculator.average_weekly_earnings_under_lower_earning_limit?
               outcome :adoption_leave_and_pay
             else
               question :how_do_you_want_the_sap_calculated?
