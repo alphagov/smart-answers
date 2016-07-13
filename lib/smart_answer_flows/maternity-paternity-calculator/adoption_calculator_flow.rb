@@ -144,12 +144,8 @@ module SmartAnswer
             calculator.format_date calculator.a_notice_leave
           end
 
-          next_node_calculation(:has_contract_not_on_payroll) do
-            calculator.employee_has_contract_adoption == 'yes' && calculator.on_payroll == 'no'
-          end
-
           next_node do
-            if has_contract_not_on_payroll
+            if calculator.has_contract_not_on_payroll?
               outcome :adoption_leave_and_pay
             else
               question :last_normal_payday_adoption?
