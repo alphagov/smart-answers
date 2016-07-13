@@ -22,6 +22,8 @@ module SmartAnswer::Calculators
       vietnam venezuela western-sahara
     )
 
+    PAY_AT_APPOINTMENT_COUNTRIES = %w(venezuela)
+
     EXCLUDE_COUNTRIES = %w(
       holy-see british-antarctic-territory
     )
