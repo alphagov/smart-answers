@@ -240,11 +240,6 @@ module SmartAnswer
             calculator.average_weekly_earnings > calculator.lower_earning_limit
           end
 
-          next_node_calculation :calculator do
-            calculator.calculate_average_weekly_pay
-            calculator
-          end
-
           next_node_calculation(:average_weekly_earnings_under_lower_earning_limit) do
             calculator.average_weekly_earnings < calculator.lower_earning_limit
           end

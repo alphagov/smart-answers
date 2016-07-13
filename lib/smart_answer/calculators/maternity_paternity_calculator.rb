@@ -8,7 +8,7 @@ module SmartAnswer::Calculators
       :leave_earliest_start_date, :adoption_placement_date, :ssp_stop,
       :matched_week, :a_employment_start, :leave_type
 
-    attr_accessor :employment_contract, :leave_start_date, :average_weekly_earnings,
+    attr_accessor :employment_contract, :leave_start_date,
       :a_notice_leave, :last_payday, :pre_offset_payday, :pay_date, :paternity_leave_duration,
       :pay_day_in_month, :pay_day_in_week, :pay_method, :pay_week_in_month, :work_days, :date_of_birth, :awe
 
@@ -120,8 +120,8 @@ module SmartAnswer::Calculators
       @leave_earliest_start_date = 14.days.ago(date)
     end
 
-    def calculate_average_weekly_pay
-      @average_weekly_earnings = sprintf("%.5f", (
+    def average_weekly_earnings
+      sprintf("%.5f", (
         case pay_pattern
         when "monthly"
           earnings_for_pay_period.to_f / 2 * 12 / 52
