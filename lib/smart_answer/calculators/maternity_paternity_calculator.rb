@@ -247,6 +247,10 @@ module SmartAnswer::Calculators
       employee_has_contract_adoption == 'no' && on_payroll == 'no'
     end
 
+    def has_contract_not_on_payroll?
+      employee_has_contract_adoption == 'yes' && on_payroll == 'no'
+    end
+
   private
 
     def paydates_every_n_days(days)
