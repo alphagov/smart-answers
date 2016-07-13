@@ -262,6 +262,14 @@
   - overseas
   - north-korea
   - another_country
+  - somalia
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - north-korea
+  - another_country
   - south-georgia-and-south-sandwich-islands
   :next_node: :oru_result
   :outcome_node: true
@@ -385,6 +393,14 @@
   - overseas
   - papua-new-guinea
   - another_country
+  - somalia
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - papua-new-guinea
+  - another_country
   - south-georgia-and-south-sandwich-islands
   :next_node: :oru_result
   :outcome_node: true
@@ -402,4 +418,10 @@
   - papua-new-guinea
   - in_the_uk
   :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - overseas
+  - somalia
+  :next_node: :no_embassy_result
   :outcome_node: true

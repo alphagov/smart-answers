@@ -7,7 +7,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    @location_slugs = %w(afghanistan algeria andorra argentina australia austria barbados belgium brazil cameroon dominica egypt france germany iran italy kenya libya morocco nigeria north-korea pakistan pitcairn-island poland saint-barthelemy serbia slovakia spain st-kitts-and-nevis st-martin uganda)
+    @location_slugs = %w(afghanistan algeria andorra argentina australia austria barbados belgium brazil cameroon dominica egypt france germany iran italy kenya libya morocco nigeria north-korea pakistan pitcairn-island poland saint-barthelemy serbia slovakia somalia spain st-kitts-and-nevis st-martin uganda)
     stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::RegisterADeathFlow
   end
@@ -317,6 +317,16 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_current_node :no_embassy_result
       end
     end # Answer Libya
+
+    context 'answer Somalia' do
+      setup do
+        add_response 'somalia'
+      end
+
+      should 'give the no embassy if currently in Somalia' do
+        assert_current_node :no_embassy_result
+      end
+    end
 
     context "answer Brazil, registered in north-korea" do
       setup do
