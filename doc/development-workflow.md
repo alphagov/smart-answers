@@ -40,6 +40,8 @@ As the Pull Request author:
 
 3. Add a comment to the associated Trello card to let the relevant people know it's ready to check.
 
+4. If/when the change passes factcheck, replace the "Waiting on factcheck" label with the "Passed factcheck" label.
+
 ## Merging a Pull Request
 
 As the Pull Request author:
