@@ -81,7 +81,9 @@ module SmartAnswer
           option :yes
           option :no
 
-          save_input_as :employee_has_contract_adoption
+          on_response do |response|
+            calculator.employee_has_contract_adoption = response
+          end
 
           next_node do
             question :adoption_is_the_employee_on_your_payroll?
@@ -104,7 +106,7 @@ module SmartAnswer
           end
 
           next_node_calculation(:no_contract_not_on_payroll) do |response|
-            employee_has_contract_adoption == 'no' && response == 'no'
+            calculator.employee_has_contract_adoption == 'no' && response == 'no'
           end
 
           next_node do
@@ -145,7 +147,7 @@ module SmartAnswer
           end
 
           next_node_calculation(:has_contract_not_on_payroll) do
-            employee_has_contract_adoption == 'yes' && on_payroll == 'no'
+            calculator.employee_has_contract_adoption == 'yes' && on_payroll == 'no'
           end
 
           next_node do
