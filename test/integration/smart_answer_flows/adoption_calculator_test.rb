@@ -91,7 +91,7 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
                           setup { add_response 3000 }
                           ## QA11
                           should "ask how sap should be calculated" do
-                            assert_state_variable :pay_pattern, "monthly"
+                            assert_equal "monthly", current_state.calculator.pay_pattern
                             assert_current_node :how_do_you_want_the_sap_calculated?
                           end
                           context "answer weekly_starting" do

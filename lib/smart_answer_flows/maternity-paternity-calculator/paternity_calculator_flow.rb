@@ -337,7 +337,10 @@ module SmartAnswer
           option :every_2_weeks
           option :every_4_weeks
           option :monthly
-          save_input_as :pay_pattern
+
+          on_response do |response|
+            calculator.pay_pattern = response
+          end
 
           calculate :calculator do |response|
             calculator.pay_method = response
@@ -354,7 +357,7 @@ module SmartAnswer
           save_input_as :earnings
 
           next_node_calculation :calculator do |response|
-            calculator.calculate_average_weekly_pay(pay_pattern, response)
+            calculator.calculate_average_weekly_pay(calculator.pay_pattern, response)
             calculator
           end
 
@@ -381,7 +384,7 @@ module SmartAnswer
           next_node do |response|
             if response == 'weekly_starting'
               outcome :paternity_leave_and_pay
-            elsif pay_pattern == 'monthly'
+            elsif calculator.pay_pattern == 'monthly'
               question :monthly_pay_paternity?
             else
               question :next_pay_day_paternity?
@@ -530,7 +533,7 @@ module SmartAnswer
               elsif spp_calculation_method == 'weekly_starting'
                 spp_calculation_method
               else
-                pay_pattern
+                calculator.pay_pattern
               end
             )
           end

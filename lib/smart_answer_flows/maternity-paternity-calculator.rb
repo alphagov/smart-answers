@@ -29,9 +29,6 @@ module SmartAnswer
         calculate :smp_calculation_method do
           nil
         end
-        calculate :pay_pattern do
-          nil
-        end
         calculate :sap_calculation_method do
           nil
         end
