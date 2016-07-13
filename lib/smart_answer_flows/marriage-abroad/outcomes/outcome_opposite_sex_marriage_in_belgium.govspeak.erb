@@ -28,6 +28,17 @@
   <%= render partial: 'contact_method.govspeak.erb',
              locals: { calculator: calculator } %>
 
+  <%= render partial: 'complete_affirmation_or_affidavit_forms.govspeak.erb' %>
+  <%= render partial: 'download_and_fill_but_not_sign.govspeak.erb' %>
+  <%= render partial: 'download_affidavit_and_affirmation_belgium.govspeak.erb' %>
+
+  <%= render partial: 'partner_needs_affirmation.govspeak.erb' %>
+
+  <%= render partial: 'required_supporting_documents.govspeak.erb',
+             locals: { calculator: calculator } %>
+
+  <%= render partial: 'documents_guidance_belgium.govspeak.erb' %>
+
   <%= render partial: 'legalisation_and_translation.govspeak.erb' %>
   <%= render partial: 'affirmation_os_translation_in_local_language_text.govspeak.erb' %>
 
@@ -41,6 +52,7 @@
     <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
   <% else %>
     <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>
+    <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
   <% end %>
 
   <% if calculator.partner_not_british? %>

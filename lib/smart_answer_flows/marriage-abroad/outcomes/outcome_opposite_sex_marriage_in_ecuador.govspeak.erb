@@ -13,13 +13,6 @@
 
   <% end %>
 
-  <% if calculator.resident_of_ceremony_country? %>
-    <%= render partial: 'get_legal_advice.govspeak.erb' %>
-  <% else %>
-    <%= render partial: 'get_legal_and_travel_advice.govspeak.erb',
-               locals: { calculator: calculator } %>
-  <% end %>
-
   <%= render partial: 'what_you_need_to_do_affirmation.govspeak.erb' %>
 
   <%= render partial: 'appointment_for_affidavit.govspeak.erb',
@@ -31,16 +24,20 @@
   <%= render partial: 'legalisation_and_translation.govspeak.erb' %>
   <%= render partial: 'affirmation_os_translation_in_local_language_text.govspeak.erb' %>
 
-  <%= render partial: 'docs_decree_and_death_certificate.govspeak.erb' %>
+  If you’ve been divorced or widowed, you’ll need to provide:
 
-  <%= render partial: 'divorced_or_widowed_evidences.govspeak.erb' %>
+  - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/)
+  - evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/collections/lists-of-translators-and-interpreters) if it’s not in English
 
-  <%= render partial: 'change_of_name_evidence.govspeak.erb' %>
+  You’ll also need to provide evidence if you’ve changed your name by deed poll.
 
   <% if calculator.partner_british? %>
     <%= render partial: 'partner_probably_needs_affirmation.govspeak.erb' %>
   <% else %>
     <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>
+    <% if %w(belgium ecuador).include?(calculator.ceremony_country) %>
+      <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
+    <% end %>
   <% end %>
 
   <% if calculator.partner_not_british? %>

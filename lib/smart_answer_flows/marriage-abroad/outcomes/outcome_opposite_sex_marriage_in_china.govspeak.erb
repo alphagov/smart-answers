@@ -20,20 +20,32 @@
                locals: { calculator: calculator } %>
   <% end %>
 
-  <%= render partial: 'what_you_need_to_do_affirmation.govspeak.erb' %>
-
-  <%= render partial: 'appointment_for_affidavit.govspeak.erb',
+  <%= render partial: 'what_you_need_to_do.govspeak.erb',
              locals: { calculator: calculator } %>
 
+  <% if calculator.partner_is_not_national_of_ceremony_country? %>
+    Make an appointment at your local British embassy or consulate in China to swear an affirmation or affidavit that you’re free to marry. You’ll need to bring your passport, your partner’s passport and pay a fee.
+
+  <% else %>
+    Make an appointment at the British embassy or consulate in China nearest to the address in your partner’s Hukou (family registration) book,  to swear an affirmation or affidavit that you’re free to marry.
+
+    You’ll need to bring your passport, your partner’s Hukou or Chinese ID card and pay a fee.
+
+  <% end %>
   <%= render partial: 'contact_method.govspeak.erb',
              locals: { calculator: calculator } %>
 
-  <%= render partial: 'legalisation_and_translation.govspeak.erb' %>
-  <%= render partial: 'affirmation_os_translation_in_local_language_text.govspeak.erb' %>
+  You’ll need to complete an ‘Affirmation of marital status’ form (non-religious) or an ‘Affidavit of marital status’ form (religious). Take this with you to your appointment.
 
-  <%= render partial: 'docs_decree_and_death_certificate.govspeak.erb' %>
+  You can download and fill in (but not sign) the forms in advance.
 
-  <%= render partial: 'divorced_or_widowed_evidences.govspeak.erb' %>
+  $D
+  [Download ‘Affirmation of marital status’](/government/publications/affirmation-form-china)
+
+  [Download ‘Affidavit of marital status’](/government/publications/affidavit-form-china)
+  $D
+
+  <%= render partial: 'documents_for_divorced_or_widowed_china.govspeak.erb' %>
 
   <%= render partial: 'change_of_name_evidence.govspeak.erb' %>
 

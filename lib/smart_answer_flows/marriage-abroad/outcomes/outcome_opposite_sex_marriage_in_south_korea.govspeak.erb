@@ -22,16 +22,27 @@
 
   <%= render partial: 'what_you_need_to_do_affirmation.govspeak.erb' %>
 
-  <%= render partial: 'appointment_for_affidavit.govspeak.erb',
-             locals: { calculator: calculator } %>
+  Make an appointment at the British embassy in South Korea to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring your passport, your partner’s passport and pay a fee.
 
   <%= render partial: 'contact_method.govspeak.erb',
              locals: { calculator: calculator } %>
 
+  You’ll need to fill in an [‘Affidavit for Marriage’](/government/publications/south-korea-affidavit-of-eligibility-for-marriage-form) form stating that you’re free to marry. You can download and fill in (but not sign) the form in advance. You’ll need to take the form with you to your appointment.
+
+  <% if calculator.partner_is_national_of_ceremony_country? %>
+    You’ll need to provide supporting documents, including:
+
+    - you partner’s Family Relationship Certificate and Marriage Status Certificate - these can be obtained from a local district office anywhere in South Korea and must be translated into English and notarised by a lawyer in Korea
+    - your partner’s valid Korean ID card
+    - your partner’s proof of termination of any prior marriage(s)
+  <% end %>
+
   <%= render partial: 'legalisation_and_translation.govspeak.erb' %>
   <%= render partial: 'affirmation_os_translation_in_local_language_text.govspeak.erb' %>
 
-  <%= render partial: 'docs_decree_and_death_certificate.govspeak.erb' %>
+  If you’ve been divorced or widowed, you’ll also need:
+
+  - a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/) - a [decree nisi](/divorce/apply-for-decree-nisi) won’t be accepted
 
   <%= render partial: 'divorced_or_widowed_evidences.govspeak.erb' %>
 

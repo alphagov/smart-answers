@@ -10,8 +10,13 @@
   <% else %>
     <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
                locals: { calculator: calculator } %>
+    <%= render partial: 'gulf_states_os_consular_cni.govspeak.erb',
+               locals: { calculator: calculator } %>
+    <%= render partial: 'gulf_states_os_consular_cni_local_resident.govspeak.erb',
+               locals: { calculator: calculator } %>
 
   <% end %>
+
 
   <% if calculator.resident_of_ceremony_country? %>
     <%= render partial: 'get_legal_advice.govspeak.erb' %>
@@ -20,7 +25,11 @@
                locals: { calculator: calculator } %>
   <% end %>
 
-  <%= render partial: 'what_you_need_to_do_affirmation.govspeak.erb' %>
+  ##What you need to do
+
+  You need to have been living in <%= calculator.country_name_lowercase_prefix %> for 21 days.
+
+  You’ll be asked to provide an affirmation or affidavit document to prove you’re allowed to marry.
 
   <%= render partial: 'appointment_for_affidavit.govspeak.erb',
              locals: { calculator: calculator } %>
