@@ -3,17 +3,8 @@
 <% if %w(st-helena-ascension-and-tristan-da-cunha).include?(calculator.current_location) %>
   <%= render partial: 'cost/fee_information.govspeak.erb', locals: { calculator: calculator } %>
 
-  <% case calculator.child_or_adult %>
-  <% when 'adult' %>
-    | Passport type | Passport fee |
-    |---------------|--------------|
-    | Adult standard 32-page passport | <%= number_to_currency(calculator.find_passport_fee('adult_standard'), precision: 2) %> |
-    | Adult jumbo 48-page passport | <%= number_to_currency(calculator.find_passport_fee('adult_jumbo'), precision: 2) %> |
-  <% when 'child' %>
-    | Passport type | Passport fee |
-    |---------------|--------------|
-    | Child passport | <%= number_to_currency(calculator.find_passport_fee('child'), precision: 2) %> |
-  <% end %>
+  <%= render partial: 'cost/passport_fee_table.govspeak.erb',
+             locals: { calculator: calculator } %>
 
   <%= render partial: 'cost/payment_instructions.govspeak.erb', locals: { calculator: calculator } %>
 <% else %>
