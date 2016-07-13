@@ -16,13 +16,13 @@
     |End                           | <%= format_date(leave_end_date) %>           |
   <% end %>
 
-  <% if on_payroll == 'no' || calculator.average_weekly_earnings < calculator.lower_earning_limit %>
+  <% if calculator.on_payroll == 'no' || calculator.average_weekly_earnings < calculator.lower_earning_limit %>
 
     ##Statutory Adoption Pay
 
     The employee is not entitled to Statutory Adoption Pay. To qualify:
 
-    <% if on_payroll == 'no' %>
+    <% if calculator.on_payroll == 'no' %>
 
       <%= render partial: 'must_be_on_payroll.govspeak.erb' %>
     <% elsif calculator.average_weekly_earnings < calculator.lower_earning_limit %>

@@ -14,6 +14,7 @@ module SmartAnswer::Calculators
 
     attr_accessor :earnings_for_pay_period
     attr_accessor :employee_has_contract_adoption
+    attr_accessor :on_payroll
 
     DAYS_OF_THE_WEEK = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
 

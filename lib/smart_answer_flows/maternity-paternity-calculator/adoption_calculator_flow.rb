@@ -95,7 +95,9 @@ module SmartAnswer
           option :yes
           option :no
 
-          save_input_as :on_payroll
+          on_response do |response|
+            calculator.on_payroll = response
+          end
 
           calculate :to_saturday do
             calculator.matched_week.last
@@ -105,8 +107,8 @@ module SmartAnswer
             calculator.format_date_day to_saturday
           end
 
-          next_node_calculation(:no_contract_not_on_payroll) do |response|
-            calculator.employee_has_contract_adoption == 'no' && response == 'no'
+          next_node_calculation(:no_contract_not_on_payroll) do
+            calculator.employee_has_contract_adoption == 'no' && calculator.on_payroll == 'no'
           end
 
           next_node do
@@ -147,7 +149,7 @@ module SmartAnswer
           end
 
           next_node_calculation(:has_contract_not_on_payroll) do
-            calculator.employee_has_contract_adoption == 'yes' && on_payroll == 'no'
+            calculator.employee_has_contract_adoption == 'yes' && calculator.on_payroll == 'no'
           end
 
           next_node do
