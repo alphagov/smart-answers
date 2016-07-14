@@ -16,8 +16,9 @@ module SmartAnswer::Calculators
         assert_equal 2, @test_rate.rates(Date.parse('2013-02-01')).rate
       end
 
-      should "be the latest known rate (2) for uncovered future dates" do
+      should "be the last set of rates available, if there are no rates specified for the date" do
         assert_equal 2, @test_rate.rates(Date.parse('2113-03-12')).rate
+        assert_equal 2, @test_rate.rates(Date.parse('2003-03-12')).rate
       end
 
       context 'given a rate has been loaded for one date' do
