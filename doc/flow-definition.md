@@ -225,19 +225,18 @@ second_state = first_state.transition_to(:third_node, 'second-response')
 
 #### In-question blocks
 
-All question definition blocks, must include a single `next_node` block. A number of other in-question blocks can optionally be defined by passing a block to any of the following methods on `SmartAnswer::Node` & `SmartAnswer::Question::Base`: `precalculate`, `on_response`, `next_node_calculation`, `validate`, `next_node` & `calculate`. The `save_input_as` method is used in a similar way, but does not accept a block.
+All question definition blocks, must include a single `next_node` block. A number of other in-question blocks can optionally be defined by passing a block to any of the following methods on `SmartAnswer::Node` & `SmartAnswer::Question::Base`: `precalculate`, `on_response`, `validate`, `next_node` & `calculate`. The `save_input_as` method is used in a similar way, but does not accept a block.
 
 The value of `self` inside all these blocks is an instance of `SmartAnswer::State` ([see above](#state)). The code inside these blocks is executed at request time, not at flow definition time.
 
-All blocks of a particular type (within a single question) are executed at particular points in the request processing sequence e.g. all `on_response` blocks are executed before all `next_node_calculation` blocks.
+All blocks of a particular type (within a single question) are executed at particular points in the request processing sequence e.g. all `on_response` blocks are executed before all `validate` blocks.
 
-The order in which the blocks are defined only affects the order in which they are executed within the group of blocks of the same type e.g. when two `on_response` blocks are defined, the one defined first will be executed before the one defined second; however, even if a `next_node_calculation` block is defined before both of these `on_response` blocks, it will always be executed after both of them.
+The order in which the blocks are defined only affects the order in which they are executed within the group of blocks of the same type e.g. when two `on_response` blocks are defined, the one defined first will be executed before the one defined second; however, even if a `validate` block is defined before both of these `on_response` blocks, it will always be executed after both of them.
 
 The block types are executed in the following order:
 
 * [`precalculate`](#precalculatevariable_name-block)
 * [`on_response`](#on_responseblock)
-* [`next_node_calculation`](#next_node_calculationvariable_name-block)
 * [`validate`](#validatemessage_key-block)
 * [`next_node`](#next_nodeblock)
 * [`save_input_as`](#save_input_asvariable_name)
@@ -259,25 +258,16 @@ Each of these block types and the point at which they are executed is explained 
 ##### `on_response(&block)`
 
 * These blocks are intended to be used to store user responses on a `calculator` state variable. They are a [relatively new addition to the DSL][introduction-of-on-response-blocks].
-* These blocks are called after the question/outcome template has been rendered and after the user response has been parsed from the request path, but before any of the `next_node_calculation` blocks are executed.
+* These blocks are called after the question/outcome template has been rendered and after the user response has been parsed from the request path, but before any of the `validate` blocks are executed.
 * The parsed response is passed to the block as the only argument and by convention is named `response`.
 * The block return value is not used and no state variable is stored.
 
 > The use of these blocks is encouraged; however, they should only ever be used to store a single, `calculator` state variable (in the first question definition); otherwise they should only be used to store user responses on that `calculator` object.
 
-##### `next_node_calculation(variable_name, &block)`
-
-* These blocks were intended to be used to store state variables that are needed in the `next_node` block.
-* These blocks are executed after all the `on_response` blocks have been executed and before any of the `validate` blocks are executed.
-* The parsed response is passed to the block as the only argument and by convention is named `response`.
-* The block return value is stored on the state object as a state variable named `variable_name`.
-
-> The use of these blocks is deprecated and should never be necessary. Define methods on a `calculator` object instead.
-
 ##### `validate(message_key, &block)`
 
 * These blocks are intended to be used to validate the user response.
-* These blocks are executed after all the `next_node_calculation` blocks have been executed and before the `next_node` block is executed.
+* These blocks are executed after all the `on_response` blocks have been executed and before the `next_node` block is executed.
 * The parsed response is passed to the block as the only argument and by convention is named `response`.
 * If the block return value is truth-y, then no action is taken.
 * If the block return value is false-y, then:
@@ -330,7 +320,6 @@ These are very similar to question nodes. However, it only makes sense to use `p
 
 * [`precalculate`](#precalculatevariable_name-block)
 * [`on_response`](#on_responseblock)
-* [`next_node_calculation`](#next_node_calculationvariable_name-block)
 * [`calculate`](#calculatevariable_name-block)
 
 If any attempt is made to process a response when the current node is an outcome node (e.g. by hacking the URL path), an exception will be raised.
