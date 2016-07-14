@@ -102,8 +102,8 @@ module SmartAnswer
           option benefit
         end
 
-        next_node_calculation :benefit_types do |response|
-          response.split(",").map(&:to_sym)
+        on_response do |response|
+          self.benefit_types = response.split(",").map(&:to_sym)
         end
 
         next_node do |response|
@@ -121,8 +121,8 @@ module SmartAnswer
           option benefit
         end
 
-        next_node_calculation :benefit_types do |response|
-          response.split(",").map(&:to_sym)
+        on_response do |response|
+          self.benefit_types = response.split(",").map(&:to_sym)
         end
 
         next_node do |response|
