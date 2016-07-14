@@ -50,7 +50,7 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
               setup { add_response :yes }
               ## QA5
               should "ask if the employee is on your payroll" do
-                assert_state_variable "employee_has_contract_adoption", 'yes'
+                assert_equal 'yes', current_state.calculator.employee_has_contract_adoption
                 assert_current_node :adoption_is_the_employee_on_your_payroll?
               end
               should 'render the question title with an interpolated date' do
@@ -91,7 +91,7 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
                           setup { add_response 3000 }
                           ## QA11
                           should "ask how sap should be calculated" do
-                            assert_state_variable :pay_pattern, "monthly"
+                            assert_equal "monthly", current_state.calculator.pay_pattern
                             assert_current_node :how_do_you_want_the_sap_calculated?
                           end
                           context "answer weekly_starting" do

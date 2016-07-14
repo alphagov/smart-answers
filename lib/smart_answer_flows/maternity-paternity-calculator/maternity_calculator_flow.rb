@@ -166,11 +166,14 @@ module SmartAnswer
 
         ## QM8
         multiple_choice :pay_frequency? do
-          save_input_as :pay_pattern
           option :weekly
           option :every_2_weeks
           option :every_4_weeks
           option :monthly
+
+          on_response do |response|
+            calculator.pay_pattern = response
+          end
 
           next_node do
             question :earnings_for_pay_period?
@@ -179,10 +182,10 @@ module SmartAnswer
 
         ## QM9 Maternity only onwards
         money_question :earnings_for_pay_period? do
-          calculate :calculator do |response|
-            calculator.calculate_average_weekly_pay(pay_pattern, response)
-            calculator
+          on_response do |response|
+            calculator.earnings_for_pay_period = response
           end
+
           calculate :average_weekly_earnings do
             calculator.average_weekly_earnings
           end
@@ -200,7 +203,7 @@ module SmartAnswer
 
           next_node do |response|
             if response == 'usual_paydates'
-              if pay_pattern == 'monthly'
+              if calculator.pay_pattern == 'monthly'
                 question :when_in_the_month_is_the_employee_paid?
               else
                 question :when_is_your_employees_next_pay_day?
@@ -314,8 +317,8 @@ module SmartAnswer
                 end
               elsif smp_calculation_method == 'weekly_starting'
                 smp_calculation_method
-              elsif pay_pattern
-                pay_pattern
+              elsif calculator.pay_pattern
+                calculator.pay_pattern
               end
             )
           end
@@ -334,8 +337,8 @@ module SmartAnswer
           end
 
           precalculate :below_threshold do
-            calculator.average_weekly_earnings &&
-              calculator.average_weekly_earnings < calculator.lower_earning_limit
+            calculator.earnings_for_pay_period &&
+              calculator.average_weekly_earnings_under_lower_earning_limit?
           end
 
           precalculate :not_entitled_to_pay_reason do

@@ -142,7 +142,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                       should "ask what the employees earnings are for the period" do
                         assert_current_node :earnings_for_pay_period?
                         ##TODO relevant period calculation
-                        assert_state_variable :pay_pattern, 'weekly'
+                        assert_equal 'weekly', current_state.calculator.pay_pattern
                       end
 
                       context "answer 1083.20" do

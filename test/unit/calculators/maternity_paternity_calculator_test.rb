@@ -79,7 +79,7 @@ module SmartAnswer::Calculators
 
         context "with a weekly income of 193.00" do
           setup do
-            @calculator.average_weekly_earnings = 193.00
+            @calculator.stubs(:average_weekly_earnings).returns(193.00)
             @calculator.leave_start_date = Date.new(2012, 1, 1)
           end
 
@@ -96,7 +96,7 @@ module SmartAnswer::Calculators
           end
 
           should "calculate the maternity pay at rate B using the percentage of weekly income" do
-            @calculator.average_weekly_earnings = 135.40
+            @calculator.stubs(:average_weekly_earnings).returns(135.40)
             assert_equal 121.86, @calculator.statutory_maternity_rate_b.round(2)
           end
         end
@@ -276,25 +276,33 @@ module SmartAnswer::Calculators
         # 10/03/13 to 16/03/13 22/09/12
       end
 
-      context "calculate_average_weekly_pay" do
+      context "average_weekly_earnings" do
         setup do
           @calculator = MaternityPaternityCalculator.new(4.months.since(Date.today))
         end
 
         should "make no calculation for a weekly pay pattern" do
-          assert_equal 665.15, @calculator.calculate_average_weekly_pay("weekly", 5321.20)
+          @calculator.pay_pattern = "weekly"
+          @calculator.earnings_for_pay_period = 5321.20
+          assert_equal 665.15, @calculator.average_weekly_earnings
         end
 
         should "work out the weekly average for a fortnightly pay pattern" do
-          assert_equal 399.32, @calculator.calculate_average_weekly_pay("every_2_weeks", 3194.56)
+          @calculator.pay_pattern = "every_2_weeks"
+          @calculator.earnings_for_pay_period = 3194.56
+          assert_equal 399.32, @calculator.average_weekly_earnings
         end
 
         should "work out the weekly average for a four week pay pattern" do
-          assert_equal 382.06, @calculator.calculate_average_weekly_pay("every_4_weeks", 3056.48)
+          @calculator.pay_pattern = "every_4_weeks"
+          @calculator.earnings_for_pay_period = 3056.48
+          assert_equal 382.06, @calculator.average_weekly_earnings
         end
 
         should "work out the weekly average for a monthly pay pattern" do
-          assert_equal 1846.15385, @calculator.calculate_average_weekly_pay("monthly", 16000)
+          @calculator.pay_pattern = "monthly"
+          @calculator.earnings_for_pay_period = 16000
+          assert_equal 1846.15385, @calculator.average_weekly_earnings
         end
       end
       context "HMRC scenarios" do
@@ -303,16 +311,23 @@ module SmartAnswer::Calculators
         end
 
         should "calculate AWE for weekly pay patterns" do
-          assert_equal 200, @calculator.calculate_average_weekly_pay("weekly", 1600)
-          assert_equal 151, @calculator.calculate_average_weekly_pay("weekly", 1208)
-          assert_equal 150, @calculator.calculate_average_weekly_pay("weekly", 1200)
+          @calculator.pay_pattern = "weekly"
+          @calculator.earnings_for_pay_period = 1600
+          assert_equal 200, @calculator.average_weekly_earnings
+          @calculator.earnings_for_pay_period = 1208
+          assert_equal 151, @calculator.average_weekly_earnings
+          @calculator.earnings_for_pay_period = 1200
+          assert_equal 150, @calculator.average_weekly_earnings
         end
 
         should "calculate AWE for monthly pay patterns" do
           @calculator.last_payday = Date.parse("2012-10-31")
-          assert_equal 184.61538, @calculator.calculate_average_weekly_pay("monthly", 1600)
+          @calculator.pay_pattern = "monthly"
+          @calculator.earnings_for_pay_period = 1600
+          assert_equal 184.61538, @calculator.average_weekly_earnings
           @calculator.last_payday = Date.parse("2012-10-26")
-          assert_equal 144.31731, @calculator.calculate_average_weekly_pay("monthly", 1250.75)
+          @calculator.earnings_for_pay_period = 1250.75
+          assert_equal 144.31731, @calculator.average_weekly_earnings
         end
       end
 
@@ -324,12 +339,12 @@ module SmartAnswer::Calculators
         end
 
         should "be statutory leave times statutory rates A and B" do
-          @calculator.average_weekly_earnings = 120.40
+          @calculator.stubs(:average_weekly_earnings).returns(120.40)
           assert_equal 4226.43, @calculator.total_statutory_pay
         end
 
         should "be statutory leave times statutory higher rate A and statutory rate B" do
-          @calculator.average_weekly_earnings = 235.40
+          @calculator.stubs(:average_weekly_earnings).returns(235.40)
           assert_equal 5741.01, @calculator.total_statutory_pay.round(2)
         end
       end
@@ -436,7 +451,7 @@ module SmartAnswer::Calculators
           @calculator = MaternityPaternityCalculator.new(Date.parse('21 March 2013'))
           @calculator.leave_start_date = Date.parse('1 March 2013')
           @calculator.pay_method = 'first_day_of_the_month'
-          @calculator.average_weekly_earnings = 300.0
+          @calculator.stubs(:average_weekly_earnings).returns(300.0)
         end
         should "pay on the leave start date" do
           assert_equal '2013-03-01', @calculator.paydates_first_day_of_the_month.first.to_s
@@ -483,7 +498,8 @@ module SmartAnswer::Calculators
         should "calculate pay due for each pay date on a weekly cycle" do
           @calculator.pay_date = Date.parse('28 December 2012') # Friday before maternity leave/pay starts.
           @calculator.pay_method = 'weekly'
-          @calculator.calculate_average_weekly_pay('weekly', 2000)
+          @calculator.pay_pattern = 'weekly'
+          @calculator.earnings_for_pay_period = 2000
 
           paydates_and_pay = @calculator.paydates_and_pay
           assert_equal 40, paydates_and_pay.size
@@ -502,7 +518,8 @@ module SmartAnswer::Calculators
         should "calculate pay due for each pay date on a bi-weekly cycle" do
           @calculator.pay_date = Date.parse('03 January 2013')
           @calculator.pay_method = 'every_2_weeks'
-          @calculator.calculate_average_weekly_pay('weekly', 2000)
+          @calculator.pay_pattern = 'weekly'
+          @calculator.earnings_for_pay_period = 2000
 
           paydates_and_pay = @calculator.paydates_and_pay
 
@@ -522,7 +539,7 @@ module SmartAnswer::Calculators
         should "calculate pay due for each pay date on a monthly cycle" do
           @calculator.pay_day_in_month = 5
           @calculator.pay_method = 'specific_date_each_month'
-          @calculator.average_weekly_earnings = 250.0
+          @calculator.stubs(:average_weekly_earnings).returns(250.0)
           paydates_and_pay = @calculator.paydates_and_pay
 
           assert_equal 10, paydates_and_pay.size
@@ -534,7 +551,7 @@ module SmartAnswer::Calculators
         end
         should "calculate pay due on the first day of the month" do
           @calculator.pay_method = 'first_day_of_the_month'
-          @calculator.average_weekly_earnings = 250.0
+          @calculator.stubs(:average_weekly_earnings).returns(250.0)
           paydates_and_pay = @calculator.paydates_and_pay
 
           assert_equal 10, paydates_and_pay.size
@@ -545,7 +562,7 @@ module SmartAnswer::Calculators
         end
         should "calculate pay due on the last day of the month" do
           @calculator.pay_method = 'last_day_of_the_month'
-          @calculator.average_weekly_earnings = 250.0
+          @calculator.stubs(:average_weekly_earnings).returns(250.0)
           paydates_and_pay = @calculator.paydates_and_pay
 
           assert_equal 10, paydates_and_pay.size
@@ -558,7 +575,7 @@ module SmartAnswer::Calculators
           @calculator.pay_method = 'a_certain_week_day_each_month'
           @calculator.pay_day_in_week = 5
           @calculator.pay_week_in_month = "second" # 2nd Friday of the month
-          @calculator.average_weekly_earnings = 250.0
+          @calculator.stubs(:average_weekly_earnings).returns(250.0)
 
           paydates_and_pay = @calculator.paydates_and_pay
 
@@ -575,7 +592,7 @@ module SmartAnswer::Calculators
           @calculator.leave_start_date = Date.parse('25 January 2013')
           @calculator.pay_method = 'weekly'
           @calculator.pay_date = Date.parse('25 January 2013')
-          @calculator.average_weekly_earnings = 200
+          @calculator.stubs(:average_weekly_earnings).returns(200)
         end
         should "calculate pay on paydates with April 2013 uprating" do
           paydates_and_pay =  @calculator.paydates_and_pay
@@ -596,7 +613,7 @@ module SmartAnswer::Calculators
           @calculator.pay_method = 'a_certain_week_day_each_month'
           @calculator.pay_day_in_week = 5
           @calculator.pay_week_in_month = 'last'
-          @calculator.average_weekly_earnings = 144.32
+          @calculator.stubs(:average_weekly_earnings).returns(144.32)
         end
         should "calculate pay on paydates with April 2013 uprating" do
           paydates_and_pay =  @calculator.paydates_and_pay
@@ -614,7 +631,7 @@ module SmartAnswer::Calculators
           @calculator.leave_start_date = Date.parse("12 December 2013")
           @calculator.pay_method = "monthly"
           @calculator.pay_date = Date.parse("1 December 2013")
-          @calculator.average_weekly_earnings = 200
+          @calculator.stubs(:average_weekly_earnings).returns(200)
         end
 
         should "produce a list of the paydates adjust one month forward" do
@@ -638,7 +655,7 @@ module SmartAnswer::Calculators
           @calculator = MaternityPaternityCalculator.new(@due_date, "paternity")
           @calculator.leave_start_date = Date.parse('1 May 2014')
           @calculator.pay_method = "weekly_starting"
-          @calculator.average_weekly_earnings = '125.00'
+          @calculator.stubs(:average_weekly_earnings).returns('125.00')
         end
 
         should "produce 2 weeks of pay dates and pay at 90% of wage" do
@@ -657,7 +674,7 @@ module SmartAnswer::Calculators
           @calculator = MaternityPaternityCalculator.new(@due_date, "paternity")
           @calculator.leave_start_date = Date.parse('1 May 2014')
           @calculator.pay_method = "last_day_of_the_month"
-          @calculator.average_weekly_earnings = '500.00'
+          @calculator.stubs(:average_weekly_earnings).returns('500.00')
         end
 
         should "produce 1 week of pay dates and pay at maximum amount" do
@@ -673,7 +690,7 @@ module SmartAnswer::Calculators
           @calculator = MaternityPaternityCalculator.new(@due_date, "paternity")
           @calculator.leave_start_date = Date.parse('1 May 2014')
           @calculator.pay_method = "last_day_of_the_month"
-          @calculator.average_weekly_earnings = '500.00'
+          @calculator.stubs(:average_weekly_earnings).returns('500.00')
         end
 
         should "produce 1 week of pay dates and pay at maximum amount" do
@@ -690,7 +707,7 @@ module SmartAnswer::Calculators
           @calculator = MaternityPaternityCalculator.new(@due_date, "paternity")
           @calculator.leave_start_date = Date.parse('1 May 2015')
           @calculator.pay_method = "last_day_of_the_month"
-          @calculator.average_weekly_earnings = '500.00'
+          @calculator.stubs(:average_weekly_earnings).returns('500.00')
         end
 
         should "produce 1 week of pay dates and pay at maximum amount" do
@@ -706,7 +723,7 @@ module SmartAnswer::Calculators
           @calculator = MaternityPaternityCalculator.new(@due_date, "paternity")
           @calculator.leave_start_date = @due_date
           @calculator.pay_method = "weekly_starting"
-          @calculator.average_weekly_earnings = '500.00'
+          @calculator.stubs(:average_weekly_earnings).returns('500.00')
         end
 
         should "suggest a single payment when requesting a one week leave" do
@@ -730,7 +747,8 @@ module SmartAnswer::Calculators
         should "calculate 39 weeks of dates and pay" do
           @calculator.pay_method = 'weekly_starting'
           @calculator.leave_start_date = Date.parse('20 January 2014')
-          @calculator.calculate_average_weekly_pay('monthly', 3000)
+          @calculator.pay_pattern = 'monthly'
+          @calculator.earnings_for_pay_period = 3000
           paydates_and_pay = @calculator.paydates_and_pay
 
           expected_pay_dates = [
@@ -766,7 +784,9 @@ module SmartAnswer::Calculators
         should "calculate 39 weeks of dates and pay, first 6 weeks is 90% of avg weekly pay, \
                 the remaining weeks is the minimum of 90% of avg weekly pay or 139.58" do
           expected_pay_dates = %w(2015-04-07 2015-04-14 2015-04-21 2015-04-28 2015-05-05 2015-05-12 2015-05-19 2015-05-26 2015-06-02 2015-06-09 2015-06-16 2015-06-23 2015-06-30 2015-07-07 2015-07-14 2015-07-21 2015-07-28 2015-08-04 2015-08-11 2015-08-18 2015-08-25 2015-09-01 2015-09-08 2015-09-15 2015-09-22 2015-09-29 2015-10-06 2015-10-13 2015-10-20 2015-10-27 2015-11-03 2015-11-10 2015-11-17 2015-11-24 2015-12-01 2015-12-08 2015-12-15 2015-12-22 2015-12-29)
-          assert_equal 346.15, @calculator.calculate_average_weekly_pay('monthly', 3000).round(2)
+          @calculator.pay_pattern = 'monthly'
+          @calculator.earnings_for_pay_period = 3000
+          assert_equal 346.15, @calculator.average_weekly_earnings.round(2)
           assert_equal expected_pay_dates, @calculator.paydates_and_pay.map { |p| p[:date].to_s }
 
           assert_equal [(346.15385 * 0.9).round(2)], @calculator.paydates_and_pay.first(6).map { |p| p[:pay] }.uniq
@@ -784,7 +804,8 @@ module SmartAnswer::Calculators
           @calculator.pay_method = 'a_certain_week_day_each_month'
           @calculator.pay_day_in_week = 5
           @calculator.pay_week_in_month = 'last'
-          @calculator.calculate_average_weekly_pay('monthly', 3000)
+          @calculator.pay_pattern = 'monthly'
+          @calculator.earnings_for_pay_period = 3000
           paydates_and_pay = @calculator.paydates_and_pay
 
           expected_pay_dates = [

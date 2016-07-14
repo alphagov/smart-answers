@@ -8,9 +8,14 @@ module SmartAnswer::Calculators
       :leave_earliest_start_date, :adoption_placement_date, :ssp_stop,
       :matched_week, :a_employment_start, :leave_type
 
-    attr_accessor :employment_contract, :leave_start_date, :average_weekly_earnings,
+    attr_accessor :employment_contract, :leave_start_date,
       :a_notice_leave, :last_payday, :pre_offset_payday, :pay_date, :paternity_leave_duration,
       :pay_day_in_month, :pay_day_in_week, :pay_method, :pay_week_in_month, :work_days, :date_of_birth, :awe
+
+    attr_accessor :pay_pattern
+    attr_accessor :earnings_for_pay_period
+    attr_accessor :employee_has_contract_adoption
+    attr_accessor :on_payroll
 
     DAYS_OF_THE_WEEK = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
 
@@ -117,13 +122,13 @@ module SmartAnswer::Calculators
       @leave_earliest_start_date = 14.days.ago(date)
     end
 
-    def calculate_average_weekly_pay(pay_pattern, pay)
-      @average_weekly_earnings = sprintf("%.5f", (
+    def average_weekly_earnings
+      sprintf("%.5f", (
         case pay_pattern
         when "monthly"
-          pay.to_f / 2 * 12 / 52
+          earnings_for_pay_period.to_f / 2 * 12 / 52
         else
-          pay.to_f / 8
+          earnings_for_pay_period.to_f / 8
         end
       )).to_f # HMRC truncation at 5 places.
     end
@@ -239,6 +244,18 @@ module SmartAnswer::Calculators
       statutory_rate(Date.today)
     end
 
+    def no_contract_not_on_payroll?
+      employee_has_contract_adoption == 'no' && on_payroll == 'no'
+    end
+
+    def has_contract_not_on_payroll?
+      employee_has_contract_adoption == 'yes' && on_payroll == 'no'
+    end
+
+    def average_weekly_earnings_under_lower_earning_limit?
+      average_weekly_earnings < lower_earning_limit
+    end
+
   private
 
     def paydates_every_n_days(days)
@@ -296,7 +313,7 @@ module SmartAnswer::Calculators
     end
 
     def adoption_rate_for(date)
-      awe = (@average_weekly_earnings.to_f * 0.9).round(2)
+      awe = (average_weekly_earnings.to_f * 0.9).round(2)
       if date < 6.weeks.since(leave_start_date) && @match_date >= Date.parse('5 April 2015')
         awe
       else
@@ -313,7 +330,7 @@ module SmartAnswer::Calculators
     end
 
     def paternity_rate_for(date)
-      awe = (@average_weekly_earnings.to_f * 0.9).round(2)
+      awe = (average_weekly_earnings.to_f * 0.9).round(2)
       [statutory_rate(date), awe].min
     end
 

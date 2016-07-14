@@ -1,6 +1,6 @@
 <% content_for :body do %>
   <% if (has_contract == 'yes' || has_contract == 'no') &&
-    (on_payroll == 'no' || employed_dob == 'no') %>
+    (calculator.on_payroll == 'no' || employed_dob == 'no') %>
     <% if has_contract == 'no' %>
       <%= render partial: 'paternity_not_entitled_to_leave.govspeak.erb' %>
     <% elsif has_contract == 'yes' %>
@@ -15,7 +15,7 @@
 
     <%= render partial: 'paternity_not_entitled_to_pay_intro.govspeak.erb' %>
 
-    <% if on_payroll == 'no' %>
+    <% if calculator.on_payroll == 'no' %>
       <%= render partial: 'must_be_on_payroll.govspeak.erb' %>
     <% elsif employed_dob == 'no' %>
       <% case leave_type %>
