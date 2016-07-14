@@ -470,5 +470,83 @@ module SmartAnswer::Calculators
         assert_equal 8, @calculator.home_features_historic.count
       end
     end
+
+    context "#under_green_deal" do
+      context "#under_green_deal_part_1" do
+        should 'return true when looking for help with all, and not claiming benefits' do
+          @calculator.which_help = 'all_help'
+          @calculator.circumstances = %w(permission)
+          assert @calculator.under_green_deal_part_1?
+        end
+      end
+
+      context "#under_green_deal_part_2" do
+        should 'return true when not looking for help with all and does not own property' do
+          @calculator.which_help = 'help_with_fuel_bill'
+          @calculator.circumstances = %w(permission benefits)
+          assert @calculator.under_green_deal_part_2?
+        end
+
+        should 'return true if needs help with boiler and not claiming benefits, does not own property or have permission to install boiler' do
+          @calculator.which_help = 'help_boiler_measure'
+          @calculator.circumstances = []
+          assert @calculator.under_green_deal_part_2?
+        end
+
+        should 'return true if benefits claimed and benefits do not include esa, child_tax_credit or working_tax_credit' do
+          @calculator.circumstances = %w(benefits)
+          @calculator.benefits_claimed = %w(universal_credit)
+          assert @calculator.under_green_deal_part_2?
+        end
+      end
+
+      context '#under_green_deal_part_3' do
+        should 'return true if needs help with all, is over 60 years old and benefits claimed includes ESA, child and working tax credit' do
+          @calculator.which_help = 'all_help'
+          @calculator.stubs(:age_variant).returns(:over_60)
+          @calculator.benefits_claimed = %w(esa child_tax_credit working_tax_credit)
+          assert @calculator.under_green_deal_part_3?
+        end
+
+        should 'return true if needs help with all, is over 60 years old and incomesupp_jobseekers_1? is true' do
+          @calculator.which_help = 'all_help'
+          @calculator.stubs(:age_variant).returns(:over_60)
+          @calculator.stubs(:incomesupp_jobseekers_1?).returns(true)
+          assert @calculator.under_green_deal_part_3?
+        end
+
+        should 'return true if needs help with all, is over 60 years old and incomesupp_jobseekers_2? is true' do
+          @calculator.which_help = 'all_help'
+          @calculator.stubs(:age_variant).returns(:over_60)
+          @calculator.stubs(:incomesupp_jobseekers_2?).returns(true)
+          assert @calculator.under_green_deal_part_3?
+        end
+      end
+
+      #part_1 and under_green_deal_part_1
+      should 'return true if needs all help and not claiming benefits, does not own property or has permission to install boiler' do
+        @calculator.which_help = 'all_help'
+        @calculator.circumstances = []
+        @calculator.benefits_claimed = []
+        assert @calculator.under_green_deal?
+      end
+
+      #part_2 and under_green_deal_part_2
+      should 'return true if needs help with boiler, claiming pension credit and owns property' do
+        @calculator.which_help = 'help_boiler_measure'
+        @calculator.circumstances = %w(benefits property)
+        @calculator.benefits_claimed = %w(pension_credit)
+        assert @calculator.under_green_deal?
+      end
+
+      #part_3 and under_green_deal_part_3
+      should 'return true if needs all help, is over 60 years old and claiming child tax credit' do
+        @calculator.which_help = 'all_help'
+        @calculator.circumstances = %w(benefits)
+        @calculator.stubs(:age_variant).returns(:over_60)
+        @calculator.benefits_claimed = %w(child_tax_credit)
+        assert @calculator.under_green_deal?
+      end
+    end
   end
 end
