@@ -1,10 +1,9 @@
 # Storing data for later use
 
-You can use the `on_response`, `precalculate`, `next_node_calculation`, `save_input_as` and `calculate` methods to store data for later use. These values are stored in the state and are available in the rest of the flow and in the ERB templates.
+You can use the `on_response`, `precalculate`, `save_input_as` and `calculate` methods to store data for later use. These values are stored in the state and are available in the rest of the flow and in the ERB templates.
 
 * `precalculate` values are available in:
   * The question template
-  * The `next_node_calculation` block
   * The `validate` block
   * The `next_node` block
   * The `calculate` block
@@ -13,7 +12,6 @@ You can use the `on_response`, `precalculate`, `next_node_calculation`, `save_in
 __NOTE.__ `precalculate` blocks are not evaluated in the first question. This is because they're evaluated during the transition of one question to the next.
 
 * `on_response` values are available in:
-  * The `next_node_calculation` block
   * The `validate` block
   * The `next_node` block
   * The `calculate` block
@@ -54,12 +52,6 @@ value_question :question_2? do
   end
 end
 ```
-
-* `next_node_calculation` values are available in:
-  * The `validate` block
-  * The `next_node` block
-  * The `calculate` block
-  * All subsequent questions and outcomes
 
 * `save_input_as` values are available in:
   * The `calculate` block
@@ -102,23 +94,12 @@ multiple_choice :question_2? do
     self.q2_saved_response = response
   end
 
-  next_node_calculation :q2_next_node_calculated_answer do |response|
-    # response                => 'q2_option'
-    # responses               => ['q1_option']
-    # q1_calculated_answer    => 'q1-calculated-answer'
-    # q2_precalculated_answer => 'q2-precalculated-answer'
-    # q2_saved_response       => 'q2_option'
-
-    'q2-next-node-calculated-answer'
-  end
-
   validate do |response|
     # response                       => 'q2_option'
     # responses                      => ['q1_option']
     # q1_calculated_answer           => 'q1-calculated-answer'
     # q2_precalculated_answer        => 'q2-precalculated-answer'
     # q2_saved_response              => 'q2_option'
-    # q2_next_node_calculated_answer => 'q2-next-node-calculated-answer'
   end
 
   next_node do |response|
@@ -127,7 +108,6 @@ multiple_choice :question_2? do
     # q1_calculated_answer           => 'q1-calculated-answer'
     # q2_precalculated_answer        => 'q2-precalculated-answer'
     # q2_saved_response              => 'q2_option'
-    # q2_next_node_calculated_answer => 'q2-next-node-calculated-answer'
   end
 
   save_input_as :q2_answer
@@ -139,7 +119,6 @@ multiple_choice :question_2? do
     # q2_answer                      => 'q2_option'
     # q2_precalculated_answer        => 'q2-precalculated-answer'
     # q2_saved_response              => 'q2_option'
-    # q2_next_node_calculated_answer => 'q2-next-node-calculated-answer'
   end
 end
 ```
