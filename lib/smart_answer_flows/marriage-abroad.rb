@@ -192,14 +192,14 @@ module SmartAnswer
             elsif calculator.opposite_sex_consular_cni_country? && calculator.resident_of_uk?
               outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
             elsif calculator.opposite_sex_consular_cni_country? && calculator.resident_of_ceremony_country?
-              outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk_or_ceremony_country
+              outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_ceremony_country
             elsif calculator.resident_of_uk? &&
                 calculator.opposite_sex_no_marriage_related_consular_services_in_ceremony_country?
               outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
             elsif calculator.opposite_sex_consular_cni_in_nearby_country? && calculator.resident_of_uk?
               outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
             elsif calculator.opposite_sex_consular_cni_in_nearby_country? && calculator.resident_of_ceremony_country?
-              outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk_or_ceremony_country
+              outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_ceremony_country
             elsif calculator.ceremony_country == "finland" && calculator.resident_of_uk?
               outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
             elsif calculator.ceremony_country == "norway" && calculator.resident_of_uk?
@@ -333,7 +333,7 @@ module SmartAnswer
       outcome :outcome_opposite_sex_marriage_in_colombia
       outcome :outcome_opposite_sex_marriage_in_commonwealth_countries
       outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
-      outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk_or_ceremony_country
+      outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_ceremony_country
       outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
       outcome :outcome_opposite_sex_marriage_in_dominican_republic
       outcome :outcome_opposite_sex_marriage_in_ecuador
