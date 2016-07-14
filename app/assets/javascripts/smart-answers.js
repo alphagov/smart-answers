@@ -164,3 +164,25 @@ $(document).ready(function() {
   contentPosition.init();
 
 });
+
+$(document).ready(function() {
+  $('.debug.template').each(function() {
+    var element = $(this);
+    var path = element.data('path');
+    var filename = path.split('/').pop();
+    var key = element.data('key');
+    var url = 'https://github.com/alphagov/smart-answers/blob/release/' + path;
+    var anchor = $('<a>Template on GitHub (key: ' + key + ')</a>').attr('href', url).attr('style', 'color: deeppink;').attr('title', filename);
+    element.prepend(anchor);
+    element.attr('style', 'border: 3px solid deeppink; padding: 10px; margin: 3px');
+  });
+  $('.debug.partial-template').each(function() {
+    var element = $(this);
+    var path = element.data('path');
+    var filename = path.split('/').pop();
+    var url = 'https://github.com/alphagov/smart-answers/blob/release/' + path;
+    var anchor = $('<a>Partial template on GitHub</a>').attr('href', url).attr('style', 'color: hotpink;').attr('title', filename);
+    element.prepend(anchor);
+    element.attr('style', 'border: 3px dotted hotpink; padding: 10px; margin: 3px');
+  });
+});

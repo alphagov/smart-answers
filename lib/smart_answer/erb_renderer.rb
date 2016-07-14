@@ -26,7 +26,17 @@ module SmartAnswer
     def content_for(key, html: true)
       content = rendered_view.content_for(key) || ''
       content = strip_leading_spaces(content.to_str)
-      html ? GovspeakPresenter.new(content).html : normalize_blank_lines(content).html_safe
+      if html
+        result = GovspeakPresenter.new(content).html
+        if result.blank?
+          result
+        else
+          template_path = erb_template_path.relative_path_from(Rails.root).to_s
+          @view.content_tag(:div, result, class: 'debug template', data: { path: template_path, key: key })
+        end
+      else
+        normalize_blank_lines(content).html_safe
+      end
     end
 
     def option_text(key)
