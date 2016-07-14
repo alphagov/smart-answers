@@ -52,11 +52,8 @@ module SmartAnswer
 
       def transition(current_state, raw_input)
         input = parse_input(raw_input)
-        state_after_on_response_blocks = @on_response_blocks.inject(current_state.dup) do |state, block|
+        new_state = @on_response_blocks.inject(current_state.dup) do |state, block|
           block.evaluate(state, input)
-        end
-        new_state = @next_node_calculations.inject(state_after_on_response_blocks.dup) do |state, calculation|
-          calculation.evaluate(state, input)
         end
         next_node = next_node_for(new_state, input)
         new_state = new_state.transition_to(next_node, input) do |state|

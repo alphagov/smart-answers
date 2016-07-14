@@ -147,17 +147,17 @@ class QuestionBaseTest < ActiveSupport::TestCase
       assert_equal [:red], new_state.my_responses
     end
 
-    should "execute on_response block before next_node_calculation" do
+    should "execute on_response block before validate" do
       @question.on_response do
         self.foo = :value_from_on_response_block
       end
-      @question.next_node_calculation(:bar) do
-        foo
+      @question.validate do
+        foo == :value_from_on_response_block
       end
       @question.next_node { outcome :done }
       initial_state = SmartAnswer::State.new(@question.name)
       new_state = @question.transition(initial_state, :red)
-      assert_equal :value_from_on_response_block, new_state.bar
+      assert_equal :value_from_on_response_block, new_state.foo
     end
 
     should "execute on_response block before validation" do
@@ -195,23 +195,6 @@ class QuestionBaseTest < ActiveSupport::TestCase
       new_state = @question.transition(initial_state, :red)
       assert_equal :green, new_state.complementary_colour
       assert new_state.frozen?
-    end
-
-    should "execute next_node_calculation block before next_node" do
-      @question.next_node_calculation :complementary_colour do |response|
-        response == :red ? :green : :red
-      end
-      @question.next_node_calculation :blah do
-        "blah"
-      end
-      @question.next_node do
-        outcome :done if complementary_colour == :green
-      end
-      initial_state = SmartAnswer::State.new(@question.name)
-      new_state = @question.transition(initial_state, :red)
-      assert_equal :green, new_state.complementary_colour
-      assert_equal "blah", new_state.blah
-      assert_equal :done, new_state.current_node
     end
   end
 
