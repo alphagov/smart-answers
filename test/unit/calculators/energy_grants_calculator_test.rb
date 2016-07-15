@@ -471,6 +471,11 @@ module SmartAnswer::Calculators
       end
     end
 
+    context '#eligible_for_winter_fuel_payment?' do
+      should 'be true when date of birth is above the winter fuel payment threshold' do
+        @calculator.stubs(:age_variant).returns(:winter_fuel_payment)
+      end
+    end
     context "#under_green_deal" do
       context "#under_green_deal_part_1" do
         should 'return true when looking for help with all, and not claiming benefits' do
