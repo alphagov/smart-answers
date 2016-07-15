@@ -535,7 +535,7 @@ module SmartAnswer::Calculators
           assert @calculator.under_green_deal_part_3?
         end
 
-        should 'return true if needs help with all, is over 60 years old and incomesupp_jobseekers_1? is true' do
+        should 'return true if needs help with all, is over 60 years old, has disabled_child, has child under 5, or getting pension pensioner_premium' do
           @calculator.which_help = 'all_help'
           @calculator.stubs(:age_variant).returns(:over_60)
           @calculator.stubs(:incomesupp_jobseekers_1?).returns(true)
