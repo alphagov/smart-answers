@@ -116,7 +116,7 @@ module SmartAnswer::Calculators
       end
 
       should 'return false when any two options selected' do
-        @calculator.disabled_or_have_children = %w(disabled,child_under_5)
+        @calculator.disabled_or_have_children = %w(disabled child_under_5)
         refute @calculator.incomesupp_jobseekers_1?
       end
     end
