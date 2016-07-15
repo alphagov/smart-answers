@@ -574,6 +574,23 @@ module SmartAnswer::Calculators
         @calculator.benefits_claimed = %w(child_tax_credit)
         assert @calculator.under_green_deal?
       end
+
+      should 'return false if needs help with boiler, claiming benefits and is disabled and/or has children' do
+        @calculator.which_help = 'help_boiler_measure'
+        @calculator.circumstances = %w(benefits)
+        @calculator.benefits_claimed = %w(universal_credit)
+        @calculator.disabled_or_have_children = %w(child_under_16 child_under_5 disabled disabled_child pensioner_premium work_support_esa)
+
+        refute @calculator.under_green_deal?
+      end
+
+      should 'return true if not eligible for winter fuel payment, but is over_60' do
+        @calculator.which_help = 'all_help'
+        @calculator.stubs(:age_variant).returns(:over_60)
+
+        assert @calculator.under_green_deal?
+      end
+
       should 'return false if eligible for winter fuel payment' do
         @calculator.stubs(:age_variant).returns(:winter_fuel_payment)
         refute @calculator.under_green_deal?
