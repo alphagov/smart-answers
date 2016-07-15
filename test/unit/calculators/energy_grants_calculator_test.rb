@@ -573,6 +573,10 @@ module SmartAnswer::Calculators
         @calculator.benefits_claimed = %w(child_tax_credit)
         assert @calculator.under_green_deal?
       end
+      should 'return false if eligible for winter fuel payment' do
+        @calculator.stubs(:age_variant).returns(:winter_fuel_payment)
+        refute @calculator.under_green_deal?
+      end
     end
   end
 end
