@@ -471,6 +471,27 @@ module SmartAnswer::Calculators
       end
     end
 
+    context '#eligible_for_cold_weather_payment?' do
+      should 'be true if claiming benefits, benefits claimed include esa or pension_credit and is over 60' do
+        @calculator.circumstances = %w(benefits)
+        @calculator.benefits_claimed = %w(esa pension_credit)
+        @calculator.stubs(:age_variant).returns(:over_60)
+
+        assert @calculator.eligible_for_cold_weather_payment?
+      end
+
+      should 'be true if is disabled, has disabled_child, has child under 5, or getting pension pensioner_premium' do
+        @calculator.stubs(:incomesupp_jobseekers_1?).returns(true)
+        assert @calculator.eligible_for_cold_weather_payment?
+      end
+
+      should 'be false if eligible for winter_fuel_payment' do
+        @calculator.stubs(:age_variant).returns(:winter_fuel_payment)
+
+        refute @calculator.eligible_for_cold_weather_payment?
+      end
+    end
+
     context '#eligible_for_winter_fuel_payment?' do
       should 'be true when date of birth is above the winter fuel payment threshold' do
         @calculator.stubs(:age_variant).returns(:winter_fuel_payment)
