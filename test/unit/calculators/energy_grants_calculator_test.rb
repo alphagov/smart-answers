@@ -24,12 +24,12 @@ module SmartAnswer::Calculators
         assert_equal :winter_fuel_payment, @calculator.age_variant
       end
 
-      should 'return :over_60 if date of birth before 60 years ago tomorrow' do
+      should 'return :over_60 if date of birth is more than 60 years from tomorrow' do
         @calculator.date_of_birth = 60.years.ago(Date.tomorrow) - 1
         assert_equal :over_60, @calculator.age_variant
       end
 
-      should 'return nil if date of birth on or after 60 years ago tomorrow' do
+      should 'return nil if date of birth is 60 years ago or less from tomorrow' do
         @calculator.date_of_birth = 60.years.ago(Date.tomorrow)
         assert_nil @calculator.age_variant
       end
@@ -497,6 +497,7 @@ module SmartAnswer::Calculators
         @calculator.stubs(:age_variant).returns(:winter_fuel_payment)
       end
     end
+
     context "#under_green_deal" do
       context "#under_green_deal_part_1" do
         should 'return true when looking for help with all, and not claiming benefits' do
