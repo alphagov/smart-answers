@@ -577,6 +577,20 @@ module SmartAnswer::Calculators
         @calculator.stubs(:age_variant).returns(:winter_fuel_payment)
         refute @calculator.under_green_deal?
       end
+
+      should 'return true if eligible for cold weather payment and needs all help' do
+        @calculator.stubs(:eligible_for_cold_weather_payment?).returns(true)
+        @calculator.which_help = 'all_help'
+        assert @calculator.under_green_deal?
+      end
+
+      should 'be true if eligible for cold weather payment, needs all help and disabled, has disabled_child, has child under 5, or getting pension pensioner_premium?' do
+        @calculator.stubs(:eligible_for_cold_weather_payment?).returns(true)
+        @calculator.which_help = 'all_help'
+        @calculator.stubs(:incomesupp_jobseekers_1?).returns(true)
+
+        assert @calculator.under_green_deal?
+      end
     end
   end
 end
