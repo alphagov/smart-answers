@@ -32,7 +32,7 @@ end
 
 This flow contains a single question and a single outcome. Any non-empty response to `:question_1?` will send you to `:outcome_1`.
 
-If you were to run `rails server` and visit http://localhost:3000/example-smart-answer at this point, you'd see an error that indicates that we need to add a landing page template.
+If you were to run `rails server` and visit [http://localhost:3000/example-smart-answer][example-smart-answer] at this point, you'd see an error that indicates that we need to add a landing page template.
 
 ## 2. Create an ERB landing page template
 
@@ -45,7 +45,23 @@ $ touch lib/smart_answer_flows/example-smart-answer/example_smart_answer.govspea
 
 Although the landing page template needs to exist, it doesn't actually need to contain anything!
 
-Assuming you're still running `rails server`, visit http://localhost:3000/example-smart-answer and you should see the empty landing page of our new Smart Answer.
+Assuming you're still running `rails server`, visit [http://localhost:3000/example-smart-answer][example-smart-answer] and you should see the empty landing page of our new Smart Answer.
+
+Open the new landing page template your editor and copy/paste the following content:
+
+```erb
+<% content_for :title do %>
+  Smart Answer title
+<% end %>
+
+<% content_for :body do %>
+  Landing page body.
+<% end %>
+```
+
+Refresh the Smart Answer in your browser to see this new content.
+
+Read more about [landing page templates](landing-page-template.md).
 
 Click "Start now" to visit the first question. You should see an error message indicating that we're now missing an ERB template for our question.
 
@@ -60,7 +76,23 @@ $ touch lib/smart_answer_flows/example-smart-answer/questions/question_1.govspea
 
 Although the question page template needs to exist, it doesn't actually need to contain anything!
 
-Assuming you're still running `rails server`, visit http://localhost:3000/example-smart-answer and you should see an empty page containing a text field and a "Next step" button.
+Assuming you're still running `rails server`, visit [http://localhost:3000/example-smart-answer][example-smart-answer] and you should see an empty page containing a text field and a "Next step" button.
+
+Open the new question page template in your editor and copy/paste the following content:
+
+```erb
+<% content_for :title do %>
+  Question page title
+<% end %>
+
+<% content_for :body do %>
+  Question page body.
+<% end %>
+```
+
+Refresh the Smart Answer in your browser to see this new content.
+
+Read more about [question page templates](question-templates.md).
 
 Enter any value in the text field and click "Next step". You should see an error message indicating that we're now missing an ERB template for the outcome.
 
@@ -75,6 +107,24 @@ $ touch lib/smart_answer_flows/example-smart-answer/outcomes/outcome_1.govspeak.
 
 Although the question page template needs to exist, it doesn't actually need to contain anything!
 
-Assuming you're still running `rails server`, visit http://localhost:3000/example-smart-answer and you should see an empty page containing a list of "Previous answers".
+Assuming you're still running `rails server`, visit [http://localhost:3000/example-smart-answer][example-smart-answer] and you should see an empty page containing a list of "Previous answers".
+
+Open the new outcome page template in your editor and copy/paste the following content:
+
+```erb
+<% content_for :title do %>
+  Outcome page title
+<% end %>
+
+<% content_for :body do %>
+  Outcome page body.
+<% end %>
+```
+
+Refresh the Smart Answer in your browser to see this new content.
+
+Read more about [outcome page templates](outcome-templates.md).
 
 And that's all there is to an incredibly simple Smart Answer.
+
+[example-smart-answer]: http://localhost:3000/example-smart-answer
