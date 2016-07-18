@@ -428,7 +428,7 @@
              locals: { calculator: calculator } %>
 
   <% unless calculator.country_without_consular_facilities? || calculator.ceremony_country == 'cote-d-ivoire' %>
-    <% unless calculator.ceremony_country == 'brazil' && calculator.resident_outside_of_third_country? %>
+    <% unless calculator.ceremony_country == 'brazil' %>
       <%= render partial: 'link_to_consular_fees.govspeak.erb', locals: { calculator: calculator } %>
     <% end %>
   <% end %>
