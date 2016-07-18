@@ -32,7 +32,7 @@ end
 
 This flow contains a single question and a single outcome. Any non-empty response to `:question_1?` will send you to `:outcome_1`.
 
-If you were to run `rails server` and visit http://localhost:3000/example-smart-answer at this point, you'd see an error that indicates that we need to add a landing page template.
+If you were to run `rails server` and visit [http://localhost:3000/example-smart-answer][example-smart-answer] at this point, you'd see an error that indicates that we need to add a landing page template.
 
 ## 2. Create an ERB landing page template
 
@@ -45,7 +45,7 @@ $ touch lib/smart_answer_flows/example-smart-answer/example_smart_answer.govspea
 
 Although the landing page template needs to exist, it doesn't actually need to contain anything!
 
-Assuming you're still running `rails server`, visit http://localhost:3000/example-smart-answer and you should see the empty landing page of our new Smart Answer.
+Assuming you're still running `rails server`, visit [http://localhost:3000/example-smart-answer][example-smart-answer] and you should see the empty landing page of our new Smart Answer.
 
 Open the new landing page template your editor and copy/paste the following content:
 
@@ -76,7 +76,7 @@ $ touch lib/smart_answer_flows/example-smart-answer/questions/question_1.govspea
 
 Although the question page template needs to exist, it doesn't actually need to contain anything!
 
-Assuming you're still running `rails server`, visit http://localhost:3000/example-smart-answer and you should see an empty page containing a text field and a "Next step" button.
+Assuming you're still running `rails server`, visit [http://localhost:3000/example-smart-answer][example-smart-answer] and you should see an empty page containing a text field and a "Next step" button.
 
 Open the new question page template in your editor and copy/paste the following content:
 
@@ -107,7 +107,7 @@ $ touch lib/smart_answer_flows/example-smart-answer/outcomes/outcome_1.govspeak.
 
 Although the question page template needs to exist, it doesn't actually need to contain anything!
 
-Assuming you're still running `rails server`, visit http://localhost:3000/example-smart-answer and you should see an empty page containing a list of "Previous answers".
+Assuming you're still running `rails server`, visit [http://localhost:3000/example-smart-answer][example-smart-answer] and you should see an empty page containing a list of "Previous answers".
 
 Open the new outcome page template in your editor and copy/paste the following content:
 
@@ -126,3 +126,5 @@ Refresh the Smart Answer in your browser to see this new content.
 Read more about [outcome page templates](outcome-templates.md).
 
 And that's all there is to an incredibly simple Smart Answer.
+
+[example-smart-answer]: http://localhost:3000/example-smart-answer
