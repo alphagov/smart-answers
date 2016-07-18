@@ -47,6 +47,22 @@ Although the landing page template needs to exist, it doesn't actually need to c
 
 Assuming you're still running `rails server`, visit http://localhost:3000/example-smart-answer and you should see the empty landing page of our new Smart Answer.
 
+Open the new landing page template your editor and copy/paste the following content:
+
+```erb
+<% content_for :title do %>
+  Smart Answer title
+<% end %>
+
+<% content_for :body do %>
+  Landing page body.
+<% end %>
+```
+
+Refresh the Smart Answer in your browser to see this new content.
+
+Read more about [landing page templates](landing-page-template.md).
+
 Click "Start now" to visit the first question. You should see an error message indicating that we're now missing an ERB template for our question.
 
 ## 3. Create an ERB question page template
@@ -62,6 +78,22 @@ Although the question page template needs to exist, it doesn't actually need to 
 
 Assuming you're still running `rails server`, visit http://localhost:3000/example-smart-answer and you should see an empty page containing a text field and a "Next step" button.
 
+Open the new question page template in your editor and copy/paste the following content:
+
+```erb
+<% content_for :title do %>
+  Question page title
+<% end %>
+
+<% content_for :body do %>
+  Question page body.
+<% end %>
+```
+
+Refresh the Smart Answer in your browser to see this new content.
+
+Read more about [question page templates](question-templates.md).
+
 Enter any value in the text field and click "Next step". You should see an error message indicating that we're now missing an ERB template for the outcome.
 
 ## 4. Create an ERB outcome page template
@@ -76,5 +108,21 @@ $ touch lib/smart_answer_flows/example-smart-answer/outcomes/outcome_1.govspeak.
 Although the question page template needs to exist, it doesn't actually need to contain anything!
 
 Assuming you're still running `rails server`, visit http://localhost:3000/example-smart-answer and you should see an empty page containing a list of "Previous answers".
+
+Open the new outcome page template in your editor and copy/paste the following content:
+
+```erb
+<% content_for :title do %>
+  Outcome page title
+<% end %>
+
+<% content_for :body do %>
+  Outcome page body.
+<% end %>
+```
+
+Refresh the Smart Answer in your browser to see this new content.
+
+Read more about [outcome page templates](outcome-templates.md).
 
 And that's all there is to an incredibly simple Smart Answer.
