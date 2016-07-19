@@ -58,10 +58,16 @@ module SmartAnswer
       assert_equal 'body-govspeak', @presenter.body(html: false)
     end
 
-    test '#post_body returns content rendered for post_body block with govspeak processing enabled' do
+    test '#post_body returns content rendered for post_body block with govspeak processing enabled by default' do
       @renderer.stubs(:content_for).with(:post_body, html: true).returns('post-body-html')
 
       assert_equal 'post-body-html', @presenter.post_body
+    end
+
+    test '#post_body returns content rendered for post body block with govspeak processing disabled' do
+      @renderer.stubs(:content_for).with(:post_body, html: false).returns('post-body-govspeak')
+
+      assert_equal 'post-body-govspeak', @presenter.post_body(html: false)
     end
 
     test '#options returns options with labels and values' do

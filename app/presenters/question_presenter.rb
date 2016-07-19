@@ -46,8 +46,8 @@ class QuestionPresenter < NodePresenter
     @renderer.content_for(:body, html: html)
   end
 
-  def post_body
-    @renderer.content_for(:post_body, html: true)
+  def post_body(html: true)
+    @renderer.content_for(:post_body, html: html)
   end
 
   def options
