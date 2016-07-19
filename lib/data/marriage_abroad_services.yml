@@ -354,6 +354,9 @@ denmark:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+    default:
+      default:
+      - :issuing_cni_or_nulla_osta
   same_sex:
     ceremony_country:
       default:
