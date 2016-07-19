@@ -34,7 +34,7 @@ class FlowPresenter
   end
 
   def render_txt?
-    finished? || !started?
+    true
   end
 
   def current_state
