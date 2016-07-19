@@ -28,6 +28,8 @@ You must take the forms with you to your appointment.
 
 %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
 
+^Your partner will need to follow the same process and pay the fees to get their own CNI.^
+
 If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
 
 - a [decree absolute or final order](/copy-decree-absolute-final-order)
@@ -46,8 +48,6 @@ $C
 **General Register Office**\\
 Telephone: +44 (0)300 123 1837 (8am to 8pm Monday to Friday and 9am to 4pm Saturday)
 $C
-
-^Your partner will need to follow the same process and pay the fees to get their own CNI.^
 
 ###What happens next
 
