@@ -1,7 +1,7 @@
 ---
 lib/smart_answer_flows/marriage-abroad.rb: 35ddfa7eeddb53e148420bd97d1d3877
-test/data/marriage-abroad-questions-and-responses.yml: 9bc7a99045b6a7c55db25446058e2c98
-test/data/marriage-abroad-responses-and-expected-results.yml: 6b16861ad01ada72987e1a2b90b93093
+test/data/marriage-abroad-questions-and-responses.yml: db35f040a23d1222903cde3f4406607b
+test/data/marriage-abroad-responses-and-expected-results.yml: 3669c77a9cab654663d662f29b5b40ae
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
 lib/smart_answer_flows/marriage-abroad/outcomes/_affirmation_os_translation_in_local_language_text.govspeak.erb: af09e09b909c563d4a587ef1b9285cca
 lib/smart_answer_flows/marriage-abroad/outcomes/_applying_for_a_nulla_osta.govspeak.erb: da870759f989efc68544f212bc86b78a
