@@ -20,7 +20,7 @@
         </p>
       <% end %>
 
-      <%= render partial: question.partial_template_name, locals: { question: question } %>
+      <%= render partial: "smart_answers/inputs/#{question.partial_template_name}", locals: { question: question } %>
 
       <%= question.post_body %>
     </div>
