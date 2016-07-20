@@ -20,7 +20,13 @@ module SmartAnswer
     end
 
     def single_line_of_content_for(key)
-      content_for(key, html: false).chomp.html_safe
+      result = content_for(key, html: false).chomp.html_safe
+      if result.blank? || key == :meta_description
+        result
+      else
+        template_path = erb_template_path.relative_path_from(Rails.root).to_s
+        @view.content_tag(:span, result, class: 'debug single-line', data: { path: template_path, key: key })
+      end
     end
 
     def content_for(key, html: true)
@@ -41,7 +47,9 @@ module SmartAnswer
 
     def option_text(key)
       rendered_view
-      @view.options.fetch(key).html_safe
+      result = @view.options.fetch(key).html_safe
+      template_path = erb_template_path.relative_path_from(Rails.root).to_s
+      @view.content_tag(:span, result, class: 'debug option', data: { path: template_path, key: key })
     end
 
     def erb_template_path
