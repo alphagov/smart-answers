@@ -1,4 +1,6 @@
 SmartAnswers::Application.routes.draw do
+  root to: 'smart_answers#index'
+
   get 'healthcheck', to: proc { [200, {}, ['']] }
 
   constraints id: /[a-z0-9-]+/i do

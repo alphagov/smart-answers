@@ -8,4 +8,8 @@ class RoutingTest < ActionDispatch::IntegrationTest
       get "/non-gb-driving-licence%E2%EF%BF%BD%EF%BF%BD"
     end
   end
+
+  should "route root path to smart answers controller index action" do
+    assert_routing "/", controller: "smart_answers", action: "index"
+  end
 end

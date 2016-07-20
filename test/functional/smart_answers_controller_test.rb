@@ -18,6 +18,32 @@ class SmartAnswersControllerTest < ActionController::TestCase
     teardown_fixture_flows
   end
 
+  context "GET /" do
+    setup do
+      @flow_a = stub("flow", name: "flow-a")
+      @flow_b = stub("flow", name: "flow-b")
+      registry = stub("Flow registry")
+      registry.stubs(:flows).returns([@flow_b, @flow_a])
+      @controller.stubs(:flow_registry).returns(registry)
+    end
+
+    should "assign flows sorted alphabetically by name" do
+      get :index
+      assert_equal [@flow_a, @flow_b], assigns(:flows)
+    end
+
+    should "render index template" do
+      get :index
+      assert_template "index"
+    end
+
+    should "render list of links to flows" do
+      get :index
+      assert_select "ul li a[href='/flow-a']", text: "flow-a"
+      assert_select "ul li a[href='/flow-b']", text: "flow-b"
+    end
+  end
+
   context "GET /<slug>" do
     should "respond with 404 if not found" do
       @registry = stub("Flow registry")
