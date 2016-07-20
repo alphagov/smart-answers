@@ -102,15 +102,7 @@
       ### Legalisation and translation
       Once you have your CNI, you must contact the Bulgarian Ministry of Foreign Affairs to get it legalised (certified as genuine).
 
-      $A
-      2 Alfred Nobel Street
-      Sofia
-      Bulgaria
-      $A
-
-      $C
-      Telephone: (+359) 2 807 64 23, (+359) 2 807 64 28, (+359) 2 807 64 26
-      $C
+      <%= render partial: 'bulgarian_foreign_affairs_contact_details.govspeak.erb' %>
 
       You should also check with the local authorities in <%= calculator.country_name_lowercase_prefix %> to find out if you need to provide legalised and translated copies of any other documents.
 
@@ -162,9 +154,12 @@
 
     <% elsif calculator.ceremony_country == 'nicaragua' %>
       If you need a CNI, you must arrange this through the British Embassy in Costa Rica because there aren’t any British consular facilities in Nicaragua.
+    <% elsif calculator.ceremony_country == 'bulgaria' %>
+      To get a CNI, you must get your documents witnessed in Bulgaria. You can do this at the British embassy in Sofia or in front of a notary public.
 
+      CNIs issued in Bulgaria are valid for 6 months.
 
-    <% elsif %w(kazakhstan macedonia russia).exclude?(calculator.ceremony_country) %>
+    <% elsif %w(kazakhstan macedonia russia bulgaria).exclude?(calculator.ceremony_country) %>
       To get a CNI, you must post notice of your intended marriage in <%= calculator.country_name_lowercase_prefix %>. You can do this at the British embassy or in front of a notary public.
 
 
@@ -192,6 +187,14 @@
     <% end %>
     <% if calculator.ceremony_country == 'estonia' && calculator.resident_of_ceremony_country? %>
       ^You may be able to get married without a CNI if you have a permanent address in Estonia and have a 6 month residence permit - contact the local authorities to find out.^
+
+    <% elsif calculator.ceremony_country == 'bulgaria' && calculator.resident_of_ceremony_country? %>
+
+      The British embassy or notary public can take your oath or affirmation and witness your notice of marriage. The notary public may charge 2 separate fees for this.
+
+      ### Get your documents witnessed in front of a notary public
+
+      Download an [‘Affidavit/Affirmation’ form](https://www.gov.uk/government/publications/affirmationaffidavit-of-marital-status-form) and a [‘Notice of Marriage’ form](https://www.gov.uk/government/publications/notice-of-marriage-form--2) and take them with you to a notary public.
 
     <% end %>
     <% if calculator.ceremony_country == 'kyrgyzstan' %>
@@ -223,6 +226,50 @@
       $C
 
       %You can’t book an appointment to get advice at the embassy in person.%
+
+    <% elsif calculator.ceremony_country == 'bulgaria' &&
+      calculator.resident_of_ceremony_country? %>
+
+      Once the notary public has witnessed your documents, send the original documents to the British embassy in Sofia:
+
+      **British Embassy Sofia**
+
+      $A
+      Consular section
+      9, Moskovska St
+      1000 Sofia
+      Bulgaria
+      $A
+
+      There’s an additional fee for this - you must complete a [payment form](/government/publications/bulgaria-consular-fees) and email it to the British embassy in Sofia.
+
+      $C
+      <Consularsection.Sofia@fco.gov.uk>
+      $C
+
+      The embassy will contact you to confirm that the payment was accepted.
+
+      The embassy will display your notice of marriage publicly for 7 days before issuing your CNI.
+
+      You can collect the CNI from the embassy or ask for it to be sent by courier to an address in Bulgaria. You’ll need to pay any courier fees.
+
+      Make an appointment to collect your CNI at the embassy in Sofia.
+
+      ^You don’t need to stay in the country while your notice is posted.^
+
+      Once you have your CNI, you must contact the Bulgarian Ministry of Foreign Affairs to get it legalised (certified as genuine).
+
+      <%= render partial: 'bulgarian_foreign_affairs_contact_details.govspeak.erb' %>
+
+      ### Get your documents witnessed at the embassy
+
+      [Make an appointment at the embassy in Sofia.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-sofia/notice-of-marriage-or-civil-partnership/slot_picker)
+
+      You’ll need to complete an [‘Affidavit/Affirmation’ form](https://www.gov.uk/government/publications/affirmationaffidavit-of-marital-status-form) and a [‘Notice of Marriage’ form](https://www.gov.uk/government/publications/notice-of-marriage-form--2).
+
+      You can download and fill in (but not sign) the forms in advance.
+
+      You must take the forms with you to your appointment.
 
     <% elsif calculator.ceremony_country == 'sudan' %>
       Contact the embassy or consulate to make an appointment.
@@ -304,6 +351,15 @@
       - proof of residence, such as a residence certificate - check with the <%= calculator.embassy_or_consulate_ceremony_country %> to find out what you need
       - equivalent documents for your partner
 
+    <% elsif calculator.ceremony_country == 'bulgaria' &&
+      calculator.resident_of_ceremony_country? %>
+
+      You’ll need to provide supporting documents, including:
+
+      - your passport
+      - a copy of your partner’s ID
+      - proof of residence, eg flight tickets or residence permit - check with the embassy or notary public to find out what you need
+      - equivalent documents for your partner
 
     <% elsif (calculator.notary_public_ceremony_country? || %w(japan macedonia).include?(calculator.ceremony_country)) %>
       You’ll need to provide supporting documents, including:
@@ -311,7 +367,6 @@
       - your passport
       - proof of residence, such as a residence certificate - check with the <%= calculator.embassy_or_consulate_ceremony_country %> or notary public to find out what you need
       - equivalent documents for your partner
-
 
     <% else %>
       <%= render partial: 'required_supporting_documents.govspeak.erb',
@@ -322,6 +377,7 @@
       ^Documents must be originals if you are getting married at the Sharia Court.^
 
     <% end %>
+
   <% end %>
 
   <% if calculator.resident_of_ceremony_country? %>
@@ -337,7 +393,7 @@
       [Download ‘Affidavit and affirmation for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form)
       $D
 
-
+    <% elsif calculator.ceremony_country == 'bulgaria' %>
     <% else %>
       <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
 
@@ -358,7 +414,9 @@
 
   <% if calculator.resident_of_ceremony_country? %>
 
-    <% if calculator.partner_british? && %w(finland).exclude?(calculator.ceremony_country) %>
+    <% if (calculator.partner_british? &&
+      %w(finland).exclude?(calculator.ceremony_country)) ||
+      calculator.ceremony_country == 'bulgaria'  %>
       ^Your partner will need to follow the same process and pay the fees to get their own CNI.^
     <% end %>
 
@@ -402,6 +460,33 @@
 
       [Make an appointment to collect your CNI at the embassy in Athens](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-athens/certificate-of-no-impediment/slot_picker).
 
+    <% elsif calculator.ceremony_country == 'bulgaria' &&
+      calculator.resident_of_ceremony_country? %>
+
+      ### What happens next
+
+      There’s an additional fee for this - you must complete a [payment form](https://www.gov.uk/government/publications/bulgaria-consular-fees) and email it to the British embassy in Sofia.
+
+      $C
+      <Consularsection.Sofia@fco.gov.uk>
+      $C
+
+      The embassy will contact you to confirm that the payment was accepted.
+
+      The embassy will display your notice of marriage publicly for 7 days before issuing your CNI.
+
+      There’s an additional fee for this - you must complete a [payment form](https://www.gov.uk/government/publications/bulgaria-consular-fees) and email it to the British embassy in Sofia.
+
+      $C
+      <Consularsection.Sofia@fco.gov.uk>
+      $C
+
+      The embassy will contact you to confirm that the payment was accepted.
+
+      You can collect the CNI from the embassy or ask for it to be sent by courier to an address in Bulgaria. You’ll need to pay any courier fees.
+
+      [Make an appointment to collect your CNI at the embassy in Sofia.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-sofia/certificate-of-no-impediment/slot_picker)
+
     <% elsif calculator.notary_public_ceremony_country? %>
       ###What happens next
 
@@ -433,14 +518,22 @@
 
   <% end %>
 
-  <% if calculator.resident_outside_of_uk? %>
+  <% if calculator.resident_outside_of_uk? &&
+    calculator.ceremony_country != 'bulgaria' %>
     <%= render partial: 'check_if_cni_needs_to_be_legalised.govspeak.erb',
                locals: { calculator: calculator } %>
 
   <% end %>
-  <% if calculator.resident_of_ceremony_country? %>
+  <% if calculator.resident_of_ceremony_country? &&
+    calculator.ceremony_country == 'bulgaria' %>
     <%= render partial: 'you_dont_need_to_stay_in_country.govspeak.erb' %>
 
+    Once you have your CNI, you must contact the Bulgarian Ministry of Foreign Affairs to get it legalised (certified as genuine).
+
+    <%= render partial: 'bulgarian_foreign_affairs_contact_details.govspeak.erb' %>
+
+  <% elsif calculator.resident_of_ceremony_country? %>
+    <%= render partial: 'you_dont_need_to_stay_in_country.govspeak.erb' %>
   <% end %>
   <% if calculator.partner_not_british? %>
 
