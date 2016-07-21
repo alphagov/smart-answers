@@ -127,11 +127,10 @@ class SmartAnswersRegressionTest < ActionController::TestCase
         visited_nodes << next_node
 
         should "render and save output for responses: #{responses.join(', ')}" do
-          format = 'txt'
-          get :show, id: flow_name, started: 'y', responses: responses.join('/'), format: format
+          get :show, id: flow_name, started: 'y', responses: responses.join('/'), format: 'txt'
           assert_response :success
 
-          artefact_path = smart_answer_helper.save_output(responses, response, extension: format)
+          artefact_path = smart_answer_helper.save_output(responses, response, extension: 'txt')
 
           # Enabling this more than doubles the time it takes to run regression tests
           assert_no_output_diff artefact_path if ENV['ASSERT_EACH_ARTEFACT'].present?
