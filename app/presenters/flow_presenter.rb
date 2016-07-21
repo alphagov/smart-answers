@@ -33,10 +33,6 @@ class FlowPresenter
     current_node.outcome?
   end
 
-  def render_txt?
-    true
-  end
-
   def current_state
     @current_state ||= @flow.process(all_responses)
   end

@@ -59,7 +59,7 @@ private
   end
 
   def render_text?(presenter)
-    Rails.application.config.expose_govspeak && presenter.render_txt?
+    Rails.application.config.expose_govspeak
   end
 
   def with_format(format, &block)
