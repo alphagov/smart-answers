@@ -1,4 +1,4 @@
-class CheckboxQuestionPresenter < QuestionPresenter
+class CheckboxQuestionPresenter < QuestionWithOptionsPresenter
   def response_labels(values)
     values.split(',').map do |value|
       if value == SmartAnswer::Question::Checkbox::NONE_OPTION

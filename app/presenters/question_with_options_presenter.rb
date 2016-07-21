@@ -1,0 +1,2 @@
+class QuestionWithOptionsPresenter < QuestionPresenter
+end
