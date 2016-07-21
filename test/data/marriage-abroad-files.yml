@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/marriage-abroad.rb: 62ff7b4f518fc8650fdb74b966361af6
+lib/smart_answer_flows/marriage-abroad.rb: 92a2c0047d803907747e55310c68ee99
 test/data/marriage-abroad-questions-and-responses.yml: 9bc7a99045b6a7c55db25446058e2c98
 test/data/marriage-abroad-responses-and-expected-results.yml: baedad1931f667062782ae52e5e5f1c9
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
@@ -82,7 +82,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/_you_have_been_divorced_or_widow
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_will_be_asked_for_cni.govspeak.erb: cd1226b515c6a1723da99be2cb207c51
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_will_have_to_wait_to_get_married.govspeak.erb: c9fa9fa95d1133789ae786d5b0bb6749
 lib/smart_answer_flows/marriage-abroad/outcomes/os_affirmation/_fees.govspeak.erb: 5682dcf976c23be3105eb3594fb78b49
-lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark.govspeak.erb: 61be45788cee46aa644cdd9c55936b9b
+lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark.govspeak.erb: 5604ad2e5587a0f74437296f328746bf
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_ireland.govspeak.erb: 1c1f2dc4f9aafbfe87b91df96047ace6
 ? lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries.govspeak.erb
 : e68905e2106942e14c968512f06c1d84
@@ -113,7 +113,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in
 ? lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country.govspeak.erb
 : 9f9684fdb5bfcee8e131654dae5b31eb
 ? lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk_or_ceremony_country.govspeak.erb
-: b7dbd99b2827bd61ff9a395d7010dc06
+: 87c19c51197bd0ef5e88de89d214bae6
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_dominican_republic.govspeak.erb: 12921301af7691afefafeaefcbbe0233
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_ecuador.govspeak.erb: 002867fdd9e88ea3b743db95e5545fd7
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_egypt.govspeak.erb: 4f17b21c3be607df2415abd148e38766
@@ -189,7 +189,7 @@ lib/smart_answer_flows/marriage-abroad/questions/marriage_or_pacs.govspeak.erb: 
 lib/smart_answer_flows/marriage-abroad/questions/partner_opposite_or_same_sex.govspeak.erb: 40d0c99a5be50f0625c6562f06fe4afd
 lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationality.govspeak.erb: 80e04f36c75c232bede1a244d621471e
 lib/data/rates/marriage_abroad_consular_fees.yml: db466bd97c7ee1b9a275dec70590d61f
-lib/data/marriage_abroad_services.yml: 62bb3f60dec74aea86d128d5241a494f
+lib/data/marriage_abroad_services.yml: a4da51063e861fad9785b6d944fde1c9
 lib/smart_answer/calculators/marriage_abroad_calculator.rb: 292313548cb6db927103d103f25dbda7
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1d83fae34e0ee72ce1c1554bdb766d21
 lib/smart_answer/calculators/marriage_abroad_data_query.rb: 6517ecfddbbca722dc23066a055cc433
