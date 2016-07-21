@@ -24,7 +24,7 @@ class SmartAnswersController < ApplicationController
           title: @presenter.current_node.title
         }
       }
-      if render_text?(@presenter)
+      if Rails.application.config.expose_govspeak
         format.text {
           render
         }
@@ -56,10 +56,6 @@ private
 
   def json_request?
     request.format == Mime::JSON
-  end
-
-  def render_text?(presenter)
-    Rails.application.config.expose_govspeak
   end
 
   def with_format(format, &block)
