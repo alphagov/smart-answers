@@ -1,3 +1,10 @@
+//= require start-button-ab-test-july-2016
+
+var SmartAnswer = SmartAnswer || {};
+SmartAnswer.isStartPage = function(slug) { // Used mostly during A/B testing
+  return window.location.pathname.split("/").join("") == slug;
+}
+
 function browserSupportsHtml5HistoryApi() {
   return !! (history && history.replaceState && history.pushState);
 }
