@@ -1,0 +1,14 @@
+Does the person have a Certificate of Registration or Naturalisation as a British citizen?
+
+
+
+
+
+  * yes: Yes
+  * no: No
+
+
+
+
+
+
