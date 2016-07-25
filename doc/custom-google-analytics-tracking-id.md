@@ -18,6 +18,11 @@ Open your copy of Static and replace the `universalId` variable in [analytics/in
 
 Open your Google Analytics account and visit the Real Time > Overview report. Visit your local copy of Smart Answers and observe the activity in Google Analytics.
 
+## Debugging
+
+The [Google Analytics Debugger Chrome extension][ga-debugger] can be useful when trying to understand why you're not seeing the data you expect in Google Analytics.
+
+[ga-debugger]: https://chrome.google.com/webstore/detail/google-analytics-debugger/jnkmfdileelhofjcijamephohjechhna?hl=en
 [static-dev]: http://static.dev.gov.uk
 [static-repository]: https://github.com/alphagov/static
 [static-universal-id]: https://github.com/alphagov/static/blob/059f6a534b595c543852c25ced151019b2b6cd72/app/assets/javascripts/analytics/init.js#L13
