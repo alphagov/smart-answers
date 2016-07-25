@@ -1,0 +1,12 @@
+How many days in the shift pattern?
+
+
+
+The shift pattern includes non-working days.
+
+
+Days per pattern
+
+
+
+
