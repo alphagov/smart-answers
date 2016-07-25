@@ -1,0 +1,14 @@
+What would you like to check?
+
+
+
+
+
+  * current_payment: If you’re paying a worker the National Minimum Wage or the National Living Wage
+  * past_payment: If you owe a worker past payments (before April 2016)
+
+
+
+
+
+
