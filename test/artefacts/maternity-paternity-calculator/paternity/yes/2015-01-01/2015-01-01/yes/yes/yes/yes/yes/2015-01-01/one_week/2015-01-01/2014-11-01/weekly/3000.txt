@@ -1,0 +1,14 @@
+How do you want the paternity pay calculated?
+
+
+
+
+
+  * weekly_starting: Weekly starting  1 January 2015
+  * usual_paydates: Based on their usual paydates
+
+
+
+
+
+
