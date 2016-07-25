@@ -1,0 +1,14 @@
+Have you claimed expenses for your current business before?
+
+
+
+If you’re a new business you won’t have claimed expenses before.
+
+  * yes: Yes
+  * no: No
+
+
+
+
+
+
