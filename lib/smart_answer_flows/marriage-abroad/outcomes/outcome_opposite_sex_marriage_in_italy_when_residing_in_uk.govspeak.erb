@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :body do %>
-  Contact the local comune (town hall) before making any plans to find out about local marriage laws, including what documents you’ll need.
+  <%= render partial: 'contact_comune_in_italy.govspeak.erb' %>
 
   <%= render partial: 'what_you_need_to_do.govspeak.erb',
       locals: { calculator: calculator } %>
