@@ -1,0 +1,18 @@
+Are you travelling abroad with a partner who is getting Income Support with one of the following:
+
+- [Pensioner premium](/income-support/what-youll-get)
+- [Higher Pensioner premium](/income-support/what-youll-get)
+- [Disability premium](/disability-premiums-income-support/eligibility)
+- [Severe Disability premium](/disability-premiums-income-support/eligibility)
+
+
+Your partner must be getting the premium, not you.
+
+  * yes: Yes
+  * no: No
+
+
+
+
+
+
