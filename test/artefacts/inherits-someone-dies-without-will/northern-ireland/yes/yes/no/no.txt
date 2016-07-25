@@ -1,0 +1,14 @@
+Did the deceased have any brothers or sisters?
+
+
+
+
+
+  * yes: Yes
+  * no: No
+
+
+
+
+
+
