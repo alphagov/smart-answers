@@ -24,11 +24,13 @@ As the Pull Request reviewer:
 
 1. Assign yourself to the Pull Request.
 
-2. Review the Pull Request.
+2. Add the "In code review" label to allow people to see at a glance that the PR is being reviewed.
 
-3. Add a comment to say that the PR looks good if/when you're happy with it.
+3. Review the Pull Request.
 
-4. Add the "Passed code review" label to allow people to see at a glance that the PR has been reviewed.
+4. Add a comment to say that the PR looks good if/when you're happy with it.
+
+5. Add the "Passed code review" label to allow people to see at a glance that the PR has been reviewed.
 
 ## Fact-checking a Pull Request (Optional)
 
