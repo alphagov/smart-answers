@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if calculator.resident_of_uk? %>
+  <% if true %>
     <% if calculator.ceremony_country_is_dutch_caribbean_island? %>
       <%= calculator.country_name_uppercase_prefix %> is one of the Dutch Caribbean islands.
 
@@ -66,7 +66,7 @@
     <%= render partial: 'you_will_be_asked_for_cni.govspeak.erb' %>
 
   <% end %>
-  <% if calculator.resident_of_uk? %>
+  <% if true %>
     <%= render partial: 'cni_at_local_register_office.govspeak.erb' %>
     <%= render partial: 'cni_issued_locally_validity.govspeak.erb',
                locals: { calculator: calculator } %>
@@ -75,7 +75,7 @@
 
     <% end %>
   <% end %>
-  <% if calculator.resident_of_uk? %>
+  <% if true %>
 
     <% if calculator.ceremony_country == 'tunisia' %>
       You’ll need to exchange your UK-issued CNI for one that’s valid in Tunisia at the nearest British embassy to where you’re getting married.
@@ -394,7 +394,7 @@
                locals: { calculator: calculator } %>
 
   <% end %>
-  <% if calculator.resident_of_uk? && calculator.partner_is_neither_british_nor_a_national_of_ceremony_country? && "finland" == calculator.ceremony_country %>
+  <% if true && calculator.partner_is_neither_british_nor_a_national_of_ceremony_country? && "finland" == calculator.ceremony_country %>
     <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>
 
   <% end %>
@@ -415,7 +415,7 @@
   <% end %>
 
   <% if calculator.ceremony_country == 'poland' %>
-    <% if calculator.resident_of_uk? %>
+    <% if true %>
       ## What happens next
     <% end %>
 
