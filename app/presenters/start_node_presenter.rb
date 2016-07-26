@@ -22,4 +22,8 @@ class StartNodePresenter < NodePresenter
   def post_body(html: true)
     @renderer.content_for(:post_body, html: html)
   end
+
+  def relative_erb_template_path
+    @renderer.relative_erb_template_path
+  end
 end
