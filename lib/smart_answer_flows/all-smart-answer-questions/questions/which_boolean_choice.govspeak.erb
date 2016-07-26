@@ -1,0 +1,12 @@
+<% content_for :title do %>
+  Multiple choice (yes/no): Would you like to see the other questions?
+<% end %>
+
+<% options(
+  "yes": "Yes",
+  "no": "No"
+) %>
+
+<% content_for :error_message do %>
+  Of course you would!
+<% end %>

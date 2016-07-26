@@ -1,0 +1,27 @@
+<% content_for :title do %>
+  Checkbox question: What are other names for Gandalf?
+<% end %>
+
+<% content_for :body do %>
+  Body can contain further explanations.
+<% end %>
+
+<% content_for :post_body do %>
+  Post body can contain less important information.
+<% end %>
+
+<% options(
+  "radagast": "Radagast",
+  "mithrandir": "Mithrandir",
+  "olorin": "Olórin",
+  "tharkun": "Tharkûn",
+  "elrohir": "Elrohir"
+) %>
+
+<% content_for :hint do %>
+  This is a hint
+<% end %>
+
+<% content_for :error_message do %>
+  It's neither Elrohir nor Radagast.
+<% end %>

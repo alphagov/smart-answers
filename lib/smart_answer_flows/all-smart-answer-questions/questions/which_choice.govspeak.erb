@@ -1,0 +1,14 @@
+<% content_for :title do %>
+  Multiple choice: Which of these numbers is not a prime number?
+<% end %>
+
+<% options(
+  "one": "One",
+  "two": "Two",
+  "three": "Three",
+  "four": "Four"
+) %>
+
+<% content_for :error_message do %>
+  4 is divisible by 2.
+<% end %>
