@@ -113,7 +113,7 @@
                locals: { calculator: calculator } %>
 
   <% end %>
-  <% if true && calculator.partner_is_neither_british_nor_a_national_of_ceremony_country? && "finland" == calculator.ceremony_country %>
+  <% if calculator.partner_is_neither_british_nor_a_national_of_ceremony_country? && "finland" == calculator.ceremony_country %>
     <%= render partial: 'callout_partner_equivalent_document.govspeak.erb' %>
 
   <% end %>
