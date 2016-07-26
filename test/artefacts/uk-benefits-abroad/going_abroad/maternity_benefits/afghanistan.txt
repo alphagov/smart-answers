@@ -1,0 +1,14 @@
+Is your employer paying National Insurance contributions for you?
+
+
+
+
+
+  * yes: Yes
+  * no: No
+
+
+
+
+
+

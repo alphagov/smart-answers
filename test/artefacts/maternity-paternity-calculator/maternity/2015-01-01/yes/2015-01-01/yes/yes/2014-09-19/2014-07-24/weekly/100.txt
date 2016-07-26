@@ -1,0 +1,14 @@
+How do you want the SMP calculated?
+
+
+
+
+
+  * weekly_starting: weekly starting  1 January 2015
+  * usual_paydates: based on their usual paydates
+
+
+
+
+
+

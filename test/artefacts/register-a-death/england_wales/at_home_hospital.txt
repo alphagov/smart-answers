@@ -1,0 +1,14 @@
+Was the death expected?
+
+
+
+
+
+  * yes: Yes
+  * no: No
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+Is the holiday entitlement based on:
+
+
+
+Check the employment contract if you’re not sure about the holiday entitlement.
+
+  * days-worked-per-week: days worked per week
+  * hours-worked-per-week: hours worked per week
+  * casual-or-irregular-hours: casual or irregular hours
+  * annualised-hours: annualised hours
+  * compressed-hours: compressed hours
+  * shift-worker: shifts
+
+
+
+
+
+

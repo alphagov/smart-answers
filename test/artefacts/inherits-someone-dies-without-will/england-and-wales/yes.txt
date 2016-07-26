@@ -1,0 +1,14 @@
+Is the estate likely to be worth more than £250,000?
+
+
+
+
+
+  * yes: Yes
+  * no: No
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+Is the person at least 18 years of age?
+
+
+
+
+
+  * yes: Yes
+  * no: No
+
+
+
+
+
+

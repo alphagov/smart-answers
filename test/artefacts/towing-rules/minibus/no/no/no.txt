@@ -1,0 +1,14 @@
+How old are you?
+
+
+
+
+
+  * under-21: Under 21
+  * 21-or-over: 21 or over
+
+
+
+
+
+

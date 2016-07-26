@@ -202,13 +202,14 @@ class SmartAnswersControllerTest < ActionController::TestCase
         assert response.body.start_with?("Smart answers controller sample")
       end
 
-      should "render not found for a question node" do
+      should "render govspeak text for a question node" do
         document = stub('Govspeak::Document', to_html: 'html-output')
         Govspeak::Document.stubs(:new).returns(document)
 
         get :show, id: 'smart-answers-controller-sample', started: 'y', format: "txt"
-
-        assert_response :missing
+        assert_match(/Do you like chocolate\?/, response.body)
+        assert_match(/yes\: Yes/, response.body)
+        assert_match(/no\: No/, response.body)
       end
 
       context "when Rails.application.config.expose_govspeak is not set" do

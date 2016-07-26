@@ -38,7 +38,7 @@ module SmartAnswer
       setup do
         question = @flow.node(:have_you_stopped_trading?)
         @state = SmartAnswer::State.new(question)
-        @presenter = QuestionPresenter.new(question, @state)
+        @presenter = MultipleChoiceQuestionPresenter.new(question, @state)
       end
 
       should 'have options with labels' do
@@ -56,7 +56,7 @@ module SmartAnswer
         question = @flow.node(:do_your_accounts_cover_a_12_month_period?)
         @state = SmartAnswer::State.new(question)
         @state.accounting_year_ends_on = Date.parse('2016-04-05')
-        @presenter = QuestionPresenter.new(question, @state)
+        @presenter = MultipleChoiceQuestionPresenter.new(question, @state)
       end
 
       should 'display title with interpolated basis_period_ends_on' do
@@ -99,7 +99,7 @@ module SmartAnswer
         question = @flow.node(:did_you_start_trading_before_the_relevant_accounting_year?)
         @state = SmartAnswer::State.new(question)
         @state.accounting_year_begins_on = Date.parse('2015-04-06')
-        @presenter = QuestionPresenter.new(question, @state)
+        @presenter = MultipleChoiceQuestionPresenter.new(question, @state)
       end
 
       should 'have options with labels' do

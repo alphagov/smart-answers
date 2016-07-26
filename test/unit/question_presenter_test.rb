@@ -58,23 +58,16 @@ module SmartAnswer
       assert_equal 'body-govspeak', @presenter.body(html: false)
     end
 
-    test '#post_body returns content rendered for post_body block with govspeak processing enabled' do
+    test '#post_body returns content rendered for post_body block with govspeak processing enabled by default' do
       @renderer.stubs(:content_for).with(:post_body, html: true).returns('post-body-html')
 
       assert_equal 'post-body-html', @presenter.post_body
     end
 
-    test '#options returns options with labels and values' do
-      question = Question::MultipleChoice.new(nil, :question_name?)
-      question.option(:option_one)
-      question.option(:option_two)
+    test '#post_body returns content rendered for post body block with govspeak processing disabled' do
+      @renderer.stubs(:content_for).with(:post_body, html: false).returns('post-body-govspeak')
 
-      @renderer.stubs(:option_text).with(:option_one).returns('option-one-text')
-      @renderer.stubs(:option_text).with(:option_two).returns('option-two-text')
-      presenter = QuestionPresenter.new(question, nil, renderer: @renderer)
-
-      assert_equal %w(option_one option_two), presenter.options.map(&:value)
-      assert_equal %w(option-one-text option-two-text), presenter.options.map(&:label)
+      assert_equal 'post-body-govspeak', @presenter.post_body(html: false)
     end
 
     test '#error returns nil if there is no error' do

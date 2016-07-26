@@ -1,0 +1,16 @@
+Where did the death happen?
+
+
+
+
+
+  * england_wales: England or Wales
+  * scotland: Scotland
+  * northern_ireland: Northern Ireland
+  * overseas: Abroad
+
+
+
+
+
+

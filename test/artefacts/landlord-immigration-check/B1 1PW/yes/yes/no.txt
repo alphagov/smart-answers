@@ -1,0 +1,14 @@
+Does the person have a certificate of right of abode in their passport?
+
+
+
+
+
+  * yes: Yes
+  * no: No
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+Did the deceased have any half-aunts or half-uncles?
+
+
+
+
+
+  * yes: Yes
+  * no: No
+
+
+
+
+
+

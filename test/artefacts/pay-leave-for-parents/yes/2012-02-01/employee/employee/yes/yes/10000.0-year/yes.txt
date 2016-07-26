@@ -1,0 +1,14 @@
+Did the mother’s partner start their current or most recent job before 30 April 2011?
+
+
+
+
+
+  * yes: Yes
+  * no: No
+
+
+
+
+
+

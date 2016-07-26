@@ -1,0 +1,15 @@
+Where did the deceased live?
+
+
+
+
+
+  * england-and-wales: England and Wales
+  * scotland: Scotland
+  * northern-ireland: Northern Ireland
+
+
+
+
+
+

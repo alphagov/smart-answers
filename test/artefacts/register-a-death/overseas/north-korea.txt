@@ -1,0 +1,15 @@
+Where are you now?
+
+
+
+
+
+  * same_country: In the country where the death happened
+  * another_country: In another country
+  * in_the_uk: In the UK
+
+
+
+
+
+

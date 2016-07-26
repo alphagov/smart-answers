@@ -1,0 +1,15 @@
+Did the mother’s partner earn (or will they have earned) a total of £390 or more in any 13 weeks between 29 December 2013 and  4 April 2015?
+
+
+
+
+
+  * yes: Yes
+  * no: No
+
+
+
+
+
+The 13 weeks don’t need to be in a row.
+

@@ -1,0 +1,14 @@
+How do you want the adoption pay calculated?
+
+
+
+
+
+  * weekly_starting: Weekly starting  6 April 2015
+  * usual_paydates: Based on their usual paydates
+
+
+
+
+
+

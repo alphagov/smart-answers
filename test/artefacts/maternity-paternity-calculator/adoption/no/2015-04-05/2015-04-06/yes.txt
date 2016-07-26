@@ -1,0 +1,14 @@
+Does the employee have an employment contract with you?
+
+
+
+
+
+  * yes: Yes
+  * no: No
+
+
+
+
+
+
