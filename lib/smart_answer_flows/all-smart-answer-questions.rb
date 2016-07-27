@@ -2,6 +2,7 @@
 module SmartAnswer
   class AllSmartAnswerQuestionsFlow < Flow
     def define
+      content_id '92661afb-63ce-4ded-b06e-cf6288c0d629'
       name 'all-smart-answer-questions'
       status :draft
 
