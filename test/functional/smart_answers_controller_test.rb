@@ -42,6 +42,12 @@ class SmartAnswersControllerTest < ActionController::TestCase
       assert_select "ul li a[href='/flow-a']", text: "flow-a"
       assert_select "ul li a[href='/flow-b']", text: "flow-b"
     end
+
+    should "render links to visualise flows" do
+      get :index
+      assert_select "ul li a[href='/flow-a/visualise']", text: "visualise"
+      assert_select "ul li a[href='/flow-b/visualise']", text: "visualise"
+    end
   end
 
   context "GET /<slug>" do
