@@ -50,6 +50,10 @@ class QuestionPresenter < NodePresenter
     @renderer.content_for(:post_body, html: html)
   end
 
+  def relative_erb_template_path
+    @renderer.relative_erb_template_path
+  end
+
   def options
     []
   end

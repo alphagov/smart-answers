@@ -56,5 +56,11 @@ module SmartAnswer
 
       assert_equal 'post-body-govspeak', @presenter.post_body(html: false)
     end
+
+    test '#relative_erb_template_path delegates to renderer' do
+      @renderer.stubs(:relative_erb_template_path).returns('relative-erb-template-path')
+
+      assert_equal 'relative-erb-template-path', @presenter.relative_erb_template_path
+    end
   end
 end

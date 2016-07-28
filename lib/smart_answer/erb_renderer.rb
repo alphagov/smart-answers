@@ -38,6 +38,10 @@ module SmartAnswer
       @template_directory.join(erb_template_name)
     end
 
+    def relative_erb_template_path
+      erb_template_path.relative_path_from(Rails.root).to_s
+    end
+
   private
 
     def erb_template_name

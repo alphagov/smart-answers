@@ -12,6 +12,20 @@ module SmartAnswer
       end
     end
 
+    test '#relative_erb_template_path returns a relative version of erb_template_path' do
+      erb_template = ''
+      with_erb_template_file('template-name', erb_template) do |erb_template_directory|
+        renderer = ErbRenderer.new(template_directory: erb_template_directory, template_name: 'template-name')
+
+        erb_template_path = stub('erb-template-path')
+        relative_erb_template_path = Pathname.new('relative-erb-template-path')
+        erb_template_path.stubs(:relative_path_from).returns(relative_erb_template_path)
+        renderer.stubs(:erb_template_path).returns(erb_template_path)
+
+        assert_equal relative_erb_template_path.to_s, renderer.relative_erb_template_path
+      end
+    end
+
     test "#content_for raises an exception when the erb template doesn't exist" do
       renderer = ErbRenderer.new(template_directory: Pathname.new('/path/to/non-existent'), template_name: 'template-name')
 
