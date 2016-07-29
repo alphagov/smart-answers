@@ -4,15 +4,23 @@ SmartAnswer.isStartPage = function(slug) { // Used mostly during A/B testing
 };
 
 function linkToTemplatesOnGithub() {
-  $('*[data-debug-template-path]').each(function () {
-    var element = $(this);
-    var path = element.data('debug-template-path');
-    var filename = path.split('/').pop();
+  function filenameFrom(path) {
+    return path.split('/').pop();
+  }
+
+  function githubUrlFrom(path) {
     var host = 'https://github.com';
     var organisation = 'alphagov';
     var repository = 'smart-answers';
     var branch = 'deployed-to-production';
-    var url = [host, organisation, repository, 'blob', branch, path].join('/');
+    return [host, organisation, repository, 'blob', branch, path].join('/');
+  }
+
+  $('*[data-debug-template-path]').each(function () {
+    var element = $(this);
+    var path = element.data('debug-template-path');
+    var filename = filenameFrom(path);
+    var url = githubUrlFrom(path);
     var anchor = $('<a>Template on GitHub</a>').attr('href', url).attr('style', 'color: deeppink;').attr('title', filename);
     element.prepend(anchor);
     element.attr('style', 'border: 3px solid deeppink; padding: 10px; margin: 3px');
@@ -22,12 +30,8 @@ function linkToTemplatesOnGithub() {
   $('*[data-debug-partial-template-path]').each(function () {
     var element = $(this);
     var path = element.data('debug-partial-template-path');
-    var filename = path.split('/').pop();
-    var host = 'https://github.com';
-    var organisation = 'alphagov';
-    var repository = 'smart-answers';
-    var branch = 'deployed-to-production';
-    var url = [host, organisation, repository, 'blob', branch, path].join('/');
+    var filename = filenameFrom(path);
+    var url = githubUrlFrom(path);
     var anchor = $('<a>Partial template on GitHub</a>').attr('href', url).attr('style', 'color: hotpink;').attr('title', filename);
     element.prepend(anchor);
     element.attr('style', 'border: 3px dotted hotpink; padding: 10px; margin: 3px');
