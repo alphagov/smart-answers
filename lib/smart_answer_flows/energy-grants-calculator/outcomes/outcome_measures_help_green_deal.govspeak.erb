@@ -9,7 +9,9 @@
   <% unless calculator.modern_boiler? %>
     <%= render partial: 'opt_condensing_boiler.govspeak.erb' %>
   <% end %>
-  <%= render partial: 'opt_cavity_wall_insulation.govspeak.erb' %>
+  <% unless calculator.cavity_wall_insulation_or_mains_gas? %>
+    <%= render partial: 'opt_cavity_wall_insulation.govspeak.erb' %>
+  <% end %>
   <%= render partial: 'opt_solid_wall_insulation.govspeak.erb' %>
   <% unless calculator.draught_proofing? %>
     <%= render partial: 'opt_draught_proofing.govspeak.erb' %>
