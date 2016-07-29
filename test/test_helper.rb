@@ -34,6 +34,7 @@ Minitest::Test.send(:prepend, MinitestWithTeardownCustomisations)
 require 'gds_api/test_helpers/json_client_helper'
 require_relative 'support/fixture_methods'
 require_relative 'support/world_location_stubbing_methods'
+require_relative 'support/dom_testing_assertions'
 
 class ActiveSupport::TestCase
   include FixtureMethods
