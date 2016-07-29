@@ -1,4 +1,5 @@
 ENV["RAILS_ENV"] = "test"
+ENV["DISABLE_DEBUG_PARTIAL_TEMPLATE_PATHS"] = "true"
 require File.expand_path('../../../config/environment', __FILE__)
 
 FLOW_REGISTRY_OPTIONS[:preload_flows] = false
