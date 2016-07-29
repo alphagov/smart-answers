@@ -31,7 +31,7 @@
   <% unless calculator.cavity_wall_insulation_or_mains_gas? %>
     <%= render partial: 'opt_cavity_wall_insulation.govspeak.erb' %>
   <% end %>
-  <% unless calculator.mains_gas? %>
+  <% unless calculator.mains_gas_or_solid_wall_insulation? %>
     <%= render partial: 'opt_solid_wall_insulation.govspeak.erb' %>
   <% end %>
   <% unless calculator.draught_proofing_or_mains_gas? %>
