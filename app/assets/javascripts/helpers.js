@@ -16,25 +16,30 @@ function linkToTemplatesOnGithub() {
     return [host, organisation, repository, 'blob', branch, path].join('/');
   }
 
-  $('*[data-debug-template-path]').each(function () {
-    var element = $(this);
-    var path = element.data('debug-template-path');
-    var filename = filenameFrom(path);
-    var url = githubUrlFrom(path);
-    var anchor = $('<a>Template on GitHub</a>').attr('href', url).attr('style', 'color: deeppink;').attr('title', filename);
-    element.prepend(anchor);
-    element.attr('style', 'border: 3px solid deeppink; padding: 10px; margin: 3px');
-    element.removeAttr('data-debug-template-path');
+  function annotateContent(options) {
+    $('*[data-' + options.dataAttribute + ']').each(function () {
+      var element = $(this);
+      var path = element.data(options.dataAttribute);
+      var filename = filenameFrom(path);
+      var url = githubUrlFrom(path);
+      var anchor = $('<a>' + options.anchorText + '</a>').attr('href', url).attr('style', 'color: ' + options.anchorColor + ';').attr('title', filename);
+      element.prepend(anchor);
+      element.attr('style', options.borderStyle);
+      element.removeAttr('data-' + options.dataAttribute);
+    });
+  }
+
+  annotateContent({
+    dataAttribute: 'debug-template-path',
+    anchorText: 'Template on GitHub',
+    anchorColor: 'deeppink',
+    borderStyle: 'border: 3px solid deeppink; padding: 10px; margin: 3px'
   });
 
-  $('*[data-debug-partial-template-path]').each(function () {
-    var element = $(this);
-    var path = element.data('debug-partial-template-path');
-    var filename = filenameFrom(path);
-    var url = githubUrlFrom(path);
-    var anchor = $('<a>Partial template on GitHub</a>').attr('href', url).attr('style', 'color: hotpink;').attr('title', filename);
-    element.prepend(anchor);
-    element.attr('style', 'border: 3px dotted hotpink; padding: 10px; margin: 3px');
-    element.removeAttr('data-debug-partial-template-path');
+  annotateContent({
+    dataAttribute: 'debug-partial-template-path',
+    anchorText: 'Partial template on GitHub',
+    anchorColor: 'hotpink',
+    borderStyle: 'border: 3px dotted hotpink; padding: 10px; margin: 3px'
   });
 }
