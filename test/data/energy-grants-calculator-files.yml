@@ -1,7 +1,7 @@
 ---
 lib/smart_answer_flows/energy-grants-calculator.rb: c74b992a88ed260c03625d17ba6de3b6
-test/data/energy-grants-calculator-questions-and-responses.yml: e725aa49320518369f4fdc601cd217b2
-test/data/energy-grants-calculator-responses-and-expected-results.yml: 8b1d6c6350f162a2d4efbc65362b5ae8
+test/data/energy-grants-calculator-questions-and-responses.yml: d18701d8dc8a13423d548ec0b5e1515a
+test/data/energy-grants-calculator-responses-and-expected-results.yml: ad6c17dee74b9e405fe3c6823de025b1
 lib/smart_answer_flows/energy-grants-calculator/energy_grants_calculator.govspeak.erb: 7df3ca7bdc65c932d84c51b4bd742bc2
 lib/smart_answer_flows/energy-grants-calculator/outcomes/_callout_under_green_deal.govspeak.erb: 81e4cc5ea99917a97826748ce796175a
 lib/smart_answer_flows/energy-grants-calculator/outcomes/_cold_weather_payment.govspeak.erb: 9976373a42df06bdb65e902166fb1d49
@@ -37,7 +37,7 @@ lib/smart_answer_flows/energy-grants-calculator/outcomes/outcome_bills_and_measu
 lib/smart_answer_flows/energy-grants-calculator/outcomes/outcome_bills_and_measures_on_benefits_eco_eligible.govspeak.erb: 881a8c1c207bc8822bf3a901ab8f9665
 lib/smart_answer_flows/energy-grants-calculator/outcomes/outcome_bills_and_measures_on_benefits_not_eco_eligible.govspeak.erb: 45b4db9a9da021abc7322ec73162dba6
 lib/smart_answer_flows/energy-grants-calculator/outcomes/outcome_help_with_bills.govspeak.erb: bc06fcf2a216b1191f25d253b9a09ceb
-lib/smart_answer_flows/energy-grants-calculator/outcomes/outcome_measures_help_green_deal.govspeak.erb: 639f0032089e539f2f65f1bc8ab024b2
+lib/smart_answer_flows/energy-grants-calculator/outcomes/outcome_measures_help_green_deal.govspeak.erb: 56f2f35cacdb1921251ea785de6fa6d2
 lib/smart_answer_flows/energy-grants-calculator/outcomes/outcome_no_green_deal_no_energy_measures.govspeak.erb: 46c60db06b4764b22a38e01b28da0b69
 lib/smart_answer_flows/energy-grants-calculator/questions/date_of_birth.govspeak.erb: 71e6ed0f9e16513ec58653d3950100c1
 lib/smart_answer_flows/energy-grants-calculator/questions/disabled_or_have_children.govspeak.erb: f15bbb68d872afbb8d33e3bda7a27b12
