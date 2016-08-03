@@ -168,7 +168,7 @@ vietnam:
       - :receiving_notice_of_registration
       - :registering_civil_partnership_or_marriage
       - :issuing_civil_partnership_or_marriage_certificate
-  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
+  payment_partial_name: pay_by_cash_or_credit_card_no_personal_cheque
 dominican-republic:
   same_sex:
     default:

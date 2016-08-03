@@ -4,7 +4,7 @@
 
 <% unless calculator.country_without_consular_facilities? %>
   <% if calculator.ceremony_country == 'vietnam' %>
-    <%= render partial: 'consular_fees_in_cash_visa_master.govspeak.erb',
+    <%= render partial: 'link_to_consular_fees_pay_in_sterling_or_local_currency.govspeak.erb',
                locals: { calculator: calculator } %>
   <% else %>
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
