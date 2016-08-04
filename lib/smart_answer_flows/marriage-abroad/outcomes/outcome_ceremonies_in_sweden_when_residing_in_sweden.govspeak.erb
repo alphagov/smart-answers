@@ -59,12 +59,6 @@
 
   <%= render partial: 'you_dont_need_to_stay_in_country.govspeak.erb' %>
 
-  <%= render partial: 'consular_fees_table.govspeak.erb',
-             locals: { calculator: calculator } %>
-
-  <%= render partial: 'link_to_consular_fees.govspeak.erb',
-             locals: { calculator: calculator } %>
-
-  <%= render partial: 'payment_information.govspeak.erb',
+  <%= render partial: 'services_and_fees.govspeak.erb',
              locals: { calculator: calculator } %>
 <% end %>
