@@ -35,10 +35,6 @@
   <%= render partial: 'cni_os_consular_facilities_unavailable.govspeak.erb',
              locals: { calculator: calculator } %>
 
-  <% unless calculator.country_without_consular_facilities? %>
-    <%= render partial: 'link_to_consular_fees.govspeak.erb',
-               locals: { calculator: calculator } %>
-  <% end %>
   <% if calculator.partner_not_british? %>
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 
