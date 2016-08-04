@@ -81,7 +81,7 @@
   <%= render partial: 'consular_fees_table.govspeak.erb',
              locals: { calculator: calculator } %>
 
-  <% unless (calculator.ceremony_country == 'czech-republic' || calculator.country_without_consular_facilities?) %>
+  <% unless calculator.country_without_consular_facilities? %>
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
                locals: { calculator: calculator } %>
   <% end %>
