@@ -77,10 +77,9 @@
   <% if calculator.partner_not_british? %>
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
   <% end %>
-  <% unless calculator.ceremony_country == 'czech-republic' && calculator.partner_is_same_sex? %>
-    <%= render partial: 'consular_fees_table.govspeak.erb',
-               locals: { calculator: calculator } %>
-  <% end %>
+
+  <%= render partial: 'consular_fees_table.govspeak.erb',
+             locals: { calculator: calculator } %>
 
   <% unless (calculator.ceremony_country == 'czech-republic' || calculator.country_without_consular_facilities?) %>
     <%= render partial: 'link_to_consular_fees.govspeak.erb',
