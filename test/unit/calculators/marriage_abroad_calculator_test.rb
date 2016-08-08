@@ -321,6 +321,26 @@ module SmartAnswer
         end
       end
 
+      context '#italian_marriage_and_partnership_phrase' do
+        setup do
+          @calculator = MarriageAbroadCalculator.new
+        end
+
+        should 'return marriage for opposite sex enquiries' do
+          @calculator.sex_of_your_partner = 'opposite_sex'
+
+          assert_equal 'marriage', @calculator.italian_marriage_and_partnership_phrase
+          assert_not_equal 'civil partnership', @calculator.italian_marriage_and_partnership_phrase
+        end
+
+        should 'return civil partnership for same sex enquiries' do
+          @calculator.sex_of_your_partner = 'same_sex'
+
+          assert_equal 'civil partnership', @calculator.italian_marriage_and_partnership_phrase
+          assert_not_equal 'marriage', @calculator.italian_marriage_and_partnership_phrase
+        end
+      end
+
       context '#marriage_and_partnership_phrases' do
         setup do
           @data_query = stub.quacks_like(MarriageAbroadDataQuery.new)

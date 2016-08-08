@@ -103,6 +103,14 @@ module SmartAnswer::Calculators
       end
     end
 
+    def italian_marriage_and_partnership_phrase
+      if partner_is_same_sex?
+        'civil partnership'
+      else
+        'marriage'
+      end
+    end
+
     def country_name_lowercase_prefix
       if @country_name_formatter.requires_definite_article?(ceremony_country)
         @country_name_formatter.definitive_article(ceremony_country)
