@@ -10200,7 +10200,7 @@
   - uk
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_same_sex_marriage_in_italy
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -10223,7 +10223,7 @@
   - uk
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_same_sex_marriage_in_italy
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -10246,7 +10246,7 @@
   - uk
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_same_sex_marriage_in_italy
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -10275,7 +10275,7 @@
   - ceremony_country
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_same_sex_marriage_in_italy
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -10298,7 +10298,7 @@
   - ceremony_country
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_same_sex_marriage_in_italy
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -10321,7 +10321,7 @@
   - ceremony_country
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_same_sex_marriage_in_italy
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -10350,7 +10350,7 @@
   - third_country
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_same_sex_marriage_in_italy
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -10373,7 +10373,7 @@
   - third_country
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_same_sex_marriage_in_italy
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -10396,7 +10396,7 @@
   - third_country
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_same_sex_marriage_in_italy
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:

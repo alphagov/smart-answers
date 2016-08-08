@@ -1,7 +1,7 @@
 ---
-lib/smart_answer_flows/marriage-abroad.rb: 304a0e37cca932d29d6ddb332de43f77
+lib/smart_answer_flows/marriage-abroad.rb: 35d1a2bd72cc0fd19ecdf6370bacf30c
 test/data/marriage-abroad-questions-and-responses.yml: 9bc7a99045b6a7c55db25446058e2c98
-test/data/marriage-abroad-responses-and-expected-results.yml: 433b6599059d7546ff3efd004ec99cf0
+test/data/marriage-abroad-responses-and-expected-results.yml: 2a04a01f3b8c4ac15824ae181f64f336
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
 lib/smart_answer_flows/marriage-abroad/outcomes/_affirmation_os_translation_in_local_language_text.govspeak.erb: af09e09b909c563d4a587ef1b9285cca
 lib/smart_answer_flows/marriage-abroad/outcomes/_appointment_documents_in_vietnam.govspeak.erb: 6390e13560110a71b8a3c0dc018ff4cf
@@ -167,6 +167,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/outcome_same_sex_marriage_and_ci
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_same_sex_marriage_and_civil_partnership_in_malta.govspeak.erb: f6585bf276f8924958be9976d9d699d2
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_same_sex_marriage_and_civil_partnership_not_possible.govspeak.erb: 2c396fa00b70301c2f3ff952b2b6aee3
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_same_sex_marriage_in_dominican_republic.govspeak.erb: c3799e616499c04322b26926f58dc584
+lib/smart_answer_flows/marriage-abroad/outcomes/outcome_same_sex_marriage_in_italy.govspeak.erb: 2c396fa00b70301c2f3ff952b2b6aee3
 ? lib/smart_answer_flows/marriage-abroad/outcomes/payment_information_partials/_pay_by_cash_in_local_currency_or_credit_card_not_cheque.govspeak.erb
 : 1783344f71d237aa2b8a51e22871b3c7
 lib/smart_answer_flows/marriage-abroad/outcomes/payment_information_partials/_pay_by_cash_only.govspeak.erb: 774eba9f1393518f1e40e4184e5a6f27
