@@ -1,5 +1,9 @@
 <% content_for :title do %><%= @presenter.title %><% end %>
 <% content_for :head do %>
+  <script>
+    var SmartAnswer = SmartAnswer || {};
+    SmartAnswer.AJAX_ENABLED = <%= ajax_enabled_for?(@presenter.name) %>;
+  </script>
   <%= javascript_include_tag "application", defer: true %>
 <% end %>
 
