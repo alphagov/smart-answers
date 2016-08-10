@@ -59,7 +59,7 @@ module SmartAnswer::Calculators
   private
 
     def earliest_application_date
-      state_pension_date - 4.months - 4.days
+      state_pension_date - 4.months
     end
   end
 end
