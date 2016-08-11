@@ -30,7 +30,7 @@ lib/smart_answer_flows/inherits-someone-dies-without-will/outcomes/outcome_65.go
 lib/smart_answer_flows/inherits-someone-dies-without-will/outcomes/outcome_66.govspeak.erb: 5b3bba2a4f72feba458f4eb536325900
 lib/smart_answer_flows/inherits-someone-dies-without-will/outcomes/outcome_67.govspeak.erb: 7a700f45942198e910df5553186f7c5e
 lib/smart_answer_flows/inherits-someone-dies-without-will/questions/aunts_or_uncles.govspeak.erb: 198756b4d76400d7ea13edfec4b992a4
-lib/smart_answer_flows/inherits-someone-dies-without-will/questions/children.govspeak.erb: a0030250faa9fd0082c935caac15a593
+lib/smart_answer_flows/inherits-someone-dies-without-will/questions/children.govspeak.erb: 52df493bf86dfe45558982dc8d6b7209
 lib/smart_answer_flows/inherits-someone-dies-without-will/questions/estate_over_250000.govspeak.erb: 91c0b1452734f988266135ce2ee715b7
 lib/smart_answer_flows/inherits-someone-dies-without-will/questions/grandparents.govspeak.erb: df88d3c96e707062c32d161a566f599f
 lib/smart_answer_flows/inherits-someone-dies-without-will/questions/great_aunts_or_uncles.govspeak.erb: d12a7a5d4f03ce6fb2aac1e115df8e66
