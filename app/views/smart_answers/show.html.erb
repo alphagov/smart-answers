@@ -1,6 +1,10 @@
 <% content_for :title do %><%= @presenter.title %><% end %>
 <% content_for :head do %>
-  <%= javascript_include_tag "smart-answers", defer: true %>
+  <script>
+    var SmartAnswer = SmartAnswer || {};
+    SmartAnswer.AJAX_ENABLED = <%= ajax_enabled_for?(@presenter.name) %>;
+  </script>
+  <%= javascript_include_tag "application", defer: true %>
 <% end %>
 
 <div class="grid-row">

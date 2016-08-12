@@ -37,6 +37,10 @@ class FlowPresenter
     @current_state ||= @flow.process(all_responses)
   end
 
+  def name
+    @flow.name
+  end
+
   def collapsed_questions
     @flow.path(all_responses).map do |name|
       presenter_for(@flow.node(name))

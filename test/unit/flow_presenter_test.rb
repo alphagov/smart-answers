@@ -89,4 +89,8 @@ class FlowPresenterTest < ActiveSupport::TestCase
     start_node_2 = @flow_presenter.start_node
     assert_same start_node_1, start_node_2
   end
+
+  test '#name returns Flow name' do
+    assert_equal @flow_presenter.name, @flow.name
+  end
 end
