@@ -79,4 +79,60 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       end # end context valid fees
     end # end context full-time student
   end
+
+  context "#dental-medical-healthcare" do
+    context "#uk-full-time students" do
+      should "Go to outcome_uk_full_time_students" do
+        add_response '2016-2017' # When does your course start?
+        add_response 'uk-full-time' # What type of student are you?
+        add_response '9000' # Tuition fee amount
+        add_response 'away-in-london' # Living situation
+        add_response '0' # Household income
+        add_response 'no' # Any special circumstances
+        add_response 'dental-medical-healthcare' # Studying dental-medical-healthcare
+
+        assert_current_node :outcome_uk_full_time_students
+      end
+    end
+
+    context "#uk-full-time students" do
+      should "Go to outcome_uk_part_time_students" do
+        add_response '2016-2017' # When does your course start?
+        add_response 'uk-part-time' # What type of student are you?
+        add_response '6750' # Tuition fee amount
+        add_response 'no' # Any special circumstances
+        add_response 'dental-medical-healthcare' # Studying dental-medical-healthcare
+
+        assert_current_node :outcome_uk_all_students
+      end
+    end
+  end
+
+  context "#teacher-training" do
+    context "#uk-full-time students" do
+      should "Go to outcome_uk_full_time_students" do
+        add_response '2016-2017' # When does your course start?
+        add_response 'uk-full-time' # What type of student are you?
+        add_response '9000' # Tuition fee amount
+        add_response 'away-in-london' # Living situation
+        add_response '0' # Household income
+        add_response 'no' # Any special circumstances
+        add_response 'teacher-training' # Studying dental-medical-healthcare
+
+        assert_current_node :outcome_uk_full_time_students
+      end
+    end
+
+    context "#uk-full-time students" do
+      should "Go to outcome_uk_part_time_students" do
+        add_response '2016-2017' # When does your course start?
+        add_response 'uk-part-time' # What type of student are you?
+        add_response '6750' # Tuition fee amount
+        add_response 'no' # Any special circumstances
+        add_response 'teacher-training' # Studying dental-medical-healthcare
+
+        assert_current_node :outcome_uk_all_students
+      end
+    end
+  end
 end
