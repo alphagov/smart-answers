@@ -8,6 +8,7 @@
   issuing_custom_and_law_certificate: 65
   issuing_marriage_certificate: 65
   receiving_notice_of_marriage: 65
+  receiving_notice_of_civil_partnership: 65
   receiving_notice_of_registration: 65
   registering_civil_partnership: 140
   registering_civil_partnership_or_marriage: 140
@@ -21,6 +22,7 @@
   issuing_custom_and_law_certificate: 50
   issuing_marriage_certificate: 50
   receiving_notice_of_marriage: 50
+  receiving_notice_of_civil_partnership: 50
   receiving_notice_of_registration: 50
   registering_civil_partnership: 150
   registering_civil_partnership_or_marriage: 150
