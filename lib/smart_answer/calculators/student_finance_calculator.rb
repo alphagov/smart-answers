@@ -14,12 +14,22 @@ module SmartAnswer
         }
       }.freeze
 
+      REDUCED_MAINTENTANCE_LOAN_AMOUNTS = {
+        "at-home" => 1744,
+        "away-in-london" => 3263,
+        "away-outside-london" => 2324
+      }
+
       delegate :maintenance_loan_amount, :maintenance_grant_amount, to: :strategy
 
       def initialize(course_start:, household_income:, residence:)
         @course_start = course_start
         @household_income = household_income
         @residence = residence
+      end
+
+      def reduced_maintenance_loan_for_healthcare
+        REDUCED_MAINTENTANCE_LOAN_AMOUNTS[@residence]
       end
 
     private
