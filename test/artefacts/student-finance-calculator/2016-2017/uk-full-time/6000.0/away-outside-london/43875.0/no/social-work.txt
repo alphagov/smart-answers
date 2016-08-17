@@ -1,7 +1,7 @@
 
 
 $!
-This is an estimate of your student finance. You must apply to find out exactly what you'll get.
+Your result is an estimate. Usually, you only get student finance if you’re doing your first higher education qualification - [check if you qualify](/student-finance/who-qualifies).
 $!
 
 ##Student finance
@@ -17,8 +17,6 @@ You could get per year:
 You could get:
 
 - [Social Work Bursary](/social-work-bursaries) (NHS funding towards your fees and living costs)
-
-^Your result is an estimate. Usually, you only get student finance if you’re doing your first higher education qualification - [check if you qualify](/student-finance/who-qualifies).^
 
 ##Extra help
 

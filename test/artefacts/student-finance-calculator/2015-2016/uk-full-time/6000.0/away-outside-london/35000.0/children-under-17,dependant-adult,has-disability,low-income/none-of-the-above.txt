@@ -1,7 +1,7 @@
 
 
 $!
-This is an estimate of your student finance. You must apply to find out exactly what you'll get.
+Your result is an estimate. Usually, you only get student finance if you’re doing your first higher education qualification - [check if you qualify](/student-finance/who-qualifies).
 $!
 
 ##Student finance
@@ -27,8 +27,6 @@ You could get:
 - [Disabled Students' Allowances](/disabled-students-allowances-dsas)
 
 - [University and college hardship funds](/extra-money-pay-university/university-and-college-hardship-funds) (extra help with costs while studying)
-
-^Your result is an estimate. Usually, you only get student finance if you’re doing your first higher education qualification - [check if you qualify](/student-finance/who-qualifies).^
 
 ##Extra help
 

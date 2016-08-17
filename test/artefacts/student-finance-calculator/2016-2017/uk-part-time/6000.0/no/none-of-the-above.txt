@@ -1,7 +1,7 @@
 
 
 $!
-This is an estimate of your student finance. You must apply to find out exactly what you'll get.
+Your result is an estimate. Usually, you only get student finance if you’re doing your first higher education qualification - [check if you qualify](/student-finance/who-qualifies).
 $!
 
 ##Student finance
@@ -13,8 +13,6 @@ You could get per year:
 ###Extra student funding
 
 You don’t qualify for extra grants and allowances.
-
-^Your result is an estimate. Usually, you only get student finance if you’re doing your first higher education qualification - [check if you qualify](/student-finance/eligibilty).^
 
 ##Extra help
 
