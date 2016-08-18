@@ -208,21 +208,21 @@ module SmartAnswer::Calculators
     end
 
     context "#can_apply?" do
+      setup do
+        @answers = { dob: Date.parse("1951-12-17") }
+      end
       context "for women" do
         setup do
-          @answers = { gender: "female" }
-          @calculator = StatePensionAgeCalculator.new(@answers)
+          @calculator = StatePensionAgeCalculator.new(@answers.merge(gender: "female"))
         end
-        should "return true for someone is approaching pension age in 4 months and 4 days time" do
-          Timecop.freeze(Date.parse('2020-01-11')) do
-            @calculator.stubs(dob: Date.parse("1954-06-06"))
+        should "return true for a woman approaching state pension age (at 61 years, 8 months, 20 days) in 4 months time" do
+          Timecop.freeze(Date.parse("2013-05-06")) do
             assert @calculator.can_apply?
           end
         end
 
-        should "return false for someone is approaching pension age in more than  4 months and 4 days time" do
-          Timecop.freeze(Date.parse('2020-03-11')) do
-            @calculator.stubs(dob: Date.parse("1954-12-06"))
+        should "return false for a woman approaching state pension age (at 61 years, 8 months, 20 days) in more than  4 months time" do
+          Timecop.freeze(Date.parse("2013-05-05")) do
             refute @calculator.can_apply?
           end
         end
@@ -230,17 +230,16 @@ module SmartAnswer::Calculators
 
       context "for men" do
         setup do
-          @answers = { gender: "male" }
-          @calculator = StatePensionAgeCalculator.new(@answers.merge(dob: Date.parse("1951-12-06")))
+          @calculator = StatePensionAgeCalculator.new(@answers.merge(gender: "male"))
         end
-        should "return true for someone is approaching pension age in 4 months and 4 days time" do
-          Timecop.freeze(Date.parse('2016-09-11')) do
+        should "return true for a man approaching pension age (at 65 years) in 4 months time" do
+          Timecop.freeze(Date.parse("2016-08-17")) do
             assert @calculator.can_apply?
           end
         end
 
-        should "return false for someone is approaching pension age in more than 4 months and 4 days time" do
-          Timecop.freeze(Date.parse('2016-03-11')) do
+        should "return false for a man approaching pension age (at 65 years) in more than 4 months time" do
+          Timecop.freeze(Date.parse("2016-08-16")) do
             refute @calculator.can_apply?
           end
         end
