@@ -24,7 +24,7 @@ class SmartAnswersControllerValueQuestionTest < ActionController::TestCase
     context "value question" do
       should "display question" do
         get :show, id: 'smart-answers-controller-sample-with-value-question', started: 'y'
-        assert_select ".step.current h2", /How many green bottles\?/
+        assert_select ".step.current [data-test=question]", /How many green bottles\?/
         assert_select "input[type=text][name=response]"
       end
 
@@ -43,8 +43,8 @@ class SmartAnswersControllerValueQuestionTest < ActionController::TestCase
           get :show, id: 'smart-answers-controller-sample-with-value-question', started: 'y', responses: "12345"
         end
         should "show the label text before the question input" do
-          assert_match(/value-question-label.*?input.*?name="response".*?/, response.body)
-          assert_select "label > input[type=text][name=response]"
+          assert_match(/value-question-label.*?input.*?name="response".*?/m, response.body)
+          assert_select "input[type=text][name=response]"
         end
       end
 
@@ -54,8 +54,8 @@ class SmartAnswersControllerValueQuestionTest < ActionController::TestCase
         end
 
         should "show the label text after the question input" do
-          assert_match(/input.*?name="response".*?value-question-suffix-label/, response.body)
-          assert_select "label > input[type=text][name=response]"
+          assert_match(/input.*?name="response".*?value-question-suffix-label/m, response.body)
+          assert_select "input[type=text][name=response]"
         end
       end
     end

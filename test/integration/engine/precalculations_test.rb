@@ -21,29 +21,29 @@ class PrecalculationsTest < EngineIntegrationTest
       assert_equal "/precalculation-sample/y", form[:action]
 
       within '.current-question' do
-        within 'h2' do
+        within '[data-test=question]' do
           assert_page_has_content "How much wood would a woodchuck chuck if a woodchuck could chuck wood?"
         end
         within '.question-body' do
-          assert page.has_field?("Amount:", type: "text")
+          assert page.has_field?("response", type: "text")
         end
       end
 
-      fill_in "Amount:", with: "10"
+      fill_in "response", with: "10"
       click_on "Next step"
 
       assert_current_url "/precalculation-sample/y/10"
 
       within '.current-question' do
-        within 'h2' do
+        within '[data-test=question]' do
           assert_page_has_content "How many woodchucks do you have?"
         end
         within '.question-body' do
-          assert page.has_field?("Amount:", type: "text")
+          assert page.has_field?("response", type: "text")
         end
       end
 
-      fill_in "Amount:", with: "42"
+      fill_in "response", with: "42"
       click_on "Next step"
 
       assert_current_url "/precalculation-sample/y/10/42"
