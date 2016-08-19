@@ -132,7 +132,11 @@ module SmartAnswer
         next_node do |response|
           case course_type
           when 'uk-full-time'
-            outcome :outcome_uk_full_time_students
+            if response == 'dental-medical-healthcare'
+              outcome :outcome_uk_full_time_dental_medical_students
+            else
+              outcome :outcome_uk_full_time_students
+            end
           when 'uk-part-time'
             if response == 'dental-medical-healthcare'
               outcome :outcome_uk_part_time_dental_medical_students
@@ -150,6 +154,8 @@ module SmartAnswer
       outcome :outcome_uk_all_students
 
       outcome :outcome_eu_students
+
+      outcome :outcome_uk_full_time_dental_medical_students
 
       outcome :outcome_uk_part_time_dental_medical_students
     end
