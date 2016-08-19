@@ -40,7 +40,7 @@
   In your fifth and sixth years, you'll have to apply for [NHS funding](/nhs-bursaries). You could get the following depending on your circumstances:
 
   - NHS Bursary (funding towards your fees and living costs)
-  - £X,XXX reduced Maintenance Loan to pay living costs
+  - <%= number_to_currency(calculator.reduced_maintenance_loan_for_healthcare, precision: 0) %> reduced Maintenance Loan to pay living costs
 
   <% if uk_ft_circumstances.include?('has-disability') %>
     - up to £27,680 Disabled Students' Allowance
@@ -75,7 +75,7 @@
   Each year you could get the following [NHS funding](/nhs-bursaries):
 
   - NHS Bursary (funding towards your fees and living costs)
-  - £X,XXX reduced Maintenance Loan to pay living costs
+  - <%= number_to_currency(calculator.reduced_maintenance_loan_for_healthcare, precision: 0) %> reduced Maintenance Loan to pay living costs
 
   <% if uk_ft_circumstances.include?('has-disability') %>
     - up to £27,680 Disabled Students' Allowance
