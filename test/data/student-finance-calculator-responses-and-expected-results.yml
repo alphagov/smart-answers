@@ -1482,7 +1482,7 @@
   - '6000.0'
   - has-disability,low-income
   - dental-medical-healthcare
-  :next_node: :outcome_uk_all_students
+  :next_node: :outcome_uk_part_time_dental_medical_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -1526,7 +1526,7 @@
   - '6000.0'
   - 'no'
   - dental-medical-healthcare
-  :next_node: :outcome_uk_all_students
+  :next_node: :outcome_uk_part_time_dental_medical_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -3055,7 +3055,7 @@
   - '6000.0'
   - has-disability,low-income
   - dental-medical-healthcare
-  :next_node: :outcome_uk_all_students
+  :next_node: :outcome_uk_part_time_dental_medical_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -3099,7 +3099,7 @@
   - '6000.0'
   - 'no'
   - dental-medical-healthcare
-  :next_node: :outcome_uk_all_students
+  :next_node: :outcome_uk_part_time_dental_medical_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:

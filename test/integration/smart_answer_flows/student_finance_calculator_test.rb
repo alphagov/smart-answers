@@ -103,7 +103,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
         add_response 'no' # Any special circumstances
         add_response 'dental-medical-healthcare' # Studying dental-medical-healthcare
 
-        assert_current_node :outcome_uk_all_students
+        assert_current_node :outcome_uk_part_time_dental_medical_students
       end
     end
   end
