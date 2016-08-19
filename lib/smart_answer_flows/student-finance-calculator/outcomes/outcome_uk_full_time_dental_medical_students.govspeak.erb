@@ -7,20 +7,7 @@
 
   In each of your first 4 years, you could get:
 
-  <% if start_date == '2015-2016' %>
-    - <%= number_to_currency(tuition_fee_amount, precision: 0) %> [Tuition Fee Loan](/studentfinance/continuing-fulltime-students) to pay for your course
-
-    - <%= number_to_currency(maintenance_loan_amount, precision: 0) %> [Maintenance Loan](/studentfinance/continuing-fulltime-students) to pay living costs
-
-    <% if maintenance_grant_amount > 0 %>
-      - <%= number_to_currency(maintenance_grant_amount, precision: 0) %> [Maintenance Grant](/studentfinance/continuing-fulltime-students) (for living costs)
-    <% end %>
-
-  <% else %>
-    - <%= number_to_currency(tuition_fee_amount, precision: 0) %> [Tuition Fee Loan](/student-finance/new-fulltime-students) to pay for your course
-
-    - <%= number_to_currency(maintenance_loan_amount, precision: 0) %> [Maintenance Loan](/student-finance/new-fulltime-students) to pay living costs
-  <% end %>
+  <%= render partial: 'full_time_tuition.govspeak.erb', locals: { tuition_fee_amount: tuition_fee_amount, maintenance_loan_amount: maintenance_loan_amount, maintenance_grant_amount: maintenance_grant_amount, start_date: start_date } %>
 
   <% if uk_ft_circumstances.include?('children-under-17') %>
     - up to £155.24 a week (1 child) or up to £266.15 a week (2 or more children) [Childcare Grant](/childcare-grant)
