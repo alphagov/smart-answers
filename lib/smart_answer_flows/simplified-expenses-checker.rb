@@ -156,11 +156,19 @@ module SmartAnswer
 
       #Q6 - is vehicle green?
       multiple_choice :is_vehicle_green? do
-        option :yes
-        option :no
+        option :low
+        option :medium
+        option :high
 
-        calculate :vehicle_is_green do |response|
-          response == "yes"
+        calculate :vehicle_filthiness do |response|
+          case response
+          when 'low'
+            new_or_used == 'new' ? 'green' : 'dirty'
+          when 'medium'
+            'dirty'
+          when 'high'
+            'filthy'
+          end
         end
 
         next_node do
@@ -170,17 +178,22 @@ module SmartAnswer
 
       #Q7 - price of vehicle
       money_question :price_of_vehicle? do
-        # if green => take user input and store as [green_cost]
+        # if green  => take user input and store as [green_cost]
         # if dirty  => take 18% of user input and store as [dirty_cost]
+        # if filthy => take 8% of user input and store as [filthy_cost]
         # if input > 250k store as [over_van_limit]
         save_input_as :vehicle_price
 
         calculate :green_vehicle_price do
-          vehicle_is_green ? vehicle_price : nil
+          vehicle_filthiness == 'green' ? vehicle_price : nil
         end
 
         calculate :dirty_vehicle_price do
-          vehicle_is_green ? nil : (vehicle_price * 0.18)
+          vehicle_filthiness == 'dirty' ? (vehicle_price * 0.18) : nil
+        end
+
+        calculate :filthy_vehicle_price do
+          vehicle_filthiness == 'filthy' ? (vehicle_price * 0.08) : nil
         end
 
         calculate :is_over_limit do
@@ -199,11 +212,15 @@ module SmartAnswer
           response
         end
         calculate :green_vehicle_write_off do
-          vehicle_is_green ? Money.new(green_vehicle_price * (business_use_percent / 100)) : nil
+          vehicle_filthiness == 'green' ? Money.new(green_vehicle_price * (business_use_percent / 100)) : nil
         end
 
         calculate :dirty_vehicle_write_off do
-          vehicle_is_green ? nil : Money.new(dirty_vehicle_price * (business_use_percent / 100))
+          vehicle_filthiness == 'dirty' ? Money.new(dirty_vehicle_price * (business_use_percent / 100)) : nil
+        end
+
+        calculate :filthy_vehicle_write_off do
+          vehicle_filthiness == 'filthy' ? Money.new(filthy_vehicle_price * (business_use_percent / 100)) : nil
         end
 
         next_node do |response|
