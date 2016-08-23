@@ -11,8 +11,8 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
   setup do
     setup_for_testing_flow SmartAnswer::BenefitCapCalculatorFlow
 
-    imminence_has_areas_for_postcode("WC2B%206SE", [{ slug: 'london', country_name: 'England' }])
-    imminence_has_areas_for_postcode("B1%201PW", [{ slug: "birmingham-city-council", country_name: 'England' }])
+    imminence_has_areas_for_postcode("WC2B%206SE", [{ type: 'EUR', name: 'London', country_name: 'England' }])
+    imminence_has_areas_for_postcode("B1%201PW", [{ type: 'EUR', name: 'West Midlands', country_name: 'England' }])
   end
 
   context "Benefit cap calculator" do

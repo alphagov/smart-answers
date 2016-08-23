@@ -142,7 +142,7 @@ module SmartAnswer::Calculators
       context "location of user" do
         context "lives outside of Greater London" do
           setup do
-            imminence_has_areas_for_postcode("B1%201PW", [{ slug: "birmingham-city-council", country_name: 'England' }])
+            imminence_has_areas_for_postcode("B1%201PW", [{ type: 'EUR', name: 'West Midlands', country_name: 'England' }])
           end
           should "return false" do
             assert_equal false, @config.london?("B1%201PW")
@@ -150,7 +150,7 @@ module SmartAnswer::Calculators
         end
         context "lives in Greater London" do
           setup do
-            imminence_has_areas_for_postcode("IG6%202BA", [{ slug: 'london', country_name: 'England' }])
+            imminence_has_areas_for_postcode("IG6%202BA", [{ type: 'EUR', name: 'London', country_name: 'England' }])
           end
           should "return true" do
             assert_equal true, @config.london?("IG6%202BA")

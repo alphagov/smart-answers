@@ -46,7 +46,7 @@ module SmartAnswer::Calculators
     end
 
     def london?(postcode)
-      area(postcode).any? { |result| result[:slug] == "london" }
+      area(postcode).any? { |result| result[:type] == 'EUR' && result[:name] == "London" }
     end
 
     def area(postcode)
