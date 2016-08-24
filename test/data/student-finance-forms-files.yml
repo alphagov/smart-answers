@@ -47,4 +47,4 @@ lib/smart_answer_flows/student-finance-forms/questions/pt_course_start.govspeak.
 lib/smart_answer_flows/student-finance-forms/questions/type_of_student.govspeak.erb: 7b236a9aae750540e95e476dace07a3f
 lib/smart_answer_flows/student-finance-forms/questions/what_year_full_time.govspeak.erb: fc407cbafeb1b3ed2a1c726cec57ced3
 lib/smart_answer_flows/student-finance-forms/questions/what_year_part_time.govspeak.erb: fc407cbafeb1b3ed2a1c726cec57ced3
-lib/smart_answer_flows/student-finance-forms/student_finance_forms.govspeak.erb: af25e2b4e702d9415ae2498653353655
+lib/smart_answer_flows/student-finance-forms/student_finance_forms.govspeak.erb: 4e002f95cc761ea3632dcc002f0d7a09
