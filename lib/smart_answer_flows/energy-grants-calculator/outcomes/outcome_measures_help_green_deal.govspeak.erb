@@ -25,18 +25,10 @@
       <%= render partial: 'opt_under_floor_insulation.govspeak.erb' %>
     <% end %>
   <% end %>
-  <%= render partial: 'header_heating.govspeak.erb' %>
 
-  <%= render partial: 'opt_better_heating_controls.govspeak.erb' %>
-  <% unless calculator.mains_gas? %>
-    <%= render partial: 'opt_heat_pump.govspeak.erb' %>
-    <%= render partial: 'opt_biomass_boilers_heaters.govspeak.erb' %>
-    <%= render partial: 'opt_solar_water_heating.govspeak.erb' %>
-  <% end %>
-  <% unless calculator.modern_double_glazing? %>
-    <%= render partial: 'header_windows_and_doors.govspeak.erb' %>
-    <%= render partial: 'opt_replacement_glazing.govspeak.erb' %>
-  <% end %>
+  <%= render partial: 'header_heating_windows_and_doors.govspeak.erb',
+        locals: { calculator: calculator } %>
+        
   <% unless calculator.bills_help? %>
     <%= render partial: 'opt_renewal_heat.govspeak.erb' %>
   <% end %>

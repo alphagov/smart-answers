@@ -54,17 +54,10 @@
     <%= render partial: 'may_qualify_for_affordable_warmth_obligation.govspeak.erb' %>
   <% end %>
   <%= render partial: 'opt_eco_help.govspeak.erb' %>
-  <%= render partial: 'header_heating.govspeak.erb' %>
-  <%= render partial: 'opt_better_heating_controls.govspeak.erb' %>
-  <% unless calculator.mains_gas? %>
-    <%= render partial: 'opt_heat_pump.govspeak.erb' %>
-    <%= render partial: 'opt_biomass_boilers_heaters.govspeak.erb' %>
-    <%= render partial: 'opt_solar_water_heating.govspeak.erb' %>
-  <% end %>
-  <% unless calculator.modern_double_glazing? %>
-    <%= render partial: 'header_windows_and_doors.govspeak.erb' %>
-    <%= render partial: 'opt_replacement_glazing.govspeak.erb' %>
-  <% end %>
+
+  <%= render partial: 'header_heating_windows_and_doors.govspeak.erb',
+        locals: { calculator: calculator } %>
+
   <%= render partial: 'opt_renewal_heat.govspeak.erb' %>
   <%= render partial: 'help_and_advice.govspeak.erb' %>
   <%= render partial: 'help_and_advice_body.govspeak.erb' %>
