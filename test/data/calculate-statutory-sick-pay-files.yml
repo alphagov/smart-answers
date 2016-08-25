@@ -19,7 +19,7 @@ lib/smart_answer_flows/calculate-statutory-sick-pay/questions/has_linked_sicknes
 lib/smart_answer_flows/calculate-statutory-sick-pay/questions/how_often_pay_employee_pay_patterns.govspeak.erb: 417d2019be4e67bee48238160766ed53
 lib/smart_answer_flows/calculate-statutory-sick-pay/questions/is_your_employee_getting.govspeak.erb: 86ea4ca9218980bc4b5c077b9efebe82
 lib/smart_answer_flows/calculate-statutory-sick-pay/questions/last_payday_before_offset.govspeak.erb: d6aed1c9783bcfceed92d840b6871e77
-lib/smart_answer_flows/calculate-statutory-sick-pay/questions/last_payday_before_sickness.govspeak.erb: 4f0c83409d80dbb204c74de111e757d9
+lib/smart_answer_flows/calculate-statutory-sick-pay/questions/last_payday_before_sickness.govspeak.erb: 372f2906ecdcfebe5259411e8daeaaa7
 lib/smart_answer_flows/calculate-statutory-sick-pay/questions/last_sick_day.govspeak.erb: 9e18e3a3b85e26b4c3ee6f7c9f39abea
 lib/smart_answer_flows/calculate-statutory-sick-pay/questions/linked_sickness_end_date.govspeak.erb: 9aee204059a9d67283665628bba80fb6
 lib/smart_answer_flows/calculate-statutory-sick-pay/questions/linked_sickness_start_date.govspeak.erb: 48f6c1c7665c9ac03d1e7e2afeb9e3fe
