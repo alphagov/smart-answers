@@ -196,6 +196,15 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       should "take you to outcome no visa needed" do
         assert_current_node :travelling_to_cta?
       end
+      context "to the Repulic of Ireland" do
+        setup do
+          add_response 'republic_of_ireland'
+        end
+
+        should "take you to outcome no visa needed" do
+          assert_current_node :outcome_no_visa_needed
+        end
+      end
       context "to somewhere else" do
         setup do
           add_response 'somewhere_else'

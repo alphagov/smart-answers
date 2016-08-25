@@ -74,7 +74,8 @@ module SmartAnswer
           if calculator.travelling_to_channel_islands_or_isle_of_man?
             next question(:channel_islands_or_isle_of_man?)
           elsif calculator.travelling_to_ireland?
-            if calculator.passport_country_in_non_visa_national_list?
+            if calculator.passport_country_in_non_visa_national_list? ||
+                calculator.passport_country_in_ukot_list?
               next outcome(:outcome_no_visa_needed)
             else
               next outcome(:outcome_transit_to_the_republic_of_ireland)

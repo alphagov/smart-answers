@@ -600,7 +600,7 @@
   - anguilla
   - transit
   - republic_of_ireland
-  :next_node: :outcome_transit_to_the_republic_of_ireland
+  :next_node: :outcome_no_visa_needed
   :outcome_node: true
 - :current_node: :travelling_to_cta?
   :responses:
