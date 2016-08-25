@@ -2,6 +2,10 @@
   What was the last normal payday on or before <%= to_saturday_formatted %>
 <% end %>
 
+<% content_for :hint do %>
+  If you pay someone earlier or later than their normal payday, for example after a bank holiday or due to a factory closure, use the date you'd normally pay them, not the actual payday.
+<% end %>
+
 <% content_for :error_message do %>
   You must enter a date on or before <%= to_saturday_formatted %>
 <% end %>
