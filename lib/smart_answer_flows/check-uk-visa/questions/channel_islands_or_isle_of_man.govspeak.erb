@@ -3,7 +3,12 @@
 <% end %>
 
 <% content_for :body do %>
-  You’ll need a UK visa to come to the Channel Islands or the Isle of Man.
+  <% if calculator.passport_country_in_ukot_list? ||
+     calculator.passport_country_in_non_visa_national_list? %>
+    You might need a UK visa if you don’t have a visa (or a wet ink stamp) for the Channel Islands or the Isle of Man.
+  <% else %>
+    You’ll need a UK visa to come to the Channel Islands or the Isle of Man.
+  <% end %>
 <% end %>
 
 <%= render partial: 'purpose_of_visit_options.govspeak.erb' %>

@@ -189,12 +189,21 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         assert_current_node :outcome_medical_n
       end
     end
-    context "coming to the UK on the way somewhere else" do
+    context "coming to the UK on transit" do
       setup do
         add_response 'transit'
       end
       should "take you to outcome no visa needed" do
-        assert_current_node :outcome_no_visa_needed
+        assert_current_node :travelling_to_cta?
+      end
+      context "to somewhere else" do
+        setup do
+          add_response 'somewhere_else'
+        end
+
+        should "take you to outcome no visa needed" do
+          assert_current_node :outcome_no_visa_needed
+        end
       end
     end
     context "coming to join family" do
@@ -278,8 +287,8 @@ class CheckUkVisaTest < ActiveSupport::TestCase
           add_response 'somewhere_else'
         end
 
-        should "take you to passing_through_uk_border_control question" do
-          assert_current_node :passing_through_uk_border_control?
+        should "take you to outcome no visa needed" do
+          assert_current_node :outcome_no_visa_needed
         end
       end
     end
