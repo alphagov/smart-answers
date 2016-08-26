@@ -1,12 +1,24 @@
 <% content_for :title do %>
-  You’ll need a visa to pass through the UK (unless you’re exempt)
+  <% if calculator.passport_country_is_taiwan? %>
+    You won’t need a visa if your passport has a personal ID number on the bio data page.
+  <% else %>
+    You’ll need a visa to pass through the UK (unless you’re exempt)
+  <% end %>
 <% end %>
 
 <% content_for :body do %>
+  <% if calculator.passport_country_is_taiwan? %>
 
-  You’ll usually need to apply for a UK [standard visitor visa](/standard-visitor-visa).
+    However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you’d need to apply for a visa, to show to officers at the UK border.
 
-  <% if calculator.passport_country_in_datv_list? %>
+    If your passport doesn’t have a personal ID number on the bio data page you’ll usually need to apply for a UK standard visitor visa.
+  <% else %>
+
+    You’ll usually need to apply for a UK [standard visitor visa](/standard-visitor-visa).
+  <% end %>
+
+  <% if calculator.passport_country_in_datv_list? ||
+      calculator.passport_country_is_taiwan? %>
 
     ##Transiting without a visa
 
