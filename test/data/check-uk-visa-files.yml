@@ -27,7 +27,7 @@ lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_not_leaving_airpor
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_refugee_not_leaving_airport.govspeak.erb: a344b0c62367eac3e00d048563b636dd
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_taiwan.govspeak.erb: 72a43a01e16942fd7ffce864e5b1bdee
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_taiwan_through_border_control.govspeak.erb: 0bd6d5a68c31ceea4e2f91a3c6436d23
-lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_to_the_republic_of_ireland.govspeak.erb: 36e37840e7bb25aad147fe8a97e1296a
+lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_to_the_republic_of_ireland.govspeak.erb: 8eaa3e651c6112f47c74c689803f4e89
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_venezuela.govspeak.erb: 391c944ba51eef5af7378c2f581364e0
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_visit_waiver.govspeak.erb: 02d5c593f767fe5201de2afe81e65963
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_work_m.govspeak.erb: 7502173e6c4f65cb85ca5559c7ebb2e6
