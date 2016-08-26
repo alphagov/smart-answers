@@ -1,10 +1,21 @@
 <% content_for :title do %>
-  You’ll need a visa to pass through the UK in transit
+  <% if calculator.passport_country_in_electronic_visa_waiver_list? %>
+    You’ll need an electronic visa waiver (EVW) or a Visitor in Transit visa
+  <% else %>
+    You’ll need a visa to pass through the UK in transit
+  <% end %>
 <% end %>
 
 <% content_for :body do %>
-  You should apply for a [Visitor in Transit visa](/transit-visa) if you arrive on a flight and will pass through immigration control before you leave the UK.
+  <% if calculator.passport_country_in_electronic_visa_waiver_list? %>
+    You must either apply for:
 
+    - an [EVW](/get-electronic-visa-waiver)
+    - a [Standard Visitor visa](/standard-visitor-visa)
+  <% else %>
+    You should apply for a [Visitor in Transit visa](/transit-visa) if you arrive on a flight and will pass through immigration control before you leave the UK.
+  <% end %>
+  
   <%= render partial: 'stateless_or_refugee.govspeak.erb', locals: {calculator: calculator} %>
 
   ##Transiting without a visa
