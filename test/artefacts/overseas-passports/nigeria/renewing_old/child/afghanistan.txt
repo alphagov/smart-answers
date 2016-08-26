@@ -47,10 +47,9 @@ Her Majesty’s Passport Office recommends you send your application using a sec
 $A
 Her Majesty’s Passport Office
 OVS-D
-Millburngate House
-Millburngate
+Freeman’s Reach
 Durham
-DH97 1PA
+DH1 1SL
 $A
 
 ## Getting your passport
