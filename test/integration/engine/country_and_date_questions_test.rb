@@ -18,7 +18,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       visit "/country-and-date-sample/y"
 
       within '.current-question' do
-        within 'h2' do
+        within '[data-test=question]' do
           assert_page_has_content "Which country do you live in?"
         end
       end
@@ -45,7 +45,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       end
 
       within '.current-question' do
-        within 'h2' do
+        within '[data-test=question]' do
           assert_page_has_content "What date did you move there?"
         end
       end
@@ -85,7 +85,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       end
 
       within '.current-question' do
-        within 'h2' do
+        within '[data-test=question]' do
           assert_page_has_content "Which country were you born in?"
         end
       end
