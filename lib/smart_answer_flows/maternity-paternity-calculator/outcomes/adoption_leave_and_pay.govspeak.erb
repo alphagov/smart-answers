@@ -24,10 +24,10 @@
 
     <% if calculator.on_payroll == 'no' %>
 
-      <%= render partial: 'must_be_on_payroll.govspeak.erb' %>
+      + <%= render partial: 'must_be_on_payroll.govspeak.erb' %>
     <% elsif calculator.average_weekly_earnings_under_lower_earning_limit? %>
 
-      <%= render partial: 'must_earn_over_threshold.govspeak.erb',
+      + <%= render partial: 'must_earn_over_threshold.govspeak.erb',
                  locals: {
                    average_weekly_earnings: average_weekly_earnings,
                    relevant_period: relevant_period,

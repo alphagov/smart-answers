@@ -14,7 +14,7 @@
   <% unless above_lower_earning_limit %>
     <%= render partial: 'paternity_not_entitled_to_pay_intro.govspeak.erb' %>
 
-    <%= render partial: 'must_earn_over_threshold.govspeak.erb',
+    + <%= render partial: 'must_earn_over_threshold.govspeak.erb',
                locals: {
                  average_weekly_earnings: average_weekly_earnings,
                  relevant_period: relevant_period,
