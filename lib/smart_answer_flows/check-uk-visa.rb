@@ -118,7 +118,8 @@ module SmartAnswer
           if calculator.passing_through_uk_border_control?
             if calculator.passport_country_is_taiwan?
               outcome :outcome_transit_taiwan_through_border_control
-            elsif calculator.passport_country_in_visa_national_list?
+            elsif calculator.passport_country_in_visa_national_list? ||
+                calculator.passport_country_in_electronic_visa_waiver_list?
               outcome :outcome_transit_leaving_airport
             elsif calculator.passport_country_in_datv_list?
               outcome :outcome_transit_leaving_airport_datv

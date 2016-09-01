@@ -13,7 +13,7 @@
 
     However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you’d need to apply for a visa, to show to officers at the UK border.
 
-    If your passport doesn’t have a personal ID number on the bio data page you’ll usually need to apply for a UK standard visitor visa.
+    If your passport doesn’t have a personal ID number on the bio data page you’ll usually need to apply for a UK [standard visitor visa](/standard-visitor-visa).
   <% elsif calculator.passport_country_in_electronic_visa_waiver_list? %>
 
     You must either apply for:
@@ -27,7 +27,8 @@
 
   <% if calculator.passport_country_in_datv_list? ||
       calculator.passport_country_is_taiwan? ||
-      calculator.passport_country_in_electronic_visa_waiver_list? %>
+      calculator.passport_country_in_electronic_visa_waiver_list? ||
+      calculator.passport_country_in_visa_national_list? %>
 
     ##Transiting without a visa
 

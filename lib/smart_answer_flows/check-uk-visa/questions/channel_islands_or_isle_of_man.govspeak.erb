@@ -6,9 +6,11 @@
   <% if calculator.passport_country_in_ukot_list? ||
      calculator.passport_country_in_non_visa_national_list? %>
     You might need a UK visa if you don’t have a visa (or a wet ink stamp) for the Channel Islands or the Isle of Man.
+  <% elsif calculator.passport_country_in_electronic_visa_waiver_list? %>
+    You’ll need a UK visa or an Electronic Visa Waiver if you don’t have a visa (or wet ink stamp) for the Channel Islands or the Isle of Man.
   <% elsif calculator.passport_country_in_datv_list? ||
      calculator.passport_country_in_visa_national_list? %>
-    You’ll need a UK visa if you don’t have a visa (or a wet ink stamp) for the Channel Islands or the Isle of Man<% if calculator.passport_country_in_electronic_visa_waiver_list? %> or an Electronic Visa Waiver<% end %>.
+    You’ll need a UK visa if you don’t have a visa (or a wet ink stamp) for the Channel Islands or the Isle of Man.
   <% else %>
     You’ll need a UK visa to come to the Channel Islands or the Isle of Man.
   <% end %>
