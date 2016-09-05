@@ -11,6 +11,8 @@
 - france # overseas_passports_embassies (organisation)
 - georgia
 - hong-kong # hong_kong_id_required
+- jamaica
+- jordan
 - laos # send_application_uk_visa_renew_new_colour_laos
 - nigeria # #{response}_fco_forms_nigeria
 - north-korea # emergency_travel_help_#{current_location}
@@ -28,6 +30,7 @@
 - venezuela # passport_costs_pay_at_appointment
 - western-sahara # send_application_uk_visa_renew_new_colour_western_sahara
 - yemen # cannot_apply
+- zimbabwe
 :which_opt?:
 - gaza
 - jerusalem-or-westbank
