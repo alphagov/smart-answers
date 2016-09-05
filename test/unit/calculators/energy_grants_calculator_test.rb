@@ -24,12 +24,12 @@ module SmartAnswer::Calculators
         assert_equal :winter_fuel_payment, @calculator.age_variant
       end
 
-      should 'return :over_60 if date of birth before 60 years ago tomorrow' do
+      should 'return :over_60 if date of birth is more than 60 years from tomorrow' do
         @calculator.date_of_birth = 60.years.ago(Date.tomorrow) - 1
         assert_equal :over_60, @calculator.age_variant
       end
 
-      should 'return nil if date of birth on or after 60 years ago tomorrow' do
+      should 'return nil if date of birth is 60 years ago or less from tomorrow' do
         @calculator.date_of_birth = 60.years.ago(Date.tomorrow)
         assert_nil @calculator.age_variant
       end
@@ -116,7 +116,7 @@ module SmartAnswer::Calculators
       end
 
       should 'return false when any two options selected' do
-        @calculator.disabled_or_have_children = %w(disabled,child_under_5)
+        @calculator.disabled_or_have_children = %w(disabled child_under_5)
         refute @calculator.incomesupp_jobseekers_1?
       end
     end
@@ -424,6 +424,190 @@ module SmartAnswer::Calculators
         should 'return incomesupp_jobseekers_2_part_1' do
           assert_equal :incomesupp_jobseekers_2_part_1, @calculator.incomesupp_jobseekers_2?
         end
+      end
+    end
+
+    context "#features" do
+      should 'get features for modern home' do
+        assert @calculator.home_features_modern.key?(:mains_gas)
+        assert @calculator.home_features_modern.key?(:electric_heating)
+        assert @calculator.home_features_modern.key?(:loft_attic_conversion)
+        assert @calculator.home_features_modern.key?(:draught_proofing)
+        refute @calculator.home_features_modern.key?(:modern_double_glazing)
+        refute @calculator.home_features_modern.key?(:loft_insulation)
+        refute @calculator.home_features_modern.key?(:solid_wall_insulation)
+        refute @calculator.home_features_modern.key?(:modern_boiler)
+        refute @calculator.home_features_modern.key?(:cavity_wall_insulation)
+
+        assert_equal 4, @calculator.home_features_modern.count
+      end
+
+      should 'get features for older home' do
+        assert @calculator.home_features_older.key?(:mains_gas)
+        assert @calculator.home_features_older.key?(:electric_heating)
+        assert @calculator.home_features_older.key?(:loft_attic_conversion)
+        assert @calculator.home_features_older.key?(:draught_proofing)
+        assert @calculator.home_features_older.key?(:modern_double_glazing)
+        assert @calculator.home_features_older.key?(:loft_insulation)
+        assert @calculator.home_features_older.key?(:solid_wall_insulation)
+        assert @calculator.home_features_older.key?(:modern_boiler)
+        assert @calculator.home_features_older.key?(:cavity_wall_insulation)
+
+        assert_equal 9, @calculator.home_features_older.count
+      end
+
+      should 'get features for historic home' do
+        assert @calculator.home_features_historic.key?(:mains_gas)
+        assert @calculator.home_features_historic.key?(:electric_heating)
+        assert @calculator.home_features_historic.key?(:loft_attic_conversion)
+        assert @calculator.home_features_historic.key?(:draught_proofing)
+        assert @calculator.home_features_historic.key?(:modern_double_glazing)
+        assert @calculator.home_features_historic.key?(:loft_insulation)
+        assert @calculator.home_features_historic.key?(:solid_wall_insulation)
+        assert @calculator.home_features_historic.key?(:modern_boiler)
+        refute @calculator.home_features_historic.key?(:cavity_wall_insulation)
+
+        assert_equal 8, @calculator.home_features_historic.count
+      end
+    end
+
+    context '#eligible_for_cold_weather_payment?' do
+      should 'be true if claiming benefits, benefits claimed include esa or pension_credit and is over 60' do
+        @calculator.circumstances = %w(benefits)
+        @calculator.benefits_claimed = %w(esa pension_credit)
+        @calculator.stubs(:age_variant).returns(:over_60)
+
+        assert @calculator.eligible_for_cold_weather_payment?
+      end
+
+      should 'be true if is disabled, has disabled_child, has child under 5, or getting pension pensioner_premium' do
+        @calculator.stubs(:incomesupp_jobseekers_1?).returns(true)
+        assert @calculator.eligible_for_cold_weather_payment?
+      end
+
+      should 'be false if eligible for winter_fuel_payment' do
+        @calculator.stubs(:age_variant).returns(:winter_fuel_payment)
+
+        refute @calculator.eligible_for_cold_weather_payment?
+      end
+    end
+
+    context '#eligible_for_winter_fuel_payment?' do
+      should 'be true when date of birth is above the winter fuel payment threshold' do
+        @calculator.stubs(:age_variant).returns(:winter_fuel_payment)
+      end
+    end
+
+    context "#under_green_deal" do
+      context "#under_green_deal_part_1" do
+        should 'return true when looking for help with all, and not claiming benefits' do
+          @calculator.which_help = 'all_help'
+          @calculator.circumstances = %w(permission)
+          assert @calculator.under_green_deal_part_1?
+        end
+      end
+
+      context "#under_green_deal_part_2" do
+        should 'return true when not looking for help with all and does not own property' do
+          @calculator.which_help = 'help_with_fuel_bill'
+          @calculator.circumstances = %w(permission benefits)
+          assert @calculator.under_green_deal_part_2?
+        end
+
+        should 'return true if needs help with boiler and not claiming benefits, does not own property or have permission to install boiler' do
+          @calculator.which_help = 'help_boiler_measure'
+          @calculator.circumstances = []
+          assert @calculator.under_green_deal_part_2?
+        end
+
+        should 'return true if benefits claimed and benefits do not include esa, child_tax_credit or working_tax_credit' do
+          @calculator.circumstances = %w(benefits)
+          @calculator.benefits_claimed = %w(universal_credit)
+          assert @calculator.under_green_deal_part_2?
+        end
+      end
+
+      context '#under_green_deal_part_3' do
+        should 'return true if needs help with all, is over 60 years old and benefits claimed includes ESA, child and working tax credit' do
+          @calculator.which_help = 'all_help'
+          @calculator.stubs(:age_variant).returns(:over_60)
+          @calculator.benefits_claimed = %w(esa child_tax_credit working_tax_credit)
+          assert @calculator.under_green_deal_part_3?
+        end
+
+        should 'return true if needs help with all, is over 60 years old, has disabled_child, has child under 5, or getting pension pensioner_premium' do
+          @calculator.which_help = 'all_help'
+          @calculator.stubs(:age_variant).returns(:over_60)
+          @calculator.stubs(:incomesupp_jobseekers_1?).returns(true)
+          assert @calculator.under_green_deal_part_3?
+        end
+
+        should 'return true if needs help with all, is over 60 years old and incomesupp_jobseekers_2? is true' do
+          @calculator.which_help = 'all_help'
+          @calculator.stubs(:age_variant).returns(:over_60)
+          @calculator.stubs(:incomesupp_jobseekers_2?).returns(true)
+          assert @calculator.under_green_deal_part_3?
+        end
+      end
+
+      #part_1 and under_green_deal_part_1
+      should 'return true if needs all help and not claiming benefits, does not own property or has permission to install boiler' do
+        @calculator.which_help = 'all_help'
+        @calculator.circumstances = []
+        @calculator.benefits_claimed = []
+        assert @calculator.under_green_deal?
+      end
+
+      #part_2 and under_green_deal_part_2
+      should 'return true if needs help with boiler, claiming pension credit and owns property' do
+        @calculator.which_help = 'help_boiler_measure'
+        @calculator.circumstances = %w(benefits property)
+        @calculator.benefits_claimed = %w(pension_credit)
+        assert @calculator.under_green_deal?
+      end
+
+      #part_3 and under_green_deal_part_3
+      should 'return true if needs all help, is over 60 years old and claiming child tax credit' do
+        @calculator.which_help = 'all_help'
+        @calculator.circumstances = %w(benefits)
+        @calculator.stubs(:age_variant).returns(:over_60)
+        @calculator.benefits_claimed = %w(child_tax_credit)
+        assert @calculator.under_green_deal?
+      end
+
+      should 'return false if needs help with boiler, claiming benefits and is disabled and/or has children' do
+        @calculator.which_help = 'help_boiler_measure'
+        @calculator.circumstances = %w(benefits)
+        @calculator.benefits_claimed = %w(universal_credit)
+        @calculator.disabled_or_have_children = %w(child_under_16 child_under_5 disabled disabled_child pensioner_premium work_support_esa)
+
+        refute @calculator.under_green_deal?
+      end
+
+      should 'return true if not eligible for winter fuel payment, but is over_60' do
+        @calculator.which_help = 'all_help'
+        @calculator.stubs(:age_variant).returns(:over_60)
+
+        assert @calculator.under_green_deal?
+      end
+
+      should 'return false if eligible for winter fuel payment' do
+        @calculator.stubs(:age_variant).returns(:winter_fuel_payment)
+        refute @calculator.under_green_deal?
+      end
+
+      should 'return true if eligible for cold weather payment and needs all help' do
+        @calculator.stubs(:eligible_for_cold_weather_payment?).returns(true)
+        @calculator.which_help = 'all_help'
+        assert @calculator.under_green_deal?
+      end
+
+      should 'be true if eligible for cold weather payment, needs all help and disabled, has disabled_child, has child under 5, or getting pension pensioner_premium?' do
+        @calculator.stubs(:eligible_for_cold_weather_payment?).returns(true)
+        @calculator.which_help = 'all_help'
+        @calculator.stubs(:incomesupp_jobseekers_1?).returns(true)
+
+        assert @calculator.under_green_deal?
       end
     end
   end

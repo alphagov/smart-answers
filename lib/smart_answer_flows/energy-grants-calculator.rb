@@ -8,6 +8,8 @@ module SmartAnswer
       status :published
       satisfies_need "100259"
 
+      model = Calculators::EnergyGrantsCalculator.new
+
       # Q1
       multiple_choice :what_are_you_looking_for? do
         option :help_with_fuel_bill
@@ -208,10 +210,13 @@ module SmartAnswer
 
       # Q8a modern
       checkbox_question :home_features_modern? do
-        option :mains_gas
-        option :electric_heating
-        option :loft_attic_conversion
-        option :draught_proofing
+        model.home_features_modern.keys.each do |feature|
+          option feature
+        end
+
+        precalculate :all_home_features do
+          calculator.home_features_modern
+        end
 
         on_response do |response|
           calculator.features = response.split(",")
@@ -234,14 +239,13 @@ module SmartAnswer
 
       # Q8b
       checkbox_question :home_features_historic? do
-        option :mains_gas
-        option :electric_heating
-        option :modern_double_glazing
-        option :loft_attic_conversion
-        option :loft_insulation
-        option :solid_wall_insulation
-        option :modern_boiler
-        option :draught_proofing
+        model.home_features_historic.keys.each do |feature|
+          option feature
+        end
+
+        precalculate :all_home_features do
+          calculator.home_features_historic
+        end
 
         on_response do |response|
           calculator.features = response.split(",")
@@ -262,15 +266,13 @@ module SmartAnswer
 
       # Q8c
       checkbox_question :home_features_older? do
-        option :mains_gas
-        option :electric_heating
-        option :modern_double_glazing
-        option :loft_attic_conversion
-        option :loft_insulation
-        option :solid_wall_insulation
-        option :cavity_wall_insulation
-        option :modern_boiler
-        option :draught_proofing
+        model.home_features_older.keys.each do |feature|
+          option feature
+        end
+
+        precalculate :all_home_features do
+          calculator.home_features_older
+        end
 
         on_response do |response|
           calculator.features = response.split(",")

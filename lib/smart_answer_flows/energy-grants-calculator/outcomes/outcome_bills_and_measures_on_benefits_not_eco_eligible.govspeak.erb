@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  <% if calculator.under_green_deal?  %>
+  <% if calculator.under_green_deal? and !(calculator.eligible_for_winter_fuel_payment? or calculator.eligible_for_cold_weather_payment?) %>
     <% render partial: 'title_under_green_deal.govspeak.erb' %>
   <% else %>
     <% render partial: 'title_energy_supplier.govspeak.erb' %>
@@ -7,7 +7,7 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if calculator.under_green_deal? %>
+  <% if calculator.under_green_deal? and !(calculator.eligible_for_winter_fuel_payment? or calculator.eligible_for_cold_weather_payment?) %>
     <%= render partial: 'callout_under_green_deal.govspeak.erb' %>
   <% end %>
   <% if calculator.both_help? %>
@@ -15,41 +15,26 @@
       <%= render partial: 'winter_fuel_payments.govspeak.erb' %>
     <% end %>
     <% if calculator.eligible_for_warm_home_discount? %>
-      <%= render partial: 'warm_home_discount.govspeak.erb', locals: {calculator: calculator} %>
+      <%= render partial: 'warm_home_discount.govspeak.erb' %>
     <% end %>
     <% if calculator.eligible_for_cold_weather_payment? %>
       <%= render partial: 'cold_weather_payment.govspeak.erb' %>
     <% end %>
-    <% if calculator.eligible_for_energy_company_obligation? %>
-      <%= render partial: 'energy_company_obligation.govspeak.erb' %>
-    <% end %>
   <% end %>
-  <%= render partial: 'header_boilers_and_insulation.govspeak.erb' %>
-  <% unless calculator.modern_boiler? %>
-    <%= render partial: 'opt_condensing_boiler.govspeak.erb' %>
+  <% if calculator.under_green_deal? and (calculator.eligible_for_winter_fuel_payment? or calculator.eligible_for_cold_weather_payment?) %>
+    <%= render partial: 'header_green_deal.govspeak.erb' %>
+    <%= render partial: 'opt_eco_help.govspeak.erb' %>
+    <%= render partial: 'callout_under_green_deal.govspeak.erb' %>
   <% end %>
-  <% unless calculator.mains_gas? %>
-    <%= render partial: 'opt_cavity_wall_insulation.govspeak.erb' %>
-    <%= render partial: 'opt_solid_wall_insulation.govspeak.erb' %>
-  <% end %>
-  <% unless calculator.draught_proofing_or_mains_gas? %>
-    <%= render partial: 'opt_draught_proofing.govspeak.erb' %>
-  <% end %>
-  <% unless calculator.loft_insulation_or_loft_attic_conversion? || calculator.flat_property_type? %>
-    <%= render partial: 'opt_loft_roof_insulation.govspeak.erb' %>
-  <% end %>
-  <% unless calculator.top_floor_flat? %>
-    <% if calculator.loft_attic_conversion? || calculator.flat_property_type? %>
-      <%= render partial: 'opt_room_roof_insulation.govspeak.erb' %>
-    <% end %>
-    <% unless calculator.modern_property? %>
-      <%= render partial: 'opt_under_floor_insulation.govspeak.erb' %>
-    <% end %>
+  <% if !calculator.benefits_claimed_and_can_install_boiler? && (all_home_features.count > calculator.features.count) %>
+    <%= render partial: 'boilers_and_insulation.govspeak.erb', locals: {calculator: calculator} %>
   <% end %>
   <% if calculator.may_qualify_for_affordable_warmth_obligation? %>
     <%= render partial: 'may_qualify_for_affordable_warmth_obligation.govspeak.erb' %>
   <% end %>
-  <%= render partial: 'opt_eco_help.govspeak.erb' %>
+  <% if calculator.benefits_claimed_and_can_install_boiler? && (all_home_features.count > calculator.features.count) %>
+    <%= render partial: 'boilers_and_insulation.govspeak.erb', locals: {calculator: calculator} %>
+  <% end %>
   <%= render partial: 'header_heating.govspeak.erb' %>
   <%= render partial: 'opt_better_heating_controls.govspeak.erb' %>
   <% unless calculator.mains_gas? %>

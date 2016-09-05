@@ -25,6 +25,10 @@ module SmartAnswer::Calculators
       disabled_or_have_children != %w(none) && benefits_claimed.include?('universal_credit')
     end
 
+    def benefits_claimed_and_can_install_boiler?
+      benefits_claimed.length > 0 && circumstances.include?('benefits') && (circumstances.include?('property') || circumstances.include?('permission'))
+    end
+
     def incomesupp_jobseekers_1?
       disabled_or_have_children == %w(disabled) ||
         disabled_or_have_children == %w(disabled_child) ||
@@ -55,10 +59,6 @@ module SmartAnswer::Calculators
 
     def both_help?
       %w(all_help).include?(which_help)
-    end
-
-    def warm_home_discount_amount
-      ''
     end
 
     def claiming_pension_credit_only_or_child_tax_credit_only?
@@ -197,6 +197,24 @@ module SmartAnswer::Calculators
 
     def under_green_deal_part_3?
       both_help? && age_variant == :over_60 && (benefits_claimed & %w(esa child_tax_credit working_tax_credit) || incomesupp_jobseekers_1? || incomesupp_jobseekers_2?)
+    end
+
+    def home_features_modern
+      dataset.fetch(:home_features_modern)
+    end
+
+    def home_features_older
+      dataset.fetch(:home_features_older)
+    end
+
+    def home_features_historic
+      dataset.fetch(:home_features_historic)
+    end
+
+    private
+
+    def dataset
+      @dataset ||= YAML.load_file(Rails.root.join('lib', 'data', 'energy_grants_calculator.yml')).with_indifferent_access
     end
   end
 end
