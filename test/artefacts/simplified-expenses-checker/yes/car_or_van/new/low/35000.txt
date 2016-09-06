@@ -1,14 +1,12 @@
-Is the vehicle you're buying green, ie a low emission vehicle?
+How much of your driving time do you expect to be for business use?
 
 
 
 
 
-  * yes: Yes
-  * no: No
 
 
 
-
+% of the time
 
 

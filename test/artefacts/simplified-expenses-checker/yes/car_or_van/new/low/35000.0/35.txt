@@ -1,11 +1,9 @@
-Is the vehicle you're buying green, ie a low emission vehicle?
+How many miles do you expect to drive your car or van for business during the tax year?
 
 
 
 
 
-  * yes: Yes
-  * no: No
 
 
 
