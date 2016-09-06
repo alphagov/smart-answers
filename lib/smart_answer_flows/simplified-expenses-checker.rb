@@ -342,8 +342,9 @@ module SmartAnswer
           vehicle = vehicle_costs.to_f
           green = green_vehicle_write_off.to_f
           dirty = dirty_vehicle_write_off.to_f
+          filthy = filthy_vehicle_write_off.to_f
           home = home_costs.to_f
-          Money.new(vehicle + green + dirty + home)
+          Money.new(vehicle + green + dirty + filthy + home)
         end
 
         precalculate :can_use_simple do
