@@ -87,18 +87,23 @@ module SmartAnswer
 
       #Q3 - buying new vehicle?
       multiple_choice :buying_new_vehicle? do
-        option :yes
+        option :new
+        option :used
         option :no
 
+        calculate :new_or_used do |response|
+          %w(new used).include?(response) ? response : nil
+        end
+
         next_node do |response|
-          if response == "yes"
-            question :is_vehicle_green?
-          else
+          if response == 'no'
             if is_existing_business
               question :capital_allowances?
             else
               question :how_much_expect_to_claim?
             end
+          else
+            question :is_vehicle_green?
           end
         end
       end

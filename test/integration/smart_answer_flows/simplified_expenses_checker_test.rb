@@ -114,7 +114,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
     context "new green vehicle costs 10000, 80% of time on business, expect to drive 2000 miles, (Q3, Q4, Q5, Q9, result 2)" do
       setup do
-        add_response "yes"
+        add_response "new"
         add_response "yes" #green
         add_response "10000" #green_vehicle_price
         add_response "80" #green_vehicle_write_off
@@ -133,9 +133,30 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       end
     end # new green vehicle
 
+    context "used green vehicle costs 10000, 80% of time on business, expect to drive 2000 miles, (Q3, Q4, Q5, Q9, result 2)" do
+      setup do
+        add_response "used"
+        add_response "yes" #green
+        add_response "10000" #green_vehicle_price
+        add_response "80" #green_vehicle_write_off
+        add_response "2000" #simple_vehicle_costs
+      end
+
+      should "take you to result 2 - main result" do
+        assert_current_node :you_can_use_result
+        assert_state_variable :vehicle_is_green, true
+        assert_state_variable :green_vehicle_price, 10000
+        assert_state_variable :green_vehicle_write_off, 8000
+        assert_state_variable :simple_vehicle_costs, 900
+        assert_state_variable :current_scheme_costs, 8000
+        assert_state_variable :simple_total, 900
+        assert_state_variable :can_use_simple, false
+      end
+    end # used green vehicle
+
     context "new dirty vehicle costs 10000, 80% of time on business, expect to drive 2000 miles, (Q3, Q4, Q5, Q9, result 2)" do
       setup do
-        add_response "yes"
+        add_response "new"
         add_response "no" #dirty
         add_response "10000" #dirty_vehicle_price
         add_response "80" #dirty_vehicle_write_off
@@ -152,7 +173,28 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
       end
-    end # new green vehicle
+    end # new dirty vehicle
+
+    context "used dirty vehicle costs 10000, 80% of time on business, expect to drive 2000 miles, (Q3, Q4, Q5, Q9, result 2)" do
+      setup do
+        add_response "used"
+        add_response "no" #dirty
+        add_response "10000" #dirty_vehicle_price
+        add_response "80" #dirty_vehicle_write_off
+        add_response "2000" #simple_vehicle_costs
+      end
+
+      should "take you to result 2 - main result" do
+        assert_current_node :you_can_use_result
+        assert_state_variable :vehicle_is_green, false
+        assert_state_variable :dirty_vehicle_price, 1800
+        assert_state_variable :dirty_vehicle_write_off, 1440
+        assert_state_variable :simple_vehicle_costs, 900
+        assert_state_variable :current_scheme_costs, 1440
+        assert_state_variable :simple_total, 900
+        assert_state_variable :can_use_simple, false
+      end
+    end # new dirty vehicle
   end # end main result, existing business, car_or_van only
 
   context "home for business costs" do
@@ -197,7 +239,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
     context "new green vehicle costs 10000, 80% of time on business, expect to drive 2000 miles, (Q3, Q4, Q5, Q9, result 2)" do
       setup do
-        add_response "yes"
+        add_response "new"
         add_response "yes" #green
         add_response "10000" #green_vehicle_price
         add_response "80" #green_vehicle_write_off
@@ -216,9 +258,30 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       end
     end # new green vehicle
 
+    context "used green vehicle costs 10000, 80% of time on business, expect to drive 2000 miles, (Q3, Q4, Q5, Q9, result 2)" do
+      setup do
+        add_response "used"
+        add_response "yes" #green
+        add_response "10000" #green_vehicle_price
+        add_response "80" #green_vehicle_write_off
+        add_response "2000" #simple_vehicle_costs
+      end
+
+      should "take you to result 2 - main result" do
+        assert_current_node :you_can_use_result
+        assert_state_variable :vehicle_is_green, true
+        assert_state_variable :green_vehicle_price, 10000
+        assert_state_variable :green_vehicle_write_off, 8000
+        assert_state_variable :simple_vehicle_costs, 900
+        assert_state_variable :current_scheme_costs, 8000
+        assert_state_variable :simple_total, 900
+        assert_state_variable :can_use_simple, false
+      end
+    end # used green vehicle
+
     context "new dirty vehicle costs 10000, 80% of time on business, expect to drive 12000 miles, (Q3, Q4, Q5, Q9, result 2)" do
       setup do
-        add_response "yes"
+        add_response "new"
         add_response "no" #dirty
         add_response "10000" #dirty_vehicle_price
         add_response "80" #dirty_vehicle_write_off
@@ -235,11 +298,32 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :simple_total, 5000
         assert_state_variable :can_use_simple, true
       end
-    end # new green vehicle
+    end # new dirty vehicle
+
+    context "used dirty vehicle costs 10000, 80% of time on business, expect to drive 12000 miles, (Q3, Q4, Q5, Q9, result 2)" do
+      setup do
+        add_response "used"
+        add_response "no" #dirty
+        add_response "10000" #dirty_vehicle_price
+        add_response "80" #dirty_vehicle_write_off
+        add_response "12000" #simple_vehicle_costs
+      end
+
+      should "take you to result 2 - main result" do
+        assert_current_node :you_can_use_result
+        assert_state_variable :vehicle_is_green, false
+        assert_state_variable :dirty_vehicle_price, 1800
+        assert_state_variable :dirty_vehicle_write_off, 1440
+        assert_state_variable :simple_vehicle_costs, 5000
+        assert_state_variable :current_scheme_costs, 1440
+        assert_state_variable :simple_total, 5000
+        assert_state_variable :can_use_simple, true
+      end
+    end # used dirty vehicle
 
     context "new green vehicle costs 260000, 100% of time on business, expect to drive 2000 miles, (Q3, Q6, Q7, Q8, Q9, result 2)" do
       setup do
-        add_response "yes"
+        add_response "new"
         add_response "yes" #green
         add_response "260000" #green_vehicle_price
         add_response "100" #green_vehicle_write_off
@@ -257,6 +341,27 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :can_use_simple, false
       end
     end # new green vehicle
+
+    context "used green vehicle costs 260000, 100% of time on business, expect to drive 2000 miles, (Q3, Q6, Q7, Q8, Q9, result 2)" do
+      setup do
+        add_response "used"
+        add_response "yes" #green
+        add_response "260000" #green_vehicle_price
+        add_response "100" #green_vehicle_write_off
+        add_response "2000" #simple_vehicle_costs
+      end
+
+      should "take you to result 2 - main result" do
+        assert_current_node :you_can_use_result
+        assert_state_variable :vehicle_is_green, true
+        assert_state_variable :green_vehicle_price, 260000
+        assert_state_variable :green_vehicle_write_off, 260000
+        assert_state_variable :simple_vehicle_costs, 900
+        assert_state_variable :current_scheme_costs, 260000
+        assert_state_variable :simple_total, 900
+        assert_state_variable :can_use_simple, false
+      end
+    end # used green vehicle
   end # main result, new business, car_or_van only
 
   context "main result - claimed expenses before, motorcycle only" do
@@ -284,7 +389,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     end # no new vehicle
     context "new green motorcycle costs 10000, 80% of time on business, expect to drive 2000 miles, (Q3, Q6, Q7, Q8, Q10 result 2)" do
       setup do
-        add_response "yes"
+        add_response "new"
         add_response "yes" #green
         add_response "10000" #green_vehicle_price
         add_response "80" #green_vehicle_write_off
@@ -302,9 +407,29 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :can_use_simple, false
       end
     end # new green vehicle
+    context "used green motorcycle costs 10000, 80% of time on business, expect to drive 2000 miles, (Q3, Q6, Q7, Q8, Q10 result 2)" do
+      setup do
+        add_response "used"
+        add_response "yes" #green
+        add_response "10000" #green_vehicle_price
+        add_response "80" #green_vehicle_write_off
+        add_response "2000" #simple_motorcycle_costs
+      end
+
+      should "take you to result 2 - main result" do
+        assert_current_node :you_can_use_result
+        assert_state_variable :vehicle_is_green, true
+        assert_state_variable :green_vehicle_price, 10000
+        assert_state_variable :green_vehicle_write_off, 8000
+        assert_state_variable :simple_motorcycle_costs, 480
+        assert_state_variable :current_scheme_costs, 8000
+        assert_state_variable :simple_total, 480
+        assert_state_variable :can_use_simple, false
+      end
+    end # used green vehicle
     context "new dirty motorcycle costs 5000, 80% of time on business, expect to drive 2000 miles, (Q3, Q6, Q7, Q8, Q10 result 2)" do
       setup do
-        add_response "yes"
+        add_response "new"
         add_response "no" #dirty
         add_response '10000' #dirty_vehicle_price
         add_response "80" #dirty_vehicle_write_off
@@ -322,6 +447,26 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :can_use_simple, false
       end
     end # new dirty vehicle
+    context "used dirty motorcycle costs 5000, 80% of time on business, expect to drive 2000 miles, (Q3, Q6, Q7, Q8, Q10 result 2)" do
+      setup do
+        add_response "used"
+        add_response "no" #dirty
+        add_response '10000' #dirty_vehicle_price
+        add_response "80" #dirty_vehicle_write_off
+        add_response "2000" #simple_motorcycle_costs
+      end
+
+      should "take you to result 2 - main result" do
+        assert_current_node :you_can_use_result
+        assert_state_variable :vehicle_is_green, false
+        assert_state_variable :dirty_vehicle_price, 1800
+        assert_state_variable :dirty_vehicle_write_off, 1440
+        assert_state_variable :simple_motorcycle_costs, 480
+        assert_state_variable :current_scheme_costs, 1440
+        assert_state_variable :simple_total, 480
+        assert_state_variable :can_use_simple, false
+      end
+    end # used dirty vehicle
   end # main result, existing business, motorcycle only
 
   context "main result - existing business, using home (Q1, Q2, Q11, Q12, result 2)" do
@@ -361,7 +506,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     setup do
       add_response "yes"
       add_response "car_or_van,using_home_for_business"
-      add_response "yes"
+      add_response "new"
       add_response "yes" #green
       add_response "10000" #green_vehicle_price
       add_response "80" #green_write_off
