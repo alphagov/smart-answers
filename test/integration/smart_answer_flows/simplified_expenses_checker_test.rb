@@ -144,7 +144,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :filthy_vehicle_price, 800
         assert_state_variable :filthy_vehicle_write_off, 640
         assert_state_variable :simple_vehicle_costs, 900
-        assert_state_variable :current_scheme_costs, 1000
+        assert_state_variable :current_scheme_costs, 1640
         assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
       end
@@ -165,7 +165,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       should "take you to you_can_use_result - main result" do
         assert_current_node :you_can_use_result
         assert_state_variable :simple_vehicle_costs, 900
-        assert_state_variable :current_scheme_costs, 1000
+        assert_state_variable :current_scheme_costs, 1640
         assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
       end
@@ -306,7 +306,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_current_node :you_can_use_result
         assert_state_variable :vehicle_costs, 1000
         assert_state_variable :simple_vehicle_costs, 900
-        assert_state_variable :current_scheme_costs, 1000
+        assert_state_variable :current_scheme_costs, 1640
         assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
       end
@@ -350,7 +350,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :filthy_vehicle_price, 800
         assert_state_variable :filthy_vehicle_write_off, 640
         assert_state_variable :simple_vehicle_costs, 900
-        assert_state_variable :current_scheme_costs, 1000
+        assert_state_variable :current_scheme_costs, 1640
         assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
       end
@@ -416,7 +416,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_current_node :you_can_use_result
         assert_state_variable :vehicle_costs, 1000
         assert_state_variable :simple_vehicle_costs, 900
-        assert_state_variable :current_scheme_costs, 1000
+        assert_state_variable :current_scheme_costs, 1640
         assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
       end
@@ -482,7 +482,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :filthy_vehicle_price, 800
         assert_state_variable :filthy_vehicle_write_off, 640
         assert_state_variable :simple_vehicle_costs, 5000
-        assert_state_variable :current_scheme_costs, 1000
+        assert_state_variable :current_scheme_costs, 1640
         assert_state_variable :simple_total, 5000
         assert_state_variable :can_use_simple, true
       end
