@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/simplified-expenses-checker.rb: fb4c19582734caca276cf51dfc2e017b
+lib/smart_answer_flows/simplified-expenses-checker.rb: 21c198e617207b7a08ebb1fe2d869ccd
 test/data/simplified-expenses-checker-questions-and-responses.yml: 381a9039121454939ce5c45217447a42
 test/data/simplified-expenses-checker-responses-and-expected-results.yml: a9d1df444f1d239e5de563180c919bc8
 lib/smart_answer_flows/simplified-expenses-checker/outcomes/capital_allowance_result.govspeak.erb: 0f738efb15d8d63ebb9f824eb4010744
@@ -14,7 +14,7 @@ lib/smart_answer_flows/simplified-expenses-checker/questions/drive_business_mile
 lib/smart_answer_flows/simplified-expenses-checker/questions/drive_business_miles_motorcycle.govspeak.erb: 32064034b3ee797f2d2779e2b335ef63
 lib/smart_answer_flows/simplified-expenses-checker/questions/hours_work_home.govspeak.erb: 41b408209957ac9297effcf53d31a15e
 lib/smart_answer_flows/simplified-expenses-checker/questions/how_much_expect_to_claim.govspeak.erb: 619162f97b2e5b00bdcf412fc0179a9a
-lib/smart_answer_flows/simplified-expenses-checker/questions/is_vehicle_green.govspeak.erb: a8c3eeca9ac089c8d105424ebeb52014
+lib/smart_answer_flows/simplified-expenses-checker/questions/is_vehicle_green.govspeak.erb: b76c2b48d5cf8428b5d5de1db8d08ea5
 lib/smart_answer_flows/simplified-expenses-checker/questions/people_live_on_premises.govspeak.erb: 7f2526953dd971df560a129336734d86
 lib/smart_answer_flows/simplified-expenses-checker/questions/price_of_vehicle.govspeak.erb: ce043c19141d0e044a0ec1edb042591b
 lib/smart_answer_flows/simplified-expenses-checker/questions/type_of_expense.govspeak.erb: 530deb8f1e9bb3d6a65bbcf42acdd8a8
