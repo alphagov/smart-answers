@@ -1,10 +1,11 @@
-Are you buying a new car, van or motorcycle this tax year that you expect to use for your business?
+Are you buying a new or second hand car, van or motorcycle this tax year that you expect to use for your business?
 
 
 
 
 
-  * yes: Yes
+  * new: Yes - new and unused
+  * used: Yes - second hand
   * no: No
 
 

@@ -1,14 +1,12 @@
-Are you buying a new car, van or motorcycle this tax year that you expect to use for your business?
+How much of your driving time do you expect to be for business use?
 
 
 
 
 
-  * yes: Yes
-  * no: No
 
 
 
-
+% of the time
 
 

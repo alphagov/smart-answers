@@ -1,11 +1,9 @@
-Are you buying a new car, van or motorcycle this tax year that you expect to use for your business?
+How much is the car, van or motorcycle you’re buying?
 
 
 
+Include VAT unless your business is VAT registered.
 
-
-  * yes: Yes
-  * no: No
 
 
 
