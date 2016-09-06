@@ -1,6 +1,6 @@
 ---
 lib/smart_answer_flows/simplified-expenses-checker/outcomes/capital_allowance_result.govspeak.erb: 0f738efb15d8d63ebb9f824eb4010744
-lib/smart_answer_flows/simplified-expenses-checker/outcomes/you_can_use_result.govspeak.erb: ff129b66eac9e163c8c775c37aa613ec
+lib/smart_answer_flows/simplified-expenses-checker/outcomes/you_can_use_result.govspeak.erb: e8f880cc3dab8f6863a136cab6d7da33
 lib/smart_answer_flows/simplified-expenses-checker/outcomes/you_cant_claim_capital_allowance.govspeak.erb: ce5b4e04d999e918d236a47861d71114
 lib/smart_answer_flows/simplified-expenses-checker/outcomes/you_cant_use_result.govspeak.erb: 6fd519340fea04074265249f707e0815
 lib/smart_answer_flows/simplified-expenses-checker/questions/buying_new_vehicle.govspeak.erb: 39a52b369ecb3f6303be0b1b2295aa13
