@@ -39,6 +39,9 @@ module SmartAnswer
         calculate :dirty_vehicle_write_off do
           nil
         end
+        calculate :filthy_vehicle_write_off do
+          nil
+        end
         calculate :simple_business_costs do
           nil
         end
@@ -376,6 +379,10 @@ module SmartAnswer
           dirty_vehicle_write_off
         end
 
+        precalculate :filthy_vehicle_write_off do
+          filthy_vehicle_write_off
+        end
+
         precalculate :simple_business_costs do
           simple_business_costs
         end
@@ -396,8 +403,9 @@ module SmartAnswer
           vehicle = vehicle_costs.to_f || 0
           green = green_vehicle_write_off.to_f || 0
           dirty = dirty_vehicle_write_off.to_f || 0
+          filthy = filthy_vehicle_write_off.to_f || 0
           home = home_costs.to_f || 0
-          Money.new(vehicle + green + dirty + home)
+          Money.new(vehicle + green + dirty + filthy + home)
         end
 
         precalculate :can_use_simple do
