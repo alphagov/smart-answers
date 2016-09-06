@@ -1,3 +1,7 @@
+<% if service_counter == 0 %>
+Service | Fee
+-|-
+<% end %>
 <% case service %>
 <% when :receiving_notice_of_registration %>
   Receiving a notice of registration | <%= format_money calculator.consular_fee(:receiving_notice_of_registration) %>
