@@ -1,0 +1,14 @@
+<% content_for :title do %>
+  If the person doesn’t have the right documents, are they waiting for:
+<% end %>
+
+<% options(
+  "yes": "Yes",
+  "no": "No"
+) %>
+
+<% content_for :body do %>
+  - the Home Office to return their documents
+  - a decision on their immigration case or visa application
+  - a decision on their immigration appeal or administrative review
+<% end %>
