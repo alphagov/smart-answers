@@ -21,22 +21,6 @@ Email - general enquiries: public-enquiries.tokyo@fco.gov.uk
 [British Embassy Tokyo - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-tokyo/office/british-embassy-tokyo)
 $C
 
-$A
-British Consulate-General Osaka
-〒541 - 0059
-3-5-1 Bakuro-machi, Chuo-ku, Osaka
-Japan
-$A
-
-$C
-Telephone: (+81) (6) 6120 5600
-Fax: (+81) (6) 6281 1731
-
-Email: <consular.japan@fco.gov.uk>
-
-[British Consulate-General Osaka - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-tokyo/office/british-consulate-general-osaka)
-$C
-
 ##What documents you’ll need
 
 You need to have been living in Japan for 21 days. You and your partner will need to sign a declaration and provide proof of residence eg, an employer’s letter or a bank statement.
