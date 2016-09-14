@@ -18,6 +18,7 @@ lib/smart_answer_flows/landlord-immigration-check/outcomes/outcome_check_not_nee
 lib/smart_answer_flows/landlord-immigration-check/questions/has_asylum_card.govspeak.erb: da15f9bb156eed4ff866cfba4072620b
 lib/smart_answer_flows/landlord-immigration-check/questions/has_certificate.govspeak.erb: c670d7bc733232a394b4caa93a6aefb9
 lib/smart_answer_flows/landlord-immigration-check/questions/has_documents.govspeak.erb: ea1250a0013c28b4a7cbcb0337219e16
+lib/smart_answer_flows/landlord-immigration-check/questions/has_eu_documents.govspeak.erb: a655c4d16e8e5b013f1ed721385ef10e
 lib/smart_answer_flows/landlord-immigration-check/questions/has_other_documents.govspeak.erb: 9ec2068bdfef6486a3156925148f6940
 lib/smart_answer_flows/landlord-immigration-check/questions/has_residence_card_or_eu_eea_swiss_family_member.govspeak.erb: 566627594105a24069451ab40f540846
 lib/smart_answer_flows/landlord-immigration-check/questions/has_uk_passport.govspeak.erb: 294e10196ecf02efcc75eea4fd8c966c
@@ -30,6 +31,6 @@ lib/smart_answer_flows/landlord-immigration-check/questions/tenant_country.govsp
 lib/smart_answer_flows/landlord-immigration-check/questions/tenant_over_18.govspeak.erb: c4a270709e77da5aff8c4e50aa56e905
 lib/smart_answer_flows/landlord-immigration-check/questions/time_limited_to_remain.govspeak.erb: 05c03a6a5cc9e07c3816a446cdc1c6f3
 lib/smart_answer_flows/landlord-immigration-check/questions/what_nationality.govspeak.erb: 2a5f488eae0209a5538569309f396deb
-lib/smart_answer_flows/landlord-immigration-check.rb: e9b1100d60c3948d2acbbdd2aff2b952
-test/data/landlord-immigration-check-questions-and-responses.yml: bdab4dc2caa981b6b561c769128b8c4c
-test/data/landlord-immigration-check-responses-and-expected-results.yml: 97c5739d7838b69ff5494355ee99df34
+lib/smart_answer_flows/landlord-immigration-check.rb: 39c82e800ae3e3a3d0125196d32a06b0
+test/data/landlord-immigration-check-questions-and-responses.yml: 6e540b9c72fa5fdcfbdb203e6eb3baac
+test/data/landlord-immigration-check-responses-and-expected-results.yml: 03eec62abab0308cb40b46f7aa0b5d7d
