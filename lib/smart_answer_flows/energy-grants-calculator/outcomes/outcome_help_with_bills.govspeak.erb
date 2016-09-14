@@ -33,6 +33,6 @@
   <% end %>
   <% if calculator.circumstances.include?('benefits') or calculator.bills_help? %>
 
-    You can also use this service to [find out how to make your home more energy efficient](/energy-grants-calculator).
+    <%= render partial: 'make_home_more_energy_efficient.govspeak.erb' %>
   <% end %>
 <% end %>
