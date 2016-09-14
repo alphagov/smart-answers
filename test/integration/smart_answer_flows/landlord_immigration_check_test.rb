@@ -121,5 +121,20 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
       add_response "yes" # has_other_documents?
       assert_current_node :outcome_can_rent
     end
+
+    should "go to waiting_for_documents if tenant hasn't got other documents" do
+      add_response "eea" # what_nationality?
+      add_response "no" # has_eu_documents?
+      add_response "no" # has_other_documents?
+      assert_current_node :waiting_for_documents?
+    end
+
+    should "go to immigration_application if tenant isn't waiting for documents" do
+      add_response "eea" # what_nationality?
+      add_response "no" # has_eu_documents?
+      add_response "no" # has_other_documents?
+      add_response "no" # waiting_for_documents?
+      assert_current_node :immigration_application?
+    end
   end
 end
