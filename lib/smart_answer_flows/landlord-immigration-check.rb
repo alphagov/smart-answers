@@ -200,7 +200,22 @@ module SmartAnswer
           when "yes"
             outcome :outcome_can_rent
           when "no"
-            question :time_limited_to_remain?
+            question :waiting_for_documents?
+          end
+        end
+      end
+
+      #new Q14
+      multiple_choice :waiting_for_documents? do
+        option "yes"
+        option "no"
+
+        next_node do |response|
+          case response
+          when "yes"
+            outcome :outcome_can_rent_but_check_will_be_needed_again
+          when "no"
+            question :immigration_application?
           end
         end
       end
