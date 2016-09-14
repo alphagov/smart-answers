@@ -19,8 +19,10 @@ module SmartAnswer::Calculators
     end
 
     context '#age_variant' do
-      should 'return :winter_fuel_payment if date of birth before 05-07-1951' do
-        @calculator.date_of_birth = Date.new(1951, 7, 5) - 1
+      should 'return is eligible for a :winter_fuel_payment if the date of birth is before the winter_fuel_payment_threshold date' do
+        @calculator.date_of_birth = Date.yesterday
+        @calculator.stubs(:winter_fuel_payment_threshold).returns(Date.today)
+
         assert_equal :winter_fuel_payment, @calculator.age_variant
       end
 

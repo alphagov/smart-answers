@@ -48,13 +48,22 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
           setup do
             add_response ' 4/07/1951'
           end
-          should "be eligible for winter fuel payment" do
-            assert_equal :winter_fuel_payment, current_state.calculator.age_variant
-          end
+
           should "take you to help with bills outcome" do
             assert_current_node :outcome_help_with_bills # outcome 1
           end
         end
+
+        context "answer before 5th May 1953" do
+          setup do
+            add_response '01/05/1953'
+          end
+
+          should "take you to help with bills outcome" do
+            assert_current_node :outcome_help_with_bills # outcome 1
+          end
+        end
+
         context "answer over 60" do
           setup do
             add_response 60.years.ago(Date.today).strftime("%Y-%m-%d")
@@ -629,9 +638,10 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
     # test for incomesupp_jobseekers_2?
     context "test that incomesupp_jobseekers_2? is being calculated correctly at Q4" do
       setup do
+        Timecop.travel("2016-07-01")
         add_response 'all_help'
         add_response 'benefits'
-        add_response '08/06/1952'
+        add_response '08/06/1953'
         add_response 'working_tax_credit'
       end
       should "take you to next question" do

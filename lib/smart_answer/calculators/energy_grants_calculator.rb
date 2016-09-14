@@ -32,9 +32,13 @@ module SmartAnswer::Calculators
         disabled_or_have_children == %w(pensioner_premium)
     end
 
+    def winter_fuel_payment_threshold
+      rates.winter_fuel_payment_threshold
+    end
+
     def age_variant
       dob = date_of_birth
-      if dob < Date.new(1951, 7, 5)
+      if dob < winter_fuel_payment_threshold
         :winter_fuel_payment
       elsif dob < 60.years.ago(Date.today + 1)
         :over_60
@@ -197,6 +201,12 @@ module SmartAnswer::Calculators
 
     def under_green_deal_part_3?
       both_help? && age_variant == :over_60 && (benefits_claimed & %w(esa child_tax_credit working_tax_credit) || incomesupp_jobseekers_1? || incomesupp_jobseekers_2?)
+    end
+
+  private
+
+    def rates
+      @rates ||= RatesQuery.from_file('energy_grants_calculator').rates
     end
   end
 end
