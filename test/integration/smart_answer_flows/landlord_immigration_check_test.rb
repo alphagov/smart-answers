@@ -97,5 +97,29 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
     should "go to what_nationality outcome" do
       assert_current_node :what_nationality?
     end
+
+    should "go to has_eu_documents if EEA is selected" do
+      add_response "eea" # what_nationality?
+      assert_current_node :has_eu_documents?
+    end
+
+    should "go to outcome_can_rent if tenant has EEA passport" do
+      add_response "eea" # what_nationality?
+      add_response "yes" # has_eu_documents?
+      assert_current_node :outcome_can_rent
+    end
+
+    should "go to has_other_documents if tenant hasn't got EEA passport" do
+      add_response "eea" # what_nationality?
+      add_response "no" # has_eu_documents?
+      assert_current_node :has_other_documents?
+    end
+
+    should "go to outcome_can_rent if tenant has got other documents" do
+      add_response "eea" # what_nationality?
+      add_response "no" # has_eu_documents?
+      add_response "yes" # has_other_documents?
+      assert_current_node :outcome_can_rent
+    end
   end
 end

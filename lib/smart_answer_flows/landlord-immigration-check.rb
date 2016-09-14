@@ -92,7 +92,7 @@ module SmartAnswer
         next_node do |response|
           case response
           when "eea"
-            question :has_other_documents?
+            question :has_eu_documents?
           end
         end
       end
@@ -138,6 +138,21 @@ module SmartAnswer
             outcome :outcome_can_rent
           when "no"
             question :tenant_country?
+          end
+        end
+      end
+
+      #new Q7
+      multiple_choice :has_eu_documents? do
+        option "yes"
+        option "no"
+
+        next_node do |response|
+          case response
+          when "yes"
+            outcome :outcome_can_rent
+          when "no"
+            question :has_other_documents?
           end
         end
       end
