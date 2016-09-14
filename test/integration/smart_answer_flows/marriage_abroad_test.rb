@@ -1582,13 +1582,13 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         add_response 'partner_local'
       end
 
-      should "give a japan-specific outcome" do
+      should "give a japan-specific outcome for opposite sex marriages" do
         add_response 'opposite_sex'
         assert_current_node :outcome_opposite_sex_marriage_in_japan
       end
-      should "give ss outcome with japan variants" do
+      should "give a japan-specific outcome for same sex marriages" do
         add_response 'same_sex'
-        assert_current_node :outcome_same_sex_marriage_and_civil_partnership
+        assert_current_node :outcome_same_sex_marriage_and_civil_partnership_in_japan
       end
     end
 

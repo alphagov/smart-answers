@@ -275,6 +275,8 @@ module SmartAnswer
               outcome :outcome_same_sex_marriage_in_italy
             elsif calculator.same_sex_ceremony_country_unknown_or_has_no_embassies?
               outcome :outcome_opposite_sex_in_no_cni_countries_when_residing_in_ceremony_or_third_country
+            elsif calculator.ceremony_country == "japan"
+              outcome :outcome_same_sex_marriage_and_civil_partnership_in_japan
             elsif calculator.ceremony_country == "malta"
               outcome :outcome_same_sex_marriage_and_civil_partnership_in_malta
             elsif calculator.same_sex_marriage_not_possible?
@@ -386,6 +388,7 @@ module SmartAnswer
       outcome :outcome_same_sex_civil_partnership_in_no_cni_countries
       outcome :outcome_same_sex_marriage_and_civil_partnership
       outcome :outcome_same_sex_marriage_and_civil_partnership_in_gibraltar
+      outcome :outcome_same_sex_marriage_and_civil_partnership_in_japan
       outcome :outcome_same_sex_marriage_and_civil_partnership_in_malta
       outcome :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
       outcome :outcome_same_sex_marriage_and_civil_partnership_not_possible
