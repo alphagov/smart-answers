@@ -153,5 +153,26 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
       add_response "yes" # immigration_application?
       assert_current_node :outcome_landlords_checking_service
     end
+
+    should "go to outcome_check_not_needed_when_care_home if tenant isn't waiting for documents" do
+      add_response "eea" # what_nationality?
+      add_response "no" # has_eu_documents?
+      add_response "no" # has_other_documents?
+      add_response "no" # waiting_for_documents?
+      add_response "no" # immigration_application?
+      assert_current_node :outcome_can_not_rent
+    end
+  end
+
+  should "lead to outcome_can_not_rent" do
+    add_response "B1 1PW" # property
+    add_response "yes" # main_home
+    add_response "yes" # tenant_over_18
+    add_response "eea" # what_nationality
+    add_response "no" # has_eu_documents?
+    add_response "no" # has_other_documents?
+    add_response "no" # waiting_for_documents?
+    add_response "no" # immigration_application?
+    assert_current_node :outcome_can_not_rent
   end
 end
