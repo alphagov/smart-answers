@@ -45,7 +45,7 @@ module SmartAnswer
         next_node do |response|
           case response
           when "yes"
-            question :has_uk_passport?
+            question :what_nationality?
           when "no"
             outcome :outcome_check_not_needed_when_under_18
           end
@@ -81,6 +81,18 @@ module SmartAnswer
             outcome :outcome_check_may_be_needed_when_student
           when "7_year_lease_property"
             outcome :outcome_check_needed_if_break_clause
+          end
+        end
+      end
+
+      #Q3a
+      multiple_choice :what_nationality? do
+        option "eea"
+
+        next_node do |response|
+          case response
+          when "eea"
+            question :has_other_documents?
           end
         end
       end

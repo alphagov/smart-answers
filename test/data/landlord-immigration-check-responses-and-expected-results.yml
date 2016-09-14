@@ -15,6 +15,14 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  :next_node: :what_nationality?
+  :outcome_node: false
+- :current_node: :what_nationality?
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - eea
   :next_node: :has_uk_passport?
   :outcome_node: false
 - :current_node: :has_uk_passport?
@@ -22,6 +30,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'yes'
   :next_node: :outcome_can_rent
   :outcome_node: true
@@ -30,6 +39,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   :next_node: :right_to_abode?
   :outcome_node: false
@@ -38,6 +48,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'yes'
   :next_node: :outcome_can_rent
@@ -47,6 +58,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   :next_node: :has_certificate?
@@ -56,6 +68,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'yes'
@@ -66,6 +79,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -76,6 +90,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -87,6 +102,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -99,6 +115,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -111,6 +128,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -124,6 +142,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -137,6 +156,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -151,6 +171,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -165,6 +186,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -180,6 +202,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -195,6 +218,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -211,6 +235,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -227,6 +252,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -244,6 +270,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -261,6 +288,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -272,6 +300,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -284,6 +313,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -296,6 +326,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -309,6 +340,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -322,6 +354,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -336,6 +369,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -350,6 +384,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -361,6 +396,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -373,6 +409,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -385,6 +422,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -398,6 +436,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -411,6 +450,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -425,6 +465,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -439,6 +480,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -454,6 +496,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -469,6 +512,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
@@ -485,6 +529,7 @@
   - B1 1PW
   - 'yes'
   - 'yes'
+  - eea
   - 'no'
   - 'no'
   - 'no'
