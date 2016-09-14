@@ -6,6 +6,7 @@ module SmartAnswer
       status :published
       satisfies_need "102373"
 
+      #Q0
       postcode_question :property? do
         on_response do |response|
           self.calculator = Calculators::LandlordImmigrationCheckCalculator.new
@@ -21,6 +22,7 @@ module SmartAnswer
         end
       end
 
+      #Q1
       multiple_choice :main_home? do
         option "yes"
         option "no"
@@ -35,6 +37,7 @@ module SmartAnswer
         end
       end
 
+      #Q2
       multiple_choice :tenant_over_18? do
         option "yes"
         option "no"
@@ -42,13 +45,14 @@ module SmartAnswer
         next_node do |response|
           case response
           when "yes"
-            question :has_uk_passport?
+            question :what_nationality?
           when "no"
             outcome :outcome_check_not_needed_when_under_18
           end
         end
       end
 
+      #Q3
       multiple_choice :property_type? do
         option "holiday_accommodation"
         option "social_housing"
@@ -81,6 +85,19 @@ module SmartAnswer
         end
       end
 
+      #Q3a
+      multiple_choice :what_nationality? do
+        option "eea"
+
+        next_node do |response|
+          case response
+          when "eea"
+            question :has_eu_documents?
+          end
+        end
+      end
+
+      #Q4
       multiple_choice :has_uk_passport? do
         option "yes"
         option "no"
@@ -95,6 +112,7 @@ module SmartAnswer
         end
       end
 
+      #Q5
       multiple_choice :right_to_abode? do
         option "yes"
         option "no"
@@ -109,6 +127,7 @@ module SmartAnswer
         end
       end
 
+      #Q6
       multiple_choice :has_certificate? do
         option "yes"
         option "no"
@@ -123,6 +142,22 @@ module SmartAnswer
         end
       end
 
+      #new Q7
+      multiple_choice :has_eu_documents? do
+        option "yes"
+        option "no"
+
+        next_node do |response|
+          case response
+          when "yes"
+            outcome :outcome_can_rent
+          when "no"
+            question :has_other_documents?
+          end
+        end
+      end
+
+      #Q7
       multiple_choice :tenant_country? do
         option "eu_eea_switzerland"
         option "non_eea_but_with_eu_eea_switzerland_family_member"
@@ -140,6 +175,7 @@ module SmartAnswer
         end
       end
 
+      #Q9
       multiple_choice :has_documents? do
         option "yes"
         option "no"
@@ -154,6 +190,7 @@ module SmartAnswer
         end
       end
 
+      #Q10
       multiple_choice :has_other_documents? do
         option "yes"
         option "no"
@@ -163,11 +200,27 @@ module SmartAnswer
           when "yes"
             outcome :outcome_can_rent
           when "no"
-            question :time_limited_to_remain?
+            question :waiting_for_documents?
           end
         end
       end
 
+      #new Q14
+      multiple_choice :waiting_for_documents? do
+        option "yes"
+        option "no"
+
+        next_node do |response|
+          case response
+          when "yes"
+            outcome :outcome_landlords_checking_service
+          when "no"
+            question :immigration_application?
+          end
+        end
+      end
+
+      #Q14
       multiple_choice :has_asylum_card? do
         option "yes"
         option "no"
@@ -182,6 +235,7 @@ module SmartAnswer
         end
       end
 
+      #Q12
       multiple_choice :time_limited_to_remain? do
         option "yes"
         option "no"
@@ -196,6 +250,7 @@ module SmartAnswer
         end
       end
 
+      #Q15
       multiple_choice :immigration_application? do
         option "yes"
         option "no"
@@ -203,13 +258,14 @@ module SmartAnswer
         next_node do |response|
           case response
           when "yes"
-            outcome :outcome_can_rent_for_12_months
+            outcome :outcome_landlords_checking_service
           when "no"
             outcome :outcome_can_not_rent
           end
         end
       end
 
+      #Q13
       multiple_choice :has_residence_card_or_eu_eea_swiss_family_member? do
         option "yes"
         option "no"
@@ -231,6 +287,7 @@ module SmartAnswer
       outcome :outcome_check_may_be_needed_when_student
       outcome :outcome_check_needed_if_break_clause
       outcome :outcome_check_not_needed
+      outcome :outcome_landlords_checking_service
       outcome :outcome_check_not_needed_if_holiday_or_under_3_months
       outcome :outcome_check_not_needed_when_care_home
       outcome :outcome_check_not_needed_when_employee_home

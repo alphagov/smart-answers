@@ -17,6 +17,8 @@
 - employee_accommodation
 - student_accommodation
 - 7_year_lease_property
+:what_nationality?:
+- eea
 :has_uk_passport?:
 - 'yes'
 - 'no'
@@ -26,17 +28,16 @@
 :has_certificate?:
 - 'yes'
 - 'no'
-:tenant_country?:
-- eu_eea_switzerland
-- non_eea_but_with_eu_eea_switzerland_family_member
-- somewhere_else
+:has_eu_documents?:
+- 'yes'
+- 'no'
 :has_documents?:
 - 'yes'
 - 'no'
 :has_other_documents?:
 - 'yes'
 - 'no'
-:has_asylum_card?:
+:waiting_for_documents?:
 - 'yes'
 - 'no'
 :time_limited_to_remain?:
