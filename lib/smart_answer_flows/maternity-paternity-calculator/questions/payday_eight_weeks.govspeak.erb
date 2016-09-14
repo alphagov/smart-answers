@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :hint do %>
-  If you pay someone earlier or later than their normal payday, for example after a bank holiday or due to a factory closure, use the date you'd normally pay them, not the actual payday.
+  <%= render partial: 'payday_question_hint.govspeak.erb' %>
 <% end %>
 
 <% content_for :error_message do %>
