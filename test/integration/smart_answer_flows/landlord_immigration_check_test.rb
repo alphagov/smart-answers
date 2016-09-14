@@ -129,12 +129,29 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
       assert_current_node :waiting_for_documents?
     end
 
+    should "go to outcome_landlords_checking_service if tenant is waiting for documents" do
+      add_response "eea" # what_nationality?
+      add_response "no" # has_eu_documents?
+      add_response "no" # has_other_documents?
+      add_response "yes" # waiting_for_documents?
+      assert_current_node :outcome_landlords_checking_service
+    end
+
     should "go to immigration_application if tenant isn't waiting for documents" do
       add_response "eea" # what_nationality?
       add_response "no" # has_eu_documents?
       add_response "no" # has_other_documents?
       add_response "no" # waiting_for_documents?
       assert_current_node :immigration_application?
+    end
+
+    should "go to outcome_landlords_checking_service if tenant has special permission to rent from home office" do
+      add_response "eea" # what_nationality?
+      add_response "no" # has_eu_documents?
+      add_response "no" # has_other_documents?
+      add_response "no" # waiting_for_documents?
+      add_response "yes" # immigration_application?
+      assert_current_node :outcome_landlords_checking_service
     end
   end
 end
