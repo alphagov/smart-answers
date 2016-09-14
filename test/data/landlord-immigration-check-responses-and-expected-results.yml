@@ -72,7 +72,7 @@
   - 'no'
   - 'no'
   - 'yes'
-  :next_node: :outcome_can_rent_but_check_will_be_needed_again
+  :next_node: :outcome_landlords_checking_service
   :outcome_node: true
 - :current_node: :waiting_for_documents?
   :responses:
@@ -95,7 +95,7 @@
   - 'no'
   - 'no'
   - 'yes'
-  :next_node: :outcome_can_rent_for_12_months
+  :next_node: :outcome_landlords_checking_service
   :outcome_node: true
 - :current_node: :immigration_application?
   :responses:
