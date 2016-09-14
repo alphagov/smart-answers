@@ -1,6 +1,7 @@
 <% content_for :title do %><%= @presenter.title %><% end %>
 <% content_for :head do %>
 <meta name="robots" content="noindex, nofollow">
+<%= javascript_include_tag 'joint.patch' %>
 <%= javascript_include_tag 'joint' %>
 <%= javascript_include_tag 'joint.layout.DirectedGraph' %>
 <%= javascript_include_tag 'dagre' %>
