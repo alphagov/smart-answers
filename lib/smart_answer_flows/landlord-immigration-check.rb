@@ -213,7 +213,7 @@ module SmartAnswer
         next_node do |response|
           case response
           when "yes"
-            outcome :outcome_can_rent_but_check_will_be_needed_again
+            outcome :outcome_landlords_checking_service
           when "no"
             question :immigration_application?
           end
@@ -258,7 +258,7 @@ module SmartAnswer
         next_node do |response|
           case response
           when "yes"
-            outcome :outcome_can_rent_for_12_months
+            outcome :outcome_landlords_checking_service
           when "no"
             outcome :outcome_can_not_rent
           end
@@ -287,6 +287,7 @@ module SmartAnswer
       outcome :outcome_check_may_be_needed_when_student
       outcome :outcome_check_needed_if_break_clause
       outcome :outcome_check_not_needed
+      outcome :outcome_landlords_checking_service
       outcome :outcome_check_not_needed_if_holiday_or_under_3_months
       outcome :outcome_check_not_needed_when_care_home
       outcome :outcome_check_not_needed_when_employee_home
