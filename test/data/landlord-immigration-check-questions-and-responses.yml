@@ -28,6 +28,9 @@
 :has_certificate?:
 - 'yes'
 - 'no'
+:has_eu_documents?:
+- 'yes'
+- 'no'
 :tenant_country?:
 - eu_eea_switzerland
 - non_eea_but_with_eu_eea_switzerland_family_member
