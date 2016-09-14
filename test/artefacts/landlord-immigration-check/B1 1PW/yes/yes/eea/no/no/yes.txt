@@ -1,10 +1,12 @@
 
 
-This person can currently rent the property.
+You must [check with the Home Office](https://eforms.homeoffice.gov.uk/outreach/lcs-application.ofml) to find out if the tenant is allowed to rent property. You’ll need the person’s Home Office reference number.
 
-You need to make a copy of the [relevant parts of the documents](/check-tenant-right-to-rent-documents).
+You’ll get an answer within 2 working days.
 
-If the tenant's right to stay in the UK is for less than 12 months, check again just before 12 months' time. Otherwise check again just before their right to stay in the UK runs out.
+If the person’s allowed to rent, the Home Office will tell you if you need to check their documents again later.
+
+^You may get a [civil penalty (fine)](/penalties-illegal-renting) if the person isn’t allowed to rent but you still rent your property to them.
 
 You can read the landlord’s [code of practice](/government/publications/right-to-rent-landlords-code-of-practice) on making checks for more information.
 
