@@ -17,6 +17,8 @@
 - employee_accommodation
 - student_accommodation
 - 7_year_lease_property
+:what_nationality?:
+- eea
 :has_uk_passport?:
 - 'yes'
 - 'no'
