@@ -24,35 +24,22 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
     assert_current_node :outcome_check_not_needed
   end
 
-  should "lead to outcome_can_not_rent" do
+  should "lead to main_home" do
     add_response "B1 1PW" # property
-    add_response "yes" # main_home
-    add_response "yes" # tenant_over_18
-    add_response "no" # has_uk_passport
-    add_response "no" # right_to_abode
-    add_response "no" # has_certificate
-    add_response "eu_eea_switzerland" # tenant_country
-    add_response "no" # has_documents
-    add_response "no" # has_other_documents
-    add_response "no" # time_limited_to_remain
-    add_response "no" # has_residence_card_or_eu_eea_swiss_family_member
-    add_response "no" # has_asylum_card
-    add_response "no" # immigration_application
-    assert_current_node :outcome_can_not_rent
+    assert_current_node :main_home?
   end
 
-  should "lead to outcome_can_not_rent" do
+  should "lead to tenant_over_18" do
+    add_response "B1 1PW" # property
+    add_response "yes" # main_home
+    assert_current_node :tenant_over_18?
+  end
+
+  should "lead to what_nationality" do
     add_response "B1 1PW" # property
     add_response "yes" # main_home
     add_response "yes" # tenant_over_18
-    add_response "no" # has_uk_passport
-    add_response "no" # right_to_abode
-    add_response "no" # has_certificate
-    add_response "non_eea_but_with_eu_eea_switzerland_family_member" # tenant_country
-    add_response "no" # has_residence_card_or_eu_eea_swiss_family_member
-    add_response "no" # has_asylum_card
-    add_response "no" # immigration_application
-    assert_current_node :outcome_can_not_rent
+    assert_current_node :what_nationality?
   end
 
   should "lead to outcome_check_not_needed_if_holiday_or_under_3_months" do
@@ -94,7 +81,21 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
     add_response "B1 1PW" # property
     add_response "yes" # main_home
     add_response "yes" # tenant_over_18
+    add_response "eea" # what_nationality
     add_response "yes" # has_uk_passport
     assert_current_node :outcome_can_rent
+  end
+
+
+  context "when tenant is from eea" do
+    setup do
+      add_response "B1 1PW" # property
+      add_response "yes" # main_home
+      add_response "yes" # tenant_over_18
+    end
+
+    should "go to what_nationality outcome" do
+      assert_current_node :what_nationality?
+    end
   end
 end
