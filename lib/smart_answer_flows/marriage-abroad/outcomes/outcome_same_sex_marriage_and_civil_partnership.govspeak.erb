@@ -45,7 +45,7 @@
   <% end %>
 
   <% if calculator.ceremony_country == 'vietnam' %>
-    You and your partner will need to sign a declaration and provide proof of residence eg, an employer’s letter or a bank statement.
+    You and your partner will need to sign a declaration and provide proof of residence eg, an employer’s letter, a bank statement or your Vietnamese visa.
   <% elsif calculator.ceremony_country == 'cambodia' %>
     ##What documents you’ll need
 
@@ -68,6 +68,11 @@
 
     - a [decree absolute or final order](/copy-decree-absolute-final-order)
     - the [death certificate](/order-copy-birth-death-marriage-certificate/)
+
+  <% end %>
+
+  <% if calculator.ceremony_country == 'vietnam' %>
+    You’ll need to get the documents [translated](/government/collections/lists-of-translators-and-interpreters) if they’re not in English and and [‘legalised’](/get-document-legalised) (certified as genuine) by the Ministry of Foreign Affairs in your home country or your country’s embassy in Vietnam.
 
   <% end %>
 
