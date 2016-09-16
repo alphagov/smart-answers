@@ -160,11 +160,7 @@ vietnam:
       - :affidavit_or_affirmation_for_marriage
   same_sex:
     default:
-      partner_other:
-      - :receiving_notice_of_registration
-      - :registering_civil_partnership_or_marriage
-      - :issuing_civil_partnership_or_marriage_certificate
-      partner_british:
+      default:
       - :receiving_notice_of_registration
       - :registering_civil_partnership_or_marriage
       - :issuing_civil_partnership_or_marriage_certificate

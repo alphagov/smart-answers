@@ -26,12 +26,14 @@
                locals: { calculator: calculator } %>
 
   <% elsif calculator.ceremony_country == 'vietnam' %>
-    You’ll need to download and complete the following documents:
+    <% unless calculator.partner_is_national_of_ceremony_country?  %>
+      You’ll need to download and complete the following documents:
+    <% end %>
 
-    <%= render partial: "appointment_documents_in_vietnam.govspeak.erb" %>
+    <%= render partial: "appointment_documents_in_vietnam.govspeak.erb",
+               locals: { calculator: calculator } %>
 
-    The embassy will confirm if your marriage can be registered and give you a link to book a ‘notice of marriage’ appointment online and a reference number. You must quote the reference number when booking your appointment.
-
+      The embassy will confirm if your marriage can be registered and give you a link to book a ‘notice of marriage’ appointment online and a reference number. You must quote the reference number when booking your appointment.
   <% elsif calculator.ceremony_country == 'peru' %>
     <%= render partial: 'contact_method.govspeak.erb', locals: { calculator: calculator } %>
 
@@ -44,12 +46,17 @@
 
   <% end %>
 
-  <% if calculator.ceremony_country == 'vietnam' %>
-    You and your partner will need to sign a declaration and provide proof of residence eg, an employer’s letter or a bank statement.
-  <% elsif calculator.ceremony_country == 'cambodia' %>
-    ##What documents you’ll need
+  <% unless calculator.ceremony_country == 'japan' %>
+    <% if calculator.ceremony_country == 'vietnam' %>
+      <% if calculator.partner_is_national_of_ceremony_country?  %>
+        You and your partner will need to sign a declaration and provide proof of residence eg, an employer’s letter, a bank statement or your Vietnamese visa.
+      <% else %>
+        You and your partner will need to sign a declaration and provide proof of residence eg, an employer’s letter or a bank statement.
+      <% end %>
+    <% elsif calculator.ceremony_country == 'cambodia' %>
+      ##What documents you’ll need
 
-    You’ll both need to bring proof that you’ve been resident in Cambodia for the last 7 days.
+      You’ll both need to bring proof that you’ve been resident in Cambodia for the last 7 days.
   <% else %>
     <%= render partial: 'documents_needed_21_days_residency.govspeak.erb',
          locals: { calculator: calculator } %>
@@ -69,6 +76,13 @@
     - a [decree absolute or final order](/copy-decree-absolute-final-order)
     - the [death certificate](/order-copy-birth-death-marriage-certificate/)
 
+      <% if calculator.ceremony_country == 'vietnam' &&
+          calculator.partner_is_national_of_ceremony_country?  %>
+
+        You’ll need to get the documents [translated](https://www.gov.uk/government/collections/lists-of-translators-and-interpreters) if they’re not in English and and [‘legalised’](https://www.gov.uk/get-document-legalised) (certified as genuine) by the Ministry of Foreign Affairs in your home country or your country’s embassy in Vietnam.
+
+      <% end %>
+    <% end %>
   <% end %>
 
   <% case calculator.marriage_and_partnership_phrases %>

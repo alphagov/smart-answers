@@ -26,7 +26,8 @@
 
   Before booking your appointment, you must complete the following documents:
 
-  <%= render partial: "appointment_documents_in_vietnam.govspeak.erb" %>
+  <%= render partial: "appointment_documents_in_vietnam.govspeak.erb",
+             locals: { calculator: calculator } %>
 
   <%= render partial: 'legalisation_and_translation.govspeak.erb' %>
   <%= render partial: 'affirmation_os_translation_in_local_language_text.govspeak.erb' %>

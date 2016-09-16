@@ -1459,7 +1459,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to all other countries outcome" do
-      assert_current_node :outcome_same_sex_marriage_and_civil_partnership_not_possible
+      assert_current_node :outcome_same_sex_marriage_and_civil_partnership
     end
   end
 

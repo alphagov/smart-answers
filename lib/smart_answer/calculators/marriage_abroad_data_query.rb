@@ -89,7 +89,7 @@ module SmartAnswer::Calculators
 
     def ss_marriage_not_possible?(country_slug, calculator)
       (SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_A.include?(country_slug) && calculator.partner_not_british?) ||
-        ((SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B.include?(country_slug) || %w(cambodia vietnam).include?(country_slug)) && calculator.partner_is_national_of_ceremony_country?) ||
+        ((SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B.include?(country_slug) || %w(cambodia).include?(country_slug)) && calculator.partner_is_national_of_ceremony_country?) ||
         NO_SS_MARRIAGE_COUNTRIES.include?(country_slug)
     end
 
