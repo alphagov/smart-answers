@@ -26,9 +26,9 @@
                locals: { calculator: calculator } %>
 
   <% elsif calculator.ceremony_country == 'vietnam' %>
-    You’ll need to download and complete the following documents:
 
-    <%= render partial: "appointment_documents_in_vietnam.govspeak.erb" %>
+    <%= render partial: "appointment_documents_in_vietnam.govspeak.erb",
+               locals: { calculator: calculator } %>
 
     The embassy will confirm if your marriage can be registered and give you a link to book a ‘notice of marriage’ appointment online and a reference number. You must quote the reference number when booking your appointment.
 
