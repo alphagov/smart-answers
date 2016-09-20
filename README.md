@@ -98,6 +98,14 @@ See:
 * [Viewing state of a Smart Answer](doc/viewing-state.md)
 * [Visualising flows](doc/visualising-flows.md)
 
+### Registering on GOV.UK
+
+- `bundle exec rake panopticon:register` will send smart answers to panopticon. Panopticon will register the URL.
+
+### Search indexing
+
+- `bundle exec rake rummager:index_all` will send the data to Rummager for indexing in search.
+
 ## Licence
 
 [MIT License](./LICENSE.md)
