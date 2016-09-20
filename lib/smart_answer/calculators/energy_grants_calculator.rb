@@ -57,10 +57,6 @@ module SmartAnswer::Calculators
       %w(all_help).include?(which_help)
     end
 
-    def warm_home_discount_amount
-      ''
-    end
-
     def claiming_pension_credit_only_or_child_tax_credit_only?
       benefits_claimed == %w(pension_credit) || benefits_claimed == %w(child_tax_credit)
     end
