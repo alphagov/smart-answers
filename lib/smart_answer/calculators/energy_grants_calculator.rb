@@ -120,10 +120,6 @@ module SmartAnswer::Calculators
       (features & %w(mains_gas solid_wall_insulation)).any?
     end
 
-    def draught_proofing_or_mains_gas?
-      (features & %w(draught_proofing mains_gas)).any?
-    end
-
     def loft_insulation_or_loft_attic_conversion?
       (features & %w(loft_insulation loft_attic_conversion)).any?
     end
