@@ -13,6 +13,8 @@
   <% if calculator.both_help? %>
     <% if calculator.eligible_for_winter_fuel_payment? %>
       - <%= render partial: 'winter_fuel_payments.govspeak.erb' %>
+    <% end %>
+    <% if calculator.eligible_for_cold_weather_payment? %>
       - <%= render partial: 'cold_weather_payment.govspeak.erb' %>
     <% end %>
     <%= render partial: 'smartmeters.govspeak.erb' %>
