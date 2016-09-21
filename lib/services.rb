@@ -2,6 +2,7 @@ require 'gds_api/publishing_api_v2'
 require 'gds_api/imminence'
 require 'gds_api/worldwide'
 require 'gds_api/content_api'
+require 'gds_api/rummager'
 
 module Services
   def self.publishing_api
@@ -21,5 +22,9 @@ module Services
 
   def self.content_api
     @content_api ||= GdsApi::ContentApi.new(Plek.new.find("contentapi"))
+  end
+
+  def self.rummager
+    @rummager ||= GdsApi::Rummager.new(Plek.find("search"))
   end
 end
