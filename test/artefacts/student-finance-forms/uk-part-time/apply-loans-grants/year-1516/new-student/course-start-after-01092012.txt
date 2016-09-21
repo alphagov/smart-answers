@@ -1,7 +1,7 @@
 Student finance - application form
 
 
-To apply for a Tuition Fee Loan, use form PTL1.
+To apply for a Tuition Fee Loan use form PTL1.
 
 Academic Year | Form
 - | -
