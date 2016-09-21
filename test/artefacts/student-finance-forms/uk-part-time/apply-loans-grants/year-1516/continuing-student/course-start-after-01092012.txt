@@ -1,7 +1,7 @@
 Student finance - application form
 
 
-To apply for a Tuition Fee Loan, use form PTLC.
+To apply for a Tuition Fee Loan use form PTLC.
 
 Academic Year | Form
 - | -
