@@ -8,7 +8,7 @@ Contact the relevant local authorities in Bulgaria to find out about local marri
 
 You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
 
-To get a CNI, you must get your documents witnessed in Bulgaria. You can do this at the British embassy in Sofia or in front of a notary public.
+To get a CNI, you must post notice of your intended marriage in Bulgaria. You can do this at the British embassy or in front of a notary public.
 
 CNIs issued in Bulgaria are valid for 6 months.
 
@@ -18,55 +18,22 @@ The British embassy or notary public can take your oath or affirmation and witne
 
 ### Get your documents witnessed in front of a notary public
 
-Download an [‘Affidavit/Affirmation’ form](https://www.gov.uk/government/publications/affirmationaffidavit-of-marital-status-form) and a [‘Notice of Marriage’ form](https://www.gov.uk/government/publications/notice-of-marriage-form--2) and take them with you to a notary public.
+Download a [‘Certificate of no impediment application pack’](/government/publications/certificate-of-no-impediment-application-pack-bulgaria), fill in the forms and take them with you to a notary public.
 
 Once the notary public has witnessed your documents, send the original documents to the British embassy in Sofia:
 
-**British Embassy Sofia**
-
 $A
-Consular section
+British Embassy Sofia
 9, Moskovska St
 1000 Sofia
 Bulgaria
 $A
 
-There’s an additional fee for this - you must complete a [payment form](/government/publications/bulgaria-consular-fees) and email it to the British embassy in Sofia.
-
-$C
-<Consularsection.Sofia@fco.gov.uk>
-$C
-
-The embassy will contact you to confirm that the payment was accepted.
-
-The embassy will display your notice of marriage publicly for 7 days before issuing your CNI.
-
-You can collect the CNI from the embassy or ask for it to be sent by courier to an address in Bulgaria. You’ll need to pay any courier fees.
-
-Make an appointment to collect your CNI at the embassy in Sofia.
-
-^You don’t need to stay in the country while your notice is posted.^
-
-Once you have your CNI, you must contact the Bulgarian Ministry of Foreign Affairs to get it legalised (certified as genuine).
-
-$A
-Bulgarian Ministry of Foreign Affairs
-2 Alfred Nobel Street
-Sofia
-Bulgaria
-$A
-
-$C
-Telephone: (+359) 2 807 64 23
-(+359) 2 807 64 28
-(+359) 2 807 64 26
-$C
-
 ### Get your documents witnessed at the embassy
 
-[Make an appointment at the embassy in Sofia.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-sofia/notice-of-marriage-or-civil-partnership/slot_picker)
+[Make an appointment at the embassy in Sofia](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-sofia/notice-of-marriage-or-civil-partnership/slot_picker)
 
-You’ll need to complete an [‘Affidavit/Affirmation’ form](https://www.gov.uk/government/publications/affirmationaffidavit-of-marital-status-form) and a [‘Notice of Marriage’ form](https://www.gov.uk/government/publications/notice-of-marriage-form--2).
+You’ll need to complete a [‘Notice of marriage’](/government/publications/notice-of-marriage-form--2) form and an [‘Affidavit for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form) form.
 
 You can download and fill in (but not sign) the forms in advance.
 
@@ -75,19 +42,10 @@ You must take the forms with you to your appointment.
 You’ll need to provide supporting documents, including:
 
 - your passport
-- a copy of your partner’s ID
-- proof of residence, eg flight tickets or residence permit - check with the embassy or notary public to find out what you need
+- proof of residence, such as a residence certificate or flight tickets - check with the embassy or notary public to find out what you need
 - equivalent documents for your partner
 
-You’ll need to complete a [‘Notice of marriage’](/government/publications/notice-of-marriage-form--2) form and an [‘Affidavit for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form) form.
-
-You can download and fill in (but not sign) the forms in advance.
-
-You must take the forms with you to your appointment.
-
 %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (for example marriage certificate or deed poll).%
-
-^Your partner will need to follow the same process and pay the fees to get their own CNI.^
 
 If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
 
@@ -99,31 +57,15 @@ If you or your partner have been divorced, widowed or previously in a civil part
 
 ### What happens next
 
-There’s an additional fee for this - you must complete a [payment form](https://www.gov.uk/government/publications/bulgaria-consular-fees) and email it to the British embassy in Sofia.
-
-$C
-<Consularsection.Sofia@fco.gov.uk>
-$C
-
-The embassy will contact you to confirm that the payment was accepted.
-
-The embassy will display your notice of marriage publicly for 7 days before issuing your CNI.
-
-There’s an additional fee for this - you must complete a [payment form](https://www.gov.uk/government/publications/bulgaria-consular-fees) and email it to the British embassy in Sofia.
-
-$C
-<Consularsection.Sofia@fco.gov.uk>
-$C
-
-The embassy will contact you to confirm that the payment was accepted.
+The consulate will display your notice of marriage publicly for 7 days before issuing your CNI.
 
 You can collect the CNI from the embassy or ask for it to be sent by courier to an address in Bulgaria. You’ll need to pay any courier fees.
 
-[Make an appointment to collect your CNI at the embassy in Sofia.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-sofia/certificate-of-no-impediment/slot_picker)
+[Make an appointment to collect your CNI at the embassy in Sofia](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-sofia/certificate-of-no-impediment/slot_picker)
 
 ^You don't need to stay in the country while your notice is posted.^
 
-Once you have your CNI, you must contact the Bulgarian Ministry of Foreign Affairs to get it legalised (certified as genuine).
+Once you have your CNI, contact the Bulgarian Ministry of Foreign Affairs to get it legalised (certified as genuine).
 
 $A
 Bulgarian Ministry of Foreign Affairs
@@ -137,6 +79,8 @@ Telephone: (+359) 2 807 64 23
 (+359) 2 807 64 28
 (+359) 2 807 64 26
 $C
+
+Your partner will be able to get their own equivalent document from their embassy or consulate.
 
 ##Naturalisation of your partner if they move to the UK
 
