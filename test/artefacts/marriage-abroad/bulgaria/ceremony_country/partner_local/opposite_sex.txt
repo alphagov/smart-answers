@@ -50,6 +50,7 @@ Make an appointment to collect your CNI at the embassy in Sofia.
 Once you have your CNI, you must contact the Bulgarian Ministry of Foreign Affairs to get it legalised (certified as genuine).
 
 $A
+Bulgarian Ministry of Foreign Affairs
 2 Alfred Nobel Street
 Sofia
 Bulgaria
@@ -125,6 +126,7 @@ You can collect the CNI from the embassy or ask for it to be sent by courier to 
 Once you have your CNI, you must contact the Bulgarian Ministry of Foreign Affairs to get it legalised (certified as genuine).
 
 $A
+Bulgarian Ministry of Foreign Affairs
 2 Alfred Nobel Street
 Sofia
 Bulgaria
