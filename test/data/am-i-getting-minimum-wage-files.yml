@@ -35,4 +35,4 @@ lib/smart_answer_flows/am-i-getting-minimum-wage/questions/what_would_you_like_t
 lib/smart_answer_flows/shared/minimum_wage_flow.rb: dc87753ecdaa04320b7d8ec75fdac243
 lib/smart_answer_flows/shared/minimum_wage/_acas_information.govspeak.erb: 582cdf982fa5619072ddd883bf4c1555
 lib/smart_answer/calculators/minimum_wage_calculator.rb: a4325b43c5367b7e79cd89ba510719f0
-lib/data/minimum_wage_data.yml: 3eab0fe85f2d8687f486964580df51ff
+lib/data/minimum_wage_data.yml: 1160d79f9281502f60d9c67cbb9286f0
