@@ -30,6 +30,8 @@
   <% end %>
 
   <% if calculator.under_green_deal? && (calculator.eligible_for_winter_fuel_payment? || calculator.eligible_for_cold_weather_payment?) %>
+    <%= render partial: 'header_green_deal.govspeak.erb' %>
+    <%= render partial: 'opt_eco_help.govspeak.erb' %>
     <%= render partial: 'callout_under_green_deal.govspeak.erb' %>
   <% end %>
 
