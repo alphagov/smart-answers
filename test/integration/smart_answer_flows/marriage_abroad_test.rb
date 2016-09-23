@@ -1872,8 +1872,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_other'
       add_response 'same_sex'
     end
-    should "go to outcome_same_sex_marriage_and_civil_partnership" do
-      assert_current_node :outcome_same_sex_marriage_and_civil_partnership
+    should "go to outcome_same_sex_marriage_and_civil_partnership_not_possible" do
+      assert_current_node :outcome_same_sex_marriage_and_civil_partnership_not_possible
     end
   end
 
