@@ -7,7 +7,7 @@ module SmartAnswer::Calculators
 
     def initialize(params = {})
       @age = params[:age]
-      @date = (params[:date].nil? ? Date.today : params[:date])
+      @date = (params[:date].nil? ? date_from_environment_variable : params[:date])
       @basic_hours = params[:basic_hours].to_f
       @basic_pay = params[:basic_pay].to_f
       @is_apprentice = params[:is_apprentice]
@@ -207,6 +207,14 @@ module SmartAnswer::Calculators
 
     def self.historical_minimum_wage_data
       @historical_minimum_wage_data ||= YAML.load_file(Rails.root.join("lib/data/minimum_wage_data.yml"))[:minimum_wage_data]
+    end
+
+    def date_from_environment_variable
+      if ENV['RATES_QUERY_DATE'].present?
+        Date.parse(ENV['RATES_QUERY_DATE'])
+      else
+        Date.today
+      end
     end
   end
 end

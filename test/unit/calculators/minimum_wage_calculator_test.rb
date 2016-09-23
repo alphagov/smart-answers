@@ -864,6 +864,55 @@ module SmartAnswer::Calculators
           end
         end
       end
+
+      context 'from 1 Oct 2016' do
+        setup do
+          @calculator = MinimumWageCalculator.new(date: Date.parse('2016-10-01'))
+        end
+
+        should 'be 4.00 for people aged under 18' do
+          [0, 17].each do |age|
+            @calculator.age = age
+            assert_equal 4.00, @calculator.per_hour_minimum_wage
+          end
+        end
+
+        should 'be 5.55 for people aged between 18 and 20' do
+          [18, 20].each do |age|
+            @calculator.age = age
+            assert_equal 5.55, @calculator.per_hour_minimum_wage
+          end
+        end
+
+        should 'be 6.95 for people aged between 21 and 24' do
+          [21, 24].each do |age|
+            @calculator.age = age
+            assert_equal 6.95, @calculator.per_hour_minimum_wage
+          end
+        end
+
+        should 'be 7.20 for people aged over 25' do
+          [25, 999].each do |age|
+            @calculator.age = age
+            assert_equal 7.20, @calculator.per_hour_minimum_wage
+          end
+        end
+
+        should 'be 3.40 for apprentices' do
+          [0, 17, 18, 20, 21, 24, 25, 999].each do |age|
+            @calculator.age = age
+            @calculator.is_apprentice = true
+            assert_equal 3.40, @calculator.per_hour_minimum_wage
+          end
+        end
+
+        should 'have daily accommodation offset rate of 6.00' do
+          [0, 17, 18, 20, 21, 24, 25, 999].each do |age|
+            @calculator.age = age
+            assert_equal 6.00, @calculator.free_accommodation_rate
+          end
+        end
+      end
     end
 
     context "accommodation adjustment" do
