@@ -1,10 +1,18 @@
 ---
-lib/smart_answer_flows/student-finance-calculator.rb: 28e904e26baeee25d8b91c2f1064bff8
+lib/smart_answer_flows/student-finance-calculator.rb: 62f5d767cc7805b00195fdddee176275
 test/data/student-finance-calculator-questions-and-responses.yml: 8f68ec47644191cd01864ba288acf7ec
-test/data/student-finance-calculator-responses-and-expected-results.yml: 4d17ae39630843d360460ef2131c5980
-lib/smart_answer_flows/student-finance-calculator/outcomes/outcome_eu_students.govspeak.erb: b74eb38ff2a8534fb5fc8b0175fabf68
-lib/smart_answer_flows/student-finance-calculator/outcomes/outcome_uk_all_students.govspeak.erb: 4e5ff3f2736a7f6c34cd9db970bde9bf
-lib/smart_answer_flows/student-finance-calculator/outcomes/outcome_uk_full_time_students.govspeak.erb: bc1e8dea0986af6a5c2763248ce155d7
+test/data/student-finance-calculator-responses-and-expected-results.yml: 385d30fa1dbdf28300ebcd9e404f4160
+lib/smart_answer_flows/student-finance-calculator/outcomes/_disclaimer.govspeak.erb: 01560b7c2a22db8723b9837b785730c0
+lib/smart_answer_flows/student-finance-calculator/outcomes/_full_time_tuition.govspeak.erb: b951f4ce53b04a615f5f479ac6900c96
+lib/smart_answer_flows/student-finance-calculator/outcomes/_next_steps.govspeak.erb: 6d4a15585ec75dd58d1069a668a4a35f
+lib/smart_answer_flows/student-finance-calculator/outcomes/_nhs_full_time_funding.govspeak.erb: 3fff6f44ba95a356227cd7aace1c62dc
+lib/smart_answer_flows/student-finance-calculator/outcomes/_nhs_part_time_funding.govspeak.erb: 65c5cbb6fb28c25fc0ec1548d5b00217
+lib/smart_answer_flows/student-finance-calculator/outcomes/_uk_extra_help.govspeak.erb: 90735fa162ac5423beb796ef2c638d01
+lib/smart_answer_flows/student-finance-calculator/outcomes/outcome_eu_students.govspeak.erb: e449b2c06ca7e1f3b121f23d88df8ec6
+lib/smart_answer_flows/student-finance-calculator/outcomes/outcome_uk_all_students.govspeak.erb: 469c4e9d1af3a1b1aefb9f00fd3c4dcd
+lib/smart_answer_flows/student-finance-calculator/outcomes/outcome_uk_full_time_dental_medical_students.govspeak.erb: e68190e95fbf096d86171767f8197d3c
+lib/smart_answer_flows/student-finance-calculator/outcomes/outcome_uk_full_time_students.govspeak.erb: 9ea9e977fa68d32f0354af5f90420bd5
+lib/smart_answer_flows/student-finance-calculator/outcomes/outcome_uk_part_time_dental_medical_students.govspeak.erb: 696d3b5814fc45a1483c2058ecf73997
 lib/smart_answer_flows/student-finance-calculator/questions/do_any_of_the_following_apply_all_uk_students.govspeak.erb: 8c2e9bacdf528020006c25e5f2a2cf51
 ? lib/smart_answer_flows/student-finance-calculator/questions/do_any_of_the_following_apply_uk_full_time_students_only.govspeak.erb
 : fa31c6646673d651d9c3cadc97d4eb10
@@ -15,4 +23,4 @@ lib/smart_answer_flows/student-finance-calculator/questions/whats_your_household
 lib/smart_answer_flows/student-finance-calculator/questions/when_does_your_course_start.govspeak.erb: 6bec3261a6d560c27912a2760f31b9c0
 lib/smart_answer_flows/student-finance-calculator/questions/where_will_you_live_while_studying.govspeak.erb: 82740b0bb305b19fa7cfa4d5ac4c40dd
 lib/smart_answer_flows/student-finance-calculator/student_finance_calculator.govspeak.erb: 6f4e5b4ad5d05c446b914e4e647647ea
-lib/smart_answer/calculators/student_finance_calculator.rb: 6c9e635410c71888275d77267b7def4b
+lib/smart_answer/calculators/student_finance_calculator.rb: c740930d6e3a536ec5aa33dd04a47249
