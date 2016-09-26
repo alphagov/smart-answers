@@ -22,7 +22,7 @@
     - [Disabled Students' Allowances](/disabled-students-allowances-dsas)
   <% end %>
 
-  In your fifth and sixth years, you'll have to apply for [NHS funding](/nhs-bursaries). You could get the following depending on your circumstances:
+  In your fifth and sixth years, you could get <%= number_to_currency(calculator.reduced_maintenance_loan_for_healthcare, precision: 0) %> reduced Maintenance Loan. You can also apply for [NHS funding](/nhs-bursaries) and get the following depending on your circumstances:
 
   <%= render partial: 'nhs_full_time_funding.govspeak.erb', locals: { uk_ft_circumstances: uk_ft_circumstances, calculator: calculator } %>
 
@@ -30,7 +30,7 @@
 
   ##If you're studying another eligible healthcare course
 
-  Each year you could get the following [NHS funding](/nhs-bursaries):
+  Each year you could get <%= number_to_currency(calculator.reduced_maintenance_loan_for_healthcare, precision: 0) %> reduced Maintenance Loan. You can also apply for [NHS funding](/nhs-bursaries) and get the following depending on your circumstances:
 
   <%= render partial: 'nhs_full_time_funding.govspeak.erb', locals: { uk_ft_circumstances: uk_ft_circumstances, calculator: calculator } %>
 
