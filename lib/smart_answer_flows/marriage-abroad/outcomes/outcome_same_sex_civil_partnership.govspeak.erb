@@ -65,13 +65,21 @@
       <% end %>
     <% else %>
       <%= render partial: 'what_you_need_to_do.govspeak.erb' %>
+      <% if calculator.ceremony_country == "ecuador" %>
+        You’ll be asked for an affirmation or affidavit document to prove that you’re allowed to enter into this partnership.
 
-      You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to enter into a civil partnership or equivalent in <%= calculator.country_name_lowercase_prefix %>.
+        To swear an affirmation or affidavit, [make an appointment at the British Embassy Quito](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-quito/oaths-affirmations-and-affidavits/slot_picker).
 
-      Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.
+        You’ll need to bring your passport and pay a fee.
 
-      <%= render partial: 'contact_method.govspeak.erb',
-                 locals: { calculator: calculator } %>
+      <% else %>
+        You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to enter into a civil partnership or equivalent in <%= calculator.country_name_lowercase_prefix %>.
+
+        Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.
+
+        <%= render partial: 'contact_method.govspeak.erb',
+                   locals: { calculator: calculator } %>
+      <% end %>
     <% end %>
   <% end %>
   <% if calculator.partner_not_british? %>
