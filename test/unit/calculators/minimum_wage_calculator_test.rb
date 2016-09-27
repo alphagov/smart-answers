@@ -956,21 +956,21 @@ module SmartAnswer::Calculators
           @calculator = MinimumWageCalculator.new(date: Date.parse('2016-10-02'))
         end
 
-        should 'be 3.87 for people aged under 18' do
+        should 'be 4.00 for people aged under 18' do
           [0, 17].each do |age|
             @calculator.age = age
             assert_equal 4.00, @calculator.per_hour_minimum_wage
           end
         end
 
-        should 'be 5.30 for people aged between 18 and 20' do
+        should 'be 5.55 for people aged between 18 and 20' do
           [18, 20].each do |age|
             @calculator.age = age
             assert_equal 5.55, @calculator.per_hour_minimum_wage
           end
         end
 
-        should 'be 6.70 for people aged between 21 and 24' do
+        should 'be 6.95 for people aged between 21 and 24' do
           [21, 24].each do |age|
             @calculator.age = age
             assert_equal 6.95, @calculator.per_hour_minimum_wage
