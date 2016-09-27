@@ -70,7 +70,7 @@ module SmartAnswer::Calculators
 
     def minimum_hourly_rate
       if @is_apprentice
-        @minimum_wage_data[:apprentice_rate]
+        apprentice_rate
       else
         per_hour_minimum_wage
       end
@@ -153,11 +153,11 @@ module SmartAnswer::Calculators
     end
 
     def free_accommodation_rate
-      @minimum_wage_data[:accommodation_rate]
+      @minimum_wage_data.accommodation_rate
     end
 
     def apprentice_rate
-      @minimum_wage_data[:apprentice_rate]
+      @minimum_wage_data.apprentice_rate
     end
 
     def national_living_wage_rate
@@ -195,8 +195,7 @@ module SmartAnswer::Calculators
     end
 
     def charged_accomodation_adjustment(charge, number_of_nights)
-      accommodation_rate = @minimum_wage_data[:accommodation_rate]
-      if charge < accommodation_rate
+      if charge < free_accommodation_rate
         0
       else
         (free_accommodation_adjustment(number_of_nights) - (charge * number_of_nights)).round(2)
@@ -206,7 +205,7 @@ module SmartAnswer::Calculators
   private
 
     def rates_for_date(date = Date.today)
-      data.rates(date).to_h
+      data.rates(date)
     end
 
     def data
