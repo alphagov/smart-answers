@@ -804,6 +804,76 @@ module SmartAnswer::Calculators
         assert_equal 5.8, @calculator.per_hour_minimum_wage
       end
 
+      context 'from 1 Oct 2013' do
+        setup do
+          @calculator = MinimumWageCalculator.new(date: Date.parse('2013-10-01'))
+        end
+
+        should 'be 3.72 for people aged under 18' do
+          [0, 17].each do |age|
+            @calculator.age = age
+            assert_equal 3.72, @calculator.per_hour_minimum_wage
+          end
+        end
+
+        should 'be 5.03 for people aged between 18 and 20' do
+          [18, 20].each do |age|
+            @calculator.age = age
+            assert_equal 5.03, @calculator.per_hour_minimum_wage
+          end
+        end
+
+        should 'be 6.31 for people aged over 25' do
+          [25, 999].each do |age|
+            @calculator.age = age
+            assert_equal 6.31, @calculator.per_hour_minimum_wage
+          end
+        end
+
+        should 'have an apprentice rate of 2.68' do
+          assert_equal 2.68, @calculator.apprentice_rate
+        end
+
+        should 'have an accommodation rate of 4.91' do
+          assert_equal 4.91, @calculator.free_accommodation_rate
+        end
+      end
+
+      context 'from 1 Oct 2014' do
+        setup do
+          @calculator = MinimumWageCalculator.new(date: Date.parse('2014-10-01'))
+        end
+
+        should 'be 3.79 for people aged under 18' do
+          [0, 17].each do |age|
+            @calculator.age = age
+            assert_equal 3.79, @calculator.per_hour_minimum_wage
+          end
+        end
+
+        should 'be 5.13 for people aged between 18 and 20' do
+          [18, 20].each do |age|
+            @calculator.age = age
+            assert_equal 5.13, @calculator.per_hour_minimum_wage
+          end
+        end
+
+        should 'be 6.50 for people aged over 25' do
+          [25, 999].each do |age|
+            @calculator.age = age
+            assert_equal 6.50, @calculator.per_hour_minimum_wage
+          end
+        end
+
+        should 'have an apprentice rate of 3.40' do
+          assert_equal 2.73, @calculator.apprentice_rate
+        end
+
+        should 'have an accommodation rate of 5.08' do
+          assert_equal 5.08, @calculator.free_accommodation_rate
+        end
+      end
+
       context 'from 1 Oct 2015' do
         setup do
           @calculator = MinimumWageCalculator.new(date: Date.parse('2015-10-01'))
