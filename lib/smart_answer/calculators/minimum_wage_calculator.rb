@@ -7,7 +7,7 @@ module SmartAnswer::Calculators
 
     def initialize(params = {})
       @age = params[:age]
-      @date = (params[:date].nil? ? Date.today : params[:date])
+      @date = params[:date] || SmartAnswer::DateHelper.current_day
       @basic_hours = params[:basic_hours].to_f
       @basic_pay = params[:basic_pay].to_f
       @is_apprentice = params[:is_apprentice]
