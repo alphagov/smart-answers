@@ -833,6 +833,10 @@ module SmartAnswer::Calculators
         should 'have an apprentice rate of 3.30' do
           assert_equal 3.30, @calculator.apprentice_rate
         end
+
+        should 'have an accommodation rate of 5.35' do
+          assert_equal 5.35, @calculator.free_accommodation_rate
+        end
       end
 
       context 'from 1 Apr 2016' do
@@ -871,6 +875,10 @@ module SmartAnswer::Calculators
         should 'have an apprentice rate of 3.30' do
           assert_equal 3.30, @calculator.apprentice_rate
         end
+
+        should 'have an accommodation rate of 5.35' do
+          assert_equal 5.35, @calculator.free_accommodation_rate
+        end
       end
 
       context 'from 1 Oct 2016' do
@@ -908,6 +916,10 @@ module SmartAnswer::Calculators
 
         should 'have an apprentice rate of 3.40' do
           assert_equal 3.40, @calculator.apprentice_rate
+        end
+
+        should 'have an accommodation rate of 6.0' do
+          assert_equal 6.00, @calculator.free_accommodation_rate
         end
       end
     end
