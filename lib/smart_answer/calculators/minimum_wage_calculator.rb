@@ -161,6 +161,10 @@ module SmartAnswer::Calculators
       @minimum_wage_data[:accommodation_rate]
     end
 
+    def apprentice_rate
+      @minimum_wage_data[:apprentice_rate]
+    end
+
     def national_living_wage_rate
       minimum_hourly_rate
     end

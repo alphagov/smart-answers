@@ -829,6 +829,10 @@ module SmartAnswer::Calculators
             assert_equal 6.70, @calculator.per_hour_minimum_wage
           end
         end
+
+        should 'have an apprentice rate of 3.30' do
+          assert_equal 3.30, @calculator.apprentice_rate
+        end
       end
 
       context 'from 1 Apr 2016' do
@@ -863,6 +867,10 @@ module SmartAnswer::Calculators
             assert_equal 7.20, @calculator.per_hour_minimum_wage
           end
         end
+
+        should 'have an apprentice rate of 3.30' do
+          assert_equal 3.30, @calculator.apprentice_rate
+        end
       end
 
       context 'from 1 Oct 2016' do
@@ -896,6 +904,10 @@ module SmartAnswer::Calculators
             @calculator.age = age
             assert_equal 7.20, @calculator.per_hour_minimum_wage
           end
+        end
+
+        should 'have an apprentice rate of 3.40' do
+          assert_equal 3.40, @calculator.apprentice_rate
         end
       end
     end
