@@ -15,12 +15,12 @@ module SmartAnswer::Calculators
       @overtime_hours = params[:overtime_hours].to_i || 0
       @overtime_hourly_rate = 0
       @accommodation_cost = 0
-      @minimum_wage_data = minimum_wage_data_for_date(@date)
+      @minimum_wage_data = rates_for_date(@date)
     end
 
     def date=(date)
       @date = date
-      @minimum_wage_data = minimum_wage_data_for_date(@date)
+      @minimum_wage_data = rates_for_date(@date)
     end
 
     def valid_age?(age)
@@ -140,7 +140,7 @@ module SmartAnswer::Calculators
     end
 
     def per_hour_minimum_wage(date = @date)
-      data = minimum_wage_data_for_date(date)
+      data = rates_for_date(date)
       if @is_apprentice
         data[:apprentice_rate]
       else
@@ -150,11 +150,6 @@ module SmartAnswer::Calculators
         end
         rate_data[:rate]
       end
-    end
-
-    def minimum_wage_data_for_date(date = Date.today)
-      @rates ||= RatesQuery.from_file('minimum_wage')
-      @rates.rates(date).to_h
     end
 
     def free_accommodation_rate
@@ -206,6 +201,16 @@ module SmartAnswer::Calculators
       else
         (free_accommodation_adjustment(number_of_nights) - (charge * number_of_nights)).round(2)
       end
+    end
+
+  private
+
+    def rates_for_date(date = Date.today)
+      data.rates(date).to_h
+    end
+
+    def data
+      @all_rates ||= RatesQuery.from_file('minimum_wage')
     end
   end
 end
