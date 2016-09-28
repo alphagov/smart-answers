@@ -1,22 +1,14 @@
 
 
 $!
-This is an estimate of your student finance. You must apply to find out exactly what you'll get.
+Your result is an estimate. Usually, you only get student finance if you’re doing your first higher education qualification - [check if you qualify](/student-finance/who-qualifies).
 $!
 
-##Student finance
+Each year you could get the following [NHS funding](/nhs-bursaries):
 
-You could get per year:
-
-- £6,000 [Tuition Fee Loan](/student-finance/parttime-students)
-
-###Extra student funding
-
-You could get:
-
-- [NHS Bursary](/nhs-bursaries) (NHS funding towards your fees and living costs)
-
-^Your result is an estimate. Usually, you only get student finance if you’re doing your first higher education qualification - [check if you qualify](/student-finance/eligibilty).^
+- NHS Bursary (funding towards your fees and living costs)
+- up to £108 a week Extra Weeks Allowance
+- Practice placement expenses
 
 ##Extra help
 
@@ -31,7 +23,7 @@ Use the [Turn2us grant search](http://grants-search.turn2us.org.uk/) to check wh
 ##Your next steps
 
 s1. Find out how to [apply for student finance](/apply-for-student-finance)
-s2. Check if you [qualify for student finance](/student-finance/eligibilty)
+s2. Check if you [qualify for student finance](/student-finance/eligibility)
 
 
 

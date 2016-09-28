@@ -1,7 +1,7 @@
 
 
 $!
-This is an estimate of your student finance. You must apply to find out exactly what you'll get.
+Your result is an estimate. Usually, you only get student finance if you’re doing your first higher education qualification - [check if you qualify](/student-finance/who-qualifies).
 $!
 
 ##Student finance
@@ -16,8 +16,6 @@ You could get:
 
 - [Funding for teacher training](/teacher-training-funding)
 
-^Your result is an estimate. Usually, you only get student finance if you’re doing your first higher education qualification - [check if you qualify](/student-finance/eligibilty).^
-
 ##Extra help
 
 You could get a [bursary or scholarship](/extra-money-pay-university) from your university or college.
@@ -31,7 +29,7 @@ Use the [Turn2us grant search](http://grants-search.turn2us.org.uk/) to check wh
 ##Your next steps
 
 s1. Find out how to [apply for student finance](/apply-for-student-finance)
-s2. Check if you [qualify for student finance](/student-finance/eligibilty)
+s2. Check if you [qualify for student finance](/student-finance/eligibility)
 
 
 

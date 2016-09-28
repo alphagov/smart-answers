@@ -328,6 +328,38 @@ module SmartAnswer
             assert_equal Money.new(5205).to_s, calculator.maintenance_loan_amount.to_s
           end
         end
+
+        context "#reduced_maintenance_loan_for_healthcare" do
+          should "be £3263 for students living away from home in London" do
+            calculator = StudentFinanceCalculator.new(
+              course_start: @course_start,
+              household_income: @household_income,
+              residence: 'away-in-london'
+            )
+
+            assert_equal 3263, calculator.reduced_maintenance_loan_for_healthcare
+          end
+
+          should "be £2324 for students living away from home outside London" do
+            calculator = StudentFinanceCalculator.new(
+              course_start: @course_start,
+              household_income: @household_income,
+              residence: 'away-outside-london'
+            )
+
+            assert_equal 2324, calculator.reduced_maintenance_loan_for_healthcare
+          end
+
+          should "be £1744 for students living away from home outside London" do
+            calculator = StudentFinanceCalculator.new(
+              course_start: @course_start,
+              household_income: @household_income,
+              residence: 'at-home'
+            )
+
+            assert_equal 1744, calculator.reduced_maintenance_loan_for_healthcare
+          end
+        end
       end
     end
   end
