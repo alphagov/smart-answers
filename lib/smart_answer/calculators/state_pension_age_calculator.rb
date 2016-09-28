@@ -56,6 +56,10 @@ module SmartAnswer::Calculators
       dob < 16.years.ago
     end
 
+    def how_to_claim_url
+      old_state_pension? ? '/state-pension/how-to-claim' : '/new-state-pension/how-to-claim'
+    end
+
   private
 
     def earliest_application_date
