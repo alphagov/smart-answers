@@ -157,10 +157,8 @@ module SmartAnswer
             elsif calculator.ceremony_country == 'bulgaria'
               if calculator.resident_of_uk?
                 outcome :outcome_opposite_sex_marriage_in_bulgaria_when_residing_in_uk
-              elsif calculator.resident_of_ceremony_country?
-                outcome :outcome_opposite_sex_marriage_in_bulgaria_when_residing_in_bulgaria
               else
-                outcome :outcome_opposite_sex_marriage_in_bulgaria_when_residing_in_third_country
+                outcome :outcome_opposite_sex_marriage_in_bulgaria_when_residing_in_bulgaria_or_third_country
               end
             elsif calculator.resident_of_third_country? &&
                 (
@@ -341,8 +339,7 @@ module SmartAnswer
       outcome :outcome_opposite_sex_marriage_in_british_indian_ocean_territory
       outcome :outcome_opposite_sex_marriage_in_british_overseas_territory
       outcome :outcome_opposite_sex_marriage_in_british_virgin_islands
-      outcome :outcome_opposite_sex_marriage_in_bulgaria_when_residing_in_bulgaria
-      outcome :outcome_opposite_sex_marriage_in_bulgaria_when_residing_in_third_country
+      outcome :outcome_opposite_sex_marriage_in_bulgaria_when_residing_in_bulgaria_or_third_country
       outcome :outcome_opposite_sex_marriage_in_bulgaria_when_residing_in_uk
       outcome :outcome_opposite_sex_marriage_in_burma
       outcome :outcome_opposite_sex_marriage_in_cambodia
