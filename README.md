@@ -104,7 +104,7 @@ See:
 
 ### Search indexing
 
-- `bundle exec rake rummager:index_all` will send the data to Rummager for indexing in search.
+- `bundle exec rake rummager:index` will send the data to Rummager for indexing in search.
 
 ## Licence
 
