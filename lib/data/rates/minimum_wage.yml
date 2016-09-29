@@ -1,5 +1,4 @@
 ---
-:minimum_wage_data:
 - :start_date: 2006-10-01
   :end_date: 2007-09-30
   :minimum_rates:
@@ -141,7 +140,7 @@
   :apprentice_rate: 3.30
   :accommodation_rate: 5.35
 - :start_date: 2016-04-01
-  :end_date: 2999-09-30
+  :end_date: 2016-09-30
   :minimum_rates:
   - :min_age: 0
     :max_age: 18
@@ -157,3 +156,20 @@
     :rate: 7.20
   :apprentice_rate: 3.30
   :accommodation_rate: 5.35
+- :start_date: 2016-10-01
+  :end_date: 3000-01-01
+  :minimum_rates:
+  - :min_age: 0
+    :max_age: 18
+    :rate: 4.00
+  - :min_age: 18
+    :max_age: 21
+    :rate: 5.55
+  - :min_age: 21
+    :max_age: 25
+    :rate: 6.95
+  - :min_age: 25
+    :max_age: 1000
+    :rate: 7.20
+  :apprentice_rate: 3.40
+  :accommodation_rate: 6.00
