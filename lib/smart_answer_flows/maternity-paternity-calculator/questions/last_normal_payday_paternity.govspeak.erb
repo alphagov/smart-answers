@@ -2,6 +2,10 @@
   What was the last normal payday on or before <%= to_saturday_formatted %>
 <% end %>
 
+<% content_for :hint do %>
+  <%= render partial: 'payday_question_hint.govspeak.erb' %>
+<% end %>
+
 <% content_for :error_message do %>
   You must enter a date on or before <%= to_saturday_formatted %>
 <% end %>

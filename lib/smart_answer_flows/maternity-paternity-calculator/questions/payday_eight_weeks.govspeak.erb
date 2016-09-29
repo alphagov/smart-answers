@@ -2,6 +2,10 @@
   What was the last normal payday before <%= payday_offset_formatted %>?
 <% end %>
 
+<% content_for :hint do %>
+  <%= render partial: 'payday_question_hint.govspeak.erb' %>
+<% end %>
+
 <% content_for :error_message do %>
   You must enter a date before <%= payday_offset_formatted %>
 <% end %>
