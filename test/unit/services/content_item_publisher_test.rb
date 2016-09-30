@@ -10,7 +10,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
     draft_request = stub_request(:put, "http://publishing-api.dev.gov.uk/v2/content/3e6f33b8-0723-4dd5-94a2-cab06f23a685")
     publishing_request = stub_request(:post, "http://publishing-api.dev.gov.uk/v2/content/3e6f33b8-0723-4dd5-94a2-cab06f23a685/publish")
 
-    presenter = FlowRegistrationPresenter.new(stub('flow', name: 'bridge-of-death', content_id: '3e6f33b8-0723-4dd5-94a2-cab06f23a685'))
+    presenter = FlowRegistrationPresenter.new(stub('flow', name: 'bridge-of-death', content_id: '3e6f33b8-0723-4dd5-94a2-cab06f23a685', external_related_links: []))
 
     ContentItemPublisher.new.publish([presenter])
 
