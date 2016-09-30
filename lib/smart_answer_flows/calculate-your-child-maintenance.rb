@@ -5,6 +5,16 @@ module SmartAnswer
       name 'calculate-your-child-maintenance'
       status :published
       satisfies_need "100147"
+      external_related_links [
+        {
+          title: "Child Maintenance Options - How much should be paid",
+          url: "http://www.cmoptions.org/en/maintenance/how-much.asp"
+        },
+        {
+          title: "Child Maintenance Options - Ways to pay",
+          url: "http://www.cmoptions.org/en/maintenance/ways-to-pay.asp"
+        },
+      ]
 
       ## Q0
       multiple_choice :are_you_paying_or_receiving? do
