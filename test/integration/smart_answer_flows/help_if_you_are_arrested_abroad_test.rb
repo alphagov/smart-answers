@@ -69,16 +69,6 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
     end # context: country with specific info
   end # context: non special case
 
-  context "In Iran" do
-    setup do
-      add_response :iran
-    end
-
-    should "take them to the special Iran outcome" do
-      assert_current_node :answer_two_iran
-    end
-  end
-
   context "In Syria" do
     setup do
       add_response :syria
