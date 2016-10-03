@@ -1,10 +1,10 @@
 Has the person proved they’re an EU, EEA or Swiss national by showing you their current or expired:
 
 - passport or national identity card
-- UK registration certificate or document, eg a residence card
+- UK registration certificate marked 'Residence documentation'
 
 
-
+The registration certificate can be in their passport, or on a pink or blue document from the Home Office.
 
   * yes: Yes
   * no: No
