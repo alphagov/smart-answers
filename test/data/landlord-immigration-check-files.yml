@@ -20,7 +20,7 @@ lib/smart_answer_flows/landlord-immigration-check/questions/has_asylum_card.govs
 lib/smart_answer_flows/landlord-immigration-check/questions/has_certificate.govspeak.erb: c670d7bc733232a394b4caa93a6aefb9
 lib/smart_answer_flows/landlord-immigration-check/questions/has_documents.govspeak.erb: ea1250a0013c28b4a7cbcb0337219e16
 lib/smart_answer_flows/landlord-immigration-check/questions/has_eu_documents.govspeak.erb: c9020cccaea9930824d73d2b4e70431f
-lib/smart_answer_flows/landlord-immigration-check/questions/has_other_documents.govspeak.erb: 0ac75c9bf28a5237621c21b3a4657840
+lib/smart_answer_flows/landlord-immigration-check/questions/has_other_documents.govspeak.erb: 6a7bb30a33fa570f75d3aaca86594f1d
 lib/smart_answer_flows/landlord-immigration-check/questions/has_residence_card_or_eu_eea_swiss_family_member.govspeak.erb: 566627594105a24069451ab40f540846
 lib/smart_answer_flows/landlord-immigration-check/questions/has_uk_passport.govspeak.erb: 294e10196ecf02efcc75eea4fd8c966c
 lib/smart_answer_flows/landlord-immigration-check/questions/immigration_application.govspeak.erb: 7107f59aa5812bb3f5a88244fe6e3412
