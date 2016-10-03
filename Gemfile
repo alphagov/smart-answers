@@ -6,7 +6,7 @@ gem 'rails', '~> 4.2.7'
 
 gem 'airbrake', '4.1.0'
 gem 'ast'
-gem 'gds-api-adapters', '~> 30.6'
+gem 'gds-api-adapters', '~> 36.4.0'
 gem 'govspeak', '~> 3.3.0'
 gem 'govuk-content-schema-test-helpers', '~> 1.3.0'
 gem 'govuk_frontend_toolkit', '4.14.0'
