@@ -77,9 +77,7 @@ module SmartAnswer
         end
 
         next_node do |response|
-          if response == "iran"
-            outcome :answer_two_iran
-          elsif response == "syria"
+          if response == "syria"
             outcome :answer_three_syria
           else
             outcome :answer_one_generic
@@ -96,8 +94,6 @@ module SmartAnswer
           region_links.join("\n")
         end
       end
-
-      outcome :answer_two_iran
 
       outcome :answer_three_syria
     end
