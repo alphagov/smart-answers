@@ -37,11 +37,6 @@ module SmartAnswer
       self.need_id = need_id
     end
 
-    def external_related_links(external_related_links = nil)
-      @external_related_links = external_related_links unless external_related_links.nil?
-      @external_related_links
-    end
-
     def draft?
       status == :draft
     end
