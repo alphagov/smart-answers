@@ -1,4 +1,4 @@
-Minimum wage calculator for employers
+National Minimum Wage and Living Wage calculator for employers
 
 Check if:
 
