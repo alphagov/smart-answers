@@ -58,6 +58,18 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
     end
   end
 
+  context "#external_related_links" do
+    should "return the external_related_links" do
+      @flow.external_related_links([title: 'a-title', url: 'a-description'])
+
+      assert_equal [title: 'a-title', url: 'a-description'], @presenter.external_related_links
+    end
+
+    should "return empty list if no external links" do
+      assert_equal [], @presenter.external_related_links
+    end
+  end
+
   context "indexable_content" do
     should "include all question node titles" do
       @content = @presenter.indexable_content
