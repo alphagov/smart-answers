@@ -1,4 +1,4 @@
-Minimum wage calculator for workers
+National Minimum Wage and Living Wage calculator for workers
 
 Check if:
 
