@@ -9,7 +9,9 @@ class FlowContentItem
     {
       base_path: base_path,
       title: flow_presenter.title,
-      details: {},
+      details: {
+          external_related_links: external_related_links
+      },
       schema_name: 'placeholder_smart_answer',
       document_type: 'smartanswer_document',
       publishing_app: 'smartanswers',
@@ -30,5 +32,9 @@ private
 
   def base_path
     '/' + flow_presenter.slug
+  end
+
+  def external_related_links
+    flow_presenter.external_related_links
   end
 end
