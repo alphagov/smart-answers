@@ -1,10 +1,11 @@
-Enter your postcode
-
-eg SW1A 2AA
+Do you receive Housing Benefit?
 
 
 
 
+
+  * yes: Yes
+  * no: No
 
 
 

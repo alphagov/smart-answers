@@ -1,12 +1,11 @@
-Are you:
+Do you receive Housing Benefit?
 
 
 
 
 
-  * single: Single
-  * couple: Living as a couple (with or without children)
-  * parent: A lone parent with one or more dependent children
+  * yes: Yes
+  * no: No
 
 
 

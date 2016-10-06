@@ -1,9 +1,11 @@
-How much do you or someone in your household get for Carer's Allowance?
+Do you receive Housing Benefit?
 
 
 
-You need the whole amount before anything is taken off (eg utility bills or loan repayments) per week. You must enter the full amount you get for each benefit.
 
+
+  * yes: Yes
+  * no: No
 
 
 

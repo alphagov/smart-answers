@@ -1,8 +1,8 @@
-Do you qualify for Working Tax Credit?
+Do you receive Housing Benefit?
 
 
 
-You don't need to be getting Working Tax Credit, only qualify for it.
+
 
   * yes: Yes
   * no: No
