@@ -28,9 +28,9 @@ lib/smart_answer_flows/benefit-cap-calculator/questions/jsa_amount.govspeak.erb:
 lib/smart_answer_flows/benefit-cap-calculator/questions/maternity_amount.govspeak.erb: 596e15e7ae07174ca4a5b0ca179df8c0
 lib/smart_answer_flows/benefit-cap-calculator/questions/receive_housing_benefit.govspeak.erb: d5eaf64a3eac78bfc0924f6a4ea3030d
 lib/smart_answer_flows/benefit-cap-calculator/questions/receiving_exemption_benefits.govspeak.erb: 55b55fb2efb3a96ccb31ecca6427539d
-lib/smart_answer_flows/benefit-cap-calculator/questions/receiving_non_exemption_benefits_future.govspeak.erb: 8d0fe6ac62cae963d35b674f996375d1
+lib/smart_answer_flows/benefit-cap-calculator/questions/receiving_non_exemption_benefits.govspeak.erb: 8d0fe6ac62cae963d35b674f996375d1
 lib/smart_answer_flows/benefit-cap-calculator/questions/sda_amount.govspeak.erb: db8c57855d8f2f87c060dbd28f6ce4da
-lib/smart_answer_flows/benefit-cap-calculator/questions/single_couple_lone_parent_future.govspeak.erb: edbfa6496d8191e1ccfd3608e12585c7
+lib/smart_answer_flows/benefit-cap-calculator/questions/single_couple_lone_parent.govspeak.erb: edbfa6496d8191e1ccfd3608e12585c7
 lib/smart_answer_flows/benefit-cap-calculator/questions/widow_pension_amount.govspeak.erb: 4facc5d491b403d2e87b6672b2ac5f96
 lib/smart_answer_flows/benefit-cap-calculator/questions/widowed_mother_amount.govspeak.erb: 7a6a57d92c0461042875c4064e55ae39
 lib/smart_answer_flows/benefit-cap-calculator/questions/widowed_parent_amount.govspeak.erb: 7355088c4cbc00513807d90b1930ff5c
