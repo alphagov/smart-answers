@@ -8,18 +8,6 @@ module SmartAnswer
 
       config = Calculators::BenefitCapCalculatorConfiguration.new
 
-      # Routing question
-      multiple_choice :choose_cap_to_calculate? do
-        option :default
-        option :future
-
-        save_input_as :chosen_cap
-
-        next_node do
-          question :receive_housing_benefit?
-        end
-      end
-
       # Q1
       multiple_choice :receive_housing_benefit? do
         option :yes
