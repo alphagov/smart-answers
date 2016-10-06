@@ -19,7 +19,7 @@ module SmartAnswer
           if response == 'yes'
             question :working_tax_credit?
           else
-            outcome :outcome_not_affected_no_housing_benefit_future
+            outcome :outcome_not_affected_no_housing_benefit
           end
         end
       end
@@ -35,7 +35,7 @@ module SmartAnswer
 
         next_node do |response|
           if response == 'yes'
-            outcome :outcome_not_affected_exemptions_future
+            outcome :outcome_not_affected_exemptions
           else
             question :receiving_exemption_benefits?
           end
@@ -61,7 +61,7 @@ module SmartAnswer
 
         next_node do |response|
           if response == 'yes'
-            outcome :outcome_not_affected_exemptions_future
+            outcome :outcome_not_affected_exemptions
           else
             question :receiving_non_exemption_benefits?
           end
@@ -70,7 +70,7 @@ module SmartAnswer
 
       #Q4
       checkbox_question :receiving_non_exemption_benefits? do
-        config.benefits(:future).keys.each do |benefit|
+        config.benefits(:default).keys.each do |benefit|
           option benefit
         end
 
@@ -123,7 +123,7 @@ module SmartAnswer
           config.weekly_benefit_cap_descriptions(:default)
         end
 
-        config.weekly_benefit_caps(:future).keys.each do |weekly_benefit_cap|
+        config.weekly_benefit_caps(:default).keys.each do |weekly_benefit_cap|
           option weekly_benefit_cap
         end
 
@@ -152,15 +152,15 @@ module SmartAnswer
           region = config.region(response)
           if total_benefits > config.weekly_benefit_cap_amount(:default, family_type, region)
             if region == :london
-              outcome :outcome_affected_greater_than_cap_future_london
+              outcome :outcome_affected_greater_than_cap_london
             else
-              outcome :outcome_affected_greater_than_cap_future_national
+              outcome :outcome_affected_greater_than_cap_national
             end
           else
             if region == :london
-              outcome :outcome_not_affected_less_than_cap_future_london
+              outcome :outcome_not_affected_less_than_cap_london
             else
-              outcome :outcome_not_affected_less_than_cap_future_national
+              outcome :outcome_not_affected_less_than_cap_national
             end
           end
         end
@@ -170,31 +170,12 @@ module SmartAnswer
 
       ## Outcome 1
       outcome :outcome_not_affected_exemptions
-      ## Outcome 6
-      outcome :outcome_not_affected_exemptions_future
 
       ## Outcome 2
       outcome :outcome_not_affected_no_housing_benefit
-      ## Outcome 7
-      outcome :outcome_not_affected_no_housing_benefit_future
-
-      ## Outcome 3
-      outcome :outcome_affected_greater_than_cap do
-        precalculate :new_housing_benefit_amount do
-          housing_benefit_amount.to_f - total_over_cap.to_f
-        end
-
-        precalculate :new_housing_benefit do
-          amount = sprintf("%.2f", new_housing_benefit_amount)
-          if amount < "0.5"
-            amount = sprintf("%.2f", 0.5)
-          end
-          amount
-        end
-      end
 
       ## Outcome 8
-      outcome :outcome_affected_greater_than_cap_future_london do
+      outcome :outcome_affected_greater_than_cap_london do
         precalculate :new_housing_benefit_amount do
           housing_benefit_amount.to_f - total_over_cap.to_f
         end
@@ -209,7 +190,7 @@ module SmartAnswer
       end
 
       ## Outcome 10
-      outcome :outcome_affected_greater_than_cap_future_national do
+      outcome :outcome_affected_greater_than_cap_national do
         precalculate :new_housing_benefit_amount do
           housing_benefit_amount.to_f - total_over_cap.to_f
         end
@@ -223,12 +204,10 @@ module SmartAnswer
         end
       end
 
-      ## Outcome 4
-      outcome :outcome_not_affected_less_than_cap
       ## Outcome 9
-      outcome :outcome_not_affected_less_than_cap_future_london
+      outcome :outcome_not_affected_less_than_cap_london
       ## Outcome 11
-      outcome :outcome_not_affected_less_than_cap_future_national
+      outcome :outcome_not_affected_less_than_cap_national
     end
 
     def self.next_benefit_amount_question(benefits, selected_benefits)
