@@ -1,5 +1,5 @@
 ---
-future:
+default:
   weekly_benefit_caps:
     national:
       single:
