@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/benefit-cap-calculator.rb: f6f015a531e7da33b622b584add9090e
+lib/smart_answer_flows/benefit-cap-calculator.rb: 2c8923df8d7bee0216dd9b1e5f7c7e90
 test/data/benefit-cap-calculator-questions-and-responses.yml: c49cc1cdb19e8b0e46f3a8146d83e0ef
 test/data/benefit-cap-calculator-responses-and-expected-results.yml: 79e2ce032529e01911e3f50946f510bc
 lib/smart_answer_flows/benefit-cap-calculator/benefit_cap_calculator.govspeak.erb: ce5203f11989c0b35bd9c53ade1f3f82

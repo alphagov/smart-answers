@@ -63,32 +63,13 @@ module SmartAnswer
           if response == 'yes'
             outcome :outcome_not_affected_exemptions_future
           else
-            question :receiving_non_exemption_benefits_future?
+            question :receiving_non_exemption_benefits?
           end
         end
       end
 
-      #Q4 default flow
+      #Q4
       checkbox_question :receiving_non_exemption_benefits? do
-        config.benefits(:default).keys.each do |benefit|
-          option benefit
-        end
-
-        on_response do |response|
-          self.benefit_types = response.split(",").map(&:to_sym)
-        end
-
-        next_node do |response|
-          if response == "none"
-            question :housing_benefit_amount?
-          else
-            question BenefitCapCalculatorFlow.next_benefit_amount_question(config.questions(:default), benefit_types)
-          end
-        end
-      end
-
-      #Q4 future flow
-      checkbox_question :receiving_non_exemption_benefits_future? do
         config.benefits(:future).keys.each do |benefit|
           option benefit
         end
@@ -132,43 +113,12 @@ module SmartAnswer
         end
 
         next_node do
-          question :single_couple_lone_parent_future?
+          question :single_couple_lone_parent?
         end
       end
 
-      #Q6 current flow
+      #Q6
       multiple_choice :single_couple_lone_parent? do
-        precalculate :weekly_benefit_cap_descriptions do
-          config.weekly_benefit_cap_descriptions(:default)
-        end
-
-        config.weekly_benefit_caps(:default).keys.each do |weekly_benefit_cap|
-          option weekly_benefit_cap
-        end
-
-        calculate :benefit_cap do |response|
-          sprintf("%.2f", config.weekly_benefit_cap_amount(:default, response))
-        end
-
-        calculate :total_benefits_amount do
-          sprintf("%.2f", total_benefits)
-        end
-
-        calculate :total_over_cap do
-          sprintf("%.2f", (total_benefits.to_f - benefit_cap.to_f))
-        end
-
-        next_node do |response|
-          if total_benefits > config.weekly_benefit_cap_amount(:default, response)
-            outcome :outcome_affected_greater_than_cap
-          else
-            outcome :outcome_not_affected_less_than_cap
-          end
-        end
-      end
-
-      #Q6 future
-      multiple_choice :single_couple_lone_parent_future? do
         precalculate :weekly_benefit_cap_descriptions do
           config.weekly_benefit_cap_descriptions(:default)
         end
@@ -184,7 +134,7 @@ module SmartAnswer
         end
       end
 
-      #Q7 Future flow - Enter a postcode
+      #Q7 Enter a postcode
       postcode_question :enter_postcode? do
         calculate :benefit_cap do |response|
           sprintf("%.2f", config.weekly_benefit_cap_amount(:default, family_type, config.region(response)))
