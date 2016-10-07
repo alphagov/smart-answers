@@ -11,14 +11,14 @@ module SmartAnswer::Calculators
       end
 
       context "national weekly_benefit_caps" do
-        should "be £350 for a single person" do
-          assert_equal 350, @config.weekly_benefit_cap_amount(:default, :single)
+        should "be £257.69 for a single person" do
+          assert_equal 257.69, @config.weekly_benefit_cap_amount(:default, :single)
         end
-        should "be £500 for a couple with or without children" do
-          assert_equal 500, @config.weekly_benefit_cap_amount(:default, :couple)
+        should "be £384.62 for a couple with or without children" do
+          assert_equal 384.62, @config.weekly_benefit_cap_amount(:default, :couple)
         end
-        should "be £500 for a lone parent" do
-          assert_equal 500, @config.weekly_benefit_cap_amount(:default, :parent)
+        should "be £384.62 for a lone parent" do
+          assert_equal 384.62, @config.weekly_benefit_cap_amount(:default, :parent)
         end
       end
 
