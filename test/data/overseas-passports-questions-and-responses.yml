@@ -27,6 +27,7 @@
 - the-occupied-palestinian-territories # which_opt?
 - timor-leste # send_application_#{current_location}
 - tunisia
+- turks-and-caicos-islands
 - venezuela # passport_costs_pay_at_appointment
 - western-sahara # send_application_uk_visa_renew_new_colour_western_sahara
 - yemen # cannot_apply
@@ -45,3 +46,4 @@
 :country_of_birth?:
 - afghanistan # supporting_documents
 - south-africa # birth_certificate_#{birth_location}
+- turks-and-caicos-islands
