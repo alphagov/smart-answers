@@ -120,6 +120,15 @@
   - mother
   - 'yes'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - afghanistan
+  - mother
+  - 'yes'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -270,6 +279,15 @@
   - 'yes'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - afghanistan
+  - father
+  - 'yes'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -447,6 +465,15 @@
   - 'yes'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - afghanistan
+  - mother_and_father
+  - 'yes'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -624,6 +651,15 @@
   - mother
   - 'yes'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - algeria
+  - mother
+  - 'yes'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -737,6 +773,15 @@
   - 'no'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - algeria
+  - mother
+  - 'no'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -864,6 +909,15 @@
   - 'yes'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - algeria
+  - father
+  - 'yes'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -1021,6 +1075,16 @@
   - 'no'
   - '2015-02-02'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - algeria
+  - father
+  - 'no'
+  - '2015-02-02'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -1149,6 +1213,15 @@
   - mother_and_father
   - 'yes'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - algeria
+  - mother_and_father
+  - 'yes'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -1262,6 +1335,15 @@
   - 'no'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - algeria
+  - mother_and_father
+  - 'no'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -1423,6 +1505,15 @@
   - mother
   - 'yes'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - morocco
+  - mother
+  - 'yes'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -1536,6 +1627,15 @@
   - 'no'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - morocco
+  - mother
+  - 'no'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -1663,6 +1763,15 @@
   - 'yes'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - morocco
+  - father
+  - 'yes'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -1820,6 +1929,16 @@
   - 'no'
   - '2015-02-02'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - morocco
+  - father
+  - 'no'
+  - '2015-02-02'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -1948,6 +2067,15 @@
   - mother_and_father
   - 'yes'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - morocco
+  - mother_and_father
+  - 'yes'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -2061,6 +2189,15 @@
   - 'no'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - morocco
+  - mother_and_father
+  - 'no'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -2207,6 +2344,15 @@
   - mother
   - 'yes'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - north-korea
+  - mother
+  - 'yes'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -2320,6 +2466,15 @@
   - 'no'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - north-korea
+  - mother
+  - 'no'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -2447,6 +2602,15 @@
   - 'yes'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - north-korea
+  - father
+  - 'yes'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -2604,6 +2768,16 @@
   - 'no'
   - '2015-02-02'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - north-korea
+  - father
+  - 'no'
+  - '2015-02-02'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -2732,6 +2906,15 @@
   - mother_and_father
   - 'yes'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - north-korea
+  - mother_and_father
+  - 'yes'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -2845,6 +3028,15 @@
   - 'no'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - north-korea
+  - mother_and_father
+  - 'no'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -2991,6 +3183,15 @@
   - mother
   - 'yes'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - papua-new-guinea
+  - mother
+  - 'yes'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -3104,6 +3305,15 @@
   - 'no'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - papua-new-guinea
+  - mother
+  - 'no'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -3231,6 +3441,15 @@
   - 'yes'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - papua-new-guinea
+  - father
+  - 'yes'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -3388,6 +3607,16 @@
   - 'no'
   - '2015-02-02'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - papua-new-guinea
+  - father
+  - 'no'
+  - '2015-02-02'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -3516,6 +3745,15 @@
   - mother_and_father
   - 'yes'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - papua-new-guinea
+  - mother_and_father
+  - 'yes'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -3629,6 +3867,15 @@
   - 'no'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - papua-new-guinea
+  - mother_and_father
+  - 'no'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -3775,6 +4022,15 @@
   - mother
   - 'yes'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - philippines
+  - mother
+  - 'yes'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -3888,6 +4144,15 @@
   - 'no'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - philippines
+  - mother
+  - 'no'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -4015,6 +4280,15 @@
   - 'yes'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - philippines
+  - father
+  - 'yes'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -4172,6 +4446,16 @@
   - 'no'
   - '2015-02-02'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - philippines
+  - father
+  - 'no'
+  - '2015-02-02'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -4300,6 +4584,15 @@
   - mother_and_father
   - 'yes'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - philippines
+  - mother_and_father
+  - 'yes'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -4413,6 +4706,15 @@
   - 'no'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - philippines
+  - mother_and_father
+  - 'no'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -4559,6 +4861,15 @@
   - mother
   - 'yes'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - sierra-leone
+  - mother
+  - 'yes'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -4672,6 +4983,15 @@
   - 'no'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - sierra-leone
+  - mother
+  - 'no'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -4799,6 +5119,15 @@
   - 'yes'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - sierra-leone
+  - father
+  - 'yes'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -4956,6 +5285,16 @@
   - 'no'
   - '2015-02-02'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - sierra-leone
+  - father
+  - 'no'
+  - '2015-02-02'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -5084,6 +5423,15 @@
   - mother_and_father
   - 'yes'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - sierra-leone
+  - mother_and_father
+  - 'yes'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -5197,6 +5545,15 @@
   - 'no'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - sierra-leone
+  - mother_and_father
+  - 'no'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -5348,6 +5705,15 @@
   - mother
   - 'yes'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - sudan
+  - mother
+  - 'yes'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -5461,6 +5827,15 @@
   - 'no'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - sudan
+  - mother
+  - 'no'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -5588,6 +5963,15 @@
   - 'yes'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - sudan
+  - father
+  - 'yes'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -5745,6 +6129,16 @@
   - 'no'
   - '2015-02-02'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - sudan
+  - father
+  - 'no'
+  - '2015-02-02'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -5873,6 +6267,15 @@
   - mother_and_father
   - 'yes'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - sudan
+  - mother_and_father
+  - 'yes'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -5986,6 +6389,15 @@
   - 'no'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - sudan
+  - mother_and_father
+  - 'no'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -6132,6 +6544,15 @@
   - mother
   - 'yes'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - st-martin
+  - mother
+  - 'yes'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -6245,6 +6666,15 @@
   - 'no'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - st-martin
+  - mother
+  - 'no'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -6372,6 +6802,15 @@
   - 'yes'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - st-martin
+  - father
+  - 'yes'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -6529,6 +6968,16 @@
   - 'no'
   - '2015-02-02'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - st-martin
+  - father
+  - 'no'
+  - '2015-02-02'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -6657,6 +7106,15 @@
   - mother_and_father
   - 'yes'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - st-martin
+  - mother_and_father
+  - 'yes'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -6770,6 +7228,15 @@
   - 'no'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - st-martin
+  - mother_and_father
+  - 'no'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -6916,6 +7383,15 @@
   - mother
   - 'yes'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - timor-leste
+  - mother
+  - 'yes'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -7029,6 +7505,15 @@
   - 'no'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - timor-leste
+  - mother
+  - 'no'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -7156,6 +7641,15 @@
   - 'yes'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - timor-leste
+  - father
+  - 'yes'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -7313,6 +7807,16 @@
   - 'no'
   - '2015-02-02'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - timor-leste
+  - father
+  - 'no'
+  - '2015-02-02'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -7441,6 +7945,15 @@
   - mother_and_father
   - 'yes'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - timor-leste
+  - mother_and_father
+  - 'yes'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -7554,6 +8067,15 @@
   - 'no'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - timor-leste
+  - mother_and_father
+  - 'no'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -7700,6 +8222,15 @@
   - mother
   - 'yes'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - usa
+  - mother
+  - 'yes'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -7813,6 +8344,15 @@
   - 'no'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - usa
+  - mother
+  - 'no'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -7940,6 +8480,15 @@
   - 'yes'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - usa
+  - father
+  - 'yes'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -8097,6 +8646,16 @@
   - 'no'
   - '2015-02-02'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - usa
+  - father
+  - 'no'
+  - '2015-02-02'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -8225,6 +8784,15 @@
   - mother_and_father
   - 'yes'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - usa
+  - mother_and_father
+  - 'yes'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -8338,6 +8906,15 @@
   - 'no'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - usa
+  - mother_and_father
+  - 'no'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -8484,6 +9061,15 @@
   - mother
   - 'yes'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - venezuela
+  - mother
+  - 'yes'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -8597,6 +9183,15 @@
   - 'no'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - venezuela
+  - mother
+  - 'no'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -8724,6 +9319,15 @@
   - 'yes'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - venezuela
+  - father
+  - 'yes'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
@@ -8881,6 +9485,16 @@
   - 'no'
   - '2015-02-02'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - venezuela
+  - father
+  - 'no'
+  - '2015-02-02'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -9009,6 +9623,15 @@
   - mother_and_father
   - 'yes'
   - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - venezuela
+  - mother_and_father
+  - 'yes'
+  - another_country
   - taiwan
   :next_node: :oru_result
   :outcome_node: true
@@ -9122,6 +9745,15 @@
   - 'no'
   - another_country
   - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - venezuela
+  - mother_and_father
+  - 'no'
+  - another_country
+  - sudan
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?

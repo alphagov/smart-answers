@@ -1,7 +1,7 @@
 ---
 lib/smart_answer_flows/register-a-birth.rb: ecd4500ead144c94294a25e9bb66b420
-test/data/register-a-birth-questions-and-responses.yml: b0d537723257be9ffef6660e0af3b0e6
-test/data/register-a-birth-responses-and-expected-results.yml: e31f47746ee2e95b1f2a3d2eecf4a728
+test/data/register-a-birth-questions-and-responses.yml: 9981269b79ec640e5246dafa7e8b41b6
+test/data/register-a-birth-responses-and-expected-results.yml: ce575b43eae7b7fa173fe6cba6a0d805
 lib/smart_answer_flows/register-a-birth/outcomes/_fees.govspeak.erb: 8c7e4d35431cb9a708504fec00558b02
 lib/smart_answer_flows/register-a-birth/outcomes/commonwealth_result.govspeak.erb: f259f0c518f6b418a683d6482874a451
 lib/smart_answer_flows/register-a-birth/outcomes/homeoffice_result.govspeak.erb: d3df03e03088e121a8c9608697219f33
