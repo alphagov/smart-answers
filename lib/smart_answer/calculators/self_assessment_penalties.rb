@@ -30,7 +30,7 @@ module SmartAnswer::Calculators
         Date.new(2013, 4, 6)
       elsif tax_year == '2013-14'
         Date.new(2014, 4, 6)
-      else
+      elsif tax_year == '2014-15'
         Date.new(2015, 4, 6)
       end
     end
@@ -42,7 +42,7 @@ module SmartAnswer::Calculators
         Date.new(2015, 2, 01)
       elsif tax_year == '2013-14'
         Date.new(2016, 2, 01)
-      else
+      elsif tax_year == '2014-15'
         Date.new(2017, 2, 01)
       end
     end

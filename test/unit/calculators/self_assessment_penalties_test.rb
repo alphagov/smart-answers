@@ -25,7 +25,7 @@ module SmartAnswer::Calculators
         submission_method: "online", filing_date: Date.parse("2013-01-10"),
         payment_date: Date.parse("2013-03-10"), estimated_bill: SmartAnswer::Money.new(5000),
         dates: test_calculator_dates,
-        tax_year: :"2011-12"
+        tax_year: "2011-12"
       )
     end
 
