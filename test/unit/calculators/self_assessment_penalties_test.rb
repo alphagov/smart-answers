@@ -53,6 +53,30 @@ module SmartAnswer::Calculators
       end
     end
 
+    context 'one_year_after_start_date_for_penalties' do
+      should 'return 2014-02-01 if tax-year is 2011-12' do
+        @calculator.tax_year = '2011-12'
+
+        assert_equal Date.new(2014, 2, 1), @calculator.one_year_after_start_date_for_penalties
+      end
+
+      should 'return 2015-02-01 if tax-year is 2012-13' do
+        @calculator.tax_year = '2012-13'
+
+        assert_equal Date.new(2015, 2, 1), @calculator.one_year_after_start_date_for_penalties
+      end
+      should 'return 2016-02-01 if tax-year is 2013-14' do
+        @calculator.tax_year = '2013-14'
+
+        assert_equal Date.new(2016, 2, 1), @calculator.one_year_after_start_date_for_penalties
+      end
+      should 'return 2017-02-01 if tax-year is 2014-15' do
+        @calculator.tax_year = '2014-15'
+
+        assert_equal Date.new(2017, 2, 1), @calculator.one_year_after_start_date_for_penalties
+      end
+    end
+
     context "valid_filing_date?" do
       should "be valid if filing date is on or after start of next tax year" do
         @calculator.filing_date = @calculator.start_of_next_tax_year
