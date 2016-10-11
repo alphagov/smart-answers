@@ -8,18 +8,21 @@ module SmartAnswer::Calculators
         "2012-13": Date.new(2014, 1, 31),
         "2013-14": Date.new(2015, 1, 31),
         "2014-15": Date.new(2016, 1, 31),
+        "2015-16": Date.new(2017, 1, 31)
       },
       offline_filing_deadline: {
         "2011-12": Date.new(2012, 10, 31),
         "2012-13": Date.new(2013, 10, 31),
         "2013-14": Date.new(2014, 10, 31),
         "2014-15": Date.new(2015, 10, 31),
+        "2015-16": Date.new(2016, 10, 31)
       },
       payment_deadline: {
         "2011-12": Date.new(2013, 1, 31),
         "2012-13": Date.new(2014, 1, 31),
         "2013-14": Date.new(2015, 1, 31),
         "2014-15": Date.new(2016, 1, 31),
+        "2015-16": Date.new(2017, 1, 31)
       },
     }
 
@@ -32,6 +35,8 @@ module SmartAnswer::Calculators
         Date.new(2014, 4, 6)
       elsif tax_year == '2014-15'
         Date.new(2015, 4, 6)
+      elsif tax_year == '2015-16'
+        Date.new(2016, 4, 6)
       end
     end
 
@@ -44,6 +49,8 @@ module SmartAnswer::Calculators
         Date.new(2016, 2, 01)
       elsif tax_year == '2014-15'
         Date.new(2017, 2, 01)
+      elsif tax_year == '2015-16'
+        Date.new(2018, 2, 01)
       end
     end
 
