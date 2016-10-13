@@ -7,7 +7,6 @@ module SmartAnswer
       satisfies_need "100615"
 
       multiple_choice :which_year? do
-        option :"2011-12"
         option :"2012-13"
         option :"2013-14"
         option :"2014-15"
