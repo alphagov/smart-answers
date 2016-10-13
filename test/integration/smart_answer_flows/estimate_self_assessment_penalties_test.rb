@@ -114,10 +114,10 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
   end
   context "check for over 365 days delay" do
     setup do
-      add_response :"2011-12"
+      add_response :"2012-13"
       add_response :online
-      add_response "2014-02-01"
-      add_response "2014-02-01"
+      add_response "2015-02-01"
+      add_response "2015-02-01"
       add_response "1000.00"
     end
 
@@ -129,7 +129,7 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
   #beginning of quick tests
   context "online return, tax year 2012-13" do
     setup do
-      add_response :"2011-12"
+      add_response :"2012-13"
       add_response :online
     end
     should "ask when bill was paid" do
@@ -139,8 +139,8 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     #100pounds fine (band 1)
     context "check 100 pounds fine (band 1)" do
       setup do
-        add_response "2013-02-01"
-        add_response "2013-02-01"
+        add_response "2014-02-01"
+        add_response "2014-02-01"
         add_response "0.00"
       end
       should "show results" do
@@ -152,8 +152,8 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     #100pounds fine + 10pounds per day (max 90 days, testing 1 day)(band 2)
     context "check 100pounds fine + 10pounds per day (max 90 days, testing 1 day) (band 2)" do
       setup do
-        add_response "2013-05-01"
-        add_response "2013-05-01"
+        add_response "2014-05-01"
+        add_response "2014-05-01"
         add_response "0.00"
       end
       should "show results" do
@@ -165,8 +165,8 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     # #100pounds fine + 10pounds per day(max 90 days, testing 91 days)(band 2)
     context "check 100pounds fine + 10pounds per day (max 90 days, testing 92 days)(band 2)" do
       setup do
-        add_response "2013-07-31"
-        add_response "2013-07-31"
+        add_response "2014-07-31"
+        add_response "2014-07-31"
         add_response "0.00"
       end
       should "show results" do
@@ -178,8 +178,8 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     # #300pounds fine + 1000pounds(previous fine)(band 3), taxdue <= 6002pounds
     context "300pounds fine + 1000pounds(previous fine)(band 3), taxdue < 6002pounds" do
       setup do
-        add_response "2013-08-01"
-        add_response "2013-08-01"
+        add_response "2014-08-01"
+        add_response "2014-08-01"
         add_response "0.00"
       end
       should "show results" do
@@ -191,8 +191,8 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     # #5% fine + 1000pounds(previous fine)(band 3), taxdue > 6002pounds
     context "5% fine + 1000pounds(previous fine)(band 3), taxdue > 6002pounds" do
       setup do
-        add_response "2013-08-01"
-        add_response "2013-08-01"
+        add_response "2014-08-01"
+        add_response "2014-08-01"
         add_response "10000.00"
       end
       should "show results" do
@@ -207,8 +207,8 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     #300pounds fine + 1300pounds(previous fine)(band 4), taxdue <= 6002pounds
     context "300pounds fine + 1300pounds(previous fine)(band 4), taxdue <= 6002pounds" do
       setup do
-        add_response "2014-02-01"
-        add_response "2014-02-01"
+        add_response "2015-02-01"
+        add_response "2015-02-01"
         add_response "0.00"
       end
       should "show results" do
@@ -220,8 +220,8 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     # #10% fine + 1000pounds(previous fine)(band 4), taxdue > 6002pounds
     context "10% fine + 1000pounds(previous fine)(band 4), taxdue > 6002pounds" do
       setup do
-        add_response "2014-02-01"
-        add_response "2014-02-01"
+        add_response "2015-02-01"
+        add_response "2015-02-01"
         add_response "10000.00"
       end
       should "show results" do
