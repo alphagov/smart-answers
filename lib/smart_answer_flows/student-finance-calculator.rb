@@ -8,7 +8,6 @@ module SmartAnswer
 
       #Q1
       multiple_choice :when_does_your_course_start? do
-        option :"2015-2016"
         option :"2016-2017"
 
         save_input_as :start_date

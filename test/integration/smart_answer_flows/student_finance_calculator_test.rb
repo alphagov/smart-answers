@@ -14,15 +14,15 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     assert_current_node :when_does_your_course_start?
   end
 
-  context "course starting between 2015 and 2016" do
+  context "course starting between 2016 and 2017" do
     setup do
-      add_response '2015-2016'
+      add_response '2016-2017'
     end
     should "ask what sort of a student you are" do
       assert_current_node :what_type_of_student_are_you?
     end
 
-    context "full-time uk student between 2015 and 2016" do
+    context "full-time uk student between 2016 and 2017" do
       setup do
         add_response 'uk-full-time'
       end
@@ -54,7 +54,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
           context "household income higher than limit" do
             should "reduce the maintenance loan amount by £1 for every £9.59 over the threshold" do
               add_response '43875'
-              assert_state_variable :maintenance_loan_amount, 4461
+              assert_state_variable :maintenance_loan_amount, 4707.0
             end
           end
 
