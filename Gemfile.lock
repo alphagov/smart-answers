@@ -120,6 +120,8 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.9.1)
+    minitest-focus (1.1.2)
+      minitest (>= 4, < 6)
     mocha (1.1.0)
       metaclass (~> 0.0.1)
     multi_json (1.12.1)
@@ -281,6 +283,7 @@ DEPENDENCIES
   lrucache (= 0.1.4)
   method_source
   minitest (~> 5.1)
+  minitest-focus (~> 1.1, >= 1.1.2)
   mocha (= 1.1.0)
   nokogiri
   parser

@@ -43,6 +43,7 @@ group :test do
   gem 'capybara', '2.1.0'
   gem 'ci_reporter'
   gem 'minitest', '~> 5.1'
+  gem 'minitest-focus', '~> 1.1', '>= 1.1.2'
   gem 'mocha', '1.1.0', require: false
   gem 'poltergeist', '1.6.0'
   gem 'shoulda', '~> 3.5.0'
