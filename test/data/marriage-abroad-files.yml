@@ -1,7 +1,7 @@
 ---
-lib/smart_answer_flows/marriage-abroad.rb: 3f798d6d625cc981cd912f7d4d3d201c
+lib/smart_answer_flows/marriage-abroad.rb: 4aad736464f550354cf230cfa5495a3b
 test/data/marriage-abroad-questions-and-responses.yml: db35f040a23d1222903cde3f4406607b
-test/data/marriage-abroad-responses-and-expected-results.yml: 5f541b1d50971e8ce0b161f230d5ca89
+test/data/marriage-abroad-responses-and-expected-results.yml: 859b5dd17391fac79d19a31443dc2489
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
 lib/smart_answer_flows/marriage-abroad/outcomes/_affirmation_os_translation_in_local_language_text.govspeak.erb: af09e09b909c563d4a587ef1b9285cca
 lib/smart_answer_flows/marriage-abroad/outcomes/_applying_for_a_nulla_osta.govspeak.erb: da870759f989efc68544f212bc86b78a
@@ -158,6 +158,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in
 : d509f3e06fd039530dc289df5bef8a2e
 ? lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_saudi_arabia_when_residing_in_uk_or_third_country.govspeak.erb
 : 9ac9d44e52a9d5b4019b10c87ffd9f2c
+lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_slovakia.govspeak.erb: 5407c55cf210c0231b3062257f05fcd3
 ? lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_slovenia_when_residing_in_uk_or_slovenia.govspeak.erb
 : 6064346c5d9f318cbd262fd269eb230b
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_south_korea.govspeak.erb: 7ce2f2a06aa2a86d4c216e850e9bd542
@@ -207,6 +208,6 @@ lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d
 lib/data/marriage_abroad_services.yml: df054086cc36bab33c3c8f8be2a6e417
 lib/smart_answer/calculators/marriage_abroad_calculator.rb: 663fb88b951dcfac0a5660e9fc81f466
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1d83fae34e0ee72ce1c1554bdb766d21
-lib/smart_answer/calculators/marriage_abroad_data_query.rb: 332a5d8b5ce39f1a8d2bf5672f88f99b
+lib/smart_answer/calculators/marriage_abroad_data_query.rb: e1ed0370a181ba6ad169702c203afb5b
 lib/smart_answer/calculators/country_name_formatter.rb: 16b57a11261644a0bda0d609a60d1c62
 lib/smart_answer/calculators/registrations_data_query.rb: 3afcd514ecedadd19b0db67f54ac5ea6

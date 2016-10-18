@@ -134,6 +134,8 @@ module SmartAnswer
               outcome :outcome_opposite_sex_marriage_in_hong_kong
             elsif calculator.ceremony_country == 'dominican-republic'
               outcome :outcome_opposite_sex_marriage_in_dominican_republic
+            elsif calculator.ceremony_country == 'slovakia'
+              outcome :outcome_opposite_sex_marriage_in_slovakia
             elsif calculator.ceremony_country == 'germany' && calculator.resident_of_uk?
               outcome :outcome_opposite_sex_marriage_in_germany_when_residing_in_the_uk
             elsif calculator.ceremony_country == 'germany' && calculator.resident_outside_of_uk?
@@ -384,6 +386,7 @@ module SmartAnswer
       outcome :outcome_opposite_sex_marriage_in_saudi_arabia_when_residing_in_saudi_arabia
       outcome :outcome_opposite_sex_marriage_in_slovenia_when_residing_in_uk_or_slovenia
       outcome :outcome_opposite_sex_marriage_in_south_korea
+      outcome :outcome_opposite_sex_marriage_in_slovakia
       outcome :outcome_opposite_sex_marriage_in_thailand
       outcome :outcome_opposite_sex_marriage_in_turkey
       outcome :outcome_opposite_sex_marriage_in_united_arab_emirates
