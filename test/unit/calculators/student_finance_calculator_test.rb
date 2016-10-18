@@ -3,6 +3,80 @@ require_relative "../../test_helper"
 module SmartAnswer
   module Calculators
     class StudentFinanceCalculatorTest < ActiveSupport::TestCase
+      context "#childcare_grant" do
+        context "in 2016-2017" do
+          setup do
+            @calculator = StudentFinanceCalculator.new(
+              course_start: "2016-2017",
+              household_income: 25_000,
+              residence: :unused_variable
+            )
+          end
+
+          should "be 155.24 for one-child" do
+            assert_equal 155.24, @calculator.childcare_grant("one-child")
+          end
+          should "be 266.15 for more-than-one-child" do
+            assert_equal 266.15, @calculator.childcare_grant("more-than-one-child")
+          end
+        end
+
+        context "in 2017-2018" do
+          setup do
+            @calculator = StudentFinanceCalculator.new(
+              course_start: "2017-2018",
+              household_income: 25_000,
+              residence: :unused_variable
+            )
+          end
+
+          should "be 159.59 for one-child" do
+            assert_equal 159.59, @calculator.childcare_grant("one-child")
+          end
+          should "be 273.60 for more-than-one-child" do
+            assert_equal 273.60, @calculator.childcare_grant("more-than-one-child")
+          end
+        end
+      end
+
+      context "#parent_learning_allowance" do
+        should "be 1573 in 2016-2017" do
+          calculator = StudentFinanceCalculator.new(
+            course_start: "2016-2017",
+            household_income: 25_000,
+            residence: :unused_variable
+          )
+          assert_equal 1573, calculator.parent_learning_allowance
+        end
+        should "be 1573 in 2017-2018" do
+          calculator = StudentFinanceCalculator.new(
+            course_start: "2017-2018",
+            household_income: 25_000,
+            residence: :unused_variable
+          )
+          assert_equal 1617, calculator.parent_learning_allowance
+        end
+      end
+
+      context "#adult_dependant_allowance" do
+        should "be 2757 in 2016-2017" do
+          calculator = StudentFinanceCalculator.new(
+            course_start: "2016-2017",
+            household_income: 25_000,
+            residence: :unused_variable
+          )
+          assert_equal 2757, calculator.adult_dependant_allowance
+        end
+        should "be 2834 in 2017-2018" do
+          calculator = StudentFinanceCalculator.new(
+            course_start: "2017-2018",
+            household_income: 25_000,
+            residence: :unused_variable
+          )
+          assert_equal 2834, calculator.adult_dependant_allowance
+        end
+      end
+
       context "#maintenance_grant_amount" do
         context "for students who started 2016-2017 or later" do
           setup do

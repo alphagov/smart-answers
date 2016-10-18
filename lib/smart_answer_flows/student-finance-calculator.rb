@@ -15,6 +15,10 @@ module SmartAnswer
         next_node do
           question :what_type_of_student_are_you?
         end
+
+        calculate :pseudo_calculator do |response|
+          Calculators::StudentFinanceCalculator.pseudo(response)
+        end
       end
 
       #Q2
@@ -28,15 +32,29 @@ module SmartAnswer
         next_node do
           question :how_much_are_your_tuition_fees_per_year?
         end
+
+        calculate :tuition_fee_maximum_full_time do
+          pseudo_calculator.tuition_fee_maximum_full_time
+        end
+
+        calculate :tuition_fee_maximum_part_time do
+          pseudo_calculator.tuition_fee_maximum_part_time
+        end
+
+        calculate :tuition_fee_maximum do |response|
+          if response == "uk-full-time" || response == 'eu-full-time'
+            pseudo_calculator.tuition_fee_maximum_full_time
+          else
+            pseudo_calculator.tuition_fee_maximum_part_time
+          end
+        end
       end
 
       #Q3
       money_question :how_much_are_your_tuition_fees_per_year? do
         calculate :tuition_fee_amount do |response|
-          if course_type == "uk-full-time" || course_type == 'eu-full-time'
-            raise SmartAnswer::InvalidResponse if response > 9000
-          else
-            raise SmartAnswer::InvalidResponse if response > 6750
+          if response > tuition_fee_maximum
+            raise SmartAnswer::InvalidResponse
           end
           Money.new(response)
         end
@@ -81,6 +99,22 @@ module SmartAnswer
         # loan amount depends on maintenance grant amount and household income
         calculate :maintenance_loan_amount do
           calculator.maintenance_loan_amount
+        end
+
+        calculate :childcare_grant_one_child do
+          calculator.childcare_grant("one-child")
+        end
+
+        calculate :childcare_grant_more_than_one_child do
+          calculator.childcare_grant("more-than-one-child")
+        end
+
+        calculate :parent_learning_allowance do
+          calculator.parent_learning_allowance
+        end
+
+        calculate :adult_dependant_allowance do
+          calculator.adult_dependant_allowance
         end
 
         next_node do

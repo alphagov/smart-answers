@@ -30,8 +30,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       should "ask how much your tuition fees are per year" do
         assert_current_node :how_much_are_your_tuition_fees_per_year?
       end
-      should "be invalid if a fee over 9000 is entered" do
-        add_response '9001'
+      should "be invalid if a fee over 9251 is entered" do
+        add_response '9251'
         assert_current_node :how_much_are_your_tuition_fees_per_year?, error: true
       end
 
