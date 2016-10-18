@@ -22,7 +22,10 @@ class WorldLocation
 
   def self.find(location_slug)
     cache_fetch("find_#{location_slug}") do
-      data = Services.worldwide_api.world_location(location_slug)
+      response = Services.worldwide_api.world_location(location_slug)
+      if response
+        data = OpenStruct.new(response.to_hash)
+      end
       self.new(data) if data
     end
   end
@@ -53,16 +56,21 @@ class WorldLocation
     @data = data
   end
 
+  def slug
+    self.details["slug"]
+  end
+
   def ==(other)
-    other.is_a?(self.class) && other.slug == self.slug
+    other.is_a?(self.class) && other.slug == slug
   end
 
   def_delegators :@data, :title, :details
-  def_delegators :details, :slug
+  # def_delegators :details, :slug
   alias_method :name, :title
 
   def organisations
-    @organisations ||= WorldwideOrganisation.for_location(self.slug)
+    # binding.pry
+    @organisations ||= WorldwideOrganisation.for_location(slug)
   end
 
   def fco_organisation
