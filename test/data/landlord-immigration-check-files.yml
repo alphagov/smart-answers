@@ -31,4 +31,4 @@ lib/smart_answer_flows/landlord-immigration-check/questions/right_to_abode.govsp
 lib/smart_answer_flows/landlord-immigration-check/questions/tenant_country.govspeak.erb: a28062a1e9cb019d012fb962524130ee
 lib/smart_answer_flows/landlord-immigration-check/questions/tenant_over_18.govspeak.erb: c4a270709e77da5aff8c4e50aa56e905
 lib/smart_answer_flows/landlord-immigration-check/questions/time_limited_to_remain.govspeak.erb: 05c03a6a5cc9e07c3816a446cdc1c6f3
-lib/smart_answer/calculators/landlord_immigration_check_calculator.rb: 8f94f99690138ede5c134b870c983489
+lib/smart_answer/calculators/landlord_immigration_check_calculator.rb: ae7170f4ec47359b982cbe107ef03cbb
