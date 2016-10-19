@@ -38,5 +38,6 @@ lib/smart_answer_flows/check-uk-visa/questions/passing_through_uk_border_control
 lib/smart_answer_flows/check-uk-visa/questions/purpose_of_visit.govspeak.erb: b778204d9ab13cc9163e1224c22dc5f1
 lib/smart_answer_flows/check-uk-visa/questions/staying_for_how_long.govspeak.erb: 3d00e24db2c951d6853808b7c1c33ed4
 lib/smart_answer_flows/check-uk-visa/questions/what_passport_do_you_have.govspeak.erb: 45a59c18a7b570142f32d3b93f8f7db4
+lib/smart_answer/calculators/uk_visa_calculator.rb: c3f80390f4b3fdd6e01376ed42bffad4
 app/models/ukba_country.rb: 56879bb5efb4225cbf56850269385d44
 lib/data/ukba_additional_countries.yml: 5e84d01caf6b2841d0ea9f03f0f4974c
