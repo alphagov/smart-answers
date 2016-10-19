@@ -117,6 +117,10 @@ module SmartAnswer
           calculator.adult_dependant_allowance
         end
 
+        calculate :dental_or_medical_student_2017_2018 do
+          false
+        end
+
         next_node do
           question :do_any_of_the_following_apply_uk_full_time_students_only?
         end
@@ -194,6 +198,11 @@ module SmartAnswer
         option :"none-of-the-above"
 
         save_input_as :dental_or_medical_course
+
+        calculate :dental_or_medical_student_2017_2018 do
+          (start_date == "2017-2018" &&
+            dental_or_medical_course != "none-of-the-above")
+        end
 
         next_node do |response|
           if response == "none-of-the-above"
