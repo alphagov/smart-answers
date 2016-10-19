@@ -73,6 +73,22 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
               should "ask what course you are studying" do
                 assert_current_node :what_course_are_you_studying?
               end
+              context "What course are you studying?" do
+                setup do
+                  add_response 'dental-medical-healthcare'
+                end
+                should "ask are you studying one of these dental or medical courses?" do
+                  assert_current_node :are_you_studying_one_of_these_dental_or_medical_courses?
+                end
+                context "What dental or medical course are you studying?" do
+                  setup do
+                    add_response 'dental-hygiene-or-dental-therapy'
+                  end
+                  should "ask what course you are studying" do
+                    assert_current_node :outcome_uk_full_time_dental_medical_students
+                  end
+                end # end what dental or medical course
+              end # end what course
             end # end context children
           end # end context income
         end # end context living at home

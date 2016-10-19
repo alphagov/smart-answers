@@ -29,3 +29,7 @@
 - dental-medical-healthcare
 - social-work
 - none-of-the-above
+:are_you_studying_one_of_these_dental_or_medical_courses?:
+- doctor-or-dentist
+- dental-hygiene-or-dental-therapy
+- none-of-the-above

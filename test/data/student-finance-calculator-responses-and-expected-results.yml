@@ -1637,7 +1637,43 @@
   - '100000.0'
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :outcome_node: false
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - at-home
+  - '100000.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - doctor-or-dentist
   :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - at-home
+  - '100000.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - dental-hygiene-or-dental-therapy
+  :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - at-home
+  - '100000.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -1691,7 +1727,43 @@
   - '100000.0'
   - 'no'
   - dental-medical-healthcare
+  :next_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :outcome_node: false
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - at-home
+  - '100000.0'
+  - 'no'
+  - dental-medical-healthcare
+  - doctor-or-dentist
   :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - at-home
+  - '100000.0'
+  - 'no'
+  - dental-medical-healthcare
+  - dental-hygiene-or-dental-therapy
+  :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - at-home
+  - '100000.0'
+  - 'no'
+  - dental-medical-healthcare
+  - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -1754,7 +1826,43 @@
   - '43875.0'
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :outcome_node: false
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - at-home
+  - '43875.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - doctor-or-dentist
   :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - at-home
+  - '43875.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - dental-hygiene-or-dental-therapy
+  :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - at-home
+  - '43875.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -1808,7 +1916,43 @@
   - '43875.0'
   - 'no'
   - dental-medical-healthcare
+  :next_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :outcome_node: false
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - at-home
+  - '43875.0'
+  - 'no'
+  - dental-medical-healthcare
+  - doctor-or-dentist
   :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - at-home
+  - '43875.0'
+  - 'no'
+  - dental-medical-healthcare
+  - dental-hygiene-or-dental-therapy
+  :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - at-home
+  - '43875.0'
+  - 'no'
+  - dental-medical-healthcare
+  - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -1871,7 +2015,43 @@
   - '35000.0'
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :outcome_node: false
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - at-home
+  - '35000.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - doctor-or-dentist
   :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - at-home
+  - '35000.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - dental-hygiene-or-dental-therapy
+  :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - at-home
+  - '35000.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -1925,7 +2105,43 @@
   - '35000.0'
   - 'no'
   - dental-medical-healthcare
+  :next_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :outcome_node: false
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - at-home
+  - '35000.0'
+  - 'no'
+  - dental-medical-healthcare
+  - doctor-or-dentist
   :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - at-home
+  - '35000.0'
+  - 'no'
+  - dental-medical-healthcare
+  - dental-hygiene-or-dental-therapy
+  :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - at-home
+  - '35000.0'
+  - 'no'
+  - dental-medical-healthcare
+  - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -1988,7 +2204,43 @@
   - '24500.0'
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :outcome_node: false
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - at-home
+  - '24500.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - doctor-or-dentist
   :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - at-home
+  - '24500.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - dental-hygiene-or-dental-therapy
+  :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - at-home
+  - '24500.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -2042,7 +2294,43 @@
   - '24500.0'
   - 'no'
   - dental-medical-healthcare
+  :next_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :outcome_node: false
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - at-home
+  - '24500.0'
+  - 'no'
+  - dental-medical-healthcare
+  - doctor-or-dentist
   :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - at-home
+  - '24500.0'
+  - 'no'
+  - dental-medical-healthcare
+  - dental-hygiene-or-dental-therapy
+  :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - at-home
+  - '24500.0'
+  - 'no'
+  - dental-medical-healthcare
+  - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -2113,7 +2401,43 @@
   - '100000.0'
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :outcome_node: false
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-outside-london
+  - '100000.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - doctor-or-dentist
   :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-outside-london
+  - '100000.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - dental-hygiene-or-dental-therapy
+  :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-outside-london
+  - '100000.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -2167,7 +2491,43 @@
   - '100000.0'
   - 'no'
   - dental-medical-healthcare
+  :next_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :outcome_node: false
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-outside-london
+  - '100000.0'
+  - 'no'
+  - dental-medical-healthcare
+  - doctor-or-dentist
   :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-outside-london
+  - '100000.0'
+  - 'no'
+  - dental-medical-healthcare
+  - dental-hygiene-or-dental-therapy
+  :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-outside-london
+  - '100000.0'
+  - 'no'
+  - dental-medical-healthcare
+  - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -2230,7 +2590,43 @@
   - '43875.0'
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :outcome_node: false
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-outside-london
+  - '43875.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - doctor-or-dentist
   :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-outside-london
+  - '43875.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - dental-hygiene-or-dental-therapy
+  :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-outside-london
+  - '43875.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -2284,7 +2680,43 @@
   - '43875.0'
   - 'no'
   - dental-medical-healthcare
+  :next_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :outcome_node: false
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-outside-london
+  - '43875.0'
+  - 'no'
+  - dental-medical-healthcare
+  - doctor-or-dentist
   :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-outside-london
+  - '43875.0'
+  - 'no'
+  - dental-medical-healthcare
+  - dental-hygiene-or-dental-therapy
+  :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-outside-london
+  - '43875.0'
+  - 'no'
+  - dental-medical-healthcare
+  - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -2347,7 +2779,43 @@
   - '35000.0'
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :outcome_node: false
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-outside-london
+  - '35000.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - doctor-or-dentist
   :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-outside-london
+  - '35000.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - dental-hygiene-or-dental-therapy
+  :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-outside-london
+  - '35000.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -2401,7 +2869,43 @@
   - '35000.0'
   - 'no'
   - dental-medical-healthcare
+  :next_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :outcome_node: false
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-outside-london
+  - '35000.0'
+  - 'no'
+  - dental-medical-healthcare
+  - doctor-or-dentist
   :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-outside-london
+  - '35000.0'
+  - 'no'
+  - dental-medical-healthcare
+  - dental-hygiene-or-dental-therapy
+  :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-outside-london
+  - '35000.0'
+  - 'no'
+  - dental-medical-healthcare
+  - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -2464,7 +2968,43 @@
   - '24500.0'
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :outcome_node: false
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-outside-london
+  - '24500.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - doctor-or-dentist
   :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-outside-london
+  - '24500.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - dental-hygiene-or-dental-therapy
+  :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-outside-london
+  - '24500.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -2518,7 +3058,43 @@
   - '24500.0'
   - 'no'
   - dental-medical-healthcare
+  :next_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :outcome_node: false
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-outside-london
+  - '24500.0'
+  - 'no'
+  - dental-medical-healthcare
+  - doctor-or-dentist
   :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-outside-london
+  - '24500.0'
+  - 'no'
+  - dental-medical-healthcare
+  - dental-hygiene-or-dental-therapy
+  :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-outside-london
+  - '24500.0'
+  - 'no'
+  - dental-medical-healthcare
+  - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -2589,7 +3165,43 @@
   - '100000.0'
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :outcome_node: false
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-in-london
+  - '100000.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - doctor-or-dentist
   :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-in-london
+  - '100000.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - dental-hygiene-or-dental-therapy
+  :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-in-london
+  - '100000.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -2643,7 +3255,43 @@
   - '100000.0'
   - 'no'
   - dental-medical-healthcare
+  :next_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :outcome_node: false
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-in-london
+  - '100000.0'
+  - 'no'
+  - dental-medical-healthcare
+  - doctor-or-dentist
   :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-in-london
+  - '100000.0'
+  - 'no'
+  - dental-medical-healthcare
+  - dental-hygiene-or-dental-therapy
+  :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-in-london
+  - '100000.0'
+  - 'no'
+  - dental-medical-healthcare
+  - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -2706,7 +3354,43 @@
   - '43875.0'
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :outcome_node: false
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-in-london
+  - '43875.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - doctor-or-dentist
   :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-in-london
+  - '43875.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - dental-hygiene-or-dental-therapy
+  :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-in-london
+  - '43875.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -2760,7 +3444,43 @@
   - '43875.0'
   - 'no'
   - dental-medical-healthcare
+  :next_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :outcome_node: false
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-in-london
+  - '43875.0'
+  - 'no'
+  - dental-medical-healthcare
+  - doctor-or-dentist
   :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-in-london
+  - '43875.0'
+  - 'no'
+  - dental-medical-healthcare
+  - dental-hygiene-or-dental-therapy
+  :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-in-london
+  - '43875.0'
+  - 'no'
+  - dental-medical-healthcare
+  - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -2823,7 +3543,43 @@
   - '35000.0'
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :outcome_node: false
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-in-london
+  - '35000.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - doctor-or-dentist
   :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-in-london
+  - '35000.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - dental-hygiene-or-dental-therapy
+  :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-in-london
+  - '35000.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -2877,7 +3633,43 @@
   - '35000.0'
   - 'no'
   - dental-medical-healthcare
+  :next_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :outcome_node: false
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-in-london
+  - '35000.0'
+  - 'no'
+  - dental-medical-healthcare
+  - doctor-or-dentist
   :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-in-london
+  - '35000.0'
+  - 'no'
+  - dental-medical-healthcare
+  - dental-hygiene-or-dental-therapy
+  :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-in-london
+  - '35000.0'
+  - 'no'
+  - dental-medical-healthcare
+  - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -2940,7 +3732,43 @@
   - '24500.0'
   - children-under-17,dependant-adult,has-disability,low-income
   - dental-medical-healthcare
+  :next_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :outcome_node: false
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-in-london
+  - '24500.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - doctor-or-dentist
   :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-in-london
+  - '24500.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - dental-hygiene-or-dental-therapy
+  :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-in-london
+  - '24500.0'
+  - children-under-17,dependant-adult,has-disability,low-income
+  - dental-medical-healthcare
+  - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:
@@ -2994,7 +3822,43 @@
   - '24500.0'
   - 'no'
   - dental-medical-healthcare
+  :next_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :outcome_node: false
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-in-london
+  - '24500.0'
+  - 'no'
+  - dental-medical-healthcare
+  - doctor-or-dentist
   :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-in-london
+  - '24500.0'
+  - 'no'
+  - dental-medical-healthcare
+  - dental-hygiene-or-dental-therapy
+  :next_node: :outcome_uk_full_time_dental_medical_students
+  :outcome_node: true
+- :current_node: :are_you_studying_one_of_these_dental_or_medical_courses?
+  :responses:
+  - 2017-2018
+  - uk-full-time
+  - '6000.0'
+  - away-in-london
+  - '24500.0'
+  - 'no'
+  - dental-medical-healthcare
+  - none-of-the-above
+  :next_node: :outcome_uk_full_time_students
   :outcome_node: true
 - :current_node: :what_course_are_you_studying?
   :responses:

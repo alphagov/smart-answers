@@ -154,7 +154,7 @@ module SmartAnswer
         end
       end
 
-      #Q7
+      #Q7a
       multiple_choice :what_course_are_you_studying? do
         option :"teacher-training"
         option :"dental-medical-healthcare"
@@ -167,7 +167,11 @@ module SmartAnswer
           case course_type
           when 'uk-full-time'
             if response == 'dental-medical-healthcare'
-              outcome :outcome_uk_full_time_dental_medical_students
+              if start_date == "2017-2018"
+                question :are_you_studying_one_of_these_dental_or_medical_courses?
+              else
+                outcome :outcome_uk_full_time_dental_medical_students
+              end
             else
               outcome :outcome_uk_full_time_students
             end
@@ -179,6 +183,23 @@ module SmartAnswer
             end
           else
             outcome :outcome_eu_students
+          end
+        end
+      end
+
+      #Q7b
+      multiple_choice :are_you_studying_one_of_these_dental_or_medical_courses? do
+        option :"doctor-or-dentist"
+        option :"dental-hygiene-or-dental-therapy"
+        option :"none-of-the-above"
+
+        save_input_as :dental_or_medical_course
+
+        next_node do |response|
+          if response == "none-of-the-above"
+            outcome :outcome_uk_full_time_students
+          else
+            outcome :outcome_uk_full_time_dental_medical_students
           end
         end
       end
