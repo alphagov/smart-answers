@@ -1,7 +1,7 @@
 ---
-lib/smart_answer_flows/student-finance-calculator.rb: b6c2c60e7943b880cd68ae4d93d68372
-test/data/student-finance-calculator-questions-and-responses.yml: 0e42be6c93caf9d73e92a842f51b390d
-test/data/student-finance-calculator-responses-and-expected-results.yml: b735461189907c593f813cb2b78724cf
+lib/smart_answer_flows/student-finance-calculator.rb: 2fa917f91cd68af6f49046f9908a2b75
+test/data/student-finance-calculator-questions-and-responses.yml: 2ed566bfc0097c65867d9ab5547263e6
+test/data/student-finance-calculator-responses-and-expected-results.yml: 255f39a38917d4f57f9b9fb05051d49c
 lib/smart_answer_flows/student-finance-calculator/outcomes/_disclaimer.govspeak.erb: 01560b7c2a22db8723b9837b785730c0
 lib/smart_answer_flows/student-finance-calculator/outcomes/_full_time_tuition.govspeak.erb: dd9a93cb8cd51dd19b29727a3e4b7bbe
 lib/smart_answer_flows/student-finance-calculator/outcomes/_next_steps.govspeak.erb: 6d4a15585ec75dd58d1069a668a4a35f
@@ -13,6 +13,7 @@ lib/smart_answer_flows/student-finance-calculator/outcomes/outcome_uk_all_studen
 lib/smart_answer_flows/student-finance-calculator/outcomes/outcome_uk_full_time_dental_medical_students.govspeak.erb: 4e15509f538cb6f759a2202bf32f83fb
 lib/smart_answer_flows/student-finance-calculator/outcomes/outcome_uk_full_time_students.govspeak.erb: a8bfd278f9b065ea2d5e9f3ff76e4a74
 lib/smart_answer_flows/student-finance-calculator/outcomes/outcome_uk_part_time_dental_medical_students.govspeak.erb: 696d3b5814fc45a1483c2058ecf73997
+lib/smart_answer_flows/student-finance-calculator/questions/are_you_studying_one_of_these_dental_or_medical_courses.govspeak.erb: beb2d2ae6e55cc3857953e451f87e5e6
 lib/smart_answer_flows/student-finance-calculator/questions/do_any_of_the_following_apply_all_uk_students.govspeak.erb: 8c2e9bacdf528020006c25e5f2a2cf51
 ? lib/smart_answer_flows/student-finance-calculator/questions/do_any_of_the_following_apply_uk_full_time_students_only.govspeak.erb
 : fa31c6646673d651d9c3cadc97d4eb10
