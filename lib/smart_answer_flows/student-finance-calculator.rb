@@ -121,6 +121,10 @@ module SmartAnswer
           false
         end
 
+        calculate :not_dental_or_medical_student_2017_2018 do
+          false
+        end
+
         next_node do
           question :do_any_of_the_following_apply_uk_full_time_students_only?
         end
@@ -202,6 +206,11 @@ module SmartAnswer
         calculate :dental_or_medical_student_2017_2018 do
           (start_date == "2017-2018" &&
             dental_or_medical_course != "none-of-the-above")
+        end
+
+        calculate :not_dental_or_medical_student_2017_2018 do
+          (start_date == "2017-2018" &&
+            dental_or_medical_course == "none-of-the-above")
         end
 
         next_node do |response|

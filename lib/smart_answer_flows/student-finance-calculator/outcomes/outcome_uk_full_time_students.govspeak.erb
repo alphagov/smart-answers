@@ -9,7 +9,10 @@
 
   ###Extra student funding
 
-  <% if uk_ft_circumstances.include?('no') and course_studied == 'none-of-the-above' %>
+  <% if (uk_ft_circumstances.include?('no') &&
+        course_studied == 'none-of-the-above') ||
+      (uk_ft_circumstances.include?('no') &&
+        not_dental_or_medical_student_2017_2018) %>
     You don’t qualify for extra grants and allowances.
   <% else %>
     You could get:
