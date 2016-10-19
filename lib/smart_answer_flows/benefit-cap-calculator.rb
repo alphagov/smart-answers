@@ -30,7 +30,7 @@ module SmartAnswer
         option :no
 
         calculate :exempt_benefits do
-          config.exempt_benefits(:default)
+          config.exempt_benefits
         end
 
         next_node do |response|
@@ -48,7 +48,7 @@ module SmartAnswer
         option :no
 
         calculate :benefit_options do
-          config.descriptions(:default).merge(none_above: "None of the above")
+          config.descriptions.merge(none_above: "None of the above")
         end
 
         calculate :total_benefits do
@@ -70,7 +70,7 @@ module SmartAnswer
 
       #Q4
       checkbox_question :receiving_non_exemption_benefits? do
-        config.benefits(:default).keys.each do |benefit|
+        config.benefits.keys.each do |benefit|
           option benefit
         end
 
@@ -82,20 +82,20 @@ module SmartAnswer
           if response == "none"
             question :housing_benefit_amount?
           else
-            question BenefitCapCalculatorFlow.next_benefit_amount_question(config.questions(:default), benefit_types)
+            question BenefitCapCalculatorFlow.next_benefit_amount_question(config.questions, benefit_types)
           end
         end
       end
 
       #Q5a-o
-      config.all_questions.each do |(_benefit, method)|
+      config.questions.each do |(_benefit, method)|
         money_question method do
           calculate :total_benefits do |response|
             total_benefits + response.to_f
           end
 
           next_node do
-            question BenefitCapCalculatorFlow.next_benefit_amount_question(config.questions(:default), benefit_types)
+            question BenefitCapCalculatorFlow.next_benefit_amount_question(config.questions, benefit_types)
           end
         end
       end
@@ -120,10 +120,10 @@ module SmartAnswer
       #Q6
       multiple_choice :single_couple_lone_parent? do
         precalculate :weekly_benefit_cap_descriptions do
-          config.weekly_benefit_cap_descriptions(:default)
+          config.weekly_benefit_cap_descriptions
         end
 
-        config.weekly_benefit_caps(:default).keys.each do |weekly_benefit_cap|
+        config.weekly_benefit_caps.keys.each do |weekly_benefit_cap|
           option weekly_benefit_cap
         end
 
@@ -137,7 +137,7 @@ module SmartAnswer
       #Q7 Enter a postcode
       postcode_question :enter_postcode? do
         calculate :benefit_cap do |response|
-          sprintf("%.2f", config.weekly_benefit_cap_amount(:default, family_type, config.region(response)))
+          sprintf("%.2f", config.weekly_benefit_cap_amount(family_type, config.region(response)))
         end
 
         calculate :total_benefits_amount do
@@ -150,7 +150,7 @@ module SmartAnswer
 
         next_node do |response|
           region = config.region(response)
-          if total_benefits > config.weekly_benefit_cap_amount(:default, family_type, region)
+          if total_benefits > config.weekly_benefit_cap_amount(family_type, region)
             if region == :london
               outcome :outcome_affected_greater_than_cap_london
             else
