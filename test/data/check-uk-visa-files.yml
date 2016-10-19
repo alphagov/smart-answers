@@ -1,7 +1,7 @@
 ---
 lib/smart_answer_flows/check-uk-visa.rb: 18ff6d2173bdb8d0e10ad4c986d03c96
-test/data/check-uk-visa-questions-and-responses.yml: db3081a2a7162f108baa5ff00706c9fd
-test/data/check-uk-visa-responses-and-expected-results.yml: 0c16e3dad5ca56436cc8c4b14eb9b3a1
+test/data/check-uk-visa-questions-and-responses.yml: 0d70e195f4d4887fc3ae78a14a9cf167
+test/data/check-uk-visa-responses-and-expected-results.yml: 3bfea18acd2eb550944abe8461c7e55d
 lib/smart_answer_flows/check-uk-visa/check_uk_visa.govspeak.erb: a442b4ddd169b26a401c70d145e5b44e
 lib/smart_answer_flows/check-uk-visa/outcomes/_b1_b2_visa_exception.govspeak.erb: 410e39d565d0a5caed2d1b8c20c1ca77
 lib/smart_answer_flows/check-uk-visa/outcomes/_stateless_or_refugee.govspeak.erb: a14d7807087e4f05e9fada8ac755ee2e
