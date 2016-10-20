@@ -460,6 +460,5 @@ class RegisterADeathTest < ActiveSupport::TestCase
         assert_equal '/government/publications/democratic-republic-of-congo-list-of-lawyers', current_state.calculator.translator_link_url
       end
     end
-
   end # Overseas
 end
