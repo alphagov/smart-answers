@@ -1,21 +1,29 @@
 
 
-$! You can’t currently claim Personal Independence Payment (PIP) because you’re under 16.$!
 
-If you’re still getting [Disability Living Allowance (DLA)](/disability-living-allowance-children) at 16 you’ll be sent a letter inviting you to apply for PIP:
+When you’ll be invited to claim Personal Independence Payment (PIP) depends on when your [Disability Living Allowance (DLA)](/dla-disability-living-allowance-benefit) ends. You’ll also be invited to claim PIP if your needs change before your DLA ends.
 
-* shortly after your 16th birthday
+## Your DLA ends before September 2017
 
-* when you leave hospital, if you were in hospital on your 16th birthday
+You’ll be told 20 weeks before your DLA ends and invited to claim PIP.
 
-* about 20 weeks before your DLA award ends, if you were awarded DLA under the rules for people who are terminally ill
+Contact the [Disability Benefits helpline](/disability-benefits-helpline) if your DLA payment is due to end in the next 4 weeks and you haven’t received a letter about making a new claim.
 
-You must claim PIP within 28 days of the date on the letter.
+^Your payment may stop if you don’t contact the helpline.^
 
-You’ll continue to receive DLA until your PIP claim has been assessed.
+##Your DLA ends after September 2017 or your DLA award has no end date
+
+You can be contacted any time to claim PIP. This includes if you have a long-term award of DLA or an indefinite award with no end date.
+
+Not everyone will be contacted to claim PIP right away. You’ll continue to get DLA until Department for Work and Pensions (DWP) writes to you about when it will end.
+
+##If your needs change
+
+You must let DWP know if your [care or mobility needs change](/dla-disability-living-allowance-benefit/eligibility). You’ll be invited to claim PIP.
 
 *[DLA]: Disability Living Allowance
 *[PIP]: Personal Independence Payment
+*[DWP]: Department for Work and Pensions
 
 
 
