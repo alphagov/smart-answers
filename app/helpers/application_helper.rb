@@ -10,4 +10,15 @@ module ApplicationHelper
       register-a-death
     ).exclude?(name)
   end
+
+  def start_button
+    case @name.to_s
+    when "overseas-passports"
+      "Continue"
+    when "calculate-your-child-maintenance"
+      "Calculate your child maintenance"
+    else
+      "Start now"
+    end
+  end
 end
