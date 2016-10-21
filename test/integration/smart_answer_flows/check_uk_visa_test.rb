@@ -7,7 +7,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    @location_slugs = %w(andorra anguilla armenia bolivia canada china colombia croatia mexico south-africa stateless-or-refugee syria turkey yemen oman united-arab-emirates qatar taiwan venezuela)
+    @location_slugs = %w(andorra anguilla armenia bolivia canada china colombia croatia mexico south-africa stateless-or-refugee syria turkey democratic-republic-of-the-congo oman united-arab-emirates qatar taiwan venezuela)
     stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::CheckUkVisaFlow
   end
@@ -359,7 +359,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
 
   context "choose a DATV country" do
     setup do
-      add_response 'yemen'
+      add_response 'democratic-republic-of-the-congo'
     end
     should "ask what are you coming to the UK to do" do
       assert_current_node :purpose_of_visit?

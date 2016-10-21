@@ -11,6 +11,7 @@
 - 'yes'
 - 'no'
 :which_country?:
+- democratic-republic-of-the-congo
 - australia # :commonwealth_result
 - iran # country_has_no_embassy
 - libya # :approved_translator_link
