@@ -59,7 +59,7 @@ In which country?
   * curacao: Curacao
   * cyprus: Cyprus
   * czech-republic: Czech Republic
-  * democratic-republic-of-congo: Democratic Republic Of Congo
+  * democratic-republic-of-the-congo: Democratic Republic Of The Congo
   * denmark: Denmark
   * djibouti: Djibouti
   * dominica: Dominica
