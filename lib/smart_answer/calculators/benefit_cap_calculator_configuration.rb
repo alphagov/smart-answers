@@ -42,12 +42,14 @@ module SmartAnswer::Calculators
     end
 
     def london?(postcode)
-      area(postcode).any? { |result| result[:type] == 'EUR' && result[:name] == "London" }
+      area(postcode).any? do |result|
+        result["type"] == "EUR" && result["name"] == "London"
+      end
     end
 
     def area(postcode)
-      response = Services.imminence_api.areas_for_postcode(postcode)
-      (response&.results || {})
+      response = Services.imminence_api.areas_for_postcode(postcode)&.to_hash
+      OpenStruct.new(response).results || []
     end
 
   private
