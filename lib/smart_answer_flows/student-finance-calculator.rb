@@ -8,12 +8,16 @@ module SmartAnswer
 
       #Q1
       multiple_choice :when_does_your_course_start? do
-        option :"2015-2016"
         option :"2016-2017"
+        option :"2017-2018"
 
         save_input_as :start_date
         next_node do
           question :what_type_of_student_are_you?
+        end
+
+        calculate :pseudo_calculator do |response|
+          Calculators::StudentFinanceCalculator.pseudo(response)
         end
       end
 
@@ -28,15 +32,29 @@ module SmartAnswer
         next_node do
           question :how_much_are_your_tuition_fees_per_year?
         end
+
+        calculate :tuition_fee_maximum_full_time do
+          pseudo_calculator.tuition_fee_maximum_full_time
+        end
+
+        calculate :tuition_fee_maximum_part_time do
+          pseudo_calculator.tuition_fee_maximum_part_time
+        end
+
+        calculate :tuition_fee_maximum do |response|
+          if response == "uk-full-time" || response == 'eu-full-time'
+            pseudo_calculator.tuition_fee_maximum_full_time
+          else
+            pseudo_calculator.tuition_fee_maximum_part_time
+          end
+        end
       end
 
       #Q3
       money_question :how_much_are_your_tuition_fees_per_year? do
         calculate :tuition_fee_amount do |response|
-          if course_type == "uk-full-time" || course_type == 'eu-full-time'
-            raise SmartAnswer::InvalidResponse if response > 9000
-          else
-            raise SmartAnswer::InvalidResponse if response > 6750
+          if response > tuition_fee_maximum
+            raise SmartAnswer::InvalidResponse
           end
           Money.new(response)
         end
@@ -83,6 +101,30 @@ module SmartAnswer
           calculator.maintenance_loan_amount
         end
 
+        calculate :childcare_grant_one_child do
+          calculator.childcare_grant("one-child")
+        end
+
+        calculate :childcare_grant_more_than_one_child do
+          calculator.childcare_grant("more-than-one-child")
+        end
+
+        calculate :parent_learning_allowance do
+          calculator.parent_learning_allowance
+        end
+
+        calculate :adult_dependant_allowance do
+          calculator.adult_dependant_allowance
+        end
+
+        calculate :dental_or_medical_student_2017_2018 do
+          false
+        end
+
+        calculate :not_dental_or_medical_student_2017_2018 do
+          false
+        end
+
         next_node do
           question :do_any_of_the_following_apply_uk_full_time_students_only?
         end
@@ -120,7 +162,7 @@ module SmartAnswer
         end
       end
 
-      #Q7
+      #Q7a
       multiple_choice :what_course_are_you_studying? do
         option :"teacher-training"
         option :"dental-medical-healthcare"
@@ -133,7 +175,11 @@ module SmartAnswer
           case course_type
           when 'uk-full-time'
             if response == 'dental-medical-healthcare'
-              outcome :outcome_uk_full_time_dental_medical_students
+              if start_date == "2017-2018"
+                question :are_you_studying_one_of_these_dental_or_medical_courses?
+              else
+                outcome :outcome_uk_full_time_dental_medical_students
+              end
             else
               outcome :outcome_uk_full_time_students
             end
@@ -145,6 +191,33 @@ module SmartAnswer
             end
           else
             outcome :outcome_eu_students
+          end
+        end
+      end
+
+      #Q7b
+      multiple_choice :are_you_studying_one_of_these_dental_or_medical_courses? do
+        option :"doctor-or-dentist"
+        option :"dental-hygiene-or-dental-therapy"
+        option :"none-of-the-above"
+
+        save_input_as :dental_or_medical_course
+
+        calculate :dental_or_medical_student_2017_2018 do
+          (start_date == "2017-2018" &&
+            dental_or_medical_course != "none-of-the-above")
+        end
+
+        calculate :not_dental_or_medical_student_2017_2018 do
+          (start_date == "2017-2018" &&
+            dental_or_medical_course == "none-of-the-above")
+        end
+
+        next_node do |response|
+          if response == "none-of-the-above"
+            outcome :outcome_uk_full_time_students
+          else
+            outcome :outcome_uk_full_time_dental_medical_students
           end
         end
       end
