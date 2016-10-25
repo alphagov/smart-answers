@@ -1,7 +1,7 @@
 ---
-lib/smart_answer_flows/landlord-immigration-check.rb: b7be9547908913a00ab95fb37b390808
-test/data/landlord-immigration-check-questions-and-responses.yml: 4528af2e75b49f85e1aad9d9671f9b92
-test/data/landlord-immigration-check-responses-and-expected-results.yml: 5b312ac68805f94310cb9e1aa6ae706a
+lib/smart_answer_flows/landlord-immigration-check.rb: 4c7183e87583b3d368037f139a6a3045
+test/data/landlord-immigration-check-questions-and-responses.yml: 894579b1b9b461d9a5614eaac47a04c2
+test/data/landlord-immigration-check-responses-and-expected-results.yml: 2d82f27e851d18f151400d3f5194655c
 lib/smart_answer_flows/landlord-immigration-check/landlord_immigration_check.govspeak.erb: 60507bfc657cf13a750b258017453743
 lib/smart_answer_flows/landlord-immigration-check/outcomes/_landlord_code_of_practice.govspeak.erb: cfb1261ac17c7aa40445173406459290
 lib/smart_answer_flows/landlord-immigration-check/outcomes/outcome_can_not_rent.govspeak.erb: 27a5d4936b713e09fa12059ac230ba56
