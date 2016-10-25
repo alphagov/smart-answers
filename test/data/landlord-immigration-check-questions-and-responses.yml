@@ -41,18 +41,3 @@
 :has_other_documents?:
 - 'yes'
 - 'no'
-:waiting_for_documents?:
-- 'yes'
-- 'no'
-:has_asylum_card?:
-- 'yes'
-- 'no'
-:time_limited_to_remain?:
-- 'yes'
-- 'no'
-:immigration_application?:
-- 'yes'
-- 'no'
-:has_residence_card_or_eu_eea_swiss_family_member?:
-- 'yes'
-- 'no'
