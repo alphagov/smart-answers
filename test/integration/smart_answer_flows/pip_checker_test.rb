@@ -55,29 +55,29 @@ class PIPCheckerTest < ActiveSupport::TestCase
   context "getting DLA" do
     setup do
       add_response 'yes'
-      Timecop.travel('2014-02-03')
+      Timecop.travel('2013-02-03')
     end
 
-    should "ask for your date of birth (03/03/14)" do
+    should "ask for your date of birth (03/03/13)" do
       assert_current_node :what_is_your_dob?
     end
 
-    should "be over 65 by 2013, if born on or before 08-04-1948 (03/03/14)" do
+    should "be over 65 by 2013, if born on or before 08-04-1948 (03/03/13)" do
       add_response "1948-04-08"
       assert_current_node :over_65_in_2013
     end
 
-    should "qualify for pip, if born between 08-06-1997 and 06-10-1997 (03/03/14)" do
+    should "qualify for pip, if born between 08-06-1997 and 06-10-1997 (03/03/13)" do
       add_response '1997-06-08'
       assert_current_node :qualifies_for_pip
     end
 
-    should "qualify for pip at 16, if born on or after 07-10-1997 (03/03/14)" do
+    should "qualify for pip at 16, if born on or after 07-10-1997 (03/03/13)" do
       add_response '1997-10-07'
       assert_current_node :qualifies_for_pip_at_16
     end
 
-    should "qualify for pip, if born between 09-04-1948 and 07-04-1997 (03/03/14)" do
+    should "qualify for pip, if born between 09-04-1948 and 07-04-1997 (03/03/13)" do
       add_response "1996-05-24"
       assert_current_node :qualifies_for_pip
     end
