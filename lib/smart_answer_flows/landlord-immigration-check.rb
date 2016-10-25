@@ -200,7 +200,7 @@ module SmartAnswer
           when "yes"
             outcome :outcome_can_rent
           when "no"
-            question :waiting_for_documents?
+            outcome :outcome_can_not_rent
           end
         end
       end
