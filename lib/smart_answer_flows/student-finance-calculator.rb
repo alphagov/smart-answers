@@ -44,10 +44,8 @@ module SmartAnswer
       #Q3
       money_question :how_much_are_your_tuition_fees_per_year? do
         calculate :tuition_fee_amount do |response|
-          if course_type == "uk-full-time" || course_type == 'eu-full-time'
-            raise SmartAnswer::InvalidResponse if response > 9000
-          else
-            raise SmartAnswer::InvalidResponse if response > 6750
+          if response > calculator.tuition_fee_maximum
+            raise SmartAnswer::InvalidResponse
           end
           Money.new(response)
         end
