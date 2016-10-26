@@ -1,6 +1,8 @@
 module SmartAnswer
   module Calculators
     class StudentFinanceCalculator
+      attr_accessor :course_start, :household_income, :residence, :course_type
+      
       LOAN_MAXIMUMS = {
         "2016-2017" => {
           "at-home" => 6_904,
@@ -17,10 +19,11 @@ module SmartAnswer
 
       delegate :maintenance_loan_amount, :maintenance_grant_amount, to: :strategy
 
-      def initialize(course_start:, household_income:, residence:)
-        @course_start = course_start
-        @household_income = household_income
-        @residence = residence
+      def initialize(params = {})
+        @course_start = params[:course_start]
+        @household_income = params[:household_income]
+        @residence = params[:residence]
+        @course_type = params[:course_type]
       end
 
       def reduced_maintenance_loan_for_healthcare

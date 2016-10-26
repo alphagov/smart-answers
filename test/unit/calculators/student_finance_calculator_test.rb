@@ -3,6 +3,42 @@ require_relative "../../test_helper"
 module SmartAnswer
   module Calculators
     class StudentFinanceCalculatorTest < ActiveSupport::TestCase
+      test "StudentFinanceCalculator is valid and setup properly" do
+        calculator = StudentFinanceCalculator.new(
+          course_start: '2016-2017',
+          household_income: 15_000,
+          residence: 'at-home',
+          course_type: 'uk-full-time'
+        )
+        assert_instance_of StudentFinanceCalculator, calculator
+
+        assert_equal '2016-2017', calculator.course_start
+        assert_equal 15000, calculator.household_income
+        assert_equal 'at-home', calculator.residence
+        assert_equal 'uk-full-time', calculator.course_type
+      end
+
+      test "StudentFinanceCalculator instance variables can be changed after initialisation" do
+        calculator = StudentFinanceCalculator.new
+
+        assert_instance_of StudentFinanceCalculator, calculator
+
+        assert_equal nil, calculator.course_start
+        assert_equal nil, calculator.household_income
+        assert_equal nil, calculator.residence
+        assert_equal nil, calculator.course_type
+
+        calculator.course_start = '2016-2017'
+        calculator.household_income = 15_000
+        calculator.residence = 'at-home'
+        calculator.course_type = 'uk-full-time'
+
+        assert_equal '2016-2017', calculator.course_start
+        assert_equal 15000, calculator.household_income
+        assert_equal 'at-home', calculator.residence
+        assert_equal 'uk-full-time', calculator.course_type
+      end
+
       context "#maintenance_grant_amount" do
         context "for students who started 2016-2017 or later" do
           setup do
