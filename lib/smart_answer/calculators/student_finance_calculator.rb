@@ -2,7 +2,7 @@ module SmartAnswer
   module Calculators
     class StudentFinanceCalculator
       attr_accessor :course_start, :household_income, :residence, :course_type
-      
+
       LOAN_MAXIMUMS = {
         "2016-2017" => {
           "at-home" => 6_904,
@@ -16,6 +16,12 @@ module SmartAnswer
         "away-in-london" => 3263,
         "away-outside-london" => 2324
       }
+      CHILD_CARE_GRANTS = {
+        "2016-2017" => {
+          "one-child" => 155.24,
+          "more-than-one-child" => 266.15
+        }
+      }
 
       delegate :maintenance_loan_amount, :maintenance_grant_amount, to: :strategy
 
@@ -28,6 +34,14 @@ module SmartAnswer
 
       def reduced_maintenance_loan_for_healthcare
         REDUCED_MAINTENTANCE_LOAN_AMOUNTS[@residence]
+      end
+
+      def childcare_grant_one_child
+        CHILD_CARE_GRANTS.fetch(@course_start).fetch("one-child")
+      end
+
+      def childcare_grant_more_than_one_child
+        CHILD_CARE_GRANTS.fetch(@course_start).fetch("more-than-one-child")
       end
 
     private

@@ -39,6 +39,33 @@ module SmartAnswer
         assert_equal 'uk-full-time', calculator.course_type
       end
 
+      context "childcare_grant" do
+        context "for one child" do
+          context "in 2016-2017" do
+            should "be 155.24" do
+              calculator = StudentFinanceCalculator.new(
+                course_start: "2016-2017",
+                household_income: 25_000,
+                residence: :unused_variable
+              )
+              assert_equal 155.24, calculator.childcare_grant_one_child
+            end
+          end
+        end
+        context "for more than one child" do
+          context "in 2016-2017" do
+            should "be 266.15" do
+              calculator = StudentFinanceCalculator.new(
+                course_start: "2016-2017",
+                household_income: 25_000,
+                residence: :unused_variable
+              )
+              assert_equal 266.15, calculator.childcare_grant_more_than_one_child
+            end
+          end
+        end
+      end
+
       context "#maintenance_grant_amount" do
         context "for students who started 2016-2017 or later" do
           setup do
