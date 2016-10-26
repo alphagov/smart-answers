@@ -64,6 +64,14 @@ module SmartAnswer
         ADULT_DEPENDANT_ALLOWANCE.fetch(@course_start)
       end
 
+      def tuition_fee_maximum
+        if @course_type == "uk-full-time" || @course_type == "eu-full-time"
+          tuition_fee_maximum_full_time
+        else
+          tuition_fee_maximum_part_time
+        end
+      end
+
       def tuition_fee_maximum_full_time
         TUITION_FEE_MAXIMUM.fetch(@course_start).fetch("full-time")
       end

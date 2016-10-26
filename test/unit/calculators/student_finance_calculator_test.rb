@@ -88,6 +88,28 @@ module SmartAnswer
         end
       end
 
+      context "#tuition_fee_maximum" do
+        context "in 2016-2017" do
+          setup do
+            @calculator = StudentFinanceCalculator.new(
+              course_start: "2016-2017",
+              household_income: 15_000,
+              residence: :unused_variable,
+              course_type: "uk-full-time"
+            )
+          end
+
+          should "be 9000 for uk or eu full-time student" do
+            assert_equal 9000, @calculator.tuition_fee_maximum
+          end
+
+          should "be 6750 for uk or eu part-time student" do
+            @calculator.course_type = "uk-part-time"
+            assert_equal 6750, @calculator.tuition_fee_maximum
+          end
+        end
+      end
+
       context "maximum tuition fee" do
         context "for a full time student" do
           context "in 2016-2017" do
@@ -95,7 +117,7 @@ module SmartAnswer
               calculator = StudentFinanceCalculator.new(
                 course_start: "2016-2017",
                 household_income: 25_000,
-                residence: :unused_variable
+                residence: :unused_variable,
               )
               assert_equal 9000, calculator.tuition_fee_maximum_full_time
             end
