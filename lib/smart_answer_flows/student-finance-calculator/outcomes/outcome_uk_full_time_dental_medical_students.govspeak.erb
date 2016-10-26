@@ -10,12 +10,12 @@
   <%= render partial: 'full_time_tuition.govspeak.erb', locals: { tuition_fee_amount: tuition_fee_amount, maintenance_loan_amount: maintenance_loan_amount, maintenance_grant_amount: maintenance_grant_amount, start_date: start_date } %>
 
   <% if uk_ft_circumstances.include?('children-under-17') %>
-    - up to £155.24 a week (1 child) or up to £266.15 a week (2 or more children) [Childcare Grant](/childcare-grant)
-    - up to £1,573 per year [Parents’ Learning Allowance](/parents-learning-allowance)
+    - up to <%= number_to_currency(calculator.childcare_grant_one_child, precision: 2) %> a week (1 child) or up to <%= number_to_currency(calculator.childcare_grant_more_than_one_child, precision: 2) %> a week (2 or more children) [Childcare Grant](/childcare-grant)
+    - up to £<%= number_with_delimiter(calculator.parent_learning_allowance) %> per year [Parents’ Learning Allowance](/parents-learning-allowance)
   <% end %>
 
   <% if uk_ft_circumstances.include?('dependant-adult') %>
-    - up to £2,757 per year [Adult Dependant’s Grant](/adult-dependants-grant)
+    - up to £<%= number_with_delimiter(calculator.adult_dependant_allowance) %> per year [Adult Dependant’s Grant](/adult-dependants-grant)
   <% end %>
 
   <% if uk_ft_circumstances.include?('has-disability') %>
