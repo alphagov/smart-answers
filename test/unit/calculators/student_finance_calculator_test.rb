@@ -219,6 +219,34 @@ module SmartAnswer
         end
       end
 
+      context "#dental_or_medical_student_2017_2018?" do
+        setup do
+          @calculator = StudentFinanceCalculator.new(
+            course_start: "2016-2017",
+            household_income: 15_000,
+            residence: :unused_variable,
+            course_type: "uk-full-time",
+            dental_or_medical_course: "none-of-the-above"
+          )
+        end
+        should "return false if course_start is not 2017-2018" do
+          assert_equal false, @calculator.dental_or_medical_student_2017_2018?
+        end
+
+        should "return false if course_start is 2017-2018 and doctor-or-dentist or dental-hygiene-or-dental-therapy isn't the choosen course" do
+          @calculator.course_start = "2017-2018"
+          assert_equal false, @calculator.dental_or_medical_student_2017_2018?
+        end
+
+        should "return true if course_start is 2017-2018 and doctor-or-dentist or dental-hygiene-or-dental-therapy is the choosen course" do
+          @calculator.course_start = "2017-2018"
+          @calculator.dental_or_medical_course = "doctor-or-dentist"
+          assert_equal true, @calculator.dental_or_medical_student_2017_2018?
+          @calculator.dental_or_medical_course = "dental-hygiene-or-dental-therapy"
+          assert_equal true, @calculator.dental_or_medical_student_2017_2018?
+        end
+      end
+
       context "#maintenance_grant_amount" do
         context "for students who started 2016-2017 or later" do
           setup do

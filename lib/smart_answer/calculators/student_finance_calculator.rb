@@ -1,7 +1,7 @@
 module SmartAnswer
   module Calculators
     class StudentFinanceCalculator
-      attr_accessor :course_start, :household_income, :residence, :course_type
+      attr_accessor :course_start, :household_income, :residence, :course_type, :dental_or_medical_course
 
       LOAN_MAXIMUMS = {
         "2016-2017" => {
@@ -56,6 +56,7 @@ module SmartAnswer
         @household_income = params[:household_income]
         @residence = params[:residence]
         @course_type = params[:course_type]
+        @dental_or_medical_course = params[:dental_or_medical_course]
       end
 
       def reduced_maintenance_loan_for_healthcare
@@ -92,6 +93,12 @@ module SmartAnswer
 
       def tuition_fee_maximum_part_time
         TUITION_FEE_MAXIMUM.fetch(@course_start).fetch("part-time")
+      end
+
+      def dental_or_medical_student_2017_2018?
+        courses = %w(doctor-or-dentist dental-hygiene-or-dental-therapy)
+        (@course_start == "2017-2018" &&
+          courses.include?(@dental_or_medical_course))
       end
 
     private
