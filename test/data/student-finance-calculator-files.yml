@@ -1,7 +1,7 @@
 ---
-lib/smart_answer_flows/student-finance-calculator.rb: 5aa2e42778a685888f0e8000e157dc7c
-test/data/student-finance-calculator-questions-and-responses.yml: ae13d2495639b12a232a161c1a60d3ec
-test/data/student-finance-calculator-responses-and-expected-results.yml: b81c538f86be29187ce9b150d48a2731
+lib/smart_answer_flows/student-finance-calculator.rb: b6c2c60e7943b880cd68ae4d93d68372
+test/data/student-finance-calculator-questions-and-responses.yml: 0e42be6c93caf9d73e92a842f51b390d
+test/data/student-finance-calculator-responses-and-expected-results.yml: b735461189907c593f813cb2b78724cf
 lib/smart_answer_flows/student-finance-calculator/outcomes/_disclaimer.govspeak.erb: 01560b7c2a22db8723b9837b785730c0
 lib/smart_answer_flows/student-finance-calculator/outcomes/_full_time_tuition.govspeak.erb: dd9a93cb8cd51dd19b29727a3e4b7bbe
 lib/smart_answer_flows/student-finance-calculator/outcomes/_next_steps.govspeak.erb: 6d4a15585ec75dd58d1069a668a4a35f
@@ -20,7 +20,7 @@ lib/smart_answer_flows/student-finance-calculator/questions/how_much_are_your_tu
 lib/smart_answer_flows/student-finance-calculator/questions/what_course_are_you_studying.govspeak.erb: 5c565f97c502425f44a5b2b9467e09c0
 lib/smart_answer_flows/student-finance-calculator/questions/what_type_of_student_are_you.govspeak.erb: 3626c8ac6a03fd8e180f6e2f95dac345
 lib/smart_answer_flows/student-finance-calculator/questions/whats_your_household_income.govspeak.erb: f254be533f75a8b092fcd3d0ba7423e7
-lib/smart_answer_flows/student-finance-calculator/questions/when_does_your_course_start.govspeak.erb: fe97db03e00303065298e0307b8fc61f
+lib/smart_answer_flows/student-finance-calculator/questions/when_does_your_course_start.govspeak.erb: e50d9ddb84b2c6dc9a9177181ab38a80
 lib/smart_answer_flows/student-finance-calculator/questions/where_will_you_live_while_studying.govspeak.erb: 82740b0bb305b19fa7cfa4d5ac4c40dd
 lib/smart_answer_flows/student-finance-calculator/student_finance_calculator.govspeak.erb: ed454b082ee2046aa9d89af331de735a
 lib/smart_answer/calculators/student_finance_calculator.rb: bc70a55b3977e07906811de67956dbdb
