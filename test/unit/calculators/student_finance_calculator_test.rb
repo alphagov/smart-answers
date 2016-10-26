@@ -66,6 +66,17 @@ module SmartAnswer
         end
       end
 
+      context "#parent_learning_allowance" do
+        should "be 1573 in 2016-2017" do
+          calculator = StudentFinanceCalculator.new(
+            course_start: "2016-2017",
+            household_income: 25_000,
+            residence: :unused_variable
+          )
+          assert_equal 1573, calculator.parent_learning_allowance
+        end
+      end
+
       context "#maintenance_grant_amount" do
         context "for students who started 2016-2017 or later" do
           setup do

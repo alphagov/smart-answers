@@ -22,6 +22,9 @@ module SmartAnswer
           "more-than-one-child" => 266.15
         }
       }
+      PARENTS_LEARNING_ALLOWANCE = {
+        "2016-2017" => 1573
+      }
 
       delegate :maintenance_loan_amount, :maintenance_grant_amount, to: :strategy
 
@@ -42,6 +45,10 @@ module SmartAnswer
 
       def childcare_grant_more_than_one_child
         CHILD_CARE_GRANTS.fetch(@course_start).fetch("more-than-one-child")
+      end
+
+      def parent_learning_allowance
+        PARENTS_LEARNING_ALLOWANCE.fetch(@course_start)
       end
 
     private
