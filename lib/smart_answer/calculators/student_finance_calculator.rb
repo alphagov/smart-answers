@@ -28,6 +28,12 @@ module SmartAnswer
       ADULT_DEPENDANT_ALLOWANCE = {
         "2016-2017" => 2757
       }
+      TUITION_FEE_MAXIMUM = {
+        "2016-2017" => {
+          "full-time" => 9000,
+          "part-time" => 6750
+        }
+      }
 
       delegate :maintenance_loan_amount, :maintenance_grant_amount, to: :strategy
 
@@ -56,6 +62,14 @@ module SmartAnswer
 
       def adult_dependant_allowance
         ADULT_DEPENDANT_ALLOWANCE.fetch(@course_start)
+      end
+
+      def tuition_fee_maximum_full_time
+        TUITION_FEE_MAXIMUM.fetch(@course_start).fetch("full-time")
+      end
+
+      def tuition_fee_maximum_part_time
+        TUITION_FEE_MAXIMUM.fetch(@course_start).fetch("part-time")
       end
 
     private
