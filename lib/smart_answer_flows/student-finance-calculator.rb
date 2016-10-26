@@ -6,9 +6,16 @@ module SmartAnswer
       status :published
       satisfies_need "100133"
 
+      sf_calculator = Calculators::StudentFinanceCalculator.new
+
       #Q1
       multiple_choice :when_does_your_course_start? do
         option :"2016-2017"
+
+        on_response do |response|
+          self.calculator = sf_calculator
+          calculator.course_start = response
+        end
 
         save_input_as :start_date
         next_node do
@@ -24,6 +31,11 @@ module SmartAnswer
         option :"eu-part-time"
 
         save_input_as :course_type
+
+        on_response do |response|
+          calculator.course_type = response
+        end
+
         next_node do
           question :how_much_are_your_tuition_fees_per_year?
         end
@@ -57,7 +69,10 @@ module SmartAnswer
         option :'away-outside-london'
         option :'away-in-london'
 
-        save_input_as :where_living
+        on_response do |response|
+          calculator.residence = response
+        end
+
         next_node do
           question :whats_your_household_income?
         end
@@ -65,19 +80,14 @@ module SmartAnswer
 
       #Q5
       money_question :whats_your_household_income? do
-        calculate :calculator do |response|
-          Calculators::StudentFinanceCalculator.new(
-            course_start: start_date,
-            household_income: response,
-            residence: where_living
-          )
+        on_response do |response|
+          calculator.household_income = response
         end
 
         calculate :maintenance_grant_amount do
           calculator.maintenance_grant_amount
         end
 
-        # loan amount depends on maintenance grant amount and household income
         calculate :maintenance_loan_amount do
           calculator.maintenance_loan_amount
         end
