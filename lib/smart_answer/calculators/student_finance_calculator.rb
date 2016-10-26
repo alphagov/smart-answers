@@ -25,6 +25,9 @@ module SmartAnswer
       PARENTS_LEARNING_ALLOWANCE = {
         "2016-2017" => 1573
       }
+      ADULT_DEPENDANT_ALLOWANCE = {
+        "2016-2017" => 2757
+      }
 
       delegate :maintenance_loan_amount, :maintenance_grant_amount, to: :strategy
 
@@ -49,6 +52,10 @@ module SmartAnswer
 
       def parent_learning_allowance
         PARENTS_LEARNING_ALLOWANCE.fetch(@course_start)
+      end
+
+      def adult_dependant_allowance
+        ADULT_DEPENDANT_ALLOWANCE.fetch(@course_start)
       end
 
     private
