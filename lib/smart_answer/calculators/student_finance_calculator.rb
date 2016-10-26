@@ -8,9 +8,13 @@ module SmartAnswer
           "at-home" => 6_904,
           "away-outside-london" => 8_200,
           "away-in-london" => 10_702
+        },
+        "2017-2018" => {
+          "at-home" => 7_097,
+          "away-outside-london" => 8_430,
+          "away-in-london" => 11_002
         }
       }.freeze
-
       REDUCED_MAINTENTANCE_LOAN_AMOUNTS = {
         "at-home" => 1744,
         "away-in-london" => 3263,
@@ -20,18 +24,28 @@ module SmartAnswer
         "2016-2017" => {
           "one-child" => 155.24,
           "more-than-one-child" => 266.15
+        },
+        "2017-2018" => {
+          "one-child" => 159.59,
+          "more-than-one-child" => 273.60
         }
       }
       PARENTS_LEARNING_ALLOWANCE = {
-        "2016-2017" => 1573
+        "2016-2017" => 1573,
+        "2017-2018" => 1617
       }
       ADULT_DEPENDANT_ALLOWANCE = {
-        "2016-2017" => 2757
+        "2016-2017" => 2757,
+        "2017-2018" => 2834
       }
       TUITION_FEE_MAXIMUM = {
         "2016-2017" => {
           "full-time" => 9000,
           "part-time" => 6750
+        },
+        "2017-2018" => {
+          "full-time" => 9250,
+          "part-time" => 6935
         }
       }
 
@@ -96,6 +110,11 @@ module SmartAnswer
             "at-home" => 3_039,
             "away-outside-london" => 3_821,
             "away-in-london" => 5_330
+          },
+          "2017-2018" => {
+            "at-home" => 3_124,
+            "away-outside-london" => 3_928,
+            "away-in-london" => 5_479
           }
         }.freeze
         INCOME_PENALTY_RATIO = {
@@ -103,6 +122,11 @@ module SmartAnswer
             "at-home" => 8.59,
             "away-outside-london" => 8.49,
             "away-in-london" => 8.34
+          },
+          "2017-2018" => {
+            "at-home" => 8.36,
+            "away-outside-london" => 8.26,
+            "away-in-london" => 8.12
           }
         }
 
