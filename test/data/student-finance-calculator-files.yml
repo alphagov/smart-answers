@@ -1,7 +1,7 @@
 ---
-lib/smart_answer_flows/student-finance-calculator.rb: 2fa917f91cd68af6f49046f9908a2b75
-test/data/student-finance-calculator-questions-and-responses.yml: 2ed566bfc0097c65867d9ab5547263e6
-test/data/student-finance-calculator-responses-and-expected-results.yml: 255f39a38917d4f57f9b9fb05051d49c
+lib/smart_answer_flows/student-finance-calculator.rb: e149903a33a6b8dc48579915e8b47550
+test/data/student-finance-calculator-questions-and-responses.yml: 4d58f4807e1e27002aa73a963e0105b5
+test/data/student-finance-calculator-responses-and-expected-results.yml: d68a5f26b330b7d3646f9584aa7263d9
 lib/smart_answer_flows/student-finance-calculator/outcomes/_disclaimer.govspeak.erb: 01560b7c2a22db8723b9837b785730c0
 lib/smart_answer_flows/student-finance-calculator/outcomes/_full_time_tuition.govspeak.erb: dd9a93cb8cd51dd19b29727a3e4b7bbe
 lib/smart_answer_flows/student-finance-calculator/outcomes/_next_steps.govspeak.erb: 6d4a15585ec75dd58d1069a668a4a35f
@@ -13,6 +13,7 @@ lib/smart_answer_flows/student-finance-calculator/outcomes/outcome_uk_all_studen
 lib/smart_answer_flows/student-finance-calculator/outcomes/outcome_uk_full_time_dental_medical_students.govspeak.erb: 1fc2e09170c0d75faedc97fb6706f713
 lib/smart_answer_flows/student-finance-calculator/outcomes/outcome_uk_full_time_students.govspeak.erb: 4146b8ec610c20c3916857e58f7f62cb
 lib/smart_answer_flows/student-finance-calculator/outcomes/outcome_uk_part_time_dental_medical_students.govspeak.erb: 696d3b5814fc45a1483c2058ecf73997
+lib/smart_answer_flows/student-finance-calculator/questions/are_you_studying_dental_hygiene_or_dental_therapy.govspeak.erb: 3871d433305955ff44b922b59a776eb1
 lib/smart_answer_flows/student-finance-calculator/questions/are_you_studying_one_of_these_dental_or_medical_courses.govspeak.erb: beb2d2ae6e55cc3857953e451f87e5e6
 lib/smart_answer_flows/student-finance-calculator/questions/do_any_of_the_following_apply_all_uk_students.govspeak.erb: 8c2e9bacdf528020006c25e5f2a2cf51
 ? lib/smart_answer_flows/student-finance-calculator/questions/do_any_of_the_following_apply_uk_full_time_students_only.govspeak.erb

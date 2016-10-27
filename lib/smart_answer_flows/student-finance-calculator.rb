@@ -151,7 +151,11 @@ module SmartAnswer
             end
           when 'uk-part-time'
             if response == 'dental-medical-healthcare'
-              outcome :outcome_uk_part_time_dental_medical_students
+              if start_date == "2017-2018"
+                question :are_you_studying_dental_hygiene_or_dental_therapy?
+              else
+                outcome :outcome_uk_part_time_dental_medical_students
+              end
             else
               outcome :outcome_uk_all_students
             end
@@ -178,6 +182,20 @@ module SmartAnswer
             outcome :outcome_uk_full_time_students
           else
             outcome :outcome_uk_full_time_dental_medical_students
+          end
+        end
+      end
+
+      #Q7c
+      multiple_choice :are_you_studying_dental_hygiene_or_dental_therapy? do
+        option :yes
+        option :no
+
+        next_node do |response|
+          if response == "no"
+            outcome :outcome_uk_all_students
+          else
+            outcome :outcome_uk_part_time_dental_medical_students
           end
         end
       end
