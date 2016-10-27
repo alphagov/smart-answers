@@ -1,19 +1,32 @@
 - NHS Bursary (funding towards your fees and living costs)
 
 <% if uk_ft_circumstances.include?('has-disability') %>
-  - up to £27,680 Disabled Students' Allowance
+  <% if calculator.course_start == "2016-2017" %>
+    - up to £27,680 Disabled Students' Allowance
+  <% else %>
+    - Disabled Students' Allowance
+  <% end %>
 <% end %>
 
 <% if uk_ft_circumstances.include?('children-under-17') %>
-  - up to £128.78 a week (1 child) or up to £191.45 a week (2 or more children) Childcare Allowance
-  - up to £1,204 per year Parents' Learning Allowance
+  <% if calculator.course_start == "2016-2017" %>
+    - up to £128.78 a week (1 child) or up to £191.45 a week (2 or more children) Childcare Allowance
+    - up to £1,204 per year Parents' Learning Allowance
+  <% else %>
+    - Childcare Allowance
+    - Parents' Learning Allowance
+  <% end %>
 <% end %>
 
 <% if uk_ft_circumstances.include?('dependant-adult') %>
   - Dependants' Allowance
 <% end %>
 
-- up to £108 a week Extra Weeks Allowance
+<% if calculator.course_start == "2016-2017" %>
+  - up to £108 a week Extra Weeks Allowance
+<% else %>
+  - Extra Weeks Allowance
+<% end %>
 - Practice placement expenses
 
 Each year you could also get:
