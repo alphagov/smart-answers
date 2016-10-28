@@ -1,0 +1,11 @@
+<% content_for :title do %>
+    <% if calculator.partner_is_same_sex? %>
+        Civil partnership in <%= calculator.country_name_lowercase_prefix %>
+    <% else %>
+        Marriage in <%= calculator.country_name_lowercase_prefix %>
+    <% end %>
+<% end %>
+
+<% content_for :body do %>
+    <%= render partial: calculator.path_to_outcome, locals: {calculator: calculator} %>
+<% end %>
