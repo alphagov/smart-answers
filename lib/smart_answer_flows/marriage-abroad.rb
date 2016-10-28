@@ -173,10 +173,6 @@ module SmartAnswer
               outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
             elsif calculator.ceremony_country == 'norway' && calculator.resident_of_third_country?
               outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
-            elsif calculator.ceremony_country == 'italy' && calculator.resident_of_uk?
-              outcome :outcome_opposite_sex_marriage_in_italy_when_residing_in_uk
-            elsif calculator.ceremony_country == 'italy' && calculator.resident_of_ceremony_country?
-              outcome :outcome_opposite_sex_marriage_in_italy_when_residing_in_italy
             elsif calculator.ceremony_country == 'cambodia'
               outcome :outcome_opposite_sex_marriage_in_cambodia
             elsif calculator.ceremony_country == "colombia"
@@ -281,8 +277,6 @@ module SmartAnswer
               outcome :outcome_same_sex_civil_partnership_in_affirmation_countries
             elsif calculator.ceremony_country == 'dominican-republic'
               outcome :outcome_same_sex_marriage_in_dominican_republic
-            elsif calculator.ceremony_country == 'italy'
-              outcome :outcome_same_sex_marriage_in_italy
             elsif calculator.same_sex_ceremony_country_unknown_or_has_no_embassies?
               outcome :outcome_opposite_sex_in_no_cni_countries_when_residing_in_ceremony_or_third_country
             elsif calculator.ceremony_country == "japan"
@@ -361,8 +355,6 @@ module SmartAnswer
       outcome :outcome_opposite_sex_marriage_in_georgia
       outcome :outcome_opposite_sex_marriage_in_hong_kong
       outcome :outcome_opposite_sex_marriage_in_indonesia
-      outcome :outcome_opposite_sex_marriage_in_italy_when_residing_in_italy
-      outcome :outcome_opposite_sex_marriage_in_italy_when_residing_in_uk
       outcome :outcome_opposite_sex_marriage_in_japan
       outcome :outcome_same_sex_for_non_romanians
       outcome :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_kosovo
@@ -376,7 +368,6 @@ module SmartAnswer
       outcome :outcome_opposite_sex_marriage_in_morocco
       outcome :outcome_opposite_sex_marriage_in_north_korea
       outcome :outcome_opposite_sex_marriage_in_norway
-      outcome :outcome_same_sex_marriage_in_italy
       outcome :outcome_opposite_sex_marriage_in_oman
       outcome :outcome_opposite_sex_marriage_in_other_countries
       outcome :outcome_opposite_sex_marriage_in_peru
