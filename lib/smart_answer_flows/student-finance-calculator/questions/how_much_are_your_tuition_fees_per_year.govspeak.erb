@@ -3,9 +3,9 @@
 <% end %>
 
 <% content_for :hint do %>
-  The maximum is £9,000 for full-time students and £6,750 for part-time students.
+  The maximum is £<%= number_with_delimiter(calculator.tuition_fee_maximum_full_time) %> for full-time students and £<%= number_with_delimiter(calculator.tuition_fee_maximum_part_time) %> for part-time students.
 <% end %>
 
 <% content_for :error_message do %>
-  Please enter a number up to the maximum amount (£9,000 for full-time, £6,750 for part-time), don’t enter ‘£’
+  Please enter a number up to the maximum amount (£<%= number_with_delimiter(calculator.tuition_fee_maximum_full_time) %> for full-time, £<%= number_with_delimiter(calculator.tuition_fee_maximum_part_time) %> for part-time), don’t enter ‘£’
 <% end %>
