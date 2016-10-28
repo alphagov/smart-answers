@@ -68,6 +68,8 @@ module SmartAnswer
         option :'away-outside-london'
         option :'away-in-london'
 
+        save_input_as :where_living
+
         on_response do |response|
           calculator.residence = response
         end
@@ -79,16 +81,20 @@ module SmartAnswer
 
       #Q5
       money_question :whats_your_household_income? do
-        on_response do |response|
-          calculator.household_income = response
+        calculate :test_calculator do |response|
+          Calculators::StudentFinanceCalculator.new(
+            course_start: start_date,
+            household_income: response,
+            residence: where_living
+          )
         end
 
         calculate :maintenance_grant_amount do
-          calculator.maintenance_grant_amount
+          test_calculator.maintenance_grant_amount
         end
 
         calculate :maintenance_loan_amount do
-          calculator.maintenance_loan_amount
+          test_calculator.maintenance_loan_amount
         end
 
         next_node do
