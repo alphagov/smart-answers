@@ -15,6 +15,25 @@ module SmartAnswer::Calculators
       @services_data = services_data || YAML.load_file(services_data_file)
     end
 
+    def path_to_outcome
+      ceremony_location = if resident_of_ceremony_country?
+                            'ceremony_country'
+                          elsif resident_of_third_country?
+                            'third_country'
+                          else
+                            'uk'
+                          end
+      partner_nationality = if partner_is_national_of_ceremony_country?
+                              'partner_local'
+                            elsif partner_british?
+                              'partner_british'
+                            else
+                              'partner_other'
+                            end
+
+      "#{ceremony_country}/#{ceremony_location}/#{partner_nationality}/#{partner_is_same_sex? ? 'same_sex' : 'opposite_sex'}"
+    end
+
     def partner_british?
       @partner_nationality == 'partner_british'
     end
