@@ -287,7 +287,7 @@ module SmartAnswer::Calculators
     end
 
     def birth_certificate_required_as_supporting_document?
-      MarriageAbroadDataQuery::NO_BIRTH_CERT_REQUIREMENT.exclude?(ceremony_country)
+      MarriageAbroadDataQuery::THREE_DAY_RESIDENCY_REQUIREMENT_COUNTRIES.exclude?(ceremony_country)
     end
 
     def notary_public_ceremony_country?
