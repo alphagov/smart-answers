@@ -3,6 +3,39 @@ require_relative "../../test_helper"
 module SmartAnswer
   module Calculators
     class MarriageAbroadCalculatorTest < ActiveSupport::TestCase
+      context '#path_to_outcome' do
+        setup do
+          @calculator = MarriageAbroadCalculator.new
+        end
+
+        should 'get outcome for country where: opposite_sex marriage, user lives in ceremony country, partner is local' do
+          @calculator.ceremony_country = 'country'
+          @calculator.resident_of = 'ceremony_country'
+          @calculator.partner_nationality = 'partner_local'
+          @calculator.sex_of_your_partner = 'opposite_sex'
+
+          assert_equal "country/ceremony_country/partner_local/opposite_sex", @calculator.path_to_outcome
+        end
+
+        should 'get outcome for country where: same_sex marriage, user lives in uk, partner is british' do
+          @calculator.ceremony_country = 'country'
+          @calculator.resident_of = 'uk'
+          @calculator.partner_nationality = 'partner_british'
+          @calculator.sex_of_your_partner = 'same_sex'
+
+          assert_equal "country/uk/partner_british/same_sex", @calculator.path_to_outcome
+        end
+
+        should 'get outcome for country where: same_sex marriage, user lives in another country, partner is from another country' do
+          @calculator.ceremony_country = 'country'
+          @calculator.resident_of = 'third_country'
+          @calculator.partner_nationality = 'partner_other'
+          @calculator.sex_of_your_partner = 'same_sex'
+
+          assert_equal "country/third_country/partner_other/same_sex", @calculator.path_to_outcome
+        end
+      end
+
       context '#partner_british?' do
         setup do
           @calculator = MarriageAbroadCalculator.new
