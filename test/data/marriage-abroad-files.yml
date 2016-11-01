@@ -14,7 +14,6 @@ lib/smart_answer_flows/marriage-abroad/outcomes/_change_of_name_evidence.govspea
 lib/smart_answer_flows/marriage-abroad/outcomes/_check_if_cni_needs_to_be_legalised.govspeak.erb: 1c3210e86d1801744df347f7c158e5f2
 lib/smart_answer_flows/marriage-abroad/outcomes/_check_if_uk_issued_cnis_accepted.govspeak.erb: 1a54e9c7c589d8a20b78e3a82bff7cc7
 lib/smart_answer_flows/marriage-abroad/outcomes/_cni_at_local_register_office.govspeak.erb: b126d73bbecd8903eb71771f358a9909
-lib/smart_answer_flows/marriage-abroad/outcomes/_cni_at_local_register_office_italy.govspeak.erb: f37d7f669e63d5944b7fa6712db13642
 lib/smart_answer_flows/marriage-abroad/outcomes/_cni_issued_locally_validity.govspeak.erb: 33c9ea594a82f33aaef26e71334df812
 lib/smart_answer_flows/marriage-abroad/outcomes/_cni_os_consular_facilities_unavailable.govspeak.erb: caa6d2996caa92b4bb7507d69bb9c212
 lib/smart_answer_flows/marriage-abroad/outcomes/_complete_affirmation_or_affidavit_forms.govspeak.erb: a68b3c66adc1e3b101fc4aa4fd32ae85
@@ -87,6 +86,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/italy/ceremony_country/partner_l
 lib/smart_answer_flows/marriage-abroad/outcomes/italy/ceremony_country/partner_local/_same_sex.erb: 4a743998071f98fcb50d263cab290f93
 lib/smart_answer_flows/marriage-abroad/outcomes/italy/ceremony_country/partner_other/_opposite_sex.erb: c5dbe0aea2da08cf4b857042ab959485
 lib/smart_answer_flows/marriage-abroad/outcomes/italy/ceremony_country/partner_other/_same_sex.erb: 4a743998071f98fcb50d263cab290f93
+lib/smart_answer_flows/marriage-abroad/outcomes/italy/shared/_cni_at_local_register_office.govspeak.erb: f37d7f669e63d5944b7fa6712db13642
 lib/smart_answer_flows/marriage-abroad/outcomes/italy/shared/_contact_comune.govspeak.erb: 8bbd01b62c7cec52f8eb0c1b3f3c64e8
 lib/smart_answer_flows/marriage-abroad/outcomes/italy/shared/_contact_method.govspeak.erb: 8c8c4b0d95a3e25b13770f2a7119c1de
 lib/smart_answer_flows/marriage-abroad/outcomes/italy/shared/_getting_a_statutory_declaration.govspeak.erb: 0fb21ddaed14db4f267dd2b12c4bcaa2
@@ -101,12 +101,12 @@ lib/smart_answer_flows/marriage-abroad/outcomes/italy/third_country/partner_loca
 lib/smart_answer_flows/marriage-abroad/outcomes/italy/third_country/partner_local/_same_sex.erb: 4a743998071f98fcb50d263cab290f93
 lib/smart_answer_flows/marriage-abroad/outcomes/italy/third_country/partner_other/_opposite_sex.erb: 76eb1718cf2cabf11fe265e5c2135b6b
 lib/smart_answer_flows/marriage-abroad/outcomes/italy/third_country/partner_other/_same_sex.erb: 4a743998071f98fcb50d263cab290f93
-lib/smart_answer_flows/marriage-abroad/outcomes/italy/uk/partner_british/_opposite_sex.erb: daee570c0f7e8f11e727ae7e73e7bf92
-lib/smart_answer_flows/marriage-abroad/outcomes/italy/uk/partner_british/_same_sex.erb: 2b9916a290412eb676bc29ff381587a7
-lib/smart_answer_flows/marriage-abroad/outcomes/italy/uk/partner_local/_opposite_sex.erb: a45241a4c5a6d6bb03866d29ec72403b
-lib/smart_answer_flows/marriage-abroad/outcomes/italy/uk/partner_local/_same_sex.erb: 456b3c25d61a88dd7e52024d835d4752
-lib/smart_answer_flows/marriage-abroad/outcomes/italy/uk/partner_other/_opposite_sex.erb: a45241a4c5a6d6bb03866d29ec72403b
-lib/smart_answer_flows/marriage-abroad/outcomes/italy/uk/partner_other/_same_sex.erb: 456b3c25d61a88dd7e52024d835d4752
+lib/smart_answer_flows/marriage-abroad/outcomes/italy/uk/partner_british/_opposite_sex.erb: 3f4cac5467020adf4808f7d849ca621a
+lib/smart_answer_flows/marriage-abroad/outcomes/italy/uk/partner_british/_same_sex.erb: e34283a1080a7adffc8f0a4b161e1a05
+lib/smart_answer_flows/marriage-abroad/outcomes/italy/uk/partner_local/_opposite_sex.erb: f39587a648f4683d58b9f8813997b119
+lib/smart_answer_flows/marriage-abroad/outcomes/italy/uk/partner_local/_same_sex.erb: f58cd17189cabf618f238109175deec8
+lib/smart_answer_flows/marriage-abroad/outcomes/italy/uk/partner_other/_opposite_sex.erb: f39587a648f4683d58b9f8813997b119
+lib/smart_answer_flows/marriage-abroad/outcomes/italy/uk/partner_other/_same_sex.erb: f58cd17189cabf618f238109175deec8
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark.govspeak.erb: efec14c4cb955b105cf7e101d59105eb
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_ireland.govspeak.erb: 1c1f2dc4f9aafbfe87b91df96047ace6
 ? lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries.govspeak.erb
