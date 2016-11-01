@@ -23,7 +23,7 @@ lib/data/rates/register_a_birth.yml: 8d678c61d06f614a67e8faa1933b0ff5
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 0bc67c4469fe692a4fa53c9b461821bf
 lib/smart_answer_flows/shared/births_and_deaths_registration/_button.govspeak.erb: bdd3818dfd2b9d6396daf6f60fd887a0
 lib/data/rates/births_and_deaths_document_return_fees.yml: 4ac203e9fd076c12f62b57f8d1b64ffc
-lib/data/translators.yml: d8aae004accbb90983664f63fb76e813
+lib/data/translators.yml: 79abd2e0c2570130f7d832e4242c153a
 lib/data/registrations.yml: ffb11e760ce3aa07cf342caaedb3e6f5
 lib/smart_answer/calculators/country_name_formatter.rb: 583df7103672f581bf5510732c1b2be1
 lib/smart_answer/calculators/registrations_data_query.rb: 3afcd514ecedadd19b0db67f54ac5ea6
