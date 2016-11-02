@@ -22,7 +22,7 @@ lib/smart_answer_flows/landlord-immigration-check/questions/has_documents.govspe
 lib/smart_answer_flows/landlord-immigration-check/questions/has_eu_documents.govspeak.erb: c9020cccaea9930824d73d2b4e70431f
 lib/smart_answer_flows/landlord-immigration-check/questions/has_other_documents.govspeak.erb: 6a7bb30a33fa570f75d3aaca86594f1d
 lib/smart_answer_flows/landlord-immigration-check/questions/has_residence_card_or_eu_eea_swiss_family_member.govspeak.erb: 566627594105a24069451ab40f540846
-lib/smart_answer_flows/landlord-immigration-check/questions/has_uk_passport.govspeak.erb: 294e10196ecf02efcc75eea4fd8c966c
+lib/smart_answer_flows/landlord-immigration-check/questions/has_uk_passport.govspeak.erb: d584ed7bf059ced0535403e62518646f
 lib/smart_answer_flows/landlord-immigration-check/questions/immigration_application.govspeak.erb: 7107f59aa5812bb3f5a88244fe6e3412
 lib/smart_answer_flows/landlord-immigration-check/questions/main_home.govspeak.erb: daa66dfee926ca1fc2228cf9081919c3
 lib/smart_answer_flows/landlord-immigration-check/questions/property.govspeak.erb: 2423dcd0c89463fb2b0038e44cf61205
