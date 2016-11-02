@@ -87,10 +87,13 @@ module SmartAnswer
 
       #Q3a
       multiple_choice :what_nationality? do
+        option "british-or-irish"
         option "eea"
 
         next_node do |response|
           case response
+          when "british-or-irish"
+            question :has_uk_passport?
           when "eea"
             question :has_eu_documents?
           end
@@ -107,7 +110,7 @@ module SmartAnswer
           when "yes"
             outcome :outcome_can_rent
           when "no"
-            question :right_to_abode?
+            question :has_other_documents?
           end
         end
       end
