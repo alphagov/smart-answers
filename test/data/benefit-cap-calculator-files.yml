@@ -14,7 +14,7 @@ lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected_less
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected_less_than_cap_national.govspeak.erb: 40d5581c7d3a17d300cd90269548cca7
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected_no_housing_benefit.govspeak.erb: 200bf6210451323b5812e572f4524d28
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected_no_housing_benefit_future.govspeak.erb: 200bf6210451323b5812e572f4524d28
-lib/smart_answer_flows/benefit-cap-calculator/questions/_hints.govspeak.erb: 47d549bc257d1b7e42a487c43f70abdd
+lib/smart_answer_flows/benefit-cap-calculator/questions/_hints.govspeak.erb: 15533076ba86eddb98d26a5153cd33b2
 lib/smart_answer_flows/benefit-cap-calculator/questions/bereavement_amount.govspeak.erb: 2d1dc7c4f3c49f417cb9d1134cb1b4d7
 lib/smart_answer_flows/benefit-cap-calculator/questions/carers_amount.govspeak.erb: b572736670c6373307927774f23b7f6b
 lib/smart_answer_flows/benefit-cap-calculator/questions/child_benefit_amount.govspeak.erb: 465deb851760f3e8b7ba9d33a4c16bb2
