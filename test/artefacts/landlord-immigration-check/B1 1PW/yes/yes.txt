@@ -4,6 +4,7 @@ Is the person:
 
 
 
+  * british-or-irish: a British or Irish citizen
   * eea: from another EU country, the EEA or Switzerland
 
 
