@@ -13,7 +13,7 @@ class FlowContentItem
           external_related_links: external_related_links
       },
       schema_name: 'placeholder_smart_answer',
-      document_type: 'smartanswer_document',
+      document_type: 'smart_answer',
       publishing_app: 'smartanswers',
       rendering_app: 'smartanswers',
       locale: 'en',

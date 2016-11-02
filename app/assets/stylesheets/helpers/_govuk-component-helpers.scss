@@ -1,0 +1,7 @@
+// GOV.UK components expect to live in a world with a global reset. This CSS
+// might be pushed up to static at some point.
+.govuk-breadcrumbs ol,
+.govuk-related-items ul {
+  padding: 0;
+  margin: 0;
+}

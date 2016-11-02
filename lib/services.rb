@@ -1,7 +1,7 @@
 require 'gds_api/publishing_api_v2'
+require 'gds_api/content_store'
 require 'gds_api/imminence'
 require 'gds_api/worldwide'
-require 'gds_api/content_api'
 require 'gds_api/rummager'
 
 module Services
@@ -20,11 +20,13 @@ module Services
     @worldwide_api ||= GdsApi::Worldwide.new(Plek.new.find('whitehall-admin'))
   end
 
-  def self.content_api
-    @content_api ||= GdsApi::ContentApi.new(Plek.new.find("contentapi"))
-  end
-
   def self.rummager
     @rummager ||= GdsApi::Rummager.new(Plek.find("rummager"))
+  end
+
+  def self.content_store
+    @content_store ||= GdsApi::ContentStore.new(
+      Plek.new.find('content-store')
+    )
   end
 end

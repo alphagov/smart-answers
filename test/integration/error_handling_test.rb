@@ -8,7 +8,6 @@ class ErrorHandlingTest < ActionDispatch::IntegrationTest
     end
 
     def test
-      set_slimmer_headers(skip: true)
       if self.class.exception_to_raise_before_render
         raise self.class.exception_to_raise_before_render
       end
@@ -40,11 +39,6 @@ class ErrorHandlingTest < ActionDispatch::IntegrationTest
       get '/test'
       assert_response 503
     end
-
-    should 'render error message as response body' do
-      get '/test'
-      assert_equal '503 error', response.body
-    end
   end
 
   context 'when ActionController::UnknownFormat raised before render' do
@@ -55,11 +49,6 @@ class ErrorHandlingTest < ActionDispatch::IntegrationTest
     should 'set response status code to 404' do
       get '/test'
       assert_response 404
-    end
-
-    should 'render error message as response body' do
-      get '/test'
-      assert_equal '404 error', response.body
     end
   end
 
@@ -72,11 +61,6 @@ class ErrorHandlingTest < ActionDispatch::IntegrationTest
       get '/test'
       assert_response 503
     end
-
-    should 'replace response body with error message' do
-      get '/test'
-      assert_equal '503 error', response.body
-    end
   end
 
   context 'when ActionController::UnknownFormat raised after render' do
@@ -87,11 +71,6 @@ class ErrorHandlingTest < ActionDispatch::IntegrationTest
     should 'set response status code to 404' do
       get '/test'
       assert_response 404
-    end
-
-    should 'replace response body with error message' do
-      get '/test'
-      assert_equal '404 error', response.body
     end
   end
 end
