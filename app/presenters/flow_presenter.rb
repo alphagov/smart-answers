@@ -15,12 +15,6 @@ class FlowPresenter
     @node_presenters = {}
   end
 
-  def artefact
-    @artefact ||= Services.content_api.artefact(@flow.name.to_s)
-  rescue GdsApi::HTTPErrorResponse
-    {}
-  end
-
   def title
     start_node.title
   end

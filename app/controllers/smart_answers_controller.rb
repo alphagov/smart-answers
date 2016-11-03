@@ -1,7 +1,10 @@
 class SmartAnswersController < ApplicationController
+  include Slimmer::SharedTemplates
+
   before_action :find_smart_answer, except: %w(index)
   before_action :redirect_response_to_canonical_url, only: %w{show}
   before_action :set_header_footer_only, only: %w{visualise}
+  before_filter :setup_navigation_helpers_and_content_item, except: %w(index)
 
   rescue_from SmartAnswer::FlowRegistry::NotFound, with: :error_404
   rescue_from SmartAnswer::InvalidNode, with: :error_404
@@ -11,7 +14,6 @@ class SmartAnswersController < ApplicationController
   end
 
   def show
-    set_slimmer_artefact(@presenter.artefact)
     respond_to do |format|
       format.html { render }
       format.json {
@@ -95,13 +97,21 @@ private
   end
 
   def set_expiry(duration = 30.minutes)
-    # if the artefact returned from the Content API is blank, or if
-    # the request to the Content API fails, set a very short cache so
-    # we don't cache an incomplete page for a while
-    duration = 5.seconds if @presenter.present? && @presenter.artefact.blank?
-
     if Rails.configuration.set_http_cache_control_expiry_time
       expires_in(duration, public: true)
     end
+  end
+
+  def setup_navigation_helpers_and_content_item
+    @content_item = Services.content_store.content_item("/" + params[:id]).to_hash
+
+    # Remove the organisations from the content item - this will prevent the
+    # govuk:analytics:organisations meta tag from being generated until there is
+    # a better way of doing this.
+    if @content_item["links"]
+      @content_item["links"].delete("organisations")
+    end
+
+    @navigation_helpers = GovukNavigationHelpers::NavigationHelper.new(@content_item)
   end
 end

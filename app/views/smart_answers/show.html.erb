@@ -7,6 +7,8 @@
   <%= javascript_include_tag "application", defer: true %>
 <% end %>
 
+<%= render partial: 'govuk_component/breadcrumbs', locals: @navigation_helpers.breadcrumbs %>
+
 <div class="grid-row">
   <main id="content" role="main">
     <div id="js-replaceable" <% if @presenter.started? %> class="smart-answer-questions group"<% end %>>
@@ -19,6 +21,8 @@
     </div>
   </main>
   <% unless @presenter.started? %>
-    <div id="related-items"></div>
+    <div class="related-container">
+      <%= render partial: 'govuk_component/related_items', locals: @navigation_helpers.related_items %>
+    </div>
   <% end %>
 </div>

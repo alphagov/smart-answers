@@ -11,7 +11,6 @@ WebMock.disable_net_connect!(allow_localhost: true)
 require_relative '../support/fixture_methods'
 require_relative '../support/world_location_stubbing_methods'
 
-require 'gds_api/test_helpers/content_api'
 require 'gds_api/test_helpers/imminence'
 
 require 'mocha/api'
@@ -42,7 +41,6 @@ class SmartAnswersRegressionTest < ActionController::TestCase
     end
   end
 
-  include GdsApi::TestHelpers::ContentApi
   include GdsApi::TestHelpers::Imminence
   include WebMock::API
   include FixtureMethods
@@ -67,7 +65,6 @@ class SmartAnswersRegressionTest < ActionController::TestCase
         Timecop.freeze(smart_answer_helper.current_time)
 
         next if self.class.setup_has_run? && !self.class.teardown_hooks_installed?
-        stub_content_api_default_artefact
         WebMock.stub_request(:get, WorkingDays::BANK_HOLIDAYS_URL).to_return(body: File.open(fixture_file('bank_holidays.json')))
 
         setup_worldwide_locations

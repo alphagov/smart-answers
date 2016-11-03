@@ -2,17 +2,14 @@ require_relative '../test_helper'
 require_relative '../helpers/fixture_flows_helper'
 require_relative '../fixtures/smart_answer_flows/smart-answers-controller-sample-with-multiple-choice-question'
 require_relative 'smart_answers_controller_test_helper'
-require 'gds_api/test_helpers/content_api'
 
 class SmartAnswersControllerMultipleChoiceQuestionTest < ActionController::TestCase
   tests SmartAnswersController
 
   include FixtureFlowsHelper
   include SmartAnswersControllerTestHelper
-  include GdsApi::TestHelpers::ContentApi
 
   def setup
-    stub_content_api_default_artefact
     setup_fixture_flows
   end
 
