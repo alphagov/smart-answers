@@ -1,7 +1,7 @@
 ---
 lib/smart_answer_flows/register-a-death.rb: 1f7655d6cb1d3ae6df56f1c8e051f0cc
-test/data/register-a-death-questions-and-responses.yml: d0676f39f79e2db6365db0789f759f4d
-test/data/register-a-death-responses-and-expected-results.yml: 391bf589a4c47df16938517f9a2d6c65
+test/data/register-a-death-questions-and-responses.yml: 17df5ebe5ca83bc959a679e64c1fc0a8
+test/data/register-a-death-responses-and-expected-results.yml: 2085dbf31af22a39ce3ee5cbd178f10d
 lib/smart_answer_flows/register-a-death/outcomes/_fees.govspeak.erb: 295a443bf733cdeb0fcd70282af042cc
 lib/smart_answer_flows/register-a-death/outcomes/_footnote_oru_variants.govspeak.erb: 5a3909331b2a97a9dac6a13d02e860a9
 lib/smart_answer_flows/register-a-death/outcomes/commonwealth_result.govspeak.erb: a04c0907f44a14d715689ce9182959de

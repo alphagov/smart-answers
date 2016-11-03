@@ -228,6 +228,14 @@
   - overseas
   - democratic-republic-of-the-congo
   - another_country
+  - north-korea
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - democratic-republic-of-the-congo
+  - another_country
   - papua-new-guinea
   :next_node: :oru_result
   :outcome_node: true
@@ -358,6 +366,14 @@
   - austria
   - another_country
   - libya
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - austria
+  - another_country
+  - north-korea
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
@@ -508,6 +524,14 @@
   - overseas
   - north-korea
   - another_country
+  - north-korea
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - north-korea
+  - another_country
   - papua-new-guinea
   :next_node: :oru_result
   :outcome_node: true
@@ -632,6 +656,14 @@
   - papua-new-guinea
   - another_country
   - libya
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - papua-new-guinea
+  - another_country
+  - north-korea
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?

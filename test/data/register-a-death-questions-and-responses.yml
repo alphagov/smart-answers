@@ -32,6 +32,7 @@
 - hong-kong # :booking_text_embassy_hong_kong
 - italy # :postal_delivery_form
 - libya # :consular_service_fees_libya
+- north-korea
 - papua-new-guinea # :embassy_high_commission_or_consulate "British high commission"
 - philippines # :post_only_#{philippines}
 - somalia
