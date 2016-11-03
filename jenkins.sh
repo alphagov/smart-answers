@@ -19,8 +19,6 @@ git clone git@github.com:alphagov/govuk-content-schemas.git tmp/govuk-content-sc
 export GOVUK_CONTENT_SCHEMAS_PATH=tmp/govuk-content-schemas
 
 bundle install --path "/home/jenkins/bundles/${JOB_NAME}" --deployment
-export GOVUK_APP_DOMAIN=dev.gov.uk
-export GOVUK_ASSET_HOST=http://static.dev.gov.uk
 
 export DISPLAY=:99
 
