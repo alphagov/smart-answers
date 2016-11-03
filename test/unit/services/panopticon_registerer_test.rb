@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PanopticonRegistererTest < ActiveSupport::TestCase
   test 'sending item to panopticon' do
-    request = stub_request(:put, %r[http://panopticon.dev.gov.uk/])
+    request = stub_request(:put, %r[https://panopticon.test.gov.uk/])
     flow_presenters = [OpenStruct.new, OpenStruct.new]
 
     silence_logging do
@@ -13,7 +13,7 @@ class PanopticonRegistererTest < ActiveSupport::TestCase
   end
 
   test 'sending correct data to panopticon' do
-    stub_request(:put, "http://panopticon.dev.gov.uk/artefacts/a-smart-answer.json")
+    stub_request(:put, "https://panopticon.test.gov.uk/artefacts/a-smart-answer.json")
 
     registerable = OpenStruct.new(
       slug: 'a-smart-answer',
@@ -27,7 +27,7 @@ class PanopticonRegistererTest < ActiveSupport::TestCase
 
     assert_requested(
       :put,
-      "http://panopticon.dev.gov.uk/artefacts/a-smart-answer.json",
+      "https://panopticon.test.gov.uk/artefacts/a-smart-answer.json",
       body: {
         slug: "a-smart-answer",
         content_id: 'be9adf07-ce73-468e-be81-31716b4492f2',
