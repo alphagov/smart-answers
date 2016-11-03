@@ -1,25 +1,16 @@
 
 
-$!You must register the birth in the country where the child was born. You'll be given a local birth certificate.$!
+$!You can apply to register the birth with the British embassy in North Korea.$!
 
-You can also register the birth with the UK authorities. You must:
+Download and complete the [birth registration form](/government/publications/application-to-register-an-overseas-birth).
 
-s1. Check that you have the right documents.
-s2. Print out and fill in the birth registration form.
-s3. Pay.
-s4. Post your documents and the form.
+##Documents
 
-##1. Check your documents
+^Provide English translations of all foreign documents. Use a professional translator and include their name and address with your application. Don’t provide laminated documents.^
 
-^Send English translations of all foreign documents. Use an [approved translator](/government/publications/morocco-list-of-lawyers) and include their name and address with your application. Don't send laminated documents.^
+You must provide the original copies of:
 
-^Only the mother will be named on the local birth certificate if you aren’t married. To add the father’s name you must swear a paternity declaration in a Moroccan court and you may be ordered to get married.^
-
-You must send the original versions of:
-
-- the child’s full local birth certificate - it must have both parents’ names
-- a [name confirmation form](https://www.gov.uk/government/publications/birth-registration-name-confirmation-form) that says how you would like the child's full name to be registered, if the name differs from the name on the local birth certificate
-
+- a birth certificate issued by Pyongyang Friendship Hospital
 - the long version of the parent’s birth certificate showing the child’s grandparents’ details (for parents who were born in the UK)
 - the parent’s naturalisation or registration certificate (for parents who weren’t born in the UK)
 - the parents’ marriage or civil partnership certificate (if applicable)
@@ -28,61 +19,59 @@ You must send the original versions of:
 - a letter from the parent’s employer if they’re working abroad as a UK civil servant, EU civil servant, diplomat or member of HM Forces (for British parents)
 - written evidence if the parent was born overseas while one of their own parents was working abroad as a UK civil servant, EU civil servant, diplomat or member of HM Forces (for British parents)
 
-You must also send photocopies of:
+You must also provide photocopies of:
 
 - the photo page of the child’s British passport if they have one
-- the photo pages of both parents’ current passports regardless of nationality (if you don't have a passport, send a copy of another identity document that has a photo)
+- the photo page of the parent’s current passport (for British parents)
+- the birth certificate or the photo page of the parent’s current passport (for parents who aren’t British)
 
 %Your application will be rejected if the documents aren’t authentic, don’t confirm the child’s identity or don’t prove that the child has a claim to British nationality. The registration fee won’t be refunded.%
 
-##2. Fill in the application form
+You’ll need to provide originals and a photocopy of each document.
 
-Print out and fill in the [application form](/government/publications/application-to-register-an-overseas-birth).
-
-##3. Pay
-
-You should pay online for the registration. Email <birthregistrationenquiries@fco.gov.uk> if you’re unable to pay online.
-
-The registration fee does not include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office or the National Records Office of Scotland, but only from September the year after you register.
-
-Once you’ve paid you will be given a reference number to use on your birth registration form.
+##Cost
 
 Service | Fee
 -|-
 Register a birth | £105
 Copy of a birth registration certificate | £65
 
-You must also pay for your documents to be returned to you.
+You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees](/government/organisations/foreign-commonwealth-office/series/consular-fees).
 
-Postage destination | Fee
--|-
-UK address or British Forces Post Office | £4.50
-Europe (excluding Albania, Armenia, Azerbaijan, Belarus, Bosnia and Herzegovina, Georgia, Liechtenstein, Macedonia, Moldova, Montenegro, Russia, Serbia, Turkey and Ukraine) | £12.50
-Rest of world | £22
+You can order copies of the registration certificate from the British embassy when you register the birth.
 
-<a rel="nofollow" href= "https://pay-register-birth-abroad.service.gov.uk/start" class="big button">Pay now</a>
+Cheaper copies will be available from the [General Register Office](http://www.gro.gov.uk) in the UK, but not until September the year after you register.
 
-##4. Send your registration
+##Go to the British embassy
 
-Post the registration form and documents by secure post to:
+Book an appointment at the British embassy and bring the registration form, supporting documents and the fee.
+
+The mother must register the birth. If you want the father’s name on the consular birth certificate, both parents will need to swear a paternity declaration in person at the nearest consulate.
+
+Paternity declarations are free. Contact the consulate for more details.
 
 $A
-Overseas Registration Unit
-Foreign & Commonwealth Office
-Hanslope Park
-Hanslope
-Milton Keynes
-MK19 7BH
-United Kingdom
+British Embassy Pyongyang
+Munsu-Dong Compound,, 
+Pyongyang,
+Democratic People&#39;s Republic of Korea
+Pyongyang
+North Korea
 $A
 
-##Return of your documents
+$C
+Telephone: 00 (850) 2 381 7982
+Telephone (out-of-hours emergency): 00 (850) 191 250 7980 (from outside DPRK)
+Fax: (+850) 2 381 7985
+
+Email: <Pyongyang.enquiries@fco.gov.uk>
+
+[ British Embassy Pyongyang - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-pyonyang/office/british-embassy-pyongyang)
+$C
 
 ^Registration can take up to 3 months - your application will be sent to the Foreign and Commonwealth Office in London where the birth will be registered.^
 
-Your documents will be returned to the British Embassy in Pyongyang after the birth has been registered.
-
-You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
+Your documents will be returned to the British Embassy in Pyongyang after the birth has been registered. You’ll also be sent copies of the registration certificate if you’ve paid for them. The embassy will contact you when your documents and certificates are ready for collection.
 
 
 
