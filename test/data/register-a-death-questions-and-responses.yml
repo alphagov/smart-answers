@@ -13,6 +13,7 @@
 :which_country?:
 - democratic-republic-of-the-congo
 - australia # :commonwealth_result
+- austria
 - iran # country_has_no_embassy
 - libya # :approved_translator_link
 - north-korea # :documents_list_embassy_north-korea, :footnote_exceptions
