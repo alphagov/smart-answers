@@ -1,5 +1,6 @@
 class SmartAnswersController < ApplicationController
   include Slimmer::SharedTemplates
+  include Slimmer::Headers
 
   before_action :find_smart_answer, except: %w(index)
   before_action :redirect_response_to_canonical_url, only: %w{show}
