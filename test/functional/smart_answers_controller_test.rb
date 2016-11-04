@@ -193,4 +193,12 @@ class SmartAnswersControllerTest < ActionController::TestCase
       end
     end
   end
+
+  context "GET /<slug>/visualise" do
+    should "display the visualisation" do
+      get :visualise, id: 'smart-answers-controller-sample'
+
+      assert_select "h1", /Smart answers controller sample/
+    end
+  end
 end
