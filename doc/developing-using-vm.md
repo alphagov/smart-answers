@@ -14,7 +14,7 @@ Clone the following repositories:
 
 * [imminence](https://github.com/alphagov/imminence)
 * [asset-manager](https://github.com/alphagov/asset-manager)
-* [govuk_content_api](https://github.com/alphagov/govuk_content_api)
+* [content-store](https://github.com/alphagov/content-store)
 
 If you want to run the Whitehall app locally (to provide the server side of the Worldwide API), then you also need to clone its repository:
 

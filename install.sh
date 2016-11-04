@@ -11,7 +11,7 @@ function inst_prompt() {
     echo -e -n '\n\n'
 }
 
-smart_dependencies=("static" "imminence" "asset-manager" "govuk_content_api" "smart-answers")
+smart_dependencies=("static" "imminence" "asset-manager" "content-store" "smart-answers")
 for i in  "${smart_dependencies[@]}"
 do
     inst_prompt "Changing to \033[1;35m$i"

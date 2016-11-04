@@ -5,8 +5,13 @@
     <%= stylesheet_link_tag "print.css", media: "print" %>
     <title><%= yield :title %> - GOV.UK</title>
     <%= yield :head %>
+
+    <% if @content_item %>
+      <%= render partial: 'govuk_component/analytics_meta_tags', locals: { content_item: @content_item } %>
+    <% end %>
   </head>
 <body class="mainstream">
+  <div class="header-context"><!-- Deliberately empty. This will prevent Slimmer from adding the artefact-breadcrumb. --></div>
 
   <%= yield :before_wrapper %>
 
