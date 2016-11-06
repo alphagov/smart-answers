@@ -30,17 +30,20 @@ class SmartAnswersController < ApplicationController
     @title = @presenter.title
 
     respond_to do |format|
-      format.html {
+      format.html do
         if page_is_under_ab_test?(content_item)
           set_education_navigation_response_header(content_item)
         end
 
         render page_type
-      }
+      end
+
+      format.json do
+        render json: ApiPresenter.new(@presenter).as_json
+      end
+
       if Rails.application.config.expose_govspeak
-        format.text {
-          render page_type
-        }
+        format.text { render page_type }
       end
     end
 
