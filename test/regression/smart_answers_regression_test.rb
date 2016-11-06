@@ -66,6 +66,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
 
         next if self.class.setup_has_run? && !self.class.teardown_hooks_installed?
         WebMock.stub_request(:get, WorkingDays::BANK_HOLIDAYS_URL).to_return(body: File.open(fixture_file('bank_holidays.json')))
+        Services.content_store.stubs(:content_item!).returns({})
 
         setup_worldwide_locations
 
