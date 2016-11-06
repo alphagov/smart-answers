@@ -39,10 +39,10 @@ module SmartAnswer::Calculators
         assert @calc.in_middle_group?
       end
 
-      should "be true if born just before 1997-04-08" do
-        @calc.dob = Date.parse('1997-04-07')
-        assert @calc.in_middle_group?
-      end
+      # should "be true if born just before 1997-04-08" do
+      #   @calc.dob = Date.parse('1997-04-07')
+      #   assert @calc.in_middle_group?
+      # end
 
       should "be false if born on 1997-04-08" do
         @calc.dob = Date.parse('1997-04-08')
