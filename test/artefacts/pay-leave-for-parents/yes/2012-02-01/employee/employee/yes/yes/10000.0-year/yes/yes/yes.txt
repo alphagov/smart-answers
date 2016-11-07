@@ -1,4 +1,4 @@
-How much does the mother’s partner earn (or did they earn, if they’ve left their job)?
+How much does the mother’s partner earn in this job (or did they earn, if they’ve left the job)?
 
 
 
@@ -9,5 +9,5 @@ How much does the mother’s partner earn (or did they earn, if they’ve left t
 
 
 
-This is their total take-home pay before any deductions, eg tax.
+This is their take-home pay before any deductions, eg tax.
 
