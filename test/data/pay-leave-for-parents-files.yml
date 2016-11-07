@@ -101,6 +101,6 @@ lib/smart_answer_flows/pay-leave-for-parents/questions/partner_salary.govspeak.e
 lib/smart_answer_flows/pay-leave-for-parents/questions/partner_started_working_before_continuity_start_date.govspeak.erb: c34c0237f36902df658166c02a553810
 lib/smart_answer_flows/pay-leave-for-parents/questions/partner_still_working_on_continuity_end_date.govspeak.erb: 148ed4d11126f45b1a27b089b9666c54
 lib/smart_answer_flows/pay-leave-for-parents/questions/partner_worked_at_least_26_weeks.govspeak.erb: d9f1d868bbc5d89545a6f56396a9dd83
-lib/smart_answer_flows/pay-leave-for-parents/questions/salary_1_66_weeks.govspeak.erb: d1e560300b869d3f0685a8300c185b2a
+lib/smart_answer_flows/pay-leave-for-parents/questions/salary_1_66_weeks.govspeak.erb: 9e6d0e41472690daf354dbef9dee36b5
 lib/smart_answer_flows/pay-leave-for-parents/questions/two_carers.govspeak.erb: bb7640d6d75c7882c1bf1d7feb90a8ac
 lib/smart_answer/calculators/pay_leave_for_parents_calculator.rb: 83aec654ae82b98c797ee4bc04e62abb
