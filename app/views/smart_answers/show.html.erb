@@ -31,11 +31,11 @@
 <div class="grid-row">
   <main id="content" role="main">
     <div <% if @presenter.started? %> class="smart-answer-questions group"<% end %>>
-      <%= render partial: "content" %>
+      <%= render 'content' %>
     </div>
 
     <div class="meta-wrapper">
-      <%= render :partial => 'smartanswer_metadata' %>
+      <%= render 'smartanswer_metadata' %>
     </div>
   </main>
   <% unless @presenter.started? %>
