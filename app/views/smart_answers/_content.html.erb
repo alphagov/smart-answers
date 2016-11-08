@@ -6,13 +6,7 @@
   <% end %>
   <%= render 'debug' %>
 
-  <header class="page-header group">
-    <div>
-      <h1>
-        <%= @presenter.title %>
-      </h1>
-    </div>
-  </header>
+  <%= render partial: 'page_title', locals: { title: @presenter.title } %>
 
   <% if @presenter.finished? %>
     <%= render partial: 'result', locals: { outcome: @presenter.current_node } %>

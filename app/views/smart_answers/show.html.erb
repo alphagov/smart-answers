@@ -32,19 +32,9 @@
   <main id="content" role="main">
     <%= render 'content' %>
 
-    <div class="meta-wrapper">
-      <%= render 'smartanswer_metadata' %>
-    </div>
+    <%= render 'smartanswer_metadata' %>
   </main>
   <% unless @presenter.started? %>
-    <div class="related-container">
-      <% if @navigation_helpers %>
-        <% if present_taxonomy_sidebar?(@content_item) %>
-          <%= render partial: 'govuk_component/taxonomy_sidebar', locals: @navigation_helpers.taxonomy_sidebar %>
-        <% else %>
-          <%= render partial: 'govuk_component/related_items', locals: @navigation_helpers.related_items %>
-        <% end %>
-      <% end %>
-    </div>
+    <%= render 'related_items' %>
   <% end %>
 </div>

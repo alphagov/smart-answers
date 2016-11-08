@@ -4,13 +4,7 @@
   <% end %>
 <% end %>
 
-<header class="page-header group">
-  <div>
-    <h1>
-      <%= start_node.title %>
-    </h1>
-  </div>
-</header>
+<%= render partial: 'page_title', locals: { title: start_node.title } %>
 
 <div class="article-container group">
   <article role="article" class="group" data-debug-template-path="<%= start_node.relative_erb_template_path %>">
