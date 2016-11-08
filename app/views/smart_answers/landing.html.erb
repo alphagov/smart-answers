@@ -30,11 +30,10 @@
 
 <div class="grid-row">
   <main id="content" role="main">
-    <%= render 'content' %>
+    <%= render partial: 'landing', locals: { start_node: @presenter.start_node } %>
 
     <%= render 'smartanswer_metadata' %>
   </main>
-  <% unless @presenter.started? %>
-    <%= render 'related_items' %>
-  <% end %>
+
+  <%= render 'related_items' %>
 </div>

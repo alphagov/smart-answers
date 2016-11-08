@@ -30,7 +30,7 @@ class SmartAnswersController < ApplicationController
         if page_is_under_ab_test?(content_item)
           set_education_navigation_response_header(content_item)
         end
-        render
+        render page_type
       }
       if Rails.application.config.expose_govspeak
         format.text {

@@ -1,0 +1,38 @@
+<% content_for :head do %>
+  <meta name="robots" content="noindex">
+<% end %>
+
+<% content_for :title do %><%= @presenter.title %><% end %>
+<% content_for :head do %>
+  <%= javascript_include_tag "application", defer: true %>
+<% end %>
+
+<% if @navigation_helpers %>
+  <%= render partial: 'govuk_component/breadcrumbs', locals: @navigation_helpers.breadcrumbs %>
+<% end %>
+
+<div class="grid-row">
+  <main id="content" role="main">
+
+    <%= render 'debug' %>
+
+    <%= render partial: 'page_title', locals: { title: @presenter.title } %>
+
+    <div class="step current">
+      <%= form_tag calculate_current_question_path(@presenter), :method => :get %>
+        <div class="current-question" id="current-question">
+          <%= render partial: 'current_question', locals: { question: @presenter.current_node } %>
+          <div class="next-question">
+            <input type="hidden" name="next" value="1" />
+            <button type="submit" class="medium button">Next step</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <%= render 'previous_answers' %>
+
+    <%= render 'smartanswer_metadata' %>
+
+  </main>
+</div>
