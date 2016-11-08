@@ -32,16 +32,6 @@ class SmartAnswersController < ApplicationController
         end
         render
       }
-      format.json {
-        html_fragment = with_format('html') {
-          render_to_string(partial: "content")
-        }
-        render json: {
-          url: smart_answer_path(params[:id], 'y', @presenter.current_state.responses),
-          html_fragment: html_fragment,
-          title: @presenter.current_node.title
-        }
-      }
       if Rails.application.config.expose_govspeak
         format.text {
           render
@@ -71,18 +61,6 @@ private
     Rails.env.development? && params[:debug]
   end
   helper_method :debug?
-
-  def json_request?
-    request.format == Mime::JSON
-  end
-
-  def with_format(format)
-    old_formats = self.formats
-    self.formats = [format]
-    result = yield
-    self.formats = old_formats
-    result
-  end
 
   def find_smart_answer
     @name = params[:id].to_sym

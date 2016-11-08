@@ -1,9 +1,5 @@
 <% content_for :title do %><%= @presenter.title %><% end %>
 <% content_for :head do %>
-  <script>
-    var SmartAnswer = SmartAnswer || {};
-    SmartAnswer.AJAX_ENABLED = <%= ajax_enabled_for?(@presenter.name) %>;
-  </script>
   <%= javascript_include_tag "application", defer: true %>
   <% if page_is_under_ab_test?(@content_item) %>
     <%= education_navigation_variant.analytics_meta_tag.html_safe %>
@@ -34,7 +30,7 @@
 
 <div class="grid-row">
   <main id="content" role="main">
-    <div id="js-replaceable" <% if @presenter.started? %> class="smart-answer-questions group"<% end %>>
+    <div <% if @presenter.started? %> class="smart-answer-questions group"<% end %>>
       <%= render partial: "content" %>
     </div>
 
