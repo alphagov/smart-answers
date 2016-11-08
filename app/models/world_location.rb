@@ -1,7 +1,7 @@
 require 'lrucache'
 
 class WorldLocation
-  extend Forwardable
+  attr_reader :title, :details, :slug
 
   def self.cache
     @cache ||= LRUCache.new(max_size: 250, soft_ttl: 24.hours, ttl: 1.week)
@@ -13,8 +13,11 @@ class WorldLocation
 
   def self.all
     cache_fetch("all") do
-      world_locations = Services.worldwide_api.world_locations.with_subsequent_pages.map do |l|
-        new(l) if l.format == "World location" && l.details && l.details.slug.present?
+      world_locations = Services.worldwide_api.world_locations.with_subsequent_pages.map do |response|
+        location = response.to_hash
+        if valid_world_location_format?(location)
+          self.new(location)
+        end
       end
       world_locations.compact
     end
@@ -22,10 +25,16 @@ class WorldLocation
 
   def self.find(location_slug)
     cache_fetch("find_#{location_slug}") do
-      data = Services.worldwide_api.world_location(location_slug)
-      self.new(data) if data
+      location = Services.worldwide_api.world_location(location_slug)&.to_hash
+      self.new(location) if location
     end
   end
+
+  def self.valid_world_location_format?(location)
+    location.is_a?(Hash) && location["format"] == "World location" &&
+      location["details"].is_a?(Hash) && location["details"]["slug"].present?
+  end
+  private_class_method :valid_world_location_format?
 
   # Fetch a value from the cache.
   #
@@ -49,20 +58,20 @@ class WorldLocation
     end
   end
 
-  def initialize(data)
-    @data = data
+  def initialize(location)
+    @title = location.fetch("title", "")
+    @details = location.fetch("details", {})
+    @slug = @details.fetch("slug", "")
   end
 
-  def ==(other)
-    other.is_a?(self.class) && other.slug == self.slug
-  end
-
-  def_delegators :@data, :title, :details
-  def_delegators :details, :slug
   alias_method :name, :title
 
+  def ==(other)
+    other.is_a?(self.class) && other.slug == @slug
+  end
+
   def organisations
-    @organisations ||= WorldwideOrganisation.for_location(self.slug)
+    @organisations ||= WorldwideOrganisation.for_location(@slug)
   end
 
   def fco_organisation

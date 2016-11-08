@@ -211,7 +211,7 @@ class WorldLocationTest < ActiveSupport::TestCase
     should "allow accessing required top-level attributes" do
       assert_equal "Rohan", @location.title
       assert_equal "Rohan", @location.name # alias for title
-      assert_equal 'rohan', @location.details.slug
+      assert_equal 'rohan', @location.slug
     end
 
     should "allow accessing required details attributes" do
