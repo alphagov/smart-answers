@@ -34,7 +34,7 @@ class SmartAnswersController < ApplicationController
       }
       if Rails.application.config.expose_govspeak
         format.text {
-          render
+          render page_type
         }
       end
     end
@@ -70,6 +70,18 @@ private
 
   def flow_registry
     @flow_registry = SmartAnswer::FlowRegistry.instance
+  end
+
+  def page_type
+    if @presenter.started?
+      if @presenter.finished?
+        :result
+      else
+        :question
+      end
+    else
+      :landing
+    end
   end
 
   def redirect_response_to_canonical_url
