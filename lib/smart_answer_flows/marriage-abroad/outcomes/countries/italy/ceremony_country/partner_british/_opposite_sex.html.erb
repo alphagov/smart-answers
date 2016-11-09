@@ -47,17 +47,15 @@ They'll issue your CNI within 5 working days of the end of the 7-day notice peri
 
 ## Fees
 
-Service | Fee
--|-
-Receiving a notice of marriage | £65
-Issuing a CNI, Nulla Osta or equivalent | £65
+<%= render partial: 'consular_fees_table_items.govspeak.erb',
+           collection: calculator.services,
+           as: :service,
+           locals: { calculator: calculator } %>
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Italy](/government/publications/italy-consular-fees).
 
-You can pay by cash (in euro and pounds sterling) or credit card (not American Express), but not by personal cheque.
+<%=  render partial: 'how_to_pay.govspeak.erb',
+            locals: {calculator: calculator}%>
 
 *[CNI]:certificate of no impediment
 *[FCO]:Foreign &amp; Commonwealth Office
-
-
-
