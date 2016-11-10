@@ -25,8 +25,7 @@ module WorldLocationStubbingMethods
         end
 
         if fco_organisation_data
-          ostruct = GdsApi::Response.build_ostruct_recursively(fco_organisation_data)
-          fco_organisation = WorldwideOrganisation.new(ostruct)
+          fco_organisation = WorldwideOrganisation.new(fco_organisation_data)
         end
       end
     end
