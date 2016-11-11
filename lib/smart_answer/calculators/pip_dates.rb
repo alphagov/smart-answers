@@ -12,7 +12,7 @@ module SmartAnswer::Calculators
     end
 
     def in_middle_group?
-      self.dob > GROUP_65_CUTOFF && self.dob <= 16.years.ago
+      self.dob > GROUP_65_CUTOFF && self.dob <= 16.years.ago(Date.today)
     end
 
     def turning_16_before_oct_2013?
