@@ -111,7 +111,7 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.ceremony_country == 'italy'
+          if %w(italy).include?(calculator.ceremony_country)
             outcome :outcome_marriage_abroad_in_country
           elsif calculator.ceremony_country == 'brazil' && calculator.resident_of_ceremony_country?
             outcome :outcome_marriage_in_brazil_when_residing_in_brazil
