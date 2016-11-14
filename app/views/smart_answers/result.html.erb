@@ -2,27 +2,12 @@
   <meta name="robots" content="noindex">
 <% end %>
 
-<% content_for :title do %><%= @presenter.title %><% end %>
-<% content_for :head do %>
-  <%= javascript_include_tag "application", defer: true %>
-<% end %>
+<%= render 'debug' %>
 
-<% if @navigation_helpers %>
-  <%= render partial: 'govuk_component/breadcrumbs', locals: @navigation_helpers.breadcrumbs %>
-<% end %>
+<%= render partial: 'page_title', locals: { title: @presenter.title } %>
 
-<div class="grid-row">
-  <main id="content" role="main">
+<%= render partial: 'result', locals: { outcome: @presenter.current_node } %>
 
-    <%= render 'debug' %>
+<%= render 'previous_answers' %>
 
-    <%= render partial: 'page_title', locals: { title: @presenter.title } %>
-
-    <%= render partial: 'result', locals: { outcome: @presenter.current_node } %>
-
-    <%= render 'previous_answers' %>
-
-    <%= render 'smartanswer_metadata' %>
-
-  </main>
-</div>
+<%= render 'smartanswer_metadata' %>

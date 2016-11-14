@@ -1,0 +1,24 @@
+<% content_for :title do %>
+  <%= @presenter.title %>
+<% end %>
+
+<% content_for :head do %>
+  <%= javascript_include_tag "application", defer: true %>
+<% end %>
+
+<% if @navigation_helpers %>
+  <%= render partial: 'govuk_component/breadcrumbs', locals: @navigation_helpers.breadcrumbs %>
+<% end %>
+
+
+<div class="grid-row">
+  <main id="content" role="main">
+    <%= yield %>
+
+    <%= render 'smartanswer_metadata' %>
+  </main>
+
+  <%= yield :sidebar %>
+</div>
+
+<% parent_layout 'application' %>
