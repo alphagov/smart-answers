@@ -6,10 +6,41 @@
 
 <%= render partial: 'page_title', locals: { title: @presenter.title } %>
 
+<% question = @presenter.current_node %>
+
 <div class="step current">
   <%= form_tag calculate_current_question_path(@presenter), :method => :get %>
     <div class="current-question" id="current-question">
-      <%= render partial: 'current_question', locals: { question: @presenter.current_node } %>
+
+      <div class="question" data-debug-template-path="<%= question.relative_erb_template_path %>">
+        <h2 data-test="question">
+          <%= question.title %>
+        </h2>
+        <div class="question-body">
+          <% if question.body.present? %>
+            <article role="article">
+              <%= question.body %>
+            </article>
+          <% end %>
+
+          <% if question.hint.present? %>
+            <p class="hint"><%= question.hint %></p>
+          <% end %>
+
+          <div class="<%= question.error && 'error' %>">
+            <% if question.error %>
+              <p class="error-message" id="current-error" role="alert">
+                <%= question.error %>
+              </p>
+            <% end %>
+
+            <%= render partial: "smart_answers/inputs/#{question.partial_template_name}", locals: { question: question } %>
+
+            <%= question.post_body %>
+          </div>
+        </div>
+      </div>
+
       <div class="next-question">
         <input type="hidden" name="next" value="1" />
         <button type="submit" class="medium button">Next step</button>
@@ -19,5 +50,3 @@
 </div>
 
 <%= render 'previous_answers' %>
-
-<%= render 'smartanswer_metadata' %>

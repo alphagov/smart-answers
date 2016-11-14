@@ -32,6 +32,30 @@
   <%= render 'related_items' %>
 <% end %>
 
-<%= render partial: 'landing', locals: { start_node: @presenter.start_node } %>
+<% start_node = @presenter.start_node %>
 
-<%= render 'smartanswer_metadata' %>
+<% if start_node.meta_description.present? %>
+  <% content_for :head do %>
+    <meta name="description" content="<%= start_node.meta_description %>">
+  <% end %>
+<% end %>
+
+<%= render partial: 'page_title', locals: { title: start_node.title } %>
+
+<div class="article-container group">
+  <article role="article" class="group" data-debug-template-path="<%= start_node.relative_erb_template_path %>">
+    <div class="inner">
+      <div class="intro">
+
+        <%= start_node.body %>
+
+        <p class="get-started">
+          <a rel="nofollow" href="<%= smart_answer_path(@name, started: 'y') %>" class="big button"><%= start_button %></a>
+        </p>
+      </div>
+
+      <%= start_node.post_body %>
+
+    </div>
+  </article>
+</div>

@@ -9,7 +9,7 @@
         <table>
           <tbody>
             <% @presenter.collapsed_questions.each_with_index do |question, number_questions_so_far| %>
-              <%= render partial: 'collapsed_question', locals: {question: question, number_questions_so_far: number_questions_so_far} %>
+              <%= render partial: 'previous_answer', locals: {question: question, number_questions_so_far: number_questions_so_far} %>
             <% end %>
           </tbody>
         </table>
