@@ -70,7 +70,7 @@
 
   <% end %>
 
-  <% if %w(croatia italy russia).exclude?(calculator.ceremony_country) && calculator.three_day_residency_requirement_applies? %>
+  <% if %w(croatia russia).exclude?(calculator.ceremony_country) && calculator.three_day_residency_requirement_applies? %>
     <%= render partial: "three_day_residency_requirement.govspeak.erb",
                locals: {
                  country_name_lowercase_prefix: calculator.country_name_lowercase_prefix

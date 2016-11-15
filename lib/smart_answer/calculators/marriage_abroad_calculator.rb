@@ -268,7 +268,7 @@ module SmartAnswer::Calculators
     end
 
     def birth_certificate_required_as_supporting_document?
-      MarriageAbroadDataQuery::NO_BIRTH_CERT_REQUIREMENT.exclude?(ceremony_country)
+      MarriageAbroadDataQuery::THREE_DAY_RESIDENCY_REQUIREMENT_COUNTRIES.exclude?(ceremony_country)
     end
 
     def notary_public_ceremony_country?
@@ -311,6 +311,30 @@ module SmartAnswer::Calculators
       if services_data_for_ceremony_country?
         @services_data[ceremony_country]['payment_partial_name']
       end
+    end
+
+    def path_to_outcome
+      ceremony_location = if resident_of_ceremony_country?
+                            'ceremony_country'
+                          elsif resident_of_third_country?
+                            'third_country'
+                          else
+                            'uk'
+                          end
+      partner_nationality = if partner_is_national_of_ceremony_country?
+                              'partner_local'
+                            elsif partner_british?
+                              'partner_british'
+                            else
+                              'partner_other'
+                            end
+      same_sex = if partner_is_same_sex?
+                   'same_sex'
+                 else
+                   'opposite_sex'
+                 end
+
+      [ceremony_country, ceremony_location, partner_nationality, same_sex]
     end
 
   private
