@@ -39,7 +39,8 @@ class FlowRegistrationPresenter
     OVERRIDES = {
       'calculator.services_payment_partial_name' => 'pay_by_cash_only',
       'calculator.holiday_entitlement_days' => 10,
-      'calculator.path_to_outcome' => %w(italy ceremony_country partner_local opposite_sex)
+      'calculator.path_to_outcome' => %w(italy ceremony_country partner_local opposite_sex),
+      'calculator.ceremony_country' => 'italy'
     }
 
     def method_missing(method, *_args, &_block)
