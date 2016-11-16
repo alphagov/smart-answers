@@ -39,8 +39,8 @@
      - have a confirmed onward flight that leaves on the day you arrive or before midnight on the day after you arrive
 
      - have the right documents for your destination (for example a visa for that country)
-    <% if (calculator.passport_country_in_visa_national_list? &&
-         !calculator.passport_country_is_taiwan?) ||
+    <% if calculator.passport_country_in_visa_national_list? ||
+         calculator.passport_country_is_taiwan? ||
          calculator.passport_country_in_datv_list? %>
 
       You must also have an Irish biometric visa (marked ‘BC’ or ‘BC BIVS’ in the ‘Remarks’ section) and an onward flight ticket to the Republic of Ireland.
