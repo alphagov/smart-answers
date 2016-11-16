@@ -12,7 +12,7 @@ lib/smart_answer_flows/check-uk-visa/outcomes/outcome_joining_family_y.govspeak.
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_marriage.govspeak.erb: 0c6e77127968507051f708b93b646f77
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_medical_n.govspeak.erb: 1642f779661086644a241887072354b4
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_medical_y.govspeak.erb: c7f33df94de52c0797c48f3aaa1247cb
-lib/smart_answer_flows/check-uk-visa/outcomes/outcome_no_visa_needed.govspeak.erb: 3410548190cbdbd567e29c318f5b66d1
+lib/smart_answer_flows/check-uk-visa/outcomes/outcome_no_visa_needed.govspeak.erb: 5cf4a7450b35b1582d5e4733c1a72fa1
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_school_n.govspeak.erb: e9a82b3c28270a075ca24250db9b868b
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_school_waiver.govspeak.erb: 74ffd01d62f3520f37bdc4562ebae9bc
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_school_y.govspeak.erb: ec5eb9ea68ef40ce2d3cacbcf1c9c9b7
