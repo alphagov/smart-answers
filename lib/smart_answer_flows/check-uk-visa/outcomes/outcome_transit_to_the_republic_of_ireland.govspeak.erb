@@ -39,43 +39,56 @@
      - have a confirmed onward flight that leaves on the day you arrive or before midnight on the day after you arrive
 
      - have the right documents for your destination (for example a visa for that country)
+    <% if (calculator.passport_country_in_visa_national_list? &&
+         !calculator.passport_country_is_taiwan?) ||
+         calculator.passport_country_in_datv_list? %>
 
-    You must also:
+      You must also have an Irish biometric visa (marked ‘BC’ or ‘BC BIVS’ in the ‘Remarks’ section) and an onward flight ticket to the Republic of Ireland.
 
-    - be travelling to (or on part of a reasonable journey to) Australia, Canada, New Zealand or the USA and have a valid visa for that country
+      E-visas or e-residence permits are not acceptable for transiting through immigration control without a visa.
 
-    - be travelling from (or on part of a reasonable journey from) Australia, Canada, New Zealand or the USA and have a valid visa for that country
+      All visas and residence permits must be valid.
+      You won’t be able to transit without a visa if a Border Force officer decides you don’t qualify under the immigration rules.
 
-    - be travelling from (or on part of a reasonable journey from) Australia, Canada, New Zealand or the USA and it’s less than 6 months since you last entered that country with a valid entry visa
+    <% else %>
 
-    - have a residence permit issued by Australia or New Zealand
+      You must also:
 
-    - have a common format residence permit issued by an European Economic Area (EEA) country or Switzerland
+      - be travelling to (or on part of a reasonable journey to) Australia, Canada, New Zealand or the USA and have a valid visa for that country
 
-    - have a residence permit issued by Canada issued after 28 June 2002
+      - be travelling from (or on part of a reasonable journey from) Australia, Canada, New Zealand or the USA and have a valid visa for that country
 
-    - have a uniform format category D visa for entry to a country in the EEA or Switzerland
+      - be travelling from (or on part of a reasonable journey from) Australia, Canada, New Zealand or the USA and it’s less than 6 months since you last entered that country with a valid entry visa
 
-    - have an Irish biometric visa (marked ‘BC’ or ‘BC BIVS’ in the ‘Remarks’ section) and an onward flight ticket to the Republic of Ireland
+      - have a residence permit issued by Australia or New Zealand
 
-    - have a valid USA permanent residence card issued by the USA on or after 21 April 1998
+      - have a common format residence permit issued by an European Economic Area (EEA) country or Switzerland
 
-    - have a valid USA I-551 Temporary Immigrant visa issued by the USA (a wet-ink stamp version will not be accepted)
+      - have a residence permit issued by Canada issued after 28 June 2002
 
-    - have an expired USA I-551 Permanent Residence card issued by the USA on or after 21 April 1998, with a valid I-797 letter authorising extension
+      - have a uniform format category D visa for entry to a country in the EEA or Switzerland
 
-    - have a valid standalone US Immigration Form 155A/155B issued by the USA (attached to a sealed brown envelope)
+      - have an Irish biometric visa (marked ‘BC’ or ‘BC BIVS’ in the ‘Remarks’ section) and an onward flight ticket to the Republic of Ireland
 
-    You won’t be able to transit without a visa if a Border Force officer decides you don’t qualify under the immigration rules. You can [apply for a transit visa](/transit-visa) before you travel if you’re unsure whether you qualify for transiting without a visa.
+      - have a valid USA permanent residence card issued by the USA on or after 21 April 1998
 
-    E-visas or e-residence permits are not acceptable for transiting through immigration control without a visa.
+      - have a valid USA I-551 Temporary Immigrant visa issued by the USA (a wet-ink stamp version will not be accepted)
 
-    All visas and residence permits must be valid.
+      - have an expired USA I-551 Permanent Residence card issued by the USA on or after 21 April 1998, with a valid I-797 letter authorising extension
 
-    Australian paper confirmation slips are not accepted.
+      - have a valid standalone US Immigration Form 155A/155B issued by the USA (attached to a sealed brown envelope)
 
-    ^Transiting without a visa is decided by the immigration officer at the border. You won’t be allowed to transit if they decide you need a visa, so you might want to apply for a transit visa before you travel.^
+      You won’t be able to transit without a visa if a Border Force officer decides you don’t qualify under the immigration rules. You can [apply for a transit visa](/transit-visa) before you travel if you’re unsure whether you qualify for transiting without a visa.
 
+      E-visas or e-residence permits are not acceptable for transiting through immigration control without a visa.
+
+      All visas and residence permits must be valid.
+
+      Australian paper confirmation slips are not accepted.
+
+      ^Transiting without a visa is decided by the immigration officer at the border. You won’t be allowed to transit if they decide you need a visa, so you might want to apply for a transit visa before you travel.^
+
+    <% end %>
   <% else %>
 
     You don’t need a visa if:
