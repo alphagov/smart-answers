@@ -35,7 +35,7 @@ lib/smart_answer_flows/check-uk-visa/outcomes/outcome_work_n.govspeak.erb: 8167c
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_work_waiver.govspeak.erb: 916d5d06e4f6958d2dc287f128fd0bc9
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_work_y.govspeak.erb: d005b94c9d6e07281fc40c4b42a49b8d
 lib/smart_answer_flows/check-uk-visa/questions/_purpose_of_visit_options.govspeak.erb: 89f9f24b3124b88d7abaa214a78316fd
-lib/smart_answer_flows/check-uk-visa/questions/channel_islands_or_isle_of_man.govspeak.erb: da87e9d8c74a6bc2268f85f467c0e4c8
+lib/smart_answer_flows/check-uk-visa/questions/channel_islands_or_isle_of_man.govspeak.erb: cefa5dfe8300506a669f6fab39c74ff5
 lib/smart_answer_flows/check-uk-visa/questions/israeli_document_type.govspeak.erb: 6e6ea79788922c6e4a76f87cac040193
 lib/smart_answer_flows/check-uk-visa/questions/passing_through_uk_border_control.govspeak.erb: 067c3f20d2e1ab4af70abc148c7661c1
 lib/smart_answer_flows/check-uk-visa/questions/purpose_of_visit.govspeak.erb: 0b1ff46881dc61e9850ed821b21a03c2
