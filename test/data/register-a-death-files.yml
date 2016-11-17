@@ -6,7 +6,7 @@ lib/smart_answer_flows/register-a-death/outcomes/_fees.govspeak.erb: 295a443bf73
 lib/smart_answer_flows/register-a-death/outcomes/_footnote_oru_variants.govspeak.erb: 5a3909331b2a97a9dac6a13d02e860a9
 lib/smart_answer_flows/register-a-death/outcomes/commonwealth_result.govspeak.erb: a04c0907f44a14d715689ce9182959de
 lib/smart_answer_flows/register-a-death/outcomes/no_embassy_result.govspeak.erb: 5a7be7180708c2cc38fb612cee1c8a41
-lib/smart_answer_flows/register-a-death/outcomes/north_korea_result.govspeak.erb: a6b37c903518230e682a1b852a60d103
+lib/smart_answer_flows/register-a-death/outcomes/north_korea_result.govspeak.erb: 7d0d2ee70d18207f325e6999ca33b268
 lib/smart_answer_flows/register-a-death/outcomes/oru_result.govspeak.erb: 2ae8478485be4647a794d2b921360ce7
 lib/smart_answer_flows/register-a-death/outcomes/uk_result.govspeak.erb: aed4dc1d27dc52b74bdf182e62df8705
 lib/smart_answer_flows/register-a-death/questions/did_the_person_die_at_home_hospital.govspeak.erb: 3405db8cb8b24782fc49981c2fce12e7
