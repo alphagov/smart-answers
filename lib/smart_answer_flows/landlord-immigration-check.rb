@@ -116,34 +116,34 @@ module SmartAnswer
       end
 
       #Q5
-      multiple_choice :right_to_abode? do
-        option "yes"
-        option "no"
-
-        next_node do |response|
-          case response
-          when "yes"
-            outcome :outcome_can_rent
-          when "no"
-            question :has_certificate?
-          end
-        end
-      end
+      # multiple_choice :right_to_abode? do
+      #   option "yes"
+      #   option "no"
+      #
+      #   next_node do |response|
+      #     case response
+      #     when "yes"
+      #       outcome :outcome_can_rent
+      #     when "no"
+      #       question :has_certificate?
+      #     end
+      #   end
+      # end
 
       #Q6
-      multiple_choice :has_certificate? do
-        option "yes"
-        option "no"
-
-        next_node do |response|
-          case response
-          when "yes"
-            outcome :outcome_can_rent
-          when "no"
-            question :tenant_country?
-          end
-        end
-      end
+      # multiple_choice :has_certificate? do
+      #   option "yes"
+      #   option "no"
+      #
+      #   next_node do |response|
+      #     case response
+      #     when "yes"
+      #       outcome :outcome_can_rent
+      #     when "no"
+      #       question :tenant_country?
+      #     end
+      #   end
+      # end
 
       #new Q7
       multiple_choice :has_eu_documents? do
@@ -161,37 +161,37 @@ module SmartAnswer
       end
 
       #Q7
-      multiple_choice :tenant_country? do
-        option "eu_eea_switzerland"
-        option "non_eea_but_with_eu_eea_switzerland_family_member"
-        option "somewhere_else"
-
-        next_node do |response|
-          case response
-          when "eu_eea_switzerland"
-            question :has_documents?
-          when "non_eea_but_with_eu_eea_switzerland_family_member"
-            question :has_residence_card_or_eu_eea_swiss_family_member?
-          when "somewhere_else"
-            question :has_other_documents?
-          end
-        end
-      end
+      # multiple_choice :tenant_country? do
+      #   option "eu_eea_switzerland"
+      #   option "non_eea_but_with_eu_eea_switzerland_family_member"
+      #   option "somewhere_else"
+      #
+      #   next_node do |response|
+      #     case response
+      #     when "eu_eea_switzerland"
+      #       question :has_documents?
+      #     when "non_eea_but_with_eu_eea_switzerland_family_member"
+      #       question :has_residence_card_or_eu_eea_swiss_family_member?
+      #     when "somewhere_else"
+      #       question :has_other_documents?
+      #     end
+      #   end
+      # end
 
       #Q9
-      multiple_choice :has_documents? do
-        option "yes"
-        option "no"
-
-        next_node do |response|
-          case response
-          when "yes"
-            outcome :outcome_can_rent
-          when "no"
-            question :has_other_documents?
-          end
-        end
-      end
+      # multiple_choice :has_documents? do
+      #   option "yes"
+      #   option "no"
+      #
+      #   next_node do |response|
+      #     case response
+      #     when "yes"
+      #       outcome :outcome_can_rent
+      #     when "no"
+      #       question :has_other_documents?
+      #     end
+      #   end
+      # end
 
       #Q10
       multiple_choice :has_other_documents? do
@@ -209,88 +209,88 @@ module SmartAnswer
       end
 
       #new Q14
-      multiple_choice :waiting_for_documents? do
-        option "yes"
-        option "no"
-
-        next_node do |response|
-          case response
-          when "yes"
-            outcome :outcome_landlords_checking_service
-          when "no"
-            question :immigration_application?
-          end
-        end
-      end
+      # multiple_choice :waiting_for_documents? do
+      #   option "yes"
+      #   option "no"
+      #
+      #   next_node do |response|
+      #     case response
+      #     when "yes"
+      #       outcome :outcome_landlords_checking_service
+      #     when "no"
+      #       question :immigration_application?
+      #     end
+      #   end
+      # end
 
       #Q14
-      multiple_choice :has_asylum_card? do
-        option "yes"
-        option "no"
-
-        next_node do |response|
-          case response
-          when "yes"
-            outcome :outcome_can_rent_for_12_months
-          when "no"
-            question :immigration_application?
-          end
-        end
-      end
+      # multiple_choice :has_asylum_card? do
+      #   option "yes"
+      #   option "no"
+      #
+      #   next_node do |response|
+      #     case response
+      #     when "yes"
+      #       outcome :outcome_can_rent_for_12_months
+      #     when "no"
+      #       question :immigration_application?
+      #     end
+      #   end
+      # end
 
       #Q12
-      multiple_choice :time_limited_to_remain? do
-        option "yes"
-        option "no"
-
-        next_node do |response|
-          case response
-          when "yes"
-            outcome :outcome_can_rent_but_check_will_be_needed_again
-          when "no"
-            question :has_residence_card_or_eu_eea_swiss_family_member?
-          end
-        end
-      end
+      # multiple_choice :time_limited_to_remain? do
+      #   option "yes"
+      #   option "no"
+      #
+      #   next_node do |response|
+      #     case response
+      #     when "yes"
+      #       outcome :outcome_can_rent_but_check_will_be_needed_again
+      #     when "no"
+      #       question :has_residence_card_or_eu_eea_swiss_family_member?
+      #     end
+      #   end
+      # end
 
       #Q15
-      multiple_choice :immigration_application? do
-        option "yes"
-        option "no"
-
-        next_node do |response|
-          case response
-          when "yes"
-            outcome :outcome_landlords_checking_service
-          when "no"
-            outcome :outcome_can_not_rent
-          end
-        end
-      end
+      # multiple_choice :immigration_application? do
+      #   option "yes"
+      #   option "no"
+      #
+      #   next_node do |response|
+      #     case response
+      #     when "yes"
+      #       outcome :outcome_landlords_checking_service
+      #     when "no"
+      #       outcome :outcome_can_not_rent
+      #     end
+      #   end
+      # end
 
       #Q13
-      multiple_choice :has_residence_card_or_eu_eea_swiss_family_member? do
-        option "yes"
-        option "no"
-
-        next_node do |response|
-          case response
-          when "yes"
-            outcome :outcome_can_rent
-          when "no"
-            question :has_asylum_card?
-          end
-        end
-      end
+      # multiple_choice :has_residence_card_or_eu_eea_swiss_family_member? do
+      #   option "yes"
+      #   option "no"
+      #
+      #   next_node do |response|
+      #     case response
+      #     when "yes"
+      #       outcome :outcome_can_rent
+      #     when "no"
+      #       question :has_asylum_card?
+      #     end
+      #   end
+      # end
 
       outcome :outcome_can_not_rent
       outcome :outcome_can_rent
-      outcome :outcome_can_rent_but_check_will_be_needed_again
-      outcome :outcome_can_rent_for_12_months
+      # outcome :outcome_can_rent_but_check_will_be_needed_again
+      # outcome :outcome_can_rent_for_12_months
       outcome :outcome_check_may_be_needed_when_student
       outcome :outcome_check_needed_if_break_clause
       outcome :outcome_check_not_needed
-      outcome :outcome_landlords_checking_service
+      # outcome :outcome_landlords_checking_service
       outcome :outcome_check_not_needed_if_holiday_or_under_3_months
       outcome :outcome_check_not_needed_when_care_home
       outcome :outcome_check_not_needed_when_employee_home
