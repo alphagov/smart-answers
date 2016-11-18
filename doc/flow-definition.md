@@ -282,6 +282,18 @@ Each of these block types and the point at which they are executed is explained 
 
 > The use of these blocks is encouraged. However, they should call `valid_xxx?` methods on the `calculator` state variable and not rely on the `response` argument passed into the block.
 
+```ruby
+# Good
+validate :error_outside_range do
+  calculator.valid_weekly_amount_in_range?
+end
+
+# Bad
+validate do |response|
+  calculator.valid_age?(response)
+end
+```
+
 ##### `next_node(&block)`
 
 * There must only be one of these blocks per question definition.
