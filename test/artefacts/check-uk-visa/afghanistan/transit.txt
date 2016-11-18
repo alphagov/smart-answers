@@ -1,11 +1,12 @@
-Will you pass through UK Border Control?
+Where are you travelling to?
 
 
 
-You might pass through UK Border Control even if you don't leave the airport - eg your bags aren't checked through and you need to collect them before transferring to your outbound flight.
 
-  * yes: Yes
-  * no: No
+
+  * channel_islands_or_isle_of_man: Channel Islands or Isle of Man
+  * republic_of_ireland: Republic of Ireland
+  * somewhere_else: Somewhere else
 
 
 

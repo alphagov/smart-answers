@@ -1,6 +1,7 @@
 module SmartAnswer
   class CheckUkVisaFlow < Flow
     def define
+      flow = self
       content_id "dc1a1744-4089-43b3-b2e3-4e397b6b15b1"
       name 'check-uk-visa'
       status :published
@@ -56,78 +57,52 @@ module SmartAnswer
         option :medical
         option :diplomatic
 
+        flow.travel_response_next_route(self)
+      end
+
+      #Q2a
+      multiple_choice :travelling_to_cta? do
+        option :channel_islands_or_isle_of_man
+        option :republic_of_ireland
+        option :somewhere_else
+
         on_response do |response|
-          calculator.purpose_of_visit_answer = response
+          calculator.travelling_to_cta_answer = response
         end
 
         next_node do
-          if calculator.study_visit? || calculator.work_visit?
-            next question(:staying_for_how_long?)
-          end
-
-          if calculator.diplomatic_visit?
-            next outcome(:outcome_diplomatic_business)
-          end
-
-          if calculator.school_visit?
-            if calculator.passport_country_in_electronic_visa_waiver_list?
-              next outcome(:outcome_school_waiver)
-            elsif calculator.passport_country_is_taiwan?
-              next outcome(:outcome_taiwan_exception)
-            elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
-              next outcome(:outcome_school_n)
-            else
-              next outcome(:outcome_school_y)
-            end
-          end
-
-          if calculator.medical_visit?
-            if calculator.passport_country_in_electronic_visa_waiver_list?
-              next outcome(:outcome_visit_waiver)
-            elsif calculator.passport_country_is_taiwan?
-              next outcome(:outcome_taiwan_exception)
-            elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
-              next outcome(:outcome_medical_n)
-            else
-              next outcome(:outcome_medical_y)
-            end
-          end
-
-          if calculator.tourism_visit?
-            if calculator.passport_country_in_electronic_visa_waiver_list?
-              next outcome(:outcome_visit_waiver)
-            elsif calculator.passport_country_is_taiwan?
-              next outcome(:outcome_taiwan_exception)
-            elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
-              next outcome(:outcome_school_n) # outcome does not contain school specific content
-            else
-              next outcome(:outcome_standard_visit)
-            end
-          end
-
-          if calculator.marriage_visit?
-            next outcome(:outcome_marriage)
-          end
-
-          if calculator.transit_visit?
-            if calculator.passport_country_in_datv_list? ||
-                calculator.passport_country_in_visa_national_list? || calculator.passport_country_is_taiwan? || calculator.passport_country_is_venezuela?
-              next question(:passing_through_uk_border_control?)
-            else
+          if calculator.travelling_to_channel_islands_or_isle_of_man?
+            next question(:channel_islands_or_isle_of_man?)
+          elsif calculator.travelling_to_ireland?
+            if calculator.passport_country_in_non_visa_national_list? ||
+                calculator.passport_country_in_ukot_list?
               next outcome(:outcome_no_visa_needed)
-            end
-          end
-
-          if calculator.family_visit?
-            if calculator.passport_country_in_ukot_list?
-              next outcome(:outcome_joining_family_m)
-            elsif calculator.passport_country_in_non_visa_national_list?
-              next outcome(:outcome_joining_family_nvn)
             else
-              next outcome(:outcome_joining_family_y)
+              next outcome(:outcome_transit_to_the_republic_of_ireland)
+            end
+          elsif calculator.travelling_to_elsewhere?
+            if calculator.passport_country_in_non_visa_national_list? ||
+                calculator.passport_country_in_ukot_list?
+              next outcome(:outcome_no_visa_needed)
+            else
+              next question(:passing_through_uk_border_control?)
             end
           end
         end
+      end
+
+      #Q2b
+      multiple_choice :channel_islands_or_isle_of_man? do
+        option :tourism
+        option :work
+        option :study
+        option :family
+        option :marriage
+        option :school
+        option :medical
+        option :diplomatic
+
+        flow.travel_response_next_route(self)
       end
 
       #Q3
@@ -143,7 +118,8 @@ module SmartAnswer
           if calculator.passing_through_uk_border_control?
             if calculator.passport_country_is_taiwan?
               outcome :outcome_transit_taiwan_through_border_control
-            elsif calculator.passport_country_in_visa_national_list?
+            elsif calculator.passport_country_in_visa_national_list? ||
+                calculator.passport_country_in_electronic_visa_waiver_list?
               outcome :outcome_transit_leaving_airport
             elsif calculator.passport_country_in_datv_list?
               outcome :outcome_transit_leaving_airport_datv
@@ -213,6 +189,7 @@ module SmartAnswer
       end
 
       outcome :outcome_diplomatic_business
+      outcome :outcome_transit_to_the_republic_of_ireland
       outcome :outcome_joining_family_m
       outcome :outcome_joining_family_nvn
       outcome :outcome_joining_family_y
@@ -240,6 +217,83 @@ module SmartAnswer
       outcome :outcome_work_n
       outcome :outcome_work_waiver
       outcome :outcome_work_y
+    end
+
+    def travel_response_next_route(node)
+      node.on_response do |response|
+        calculator.purpose_of_visit_answer = response
+      end
+
+      node.next_node do
+        if calculator.study_visit? || calculator.work_visit?
+          next question(:staying_for_how_long?)
+        end
+
+        if calculator.diplomatic_visit?
+          next outcome(:outcome_diplomatic_business)
+        end
+
+        if calculator.school_visit?
+          if calculator.passport_country_in_electronic_visa_waiver_list?
+            next outcome(:outcome_school_waiver)
+          elsif calculator.passport_country_is_taiwan?
+            next outcome(:outcome_taiwan_exception)
+          elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
+            next outcome(:outcome_school_n)
+          else
+            next outcome(:outcome_school_y)
+          end
+        end
+
+        if calculator.medical_visit?
+          if calculator.passport_country_in_electronic_visa_waiver_list?
+            next outcome(:outcome_visit_waiver)
+          elsif calculator.passport_country_is_taiwan?
+            next outcome(:outcome_taiwan_exception)
+          elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
+            next outcome(:outcome_medical_n)
+          else
+            next outcome(:outcome_medical_y)
+          end
+        end
+
+        if calculator.tourism_visit?
+          if calculator.passport_country_in_electronic_visa_waiver_list?
+            next outcome(:outcome_visit_waiver)
+          elsif calculator.passport_country_is_taiwan?
+            next outcome(:outcome_taiwan_exception)
+          elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
+            next outcome(:outcome_school_n) # outcome does not contain school specific content
+          else
+            next outcome(:outcome_standard_visit)
+          end
+        end
+
+        if calculator.marriage_visit?
+          next outcome(:outcome_marriage)
+        end
+
+        if calculator.transit_visit?
+          if calculator.passport_country_in_datv_list? ||
+              calculator.passport_country_in_visa_national_list? || calculator.passport_country_is_taiwan? || calculator.passport_country_is_venezuela? ||
+              calculator.passport_country_in_non_visa_national_list? ||
+              calculator.passport_country_in_ukot_list?
+            next question(:travelling_to_cta?)
+          else
+            next outcome(:outcome_no_visa_needed)
+          end
+        end
+
+        if calculator.family_visit?
+          if calculator.passport_country_in_ukot_list?
+            next outcome(:outcome_joining_family_m)
+          elsif calculator.passport_country_in_non_visa_national_list?
+            next outcome(:outcome_joining_family_nvn)
+          else
+            next outcome(:outcome_joining_family_y)
+          end
+        end
+      end
     end
   end
 end

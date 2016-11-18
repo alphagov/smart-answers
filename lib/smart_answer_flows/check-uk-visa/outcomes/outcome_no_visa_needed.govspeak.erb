@@ -11,5 +11,21 @@
 
     However, you should bring documents with you to show at the border. See the relevant [student visa](/browse/visas-immigration/study-visas) guide to see what documents to bring.
 
+  <% elsif calculator.travelling_to_elsewhere? %>
+    <% if calculator.passport_country_in_non_visa_national_list? ||
+      calculator.passport_country_in_ukot_list?  %>
+
+      However, you should bring evidence of your onward journey to show to officers at the UK border.
+    <% end %>
+
+  <% elsif calculator.travelling_to_ireland? %>
+    <% if calculator.passport_country_in_non_visa_national_list? ||
+      calculator.passport_country_in_ukot_list?  %>
+
+      However, you should bring the evidence of your onward journey to show to officers at the UK border.
+
+      %You may want to [apply for a visa](/browse/visas-immigration/tourist-short-stay-visas) if you have a criminal record or you’ve previously been refused entry into the UK.%
+
+    <% end %>
   <% end %>
 <% end %>
