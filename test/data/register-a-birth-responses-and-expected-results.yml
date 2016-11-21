@@ -103,7 +103,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -279,7 +279,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -474,7 +474,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -661,7 +661,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -800,7 +800,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -945,7 +945,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -1110,7 +1110,7 @@
   - '2015-02-02'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -1260,7 +1260,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -1399,7 +1399,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -1560,7 +1560,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -1699,7 +1699,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -1844,7 +1844,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -2009,7 +2009,7 @@
   - '2015-02-02'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -2159,7 +2159,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -2298,7 +2298,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -2464,7 +2464,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -2603,7 +2603,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -2748,7 +2748,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -2913,7 +2913,7 @@
   - '2015-02-02'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -3063,7 +3063,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -3202,7 +3202,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -3358,7 +3358,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -3497,7 +3497,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -3642,7 +3642,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -3807,7 +3807,7 @@
   - '2015-02-02'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -3957,7 +3957,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -4096,7 +4096,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -4252,7 +4252,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -4391,7 +4391,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -4536,7 +4536,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -4701,7 +4701,7 @@
   - '2015-02-02'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -4851,7 +4851,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -4990,7 +4990,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -5146,7 +5146,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -5285,7 +5285,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -5430,7 +5430,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -5595,7 +5595,7 @@
   - '2015-02-02'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -5745,7 +5745,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -5884,7 +5884,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -5933,6 +5933,900 @@
 - :current_node: :who_has_british_nationality?
   :responses:
   - papua-new-guinea
+  - neither
+  :next_node: :no_registration_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - portugal
+  :next_node: :who_has_british_nationality?
+  :outcome_node: false
+- :current_node: :who_has_british_nationality?
+  :responses:
+  - portugal
+  - mother
+  :next_node: :married_couple_or_civil_partnership?
+  :outcome_node: false
+- :current_node: :married_couple_or_civil_partnership?
+  :responses:
+  - portugal
+  - mother
+  - 'yes'
+  :next_node: :where_are_you_now?
+  :outcome_node: false
+- :current_node: :where_are_you_now?
+  :responses:
+  - portugal
+  - mother
+  - 'yes'
+  - same_country
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses:
+  - portugal
+  - mother
+  - 'yes'
+  - another_country
+  :next_node: :which_country?
+  :outcome_node: false
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother
+  - 'yes'
+  - another_country
+  - brazil
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother
+  - 'yes'
+  - another_country
+  - china
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother
+  - 'yes'
+  - another_country
+  - czech-republic
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother
+  - 'yes'
+  - another_country
+  - estonia
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother
+  - 'yes'
+  - another_country
+  - hong-kong
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother
+  - 'yes'
+  - another_country
+  - italy
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother
+  - 'yes'
+  - another_country
+  - libya
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother
+  - 'yes'
+  - another_country
+  - north-korea
+  :next_node: :north_korea_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother
+  - 'yes'
+  - another_country
+  - papua-new-guinea
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother
+  - 'yes'
+  - another_country
+  - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother
+  - 'yes'
+  - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother
+  - 'yes'
+  - another_country
+  - taiwan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses:
+  - portugal
+  - mother
+  - 'yes'
+  - in_the_uk
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :married_couple_or_civil_partnership?
+  :responses:
+  - portugal
+  - mother
+  - 'no'
+  :next_node: :where_are_you_now?
+  :outcome_node: false
+- :current_node: :where_are_you_now?
+  :responses:
+  - portugal
+  - mother
+  - 'no'
+  - same_country
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses:
+  - portugal
+  - mother
+  - 'no'
+  - another_country
+  :next_node: :which_country?
+  :outcome_node: false
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother
+  - 'no'
+  - another_country
+  - brazil
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother
+  - 'no'
+  - another_country
+  - china
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother
+  - 'no'
+  - another_country
+  - czech-republic
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother
+  - 'no'
+  - another_country
+  - estonia
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother
+  - 'no'
+  - another_country
+  - hong-kong
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother
+  - 'no'
+  - another_country
+  - italy
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother
+  - 'no'
+  - another_country
+  - libya
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother
+  - 'no'
+  - another_country
+  - north-korea
+  :next_node: :north_korea_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother
+  - 'no'
+  - another_country
+  - papua-new-guinea
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother
+  - 'no'
+  - another_country
+  - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother
+  - 'no'
+  - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother
+  - 'no'
+  - another_country
+  - taiwan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses:
+  - portugal
+  - mother
+  - 'no'
+  - in_the_uk
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :who_has_british_nationality?
+  :responses:
+  - portugal
+  - father
+  :next_node: :married_couple_or_civil_partnership?
+  :outcome_node: false
+- :current_node: :married_couple_or_civil_partnership?
+  :responses:
+  - portugal
+  - father
+  - 'yes'
+  :next_node: :where_are_you_now?
+  :outcome_node: false
+- :current_node: :where_are_you_now?
+  :responses:
+  - portugal
+  - father
+  - 'yes'
+  - same_country
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses:
+  - portugal
+  - father
+  - 'yes'
+  - another_country
+  :next_node: :which_country?
+  :outcome_node: false
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - father
+  - 'yes'
+  - another_country
+  - brazil
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - father
+  - 'yes'
+  - another_country
+  - china
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - father
+  - 'yes'
+  - another_country
+  - czech-republic
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - father
+  - 'yes'
+  - another_country
+  - estonia
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - father
+  - 'yes'
+  - another_country
+  - hong-kong
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - father
+  - 'yes'
+  - another_country
+  - italy
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - father
+  - 'yes'
+  - another_country
+  - libya
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - father
+  - 'yes'
+  - another_country
+  - north-korea
+  :next_node: :north_korea_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - father
+  - 'yes'
+  - another_country
+  - papua-new-guinea
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - father
+  - 'yes'
+  - another_country
+  - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - father
+  - 'yes'
+  - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - father
+  - 'yes'
+  - another_country
+  - taiwan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses:
+  - portugal
+  - father
+  - 'yes'
+  - in_the_uk
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :married_couple_or_civil_partnership?
+  :responses:
+  - portugal
+  - father
+  - 'no'
+  :next_node: :childs_date_of_birth?
+  :outcome_node: false
+- :current_node: :childs_date_of_birth?
+  :responses:
+  - portugal
+  - father
+  - 'no'
+  - '2006-06-30'
+  :next_node: :homeoffice_result
+  :outcome_node: true
+- :current_node: :childs_date_of_birth?
+  :responses:
+  - portugal
+  - father
+  - 'no'
+  - '2015-02-02'
+  :next_node: :where_are_you_now?
+  :outcome_node: false
+- :current_node: :where_are_you_now?
+  :responses:
+  - portugal
+  - father
+  - 'no'
+  - '2015-02-02'
+  - same_country
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses:
+  - portugal
+  - father
+  - 'no'
+  - '2015-02-02'
+  - another_country
+  :next_node: :which_country?
+  :outcome_node: false
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - father
+  - 'no'
+  - '2015-02-02'
+  - another_country
+  - brazil
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - father
+  - 'no'
+  - '2015-02-02'
+  - another_country
+  - china
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - father
+  - 'no'
+  - '2015-02-02'
+  - another_country
+  - czech-republic
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - father
+  - 'no'
+  - '2015-02-02'
+  - another_country
+  - estonia
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - father
+  - 'no'
+  - '2015-02-02'
+  - another_country
+  - hong-kong
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - father
+  - 'no'
+  - '2015-02-02'
+  - another_country
+  - italy
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - father
+  - 'no'
+  - '2015-02-02'
+  - another_country
+  - libya
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - father
+  - 'no'
+  - '2015-02-02'
+  - another_country
+  - north-korea
+  :next_node: :north_korea_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - father
+  - 'no'
+  - '2015-02-02'
+  - another_country
+  - papua-new-guinea
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - father
+  - 'no'
+  - '2015-02-02'
+  - another_country
+  - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - father
+  - 'no'
+  - '2015-02-02'
+  - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - father
+  - 'no'
+  - '2015-02-02'
+  - another_country
+  - taiwan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses:
+  - portugal
+  - father
+  - 'no'
+  - '2015-02-02'
+  - in_the_uk
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :who_has_british_nationality?
+  :responses:
+  - portugal
+  - mother_and_father
+  :next_node: :married_couple_or_civil_partnership?
+  :outcome_node: false
+- :current_node: :married_couple_or_civil_partnership?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'yes'
+  :next_node: :where_are_you_now?
+  :outcome_node: false
+- :current_node: :where_are_you_now?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'yes'
+  - same_country
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'yes'
+  - another_country
+  :next_node: :which_country?
+  :outcome_node: false
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'yes'
+  - another_country
+  - brazil
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'yes'
+  - another_country
+  - china
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'yes'
+  - another_country
+  - czech-republic
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'yes'
+  - another_country
+  - estonia
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'yes'
+  - another_country
+  - hong-kong
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'yes'
+  - another_country
+  - italy
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'yes'
+  - another_country
+  - libya
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'yes'
+  - another_country
+  - north-korea
+  :next_node: :north_korea_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'yes'
+  - another_country
+  - papua-new-guinea
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'yes'
+  - another_country
+  - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'yes'
+  - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'yes'
+  - another_country
+  - taiwan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'yes'
+  - in_the_uk
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :married_couple_or_civil_partnership?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'no'
+  :next_node: :where_are_you_now?
+  :outcome_node: false
+- :current_node: :where_are_you_now?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'no'
+  - same_country
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'no'
+  - another_country
+  :next_node: :which_country?
+  :outcome_node: false
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'no'
+  - another_country
+  - brazil
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'no'
+  - another_country
+  - china
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'no'
+  - another_country
+  - czech-republic
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'no'
+  - another_country
+  - estonia
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'no'
+  - another_country
+  - hong-kong
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'no'
+  - another_country
+  - italy
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'no'
+  - another_country
+  - libya
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'no'
+  - another_country
+  - north-korea
+  :next_node: :north_korea_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'no'
+  - another_country
+  - papua-new-guinea
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'no'
+  - another_country
+  - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'no'
+  - another_country
+  - sudan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'no'
+  - another_country
+  - taiwan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses:
+  - portugal
+  - mother_and_father
+  - 'no'
+  - in_the_uk
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :who_has_british_nationality?
+  :responses:
+  - portugal
   - neither
   :next_node: :no_registration_result
   :outcome_node: true
@@ -6040,7 +6934,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -6179,7 +7073,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -6324,7 +7218,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -6489,7 +7383,7 @@
   - '2015-02-02'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -6639,7 +7533,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -6778,7 +7672,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -6934,7 +7828,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -7073,7 +7967,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -7218,7 +8112,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -7383,7 +8277,7 @@
   - '2015-02-02'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -7533,7 +8427,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -7672,7 +8566,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -7833,7 +8727,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -7972,7 +8866,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -8117,7 +9011,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -8282,7 +9176,7 @@
   - '2015-02-02'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -8432,7 +9326,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -8571,7 +9465,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -8727,7 +9621,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -8866,7 +9760,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -9011,7 +9905,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -9176,7 +10070,7 @@
   - '2015-02-02'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -9326,7 +10220,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -9465,7 +10359,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -9621,7 +10515,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -9760,7 +10654,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -9905,7 +10799,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -10070,7 +10964,7 @@
   - '2015-02-02'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -10220,7 +11114,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -10359,7 +11253,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -10515,7 +11409,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -10654,7 +11548,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -10799,7 +11693,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -10964,7 +11858,7 @@
   - '2015-02-02'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -11114,7 +12008,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -11253,7 +12147,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -11409,7 +12303,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -11548,7 +12442,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -11693,7 +12587,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -11858,7 +12752,7 @@
   - '2015-02-02'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -12008,7 +12902,7 @@
   - 'yes'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -12147,7 +13041,7 @@
   - 'no'
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
