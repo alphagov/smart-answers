@@ -1,5 +1,5 @@
 class SmartAnswersController < ApplicationController
-  include Slimmer::SharedTemplates
+  include Slimmer::GovukComponents
   include Slimmer::Headers
 
   before_action :find_smart_answer, except: %w(index)

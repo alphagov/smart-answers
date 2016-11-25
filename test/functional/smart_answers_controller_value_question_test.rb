@@ -10,6 +10,7 @@ class SmartAnswersControllerValueQuestionTest < ActionController::TestCase
   include SmartAnswersControllerTestHelper
 
   def setup
+    stub_shared_component_locales
     setup_fixture_flows
   end
 
