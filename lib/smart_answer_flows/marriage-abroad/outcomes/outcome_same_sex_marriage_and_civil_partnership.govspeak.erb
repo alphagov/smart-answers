@@ -12,6 +12,14 @@
   <% when 'ss_marriage' %>
     <% if calculator.ceremony_country == 'australia' %>
       You may be able to get married at the British High Commission or a British consulate in Australia.
+
+      Before you can get married you need to give notice of your intention to marry.
+
+      You and your partner must have lived in Australia for at least 7 full days before you give notice.
+
+      If you and your partner don’t normally live in Australia, there must be 14 full days between the date you give notice and the date you marry. You need to stay in Australia for the 14 days.
+
+      Book an appointment to give notice at:
     <% else %>
       You may be able to get married at the British embassy or consulate in <%= calculator.country_name_lowercase_prefix %>.
     <% end %>
@@ -50,6 +58,10 @@
     ##What documents you’ll need
 
     You’ll both need to bring proof that you’ve been resident in Cambodia for the last 7 days.
+  <% elsif calculator.ceremony_country == 'australia' %>
+    ##What documents you’ll need
+
+    The consular officer will talk to you about the documents you need when they confirm your appointment to give notice. 
   <% else %>
     <%= render partial: 'documents_needed_21_days_residency.govspeak.erb',
          locals: { calculator: calculator } %>
