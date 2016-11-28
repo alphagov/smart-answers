@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/marriage-abroad.rb: bfb1cc1f08b21b32365079083eac668b
+lib/smart_answer_flows/marriage-abroad.rb: 3dc7319c9b7fdb9f16f580b2edc9c18e
 test/data/marriage-abroad-questions-and-responses.yml: 462e17e4c845d6c64eabce5177d400c2
 test/data/marriage-abroad-responses-and-expected-results.yml: 7bdb25f3e2012dbaec45440cdaa4f457
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
@@ -123,7 +123,6 @@ lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_ireland.go
 : e68905e2106942e14c968512f06c1d84
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_portugal.govspeak.erb: 7928e930761d5d6d2f32491194004c15
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_spain.govspeak.erb: 88fd7befae467da2d3224f88b8664f58
-lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_sweden_when_residing_in_sweden.govspeak.erb: 06972640383fc6c627de873ffdb7dbc7
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_ceremonies_in_switzerland.govspeak.erb: af45bd34f1d8088ea727bb4cf370c27d
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_civil_partnership_in_france_or_french_overseas_territory.govspeak.erb: 3624ffbf8519776e60a8393c686b677b
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_civil_partnership_in_monaco.govspeak.erb: bc178609ab08f0ac60bf16a643cb3506
