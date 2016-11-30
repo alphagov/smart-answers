@@ -38,7 +38,7 @@ $C
 
 Service | Fee
 -|-
-Issuing a CNI, Nulla Osta or equivalent | £65
+Issuing a CNI, Nulla Osta or equivalent | £50
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Denmark](/government/publications/denmark-consular-fees).
 

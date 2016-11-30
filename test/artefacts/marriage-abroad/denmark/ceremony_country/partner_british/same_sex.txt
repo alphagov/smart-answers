@@ -81,8 +81,8 @@ You should check if your CNI needs to be legalised (certified as genuine) by the
 
 Service | Fee
 -|-
-Receiving a notice of marriage | £65
-Issuing a CNI, Nulla Osta or equivalent | £65
+Receiving a notice of marriage | £50
+Issuing a CNI, Nulla Osta or equivalent | £50
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Denmark](/government/publications/denmark-consular-fees).
 

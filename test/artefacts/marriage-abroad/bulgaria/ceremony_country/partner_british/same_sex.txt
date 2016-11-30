@@ -47,9 +47,9 @@ You’ll need to provide two witnesses and pay a fee to register your civil part
 
 Service | Fee
 -|-
-Receiving a notice of registration | £65
-Registering a civil partnership | £140
-Issuing a civil partnership certificate | £65
+Receiving a notice of registration | £50
+Registering a civil partnership | £150
+Issuing a civil partnership certificate | £50
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Bulgaria](/government/publications/bulgaria-consular-fees).
 
