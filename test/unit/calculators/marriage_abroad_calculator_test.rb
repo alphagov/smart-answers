@@ -34,6 +34,20 @@ module SmartAnswer
 
           assert_equal %w(country third_country partner_other same_sex), @calculator.path_to_outcome
         end
+
+        should 'get opposite-sex outcome for Italy' do
+          @calculator.ceremony_country = 'italy'
+          @calculator.sex_of_your_partner = 'opposite_sex'
+
+          assert_equal %w(italy opposite_sex), @calculator.path_to_outcome
+        end
+
+        should 'get same-sex outcome for Italy' do
+          @calculator.ceremony_country = 'italy'
+          @calculator.sex_of_your_partner = 'same_sex'
+
+          assert_equal %w(italy same_sex), @calculator.path_to_outcome
+        end
       end
 
       context '#partner_british?' do
