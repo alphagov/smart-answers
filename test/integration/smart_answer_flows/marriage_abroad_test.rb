@@ -489,12 +489,11 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_ceremony_country
     end
   end
+
   # variants for italy
-  context "ceremony in italy, resident in england, partner british" do
+  context "ceremony in italy, opposite-sex" do
     setup do
       add_response 'italy'
-      add_response 'uk'
-      add_response 'partner_british'
       add_response 'opposite_sex'
     end
     should "go to generic country outcome" do
@@ -502,23 +501,9 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "ceremony in italy, resident in italy, partner local" do
+  context "ceremony in italy, same-sex" do
     setup do
       add_response 'italy'
-      add_response 'ceremony_country'
-      add_response 'partner_local'
-      add_response 'opposite_sex'
-    end
-    should "go to generic country outcome" do
-      assert_current_node :outcome_marriage_abroad_in_country
-    end
-  end
-
-  context "ceremony in italy, lives in 3rd country, partner other" do
-    setup do
-      add_response 'italy'
-      add_response 'third_country'
-      add_response 'partner_other'
       add_response 'opposite_sex'
     end
     should "go to generic country outcome" do
