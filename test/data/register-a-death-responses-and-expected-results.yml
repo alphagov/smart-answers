@@ -46,6 +46,11 @@
   :outcome_node: true
 - :current_node: :where_did_the_death_happen?
   :responses:
+  - portugal
+  :next_node: :where_did_the_death_happen?
+  :outcome_node: false
+- :current_node: :where_did_the_death_happen?
+  :responses:
   - scotland
   :next_node: :did_the_person_die_at_home_hospital?
   :outcome_node: false
@@ -229,7 +234,7 @@
   - democratic-republic-of-the-congo
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
   :responses:
@@ -374,7 +379,7 @@
   - austria
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
   :responses:
@@ -525,7 +530,7 @@
   - north-korea
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
   :responses:
@@ -664,7 +669,7 @@
   - papua-new-guinea
   - another_country
   - north-korea
-  :next_node: :oru_result
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
   :responses:

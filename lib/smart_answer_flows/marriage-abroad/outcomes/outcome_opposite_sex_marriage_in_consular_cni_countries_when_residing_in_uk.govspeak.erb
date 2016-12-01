@@ -76,11 +76,6 @@
 
     You should also check if it needs to be:
 
-  <% elsif calculator.ceremony_country == 'sweden' %>
-    ###Legalisation and translation
-
-    You should check if your CNI needs to be:
-
   <% else %>
     <%= render partial: 'legisation_and_translation_intro_uk.govspeak.erb',
                locals: { calculator: calculator } %>
