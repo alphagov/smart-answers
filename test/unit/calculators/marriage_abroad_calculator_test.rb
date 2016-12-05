@@ -1061,6 +1061,15 @@ module SmartAnswer
           assert_equal 'partial-name', calculator.services_payment_partial_name
         end
       end
+
+      context "outcome per path" do
+        should "return true if country has outcome per path" do
+          @calculator = MarriageAbroadCalculator.new
+          @calculator.ceremony_country = 'italy'
+
+          assert_equal true, @calculator.has_outcome_per_path?
+        end
+      end
     end
   end
 end
