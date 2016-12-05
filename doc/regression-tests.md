@@ -88,7 +88,25 @@ You will need to update it if you:
 
 Note that both the "questions & responses" file and the "responses & expected results" file are checksummed by default.
 
-The `script/generate-checksums-for-smart-answer.rb` script should be used to update the checksums. You can supply paths to any new files as command line arguments to this script.
+The `script/generate-checksums-for-smart-answer.rb` script should be used to update the checksums. As an example, for the Marriage Abroad flow:
+
+```bash
+rails r script/generate-checksums-for-smart-answer.rb marriage-abroad
+```
+
+You can supply paths to any new files as command line arguments to this script. This can be for either a directory or to a single file.
+
+```bash
+rails r script/generate-checksums-for-smart-answer.rb marriage-abroad smart_answer_flows/marriage-abroad/questions
+```
+
+```bash
+rails r script/generate-checksums-for-smart-answer.rb marriage-abroad smart_answer_flows/marriage-abroad/questions/country_of_ceremony.govspeak.erb
+```
+
+The last two options are rarely used and are inconsistent.
+
+### When to update checksums
 
 You should *only* update the checksums if you have run the regression tests for the flow and they have all passed. By updating them you are telling the [main CI build](continuous-integration.md#main) that it doesn't need to run the regression tests for this flow.
 
