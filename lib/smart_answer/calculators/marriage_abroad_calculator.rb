@@ -337,6 +337,14 @@ module SmartAnswer::Calculators
       [ceremony_country, ceremony_location, partner_nationality, same_sex]
     end
 
+    def has_outcome_per_path?
+      %w(
+         italy
+         mozambique
+         sweden
+        ).include?(ceremony_country)
+    end
+
   private
 
     def services_for_country_and_partner_sex_and_residency_and_partner_nationality?
