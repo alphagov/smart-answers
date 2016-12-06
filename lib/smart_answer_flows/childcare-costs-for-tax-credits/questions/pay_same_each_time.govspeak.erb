@@ -2,15 +2,11 @@
   Do you pay the same each time?
 <% end %>
 
+<% content_for :hint do %>
+  Answer no if you pay a different amount each week or month, or during school holidays. This is known as 'variable costs'.
+<% end %>
+
 <% options(
   "yes": "Yes",
   "no": "No"
 ) %>
-
-<% content_for :body do %>
-  Sometimes you may pay - or expect to pay - different amounts for childcare (known as ‘variable costs’), for example:
-
-  - you regularly use childcare, but pay more during school holidays than you do at term time
-  - the hours you use childcare change from week to week or month to month
-
-<% end %>
