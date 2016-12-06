@@ -227,10 +227,5 @@ class CalculateEmployeeRedundancyPayTest < ActiveSupport::TestCase
       add_response Date.parse("2011-12-31")
       assert_current_node_is_error
     end
-
-    should "not allow dates next year" do
-      add_response((Date.today.end_of_year + 1.day).to_s)
-      assert_current_node_is_error
-    end
   end
 end
