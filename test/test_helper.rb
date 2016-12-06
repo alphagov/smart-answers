@@ -40,6 +40,17 @@ class ActiveSupport::TestCase
   include WorldLocationStubbingMethods
 end
 
+require 'slimmer/test'
+require 'slimmer/test_helpers/govuk_components'
+
+class ActiveSupport::TestCase
+  include Slimmer::TestHelpers::GovukComponents
+end
+
+class ActionController::TestCase
+  include Slimmer::TestHelpers::GovukComponents
+end
+
 require 'govuk-content-schema-test-helpers/test_unit'
 
 GovukContentSchemaTestHelpers.configure do |config|
