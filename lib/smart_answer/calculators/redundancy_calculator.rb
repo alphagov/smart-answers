@@ -48,6 +48,14 @@ module SmartAnswer::Calculators
       end
     end
 
+    def self.last_selectable_date
+      if between_january_and_august?
+        end_of_current_year
+      else
+        end_of_next_year
+      end
+    end
+
     def self.between_january_and_august?
       Date.today.month < 9
     end
@@ -60,6 +68,14 @@ module SmartAnswer::Calculators
       3.years.ago.beginning_of_year
     end
 
-    private_class_method :between_january_and_august?, :four_years_ago, :three_years_ago
+    def self.end_of_current_year
+      Date.today.end_of_year
+    end
+
+    def self.end_of_next_year
+      Date.today.next_year.end_of_year
+    end
+
+    private_class_method :between_january_and_august?, :four_years_ago, :three_years_ago, :end_of_current_year, :end_of_next_year
   end
 end

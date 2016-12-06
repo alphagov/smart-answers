@@ -148,6 +148,32 @@ module SmartAnswer::Calculators
           end
         end
       end
+
+      context "Last selectable date" do
+        context "Months January to August" do
+          should "return the end of the current year if the date is January 1st" do
+            Timecop.freeze('2016-01-01')
+            assert_equal Date.parse('2016-12-31'), RedundancyCalculator.last_selectable_date
+          end
+
+          should "return the end of the current year if the date is August 31st" do
+            Timecop.freeze('2016-08-31')
+            assert_equal Date.parse('2016-12-31'), RedundancyCalculator.last_selectable_date
+          end
+        end
+
+        context "Months September to December" do
+          should "return end of the next year if the date is September 1st" do
+            Timecop.freeze('2016-09-01')
+            assert_equal Date.parse('2017-12-31'), RedundancyCalculator.last_selectable_date
+          end
+
+          should "return end of the next year if the date is December 31st" do
+            Timecop.freeze('2016-12-31')
+            assert_equal Date.parse('2017-12-31'), RedundancyCalculator.last_selectable_date
+          end
+        end
+      end
     end
   end
 end

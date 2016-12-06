@@ -4,7 +4,7 @@ module SmartAnswer
       def define
         date_question :date_of_redundancy? do
           from { Calculators::RedundancyCalculator.first_selectable_date }
-          to { 1.year.since }
+          to { Calculators::RedundancyCalculator.last_selectable_date }
           validate_in_range
 
           calculate :rates do |response|
