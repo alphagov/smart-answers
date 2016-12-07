@@ -39,5 +39,27 @@ module SmartAnswer::Calculators
     def self.northern_ireland_redundancy_rates(date)
       RatesQuery.from_file('redundancy_pay_northern_ireland').rates(date)
     end
+
+    def self.first_selectable_date
+      if between_january_and_august?
+        four_years_ago
+      else
+        three_years_ago
+      end
+    end
+
+    def self.between_january_and_august?
+      Date.today.month < 9
+    end
+
+    def self.four_years_ago
+      4.years.ago.beginning_of_year
+    end
+
+    def self.three_years_ago
+      3.years.ago.beginning_of_year
+    end
+
+    private_class_method :between_january_and_august?, :four_years_ago, :three_years_ago
   end
 end
