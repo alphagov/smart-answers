@@ -335,7 +335,7 @@ module SmartAnswer::Calculators
                  end
 
       if ceremony_country == 'france'
-        return [ceremony_country, marriage_or_pacs]
+        return [ceremony_country, same_sex]
       end
 
       [ceremony_country, ceremony_location, partner_nationality, same_sex]
@@ -343,6 +343,7 @@ module SmartAnswer::Calculators
 
     def has_outcome_per_path?
       %w(
+         france
          italy
          mozambique
          sweden

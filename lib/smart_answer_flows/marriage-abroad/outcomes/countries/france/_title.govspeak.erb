@@ -1,5 +1,7 @@
-<% if calculator.want_to_get_married? %>
-    Marriage in France
-<% else %>
+<% content_for :title do %>
+  <% if calculator.partner_is_same_sex? %>
     PACS in France
+  <% else %>
+    Marriage in France
+  <% end %>
 <% end %>
