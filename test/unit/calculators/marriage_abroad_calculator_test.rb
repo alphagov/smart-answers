@@ -1019,7 +1019,7 @@ module SmartAnswer
         end
 
         should 'return true if a PACS is available in the ceremony country' do
-          @calculator.ceremony_country = 'france'
+          @calculator.ceremony_country = 'monaco'
           assert @calculator.ceremony_country_offers_pacs?
         end
 
@@ -1041,7 +1041,7 @@ module SmartAnswer
         end
 
         should "return false if PACS is available in the ceremony country but it's not a French overseas territory" do
-          @calculator.ceremony_country = 'france'
+          @calculator.ceremony_country = 'monaco'
           assert @calculator.ceremony_country_offers_pacs?
           refute @calculator.french_overseas_territory_offering_pacs?
         end
