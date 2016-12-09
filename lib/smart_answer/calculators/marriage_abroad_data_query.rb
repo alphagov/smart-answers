@@ -10,7 +10,7 @@ module SmartAnswer::Calculators
 
     FRENCH_OVERSEAS_TERRITORIES_OFFERING_PACS = %w(new-caledonia wallis-and-futuna)
 
-    CEREMONY_COUNTRIES_OFFERING_PACS = %w(france monaco) + FRENCH_OVERSEAS_TERRITORIES_OFFERING_PACS
+    CEREMONY_COUNTRIES_OFFERING_PACS = %w(monaco) + FRENCH_OVERSEAS_TERRITORIES_OFFERING_PACS
 
     DUTCH_CARIBBEAN_ISLANDS = %w(aruba bonaire-st-eustatius-saba curacao st-maarten)
 
