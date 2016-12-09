@@ -48,20 +48,6 @@ module SmartAnswer
 
           assert_equal %w(italy same_sex), @calculator.path_to_outcome
         end
-
-        should 'get pacs outcome for france, when user selects pacs' do
-          @calculator.ceremony_country = 'france'
-          @calculator.marriage_or_pacs = 'pacs'
-
-          assert_equal %w(france pacs), @calculator.path_to_outcome
-        end
-
-        should 'get marriage outcome for france, when user selects marriage' do
-          @calculator.ceremony_country = 'france'
-          @calculator.marriage_or_pacs = 'marriage'
-
-          assert_equal %w(france marriage), @calculator.path_to_outcome
-        end
       end
 
       context '#partner_british?' do

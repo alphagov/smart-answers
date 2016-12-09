@@ -29,10 +29,10 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.ceremony_country_offers_pacs?
-            question :marriage_or_pacs?
-          elsif calculator.two_questions_country?
+          if calculator.two_questions_country?
             question :partner_opposite_or_same_sex?
+          elsif calculator.ceremony_country_offers_pacs?
+            question :marriage_or_pacs?
           elsif calculator.ceremony_country_is_french_overseas_territory?
             outcome :outcome_marriage_in_france_or_french_overseas_territory
           else

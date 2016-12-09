@@ -350,9 +350,7 @@ module SmartAnswer::Calculators
   private
 
     def marriage_type_path_name
-      if ceremony_country == 'france'
-        marriage_or_pacs
-      elsif partner_is_same_sex?
+      if partner_is_same_sex?
         'same_sex'
       else
         'opposite_sex'
