@@ -1,7 +1,7 @@
 ---
-lib/smart_answer_flows/marriage-abroad.rb: 2e0c44eb24c2615df4d03fbe7e47b0b0
+lib/smart_answer_flows/marriage-abroad.rb: 6c0e8848ab193f6157c0bec2e07e24ae
 test/data/marriage-abroad-questions-and-responses.yml: 1da0ed44bd64ec0febb647b8b6158785
-test/data/marriage-abroad-responses-and-expected-results.yml: a2c265aedad7bc4de78536759288e603
+test/data/marriage-abroad-responses-and-expected-results.yml: 838f64f4233e84ffa6a2288059d02d2d
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
 lib/smart_answer_flows/marriage-abroad/outcomes/_affirmation_os_translation_in_local_language_text.govspeak.erb: af09e09b909c563d4a587ef1b9285cca
 lib/smart_answer_flows/marriage-abroad/outcomes/_appointment_documents_in_vietnam.govspeak.erb: a425db85257131917bcfd14def2cb0a9
@@ -68,7 +68,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/_required_supporting_documents.g
 lib/smart_answer_flows/marriage-abroad/outcomes/_required_supporting_documents_egypt.govspeak.erb: 36aecba48ee59b75389c9d6b29581186
 lib/smart_answer_flows/marriage-abroad/outcomes/_required_supporting_documents_macao.govspeak.erb: 373ca65f6e49cd8d95e384168369415f
 lib/smart_answer_flows/marriage-abroad/outcomes/_required_supporting_documents_philippines.govspeak.erb: 93cd7cca28dbce40c2eb8e67b29d081c
-lib/smart_answer_flows/marriage-abroad/outcomes/_services_and_fees.govspeak.erb: ef78fd991b18314c33077b32f86ebe32
+lib/smart_answer_flows/marriage-abroad/outcomes/_services_and_fees.govspeak.erb: f0c6ee7d7585ba3d6b52057b919b48c1
 lib/smart_answer_flows/marriage-abroad/outcomes/_synonyms_of_cp.govspeak.erb: bab4d45dc2cbeee32494b6f795a7dbd0
 lib/smart_answer_flows/marriage-abroad/outcomes/_three_day_residency_requirement.govspeak.erb: 5c7dc2a805e5c11f27ee1efdf4e37cb3
 lib/smart_answer_flows/marriage-abroad/outcomes/_translation_in_germany.govspeak.erb: 2b9e157f9a8ff8cc32dc45ff535c098b
@@ -79,6 +79,9 @@ lib/smart_answer_flows/marriage-abroad/outcomes/_you_dont_need_to_stay_in_countr
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_have_been_divorced_or_widowed.govspeak.erb: e719af472a3ec2c26a9e4ce7202c11ff
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_will_be_asked_for_cni.govspeak.erb: cd1226b515c6a1723da99be2cb207c51
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_will_have_to_wait_to_get_married.govspeak.erb: e32774b08379258450d2d2198c0dbc49
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/france/_opposite_sex.govspeak.erb: 87f1fa198bced49e1de4da3b3dda0051
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/france/_same_sex.govspeak.erb: 076301d8ad454835ee85ec6636daae45
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/france/_title.govspeak.erb: 8bdb15db3e986d8df5fb392ec9f96c1e
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_title.html.erb: 9ed9b141d5d5418375ec81e96fe67ca7
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/ceremony_country/partner_british/_opposite_sex.html.erb: 5aace54e257f54b68820041ea5559dc9
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/ceremony_country/partner_british/_same_sex.html.erb: 71ccf639b2dac99c52c04e05c271ae31
@@ -253,8 +256,8 @@ lib/smart_answer_flows/marriage-abroad/questions/partner_opposite_or_same_sex.go
 lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationality.govspeak.erb: 80e04f36c75c232bede1a244d621471e
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/data/marriage_abroad_services.yml: 2ec0357f37bb983c1342b8a03ad4d0f6
-lib/smart_answer/calculators/marriage_abroad_calculator.rb: b32c5b0aa1213e255425aeb296e6c0e7
+lib/smart_answer/calculators/marriage_abroad_calculator.rb: 73e458cea15788e5a098767bfd5b8d55
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 0bc67c4469fe692a4fa53c9b461821bf
-lib/smart_answer/calculators/marriage_abroad_data_query.rb: 909d1eb73082e0173ba26d38e438a3dd
+lib/smart_answer/calculators/marriage_abroad_data_query.rb: 7321ca36eece5e7156a7a1faaba08551
 lib/smart_answer/calculators/country_name_formatter.rb: 583df7103672f581bf5510732c1b2be1
 lib/smart_answer/calculators/registrations_data_query.rb: 3afcd514ecedadd19b0db67f54ac5ea6
