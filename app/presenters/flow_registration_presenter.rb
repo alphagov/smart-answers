@@ -19,14 +19,6 @@ class FlowRegistrationPresenter
     start_node.title
   end
 
-  def paths
-    ["/#{@flow.name}.json"]
-  end
-
-  def prefixes
-    ["/#{@flow.name}"]
-  end
-
   def description
     start_node.meta_description
   end
