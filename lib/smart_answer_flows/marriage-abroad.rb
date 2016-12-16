@@ -29,10 +29,10 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.two_questions_country?
-            question :partner_opposite_or_same_sex?
-          elsif calculator.ceremony_country_offers_pacs?
+          if calculator.ceremony_country_offers_pacs?
             question :marriage_or_pacs?
+          elsif calculator.two_questions_country?
+            question :partner_opposite_or_same_sex?
           elsif calculator.ceremony_country_is_french_overseas_territory?
             outcome :outcome_marriage_in_france_or_french_overseas_territory
           else
@@ -71,13 +71,17 @@ module SmartAnswer
 
         next_node do
           if calculator.want_to_get_married?
-            if calculator.ceremony_country == 'monaco'
+            if calculator.ceremony_country == 'france'
+              outcome :outcome_marriage_abroad_in_country
+            elsif calculator.ceremony_country == 'monaco'
               outcome :outcome_marriage_in_monaco
             else
               outcome :outcome_marriage_in_france_or_french_overseas_territory
             end
           else
-            if calculator.ceremony_country == 'monaco'
+            if calculator.ceremony_country == 'france'
+              outcome :outcome_marriage_abroad_in_country
+            elsif calculator.ceremony_country == 'monaco'
               outcome :outcome_civil_partnership_in_monaco
             else
               outcome :outcome_civil_partnership_in_france_or_french_overseas_territory
