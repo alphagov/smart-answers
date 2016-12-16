@@ -3,8 +3,8 @@ module SmartAnswer
     class RedundancyPayFlow < Flow
       def define
         date_question :date_of_redundancy? do
-          from { Date.civil(2013, 1, 1) }
-          to { 1.year.since }
+          from { Calculators::RedundancyCalculator.first_selectable_date }
+          to { Calculators::RedundancyCalculator.last_selectable_date }
           validate_in_range
 
           calculate :rates do |response|
