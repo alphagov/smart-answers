@@ -4,7 +4,7 @@ module SmartAnswer::Calculators
     attr_writer :resident_of
     attr_writer :partner_nationality
     attr_writer :sex_of_your_partner
-    attr_writer :marriage_or_pacs
+    attr_accessor :marriage_or_pacs
 
     def initialize(data_query: nil, rates_query: nil, country_name_formatter: nil, registrations_data_query: nil, services_data: nil)
       @data_query = data_query || MarriageAbroadDataQuery.new
@@ -333,6 +333,10 @@ module SmartAnswer::Calculators
                  else
                    'opposite_sex'
                  end
+
+      if ceremony_country == 'france'
+        return [ceremony_country, marriage_or_pacs]
+      end
 
       [ceremony_country, ceremony_location, partner_nationality, same_sex]
     end
