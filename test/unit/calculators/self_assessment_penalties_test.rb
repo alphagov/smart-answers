@@ -118,6 +118,7 @@ module SmartAnswer::Calculators
         should "confirm payment was made late" do
           refute @calculator.paid_on_time?
         end
+
         should "calculate late filing penalty" do
           # band one
           @calculator.filing_date = Date.parse("2014-02-02")
@@ -206,6 +207,42 @@ module SmartAnswer::Calculators
         end
 
         context "pay penalty after rate change on 23 Aug 2016" do
+          setup do
+            @calculator.estimated_bill = SmartAnswer::Money.new(1000)
+          end
+
+          context "deadline and payment dates are before rate change date" do
+            should "have values with rate at 3%" do
+              @calculator.payment_deadline = Date.parse("2016-01-31")
+              @calculator.payment_date = Date.parse("2016-08-23")
+              assert_equal 16.77, @calculator.interest.value.to_f
+            end
+          end
+
+          context "deadline and payment dates are after rate change date" do
+            should "have values from rate at 2.75%" do
+              @calculator.payment_deadline = Date.parse("2016-08-23")
+              @calculator.payment_date = Date.parse("2016-10-31")
+              assert_equal 5.12, @calculator.interest.value.to_f
+            end
+          end
+
+          context "tax year includes rate change, deadline and payment are after rate change" do
+            should "should have value from rate at 2.75%" do
+              @calculator.tax_year = "2015-16"
+              @calculator.payment_deadline = Date.parse("2017-1-31")
+              @calculator.payment_date = Date.parse("2017-3-1")
+              assert_equal 2.11, @calculator.interest.value.to_f
+            end
+          end
+
+          context "deadline is before rate change date, payment is after rate change date" do
+            should "have value calculated with rates from before and after change" do
+              @calculator.payment_deadline = Date.parse("2016-01-31")
+              @calculator.payment_date = Date.parse("2016-10-31")
+              assert_equal 21.97, @calculator.interest.value.to_f
+            end
+          end
         end
       end # filed or paid late
     end # online submission
