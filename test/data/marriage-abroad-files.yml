@@ -295,6 +295,6 @@ lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d
 lib/data/marriage_abroad_services.yml: 73b32d5334b421ea58959c602092cc9d
 lib/smart_answer/calculators/marriage_abroad_calculator.rb: 1e6381658b51d91089f1ff3242a68aad
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 0bc67c4469fe692a4fa53c9b461821bf
-lib/smart_answer/calculators/marriage_abroad_data_query.rb: 83d07e37557c160091bdfddf80fc07cc
+lib/smart_answer/calculators/marriage_abroad_data_query.rb: 14f300e3e0bd42304d0f4c888780b90b
 lib/smart_answer/calculators/country_name_formatter.rb: 583df7103672f581bf5510732c1b2be1
 lib/smart_answer/calculators/registrations_data_query.rb: 3afcd514ecedadd19b0db67f54ac5ea6
