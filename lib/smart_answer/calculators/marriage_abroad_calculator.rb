@@ -334,6 +334,10 @@ module SmartAnswer::Calculators
                    'opposite_sex'
                  end
 
+      if ceremony_country == 'philippines'
+        return [ceremony_country, same_sex]
+      end
+
       [ceremony_country, ceremony_location, partner_nationality, same_sex]
     end
 
