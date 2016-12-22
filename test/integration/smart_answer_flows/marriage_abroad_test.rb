@@ -1460,8 +1460,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_local'
       add_response 'same_sex'
     end
-    should "go to all other countries outcome" do
-      assert_current_node :outcome_same_sex_marriage_and_civil_partnership_not_possible
+    should "go to outcome per path for vietnam" do
+      assert_current_node :outcome_marriage_abroad_in_country
     end
   end
 
@@ -1655,7 +1655,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'uk'
       add_response 'partner_local'
       add_response 'opposite_sex'
-      assert_current_node :outcome_opposite_sex_marriage_in_vietnam
+      assert_current_node :outcome_marriage_abroad_in_country
     end
   end
 
@@ -1911,7 +1911,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
     end
     should "go to affirmation_os_outcome" do
-      assert_current_node :outcome_opposite_sex_marriage_in_vietnam
+      assert_current_node :outcome_marriage_abroad_in_country
     end
   end
 

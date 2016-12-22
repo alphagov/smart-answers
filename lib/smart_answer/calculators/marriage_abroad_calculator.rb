@@ -342,6 +342,7 @@ module SmartAnswer::Calculators
          italy
          mozambique
          sweden
+         vietnam
         ).include?(ceremony_country)
     end
 
