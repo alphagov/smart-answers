@@ -1,7 +1,7 @@
 ---
 lib/smart_answer_flows/marriage-abroad.rb: 762995bfd48d3371231a6405863dfc1d
 test/data/marriage-abroad-questions-and-responses.yml: 35a2f04fceb6c1c45cd96ca80dcba991
-test/data/marriage-abroad-responses-and-expected-results.yml: 1a7d20e16ba0b226c333c6f29900a93d
+test/data/marriage-abroad-responses-and-expected-results.yml: 68fd98abae41621a85e93a4b1db5a452
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
 lib/smart_answer_flows/marriage-abroad/outcomes/_affirmation_os_translation_in_local_language_text.govspeak.erb: af09e09b909c563d4a587ef1b9285cca
 lib/smart_answer_flows/marriage-abroad/outcomes/_appointment_for_affidavit.govspeak.erb: 4db6fe2ec298d79aefaed0d4ff244e75
@@ -197,6 +197,8 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/mozambique/uk/partner_
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/mozambique/uk/partner_local/_same_sex.govspeak.erb: 796f2753a7e62343e67f3371364b6abb
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/mozambique/uk/partner_other/_opposite_sex.govspeak.erb: 97f9de6d2c1fec923e74e9166a84ab72
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/mozambique/uk/partner_other/_same_sex.govspeak.erb: ed1f54294d9d3fd852aad9d793500507
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/philippines/_opposite_sex.govspeak.erb: 7b3ff5e62286ed7434ab82daee8c4bc1
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/philippines/_same_sex.govspeak.erb: 1f6f14ea9cd4c7946bf85724fc9a91f1
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/philippines/_title.govspeak.erb: 00eb119d52e109671d524a2c47c6cd8e
 ? lib/smart_answer_flows/marriage-abroad/outcomes/countries/philippines/ceremony_country/partner_british/_opposite_sex.govspeak.erb
 : 7b3ff5e62286ed7434ab82daee8c4bc1
@@ -368,7 +370,7 @@ lib/smart_answer_flows/marriage-abroad/questions/partner_opposite_or_same_sex.go
 lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationality.govspeak.erb: 80e04f36c75c232bede1a244d621471e
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/data/marriage_abroad_services.yml: 73b32d5334b421ea58959c602092cc9d
-lib/smart_answer/calculators/marriage_abroad_calculator.rb: 5ed8db861c02d6d155fc34ade1e32aba
+lib/smart_answer/calculators/marriage_abroad_calculator.rb: 04aad129eff59d671aa3e48750b0cc75
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 0bc67c4469fe692a4fa53c9b461821bf
 lib/smart_answer/calculators/marriage_abroad_data_query.rb: 3139f80c78333ed23ffec4e03c251347
 lib/smart_answer/calculators/country_name_formatter.rb: 583df7103672f581bf5510732c1b2be1

@@ -340,6 +340,7 @@ module SmartAnswer::Calculators
     def two_questions_country?
       %w(
          ireland
+         philippines
          italy
         ).include?(ceremony_country)
     end
