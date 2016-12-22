@@ -331,6 +331,7 @@ module SmartAnswer::Calculators
          jordan
          latvia
          mozambique
+         philippines
          sweden
          vietnam
         ).include?(ceremony_country)
