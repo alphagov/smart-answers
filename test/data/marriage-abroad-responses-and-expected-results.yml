@@ -24128,7 +24128,7 @@
   - uk
   - partner_british
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_vietnam
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -24136,7 +24136,7 @@
   - uk
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -24151,7 +24151,7 @@
   - uk
   - partner_local
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_vietnam
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -24159,7 +24159,7 @@
   - uk
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -24174,7 +24174,7 @@
   - uk
   - partner_other
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_vietnam
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -24182,7 +24182,7 @@
   - uk
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -24203,7 +24203,7 @@
   - ceremony_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_vietnam
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -24211,7 +24211,7 @@
   - ceremony_country
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -24226,7 +24226,7 @@
   - ceremony_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_vietnam
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -24234,7 +24234,7 @@
   - ceremony_country
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -24249,7 +24249,7 @@
   - ceremony_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_vietnam
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -24257,7 +24257,7 @@
   - ceremony_country
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -24278,7 +24278,7 @@
   - third_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_vietnam
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -24286,7 +24286,7 @@
   - third_country
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -24301,7 +24301,7 @@
   - third_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_vietnam
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -24309,7 +24309,7 @@
   - third_country
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -24324,7 +24324,7 @@
   - third_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_vietnam
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -24332,7 +24332,7 @@
   - third_country
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:
