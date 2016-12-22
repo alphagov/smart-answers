@@ -341,6 +341,7 @@ module SmartAnswer::Calculators
       %w(
          italy
          mozambique
+         philippines
          sweden
         ).include?(ceremony_country)
     end
