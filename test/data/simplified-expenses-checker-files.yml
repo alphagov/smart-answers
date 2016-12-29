@@ -19,4 +19,4 @@ lib/smart_answer_flows/simplified-expenses-checker/questions/people_live_on_prem
 lib/smart_answer_flows/simplified-expenses-checker/questions/price_of_vehicle.govspeak.erb: ce043c19141d0e044a0ec1edb042591b
 lib/smart_answer_flows/simplified-expenses-checker/questions/type_of_expense.govspeak.erb: 530deb8f1e9bb3d6a65bbcf42acdd8a8
 lib/smart_answer_flows/simplified-expenses-checker/questions/vehicle_business_use_time.govspeak.erb: e864e4c5c4cbb4ec05a0e4fe20746c62
-lib/smart_answer_flows/simplified-expenses-checker/simplified_expenses_checker.govspeak.erb: 57e58d3a53e06e1467143a7a29f201d1
+lib/smart_answer_flows/simplified-expenses-checker/simplified_expenses_checker.govspeak.erb: 1db1c9543e2a2f485cadeedaf4bed5c2
