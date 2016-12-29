@@ -100,7 +100,7 @@ See:
 
 ### Registering on GOV.UK
 
-- `bundle exec rake panopticon:register` will send smart answers to panopticon. Panopticon will register the URL.
+- `bundle exec rake publishing_api:publish` will send smart answers to the publishing-api.
 
 ### Search indexing
 
