@@ -20,7 +20,7 @@ lib/smart_answer_flows/simplified-expenses-checker/questions/price_of_vehicle.go
 lib/smart_answer_flows/simplified-expenses-checker/questions/type_of_expense.govspeak.erb: 6accfbd7201311005baa73c335999688
 lib/smart_answer_flows/simplified-expenses-checker/questions/vehicle_business_use_time.govspeak.erb: e864e4c5c4cbb4ec05a0e4fe20746c62
 lib/smart_answer_flows/simplified-expenses-checker/questions/vehicle_expense.govspeak.erb: beb0a689c3bb82ad1bb43c3e4f94c81e
-lib/smart_answer_flows/simplified-expenses-checker/simplified_expenses_checker.govspeak.erb: 6571e279177cb83ce3a06b31eb90a6e8
+lib/smart_answer_flows/simplified-expenses-checker/simplified_expenses_checker.govspeak.erb: 57e58d3a53e06e1467143a7a29f201d1
 lib/smart_answer_flows/simplified-expenses-checker.rb: b597a8f1f41b2288bfebec4d2f3f23b4
 test/data/simplified-expenses-checker-questions-and-responses.yml: 66de79b2882675671aa80f2e9bef1d61
 test/data/simplified-expenses-checker-responses-and-expected-results.yml: 483db36264d39e10d295ea29d8083587
