@@ -33,6 +33,7 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
 
     context "gender inserted" do
       setup do
+        Timecop.freeze('2016-12-01')
         add_response "male"
       end
       should "ask you topup amount" do
@@ -95,6 +96,7 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
   end
   context "Anyone turns 101 on 2 April 2017 = DOB 2/4/1916 with a top up of £1 a week" do
     setup do
+      Timecop.freeze('2016-12-01')
       add_response Date.parse('1916-04-02')
       add_response "male"
       add_response 1
