@@ -159,7 +159,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/sweden/uk/partner_loca
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/sweden/uk/partner_local/_same_sex.govspeak.erb: aaa5cef740c7a1835949e3c7b22d0bc8
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/sweden/uk/partner_other/_opposite_sex.govspeak.erb: 08a20430b686059bf67eb090ca4a1904
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/sweden/uk/partner_other/_same_sex.govspeak.erb: aaa5cef740c7a1835949e3c7b22d0bc8
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/vietnam/_title.govspeak.erb: 9a68c7f9000b444d9216cf780752e7fe
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/vietnam/_title.govspeak.erb: c06734e76d0d2fac1472abf73e877c6b
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/vietnam/ceremony_country/partner_british/_opposite_sex.govspeak.erb: 6df572ad704d1a9b416bdcde0414c167
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/vietnam/ceremony_country/partner_british/_same_sex.govspeak.erb: 3e6d2817daf9aa6f48597f738e75e552
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/vietnam/ceremony_country/partner_local/_opposite_sex.govspeak.erb: a0b084d1779aed091058d3eef89eec37
