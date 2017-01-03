@@ -111,11 +111,11 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/third_country/p
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/third_country/partner_local/_same_sex.govspeak.erb: cc481d56f4ceed1fbe7f52b001ed86e6
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/third_country/partner_other/_opposite_sex.govspeak.erb: 2ccc1641648c00fc8f00e8ba675473b3
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/third_country/partner_other/_same_sex.govspeak.erb: f14a355018bfe4bafc0dd56ccf6d6abb
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_british/_opposite_sex.govspeak.erb: 4bb7e8501cb11f9a7c1c113dccfb0091
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_british/_opposite_sex.govspeak.erb: 565a818f70bbb158c9f7bba1acac2184
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_british/_same_sex.govspeak.erb: c394c40e1b3052793dc962e01b738699
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_local/_opposite_sex.govspeak.erb: 2aed471b90db5aa3f6589847a5a3cddd
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_local/_opposite_sex.govspeak.erb: 565a818f70bbb158c9f7bba1acac2184
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_local/_same_sex.govspeak.erb: cc481d56f4ceed1fbe7f52b001ed86e6
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_other/_opposite_sex.govspeak.erb: 2aed471b90db5aa3f6589847a5a3cddd
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_other/_opposite_sex.govspeak.erb: 565a818f70bbb158c9f7bba1acac2184
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_other/_same_sex.govspeak.erb: f14a355018bfe4bafc0dd56ccf6d6abb
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/mozambique/_title.govspeak.erb: 02dfe62310d38985f5b8c0330cee5b29
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/mozambique/ceremony_country/partner_british/_opposite_sex.govspeak.erb: 394c92edfaacdac9a6220322cc21eec9
@@ -271,7 +271,7 @@ lib/smart_answer_flows/marriage-abroad/questions/marriage_or_pacs.govspeak.erb: 
 lib/smart_answer_flows/marriage-abroad/questions/partner_opposite_or_same_sex.govspeak.erb: 40d0c99a5be50f0625c6562f06fe4afd
 lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationality.govspeak.erb: 80e04f36c75c232bede1a244d621471e
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
-lib/data/marriage_abroad_services.yml: 2ec0357f37bb983c1342b8a03ad4d0f6
+lib/data/marriage_abroad_services.yml: ee6891b5036bb6a56e33055b6b28195c
 lib/smart_answer/calculators/marriage_abroad_calculator.rb: d21f2f83d73e070039d80ea5f19065ab
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 0bc67c4469fe692a4fa53c9b461821bf
 lib/smart_answer/calculators/marriage_abroad_data_query.rb: 83d07e37557c160091bdfddf80fc07cc
