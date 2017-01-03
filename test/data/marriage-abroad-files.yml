@@ -165,7 +165,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/vietnam/ceremony_count
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/vietnam/ceremony_country/partner_local/_opposite_sex.govspeak.erb: a0b084d1779aed091058d3eef89eec37
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/vietnam/ceremony_country/partner_local/_same_sex.govspeak.erb: bea42fa4df751474034201a02d1ad9c8
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/vietnam/ceremony_country/partner_other/_opposite_sex.govspeak.erb: 474c6098d0ca3c1a9d1f50e21cfd9e9f
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/vietnam/ceremony_country/partner_other/_same_sex.govspeak.erb: afdc13db108facb556747ba198370e22
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/vietnam/ceremony_country/partner_other/_same_sex.govspeak.erb: 3e6d2817daf9aa6f48597f738e75e552
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/vietnam/third_country/partner_british/_opposite_sex.govspeak.erb: 64a74e55bb10ba77b73a7a42c989083c
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/vietnam/third_country/partner_british/_same_sex.govspeak.erb: 3e6d2817daf9aa6f48597f738e75e552
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/vietnam/third_country/partner_local/_opposite_sex.govspeak.erb: c5cac6bf14c8d97cf2c6eb93109ae2b3
