@@ -53,6 +53,7 @@ module SmartAnswer::Calculators
     context "lump_sum_and_age" do
       context "when male" do
         setup do
+          Timecop.freeze('2016-12-01')
           @calculator.gender = "male"
         end
 
@@ -101,6 +102,7 @@ module SmartAnswer::Calculators
 
       context "when female" do
         setup do
+          Timecop.freeze('2016-12-01')
           @calculator.gender = "female"
         end
 
