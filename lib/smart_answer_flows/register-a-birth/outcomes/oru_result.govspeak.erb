@@ -1,6 +1,15 @@
 <% content_for :body do %>
   $!You must register the birth in the country where the child was born. You'll be given a local birth certificate.$!
 
+In most cases, you’ll be able to register the birth with the UK authorities. 
+
+##When you can’t register a birth in the UK
+
+You won’t be able to register a birth if with the UK authorities if any the following apply:
+
+- the child has no mother registered on the birth certificate 
+- the child’s mother is married to a man who is not a UK citizen, even if the child’s father is a UK citizen
+
   <% if calculator.registration_country == 'indonesia' and calculator.british_national_father? and calculator.paternity_declaration? %>
     %You’ll need to get a court order to have the father named on the birth certificate before registering if you’re unmarried and only the father has British nationality.%
   <% end %>
