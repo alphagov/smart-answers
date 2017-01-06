@@ -28,3 +28,8 @@
   end_date: 2017-04-05
   lower_earning_limit_rate: 112
   ssp_weekly_rate: 88.45
+
+- start_date: 2017-04-06
+  end_date: 2018-04-05
+  lower_earning_limit_rate: 113
+  ssp_weekly_rate: 89.35
