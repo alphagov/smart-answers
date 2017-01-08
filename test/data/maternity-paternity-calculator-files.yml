@@ -75,5 +75,5 @@ lib/smart_answer_flows/maternity-paternity-calculator/adoption_calculator_flow.r
 lib/smart_answer_flows/maternity-paternity-calculator/maternity_calculator_flow.rb: 4e8f9d4fb0c0feca7b0122b19e80e501
 lib/smart_answer_flows/maternity-paternity-calculator/paternity_calculator_flow.rb: a99fff5f0a6f37b8fb0cd461f56d0d4d
 lib/smart_answer/calculators/maternity_paternity_calculator.rb: 7ad79055c4793aabb0b6f9abde95945c
-lib/data/rates/maternity_paternity_birth.yml: 3eef956f1020576a9343647fec34dd01
+lib/data/rates/maternity_paternity_birth.yml: ecc6ef0c3163cc0c5448858ad89161a5
 lib/data/rates/maternity_paternity_adoption.yml: e4a27ae88a179412e306197e4f4a229c
