@@ -23,13 +23,13 @@ Their average weekly earnings are: £375.00
 Date | SPP amount
 -|-
 23 April 2018|£1012.50
-21 May 2018|£1236.91
-18 June 2018|£558.32
-16 July 2018|£558.32
-13 August 2018|£558.32
-10 September 2018|£558.32
-8 October 2018|£558.32
-| **Total SPP: £5041.01**
+21 May 2018|£1237.71
+18 June 2018|£563.92
+16 July 2018|£563.92
+13 August 2018|£563.92
+10 September 2018|£563.92
+8 October 2018|£563.92
+| **Total SPP: £5069.81**
 
 %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
 

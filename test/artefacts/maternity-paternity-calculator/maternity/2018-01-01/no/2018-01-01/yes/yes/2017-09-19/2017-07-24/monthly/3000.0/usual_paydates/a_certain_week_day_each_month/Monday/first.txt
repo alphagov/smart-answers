@@ -25,15 +25,15 @@ Date | SMP amount
 -|-
 1 January 2018|£44.51
 5 February 2018|£1557.70
-5 March 2018|£705.72
-2 April 2018|£558.32
-7 May 2018|£697.91
-4 June 2018|£558.32
-2 July 2018|£558.32
-6 August 2018|£697.91
-3 September 2018|£558.32
-1 October 2018|£538.39
-| **Total SMP: £6475.42**
+5 March 2018|£710.12
+2 April 2018|£563.92
+7 May 2018|£704.90
+4 June 2018|£563.92
+2 July 2018|£563.92
+6 August 2018|£704.90
+3 September 2018|£563.92
+1 October 2018|£543.78
+| **Total SMP: £6521.59**
 
 *[SMP]: Statutory Maternity Pay
 
