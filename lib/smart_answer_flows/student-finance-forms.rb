@@ -73,8 +73,12 @@ module SmartAnswer
       end
 
       multiple_choice :what_year_full_time? do
-        option 'year-1617'
-        option 'year-1516'
+        question_value = self
+        precalculate :setup_options do
+          question_value.option "year-1718" if type_of_student == "uk-full-time"
+          question_value.option "year-1617"
+          question_value.option "year-1516"
+        end
 
         save_input_as :what_year
 
@@ -86,6 +90,8 @@ module SmartAnswer
             case form_needed_for_1
             when 'proof-identity'
               case response
+              when 'year-1718'
+                outcome :outcome_proof_identity_1718
               when 'year-1516'
                 outcome :outcome_proof_identity_1516
               when 'year-1617'
@@ -93,6 +99,8 @@ module SmartAnswer
               end
             when 'income-details'
               case response
+              when 'year-1718'
+                outcome :outcome_parent_partner_1718
               when 'year-1516'
                 outcome :outcome_parent_partner_1516
               when 'year-1617'
@@ -100,6 +108,8 @@ module SmartAnswer
               end
             when 'apply-dsa'
               case response
+              when 'year-1718'
+                outcome :outcome_dsa_1718
               when 'year-1516'
                 outcome :outcome_dsa_1516
               when 'year-1617'
@@ -107,6 +117,8 @@ module SmartAnswer
               end
             when 'apply-ccg'
               case response
+              when 'year-1718'
+                outcome :outcome_ccg_1718
               when 'year-1516'
                 outcome :outcome_ccg_1516
               when 'year-1617'
@@ -211,6 +223,13 @@ module SmartAnswer
                 when 'new-student'
                   outcome :outcome_uk_ft_1617_new
                 end
+              when 'year-1718'
+                case response
+                when 'continuing-student'
+                  outcome :outcome_uk_ft_1718_continuing
+                when 'new-student'
+                  outcome :outcome_uk_ft_1718_new
+                end
               end
             end
           when 'uk-part-time'
@@ -264,8 +283,10 @@ module SmartAnswer
       end
 
       outcome :outcome_ccg_1516
+      outcome :outcome_ccg_1718
       outcome :outcome_ccg_1617
       outcome :outcome_ccg_expenses
+      outcome :outcome_dsa_1718
       outcome :outcome_dsa_1516
       outcome :outcome_dsa_1516_pt
       outcome :outcome_dsa_1617
@@ -279,8 +300,10 @@ module SmartAnswer
       outcome :outcome_eu_pt_1617_new
       outcome :outcome_eu_pt_1516_continuing
       outcome :outcome_eu_pt_1516_new
+      outcome :outcome_parent_partner_1718
       outcome :outcome_parent_partner_1516
       outcome :outcome_parent_partner_1617
+      outcome :outcome_proof_identity_1718
       outcome :outcome_proof_identity_1516
       outcome :outcome_proof_identity_1617
       outcome :outcome_travel
@@ -288,6 +311,8 @@ module SmartAnswer
       outcome :outcome_uk_pt_1617_grant_continuing
       outcome :outcome_uk_pt_1617_grant_new
       outcome :outcome_uk_pt_1617_new
+      outcome :outcome_uk_ft_1718_continuing
+      outcome :outcome_uk_ft_1718_new
       outcome :outcome_uk_ft_1516_continuing
       outcome :outcome_uk_ft_1516_new
       outcome :outcome_uk_ft_1617_continuing
