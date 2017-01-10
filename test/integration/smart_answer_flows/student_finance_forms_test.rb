@@ -89,28 +89,6 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
   end
 
   context "for UK students" do
-    should "lead to outcome_uk_ft_1516_continuing" do
-      add_response 'uk-full-time'
-      assert_current_node :form_needed_for_1?
-      add_response 'apply-loans-grants'
-      assert_current_node :what_year_full_time?
-      add_response 'year-1516'
-      assert_current_node :continuing_student?
-      add_response 'continuing-student'
-      assert_current_node :outcome_uk_ft_1516_continuing
-    end
-
-    should "lead to outcome_uk_ft_1516_new" do
-      add_response 'uk-full-time'
-      assert_current_node :form_needed_for_1?
-      add_response 'apply-loans-grants'
-      assert_current_node :what_year_full_time?
-      add_response 'year-1516'
-      assert_current_node :continuing_student?
-      add_response 'new-student'
-      assert_current_node :outcome_uk_ft_1516_new
-    end
-
     should "lead to outcome_uk_ft_1718_continuing" do
       add_response 'uk-full-time'
       assert_current_node :form_needed_for_1?
@@ -164,15 +142,6 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
       assert_current_node :outcome_proof_identity_1718
     end
 
-    should "lead to outcome_proof_identity_1516 for full time students" do
-      add_response 'uk-full-time'
-      assert_current_node :form_needed_for_1?
-      add_response 'proof-identity'
-      assert_current_node :what_year_full_time?
-      add_response 'year-1516'
-      assert_current_node :outcome_proof_identity_1516
-    end
-
     should "lead to outcome_proof_identity_1617 for full time students" do
       add_response 'uk-full-time'
       assert_current_node :form_needed_for_1?
@@ -180,15 +149,6 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
       assert_current_node :what_year_full_time?
       add_response 'year-1617'
       assert_current_node :outcome_proof_identity_1617
-    end
-
-    should "lead to outcome_parent_partner_1516" do
-      add_response 'uk-full-time'
-      assert_current_node :form_needed_for_1?
-      add_response 'income-details'
-      assert_current_node :what_year_full_time?
-      add_response 'year-1516'
-      assert_current_node :outcome_parent_partner_1516
     end
 
     should "lead to outcome_parent_partner_1718" do
@@ -207,15 +167,6 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
       assert_current_node :what_year_full_time?
       add_response 'year-1617'
       assert_current_node :outcome_parent_partner_1617
-    end
-
-    should "lead to outcome_dsa_1516" do
-      add_response 'uk-full-time'
-      assert_current_node :form_needed_for_1?
-      add_response 'apply-dsa'
-      assert_current_node :what_year_full_time?
-      add_response 'year-1516'
-      assert_current_node :outcome_dsa_1516
     end
 
     should "lead to outcome_dsa_1718" do
@@ -241,15 +192,6 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
       assert_current_node :form_needed_for_1?
       add_response 'dsa-expenses'
       assert_current_node :outcome_dsa_expenses
-    end
-
-    should "lead to outcome_ccg_1516" do
-      add_response 'uk-full-time'
-      assert_current_node :form_needed_for_1?
-      add_response 'apply-ccg'
-      assert_current_node :what_year_full_time?
-      add_response 'year-1516'
-      assert_current_node :outcome_ccg_1516
     end
 
     should "lead to outcome_ccg_1718" do
