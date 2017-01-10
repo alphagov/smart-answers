@@ -14,6 +14,29 @@
   :responses:
   - uk-full-time
   - apply-loans-grants
+  - year-1718
+  :next_node: :continuing_student?
+  :outcome_node: false
+- :current_node: :continuing_student?
+  :responses:
+  - uk-full-time
+  - apply-loans-grants
+  - year-1718
+  - continuing-student
+  :next_node: :outcome_uk_ft_1718_continuing
+  :outcome_node: true
+- :current_node: :continuing_student?
+  :responses:
+  - uk-full-time
+  - apply-loans-grants
+  - year-1718
+  - new-student
+  :next_node: :outcome_uk_ft_1718_new
+  :outcome_node: true
+- :current_node: :what_year_full_time?
+  :responses:
+  - uk-full-time
+  - apply-loans-grants
   - year-1617
   :next_node: :continuing_student?
   :outcome_node: false
@@ -66,6 +89,13 @@
   :responses:
   - uk-full-time
   - proof-identity
+  - year-1718
+  :next_node: :outcome_proof_identity_1718
+  :outcome_node: true
+- :current_node: :what_year_full_time?
+  :responses:
+  - uk-full-time
+  - proof-identity
   - year-1617
   :next_node: :outcome_proof_identity_1617
   :outcome_node: true
@@ -86,6 +116,13 @@
   :responses:
   - uk-full-time
   - income-details
+  - year-1718
+  :next_node: :outcome_parent_partner_1718
+  :outcome_node: true
+- :current_node: :what_year_full_time?
+  :responses:
+  - uk-full-time
+  - income-details
   - year-1617
   :next_node: :outcome_parent_partner_1617
   :outcome_node: true
@@ -102,6 +139,13 @@
   - apply-dsa
   :next_node: :what_year_full_time?
   :outcome_node: false
+- :current_node: :what_year_full_time?
+  :responses:
+  - uk-full-time
+  - apply-dsa
+  - year-1718
+  :next_node: :outcome_dsa_1718
+  :outcome_node: true
 - :current_node: :what_year_full_time?
   :responses:
   - uk-full-time
@@ -128,6 +172,13 @@
   - apply-ccg
   :next_node: :what_year_full_time?
   :outcome_node: false
+- :current_node: :what_year_full_time?
+  :responses:
+  - uk-full-time
+  - apply-ccg
+  - year-1718
+  :next_node: :outcome_ccg_1718
+  :outcome_node: true
 - :current_node: :what_year_full_time?
   :responses:
   - uk-full-time
