@@ -75,6 +75,8 @@ module SmartAnswer
       multiple_choice :what_year_full_time? do
         question_value = self
         precalculate :setup_options do
+          question_value.remove_options
+
           question_value.option "year-1718" if type_of_student == "uk-full-time"
           question_value.option "year-1617"
           question_value.option "year-1516" if type_of_student == "eu-full-time"
