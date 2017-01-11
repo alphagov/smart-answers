@@ -111,11 +111,11 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/third_country/p
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/third_country/partner_local/_same_sex.govspeak.erb: cc481d56f4ceed1fbe7f52b001ed86e6
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/third_country/partner_other/_opposite_sex.govspeak.erb: 2ccc1641648c00fc8f00e8ba675473b3
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/third_country/partner_other/_same_sex.govspeak.erb: f14a355018bfe4bafc0dd56ccf6d6abb
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_british/_opposite_sex.govspeak.erb: 565a818f70bbb158c9f7bba1acac2184
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_british/_opposite_sex.govspeak.erb: 2c3330e9c4aa10503fde03c9135ce269
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_british/_same_sex.govspeak.erb: c394c40e1b3052793dc962e01b738699
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_local/_opposite_sex.govspeak.erb: 565a818f70bbb158c9f7bba1acac2184
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_local/_opposite_sex.govspeak.erb: 7b41084376f5f41fbc6e79d4ec5c396d
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_local/_same_sex.govspeak.erb: cc481d56f4ceed1fbe7f52b001ed86e6
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_other/_opposite_sex.govspeak.erb: 565a818f70bbb158c9f7bba1acac2184
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_other/_opposite_sex.govspeak.erb: 7b41084376f5f41fbc6e79d4ec5c396d
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_other/_same_sex.govspeak.erb: f14a355018bfe4bafc0dd56ccf6d6abb
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/mozambique/_title.govspeak.erb: 02dfe62310d38985f5b8c0330cee5b29
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/mozambique/ceremony_country/partner_british/_opposite_sex.govspeak.erb: 394c92edfaacdac9a6220322cc21eec9
