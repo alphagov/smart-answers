@@ -1,5 +1,37 @@
+Disabled Students' Allowances (DSAs)
 
 
+Fill in the DSA1 full form if for this academic year you've either:
+
+- not applied for any student finance
+- applied for a Postgraduate Loan
+
+Academic year | Form
+- | -
+2017 to 2018 | [DSA1 - full form (PDF, XXXKB)](http://media.slc.co.uk/sfe/1718/ft/sfe_dsa1_form_1718_d.pdf)
+2017 to 2018 | [DSA1 - guidance notes (PDF, XXXKB)](http://media.slc.co.uk/sfe/1718/ft/sfe_dsa1_notes_1718_d.pdf)
+
+Fill in the DSA slim form if in this academic year you've already applied for any student finance that isn't a Postgraduate Loan.
+
+You'll need to put your Customer Reference Number (CRN) in the form.
+
+Academic year | Form
+- | -
+2017 to 2018 | [DSA - slim form (PDF, XXXKB)](http://media.slc.co.uk/sfe/1718/ft/sfe_dsa_slim_form_1718_d.pdf)
+
+##Where to send your form(s)
+
+$A
+Student Finance England
+PO Box 210
+Darlington
+DL1 9HJ
+$A
+
+*[DSAs]: Disabled Students Allowances
+*[DSA]: Disabled Students Allowance
+*[CRN]: Customer Reference Number
 
 
+[Disabled Student's Allowances](/disabled-students-allowances-dsas)
 
