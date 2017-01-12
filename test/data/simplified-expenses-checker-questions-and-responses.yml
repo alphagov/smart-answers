@@ -1,7 +1,4 @@
 ---
-:claimed_expenses_for_current_business?:
-- 'yes' # is_existing_business == true
-- 'no' # is_new_business == true
 :type_of_expense?:
 - car_or_van # :capital_allowances? -> :capital_allowance_result
 - car_or_van,using_home_for_business # :capital_allowances? -> :hours_work_home?
