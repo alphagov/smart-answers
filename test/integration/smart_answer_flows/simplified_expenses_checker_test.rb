@@ -27,9 +27,9 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
   end # end tests for "you can't use simplified expenses"
 
   context "capital allowances claimed result (Q1, Q2, Q3, result 3)" do
-    context "claimed expenses before, car_or_van, not buying a new vehicle this year" do
+    context "claimed expenses before, car,van, not buying a new vehicle this year" do
       setup do
-        add_response "car_or_van"
+        add_response "car"
         add_response "no"
         add_response "yes"
       end
@@ -49,9 +49,9 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_current_node :capital_allowance_result
       end
     end
-    context "claimed expenses before, car_or_van & motorcycle, not buying a new vehicle this year" do
+    context "claimed expenses before, car,van & motorcycle, not buying a new vehicle this year" do
       setup do
-        add_response "car_or_van,motorcycle"
+        add_response "car,van,motorcycle"
         add_response "no"
         add_response "yes"
       end
@@ -71,9 +71,9 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     end
   end # end tests for "can't claim because previously claimed Capital Allowance"
 
-  context "main result - claimed expenses before, car_or_van only" do
+  context "main result - claimed expenses before, car,van only" do
     setup do
-      add_response "car_or_van"
+      add_response "car"
     end
 
     context "not buying new vehicle, not claimed CA before, expect to claim 1000 pounds, expect to drive 2000 miles, (Q3, Q4, Q5, Q9, result 2)" do
@@ -219,7 +219,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :can_use_simple, true
       end
     end # used filthy vehicle
-  end # end main result, existing business, car_or_van only
+  end # end main result, existing business, car,van only
 
   context "home for business costs" do
     setup do
@@ -238,9 +238,9 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     end
   end
 
-  context "main result - not claimed expenses before, car_or_van only" do
+  context "main result - not claimed expenses before, car,van only" do
     setup do
-      add_response "car_or_van"
+      add_response "car"
     end
     context "not buying new vehicle, not claimed CA before, expect to claim 1000 pounds, expect to drive 2000 miles, (Q3, Q4, Q5, Q9, result 2)" do
       setup do
@@ -427,7 +427,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_state_variable :can_use_simple, false
       end
     end # used green vehicle
-  end # main result, new business, car_or_van only
+  end # main result, new business, car,van only
 
   context "main result - claimed expenses before, motorcycle only" do
     setup do
@@ -604,9 +604,9 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     end
   end # main result, existing business, living on premises
 
-  context "main result - existing business, car_or_van, using home, new green vehicle (Q1, Q2, Q3, Q6, Q7, Q8, Q9, Q10, Q11, Q12, result 2)" do
+  context "main result - existing business, car,van, using home, new green vehicle (Q1, Q2, Q3, Q6, Q7, Q8, Q9, Q10, Q11, Q12, result 2)" do
     setup do
-      add_response "car_or_van,using_home_for_business"
+      add_response "car,van,using_home_for_business"
       add_response "new"
       add_response "low" #emissions
       add_response "10000" #green_vehicle_price
@@ -627,7 +627,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       assert_state_variable :simple_total, 1212
       assert_state_variable :current_scheme_costs, 9000
     end
-  end # main result, existing business, car_or_van, using home
+  end # main result, existing business, car,van, using home
 
   context "main result - existing business, motorcycle, living on premises, no new vehicle (Q1, Q2, Q3, Q4, Q5, Q10, Q13, Q14 )" do
     setup do
