@@ -10,4 +10,4 @@ lib/smart_answer_flows/estimate-self-assessment-penalties/questions/how_submitte
 lib/smart_answer_flows/estimate-self-assessment-penalties/questions/when_paid.govspeak.erb: fd629bd5e95648f5a22246a423cfd026
 lib/smart_answer_flows/estimate-self-assessment-penalties/questions/when_submitted.govspeak.erb: 590022eac4fbf8db1976da66d777f776
 lib/smart_answer_flows/estimate-self-assessment-penalties/questions/which_year.govspeak.erb: 3431fda0cc0bf6c0c7670c04ef38458c
-lib/smart_answer/calculators/self_assessment_penalties.rb: 7e48160fc1ae2862c5f08f23f19597ce
+lib/smart_answer/calculators/self_assessment_penalties.rb: 2f0cb535afa82d3911d6dfc87adc4c2f
