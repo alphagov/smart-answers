@@ -6,7 +6,7 @@ lib/smart_answer_flows/simplified-expenses-checker/outcomes/capital_allowance_re
 lib/smart_answer_flows/simplified-expenses-checker/outcomes/you_can_use_result.govspeak.erb: 5466f0b48e00b954666d9089d7c6f533
 lib/smart_answer_flows/simplified-expenses-checker/outcomes/you_cant_use_result.govspeak.erb: 6fd519340fea04074265249f707e0815
 lib/smart_answer_flows/simplified-expenses-checker/questions/buying_new_vehicle.govspeak.erb: 7668c12689f2b2ca8c08b32157f298db
-lib/smart_answer_flows/simplified-expenses-checker/questions/capital_allowances.govspeak.erb: 8a3b75e11fb5b1f8d815417c3d418ee0
+lib/smart_answer_flows/simplified-expenses-checker/questions/capital_allowances.govspeak.erb: e10630af55fc1be41b4366d8bc283c41
 lib/smart_answer_flows/simplified-expenses-checker/questions/claimed_expenses_for_current_business.govspeak.erb: 9c22e78fa8aa55fb29e20d50e4260bb8
 lib/smart_answer_flows/simplified-expenses-checker/questions/current_claim_amount_home.govspeak.erb: 86a18902d1449754eaababb037f199e6
 lib/smart_answer_flows/simplified-expenses-checker/questions/deduct_from_premises.govspeak.erb: 583166270f64805d43b0cadf92f4d43c
