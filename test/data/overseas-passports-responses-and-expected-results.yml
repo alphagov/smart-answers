@@ -61,6 +61,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - afghanistan
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - afghanistan
@@ -90,6 +98,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - afghanistan
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -129,6 +145,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - afghanistan
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - afghanistan
@@ -158,6 +182,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - afghanistan
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -242,6 +274,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - algeria
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - algeria
@@ -271,6 +311,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - algeria
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -310,6 +358,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - algeria
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - algeria
@@ -339,6 +395,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - algeria
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -423,6 +487,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result_online
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - american-samoa
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result_online
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - american-samoa
@@ -452,6 +524,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result_online
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - american-samoa
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -491,6 +571,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result_online
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - american-samoa
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result_online
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - american-samoa
@@ -520,6 +608,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result_online
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - american-samoa
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -604,6 +700,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - benin
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - benin
@@ -633,6 +737,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - benin
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -672,6 +784,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - benin
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - benin
@@ -701,6 +821,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - benin
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -785,6 +913,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - burundi
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - burundi
@@ -814,6 +950,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - burundi
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -853,6 +997,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - burundi
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - burundi
@@ -882,6 +1034,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - burundi
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -966,6 +1126,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - cambodia
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - cambodia
@@ -995,6 +1163,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - cambodia
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -1034,6 +1210,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - cambodia
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - cambodia
@@ -1063,6 +1247,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - cambodia
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -1147,6 +1339,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - cuba
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - cuba
@@ -1176,6 +1376,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - cuba
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -1215,6 +1423,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - cuba
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - cuba
@@ -1244,6 +1460,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - cuba
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -1328,6 +1552,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result_online
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - democratic-republic-of-the-congo
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result_online
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - democratic-republic-of-the-congo
@@ -1357,6 +1589,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result_online
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - democratic-republic-of-the-congo
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -1396,6 +1636,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result_online
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - democratic-republic-of-the-congo
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result_online
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - democratic-republic-of-the-congo
@@ -1425,6 +1673,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result_online
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - democratic-republic-of-the-congo
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -1509,6 +1765,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - falkland-islands
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - falkland-islands
@@ -1538,6 +1802,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - falkland-islands
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -1577,6 +1849,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - falkland-islands
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - falkland-islands
@@ -1606,6 +1886,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - falkland-islands
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -1690,6 +1978,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result_online
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - france
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result_online
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - france
@@ -1719,6 +2015,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result_online
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - france
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -1758,6 +2062,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result_online
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - france
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result_online
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - france
@@ -1787,6 +2099,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result_online
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - france
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -1871,6 +2191,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - georgia
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - georgia
@@ -1900,6 +2228,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - georgia
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -1939,6 +2275,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - georgia
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - georgia
@@ -1968,6 +2312,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - georgia
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -2052,6 +2404,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result_online
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - hong-kong
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result_online
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - hong-kong
@@ -2081,6 +2441,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result_online
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - hong-kong
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -2120,6 +2488,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result_online
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - hong-kong
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result_online
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - hong-kong
@@ -2149,6 +2525,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result_online
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - hong-kong
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -2233,6 +2617,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - jamaica
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - jamaica
@@ -2262,6 +2654,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - jamaica
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -2301,6 +2701,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - jamaica
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - jamaica
@@ -2330,6 +2738,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - jamaica
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -2414,6 +2830,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - jordan
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - jordan
@@ -2443,6 +2867,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - jordan
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -2482,6 +2914,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - jordan
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - jordan
@@ -2511,6 +2951,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - jordan
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -2595,6 +3043,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - laos
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - laos
@@ -2624,6 +3080,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - laos
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -2663,6 +3127,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - laos
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - laos
@@ -2692,6 +3164,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - laos
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -2776,6 +3256,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - nigeria
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - nigeria
@@ -2805,6 +3293,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - nigeria
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -2844,6 +3340,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - nigeria
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - nigeria
@@ -2873,6 +3377,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - nigeria
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -2962,6 +3474,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - pakistan
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - pakistan
@@ -2991,6 +3511,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - pakistan
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -3030,6 +3558,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - pakistan
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - pakistan
@@ -3059,6 +3595,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - pakistan
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -3143,6 +3687,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - pitcairn-island
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - pitcairn-island
@@ -3172,6 +3724,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - pitcairn-island
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -3211,6 +3771,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - pitcairn-island
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - pitcairn-island
@@ -3240,6 +3808,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - pitcairn-island
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -3324,6 +3900,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - russia
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - russia
@@ -3353,6 +3937,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - russia
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -3392,6 +3984,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - russia
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - russia
@@ -3421,6 +4021,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - russia
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -3510,6 +4118,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - south-sudan
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - south-sudan
@@ -3539,6 +4155,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - south-sudan
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -3578,6 +4202,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - south-sudan
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - south-sudan
@@ -3607,6 +4239,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - south-sudan
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -3691,6 +4331,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - st-helena-ascension-and-tristan-da-cunha
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - st-helena-ascension-and-tristan-da-cunha
@@ -3720,6 +4368,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - st-helena-ascension-and-tristan-da-cunha
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -3759,6 +4415,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - st-helena-ascension-and-tristan-da-cunha
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - st-helena-ascension-and-tristan-da-cunha
@@ -3788,6 +4452,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - st-helena-ascension-and-tristan-da-cunha
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -3872,6 +4544,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result_online
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - st-martin
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result_online
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - st-martin
@@ -3901,6 +4581,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result_online
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - st-martin
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -3940,6 +4628,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result_online
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - st-martin
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result_online
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - st-martin
@@ -3969,6 +4665,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result_online
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - st-martin
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -4053,6 +4757,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - tajikistan
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - tajikistan
@@ -4082,6 +4794,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - tajikistan
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -4121,6 +4841,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - tajikistan
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - tajikistan
@@ -4150,6 +4878,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - tajikistan
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -4248,6 +4984,15 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - the-occupied-palestinian-territories
+  - gaza
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - the-occupied-palestinian-territories
@@ -4281,6 +5026,15 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - the-occupied-palestinian-territories
+  - gaza
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -4325,6 +5079,15 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - the-occupied-palestinian-territories
+  - gaza
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - the-occupied-palestinian-territories
@@ -4358,6 +5121,15 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - the-occupied-palestinian-territories
+  - gaza
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -4454,6 +5226,15 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - the-occupied-palestinian-territories
+  - jerusalem-or-westbank
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - the-occupied-palestinian-territories
@@ -4487,6 +5268,15 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - the-occupied-palestinian-territories
+  - jerusalem-or-westbank
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -4531,6 +5321,15 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - the-occupied-palestinian-territories
+  - jerusalem-or-westbank
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - the-occupied-palestinian-territories
@@ -4564,6 +5363,15 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - the-occupied-palestinian-territories
+  - jerusalem-or-westbank
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -4651,6 +5459,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - timor-leste
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - timor-leste
@@ -4680,6 +5496,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - timor-leste
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -4719,6 +5543,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - timor-leste
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - timor-leste
@@ -4748,6 +5580,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - timor-leste
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -4832,6 +5672,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - tunisia
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - tunisia
@@ -4861,6 +5709,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - tunisia
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -4900,6 +5756,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - tunisia
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - tunisia
@@ -4929,6 +5793,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - tunisia
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -5013,6 +5885,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result_online
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - turks-and-caicos-islands
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result_online
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - turks-and-caicos-islands
@@ -5042,6 +5922,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result_online
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - turks-and-caicos-islands
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -5081,6 +5969,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result_online
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - turks-and-caicos-islands
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result_online
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - turks-and-caicos-islands
@@ -5110,6 +6006,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result_online
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - turks-and-caicos-islands
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result_online
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -5194,6 +6098,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - venezuela
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - venezuela
@@ -5223,6 +6135,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - venezuela
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -5262,6 +6182,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - venezuela
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - venezuela
@@ -5291,6 +6219,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - venezuela
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -5375,6 +6311,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - western-sahara
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - western-sahara
@@ -5404,6 +6348,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - western-sahara
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -5443,6 +6395,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - western-sahara
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - western-sahara
@@ -5472,6 +6432,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - western-sahara
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -5561,6 +6529,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - zimbabwe
+  - renewing_old
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - zimbabwe
@@ -5590,6 +6566,14 @@
   - renewing_old
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - zimbabwe
+  - renewing_old
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
@@ -5629,6 +6613,14 @@
   - turks-and-caicos-islands
   :next_node: :ips_application_result
   :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - zimbabwe
+  - applying
+  - adult
+  - philippines
+  :next_node: :ips_application_result
+  :outcome_node: true
 - :current_node: :child_or_adult_passport?
   :responses:
   - zimbabwe
@@ -5658,6 +6650,14 @@
   - applying
   - child
   - turks-and-caicos-islands
+  :next_node: :ips_application_result
+  :outcome_node: true
+- :current_node: :country_of_birth?
+  :responses:
+  - zimbabwe
+  - applying
+  - child
+  - philippines
   :next_node: :ips_application_result
   :outcome_node: true
 - :current_node: :renewing_replacing_applying?
