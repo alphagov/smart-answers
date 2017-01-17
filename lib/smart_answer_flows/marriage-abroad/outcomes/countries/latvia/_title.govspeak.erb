@@ -1,0 +1,11 @@
+<% content_for :title do %>
+  <% if calculator.partner_is_same_sex? %>
+    <% if calculator.partner_is_national_of_ceremony_country? %>
+      Same-sex marriage and civil partnership in Latvia
+    <% else %>
+      Same-sex marriage in Latvia
+    <% end %>
+  <% else %>
+    Marriage in Latvia
+  <% end %>
+<% end %>

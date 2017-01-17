@@ -1,5 +1,3 @@
-Marriage in Latvia
-
 Contact the relevant local authorities in Latvia to find out about local marriage laws, including what documents you’ll need.
 
 ^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.^
@@ -34,13 +32,12 @@ You must take the form with you to your appointment.
 
 ## Fees
 
-Service | Fee
--|-
-Affidavit or affirmation for marriage | £55
+<%= render partial: 'consular_fees_table_items.govspeak.erb',
+           collection: calculator.services,
+           as: :service,
+           locals: { calculator: calculator } %>
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Latvia](/government/publications/latvia-consular-fees).
 
-^You can only pay by cash in Latvia. This must be in the local currency.^
-
-
-
+<%=  render partial: 'how_to_pay.govspeak.erb',
+            locals: {calculator: calculator}%>
