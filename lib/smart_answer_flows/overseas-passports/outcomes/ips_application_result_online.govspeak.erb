@@ -10,7 +10,13 @@
 
   Applications will take longer if:
 
-  - HM Passport Office need to ask you for more information or documents
+  <% if calculator.birth_location == "philippines" &&
+      calculator.child_or_adult == "child" &&
+      calculator.general_action == "applying" %>
+    - HM Passport Office need to ask you for more information or documents, especially for [applicants born in the Philippines or with parents who are married or divorced and have links to the Philippines](/government/publications/applying-for-a-passport-from-outside-the-uk-applicants-with-links-to-the-philippines)
+  <% else %>
+    - HM Passport Office need to ask you for more information or documents
+  <% end %>
   - the photographs you send are rejected
 
   Don’t book any travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document](/emergency-travel-document).
