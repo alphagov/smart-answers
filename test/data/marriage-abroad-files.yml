@@ -79,8 +79,8 @@ lib/smart_answer_flows/marriage-abroad/outcomes/_you_dont_need_to_stay_in_countr
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_have_been_divorced_or_widowed.govspeak.erb: e719af472a3ec2c26a9e4ce7202c11ff
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_will_be_asked_for_cni.govspeak.erb: cd1226b515c6a1723da99be2cb207c51
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_will_have_to_wait_to_get_married.govspeak.erb: e32774b08379258450d2d2198c0dbc49
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_opposite_sex.html.erb: 9c25a1e99237e82b5981d1bfb8491a0d
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_same_sex.html.erb: ba2637374f5ff76cdcf53adba6837235
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_opposite_sex.html.erb: da21764e077cb1233ef10c29aa3b89f0
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_same_sex.html.erb: c0789e949180c7f053dde4a13ddfdbf3
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_title.html.erb: 9ed9b141d5d5418375ec81e96fe67ca7
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/ceremony_country/partner_british/_opposite_sex.html.erb: f030fb7ddfb7ad796bec0e0d054fefef
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/ceremony_country/partner_british/_same_sex.html.erb: 1afbc1c09ee1b680b3c8a5ff16fcce07
