@@ -1485,7 +1485,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'same_sex'
     end
     should "go to consular cni cp countries outcome" do
-      assert_current_node :outcome_same_sex_marriage_and_civil_partnership
+      assert_current_node :outcome_marriage_abroad_in_country
     end
   end
 
