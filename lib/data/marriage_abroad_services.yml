@@ -470,6 +470,9 @@ latvia:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+    uk:
+      default:
+      - :affidavit_or_affirmation_for_marriage
   same_sex:
     default:
       partner_british:

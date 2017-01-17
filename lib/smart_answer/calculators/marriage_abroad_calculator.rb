@@ -340,6 +340,7 @@ module SmartAnswer::Calculators
     def has_outcome_per_path?
       %w(
          italy
+         latvia
          mozambique
          sweden
         ).include?(ceremony_country)
