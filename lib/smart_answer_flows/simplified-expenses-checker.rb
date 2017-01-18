@@ -6,20 +6,12 @@ module SmartAnswer
       status :published
       satisfies_need "100119"
 
-      #Q1 - new or existing business
-      multiple_choice :claimed_expenses_for_current_business? do
-        option :yes
-        option :no
-
-        save_input_as :new_or_existing_business
-
-        calculate :is_new_business do
-          new_or_existing_business == "no"
-        end
-
-        calculate :is_existing_business do
-          !is_new_business
-        end
+      #Q1 - type of expense
+      checkbox_question :type_of_expense? do
+        option :car_or_van
+        option :motorcycle
+        option :using_home_for_business
+        option :live_on_business_premises
 
         calculate :capital_allowance_claimed do
           nil
@@ -51,19 +43,6 @@ module SmartAnswer
         calculate :simple_home_costs do
           nil
         end
-
-        next_node do
-          question :type_of_expense?
-        end
-      end
-
-      #Q2 - type of expense
-      checkbox_question :type_of_expense? do
-        option :car_or_van
-        option :motorcycle
-        option :using_home_for_business
-        option :live_on_business_premises
-
         calculate :list_of_expenses do |response|
           response == "none" ? [] : response.split(",")
         end
@@ -85,7 +64,7 @@ module SmartAnswer
         end
       end
 
-      #Q3 - buying new vehicle?
+      #Q2 - buying new vehicle?
       multiple_choice :buying_new_vehicle? do
         option :yes
         option :no
@@ -94,21 +73,17 @@ module SmartAnswer
           if response == "yes"
             question :is_vehicle_green?
           else
-            if is_existing_business
-              question :capital_allowances?
-            else
-              question :how_much_expect_to_claim?
-            end
+            question :capital_allowances?
           end
         end
       end
 
-      #Q4 - capital allowances claimed?
-      # if yes => go to Result 3 if in Q2 only [car_van] and/or [motorcylce] was selected
+      #Q3 - capital allowances claimed?
+      # if yes => go to Result 3 if in Q1 only [car_van] and/or [motorcylce] was selected
       #
-      # if yes and other expenses apart from cars and/or motorbikes selected in Q2 store as capital_allowance_claimed and add text to result (see result 2) and go to questions for other expenses, ie don’t go to Q5 & Q9
+      # if yes and other expenses apart from cars and/or motorbikes selected in Q1 store as capital_allowance_claimed and add text to result (see result 2) and go to questions for other expenses, ie don’t go to Q4 & Q8
       #
-      # if no go to Q5
+      # if no go to Q4
       multiple_choice :capital_allowances? do
         option :yes
         option :no
@@ -135,6 +110,8 @@ module SmartAnswer
           end
         end
       end
+
+      #Q4 - Was your car new or second-hand when you started using it for your business?
 
       #Q5 - claim vehicle expenses
       money_question :how_much_expect_to_claim? do

@@ -1,7 +1,7 @@
 ---
-lib/smart_answer_flows/simplified-expenses-checker.rb: 43b6af5ddc014da7fab207dbb8bd2f17
-test/data/simplified-expenses-checker-questions-and-responses.yml: 426882edc239d4078c5d7d957a01cbce
-test/data/simplified-expenses-checker-responses-and-expected-results.yml: 239e9c4e6fda064faecff3403fc3033d
+lib/smart_answer_flows/simplified-expenses-checker.rb: 94193edfa0e06e9ebe9246910e8c8418
+test/data/simplified-expenses-checker-questions-and-responses.yml: 552ec8d600df1a5220b33880de99b17d
+test/data/simplified-expenses-checker-responses-and-expected-results.yml: 1b8089fe0ddd2428414d1124b09bb915
 lib/smart_answer_flows/simplified-expenses-checker/outcomes/capital_allowance_result.govspeak.erb: 0f738efb15d8d63ebb9f824eb4010744
 lib/smart_answer_flows/simplified-expenses-checker/outcomes/you_can_use_result.govspeak.erb: c688eef5f6cc7fdfee645d1198a3ee7f
 lib/smart_answer_flows/simplified-expenses-checker/outcomes/you_cant_use_result.govspeak.erb: 6fd519340fea04074265249f707e0815
