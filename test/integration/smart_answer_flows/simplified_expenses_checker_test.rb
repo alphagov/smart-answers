@@ -32,9 +32,9 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
   end # end tests for "you can't use simplified expenses"
 
   context "capital allowances claimed result (Q1, Q2, Q3, Q4, result 3)" do
-    context "car_or_van, not buying a new vehicle this year" do
+    context "car, not buying a new vehicle this year" do
       setup do
-        add_response "car_or_van"
+        add_response "car"
         add_response "no"
         add_response "yes"
       end
@@ -54,9 +54,9 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_current_node :capital_allowance_result
       end
     end
-    context "car_or_van & motorcycle, not buying a new vehicle this year" do
+    context "car, van & motorcycle, not buying a new vehicle this year" do
       setup do
-        add_response "car_or_van,motorcycle"
+        add_response "car,van,motorcycle"
         add_response "no"
         add_response "yes"
       end
@@ -77,12 +77,12 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     end
   end # end tests for "can't claim because previously claimed Capital Allowance"
 
-  context "main result, car_or_van only" do
+  context "main result, car only" do
     setup do
-      add_response "car_or_van"
+      add_response "car"
     end
 
-    context "not buying new vehicle, not claimed CA before, expect to claim 1000 pounds, expect to drive 2000 miles, (Q2, Q3, Q4, Q8, result 2)" do
+    context "not buying new vehicle, not claimed Capital Allowance before, expect to claim 1000 pounds, expect to drive 2000 miles, (Q2, Q3, Q4, Q8, result 2)" do
       setup do
         add_response "no"
         add_response "no"
@@ -160,9 +160,9 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     end
   end
 
-  context "main result, car_or_van only" do
+  context "main result, car only" do
     setup do
-      add_response "car_or_van"
+      add_response "car"
     end
     context "not buying new vehicle, not claimed CA before, expect to claim 1000 pounds, expect to drive 2000 miles, (Q3, Q4, Q5, Q9, result 2)" do
       setup do
@@ -341,9 +341,9 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     end
   end # main result, existing business, living on premises
 
-  context "main result, car_or_van, using home, new green vehicle (Q1, Q2, Q5, Q6, Q7, Q8, Q9, Q10, Q11, result 2)" do
+  context "main result, car, using home, new green vehicle (Q1, Q2, Q5, Q6, Q7, Q8, Q9, Q10, Q11, result 2)" do
     setup do
-      add_response "car_or_van,using_home_for_business"
+      add_response "car,using_home_for_business"
       add_response "yes"
       add_response "yes" #green
       add_response "10000" #green_vehicle_price
