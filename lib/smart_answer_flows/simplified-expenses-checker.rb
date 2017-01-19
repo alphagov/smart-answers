@@ -8,7 +8,8 @@ module SmartAnswer
 
       #Q1 - type of expense
       checkbox_question :type_of_expense? do
-        option :car_or_van
+        option :car
+        option :van
         option :motorcycle
         option :using_home_for_business
         option :live_on_business_premises
@@ -53,7 +54,7 @@ module SmartAnswer
           else
             responses = response.split(",")
             raise InvalidResponse if response =~ /live_on_business_premises.*?using_home_for_business/
-            if (responses & %w(car_or_van motorcycle)).any?
+            if (responses & %w(car van motorcycle)).any?
               question :buying_new_vehicle?
             elsif responses.include?("using_home_for_business")
               question :hours_work_home?
@@ -118,7 +119,8 @@ module SmartAnswer
         save_input_as :vehicle_costs
 
         next_node do
-          if list_of_expenses.include?("car_or_van")
+          if list_of_expenses.include?("car") ||
+              list_of_expenses.include?("van")
             question :drive_business_miles_car_van?
           else
             question :drive_business_miles_motorcycle?
@@ -180,7 +182,8 @@ module SmartAnswer
 
         next_node do |response|
           raise InvalidResponse if response.to_i > 100
-          if list_of_expenses.include?("car_or_van")
+          if list_of_expenses.include?("car") ||
+              list_of_expenses.include?("van")
             question(:drive_business_miles_car_van?)
           else
             question(:drive_business_miles_motorcycle?)

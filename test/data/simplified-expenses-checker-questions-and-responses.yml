@@ -1,13 +1,14 @@
 ---
 :type_of_expense?:
-- car_or_van # :capital_allowances? -> :capital_allowance_result
-- car_or_van,using_home_for_business # :capital_allowances? -> :hours_work_home?
+- car # :capital_allowances? -> :capital_allowance_result
+- van 
+- car,using_home_for_business # :capital_allowances? -> :hours_work_home?
 - motorcycle,live_on_business_premises # :capital_allowances? -> :deduct_from_premises?
 - using_home_for_business # :type_of_expense? -> :hours_work_home?
 - live_on_business_premises # :type_of_expense? -> :deduct_from_premises?
 - none # :type_of_expense? -> :you_cant_use_result
-- car_or_van,motorcycle # :drive_business_miles_car_van? -> :drive_business_miles_motorcycle?
-- car_or_van,live_on_business_premises # :drive_business_miles_car_van? -> :deduct_from_premises?
+- car,motorcycle # :drive_business_miles_car_van? -> :drive_business_miles_motorcycle?
+- car,live_on_business_premises # :drive_business_miles_car_van? -> :deduct_from_premises?
 - motorcycle,using_home_for_business # :drive_business_miles_motorcycle? -> :hours_work_home?
 - using_home_for_business,live_on_business_premises
 :buying_new_vehicle?:
