@@ -79,9 +79,9 @@ You should check if your CNI needs to be legalised (certified as genuine) by the
 
 Service | Fee
 -|-
-Receiving a notice of marriage | £65
-Issuing a CNI, Nulla Osta or equivalent | £65
-Affidavit or affirmation for marriage | £55
+Receiving a notice of marriage | £50
+Issuing a CNI, Nulla Osta or equivalent | £50
+Affidavit or affirmation for marriage | £50
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Jordan](/government/publications/jordan-consular-fees).
 

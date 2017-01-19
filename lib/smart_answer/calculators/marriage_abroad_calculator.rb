@@ -328,13 +328,17 @@ module SmartAnswer::Calculators
                             else
                               'partner_other'
                             end
-      same_sex = if partner_is_same_sex?
-                   'same_sex'
-                 else
-                   'opposite_sex'
-                 end
+      marriage_type = if partner_is_same_sex?
+                        'same_sex'
+                      else
+                        'opposite_sex'
+                      end
 
-      [ceremony_country, ceremony_location, partner_nationality, same_sex]
+      if ceremony_country == 'italy'
+        return [ceremony_country, marriage_type]
+      end
+
+      [ceremony_country, ceremony_location, partner_nationality, marriage_type]
     end
 
     def has_outcome_per_path?
