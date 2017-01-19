@@ -10,7 +10,7 @@ module SmartAnswer
       checkbox_question :type_of_expense? do
         option :car
         option :van
-        option :motorcycle
+        option :motorbike
         option :using_home_for_business
         option :live_on_business_premises
 
@@ -54,7 +54,7 @@ module SmartAnswer
           else
             responses = response.split(",")
             raise InvalidResponse if response =~ /live_on_business_premises.*?using_home_for_business/
-            if (responses & %w(car van motorcycle)).any?
+            if (responses & %w(car van motorbike)).any?
               question :buying_new_vehicle?
             elsif responses.include?("using_home_for_business")
               question :hours_work_home?
@@ -208,7 +208,7 @@ module SmartAnswer
         end
 
         next_node do
-          if list_of_expenses.include?("motorcycle")
+          if list_of_expenses.include?("motorbike")
             question :drive_business_miles_motorcycle?
           elsif list_of_expenses.include?("using_home_for_business")
             question :hours_work_home?

@@ -43,9 +43,9 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_current_node :capital_allowance_result
       end
     end
-    context "motorcycle, not buying a new vehicle this year" do
+    context "motorbike, not buying a new vehicle this year" do
       setup do
-        add_response "motorcycle"
+        add_response "motorbike"
         add_response "no"
         add_response "yes"
       end
@@ -54,9 +54,9 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_current_node :capital_allowance_result
       end
     end
-    context "car, van & motorcycle, not buying a new vehicle this year" do
+    context "car, van & motorbike, not buying a new vehicle this year" do
       setup do
-        add_response "car,van,motorcycle"
+        add_response "car,van,motorbike"
         add_response "no"
         add_response "yes"
       end
@@ -246,12 +246,12 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     end # new green vehicle
   end # main result, new business, car_or_van only
 
-  context "main result, motorcycle only" do
+  context "main result, motorbike only" do
     setup do
-      add_response "motorcycle"
+      add_response "motorbike"
     end
 
-    context "not buying new motorcycle, not claimed CA before, expect to claim 1000 pounds, expect to drive 2000 miles, (Q3, Q4, Q5, Q10, result 2)" do
+    context "not buying new motorbike, not claimed CA before, expect to claim 1000 pounds, expect to drive 2000 miles, (Q3, Q4, Q5, Q10, result 2)" do
       setup do
         add_response "no"
         add_response "no"
@@ -366,9 +366,9 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     end
   end # main result, existing business, car_or_van, using home
 
-  context "main result, motorcycle, living on premises, no new vehicle (Q1, Q2, Q3, Q4, Q9, Q12, Q13 )" do
+  context "main result, motorbike, living on premises, no new vehicle (Q1, Q2, Q3, Q4, Q9, Q12, Q13 )" do
     setup do
-      add_response "motorcycle,live_on_business_premises"
+      add_response "motorbike,live_on_business_premises"
       add_response "no"
       add_response "no" #capital_allowance_claimed
       add_response "1000" #vehicle_costs
