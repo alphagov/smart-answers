@@ -59,6 +59,8 @@ You must collect in person.  If you’re unable to, someone else can go on your 
 
 You must bring photo ID.
 
+^You must sign your new passport before you can use it.^
+
 ##Contact the Passport Adviceline
 
 $C
