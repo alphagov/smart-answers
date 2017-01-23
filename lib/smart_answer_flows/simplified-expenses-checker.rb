@@ -14,7 +14,12 @@ module SmartAnswer
         option :using_home_for_business
         option :live_on_business_premises
 
+        save_input_as :expense_type
+
         calculate :capital_allowance_claimed do
+          nil
+        end
+        calculate :simplified_expenses_claimed do
           nil
         end
         calculate :simple_vehicle_costs do
@@ -87,15 +92,22 @@ module SmartAnswer
       #
       # if no go to Q4
       multiple_choice :capital_allowances? do
-        option :yes
+        option :capital_allowance_claimed
+        option :simplified_expenses_claimed
         option :no
 
         calculate :capital_allowance_claimed do |response|
-          response == "yes" && (list_of_expenses & %w(using_home_for_business live_on_business_premises)).any?
+          response == "capital_allowance_claimed" &&
+            (list_of_expenses & %w(using_home_for_business live_on_business_premises)).any?
+        end
+
+        calculate :simplified_expenses_claimed do |response|
+          response == "simplified_expenses_claimed" &&
+            (list_of_expenses & %w(using_home_for_business live_on_business_premises)).any?
         end
 
         next_node do |response|
-          if response == "yes"
+          if response == "capital_allowance_claimed"
             if (list_of_expenses & %w(using_home_for_business live_on_business_premises)).any?
               if list_of_expenses.include?("using_home_for_business")
                 # Q11
@@ -107,6 +119,8 @@ module SmartAnswer
             else
               outcome :capital_allowance_result
             end
+          elsif response == "no" && expense_type == "car"
+            question :car_new_used_for_business?
           else
             question :how_much_expect_to_claim?
           end
@@ -114,6 +128,14 @@ module SmartAnswer
       end
 
       #Q4 - Was your car new or second-hand when you started using it for your business?
+      multiple_choice :car_new_used_for_business? do
+        option :new
+        option :used
+
+        next_node do
+          question :how_much_expect_to_claim?
+        end
+      end
 
       #Q5 - claim vehicle expenses
       money_question :how_much_expect_to_claim? do
@@ -310,6 +332,10 @@ module SmartAnswer
       outcome :you_can_use_result do
         precalculate :capital_allowance_claimed do
           capital_allowance_claimed
+        end
+
+        precalculate :simplified_expenses_claimed do
+          simplified_expenses_claimed
         end
 
         precalculate :simple_vehicle_costs do

@@ -31,12 +31,12 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     end
   end # end tests for "you can't use simplified expenses"
 
-  context "capital allowances claimed result (Q1, Q2, Q3, Q4, result 3)" do
+  context "capital allowances claimed result (Q1, Q2, Q3, result 3)" do
     context "car, not buying a new vehicle this year" do
       setup do
         add_response "car"
         add_response "no"
-        add_response "yes"
+        add_response "capital_allowance_claimed"
       end
 
       should "take you to result 3 - can't use as previously claimed Capital Allowance" do
@@ -47,7 +47,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       setup do
         add_response "motorbike"
         add_response "no"
-        add_response "yes"
+        add_response "capital_allowance_claimed"
       end
 
       should "take you to result 3 - can't use as previously claimed Capital Allowance" do
@@ -58,7 +58,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       setup do
         add_response "car,van,motorbike"
         add_response "no"
-        add_response "yes"
+        add_response "capital_allowance_claimed"
       end
 
       should "take you to result 3 - can't use as previously claimed Capital Allowance" do
@@ -76,7 +76,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       end
     end
   end # end tests for "can't claim because previously claimed Capital Allowance"
-
 
   context "main result, car only" do
     setup do
@@ -115,10 +114,11 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       end
     end
 
-    context "no car costs 1000, not claimed Capital Allowance before, expect to drive 2000 miles, (Q2, Q3, Q5, Q9, you_can_use_result)" do
+    context "no car costs 1000, not claimed Capital Allowance before, car is new at start of business, expect to drive 2000 miles, (Q2, Q3, Q4, Q5, Q9, you_can_use_result)" do
       setup do
         add_response "no"
         add_response "no"
+        add_response "new"
         add_response "1000" #how_much_expect_to_claim
         add_response "2000" #drive_business_miles_car_van
       end
@@ -136,12 +136,110 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
   context "main result, car only" do
     setup do
       add_response "car"
+      add_response "no"
     end
 
-    context "not buying new vehicle, not claimed Capital Allowance before, expect to claim 1000 pounds, expect to drive 2000 miles, (Q2, Q3, Q4, Q8, result 2)" do
+    context "capital allowance" do
+      should "take you to capital_allowance_result outcome" do
+        add_response "capital_allowance_claimed"
+        assert_current_node :capital_allowance_result
+      end
+    end
+
+    context "simplified expense" do
+      should "take you to you_can_use_result outcome" do
+        add_response "simplified_expenses_claimed"
+        add_response "1000" #how_much_expect_to_claim
+        add_response "2000" #drive_business_miles_car_van
+        assert_current_node :you_can_use_result
+      end
+    end
+
+    context "none of the above" do
+      should "take you to you_can_use_result" do
+        add_response "no"
+        add_response "new"
+        add_response "1000" #how_much_expect_to_claim
+        add_response "2000" #drive_business_miles_car_van
+        assert_current_node :you_can_use_result
+      end
+    end
+  end
+
+  context "main result, van only" do
+    setup do
+      add_response "van"
+      add_response "no"
+    end
+
+    context "capital allowance" do
+      should "take you to capital_allowance_result outcome" do
+        add_response "capital_allowance_claimed"
+        assert_current_node :capital_allowance_result
+      end
+    end
+
+    context "simplified expense" do
+      should "take you to you_can_use_result outcome" do
+        add_response "simplified_expenses_claimed"
+        add_response "1000" #how_much_expect_to_claim
+        add_response "2000" #drive_business_miles_car_van
+        assert_current_node :you_can_use_result
+      end
+    end
+
+    context "none of the above" do
+      should "take you to you_can_use_result" do
+        add_response "no"
+        add_response "1000" #how_much_expect_to_claim
+        add_response "2000" #drive_business_miles_car_van
+        assert_current_node :you_can_use_result
+      end
+    end
+  end
+
+  context "main result, motorbike only" do
+    setup do
+      add_response "motorbike"
+      add_response "no"
+    end
+
+    context "capital allowance" do
+      should "take you to capital_allowance_result outcome" do
+        add_response "capital_allowance_claimed"
+        assert_current_node :capital_allowance_result
+      end
+    end
+
+    context "simplified expense" do
+      should "take you to you_can_use_result outcome" do
+        add_response "simplified_expenses_claimed"
+        add_response "1000" #how_much_expect_to_claim
+        add_response "2000" #drive_business_miles_car_van
+        assert_current_node :you_can_use_result
+      end
+    end
+
+    context "none of the above" do
+      should "take you to you_can_use_result" do
+        add_response "no"
+        add_response "1000" #how_much_expect_to_claim
+        add_response "2000" #drive_business_miles_car_van
+        assert_current_node :you_can_use_result
+      end
+    end
+  end
+
+  context "main result, car only" do
+    setup do
+      add_response "car"
+    end
+
+    context "not buying new vehicle, not claimed Capital Allowance before, car is new at start of business, expect to claim 1000 pounds, expect to drive 2000 miles, (Q2, Q3, Q4, Q8, result 2)" do
       setup do
         add_response "no"
         add_response "no"
+        add_response "new"
         add_response "1000" #vehicle_costs
         add_response "2000" #simple_vehicle_costs
       end
@@ -221,10 +319,11 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     setup do
       add_response "car"
     end
-    context "not buying new vehicle, not claimed CA before, expect to claim 1000 pounds, expect to drive 2000 miles, (Q3, Q4, Q5, Q9, result 2)" do
+    context "not buying new vehicle, not claimed CA before, car is used at start of business, expect to claim 1000 pounds, expect to drive 2000 miles, (Q3, Q4, Q5, Q9, result 2)" do
       setup do
         add_response "no"
         add_response "no"
+        add_response "used"
         add_response "1000" #vehicle_costs
         add_response "2000" #simple_vehicle_costs
       end

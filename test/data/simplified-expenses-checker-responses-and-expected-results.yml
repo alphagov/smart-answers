@@ -72,14 +72,55 @@
   :responses:
   - car
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   :next_node: :capital_allowance_result
   :outcome_node: true
 - :current_node: :capital_allowances?
   :responses:
   - car
   - 'no'
+  - simplified_expenses_claimed
+  :next_node: :how_much_expect_to_claim?
+  :outcome_node: false
+- :current_node: :how_much_expect_to_claim?
+  :responses:
+  - car
   - 'no'
+  - simplified_expenses_claimed
+  - '2345'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :capital_allowances?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  :next_node: :car_new_used_for_business?
+  :outcome_node: false
+- :current_node: :car_new_used_for_business?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
   :next_node: :how_much_expect_to_claim?
   :outcome_node: false
 - :current_node: :how_much_expect_to_claim?
@@ -87,6 +128,7 @@
   - car
   - 'no'
   - 'no'
+  - new
   - '2345'
   :next_node: :drive_business_miles_car_van?
   :outcome_node: false
@@ -95,6 +137,7 @@
   - car
   - 'no'
   - 'no'
+  - new
   - '2345.0'
   - '10000'
   :next_node: :you_can_use_result
@@ -104,6 +147,44 @@
   - car
   - 'no'
   - 'no'
+  - new
+  - '2345.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :car_new_used_for_business?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  :next_node: :how_much_expect_to_claim?
+  :outcome_node: false
+- :current_node: :how_much_expect_to_claim?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
   - '2345.0'
   - '10001'
   :next_node: :you_can_use_result
@@ -445,14 +526,14 @@
   :responses:
   - car,using_home_for_business
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   :next_node: :hours_work_home?
   :outcome_node: false
 - :current_node: :hours_work_home?
   :responses:
   - car,using_home_for_business
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   - '1'
   :next_node: :you_cant_use_result
   :outcome_node: true
@@ -460,7 +541,7 @@
   :responses:
   - car,using_home_for_business
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   - '26'
   :next_node: :current_claim_amount_home?
   :outcome_node: false
@@ -468,7 +549,7 @@
   :responses:
   - car,using_home_for_business
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   - '26'
   - '1234'
   :next_node: :you_can_use_result
@@ -477,7 +558,7 @@
   :responses:
   - car,using_home_for_business
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   - '52'
   :next_node: :current_claim_amount_home?
   :outcome_node: false
@@ -485,7 +566,7 @@
   :responses:
   - car,using_home_for_business
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   - '52'
   - '1234'
   :next_node: :you_can_use_result
@@ -494,7 +575,7 @@
   :responses:
   - car,using_home_for_business
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   - '101'
   :next_node: :current_claim_amount_home?
   :outcome_node: false
@@ -502,7 +583,186 @@
   :responses:
   - car,using_home_for_business
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
+  - '101'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :capital_allowances?
+  :responses:
+  - car,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  :next_node: :how_much_expect_to_claim?
+  :outcome_node: false
+- :current_node: :how_much_expect_to_claim?
+  :responses:
+  - car,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10000'
+  :next_node: :hours_work_home?
+  :outcome_node: false
+- :current_node: :hours_work_home?
+  :responses:
+  - car,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10000'
+  - '1'
+  :next_node: :you_cant_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - car,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10000'
+  - '26'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - car,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10000'
+  - '26'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - car,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10000'
+  - '52'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - car,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10000'
+  - '52'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - car,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10000'
+  - '101'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - car,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10000'
+  - '101'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  :next_node: :hours_work_home?
+  :outcome_node: false
+- :current_node: :hours_work_home?
+  :responses:
+  - car,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  - '1'
+  :next_node: :you_cant_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - car,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  - '26'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - car,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  - '26'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - car,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  - '52'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - car,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  - '52'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - car,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  - '101'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - car,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
   - '101'
   - '1234'
   :next_node: :you_can_use_result
@@ -841,14 +1101,14 @@
   :responses:
   - live_on_business_premises,motorbike
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   :next_node: :deduct_from_premises?
   :outcome_node: false
 - :current_node: :deduct_from_premises?
   :responses:
   - live_on_business_premises,motorbike
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   - '789'
   :next_node: :people_live_on_premises?
   :outcome_node: false
@@ -856,7 +1116,7 @@
   :responses:
   - live_on_business_premises,motorbike
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   - '789.0'
   - '0'
   :next_node: :you_can_use_result
@@ -865,7 +1125,7 @@
   :responses:
   - live_on_business_premises,motorbike
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   - '789.0'
   - '1'
   :next_node: :you_can_use_result
@@ -874,7 +1134,7 @@
   :responses:
   - live_on_business_premises,motorbike
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   - '789.0'
   - '2'
   :next_node: :you_can_use_result
@@ -883,7 +1143,85 @@
   :responses:
   - live_on_business_premises,motorbike
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
+  - '789.0'
+  - '5'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :capital_allowances?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - simplified_expenses_claimed
+  :next_node: :how_much_expect_to_claim?
+  :outcome_node: false
+- :current_node: :how_much_expect_to_claim?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '7500'
+  :next_node: :deduct_from_premises?
+  :outcome_node: false
+- :current_node: :deduct_from_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '7500'
+  - '789'
+  :next_node: :people_live_on_premises?
+  :outcome_node: false
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '7500'
+  - '789.0'
+  - '0'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '7500'
+  - '789.0'
+  - '1'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '7500'
+  - '789.0'
+  - '2'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '7500'
   - '789.0'
   - '5'
   :next_node: :you_can_use_result
@@ -1169,13 +1507,66 @@
   :responses:
   - car,motorbike
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   :next_node: :capital_allowance_result
   :outcome_node: true
 - :current_node: :capital_allowances?
   :responses:
   - car,motorbike
   - 'no'
+  - simplified_expenses_claimed
+  :next_node: :how_much_expect_to_claim?
+  :outcome_node: false
+- :current_node: :how_much_expect_to_claim?
+  :responses:
+  - car,motorbike
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car,motorbike
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10000'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - car,motorbike
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10000'
+  - '7500'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car,motorbike
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - car,motorbike
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  - '7500'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :capital_allowances?
+  :responses:
+  - car,motorbike
+  - 'no'
   - 'no'
   :next_node: :how_much_expect_to_claim?
   :outcome_node: false
@@ -1494,14 +1885,14 @@
   :responses:
   - car,live_on_business_premises
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   :next_node: :deduct_from_premises?
   :outcome_node: false
 - :current_node: :deduct_from_premises?
   :responses:
   - car,live_on_business_premises
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   - '789'
   :next_node: :people_live_on_premises?
   :outcome_node: false
@@ -1509,7 +1900,7 @@
   :responses:
   - car,live_on_business_premises
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   - '789.0'
   - '0'
   :next_node: :you_can_use_result
@@ -1518,7 +1909,7 @@
   :responses:
   - car,live_on_business_premises
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   - '789.0'
   - '1'
   :next_node: :you_can_use_result
@@ -1527,7 +1918,7 @@
   :responses:
   - car,live_on_business_premises
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   - '789.0'
   - '2'
   :next_node: :you_can_use_result
@@ -1536,7 +1927,148 @@
   :responses:
   - car,live_on_business_premises
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
+  - '789.0'
+  - '5'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :capital_allowances?
+  :responses:
+  - car,live_on_business_premises
+  - 'no'
+  - simplified_expenses_claimed
+  :next_node: :how_much_expect_to_claim?
+  :outcome_node: false
+- :current_node: :how_much_expect_to_claim?
+  :responses:
+  - car,live_on_business_premises
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car,live_on_business_premises
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10000'
+  :next_node: :deduct_from_premises?
+  :outcome_node: false
+- :current_node: :deduct_from_premises?
+  :responses:
+  - car,live_on_business_premises
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10000'
+  - '789'
+  :next_node: :people_live_on_premises?
+  :outcome_node: false
+- :current_node: :people_live_on_premises?
+  :responses:
+  - car,live_on_business_premises
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10000'
+  - '789.0'
+  - '0'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - car,live_on_business_premises
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10000'
+  - '789.0'
+  - '1'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - car,live_on_business_premises
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10000'
+  - '789.0'
+  - '2'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - car,live_on_business_premises
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10000'
+  - '789.0'
+  - '5'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car,live_on_business_premises
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  :next_node: :deduct_from_premises?
+  :outcome_node: false
+- :current_node: :deduct_from_premises?
+  :responses:
+  - car,live_on_business_premises
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  - '789'
+  :next_node: :people_live_on_premises?
+  :outcome_node: false
+- :current_node: :people_live_on_premises?
+  :responses:
+  - car,live_on_business_premises
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  - '789.0'
+  - '0'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - car,live_on_business_premises
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  - '789.0'
+  - '1'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - car,live_on_business_premises
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  - '789.0'
+  - '2'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - car,live_on_business_premises
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
   - '789.0'
   - '5'
   :next_node: :you_can_use_result
@@ -1871,14 +2403,14 @@
   :responses:
   - motorbike,using_home_for_business
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   :next_node: :hours_work_home?
   :outcome_node: false
 - :current_node: :hours_work_home?
   :responses:
   - motorbike,using_home_for_business
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   - '1'
   :next_node: :you_cant_use_result
   :outcome_node: true
@@ -1886,7 +2418,7 @@
   :responses:
   - motorbike,using_home_for_business
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   - '26'
   :next_node: :current_claim_amount_home?
   :outcome_node: false
@@ -1894,7 +2426,7 @@
   :responses:
   - motorbike,using_home_for_business
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   - '26'
   - '1234'
   :next_node: :you_can_use_result
@@ -1903,7 +2435,7 @@
   :responses:
   - motorbike,using_home_for_business
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   - '52'
   :next_node: :current_claim_amount_home?
   :outcome_node: false
@@ -1911,7 +2443,7 @@
   :responses:
   - motorbike,using_home_for_business
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   - '52'
   - '1234'
   :next_node: :you_can_use_result
@@ -1920,7 +2452,7 @@
   :responses:
   - motorbike,using_home_for_business
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
   - '101'
   :next_node: :current_claim_amount_home?
   :outcome_node: false
@@ -1928,7 +2460,104 @@
   :responses:
   - motorbike,using_home_for_business
   - 'no'
-  - 'yes'
+  - capital_allowance_claimed
+  - '101'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :capital_allowances?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  :next_node: :how_much_expect_to_claim?
+  :outcome_node: false
+- :current_node: :how_much_expect_to_claim?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '7500'
+  :next_node: :hours_work_home?
+  :outcome_node: false
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '7500'
+  - '1'
+  :next_node: :you_cant_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '7500'
+  - '26'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '7500'
+  - '26'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '7500'
+  - '52'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '7500'
+  - '52'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '7500'
+  - '101'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '7500'
   - '101'
   - '1234'
   :next_node: :you_can_use_result
