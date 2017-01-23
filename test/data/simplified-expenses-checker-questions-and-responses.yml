@@ -11,7 +11,8 @@
 - motorbike,using_home_for_business # :drive_business_miles_motorcycle? -> :hours_work_home?
 - using_home_for_business,live_on_business_premises
 :buying_new_vehicle?:
-- 'yes' # :buying_new_vehicle? -> :is_vehicle_green?
+- 'new' # :capital_allowances? -> :hours_work_home? / :deduct_from_premises? / :capital_allowance_result
+- 'used'
 - 'no' # :buying_new_vehicle? -> :capital_allowances? / :how_much_expect_to_claim?
 :capital_allowances?:
 - 'yes' # :capital_allowances? -> :hours_work_home? / :deduct_from_premises? / :capital_allowance_result

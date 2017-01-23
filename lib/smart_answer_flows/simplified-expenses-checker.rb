@@ -67,11 +67,12 @@ module SmartAnswer
 
       #Q2 - buying new vehicle?
       multiple_choice :buying_new_vehicle? do
-        option :yes
+        option :new
+        option :used
         option :no
 
         next_node do |response|
-          if response == "yes"
+          if response == "new"
             question :is_vehicle_green?
           else
             question :capital_allowances?
