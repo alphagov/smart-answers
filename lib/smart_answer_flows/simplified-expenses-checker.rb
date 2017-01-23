@@ -72,10 +72,10 @@ module SmartAnswer
         option :no
 
         next_node do |response|
-          if response == "new"
-            question :is_vehicle_green?
-          else
+          if response == "no"
             question :capital_allowances?
+          else
+            question :how_much_expect_to_claim?
           end
         end
       end
