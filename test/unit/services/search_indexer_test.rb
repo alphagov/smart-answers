@@ -20,6 +20,7 @@ class SearchIndexerTest < ActiveSupport::TestCase
       description: flow_presenter.description,
       indexable_content: flow_presenter.indexable_content,
       link: "/#{flow_presenter.slug}",
+      content_store_document_type: 'smart_answer',
     )
 
     SearchIndexer.call(flow_presenter)
