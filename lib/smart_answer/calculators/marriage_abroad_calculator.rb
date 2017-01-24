@@ -314,7 +314,7 @@ module SmartAnswer::Calculators
     end
 
     def path_to_outcome
-      if ceremony_country == 'italy'
+      if two_questions_country?
         return [ceremony_country, marriage_type_path_name]
       end
 
@@ -327,6 +327,7 @@ module SmartAnswer::Calculators
          latvia
          mozambique
          sweden
+         ireland
         ).include?(ceremony_country)
     end
 
