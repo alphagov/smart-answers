@@ -330,6 +330,13 @@ module SmartAnswer::Calculators
         ).include?(ceremony_country)
     end
 
+    def two_questions_country?
+      %w(
+         ireland
+         italy
+        ).include?(ceremony_country)
+    end
+
   private
 
     def marriage_type_path_name

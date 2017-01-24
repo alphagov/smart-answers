@@ -29,7 +29,7 @@ module SmartAnswer
         end
 
         next_node do
-          if %w(ireland italy).include?(calculator.ceremony_country)
+          if calculator.two_questions_country?
             question :partner_opposite_or_same_sex?
           elsif calculator.ceremony_country_offers_pacs?
             question :marriage_or_pacs?

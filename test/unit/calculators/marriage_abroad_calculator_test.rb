@@ -1084,6 +1084,15 @@ module SmartAnswer
           assert_equal true, @calculator.has_outcome_per_path?
         end
       end
+
+      context '#two_questions_country? ' do
+        should 'return true if country has two questions' do
+          @calculator = MarriageAbroadCalculator.new
+          @calculator.ceremony_country = 'italy'
+
+          assert_equal true, @calculator.two_questions_country?
+        end
+      end
     end
   end
 end
