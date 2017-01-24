@@ -5,10 +5,10 @@ In most cases, you’ll be able to register the birth with the UK authorities.
 
 ##When you can’t register a birth in the UK
 
-You won’t be able to register a birth if with the UK authorities if any the following apply:
+You won’t be able to register a birth with the UK authorities if any the following apply:
 
 - the child has no mother registered on the birth certificate 
-- the child’s mother is married to a man who is not a UK citizen, even if the child’s father is a UK citizen
+- at the time of the child’s birth the child’s non-British mother was married to a man who is not a UK citizen, even if the child’s biological father is a UK citizen
 
   <% if calculator.registration_country == 'indonesia' and calculator.british_national_father? and calculator.paternity_declaration? %>
     %You’ll need to get a court order to have the father named on the birth certificate before registering if you’re unmarried and only the father has British nationality.%
@@ -16,7 +16,6 @@ You won’t be able to register a birth if with the UK authorities if any the fo
 
   <% if calculator.higher_risk_country? %>
     <% if calculator.registration_country == 'libya' %>
-      You can also register the birth with the UK authorities.
 
       ^It’s usually quicker to register the birth with the UK authorities if you [get a British passport](/overseas-passports) for the child first. You can’t apply for a passport in Libya but you can apply in a neighbouring country.^
 
