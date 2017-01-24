@@ -79,6 +79,8 @@ lib/smart_answer_flows/marriage-abroad/outcomes/_you_dont_need_to_stay_in_countr
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_have_been_divorced_or_widowed.govspeak.erb: e719af472a3ec2c26a9e4ce7202c11ff
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_will_be_asked_for_cni.govspeak.erb: cd1226b515c6a1723da99be2cb207c51
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_will_have_to_wait_to_get_married.govspeak.erb: e32774b08379258450d2d2198c0dbc49
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/ireland/opposite_sex.govspeak.erb: ea0895a86410a1a0250a03489f3397e1
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/ireland/same_sex.govspeak.erb: e3e1cccf3c99df98611ba500c10302e0
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_opposite_sex.html.erb: da21764e077cb1233ef10c29aa3b89f0
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_same_sex.html.erb: c0789e949180c7f053dde4a13ddfdbf3
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_title.html.erb: 9ed9b141d5d5418375ec81e96fe67ca7
@@ -274,7 +276,7 @@ lib/smart_answer_flows/marriage-abroad/questions/partner_opposite_or_same_sex.go
 lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationality.govspeak.erb: 80e04f36c75c232bede1a244d621471e
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/data/marriage_abroad_services.yml: 73b32d5334b421ea58959c602092cc9d
-lib/smart_answer/calculators/marriage_abroad_calculator.rb: 7e05d57acd9bc853e3aad1924b55969e
+lib/smart_answer/calculators/marriage_abroad_calculator.rb: fa55b906cc6550bc9f31672d76bd16f7
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 0bc67c4469fe692a4fa53c9b461821bf
 lib/smart_answer/calculators/marriage_abroad_data_query.rb: 83d07e37557c160091bdfddf80fc07cc
 lib/smart_answer/calculators/country_name_formatter.rb: 583df7103672f581bf5510732c1b2be1

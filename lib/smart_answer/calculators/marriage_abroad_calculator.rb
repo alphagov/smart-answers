@@ -314,13 +314,6 @@ module SmartAnswer::Calculators
     end
 
     def path_to_outcome
-      ceremony_location = if resident_of_ceremony_country?
-                            'ceremony_country'
-                          elsif resident_of_third_country?
-                            'third_country'
-                          else
-                            'uk'
-                          end
       partner_nationality = if partner_is_national_of_ceremony_country?
                               'partner_local'
                             elsif partner_british?
@@ -338,7 +331,7 @@ module SmartAnswer::Calculators
         return [ceremony_country, marriage_type]
       end
 
-      [ceremony_country, ceremony_location, partner_nationality, marriage_type]
+      [ceremony_country, ceremony_location_path_name, partner_nationality, marriage_type]
     end
 
     def has_outcome_per_path?
@@ -351,6 +344,16 @@ module SmartAnswer::Calculators
     end
 
   private
+
+    def ceremony_location_path_name
+      if resident_of_ceremony_country?
+        'ceremony_country'
+      elsif resident_of_third_country?
+        'third_country'
+      else
+        'uk'
+      end
+    end
 
     def services_for_country_and_partner_sex_and_residency_and_partner_nationality?
       services_data_for_country_and_partner_sex_and_residency? &&
