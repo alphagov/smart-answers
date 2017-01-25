@@ -314,31 +314,11 @@ module SmartAnswer::Calculators
     end
 
     def path_to_outcome
-      ceremony_location = if resident_of_ceremony_country?
-                            'ceremony_country'
-                          elsif resident_of_third_country?
-                            'third_country'
-                          else
-                            'uk'
-                          end
-      partner_nationality = if partner_is_national_of_ceremony_country?
-                              'partner_local'
-                            elsif partner_british?
-                              'partner_british'
-                            else
-                              'partner_other'
-                            end
-      marriage_type = if partner_is_same_sex?
-                        'same_sex'
-                      else
-                        'opposite_sex'
-                      end
-
-      if ceremony_country == 'italy'
-        return [ceremony_country, marriage_type]
+      if two_questions_country?
+        return [ceremony_country, marriage_type_path_name]
       end
 
-      [ceremony_country, ceremony_location, partner_nationality, marriage_type]
+      [ceremony_country, ceremony_location_path_name, partner_nationality_path_name, marriage_type_path_name]
     end
 
     def has_outcome_per_path?
@@ -347,10 +327,46 @@ module SmartAnswer::Calculators
          latvia
          mozambique
          sweden
+         ireland
+        ).include?(ceremony_country)
+    end
+
+    def two_questions_country?
+      %w(
+         ireland
+         italy
         ).include?(ceremony_country)
     end
 
   private
+
+    def marriage_type_path_name
+      if partner_is_same_sex?
+        'same_sex'
+      else
+        'opposite_sex'
+      end
+    end
+
+    def partner_nationality_path_name
+      if partner_is_national_of_ceremony_country?
+        'partner_local'
+      elsif partner_british?
+        'partner_british'
+      else
+        'partner_other'
+      end
+    end
+
+    def ceremony_location_path_name
+      if resident_of_ceremony_country?
+        'ceremony_country'
+      elsif resident_of_third_country?
+        'third_country'
+      else
+        'uk'
+      end
+    end
 
     def services_for_country_and_partner_sex_and_residency_and_partner_nationality?
       services_data_for_country_and_partner_sex_and_residency? &&

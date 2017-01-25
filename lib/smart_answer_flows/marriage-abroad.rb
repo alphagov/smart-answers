@@ -29,7 +29,7 @@ module SmartAnswer
         end
 
         next_node do
-          if %w(ireland italy).include?(calculator.ceremony_country)
+          if calculator.two_questions_country?
             question :partner_opposite_or_same_sex?
           elsif calculator.ceremony_country_offers_pacs?
             question :marriage_or_pacs?
@@ -121,8 +121,6 @@ module SmartAnswer
             outcome :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
           elsif calculator.ceremony_country == "portugal"
             outcome :outcome_ceremonies_in_portugal
-          elsif calculator.ceremony_country == "ireland"
-            outcome :outcome_ceremonies_in_ireland
           elsif calculator.ceremony_country == "switzerland"
             outcome :outcome_ceremonies_in_switzerland
           elsif calculator.ceremony_country == "spain"
@@ -316,7 +314,6 @@ module SmartAnswer
       end
 
       outcome :outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark
-      outcome :outcome_ceremonies_in_ireland
       outcome :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
       outcome :outcome_ceremonies_in_portugal
       outcome :outcome_ceremonies_in_spain
