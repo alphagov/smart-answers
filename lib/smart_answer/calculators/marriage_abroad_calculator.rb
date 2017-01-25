@@ -327,6 +327,7 @@ module SmartAnswer::Calculators
          latvia
          mozambique
          sweden
+         hungary
          vietnam
          ireland
         ).include?(ceremony_country)
