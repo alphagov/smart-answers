@@ -22,7 +22,13 @@ module SmartAnswer
         calculate :simplified_expenses_claimed do
           nil
         end
+        calculate :expenses_or_allowances do
+          nil
+        end
         calculate :simple_vehicle_costs do
+          nil
+        end
+        calculate :vehicle_is_green do
           nil
         end
         calculate :simple_motorcycle_costs do
@@ -47,6 +53,9 @@ module SmartAnswer
           nil
         end
         calculate :simple_home_costs do
+          nil
+        end
+        calculate :new_or_used_car do
           nil
         end
         calculate :list_of_expenses do |response|
@@ -76,6 +85,8 @@ module SmartAnswer
         option :used
         option :no
 
+        save_input_as :vehicle_status
+
         next_node do |response|
           if response == "no"
             question :capital_allowances?
@@ -95,6 +106,8 @@ module SmartAnswer
         option :capital_allowance_claimed
         option :simplified_expenses_claimed
         option :no
+
+        save_input_as :expenses_or_allowances
 
         calculate :capital_allowance_claimed do |response|
           response == "capital_allowance_claimed" &&
@@ -132,6 +145,8 @@ module SmartAnswer
         option :new
         option :used
 
+        save_input_as :new_or_used_car
+
         next_node do
           question :how_much_expect_to_claim?
         end
@@ -142,11 +157,25 @@ module SmartAnswer
         save_input_as :vehicle_costs
 
         next_node do
-          if list_of_expenses.include?("car") ||
-              list_of_expenses.include?("van")
-            question :drive_business_miles_car_van?
+          if expenses_or_allowances == "simplified_expenses_claimed"
+            if expense_type == "motorbike"
+              question :drive_business_miles_motorcycle?
+            else
+              question :drive_business_miles_car_van?
+            end
+          elsif expense_type == "car" && (%(new used).include?(vehicle_status) ||
+           %(new used).include?(new_or_used_car))
+            question :is_vehicle_green?
+          elsif list_of_expenses.include?("van") ||
+              list_of_expenses.include?("motorbike")
+            question :price_of_vehicle?
           else
-            question :drive_business_miles_motorcycle?
+            if list_of_expenses.include?("car") ||
+                list_of_expenses.include?("van")
+              question :drive_business_miles_car_van?
+            else
+              question :drive_business_miles_motorcycle?
+            end
           end
         end
       end

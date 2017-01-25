@@ -15,6 +15,33 @@
   - car
   - new
   - '2345'
+  :next_node: :is_vehicle_green?
+  :outcome_node: false
+- :current_node: :is_vehicle_green?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'yes'
+  :next_node: :price_of_vehicle?
+  :outcome_node: false
+- :current_node: :price_of_vehicle?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'yes'
+  - '35000'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'yes'
+  - '35000.0'
+  - '35'
   :next_node: :drive_business_miles_car_van?
   :outcome_node: false
 - :current_node: :drive_business_miles_car_van?
@@ -22,6 +49,9 @@
   - car
   - new
   - '2345.0'
+  - 'yes'
+  - '35000.0'
+  - '35.0'
   - '10000'
   :next_node: :you_can_use_result
   :outcome_node: true
@@ -30,6 +60,268 @@
   - car
   - new
   - '2345.0'
+  - 'yes'
+  - '35000.0'
+  - '35.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'yes'
+  - '35000.0'
+  - '70'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'yes'
+  - '35000.0'
+  - '70.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'yes'
+  - '35000.0'
+  - '70.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :price_of_vehicle?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'yes'
+  - '250001'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'yes'
+  - '250001.0'
+  - '35'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'yes'
+  - '250001.0'
+  - '35.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'yes'
+  - '250001.0'
+  - '35.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'yes'
+  - '250001.0'
+  - '70'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'yes'
+  - '250001.0'
+  - '70.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'yes'
+  - '250001.0'
+  - '70.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :is_vehicle_green?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'no'
+  :next_node: :price_of_vehicle?
+  :outcome_node: false
+- :current_node: :price_of_vehicle?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'no'
+  - '35000'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'no'
+  - '35000.0'
+  - '35'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'no'
+  - '35000.0'
+  - '35.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'no'
+  - '35000.0'
+  - '35.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'no'
+  - '35000.0'
+  - '70'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'no'
+  - '35000.0'
+  - '70.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'no'
+  - '35000.0'
+  - '70.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :price_of_vehicle?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'no'
+  - '250001'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'no'
+  - '250001.0'
+  - '35'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'no'
+  - '250001.0'
+  - '35.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'no'
+  - '250001.0'
+  - '35.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'no'
+  - '250001.0'
+  - '70'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'no'
+  - '250001.0'
+  - '70.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - new
+  - '2345.0'
+  - 'no'
+  - '250001.0'
+  - '70.0'
   - '10001'
   :next_node: :you_can_use_result
   :outcome_node: true
@@ -44,6 +336,33 @@
   - car
   - used
   - '2345'
+  :next_node: :is_vehicle_green?
+  :outcome_node: false
+- :current_node: :is_vehicle_green?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'yes'
+  :next_node: :price_of_vehicle?
+  :outcome_node: false
+- :current_node: :price_of_vehicle?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'yes'
+  - '35000'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'yes'
+  - '35000.0'
+  - '35'
   :next_node: :drive_business_miles_car_van?
   :outcome_node: false
 - :current_node: :drive_business_miles_car_van?
@@ -51,6 +370,9 @@
   - car
   - used
   - '2345.0'
+  - 'yes'
+  - '35000.0'
+  - '35.0'
   - '10000'
   :next_node: :you_can_use_result
   :outcome_node: true
@@ -59,6 +381,268 @@
   - car
   - used
   - '2345.0'
+  - 'yes'
+  - '35000.0'
+  - '35.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'yes'
+  - '35000.0'
+  - '70'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'yes'
+  - '35000.0'
+  - '70.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'yes'
+  - '35000.0'
+  - '70.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :price_of_vehicle?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'yes'
+  - '250001'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'yes'
+  - '250001.0'
+  - '35'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'yes'
+  - '250001.0'
+  - '35.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'yes'
+  - '250001.0'
+  - '35.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'yes'
+  - '250001.0'
+  - '70'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'yes'
+  - '250001.0'
+  - '70.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'yes'
+  - '250001.0'
+  - '70.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :is_vehicle_green?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'no'
+  :next_node: :price_of_vehicle?
+  :outcome_node: false
+- :current_node: :price_of_vehicle?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'no'
+  - '35000'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'no'
+  - '35000.0'
+  - '35'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'no'
+  - '35000.0'
+  - '35.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'no'
+  - '35000.0'
+  - '35.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'no'
+  - '35000.0'
+  - '70'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'no'
+  - '35000.0'
+  - '70.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'no'
+  - '35000.0'
+  - '70.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :price_of_vehicle?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'no'
+  - '250001'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'no'
+  - '250001.0'
+  - '35'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'no'
+  - '250001.0'
+  - '35.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'no'
+  - '250001.0'
+  - '35.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'no'
+  - '250001.0'
+  - '70'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'no'
+  - '250001.0'
+  - '70.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - used
+  - '2345.0'
+  - 'no'
+  - '250001.0'
+  - '70.0'
   - '10001'
   :next_node: :you_can_use_result
   :outcome_node: true
@@ -130,6 +714,39 @@
   - 'no'
   - new
   - '2345'
+  :next_node: :is_vehicle_green?
+  :outcome_node: false
+- :current_node: :is_vehicle_green?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'yes'
+  :next_node: :price_of_vehicle?
+  :outcome_node: false
+- :current_node: :price_of_vehicle?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'yes'
+  - '35000'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'yes'
+  - '35000.0'
+  - '35'
   :next_node: :drive_business_miles_car_van?
   :outcome_node: false
 - :current_node: :drive_business_miles_car_van?
@@ -139,6 +756,9 @@
   - 'no'
   - new
   - '2345.0'
+  - 'yes'
+  - '35000.0'
+  - '35.0'
   - '10000'
   :next_node: :you_can_use_result
   :outcome_node: true
@@ -149,6 +769,318 @@
   - 'no'
   - new
   - '2345.0'
+  - 'yes'
+  - '35000.0'
+  - '35.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'yes'
+  - '35000.0'
+  - '70'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'yes'
+  - '35000.0'
+  - '70.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'yes'
+  - '35000.0'
+  - '70.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :price_of_vehicle?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'yes'
+  - '250001'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'yes'
+  - '250001.0'
+  - '35'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'yes'
+  - '250001.0'
+  - '35.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'yes'
+  - '250001.0'
+  - '35.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'yes'
+  - '250001.0'
+  - '70'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'yes'
+  - '250001.0'
+  - '70.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'yes'
+  - '250001.0'
+  - '70.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :is_vehicle_green?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'no'
+  :next_node: :price_of_vehicle?
+  :outcome_node: false
+- :current_node: :price_of_vehicle?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'no'
+  - '35000'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'no'
+  - '35000.0'
+  - '35'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'no'
+  - '35000.0'
+  - '35.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'no'
+  - '35000.0'
+  - '35.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'no'
+  - '35000.0'
+  - '70'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'no'
+  - '35000.0'
+  - '70.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'no'
+  - '35000.0'
+  - '70.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :price_of_vehicle?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'no'
+  - '250001'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'no'
+  - '250001.0'
+  - '35'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'no'
+  - '250001.0'
+  - '35.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'no'
+  - '250001.0'
+  - '35.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'no'
+  - '250001.0'
+  - '70'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'no'
+  - '250001.0'
+  - '70.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - new
+  - '2345.0'
+  - 'no'
+  - '250001.0'
+  - '70.0'
   - '10001'
   :next_node: :you_can_use_result
   :outcome_node: true
@@ -167,6 +1099,39 @@
   - 'no'
   - used
   - '2345'
+  :next_node: :is_vehicle_green?
+  :outcome_node: false
+- :current_node: :is_vehicle_green?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'yes'
+  :next_node: :price_of_vehicle?
+  :outcome_node: false
+- :current_node: :price_of_vehicle?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'yes'
+  - '35000'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'yes'
+  - '35000.0'
+  - '35'
   :next_node: :drive_business_miles_car_van?
   :outcome_node: false
 - :current_node: :drive_business_miles_car_van?
@@ -176,6 +1141,9 @@
   - 'no'
   - used
   - '2345.0'
+  - 'yes'
+  - '35000.0'
+  - '35.0'
   - '10000'
   :next_node: :you_can_use_result
   :outcome_node: true
@@ -186,6 +1154,318 @@
   - 'no'
   - used
   - '2345.0'
+  - 'yes'
+  - '35000.0'
+  - '35.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'yes'
+  - '35000.0'
+  - '70'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'yes'
+  - '35000.0'
+  - '70.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'yes'
+  - '35000.0'
+  - '70.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :price_of_vehicle?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'yes'
+  - '250001'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'yes'
+  - '250001.0'
+  - '35'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'yes'
+  - '250001.0'
+  - '35.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'yes'
+  - '250001.0'
+  - '35.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'yes'
+  - '250001.0'
+  - '70'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'yes'
+  - '250001.0'
+  - '70.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'yes'
+  - '250001.0'
+  - '70.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :is_vehicle_green?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'no'
+  :next_node: :price_of_vehicle?
+  :outcome_node: false
+- :current_node: :price_of_vehicle?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'no'
+  - '35000'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'no'
+  - '35000.0'
+  - '35'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'no'
+  - '35000.0'
+  - '35.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'no'
+  - '35000.0'
+  - '35.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'no'
+  - '35000.0'
+  - '70'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'no'
+  - '35000.0'
+  - '70.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'no'
+  - '35000.0'
+  - '70.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :price_of_vehicle?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'no'
+  - '250001'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'no'
+  - '250001.0'
+  - '35'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'no'
+  - '250001.0'
+  - '35.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'no'
+  - '250001.0'
+  - '35.0'
+  - '10001'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'no'
+  - '250001.0'
+  - '70'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'no'
+  - '250001.0'
+  - '70.0'
+  - '10000'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car
+  - 'no'
+  - 'no'
+  - used
+  - '2345.0'
+  - 'no'
+  - '250001.0'
+  - '70.0'
   - '10001'
   :next_node: :you_can_use_result
   :outcome_node: true
@@ -962,6 +2242,23 @@
   - live_on_business_premises,motorbike
   - new
   - '2345'
+  :next_node: :price_of_vehicle?
+  :outcome_node: false
+- :current_node: :price_of_vehicle?
+  :responses:
+  - live_on_business_premises,motorbike
+  - new
+  - '2345.0'
+  - '35000'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - live_on_business_premises,motorbike
+  - new
+  - '2345.0'
+  - '35000.0'
+  - '35'
   :next_node: :drive_business_miles_motorcycle?
   :outcome_node: false
 - :current_node: :drive_business_miles_motorcycle?
@@ -969,6 +2266,8 @@
   - live_on_business_premises,motorbike
   - new
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   :next_node: :deduct_from_premises?
   :outcome_node: false
@@ -977,6 +2276,8 @@
   - live_on_business_premises,motorbike
   - new
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '789'
   :next_node: :people_live_on_premises?
@@ -986,6 +2287,8 @@
   - live_on_business_premises,motorbike
   - new
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '789.0'
   - '0'
@@ -996,6 +2299,8 @@
   - live_on_business_premises,motorbike
   - new
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '789.0'
   - '1'
@@ -1006,6 +2311,8 @@
   - live_on_business_premises,motorbike
   - new
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '789.0'
   - '2'
@@ -1016,6 +2323,250 @@
   - live_on_business_premises,motorbike
   - new
   - '2345.0'
+  - '35000.0'
+  - '35.0'
+  - '7500'
+  - '789.0'
+  - '5'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - live_on_business_premises,motorbike
+  - new
+  - '2345.0'
+  - '35000.0'
+  - '70'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - live_on_business_premises,motorbike
+  - new
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  :next_node: :deduct_from_premises?
+  :outcome_node: false
+- :current_node: :deduct_from_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - new
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '789'
+  :next_node: :people_live_on_premises?
+  :outcome_node: false
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - new
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '789.0'
+  - '0'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - new
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '789.0'
+  - '1'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - new
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '789.0'
+  - '2'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - new
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '789.0'
+  - '5'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :price_of_vehicle?
+  :responses:
+  - live_on_business_premises,motorbike
+  - new
+  - '2345.0'
+  - '250001'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - live_on_business_premises,motorbike
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '35'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - live_on_business_premises,motorbike
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  :next_node: :deduct_from_premises?
+  :outcome_node: false
+- :current_node: :deduct_from_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '789'
+  :next_node: :people_live_on_premises?
+  :outcome_node: false
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '789.0'
+  - '0'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '789.0'
+  - '1'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '789.0'
+  - '2'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '789.0'
+  - '5'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - live_on_business_premises,motorbike
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '70'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - live_on_business_premises,motorbike
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  :next_node: :deduct_from_premises?
+  :outcome_node: false
+- :current_node: :deduct_from_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '789'
+  :next_node: :people_live_on_premises?
+  :outcome_node: false
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '789.0'
+  - '0'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '789.0'
+  - '1'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '789.0'
+  - '2'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
   - '7500'
   - '789.0'
   - '5'
@@ -1032,6 +2583,23 @@
   - live_on_business_premises,motorbike
   - used
   - '2345'
+  :next_node: :price_of_vehicle?
+  :outcome_node: false
+- :current_node: :price_of_vehicle?
+  :responses:
+  - live_on_business_premises,motorbike
+  - used
+  - '2345.0'
+  - '35000'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - live_on_business_premises,motorbike
+  - used
+  - '2345.0'
+  - '35000.0'
+  - '35'
   :next_node: :drive_business_miles_motorcycle?
   :outcome_node: false
 - :current_node: :drive_business_miles_motorcycle?
@@ -1039,6 +2607,8 @@
   - live_on_business_premises,motorbike
   - used
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   :next_node: :deduct_from_premises?
   :outcome_node: false
@@ -1047,6 +2617,8 @@
   - live_on_business_premises,motorbike
   - used
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '789'
   :next_node: :people_live_on_premises?
@@ -1056,6 +2628,8 @@
   - live_on_business_premises,motorbike
   - used
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '789.0'
   - '0'
@@ -1066,6 +2640,8 @@
   - live_on_business_premises,motorbike
   - used
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '789.0'
   - '1'
@@ -1076,6 +2652,8 @@
   - live_on_business_premises,motorbike
   - used
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '789.0'
   - '2'
@@ -1086,6 +2664,250 @@
   - live_on_business_premises,motorbike
   - used
   - '2345.0'
+  - '35000.0'
+  - '35.0'
+  - '7500'
+  - '789.0'
+  - '5'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - live_on_business_premises,motorbike
+  - used
+  - '2345.0'
+  - '35000.0'
+  - '70'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - live_on_business_premises,motorbike
+  - used
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  :next_node: :deduct_from_premises?
+  :outcome_node: false
+- :current_node: :deduct_from_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - used
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '789'
+  :next_node: :people_live_on_premises?
+  :outcome_node: false
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - used
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '789.0'
+  - '0'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - used
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '789.0'
+  - '1'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - used
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '789.0'
+  - '2'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - used
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '789.0'
+  - '5'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :price_of_vehicle?
+  :responses:
+  - live_on_business_premises,motorbike
+  - used
+  - '2345.0'
+  - '250001'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - live_on_business_premises,motorbike
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '35'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - live_on_business_premises,motorbike
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  :next_node: :deduct_from_premises?
+  :outcome_node: false
+- :current_node: :deduct_from_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '789'
+  :next_node: :people_live_on_premises?
+  :outcome_node: false
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '789.0'
+  - '0'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '789.0'
+  - '1'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '789.0'
+  - '2'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '789.0'
+  - '5'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - live_on_business_premises,motorbike
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '70'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - live_on_business_premises,motorbike
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  :next_node: :deduct_from_premises?
+  :outcome_node: false
+- :current_node: :deduct_from_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '789'
+  :next_node: :people_live_on_premises?
+  :outcome_node: false
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '789.0'
+  - '0'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '789.0'
+  - '1'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '789.0'
+  - '2'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
   - '7500'
   - '789.0'
   - '5'
@@ -1161,6 +2983,15 @@
   - 'no'
   - simplified_expenses_claimed
   - '2345'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10000'
   :next_node: :drive_business_miles_motorcycle?
   :outcome_node: false
 - :current_node: :drive_business_miles_motorcycle?
@@ -1169,6 +3000,7 @@
   - 'no'
   - simplified_expenses_claimed
   - '2345.0'
+  - '10000'
   - '7500'
   :next_node: :deduct_from_premises?
   :outcome_node: false
@@ -1178,6 +3010,7 @@
   - 'no'
   - simplified_expenses_claimed
   - '2345.0'
+  - '10000'
   - '7500'
   - '789'
   :next_node: :people_live_on_premises?
@@ -1188,6 +3021,7 @@
   - 'no'
   - simplified_expenses_claimed
   - '2345.0'
+  - '10000'
   - '7500'
   - '789.0'
   - '0'
@@ -1199,6 +3033,7 @@
   - 'no'
   - simplified_expenses_claimed
   - '2345.0'
+  - '10000'
   - '7500'
   - '789.0'
   - '1'
@@ -1210,6 +3045,7 @@
   - 'no'
   - simplified_expenses_claimed
   - '2345.0'
+  - '10000'
   - '7500'
   - '789.0'
   - '2'
@@ -1221,6 +3057,85 @@
   - 'no'
   - simplified_expenses_claimed
   - '2345.0'
+  - '10000'
+  - '7500'
+  - '789.0'
+  - '5'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  - '7500'
+  :next_node: :deduct_from_premises?
+  :outcome_node: false
+- :current_node: :deduct_from_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  - '7500'
+  - '789'
+  :next_node: :people_live_on_premises?
+  :outcome_node: false
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  - '7500'
+  - '789.0'
+  - '0'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  - '7500'
+  - '789.0'
+  - '1'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  - '7500'
+  - '789.0'
+  - '2'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
   - '7500'
   - '789.0'
   - '5'
@@ -1239,6 +3154,25 @@
   - 'no'
   - 'no'
   - '2345'
+  :next_node: :price_of_vehicle?
+  :outcome_node: false
+- :current_node: :price_of_vehicle?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000.0'
+  - '35'
   :next_node: :drive_business_miles_motorcycle?
   :outcome_node: false
 - :current_node: :drive_business_miles_motorcycle?
@@ -1247,6 +3181,8 @@
   - 'no'
   - 'no'
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   :next_node: :deduct_from_premises?
   :outcome_node: false
@@ -1256,6 +3192,8 @@
   - 'no'
   - 'no'
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '789'
   :next_node: :people_live_on_premises?
@@ -1266,6 +3204,8 @@
   - 'no'
   - 'no'
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '789.0'
   - '0'
@@ -1277,6 +3217,8 @@
   - 'no'
   - 'no'
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '789.0'
   - '1'
@@ -1288,6 +3230,8 @@
   - 'no'
   - 'no'
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '789.0'
   - '2'
@@ -1299,6 +3243,272 @@
   - 'no'
   - 'no'
   - '2345.0'
+  - '35000.0'
+  - '35.0'
+  - '7500'
+  - '789.0'
+  - '5'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000.0'
+  - '70'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  :next_node: :deduct_from_premises?
+  :outcome_node: false
+- :current_node: :deduct_from_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '789'
+  :next_node: :people_live_on_premises?
+  :outcome_node: false
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '789.0'
+  - '0'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '789.0'
+  - '1'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '789.0'
+  - '2'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '789.0'
+  - '5'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :price_of_vehicle?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '35'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  :next_node: :deduct_from_premises?
+  :outcome_node: false
+- :current_node: :deduct_from_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '789'
+  :next_node: :people_live_on_premises?
+  :outcome_node: false
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '789.0'
+  - '0'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '789.0'
+  - '1'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '789.0'
+  - '2'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '789.0'
+  - '5'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '70'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  :next_node: :deduct_from_premises?
+  :outcome_node: false
+- :current_node: :deduct_from_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '789'
+  :next_node: :people_live_on_premises?
+  :outcome_node: false
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '789.0'
+  - '0'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '789.0'
+  - '1'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '789.0'
+  - '2'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :people_live_on_premises?
+  :responses:
+  - live_on_business_premises,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
   - '7500'
   - '789.0'
   - '5'
@@ -1414,6 +3624,23 @@
   - car,motorbike
   - new
   - '2345'
+  :next_node: :price_of_vehicle?
+  :outcome_node: false
+- :current_node: :price_of_vehicle?
+  :responses:
+  - car,motorbike
+  - new
+  - '2345.0'
+  - '35000'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car,motorbike
+  - new
+  - '2345.0'
+  - '35000.0'
+  - '35'
   :next_node: :drive_business_miles_car_van?
   :outcome_node: false
 - :current_node: :drive_business_miles_car_van?
@@ -1421,6 +3648,8 @@
   - car,motorbike
   - new
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '10000'
   :next_node: :drive_business_miles_motorcycle?
   :outcome_node: false
@@ -1429,6 +3658,8 @@
   - car,motorbike
   - new
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '10000'
   - '7500'
   :next_node: :you_can_use_result
@@ -1438,6 +3669,8 @@
   - car,motorbike
   - new
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '10001'
   :next_node: :drive_business_miles_motorcycle?
   :outcome_node: false
@@ -1446,6 +3679,169 @@
   - car,motorbike
   - new
   - '2345.0'
+  - '35000.0'
+  - '35.0'
+  - '10001'
+  - '7500'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car,motorbike
+  - new
+  - '2345.0'
+  - '35000.0'
+  - '70'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car,motorbike
+  - new
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '10000'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - car,motorbike
+  - new
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '10000'
+  - '7500'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car,motorbike
+  - new
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '10001'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - car,motorbike
+  - new
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '10001'
+  - '7500'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :price_of_vehicle?
+  :responses:
+  - car,motorbike
+  - new
+  - '2345.0'
+  - '250001'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car,motorbike
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '35'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car,motorbike
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '10000'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - car,motorbike
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '10000'
+  - '7500'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car,motorbike
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '10001'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - car,motorbike
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '10001'
+  - '7500'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car,motorbike
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '70'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car,motorbike
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '10000'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - car,motorbike
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '10000'
+  - '7500'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car,motorbike
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '10001'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - car,motorbike
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
   - '10001'
   - '7500'
   :next_node: :you_can_use_result
@@ -1461,6 +3857,23 @@
   - car,motorbike
   - used
   - '2345'
+  :next_node: :price_of_vehicle?
+  :outcome_node: false
+- :current_node: :price_of_vehicle?
+  :responses:
+  - car,motorbike
+  - used
+  - '2345.0'
+  - '35000'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car,motorbike
+  - used
+  - '2345.0'
+  - '35000.0'
+  - '35'
   :next_node: :drive_business_miles_car_van?
   :outcome_node: false
 - :current_node: :drive_business_miles_car_van?
@@ -1468,6 +3881,8 @@
   - car,motorbike
   - used
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '10000'
   :next_node: :drive_business_miles_motorcycle?
   :outcome_node: false
@@ -1476,6 +3891,8 @@
   - car,motorbike
   - used
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '10000'
   - '7500'
   :next_node: :you_can_use_result
@@ -1485,6 +3902,8 @@
   - car,motorbike
   - used
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '10001'
   :next_node: :drive_business_miles_motorcycle?
   :outcome_node: false
@@ -1493,6 +3912,169 @@
   - car,motorbike
   - used
   - '2345.0'
+  - '35000.0'
+  - '35.0'
+  - '10001'
+  - '7500'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car,motorbike
+  - used
+  - '2345.0'
+  - '35000.0'
+  - '70'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car,motorbike
+  - used
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '10000'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - car,motorbike
+  - used
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '10000'
+  - '7500'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car,motorbike
+  - used
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '10001'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - car,motorbike
+  - used
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '10001'
+  - '7500'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :price_of_vehicle?
+  :responses:
+  - car,motorbike
+  - used
+  - '2345.0'
+  - '250001'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car,motorbike
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '35'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car,motorbike
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '10000'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - car,motorbike
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '10000'
+  - '7500'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car,motorbike
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '10001'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - car,motorbike
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '10001'
+  - '7500'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car,motorbike
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '70'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car,motorbike
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '10000'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - car,motorbike
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '10000'
+  - '7500'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car,motorbike
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '10001'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - car,motorbike
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
   - '10001'
   - '7500'
   :next_node: :you_can_use_result
@@ -1576,6 +4158,25 @@
   - 'no'
   - 'no'
   - '2345'
+  :next_node: :price_of_vehicle?
+  :outcome_node: false
+- :current_node: :price_of_vehicle?
+  :responses:
+  - car,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000.0'
+  - '35'
   :next_node: :drive_business_miles_car_van?
   :outcome_node: false
 - :current_node: :drive_business_miles_car_van?
@@ -1584,6 +4185,8 @@
   - 'no'
   - 'no'
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '10000'
   :next_node: :drive_business_miles_motorcycle?
   :outcome_node: false
@@ -1593,6 +4196,8 @@
   - 'no'
   - 'no'
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '10000'
   - '7500'
   :next_node: :you_can_use_result
@@ -1603,6 +4208,8 @@
   - 'no'
   - 'no'
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '10001'
   :next_node: :drive_business_miles_motorcycle?
   :outcome_node: false
@@ -1612,6 +4219,185 @@
   - 'no'
   - 'no'
   - '2345.0'
+  - '35000.0'
+  - '35.0'
+  - '10001'
+  - '7500'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000.0'
+  - '70'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '10000'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - car,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '10000'
+  - '7500'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '10001'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - car,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '10001'
+  - '7500'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :price_of_vehicle?
+  :responses:
+  - car,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '35'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '10000'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - car,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '10000'
+  - '7500'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '10001'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - car,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '10001'
+  - '7500'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - car,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '70'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '10000'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - car,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '10000'
+  - '7500'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - car,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '10001'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - car,motorbike
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
   - '10001'
   - '7500'
   :next_node: :you_can_use_result
@@ -2230,6 +5016,23 @@
   - motorbike,using_home_for_business
   - new
   - '2345'
+  :next_node: :price_of_vehicle?
+  :outcome_node: false
+- :current_node: :price_of_vehicle?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '35000'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '35000.0'
+  - '35'
   :next_node: :drive_business_miles_motorcycle?
   :outcome_node: false
 - :current_node: :drive_business_miles_motorcycle?
@@ -2237,6 +5040,8 @@
   - motorbike,using_home_for_business
   - new
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   :next_node: :hours_work_home?
   :outcome_node: false
@@ -2245,6 +5050,8 @@
   - motorbike,using_home_for_business
   - new
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '1'
   :next_node: :you_cant_use_result
@@ -2254,6 +5061,8 @@
   - motorbike,using_home_for_business
   - new
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '26'
   :next_node: :current_claim_amount_home?
@@ -2263,6 +5072,8 @@
   - motorbike,using_home_for_business
   - new
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '26'
   - '1234'
@@ -2273,6 +5084,8 @@
   - motorbike,using_home_for_business
   - new
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '52'
   :next_node: :current_claim_amount_home?
@@ -2282,6 +5095,8 @@
   - motorbike,using_home_for_business
   - new
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '52'
   - '1234'
@@ -2292,6 +5107,8 @@
   - motorbike,using_home_for_business
   - new
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '101'
   :next_node: :current_claim_amount_home?
@@ -2301,6 +5118,313 @@
   - motorbike,using_home_for_business
   - new
   - '2345.0'
+  - '35000.0'
+  - '35.0'
+  - '7500'
+  - '101'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '35000.0'
+  - '70'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  :next_node: :hours_work_home?
+  :outcome_node: false
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '1'
+  :next_node: :you_cant_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '26'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '26'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '52'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '52'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '101'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '101'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :price_of_vehicle?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '250001'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '35'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  :next_node: :hours_work_home?
+  :outcome_node: false
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '1'
+  :next_node: :you_cant_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '26'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '26'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '52'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '52'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '101'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '101'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '70'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  :next_node: :hours_work_home?
+  :outcome_node: false
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '1'
+  :next_node: :you_cant_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '26'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '26'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '52'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '52'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '101'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - new
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
   - '7500'
   - '101'
   - '1234'
@@ -2317,6 +5441,23 @@
   - motorbike,using_home_for_business
   - used
   - '2345'
+  :next_node: :price_of_vehicle?
+  :outcome_node: false
+- :current_node: :price_of_vehicle?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '35000'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '35000.0'
+  - '35'
   :next_node: :drive_business_miles_motorcycle?
   :outcome_node: false
 - :current_node: :drive_business_miles_motorcycle?
@@ -2324,6 +5465,8 @@
   - motorbike,using_home_for_business
   - used
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   :next_node: :hours_work_home?
   :outcome_node: false
@@ -2332,6 +5475,8 @@
   - motorbike,using_home_for_business
   - used
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '1'
   :next_node: :you_cant_use_result
@@ -2341,6 +5486,8 @@
   - motorbike,using_home_for_business
   - used
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '26'
   :next_node: :current_claim_amount_home?
@@ -2350,6 +5497,8 @@
   - motorbike,using_home_for_business
   - used
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '26'
   - '1234'
@@ -2360,6 +5509,8 @@
   - motorbike,using_home_for_business
   - used
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '52'
   :next_node: :current_claim_amount_home?
@@ -2369,6 +5520,8 @@
   - motorbike,using_home_for_business
   - used
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '52'
   - '1234'
@@ -2379,6 +5532,8 @@
   - motorbike,using_home_for_business
   - used
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '101'
   :next_node: :current_claim_amount_home?
@@ -2388,6 +5543,313 @@
   - motorbike,using_home_for_business
   - used
   - '2345.0'
+  - '35000.0'
+  - '35.0'
+  - '7500'
+  - '101'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '35000.0'
+  - '70'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  :next_node: :hours_work_home?
+  :outcome_node: false
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '1'
+  :next_node: :you_cant_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '26'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '26'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '52'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '52'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '101'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '101'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :price_of_vehicle?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '250001'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '35'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  :next_node: :hours_work_home?
+  :outcome_node: false
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '1'
+  :next_node: :you_cant_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '26'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '26'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '52'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '52'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '101'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '101'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '70'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  :next_node: :hours_work_home?
+  :outcome_node: false
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '1'
+  :next_node: :you_cant_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '26'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '26'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '52'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '52'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '101'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - used
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
   - '7500'
   - '101'
   - '1234'
@@ -2478,6 +5940,15 @@
   - 'no'
   - simplified_expenses_claimed
   - '2345'
+  :next_node: :drive_business_miles_car_van?
+  :outcome_node: false
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10000'
   :next_node: :drive_business_miles_motorcycle?
   :outcome_node: false
 - :current_node: :drive_business_miles_motorcycle?
@@ -2486,6 +5957,7 @@
   - 'no'
   - simplified_expenses_claimed
   - '2345.0'
+  - '10000'
   - '7500'
   :next_node: :hours_work_home?
   :outcome_node: false
@@ -2495,6 +5967,7 @@
   - 'no'
   - simplified_expenses_claimed
   - '2345.0'
+  - '10000'
   - '7500'
   - '1'
   :next_node: :you_cant_use_result
@@ -2505,6 +5978,7 @@
   - 'no'
   - simplified_expenses_claimed
   - '2345.0'
+  - '10000'
   - '7500'
   - '26'
   :next_node: :current_claim_amount_home?
@@ -2515,6 +5989,7 @@
   - 'no'
   - simplified_expenses_claimed
   - '2345.0'
+  - '10000'
   - '7500'
   - '26'
   - '1234'
@@ -2526,6 +6001,7 @@
   - 'no'
   - simplified_expenses_claimed
   - '2345.0'
+  - '10000'
   - '7500'
   - '52'
   :next_node: :current_claim_amount_home?
@@ -2536,6 +6012,7 @@
   - 'no'
   - simplified_expenses_claimed
   - '2345.0'
+  - '10000'
   - '7500'
   - '52'
   - '1234'
@@ -2547,6 +6024,7 @@
   - 'no'
   - simplified_expenses_claimed
   - '2345.0'
+  - '10000'
   - '7500'
   - '101'
   :next_node: :current_claim_amount_home?
@@ -2557,6 +6035,106 @@
   - 'no'
   - simplified_expenses_claimed
   - '2345.0'
+  - '10000'
+  - '7500'
+  - '101'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :drive_business_miles_car_van?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  - '7500'
+  :next_node: :hours_work_home?
+  :outcome_node: false
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  - '7500'
+  - '1'
+  :next_node: :you_cant_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  - '7500'
+  - '26'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  - '7500'
+  - '26'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  - '7500'
+  - '52'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  - '7500'
+  - '52'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
+  - '7500'
+  - '101'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - simplified_expenses_claimed
+  - '2345.0'
+  - '10001'
   - '7500'
   - '101'
   - '1234'
@@ -2575,6 +6153,25 @@
   - 'no'
   - 'no'
   - '2345'
+  :next_node: :price_of_vehicle?
+  :outcome_node: false
+- :current_node: :price_of_vehicle?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000.0'
+  - '35'
   :next_node: :drive_business_miles_motorcycle?
   :outcome_node: false
 - :current_node: :drive_business_miles_motorcycle?
@@ -2583,6 +6180,8 @@
   - 'no'
   - 'no'
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   :next_node: :hours_work_home?
   :outcome_node: false
@@ -2592,6 +6191,8 @@
   - 'no'
   - 'no'
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '1'
   :next_node: :you_cant_use_result
@@ -2602,6 +6203,8 @@
   - 'no'
   - 'no'
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '26'
   :next_node: :current_claim_amount_home?
@@ -2612,6 +6215,8 @@
   - 'no'
   - 'no'
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '26'
   - '1234'
@@ -2623,6 +6228,8 @@
   - 'no'
   - 'no'
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '52'
   :next_node: :current_claim_amount_home?
@@ -2633,6 +6240,8 @@
   - 'no'
   - 'no'
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '52'
   - '1234'
@@ -2644,6 +6253,8 @@
   - 'no'
   - 'no'
   - '2345.0'
+  - '35000.0'
+  - '35.0'
   - '7500'
   - '101'
   :next_node: :current_claim_amount_home?
@@ -2654,6 +6265,341 @@
   - 'no'
   - 'no'
   - '2345.0'
+  - '35000.0'
+  - '35.0'
+  - '7500'
+  - '101'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000.0'
+  - '70'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  :next_node: :hours_work_home?
+  :outcome_node: false
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '1'
+  :next_node: :you_cant_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '26'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '26'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '52'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '52'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '101'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '35000.0'
+  - '70.0'
+  - '7500'
+  - '101'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :price_of_vehicle?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001'
+  :next_node: :vehicle_business_use_time?
+  :outcome_node: false
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '35'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  :next_node: :hours_work_home?
+  :outcome_node: false
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '1'
+  :next_node: :you_cant_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '26'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '26'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '52'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '52'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '101'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '35.0'
+  - '7500'
+  - '101'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :vehicle_business_use_time?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '70'
+  :next_node: :drive_business_miles_motorcycle?
+  :outcome_node: false
+- :current_node: :drive_business_miles_motorcycle?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  :next_node: :hours_work_home?
+  :outcome_node: false
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '1'
+  :next_node: :you_cant_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '26'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '26'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '52'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '52'
+  - '1234'
+  :next_node: :you_can_use_result
+  :outcome_node: true
+- :current_node: :hours_work_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
+  - '7500'
+  - '101'
+  :next_node: :current_claim_amount_home?
+  :outcome_node: false
+- :current_node: :current_claim_amount_home?
+  :responses:
+  - motorbike,using_home_for_business
+  - 'no'
+  - 'no'
+  - '2345.0'
+  - '250001.0'
+  - '70.0'
   - '7500'
   - '101'
   - '1234'
