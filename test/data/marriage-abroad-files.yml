@@ -91,11 +91,11 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/third_country/
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/third_country/partner_local/_same_sex.govspeak.erb: dfea885fdc6c00552e97523e93d8fa98
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/third_country/partner_other/_opposite_sex.govspeak.erb: 9b1716e8bc89eea27bf93058595db0f2
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/third_country/partner_other/_same_sex.govspeak.erb: dfea885fdc6c00552e97523e93d8fa98
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_british/_opposite_sex.govspeak.erb: 161f21b5175a5eaa8d27e71610a41391
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_british/_same_sex.govspeak.erb: 50bcd56c51cc584cab9d77e23b709c54
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_local/_opposite_sex.govspeak.erb: 61c549bc968b52b7b1986ff945647ce3
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_local/_same_sex.govspeak.erb: b6303541e5f227e05ca5799f54f32b30
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_other/_opposite_sex.govspeak.erb: 61c549bc968b52b7b1986ff945647ce3
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_british/_opposite_sex.govspeak.erb: af32290f4865b12afb36a7020ded6375
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_british/_same_sex.govspeak.erb: 2bce429f1efa0fa84c2b658205e06910
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_local/_opposite_sex.govspeak.erb: 489bb17cb359c5cb91d247a1faafe263
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_local/_same_sex.govspeak.erb: 18e3dac617fc7b8597544000a1742fb8
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_other/_opposite_sex.govspeak.erb: 489bb17cb359c5cb91d247a1faafe263
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_other/_same_sex.govspeak.erb: a5315493943bc1940b64f30441e4accb
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/ireland/_opposite_sex.govspeak.erb: f0abd764c71f1af9f3b0a625bfb7e185
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/ireland/_same_sex.govspeak.erb: 8b85a31d089af46889eb665136403ce0
@@ -312,7 +312,7 @@ lib/smart_answer_flows/marriage-abroad/questions/partner_opposite_or_same_sex.go
 lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationality.govspeak.erb: 80e04f36c75c232bede1a244d621471e
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/data/marriage_abroad_services.yml: 73b32d5334b421ea58959c602092cc9d
-lib/smart_answer/calculators/marriage_abroad_calculator.rb: 1e6381658b51d91089f1ff3242a68aad
+lib/smart_answer/calculators/marriage_abroad_calculator.rb: b8d01d3009da9bcf77a4abed1d09e0c4
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 0bc67c4469fe692a4fa53c9b461821bf
 lib/smart_answer/calculators/marriage_abroad_data_query.rb: 14f300e3e0bd42304d0f4c888780b90b
 lib/smart_answer/calculators/country_name_formatter.rb: 583df7103672f581bf5510732c1b2be1
