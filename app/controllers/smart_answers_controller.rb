@@ -1,11 +1,14 @@
 class SmartAnswersController < ApplicationController
   include Slimmer::GovukComponents
   include Slimmer::Headers
+  include EducationNavigationABTestable
 
   before_action :find_smart_answer, except: %w(index)
   before_action :redirect_response_to_canonical_url, only: %w{show}
   before_action :set_header_footer_only, only: %w{visualise}
   before_filter :setup_navigation_helpers_and_content_item, except: %w(index)
+
+  helper_method :breadcrumbs
 
   rescue_from SmartAnswer::FlowRegistry::NotFound, with: :error_404
   rescue_from SmartAnswer::InvalidNode, with: :error_404
@@ -122,5 +125,14 @@ private
   rescue GdsApi::HTTPNotFound, GdsApi::HTTPGone
     @navigation_helpers = nil
     @content_item = nil
+  end
+
+  def breadcrumbs
+    return {} if @navigation_helpers.nil?
+    if should_present_new_navigation_view?
+      @navigation_helpers.taxon_breadcrumbs
+    else
+      @navigation_helpers.breadcrumbs
+    end
   end
 end
