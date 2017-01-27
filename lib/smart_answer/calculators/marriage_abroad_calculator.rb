@@ -330,6 +330,7 @@ module SmartAnswer::Calculators
          hungary
          vietnam
          ireland
+         denmark
         ).include?(ceremony_country)
     end
 
