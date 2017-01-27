@@ -329,6 +329,7 @@ module SmartAnswer::Calculators
          sweden
          vietnam
          ireland
+         denmark
         ).include?(ceremony_country)
     end
 
