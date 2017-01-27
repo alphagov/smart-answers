@@ -863,7 +863,7 @@ module SmartAnswer
       context '#cni_posted_after_14_days?' do
         should 'return true if ceremony country will post notice after 14 days' do
           calculator = MarriageAbroadCalculator.new
-          calculator.ceremony_country = 'jordan'
+          calculator.ceremony_country = 'qatar'
 
           assert calculator.cni_posted_after_14_days?
         end
