@@ -290,6 +290,10 @@ module SmartAnswer
           calculator.capital_allowance_claimed?
         end
 
+        precalculate :simplified_expenses_claimed do
+          calculator.simplified_expenses_claimed?
+        end
+
         precalculate :simple_vehicle_costs do
           calculator.simple_vehicle_costs_car_van
         end

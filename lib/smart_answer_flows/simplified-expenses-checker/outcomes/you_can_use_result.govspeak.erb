@@ -1,4 +1,22 @@
 <% content_for :body do %>
+  <% if capital_allowance_claimed %>
+    ##For your vehicle
+
+    You can’t use simplified expenses for your vehicle because you’ve already claimed capital allowances for it.
+
+    You have to continue to calculate your vehicle expenses by working out the actual costs.
+
+    ##For your other business expenses
+
+  <% elsif simplified_expenses_claimed %>
+    ##For your vehicle
+    Based on your answers you would probably be better off [using simplified expenses/working out your expenses based on the actual costs].
+
+    You can’t claim capital allowances for your vehicle because you’ve already claimed simplified expenses for it.
+
+    ##For your other business expenses
+
+  <% end %>
   Based on your answers, the expenses you can claim and deduct are listed below. There are 2 sets of results comparing simplified expenses and calculating expenses by working out the actual costs.
 
   ##Simplified expenses
