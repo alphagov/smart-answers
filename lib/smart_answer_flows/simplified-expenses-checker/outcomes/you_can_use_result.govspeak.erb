@@ -23,11 +23,15 @@
 
   You don’t have to use the same method for different types of expenses. For example, you can use simplified expenses for vehicle costs but work out the actual costs for working from home.
 
-  ##Simplified expenses
+  ##If you use simplified expenses
+
+  You could claim:
 
   <% unless capital_allowance_claimed or simple_vehicle_costs.to_f == 0.0 %>
-    - <%= format_money(simple_vehicle_costs) %> to claim for cars and vans
+    - <%= format_money(simple_vehicle_costs) %> for your car or van
   <% end %>
+
+  ^This is an estimate. You should do your own calculations for your tax return.^
 
   <% unless simple_motorcycle_costs.to_f == 0.0 %>
     - <%= format_money(simple_motorcycle_costs) %> to claim for motorcycles
@@ -59,32 +63,50 @@
 
   ###What to do for your tax return
 
-  Use the simplified expenses flat rates to work out your business expenses.
+  Use the [simplified expenses flat rates](/simpler-income-tax-simplified-expenses/vehicles-) to work out your business expenses.
 
-  Multiply the flat rates with the [miles you drove](/simpler-income-tax-simplified-expenses/vehicles-), [hours you work from home](/simpler-income-tax-simplified-expenses/business-use-of-your-home) or the [number of people who live on your business premises](/simpler-income-tax-simplified-expenses/private-use-of-business-premises).
+  Multiply the flat rates with either:
 
-  [Self Assessment tax returns](/self-assessment-tax-returns)
+  [the miles you drove](/simpler-income-tax-simplified-expenses/vehicles-)
+  [the hours you worked from home](/simpler-income-tax-simplified-expenses/working-from-home)
+  [the number of people who lived on your business premises](/simpler-income-tax-simplified-expenses/living-at-your-business-premises)
 
-  ##Calculating expenses by working out the actual costs
+  ##If you work out the actual costs
+
+  You could claim:
 
   <% unless vehicle_costs.to_f == 0.0 %>
-    - <%= format_money(vehicle_costs) %> for cars, vans and motorcycles
+    - <%= format_money(vehicle_costs.to_f) %> for the running costs of your car, van or motorcycle
   <% end %>
 
-  <% unless green_vehicle_write_off.to_f == 0.0 %>
-    - <%= format_money(green_vehicle_write_off) %> for cars, vans and motorcycles
-  <% end %>
-
-  <% unless dirty_vehicle_write_off.to_f == 0.0 %>
-    - <%= format_money(dirty_vehicle_write_off) %> for cars, vans and motorcycles
-  <% end %>
-
-  <% unless filthy_vehicle_write_off.to_f == 0.0 %>
-    - <%= format_money(filthy_vehicle_write_off) %> for cars, vans and motorcycles
+  <% unless capital_allowances_estimate.to_f == 0.0 %>
+    - <%= format_money(capital_allowances_estimate.to_f) %> of [capital allowances](/capital-allowances) for your car, van or motorcycle
   <% end %>
 
   <% unless home_costs.to_f == 0.0 %>
     - <%= format_money(home_costs) %> for working from home
+  <% end %>
+
+  <% unless simple_business_costs.to_f == 0.0 %>
+    - <%= format_money(business_premises_cost) %> to deduct from your total business costs - you then claim the balance
+  <% end %>
+
+  <% unless green_vehicle_write_off.to_f == 0.0 %>
+    <% unless expenses_or_allowances == "no" %>
+      - <%= format_money(green_vehicle_write_off) %> for cars, vans and motorcycles
+    <% end %>
+  <% end %>
+
+  <% unless dirty_vehicle_write_off.to_f == 0.0 %>
+    <% unless expenses_or_allowances == "no" %>
+      - <%= format_money(dirty_vehicle_write_off) %> for cars, vans and motorcycles
+    <% end %>
+  <% end %>
+
+  <% unless filthy_vehicle_write_off.to_f == 0.0 %>
+    <% unless expenses_or_allowances == "no" %>
+      - <%= format_money(filthy_vehicle_write_off) %> for cars, vans and motorcycles
+    <% end %>
   <% end %>
 
   <% if (list_of_expenses - ['live_on_business_premises']).empty? %>
@@ -93,19 +115,17 @@
     **Total to claim per year:** <%= format_money(current_scheme_costs) %>
   <% end %>
 
-  <% unless simple_business_costs.to_f == 0.0 %>
-    - <%= format_money(business_premises_cost) %> to deduct from your total business costs - you then claim the balance
-  <% end %>
-
   <% if is_over_limit %>
     The upper limit for Capital Allowance write offs for vans is £250,000.
   <% end %>
 
+  ^This is an estimate. You should do your own calculations for your tax return.^
+
   ###What to do for your tax return
 
-  You’ll have to work out the split between private and business use for vehicles, working from home or business premises use.
+  You have to work out the split between private and business use for vehicles, working from home or business premises use.
 
-  You’ll then have to add up your expenses for your tax return and [keep records](/self-employed-records) for every expense you want to claim, eg copies of your bills.
+  You then have to add up your expenses for your tax return and [keep records](/self-employed-records) for every expense you want to claim, eg copies of your bills.
 
   [Self Assessment tax returns](/self-assessment-tax-returns)
 

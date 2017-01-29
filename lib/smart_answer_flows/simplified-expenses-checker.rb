@@ -422,6 +422,13 @@ module SmartAnswer
           simple_business_costs
         end
 
+        precalculate :vehicle_write_offs do
+          green = green_vehicle_write_off.to_f || 0
+          dirty = dirty_vehicle_write_off.to_f || 0
+          filthy = filthy_vehicle_write_off.to_f || 0
+          green + dirty + filthy
+        end
+
         precalculate :is_over_limit do
           is_over_limit
         end
@@ -436,11 +443,18 @@ module SmartAnswer
 
         precalculate :current_scheme_costs do
           vehicle = vehicle_costs.to_f || 0
-          green = green_vehicle_write_off.to_f || 0
-          dirty = dirty_vehicle_write_off.to_f || 0
-          filthy = filthy_vehicle_write_off.to_f || 0
           home = home_costs.to_f || 0
-          Money.new(vehicle + green + dirty + filthy + home)
+
+          Money.new(vehicle + vehicle_write_offs + home)
+        end
+
+        precalculate :capital_allowances_estimate do
+          if expenses_or_allowances == "no"
+            Money.new(vehicle_write_offs)
+          else
+            business = simple_business_costs.to_f || 0
+            Money.new(current_scheme_costs + business)
+          end
         end
 
         precalculate :can_use_simple do
