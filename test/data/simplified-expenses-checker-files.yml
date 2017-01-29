@@ -16,7 +16,7 @@ lib/smart_answer_flows/simplified-expenses-checker/questions/hours_work_home.gov
 lib/smart_answer_flows/simplified-expenses-checker/questions/how_much_expect_to_claim.govspeak.erb: 619162f97b2e5b00bdcf412fc0179a9a
 lib/smart_answer_flows/simplified-expenses-checker/questions/is_vehicle_green.govspeak.erb: 8a4b9d3899c3a2da60f815ef3e9084d0
 lib/smart_answer_flows/simplified-expenses-checker/questions/people_live_on_premises.govspeak.erb: 7f2526953dd971df560a129336734d86
-lib/smart_answer_flows/simplified-expenses-checker/questions/price_of_vehicle.govspeak.erb: ce043c19141d0e044a0ec1edb042591b
+lib/smart_answer_flows/simplified-expenses-checker/questions/price_of_vehicle.govspeak.erb: 6bd3b953125705033aa4e740dfd89ab9
 lib/smart_answer_flows/simplified-expenses-checker/questions/type_of_expense.govspeak.erb: 6accfbd7201311005baa73c335999688
 lib/smart_answer_flows/simplified-expenses-checker/questions/vehicle_business_use_time.govspeak.erb: e864e4c5c4cbb4ec05a0e4fe20746c62
 lib/smart_answer_flows/simplified-expenses-checker/questions/vehicle_expense.govspeak.erb: beb0a689c3bb82ad1bb43c3e4f94c81e
