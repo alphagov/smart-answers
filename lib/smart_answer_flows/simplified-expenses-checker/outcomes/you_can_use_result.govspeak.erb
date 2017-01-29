@@ -17,7 +17,9 @@
     ##For your other business expenses
 
   <% end %>
-  Based on your answers, the expenses you can claim and deduct are listed below. There are 2 sets of results comparing simplified expenses and calculating expenses by working out the actual costs.
+  Based on your answers you would probably be better off <% if simple_total > current_scheme_costs %>using simplified expenses<% else %>working out your expenses based on the actual costs<% end %>.
+
+  These 2 sets of results show what you can claim using each method.
 
   ##Simplified expenses
 
