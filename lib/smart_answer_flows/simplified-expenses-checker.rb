@@ -334,6 +334,17 @@ module SmartAnswer
           calculator.simple_home_costs
         end
 
+        precalculate :expenses_or_allowances do
+          calculator.selected_allowance
+        end
+
+        precalculate :vehicle_write_offs do
+          green = green_vehicle_write_off.to_f
+          dirty = dirty_vehicle_write_off.to_f
+          filthy = filthy_vehicle_write_off.to_f
+          green + dirty + filthy
+        end
+
         precalculate :simple_total do
           vehicle = simple_vehicle_costs.to_f
           motorcycle = simple_motorcycle_costs.to_f
@@ -344,11 +355,18 @@ module SmartAnswer
 
         precalculate :current_scheme_costs do
           vehicle = vehicle_costs.to_f
-          green = green_vehicle_write_off.to_f
-          dirty = dirty_vehicle_write_off.to_f
-          filthy = filthy_vehicle_write_off.to_f
           home = home_costs.to_f
-          Money.new(vehicle + green + dirty + filthy + home)
+
+          Money.new(vehicle + vehicle_write_offs + home)
+        end
+
+        precalculate :capital_allowances_estimate do
+          if expenses_or_allowances == "no"
+            Money.new(vehicle_write_offs)
+          else
+            business = simple_business_costs.to_f
+            Money.new(current_scheme_costs + business)
+          end
         end
 
         precalculate :can_use_simple do
