@@ -186,11 +186,9 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     end
 
     context "simplified expense" do
-      should "take you to you_can_use_result outcome" do
+      should "take you to businesses_that_have_claimed_se outcome" do
         add_response "simplified_expenses_claimed"
-        add_response "1000" #how_much_expect_to_claim
-        add_response "2000" #drive_business_miles_car_van
-        assert_current_node :you_can_use_result
+        assert_current_node :businesses_that_have_claimed_se
       end
     end
 
@@ -222,11 +220,9 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     end
 
     context "simplified expense" do
-      should "take you to you_can_use_result outcome" do
+      should "take you to businesses_that_have_claimed_se outcome" do
         add_response "simplified_expenses_claimed"
-        add_response "1000" #how_much_expect_to_claim
-        add_response "2000" #drive_business_miles_car_van
-        assert_current_node :you_can_use_result
+        assert_current_node :businesses_that_have_claimed_se
       end
     end
 
@@ -261,11 +257,9 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     end
 
     context "simplified expense" do
-      should "take you to you_can_use_result outcome" do
+      should "take you to businesses_that_have_claimed_se outcome" do
         add_response "simplified_expenses_claimed"
-        add_response "1000" #how_much_expect_to_claim
-        add_response "2000" #drive_business_miles_car_van
-        assert_current_node :you_can_use_result
+        assert_current_node :businesses_that_have_claimed_se
       end
     end
 

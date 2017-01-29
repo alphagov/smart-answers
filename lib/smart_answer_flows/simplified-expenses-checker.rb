@@ -140,6 +140,9 @@ module SmartAnswer
             end
           elsif response == "no" && expense_type == "car"
             question :car_new_used_for_business?
+          elsif response == "simplified_expenses_claimed" &&
+              (expense_type == "car" || expense_type == "van" || expense_type == "motorbike")
+            outcome :businesses_that_have_claimed_se
           else
             question :how_much_expect_to_claim?
           end
@@ -380,6 +383,7 @@ module SmartAnswer
         end
       end
 
+      outcome :businesses_that_have_claimed_se
       outcome :you_cant_use_result
       outcome :you_can_use_result do
         precalculate :capital_allowance_claimed do
