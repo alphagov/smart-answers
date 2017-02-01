@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/calculate-statutory-sick-pay.rb: b01febd3a3febdcbba3c908ffbe5a348
+lib/smart_answer_flows/calculate-statutory-sick-pay.rb: ea777ffd72dbbb32034ecfb1639d9f4d
 test/data/calculate-statutory-sick-pay-questions-and-responses.yml: dfd8baf65a8c26430cf17958e8908202
 test/data/calculate-statutory-sick-pay-responses-and-expected-results.yml: b42519fbb030e7eaf0912d1de0b8ff47
 lib/smart_answer_flows/calculate-statutory-sick-pay/calculate_statutory_sick_pay.govspeak.erb: f91dc1d321c164a06271889100875600
@@ -28,5 +28,5 @@ lib/smart_answer_flows/calculate-statutory-sick-pay/questions/pay_amount_if_not_
 lib/smart_answer_flows/calculate-statutory-sick-pay/questions/total_earnings_before_sick_period.govspeak.erb: 46ce81328d55d2bef88bb1047cf047cd
 lib/smart_answer_flows/calculate-statutory-sick-pay/questions/total_employee_earnings.govspeak.erb: 77831bed05434968d38648a40d3ce6e9
 lib/smart_answer_flows/calculate-statutory-sick-pay/questions/usual_work_days.govspeak.erb: 5570b649de33ac95bf274bcae70895a9
-lib/smart_answer/calculators/statutory_sick_pay_calculator.rb: 48289bfc2406d317c688d9e0206c31dd
+lib/smart_answer/calculators/statutory_sick_pay_calculator.rb: d76164963c614bca260340320f8fe622
 lib/data/rates/statutory_sick_pay.yml: b275311f2ec89fc707e6b9cfefec1179
