@@ -332,6 +332,7 @@ module SmartAnswer::Calculators
          ireland
          denmark
          china
+         jordan
         ).include?(ceremony_country)
     end
 

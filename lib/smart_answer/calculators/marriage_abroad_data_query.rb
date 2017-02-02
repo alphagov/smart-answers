@@ -14,7 +14,7 @@ module SmartAnswer::Calculators
 
     DUTCH_CARIBBEAN_ISLANDS = %w(aruba bonaire-st-eustatius-saba curacao st-maarten)
 
-    OS_CONSULAR_CNI_COUNTRIES = %w(albania algeria angola armenia austria azerbaijan bahrain belarus bolivia bosnia-and-herzegovina brazil bulgaria chile croatia cuba democratic-republic-of-the-congo denmark dominican-republic el-salvador estonia ethiopia georgia germany greece guatemala honduras iceland japan jordan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro netherlands nepal oman panama poland romania russia serbia slovenia spain sudan tajikistan tunisia turkmenistan uzbekistan venezuela)
+    OS_CONSULAR_CNI_COUNTRIES = %w(albania algeria angola armenia austria azerbaijan bahrain belarus bolivia bosnia-and-herzegovina brazil bulgaria chile croatia cuba democratic-republic-of-the-congo denmark dominican-republic el-salvador estonia ethiopia georgia germany greece guatemala honduras hungary iceland japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro netherlands nepal oman panama poland romania russia serbia slovenia spain sudan tajikistan tunisia turkmenistan uzbekistan venezuela)
 
     OS_NO_CONSULAR_CNI_COUNTRIES = %w(burundi democratic-republic-of-the-congo mexico saint-barthelemy st-martin)
 
@@ -48,7 +48,7 @@ module SmartAnswer::Calculators
 
     SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B = %w(azerbaijan chile dominican-republic kosovo)
 
-    OS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES = %w(jordan oman qatar yemen)
+    OS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES = %w(oman qatar yemen)
 
     SS_UNKNOWN_NO_EMBASSIES = %w(st-martin saint-barthelemy)
 
@@ -58,7 +58,7 @@ module SmartAnswer::Calculators
 
     NO_DOCUMENT_DOWNLOAD_LINK_IF_OS_RESIDENT_OF_UK_COUNTRIES = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua russia serbia tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
 
-    CNI_POSTED_AFTER_14_DAYS_COUNTRIES = %w(jordan qatar saudi-arabia united-arab-emirates yemen)
+    CNI_POSTED_AFTER_14_DAYS_COUNTRIES = %w(qatar saudi-arabia united-arab-emirates yemen)
 
     def os_21_days_residency_required_countries?(country_slug)
       OS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES.include?(country_slug)
