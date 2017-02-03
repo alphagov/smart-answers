@@ -96,7 +96,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/china/uk/partner_local
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/china/uk/partner_local/_same_sex.govspeak.erb: 8deb32bf8ae92cbc71603659e3001a7b
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/china/uk/partner_other/_opposite_sex.govspeak.erb: eecb742ec0c1f06f204aeb85b0668b16
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/china/uk/partner_other/_same_sex.govspeak.erb: 8deb32bf8ae92cbc71603659e3001a7b
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/_title.html.erb: f3f69700147ffd739c4d3dc86f2ec22b
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/_title.govspeak.erb: f3f69700147ffd739c4d3dc86f2ec22b
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/ceremony_country/partner_british/_opposite_sex.govspeak.erb: 049f3acaaad23e72db426b87dc6a3f62
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/ceremony_country/partner_british/_same_sex.govspeak.erb: 0cbbef61d1d7410a95552a46ed9ef410
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/ceremony_country/partner_local/_opposite_sex.govspeak.erb: ca2d662ba835e5a4cd0ce7f8cfe25487
@@ -115,7 +115,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_loc
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_local/_same_sex.govspeak.erb: 18e3dac617fc7b8597544000a1742fb8
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_other/_opposite_sex.govspeak.erb: 489bb17cb359c5cb91d247a1faafe263
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_other/_same_sex.govspeak.erb: a5315493943bc1940b64f30441e4accb
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/_title.html.erb: 06ea7117275c8ab9ae99421f9877e3d1
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/_title.govspeak.erb: 06ea7117275c8ab9ae99421f9877e3d1
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/ceremony_country/partner_british/_opposite_sex.govspeak.erb: 6d62235d8858e92063837997f27ef666
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/ceremony_country/partner_british/_same_sex.govspeak.erb: c3fc43c96008806c77b5fba56b8c3912
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/ceremony_country/partner_local/_opposite_sex.govspeak.erb: 6fc41265b5ff4ea1b68f3912af1279a7
@@ -136,10 +136,10 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/uk/partner_oth
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/uk/partner_other/_same_sex.govspeak.erb: ff190c3f37e6a09e3abdd9cac4ae6946
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/ireland/_opposite_sex.govspeak.erb: f0abd764c71f1af9f3b0a625bfb7e185
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/ireland/_same_sex.govspeak.erb: 8b85a31d089af46889eb665136403ce0
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/ireland/_title.html.erb: c7f3e2d5e41aa82806b1aedbe69b33b8
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_opposite_sex.html.erb: da21764e077cb1233ef10c29aa3b89f0
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_same_sex.html.erb: c0789e949180c7f053dde4a13ddfdbf3
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_title.html.erb: 9ed9b141d5d5418375ec81e96fe67ca7
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/ireland/_title.govspeak.erb: c7f3e2d5e41aa82806b1aedbe69b33b8
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_opposite_sex.govspeak.erb: da21764e077cb1233ef10c29aa3b89f0
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_same_sex.govspeak.erb: c0789e949180c7f053dde4a13ddfdbf3
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_title.govspeak.erb: 9ed9b141d5d5418375ec81e96fe67ca7
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/jordan/_title.govspeak.erb: 244778b903869fce5ce20769b189ad23
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/jordan/ceremony_country/partner_british/_opposite_sex.govspeak.erb: 02073052c54193c07a757b62989a9f5e
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/jordan/ceremony_country/partner_british/_same_sex.govspeak.erb: 84ad27e2cd66595dcbf54efbc1ef10f1
