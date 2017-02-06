@@ -130,19 +130,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
       end
     end
 
-    context "format=json" do
-      should "render content without layout" do
-        get :show, id: 'smart-answers-controller-sample', started: 'y', responses: "no", format: "json"
-        data = JSON.parse(response.body)
-        assert_equal '/smart-answers-controller-sample/y/no', data['url']
-        doc = Nokogiri::HTML(data['html_fragment'])
-        assert_match(/Smart answers controller sample/, doc.css('h1').first.to_s)
-        assert_equal 0, doc.css('head').size, "Should not have layout"
-        assert_equal '/smart-answers-controller-sample/y/no', doc.css('form').first.attributes['action'].to_s
-        assert_equal 'Do you like jam?', data['title']
-      end
-    end
-
     context "format=txt" do
       should "render govspeak text for outcome node" do
         document = stub('Govspeak::Document', to_html: 'html-output')
