@@ -4255,7 +4255,7 @@
   :outcome_node: true
 - :current_node: :type_of_expense?
   :responses:
-  - none
+  - 'no'
   :next_node: :you_cant_use_result
   :outcome_node: true
 - :current_node: :type_of_expense?

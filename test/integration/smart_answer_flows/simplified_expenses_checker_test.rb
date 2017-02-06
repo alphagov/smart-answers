@@ -13,7 +13,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
   context "you can't use simplified expenses result (Q1, Q2, result 1)" do
     context "none of these expense" do
       setup do
-        add_response ""
+        add_response "no"
       end
 
       should "take you to result 1 - you can't use" do
@@ -22,7 +22,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     end
     context "none of these expenses" do
       setup do
-        add_response ""
+        add_response "no"
       end
 
       should "take you to result 1 - you can't use" do

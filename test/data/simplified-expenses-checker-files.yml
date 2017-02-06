@@ -1,7 +1,7 @@
 ---
-lib/smart_answer_flows/simplified-expenses-checker.rb: 2c114fefb71ea4b1f79a6fec01db364b
-test/data/simplified-expenses-checker-questions-and-responses.yml: 3bcfa30c21c4c41719ee77d2f8c616b5
-test/data/simplified-expenses-checker-responses-and-expected-results.yml: 12d2743ff978ed1578278356332eea01
+lib/smart_answer_flows/simplified-expenses-checker.rb: f22c2e5c92c8212505a4ea6171065168
+test/data/simplified-expenses-checker-questions-and-responses.yml: e8b84a81c4c33d4805c33fd7157776bb
+test/data/simplified-expenses-checker-responses-and-expected-results.yml: 8068d7409fae47d1e45e0063c1bb85c3
 lib/smart_answer_flows/simplified-expenses-checker/outcomes/businesses_that_have_claimed_se.govspeak.erb: d97a55526496bd255794ab654fbf45b3
 lib/smart_answer_flows/simplified-expenses-checker/outcomes/capital_allowance_result.govspeak.erb: 54edd5196e5d95c30416ad330195a372
 lib/smart_answer_flows/simplified-expenses-checker/outcomes/you_can_use_result.govspeak.erb: ffee5b04326f4e2004963b42efbcf2ac
@@ -19,6 +19,6 @@ lib/smart_answer_flows/simplified-expenses-checker/questions/how_much_expect_to_
 lib/smart_answer_flows/simplified-expenses-checker/questions/is_vehicle_green.govspeak.erb: e222f369549fa6ca2830246b67883565
 lib/smart_answer_flows/simplified-expenses-checker/questions/people_live_on_premises.govspeak.erb: 7f2526953dd971df560a129336734d86
 lib/smart_answer_flows/simplified-expenses-checker/questions/price_of_vehicle.govspeak.erb: 6bd3b953125705033aa4e740dfd89ab9
-lib/smart_answer_flows/simplified-expenses-checker/questions/type_of_expense.govspeak.erb: 1f6925015b934d9b1edd52938ec51353
+lib/smart_answer_flows/simplified-expenses-checker/questions/type_of_expense.govspeak.erb: 8b5f35609037fd3138ce7e25077cdaf8
 lib/smart_answer_flows/simplified-expenses-checker/questions/vehicle_business_use_time.govspeak.erb: ca9e43553cc020f97b1d17cc4ac5a75e
 lib/smart_answer_flows/simplified-expenses-checker/simplified_expenses_checker.govspeak.erb: 469b5ac5800a682ec504106e808cadb8

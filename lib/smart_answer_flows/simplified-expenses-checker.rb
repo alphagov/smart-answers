@@ -13,6 +13,7 @@ module SmartAnswer
         option :motorbike
         option :using_home_for_business
         option :live_on_business_premises
+        option :no
 
         save_input_as :expense_type
 
@@ -65,11 +66,11 @@ module SmartAnswer
           nil
         end
         calculate :list_of_expenses do |response|
-          response == "none" ? [] : response.split(",")
+          response == "no" ? [] : response.split(",")
         end
 
         next_node do |response|
-          if response == "none"
+          if response == "no"
             outcome :you_cant_use_result
           else
             responses = response.split(",")
