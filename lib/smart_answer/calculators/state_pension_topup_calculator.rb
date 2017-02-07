@@ -36,6 +36,9 @@ module SmartAnswer::Calculators
         rows << { amount: lump_sum_amount(age, weekly_amount), age: age } if age >= retirement_age(gender)
         age += 1
       end
+      if (TOPUP_END_DATE.year == Date.today.year) && (dob.month < 5) && !birthday_after_topup_end?(dob, age)
+        rows << { amount: lump_sum_amount(age, weekly_amount), age: age } if age >= retirement_age(gender)
+      end
       rows
     end
 

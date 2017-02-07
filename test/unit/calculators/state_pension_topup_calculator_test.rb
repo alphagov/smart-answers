@@ -140,6 +140,36 @@ module SmartAnswer::Calculators
           assert_equal expectation, @calculator.lump_sum_and_age
         end
       end
+
+      context "end of scheme" do
+        setup do
+          Timecop.freeze('2017-02-01')
+          @calculator.gender = "male"
+        end
+
+        teardown do
+          Timecop.return
+        end
+
+        should "show two rates for final year of scheme when birthday before end of scheme" do
+          @calculator.date_of_birth = Date.parse('1950-04-05')
+          @calculator.weekly_amount = 1
+          expectation = [
+            { amount: 871.0, age: 66 },
+            { amount: 847.0, age: 67 },
+          ]
+          assert_equal expectation, @calculator.lump_sum_and_age
+        end
+
+        should "show one rate for final year of scheme when birthday in final month of scheme but after scheme ends" do
+          @calculator.date_of_birth = Date.parse('1950-04-07')
+          @calculator.weekly_amount = 1
+          expectation = [
+            { amount: 871.0, age: 66 },
+          ]
+          assert_equal expectation, @calculator.lump_sum_and_age
+        end
+      end
     end
 
     context 'too_young?' do
