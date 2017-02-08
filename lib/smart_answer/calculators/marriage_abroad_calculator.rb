@@ -323,16 +323,16 @@ module SmartAnswer::Calculators
 
     def has_outcome_per_path?
       %w(
+         china
+         denmark
+         hungary
          italy
+         ireland
+         jordan
          latvia
          mozambique
          sweden
-         hungary
          vietnam
-         ireland
-         denmark
-         china
-         jordan
         ).include?(ceremony_country)
     end
 
