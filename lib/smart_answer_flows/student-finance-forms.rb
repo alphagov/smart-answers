@@ -79,7 +79,6 @@ module SmartAnswer
 
           question_value.option "year-1718" if type_of_student == "uk-full-time"
           question_value.option "year-1617"
-          question_value.option "year-1516" if type_of_student == "eu-full-time"
         end
 
         save_input_as :what_year
@@ -168,13 +167,6 @@ module SmartAnswer
           case type_of_student
           when 'eu-full-time'
             case what_year
-            when 'year-1516'
-              case response
-              when 'continuing-student'
-                outcome :outcome_eu_ft_1516_continuing
-              when 'new-student'
-                outcome :outcome_eu_ft_1516_new
-              end
             when 'year-1617'
               case response
               when 'continuing-student'
@@ -277,8 +269,6 @@ module SmartAnswer
       outcome :outcome_dsa_1617
       outcome :outcome_dsa_1617_pt
       outcome :outcome_dsa_expenses
-      outcome :outcome_eu_ft_1516_continuing
-      outcome :outcome_eu_ft_1516_new
       outcome :outcome_eu_ft_1617_continuing
       outcome :outcome_eu_ft_1617_new
       outcome :outcome_eu_pt_1617_continuing
