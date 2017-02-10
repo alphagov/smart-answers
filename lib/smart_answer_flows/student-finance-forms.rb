@@ -73,13 +73,8 @@ module SmartAnswer
       end
 
       multiple_choice :what_year_full_time? do
-        question_value = self
-        precalculate :setup_options do
-          question_value.remove_options
-
-          question_value.option "year-1718"
-          question_value.option "year-1617"
-        end
+        option 'year-1718'
+        option 'year-1617'
 
         save_input_as :what_year
 
