@@ -77,7 +77,7 @@ module SmartAnswer
         precalculate :setup_options do
           question_value.remove_options
 
-          question_value.option "year-1718" if type_of_student == "uk-full-time"
+          question_value.option "year-1718"
           question_value.option "year-1617"
         end
 
@@ -167,6 +167,13 @@ module SmartAnswer
           case type_of_student
           when 'eu-full-time'
             case what_year
+            when 'year-1718'
+              case response
+              when 'continuing-student'
+                outcome :outcome_eu_ft_1718_continuing
+              when 'new-student'
+                outcome :outcome_eu_ft_1718_new
+              end
             when 'year-1617'
               case response
               when 'continuing-student'
@@ -269,6 +276,8 @@ module SmartAnswer
       outcome :outcome_dsa_1617
       outcome :outcome_dsa_1617_pt
       outcome :outcome_dsa_expenses
+      outcome :outcome_eu_ft_1718_continuing
+      outcome :outcome_eu_ft_1718_new
       outcome :outcome_eu_ft_1617_continuing
       outcome :outcome_eu_ft_1617_new
       outcome :outcome_eu_pt_1617_continuing

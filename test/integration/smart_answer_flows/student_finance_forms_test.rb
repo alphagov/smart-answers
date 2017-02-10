@@ -15,6 +15,24 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
   end
 
   context "for EU students" do
+    should "lead to outcome_eu_ft_1718_continuing" do
+      add_response 'eu-full-time'
+      assert_current_node :what_year_full_time?
+      add_response 'year-1718'
+      assert_current_node :continuing_student?
+      add_response 'continuing-student'
+      assert_current_node :outcome_eu_ft_1718_continuing
+    end
+
+    should "lead to outcome_eu_ft_1718_new" do
+      add_response 'eu-full-time'
+      assert_current_node :what_year_full_time?
+      add_response 'year-1718'
+      assert_current_node :continuing_student?
+      add_response 'new-student'
+      assert_current_node :outcome_eu_ft_1718_new
+    end
+
     should "lead to outcome_eu_ft_1617_continuing" do
       add_response 'eu-full-time'
       assert_current_node :what_year_full_time?
