@@ -6,6 +6,7 @@ require_relative 'smart_answers_controller_test_helper'
 class SmartAnswersControllerTest < ActionController::TestCase
   include FixtureFlowsHelper
   include SmartAnswersControllerTestHelper
+  include GovukAbTesting::MinitestHelpers
 
   def setup
     setup_fixture_flows
@@ -191,6 +192,56 @@ class SmartAnswersControllerTest < ActionController::TestCase
         get :show, id: 'smart-answers-controller-sample', started: 'y', responses: "no", debug: nil
 
         assert_select "pre.debug", false, "The page should not render debug information"
+      end
+    end
+
+    context "A/B testing" do
+      setup do
+        ENV['ENABLE_NEW_NAVIGATION'] = 'yes'
+
+        @controller.stubs(:content_item).returns(
+          "links" => {
+            "taxons" => 'foo',
+          },
+        )
+
+        @controller.stubs(
+          navigation_helpers: stub(
+            'navigation_helpers',
+            breadcrumbs: {
+              breadcrumbs: ['NormalBreadcrumb'],
+            },
+            taxon_breadcrumbs: {
+              breadcrumbs: ['TaxonBreadcrumb'],
+            },
+          )
+        )
+      end
+
+      teardown do
+        ENV['ENABLE_NEW_NAVIGATION'] = nil
+      end
+
+      should "show normal breadcrumbs by default" do
+        get :show, id: 'smart-answers-controller-sample'
+        assert_match(/NormalBreadcrumb/, response.body)
+        refute_match(/TaxonBreadcrumb/, response.body)
+      end
+
+      should "show normal breadcrumbs for the 'A' version" do
+        with_variant educationnavigation: "A" do
+          get :show, id: 'smart-answers-controller-sample'
+          assert_match(/NormalBreadcrumb/, response.body)
+          refute_match(/TaxonBreadcrumb/, response.body)
+        end
+      end
+
+      should "show taxon breadcrumbs for the 'B' version" do
+        with_variant educationnavigation: "B" do
+          get :show, id: 'smart-answers-controller-sample'
+          assert_match(/TaxonBreadcrumb/, response.body)
+          refute_match(/NormalBreadcrumb/, response.body)
+        end
       end
     end
   end
