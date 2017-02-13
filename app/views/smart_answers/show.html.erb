@@ -8,6 +8,7 @@
   <%= education_navigation_variant.analytics_meta_tag.html_safe %>
 <% end %>
 
+<%= render 'govuk_component/beta_label' if should_present_new_navigation_view? %>
 <%= render partial: 'govuk_component/breadcrumbs', locals: breadcrumbs %>
 
 <div class="grid-row">
