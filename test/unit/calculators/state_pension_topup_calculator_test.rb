@@ -169,6 +169,15 @@ module SmartAnswer::Calculators
           ]
           assert_equal expectation, @calculator.lump_sum_and_age
         end
+
+        should "show one rate when birthday is in the past (before today)" do
+          @calculator.date_of_birth = Date.parse('1950-01-31')
+          @calculator.weekly_amount = 1
+          expectation = [
+            { amount: 847.0, age: 67 },
+          ]
+          assert_equal expectation, @calculator.lump_sum_and_age
+        end
       end
     end
 
