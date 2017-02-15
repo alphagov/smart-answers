@@ -38,7 +38,7 @@ node {
 
       stage('Deploy to Integration') {
         // Deploy on Integration (only master)
-        govuk.deployIntegration(REPOSITORY, BRANCH_NAME, 'release', 'deploy')
+        govuk.deployIntegration('smartanswers', BRANCH_NAME, 'release', 'deploy')
       }
     }
 
