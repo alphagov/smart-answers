@@ -32,11 +32,11 @@ gem 'govuk_ab_testing', '0.1.4'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'govuk-lint'
   gem 'nokogiri'
 end
 
 group :development, :test do
+  gem 'govuk-lint'
   gem 'pry'
 end
 
