@@ -486,7 +486,7 @@ module SmartAnswer::Calculators
 
         context "for 2043 rates" do
           should "give a default rate for a date in the future" do
-            assert_equal 139.58, @calculator.statutory_rate(Date.parse('6 April 2043'))
+            assert_equal 140.98, @calculator.statutory_rate(Date.parse('6 April 2043'))
           end
         end
       end

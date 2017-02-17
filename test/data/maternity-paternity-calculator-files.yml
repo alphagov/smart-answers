@@ -1,7 +1,7 @@
 ---
 lib/smart_answer_flows/maternity-paternity-calculator.rb: 6cd30422248d4cfd4e75f0deb111ccf1
-test/data/maternity-paternity-calculator-questions-and-responses.yml: 1bf0c803cd8e8a091417b0e1e19d2bd2
-test/data/maternity-paternity-calculator-responses-and-expected-results.yml: a59f6821dd5b949861ab6261840e58e4
+test/data/maternity-paternity-calculator-questions-and-responses.yml: f0060d96f4bd51d2ef9b6858d73ea96d
+test/data/maternity-paternity-calculator-responses-and-expected-results.yml: 331529ebd794199d52abc9963aa08f69
 lib/smart_answer_flows/maternity-paternity-calculator/maternity_paternity_calculator.govspeak.erb: c5bef53d847de83b21834222fbea4d58
 lib/smart_answer_flows/maternity-paternity-calculator/outcomes/_must_be_on_payroll.govspeak.erb: 4dab8628489204db74840eea4c82531c
 lib/smart_answer_flows/maternity-paternity-calculator/outcomes/_must_earn_over_threshold.govspeak.erb: 93efe843c0dbc085cd114acdbb7bf6d1
@@ -74,6 +74,6 @@ lib/smart_answer_flows/maternity-paternity-calculator/questions/which_week_in_mo
 lib/smart_answer_flows/maternity-paternity-calculator/adoption_calculator_flow.rb: 05283811de7d12b6ae66d53a168b0572
 lib/smart_answer_flows/maternity-paternity-calculator/maternity_calculator_flow.rb: 4e8f9d4fb0c0feca7b0122b19e80e501
 lib/smart_answer_flows/maternity-paternity-calculator/paternity_calculator_flow.rb: a99fff5f0a6f37b8fb0cd461f56d0d4d
-lib/smart_answer/calculators/maternity_paternity_calculator.rb: 7ad79055c4793aabb0b6f9abde95945c
-lib/data/rates/maternity_paternity_birth.yml: 3eef956f1020576a9343647fec34dd01
-lib/data/rates/maternity_paternity_adoption.yml: 453c4d90b6fd9ffe1556782665f313fc
+lib/smart_answer/calculators/maternity_paternity_calculator.rb: 5050353d5eb37b612114d522d2ca8290
+lib/data/rates/maternity_paternity_birth.yml: ecc6ef0c3163cc0c5448858ad89161a5
+lib/data/rates/maternity_paternity_adoption.yml: e4a27ae88a179412e306197e4f4a229c

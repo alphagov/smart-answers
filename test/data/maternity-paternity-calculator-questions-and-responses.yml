@@ -7,9 +7,9 @@
 - 'yes'
 - 'no'
 :date_of_adoption_match?:
-- '2015-04-05' # @match_date >= Date.parse('5 April 2015') # => true
+- '2018-04-05' # @match_date >= Date.parse('5 April 2018') # => true
 :date_of_adoption_placement?:
-- '2015-04-06' # placement_date < match_date # => false
+- '2018-04-06' # placement_date < match_date # => false
 :adoption_did_the_employee_work_for_you?:
 - 'yes'
 - 'no'
@@ -20,11 +20,11 @@
 - 'yes'
 - 'no'
 :adoption_date_leave_starts?:
-- '2015-04-06' # ald_start < a_leave_earliest_start # => false
+- '2018-04-06' # ald_start < a_leave_earliest_start # => false
 :last_normal_payday_adoption?:
-- '2015-01-01'
+- '2018-01-01'
 :payday_eight_weeks_adoption?:
-- '2014-11-01' # payday > payday_offset # => false
+- '2017-11-01' # payday > payday_offset # => false
 :pay_frequency_adoption?:
 - weekly
 - every_2_weeks
@@ -40,13 +40,13 @@
 - 'yes'
 - 'no'
 :baby_due_date_paternity?:
-- '2015-01-01'
+- '2018-01-01'
 :employee_date_matched_paternity_adoption?:
-- '2015-01-01'
+- '2018-01-01'
 :baby_birth_date_paternity?:
-- '2015-01-01'
+- '2018-01-01'
 :padoption_date_of_adoption_placement?:
-- '2015-01-01'
+- '2018-01-01'
 :employee_responsible_for_upbringing?:
 - 'yes'
 - 'no'
@@ -66,14 +66,14 @@
 - 'yes'
 - 'no'
 :employee_start_paternity?:
-- '2015-01-01'
+- '2018-01-01'
 :employee_paternity_length?:
 - one_week
 - two_weeks
 :last_normal_payday_paternity?:
-- '2015-01-01'
+- '2018-01-01'
 :payday_eight_weeks_paternity?:
-- '2014-11-01' # payday > calculator.payday_offset # => false
+- '2017-11-01' # payday > calculator.payday_offset # => false
 :pay_frequency_paternity?:
 - weekly
 - every_2_weeks
@@ -86,7 +86,7 @@
 - weekly_starting
 - usual_paydates
 :next_pay_day_paternity?:
-- '2015-01-01'
+- '2018-01-01'
 :monthly_pay_paternity?:
 - first_day_of_the_month
 - last_day_of_the_month
@@ -119,12 +119,12 @@
 - fourth
 - last
 :baby_due_date_maternity?:
-- '2015-01-01'
+- '2018-01-01'
 :employment_contract?:
 - 'yes'
 - 'no'
 :date_leave_starts?:
-- '2015-01-01'
+- '2018-01-01'
 :did_the_employee_work_for_you?:
 - 'yes'
 - 'no'
@@ -132,9 +132,9 @@
 - 'yes'
 - 'no'
 :last_normal_payday?:
-- '2014-09-19' # calculator.last_payday > to_saturday # => false
+- '2017-09-19' # calculator.last_payday > to_saturday # => false
 :payday_eight_weeks?:
-- '2014-07-24' # payday > payday_offset # => false
+- '2017-07-24' # payday > payday_offset # => false
 :pay_frequency?:
 - weekly
 - every_2_weeks
@@ -147,7 +147,7 @@
 - weekly_starting
 - usual_paydates
 :when_is_your_employees_next_pay_day?:
-- '2015-01-01'
+- '2018-01-01'
 :when_in_the_month_is_the_employee_paid?:
 - first_day_of_the_month
 - last_day_of_the_month
