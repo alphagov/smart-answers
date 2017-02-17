@@ -1,6 +1,6 @@
 module EducationNavigationABTestable
   def education_navigation_ab_test
-    @ab_test ||= GovukAbTesting::AbTest.new("educationnavigation", dimension: 41)
+    @ab_test ||= GovukAbTesting::AbTest.new("EducationNavigation", dimension: 41)
   end
 
   def should_present_new_navigation_view?
