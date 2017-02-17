@@ -32,6 +32,11 @@ node {
     }
 
     if (env.BRANCH_NAME == 'master') {
+      stage('Regression tests') {
+        govuk.setEnvar("RUN_REGRESSION_TESTS", "true")
+        sh("bundle exec ruby test/regression/smart_answers_regression_test.rb")
+      }
+
       stage('Push release tag') {
         govuk.pushTag(REPOSITORY, BRANCH_NAME, 'release_' + BUILD_NUMBER)
       }
