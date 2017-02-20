@@ -114,9 +114,9 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_loc
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_local/_same_sex.govspeak.erb: 18e3dac617fc7b8597544000a1742fb8
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_other/_opposite_sex.govspeak.erb: 489bb17cb359c5cb91d247a1faafe263
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_other/_same_sex.govspeak.erb: a5315493943bc1940b64f30441e4accb
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/france/_opposite_sex.govspeak.erb: 87f1fa198bced49e1de4da3b3dda0051
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/france/_same_sex.govspeak.erb: 076301d8ad454835ee85ec6636daae45
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/france/_title.govspeak.erb: 8bdb15db3e986d8df5fb392ec9f96c1e
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/france/_opposite_sex.govspeak.erb: 52cc5676000cdd6fad6e0f20c0cbc0fa
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/france/_same_sex.govspeak.erb: 52cc5676000cdd6fad6e0f20c0cbc0fa
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/france/_title.govspeak.erb: 89e48e72170d1df47f28b434ae630ecf
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/_title.govspeak.erb: 06ea7117275c8ab9ae99421f9877e3d1
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/ceremony_country/partner_british/_opposite_sex.govspeak.erb: 6d62235d8858e92063837997f27ef666
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/ceremony_country/partner_british/_same_sex.govspeak.erb: c3fc43c96008806c77b5fba56b8c3912
