@@ -86,8 +86,7 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
     assert_current_node :outcome_can_rent
   end
 
-
-  context "when tenant is from eea" do
+  context "LandlordImmigrationCheckFlow" do
     setup do
       add_response "B1 1PW" # property
       add_response "yes" # main_home
@@ -98,35 +97,68 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
       assert_current_node :what_nationality?
     end
 
-    should "go to has_eu_documents if EEA is selected" do
-      add_response "eea" # what_nationality?
-      assert_current_node :has_eu_documents?
+    context "when tenant is british or irish" do
+      setup do
+        add_response "british-or-irish" # what_nationality?
+      end
+
+      should "go to has_uk_passport if british or irish is selected" do
+        assert_current_node :has_uk_passport?
+      end
+
+      should "go to outcome_can_rent if tenant has british or irish passport" do
+        add_response "yes" # has_uk_passport?
+        assert_current_node :outcome_can_rent
+      end
+
+      should "go to has_other_documents if tenant hasn't got british or irish passport" do
+        add_response "no" # has_uk_passport?
+        assert_current_node :has_other_documents?
+      end
+
+      should "go to outcome_can_rent if tenant has got other documents" do
+        add_response "no" # has_uk_passport?
+        add_response "yes" # has_other_documents?
+        assert_current_node :outcome_can_rent
+      end
+
+      should "go to waiting_for_documents if tenant hasn't got other documents" do
+        add_response "no" # has_uk_passport?
+        add_response "no" # has_other_documents?
+        assert_current_node :outcome_can_not_rent
+      end
     end
 
-    should "go to outcome_can_rent if tenant has EEA passport" do
-      add_response "eea" # what_nationality?
-      add_response "yes" # has_eu_documents?
-      assert_current_node :outcome_can_rent
-    end
+    context "when tenant is from eea" do
+      setup do
+        add_response "eea" # what_nationality?
+      end
 
-    should "go to has_other_documents if tenant hasn't got EEA passport" do
-      add_response "eea" # what_nationality?
-      add_response "no" # has_eu_documents?
-      assert_current_node :has_other_documents?
-    end
+      should "go to has_eu_documents if EEA is selected" do
+        assert_current_node :has_eu_documents?
+      end
 
-    should "go to outcome_can_rent if tenant has got other documents" do
-      add_response "eea" # what_nationality?
-      add_response "no" # has_eu_documents?
-      add_response "yes" # has_other_documents?
-      assert_current_node :outcome_can_rent
-    end
+      should "go to outcome_can_rent if tenant has EEA passport" do
+        add_response "yes" # has_eu_documents?
+        assert_current_node :outcome_can_rent
+      end
 
-    should "go to waiting_for_documents if tenant hasn't got other documents" do
-      add_response "eea" # what_nationality?
-      add_response "no" # has_eu_documents?
-      add_response "no" # has_other_documents?
-      assert_current_node :outcome_can_not_rent
+      should "go to has_other_documents if tenant hasn't got EEA passport" do
+        add_response "no" # has_eu_documents?
+        assert_current_node :has_other_documents?
+      end
+
+      should "go to outcome_can_rent if tenant has got other documents" do
+        add_response "no" # has_eu_documents?
+        add_response "yes" # has_other_documents?
+        assert_current_node :outcome_can_rent
+      end
+
+      should "go to waiting_for_documents if tenant hasn't got other documents" do
+        add_response "no" # has_eu_documents?
+        add_response "no" # has_other_documents?
+        assert_current_node :outcome_can_not_rent
+      end
     end
   end
 

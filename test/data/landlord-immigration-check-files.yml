@@ -1,7 +1,7 @@
 ---
-lib/smart_answer_flows/landlord-immigration-check.rb: 4c7183e87583b3d368037f139a6a3045
-test/data/landlord-immigration-check-questions-and-responses.yml: 894579b1b9b461d9a5614eaac47a04c2
-test/data/landlord-immigration-check-responses-and-expected-results.yml: 2d82f27e851d18f151400d3f5194655c
+lib/smart_answer_flows/landlord-immigration-check.rb: 88c5cbe1cfe60a0674044e01b8e720d9
+test/data/landlord-immigration-check-questions-and-responses.yml: 36d2d5613fb6046704d658ab8fac27ab
+test/data/landlord-immigration-check-responses-and-expected-results.yml: 4eb1cf7c87a8c79c82b16e7b8983f31c
 lib/smart_answer_flows/landlord-immigration-check/landlord_immigration_check.govspeak.erb: 60507bfc657cf13a750b258017453743
 lib/smart_answer_flows/landlord-immigration-check/outcomes/_landlord_code_of_practice.govspeak.erb: cfb1261ac17c7aa40445173406459290
 lib/smart_answer_flows/landlord-immigration-check/outcomes/outcome_can_not_rent.govspeak.erb: 27a5d4936b713e09fa12059ac230ba56
@@ -24,7 +24,7 @@ lib/smart_answer_flows/landlord-immigration-check/questions/has_documents.govspe
 lib/smart_answer_flows/landlord-immigration-check/questions/has_eu_documents.govspeak.erb: c9020cccaea9930824d73d2b4e70431f
 lib/smart_answer_flows/landlord-immigration-check/questions/has_other_documents.govspeak.erb: 6a7bb30a33fa570f75d3aaca86594f1d
 lib/smart_answer_flows/landlord-immigration-check/questions/has_residence_card_or_eu_eea_swiss_family_member.govspeak.erb: 566627594105a24069451ab40f540846
-lib/smart_answer_flows/landlord-immigration-check/questions/has_uk_passport.govspeak.erb: 294e10196ecf02efcc75eea4fd8c966c
+lib/smart_answer_flows/landlord-immigration-check/questions/has_uk_passport.govspeak.erb: d584ed7bf059ced0535403e62518646f
 lib/smart_answer_flows/landlord-immigration-check/questions/immigration_application.govspeak.erb: 7107f59aa5812bb3f5a88244fe6e3412
 lib/smart_answer_flows/landlord-immigration-check/questions/main_home.govspeak.erb: daa66dfee926ca1fc2228cf9081919c3
 lib/smart_answer_flows/landlord-immigration-check/questions/property.govspeak.erb: 2423dcd0c89463fb2b0038e44cf61205
@@ -34,5 +34,5 @@ lib/smart_answer_flows/landlord-immigration-check/questions/tenant_country.govsp
 lib/smart_answer_flows/landlord-immigration-check/questions/tenant_over_18.govspeak.erb: c4a270709e77da5aff8c4e50aa56e905
 lib/smart_answer_flows/landlord-immigration-check/questions/time_limited_to_remain.govspeak.erb: 05c03a6a5cc9e07c3816a446cdc1c6f3
 lib/smart_answer_flows/landlord-immigration-check/questions/waiting_for_documents.govspeak.erb: 741ab2f1b24d0fcf14ce358b517e9361
-lib/smart_answer_flows/landlord-immigration-check/questions/what_nationality.govspeak.erb: 2a5f488eae0209a5538569309f396deb
+lib/smart_answer_flows/landlord-immigration-check/questions/what_nationality.govspeak.erb: bc02478f6cb59f7bd812672ce2383666
 lib/smart_answer/calculators/landlord_immigration_check_calculator.rb: ae7170f4ec47359b982cbe107ef03cbb
