@@ -1780,15 +1780,13 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "ceremony in philippines, uk resident, partner other" do
+  context "ceremony in philippines, opposite sex" do
     setup do
       add_response 'philippines'
-      add_response 'uk'
-      add_response 'partner_local'
       add_response 'opposite_sex'
     end
     should "go to os affirmation outcome" do
-      assert_current_node :outcome_opposite_sex_marriage_in_philippines
+      assert_current_node :outcome_marriage_abroad_in_country
     end
   end
 

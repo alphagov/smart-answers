@@ -331,6 +331,7 @@ module SmartAnswer::Calculators
          jordan
          latvia
          mozambique
+         philippines
          sweden
          vietnam
         ).include?(ceremony_country)
@@ -339,6 +340,7 @@ module SmartAnswer::Calculators
     def two_questions_country?
       %w(
          ireland
+         philippines
          italy
         ).include?(ceremony_country)
     end
