@@ -4,83 +4,59 @@ Contact the relevant local authorities in Jordan to find out about local marriag
 
 ^There are no civil marriages in Jordan, but you can get married through a religious ceremony at a church or Sharia court.^
 
-You may be able to get married at the British Embassy if you’re both resident in Jordan and can prove that there are no other suitable facilities to get married locally.
-
-Contact the British Embassy in Jordan for more information.
-
-^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.^
+^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.
 
 ##What you need to do
 
-If you’re getting married at the Sharia Court, you’ll need to provide a [single declaration document](/government/publications/single-declaration-form-for-islamic-marriages-jordan) to prove you’re allowed to marry, or a [single divorced declaration document](/government/publications/single-declaration-form-for-islamic-marriages-if-you-are-divorced-jordan) if you’re divorced.
+###Islamic marriages
 
-Make an appointment at the local British embassy or consulate to swear an affidavit (written statement of facts) that you’re free to marry. You’ll need to bring the single declaration, your passport, your partner’s passport and pay a fee.
+If you’re getting married at the Sharia Court, you’ll need to provide a single declaration document to prove you’re allowed to marry or a single divorced declaration document if you’re divorced.
+
+[Make an appointment at the embassy in Amman](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-amman/oaths-affirmations-and-affidavits/slot_picker) to get a copy of the single declaration.
+
+You’ll need to pay a fee and bring your passport and your partner’s passport.
 
 ^Documents must be originals if you are getting married at the Sharia Court.^
 
-For non-Islamic marriages, you’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
+###Non-Islamic marriages
 
-To get a CNI, you must post notice of your intended marriage in Jordan. You can do this at the British embassy or in front of a notary public.
+For non-Islamic marriages, you’ll be asked to swear an oath before you get married. You must do this at the British Embassy in Amman.
 
-$A
-British Embassy Amman, main locality
-British Embassy
-(PO Box 87) Abdoun
-11118 Amman
-Jordan
-$A
+You can download and fill in (but not sign) the [affidavit form](https://www.gov.uk/government/publications/affidavit-of-marital-status-jordan) in advance.
 
-$C
-Telephone : +962 (6) 590 9200
-Fax: +962 (6) 590 9279
-Fax Political: +962 (6) 590 921
+[Make an appointment at the embassy in Amman](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-amman/oaths-affirmations-and-affidavits/slot_picker).
 
-Email: <Amman.enquiries@fco.gov.uk>
+You need to bring:
 
-[British Embassy Amman, main locality - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-amman/office/british-embassy-amman-main-locality)
-$C
-
-You’ll need to provide supporting documents, including:
-
+- the affidavit form if you have filled it in advance
 - your passport
-- proof of residence, such as a residence certificate - check with the embassy to find out what you need
-- equivalent documents for your partner
+- your partner’s passport
+- proof of residence, such as a residence certificate - check with the embassy to find out what you need equivalent documents for your partner
 
-^Documents must be originals if you are getting married at the Sharia Court.^
-
-You’ll need to complete a [‘Notice of marriage’](/government/publications/notice-of-marriage-form--2) form and an [‘Affidavit for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form) form.
-
-You can download and fill in (but not sign) the forms in advance.
-
-You must take the forms with you to your appointment.
-
-%The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (for example marriage certificate or deed poll).%
-
-^Your partner will need to follow the same process and pay the fees to get their own CNI.^
+###If you’re divorced, widowed or been previously in a civil partnership
 
 If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
 
-- a [single divorced declaration document](/government/publications/single-declaration-form-for-islamic-marriages-if-you-are-divorced-jordan) if you’re getting married at the Sharia Court
-- a [decree absolute or final order](/copy-decree-absolute-final-order)
+- a decree absolute or final order
 - a civil partnership dissolution or annulment certificate
-- your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
+- your (or your partner’s) former spouse or civil partner’s death certificate
 
-^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/lists-of-translators-and-interpreters) if it’s not in English.^
+You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it legalised and translated if it’s not in English.
 
-###What happens next
+%The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (for example marriage certificate or deed poll).%
 
-The embassy will charge a fee for taking the oath, and then display your notice of marriage publicly for a further 7 days. They’ll then issue the CNI, as long as nobody has registered an objection. There’s an additional fee for this.
+###If you can’t have a religious ceremony
 
-You should check if your CNI needs to be legalised (certified as genuine) by the local authorities in Jordan.
+If you can’t get married at church or Sharia Court, you may be able to get married at the British Embassy in Amman. You and your partner both need to be resident in Jordan and need to prove that there are no other suitable facilities to get married locally.  
 
-^You don't need to stay in the country while your notice is posted.^
+You’ll need to pay separate fees for this service.
 
-## Fees
+Email <cons.amman@fco.gov.uk> for more information.
+
+##Fees
 
 Service | Fee
 -|-
-Receiving a notice of marriage | £50
-Issuing a CNI, Nulla Osta or equivalent | £50
 Affidavit or affirmation for marriage | £50
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Jordan](/government/publications/jordan-consular-fees).
