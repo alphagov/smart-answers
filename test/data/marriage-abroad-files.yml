@@ -128,11 +128,11 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/third_country/
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/third_country/partner_local/_same_sex.govspeak.erb: ff190c3f37e6a09e3abdd9cac4ae6946
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/third_country/partner_other/_opposite_sex.govspeak.erb: 9231f5c702da31d8878ccbc5cebd3cde
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/third_country/partner_other/_same_sex.govspeak.erb: ff190c3f37e6a09e3abdd9cac4ae6946
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/uk/partner_british/_opposite_sex.govspeak.erb: 91998c9b5d32ecb8392df6d3962659ff
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/uk/partner_british/_opposite_sex.govspeak.erb: f33f03988c1c29b011ca7647ea2fecab
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/uk/partner_british/_same_sex.govspeak.erb: c3fc43c96008806c77b5fba56b8c3912
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/uk/partner_local/_opposite_sex.govspeak.erb: 89279858e4b22360bd224511856cb467
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/uk/partner_local/_opposite_sex.govspeak.erb: 3792c9972e4b5655045ddb1399952cd7
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/uk/partner_local/_same_sex.govspeak.erb: ff190c3f37e6a09e3abdd9cac4ae6946
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/uk/partner_other/_opposite_sex.govspeak.erb: 89279858e4b22360bd224511856cb467
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/uk/partner_other/_opposite_sex.govspeak.erb: 3792c9972e4b5655045ddb1399952cd7
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/uk/partner_other/_same_sex.govspeak.erb: ff190c3f37e6a09e3abdd9cac4ae6946
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/ireland/_opposite_sex.govspeak.erb: f0abd764c71f1af9f3b0a625bfb7e185
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/ireland/_same_sex.govspeak.erb: 8b85a31d089af46889eb665136403ce0
