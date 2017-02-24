@@ -447,8 +447,12 @@ jordan:
   opposite_sex:
     ceremony_country:
       default:
-      - :receiving_notice_of_marriage
-      - :issuing_cni_or_nulla_osta
+      - :affidavit_or_affirmation_for_marriage
+    third_country:
+      default:
+      - :affidavit_or_affirmation_for_marriage
+    uk:
+      default:
       - :affidavit_or_affirmation_for_marriage
   payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 kazakhstan:
