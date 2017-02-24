@@ -199,23 +199,27 @@ class SmartAnswersControllerTest < ActionController::TestCase
       setup do
         ENV['ENABLE_NEW_NAVIGATION'] = 'yes'
 
-        @controller.stubs(:content_item).returns(
+        content_item = {
           "links" => {
-            "taxons" => 'foo',
+            "taxons" => [
+              {
+                "title" => "A Taxon",
+                "base_path" => "/a-taxon",
+              }
+            ],
           },
-        )
+        }
 
-        @controller.stubs(
-          navigation_helpers: stub(
-            'navigation_helpers',
-            breadcrumbs: {
-              breadcrumbs: ['NormalBreadcrumb'],
-            },
-            taxon_breadcrumbs: {
-              breadcrumbs: ['TaxonBreadcrumb'],
-            },
-          )
-        )
+        Services.content_store.expects(:content_item!)
+          .with("/smart-answers-controller-sample")
+          .returns(content_item)
+
+        navigation_helper = GovukNavigationHelpers::NavigationHelper.new(content_item)
+        navigation_helper.stubs(:breadcrumbs).returns(breadcrumbs: ['NormalBreadcrumb'])
+        navigation_helper.stubs(:taxon_breadcrumbs).returns(breadcrumbs: ['TaxonBreadcrumb'])
+        GovukNavigationHelpers::NavigationHelper.expects(:new)
+          .with(content_item)
+          .returns(navigation_helper)
       end
 
       teardown do
