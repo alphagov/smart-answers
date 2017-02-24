@@ -6,6 +6,7 @@
     <% elsif has_contract == 'yes' %>
       <%= render partial: 'paternity_entitled_to_leave.govspeak.erb',
                  locals: {
+                   leave_type: calculator.leave_type,
                    leave_start_date: leave_start_date,
                    leave_end_date: leave_end_date,
                    leave_spp_claim_link: leave_spp_claim_link,

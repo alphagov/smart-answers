@@ -4,6 +4,7 @@
   <% else %>
     <%= render partial: 'paternity_entitled_to_leave.govspeak.erb',
                locals: {
+                 leave_type: calculator.leave_type,
                  leave_start_date: leave_start_date,
                  leave_end_date: leave_end_date,
                  leave_spp_claim_link: leave_spp_claim_link,
@@ -23,20 +24,37 @@
 
     <%= render partial: 'paternity_not_entitled_to_pay_outro.govspeak.erb' %>
   <% else %>
-    ##Statutory Paternity Pay (SPP)
+    <% if leave_type == "adoption" %>
+      ##Statutory Adoption Pay (SPP)
 
-    The employee is entitled to SPP.
+      The employee is entitled to SAP.
 
-    Their average weekly earnings are: £<%= average_weekly_earnings %>
+      Their average weekly earnings are: £<%= average_weekly_earnings %>
 
-    ## SPP calculation
+      ## SAP calculation
 
-    Date | SPP amount
-    -|-
-    <%= pay_dates_and_pay %>
-     | **Total SPP: £<%= total_spp %>**
+      Date | SAP amount
+      -|-
+      <%= pay_dates_and_pay %>
+       | **Total SAP: £<%= total_spp %>**
 
-    %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
+    <% else %>
+      ##Statutory Paternity Pay (SPP)
+
+      The employee is entitled to SPP.
+
+      Their average weekly earnings are: £<%= average_weekly_earnings %>
+
+      ## SPP calculation
+
+      Date | SPP amount
+      -|-
+      <%= pay_dates_and_pay %>
+       | **Total SPP: £<%= total_spp %>**
+
+    <% end %>
+
+   %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
 
     <%= render partial: 'spp_claim_link.govspeak.erb',
                locals: {leave_type: leave_type} %>
@@ -44,5 +62,9 @@
 <% end %>
 
 <% content_for :next_steps do %>
-  Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees)
+  <% if leave_type == "adoption" %>
+    Read the [guide to Statutory Adoption Pay and Leave](/adoption-leave-pay)
+  <% else %>
+    Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees)
+  <% end %>
 <% end %>

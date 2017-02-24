@@ -1,8 +1,8 @@
 
 
-##Statutory Paternity Leave
+##Statutory Adoption Leave
 
-The employee is entitled to Statutory Paternity Leave.
+The employee is entitled to Statutory Adoption Leave.
 
 |Leave                         | Key dates                    |
 |------------------------------|------------------------------|
@@ -12,15 +12,15 @@ The employee is entitled to Statutory Paternity Leave.
 
 ^Leave must finish within 56 days of the birth (or due date if the baby is early).^
 
-##Statutory Paternity Pay (SPP)
+##Statutory Adoption Pay (SPP)
 
-The employee is entitled to SPP.
+The employee is entitled to SAP.
 
 Their average weekly earnings are: £375.00
 
-## SPP calculation
+## SAP calculation
 
-Date | SPP amount
+Date | SAP amount
 -|-
 9 April 2018|£337.50
 23 April 2018|£675.00
@@ -36,12 +36,12 @@ Date | SPP amount
 10 September 2018|£281.96
 24 September 2018|£281.96
 8 October 2018|£281.96
-| **Total SPP: £5069.81**
+| **Total SAP: £5069.81**
 
 %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
 
 The latest date for them to [claim SAP](/employers-adoption-pay-leave/entitlement) is usually 15 days before they want it to start.
 
 
-Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees)
+Read the [guide to Statutory Adoption Pay and Leave](/adoption-leave-pay)
 

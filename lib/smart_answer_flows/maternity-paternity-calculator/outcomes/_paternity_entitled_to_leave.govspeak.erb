@@ -1,6 +1,13 @@
-##Statutory Paternity Leave
+<% if leave_type == "adoption" %>
+  ##Statutory Adoption Leave
 
-The employee is entitled to Statutory Paternity Leave.
+  The employee is entitled to Statutory Adoption Leave.
+<% else %>
+  ##Statutory Paternity Leave
+
+  The employee is entitled to Statutory Paternity Leave.
+<% end %>
+
 
 |Leave                         | Key dates                    |
 |------------------------------|------------------------------|
