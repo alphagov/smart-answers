@@ -26,7 +26,7 @@ gem 'uglifier'
 gem 'uk_postcode', '~> 1.0.1'
 gem 'unicorn', '4.8.3'
 gem 'rails_stdout_logging'
-gem 'govuk_navigation_helpers', '~> 2.3.1'
+gem 'govuk_navigation_helpers', '~> 2.4.0'
 gem 'govuk_ab_testing', '0.1.4'
 
 group :development do
