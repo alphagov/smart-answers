@@ -228,23 +228,32 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
       should "show normal breadcrumbs by default" do
         get :show, id: 'smart-answers-controller-sample'
+
         assert_match(/NormalBreadcrumb/, response.body)
         refute_match(/TaxonBreadcrumb/, response.body)
+        sidebar = Nokogiri::HTML.parse(response.body).at_css(".related-container")
+        refute_match(/A Taxon/, sidebar)
       end
 
       should "show normal breadcrumbs for the 'A' version" do
         with_variant EducationNavigation: "A" do
           get :show, id: 'smart-answers-controller-sample'
+
           assert_match(/NormalBreadcrumb/, response.body)
           refute_match(/TaxonBreadcrumb/, response.body)
+          sidebar = Nokogiri::HTML.parse(response.body).at_css(".related-container")
+          refute_match(/A Taxon/, sidebar)
         end
       end
 
       should "show taxon breadcrumbs for the 'B' version" do
         with_variant EducationNavigation: "B" do
           get :show, id: 'smart-answers-controller-sample'
+
           assert_match(/TaxonBreadcrumb/, response.body)
           refute_match(/NormalBreadcrumb/, response.body)
+          sidebar = Nokogiri::HTML.parse(response.body).at_css(".related-container")
+          assert_match(/A Taxon/, sidebar)
         end
       end
     end
