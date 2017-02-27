@@ -791,10 +791,10 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   context "ceremony in france" do
     setup do
       add_response 'france'
-      add_response 'marriage'
+      add_response 'opposite_sex'
     end
     should "go to france or fot marriage outcome" do
-      assert_current_node :outcome_marriage_in_france_or_french_overseas_territory
+      assert_current_node :outcome_marriage_abroad_in_country
     end
   end
 
@@ -1339,10 +1339,10 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   context "ceremony in france, " do
     setup do
       add_response 'france'
-      add_response 'pacs'
+      add_response 'same_sex'
     end
     should "go to fran ce ot fot PACS outcome" do
-      assert_current_node :outcome_civil_partnership_in_france_or_french_overseas_territory
+      assert_current_node :outcome_marriage_abroad_in_country
     end
   end
 

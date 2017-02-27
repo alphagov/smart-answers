@@ -1,7 +1,7 @@
 ---
 lib/smart_answer_flows/marriage-abroad.rb: 762995bfd48d3371231a6405863dfc1d
 test/data/marriage-abroad-questions-and-responses.yml: 35a2f04fceb6c1c45cd96ca80dcba991
-test/data/marriage-abroad-responses-and-expected-results.yml: 68fd98abae41621a85e93a4b1db5a452
+test/data/marriage-abroad-responses-and-expected-results.yml: 03858e4cf6d18dd550b9ae49d3ef3e5e
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
 lib/smart_answer_flows/marriage-abroad/outcomes/_affirmation_os_translation_in_local_language_text.govspeak.erb: af09e09b909c563d4a587ef1b9285cca
 lib/smart_answer_flows/marriage-abroad/outcomes/_appointment_for_affidavit.govspeak.erb: 4db6fe2ec298d79aefaed0d4ff244e75
@@ -65,7 +65,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/_provide_two_witnesses_ss_marria
 lib/smart_answer_flows/marriage-abroad/outcomes/_required_supporting_documents.govspeak.erb: d4d151045928a21b9b279f89ebf5d5bb
 lib/smart_answer_flows/marriage-abroad/outcomes/_required_supporting_documents_egypt.govspeak.erb: 36aecba48ee59b75389c9d6b29581186
 lib/smart_answer_flows/marriage-abroad/outcomes/_required_supporting_documents_macao.govspeak.erb: 373ca65f6e49cd8d95e384168369415f
-lib/smart_answer_flows/marriage-abroad/outcomes/_services_and_fees.govspeak.erb: 305d0b02a7fed87d6505f8903ce97bee
+lib/smart_answer_flows/marriage-abroad/outcomes/_services_and_fees.govspeak.erb: f2fd344e5594e6930f7504a996bb2f28
 lib/smart_answer_flows/marriage-abroad/outcomes/_synonyms_of_cp.govspeak.erb: eeec255cf0a79c48fcf92c80bdcd3468
 lib/smart_answer_flows/marriage-abroad/outcomes/_three_day_residency_requirement.govspeak.erb: 5c7dc2a805e5c11f27ee1efdf4e37cb3
 lib/smart_answer_flows/marriage-abroad/outcomes/_translation_in_germany.govspeak.erb: 2b9e157f9a8ff8cc32dc45ff535c098b
@@ -114,6 +114,9 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_loc
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_local/_same_sex.govspeak.erb: 18e3dac617fc7b8597544000a1742fb8
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_other/_opposite_sex.govspeak.erb: 489bb17cb359c5cb91d247a1faafe263
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_other/_same_sex.govspeak.erb: a5315493943bc1940b64f30441e4accb
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/france/_opposite_sex.govspeak.erb: 52cc5676000cdd6fad6e0f20c0cbc0fa
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/france/_same_sex.govspeak.erb: 52cc5676000cdd6fad6e0f20c0cbc0fa
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/france/_title.govspeak.erb: 89e48e72170d1df47f28b434ae630ecf
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/_title.govspeak.erb: 06ea7117275c8ab9ae99421f9877e3d1
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/ceremony_country/partner_british/_opposite_sex.govspeak.erb: 6d62235d8858e92063837997f27ef666
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/ceremony_country/partner_british/_same_sex.govspeak.erb: c3fc43c96008806c77b5fba56b8c3912
@@ -349,8 +352,8 @@ lib/smart_answer_flows/marriage-abroad/questions/partner_opposite_or_same_sex.go
 lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationality.govspeak.erb: 80e04f36c75c232bede1a244d621471e
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/data/marriage_abroad_services.yml: 73b32d5334b421ea58959c602092cc9d
-lib/smart_answer/calculators/marriage_abroad_calculator.rb: 04aad129eff59d671aa3e48750b0cc75
+lib/smart_answer/calculators/marriage_abroad_calculator.rb: dec60690cf98d58d3808a4ab388dc006
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 0bc67c4469fe692a4fa53c9b461821bf
-lib/smart_answer/calculators/marriage_abroad_data_query.rb: 3ee9efe853c58f4d18caf4c4db197120
+lib/smart_answer/calculators/marriage_abroad_data_query.rb: 7205af7848d4a14d1e824b0afc7ee26d
 lib/smart_answer/calculators/country_name_formatter.rb: 583df7103672f581bf5510732c1b2be1
 lib/smart_answer/calculators/registrations_data_query.rb: 3afcd514ecedadd19b0db67f54ac5ea6
