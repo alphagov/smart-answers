@@ -333,6 +333,7 @@ module SmartAnswer::Calculators
          latvia
          mozambique
          philippines
+         portugal
          sweden
          vietnam
         ).include?(ceremony_country)

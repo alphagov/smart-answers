@@ -119,8 +119,6 @@ module SmartAnswer
             outcome :outcome_marriage_in_brazil_when_residing_in_third_country
           elsif calculator.ceremony_country == "netherlands"
             outcome :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
-          elsif calculator.ceremony_country == "portugal"
-            outcome :outcome_ceremonies_in_portugal
           elsif calculator.ceremony_country == "switzerland"
             outcome :outcome_ceremonies_in_switzerland
           elsif calculator.ceremony_country == "spain"
@@ -306,7 +304,6 @@ module SmartAnswer
       end
 
       outcome :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
-      outcome :outcome_ceremonies_in_portugal
       outcome :outcome_ceremonies_in_spain
       outcome :outcome_ceremonies_in_switzerland
       outcome :outcome_civil_partnership_in_france_or_french_overseas_territory
