@@ -26,7 +26,7 @@ module SmartAnswer::Calculators
 
     OS_AFFIRMATION_COUNTRIES = %w(belgium cambodia colombia china ecuador egypt lebanon finland macao mongolia morocco norway peru qatar south-korea thailand turkey united-arab-emirates vietnam)
 
-    CP_EQUIVALENT_COUNTRIES = %w(austria brazil colombia czech-republic denmark ecuador finland germany iceland luxembourg netherlands norway portugal slovenia)
+    CP_EQUIVALENT_COUNTRIES = %w(austria brazil colombia czech-republic denmark ecuador finland germany iceland luxembourg netherlands norway slovenia)
 
     CP_CNI_NOT_REQUIRED_COUNTRIES = %w(andorra argentina bonaire-st-eustatius-saba burundi liechtenstein mexico new-zealand uruguay usa)
 
