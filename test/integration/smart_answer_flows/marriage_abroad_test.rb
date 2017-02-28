@@ -1706,7 +1706,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'uk'
       add_response 'partner_british'
       add_response 'opposite_sex'
-      assert_current_node :outcome_ceremonies_in_portugal
+      assert_current_node :outcome_marriage_abroad_in_country
     end
   end
 
@@ -1918,7 +1918,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
     end
     should "go to portugal outcome" do
-      assert_current_node :outcome_ceremonies_in_portugal
+      assert_current_node :outcome_marriage_abroad_in_country
     end
   end
 
@@ -1930,7 +1930,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'opposite_sex'
     end
     should "go to portugal outcome" do
-      assert_current_node :outcome_ceremonies_in_portugal
+      assert_current_node :outcome_marriage_abroad_in_country
     end
   end
 
