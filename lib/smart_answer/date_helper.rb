@@ -5,5 +5,13 @@ module SmartAnswer
         return date + inc if (date + inc).saturday?
       end
     end
+
+    def self.current_day
+      if ENV['RATES_QUERY_DATE']
+        Date.parse(ENV['RATES_QUERY_DATE'])
+      else
+        Date.today
+      end
+    end
   end
 end

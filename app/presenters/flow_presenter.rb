@@ -15,12 +15,6 @@ class FlowPresenter
     @node_presenters = {}
   end
 
-  def artefact
-    @artefact ||= Services.content_api.artefact(@flow.name.to_s)
-  rescue GdsApi::HTTPErrorResponse
-    {}
-  end
-
   def title
     start_node.title
   end
@@ -35,6 +29,10 @@ class FlowPresenter
 
   def current_state
     @current_state ||= @flow.process(all_responses)
+  end
+
+  def name
+    @flow.name
   end
 
   def collapsed_questions

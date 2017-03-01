@@ -2,20 +2,43 @@ Marriage in Latvia
 
 Contact the relevant local authorities in Latvia to find out about local marriage laws, including what documents you’ll need.
 
-^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for Latvia](/foreign-travel-advice/latvia) before making any plans.
+^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.^
 
 ##What you need to do
 
-You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
+You may be asked to provide an ‘affirmation for marriage’ document to prove you’re allowed to marry.
 
-There are 2 ways you can get a CNI:
+Make an appointment at the British embassy or consulate in Latvia to swear an affirmation or affidavit that you’re free to marry. You’ll need to bring your and your partner’s passport and pay a fee.
 
-- [go to the UK and post notice with a UK registrar](/marriage-abroad/y/latvia/uk/partner_british/opposite_sex)
-- [go to Latvia and post notice at the embassy or consulate there](/marriage-abroad/y/latvia/ceremony_country/partner_british/opposite_sex)
+[Make an appointment at the embassy in Riga.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-riga/oaths-affirmations-and-affidavits/slot_picker)
 
-%If you choose to post notice in Latvia, you’ll normally have to wait at least 10 days before you can get married.%
+If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
 
-*[CNI]:Certificate of no impediment
+- a [decree absolute or final order](/copy-decree-absolute-final-order)
+- a civil partnership dissolution or annulment certificate
+- your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
+
+You’ll also need to provide evidence if you’ve changed your name by deed poll.
+
+^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/lists-of-translators-and-interpreters) if it’s not in English.^
+
+You’ll need to complete an [‘Affidavit for marriage’](/government/publications/affidavitaffirmation-forms-latvia) form.
+
+You can download and fill in (but not sign) the form in advance.
+
+You must take the form with you to your appointment.
+
+%The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (for example marriage certificate or deed poll).%
+
+^Your partner will probably need to get an affirmation or affidavit as well.^
+
+## Fees
+
+Service | Fee
+-|-
+Affidavit or affirmation for marriage | £50
+
+You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Latvia](/government/publications/latvia-consular-fees). You can only pay by cash.
 
 
 

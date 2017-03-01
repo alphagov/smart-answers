@@ -1,13 +1,9 @@
 require_relative '../integration_test_helper'
-require 'gds_api/test_helpers/content_api'
 
 class SmartAnswersControllerErrorHandlingTest < ActionDispatch::IntegrationTest
-  include GdsApi::TestHelpers::ContentApi
-
   setup do
     @flow_registry = stub('flow-registry')
     SmartAnswer::FlowRegistry.stubs(:instance).returns(@flow_registry)
-    stub_content_api_default_artefact
   end
 
   context 'when SmartAnswer::InvalidNode raised' do

@@ -7,7 +7,7 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    @location_slugs = %w(aruba belgium greece iran syria)
+    @location_slugs = %w(aruba belgium greece iran syria democratic-republic-of-the-congo)
     stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::HelpIfYouAreArrestedAbroadFlow
   end
@@ -39,9 +39,9 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
     end # context: country without specific info
 
     context "Answering with a country that has specific downloads / information" do
-      context "Answering Belgium" do
+      context "Answering Democratic Republic of the Congo" do
         setup do
-          add_response :belgium
+          add_response :"democratic-republic-of-the-congo"
         end
 
         should "take the user to the generic answer" do
@@ -68,16 +68,6 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
       end
     end # context: country with specific info
   end # context: non special case
-
-  context "In Iran" do
-    setup do
-      add_response :iran
-    end
-
-    should "take them to the special Iran outcome" do
-      assert_current_node :answer_two_iran
-    end
-  end
 
   context "In Syria" do
     setup do

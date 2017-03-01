@@ -29,7 +29,7 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.ceremony_country == 'ireland'
+          if calculator.two_questions_country?
             question :partner_opposite_or_same_sex?
           elsif calculator.ceremony_country_offers_pacs?
             question :marriage_or_pacs?
@@ -111,22 +111,18 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.ceremony_country == 'brazil' && calculator.resident_of_ceremony_country?
+          if calculator.has_outcome_per_path?
+            outcome :outcome_marriage_abroad_in_country
+          elsif calculator.ceremony_country == 'brazil' && calculator.resident_of_ceremony_country?
             outcome :outcome_marriage_in_brazil_when_residing_in_brazil
           elsif calculator.ceremony_country == 'brazil' && calculator.resident_of_third_country?
             outcome :outcome_marriage_in_brazil_when_residing_in_third_country
           elsif calculator.ceremony_country == "netherlands"
             outcome :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
-          elsif calculator.ceremony_country == "portugal"
-            outcome :outcome_ceremonies_in_portugal
-          elsif calculator.ceremony_country == "ireland"
-            outcome :outcome_ceremonies_in_ireland
           elsif calculator.ceremony_country == "switzerland"
             outcome :outcome_ceremonies_in_switzerland
           elsif calculator.ceremony_country == "spain"
             outcome :outcome_ceremonies_in_spain
-          elsif calculator.ceremony_country == 'sweden' && calculator.resident_of_ceremony_country?
-            outcome :outcome_ceremonies_in_sweden_when_residing_in_sweden
           elsif calculator.ceremony_country == 'south-africa'
             outcome :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
           elsif calculator.partner_is_opposite_sex?
@@ -134,6 +130,8 @@ module SmartAnswer
               outcome :outcome_opposite_sex_marriage_in_hong_kong
             elsif calculator.ceremony_country == 'dominican-republic'
               outcome :outcome_opposite_sex_marriage_in_dominican_republic
+            elsif calculator.ceremony_country == 'slovakia'
+              outcome :outcome_opposite_sex_marriage_in_slovakia
             elsif calculator.ceremony_country == 'germany' && calculator.resident_of_uk?
               outcome :outcome_opposite_sex_marriage_in_germany_when_residing_in_the_uk
             elsif calculator.ceremony_country == 'germany' && calculator.resident_outside_of_uk?
@@ -154,6 +152,12 @@ module SmartAnswer
               outcome :outcome_opposite_sex_marriage_in_japan
             elsif calculator.ceremony_country == 'rwanda'
               outcome :outcome_opposite_sex_marriage_in_commonwealth_countries
+            elsif calculator.ceremony_country == 'bulgaria'
+              if calculator.resident_of_uk?
+                outcome :outcome_opposite_sex_marriage_in_bulgaria_when_residing_in_uk
+              else
+                outcome :outcome_opposite_sex_marriage_in_bulgaria_when_residing_in_bulgaria_or_third_country
+              end
             elsif calculator.resident_of_third_country? &&
                 (
                   calculator.opposite_sex_consular_cni_country? ||
@@ -163,10 +167,6 @@ module SmartAnswer
               outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
             elsif calculator.ceremony_country == 'norway' && calculator.resident_of_third_country?
               outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
-            elsif calculator.ceremony_country == 'italy' && calculator.resident_of_uk?
-              outcome :outcome_opposite_sex_marriage_in_italy_when_residing_in_uk
-            elsif calculator.ceremony_country == 'italy' && calculator.resident_of_ceremony_country?
-              outcome :outcome_opposite_sex_marriage_in_italy_when_residing_in_italy
             elsif calculator.ceremony_country == 'cambodia'
               outcome :outcome_opposite_sex_marriage_in_cambodia
             elsif calculator.ceremony_country == "colombia"
@@ -187,8 +187,6 @@ module SmartAnswer
               outcome :outcome_opposite_sex_marriage_in_poland_when_residing_in_poland
             elsif calculator.ceremony_country == 'slovenia'
               outcome :outcome_opposite_sex_marriage_in_slovenia_when_residing_in_uk_or_slovenia
-            elsif calculator.ceremony_country == 'denmark' && (calculator.resident_of_uk? || calculator.resident_of_ceremony_country?)
-              outcome :outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark
             elsif calculator.opposite_sex_consular_cni_country? && calculator.resident_of_uk?
               outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
             elsif calculator.opposite_sex_consular_cni_country? && calculator.resident_of_ceremony_country?
@@ -218,18 +216,14 @@ module SmartAnswer
               outcome :outcome_opposite_sex_marriage_in_united_arab_emirates
             elsif calculator.ceremony_country == 'turkey'
               outcome :outcome_opposite_sex_marriage_in_turkey
-            elsif calculator.ceremony_country == 'egypt'
-              outcome :outcome_opposite_sex_marriage_in_egypt
             elsif calculator.ceremony_country == 'china'
               outcome :outcome_opposite_sex_marriage_in_china
-            elsif calculator.ceremony_country == 'philippines'
-              outcome :outcome_opposite_sex_marriage_in_philippines
+            elsif calculator.ceremony_country == 'egypt'
+              outcome :outcome_opposite_sex_marriage_in_egypt
             elsif calculator.ceremony_country == 'norway'
               outcome :outcome_opposite_sex_marriage_in_norway
             elsif calculator.ceremony_country == 'south-korea'
               outcome :outcome_opposite_sex_marriage_in_south_korea
-            elsif calculator.ceremony_country == 'vietnam'
-              outcome :outcome_opposite_sex_marriage_in_vietnam
             elsif calculator.ceremony_country == 'belgium'
               outcome :outcome_opposite_sex_marriage_in_belgium
             elsif calculator.ceremony_country == 'peru'
@@ -273,6 +267,8 @@ module SmartAnswer
               outcome :outcome_same_sex_marriage_in_dominican_republic
             elsif calculator.same_sex_ceremony_country_unknown_or_has_no_embassies?
               outcome :outcome_opposite_sex_in_no_cni_countries_when_residing_in_ceremony_or_third_country
+            elsif calculator.ceremony_country == "japan"
+              outcome :outcome_same_sex_marriage_and_civil_partnership_in_japan
             elsif calculator.ceremony_country == "malta"
               outcome :outcome_same_sex_marriage_and_civil_partnership_in_malta
             elsif calculator.same_sex_marriage_not_possible?
@@ -288,8 +284,6 @@ module SmartAnswer
                 ) ||
                 calculator.same_sex_marriage_and_civil_partnership?
               outcome :outcome_same_sex_marriage_and_civil_partnership
-            elsif calculator.ceremony_country == 'denmark' && (calculator.resident_of_uk? || calculator.resident_of_ceremony_country?)
-              outcome :outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark
             elsif calculator.civil_partnership_equivalent_country?
               outcome :outcome_same_sex_civil_partnership
             elsif calculator.civil_partnership_cni_not_required_country?
@@ -300,6 +294,8 @@ module SmartAnswer
               outcome :outcome_same_sex_civil_partnership_in_consular_countries
             elsif calculator.ceremony_country == 'gibraltar'
               outcome :outcome_same_sex_marriage_and_civil_partnership_in_gibraltar
+            elsif calculator.ceremony_country == 'greece'
+              outcome :outcome_same_sex_civil_partnership_in_greece
             else
               outcome :outcome_same_sex_marriage_and_civil_partnership_not_possible
             end
@@ -307,12 +303,8 @@ module SmartAnswer
         end
       end
 
-      outcome :outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark
-      outcome :outcome_ceremonies_in_ireland
       outcome :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
-      outcome :outcome_ceremonies_in_portugal
       outcome :outcome_ceremonies_in_spain
-      outcome :outcome_ceremonies_in_sweden_when_residing_in_sweden
       outcome :outcome_ceremonies_in_switzerland
       outcome :outcome_civil_partnership_in_france_or_french_overseas_territory
       outcome :outcome_civil_partnership_in_monaco
@@ -327,9 +319,10 @@ module SmartAnswer
       outcome :outcome_opposite_sex_marriage_in_british_indian_ocean_territory
       outcome :outcome_opposite_sex_marriage_in_british_overseas_territory
       outcome :outcome_opposite_sex_marriage_in_british_virgin_islands
+      outcome :outcome_opposite_sex_marriage_in_bulgaria_when_residing_in_bulgaria_or_third_country
+      outcome :outcome_opposite_sex_marriage_in_bulgaria_when_residing_in_uk
       outcome :outcome_opposite_sex_marriage_in_burma
       outcome :outcome_opposite_sex_marriage_in_cambodia
-      outcome :outcome_opposite_sex_marriage_in_china
       outcome :outcome_opposite_sex_marriage_in_colombia
       outcome :outcome_opposite_sex_marriage_in_commonwealth_countries
       outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
@@ -343,8 +336,6 @@ module SmartAnswer
       outcome :outcome_opposite_sex_marriage_in_georgia
       outcome :outcome_opposite_sex_marriage_in_hong_kong
       outcome :outcome_opposite_sex_marriage_in_indonesia
-      outcome :outcome_opposite_sex_marriage_in_italy_when_residing_in_italy
-      outcome :outcome_opposite_sex_marriage_in_italy_when_residing_in_uk
       outcome :outcome_opposite_sex_marriage_in_japan
       outcome :outcome_same_sex_for_non_romanians
       outcome :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_kosovo
@@ -361,7 +352,6 @@ module SmartAnswer
       outcome :outcome_opposite_sex_marriage_in_oman
       outcome :outcome_opposite_sex_marriage_in_other_countries
       outcome :outcome_opposite_sex_marriage_in_peru
-      outcome :outcome_opposite_sex_marriage_in_philippines
       outcome :outcome_opposite_sex_marriage_in_poland_when_residing_in_poland
       outcome :outcome_opposite_sex_marriage_in_poland_when_residing_in_uk
       outcome :outcome_opposite_sex_marriage_in_qatar
@@ -369,10 +359,10 @@ module SmartAnswer
       outcome :outcome_opposite_sex_marriage_in_saudi_arabia_when_residing_in_saudi_arabia
       outcome :outcome_opposite_sex_marriage_in_slovenia_when_residing_in_uk_or_slovenia
       outcome :outcome_opposite_sex_marriage_in_south_korea
+      outcome :outcome_opposite_sex_marriage_in_slovakia
       outcome :outcome_opposite_sex_marriage_in_thailand
       outcome :outcome_opposite_sex_marriage_in_turkey
       outcome :outcome_opposite_sex_marriage_in_united_arab_emirates
-      outcome :outcome_opposite_sex_marriage_in_vietnam
       outcome :outcome_opposite_sex_marriage_in_yemen
       outcome :outcome_same_sex_civil_partnership
       outcome :outcome_same_sex_civil_partnership_in_affirmation_countries
@@ -381,10 +371,13 @@ module SmartAnswer
       outcome :outcome_same_sex_civil_partnership_in_no_cni_countries
       outcome :outcome_same_sex_marriage_and_civil_partnership
       outcome :outcome_same_sex_marriage_and_civil_partnership_in_gibraltar
+      outcome :outcome_same_sex_marriage_and_civil_partnership_in_japan
       outcome :outcome_same_sex_marriage_and_civil_partnership_in_malta
       outcome :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
       outcome :outcome_same_sex_marriage_and_civil_partnership_not_possible
       outcome :outcome_same_sex_marriage_in_dominican_republic
+      outcome :outcome_same_sex_civil_partnership_in_greece
+      outcome :outcome_marriage_abroad_in_country
     end
   end
 end

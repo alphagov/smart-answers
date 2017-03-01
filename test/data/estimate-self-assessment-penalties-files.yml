@@ -1,13 +1,13 @@
 ---
-lib/smart_answer_flows/estimate-self-assessment-penalties.rb: c11afabc77193e30122b41441cb1ff14
-test/data/estimate-self-assessment-penalties-questions-and-responses.yml: 22157fec1db01301777ab651a8e6fe16
-test/data/estimate-self-assessment-penalties-responses-and-expected-results.yml: 7cd14ec238d300bd2885dfef64f06440
+lib/smart_answer_flows/estimate-self-assessment-penalties.rb: c0ac9db38e425b61e8ff935420501d2d
+test/data/estimate-self-assessment-penalties-questions-and-responses.yml: 93dcab8e10c0f76286c3d432505c45bb
+test/data/estimate-self-assessment-penalties-responses-and-expected-results.yml: 0d48b872d6a38861912032981a446777
 lib/smart_answer_flows/estimate-self-assessment-penalties/estimate_self_assessment_penalties.govspeak.erb: d35eaf0334a9e871fa14294682fb7322
 lib/smart_answer_flows/estimate-self-assessment-penalties/outcomes/filed_and_paid_on_time.govspeak.erb: c7c2b164d05b3f757bc9ee9439aa560a
 lib/smart_answer_flows/estimate-self-assessment-penalties/outcomes/late.govspeak.erb: b88d8257149cb0af87681e03493ace43
-lib/smart_answer_flows/estimate-self-assessment-penalties/questions/how_much_tax.govspeak.erb: 03ab00ce650ed9912c038268c15adf4e
+lib/smart_answer_flows/estimate-self-assessment-penalties/questions/how_much_tax.govspeak.erb: dea0e1a57bffd8012f0ba9305273aba6
 lib/smart_answer_flows/estimate-self-assessment-penalties/questions/how_submitted.govspeak.erb: c3fffa8a0386144630fae76250114191
 lib/smart_answer_flows/estimate-self-assessment-penalties/questions/when_paid.govspeak.erb: fd629bd5e95648f5a22246a423cfd026
 lib/smart_answer_flows/estimate-self-assessment-penalties/questions/when_submitted.govspeak.erb: 590022eac4fbf8db1976da66d777f776
-lib/smart_answer_flows/estimate-self-assessment-penalties/questions/which_year.govspeak.erb: a77dd8bf04e80f877c22f246d787fed1
-lib/smart_answer/calculators/self_assessment_penalties.rb: bd90e1d33ee15ce63141fa9a266dc5a6
+lib/smart_answer_flows/estimate-self-assessment-penalties/questions/which_year.govspeak.erb: 3431fda0cc0bf6c0c7670c04ef38458c
+lib/smart_answer/calculators/self_assessment_penalties.rb: 2f0cb535afa82d3911d6dfc87adc4c2f

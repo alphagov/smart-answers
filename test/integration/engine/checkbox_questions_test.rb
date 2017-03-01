@@ -6,7 +6,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
       visit "/checkbox-sample/y"
 
       within '.current-question' do
-        within 'h2' do
+        within '[data-test=question]' do
           assert_page_has_content "What do you want on your pizza?"
         end
         within '.question-body' do

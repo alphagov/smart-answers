@@ -3,7 +3,7 @@ lib/smart_answer_flows/additional-commodity-code.rb: d14dcd410d4b21ee51f0f583519
 test/data/additional-commodity-code-questions-and-responses.yml: 24243e9af7ed9c7aca5ed6adbfa0c9b7
 test/data/additional-commodity-code-responses-and-expected-results.yml: 3f80e1b92ec7731959b0f8033a4f43c8
 lib/smart_answer_flows/additional-commodity-code/additional_commodity_code.govspeak.erb: 4d11f8bf0bcd29764893c4a12349de17
-lib/smart_answer_flows/additional-commodity-code/outcomes/commodity_code_result.govspeak.erb: ddfba77b9c3ff122c93a924d06e86659
+lib/smart_answer_flows/additional-commodity-code/outcomes/commodity_code_result.govspeak.erb: d9bc1dfba18bbe32ec054769373b5f6e
 lib/smart_answer_flows/additional-commodity-code/questions/how_much_milk_fat.govspeak.erb: d5a2e72371d3415a561bfe9b9a036880
 lib/smart_answer_flows/additional-commodity-code/questions/how_much_milk_protein_ab.govspeak.erb: a39befa86f200c8467dc9be362f95667
 lib/smart_answer_flows/additional-commodity-code/questions/how_much_milk_protein_c.govspeak.erb: 42a0fb369fe241efe8582d60b3dc079c

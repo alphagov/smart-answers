@@ -1,0 +1,19 @@
+<% content_for :title do %>
+  Based on your answers, you’re not affected by the outside London benefit cap.
+<% end %>
+
+<% content_for :body do %>
+  This is because the total amount of benefits you get are the same as or lower than this benefit cap.
+  
+  ##How this is worked out
+
+  The total amount of your benefits are added together:
+
+  Total amount of benefits affected by cap: £<%= total_benefits_amount %>
+
+  As this amount is lower than the outside London benefit cap of  £<%= benefit_cap %>, your benefits won’t change.
+
+  This is an estimate only. Contact the Department for Work and Pensions if you need further help.
+
+  <%= render partial: 'dwp_contact_details.govspeak.erb' %>
+<% end %>

@@ -7,7 +7,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    @location_slugs = %w(afghanistan algeria andorra argentina australia austria barbados belgium brazil cameroon dominica egypt france germany iran italy kenya libya morocco nigeria north-korea pakistan pitcairn-island poland saint-barthelemy serbia slovakia somalia spain st-kitts-and-nevis st-martin uganda)
+    @location_slugs = %w(afghanistan algeria andorra argentina australia austria barbados belgium brazil cameroon democratic-republic-of-the-congo dominica egypt france germany iran italy kenya libya morocco nigeria north-korea pakistan pitcairn-island poland saint-barthelemy serbia slovakia somalia spain st-kitts-and-nevis st-martin uganda)
     stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::RegisterADeathFlow
   end
@@ -334,8 +334,8 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'another_country'
         add_response 'north-korea'
       end
-      should "give the oru result and be done" do
-        assert_current_node :oru_result
+      should "give the north korean result and be done" do
+        assert_current_node :north_korea_result
       end
     end # Answer Brazil
     context "Death in Poland, currently in Cameroon" do
@@ -415,7 +415,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'north-korea'
       end
       should "take you to the embassy outcome with specific phrasing" do
-        assert_current_node :oru_result
+        assert_current_node :north_korea_result
       end
     end
 
@@ -449,6 +449,15 @@ class RegisterADeathTest < ActiveSupport::TestCase
 
       should "take you to the embassy outcome with custom courier message" do
         assert_current_node :oru_result
+      end
+    end
+
+    context "Democratic Republic of Congo" do
+      should "lead to an ORU outcome with a custom translator link" do
+        add_response "democratic-republic-of-the-congo"
+        add_response "in_the_uk"
+        assert_current_node :oru_result
+        assert_equal '/government/publications/democratic-republic-of-congo-list-of-lawyers', current_state.calculator.translator_link_url
       end
     end
   end # Overseas

@@ -2,7 +2,7 @@ Did the mother start her current or most recent job before 30 April 2011?
 
 
 
-
+Answer these questions about one job only. You'll need to use the calculator again if you have another job.
 
   * yes: Yes
   * no: No

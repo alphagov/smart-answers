@@ -3,9 +3,9 @@ Marriage in Thailand
 
 Contact the [Embassy of Thailand](/government/publications/foreign-embassies-in-the-uk) before making any plans to find out about local marriage laws, including what documents you’ll need.
 
-^You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for Thailand](/foreign-travel-advice/thailand) before making any plans.
+You should [get legal advice](/government/collections/list-of-lawyers) and check the [travel advice for Thailand](/foreign-travel-advice/thailand) before making any plans.
 
-%You must register your marriage at an amphur office (district office) in Thailand - a religious ceremony on its own won’t be valid.%
+^ You must register your marriage at an amphur office (district office) in Thailand - a religious ceremony on its own won’t be valid.
 
 ##What you need to do
 
@@ -38,7 +38,7 @@ You must present your approved affirmation for marriage to a local registrar in 
 
 Service | Fee
 -|-
-Affidavit or affirmation for marriage | £55
+Affidavit or affirmation for marriage | £50
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Thailand](/government/publications/thailand-consular-fees).
 

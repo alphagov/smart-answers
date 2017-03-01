@@ -1,6 +1,7 @@
 ---
 :where_did_the_death_happen?:
 - england_wales
+- portugal
 - scotland
 - northern_ireland
 - overseas
@@ -11,7 +12,9 @@
 - 'yes'
 - 'no'
 :which_country?:
+- democratic-republic-of-the-congo
 - australia # :commonwealth_result
+- austria
 - iran # country_has_no_embassy
 - libya # :approved_translator_link
 - north-korea # :documents_list_embassy_north-korea, :footnote_exceptions
@@ -30,6 +33,7 @@
 - hong-kong # :booking_text_embassy_hong_kong
 - italy # :postal_delivery_form
 - libya # :consular_service_fees_libya
+- north-korea
 - papua-new-guinea # :embassy_high_commission_or_consulate "British high commission"
 - philippines # :post_only_#{philippines}
 - somalia

@@ -1,12 +1,11 @@
-Which period do you want to check for?
-
-The benefit cap will change in autumn 2016.
+Do you receive Housing Benefit?
 
 
 
 
-  * default: Now
-  * future: Autumn 2016
+
+  * yes: Yes
+  * no: No
 
 
 

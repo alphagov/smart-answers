@@ -16,7 +16,7 @@
     <%= render partial: 'paternity_not_entitled_to_pay_intro.govspeak.erb' %>
 
     <% if calculator.on_payroll == 'no' %>
-      <%= render partial: 'must_be_on_payroll.govspeak.erb' %>
+      + <%= render partial: 'must_be_on_payroll.govspeak.erb' %>
     <% elsif employed_dob == 'no' %>
       <% case leave_type %>
       <% when 'paternity' %>
@@ -46,7 +46,7 @@
     <% end %>
     <% if paternity_employment_start == "no" %>
 
-      <%= render partial: 'not_worked_long_enough.govspeak.erb',
+      + <%= render partial: 'not_worked_long_enough.govspeak.erb',
                  locals: {employment_start: employment_start} %>
     <% end %>
 

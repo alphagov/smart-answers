@@ -98,6 +98,14 @@ See:
 * [Viewing state of a Smart Answer](doc/viewing-state.md)
 * [Visualising flows](doc/visualising-flows.md)
 
+### Registering on GOV.UK
+
+- `bundle exec rake publishing_api:publish` will send smart answers to the publishing-api.
+
+### Search indexing
+
+- `bundle exec rake rummager:index` will send the data to Rummager for indexing in search.
+
 ## Licence
 
 [MIT License](./LICENSE.md)

@@ -1,9 +1,4 @@
-Civil partnership in Sweden
-
-Same-sex relationships in Sweden that are recognised as civil partnerships under British law are known as:
-
-- marriage
-- ’registrerat partnerskap’, or ’registered partnership’.
+Marriage in Sweden
 
 Contact the relevant local authorities in Sweden to find out about local laws, including what documents you’ll need.
 
@@ -13,24 +8,12 @@ You should also check the [travel advice for Sweden](/foreign-travel-advice/swed
 
 You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to enter into a civil partnership or equivalent in Sweden.
 
-Contact the local British embassy or consulate where you’re planning the ceremony to find out what you need to do.
+There are 2 ways you can get a CNI:
 
-$A
-British Embassy Stockholm Consular Section
-Address: Skarpögatan 6-8
-Box 27819
-115 27 Stockholm 
-Sweden
-$A
+- [go to the UK and post notice with a UK registrar](https://www.gov.uk/marriage-abroad/y/sweden/uk/partner_local/same_sex)
+- [go to Sweden and post notice at the embassy or consulate there](https://www.gov.uk/marriage-abroad/y/sweden/ceremony_country/partner_local/same_sex)
 
-$C
-Consular telephone enquiries: +46 (0) 8 671 30 00 
-Fax: +46 (0) 8 661 97 66
-
-Email: <Britsinsweden@fco.gov.uk>
-
-[British Embassy Stockholm Consular Section - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-stockholm/office/british-embassy-stockholm-consular-office)
-$C
+%If you choose to post notice in Sweden, you’ll normally have to wait at least 13 days for your CNI. It can take longer depending on the local authorities’ processes and the time of year.%
 
 ##Naturalisation of your partner if they move to the UK
 
@@ -40,7 +23,7 @@ Your partner can apply to [become a British citizen](/becoming-a-british-citizen
 
 Service | Fee
 -|-
-Issuing a CNI, Nulla Osta or equivalent | £65
+Issuing a CNI, Nulla Osta or equivalent | £50
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Sweden](/government/publications/sweden-consular-fees).
 

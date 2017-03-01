@@ -4,6 +4,7 @@ module SmartAnswer::Calculators
 
     attr_writer :passport_country
     attr_writer :purpose_of_visit_answer
+    attr_writer :travelling_to_cta_answer
     attr_writer :passing_through_uk_border_control_answer
 
     def passport_country_in_eea?
@@ -106,6 +107,18 @@ module SmartAnswer::Calculators
       @passing_through_uk_border_control_answer == 'yes'
     end
 
+    def travelling_to_channel_islands_or_isle_of_man?
+      @travelling_to_cta_answer == 'channel_islands_or_isle_of_man'
+    end
+
+    def travelling_to_ireland?
+      @travelling_to_cta_answer == 'republic_of_ireland'
+    end
+
+    def travelling_to_elsewhere?
+      @travelling_to_cta_answer == 'somewhere_else'
+    end
+
     EXCLUDE_COUNTRIES = %w(american-samoa british-antarctic-territory british-indian-ocean-territory french-guiana french-polynesia gibraltar guadeloupe holy-see martinique mayotte new-caledonia reunion st-pierre-and-miquelon the-occupied-palestinian-territories wallis-and-futuna western-sahara)
 
     COUNTRY_GROUP_UKOT = %w(anguilla bermuda british-dependent-territories-citizen british-overseas-citizen british-protected-person british-virgin-islands cayman-islands falkland-islands montserrat st-helena-ascension-and-tristan-da-cunha south-georgia-and-south-sandwich-islands turks-and-caicos-islands)
@@ -114,7 +127,7 @@ module SmartAnswer::Calculators
 
     COUNTRY_GROUP_VISA_NATIONAL = %w(stateless-or-refugee armenia azerbaijan bahrain benin bhutan bolivia bosnia-and-herzegovina burkina-faso cambodia cape-verde central-african-republic chad colombia comoros cuba djibouti dominican-republic ecuador equatorial-guinea fiji gabon georgia guyana haiti indonesia jordan kazakhstan north-korea kuwait kyrgyzstan laos madagascar mali  montenegro mauritania morocco mozambique niger oman peru philippines qatar russia sao-tome-and-principe saudi-arabia suriname tajikistan taiwan thailand togo tunisia turkmenistan ukraine united-arab-emirates uzbekistan zambia)
 
-    COUNTRY_GROUP_DATV = %w(afghanistan albania algeria angola bangladesh belarus burma burundi cameroon china congo cyprus-north democratic-republic-of-congo egypt eritrea ethiopia gambia ghana guinea guinea-bissau india iran iraq israel-provisional-passport cote-d-ivoire jamaica kenya kosovo lebanon lesotho liberia libya macedonia malawi moldova mongolia nepal nigeria palestinian-territories pakistan rwanda senegal serbia sierra-leone somalia south-africa south-sudan sri-lanka sudan swaziland syria tanzania turkey uganda venezuela vietnam yemen zimbabwe)
+    COUNTRY_GROUP_DATV = %w(afghanistan albania algeria angola bangladesh belarus burma burundi cameroon china congo cyprus-north democratic-republic-of-the-congo egypt eritrea ethiopia gambia ghana guinea guinea-bissau india iran iraq israel-provisional-passport cote-d-ivoire jamaica kenya kosovo lebanon lesotho liberia libya macedonia malawi moldova mongolia nepal nigeria palestinian-territories pakistan rwanda senegal serbia sierra-leone somalia south-africa south-sudan sri-lanka sudan swaziland syria tanzania turkey uganda venezuela vietnam yemen zimbabwe)
 
     COUNTRY_GROUP_EEA = %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia finland france germany greece hungary iceland ireland italy latvia liechtenstein lithuania luxembourg malta netherlands norway poland portugal romania saint-barthelemy slovakia slovenia spain st-martin sweden switzerland)
 

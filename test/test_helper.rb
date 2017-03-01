@@ -1,5 +1,7 @@
 
 ENV["RAILS_ENV"] = "test"
+ENV["GOVUK_APP_DOMAIN"] = "test.gov.uk"
+
 require File.expand_path('../../config/environment', __FILE__)
 
 if ENV["TEST_COVERAGE"]
@@ -36,6 +38,17 @@ require_relative 'support/world_location_stubbing_methods'
 class ActiveSupport::TestCase
   include FixtureMethods
   include WorldLocationStubbingMethods
+end
+
+require 'slimmer/test'
+require 'slimmer/test_helpers/govuk_components'
+
+class ActiveSupport::TestCase
+  include Slimmer::TestHelpers::GovukComponents
+end
+
+class ActionController::TestCase
+  include Slimmer::TestHelpers::GovukComponents
 end
 
 require 'govuk-content-schema-test-helpers/test_unit'

@@ -11,8 +11,8 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
   setup do
     setup_for_testing_flow SmartAnswer::LandlordImmigrationCheckFlow
 
-    imminence_has_areas_for_postcode("PA3%202SW",   [{ slug: 'renfrewshire-council', country_name: 'Scotland' }])
-    imminence_has_areas_for_postcode("B1%201PW", [{ slug: "birmingham-city-council", country_name: 'England' }])
+    imminence_has_areas_for_postcode("PA3%202SW", [{ type: 'EUR', name: 'Scotland', country_name: 'Scotland' }])
+    imminence_has_areas_for_postcode("B1%201PW", [{ type: 'EUR', name: 'West Midlands', country_name: 'England' }])
   end
 
   should "start by asking first question" do

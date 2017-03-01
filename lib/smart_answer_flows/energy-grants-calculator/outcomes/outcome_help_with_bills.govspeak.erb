@@ -15,20 +15,20 @@
 <% content_for :body do %>
   <% if calculator.circumstances.include?('benefits') %>
     <% if calculator.eligible_for_winter_fuel_payment? %>
-      <%= render partial: 'winter_fuel_payments.govspeak.erb' %>
+      - <%= render partial: 'winter_fuel_payments.govspeak.erb' %>
     <% end %>
     <% if calculator.eligible_for_warm_home_discount? %>
-      <%= render partial: 'warm_home_discount.govspeak.erb', locals: {calculator: calculator} %>
+      <%= render partial: 'warm_home_discount.govspeak.erb' %>
     <% end %>
     <% if calculator.eligible_for_cold_weather_payment? %>
-      <%= render partial: 'cold_weather_payment.govspeak.erb' %>
+      - <%= render partial: 'cold_weather_payment.govspeak.erb' %>
     <% end %>
     <% if calculator.eligible_for_energy_company_obligation? %>
-      <%= render partial: 'energy_company_obligation.govspeak.erb' %>
+      - <%= render partial: 'energy_company_obligation.govspeak.erb' %>
     <% end %>
   <% else %>
     <% if calculator.eligible_for_winter_fuel_payment? %>
-      <%= render partial: 'winter_fuel_payments.govspeak.erb' %>
+      - <%= render partial: 'winter_fuel_payments.govspeak.erb' %>
     <% end %>
   <% end %>
   <% if calculator.may_qualify_for_affordable_warmth_obligation? %>

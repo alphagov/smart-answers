@@ -53,8 +53,8 @@ Call the Visa Application Centre to make an appointment.
 
 $C
 **Visa Application Centre**\\
-+972 (08) 541 4100\\
-Monday to Friday, 9am to 2pm\\
++970 (08) 264 1456\\
+Sunday to Thursday, 9am to 2pm\\
 [Find out about call charges](/call-charges)
 $C
 
@@ -77,6 +77,8 @@ They will contact you - using the details on your application form - when your p
 You must collect in person.  If you’re unable to, someone else can go on your behalf.
 
 You must bring photo ID.
+
+^You must sign your new passport before you can use it.^
 
 ##Contact the Passport Adviceline
 

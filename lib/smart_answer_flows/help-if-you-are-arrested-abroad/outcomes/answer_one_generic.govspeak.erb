@@ -52,10 +52,7 @@
     <%= region_downloads %>
   <% end %>
 
-  <%= render partial: 'common_downloads.govspeak.erb' %>
-  <% if transfers_back_to_uk_treaty_change_countries.exclude?(country) %>
-    - [Transfers back to the UK](/government/publications/arrest-or-detention)
-  <% end %>
+  <%= render partial: 'common_downloads.govspeak.erb', locals: { transfer_back: transfers_back_to_uk_treaty_change_countries.exclude?(country) } %>
 
   ##What the FCO and British consulate can’t do
 

@@ -11,138 +11,83 @@ module SmartAnswer::Calculators
       end
 
       context "national weekly_benefit_caps" do
-        should "be £350 for a single person" do
-          assert_equal 350, @config.weekly_benefit_cap_amount(:default, :single)
+        should "be £257.69 for a single person" do
+          assert_equal 257.69, @config.weekly_benefit_cap_amount(:single)
         end
-        should "be £500 for a couple with or without children" do
-          assert_equal 500, @config.weekly_benefit_cap_amount(:default, :couple)
+        should "be £384.62 for a couple with or without children" do
+          assert_equal 384.62, @config.weekly_benefit_cap_amount(:couple)
         end
-        should "be £500 for a lone parent" do
-          assert_equal 500, @config.weekly_benefit_cap_amount(:default, :parent)
+        should "be £384.62 for a lone parent" do
+          assert_equal 384.62, @config.weekly_benefit_cap_amount(:parent)
         end
       end
 
       context "benefits data" do
         should "have a question and description for each benefit" do
-          assert_equal :jsa_amount?, @config.benefits(:default).fetch("jsa")[:question]
-          assert_equal "Jobseeker’s Allowance", @config.benefits(:default).fetch(:jsa)[:description]
+          assert_equal :jsa_amount?, @config.benefits.fetch("jsa")[:question]
+          assert_equal "Jobseeker’s Allowance", @config.benefits.fetch(:jsa)[:description]
         end
         should "be able get a hash of just benefits and questions" do
-          assert_kind_of Hash, @config.questions(:default)
+          assert_kind_of Hash, @config.questions
         end
         should "be able get a hash of just benefits and descriptions" do
-          assert_kind_of Hash, @config.descriptions(:default)
+          assert_kind_of Hash, @config.descriptions
         end
       end
 
       context "exempt_benefits" do
         should "contain an entry for Disability Living Allowance" do
-          assert_includes @config.exempt_benefits(:default), "Disability Living Allowance"
+          assert_includes @config.exempt_benefits, "Disability Living Allowance"
         end
       end
 
-      context "multiple configuration sets" do
+      context "Flow configuration" do
         setup do
-          BenefitCapCalculatorConfiguration.any_instance.stubs(:dataset).returns(
-            default: {
-              weekly_benefit_caps: {
-                national: {
-                  first: {
-                    amount: 100,
-                    description: "first cap"
-                  },
-                  second: {
-                    amount: 200,
-                    description: "second cap"
-                  }
-                }
-              },
-              exempt_benefits: ["first exempt benefit", "second exempt benefit"],
-              benefits: {
-                first_benefit: {
-                  question: "first_question",
-                  description: "first description"
+          BenefitCapCalculatorConfiguration.any_instance.stubs(:data).returns(
+            weekly_benefit_caps: {
+              national: {
+                first: {
+                  amount: 100,
+                  description: "first cap"
                 },
-                second_benefit: {
-                  question: "second_question",
-                  description: "second description"
-                },
-                third_benefit: {
-                  question: "third_question",
-                  description: "third description"
+                second: {
+                  amount: 200,
+                  description: "second cap"
                 }
               }
             },
-            other: {
-              weekly_benefit_caps: {
-                national: {
-                  first: {
-                    amount: 300,
-                    description: "first other cap"
-                  },
-                  second: {
-                    amount: 400,
-                    description: "second other cap"
-                  }
-                }
+            exempt_benefits: ["first exempt benefit", "second exempt benefit"],
+            benefits: {
+              first_benefit: {
+                question: "first_question",
+                description: "first description"
               },
-              exempt_benefits: ["first other exempt benefit", "second other exempt benefit"],
-              benefits: {
-                first_benefit: {
-                  question: "other_first_question",
-                  description: "other first description"
-                },
-                second_benefit: {
-                  question: "other_second_question",
-                  description: "other second description"
-                },
-                other_third_benefit: {
-                  question: "other_third_question",
-                  description: "other third description"
-                }
+              second_benefit: {
+                question: "second_question",
+                description: "second description"
+              },
+              third_benefit: {
+                question: "third_question",
+                description: "third description"
               }
             }
           )
         end
-        context "default configuration" do
-          should "get weekly_benefit_caps data for the default configuration" do
-            assert_equal 100, @config.weekly_benefit_cap_amount(:default, :first)
-          end
-          should "get exempt benefits for the default configuration" do
-            assert_includes @config.exempt_benefits(:default), "first exempt benefit"
-          end
-          should "get benefits data for the default configuration" do
-            assert_equal "first_question", @config.benefits(:default).fetch(:first_benefit)[:question]
-          end
+        should "get weekly_benefit_caps data" do
+          assert_equal 100, @config.weekly_benefit_cap_amount(:first)
         end
-        context "other configuration" do
-          should "get weekly_benefit_caps data for the other configuration" do
-            assert_equal 300, @config.weekly_benefit_cap_amount(:other, :first)
-          end
-          should "get exempt benefits for the other configuration" do
-            assert_includes @config.exempt_benefits(:other), "first other exempt benefit"
-          end
-          should "get benefits data for the other configuration" do
-            assert_equal "other_first_question", @config.benefits(:other).fetch("first_benefit")["question"]
-          end
+        should "get exempt benefits" do
+          assert_includes @config.exempt_benefits, "first exempt benefit"
         end
-        context "merge questions" do
-          should "get all unique benefit questions from multiple configuration sets" do
-            questions = @config.all_questions
-            refute_includes questions.values, "first_question"
-            refute_includes questions.values, "second_question"
-            assert_includes questions.values, "other_first_question"
-            assert_includes questions.values, "other_second_question"
-            assert_includes questions.values, "third_question"
-            assert_includes questions.values, "other_third_question"
-          end
+        should "get benefits data" do
+          assert_equal "first_question", @config.benefits.fetch(:first_benefit)[:question]
         end
       end
 
       context "location of user" do
         context "lives outside of Greater London" do
           setup do
-            imminence_has_areas_for_postcode("B1%201PW", [{ slug: "birmingham-city-council", country_name: 'England' }])
+            imminence_has_areas_for_postcode("B1%201PW", [{ type: 'EUR', name: 'West Midlands', country_name: 'England' }])
           end
           should "return false" do
             assert_equal false, @config.london?("B1%201PW")
@@ -150,7 +95,7 @@ module SmartAnswer::Calculators
         end
         context "lives in Greater London" do
           setup do
-            imminence_has_areas_for_postcode("IG6%202BA", [{ slug: 'london', country_name: 'England' }])
+            imminence_has_areas_for_postcode("IG6%202BA", [{ type: 'EUR', name: 'London', country_name: 'England' }])
           end
           should "return true" do
             assert_equal true, @config.london?("IG6%202BA")

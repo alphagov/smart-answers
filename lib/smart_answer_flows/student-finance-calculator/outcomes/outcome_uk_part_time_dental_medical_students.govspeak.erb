@@ -1,0 +1,12 @@
+<% content_for :body do %>
+  <%= render partial: 'disclaimer.govspeak.erb' %>
+
+  Each year you could get the following [NHS funding](/nhs-bursaries):
+
+  <%= render partial: 'nhs_part_time_funding.govspeak.erb', locals: { all_uk_students_circumstances: all_uk_students_circumstances, calculator: calculator } %>
+
+  <%= render partial: 'uk_extra_help.govspeak.erb' %>
+
+  <%= render partial: 'next_steps.govspeak.erb' %>
+
+<% end %>

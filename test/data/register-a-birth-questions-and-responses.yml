@@ -3,14 +3,18 @@
 - afghanistan # no_birth_certificate_exception
 - algeria # payment_method_in_algeria
 - australia # commonwealth_result
+- democratic-republic-of-the-congo
 - iran # country_has_no_embassy
 - libya # consular_service_fees_libya
 - morocco # swear_in_moroccan_court
+- netherlands
 - north-korea # handled by the embassy if user is currently in the country
 - papua-new-guinea # registration_can_take_3_months
+- portugal
 - philippines # oru_extra_documents_in_philippines_when_mother_not_british
 - sierra-leone # oru_extra_documents_variant_intro
 - somalia
+- sudan
 - st-martin # overseas_passports_embassies empty
 - timor-leste # indonesia_british_father_paternity
 - usa # birth_registration_form_usa
@@ -38,6 +42,8 @@
 - hong-kong # :go_to_the_embassy (special case)
 - italy # :postal_form_return
 - libya # :fees_for_consular_services
+- north-korea
 - papua-new-guinea # :embassy_high_commission_or_consulate "British high commission"
 - philippines # :post_only_philippines
+- sudan
 - taiwan # :embassy_high_commission_or_consulate "British Trade & Cultural Office"

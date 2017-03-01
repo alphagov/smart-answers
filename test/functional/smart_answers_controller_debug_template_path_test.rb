@@ -1,16 +1,13 @@
 require_relative '../test_helper'
 require_relative '../helpers/fixture_flows_helper'
 require_relative '../fixtures/smart_answer_flows/smart-answers-controller-sample'
-require 'gds_api/test_helpers/content_api'
 
 class SmartAnswersControllerDebugTemplatePathTest < ActionController::TestCase
   tests SmartAnswersController
 
   include FixtureFlowsHelper
-  include GdsApi::TestHelpers::ContentApi
 
   def setup
-    stub_content_api_default_artefact
     setup_fixture_flows
     registry = SmartAnswer::FlowRegistry.instance
     flow_name = 'smart-answers-controller-sample'

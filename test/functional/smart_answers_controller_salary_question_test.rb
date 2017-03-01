@@ -2,18 +2,16 @@ require_relative '../test_helper'
 require_relative '../helpers/fixture_flows_helper'
 require_relative '../fixtures/smart_answer_flows/smart-answers-controller-sample-with-salary-question'
 require_relative 'smart_answers_controller_test_helper'
-require 'gds_api/test_helpers/content_api'
 
 class SmartAnswersControllerSalaryQuestionTest < ActionController::TestCase
   tests SmartAnswersController
 
   include FixtureFlowsHelper
   include SmartAnswersControllerTestHelper
-  include GdsApi::TestHelpers::ContentApi
 
   def setup
-    stub_content_api_default_artefact
     setup_fixture_flows
+    stub_shared_component_locales
   end
 
   def teardown
@@ -24,7 +22,7 @@ class SmartAnswersControllerSalaryQuestionTest < ActionController::TestCase
     context "salary question" do
       should "display question" do
         get :show, id: 'smart-answers-controller-sample-with-salary-question', started: 'y'
-        assert_select ".step.current h2", /How much\?/
+        assert_select ".step.current [data-test=question]", /How much\?/
         assert_select "input[type=text][name='response[amount]']"
         assert_select "select[name='response[period]']"
       end
@@ -35,7 +33,7 @@ class SmartAnswersControllerSalaryQuestionTest < ActionController::TestCase
         end
 
         should "show a validation error if invalid amount" do
-          assert_select ".step.current h2", /Salary question with error message/
+          assert_select ".step.current [data-test=question]", /Salary question with error message/
           assert_select ".error", /salary-question-error-message/
         end
       end
@@ -43,14 +41,14 @@ class SmartAnswersControllerSalaryQuestionTest < ActionController::TestCase
       context "no error message set in erb template" do
         should "show a generic message" do
           submit_response amount: "bad_number"
-          assert_select ".step.current h2", /How much\?/
+          assert_select ".step.current [data-test=question]", /How much\?/
           assert_select ".error", /Please answer this question/
         end
       end
 
       should "show a validation error if invalid period" do
         submit_response amount: "1", period: "bad_period"
-        assert_select ".step.current h2", /How much\?/
+        assert_select ".step.current [data-test=question]", /How much\?/
         assert_select ".error", /Please answer this question/
       end
 

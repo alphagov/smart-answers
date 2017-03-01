@@ -1,12 +1,24 @@
 <% content_for :title do %>
-  Will you pass through UK Border Control?
+  Will you pass through UK border control?
+<% end %>
+
+<% content_for :body do %>
+
+  You always pass through border control if you:
+
+  - leave the main airport building for any reason
+  - need to collect your bags and check them in to your onward flight
+
+  You must also pass through border control if both:
+
+  - your onward flight leaves on a different calendar day to when you arrive
+  - there’s nowhere for you to stay overnight in the airport, for example in a transit hotel
+
+  ^Check with your airline if you’re not sure if you’ll pass through border control.^
+
 <% end %>
 
 <% options(
   "yes": "Yes",
   "no": "No"
 ) %>
-
-<% content_for :hint do %>
-  You might pass through UK Border Control even if you don't leave the airport - eg your bags aren't checked through and you need to collect them before transferring to your outbound flight.
-<% end %>

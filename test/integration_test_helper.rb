@@ -1,12 +1,9 @@
 require_relative 'test_helper'
 require 'capybara/rails'
-require 'slimmer/test'
 
 Capybara.default_driver = :rack_test
 
 require 'capybara/poltergeist'
-
-require 'gds_api/test_helpers/content_api'
 
 # This additional configuration is a protective measure while
 # we have invalid ssl certs in the test environment, it
@@ -21,7 +18,11 @@ Capybara.javascript_driver = :poltergeist
 
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
-  include GdsApi::TestHelpers::ContentApi
+  include Slimmer::TestHelpers::GovukComponents
+
+  setup do
+    stub_shared_component_locales
+  end
 
   teardown do
     Capybara.use_default_driver

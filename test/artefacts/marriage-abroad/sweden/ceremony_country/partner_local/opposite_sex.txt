@@ -12,7 +12,7 @@ If you aren’t registered in Sweden, you’ll also need to bring your partner�
 
 To get a CNI, you must post notice of your intended marriage in Sweden. You can do this at the British embassy.
 
-You’ll need to have been living in Sweden for at least 3 full days before you can post notice, eg if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.
+You’ll need to have been living in Sweden for at least 3 full days before you can post notice, for example if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.
 
 You can have your [notice of marriage form](/government/publications/notice-of-marriage-form--2) and [oath or affirmation](/government/publications/affirmationaffidavit-of-marital-status-form) witnessed in front of a [local notary public](https://www.advokatsamfundet.se/Behover-du-advokat/Sok-advokat/Sokresultat/?areaoflaw=6801) or at the British embassy.
 
@@ -38,7 +38,7 @@ You can download and fill in (but not sign) the forms in advance.
 
 You must take the forms with you to your appointment.
 
-%The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
+%The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (for example marriage certificate or deed poll).%
 
 If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
 
@@ -61,14 +61,18 @@ Box 27819
 115 93 Stockholm
 $A
 
-^You don't need to stay in the country while your notice is posted.^
+Once you’ve posted your notice and paid the registration fee, the embassy or consulate will display your notice of marriage publicly for 7 days, from the day after they receive your payment.
+
+As long as nobody registers an objection, the embassy you will give you a CNI on the 8th day. You don’t need to stay in the country while your notice is posted.
+
+After you receive your CNI, you need to take it to the [Swedish tax authorities](http://www.skatteverket.se/privat.4.76a43be412206334b89800052864.html) to be registered.
 
 ## Fees
 
 Service | Fee
 -|-
-Receiving a notice of marriage | £65
-Issuing a CNI, Nulla Osta or equivalent | £65
+Receiving a notice of marriage | £50
+Issuing a CNI, Nulla Osta or equivalent | £50
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Sweden](/government/publications/sweden-consular-fees).
 

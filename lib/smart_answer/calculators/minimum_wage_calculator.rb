@@ -7,7 +7,7 @@ module SmartAnswer::Calculators
 
     def initialize(params = {})
       @age = params[:age]
-      @date = (params[:date].nil? ? Date.today : params[:date])
+      @date = params[:date] || SmartAnswer::DateHelper.current_day
       @basic_hours = params[:basic_hours].to_f
       @basic_pay = params[:basic_pay].to_f
       @is_apprentice = params[:is_apprentice]
@@ -15,12 +15,12 @@ module SmartAnswer::Calculators
       @overtime_hours = params[:overtime_hours].to_i || 0
       @overtime_hourly_rate = 0
       @accommodation_cost = 0
-      @minimum_wage_data = minimum_wage_data_for_date(@date)
+      @minimum_wage_data = rates_for_date(@date)
     end
 
     def date=(date)
       @date = date
-      @minimum_wage_data = minimum_wage_data_for_date(@date)
+      @minimum_wage_data = rates_for_date(@date)
     end
 
     def valid_age?(age)
@@ -70,7 +70,7 @@ module SmartAnswer::Calculators
 
     def minimum_hourly_rate
       if @is_apprentice
-        @minimum_wage_data[:apprentice_rate]
+        apprentice_rate
       else
         per_hour_minimum_wage
       end
@@ -140,7 +140,7 @@ module SmartAnswer::Calculators
     end
 
     def per_hour_minimum_wage(date = @date)
-      data = minimum_wage_data_for_date(date)
+      data = rates_for_date(date)
       if @is_apprentice
         data[:apprentice_rate]
       else
@@ -152,14 +152,12 @@ module SmartAnswer::Calculators
       end
     end
 
-    def minimum_wage_data_for_date(date = Date.today)
-      self.class.historical_minimum_wage_data.find do |d|
-        date >= d[:start_date] && date <= d[:end_date]
-      end
+    def free_accommodation_rate
+      @minimum_wage_data.accommodation_rate
     end
 
-    def free_accommodation_rate
-      @minimum_wage_data[:accommodation_rate]
+    def apprentice_rate
+      @minimum_wage_data.apprentice_rate
     end
 
     def national_living_wage_rate
@@ -197,16 +195,21 @@ module SmartAnswer::Calculators
     end
 
     def charged_accomodation_adjustment(charge, number_of_nights)
-      accommodation_rate = @minimum_wage_data[:accommodation_rate]
-      if charge < accommodation_rate
+      if charge < free_accommodation_rate
         0
       else
         (free_accommodation_adjustment(number_of_nights) - (charge * number_of_nights)).round(2)
       end
     end
 
-    def self.historical_minimum_wage_data
-      @historical_minimum_wage_data ||= YAML.load_file(Rails.root.join("lib/data/minimum_wage_data.yml"))[:minimum_wage_data]
+  private
+
+    def rates_for_date(date = Date.today)
+      data.rates(date)
+    end
+
+    def data
+      @all_rates ||= RatesQuery.from_file('minimum_wage')
     end
   end
 end

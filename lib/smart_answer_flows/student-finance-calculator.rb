@@ -6,10 +6,17 @@ module SmartAnswer
       status :published
       satisfies_need "100133"
 
+      sf_calculator = Calculators::StudentFinanceCalculator.new
+
       #Q1
       multiple_choice :when_does_your_course_start? do
-        option :"2015-2016"
         option :"2016-2017"
+        option :"2017-2018"
+
+        on_response do |response|
+          self.calculator = sf_calculator
+          calculator.course_start = response
+        end
 
         save_input_as :start_date
         next_node do
@@ -25,6 +32,11 @@ module SmartAnswer
         option :"eu-part-time"
 
         save_input_as :course_type
+
+        on_response do |response|
+          calculator.course_type = response
+        end
+
         next_node do
           question :how_much_are_your_tuition_fees_per_year?
         end
@@ -33,10 +45,8 @@ module SmartAnswer
       #Q3
       money_question :how_much_are_your_tuition_fees_per_year? do
         calculate :tuition_fee_amount do |response|
-          if course_type == "uk-full-time" || course_type == 'eu-full-time'
-            raise SmartAnswer::InvalidResponse if response > 9000
-          else
-            raise SmartAnswer::InvalidResponse if response > 6750
+          if response > calculator.tuition_fee_maximum
+            raise SmartAnswer::InvalidResponse
           end
           Money.new(response)
         end
@@ -59,6 +69,11 @@ module SmartAnswer
         option :'away-in-london'
 
         save_input_as :where_living
+
+        on_response do |response|
+          calculator.residence = response
+        end
+
         next_node do
           question :whats_your_household_income?
         end
@@ -66,7 +81,7 @@ module SmartAnswer
 
       #Q5
       money_question :whats_your_household_income? do
-        calculate :calculator do |response|
+        calculate :test_calculator do |response|
           Calculators::StudentFinanceCalculator.new(
             course_start: start_date,
             household_income: response,
@@ -75,12 +90,11 @@ module SmartAnswer
         end
 
         calculate :maintenance_grant_amount do
-          calculator.maintenance_grant_amount
+          test_calculator.maintenance_grant_amount
         end
 
-        # loan amount depends on maintenance grant amount and household income
         calculate :maintenance_loan_amount do
-          calculator.maintenance_loan_amount
+          test_calculator.maintenance_loan_amount
         end
 
         next_node do
@@ -120,7 +134,7 @@ module SmartAnswer
         end
       end
 
-      #Q7
+      #Q7a
       multiple_choice :what_course_are_you_studying? do
         option :"teacher-training"
         option :"dental-medical-healthcare"
@@ -129,14 +143,65 @@ module SmartAnswer
 
         save_input_as :course_studied
 
-        next_node do
+        next_node do |response|
           case course_type
           when 'uk-full-time'
-            outcome :outcome_uk_full_time_students
+            if response == 'dental-medical-healthcare'
+              if start_date == "2017-2018"
+                question :are_you_studying_one_of_these_dental_or_medical_courses?
+              else
+                outcome :outcome_uk_full_time_dental_medical_students
+              end
+            else
+              outcome :outcome_uk_full_time_students
+            end
           when 'uk-part-time'
-            outcome :outcome_uk_all_students
+            if response == 'dental-medical-healthcare'
+              if start_date == "2017-2018"
+                question :are_you_studying_dental_hygiene_or_dental_therapy?
+              else
+                outcome :outcome_uk_part_time_dental_medical_students
+              end
+            else
+              outcome :outcome_uk_all_students
+            end
           else
             outcome :outcome_eu_students
+          end
+        end
+      end
+
+      #Q7b
+      multiple_choice :are_you_studying_one_of_these_dental_or_medical_courses? do
+        option :"doctor-or-dentist"
+        option :"dental-hygiene-or-dental-therapy"
+        option :"none-of-the-above"
+
+        save_input_as :dental_or_medical_course
+
+        on_response do |response|
+          calculator.dental_or_medical_course = response
+        end
+
+        next_node do |response|
+          if response == "none-of-the-above"
+            outcome :outcome_uk_full_time_students
+          else
+            outcome :outcome_uk_full_time_dental_medical_students
+          end
+        end
+      end
+
+      #Q7c
+      multiple_choice :are_you_studying_dental_hygiene_or_dental_therapy? do
+        option :yes
+        option :no
+
+        next_node do |response|
+          if response == "no"
+            outcome :outcome_uk_all_students
+          else
+            outcome :outcome_uk_part_time_dental_medical_students
           end
         end
       end
@@ -146,6 +211,10 @@ module SmartAnswer
       outcome :outcome_uk_all_students
 
       outcome :outcome_eu_students
+
+      outcome :outcome_uk_full_time_dental_medical_students
+
+      outcome :outcome_uk_part_time_dental_medical_students
     end
   end
 end

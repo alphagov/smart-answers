@@ -6,6 +6,7 @@
 - austria
 - china
 - croatia
+- democratic-republic-of-the-congo
 - israel
 - kuwait
 - oman
@@ -24,6 +25,19 @@
 - work
 - study
 - transit
+- family
+- marriage
+- school
+- medical
+- diplomatic
+:travelling_to_cta?:
+- channel_islands_or_isle_of_man
+- republic_of_ireland
+- somewhere_else
+:channel_islands_or_isle_of_man?:
+- tourism
+- work
+- study
 - family
 - marriage
 - school

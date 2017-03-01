@@ -7,6 +7,7 @@ class CalculateEmployeeRedundancyPayTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
+    stub_shared_component_locales
     setup_for_testing_flow SmartAnswer::CalculateEmployeeRedundancyPayFlow
   end
 
@@ -121,6 +122,7 @@ class CalculateEmployeeRedundancyPayTest < ActiveSupport::TestCase
 
         context "weekly salary of under 430 before tax" do
           setup do
+            stub_shared_component_locales
             add_response "300"
           end
 
@@ -225,11 +227,6 @@ class CalculateEmployeeRedundancyPayTest < ActiveSupport::TestCase
   context "dates out of range" do
     should "not allow dates before 2012" do
       add_response Date.parse("2011-12-31")
-      assert_current_node_is_error
-    end
-
-    should "not allow dates next year" do
-      add_response((Date.today.end_of_year + 1.day).to_s)
       assert_current_node_is_error
     end
   end

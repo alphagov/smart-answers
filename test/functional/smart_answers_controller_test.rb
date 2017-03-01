@@ -2,16 +2,15 @@ require_relative '../test_helper'
 require_relative '../helpers/fixture_flows_helper'
 require_relative '../fixtures/smart_answer_flows/smart-answers-controller-sample'
 require_relative 'smart_answers_controller_test_helper'
-require 'gds_api/test_helpers/content_api'
 
 class SmartAnswersControllerTest < ActionController::TestCase
   include FixtureFlowsHelper
   include SmartAnswersControllerTestHelper
-  include GdsApi::TestHelpers::ContentApi
+  include GovukAbTesting::MinitestHelpers
 
   def setup
-    stub_content_api_default_artefact
     setup_fixture_flows
+    stub_shared_component_locales
   end
 
   def teardown
@@ -76,24 +75,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
       end
     end
 
-    context "without a valid artefact" do
-      setup do
-        FlowPresenter.any_instance.stubs(:artefact).returns({})
-      end
-
-      should "still return a success response" do
-        get :show, id: "smart-answers-controller-sample"
-        assert response.ok?
-      end
-
-      should "have cache headers set to 5 seconds" do
-        with_cache_control_expiry do
-          get :show, id: "smart-answers-controller-sample"
-          assert_equal "max-age=5, public", @response.header["Cache-Control"]
-        end
-      end
-    end
-
     context "meta description in erb template" do
       should "be shown" do
         get :show, id: 'smart-answers-controller-sample'
@@ -105,7 +86,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
     should "display first question after starting" do
       get :show, id: 'smart-answers-controller-sample', started: 'y'
-      assert_select ".step.current h2", /Do you like chocolate\?/
+      assert_select ".step.current [data-test=question]", /Do you like chocolate\?/
       assert_select "input[name=response][value=yes]"
       assert_select "input[name=response][value=no]"
     end
@@ -118,39 +99,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
     should "have meta robots noindex on question pages" do
       get :show, id: 'smart-answers-controller-sample', started: 'y'
       assert_select "head meta[name=robots][content=noindex]"
-    end
-
-    should "send the artefact to slimmer" do
-      artefact = artefact_for_slug('smart-answers-controller-sample')
-      FlowPresenter.any_instance.stubs(:artefact).returns(artefact)
-      @controller.expects(:set_slimmer_artefact).with(artefact)
-
-      get :show, id: 'smart-answers-controller-sample'
-    end
-
-    should "503 if content_api times out" do
-      FlowPresenter.any_instance.stubs(:artefact).raises(GdsApi::TimedOutException)
-
-      get :show, id: 'smart-answers-controller-sample'
-      assert_equal 503, response.status
-    end
-
-    should "404 Not Found if request is for an unknown format" do
-      @controller.stubs(:respond_to).raises(ActionController::UnknownFormat)
-
-      get :show, id: 'smart-answers-controller-sample'
-      assert_response :not_found
-    end
-
-    should "send slimmer analytics headers" do
-      get :show, id: 'smart-answers-controller-sample'
-      assert_equal "smart_answer", @response.headers["X-Slimmer-Format"]
-    end
-
-    should "cope with no artefact found" do
-      content_api_does_not_have_an_artefact 'sample'
-      get :show, id: 'smart-answers-controller-sample'
-      assert @response.success?
     end
 
     should "accept responses as GET params and redirect to canonical url" do
@@ -245,6 +193,64 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
         assert_select "pre.debug", false, "The page should not render debug information"
       end
+    end
+
+    context "A/B testing" do
+      setup do
+        ENV['ENABLE_NEW_NAVIGATION'] = 'yes'
+
+        @controller.stubs(:content_item).returns(
+          "links" => {
+            "taxons" => 'foo',
+          },
+        )
+
+        @controller.stubs(
+          navigation_helpers: stub(
+            'navigation_helpers',
+            breadcrumbs: {
+              breadcrumbs: ['NormalBreadcrumb'],
+            },
+            taxon_breadcrumbs: {
+              breadcrumbs: ['TaxonBreadcrumb'],
+            },
+          )
+        )
+      end
+
+      teardown do
+        ENV['ENABLE_NEW_NAVIGATION'] = nil
+      end
+
+      should "show normal breadcrumbs by default" do
+        get :show, id: 'smart-answers-controller-sample'
+        assert_match(/NormalBreadcrumb/, response.body)
+        refute_match(/TaxonBreadcrumb/, response.body)
+      end
+
+      should "show normal breadcrumbs for the 'A' version" do
+        with_variant EducationNavigation: "A" do
+          get :show, id: 'smart-answers-controller-sample'
+          assert_match(/NormalBreadcrumb/, response.body)
+          refute_match(/TaxonBreadcrumb/, response.body)
+        end
+      end
+
+      should "show taxon breadcrumbs for the 'B' version" do
+        with_variant EducationNavigation: "B" do
+          get :show, id: 'smart-answers-controller-sample'
+          assert_match(/TaxonBreadcrumb/, response.body)
+          refute_match(/NormalBreadcrumb/, response.body)
+        end
+      end
+    end
+  end
+
+  context "GET /<slug>/visualise" do
+    should "display the visualisation" do
+      get :visualise, id: 'smart-answers-controller-sample'
+
+      assert_select "h1", /Smart answers controller sample/
     end
   end
 end

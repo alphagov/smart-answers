@@ -18,6 +18,8 @@ As the Pull Request author:
 
 4. Move the associated Trello card from "In progress" to "Code review".
 
+5. Add the PR link to the Trello card as an attachment.
+
 ## Reviewing a Pull Request
 
 As the Pull Request reviewer:

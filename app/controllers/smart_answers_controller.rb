@@ -1,7 +1,16 @@
 class SmartAnswersController < ApplicationController
+  include Slimmer::GovukComponents
+  include Slimmer::Headers
+  include EducationNavigationABTestable
+
   before_action :find_smart_answer, except: %w(index)
   before_action :redirect_response_to_canonical_url, only: %w{show}
   before_action :set_header_footer_only, only: %w{visualise}
+  before_filter :setup_navigation_helpers_and_content_item, except: %w(index)
+
+  attr_accessor :navigation_helpers, :content_item
+
+  helper_method :breadcrumbs, :should_present_new_navigation_view?
 
   rescue_from SmartAnswer::FlowRegistry::NotFound, with: :error_404
   rescue_from SmartAnswer::InvalidNode, with: :error_404
@@ -11,7 +20,6 @@ class SmartAnswersController < ApplicationController
   end
 
   def show
-    set_slimmer_artefact(@presenter.artefact)
     respond_to do |format|
       format.html { render }
       format.json {
@@ -58,10 +66,10 @@ private
     request.format == Mime::JSON
   end
 
-  def with_format(format, &block)
+  def with_format(format)
     old_formats = self.formats
     self.formats = [format]
-    result = block.call
+    result = yield
     self.formats = old_formats
     result
   end
@@ -95,13 +103,38 @@ private
   end
 
   def set_expiry(duration = 30.minutes)
-    # if the artefact returned from the Content API is blank, or if
-    # the request to the Content API fails, set a very short cache so
-    # we don't cache an incomplete page for a while
-    duration = 5.seconds if @presenter.present? && @presenter.artefact.blank?
-
     if Rails.configuration.set_http_cache_control_expiry_time
       expires_in(duration, public: true)
+    end
+  end
+
+  def setup_navigation_helpers_and_content_item
+    @content_item = Services.content_store.content_item!("/" + params[:id]).to_hash
+
+    # The GOV.UK analytics component[1] automatically sets `govuk:analytics:organisations`
+    # if there's a `organisations` key in the links. This will be sent to Google
+    # Analytics At the moment we want to avoid setting this because it will flood
+    # the analytics reports with (unexpected) data. We are currently working on
+    # a solution to this conundrum[2].
+    #
+    # [1] http://govuk-component-guide.herokuapp.com/components/analytics_meta_tags
+    # [2] https://trello.com/c/DkR63grd
+    if @content_item["links"]
+      @content_item["links"].delete("organisations")
+    end
+
+    @navigation_helpers = GovukNavigationHelpers::NavigationHelper.new(@content_item)
+  rescue GdsApi::HTTPNotFound, GdsApi::HTTPGone
+    @navigation_helpers = nil
+    @content_item = nil
+  end
+
+  def breadcrumbs
+    return {} if navigation_helpers.nil?
+    if should_present_new_navigation_view?
+      navigation_helpers.taxon_breadcrumbs
+    else
+      navigation_helpers.breadcrumbs
     end
   end
 end

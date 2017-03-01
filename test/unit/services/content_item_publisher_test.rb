@@ -7,10 +7,10 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
   end
 
   test 'sending item to content store' do
-    draft_request = stub_request(:put, "http://publishing-api.dev.gov.uk/v2/content/3e6f33b8-0723-4dd5-94a2-cab06f23a685")
-    publishing_request = stub_request(:post, "http://publishing-api.dev.gov.uk/v2/content/3e6f33b8-0723-4dd5-94a2-cab06f23a685/publish")
+    draft_request = stub_request(:put, "https://publishing-api.test.gov.uk/v2/content/3e6f33b8-0723-4dd5-94a2-cab06f23a685")
+    publishing_request = stub_request(:post, "https://publishing-api.test.gov.uk/v2/content/3e6f33b8-0723-4dd5-94a2-cab06f23a685/publish")
 
-    presenter = FlowRegistrationPresenter.new(stub('flow', name: 'bridge-of-death', content_id: '3e6f33b8-0723-4dd5-94a2-cab06f23a685'))
+    presenter = FlowRegistrationPresenter.new(stub('flow', name: 'bridge-of-death', content_id: '3e6f33b8-0723-4dd5-94a2-cab06f23a685', external_related_links: nil))
 
     ContentItemPublisher.new.publish([presenter])
 

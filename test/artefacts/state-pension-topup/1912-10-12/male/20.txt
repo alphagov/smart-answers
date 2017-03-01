@@ -1,11 +1,6 @@
 Results
 
-To top up your pension by £20 per week, you’ll need to make a lump sum payment of either:
-
-- £2,540 when you're 103
-- £2,540 when you're 104
-
-Make sure you’ll get the full [basic State Pension](/state-pension-statement) before making Class 3A contributions.
+To top up your pension by £20 per week, you’ll need to make a lump sum payment of £2,540.
 
 You should get [financial advice](/plan-retirement-income/get-financial-advice) when planning your retirement income.
 
@@ -13,10 +8,11 @@ The contribution amount is an estimate.
 
 ##Apply
 
-You can [apply online](https://www.tax.service.gov.uk/forms/form/State-Pension-Top-Up-Request/new). You need:
+You can [apply online](https://www.tax.service.gov.uk/forms/form/State-Pension-Top-Up-Request/new). You need your National Insurance number and one of the following to prove your identity:
 
-- proof of your identity, eg your P60 or the last 4 digits of your bank account
-- your National Insurance number (if you know it)
+- P60
+- passport
+- payslip
 
 You can also apply over the phone.
 

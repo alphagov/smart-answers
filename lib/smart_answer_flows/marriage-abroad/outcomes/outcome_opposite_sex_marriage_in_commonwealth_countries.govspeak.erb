@@ -11,6 +11,10 @@
     <% elsif calculator.ceremony_country == 'rwanda' %>
       Contact the [Embassy of Rwanda](/government/publications/foreign-embassies-in-the-uk) to find out about local marriage laws, including what documents you’ll need.
 
+    <% elsif calculator.ceremony_country == 'kenya' %>
+      <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
+                   locals: { calculator: calculator } %>
+
     <% else %>
 
       Contact the [High Commission of <%= calculator.country_name_lowercase_prefix %>](/government/publications/foreign-embassies-in-the-uk) to find out about local marriage laws, including what documents you’ll need.
@@ -35,6 +39,23 @@
 
   <% if calculator.ceremony_country == 'zimbabwe' %>
     The UK doesn’t issue certificates of no impediment (CNI) for marriages in Zimbabwe. You’ll need to explain this if you’re asked to provide a CNI or a similar document to prove you’re allowed to marry.
+  <% elsif calculator.ceremony_country == 'kenya' && calculator.resident_of_ceremony_country? %>
+    The UK doesn’t issue certificates of no impediment (CNI) for marriages in Commonwealth countries.
+
+    The British High Commission can provide a letter confirming this which you can give to the Kenyan authorities if you are normally resident in Kenya.
+
+    ^If you’re not normally a resident in Kenya then contact the relevant local authorities in Kenya to find out about local marriage laws, including what documents you’ll need.^
+
+    The Kenyan authorities may also ask you to provide a sworn affidavit before a local lawyer, about your marital status. If you have been married before you will need to provide a divorce decree absolute to the Kenyan authorities.
+
+    If you have previously lived in the UK you may be asked for a no trace letter issued by the General Register Office.  A no trace letter can be obtained from the General Register Office by calling +44 (0)300 123 1837 (Monday to Friday, 8am to 8pm). You should ask for a search to be made and quote the reference number "SEARCH 123".
+  <% elsif calculator.ceremony_country == 'kenya' &&
+      (calculator.resident_of_third_country? || calculator.resident_of_uk?) %>
+    The UK doesn’t issue certificates of no impediment (CNI) for marriages in Commonwealth countries.
+
+    If you are marrying a British or other Commonwealth national who is resident in Kenya you may be able to obtain a marriage certificate from a UK Register Office under the [British Subject Facilities Acts](/marriages-civil-partnerships/what-you-need-to-do).
+
+    Registrars in Kenya may accept a no trace letter issued by the General Register Office instead of a marriage certificate. You should check with the Kenyan authorities whether a no trace letter can be accepted.  A no trace letter can be obtained from the General Register Office by calling +44 (0)300 123 1837 (8am to 8pm Monday to Friday).  You should ask for a search to be made and quote the reference number "SEARCH 123".
   <% elsif calculator.ceremony_country == 'south-africa' %>
     The UK doesn’t issue certificates of no impediment (CNI) for marriages in Commonwealth countries. You can provide a [letter from the Foreign & Commonwealth Office](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/387220/Certificate_of_No_Impediment__1_.pdf) to explain this if you’re asked to provide a CNI or a similar document to prove you’re allowed to marry.
   <% else %>

@@ -9,11 +9,11 @@ module SmartAnswer::Calculators
     end
 
     def countries_for_postcode
-      areas_for_postcode.map(&:country_name).uniq
+      areas_for_postcode.map { |results| results["country_name"] }.uniq
     end
 
     def areas_for_postcode
-      Services.imminence_api.areas_for_postcode(postcode).results
+      Services.imminence_api.areas_for_postcode(postcode).to_hash["results"]
     end
   end
 end

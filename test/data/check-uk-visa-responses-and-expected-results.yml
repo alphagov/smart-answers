@@ -54,12 +54,134 @@
   :responses:
   - afghanistan
   - transit
+  :next_node: :travelling_to_cta?
+  :outcome_node: false
+- :current_node: :travelling_to_cta?
+  :responses:
+  - afghanistan
+  - transit
+  - channel_islands_or_isle_of_man
+  :next_node: :channel_islands_or_isle_of_man?
+  :outcome_node: false
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - afghanistan
+  - transit
+  - channel_islands_or_isle_of_man
+  - tourism
+  :next_node: :outcome_standard_visit
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - afghanistan
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - afghanistan
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - afghanistan
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - afghanistan
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - afghanistan
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - six_months_or_less
+  :next_node: :outcome_study_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - afghanistan
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - afghanistan
+  - transit
+  - channel_islands_or_isle_of_man
+  - family
+  :next_node: :outcome_joining_family_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - afghanistan
+  - transit
+  - channel_islands_or_isle_of_man
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - afghanistan
+  - transit
+  - channel_islands_or_isle_of_man
+  - school
+  :next_node: :outcome_school_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - afghanistan
+  - transit
+  - channel_islands_or_isle_of_man
+  - medical
+  :next_node: :outcome_medical_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - afghanistan
+  - transit
+  - channel_islands_or_isle_of_man
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - afghanistan
+  - transit
+  - republic_of_ireland
+  :next_node: :outcome_transit_to_the_republic_of_ireland
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - afghanistan
+  - transit
+  - somewhere_else
   :next_node: :passing_through_uk_border_control?
   :outcome_node: false
 - :current_node: :passing_through_uk_border_control?
   :responses:
   - afghanistan
   - transit
+  - somewhere_else
   - 'yes'
   :next_node: :outcome_transit_leaving_airport_datv
   :outcome_node: true
@@ -67,6 +189,7 @@
   :responses:
   - afghanistan
   - transit
+  - somewhere_else
   - 'no'
   :next_node: :outcome_transit_not_leaving_airport
   :outcome_node: true
@@ -155,6 +278,127 @@
   :responses:
   - andorra
   - transit
+  :next_node: :travelling_to_cta?
+  :outcome_node: false
+- :current_node: :travelling_to_cta?
+  :responses:
+  - andorra
+  - transit
+  - channel_islands_or_isle_of_man
+  :next_node: :channel_islands_or_isle_of_man?
+  :outcome_node: false
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - andorra
+  - transit
+  - channel_islands_or_isle_of_man
+  - tourism
+  :next_node: :outcome_school_n
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - andorra
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - andorra
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_n
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - andorra
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - andorra
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - andorra
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - six_months_or_less
+  :next_node: :outcome_no_visa_needed
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - andorra
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - andorra
+  - transit
+  - channel_islands_or_isle_of_man
+  - family
+  :next_node: :outcome_joining_family_nvn
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - andorra
+  - transit
+  - channel_islands_or_isle_of_man
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - andorra
+  - transit
+  - channel_islands_or_isle_of_man
+  - school
+  :next_node: :outcome_school_n
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - andorra
+  - transit
+  - channel_islands_or_isle_of_man
+  - medical
+  :next_node: :outcome_medical_n
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - andorra
+  - transit
+  - channel_islands_or_isle_of_man
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - andorra
+  - transit
+  - republic_of_ireland
+  :next_node: :outcome_no_visa_needed
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - andorra
+  - transit
+  - somewhere_else
   :next_node: :outcome_no_visa_needed
   :outcome_node: true
 - :current_node: :purpose_of_visit?
@@ -242,6 +486,127 @@
   :responses:
   - anguilla
   - transit
+  :next_node: :travelling_to_cta?
+  :outcome_node: false
+- :current_node: :travelling_to_cta?
+  :responses:
+  - anguilla
+  - transit
+  - channel_islands_or_isle_of_man
+  :next_node: :channel_islands_or_isle_of_man?
+  :outcome_node: false
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - anguilla
+  - transit
+  - channel_islands_or_isle_of_man
+  - tourism
+  :next_node: :outcome_school_n
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - anguilla
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - anguilla
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_n
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - anguilla
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - anguilla
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - anguilla
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - six_months_or_less
+  :next_node: :outcome_no_visa_needed
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - anguilla
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - anguilla
+  - transit
+  - channel_islands_or_isle_of_man
+  - family
+  :next_node: :outcome_joining_family_m
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - anguilla
+  - transit
+  - channel_islands_or_isle_of_man
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - anguilla
+  - transit
+  - channel_islands_or_isle_of_man
+  - school
+  :next_node: :outcome_school_n
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - anguilla
+  - transit
+  - channel_islands_or_isle_of_man
+  - medical
+  :next_node: :outcome_medical_n
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - anguilla
+  - transit
+  - channel_islands_or_isle_of_man
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - anguilla
+  - transit
+  - republic_of_ireland
+  :next_node: :outcome_no_visa_needed
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - anguilla
+  - transit
+  - somewhere_else
   :next_node: :outcome_no_visa_needed
   :outcome_node: true
 - :current_node: :purpose_of_visit?
@@ -334,12 +699,134 @@
   :responses:
   - china
   - transit
+  :next_node: :travelling_to_cta?
+  :outcome_node: false
+- :current_node: :travelling_to_cta?
+  :responses:
+  - china
+  - transit
+  - channel_islands_or_isle_of_man
+  :next_node: :channel_islands_or_isle_of_man?
+  :outcome_node: false
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - china
+  - transit
+  - channel_islands_or_isle_of_man
+  - tourism
+  :next_node: :outcome_standard_visit
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - china
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - china
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - china
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - china
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - china
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - six_months_or_less
+  :next_node: :outcome_study_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - china
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - china
+  - transit
+  - channel_islands_or_isle_of_man
+  - family
+  :next_node: :outcome_joining_family_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - china
+  - transit
+  - channel_islands_or_isle_of_man
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - china
+  - transit
+  - channel_islands_or_isle_of_man
+  - school
+  :next_node: :outcome_school_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - china
+  - transit
+  - channel_islands_or_isle_of_man
+  - medical
+  :next_node: :outcome_medical_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - china
+  - transit
+  - channel_islands_or_isle_of_man
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - china
+  - transit
+  - republic_of_ireland
+  :next_node: :outcome_transit_to_the_republic_of_ireland
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - china
+  - transit
+  - somewhere_else
   :next_node: :passing_through_uk_border_control?
   :outcome_node: false
 - :current_node: :passing_through_uk_border_control?
   :responses:
   - china
   - transit
+  - somewhere_else
   - 'yes'
   :next_node: :outcome_transit_leaving_airport_datv
   :outcome_node: true
@@ -347,6 +834,7 @@
   :responses:
   - china
   - transit
+  - somewhere_else
   - 'no'
   :next_node: :outcome_transit_not_leaving_airport
   :outcome_node: true
@@ -384,6 +872,107 @@
   :responses:
   - croatia
   :next_node: :outcome_no_visa_needed
+  :outcome_node: true
+- :current_node: :what_passport_do_you_have?
+  :responses:
+  - democratic-republic-of-the-congo
+  :next_node: :purpose_of_visit?
+  :outcome_node: false
+- :current_node: :purpose_of_visit?
+  :responses:
+  - democratic-republic-of-the-congo
+  - tourism
+  :next_node: :outcome_standard_visit
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses:
+  - democratic-republic-of-the-congo
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - democratic-republic-of-the-congo
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - democratic-republic-of-the-congo
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses:
+  - democratic-republic-of-the-congo
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - democratic-republic-of-the-congo
+  - study
+  - six_months_or_less
+  :next_node: :outcome_study_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - democratic-republic-of-the-congo
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses:
+  - democratic-republic-of-the-congo
+  - transit
+  :next_node: :passing_through_uk_border_control?
+  :outcome_node: false
+- :current_node: :passing_through_uk_border_control?
+  :responses:
+  - democratic-republic-of-the-congo
+  - transit
+  - 'yes'
+  :next_node: :outcome_transit_leaving_airport_datv
+  :outcome_node: true
+- :current_node: :passing_through_uk_border_control?
+  :responses:
+  - democratic-republic-of-the-congo
+  - transit
+  - 'no'
+  :next_node: :outcome_transit_not_leaving_airport
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses:
+  - democratic-republic-of-the-congo
+  - family
+  :next_node: :outcome_joining_family_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses:
+  - democratic-republic-of-the-congo
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses:
+  - democratic-republic-of-the-congo
+  - school
+  :next_node: :outcome_school_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses:
+  - democratic-republic-of-the-congo
+  - medical
+  :next_node: :outcome_medical_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses:
+  - democratic-republic-of-the-congo
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
   :outcome_node: true
 - :current_node: :what_passport_do_you_have?
   :responses:
@@ -454,6 +1043,142 @@
   - israel
   - full-passport
   - transit
+  :next_node: :travelling_to_cta?
+  :outcome_node: false
+- :current_node: :travelling_to_cta?
+  :responses:
+  - israel
+  - full-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  :next_node: :channel_islands_or_isle_of_man?
+  :outcome_node: false
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - israel
+  - full-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  - tourism
+  :next_node: :outcome_school_n
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - israel
+  - full-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - israel
+  - full-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_n
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - israel
+  - full-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - israel
+  - full-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - israel
+  - full-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - six_months_or_less
+  :next_node: :outcome_no_visa_needed
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - israel
+  - full-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - israel
+  - full-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  - family
+  :next_node: :outcome_joining_family_nvn
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - israel
+  - full-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - israel
+  - full-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  - school
+  :next_node: :outcome_school_n
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - israel
+  - full-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  - medical
+  :next_node: :outcome_medical_n
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - israel
+  - full-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - israel
+  - full-passport
+  - transit
+  - republic_of_ireland
+  :next_node: :outcome_no_visa_needed
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - israel
+  - full-passport
+  - transit
+  - somewhere_else
   :next_node: :outcome_no_visa_needed
   :outcome_node: true
 - :current_node: :purpose_of_visit?
@@ -555,6 +1280,142 @@
   - israel
   - provisional-passport
   - transit
+  :next_node: :travelling_to_cta?
+  :outcome_node: false
+- :current_node: :travelling_to_cta?
+  :responses:
+  - israel
+  - provisional-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  :next_node: :channel_islands_or_isle_of_man?
+  :outcome_node: false
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - israel
+  - provisional-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  - tourism
+  :next_node: :outcome_standard_visit
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - israel
+  - provisional-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - israel
+  - provisional-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - israel
+  - provisional-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - israel
+  - provisional-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - israel
+  - provisional-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - six_months_or_less
+  :next_node: :outcome_study_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - israel
+  - provisional-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - israel
+  - provisional-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  - family
+  :next_node: :outcome_joining_family_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - israel
+  - provisional-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - israel
+  - provisional-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  - school
+  :next_node: :outcome_school_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - israel
+  - provisional-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  - medical
+  :next_node: :outcome_medical_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - israel
+  - provisional-passport
+  - transit
+  - channel_islands_or_isle_of_man
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - israel
+  - provisional-passport
+  - transit
+  - republic_of_ireland
+  :next_node: :outcome_transit_to_the_republic_of_ireland
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - israel
+  - provisional-passport
+  - transit
+  - somewhere_else
   :next_node: :passing_through_uk_border_control?
   :outcome_node: false
 - :current_node: :passing_through_uk_border_control?
@@ -562,6 +1423,7 @@
   - israel
   - provisional-passport
   - transit
+  - somewhere_else
   - 'yes'
   :next_node: :outcome_transit_leaving_airport_datv
   :outcome_node: true
@@ -570,6 +1432,7 @@
   - israel
   - provisional-passport
   - transit
+  - somewhere_else
   - 'no'
   :next_node: :outcome_transit_not_leaving_airport
   :outcome_node: true
@@ -663,12 +1526,134 @@
   :responses:
   - kuwait
   - transit
+  :next_node: :travelling_to_cta?
+  :outcome_node: false
+- :current_node: :travelling_to_cta?
+  :responses:
+  - kuwait
+  - transit
+  - channel_islands_or_isle_of_man
+  :next_node: :channel_islands_or_isle_of_man?
+  :outcome_node: false
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - kuwait
+  - transit
+  - channel_islands_or_isle_of_man
+  - tourism
+  :next_node: :outcome_visit_waiver
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - kuwait
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - kuwait
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_waiver
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - kuwait
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - kuwait
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - kuwait
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - six_months_or_less
+  :next_node: :outcome_study_waiver
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - kuwait
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - kuwait
+  - transit
+  - channel_islands_or_isle_of_man
+  - family
+  :next_node: :outcome_joining_family_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - kuwait
+  - transit
+  - channel_islands_or_isle_of_man
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - kuwait
+  - transit
+  - channel_islands_or_isle_of_man
+  - school
+  :next_node: :outcome_school_waiver
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - kuwait
+  - transit
+  - channel_islands_or_isle_of_man
+  - medical
+  :next_node: :outcome_visit_waiver
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - kuwait
+  - transit
+  - channel_islands_or_isle_of_man
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - kuwait
+  - transit
+  - republic_of_ireland
+  :next_node: :outcome_transit_to_the_republic_of_ireland
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - kuwait
+  - transit
+  - somewhere_else
   :next_node: :passing_through_uk_border_control?
   :outcome_node: false
 - :current_node: :passing_through_uk_border_control?
   :responses:
   - kuwait
   - transit
+  - somewhere_else
   - 'yes'
   :next_node: :outcome_transit_leaving_airport
   :outcome_node: true
@@ -676,6 +1661,7 @@
   :responses:
   - kuwait
   - transit
+  - somewhere_else
   - 'no'
   :next_node: :outcome_no_visa_needed
   :outcome_node: true
@@ -764,12 +1750,134 @@
   :responses:
   - oman
   - transit
+  :next_node: :travelling_to_cta?
+  :outcome_node: false
+- :current_node: :travelling_to_cta?
+  :responses:
+  - oman
+  - transit
+  - channel_islands_or_isle_of_man
+  :next_node: :channel_islands_or_isle_of_man?
+  :outcome_node: false
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - oman
+  - transit
+  - channel_islands_or_isle_of_man
+  - tourism
+  :next_node: :outcome_visit_waiver
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - oman
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - oman
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_waiver
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - oman
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - oman
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - oman
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - six_months_or_less
+  :next_node: :outcome_study_waiver
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - oman
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - oman
+  - transit
+  - channel_islands_or_isle_of_man
+  - family
+  :next_node: :outcome_joining_family_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - oman
+  - transit
+  - channel_islands_or_isle_of_man
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - oman
+  - transit
+  - channel_islands_or_isle_of_man
+  - school
+  :next_node: :outcome_school_waiver
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - oman
+  - transit
+  - channel_islands_or_isle_of_man
+  - medical
+  :next_node: :outcome_visit_waiver
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - oman
+  - transit
+  - channel_islands_or_isle_of_man
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - oman
+  - transit
+  - republic_of_ireland
+  :next_node: :outcome_transit_to_the_republic_of_ireland
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - oman
+  - transit
+  - somewhere_else
   :next_node: :passing_through_uk_border_control?
   :outcome_node: false
 - :current_node: :passing_through_uk_border_control?
   :responses:
   - oman
   - transit
+  - somewhere_else
   - 'yes'
   :next_node: :outcome_transit_leaving_airport
   :outcome_node: true
@@ -777,6 +1885,7 @@
   :responses:
   - oman
   - transit
+  - somewhere_else
   - 'no'
   :next_node: :outcome_no_visa_needed
   :outcome_node: true
@@ -870,12 +1979,134 @@
   :responses:
   - stateless-or-refugee
   - transit
+  :next_node: :travelling_to_cta?
+  :outcome_node: false
+- :current_node: :travelling_to_cta?
+  :responses:
+  - stateless-or-refugee
+  - transit
+  - channel_islands_or_isle_of_man
+  :next_node: :channel_islands_or_isle_of_man?
+  :outcome_node: false
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - stateless-or-refugee
+  - transit
+  - channel_islands_or_isle_of_man
+  - tourism
+  :next_node: :outcome_standard_visit
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - stateless-or-refugee
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - stateless-or-refugee
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - stateless-or-refugee
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - stateless-or-refugee
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - stateless-or-refugee
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - six_months_or_less
+  :next_node: :outcome_study_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - stateless-or-refugee
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - stateless-or-refugee
+  - transit
+  - channel_islands_or_isle_of_man
+  - family
+  :next_node: :outcome_joining_family_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - stateless-or-refugee
+  - transit
+  - channel_islands_or_isle_of_man
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - stateless-or-refugee
+  - transit
+  - channel_islands_or_isle_of_man
+  - school
+  :next_node: :outcome_school_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - stateless-or-refugee
+  - transit
+  - channel_islands_or_isle_of_man
+  - medical
+  :next_node: :outcome_medical_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - stateless-or-refugee
+  - transit
+  - channel_islands_or_isle_of_man
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - stateless-or-refugee
+  - transit
+  - republic_of_ireland
+  :next_node: :outcome_transit_to_the_republic_of_ireland
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - stateless-or-refugee
+  - transit
+  - somewhere_else
   :next_node: :passing_through_uk_border_control?
   :outcome_node: false
 - :current_node: :passing_through_uk_border_control?
   :responses:
   - stateless-or-refugee
   - transit
+  - somewhere_else
   - 'yes'
   :next_node: :outcome_transit_leaving_airport
   :outcome_node: true
@@ -883,6 +2114,7 @@
   :responses:
   - stateless-or-refugee
   - transit
+  - somewhere_else
   - 'no'
   :next_node: :outcome_transit_refugee_not_leaving_airport
   :outcome_node: true
@@ -976,12 +2208,134 @@
   :responses:
   - syria
   - transit
+  :next_node: :travelling_to_cta?
+  :outcome_node: false
+- :current_node: :travelling_to_cta?
+  :responses:
+  - syria
+  - transit
+  - channel_islands_or_isle_of_man
+  :next_node: :channel_islands_or_isle_of_man?
+  :outcome_node: false
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - syria
+  - transit
+  - channel_islands_or_isle_of_man
+  - tourism
+  :next_node: :outcome_standard_visit
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - syria
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - syria
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - syria
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - syria
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - syria
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - six_months_or_less
+  :next_node: :outcome_study_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - syria
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - syria
+  - transit
+  - channel_islands_or_isle_of_man
+  - family
+  :next_node: :outcome_joining_family_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - syria
+  - transit
+  - channel_islands_or_isle_of_man
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - syria
+  - transit
+  - channel_islands_or_isle_of_man
+  - school
+  :next_node: :outcome_school_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - syria
+  - transit
+  - channel_islands_or_isle_of_man
+  - medical
+  :next_node: :outcome_medical_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - syria
+  - transit
+  - channel_islands_or_isle_of_man
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - syria
+  - transit
+  - republic_of_ireland
+  :next_node: :outcome_transit_to_the_republic_of_ireland
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - syria
+  - transit
+  - somewhere_else
   :next_node: :passing_through_uk_border_control?
   :outcome_node: false
 - :current_node: :passing_through_uk_border_control?
   :responses:
   - syria
   - transit
+  - somewhere_else
   - 'yes'
   :next_node: :outcome_transit_leaving_airport_datv
   :outcome_node: true
@@ -989,6 +2343,7 @@
   :responses:
   - syria
   - transit
+  - somewhere_else
   - 'no'
   :next_node: :outcome_transit_not_leaving_airport
   :outcome_node: true
@@ -1077,12 +2432,134 @@
   :responses:
   - taiwan
   - transit
+  :next_node: :travelling_to_cta?
+  :outcome_node: false
+- :current_node: :travelling_to_cta?
+  :responses:
+  - taiwan
+  - transit
+  - channel_islands_or_isle_of_man
+  :next_node: :channel_islands_or_isle_of_man?
+  :outcome_node: false
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - taiwan
+  - transit
+  - channel_islands_or_isle_of_man
+  - tourism
+  :next_node: :outcome_taiwan_exception
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - taiwan
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - taiwan
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_n
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - taiwan
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - taiwan
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - taiwan
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - six_months_or_less
+  :next_node: :outcome_taiwan_exception
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - taiwan
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - taiwan
+  - transit
+  - channel_islands_or_isle_of_man
+  - family
+  :next_node: :outcome_joining_family_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - taiwan
+  - transit
+  - channel_islands_or_isle_of_man
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - taiwan
+  - transit
+  - channel_islands_or_isle_of_man
+  - school
+  :next_node: :outcome_taiwan_exception
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - taiwan
+  - transit
+  - channel_islands_or_isle_of_man
+  - medical
+  :next_node: :outcome_taiwan_exception
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - taiwan
+  - transit
+  - channel_islands_or_isle_of_man
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - taiwan
+  - transit
+  - republic_of_ireland
+  :next_node: :outcome_transit_to_the_republic_of_ireland
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - taiwan
+  - transit
+  - somewhere_else
   :next_node: :passing_through_uk_border_control?
   :outcome_node: false
 - :current_node: :passing_through_uk_border_control?
   :responses:
   - taiwan
   - transit
+  - somewhere_else
   - 'yes'
   :next_node: :outcome_transit_taiwan_through_border_control
   :outcome_node: true
@@ -1090,6 +2567,7 @@
   :responses:
   - taiwan
   - transit
+  - somewhere_else
   - 'no'
   :next_node: :outcome_transit_taiwan
   :outcome_node: true
@@ -1178,12 +2656,134 @@
   :responses:
   - turkey
   - transit
+  :next_node: :travelling_to_cta?
+  :outcome_node: false
+- :current_node: :travelling_to_cta?
+  :responses:
+  - turkey
+  - transit
+  - channel_islands_or_isle_of_man
+  :next_node: :channel_islands_or_isle_of_man?
+  :outcome_node: false
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - turkey
+  - transit
+  - channel_islands_or_isle_of_man
+  - tourism
+  :next_node: :outcome_standard_visit
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - turkey
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - turkey
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - turkey
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - turkey
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - turkey
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - six_months_or_less
+  :next_node: :outcome_study_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - turkey
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - turkey
+  - transit
+  - channel_islands_or_isle_of_man
+  - family
+  :next_node: :outcome_joining_family_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - turkey
+  - transit
+  - channel_islands_or_isle_of_man
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - turkey
+  - transit
+  - channel_islands_or_isle_of_man
+  - school
+  :next_node: :outcome_school_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - turkey
+  - transit
+  - channel_islands_or_isle_of_man
+  - medical
+  :next_node: :outcome_medical_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - turkey
+  - transit
+  - channel_islands_or_isle_of_man
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - turkey
+  - transit
+  - republic_of_ireland
+  :next_node: :outcome_transit_to_the_republic_of_ireland
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - turkey
+  - transit
+  - somewhere_else
   :next_node: :passing_through_uk_border_control?
   :outcome_node: false
 - :current_node: :passing_through_uk_border_control?
   :responses:
   - turkey
   - transit
+  - somewhere_else
   - 'yes'
   :next_node: :outcome_transit_leaving_airport_datv
   :outcome_node: true
@@ -1191,6 +2791,7 @@
   :responses:
   - turkey
   - transit
+  - somewhere_else
   - 'no'
   :next_node: :outcome_transit_not_leaving_airport
   :outcome_node: true
@@ -1279,12 +2880,134 @@
   :responses:
   - venezuela
   - transit
+  :next_node: :travelling_to_cta?
+  :outcome_node: false
+- :current_node: :travelling_to_cta?
+  :responses:
+  - venezuela
+  - transit
+  - channel_islands_or_isle_of_man
+  :next_node: :channel_islands_or_isle_of_man?
+  :outcome_node: false
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - venezuela
+  - transit
+  - channel_islands_or_isle_of_man
+  - tourism
+  :next_node: :outcome_standard_visit
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - venezuela
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - venezuela
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - venezuela
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - venezuela
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - venezuela
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - six_months_or_less
+  :next_node: :outcome_study_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - venezuela
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - venezuela
+  - transit
+  - channel_islands_or_isle_of_man
+  - family
+  :next_node: :outcome_joining_family_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - venezuela
+  - transit
+  - channel_islands_or_isle_of_man
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - venezuela
+  - transit
+  - channel_islands_or_isle_of_man
+  - school
+  :next_node: :outcome_school_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - venezuela
+  - transit
+  - channel_islands_or_isle_of_man
+  - medical
+  :next_node: :outcome_medical_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - venezuela
+  - transit
+  - channel_islands_or_isle_of_man
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - venezuela
+  - transit
+  - republic_of_ireland
+  :next_node: :outcome_transit_to_the_republic_of_ireland
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - venezuela
+  - transit
+  - somewhere_else
   :next_node: :passing_through_uk_border_control?
   :outcome_node: false
 - :current_node: :passing_through_uk_border_control?
   :responses:
   - venezuela
   - transit
+  - somewhere_else
   - 'yes'
   :next_node: :outcome_transit_leaving_airport_datv
   :outcome_node: true
@@ -1292,6 +3015,7 @@
   :responses:
   - venezuela
   - transit
+  - somewhere_else
   - 'no'
   :next_node: :outcome_transit_venezuela
   :outcome_node: true

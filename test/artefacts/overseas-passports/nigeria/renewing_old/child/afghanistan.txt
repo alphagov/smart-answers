@@ -47,10 +47,9 @@ Her Majesty’s Passport Office recommends you send your application using a sec
 $A
 Her Majesty’s Passport Office
 OVS-D
-Millburngate House
-Millburngate
+Freeman’s Reach
 Durham
-DH97 1PA
+DH1 1SL
 $A
 
 ## Getting your passport
@@ -62,6 +61,8 @@ They will contact you - using the details on your application form - when your p
 You must collect in person.  If you’re unable to, someone else can go on your behalf.
 
 You must bring photo ID.
+
+^You must sign your new passport before you can use it.^
 
 ##Contact the Passport Adviceline
 

@@ -1,12 +1,14 @@
 <% content_for :title do %><%= @presenter.title %><% end %>
 <% content_for :head do %>
 <meta name="robots" content="noindex, nofollow">
+<%= javascript_include_tag 'joint.patch' %>
 <%= javascript_include_tag 'joint' %>
 <%= javascript_include_tag 'joint.layout.DirectedGraph' %>
 <%= javascript_include_tag 'dagre' %>
 <%= javascript_include_tag 'visualise' %>
 <%= stylesheet_link_tag 'joint' %>
 <%= stylesheet_link_tag 'visualise' %>
+<%= education_navigation_variant.analytics_meta_tag.html_safe %>
 <% end %>
 
 <% content_for :before_wrapper do %>

@@ -1,44 +1,40 @@
 module SmartAnswer::Calculators
   class BenefitCapCalculatorConfiguration
-    def weekly_benefit_caps(version, region = :national)
-      data(version).fetch(:weekly_benefit_caps)[region].with_indifferent_access
+    def weekly_benefit_caps(region = :national)
+      data.fetch(:weekly_benefit_caps)[region].with_indifferent_access
     end
 
-    def weekly_benefit_cap_descriptions(version, region = :national)
-      weekly_benefit_caps(version, region).inject(HashWithIndifferentAccess.new) do |weekly_benefit_cap_description, (key, value)|
+    def weekly_benefit_cap_descriptions(region = :national)
+      weekly_benefit_caps(region).inject(HashWithIndifferentAccess.new) do |weekly_benefit_cap_description, (key, value)|
         weekly_benefit_cap_description[key] = value.fetch(:description)
         weekly_benefit_cap_description
       end
     end
 
-    def weekly_benefit_cap_amount(version, family_type, region = :national)
-      weekly_benefit_caps(version, region).fetch(family_type)[:amount]
+    def weekly_benefit_cap_amount(family_type, region = :national)
+      weekly_benefit_caps(region).fetch(family_type)[:amount]
     end
 
-    def benefits(version)
-      data(version).fetch(:benefits).with_indifferent_access
+    def benefits
+      data.fetch(:benefits).with_indifferent_access
     end
 
-    def exempt_benefits(version)
-      data(version).fetch(:exempt_benefits)
+    def exempt_benefits
+      data.fetch(:exempt_benefits)
     end
 
-    def questions(version)
-      benefits(version).inject(HashWithIndifferentAccess.new) do |benefits_and_questions, (key, value)|
+    def questions
+      benefits.inject(HashWithIndifferentAccess.new) do |benefits_and_questions, (key, value)|
         benefits_and_questions[key] = value.fetch(:question)
         benefits_and_questions
       end
     end
 
-    def descriptions(version)
-      benefits(version).inject(HashWithIndifferentAccess.new) do |benefits_and_descriptions, (key, value)|
+    def descriptions
+      benefits.inject(HashWithIndifferentAccess.new) do |benefits_and_descriptions, (key, value)|
         benefits_and_descriptions[key] = value.fetch(:description)
         benefits_and_descriptions
       end
-    end
-
-    def all_questions
-      dataset.keys.inject({}) { |versions, version| versions.merge(questions(version)) }
     end
 
     def region(postcode)
@@ -46,22 +42,20 @@ module SmartAnswer::Calculators
     end
 
     def london?(postcode)
-      area(postcode).any? { |result| result[:slug] == "london" }
+      area(postcode).any? do |result|
+        result["type"] == "EUR" && result["name"] == "London"
+      end
     end
 
     def area(postcode)
-      response = Services.imminence_api.areas_for_postcode(postcode)
-      (response&.results || {})
+      response = Services.imminence_api.areas_for_postcode(postcode)&.to_hash
+      OpenStruct.new(response).results || []
     end
 
   private
 
-    def dataset
-      @dataset ||= YAML.load_file(Rails.root.join('lib', 'data', 'benefit_cap_data.yml')).with_indifferent_access
-    end
-
-    def data(version)
-      dataset.fetch(version)
+    def data
+      @data ||= YAML.load_file(Rails.root.join('lib', 'data', 'benefit_cap_data.yml')).with_indifferent_access
     end
   end
 end

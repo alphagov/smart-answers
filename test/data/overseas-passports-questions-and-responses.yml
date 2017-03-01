@@ -7,10 +7,13 @@
 - burundi # send_application_non_uk_visa_renew_new_colour
 - cambodia # getting_your_passport_with_id
 - cuba # passport_costs_ips_cash
+- democratic-republic-of-the-congo
 - falkland-islands # passport_courier_costs_replacing_ips#{ips_number}
 - france # overseas_passports_embassies (organisation)
 - georgia
 - hong-kong # hong_kong_id_required
+- jamaica
+- jordan
 - laos # send_application_uk_visa_renew_new_colour_laos
 - nigeria # #{response}_fco_forms_nigeria
 - north-korea # emergency_travel_help_#{current_location}
@@ -25,9 +28,11 @@
 - the-occupied-palestinian-territories # which_opt?
 - timor-leste # send_application_#{current_location}
 - tunisia
+- turks-and-caicos-islands
 - venezuela # passport_costs_pay_at_appointment
 - western-sahara # send_application_uk_visa_renew_new_colour_western_sahara
 - yemen # cannot_apply
+- zimbabwe
 :which_opt?:
 - gaza
 - jerusalem-or-westbank
@@ -42,3 +47,5 @@
 :country_of_birth?:
 - afghanistan # supporting_documents
 - south-africa # birth_certificate_#{birth_location}
+- turks-and-caicos-islands
+- philippines

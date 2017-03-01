@@ -1,15 +1,15 @@
 ---
 lib/smart_answer_flows/register-a-birth.rb: ecd4500ead144c94294a25e9bb66b420
-test/data/register-a-birth-questions-and-responses.yml: 9d8c8dba12d141e3ceb48f9fb2abee4e
-test/data/register-a-birth-responses-and-expected-results.yml: 85f3c271eccffbc057236a4e9a187c9d
+test/data/register-a-birth-questions-and-responses.yml: b4dd33367f71386f8fca61bc9ec36300
+test/data/register-a-birth-responses-and-expected-results.yml: 76a52a8d6650219a67785b56506ed9fb
 lib/smart_answer_flows/register-a-birth/outcomes/_fees.govspeak.erb: 8c7e4d35431cb9a708504fec00558b02
 lib/smart_answer_flows/register-a-birth/outcomes/commonwealth_result.govspeak.erb: f259f0c518f6b418a683d6482874a451
 lib/smart_answer_flows/register-a-birth/outcomes/homeoffice_result.govspeak.erb: d3df03e03088e121a8c9608697219f33
 lib/smart_answer_flows/register-a-birth/outcomes/no_birth_certificate_result.govspeak.erb: fc8af38530de63f45eaa010aaf35c17d
 lib/smart_answer_flows/register-a-birth/outcomes/no_embassy_result.govspeak.erb: 23ec4444ac49bec78adc427c46e3e4c0
 lib/smart_answer_flows/register-a-birth/outcomes/no_registration_result.govspeak.erb: 7b60252b078e6aec6f5759e894ce4ffb
-lib/smart_answer_flows/register-a-birth/outcomes/north_korea_result.govspeak.erb: a161e34a4b4a5dfce17cda20d58f3a88
-lib/smart_answer_flows/register-a-birth/outcomes/oru_result.govspeak.erb: 5e511c744f05a9d5ecd54ff809e181db
+lib/smart_answer_flows/register-a-birth/outcomes/north_korea_result.govspeak.erb: 2feb6656e9ca4c96decc6f8692c6c1c3
+lib/smart_answer_flows/register-a-birth/outcomes/oru_result.govspeak.erb: bfe59b25454a9e855497813083149215
 lib/smart_answer_flows/register-a-birth/questions/childs_date_of_birth.govspeak.erb: e911daf1dc69ce85db372dc4ea3bdd50
 lib/smart_answer_flows/register-a-birth/questions/country_of_birth.govspeak.erb: 31c306c928e71eee86c60352f51ccf83
 lib/smart_answer_flows/register-a-birth/questions/have_you_adopted_the_child.govspeak.erb: 3a9d66656446a508c7232b26778dfa23
@@ -18,13 +18,13 @@ lib/smart_answer_flows/register-a-birth/questions/where_are_you_now.govspeak.erb
 lib/smart_answer_flows/register-a-birth/questions/which_country.govspeak.erb: 913b5637a2814cbd529affffc55b1f72
 lib/smart_answer_flows/register-a-birth/questions/who_has_british_nationality.govspeak.erb: 9a1a1acec4abc5a3f5199ab2eae0cd1c
 lib/smart_answer_flows/register-a-birth/register_a_birth.govspeak.erb: 05cf2d9426fc91f395fc524fdfdac800
-lib/smart_answer/calculators/register_a_birth_calculator.rb: f08a8ba06eb47818cbaa12806b749f69
+lib/smart_answer/calculators/register_a_birth_calculator.rb: 39a68cfaeaeeabff82bbfdb38875f8aa
 lib/data/rates/register_a_birth.yml: 8d678c61d06f614a67e8faa1933b0ff5
-lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1d83fae34e0ee72ce1c1554bdb766d21
+lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 0bc67c4469fe692a4fa53c9b461821bf
 lib/smart_answer_flows/shared/births_and_deaths_registration/_button.govspeak.erb: bdd3818dfd2b9d6396daf6f60fd887a0
 lib/data/rates/births_and_deaths_document_return_fees.yml: 4ac203e9fd076c12f62b57f8d1b64ffc
-lib/data/translators.yml: f51e2bb27d2e33a3ac05032988ccd573
+lib/data/translators.yml: 79abd2e0c2570130f7d832e4242c153a
 lib/data/registrations.yml: ffb11e760ce3aa07cf342caaedb3e6f5
-lib/smart_answer/calculators/country_name_formatter.rb: 16b57a11261644a0bda0d609a60d1c62
+lib/smart_answer/calculators/country_name_formatter.rb: 583df7103672f581bf5510732c1b2be1
 lib/smart_answer/calculators/registrations_data_query.rb: 3afcd514ecedadd19b0db67f54ac5ea6
 lib/smart_answer/calculators/translator_links.rb: 079592f6c5ede06d7c6ae4e8c5553127

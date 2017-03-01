@@ -11,10 +11,12 @@ WebMock.disable_net_connect!(allow_localhost: true)
 require_relative '../support/fixture_methods'
 require_relative '../support/world_location_stubbing_methods'
 
-require 'gds_api/test_helpers/content_api'
 require 'gds_api/test_helpers/imminence'
 
 require 'mocha/api'
+
+require 'slimmer/test'
+require 'slimmer/test_helpers/govuk_components'
 
 class SmartAnswersRegressionTest < ActionController::TestCase
   i_suck_and_my_tests_are_order_dependent!
@@ -42,12 +44,12 @@ class SmartAnswersRegressionTest < ActionController::TestCase
     end
   end
 
-  include GdsApi::TestHelpers::ContentApi
   include GdsApi::TestHelpers::Imminence
   include WebMock::API
   include FixtureMethods
   include Mocha::API
   include WorldLocationStubbingMethods
+  include Slimmer::TestHelpers::GovukComponents
 
   tests SmartAnswersController
 
@@ -64,17 +66,20 @@ class SmartAnswersRegressionTest < ActionController::TestCase
 
     context "Smart Answer: #{flow_name}" do
       setup do
+        stub_shared_component_locales
         Timecop.freeze(smart_answer_helper.current_time)
 
         next if self.class.setup_has_run? && !self.class.teardown_hooks_installed?
-        stub_content_api_default_artefact
+
+        stub_shared_component_locales
         WebMock.stub_request(:get, WorkingDays::BANK_HOLIDAYS_URL).to_return(body: File.open(fixture_file('bank_holidays.json')))
+        Services.content_store.stubs(:content_item!).returns({})
 
         setup_worldwide_locations
 
-        imminence_has_areas_for_postcode("PA3%202SW",  [{ slug: 'renfrewshire-council', country_name: 'Scotland' }])
-        imminence_has_areas_for_postcode("B1%201PW",   [{ slug: "birmingham-city-council", country_name: 'England' }])
-        imminence_has_areas_for_postcode("WC2B%206SE", [{ slug: 'london', country_name: 'England' }])
+        imminence_has_areas_for_postcode("PA3%202SW",  [{ type: 'EUR', name: 'Scotland', country_name: 'Scotland' }])
+        imminence_has_areas_for_postcode("B1%201PW",   [{ type: 'EUR', name: 'West Midlands', country_name: 'England' }])
+        imminence_has_areas_for_postcode("WC2B%206SE", [{ type: 'EUR', name: 'London', country_name: 'England' }])
 
         self.class.setup_has_run!
       end

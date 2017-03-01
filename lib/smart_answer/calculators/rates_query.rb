@@ -14,20 +14,13 @@ module SmartAnswer::Calculators
     end
 
     def rates(date = nil)
-      date = date || date_from_environment_variable || Date.today
+      date = date || SmartAnswer::DateHelper.current_day
       relevant_rates = data.find do |rates_hash|
         rates_hash[:start_date] <= date && rates_hash[:end_date] >= date
       end
       relevant_rates ||= data.last
 
       OpenStruct.new(relevant_rates)
-    end
-
-  private
-
-    def date_from_environment_variable
-      return nil if ENV['RATES_QUERY_DATE'].blank?
-      Date.parse(ENV['RATES_QUERY_DATE'])
     end
   end
 end

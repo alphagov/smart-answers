@@ -2,17 +2,14 @@ require_relative '../test_helper'
 require_relative '../helpers/fixture_flows_helper'
 require_relative '../fixtures/smart_answer_flows/smart-answers-controller-sample-with-date-question'
 require_relative 'smart_answers_controller_test_helper'
-require 'gds_api/test_helpers/content_api'
 
 class SmartAnswersControllerDateQuestionTest < ActionController::TestCase
   tests SmartAnswersController
 
   include FixtureFlowsHelper
   include SmartAnswersControllerTestHelper
-  include GdsApi::TestHelpers::ContentApi
 
   def setup
-    stub_content_api_default_artefact
     setup_fixture_flows
   end
 
@@ -24,7 +21,7 @@ class SmartAnswersControllerDateQuestionTest < ActionController::TestCase
     context "date question" do
       should "display question" do
         get :show, id: 'smart-answers-controller-sample-with-date-question', started: 'y'
-        assert_select ".step.current h2", /When\?/
+        assert_select ".step.current [data-test=question]", /When\?/
         assert_select "select[name='response[day]']"
         assert_select "select[name='response[month]']"
         assert_select "select[name='response[year]']"
@@ -64,7 +61,7 @@ class SmartAnswersControllerDateQuestionTest < ActionController::TestCase
       context "no response given" do
         should "redisplay question" do
           submit_response(day: "", month: "", year: "")
-          assert_select ".step.current h2", /When\?/
+          assert_select ".step.current [data-test=question]", /When\?/
         end
 
         should "show an error message" do

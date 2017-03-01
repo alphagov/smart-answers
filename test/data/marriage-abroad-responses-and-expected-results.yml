@@ -1871,7 +1871,7 @@
   - uk
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -1917,7 +1917,7 @@
   - uk
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -1946,7 +1946,7 @@
   - ceremony_country
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -1992,7 +1992,7 @@
   - ceremony_country
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -2021,7 +2021,7 @@
   - third_country
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -2067,7 +2067,7 @@
   - third_country
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:
@@ -4371,6 +4371,236 @@
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:
+  - bulgaria
+  :next_node: :legal_residency?
+  :outcome_node: false
+- :current_node: :legal_residency?
+  :responses:
+  - bulgaria
+  - uk
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - bulgaria
+  - uk
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - bulgaria
+  - uk
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_bulgaria_when_residing_in_uk
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - bulgaria
+  - uk
+  - partner_british
+  - same_sex
+  :next_node: :outcome_same_sex_civil_partnership_in_consular_countries
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - bulgaria
+  - uk
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - bulgaria
+  - uk
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_bulgaria_when_residing_in_uk
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - bulgaria
+  - uk
+  - partner_local
+  - same_sex
+  :next_node: :outcome_same_sex_civil_partnership_in_consular_countries
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - bulgaria
+  - uk
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - bulgaria
+  - uk
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_bulgaria_when_residing_in_uk
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - bulgaria
+  - uk
+  - partner_other
+  - same_sex
+  :next_node: :outcome_same_sex_civil_partnership_in_consular_countries
+  :outcome_node: true
+- :current_node: :legal_residency?
+  :responses:
+  - bulgaria
+  - ceremony_country
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - bulgaria
+  - ceremony_country
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - bulgaria
+  - ceremony_country
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_bulgaria_when_residing_in_bulgaria_or_third_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - bulgaria
+  - ceremony_country
+  - partner_british
+  - same_sex
+  :next_node: :outcome_same_sex_civil_partnership_in_consular_countries
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - bulgaria
+  - ceremony_country
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - bulgaria
+  - ceremony_country
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_bulgaria_when_residing_in_bulgaria_or_third_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - bulgaria
+  - ceremony_country
+  - partner_local
+  - same_sex
+  :next_node: :outcome_same_sex_civil_partnership_in_consular_countries
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - bulgaria
+  - ceremony_country
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - bulgaria
+  - ceremony_country
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_bulgaria_when_residing_in_bulgaria_or_third_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - bulgaria
+  - ceremony_country
+  - partner_other
+  - same_sex
+  :next_node: :outcome_same_sex_civil_partnership_in_consular_countries
+  :outcome_node: true
+- :current_node: :legal_residency?
+  :responses:
+  - bulgaria
+  - third_country
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - bulgaria
+  - third_country
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - bulgaria
+  - third_country
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_bulgaria_when_residing_in_bulgaria_or_third_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - bulgaria
+  - third_country
+  - partner_british
+  - same_sex
+  :next_node: :outcome_same_sex_civil_partnership_in_consular_countries
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - bulgaria
+  - third_country
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - bulgaria
+  - third_country
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_bulgaria_when_residing_in_bulgaria_or_third_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - bulgaria
+  - third_country
+  - partner_local
+  - same_sex
+  :next_node: :outcome_same_sex_civil_partnership_in_consular_countries
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - bulgaria
+  - third_country
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - bulgaria
+  - third_country
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_bulgaria_when_residing_in_bulgaria_or_third_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - bulgaria
+  - third_country
+  - partner_other
+  - same_sex
+  :next_node: :outcome_same_sex_civil_partnership_in_consular_countries
+  :outcome_node: true
+- :current_node: :country_of_ceremony?
+  :responses:
   - cambodia
   :next_node: :legal_residency?
   :outcome_node: false
@@ -4853,7 +5083,7 @@
   - uk
   - partner_british
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_china
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -4861,7 +5091,7 @@
   - uk
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -4876,7 +5106,7 @@
   - uk
   - partner_local
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_china
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -4884,7 +5114,7 @@
   - uk
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -4899,7 +5129,7 @@
   - uk
   - partner_other
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_china
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -4907,7 +5137,7 @@
   - uk
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -4928,7 +5158,7 @@
   - ceremony_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_china
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -4936,7 +5166,7 @@
   - ceremony_country
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -4951,7 +5181,7 @@
   - ceremony_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_china
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -4959,7 +5189,7 @@
   - ceremony_country
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -4974,7 +5204,7 @@
   - ceremony_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_china
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -4982,7 +5212,7 @@
   - ceremony_country
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -5003,7 +5233,7 @@
   - third_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_china
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -5011,7 +5241,7 @@
   - third_country
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -5026,7 +5256,7 @@
   - third_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_china
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -5034,7 +5264,7 @@
   - third_country
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -5049,7 +5279,7 @@
   - third_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_china
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -5057,7 +5287,7 @@
   - third_country
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:
@@ -6463,7 +6693,7 @@
   - uk
   - partner_british
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -6471,7 +6701,7 @@
   - uk
   - partner_british
   - same_sex
-  :next_node: :outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -6486,7 +6716,7 @@
   - uk
   - partner_local
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -6494,7 +6724,7 @@
   - uk
   - partner_local
   - same_sex
-  :next_node: :outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -6509,7 +6739,7 @@
   - uk
   - partner_other
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -6517,7 +6747,7 @@
   - uk
   - partner_other
   - same_sex
-  :next_node: :outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -6538,7 +6768,7 @@
   - ceremony_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -6546,7 +6776,7 @@
   - ceremony_country
   - partner_british
   - same_sex
-  :next_node: :outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -6561,7 +6791,7 @@
   - ceremony_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -6569,7 +6799,7 @@
   - ceremony_country
   - partner_local
   - same_sex
-  :next_node: :outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -6584,7 +6814,7 @@
   - ceremony_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -6592,7 +6822,7 @@
   - ceremony_country
   - partner_other
   - same_sex
-  :next_node: :outcome_ceremonies_in_denmark_when_residing_in_uk_or_denmark
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -6613,7 +6843,7 @@
   - third_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -6621,7 +6851,7 @@
   - third_country
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -6636,7 +6866,7 @@
   - third_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -6644,7 +6874,7 @@
   - third_country
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -6659,7 +6889,7 @@
   - third_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -6667,7 +6897,237 @@
   - third_country
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :country_of_ceremony?
+  :responses:
+  - democratic-republic-of-the-congo
+  :next_node: :legal_residency?
+  :outcome_node: false
+- :current_node: :legal_residency?
+  :responses:
+  - democratic-republic-of-the-congo
+  - uk
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - democratic-republic-of-the-congo
+  - uk
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - democratic-republic-of-the-congo
+  - uk
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - democratic-republic-of-the-congo
+  - uk
+  - partner_british
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - democratic-republic-of-the-congo
+  - uk
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - democratic-republic-of-the-congo
+  - uk
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - democratic-republic-of-the-congo
+  - uk
+  - partner_local
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - democratic-republic-of-the-congo
+  - uk
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - democratic-republic-of-the-congo
+  - uk
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - democratic-republic-of-the-congo
+  - uk
+  - partner_other
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :legal_residency?
+  :responses:
+  - democratic-republic-of-the-congo
+  - ceremony_country
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - democratic-republic-of-the-congo
+  - ceremony_country
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - democratic-republic-of-the-congo
+  - ceremony_country
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_ceremony_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - democratic-republic-of-the-congo
+  - ceremony_country
+  - partner_british
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - democratic-republic-of-the-congo
+  - ceremony_country
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - democratic-republic-of-the-congo
+  - ceremony_country
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_ceremony_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - democratic-republic-of-the-congo
+  - ceremony_country
+  - partner_local
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - democratic-republic-of-the-congo
+  - ceremony_country
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - democratic-republic-of-the-congo
+  - ceremony_country
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_ceremony_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - democratic-republic-of-the-congo
+  - ceremony_country
+  - partner_other
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :legal_residency?
+  :responses:
+  - democratic-republic-of-the-congo
+  - third_country
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - democratic-republic-of-the-congo
+  - third_country
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - democratic-republic-of-the-congo
+  - third_country
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - democratic-republic-of-the-congo
+  - third_country
+  - partner_british
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - democratic-republic-of-the-congo
+  - third_country
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - democratic-republic-of-the-congo
+  - third_country
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - democratic-republic-of-the-congo
+  - third_country
+  - partner_local
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - democratic-republic-of-the-congo
+  - third_country
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - democratic-republic-of-the-congo
+  - third_country
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - democratic-republic-of-the-congo
+  - third_country
+  - partner_other
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:
@@ -7822,19 +8282,19 @@
 - :current_node: :country_of_ceremony?
   :responses:
   - france
-  :next_node: :marriage_or_pacs?
+  :next_node: :partner_opposite_or_same_sex?
   :outcome_node: false
-- :current_node: :marriage_or_pacs?
+- :current_node: :partner_opposite_or_same_sex?
   :responses:
   - france
-  - marriage
-  :next_node: :outcome_marriage_in_france_or_french_overseas_territory
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
-- :current_node: :marriage_or_pacs?
+- :current_node: :partner_opposite_or_same_sex?
   :responses:
   - france
-  - pacs
-  :next_node: :outcome_civil_partnership_in_france_or_french_overseas_territory
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:
@@ -8568,7 +9028,7 @@
   - uk
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_same_sex_civil_partnership_in_greece
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -8591,7 +9051,7 @@
   - uk
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_same_sex_civil_partnership_in_greece
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -8614,7 +9074,7 @@
   - uk
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_same_sex_civil_partnership_in_greece
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -8643,7 +9103,7 @@
   - ceremony_country
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_same_sex_civil_partnership_in_greece
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -8666,7 +9126,7 @@
   - ceremony_country
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_same_sex_civil_partnership_in_greece
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -8689,7 +9149,7 @@
   - ceremony_country
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_same_sex_civil_partnership_in_greece
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -8718,7 +9178,7 @@
   - third_country
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_same_sex_civil_partnership_in_greece
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -8741,7 +9201,7 @@
   - third_country
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_same_sex_civil_partnership_in_greece
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -8764,7 +9224,7 @@
   - third_country
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_same_sex_civil_partnership_in_greece
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:
@@ -9233,6 +9693,236 @@
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:
+  - hungary
+  :next_node: :legal_residency?
+  :outcome_node: false
+- :current_node: :legal_residency?
+  :responses:
+  - hungary
+  - uk
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - hungary
+  - uk
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - hungary
+  - uk
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - hungary
+  - uk
+  - partner_british
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - hungary
+  - uk
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - hungary
+  - uk
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - hungary
+  - uk
+  - partner_local
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - hungary
+  - uk
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - hungary
+  - uk
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - hungary
+  - uk
+  - partner_other
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :legal_residency?
+  :responses:
+  - hungary
+  - ceremony_country
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - hungary
+  - ceremony_country
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - hungary
+  - ceremony_country
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - hungary
+  - ceremony_country
+  - partner_british
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - hungary
+  - ceremony_country
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - hungary
+  - ceremony_country
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - hungary
+  - ceremony_country
+  - partner_local
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - hungary
+  - ceremony_country
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - hungary
+  - ceremony_country
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - hungary
+  - ceremony_country
+  - partner_other
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :legal_residency?
+  :responses:
+  - hungary
+  - third_country
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - hungary
+  - third_country
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - hungary
+  - third_country
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - hungary
+  - third_country
+  - partner_british
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - hungary
+  - third_country
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - hungary
+  - third_country
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - hungary
+  - third_country
+  - partner_local
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - hungary
+  - third_country
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - hungary
+  - third_country
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - hungary
+  - third_country
+  - partner_other
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :country_of_ceremony?
+  :responses:
   - iceland
   :next_node: :legal_residency?
   :outcome_node: false
@@ -10160,243 +10850,30 @@
   :responses:
   - ireland
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_ireland
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
   - ireland
   - same_sex
-  :next_node: :outcome_ceremonies_in_ireland
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:
   - italy
-  :next_node: :legal_residency?
-  :outcome_node: false
-- :current_node: :legal_residency?
-  :responses:
-  - italy
-  - uk
-  :next_node: :what_is_your_partners_nationality?
-  :outcome_node: false
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - italy
-  - uk
-  - partner_british
   :next_node: :partner_opposite_or_same_sex?
   :outcome_node: false
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
   - italy
-  - uk
-  - partner_british
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_italy_when_residing_in_uk
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
   - italy
-  - uk
-  - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
-  :outcome_node: true
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - italy
-  - uk
-  - partner_local
-  :next_node: :partner_opposite_or_same_sex?
-  :outcome_node: false
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - italy
-  - uk
-  - partner_local
-  - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_italy_when_residing_in_uk
-  :outcome_node: true
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - italy
-  - uk
-  - partner_local
-  - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
-  :outcome_node: true
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - italy
-  - uk
-  - partner_other
-  :next_node: :partner_opposite_or_same_sex?
-  :outcome_node: false
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - italy
-  - uk
-  - partner_other
-  - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_italy_when_residing_in_uk
-  :outcome_node: true
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - italy
-  - uk
-  - partner_other
-  - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
-  :outcome_node: true
-- :current_node: :legal_residency?
-  :responses:
-  - italy
-  - ceremony_country
-  :next_node: :what_is_your_partners_nationality?
-  :outcome_node: false
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - italy
-  - ceremony_country
-  - partner_british
-  :next_node: :partner_opposite_or_same_sex?
-  :outcome_node: false
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - italy
-  - ceremony_country
-  - partner_british
-  - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_italy_when_residing_in_italy
-  :outcome_node: true
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - italy
-  - ceremony_country
-  - partner_british
-  - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
-  :outcome_node: true
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - italy
-  - ceremony_country
-  - partner_local
-  :next_node: :partner_opposite_or_same_sex?
-  :outcome_node: false
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - italy
-  - ceremony_country
-  - partner_local
-  - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_italy_when_residing_in_italy
-  :outcome_node: true
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - italy
-  - ceremony_country
-  - partner_local
-  - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
-  :outcome_node: true
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - italy
-  - ceremony_country
-  - partner_other
-  :next_node: :partner_opposite_or_same_sex?
-  :outcome_node: false
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - italy
-  - ceremony_country
-  - partner_other
-  - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_italy_when_residing_in_italy
-  :outcome_node: true
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - italy
-  - ceremony_country
-  - partner_other
-  - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
-  :outcome_node: true
-- :current_node: :legal_residency?
-  :responses:
-  - italy
-  - third_country
-  :next_node: :what_is_your_partners_nationality?
-  :outcome_node: false
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - italy
-  - third_country
-  - partner_british
-  :next_node: :partner_opposite_or_same_sex?
-  :outcome_node: false
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - italy
-  - third_country
-  - partner_british
-  - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
-  :outcome_node: true
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - italy
-  - third_country
-  - partner_british
-  - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
-  :outcome_node: true
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - italy
-  - third_country
-  - partner_local
-  :next_node: :partner_opposite_or_same_sex?
-  :outcome_node: false
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - italy
-  - third_country
-  - partner_local
-  - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
-  :outcome_node: true
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - italy
-  - third_country
-  - partner_local
-  - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
-  :outcome_node: true
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - italy
-  - third_country
-  - partner_other
-  :next_node: :partner_opposite_or_same_sex?
-  :outcome_node: false
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - italy
-  - third_country
-  - partner_other
-  - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
-  :outcome_node: true
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - italy
-  - third_country
-  - partner_other
-  - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:
@@ -10430,7 +10907,7 @@
   - uk
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_in_japan
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -10453,7 +10930,7 @@
   - uk
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_in_japan
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -10476,7 +10953,7 @@
   - uk
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_in_japan
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -10505,7 +10982,7 @@
   - ceremony_country
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_in_japan
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -10528,7 +11005,7 @@
   - ceremony_country
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_in_japan
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -10551,7 +11028,7 @@
   - ceremony_country
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_in_japan
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -10580,7 +11057,7 @@
   - third_country
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_in_japan
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -10603,7 +11080,7 @@
   - third_country
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_in_japan
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -10626,7 +11103,7 @@
   - third_country
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_in_japan
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:
@@ -10652,7 +11129,7 @@
   - uk
   - partner_british
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -10660,7 +11137,7 @@
   - uk
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -10675,7 +11152,7 @@
   - uk
   - partner_local
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -10683,7 +11160,7 @@
   - uk
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -10698,7 +11175,7 @@
   - uk
   - partner_other
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -10706,7 +11183,7 @@
   - uk
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -10727,7 +11204,7 @@
   - ceremony_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_ceremony_country
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -10735,7 +11212,7 @@
   - ceremony_country
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -10750,7 +11227,7 @@
   - ceremony_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_ceremony_country
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -10758,7 +11235,7 @@
   - ceremony_country
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -10773,7 +11250,7 @@
   - ceremony_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_ceremony_country
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -10781,7 +11258,7 @@
   - ceremony_country
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -10802,7 +11279,7 @@
   - third_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -10810,7 +11287,7 @@
   - third_country
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -10825,7 +11302,7 @@
   - third_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -10833,7 +11310,7 @@
   - third_country
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -10848,7 +11325,7 @@
   - third_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -10856,7 +11333,7 @@
   - third_country
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:
@@ -11083,6 +11560,236 @@
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
   - kazakhstan
+  - third_country
+  - partner_other
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :country_of_ceremony?
+  :responses:
+  - kenya
+  :next_node: :legal_residency?
+  :outcome_node: false
+- :current_node: :legal_residency?
+  :responses:
+  - kenya
+  - uk
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - kenya
+  - uk
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - kenya
+  - uk
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_commonwealth_countries
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - kenya
+  - uk
+  - partner_british
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - kenya
+  - uk
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - kenya
+  - uk
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_commonwealth_countries
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - kenya
+  - uk
+  - partner_local
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - kenya
+  - uk
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - kenya
+  - uk
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_commonwealth_countries
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - kenya
+  - uk
+  - partner_other
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :legal_residency?
+  :responses:
+  - kenya
+  - ceremony_country
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - kenya
+  - ceremony_country
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - kenya
+  - ceremony_country
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_commonwealth_countries
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - kenya
+  - ceremony_country
+  - partner_british
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - kenya
+  - ceremony_country
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - kenya
+  - ceremony_country
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_commonwealth_countries
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - kenya
+  - ceremony_country
+  - partner_local
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - kenya
+  - ceremony_country
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - kenya
+  - ceremony_country
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_commonwealth_countries
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - kenya
+  - ceremony_country
+  - partner_other
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :legal_residency?
+  :responses:
+  - kenya
+  - third_country
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - kenya
+  - third_country
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - kenya
+  - third_country
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_commonwealth_countries
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - kenya
+  - third_country
+  - partner_british
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - kenya
+  - third_country
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - kenya
+  - third_country
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_commonwealth_countries
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - kenya
+  - third_country
+  - partner_local
+  - same_sex
+  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - kenya
+  - third_country
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - kenya
+  - third_country
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_opposite_sex_marriage_in_commonwealth_countries
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - kenya
   - third_country
   - partner_other
   - same_sex
@@ -12032,7 +12739,7 @@
   - uk
   - partner_british
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -12040,7 +12747,7 @@
   - uk
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -12055,7 +12762,7 @@
   - uk
   - partner_local
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -12063,7 +12770,7 @@
   - uk
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -12078,7 +12785,7 @@
   - uk
   - partner_other
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -12086,7 +12793,7 @@
   - uk
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -12107,7 +12814,7 @@
   - ceremony_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_ceremony_country
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -12115,7 +12822,7 @@
   - ceremony_country
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -12130,7 +12837,7 @@
   - ceremony_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_ceremony_country
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -12138,7 +12845,7 @@
   - ceremony_country
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -12153,7 +12860,7 @@
   - ceremony_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_ceremony_country
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -12161,7 +12868,7 @@
   - ceremony_country
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -12182,7 +12889,7 @@
   - third_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -12190,7 +12897,7 @@
   - third_country
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -12205,7 +12912,7 @@
   - third_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -12213,7 +12920,7 @@
   - third_country
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -12228,7 +12935,7 @@
   - third_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -12236,7 +12943,7 @@
   - third_country
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:
@@ -14567,6 +15274,236 @@
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:
+  - mozambique
+  :next_node: :legal_residency?
+  :outcome_node: false
+- :current_node: :legal_residency?
+  :responses:
+  - mozambique
+  - uk
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - mozambique
+  - uk
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - mozambique
+  - uk
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - mozambique
+  - uk
+  - partner_british
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - mozambique
+  - uk
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - mozambique
+  - uk
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - mozambique
+  - uk
+  - partner_local
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - mozambique
+  - uk
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - mozambique
+  - uk
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - mozambique
+  - uk
+  - partner_other
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :legal_residency?
+  :responses:
+  - mozambique
+  - ceremony_country
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - mozambique
+  - ceremony_country
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - mozambique
+  - ceremony_country
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - mozambique
+  - ceremony_country
+  - partner_british
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - mozambique
+  - ceremony_country
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - mozambique
+  - ceremony_country
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - mozambique
+  - ceremony_country
+  - partner_local
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - mozambique
+  - ceremony_country
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - mozambique
+  - ceremony_country
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - mozambique
+  - ceremony_country
+  - partner_other
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :legal_residency?
+  :responses:
+  - mozambique
+  - third_country
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - mozambique
+  - third_country
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - mozambique
+  - third_country
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - mozambique
+  - third_country
+  - partner_british
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - mozambique
+  - third_country
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - mozambique
+  - third_country
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - mozambique
+  - third_country
+  - partner_local
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - mozambique
+  - third_country
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - mozambique
+  - third_country
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - mozambique
+  - third_country
+  - partner_other
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :country_of_ceremony?
+  :responses:
   - netherlands
   :next_node: :legal_residency?
   :outcome_node: false
@@ -16425,232 +17362,19 @@
 - :current_node: :country_of_ceremony?
   :responses:
   - philippines
-  :next_node: :legal_residency?
-  :outcome_node: false
-- :current_node: :legal_residency?
-  :responses:
-  - philippines
-  - uk
-  :next_node: :what_is_your_partners_nationality?
-  :outcome_node: false
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - philippines
-  - uk
-  - partner_british
   :next_node: :partner_opposite_or_same_sex?
   :outcome_node: false
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
   - philippines
-  - uk
-  - partner_british
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_philippines
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
   - philippines
-  - uk
-  - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
-  :outcome_node: true
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - philippines
-  - uk
-  - partner_local
-  :next_node: :partner_opposite_or_same_sex?
-  :outcome_node: false
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - philippines
-  - uk
-  - partner_local
-  - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_philippines
-  :outcome_node: true
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - philippines
-  - uk
-  - partner_local
-  - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
-  :outcome_node: true
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - philippines
-  - uk
-  - partner_other
-  :next_node: :partner_opposite_or_same_sex?
-  :outcome_node: false
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - philippines
-  - uk
-  - partner_other
-  - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_philippines
-  :outcome_node: true
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - philippines
-  - uk
-  - partner_other
-  - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
-  :outcome_node: true
-- :current_node: :legal_residency?
-  :responses:
-  - philippines
-  - ceremony_country
-  :next_node: :what_is_your_partners_nationality?
-  :outcome_node: false
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - philippines
-  - ceremony_country
-  - partner_british
-  :next_node: :partner_opposite_or_same_sex?
-  :outcome_node: false
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - philippines
-  - ceremony_country
-  - partner_british
-  - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_philippines
-  :outcome_node: true
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - philippines
-  - ceremony_country
-  - partner_british
-  - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
-  :outcome_node: true
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - philippines
-  - ceremony_country
-  - partner_local
-  :next_node: :partner_opposite_or_same_sex?
-  :outcome_node: false
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - philippines
-  - ceremony_country
-  - partner_local
-  - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_philippines
-  :outcome_node: true
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - philippines
-  - ceremony_country
-  - partner_local
-  - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
-  :outcome_node: true
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - philippines
-  - ceremony_country
-  - partner_other
-  :next_node: :partner_opposite_or_same_sex?
-  :outcome_node: false
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - philippines
-  - ceremony_country
-  - partner_other
-  - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_philippines
-  :outcome_node: true
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - philippines
-  - ceremony_country
-  - partner_other
-  - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
-  :outcome_node: true
-- :current_node: :legal_residency?
-  :responses:
-  - philippines
-  - third_country
-  :next_node: :what_is_your_partners_nationality?
-  :outcome_node: false
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - philippines
-  - third_country
-  - partner_british
-  :next_node: :partner_opposite_or_same_sex?
-  :outcome_node: false
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - philippines
-  - third_country
-  - partner_british
-  - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_philippines
-  :outcome_node: true
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - philippines
-  - third_country
-  - partner_british
-  - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
-  :outcome_node: true
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - philippines
-  - third_country
-  - partner_local
-  :next_node: :partner_opposite_or_same_sex?
-  :outcome_node: false
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - philippines
-  - third_country
-  - partner_local
-  - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_philippines
-  :outcome_node: true
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - philippines
-  - third_country
-  - partner_local
-  - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
-  :outcome_node: true
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - philippines
-  - third_country
-  - partner_other
-  :next_node: :partner_opposite_or_same_sex?
-  :outcome_node: false
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - philippines
-  - third_country
-  - partner_other
-  - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_philippines
-  :outcome_node: true
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - philippines
-  - third_country
-  - partner_other
-  - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:
@@ -16906,7 +17630,7 @@
   - uk
   - partner_british
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_portugal
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -16914,7 +17638,7 @@
   - uk
   - partner_british
   - same_sex
-  :next_node: :outcome_ceremonies_in_portugal
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -16929,7 +17653,7 @@
   - uk
   - partner_local
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_portugal
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -16937,7 +17661,7 @@
   - uk
   - partner_local
   - same_sex
-  :next_node: :outcome_ceremonies_in_portugal
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -16952,7 +17676,7 @@
   - uk
   - partner_other
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_portugal
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -16960,7 +17684,7 @@
   - uk
   - partner_other
   - same_sex
-  :next_node: :outcome_ceremonies_in_portugal
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -16981,7 +17705,7 @@
   - ceremony_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_portugal
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -16989,7 +17713,7 @@
   - ceremony_country
   - partner_british
   - same_sex
-  :next_node: :outcome_ceremonies_in_portugal
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -17004,7 +17728,7 @@
   - ceremony_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_portugal
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -17012,7 +17736,7 @@
   - ceremony_country
   - partner_local
   - same_sex
-  :next_node: :outcome_ceremonies_in_portugal
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -17027,7 +17751,7 @@
   - ceremony_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_portugal
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -17035,7 +17759,7 @@
   - ceremony_country
   - partner_other
   - same_sex
-  :next_node: :outcome_ceremonies_in_portugal
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -17056,7 +17780,7 @@
   - third_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_portugal
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -17064,7 +17788,7 @@
   - third_country
   - partner_british
   - same_sex
-  :next_node: :outcome_ceremonies_in_portugal
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -17079,7 +17803,7 @@
   - third_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_portugal
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -17087,7 +17811,7 @@
   - third_country
   - partner_local
   - same_sex
-  :next_node: :outcome_ceremonies_in_portugal
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -17102,7 +17826,7 @@
   - third_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_portugal
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -17110,7 +17834,7 @@
   - third_country
   - partner_other
   - same_sex
-  :next_node: :outcome_ceremonies_in_portugal
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:
@@ -19441,7 +20165,7 @@
   - uk
   - partner_british
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
+  :next_node: :outcome_opposite_sex_marriage_in_slovakia
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -19464,7 +20188,7 @@
   - uk
   - partner_local
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
+  :next_node: :outcome_opposite_sex_marriage_in_slovakia
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -19487,7 +20211,7 @@
   - uk
   - partner_other
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
+  :next_node: :outcome_opposite_sex_marriage_in_slovakia
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -19516,7 +20240,7 @@
   - ceremony_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
+  :next_node: :outcome_opposite_sex_marriage_in_slovakia
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -19539,7 +20263,7 @@
   - ceremony_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
+  :next_node: :outcome_opposite_sex_marriage_in_slovakia
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -19562,7 +20286,7 @@
   - ceremony_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
+  :next_node: :outcome_opposite_sex_marriage_in_slovakia
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -19591,7 +20315,7 @@
   - third_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
+  :next_node: :outcome_opposite_sex_marriage_in_slovakia
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -19614,7 +20338,7 @@
   - third_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
+  :next_node: :outcome_opposite_sex_marriage_in_slovakia
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -19637,7 +20361,7 @@
   - third_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
+  :next_node: :outcome_opposite_sex_marriage_in_slovakia
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -21286,7 +22010,7 @@
   - uk
   - partner_british
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -21294,7 +22018,7 @@
   - uk
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -21309,7 +22033,7 @@
   - uk
   - partner_local
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -21317,7 +22041,7 @@
   - uk
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -21332,7 +22056,7 @@
   - uk
   - partner_other
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -21340,7 +22064,7 @@
   - uk
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -21361,7 +22085,7 @@
   - ceremony_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_sweden_when_residing_in_sweden
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -21369,7 +22093,7 @@
   - ceremony_country
   - partner_british
   - same_sex
-  :next_node: :outcome_ceremonies_in_sweden_when_residing_in_sweden
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -21384,7 +22108,7 @@
   - ceremony_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_sweden_when_residing_in_sweden
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -21392,7 +22116,7 @@
   - ceremony_country
   - partner_local
   - same_sex
-  :next_node: :outcome_ceremonies_in_sweden_when_residing_in_sweden
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -21407,7 +22131,7 @@
   - ceremony_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_ceremonies_in_sweden_when_residing_in_sweden
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -21415,7 +22139,7 @@
   - ceremony_country
   - partner_other
   - same_sex
-  :next_node: :outcome_ceremonies_in_sweden_when_residing_in_sweden
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -21436,7 +22160,7 @@
   - third_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -21444,7 +22168,7 @@
   - third_country
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -21459,7 +22183,7 @@
   - third_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -21467,7 +22191,7 @@
   - third_country
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -21482,7 +22206,7 @@
   - third_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -21490,7 +22214,7 @@
   - third_country
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:
@@ -23421,7 +24145,7 @@
   - uk
   - partner_british
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_vietnam
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -23429,7 +24153,7 @@
   - uk
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -23444,7 +24168,7 @@
   - uk
   - partner_local
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_vietnam
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -23452,7 +24176,7 @@
   - uk
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -23467,7 +24191,7 @@
   - uk
   - partner_other
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_vietnam
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -23475,7 +24199,7 @@
   - uk
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -23496,7 +24220,7 @@
   - ceremony_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_vietnam
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -23504,7 +24228,7 @@
   - ceremony_country
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -23519,7 +24243,7 @@
   - ceremony_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_vietnam
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -23527,7 +24251,7 @@
   - ceremony_country
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -23542,7 +24266,7 @@
   - ceremony_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_vietnam
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -23550,7 +24274,7 @@
   - ceremony_country
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
@@ -23571,7 +24295,7 @@
   - third_country
   - partner_british
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_vietnam
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -23579,7 +24303,7 @@
   - third_country
   - partner_british
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -23594,7 +24318,7 @@
   - third_country
   - partner_local
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_vietnam
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -23602,7 +24326,7 @@
   - third_country
   - partner_local
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership_not_possible
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
@@ -23617,7 +24341,7 @@
   - third_country
   - partner_other
   - opposite_sex
-  :next_node: :outcome_opposite_sex_marriage_in_vietnam
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
@@ -23625,7 +24349,7 @@
   - third_country
   - partner_other
   - same_sex
-  :next_node: :outcome_same_sex_marriage_and_civil_partnership
+  :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:

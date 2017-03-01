@@ -1,0 +1,7 @@
+<% content_for :title do %>
+    <%= render partial: 'countries/'+calculator.ceremony_country+'/title', locals: {calculator: calculator} %>
+<% end %>
+
+<% content_for :body do %>
+    <%= render partial: 'countries/'+calculator.path_to_outcome.join('/'), locals: {calculator: calculator} %>
+<% end %>

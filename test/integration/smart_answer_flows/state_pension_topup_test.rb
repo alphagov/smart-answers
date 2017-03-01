@@ -33,6 +33,7 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
 
     context "gender inserted" do
       setup do
+        Timecop.freeze('2016-12-01')
         add_response "male"
       end
       should "ask you topup amount" do
@@ -47,7 +48,6 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
           assert_equal 10.0, current_state.calculator.weekly_amount
           assert_equal Date.parse("1950-02-02"), current_state.calculator.date_of_birth
           assert_equal [
-            { amount: SmartAnswer::Money.new(8900), age: 65 },
             { amount: SmartAnswer::Money.new(8710), age: 66 },
             { amount: SmartAnswer::Money.new(8470), age: 67 }
           ], current_state.calculator.lump_sum_and_age
@@ -94,16 +94,16 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
       assert_current_node :outcome_pension_age_not_reached
     end
   end
-  context "Anyone turns 101 on 2 April 2017 = DOB 2/4/1916" do
+  context "Anyone turns 101 on 2 April 2017 = DOB 2/4/1916 with a top up of £1 a week" do
     setup do
+      Timecop.freeze('2016-12-01')
       add_response Date.parse('1916-04-02')
       add_response "male"
       add_response 1
     end
-    should "show three rates, two of them being the max age rate (100 => 127)" do
+    should "show two rates, both of them being for the max age rate (100 years old) and a lump sum of £127)" do
       assert_current_node :outcome_topup_calculations
       assert_equal [
-        { amount: SmartAnswer::Money.new(137), age: 99 },
         { amount: SmartAnswer::Money.new(127), age: 100 },
         { amount: SmartAnswer::Money.new(127), age: 101 }
       ], current_state.calculator.lump_sum_and_age
@@ -118,17 +118,15 @@ class CalculateStatePensionTopupTest < ActiveSupport::TestCase
       assert_current_node :outcome_pension_age_not_reached
     end
   end
-  context "Male born 13/10/1940 needs 3 rates" do
+  context "Male born 13/10/1940 needs one rate" do
     setup do
       add_response Date.parse('1940-10-14')
       add_response "male"
       add_response 1
     end
-    should "go to calculations outcome and show 3 rates" do
+    should "go to calculations outcome and show one rate" do
       assert_current_node :outcome_topup_calculations
       assert_equal [
-        { amount: SmartAnswer::Money.new(694), age: 74 },
-        { amount: SmartAnswer::Money.new(674), age: 75 },
         { amount: SmartAnswer::Money.new(646), age: 76 }
       ], current_state.calculator.lump_sum_and_age
     end

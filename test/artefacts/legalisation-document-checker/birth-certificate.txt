@@ -11,7 +11,7 @@ It can take longer to legalise a signature on an original certificate, especiall
 It might be quicker to order a certified copy of your certificate from the:
 
 - [GRO (England and Wales)](https://www.gro.gov.uk/gro/content/certificates/default.asp)
-- [GRO for Scotland](http://www.gro-scotland.gov.uk/contacts/opentime/index.html/)
+- [GRO for Scotland](http://www.nrscotland.gov.uk/registration/how-to-order-an-official-extract-from-the-registers)
 - [General Register Office for Northern Ireland](http://www.nidirect.gov.uk/general-register-office-for-northern-ireland)
 
 ^A photocopy of your document won’t be accepted.^

@@ -1,12 +1,12 @@
 
 
 $C
-You are paying the National Minimum Wage.
+You are paying the National Living Wage.
 $C
 
-The National Minimum Wage per hour for the worker’s age | The worker’s actual pay
+The National Living Wage per hour for the worker’s age | The worker’s actual pay
 - | -
-£6.50 | £25.78
+£7.20 | £27.05
 
 If the worker works overtime or you provide them with [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
 

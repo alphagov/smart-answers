@@ -4,29 +4,9 @@ One of you must be a Muslim to get married under local laws in Saudi Arabia. Con
 
 ##Getting married at the British Embassy
 
-You can only apply to get married at the British Embassy in Riyadh if you’re resident in Saudi Arabia and neither of you is a Muslim. Contact them to make an appointment.
+^ You can only apply to get married at the British Embassy in Riyadh if you’re resident in Saudi Arabia and neither of you is a Muslim.^
 
-$A
-British Embassy Riyadh, main contact
-British Embassy 
-PO Box 94351
-11693 Riyadh
-Saudi Arabia
-$A
-
-$C
-Telephone: +966 (0) 11 4819 100 
-Fax information 	: +966 (0) 11 481 9350
-Fax defence : +966 (0) 11 481 9235
-Fax  corporate services: +966 (0) 11 481 9337
-UKTI : +966 (0) 11 481 9100
-UKBA : +966 (0) 11 481 9294
-Consular: +966 (0) 11 481 9229
-
-Email: <Consular.Riyadh@fco.gov.uk>
-
-[British Embassy Riyadh, main contact - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-riyadh/office/british-embassy-riyadh-main-contact)
-$C
+[Book an appointment at the British Embassy in Riyadh.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-riyadh/notice-of-marriage-or-civil-partnership/slot_picker)
 
 You’ll need to provide:
 
@@ -56,9 +36,9 @@ Your partner can apply to [become a British citizen](/becoming-a-british-citizen
 
 Service | Fee
 -|-
-Receiving a notice of registration | £65
-Registering a marriage | £140
-Issuing a marriage certificate | £65
+Receiving a notice of registration | £50
+Registering a marriage | £150
+Issuing a marriage certificate | £50
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Saudi Arabia](/government/publications/saudi-arabia-consular-fees).
 

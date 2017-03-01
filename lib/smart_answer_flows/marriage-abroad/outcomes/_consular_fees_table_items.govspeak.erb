@@ -1,6 +1,12 @@
+<% if service_counter == 0 %>
+Service | Fee
+-|-
+<% end %>
 <% case service %>
 <% when :receiving_notice_of_registration %>
   Receiving a notice of registration | <%= format_money calculator.consular_fee(:receiving_notice_of_registration) %>
+<% when :receiving_notice_of_civil_partnership %>
+  Receiving a notice of civil partnership | <%= format_money calculator.consular_fee(:receiving_notice_of_civil_partnership) %>
 <% when :receiving_notice_of_marriage %>
   Receiving a notice of marriage | <%= format_money calculator.consular_fee(:receiving_notice_of_marriage) %>
 <% when :issuing_custom_and_law_certificate %>

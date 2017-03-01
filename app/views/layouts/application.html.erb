@@ -5,9 +5,12 @@
     <%= stylesheet_link_tag "print.css", media: "print" %>
     <title><%= yield :title %> - GOV.UK</title>
     <%= yield :head %>
+
+    <% if @content_item %>
+      <%= render partial: 'govuk_component/analytics_meta_tags', locals: { content_item: @content_item } %>
+    <% end %>
   </head>
 <body class="mainstream">
-
   <%= yield :before_wrapper %>
 
   <div id="wrapper" class="answer smart_answer">

@@ -23,9 +23,6 @@ The templates can contain content for any of the following keys:
 * Valid for all question types
 * `text` argument is a String
 * Used as a "hint" paragraph
-* Also used to generate a label for value & postcode questions
-
-> I'm not convinced the `hint` key should be overloaded by the value & postcode question types - the `label` key would seem more appropriate.
 
 ### `label(text)`
 

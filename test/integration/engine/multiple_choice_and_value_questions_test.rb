@@ -34,15 +34,15 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
       assert page.has_xpath?("//meta[@name = 'robots'][@content = 'noindex']", visible: :all)
 
       within '.current-question' do
-        within 'h2' do
+        within '[data-test=question]' do
           assert_page_has_content "What...is your name?"
         end
         within '.question-body' do
-          assert page.has_field?("Name:", type: "text")
+          assert page.has_field?("response", type: "text")
         end
       end
 
-      fill_in "Name:", with: "Lancelot"
+      fill_in "response", with: "Lancelot"
       click_on "Next step"
 
       assert_current_url "/bridge-of-death/y/Lancelot"
@@ -59,7 +59,7 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
       end
 
       within '.current-question' do
-        within 'h2' do
+        within '[data-test=question]' do
           assert_page_has_content "What...is your quest?"
         end
         within '.question-body' do
@@ -96,7 +96,7 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
       end
 
       within '.current-question' do
-        within 'h2' do
+        within '[data-test=question]' do
           assert_page_has_content "What...is your favorite colour?"
         end
         within '.question-body' do
@@ -151,7 +151,7 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
   should "calculate alternate path correctly" do
     visit "/bridge-of-death/y"
 
-    fill_in "Name:", with: "Robin"
+    fill_in "response", with: "Robin"
     click_on "Next step"
 
     choose "To seek the Holy Grail"
@@ -178,15 +178,15 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
     end
 
     within '.current-question' do
-      within 'h2' do
+      within '[data-test=question]' do
         assert_page_has_content "What...is the capital of Assyria?"
       end
       within '.question-body' do
-        assert page.has_field?("Answer:", type: "text")
+        assert page.has_field?("response", type: "text")
       end
     end
 
-    fill_in "Answer:", with: "I don't know THAT"
+    fill_in "response", with: "I don't know THAT"
     click_on "Next step"
 
     within '.outcome:nth-child(1)' do

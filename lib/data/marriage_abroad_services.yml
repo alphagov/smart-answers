@@ -38,7 +38,7 @@ ecuador:
   same_sex:
     default:
       default:
-      - :issuing_cni_or_nulla_osta
+      - :affidavit_or_affirmation_for_marriage
   payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 egypt:
   opposite_sex:
@@ -262,16 +262,6 @@ azerbaijan:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
-  same_sex:
-    default:
-      partner_british:
-      - :receiving_notice_of_registration
-      - :registering_marriage
-      - :issuing_marriage_certificate
-      partner_other:
-      - :receiving_notice_of_registration
-      - :registering_marriage
-      - :issuing_marriage_certificate
   payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 bahrain:
   opposite_sex:
@@ -344,13 +334,6 @@ croatia:
       - :issuing_civil_partnership_certificate
   payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 cuba:
-  opposite_sex:
-    ceremony_country:
-      default:
-      - :receiving_notice_of_marriage
-      - :issuing_cni_or_nulla_osta
-  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
-democratic-republic-of-congo:
   opposite_sex:
     ceremony_country:
       default:
@@ -487,6 +470,9 @@ latvia:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
+    uk:
+      default:
+      - :affidavit_or_affirmation_for_marriage
   same_sex:
     default:
       partner_british:
@@ -708,13 +694,6 @@ indonesia:
     default:
       default:
       - :affidavit_or_affirmation_for_marriage
-italy:
-  opposite_sex:
-    ceremony_country:
-      default:
-      - :receiving_notice_of_marriage
-      - :issuing_cni_or_nulla_osta
-  payment_partial_name: pay_in_euro_or_sterling_or_card
 japan:
   opposite_sex:
     default:
@@ -860,3 +839,9 @@ st-pierre-and-miquelon:
 wallis-and-futuna:
   default:
   - :issuing_custom_and_law_certificate
+democratic-republic-of-the-congo:
+  opposite_sex:
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta

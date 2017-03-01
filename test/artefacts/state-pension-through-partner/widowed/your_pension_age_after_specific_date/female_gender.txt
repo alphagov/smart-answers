@@ -11,7 +11,7 @@ This is also known as the [married women’s reduced rate election](http://www.h
 
 ^Your State Pension may be higher if the reduced rate election applies to you.^
 
-The Reduced Rate Election must have applied to you at some point within the 35 years before you reached State Pension age (not including the year you reach State Pension age). These must be tax years.
+The reduced rate election must have applied to you at some point within the 35 years before you reached State Pension age (not including the year you reach State Pension age). These must be tax years.
 
 $E
 
@@ -19,7 +19,7 @@ $E
 
 You’ll reach State Pension age on 6 March 2018. This is in the tax year 6 April 2017 to 5 April 2018.
 
-You got married in 1975 and chose to to pay National Insurance contributions at a reduced rate.
+You got married in 1975 and chose to pay National Insurance contributions at a reduced rate.
 
 Your State Pension will be worked out differently if your reduced rate election still applied to you in 1982.
 
@@ -27,13 +27,13 @@ $E
 
 ##What you may get if you have a reduced rate election
 
+You won’t need to have the usual minimum of 10 qualifying years on your National Insurance record to get a State Pension.
+
 You’ll get a pension of about £113.10 a week plus any Additional State Pension and Graduated Retirement Benefit you built up before 6 April 2016.
 
-£113.10 is the maximum rate of basic State Pension a widowed person who reached State Pension age before 6 April 2016 can get through their spouse or civil partner’s National Insurance record..
+£113.10 is the maximum rate of basic State Pension a widowed person who reached State Pension age before 6 April 2016 can get through their spouse or civil partner’s National Insurance record.
 
 You’ll get this when you’re widowed or when you [claim your State Pension](/deferring-state-pension/tax-and-inheritance), if later.
-
-^You won’t need to have the minimum of 10 qualifying years on your National Insurance record to get a State Pension if you’re eligible under these different rules.^
 
 You’ll get more if your [State Pension](/new-state-pension) is higher under your own National Insurance contributions.
 
@@ -41,13 +41,13 @@ You’ll get more if your [State Pension](/new-state-pension) is higher under yo
 
 You’ll get a pension of about £67.80 a week plus any Additional State Pension and Graduated Retirement Benefit you built up before 6 April 2016.
 
+You’ll get this when either you or your new spouse or civil partner reach [State Pension age](/state-pension-age), whichever is later.
+
+If your new spouse or civil partner reaches State Pension age after you, you’ll get your State Pension based on your own National Insurance contributions until they reach State Pension age.
+
 £67.80 is the maximum rate of basic State Pension a married person or civil partner who reached State Pension age before 6 April 2016 can get through their spouse or civil partner’s National Insurance record.
 
-You'll get more if your [State Pension](/new-state-pension) is higher under your own National Insurance contributions.
-
-^Your pension must have been calculated under the reduced rate election rules for this to apply.^
-
-You’ll get this when you or your spouse or civil partner reach State Pension age, whichever is later.
+If your [State Pension](/new-state-pension) is higher under your own National Insurance contributions, you’ll get that instead.
 
 ##Inheriting State Pension
 
@@ -57,7 +57,7 @@ You won’t be able to inherit any of your late spouse or civil partner’s Stat
 
 ##Your spouse or civil partner died under State Pension age before 6 April 2016
 
-You may be able to inherit a portion of their [Additional State Pension](/additional-state-pension/further-information). and half their Graduated Retirement Benefit. This was the earnings-related State Pension people could build up between 1961 and 1975.
+You may be able to inherit a portion of their [Additional State Pension](/additional-state-pension/further-information) and half their Graduated Retirement Benefit. This was the earnings-related State Pension people could build up between 1961 and 1975.
 
 ##Your spouse or civil partner reached State Pension age before 6 April 2016
 
@@ -79,7 +79,7 @@ You must have been married or in a civil partnership with your partner before 6 
 
 You might be eligible for a [Bereavement payment](/bereavement-payment), [Widowed Parent’s Allowance](/widowed-parents-allowance), or [Bereavement Allowance](/bereavement-allowance) if you haven’t yet reached State Pension age. You might be eligible for a bereavement payment if you’re over State Pension age but your late spouse or civil partner wasn’t getting any State Pension when they died.
 
-^You can contact the [future pension centre](/future-pension-centre) for help and advice.^
+^You can contact the [Future Pension Centre](/future-pension-centre) for help and advice.^
 
 ##If you remarry or form a new civil partnership after State Pension age
 

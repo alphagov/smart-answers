@@ -1,17 +1,12 @@
 # How to archive a Smart Answer
 
-To prevent a Smart Answer being [registered with Panopticon](../lib/tasks/panopticon.rake) you will need to change the status of the Smart Answer flow, or remove the Smart Answer flow entirely.
-
 As archiving tends not to be temporary, it's preferable to remove the flow entirely - and it can always be recovered from `git` history.
 
 If a flow needs to be removed urgently then it be can archived quickly by changing the flow's status to 'archived'. You should make sure work is scheduled to properly clean up the, now, unused flows.
 
 Once a flow has been removed the artefact will no longer register itself when the Smart Answers application is released.
 
-You will then need to:
-
-1. Archive the artefact in [Panopticon](https://github.com/alphagov/panopticon) (same process as other types of content)
-2. Add a redirect in [router-data](https://github.gds/gds/router-data) for the artefact slug. This should be a `prefix` route, so all parts of the Smart Answer URL are matched and preserved. ([This is a good example](https://github.gds/gds/router-data/blob/master/data/slug-changes.csv#L623))
+You will then need to add a redirect in [router-data](https://github.gds/gds/router-data) for the artefact slug. This should be a `prefix` route, so all parts of the Smart Answer URL are matched and preserved. ([This is a good example](https://github.gds/gds/router-data/blob/master/data/slug-changes.csv#L623))
 
 ## Flow file naming convention
 

@@ -193,11 +193,16 @@
 
   <% if !calculator.in_the_uk? && calculator.registration_country == 'algeria' %>
     Pay by credit or debit card - fill in the [credit card authorisation slip](/government/publications/credit-card-authorisation-form-algeria) and post it with your registration form.
+  <% elsif calculator.country_of_birth == 'sudan' ||
+    calculator.current_country == 'sudan' %>
+    You can [pay for the registration online](https://pay-register-birth-abroad.service.gov.uk/start).
+
+    If you’re unable to pay for the registration online, you can also pay in person at the Consular section of the [British Embassy, Khartoum](/government/world/organisations/british-embassy-khartoum/office/british-embassy-khartoum-main-contact).
   <% else %>
     You should pay online for the registration. Email <birthregistrationenquiries@fco.gov.uk> if you’re unable to pay online.
   <% end %>
 
-  The registration fee does not include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office or the National Records Office of Scotland, but only from September the year after you register.
+  The registration fee does not include any copies of the certificate, but you can order them at the same time. Cheaper copies will be available from the General Register Office or the National Records Office of Scotland, but only from November the year after you register.
 
   Once you’ve paid you will be given a reference number to use on your birth registration form.
 
@@ -205,6 +210,7 @@
              locals: { calculator: calculator } %>
 
   <%= render partial: 'shared/births_and_deaths_registration/document_return_fees.govspeak.erb', locals: { document_return_fees: calculator.document_return_fees } %>
+
   <%= render partial: 'shared/births_and_deaths_registration/button.govspeak.erb', locals: { button_data: { text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start" } } %>
 
   <% if calculator.country_of_birth == 'venezuela' && calculator.same_country? %>

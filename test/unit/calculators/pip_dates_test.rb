@@ -19,18 +19,19 @@ module SmartAnswer::Calculators
 
       should "be false if born after 1948-04-08" do
         @calc.dob = Date.parse('1948-04-09')
-        assert ! @calc.in_group_65?
+        refute @calc.in_group_65?
       end
     end
 
     context "in_middle_group?" do
       setup do
         @calc = PIPDates.new
+        Timecop.freeze('2013-04-07')
       end
 
       should "be false if born on 1948-04-08" do
         @calc.dob = Date.parse('1948-04-08')
-        assert ! @calc.in_middle_group?
+        refute @calc.in_middle_group?
       end
 
       should "be true if born just after 1948-04-08" do
@@ -45,7 +46,7 @@ module SmartAnswer::Calculators
 
       should "be false if born on 1997-04-08" do
         @calc.dob = Date.parse('1997-04-08')
-        assert ! @calc.in_middle_group?
+        refute @calc.in_middle_group?
       end
     end
 
@@ -71,7 +72,7 @@ module SmartAnswer::Calculators
 
       should "be false if under 16 on 7th Oct 2013" do
         @calc.dob = Date.parse('1997-10-08')
-        assert ! @calc.turning_16_before_oct_2013?
+        refute @calc.turning_16_before_oct_2013?
       end
     end
 

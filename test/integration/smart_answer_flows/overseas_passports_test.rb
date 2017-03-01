@@ -7,7 +7,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cambodia cameroon china congo georgia greece haiti hong-kong india iran iraq ireland italy jamaica jordan kenya kyrgyzstan laos malta nepal nigeria pakistan pitcairn-island saint-barthelemy saudi-arabia syria south-africa spain sri-lanka st-helena-ascension-and-tristan-da-cunha st-maarten st-martin tajikistan tanzania timor-leste turkey turkmenistan ukraine united-kingdom united-arab-emirates usa uzbekistan yemen zimbabwe venezuela vietnam zambia)
+    @location_slugs = %w(albania algeria afghanistan australia austria azerbaijan bahamas bangladesh benin british-indian-ocean-territory burma burundi cambodia cameroon china congo democratic-republic-of-the-congo georgia greece haiti hong-kong india iran iraq ireland italy jamaica jordan kenya kyrgyzstan laos malta nepal nigeria pakistan pitcairn-island saint-barthelemy saudi-arabia syria south-africa spain sri-lanka st-helena-ascension-and-tristan-da-cunha st-maarten st-martin tajikistan tanzania timor-leste turkey turkmenistan ukraine united-kingdom united-arab-emirates usa uzbekistan yemen zimbabwe venezuela vietnam zambia)
     stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::OverseasPassportsFlow
   end
@@ -100,7 +100,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
           end
           should "give the result and be done" do
             assert_current_node :ips_application_result
-            assert_match(/Millburngate House/, outcome_body)
+            assert_match(/Freeman’s Reach/, outcome_body)
           end
         end
       end
@@ -370,6 +370,16 @@ class OverseasPassportsTest < ActiveSupport::TestCase
     end
   end # Congo
 
+  context "answer Democratic Republic of the Congo, replacement, adult passport" do
+    should "give the result with custom phrases" do
+      add_response 'democratic-republic-of-the-congo'
+      add_response 'applying'
+      add_response 'adult'
+      add_response 'united-kingdom'
+      assert_current_node :ips_application_result_online
+    end
+  end # Congo
+
   context "answer Malta, replacement, adult passport" do
     should "give the fco result with custom phrases" do
       add_response 'malta'
@@ -395,7 +405,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_match(/Millburngate House/, outcome_body)
+      assert_match(/Freeman’s Reach/, outcome_body)
     end
   end # Jordan (IPS1 with custom phrases)
 
@@ -473,7 +483,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'renewing_new'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_match(/Millburngate House/, outcome_body)
+      assert_match(/Freeman’s Reach/, outcome_body)
     end
   end # Cameroon (custom phrases)
 
@@ -484,7 +494,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_match(/Millburngate House/, outcome_body)
+      assert_match(/Freeman’s Reach/, outcome_body)
     end
   end # Kenya (custom phrases)
 
@@ -495,7 +505,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'adult'
       add_response 'united-kingdom'
       assert_current_node :ips_application_result
-      assert_match(/Millburngate House/, outcome_body)
+      assert_match(/Freeman’s Reach/, outcome_body)
     end
   end # Kenya (custom phrases)
 
@@ -562,7 +572,7 @@ class OverseasPassportsTest < ActiveSupport::TestCase
       add_response 'replacing'
       add_response 'adult'
       assert_current_node :ips_application_result
-      assert_match(/Millburngate House/, outcome_body)
+      assert_match(/Freeman’s Reach/, outcome_body)
     end
   end # Jamaica
 

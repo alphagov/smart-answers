@@ -1,18 +1,16 @@
 <% content_for :title do %>
-  Based on your answers, you won't be affected by the benefit cap from autumn 2016.
+  Based on your answers, you’re not affected by the benefit cap.
 <% end %>
 
 <% content_for :body do %>
-  These benefits are exempt from the new benefit cap:
+  These benefits are exempt from the benefit cap:
 
 - Working Tax Credit
   <% exempt_benefits.each do |exempt_benefit| %>
      - <%= exempt_benefit %>
   <% end %>
 
-  You may be affected by the new cap if your circumstances change.
-
-  You can check if you’re affected by the [current benefit cap](/benefit-cap-calculator/y/default).
+  You may be affected by the cap if your circumstances change.
 
   Contact the Department for Work and Pensions if you need further help:
 

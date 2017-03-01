@@ -32,7 +32,7 @@ You can download and fill in (but not sign) the form in advance.
 
 You must take the form with you to your appointment.
 
-%The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (eg marriage certificate or deed poll).%
+%The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (for example marriage certificate or deed poll).%
 
 ^Your partner will probably need to get an affirmation or affidavit as well.^
 
@@ -40,7 +40,7 @@ You must take the form with you to your appointment.
 
 Service | Fee
 -|-
-Affidavit or affirmation for marriage | £55
+Affidavit or affirmation for marriage | £50
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Belarus](/government/publications/belarus-consular-fees).
 

@@ -477,7 +477,7 @@ congo:
   applying: 10 weeks
   replacing: 8 weeks
   optimistic_processing_time?: false
-democratic-republic-of-congo:
+democratic-republic-of-the-congo:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
@@ -2099,7 +2099,7 @@ turkmenistan:
   optimistic_processing_time?: false
 turks-and-caicos-islands:
   type: ips_application_1
-  group: ips_documents_group_1
+  group: ips_documents_group_2
   app_form: hmpo_2_application_form
   online_application: true
   renewing_new: 4 weeks

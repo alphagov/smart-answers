@@ -62,7 +62,7 @@ If you’re a refugee or don’t have a passport or travel document, select ‘S
   * cyprus: Cyprus
   * cyprus-north: Cyprus (northern part of Cyprus)
   * czech-republic: Czech Republic
-  * democratic-republic-of-congo: Democratic Republic Of Congo
+  * democratic-republic-of-the-congo: Democratic Republic Of The Congo
   * denmark: Denmark
   * djibouti: Djibouti
   * dominica: Dominica

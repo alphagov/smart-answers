@@ -7,7 +7,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    @location_slugs = %w(afghanistan algeria andorra australia bangladesh barbados belize cambodia cameroon democratic-republic-of-congo el-salvador estonia germany guatemala grenada india iran iraq israel laos libya maldives morocco netherlands north-korea pakistan philippines pitcairn-island saint-barthelemy serbia sierra-leone somalia spain sri-lanka st-kitts-and-nevis st-martin thailand turkey uganda united-arab-emirates venezuela)
+    @location_slugs = %w(afghanistan algeria andorra australia bangladesh barbados belize cambodia cameroon democratic-republic-of-the-congo el-salvador estonia germany guatemala grenada india iran iraq israel laos libya maldives morocco netherlands north-korea pakistan philippines pitcairn-island saint-barthelemy serbia sierra-leone somalia spain sri-lanka st-kitts-and-nevis st-martin thailand turkey uganda united-arab-emirates venezuela)
     stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::RegisterABirthFlow
   end
@@ -514,7 +514,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
 
   context "Democratic Republic of Congo" do
     should "lead to an ORU outcome with a custom translator link" do
-      add_response "democratic-republic-of-congo"
+      add_response "democratic-republic-of-the-congo"
       add_response "mother"
       add_response "no"
       add_response "same_country"
@@ -561,7 +561,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "another_country"
       add_response "north-korea"
 
-      assert_current_node :oru_result
+      assert_current_node :north_korea_result
     end
 
     should "display 3 months if child born in a lower risk (non phase-5) country and currently in Cambodia" do

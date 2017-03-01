@@ -12,6 +12,14 @@
   <% when 'ss_marriage' %>
     <% if calculator.ceremony_country == 'australia' %>
       You may be able to get married at the British High Commission or a British consulate in Australia.
+
+      Before you can get married you need to give notice of your intention to marry.
+
+      You and your partner must have lived in Australia for at least 7 full days before you give notice.
+
+      If you and your partner don’t normally live in Australia, there must be 14 full days between the date you give notice and the date you marry. You need to stay in Australia for the 14 days.
+
+      Book an appointment to give notice at:
     <% else %>
       You may be able to get married at the British embassy or consulate in <%= calculator.country_name_lowercase_prefix %>.
     <% end %>
@@ -19,26 +27,11 @@
     You may be able to register a civil partnership or get married at the British embassy or consulate in <%= calculator.country_name_lowercase_prefix %>.
   <% end %>
 
-  <% if calculator.ceremony_country == 'japan' %>
-    <%= render partial: 'contact_to_make_appointment.govspeak.erb' %>
-    <%= render partial: 'contact_method.govspeak.erb',
-               locals: { calculator: calculator } %>
-
-    <%= render partial: 'documents_needed_21_days_residency.govspeak.erb',
-               locals: { calculator: calculator } %>
-    <%= render partial: 'documents_needed_ss_british.govspeak.erb' %>
-  <% elsif calculator.ceremony_country == 'germany' %>
+  <% if calculator.ceremony_country == 'germany' %>
     Contact the British Embassy in Berlin to make an appointment.
 
     <%= render partial: 'contact_method.govspeak.erb',
                locals: { calculator: calculator } %>
-
-  <% elsif calculator.ceremony_country == 'vietnam' %>
-    You’ll need to download and complete the following documents:
-
-    <%= render partial: "appointment_documents_in_vietnam.govspeak.erb" %>
-
-    The embassy will confirm if your marriage can be registered and give you a link to book a ‘notice of marriage’ appointment online and a reference number. You must quote the reference number when booking your appointment.
 
   <% elsif calculator.ceremony_country == 'peru' %>
     <%= render partial: 'contact_method.govspeak.erb', locals: { calculator: calculator } %>
@@ -52,33 +45,33 @@
 
   <% end %>
 
-  <% unless calculator.ceremony_country == 'japan' %>
-    <% if calculator.ceremony_country == 'vietnam' %>
-      You and your partner will need to sign a declaration and provide proof of residence eg, an employer’s letter or a bank statement.
-    <% elsif calculator.ceremony_country == 'cambodia' %>
-      ##What documents you’ll need
+  <% if calculator.ceremony_country == 'cambodia' %>
+    ##What documents you’ll need
 
-      You’ll both need to bring proof that you’ve been resident in Cambodia for the last 7 days.
-    <% else %>
-      <%= render partial: 'documents_needed_21_days_residency.govspeak.erb',
-           locals: { calculator: calculator } %>
-    <% end %>
+    You’ll both need to bring proof that you’ve been resident in Cambodia for the last 7 days.
+  <% elsif calculator.ceremony_country == 'australia' %>
+    ##What documents you’ll need
 
-    <% if calculator.partner_british? %>
-      <%= render partial: 'documents_needed_ss_british.govspeak.erb' %>
-    <% elsif calculator.ceremony_country == 'germany' %>
-      You’ll both need to bring your original passports. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need to provide:
+    The consular officer will talk to you about the documents you need when they confirm your appointment to give notice. 
+  <% else %>
+    <%= render partial: 'documents_needed_21_days_residency.govspeak.erb',
+         locals: { calculator: calculator } %>
+  <% end %>
 
-      - a [decree absolute or final order](/copy-decree-absolute-final-order)
-      - the [death certificate](/order-copy-birth-death-marriage-certificate/)
+  <% if calculator.partner_british? %>
+    <%= render partial: 'documents_needed_ss_british.govspeak.erb' %>
+  <% elsif calculator.ceremony_country == 'germany' %>
+    You’ll both need to bring your original passports. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need to provide:
 
-    <% else %>
-      You’ll both need to bring your original passports. You’ll also need evidence that your partner is free to marry - a document from their government or their passport that says they are unmarried. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need to provide:
+    - a [decree absolute or final order](/copy-decree-absolute-final-order)
+    - the [death certificate](/order-copy-birth-death-marriage-certificate/)
 
-      - a [decree absolute or final order](/copy-decree-absolute-final-order)
-      - the [death certificate](/order-copy-birth-death-marriage-certificate/)
+  <% else %>
+    You’ll both need to bring your original passports. You’ll also need evidence that your partner is free to marry - a document from their government or their passport that says they are unmarried. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need to provide:
 
-    <% end %>
+    - a [decree absolute or final order](/copy-decree-absolute-final-order)
+    - the [death certificate](/order-copy-birth-death-marriage-certificate/)
+
   <% end %>
 
   <% case calculator.marriage_and_partnership_phrases %>
@@ -93,11 +86,7 @@
   <% when 'ss_marriage_and_partnership' %>
     ##What you need to do
 
-    <% if calculator.ceremony_country == 'vietnam' %>
-      You’ll need to be in Vietnam for 7 clear days (not including the date of arrival) before your appointment. At your appointment, the embassy or consulate will give you:
-    <% else %>
-      At your appointment the embassy or consulate will give you:
-    <% end %>
+    At your appointment the embassy or consulate will give you:
 
     -  a notice of registration
     -  a declaration that you and your partner will need to swear, stating that you’re legally entitled to marry or enter into a civil partnership
@@ -105,10 +94,6 @@
   <% end %>
 
   Once you’ve completed these and paid the registration fee, the <%= calculator.diplomatic_mission %> or consulate will display your notice publicly for 14 days.
-
-  <% if calculator.ceremony_country == 'vietnam' %>
-    ^You must stay in <%= calculator.country_name_lowercase_prefix %> while your notice is posted.^
-  <% end %>
 
   <% case calculator.marriage_and_partnership_phrases %>
   <% when 'ss_marriage' %>
@@ -138,7 +123,8 @@
   <%= render partial: 'services_and_fees.govspeak.erb',
              locals: { calculator: calculator } %>
 
-  <% if %w{albania australia germany japan philippines russia serbia vietnam}.include?(calculator.ceremony_country) %>
-    <%= render partial: 'convert_cc_to_ss_marriage.govspeak.erb' %>
+  <% if %w{albania australia germany russia serbia vietnam}.include?(calculator.ceremony_country) %>
+
+  <%= render partial: 'convert_cc_to_ss_marriage.govspeak.erb' %>
   <% end %>
 <% end %>

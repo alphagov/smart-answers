@@ -21,13 +21,13 @@
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
-  - greece
+  - democratic-republic-of-the-congo
   :next_node: :answer_one_generic
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
-  - iran
-  :next_node: :answer_two_iran
+  - greece
+  :next_node: :answer_one_generic
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
