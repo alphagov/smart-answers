@@ -149,6 +149,70 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#new_car?" do
+        setup do
+          @calculator = SimplifiedExpensesCheckerCalculator.new
+        end
+
+        should "be true if expense contains a car and car_status_before_usage and new_or_used_vehicle is set to new" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.car_status_before_usage = "new"
+          @calculator.new_or_used_vehicle = "new"
+          assert @calculator.new_car?
+        end
+
+        should "be true if expense contains a car and only car_status_before_usage is set to new" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.car_status_before_usage = "new"
+          assert @calculator.new_car?
+        end
+
+        should "be true if expense contains a car and only new_or_used_vehicle is set to new" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.new_or_used_vehicle = "new"
+          assert @calculator.new_car?
+        end
+
+        should "be false if expense doesn't contains a car and car_status_before_usage or new_or_used_vehicle is set to new" do
+          @calculator.type_of_vehicle = "no_vehicle"
+          @calculator.car_status_before_usage = "new"
+          @calculator.new_or_used_vehicle = "new"
+          refute @calculator.new_car?
+        end
+      end
+
+      context "#used_car?" do
+        setup do
+          @calculator = SimplifiedExpensesCheckerCalculator.new
+        end
+
+        should "be true if expense contains a car and car_status_before_usage and new_or_used_vehicle is set to used" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.car_status_before_usage = "used"
+          @calculator.new_or_used_vehicle = "used"
+          assert @calculator.used_car?
+        end
+
+        should "be true if expense contains a car and only car_status_before_usage is set to used" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.car_status_before_usage = "used"
+          assert @calculator.used_car?
+        end
+
+        should "be true if expense contains a car and only new_or_used_vehicle is set to used" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.new_or_used_vehicle = "used"
+          assert @calculator.used_car?
+        end
+
+        should "be false if expense doesn't contains a car and car_status_before_usage or new_or_used_vehicle is set to used" do
+          @calculator.type_of_vehicle = "no_vehicle"
+          @calculator.car_status_before_usage = "used"
+          @calculator.new_or_used_vehicle = "used"
+          refute @calculator.used_car?
+        end
+      end
+
       context "#van?" do
         setup do
           @calculator = SimplifiedExpensesCheckerCalculator.new

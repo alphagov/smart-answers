@@ -119,10 +119,10 @@ module SmartAnswer
         next_node do |response|
           calculator.vehicle_costs = response
 
-          if calculator.car? || calculator.van?
-            question :drive_business_miles_car_van?
-          else
-            question :drive_business_miles_motorcycle?
+          if calculator.car?
+            question :is_vehicle_green?
+          elsif calculator.van? || calculator.motorbike?
+            question :price_of_vehicle?
           end
         end
       end
