@@ -7,23 +7,22 @@ module SmartAnswer::Calculators
         @calculator = SimplifiedExpensesCheckerCalculator.new
       end
 
-      should "be empty at first" do
-        assert_equal @calculator.list_of_expenses, []
-      end
-
-      context "when an artibary number of expenses are choosen" do
+      context "when artibary expenses are choosen" do
         should "be equal to the choosen expenses" do
-          @calculator.expenses = "car,van,using_home_for_business"
-          assert_equal @calculator.list_of_expenses, %w(car van using_home_for_business)
+          @calculator.type_of_vehicle = "car"
+          @calculator.business_premises_expense = "using_home_for_business"
+          assert_equal @calculator.list_of_expenses, %w(car using_home_for_business)
         end
 
-        should "never contain more than 4 choosen expenses" do
-          @calculator.expenses = "car,van,using_home_for_business,live_on_business_premises, unexpected"
-          assert_equal @calculator.list_of_expenses.count, 4
+        should "never contain more than 2 choosen expenses" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.business_premises_expense = "using_home_for_business"
+          assert_equal @calculator.list_of_expenses.count, 2
         end
 
         should "contain only contents from the selectable list of expenses" do
-          @calculator.expenses = "car,van,using_home_for_business,live_on_business_premises"
+          @calculator.type_of_vehicle = "van"
+          @calculator.business_premises_expense = "living_on_business_premises"
           @calculator.list_of_expenses.each do |expense|
             assert_includes @calculator.selectable_expenses, expense
           end
@@ -36,12 +35,14 @@ module SmartAnswer::Calculators
         end
 
         should "be true if expense contains at least a vehicle" do
-          @calculator.expenses = "van,using_home_for_business"
+          @calculator.type_of_vehicle = "van"
+          @calculator.business_premises_expense = "using_home_for_business"
           assert @calculator.vehicle?
         end
 
         should "be false if expense doesn't contains at least a vehicle" do
-          @calculator.expenses = "using_home_for_business"
+          @calculator.type_of_vehicle = "no_vehicle"
+          @calculator.business_premises_expense = "using_home_for_business"
           refute @calculator.vehicle?
         end
       end
@@ -52,12 +53,14 @@ module SmartAnswer::Calculators
         end
 
         should "be true if expense contains at least a motorbike" do
-          @calculator.expenses = "motorbike,using_home_for_business"
+          @calculator.type_of_vehicle = "motorbike"
+          @calculator.business_premises_expense = "using_home_for_business"
           assert @calculator.motorbike?
         end
 
         should "be false if expense doesn't contains at least a motorbike" do
-          @calculator.expenses = "van,using_home_for_business"
+          @calculator.type_of_vehicle = "no_vehicle"
+          @calculator.business_premises_expense = "using_home_for_business"
           refute @calculator.motorbike?
         end
       end
@@ -68,12 +71,14 @@ module SmartAnswer::Calculators
         end
 
         should "be true if expense contains at least a car" do
-          @calculator.expenses = "car,using_home_for_business"
+          @calculator.type_of_vehicle = "car"
+          @calculator.business_premises_expense = "using_home_for_business"
           assert @calculator.car?
         end
 
         should "be false if expense doesn't contains at least a car" do
-          @calculator.expenses = "motorbike,using_home_for_business"
+          @calculator.type_of_vehicle = "no_vehicle"
+          @calculator.business_premises_expense = "using_home_for_business"
           refute @calculator.car?
         end
       end
@@ -84,12 +89,14 @@ module SmartAnswer::Calculators
         end
 
         should "be true if expense contains at least a van" do
-          @calculator.expenses = "van,using_home_for_business"
+          @calculator.type_of_vehicle = "van"
+          @calculator.business_premises_expense = "using_home_for_business"
           assert @calculator.van?
         end
 
         should "be false if expense doesn't contains at least a van" do
-          @calculator.expenses = "car,using_home_for_business"
+          @calculator.type_of_vehicle = "no_vehicle"
+          @calculator.business_premises_expense = "using_home_for_business"
           refute @calculator.van?
         end
       end
@@ -100,12 +107,14 @@ module SmartAnswer::Calculators
         end
 
         should "be true if it contains using_home_for_business" do
-          @calculator.expenses = "car,van,using_home_for_business"
+          @calculator.type_of_vehicle = "no_vehicle"
+          @calculator.business_premises_expense = "using_home_for_business"
           assert @calculator.working_from_home?
         end
 
         should "be false if it doesn't contain using_home_for_business" do
-          @calculator.expenses = "car"
+          @calculator.type_of_vehicle = "car"
+          @calculator.business_premises_expense = "no_expense"
           refute @calculator.working_from_home?
         end
       end
@@ -116,12 +125,14 @@ module SmartAnswer::Calculators
         end
 
         should "be true if it contains live_on_business_premises" do
-          @calculator.expenses = "car,van,live_on_business_premises"
+          @calculator.type_of_vehicle = "no_vehicle"
+          @calculator.business_premises_expense = "live_on_business_premises"
           assert @calculator.living_on_business_premises?
         end
 
         should "be false if it doesn't contain live_on_business_premises" do
-          @calculator.expenses = "car"
+          @calculator.type_of_vehicle = "van"
+          @calculator.business_premises_expense = "no_expense"
           refute @calculator.living_on_business_premises?
         end
       end
@@ -132,17 +143,20 @@ module SmartAnswer::Calculators
         end
 
         should "be true if it contains using_home_for_business" do
-          @calculator.expenses = "car,van,using_home_for_business"
+          @calculator.type_of_vehicle = "car"
+          @calculator.business_premises_expense = "using_home_for_business"
           assert @calculator.any_work_location?
         end
 
         should "be true if it contains live_on_business_premises" do
-          @calculator.expenses = "car,van,live_on_business_premises"
+          @calculator.type_of_vehicle = "no_vehicle"
+          @calculator.business_premises_expense = "live_on_business_premises"
           assert @calculator.any_work_location?
         end
 
         should "be false if it doesn't contain using_home_for_business or live_on_business_premises" do
-          @calculator.expenses = "car"
+          @calculator.type_of_vehicle = "car"
+          @calculator.business_premises_expense = "no_expense"
           refute @calculator.any_work_location?
         end
       end
@@ -153,37 +167,43 @@ module SmartAnswer::Calculators
         end
 
         should "be true if capital allowance is yes and expenses contains using_home_for_business" do
-          @calculator.expenses = "car,van,using_home_for_business"
+          @calculator.type_of_vehicle = "van"
+          @calculator.business_premises_expense = "using_home_for_business"
           @calculator.capital_allowance = "yes"
           assert @calculator.capital_allowance_claimed?
         end
 
         should "be true if capital allowance is yes and expenses contains live_on_business_premises" do
-          @calculator.expenses = "car,van,live_on_business_premises"
+          @calculator.type_of_vehicle = "van"
+          @calculator.business_premises_expense = "live_on_business_premises"
           @calculator.capital_allowance = "yes"
           assert @calculator.capital_allowance_claimed?
         end
 
         should "be false if capital allowance is no and expenses doesn't contains using_home_for_business or living_on_business_premises" do
-          @calculator.expenses = "car"
+          @calculator.type_of_vehicle = "car"
+          @calculator.business_premises_expense = "no_expense"
           @calculator.capital_allowance = "no"
           refute @calculator.capital_allowance_claimed?
         end
 
         should "be false if capital allowance is yes and expenses doesn't contains using_home_for_business or living_on_business_premises" do
-          @calculator.expenses = "car"
+          @calculator.type_of_vehicle = "van"
+          @calculator.business_premises_expense = "no_expense"
           @calculator.capital_allowance = "yes"
           refute @calculator.capital_allowance_claimed?
         end
 
         should "be false if capital allowance is no and expenses  contains using_home_for_business" do
-          @calculator.expenses = "car,using_home_for_business"
+          @calculator.type_of_vehicle = "car"
+          @calculator.business_premises_expense = "using_home_for_business"
           @calculator.capital_allowance = "no"
           refute @calculator.capital_allowance_claimed?
         end
 
         should "be false if capital allowance is no and expenses  contains living_on_business_premises" do
-          @calculator.expenses = "car,living_on_business_premises"
+          @calculator.type_of_vehicle = "car"
+          @calculator.business_premises_expense = "live_on_business_premises"
           @calculator.capital_allowance = "no"
           refute @calculator.capital_allowance_claimed?
         end

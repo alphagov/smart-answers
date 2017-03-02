@@ -8,16 +8,30 @@ module SmartAnswer
 
       calculator = Calculators::SimplifiedExpensesCheckerCalculator.new
 
-      #Q1 - type of expense
-      checkbox_question :type_of_expense? do
-        calculator.selectable_expenses.each do |expense|
-          option expense.to_sym
-        end
+      #Q1 - vehicle expense
+      multiple_choice :vehicle_expense? do
+        option :car
+        option :van
+        option :motorbike
+        option :no_vehicle
 
         next_node do |response|
-          calculator.expenses = response
+          calculator.type_of_vehicle = response
+          question :home_or_business_premises_expense?
+        end
+      end
 
-          if response == "none"
+      #Q2 - home or business premises expense
+      multiple_choice :home_or_business_premises_expense? do
+        option :using_home_for_business
+        option :live_on_business_premises
+        option :no_expense
+
+        next_node do |response|
+          calculator.business_premises_expense = response
+
+          if response == "no_expense" &&
+              calculator.type_of_vehicle == "no_vehicle"
             outcome :you_cant_use_result
           else
             raise InvalidResponse if response =~ /live_on_business_premises.*?using_home_for_business/
@@ -32,7 +46,7 @@ module SmartAnswer
         end
       end
 
-      #Q2 - buying new vehicle?
+      #Q3 - buying new vehicle?
       multiple_choice :buying_new_vehicle? do
         option :yes
         option :no
@@ -46,7 +60,7 @@ module SmartAnswer
         end
       end
 
-      #Q3 - capital allowances claimed?
+      #Q4 - capital allowances claimed?
       # if yes => go to Result 3 if in Q1 only [car_van] and/or [motorcylce] was selected
       #
       # if yes and other expenses apart from cars and/or motorbikes selected in Q1 store as capital_allowance_claimed and add text to result (see result 2) and go to questions for other expenses, ie don’t go to Q4 & Q8
@@ -77,9 +91,9 @@ module SmartAnswer
         end
       end
 
-      #Q4 - Was your car new or second-hand when you started using it for your business?
+      #Q5 - Was your car new or second-hand when you started using it for your business?
 
-      #Q5 - claim vehicle expenses
+      #Q6 - claim vehicle expenses
       money_question :how_much_expect_to_claim? do
         next_node do |response|
           calculator.vehicle_costs = response
@@ -92,7 +106,7 @@ module SmartAnswer
         end
       end
 
-      #Q6 - is vehicle green?
+      #Q7 - is vehicle green?
       multiple_choice :is_vehicle_green? do
         option :yes
         option :no
@@ -103,7 +117,7 @@ module SmartAnswer
         end
       end
 
-      #Q7 - price of vehicle
+      #Q8 - price of vehicle
       money_question :price_of_vehicle? do
         next_node do |response|
           calculator.vehicle_price = response
@@ -111,7 +125,7 @@ module SmartAnswer
         end
       end
 
-      #Q8 - vehicle private use time
+      #Q9 - vehicle private use time
       value_question :vehicle_business_use_time?, parse: :to_f do
         # deduct percentage amount from [green_cost] or [dirty_cost] and store as [green_write_off] or [dirty_write_off]
 
@@ -128,7 +142,7 @@ module SmartAnswer
         end
       end
 
-      #Q9 - miles to drive for business car_or_van
+      #Q10 - miles to drive for business car_or_van
       value_question :drive_business_miles_car_van? do
         next_node do |response|
           calculator.business_miles_car_van = response.delete(",").to_f
@@ -145,7 +159,7 @@ module SmartAnswer
         end
       end
 
-      #Q10 - miles to drive for business motorcycle
+      #Q11 - miles to drive for business motorcycle
       value_question :drive_business_miles_motorcycle? do
         next_node do |response|
           calculator.business_miles_motorcycle = response.delete(",").to_f
@@ -160,7 +174,7 @@ module SmartAnswer
         end
       end
 
-      #Q11 - hours for home work
+      #Q12 - hours for home work
       value_question :hours_work_home? do
         next_node do |response|
           calculator.hours_worked_home = response.delete(',').to_f
@@ -176,7 +190,7 @@ module SmartAnswer
         end
       end
 
-      #Q12 - how much do you claim?
+      #Q13 - how much do you claim?
       money_question :current_claim_amount_home? do
         next_node do |response|
           calculator.home_costs = response
@@ -189,7 +203,7 @@ module SmartAnswer
         end
       end
 
-      #Q13 = how much do you deduct from premises for private use?
+      #Q14 = how much do you deduct from premises for private use?
       money_question :deduct_from_premises? do
         save_input_as :business_premises_cost
 
@@ -198,7 +212,7 @@ module SmartAnswer
         end
       end
 
-      #Q14 - people who live on business premises?
+      #Q15 - people who live on business premises?
       value_question :people_live_on_premises?, parse: :to_i do
         next_node do |response|
           calculator.hours_lived_on_business_premises = response
