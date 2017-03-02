@@ -109,7 +109,7 @@ private
   end
 
   def setup_navigation_helpers_and_content_item
-    @content_item = Services.content_store.content_item!("/" + params[:id]).to_hash
+    @content_item = Services.content_store.content_item("/" + params[:id]).to_hash
 
     # The GOV.UK analytics component[1] automatically sets `govuk:analytics:organisations`
     # if there's a `organisations` key in the links. This will be sent to Google

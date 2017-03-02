@@ -210,7 +210,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
           },
         }
 
-        Services.content_store.expects(:content_item!)
+        Services.content_store.expects(:content_item)
           .with("/smart-answers-controller-sample")
           .returns(content_item)
 

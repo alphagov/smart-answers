@@ -73,7 +73,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
 
         stub_shared_component_locales
         WebMock.stub_request(:get, WorkingDays::BANK_HOLIDAYS_URL).to_return(body: File.open(fixture_file('bank_holidays.json')))
-        Services.content_store.stubs(:content_item!).returns({})
+        Services.content_store.stubs(:content_item).returns({})
 
         setup_worldwide_locations
 
