@@ -70,26 +70,35 @@ module SmartAnswer
       #
       # if no go to Q4
       multiple_choice :capital_allowances? do
-        option :yes
+        option :capital_allowance
+        option :simplified_expenses
         option :no
 
         next_node do |response|
-          calculator.capital_allowance = response
-
-          if response == "yes"
-            if calculator.any_work_location?
-              if calculator.working_from_home?
-                # Q11
-                question :hours_work_home?
-              else
-                # Q13
-                question :deduct_from_premises?
-              end
-            else
+          calculator.selected_allowance = response
+          case
+          when calculator.capital_allowance?
+            if calculator.vehicle_only?
               outcome :capital_allowance_result
+            elsif calculator.home?
+              question :hours_work_home?
+            elsif calculator.business_premises?
+              question :deduct_from_premises?
             end
-          else
-            question :how_much_expect_to_claim?
+          when calculator.simplified_expenses?
+            if calculator.vehicle_only?
+              outcome :you_cant_claim_capital_allowance
+            elsif calculator.home?
+              question :hours_work_home?
+            elsif calculator.business_premises?
+              question :deduct_from_premises?
+            end
+          when calculator.no_allowance?
+            if calculator.van? || calculator.motorbike?
+              question :how_much_expect_to_claim?
+            elsif calculator.car?
+              question :how_much_expect_to_claim?
+            end
           end
         end
       end
@@ -306,6 +315,7 @@ module SmartAnswer
         end
       end
       outcome :capital_allowance_result
+      outcome :you_cant_claim_capital_allowance
     end
   end
 end
