@@ -16,6 +16,9 @@
 - 'capital_allowance'
 - 'simplified_expenses'
 - 'no'
+:car_status_before_usage?:
+- 'new'
+- 'used'
 :how_much_expect_to_claim?:
 - '2345' # :how_much_expect_to_claim? -> :drive_business_miles_car_van? / :drive_business_miles_motorcycle?
 :is_vehicle_green?:

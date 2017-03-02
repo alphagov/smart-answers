@@ -178,6 +178,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       setup do
         add_response "no"
         add_response "no"
+        add_response "used"
         add_response "1000" #vehicle_costs
         add_response "2000" #simple_vehicle_costs
       end

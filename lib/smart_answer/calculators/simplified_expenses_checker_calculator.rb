@@ -10,6 +10,7 @@ module SmartAnswer::Calculators
     attr_accessor :new_or_used_vehicle
     attr_accessor :business_use_percent
     attr_accessor :business_miles_car_van
+    attr_accessor :car_status_before_usage
     attr_accessor :business_premises_expense
     attr_accessor :business_miles_motorcycle
     attr_accessor :hours_lived_on_business_premises
