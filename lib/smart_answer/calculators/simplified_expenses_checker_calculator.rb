@@ -1,27 +1,24 @@
 module SmartAnswer::Calculators
   class SimplifiedExpensesCheckerCalculator
-    attr_accessor :expenses
     attr_accessor :home_costs
     attr_accessor :vehicle_costs
     attr_accessor :vehicle_price
+    attr_accessor :type_of_vehicle
+    attr_accessor :hours_worked_home
     attr_accessor :capital_allowance
     attr_accessor :no_vehicle_emission
     attr_accessor :business_use_percent
     attr_accessor :business_miles_car_van
+    attr_accessor :business_premises_expense
     attr_accessor :business_miles_motorcycle
-    attr_accessor :hours_worked_home
     attr_accessor :hours_lived_on_business_premises
 
     def list_of_expenses
-      if expenses.present?
-        expenses.split(",") & selectable_expenses
-      else
-        []
-      end
+      [type_of_vehicle, business_premises_expense] & selectable_expenses
     end
 
     def selectable_expenses
-      vehicles + work_locations
+      vehicles + work_locations + none_options
     end
 
     def green_vehicle_price
@@ -136,6 +133,10 @@ module SmartAnswer::Calculators
 
     def vehicles
       %w(car van motorcycle)
+    end
+
+    def none_options
+      %w(no_vehicle no_expense)
     end
 
     def work_locations

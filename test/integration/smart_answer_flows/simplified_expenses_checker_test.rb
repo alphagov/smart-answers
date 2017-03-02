@@ -13,7 +13,8 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
   context "you can't use simplified expenses result (Q1, Q2, result 1)" do
     context "none of these expense" do
       setup do
-        add_response ""
+        add_response "no_vehicle"
+        add_response "no_expense"
       end
 
       should "take you to result 1 - you can't use" do
@@ -22,7 +23,8 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     end
     context "none of these expenses" do
       setup do
-        add_response ""
+        add_response "no_vehicle"
+        add_response "no_expense"
       end
 
       should "take you to result 1 - you can't use" do
@@ -35,6 +37,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     context "car, not buying a new vehicle this year" do
       setup do
         add_response "car"
+        add_response "no_expense"
         add_response "no"
         add_response "yes"
       end
@@ -46,6 +49,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     context "motorcycle, not buying a new vehicle this year" do
       setup do
         add_response "motorcycle"
+        add_response "no_expense"
         add_response "no"
         add_response "yes"
       end
@@ -54,9 +58,10 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_current_node :capital_allowance_result
       end
     end
-    context "car, van & motorcycle, not buying a new vehicle this year" do
+    context "van and not buying a new vehicle this year" do
       setup do
-        add_response "car,van,motorcycle"
+        add_response "van"
+        add_response "no_expense"
         add_response "no"
         add_response "yes"
       end
@@ -65,14 +70,15 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_current_node :capital_allowance_result
       end
     end
-    context "claimed expenses before, using_home_for_business and live_on_business_premises" do
+    context "when invalid options are choosen" do
       setup do
         add_response "yes"
-        add_response "live_on_business_premises,motorcycle,using_home_for_business"
+        add_response "motorcycle"
+        add_response "using_home_for_business"
       end
 
       should "raise invalid error" do
-        assert_current_node :type_of_expense?, error: true
+        assert_current_node :vehicle_expense?, error: true
       end
     end
   end # end tests for "can't claim because previously claimed Capital Allowance"
@@ -80,6 +86,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
   context "main result, car only" do
     setup do
       add_response "car"
+      add_response "no_expense"
     end
 
     context "not buying new vehicle, not claimed Capital Allowance before, expect to claim 1000 pounds, expect to drive 2000 miles, (Q2, Q3, Q4, Q8, result 2)" do
@@ -145,6 +152,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
   context "home for business costs" do
     setup do
+      add_response "no_vehicle"
       add_response "using_home_for_business"
     end
 
@@ -163,6 +171,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
   context "main result, car only" do
     setup do
       add_response "car"
+      add_response "no_expense"
     end
     context "not buying new vehicle, not claimed CA before, expect to claim 1000 pounds, expect to drive 2000 miles, (Q3, Q4, Q5, Q9, result 2)" do
       setup do
@@ -249,6 +258,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
   context "main result, motorcycle only" do
     setup do
       add_response "motorcycle"
+      add_response "no_expense"
     end
 
     context "not buying new motorcycle, not claimed CA before, expect to claim 1000 pounds, expect to drive 2000 miles, (Q3, Q4, Q5, Q10, result 2)" do
@@ -312,6 +322,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
   context "main result, using home (Q1, Q10, Q11, result 2)" do
     setup do
+      add_response "no_vehicle"
       add_response "using_home_for_business"
       add_response "120" #simple_home_costs
       add_response "1000" #home_costs
@@ -328,6 +339,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
   context "main result, living on premises (Q1, Q10, Q11, result 2)" do
     setup do
+      add_response "no_vehicle"
       add_response "live_on_business_premises"
       add_response "1000" #business_premises_cost
       add_response "4" #simple_business_costs
@@ -343,7 +355,8 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
   context "main result, car, using home, new green vehicle (Q1, Q2, Q5, Q6, Q7, Q8, Q9, Q10, Q11, result 2)" do
     setup do
-      add_response "car,using_home_for_business"
+      add_response "car"
+      add_response "using_home_for_business"
       add_response "yes"
       add_response "yes" #green
       add_response "10000" #green_vehicle_price
@@ -368,7 +381,8 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
   context "main result, motorcycle, living on premises, no new vehicle (Q1, Q2, Q3, Q4, Q9, Q12, Q13 )" do
     setup do
-      add_response "motorcycle,live_on_business_premises"
+      add_response "motorcycle"
+      add_response "live_on_business_premises"
       add_response "no"
       add_response "no" #capital_allowance_claimed
       add_response "1000" #vehicle_costs
