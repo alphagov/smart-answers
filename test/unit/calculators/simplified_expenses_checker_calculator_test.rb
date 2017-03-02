@@ -45,6 +45,78 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#vehicle_only?" do
+        setup do
+          @calculator = SimplifiedExpensesCheckerCalculator.new
+        end
+
+        should "be true if no_expense and a vehicle selected" do
+          @calculator.type_of_vehicle = "van"
+          @calculator.business_premises_expense = "no_expense"
+          assert @calculator.vehicle_only?
+        end
+
+        should "be false if using_home_for_business is present and doesn't contains a vehicle" do
+          @calculator.type_of_vehicle = "no_vehicle"
+          @calculator.business_premises_expense = "using_home_for_business"
+          refute @calculator.vehicle_only?
+        end
+
+        should "be false if live_on_business_premises is present and a vehicle" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.business_premises_expense = "live_on_business_premises"
+          refute @calculator.vehicle_only?
+        end
+      end
+
+      context "#business_premises?" do
+        setup do
+          @calculator = SimplifiedExpensesCheckerCalculator.new
+        end
+
+        should "be true if live_on_business_premises and a vehicle selected" do
+          @calculator.type_of_vehicle = "van"
+          @calculator.business_premises_expense = "live_on_business_premises"
+          assert @calculator.business_premises?
+        end
+
+        should "be false if using_home_for_business is present and doesn't contains a vehicle" do
+          @calculator.type_of_vehicle = "no_vehicle"
+          @calculator.business_premises_expense = "using_home_for_business"
+          refute @calculator.business_premises?
+        end
+
+        should "be false if no expense is present and a vehicle" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.business_premises_expense = "no_expense"
+          refute @calculator.business_premises?
+        end
+      end
+
+      context "#home?" do
+        setup do
+          @calculator = SimplifiedExpensesCheckerCalculator.new
+        end
+
+        should "be true if using_home_for_business and a vehicle selected" do
+          @calculator.type_of_vehicle = "van"
+          @calculator.business_premises_expense = "using_home_for_business"
+          assert @calculator.home?
+        end
+
+        should "be false if live_on_business_premises is present and doesn't contains a vehicle" do
+          @calculator.type_of_vehicle = "no_vehicle"
+          @calculator.business_premises_expense = "live_on_business_premises"
+          refute @calculator.home?
+        end
+
+        should "be false if no expense is present and a vehicle" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.business_premises_expense = "no_expense"
+          refute @calculator.home?
+        end
+      end
+
       context "#motorcycle?" do
         setup do
           @calculator = SimplifiedExpensesCheckerCalculator.new
@@ -99,11 +171,13 @@ module SmartAnswer::Calculators
         end
 
         should "be true if it contains using_home_for_business" do
+          @calculator.type_of_vehicle = "no_vehicle"
           @calculator.business_premises_expense = "using_home_for_business"
           assert @calculator.working_from_home?
         end
 
         should "be false if it doesn't contain using_home_for_business" do
+          @calculator.type_of_vehicle = "car"
           @calculator.business_premises_expense = "no_expense"
           refute @calculator.working_from_home?
         end
@@ -146,45 +220,147 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#capital_allowance?" do
+        setup do
+          @calculator = SimplifiedExpensesCheckerCalculator.new
+        end
+
+        should "be true if capital_allowance is selected" do
+          @calculator.selected_allowance = "capital_allowance"
+          assert @calculator.capital_allowance?
+        end
+
+        should "be false if capital_allowance is not selected" do
+          @calculator.selected_allowance = "simplified_expenses"
+          refute @calculator.capital_allowance?
+        end
+      end
+
+      context "#simplified_expenses?" do
+        setup do
+          @calculator = SimplifiedExpensesCheckerCalculator.new
+        end
+
+        should "be true if simplified_expenses is selected" do
+          @calculator.selected_allowance = "simplified_expenses"
+          assert @calculator.simplified_expenses?
+        end
+
+        should "be false if simplified_expenses is not selected" do
+          @calculator.selected_allowance = "capital_allowance"
+          refute @calculator.simplified_expenses?
+        end
+      end
+
+      context "#no_allowance?" do
+        setup do
+          @calculator = SimplifiedExpensesCheckerCalculator.new
+        end
+
+        should "be true if no_allowance is selected" do
+          @calculator.selected_allowance = "no"
+          assert @calculator.no_allowance?
+        end
+
+        should "be false if no_allowance is not selected" do
+          @calculator.selected_allowance = "capital_allowance"
+          refute @calculator.no_allowance?
+        end
+      end
+
       context "#capital_allowance_claimed?" do
         setup do
           @calculator = SimplifiedExpensesCheckerCalculator.new
         end
 
-        should "be true if capital allowance is yes and expenses contains using_home_for_business" do
+        should "be true if capital allowance and expenses contains using_home_for_business" do
+          @calculator.type_of_vehicle = "van"
           @calculator.business_premises_expense = "using_home_for_business"
-          @calculator.capital_allowance = "yes"
+          @calculator.selected_allowance = "capital_allowance"
           assert @calculator.capital_allowance_claimed?
         end
 
-        should "be true if capital allowance is yes and expenses contains live_on_business_premises" do
+        should "be true if capital allowance and expenses contains live_on_business_premises" do
+          @calculator.type_of_vehicle = "van"
           @calculator.business_premises_expense = "live_on_business_premises"
-          @calculator.capital_allowance = "yes"
+          @calculator.selected_allowance = "capital_allowance"
           assert @calculator.capital_allowance_claimed?
         end
 
-        should "be false if capital allowance is no and expenses doesn't contains using_home_for_business or living_on_business_premises" do
+        should "be false if it is not capital allowance and expenses doesn't contains using_home_for_business or living_on_business_premises" do
+          @calculator.type_of_vehicle = "car"
           @calculator.business_premises_expense = "no_expense"
-          @calculator.capital_allowance = "no"
+          @calculator.selected_allowance = "no"
           refute @calculator.capital_allowance_claimed?
         end
 
-        should "be false if capital allowance is yes and expenses doesn't contains using_home_for_business or living_on_business_premises" do
+        should "be false if capital allowance and expenses doesn't contains using_home_for_business or living_on_business_premises" do
+          @calculator.type_of_vehicle = "van"
           @calculator.business_premises_expense = "no_expense"
-          @calculator.capital_allowance = "yes"
+          @calculator.selected_allowance = "capital_allowance"
           refute @calculator.capital_allowance_claimed?
         end
 
-        should "be false if capital allowance is no and expenses  contains using_home_for_business" do
+        should "be false if it is not capital allowance and expenses  contains using_home_for_business" do
+          @calculator.type_of_vehicle = "car"
           @calculator.business_premises_expense = "using_home_for_business"
-          @calculator.capital_allowance = "no"
+          @calculator.selected_allowance = "no"
           refute @calculator.capital_allowance_claimed?
         end
 
-        should "be false if capital allowance is no and expenses  contains living_on_business_premises" do
+        should "be false if it is not capital allowance and expenses  contains living_on_business_premises" do
+          @calculator.type_of_vehicle = "car"
           @calculator.business_premises_expense = "live_on_business_premises"
-          @calculator.capital_allowance = "no"
+          @calculator.selected_allowance = "no"
           refute @calculator.capital_allowance_claimed?
+        end
+      end
+
+      context "#simplified_expenses_claimed?" do
+        setup do
+          @calculator = SimplifiedExpensesCheckerCalculator.new
+        end
+
+        should "be true if simplified expenses and expenses contains using_home_for_business" do
+          @calculator.type_of_vehicle = "van"
+          @calculator.business_premises_expense = "using_home_for_business"
+          @calculator.selected_allowance = "simplified_expenses"
+          assert @calculator.simplified_expenses_claimed?
+        end
+
+        should "be true if simplified expenses and expenses contains live_on_business_premises" do
+          @calculator.type_of_vehicle = "van"
+          @calculator.business_premises_expense = "live_on_business_premises"
+          @calculator.selected_allowance = "simplified_expenses"
+          assert @calculator.simplified_expenses_claimed?
+        end
+
+        should "be false if it is not simplified expenses and expenses doesn't contains using_home_for_business or living_on_business_premises" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.business_premises_expense = "no_expense"
+          @calculator.selected_allowance = "no"
+          refute @calculator.simplified_expenses_claimed?
+        end
+
+        should "be false if simplified expenses and expenses doesn't contains using_home_for_business or living_on_business_premises" do
+          @calculator.type_of_vehicle = "van"
+          @calculator.business_premises_expense = "no_expense"
+          @calculator.selected_allowance = "simplified_expenses"
+          refute @calculator.simplified_expenses_claimed?
+        end
+
+        should "be false if it is not simplified expenses and expenses  contains using_home_for_business" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.business_premises_expense = "using_home_for_business"
+          @calculator.selected_allowance = "no"
+          refute @calculator.simplified_expenses_claimed?
+        end
+
+        should "be false if it is not simplified expenses and expenses  contains living_on_business_premises" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.business_premises_expense = "live_on_business_premises"
+          @calculator.selected_allowance = "no"
+          refute @calculator.simplified_expenses_claimed?
         end
       end
 

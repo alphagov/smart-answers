@@ -39,7 +39,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         add_response "car"
         add_response "no_expense"
         add_response "no"
-        add_response "yes"
+        add_response "capital_allowance"
       end
 
       should "take you to result 3 - can't use as previously claimed Capital Allowance" do
@@ -51,7 +51,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         add_response "motorcycle"
         add_response "no_expense"
         add_response "no"
-        add_response "yes"
+        add_response "capital_allowance"
       end
 
       should "take you to result 3 - can't use as previously claimed Capital Allowance" do
@@ -63,7 +63,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         add_response "van"
         add_response "no_expense"
         add_response "no"
-        add_response "yes"
+        add_response "capital_allowance"
       end
 
       should "take you to result 3 - can't use as previously claimed Capital Allowance" do

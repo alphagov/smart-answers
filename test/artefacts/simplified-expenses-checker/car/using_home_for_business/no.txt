@@ -4,7 +4,8 @@ Have you claimed Capital Allowances for your existing car, van or motorcycle bef
 
 
 
-  * yes: Yes
+  * capital_allowance: Yes - capital allowances
+  * simplified_expenses: Yes - simplified expenses
   * no: No
 
 

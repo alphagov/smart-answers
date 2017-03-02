@@ -5,7 +5,7 @@ module SmartAnswer::Calculators
     attr_accessor :vehicle_price
     attr_accessor :type_of_vehicle
     attr_accessor :hours_worked_home
-    attr_accessor :capital_allowance
+    attr_accessor :selected_allowance
     attr_accessor :no_vehicle_emission
     attr_accessor :new_or_used_vehicle
     attr_accessor :business_use_percent
@@ -86,8 +86,24 @@ module SmartAnswer::Calculators
       vehicle_price.to_f > 250000.0
     end
 
+    def capital_allowance?
+      selected_allowance == "capital_allowance"
+    end
+
+    def simplified_expenses?
+      selected_allowance == "simplified_expenses"
+    end
+
+    def no_allowance?
+      selected_allowance == "no"
+    end
+
     def capital_allowance_claimed?
-      capital_allowance == "yes" && any_work_location?
+      capital_allowance? && any_work_location?
+    end
+
+    def simplified_expenses_claimed?
+      simplified_expenses? && any_work_location?
     end
 
     def vehicle_is_green?
@@ -96,6 +112,18 @@ module SmartAnswer::Calculators
 
     def vehicle?
       (list_of_expenses & vehicles).any?
+    end
+
+    def vehicle_only?
+      business_premises_expense == "no_expense" && vehicle?
+    end
+
+    def business_premises?
+      business_premises_expense == "live_on_business_premises" && vehicle?
+    end
+
+    def home?
+      business_premises_expense == "using_home_for_business" && vehicle?
     end
 
     def car?

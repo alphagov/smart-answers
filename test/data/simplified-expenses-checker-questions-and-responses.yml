@@ -13,8 +13,9 @@
 - 'used' # :buying_new_vehicle? -> :is_vehicle_green?
 - 'no' # :buying_new_vehicle? -> :capital_allowances? / :how_much_expect_to_claim?
 :capital_allowances?:
-- 'yes' # :capital_allowances? -> :hours_work_home? / :deduct_from_premises? / :capital_allowance_result
-- 'no' # :capital_allowances? -> :how_much_expect_to_claim?
+- 'capital_allowance'
+- 'simplified_expenses'
+- 'no'
 :how_much_expect_to_claim?:
 - '2345' # :how_much_expect_to_claim? -> :drive_business_miles_car_van? / :drive_business_miles_motorcycle?
 :is_vehicle_green?:
