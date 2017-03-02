@@ -9,7 +9,8 @@
 - live_on_business_premises
 - no_expense
 :buying_new_vehicle?:
-- 'yes' # :buying_new_vehicle? -> :is_vehicle_green?
+- 'new' # :buying_new_vehicle? -> :is_vehicle_green?
+- 'used' # :buying_new_vehicle? -> :is_vehicle_green?
 - 'no' # :buying_new_vehicle? -> :capital_allowances? / :how_much_expect_to_claim?
 :capital_allowances?:
 - 'yes' # :capital_allowances? -> :hours_work_home? / :deduct_from_premises? / :capital_allowance_result

@@ -91,25 +91,26 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
     context "not buying new vehicle, not claimed Capital Allowance before, expect to claim 1000 pounds, expect to drive 2000 miles, (Q2, Q3, Q4, Q8, result 2)" do
       setup do
+        add_response "used"
         add_response "no"
-        add_response "no"
-        add_response "1000" #vehicle_costs
+        add_response "1000" #price_of_vehicle
+        add_response "80" #vehicle_business_use_time
         add_response "2000" #simple_vehicle_costs
       end
 
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
-        assert_state_variable :vehicle_costs, 1000
+        assert_state_variable :vehicle_price, 1000
         assert_state_variable :simple_vehicle_costs, 900
-        assert_state_variable :current_scheme_costs, 1000
+        assert_state_variable :current_scheme_costs, 144
         assert_state_variable :simple_total, 900
-        assert_state_variable :can_use_simple, false
+        assert_state_variable :can_use_simple, true
       end
     end # no new vehicle
 
     context "new green vehicle costs 10000, 80% of time on business, expect to drive 2000 miles, (Q2, Q3, Q4, Q8, result 2)" do
       setup do
-        add_response "yes"
+        add_response "new"
         add_response "yes" #green
         add_response "10000" #green_vehicle_price
         add_response "80" #green_vehicle_write_off
@@ -130,7 +131,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
     context "new dirty vehicle costs 10000, 80% of time on business, expect to drive 2000 miles, (Q2, Q3, Q4, Q8, result 2)" do
       setup do
-        add_response "yes"
+        add_response "new"
         add_response "no" #dirty
         add_response "10000" #dirty_vehicle_price
         add_response "80" #dirty_vehicle_write_off
@@ -193,7 +194,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
     context "new green vehicle costs 10000, 80% of time on business, expect to drive 2000 miles, (Q2, Q3, Q4, Q8, result 2)" do
       setup do
-        add_response "yes"
+        add_response "new"
         add_response "yes" #green
         add_response "10000" #green_vehicle_price
         add_response "80" #green_vehicle_write_off
@@ -214,7 +215,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
     context "new dirty vehicle costs 10000, 80% of time on business, expect to drive 12000 miles, (Q2, Q3, Q4, Q8, result 2)" do
       setup do
-        add_response "yes"
+        add_response "new"
         add_response "no" #dirty
         add_response "10000" #dirty_vehicle_price
         add_response "80" #dirty_vehicle_write_off
@@ -235,7 +236,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
     context "new green vehicle costs 260000, 100% of time on business, expect to drive 2000 miles, (Q2, Q5, Q6, Q7, Q8, result 2)" do
       setup do
-        add_response "yes"
+        add_response "new"
         add_response "yes" #green
         add_response "260000" #green_vehicle_price
         add_response "100" #green_vehicle_write_off
@@ -280,7 +281,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     end # no new vehicle
     context "new green motorcycle costs 10000, 80% of time on business, expect to drive 2000 miles, (Q2, Q5, Q6, Q7, Q9 result 2)" do
       setup do
-        add_response "yes"
+        add_response "new"
         add_response "yes" #green
         add_response "10000" #green_vehicle_price
         add_response "80" #green_vehicle_write_off
@@ -300,7 +301,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     end # new green vehicle
     context "new dirty motorcycle costs 5000, 80% of time on business, expect to drive 2000 miles, (Q2, Q5, Q6, Q7, Q9 result 2)" do
       setup do
-        add_response "yes"
+        add_response "new"
         add_response "no" #dirty
         add_response '10000' #dirty_vehicle_price
         add_response "80" #dirty_vehicle_write_off
@@ -357,7 +358,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     setup do
       add_response "car"
       add_response "using_home_for_business"
-      add_response "yes"
+      add_response "new"
       add_response "yes" #green
       add_response "10000" #green_vehicle_price
       add_response "80" #green_write_off
