@@ -178,6 +178,26 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       setup do
         add_response "no"
         add_response "no"
+        add_response "used"
+        add_response "1000" #vehicle_costs
+        add_response "2000" #simple_vehicle_costs
+      end
+
+      should "take you to result 2 - main result" do
+        assert_current_node :you_can_use_result
+        assert_state_variable :vehicle_costs, 1000
+        assert_state_variable :simple_vehicle_costs, 900
+        assert_state_variable :current_scheme_costs, 1000
+        assert_state_variable :simple_total, 900
+        assert_state_variable :can_use_simple, false
+      end
+    end # no new vehicle
+
+    context "buying new vehicle, not claimed CA before, expect to claim 1000 pounds, expect to drive 2000 miles, (Q3, Q4, Q5, Q9, result 2)" do
+      setup do
+        add_response "no"
+        add_response "no"
+        add_response "new"
         add_response "1000" #vehicle_costs
         add_response "2000" #simple_vehicle_costs
       end

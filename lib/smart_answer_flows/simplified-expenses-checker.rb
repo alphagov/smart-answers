@@ -98,13 +98,22 @@ module SmartAnswer
             if calculator.van? || calculator.motorcycle?
               question :how_much_expect_to_claim?
             elsif calculator.car?
-              question :how_much_expect_to_claim?
+              question :car_status_before_usage?
             end
           end
         end
       end
 
       #Q5 - Was your car new or second-hand when you started using it for your business?
+      multiple_choice :car_status_before_usage? do
+        option :new
+        option :used
+
+        next_node do |response|
+          calculator.car_status_before_usage = response
+          question :how_much_expect_to_claim?
+        end
+      end
 
       #Q6 - claim vehicle expenses
       money_question :how_much_expect_to_claim? do
