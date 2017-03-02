@@ -7,6 +7,7 @@ module SmartAnswer::Calculators
     attr_accessor :hours_worked_home
     attr_accessor :capital_allowance
     attr_accessor :no_vehicle_emission
+    attr_accessor :new_or_used_vehicle
     attr_accessor :business_use_percent
     attr_accessor :business_miles_car_van
     attr_accessor :business_premises_expense

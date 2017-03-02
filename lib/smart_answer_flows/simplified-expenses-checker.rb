@@ -48,11 +48,14 @@ module SmartAnswer
 
       #Q3 - buying new vehicle?
       multiple_choice :buying_new_vehicle? do
-        option :yes
+        option :new
+        option :used
         option :no
 
         next_node do |response|
-          if response == "yes"
+          calculator.new_or_used_vehicle = response
+
+          if response == "new" || response == "used"
             question :is_vehicle_green?
           else
             question :capital_allowances?
@@ -256,6 +259,10 @@ module SmartAnswer
 
         precalculate :vehicle_costs do
           calculator.vehicle_costs
+        end
+
+        precalculate :vehicle_price do
+          calculator.vehicle_price
         end
 
         precalculate :home_costs do
