@@ -179,7 +179,10 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         add_response "no"
         add_response "no"
         add_response "used"
-        add_response "1000" #vehicle_costs
+        add_response "1000" #claims
+        add_response "no" #vehicle_is_green
+        add_response "10000" #simple_vehicle_costs
+        add_response "80" #business_miles
         add_response "2000" #simple_vehicle_costs
       end
 
@@ -187,7 +190,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_current_node :you_can_use_result
         assert_state_variable :vehicle_costs, 1000
         assert_state_variable :simple_vehicle_costs, 900
-        assert_state_variable :current_scheme_costs, 1000
+        assert_state_variable :current_scheme_costs, 2440
         assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
       end
@@ -198,7 +201,10 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         add_response "no"
         add_response "no"
         add_response "new"
+        add_response "1000" #claims
+        add_response "yes" #vehicle_is_green
         add_response "1000" #vehicle_costs
+        add_response "80" #business_miles
         add_response "2000" #simple_vehicle_costs
       end
 
@@ -206,7 +212,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_current_node :you_can_use_result
         assert_state_variable :vehicle_costs, 1000
         assert_state_variable :simple_vehicle_costs, 900
-        assert_state_variable :current_scheme_costs, 1000
+        assert_state_variable :current_scheme_costs, 1800
         assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
       end
@@ -287,6 +293,8 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         add_response "no"
         add_response "no"
         add_response "1000" #vehicle_costs
+        add_response "10000" #simple_vehicle_costs
+        add_response "80" #business_miles
         add_response "2000" #simple_motorcycle_costs
       end
 
@@ -294,7 +302,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
         assert_current_node :you_can_use_result
         assert_state_variable :vehicle_costs, 1000
         assert_state_variable :simple_motorcycle_costs, 480
-        assert_state_variable :current_scheme_costs, 1000
+        assert_state_variable :current_scheme_costs, 2440
         assert_state_variable :simple_total, 480
         assert_state_variable :can_use_simple, false
       end
@@ -408,17 +416,19 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       add_response "no" #capital_allowance_claimed
       add_response "1000" #vehicle_costs
       add_response "1000" #simple_motorcycle_costs
+      add_response "80" #business_miles
       add_response "2000" #business_premises_cost
+      add_response "200" #deduct_from_premises
       add_response "2" #simple_business_costs
     end
     should "take you to the results" do
       assert_current_node :you_can_use_result
       assert_state_variable :vehicle_costs, 1000
-      assert_state_variable :simple_motorcycle_costs, 240
-      assert_state_variable :business_premises_cost, 2000
-      assert_state_variable :simple_total, 240
+      assert_state_variable :simple_motorcycle_costs, 480
+      assert_state_variable :business_premises_cost, 200
+      assert_state_variable :simple_total, 480
       assert_state_variable :simple_business_costs, 6000
-      assert_state_variable :current_scheme_costs, 1000
+      assert_state_variable :current_scheme_costs, 1144
     end
   end # main result, existing business, motorcycle, living on premises
 end

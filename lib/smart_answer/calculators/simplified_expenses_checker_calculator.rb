@@ -131,6 +131,16 @@ module SmartAnswer::Calculators
       list_of_expenses.include?("car")
     end
 
+    def new_car?
+      car? && (car_status_before_usage == "new" ||
+          new_or_used_vehicle == "new")
+    end
+
+    def used_car?
+      car? && (car_status_before_usage == "used" ||
+          new_or_used_vehicle == "used")
+    end
+
     def van?
       list_of_expenses.include?("van")
     end
