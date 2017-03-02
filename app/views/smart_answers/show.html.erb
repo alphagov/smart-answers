@@ -25,7 +25,11 @@
   <% unless @presenter.started? %>
     <div class="related-container">
       <% if @navigation_helpers %>
-        <%= render partial: 'govuk_component/related_items', locals: @navigation_helpers.related_items %>
+        <% if should_present_new_navigation_view? %>
+          <%= render partial: 'govuk_component/taxonomy_sidebar', locals: @navigation_helpers.taxonomy_sidebar %>
+        <% else %>
+          <%= render partial: 'govuk_component/related_items', locals: @navigation_helpers.related_items %>
+        <% end %>
       <% end %>
     </div>
   <% end %>
