@@ -4,9 +4,9 @@ module SmartAnswer::Calculators
     attr_accessor :vehicle_costs
     attr_accessor :vehicle_price
     attr_accessor :type_of_vehicle
+    attr_accessor :vehicle_emission
     attr_accessor :hours_worked_home
     attr_accessor :selected_allowance
-    attr_accessor :no_vehicle_emission
     attr_accessor :new_or_used_vehicle
     attr_accessor :business_use_percent
     attr_accessor :business_miles_car_van
@@ -30,7 +30,12 @@ module SmartAnswer::Calculators
 
     def dirty_vehicle_price
       # if dirty  => take 18% of user input/vehicle_price
-      vehicle_is_green? ? nil : (vehicle_price.to_f * 0.18)
+      vehicle_is_dirty? ? (vehicle_price.to_f * 0.18) : nil
+    end
+
+    def filthy_vehicle_price
+      # if filthy  => take 8% of user input/vehicle_price
+      vehicle_is_filthy? ? (vehicle_price.to_f * 0.08) : nil
     end
 
     def green_vehicle_write_off
@@ -40,8 +45,14 @@ module SmartAnswer::Calculators
     end
 
     def dirty_vehicle_write_off
-      unless vehicle_is_green?
+      if vehicle_is_dirty?
         money(dirty_vehicle_price * vehicle_business_use_time)
+      end
+    end
+
+    def filthy_vehicle_write_off
+      if vehicle_is_filthy?
+        money(filthy_vehicle_price * vehicle_business_use_time)
       end
     end
 
@@ -108,7 +119,15 @@ module SmartAnswer::Calculators
     end
 
     def vehicle_is_green?
-      no_vehicle_emission == "yes"
+      vehicle_emission == "low" && new_car?
+    end
+
+    def vehicle_is_dirty?
+      vehicle_emission == "medium" && car?
+    end
+
+    def vehicle_is_filthy?
+      vehicle_emission == "high" && car?
     end
 
     def vehicle?

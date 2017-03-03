@@ -433,14 +433,74 @@ module SmartAnswer::Calculators
           @calculator = SimplifiedExpensesCheckerCalculator.new
         end
 
-        should "be true if no_vehicle_emission is yes" do
-          @calculator.no_vehicle_emission = "yes"
+        should "be true if vehicle_emission is low and car_status_before_usage is set to new" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.car_status_before_usage = "new"
+          @calculator.vehicle_emission = "low"
           assert @calculator.vehicle_is_green?
         end
 
-        should "be false if no_vehicle_emission is no" do
-          @calculator.no_vehicle_emission = "no"
+        should "be true if vehicle_emission is low and new_or_used_vehicle is set to new" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.new_or_used_vehicle = "new"
+          @calculator.vehicle_emission = "low"
+          assert @calculator.vehicle_is_green?
+        end
+
+        should "be false if type_of_vehicle isn't set to car" do
+          @calculator.type_of_vehicle = "motorbike"
+          @calculator.new_or_used_vehicle = "new"
+          @calculator.vehicle_emission = "low"
           refute @calculator.vehicle_is_green?
+        end
+
+        should "be false if vehicle_emission isn't set" do
+          refute @calculator.vehicle_is_green?
+        end
+      end
+
+      context "#vehicle_is_dirty?" do
+        setup do
+          @calculator = SimplifiedExpensesCheckerCalculator.new
+        end
+
+        should "be true if vehicle_emission is medium" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.vehicle_emission = "medium"
+          assert @calculator.vehicle_is_dirty?
+        end
+
+        should "be false if type_of_vehicle is not a car" do
+          @calculator.type_of_vehicle = "van"
+          @calculator.vehicle_emission = "medium"
+          refute @calculator.vehicle_is_dirty?
+        end
+
+        should "be false if vehicle_emission isn't set to medium" do
+          @calculator.type_of_vehicle = "car"
+          refute @calculator.vehicle_is_dirty?
+        end
+      end
+
+      context "#vehicle_is_filthy?" do
+        setup do
+          @calculator = SimplifiedExpensesCheckerCalculator.new
+        end
+
+        should "be true if vehicle_emission is high" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.vehicle_emission = "high"
+          assert @calculator.vehicle_is_filthy?
+        end
+
+        should "be false if type_of_vehicle is not a car" do
+          @calculator.type_of_vehicle = "van"
+          @calculator.vehicle_emission = "high"
+          refute @calculator.vehicle_is_filthy?
+        end
+
+        should "be false if vehicle_emission isn't set to high" do
+          refute @calculator.vehicle_is_filthy?
         end
       end
 
@@ -466,13 +526,21 @@ module SmartAnswer::Calculators
         end
 
         should "equal vehicle_price if green vehicle" do
-          @calculator.no_vehicle_emission = "yes"
+          @calculator.type_of_vehicle = "car"
+          @calculator.new_or_used_vehicle = "new"
+          @calculator.vehicle_emission = "low"
           @calculator.vehicle_price = 10000
           assert_equal @calculator.green_vehicle_price, 10000
         end
 
-        should "equal nil if vehicle isn't green" do
-          @calculator.no_vehicle_emission = "no"
+        should "equal nil if dirty vehicle" do
+          @calculator.vehicle_emission = "medium"
+          @calculator.vehicle_price = 10000
+          assert_equal @calculator.green_vehicle_price, nil
+        end
+
+        should "equal nil if filthy vehicle" do
+          @calculator.vehicle_emission = "high"
           @calculator.vehicle_price = 10000
           assert_equal @calculator.green_vehicle_price, nil
         end
@@ -484,15 +552,53 @@ module SmartAnswer::Calculators
         end
 
         should "equal nil if green vehicle" do
-          @calculator.no_vehicle_emission = "yes"
+          @calculator.type_of_vehicle = "car"
+          @calculator.new_or_used_vehicle = "new"
+          @calculator.vehicle_emission = "low"
           @calculator.vehicle_price = 10000
           assert_equal @calculator.dirty_vehicle_price, nil
         end
 
-        should "equal 18% of vehicle_price if vehicle is dirty" do
-          @calculator.no_vehicle_emission = "no"
+        should "equal nil if filthy vehicle" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.vehicle_emission = "high"
+          @calculator.vehicle_price = 10000
+          assert_equal @calculator.dirty_vehicle_price, nil
+        end
+
+        should "equal 18% of vehicle_price if vehicle is medium" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.vehicle_emission = "medium"
           @calculator.vehicle_price = 10000
           assert_equal @calculator.dirty_vehicle_price, 1800
+        end
+      end
+
+      context "#filthy_vehicle_price" do
+        setup do
+          @calculator = SimplifiedExpensesCheckerCalculator.new
+        end
+
+        should "equal nil if green vehicle" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.new_or_used_vehicle = "new"
+          @calculator.vehicle_emission = "low"
+          @calculator.vehicle_price = 10000
+          assert_equal @calculator.filthy_vehicle_price, nil
+        end
+
+        should "equal nil if dirty vehicle" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.vehicle_emission = "dirty"
+          @calculator.vehicle_price = 10000
+          assert_equal @calculator.filthy_vehicle_price, nil
+        end
+
+        should "equal 8% of vehicle_price if vehicle is high" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.vehicle_emission = "high"
+          @calculator.vehicle_price = 10000
+          assert_equal @calculator.filthy_vehicle_price, 800
         end
       end
 
@@ -502,14 +608,23 @@ module SmartAnswer::Calculators
         end
 
         should "equal business usage percentage of vehicle's green price if green vehicle" do
-          @calculator.no_vehicle_emission = "yes"
+          @calculator.type_of_vehicle = "car"
+          @calculator.new_or_used_vehicle = "new"
+          @calculator.vehicle_emission = "low"
           @calculator.vehicle_price = 10000
           @calculator.business_use_percent = 80
           assert_equal @calculator.green_vehicle_write_off, 8000
         end
 
-        should "equal nil if vehicle isn't green" do
-          @calculator.no_vehicle_emission = "no"
+        should "equal nil if dirty vehicle" do
+          @calculator.vehicle_emission = "medium"
+          @calculator.vehicle_price = 10000
+          @calculator.business_use_percent = 80
+          assert_equal @calculator.green_vehicle_write_off, nil
+        end
+
+        should "equal nil if filthy vehicle" do
+          @calculator.vehicle_emission = "high"
           @calculator.vehicle_price = 10000
           @calculator.business_use_percent = 80
           assert_equal @calculator.green_vehicle_write_off, nil
@@ -522,17 +637,59 @@ module SmartAnswer::Calculators
         end
 
         should "equal nil if green vehicle" do
-          @calculator.no_vehicle_emission = "yes"
+          @calculator.type_of_vehicle = "car"
+          @calculator.new_or_used_vehicle = "new"
+          @calculator.vehicle_emission = "low"
           @calculator.vehicle_price = 10000
           @calculator.business_use_percent = 80
           assert_equal @calculator.dirty_vehicle_write_off, nil
         end
 
-        should "equal business usage percentage of vehicle's dirty price if vehicle isn't green" do
-          @calculator.no_vehicle_emission = "no"
+        should "equal nil if filthy vehicle" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.vehicle_emission = "high"
+          @calculator.vehicle_price = 10000
+          @calculator.business_use_percent = 80
+          assert_equal @calculator.dirty_vehicle_write_off, nil
+        end
+
+        should "equal business usage percentage of vehicle's dirty price if vehicle is medium" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.vehicle_emission = "medium"
           @calculator.vehicle_price = 10000
           @calculator.business_use_percent = 80
           assert_equal @calculator.dirty_vehicle_write_off, 1440
+        end
+      end
+
+      context "#filthy_vehicle_write_off" do
+        setup do
+          @calculator = SimplifiedExpensesCheckerCalculator.new
+        end
+
+        should "equal nil if green vehicle" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.new_or_used_vehicle = "new"
+          @calculator.vehicle_emission = "low"
+          @calculator.vehicle_price = 10000
+          @calculator.business_use_percent = 80
+          assert_equal @calculator.filthy_vehicle_write_off, nil
+        end
+
+        should "equal nil if dirty vehicle" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.vehicle_emission = "medium"
+          @calculator.vehicle_price = 10000
+          @calculator.business_use_percent = 80
+          assert_equal @calculator.filthy_vehicle_write_off, nil
+        end
+
+        should "equal business usage percentage of vehicle's filthy price if vehicle is high" do
+          @calculator.type_of_vehicle = "car"
+          @calculator.vehicle_emission = "high"
+          @calculator.vehicle_price = 10000
+          @calculator.business_use_percent = 80
+          assert_equal @calculator.filthy_vehicle_write_off, 640
         end
       end
 

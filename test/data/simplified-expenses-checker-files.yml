@@ -14,13 +14,13 @@ lib/smart_answer_flows/simplified-expenses-checker/questions/drive_business_mile
 lib/smart_answer_flows/simplified-expenses-checker/questions/home_or_business_premises_expense.govspeak.erb: be3746a7772c7f22003d9814aa11b07a
 lib/smart_answer_flows/simplified-expenses-checker/questions/hours_work_home.govspeak.erb: 41b408209957ac9297effcf53d31a15e
 lib/smart_answer_flows/simplified-expenses-checker/questions/how_much_expect_to_claim.govspeak.erb: 619162f97b2e5b00bdcf412fc0179a9a
-lib/smart_answer_flows/simplified-expenses-checker/questions/is_vehicle_green.govspeak.erb: a8c3eeca9ac089c8d105424ebeb52014
+lib/smart_answer_flows/simplified-expenses-checker/questions/is_vehicle_green.govspeak.erb: 8a4b9d3899c3a2da60f815ef3e9084d0
 lib/smart_answer_flows/simplified-expenses-checker/questions/people_live_on_premises.govspeak.erb: 7f2526953dd971df560a129336734d86
 lib/smart_answer_flows/simplified-expenses-checker/questions/price_of_vehicle.govspeak.erb: ce043c19141d0e044a0ec1edb042591b
 lib/smart_answer_flows/simplified-expenses-checker/questions/type_of_expense.govspeak.erb: 6accfbd7201311005baa73c335999688
 lib/smart_answer_flows/simplified-expenses-checker/questions/vehicle_business_use_time.govspeak.erb: e864e4c5c4cbb4ec05a0e4fe20746c62
 lib/smart_answer_flows/simplified-expenses-checker/questions/vehicle_expense.govspeak.erb: beb0a689c3bb82ad1bb43c3e4f94c81e
 lib/smart_answer_flows/simplified-expenses-checker/simplified_expenses_checker.govspeak.erb: 6571e279177cb83ce3a06b31eb90a6e8
-lib/smart_answer_flows/simplified-expenses-checker.rb: b9b86d850db43ea7ac57896cd7567ca8
-test/data/simplified-expenses-checker-questions-and-responses.yml: 78d65c9926de9f495148369b29a2b600
-test/data/simplified-expenses-checker-responses-and-expected-results.yml: 3f364543e0ec9732cf84e5c5810eec06
+lib/smart_answer_flows/simplified-expenses-checker.rb: b597a8f1f41b2288bfebec4d2f3f23b4
+test/data/simplified-expenses-checker-questions-and-responses.yml: 66de79b2882675671aa80f2e9bef1d61
+test/data/simplified-expenses-checker-responses-and-expected-results.yml: 483db36264d39e10d295ea29d8083587
