@@ -129,11 +129,22 @@ module SmartAnswer
 
       #Q7 - is vehicle green?
       multiple_choice :is_vehicle_green? do
-        option :yes
-        option :no
+        option :low
+        option :medium
+        option :high
 
         next_node do |response|
-          calculator.no_vehicle_emission = response
+          case response
+          when "low"
+            if calculator.new_car?
+              calculator.vehicle_emission = response
+            else
+              calculator.vehicle_emission = "medium"
+            end
+          else
+            calculator.vehicle_emission = response
+          end
+
           question :price_of_vehicle?
         end
       end
@@ -247,12 +258,24 @@ module SmartAnswer
           calculator.vehicle_is_green?
         end
 
+        precalculate :vehicle_is_dirty do
+          calculator.vehicle_is_dirty?
+        end
+
+        precalculate :vehicle_is_filthy do
+          calculator.vehicle_is_filthy?
+        end
+
         precalculate :green_vehicle_price do
           calculator.green_vehicle_price
         end
 
         precalculate :dirty_vehicle_price do
           calculator.dirty_vehicle_price
+        end
+
+        precalculate :filthy_vehicle_price do
+          calculator.filthy_vehicle_price
         end
 
         precalculate :list_of_expenses do
@@ -293,6 +316,10 @@ module SmartAnswer
 
         precalculate :dirty_vehicle_write_off do
           calculator.dirty_vehicle_write_off
+        end
+
+        precalculate :filthy_vehicle_write_off do
+          calculator.filthy_vehicle_write_off
         end
 
         precalculate :simple_business_costs do

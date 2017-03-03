@@ -22,8 +22,9 @@
 :how_much_expect_to_claim?:
 - '2345' # :how_much_expect_to_claim? -> :drive_business_miles_car_van? / :drive_business_miles_motorcycle?
 :is_vehicle_green?:
-- 'yes' # :vehicle_is_green == true
-- 'no' # :vehicle_is_green == false (?)
+- 'low'
+- 'medium'
+- 'high' 
 :price_of_vehicle?:
 - '35000' # :vehicle_price
 - '250001' # :is_over_limit == true
