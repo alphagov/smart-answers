@@ -197,8 +197,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
     context "A/B testing" do
       setup do
-        ENV['ENABLE_NEW_NAVIGATION'] = 'yes'
-
         content_item = {
           "links" => {
             "taxons" => [
@@ -220,10 +218,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
         GovukNavigationHelpers::NavigationHelper.expects(:new)
           .with(content_item)
           .returns(navigation_helper)
-      end
-
-      teardown do
-        ENV['ENABLE_NEW_NAVIGATION'] = nil
       end
 
       should "show normal breadcrumbs by default" do
