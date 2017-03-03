@@ -4,15 +4,11 @@ module EducationNavigationABTestable
   end
 
   def should_present_new_navigation_view?
-    education_navigation_variant.variant_b? && new_navigation_enabled? && content_is_tagged_to_a_taxon?
+    education_navigation_variant.variant_b? && content_is_tagged_to_a_taxon?
   end
 
   def education_navigation_variant
     @education_navigation_variant ||= education_navigation_ab_test.requested_variant request
-  end
-
-  def new_navigation_enabled?
-    ENV['ENABLE_NEW_NAVIGATION'] == 'yes'
   end
 
   def content_is_tagged_to_a_taxon?
