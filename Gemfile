@@ -6,7 +6,7 @@ gem 'rails', '~> 4.2.7'
 
 gem 'airbrake', '4.1.0'
 gem 'ast'
-gem 'gds-api-adapters', '~> 37.2.0'
+gem 'gds-api-adapters', '~> 40.1'
 gem 'govspeak', '~> 3.3.0'
 gem 'govuk-content-schema-test-helpers', '~> 1.3.0'
 gem 'govuk_frontend_toolkit', '4.14.0'
@@ -20,22 +20,23 @@ gem 'plek', '1.12.0'
 gem 'rack_strip_client_ip', '0.0.1'
 gem 'rails-i18n'
 gem 'sass-rails', '~> 5.0.0'
-gem 'slimmer', '~> 10.0.0'
+gem 'slimmer', '~> 10.1.1'
 gem 'tilt', '1.4.1'
 gem 'uglifier'
 gem 'uk_postcode', '~> 1.0.1'
 gem 'unicorn', '4.8.3'
 gem 'rails_stdout_logging'
-gem 'govuk_navigation_helpers', '~> 2.0'
+gem 'govuk_navigation_helpers', '~> 3.0'
+gem 'govuk_ab_testing', '0.1.4'
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'govuk-lint'
   gem 'nokogiri'
 end
 
 group :development, :test do
+  gem 'govuk-lint'
   gem 'pry'
 end
 

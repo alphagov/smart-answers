@@ -10,11 +10,11 @@ module SmartAnswer::Calculators
 
     FRENCH_OVERSEAS_TERRITORIES_OFFERING_PACS = %w(new-caledonia wallis-and-futuna)
 
-    CEREMONY_COUNTRIES_OFFERING_PACS = %w(france monaco) + FRENCH_OVERSEAS_TERRITORIES_OFFERING_PACS
+    CEREMONY_COUNTRIES_OFFERING_PACS = %w(monaco) + FRENCH_OVERSEAS_TERRITORIES_OFFERING_PACS
 
     DUTCH_CARIBBEAN_ISLANDS = %w(aruba bonaire-st-eustatius-saba curacao st-maarten)
 
-    OS_CONSULAR_CNI_COUNTRIES = %w(albania algeria angola armenia austria azerbaijan bahrain belarus bolivia bosnia-and-herzegovina brazil bulgaria chile croatia cuba democratic-republic-of-the-congo denmark dominican-republic el-salvador estonia ethiopia georgia germany greece guatemala honduras hungary iceland japan jordan kazakhstan kuwait kyrgyzstan latvia libya lithuania luxembourg macedonia mexico moldova montenegro netherlands nepal oman panama poland romania russia serbia slovenia spain sudan tajikistan tunisia turkmenistan uzbekistan venezuela)
+    OS_CONSULAR_CNI_COUNTRIES = %w(albania algeria angola armenia austria azerbaijan bahrain belarus bolivia bosnia-and-herzegovina brazil bulgaria chile croatia cuba democratic-republic-of-the-congo denmark dominican-republic el-salvador estonia ethiopia georgia germany greece guatemala honduras hungary iceland japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro netherlands nepal oman panama poland romania russia serbia slovenia spain sudan tajikistan tunisia turkmenistan uzbekistan venezuela)
 
     OS_NO_CONSULAR_CNI_COUNTRIES = %w(burundi democratic-republic-of-the-congo mexico saint-barthelemy st-martin)
 
@@ -24,9 +24,9 @@ module SmartAnswer::Calculators
 
     OS_CONSULAR_CNI_IN_NEARBY_COUNTRY = %w(nicaragua)
 
-    OS_AFFIRMATION_COUNTRIES = %w(belgium cambodia colombia china ecuador egypt lebanon finland macao mongolia morocco norway peru philippines qatar south-korea thailand turkey united-arab-emirates vietnam)
+    OS_AFFIRMATION_COUNTRIES = %w(belgium cambodia colombia china ecuador egypt lebanon finland macao mongolia morocco norway peru qatar south-korea thailand turkey united-arab-emirates vietnam)
 
-    CP_EQUIVALENT_COUNTRIES = %w(austria brazil colombia czech-republic denmark ecuador finland germany hungary iceland luxembourg netherlands norway portugal slovenia)
+    CP_EQUIVALENT_COUNTRIES = %w(austria brazil colombia czech-republic denmark ecuador finland germany iceland luxembourg netherlands norway slovenia)
 
     CP_CNI_NOT_REQUIRED_COUNTRIES = %w(andorra argentina bonaire-st-eustatius-saba burundi liechtenstein mexico new-zealand uruguay usa)
 
@@ -34,31 +34,31 @@ module SmartAnswer::Calculators
 
     COUNTRIES_WITHOUT_CONSULAR_FACILITIES = %w(argentina aruba bonaire-st-eustatius-saba burundi cote-d-ivoire curacao czech-republic saint-barthelemy slovakia st-maarten st-martin taiwan)
 
-    SS_MARRIAGE_COUNTRIES = %w(australia bolivia chile china colombia dominican-republic estonia germany hungary kosovo latvia mongolia montenegro nicaragua russia san-marino serbia)
+    SS_MARRIAGE_COUNTRIES = %w(australia bolivia chile colombia dominican-republic estonia germany kosovo mongolia montenegro nicaragua russia san-marino serbia)
 
     NO_SS_MARRIAGE_COUNTRIES = %w(san-marino seychelles)
 
     SS_MARRIAGE_COUNTRIES_WHEN_COUPLE_BRITISH = %w(lithuania)
 
-    SS_MARRIAGE_AND_PARTNERSHIP_COUNTRIES = %w(albania cambodia japan peru philippines vietnam)
+    SS_MARRIAGE_AND_PARTNERSHIP_COUNTRIES = %w(albania cambodia japan peru vietnam)
 
-    SS_ALT_FEES_TABLE_COUNTRY = %w(australia bolivia china estonia san-marino serbia seychelles)
+    SS_ALT_FEES_TABLE_COUNTRY = %w(australia bolivia estonia san-marino serbia seychelles)
 
-    SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_A = %w(hungary mongolia montenegro nicaragua russia)
+    SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_A = %w(mongolia montenegro nicaragua russia)
 
-    SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B = %w(azerbaijan chile dominican-republic kosovo latvia)
+    SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B = %w(azerbaijan chile dominican-republic kosovo)
 
-    OS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES = %w(jordan oman qatar yemen)
+    OS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES = %w(oman qatar yemen)
 
     SS_UNKNOWN_NO_EMBASSIES = %w(st-martin saint-barthelemy)
 
-    THREE_DAY_RESIDENCY_REQUIREMENT_COUNTRIES = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria chile croatia cuba democratic-republic-of-the-congo denmark dominican-republic el-salvador estonia ethiopia georgia greece guatemala honduras hungary iceland kazakhstan kosovo kuwait kyrgyzstan latvia lithuania luxembourg macedonia mexico moldova montenegro nepal panama romania russia serbia slovenia sudan tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
+    THREE_DAY_RESIDENCY_REQUIREMENT_COUNTRIES = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria chile croatia cuba democratic-republic-of-the-congo denmark dominican-republic el-salvador estonia ethiopia georgia greece guatemala honduras iceland kazakhstan kosovo kuwait kyrgyzstan lithuania luxembourg macedonia mexico moldova montenegro nepal panama romania russia serbia slovenia sudan tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
 
     CNI_NOTARY_PUBLIC_COUNTRIES = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg mexico moldova montenegro russia serbia tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
 
     NO_DOCUMENT_DOWNLOAD_LINK_IF_OS_RESIDENT_OF_UK_COUNTRIES = %w(albania algeria angola armenia austria azerbaijan bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia greece iceland japan kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico moldova montenegro nicaragua russia serbia tajikistan tunisia turkmenistan ukraine uzbekistan venezuela)
 
-    CNI_POSTED_AFTER_14_DAYS_COUNTRIES = %w(jordan qatar saudi-arabia united-arab-emirates yemen)
+    CNI_POSTED_AFTER_14_DAYS_COUNTRIES = %w(qatar saudi-arabia united-arab-emirates yemen)
 
     def os_21_days_residency_required_countries?(country_slug)
       OS_21_DAYS_RESIDENCY_REQUIRED_COUNTRIES.include?(country_slug)
@@ -80,12 +80,12 @@ module SmartAnswer::Calculators
       SS_ALT_FEES_TABLE_COUNTRY.include?(country_slug) ||
         (SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_A.include?(country_slug) && calculator.partner_british?) ||
         (SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B.include?(country_slug) && calculator.partner_is_not_national_of_ceremony_country?) &&
-          (%w(cambodia vietnam).exclude?(country_slug))
+          (%w(cambodia).exclude?(country_slug))
     end
 
     def ss_marriage_not_possible?(country_slug, calculator)
       (SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_A.include?(country_slug) && calculator.partner_not_british?) ||
-        ((SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B.include?(country_slug) || %w(cambodia vietnam).include?(country_slug)) && calculator.partner_is_national_of_ceremony_country?) ||
+        ((SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B.include?(country_slug) || %w(cambodia).include?(country_slug)) && calculator.partner_is_national_of_ceremony_country?) ||
         NO_SS_MARRIAGE_COUNTRIES.include?(country_slug)
     end
 

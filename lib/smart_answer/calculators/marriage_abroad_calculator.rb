@@ -4,7 +4,7 @@ module SmartAnswer::Calculators
     attr_writer :resident_of
     attr_writer :partner_nationality
     attr_writer :sex_of_your_partner
-    attr_writer :marriage_or_pacs
+    attr_accessor :marriage_or_pacs
 
     def initialize(data_query: nil, rates_query: nil, country_name_formatter: nil, registrations_data_query: nil, services_data: nil)
       @data_query = data_query || MarriageAbroadDataQuery.new
@@ -314,38 +314,69 @@ module SmartAnswer::Calculators
     end
 
     def path_to_outcome
-      ceremony_location = if resident_of_ceremony_country?
-                            'ceremony_country'
-                          elsif resident_of_third_country?
-                            'third_country'
-                          else
-                            'uk'
-                          end
-      partner_nationality = if partner_is_national_of_ceremony_country?
-                              'partner_local'
-                            elsif partner_british?
-                              'partner_british'
-                            else
-                              'partner_other'
-                            end
-      same_sex = if partner_is_same_sex?
-                   'same_sex'
-                 else
-                   'opposite_sex'
-                 end
+      if two_questions_country?
+        return [ceremony_country, marriage_type_path_name]
+      end
 
-      [ceremony_country, ceremony_location, partner_nationality, same_sex]
+      [ceremony_country, ceremony_location_path_name, partner_nationality_path_name, marriage_type_path_name]
     end
 
     def has_outcome_per_path?
       %w(
+         china
+         denmark
+         france
+         hungary
          italy
+         ireland
+         jordan
+         latvia
          mozambique
+         philippines
+         portugal
          sweden
+         vietnam
+        ).include?(ceremony_country)
+    end
+
+    def two_questions_country?
+      %w(
+         france
+         ireland
+         philippines
+         italy
         ).include?(ceremony_country)
     end
 
   private
+
+    def marriage_type_path_name
+      if partner_is_same_sex?
+        'same_sex'
+      else
+        'opposite_sex'
+      end
+    end
+
+    def partner_nationality_path_name
+      if partner_is_national_of_ceremony_country?
+        'partner_local'
+      elsif partner_british?
+        'partner_british'
+      else
+        'partner_other'
+      end
+    end
+
+    def ceremony_location_path_name
+      if resident_of_ceremony_country?
+        'ceremony_country'
+      elsif resident_of_third_country?
+        'third_country'
+      else
+        'uk'
+      end
+    end
 
     def services_for_country_and_partner_sex_and_residency_and_partner_nationality?
       services_data_for_country_and_partner_sex_and_residency? &&

@@ -15,9 +15,17 @@
     :current_time: 2016-04-06
   "am-i-getting-minimum-wage":
     :current_time: 2016-10-01
+  "marriage-abroad":
+    :current_time: 2016-10-01
   "minimum-wage-calculator-employers":
+    :current_time: 2016-10-01
+  "marriage-abroad":
     :current_time: 2016-10-01
   "pip-checker":
     :current_time: 2016-04-05
   "state-pension-topup":
-    :current_time: 2016-11-01
+    :current_time: 2017-01-01
+  "maternity-paternity-calculator":
+    :current_time: 2018-04-05
+  "calculate-statutory-sick-pay":
+    :current_time: 2018-04-05
