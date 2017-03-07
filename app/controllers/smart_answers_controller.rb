@@ -10,7 +10,7 @@ class SmartAnswersController < ApplicationController
 
   attr_accessor :navigation_helpers, :content_item
 
-  helper_method :breadcrumbs, :should_present_new_navigation_view?
+  helper_method :breadcrumbs, :should_present_new_navigation_view?, :page_is_under_ab_test?
 
   rescue_from SmartAnswer::FlowRegistry::NotFound, with: :error_404
   rescue_from SmartAnswer::InvalidNode, with: :error_404
@@ -21,7 +21,12 @@ class SmartAnswersController < ApplicationController
 
   def show
     respond_to do |format|
-      format.html { render }
+      format.html {
+        if page_is_under_ab_test?(content_item)
+          set_education_navigation_response_header(content_item)
+        end
+        render
+      }
       format.json {
         html_fragment = with_format('html') {
           render_to_string(partial: "content")
@@ -131,7 +136,7 @@ private
 
   def breadcrumbs
     return {} if navigation_helpers.nil?
-    if should_present_new_navigation_view?
+    if should_present_new_navigation_view?(content_item)
       navigation_helpers.taxon_breadcrumbs
     else
       navigation_helpers.breadcrumbs

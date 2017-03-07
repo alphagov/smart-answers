@@ -2,6 +2,7 @@ require_relative 'engine_test_helper'
 
 class HtmlEscapingUserInputTest < EngineIntegrationTest
   setup do
+    stub_smart_answer_in_content_store("value-sample")
     visit "/value-sample"
     click_on "Start now"
   end

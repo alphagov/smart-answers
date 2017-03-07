@@ -2,6 +2,10 @@ require_relative 'engine_test_helper'
 
 class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
   with_and_without_javascript do
+    setup do
+      stub_smart_answer_in_content_store("bridge-of-death")
+    end
+
     should "handle multiple-choice and value questions" do
       visit "/bridge-of-death"
 

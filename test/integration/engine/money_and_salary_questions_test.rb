@@ -2,6 +2,10 @@ require_relative 'engine_test_helper'
 
 class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
   with_and_without_javascript do
+    setup do
+      stub_smart_answer_in_content_store("money-and-salary-sample")
+    end
+
     should "handle money and salary questions" do
       visit "/money-and-salary-sample/y"
 

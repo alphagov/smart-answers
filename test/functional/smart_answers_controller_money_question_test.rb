@@ -12,6 +12,8 @@ class SmartAnswersControllerMoneyQuestionTest < ActionController::TestCase
   def setup
     stub_shared_component_locales
     setup_fixture_flows
+
+    stub_smart_answer_in_content_store("smart-answers-controller-sample-with-money-question")
   end
 
   def teardown
