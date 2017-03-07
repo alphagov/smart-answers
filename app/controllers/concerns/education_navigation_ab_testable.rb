@@ -8,7 +8,7 @@ module EducationNavigationABTestable
   end
 
   def education_navigation_variant
-    @education_navigation_variant ||= education_navigation_ab_test.requested_variant request
+    @education_navigation_variant ||= education_navigation_ab_test.requested_variant request.headers
   end
 
   def content_is_tagged_to_a_taxon?
