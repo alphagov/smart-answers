@@ -335,6 +335,7 @@ module SmartAnswer::Calculators
          philippines
          portugal
          sweden
+         turkey
          vietnam
         ).include?(ceremony_country)
     end
