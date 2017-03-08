@@ -3,6 +3,13 @@ module EducationNavigationABTestable
     education_navigation_variant.variant_b? && content_is_tagged_to_a_taxon?(content_item)
   end
 
+  def present_taxonomy_sidebar?(content_item)
+    should_present_new_navigation_view?(content_item) &&
+      MainstreamContentFetcher.with_curated_sidebar.exclude?(
+        content_item['base_path']
+      )
+  end
+
   def education_navigation_variant
     @education_navigation_variant ||= education_navigation_ab_test.requested_variant request.headers
   end
