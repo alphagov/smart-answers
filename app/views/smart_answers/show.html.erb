@@ -5,10 +5,12 @@
     SmartAnswer.AJAX_ENABLED = <%= ajax_enabled_for?(@presenter.name) %>;
   </script>
   <%= javascript_include_tag "application", defer: true %>
-  <%= education_navigation_variant.analytics_meta_tag.html_safe %>
+  <% if page_is_under_ab_test?(@content_item) %>
+    <%= education_navigation_variant.analytics_meta_tag.html_safe %>
+  <% end %>
 <% end %>
 
-<%= render 'govuk_component/beta_label' if should_present_new_navigation_view? %>
+<%= render 'govuk_component/beta_label' if should_present_new_navigation_view?(@content_item) %>
 <%= render partial: 'govuk_component/breadcrumbs', locals: breadcrumbs %>
 
 <div class="grid-row">
@@ -25,7 +27,7 @@
   <% unless @presenter.started? %>
     <div class="related-container">
       <% if @navigation_helpers %>
-        <% if should_present_new_navigation_view? %>
+        <% if should_present_new_navigation_view?(@content_item) %>
           <%= render partial: 'govuk_component/taxonomy_sidebar', locals: @navigation_helpers.taxonomy_sidebar %>
         <% else %>
           <%= render partial: 'govuk_component/related_items', locals: @navigation_helpers.related_items %>

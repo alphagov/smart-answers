@@ -4,6 +4,8 @@ class ReportAProblemTest < EngineIntegrationTest
   with_and_without_javascript do
     context "smart-answer" do
       setup do
+        stub_smart_answer_in_content_store("bridge-of-death")
+
         visit "/bridge-of-death"
       end
 

@@ -1,6 +1,10 @@
 require_relative 'engine_test_helper'
 
 class DataPartialsTest < EngineIntegrationTest
+  setup do
+    stub_smart_answer_in_content_store("data-partial-sample")
+  end
+
   should "output data partials correctly" do
     visit "/data-partial-sample/y/data_partial_with_scalar"
 

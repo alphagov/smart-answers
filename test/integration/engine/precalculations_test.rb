@@ -2,6 +2,10 @@ require_relative 'engine_test_helper'
 
 class PrecalculationsTest < EngineIntegrationTest
   with_and_without_javascript do
+    setup do
+      stub_smart_answer_in_content_store("precalculation-sample")
+    end
+
     should "handle precalculations" do
       visit "/precalculation-sample"
 
