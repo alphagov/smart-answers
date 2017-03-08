@@ -24,7 +24,7 @@ module SmartAnswer::Calculators
 
     OS_CONSULAR_CNI_IN_NEARBY_COUNTRY = %w(nicaragua)
 
-    OS_AFFIRMATION_COUNTRIES = %w(belgium cambodia colombia china ecuador egypt lebanon finland macao mongolia morocco norway peru qatar south-korea thailand turkey united-arab-emirates vietnam)
+    OS_AFFIRMATION_COUNTRIES = %w(belgium cambodia colombia china ecuador egypt lebanon finland macao mongolia morocco norway peru qatar south-korea thailand united-arab-emirates vietnam)
 
     CP_EQUIVALENT_COUNTRIES = %w(austria brazil colombia czech-republic denmark ecuador finland germany iceland luxembourg netherlands norway slovenia)
 
