@@ -10,7 +10,22 @@
   <% end %>
 <% end %>
 
-<%= render 'govuk_component/beta_label' if should_present_new_navigation_view?(@content_item) %>
+<% if should_present_new_navigation_view?(@content_item) %>
+  <%=
+    render(
+      partial: 'govuk_component/beta_label',
+      locals: {
+        message: <<-MESSAGE
+        This is a test version of the layout of this page.
+        <a id='taxonomy-survey' href='https://www.smartsurvey.co.uk/s/betasurvey2017'>
+          Take the survey to help us improve it
+        </a>
+        MESSAGE
+      }
+    )
+  %>
+<% end %>
+
 <%= render partial: 'govuk_component/breadcrumbs', locals: breadcrumbs %>
 
 <div class="grid-row">
