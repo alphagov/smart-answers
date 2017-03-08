@@ -26,7 +26,7 @@ gem 'uglifier'
 gem 'uk_postcode', '~> 1.0.1'
 gem 'unicorn', '4.8.3'
 gem 'rails_stdout_logging'
-gem 'govuk_navigation_helpers', '~> 3.1'
+gem 'govuk_navigation_helpers', '~> 3.2'
 gem 'govuk_ab_testing', '1.0.4'
 gem 'statsd-ruby', '1.3.0', require: 'statsd'
 
