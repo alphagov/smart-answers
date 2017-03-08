@@ -1,5 +1,5 @@
 ---
-lib/smart_answer_flows/marriage-abroad.rb: 1e2f5bacf057c3c85f24964ef09cdd31
+lib/smart_answer_flows/marriage-abroad.rb: 18fc5d290377a7b0f3f5acd24a08fc99
 test/data/marriage-abroad-questions-and-responses.yml: 35a2f04fceb6c1c45cd96ca80dcba991
 test/data/marriage-abroad-responses-and-expected-results.yml: b782360094d6de81c25530ca23429ea2
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
@@ -24,7 +24,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/_contact_laadoul.govspeak.erb: 1
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_local_authorities.govspeak.erb: f8d276a3b65ce8160406b5c341c7d783
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_local_authorities_in_country_cp.govspeak.erb: c00842169aab58b455815258621a32a7
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_local_authorities_in_country_marriage.govspeak.erb: 033f28531a65164876ce6d6976de0ec1
-lib/smart_answer_flows/marriage-abroad/outcomes/_contact_method.govspeak.erb: 3a4f880557a2e1f2c7d799425edb67b8
+lib/smart_answer_flows/marriage-abroad/outcomes/_contact_method.govspeak.erb: 235e6d6f10994b22a0c0a8c8fd5cb255
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_nearest_embassy_of_country.govspeak.erb: e12d9c675e88c6efb49d9fcf54cb4570
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_to_make_appointment.govspeak.erb: a7e4a184e974b3989a697578277b3b7a
 lib/smart_answer_flows/marriage-abroad/outcomes/_convert_cc_to_ss_marriage.govspeak.erb: 38e1be8bb7bdd80ef0c4c6c3af8f7f04
@@ -348,7 +348,6 @@ lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in
 : 6064346c5d9f318cbd262fd269eb230b
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_south_korea.govspeak.erb: 7ce2f2a06aa2a86d4c216e850e9bd542
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_thailand.govspeak.erb: 03e0247b5a9f0c9c9d16f10101dfa447
-lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_turkey.govspeak.erb: ed95b49c232e79145fd2eba73060e561
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_united_arab_emirates.govspeak.erb: 84b110f1d6b9ea9a840487a8691a00f2
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_yemen.govspeak.erb: 75931823b0856f97977823a467d25ec9
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_same_sex_civil_partnership.govspeak.erb: 19961a1ea97c87c72f1d99bb2c976f9e
@@ -391,6 +390,6 @@ lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d
 lib/data/marriage_abroad_services.yml: d33d3194f1171c37a83fce479b753f34
 lib/smart_answer/calculators/marriage_abroad_calculator.rb: 565276c0193de2b86b6a8e169978cc37
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 0bc67c4469fe692a4fa53c9b461821bf
-lib/smart_answer/calculators/marriage_abroad_data_query.rb: e6aff205028c84b369cf9faefb3a51a6
+lib/smart_answer/calculators/marriage_abroad_data_query.rb: 3c7e3c0ed8b3d6ab11811e3a6abfcd82
 lib/smart_answer/calculators/country_name_formatter.rb: 583df7103672f581bf5510732c1b2be1
 lib/smart_answer/calculators/registrations_data_query.rb: 3afcd514ecedadd19b0db67f54ac5ea6
