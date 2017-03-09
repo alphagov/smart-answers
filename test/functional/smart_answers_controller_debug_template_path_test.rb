@@ -9,6 +9,7 @@ class SmartAnswersControllerDebugTemplatePathTest < ActionController::TestCase
 
   def setup
     setup_fixture_flows
+    stub_shared_component_locales
     registry = SmartAnswer::FlowRegistry.instance
     flow_name = 'smart-answers-controller-sample'
     @template_directory = registry.load_path.join(flow_name)
