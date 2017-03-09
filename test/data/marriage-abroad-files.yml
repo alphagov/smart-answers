@@ -1,7 +1,7 @@
 ---
 lib/smart_answer_flows/marriage-abroad.rb: 18fc5d290377a7b0f3f5acd24a08fc99
 test/data/marriage-abroad-questions-and-responses.yml: 35a2f04fceb6c1c45cd96ca80dcba991
-test/data/marriage-abroad-responses-and-expected-results.yml: b782360094d6de81c25530ca23429ea2
+test/data/marriage-abroad-responses-and-expected-results.yml: 8c9ad652b525f4aa042f0f186aa5270f
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
 lib/smart_answer_flows/marriage-abroad/outcomes/_affirmation_os_translation_in_local_language_text.govspeak.erb: af09e09b909c563d4a587ef1b9285cca
 lib/smart_answer_flows/marriage-abroad/outcomes/_appointment_for_affidavit.govspeak.erb: 4db6fe2ec298d79aefaed0d4ff244e75
@@ -240,6 +240,8 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/sweden/uk/partner_loca
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/sweden/uk/partner_local/_same_sex.govspeak.erb: aaa5cef740c7a1835949e3c7b22d0bc8
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/sweden/uk/partner_other/_opposite_sex.govspeak.erb: 08a20430b686059bf67eb090ca4a1904
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/sweden/uk/partner_other/_same_sex.govspeak.erb: aaa5cef740c7a1835949e3c7b22d0bc8
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/turkey/_opposite_sex.govspeak.erb: 17f03c901e3fb4aa9a79a5c1ae5bf7d9
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/turkey/_same_sex.govspeak.erb: 25b5e80abb9a880dbfb538ef07c7864a
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/turkey/_title.govspeak.erb: bff08d6cfacde06e3aa9a9b96a52be90
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/turkey/ceremony_country/partner_british/_opposite_sex.govspeak.erb: 63f195dcde1554183c0ac7477d6915dc
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/turkey/ceremony_country/partner_british/_same_sex.govspeak.erb: 014f0f9386804de480b98f1ce415ac11
@@ -388,7 +390,7 @@ lib/smart_answer_flows/marriage-abroad/questions/partner_opposite_or_same_sex.go
 lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationality.govspeak.erb: 80e04f36c75c232bede1a244d621471e
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/data/marriage_abroad_services.yml: d33d3194f1171c37a83fce479b753f34
-lib/smart_answer/calculators/marriage_abroad_calculator.rb: 565276c0193de2b86b6a8e169978cc37
+lib/smart_answer/calculators/marriage_abroad_calculator.rb: 4874a49e272aa81787dd36fbad10cf62
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 0bc67c4469fe692a4fa53c9b461821bf
 lib/smart_answer/calculators/marriage_abroad_data_query.rb: 3c7e3c0ed8b3d6ab11811e3a6abfcd82
 lib/smart_answer/calculators/country_name_formatter.rb: 583df7103672f581bf5510732c1b2be1
