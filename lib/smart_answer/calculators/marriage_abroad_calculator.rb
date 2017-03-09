@@ -345,6 +345,7 @@ module SmartAnswer::Calculators
          france
          ireland
          philippines
+         turkey
          italy
         ).include?(ceremony_country)
     end
