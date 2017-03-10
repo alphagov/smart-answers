@@ -32,7 +32,7 @@ lib/smart_answer_flows/landlord-immigration-check/questions/tenant_country.govsp
 lib/smart_answer_flows/landlord-immigration-check/questions/tenant_over_18.govspeak.erb: c4a270709e77da5aff8c4e50aa56e905
 lib/smart_answer_flows/landlord-immigration-check/questions/time_limited_to_remain.govspeak.erb: 05c03a6a5cc9e07c3816a446cdc1c6f3
 lib/smart_answer_flows/landlord-immigration-check/questions/waiting_for_documents.govspeak.erb: 741ab2f1b24d0fcf14ce358b517e9361
-lib/smart_answer_flows/landlord-immigration-check/questions/what_nationality.govspeak.erb: bc02478f6cb59f7bd812672ce2383666
-lib/smart_answer_flows/landlord-immigration-check.rb: 88c5cbe1cfe60a0674044e01b8e720d9
-test/data/landlord-immigration-check-questions-and-responses.yml: 36d2d5613fb6046704d658ab8fac27ab
-test/data/landlord-immigration-check-responses-and-expected-results.yml: 4eb1cf7c87a8c79c82b16e7b8983f31c
+lib/smart_answer_flows/landlord-immigration-check/questions/what_nationality.govspeak.erb: c94a7dfdc3b9155d23504c798c20915d
+lib/smart_answer_flows/landlord-immigration-check.rb: ad29af6df90b97c08f77061c2950bc03
+test/data/landlord-immigration-check-questions-and-responses.yml: 66179e364ab24c843faae5c6a5394bb3
+test/data/landlord-immigration-check-responses-and-expected-results.yml: a3dbf853ddabd345dd0ba6e143178634

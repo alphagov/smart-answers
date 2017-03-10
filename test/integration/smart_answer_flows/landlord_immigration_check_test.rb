@@ -160,6 +160,16 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
         assert_current_node :outcome_can_not_rent
       end
     end
+
+    context "when tenant is non-EEA family member" do
+      setup do
+        add_response "non-eea"
+      end
+
+      should "go to outcome_can_rent" do
+        assert_current_node :outcome_can_rent
+      end
+    end
   end
 
   should "lead to outcome_can_not_rent" do
