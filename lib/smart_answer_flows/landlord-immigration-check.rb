@@ -89,6 +89,7 @@ module SmartAnswer
       multiple_choice :what_nationality? do
         option "british-or-irish"
         option "eea"
+        option "non-eea"
 
         next_node do |response|
           case response
@@ -96,6 +97,8 @@ module SmartAnswer
             question :has_uk_passport?
           when "eea"
             question :has_eu_documents?
+          when "non-eea"
+            outcome :outcome_can_rent
           end
         end
       end
