@@ -22,7 +22,7 @@ lib/smart_answer_flows/landlord-immigration-check/questions/has_certificate.govs
 lib/smart_answer_flows/landlord-immigration-check/questions/has_documents.govspeak.erb: ea1250a0013c28b4a7cbcb0337219e16
 lib/smart_answer_flows/landlord-immigration-check/questions/has_eu_documents.govspeak.erb: c9020cccaea9930824d73d2b4e70431f
 lib/smart_answer_flows/landlord-immigration-check/questions/has_other_documents.govspeak.erb: 6a7bb30a33fa570f75d3aaca86594f1d
-lib/smart_answer_flows/landlord-immigration-check/questions/has_residence_card_or_eu_eea_swiss_family_member.govspeak.erb: 566627594105a24069451ab40f540846
+lib/smart_answer_flows/landlord-immigration-check/questions/has_residence_card_or_eu_eea_swiss_family_member.govspeak.erb: 3b3bf6e9a970fa024c4f460ed480f913
 lib/smart_answer_flows/landlord-immigration-check/questions/has_uk_passport.govspeak.erb: d584ed7bf059ced0535403e62518646f
 lib/smart_answer_flows/landlord-immigration-check/questions/immigration_application.govspeak.erb: 7107f59aa5812bb3f5a88244fe6e3412
 lib/smart_answer_flows/landlord-immigration-check/questions/main_home.govspeak.erb: daa66dfee926ca1fc2228cf9081919c3
@@ -34,6 +34,6 @@ lib/smart_answer_flows/landlord-immigration-check/questions/tenant_over_18.govsp
 lib/smart_answer_flows/landlord-immigration-check/questions/time_limited_to_remain.govspeak.erb: 05c03a6a5cc9e07c3816a446cdc1c6f3
 lib/smart_answer_flows/landlord-immigration-check/questions/waiting_for_documents.govspeak.erb: 741ab2f1b24d0fcf14ce358b517e9361
 lib/smart_answer_flows/landlord-immigration-check/questions/what_nationality.govspeak.erb: c94a7dfdc3b9155d23504c798c20915d
-lib/smart_answer_flows/landlord-immigration-check.rb: 0d0f19e4beda742d0468e93b955f2b0e
-test/data/landlord-immigration-check-questions-and-responses.yml: e2ad6e8ae1199ad7dfe885da72f5157f
-test/data/landlord-immigration-check-responses-and-expected-results.yml: 7aee0eb7c5cccecc4a0dbf05a04096fa
+lib/smart_answer_flows/landlord-immigration-check.rb: b76791121208177693beace11ef39e3a
+test/data/landlord-immigration-check-questions-and-responses.yml: ffed24af0f71bd95182bc3d6c1e857ef
+test/data/landlord-immigration-check-responses-and-expected-results.yml: dfc92f83a1ea29edd6a6fe0c55d83dbc
