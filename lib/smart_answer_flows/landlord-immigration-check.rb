@@ -128,7 +128,7 @@ module SmartAnswer
           when "yes"
             outcome :outcome_can_rent
           when "no"
-            question :outcome_can_rent
+            question :has_residence_card_or_eu_eea_swiss_family_member?
           end
         end
       end
@@ -287,19 +287,19 @@ module SmartAnswer
       # end
 
       #Q13
-      # multiple_choice :has_residence_card_or_eu_eea_swiss_family_member? do
-      #   option "yes"
-      #   option "no"
-      #
-      #   next_node do |response|
-      #     case response
-      #     when "yes"
-      #       outcome :outcome_can_rent
-      #     when "no"
-      #       question :has_asylum_card?
-      #     end
-      #   end
-      # end
+      multiple_choice :has_residence_card_or_eu_eea_swiss_family_member? do
+        option "yes"
+        option "no"
+
+        next_node do |response|
+          case response
+          when "yes"
+            outcome :outcome_can_rent
+          when "no"
+            outcome :outcome_can_rent
+          end
+        end
+      end
 
       outcome :outcome_can_not_rent
       outcome :outcome_can_rent
