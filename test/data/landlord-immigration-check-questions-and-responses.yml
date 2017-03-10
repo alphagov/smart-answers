@@ -27,6 +27,9 @@
 :family_permit?:
 - 'yes'
 - 'no'
+:has_residence_card_or_eu_eea_swiss_family_member?:
+- 'yes'
+- 'no'
 :right_to_abode?:
 - 'yes'
 - 'no'
