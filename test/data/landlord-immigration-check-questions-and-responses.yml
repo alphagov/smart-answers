@@ -24,6 +24,9 @@
 :has_uk_passport?:
 - 'yes'
 - 'no'
+:family_permit?:
+- 'yes'
+- 'no'
 :right_to_abode?:
 - 'yes'
 - 'no'
