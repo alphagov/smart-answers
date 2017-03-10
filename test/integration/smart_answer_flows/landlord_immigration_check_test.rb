@@ -166,7 +166,12 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
         add_response "non-eea"
       end
 
-      should "go to outcome_can_rent" do
+      should "go to family_permit" do
+        assert_current_node :family_permit?
+      end
+
+      should "go to outcome_can_rent if tenant has a permanent residence card" do
+        add_response "yes"
         assert_current_node :outcome_can_rent
       end
     end

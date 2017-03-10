@@ -98,7 +98,7 @@ module SmartAnswer
           when "eea"
             question :has_eu_documents?
           when "non-eea"
-            outcome :outcome_can_rent
+            question :family_permit?
           end
         end
       end
@@ -114,6 +114,21 @@ module SmartAnswer
             outcome :outcome_can_rent
           when "no"
             question :has_other_documents?
+          end
+        end
+      end
+
+      #Q5
+      multiple_choice :family_permit? do
+        option "yes"
+        option "no"
+
+        next_node do |response|
+          case response
+          when "yes"
+            outcome :outcome_can_rent
+          when "no"
+            question :outcome_can_rent
           end
         end
       end

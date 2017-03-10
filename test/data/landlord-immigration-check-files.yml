@@ -1,7 +1,7 @@
 ---
-lib/smart_answer_flows/landlord-immigration-check.rb: ad29af6df90b97c08f77061c2950bc03
-test/data/landlord-immigration-check-questions-and-responses.yml: 66179e364ab24c843faae5c6a5394bb3
-test/data/landlord-immigration-check-responses-and-expected-results.yml: a3dbf853ddabd345dd0ba6e143178634
+lib/smart_answer_flows/landlord-immigration-check.rb: 0d0f19e4beda742d0468e93b955f2b0e
+test/data/landlord-immigration-check-questions-and-responses.yml: e2ad6e8ae1199ad7dfe885da72f5157f
+test/data/landlord-immigration-check-responses-and-expected-results.yml: 7aee0eb7c5cccecc4a0dbf05a04096fa
 lib/smart_answer_flows/landlord-immigration-check/landlord_immigration_check.govspeak.erb: 60507bfc657cf13a750b258017453743
 lib/smart_answer_flows/landlord-immigration-check/outcomes/_landlord_code_of_practice.govspeak.erb: cfb1261ac17c7aa40445173406459290
 lib/smart_answer_flows/landlord-immigration-check/outcomes/outcome_can_not_rent.govspeak.erb: 27a5d4936b713e09fa12059ac230ba56
@@ -18,6 +18,7 @@ lib/smart_answer_flows/landlord-immigration-check/outcomes/outcome_check_not_nee
 lib/smart_answer_flows/landlord-immigration-check/outcomes/outcome_check_not_needed_when_mobile_home.govspeak.erb: e027d7b397e09b60ca7ee234ed7b7f7d
 lib/smart_answer_flows/landlord-immigration-check/outcomes/outcome_check_not_needed_when_under_18.govspeak.erb: 57f489ea247c5dae1b90903a7518d1eb
 lib/smart_answer_flows/landlord-immigration-check/outcomes/outcome_landlords_checking_service.govspeak.erb: c0b7b0a3e58c29962e3dbf846f847945
+lib/smart_answer_flows/landlord-immigration-check/questions/family_permit.govspeak.erb: f7040bcd75e71256f2d974da1085ab53
 lib/smart_answer_flows/landlord-immigration-check/questions/has_asylum_card.govspeak.erb: da15f9bb156eed4ff866cfba4072620b
 lib/smart_answer_flows/landlord-immigration-check/questions/has_certificate.govspeak.erb: c670d7bc733232a394b4caa93a6aefb9
 lib/smart_answer_flows/landlord-immigration-check/questions/has_documents.govspeak.erb: ea1250a0013c28b4a7cbcb0337219e16
