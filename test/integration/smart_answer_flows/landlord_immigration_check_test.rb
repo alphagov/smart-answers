@@ -171,12 +171,12 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
       end
 
       should "go to outcome_can_rent if tenant has a permanent residence card" do
-        add_response "yes"
+        add_response "yes" # family_permit?
         assert_current_node :outcome_can_rent
       end
 
       should "ask if tenant has residence card for EU, EEA or Swiss family member" do
-        add_response "no"
+        add_response "no" # family_permit?
         assert_current_node :has_residence_card_or_eu_eea_swiss_family_member?
       end
 
@@ -184,6 +184,19 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
         add_response "no"  # family_permit?
         add_response "yes" # has_residence_card_or_eu_eea_swiss_family_member?
         assert_current_node :outcome_can_rent_but_check_will_be_needed_again
+      end
+
+      should "go to question has_documents? if tenant does have a residence card for EU, EEA or Swiss family member" do
+        add_response "no"  # family_permit?
+        add_response "no" # has_residence_card_or_eu_eea_swiss_family_member?
+        assert_current_node :has_documents?
+      end
+
+      should "go to outcome_can_rent if tenant answers yes to has_documents?" do
+        add_response "no"  # family_permit?
+        add_response "no" # has_residence_card_or_eu_eea_swiss_family_member?
+        add_response "yes" # has_documents?
+        assert_current_node :outcome_can_rent
       end
     end
   end
