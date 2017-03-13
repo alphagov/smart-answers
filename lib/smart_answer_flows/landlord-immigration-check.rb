@@ -244,7 +244,7 @@ module SmartAnswer
           when "yes"
             outcome :outcome_landlords_checking_service
           when "no"
-            outcome :outcome_landlords_checking_service
+            question :immigration_application?
           end
         end
       end
@@ -280,19 +280,19 @@ module SmartAnswer
       end
 
       #Q15
-      # multiple_choice :immigration_application? do
-      #   option "yes"
-      #   option "no"
-      #
-      #   next_node do |response|
-      #     case response
-      #     when "yes"
-      #       outcome :outcome_landlords_checking_service
-      #     when "no"
-      #       outcome :outcome_can_not_rent
-      #     end
-      #   end
-      # end
+      multiple_choice :immigration_application? do
+        option "yes"
+        option "no"
+
+        next_node do |response|
+          case response
+          when "yes"
+            outcome :outcome_landlords_checking_service
+          when "no"
+            outcome :outcome_can_not_rent
+          end
+        end
+      end
 
       #Q13
       multiple_choice :has_residence_card_or_eu_eea_swiss_family_member? do

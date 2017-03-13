@@ -249,6 +249,38 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
         add_response "yes" # waiting_for_documents?
         assert_current_node :outcome_landlords_checking_service
       end
+
+      should "go to question permission to rent if tenant answers no to waiting_for_documents?" do
+        add_response "no"  # family_permit?
+        add_response "no" # has_residence_card_or_eu_eea_swiss_family_member?
+        add_response "no" # has_documents?
+        add_response "no" # time_limited_to_remain?
+        add_response "no" # has_other_documents?
+        add_response "no" # waiting_for_documents?
+        assert_current_node :immigration_application?
+      end
+
+      should "go to outcome_landlords_checking_service if tenant has special permission to rent" do
+        add_response "no"  # family_permit?
+        add_response "no" # has_residence_card_or_eu_eea_swiss_family_member?
+        add_response "no" # has_documents?
+        add_response "no" # time_limited_to_remain?
+        add_response "no" # has_other_documents?
+        add_response "no" # waiting_for_documents?
+        add_response "yes" # immigration_application?
+        assert_current_node :outcome_landlords_checking_service
+      end
+
+      should "go to outcome_can_not_rent if tenant answers does not have special permission to rent" do
+        add_response "no"  # family_permit?
+        add_response "no" # has_residence_card_or_eu_eea_swiss_family_member?
+        add_response "no" # has_documents?
+        add_response "no" # time_limited_to_remain?
+        add_response "no" # has_other_documents?
+        add_response "no" # waiting_for_documents?
+        add_response "no" # immigration_application?
+        assert_current_node :outcome_can_not_rent
+      end
     end
   end
 

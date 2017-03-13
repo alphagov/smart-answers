@@ -55,3 +55,6 @@
 :waiting_for_documents?:
 - 'yes'
 - 'no'
+:immigration_application?:
+- 'yes'
+- 'no'
