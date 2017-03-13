@@ -2,7 +2,7 @@ module SmartAnswer::Calculators
   class LandlordImmigrationCheckCalculator
     include ActiveModel::Model
 
-    attr_accessor :postcode
+    attr_accessor :postcode, :nationality
 
     def rules_apply?
       countries_for_postcode.include?('England')

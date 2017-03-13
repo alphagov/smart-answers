@@ -52,3 +52,6 @@
 :has_other_documents?:
 - 'yes'
 - 'no'
+:waiting_for_documents?:
+- 'yes'
+- 'no'
