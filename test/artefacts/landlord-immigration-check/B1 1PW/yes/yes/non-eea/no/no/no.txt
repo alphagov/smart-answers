@@ -1,12 +1,17 @@
+Does the person have any of the following:
+
+- a passport endorsed to show that the person can stay in the UK temporarily
+- a current Biometric Residence Permit issued by the Home Office to the person showing that they can currently stay in the UK temporarily
+- an Immigration Status Document issued by the Home Office with an endorsement showing the person can currently stay in the UK temporarily
 
 
-This person can rent the property.
 
-You need to make a copy of the [relevant parts of the documents](/check-tenant-right-to-rent-documents) and keep the copies for 12 months after the tenancy has ended.
 
-You don’t have to make this check again.
+  * yes: Yes
+  * no: No
 
-You can read the landlord’s [code of practice](/government/publications/right-to-rent-landlords-code-of-practice) on making checks for more information.
+
+
 
 
 
