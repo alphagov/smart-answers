@@ -346,6 +346,7 @@ module SmartAnswer::Calculators
          ireland
          philippines
          italy
+         thailand
         ).include?(ceremony_country)
     end
 
