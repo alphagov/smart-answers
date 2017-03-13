@@ -197,19 +197,19 @@ module SmartAnswer
       # end
 
       #Q9
-      # multiple_choice :has_documents? do
-      #   option "yes"
-      #   option "no"
-      #
-      #   next_node do |response|
-      #     case response
-      #     when "yes"
-      #       outcome :outcome_can_rent
-      #     when "no"
-      #       question :has_other_documents?
-      #     end
-      #   end
-      # end
+      multiple_choice :has_documents? do
+        option "yes"
+        option "no"
+
+        next_node do |response|
+          case response
+          when "yes"
+            outcome :outcome_can_rent
+          when "no"
+            outcome :outcome_can_rent
+          end
+        end
+      end
 
       #Q10
       multiple_choice :has_other_documents? do
@@ -296,7 +296,7 @@ module SmartAnswer
           when "yes"
             outcome :outcome_can_rent_but_check_will_be_needed_again
           when "no"
-            outcome :outcome_can_rent
+            outcome :has_documents?
           end
         end
       end
