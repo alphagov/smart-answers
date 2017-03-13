@@ -23,6 +23,7 @@ class SmartAnswersController < ApplicationController
   def index
     @flows = flow_registry.flows.sort_by(&:name)
     @title = 'Smart Answers Index'
+    @content_item = {}
   end
 
   def show
