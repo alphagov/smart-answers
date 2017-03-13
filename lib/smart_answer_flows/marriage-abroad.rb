@@ -210,8 +210,6 @@ module SmartAnswer
               outcome :outcome_opposite_sex_marriage_in_qatar
             elsif calculator.ceremony_country == 'ecuador'
               outcome :outcome_opposite_sex_marriage_in_ecuador
-            elsif calculator.ceremony_country == 'thailand'
-              outcome :outcome_opposite_sex_marriage_in_thailand
             elsif calculator.ceremony_country == 'united-arab-emirates'
               outcome :outcome_opposite_sex_marriage_in_united_arab_emirates
             elsif calculator.ceremony_country == 'china'
