@@ -46,6 +46,9 @@
 :has_documents?:
 - 'yes'
 - 'no'
+:time_limited_to_remain?:
+- 'yes'
+- 'no'
 :has_other_documents?:
 - 'yes'
 - 'no'
