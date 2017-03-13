@@ -11,6 +11,7 @@ class SmartAnswersControllerMultipleChoiceQuestionTest < ActionController::TestC
 
   def setup
     setup_fixture_flows
+    stub_smart_answer_in_content_store("smart-answers-controller-sample-with-multiple-choice-question")
   end
 
   def teardown
