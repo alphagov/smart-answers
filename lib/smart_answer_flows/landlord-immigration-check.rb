@@ -266,7 +266,7 @@ module SmartAnswer
           when "yes"
             outcome :outcome_can_rent_but_check_will_be_needed_again
           when "no"
-            outcome :outcome_can_rent_but_check_will_be_needed_again
+            outcome :has_other_documents?
           end
         end
       end
