@@ -348,6 +348,7 @@ module SmartAnswer::Calculators
          philippines
          turkey
          italy
+         thailand
         ).include?(ceremony_country)
     end
 

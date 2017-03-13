@@ -799,11 +799,9 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   end
 
   #tests for affirmation to marry outcomes
-  context "ceremony in thailand, resident in the UK, partner other" do
+  context "ceremony in thailand, opposite sex" do
     setup do
       add_response 'thailand'
-      add_response 'uk'
-      add_response 'partner_other'
       add_response 'opposite_sex'
     end
     should "go to os affirmation outcome" do
