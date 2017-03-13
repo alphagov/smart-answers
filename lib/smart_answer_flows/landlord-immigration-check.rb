@@ -91,6 +91,10 @@ module SmartAnswer
         option "eea"
         option "non-eea"
 
+        on_response do |response|
+          calculator.nationality = response
+        end
+
         next_node do |response|
           case response
           when "british-or-irish"
@@ -221,25 +225,29 @@ module SmartAnswer
           when "yes"
             outcome :outcome_can_rent
           when "no"
-            outcome :outcome_can_not_rent
+            if calculator.nationality == "non-eea"
+              question :waiting_for_documents?
+            else
+              outcome :outcome_can_not_rent
+            end
           end
         end
       end
 
       #new Q14
-      # multiple_choice :waiting_for_documents? do
-      #   option "yes"
-      #   option "no"
-      #
-      #   next_node do |response|
-      #     case response
-      #     when "yes"
-      #       outcome :outcome_landlords_checking_service
-      #     when "no"
-      #       question :immigration_application?
-      #     end
-      #   end
-      # end
+      multiple_choice :waiting_for_documents? do
+        option "yes"
+        option "no"
+
+        next_node do |response|
+          case response
+          when "yes"
+            outcome :outcome_landlords_checking_service
+          when "no"
+            outcome :outcome_landlords_checking_service
+          end
+        end
+      end
 
       #Q14
       # multiple_choice :has_asylum_card? do
@@ -308,7 +316,7 @@ module SmartAnswer
       outcome :outcome_check_may_be_needed_when_student
       outcome :outcome_check_needed_if_break_clause
       outcome :outcome_check_not_needed
-      # outcome :outcome_landlords_checking_service
+      outcome :outcome_landlords_checking_service
       outcome :outcome_check_not_needed_if_holiday_or_under_3_months
       outcome :outcome_check_not_needed_when_care_home
       outcome :outcome_check_not_needed_when_employee_home
