@@ -198,6 +198,21 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
         add_response "yes" # has_documents?
         assert_current_node :outcome_can_rent
       end
+
+      should "go to outcome_can_rent if tenant answers no to has_documents?" do
+        add_response "no"  # family_permit?
+        add_response "no" # has_residence_card_or_eu_eea_swiss_family_member?
+        add_response "no" # has_documents?
+        assert_current_node :time_limited_to_remain?
+      end
+
+      should "go to outcome_can_rent_but_check_will_be_needed_again if tenant has time limited leave to remain" do
+        add_response "no"  # family_permit?
+        add_response "no" # has_residence_card_or_eu_eea_swiss_family_member?
+        add_response "no" # has_documents?
+        add_response "yes" # time_limited_to_remain?
+        assert_current_node :outcome_can_rent_but_check_will_be_needed_again
+      end
     end
   end
 

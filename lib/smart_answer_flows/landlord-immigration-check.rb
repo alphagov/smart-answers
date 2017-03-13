@@ -206,7 +206,7 @@ module SmartAnswer
           when "yes"
             outcome :outcome_can_rent
           when "no"
-            outcome :outcome_can_rent
+            question :time_limited_to_remain?
           end
         end
       end
@@ -257,19 +257,19 @@ module SmartAnswer
       # end
 
       #Q12
-      # multiple_choice :time_limited_to_remain? do
-      #   option "yes"
-      #   option "no"
-      #
-      #   next_node do |response|
-      #     case response
-      #     when "yes"
-      #       outcome :outcome_can_rent_but_check_will_be_needed_again
-      #     when "no"
-      #       question :has_residence_card_or_eu_eea_swiss_family_member?
-      #     end
-      #   end
-      # end
+      multiple_choice :time_limited_to_remain? do
+        option "yes"
+        option "no"
+
+        next_node do |response|
+          case response
+          when "yes"
+            outcome :outcome_can_rent_but_check_will_be_needed_again
+          when "no"
+            outcome :outcome_can_rent_but_check_will_be_needed_again
+          end
+        end
+      end
 
       #Q15
       # multiple_choice :immigration_application? do

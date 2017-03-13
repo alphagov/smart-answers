@@ -175,7 +175,31 @@
   - 'no'
   - 'no'
   - 'no'
-  :next_node: :outcome_can_rent
+  :next_node: :time_limited_to_remain?
+  :outcome_node: false
+- :current_node: :time_limited_to_remain?
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - non-eea
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'yes'
+  :next_node: :outcome_can_rent_but_check_will_be_needed_again
+  :outcome_node: true
+- :current_node: :time_limited_to_remain?
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - non-eea
+  - 'no'
+  - 'no'
+  - 'no'
+  - 'no'
+  :next_node: :outcome_can_rent_but_check_will_be_needed_again
   :outcome_node: true
 - :current_node: :tenant_over_18?
   :responses:
