@@ -4,12 +4,12 @@ Contact the relevant local authorities in Denmark to find out about local marria
 
 ##What you need to do
 
-You need to apply for either: 
+You need to apply for either:
 
 - a certificate of no impediment (CNI) from the British Embassy or UK registrar
 - a ‘no trace letter’ from the General Register Office
 
-###Certificate of no impediment (CNI) 
+###Certificate of no impediment (CNI)
 
 To get a CNI, you must post notice of your intended marriage in Denmark. You can do this at the British embassy or in front of a notary public.
 
@@ -62,9 +62,10 @@ $C
 
 ## Fees
 
-Service | Fee
--|-
-Issuing a CNI, Nulla Osta or equivalent | £50
+<%= render partial: 'consular_fees_table_items.govspeak.erb',
+    collection: calculator.services,
+    as: :service,
+    locals: { calculator: calculator } %>
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Denmark](/government/publications/denmark-consular-fees).
 
