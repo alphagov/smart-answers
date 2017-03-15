@@ -26,7 +26,11 @@
   %>
 <% end %>
 
-<%= render partial: 'govuk_component/breadcrumbs', locals: breadcrumbs %>
+<%= render partial: 'govuk_component/breadcrumbs',
+    locals: {
+      breadcrumbs: breadcrumbs[:breadcrumbs],
+      collapse_on_mobile: should_present_new_navigation_view?(@content_item)
+    } %>
 
 <div class="grid-row">
   <main id="content" role="main">
