@@ -3,7 +3,7 @@ lib/smart_answer_flows/pay-leave-for-parents.rb: f37cedf805aa6484b2e42ebbe6d42d9
 test/data/pay-leave-for-parents-questions-and-responses.yml: f77407cfeb279922121a952b1b99772b
 test/data/pay-leave-for-parents-responses-and-expected-results.yml: 3635c2ae8aaf92652f7dbae3c9a0a699
 lib/smart_answer_flows/pay-leave-for-parents/outcomes/_additional_pat_leave.govspeak.erb: dcede84d936f876a3c91c1457c3afc01
-lib/smart_answer_flows/pay-leave-for-parents/outcomes/_additional_pat_pay.govspeak.erb: d7089d045d450f62f66beb4c305db6b6
+lib/smart_answer_flows/pay-leave-for-parents/outcomes/_additional_pat_pay.govspeak.erb: 18f4b226c1b495ad1ed327cb2729cc79
 lib/smart_answer_flows/pay-leave-for-parents/outcomes/_birth_nothing.govspeak.erb: b550c42385547ccb1eab92cb3b3bff0b
 lib/smart_answer_flows/pay-leave-for-parents/outcomes/_both_shared_leave.govspeak.erb: 7a2fc4dabb4b81d04c600bfcdb5898fe
 lib/smart_answer_flows/pay-leave-for-parents/outcomes/_both_shared_pay.govspeak.erb: 621cb7f0550fe5d38d9dc6d60dfb1a27
