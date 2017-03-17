@@ -13,11 +13,11 @@ lib/smart_answer_flows/pay-leave-for-parents/outcomes/_mat_allowance_14_weeks.go
 lib/smart_answer_flows/pay-leave-for-parents/outcomes/_mat_leave.govspeak.erb: 11e728f05f4e684db9a204c1f0cd62b3
 lib/smart_answer_flows/pay-leave-for-parents/outcomes/_mat_pay.govspeak.erb: b93e26edaa0abfa2406723adf3579675
 lib/smart_answer_flows/pay-leave-for-parents/outcomes/_mat_shared_leave.govspeak.erb: 11930d6727f1a95f6aba571c6c0148b6
-lib/smart_answer_flows/pay-leave-for-parents/outcomes/_mat_shared_pay.govspeak.erb: ec3e1a5a55065ef0aab87168a64d0c9a
+lib/smart_answer_flows/pay-leave-for-parents/outcomes/_mat_shared_pay.govspeak.erb: a508f7d8b26cd5c64ab686ae71cfd455
 lib/smart_answer_flows/pay-leave-for-parents/outcomes/_pat_leave.govspeak.erb: 5ca354d4c9d9a879c0b5d6e9a8df8d47
 lib/smart_answer_flows/pay-leave-for-parents/outcomes/_pat_pay.govspeak.erb: 974aa9d20192b89ab5ed43bc2e35d2cf
 lib/smart_answer_flows/pay-leave-for-parents/outcomes/_pat_shared_leave.govspeak.erb: 8a866beb5a6fb6fd3301185dfa7c9098
-lib/smart_answer_flows/pay-leave-for-parents/outcomes/_pat_shared_pay.govspeak.erb: 6210496fc4584ac394409402bea4f172
+lib/smart_answer_flows/pay-leave-for-parents/outcomes/_pat_shared_pay.govspeak.erb: 9856d3dbf48a64dafccfdf3d0a8e40f2
 lib/smart_answer_flows/pay-leave-for-parents/outcomes/_single_birth_nothing.govspeak.erb: a62e26a33835b11b26320bcb09b193d6
 lib/smart_answer_flows/pay-leave-for-parents/outcomes/_statutory_maternity_pay_warning.govspeak.erb: 6bf9329c9514981523707aa72105e430
 lib/smart_answer_flows/pay-leave-for-parents/outcomes/outcome_birth_nothing.govspeak.erb: 15ae49e3011c3aa0bfcde091a48b8a56
