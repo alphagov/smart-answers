@@ -21,6 +21,6 @@ lib/smart_answer_flows/calculate-married-couples-allowance/questions/whats_the_h
 lib/smart_answer_flows/calculate-married-couples-allowance/questions/whats_the_highest_earners_income.govspeak.erb: 412dc17e132e6eac48e7b19de53568e5
 lib/smart_answer_flows/calculate-married-couples-allowance/questions/whats_the_husbands_date_of_birth.govspeak.erb: e4fc026bed0343ef3a2727da6c8ed30a
 lib/smart_answer_flows/calculate-married-couples-allowance/questions/whats_the_husbands_income.govspeak.erb: dd71c9678c1f2b9eba3471151b2ba839
-lib/data/rates/personal_allowance.yml: 53b723ddd482932c28e585aa778ffce4
-lib/data/rates/married_couples_allowance.yml: 298d9f701fa1d02aeb7801df462e0605
+lib/data/rates/personal_allowance.yml: 55e9f501e86bf70402b83675f78ffa7a
+lib/data/rates/married_couples_allowance.yml: 697dc4a41e46cb21e4a8a4e8dda5baa5
 lib/smart_answer/calculators/married_couples_allowance_calculator.rb: 6e3a825124b3e11dffc5c5ab08e31c93

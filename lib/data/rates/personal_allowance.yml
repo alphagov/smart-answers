@@ -26,3 +26,10 @@
   higher_allowance_1: 11000
   higher_allowance_2: 11000
   income_limit_for_personal_allowances: 27700.0
+
+- start_date: 2017-04-06
+  end_date: 2018-04-05
+  personal_allowance: 11000
+  higher_allowance_1: 11000
+  higher_allowance_2: 11000
+  income_limit_for_personal_allowances: 28000.0
