@@ -4,6 +4,7 @@ Which year would you like to check past payments for?
 
 You can go back up to 6 years
 
+  * 2016-10-01: Oct 2016 - Mar 2017
   * 2016-04-01: Apr 2016 - Sep 2016
   * 2015-10-01: Oct 2015 - Mar 2016
   * 2014-10-01: Oct 2014 - Sep 2015
