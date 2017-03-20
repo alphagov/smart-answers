@@ -1528,32 +1528,18 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "ceremony in china, partner is not from china, opposite sex" do
+  context "ceremony in china, opposite sex" do
     should "render address from API" do
       add_response 'china'
-      add_response 'uk'
-      add_response 'partner_other'
       add_response 'opposite_sex'
       assert_current_node :outcome_marriage_abroad_in_country
     end
   end
 
-  context "ceremony in china, partner is not from china, same sex" do
+  context "ceremony in china, same sex" do
     should "render address from API" do
       add_response 'china'
-      add_response 'uk'
-      add_response 'partner_other'
       add_response 'same_sex'
-      assert_current_node :outcome_marriage_abroad_in_country
-    end
-  end
-
-  context "ceremony in china, partner is national of china" do
-    should "render address from API" do
-      add_response 'china'
-      add_response 'ceremony_country'
-      add_response 'partner_local'
-      add_response 'opposite_sex'
       assert_current_node :outcome_marriage_abroad_in_country
     end
   end
