@@ -156,16 +156,7 @@
                locals: { calculator: calculator } %>
   <% end %>
 
-  <% if calculator.ceremony_country == 'greece' %>
-    You’ll need to provide supporting documents, including:
-
-    - your passport
-    - Greek ID card (if available)
-    - proof of residence, such as a residence permit - check with the embassy or notary public to find out what you need
-    - equivalent documents for your partner
-
-
-  <% elsif calculator.ceremony_country == 'macao' %>
+  <% if calculator.ceremony_country == 'macao' %>
     <%= render partial: 'required_supporting_documents_macao.govspeak.erb' %>
   <% else %>
     <% if calculator.birth_certificate_required_as_supporting_document? && (calculator.notary_public_ceremony_country? || %w(japan macedonia).include?(calculator.ceremony_country)) %>
