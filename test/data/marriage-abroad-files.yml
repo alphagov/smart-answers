@@ -587,7 +587,7 @@ lib/smart_answer_flows/marriage-abroad/questions/legal_residency.govspeak.erb: 7
 lib/smart_answer_flows/marriage-abroad/questions/marriage_or_pacs.govspeak.erb: a51aecfac697188f90ca9efefcb2e0ea
 lib/smart_answer_flows/marriage-abroad/questions/partner_opposite_or_same_sex.govspeak.erb: 40d0c99a5be50f0625c6562f06fe4afd
 lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationality.govspeak.erb: 80e04f36c75c232bede1a244d621471e
-lib/smart_answer_flows/marriage-abroad.rb: 95963a05f462380b5f6986eb55ad7754
+lib/smart_answer_flows/marriage-abroad.rb: a55cda88d170a6d0ee2f08d6dbff73b8
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1dc349abcd6b21e1bf8c397d96fd02b8
 test/data/marriage-abroad-questions-and-responses.yml: 18d27f7b85cc02c37b8bab7e9afd4acc
-test/data/marriage-abroad-responses-and-expected-results.yml: 3f4b5d10abab6f92e757143646a44c3c
+test/data/marriage-abroad-responses-and-expected-results.yml: ebc59d29ed992fdfbd64730e55979151
