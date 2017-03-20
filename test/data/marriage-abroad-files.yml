@@ -1,7 +1,7 @@
 ---
 lib/smart_answer_flows/marriage-abroad.rb: 5e71f9272819b571a07c17423751bf19
 test/data/marriage-abroad-questions-and-responses.yml: 35a2f04fceb6c1c45cd96ca80dcba991
-test/data/marriage-abroad-responses-and-expected-results.yml: eb62e30f2e12cfaf657b579b2a5f6ded
+test/data/marriage-abroad-responses-and-expected-results.yml: 96c593e7a6aa64e58fcaeb11990230e6
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
 lib/smart_answer_flows/marriage-abroad/outcomes/_affirmation_os_translation_in_local_language_text.govspeak.erb: af09e09b909c563d4a587ef1b9285cca
 lib/smart_answer_flows/marriage-abroad/outcomes/_appointment_for_affidavit.govspeak.erb: 4db6fe2ec298d79aefaed0d4ff244e75
@@ -76,6 +76,8 @@ lib/smart_answer_flows/marriage-abroad/outcomes/_you_dont_need_to_stay_in_countr
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_have_been_divorced_or_widowed.govspeak.erb: e719af472a3ec2c26a9e4ce7202c11ff
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_will_be_asked_for_cni.govspeak.erb: cd1226b515c6a1723da99be2cb207c51
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_will_have_to_wait_to_get_married.govspeak.erb: e32774b08379258450d2d2198c0dbc49
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/china/_opposite_sex.govspeak.erb: 1225188801a3c91b55e188b5a011d992
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/china/_same_sex.govspeak.erb: bf8299242e5b5d8dd59f6a4aaa81bfff
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/china/_title.govspeak.erb: 475112c09ab99bdd0d610ab1e79cb0fd
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/china/ceremony_country/partner_british/_opposite_sex.govspeak.erb: 1225188801a3c91b55e188b5a011d992
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/china/ceremony_country/partner_british/_same_sex.govspeak.erb: bf8299242e5b5d8dd59f6a4aaa81bfff
@@ -374,7 +376,7 @@ lib/smart_answer_flows/marriage-abroad/questions/partner_opposite_or_same_sex.go
 lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationality.govspeak.erb: 80e04f36c75c232bede1a244d621471e
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/data/marriage_abroad_services.yml: a487a1dfe5db504bc0fb6c72b8a099c1
-lib/smart_answer/calculators/marriage_abroad_calculator.rb: e80429efb8c31115e5091efef59dd0b5
+lib/smart_answer/calculators/marriage_abroad_calculator.rb: 312e5925802657287ca6dccff143a889
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 0bc67c4469fe692a4fa53c9b461821bf
 lib/smart_answer/calculators/marriage_abroad_data_query.rb: 36479593ef909d94752601cb52484db8
 lib/smart_answer/calculators/country_name_formatter.rb: 583df7103672f581bf5510732c1b2be1
