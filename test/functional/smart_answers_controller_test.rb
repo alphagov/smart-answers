@@ -280,7 +280,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
             get :show, id: 'smart-answers-controller-sample'
 
-            assert_response_not_modified_for_ab_test
+            assert_response_not_modified_for_ab_test('EducationNavigation')
           end
         end
       end
