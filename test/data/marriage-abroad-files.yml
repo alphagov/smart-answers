@@ -240,8 +240,8 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/sweden/uk/partner_loca
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/sweden/uk/partner_local/_same_sex.govspeak.erb: aaa5cef740c7a1835949e3c7b22d0bc8
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/sweden/uk/partner_other/_opposite_sex.govspeak.erb: 08a20430b686059bf67eb090ca4a1904
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/sweden/uk/partner_other/_same_sex.govspeak.erb: aaa5cef740c7a1835949e3c7b22d0bc8
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/turkey/_opposite_sex.govspeak.erb: 17f03c901e3fb4aa9a79a5c1ae5bf7d9
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/turkey/_same_sex.govspeak.erb: 25b5e80abb9a880dbfb538ef07c7864a
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/turkey/_opposite_sex.govspeak.erb: a9f9918c8d7a100785e17e03df4d2cb5
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/turkey/_same_sex.govspeak.erb: 90d759b8e8d4490b06a00c29d310e455
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/turkey/_title.govspeak.erb: bff08d6cfacde06e3aa9a9b96a52be90
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/turkey/ceremony_country/partner_british/_opposite_sex.govspeak.erb: 63f195dcde1554183c0ac7477d6915dc
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/turkey/ceremony_country/partner_british/_same_sex.govspeak.erb: 014f0f9386804de480b98f1ce415ac11
