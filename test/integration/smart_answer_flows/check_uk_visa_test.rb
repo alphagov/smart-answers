@@ -7,7 +7,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    @location_slugs = %w(andorra anguilla armenia bolivia canada china colombia croatia mexico south-africa stateless-or-refugee syria turkey democratic-republic-of-the-congo oman united-arab-emirates qatar taiwan venezuela afghanistan yemen)
+    @location_slugs = %w(andorra anguilla armenia bolivia canada china colombia croatia estonia mexico south-africa stateless-or-refugee syria turkey democratic-republic-of-the-congo oman united-arab-emirates qatar taiwan venezuela afghanistan yemen)
     stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::CheckUkVisaFlow
   end
@@ -859,6 +859,16 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     end
     should "go to diplomatic and government outcome" do
       assert_current_node :outcome_diplomatic_business
+    end
+  end
+
+  context "Estonia" do
+    setup do
+      add_response 'estonia'
+    end
+
+    should 'go ask what sort of passport' do
+      assert_current_node :what_sort_of_passport?
     end
   end
 end

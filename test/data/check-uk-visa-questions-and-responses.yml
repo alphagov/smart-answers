@@ -22,6 +22,9 @@
 :israeli_document_type?:
 - full-passport
 - provisional-passport
+:what_sort_of_passport?:
+- citizen
+- alien
 :purpose_of_visit?:
 - tourism
 - work

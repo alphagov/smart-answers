@@ -23,6 +23,8 @@ module SmartAnswer
         next_node do
           if calculator.passport_country_is_israel?
             question :israeli_document_type?
+          elsif calculator.passport_country_is_estonia?
+            question :what_sort_of_passport?
           elsif calculator.passport_country_in_eea?
             outcome :outcome_no_visa_needed
           else
@@ -42,6 +44,16 @@ module SmartAnswer
 
         next_node do
           question :purpose_of_visit?
+        end
+      end
+
+      #Q1c
+      multiple_choice :what_sort_of_passport? do
+        option :citizen
+        option :alien
+
+        next_node do
+          outcome :outcome_no_visa_needed
         end
       end
 
