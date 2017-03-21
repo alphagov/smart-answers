@@ -337,6 +337,12 @@ module SmartAnswer
           calculator.passport_country = 'not-estonia'
           refute calculator.passport_country_is_estonia?
         end
+
+        should 'return true of user has an alien passport' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'estonia-alien-passport'
+          assert calculator.passport_country_is_estonia?
+        end
       end
 
       context '#applicant_is_stateless_or_a_refugee?' do

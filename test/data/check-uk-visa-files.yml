@@ -1,7 +1,7 @@
 ---
 app/models/ukba_country.rb: 56879bb5efb4225cbf56850269385d44
 lib/data/ukba_additional_countries.yml: 5e84d01caf6b2841d0ea9f03f0f4974c
-lib/smart_answer/calculators/uk_visa_calculator.rb: bc7c7bde60f79575b7842ded587cd3ef
+lib/smart_answer/calculators/uk_visa_calculator.rb: 91f7922943acea6d4943bb3704c13c8f
 lib/smart_answer_flows/check-uk-visa/check_uk_visa.govspeak.erb: a442b4ddd169b26a401c70d145e5b44e
 lib/smart_answer_flows/check-uk-visa/outcomes/_b1_b2_visa_exception.govspeak.erb: 410e39d565d0a5caed2d1b8c20c1ca77
 lib/smart_answer_flows/check-uk-visa/outcomes/_stateless_or_refugee.govspeak.erb: a14d7807087e4f05e9fada8ac755ee2e
@@ -43,6 +43,6 @@ lib/smart_answer_flows/check-uk-visa/questions/staying_for_how_long.govspeak.erb
 lib/smart_answer_flows/check-uk-visa/questions/travelling_to_cta.govspeak.erb: 1be958b6da2caa148849a26b64a01cc3
 lib/smart_answer_flows/check-uk-visa/questions/what_passport_do_you_have.govspeak.erb: 45a59c18a7b570142f32d3b93f8f7db4
 lib/smart_answer_flows/check-uk-visa/questions/what_sort_of_passport.govspeak.erb: ada93cc2c1f7f110eb3a1f8b3d38276b
-lib/smart_answer_flows/check-uk-visa.rb: 6e1234702f80198f83da2fa50240d86b
+lib/smart_answer_flows/check-uk-visa.rb: 6000cd03e6d317d9125b5488b8d159ab
 test/data/check-uk-visa-questions-and-responses.yml: 33c876a5b75defcf10610c0a81ed14ee
-test/data/check-uk-visa-responses-and-expected-results.yml: 72573d467fa27bb3e04296aedaa0f3b4
+test/data/check-uk-visa-responses-and-expected-results.yml: 7fdf0051945e52ea8841571be6c8ed65

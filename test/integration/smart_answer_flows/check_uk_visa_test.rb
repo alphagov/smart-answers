@@ -870,5 +870,15 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     should 'go ask what sort of passport' do
       assert_current_node :what_sort_of_passport?
     end
+
+    should 'go to outcome_no_visa_needed if user has an Estonian passport' do
+      add_response "citizen" # Q1c
+      assert_current_node :outcome_no_visa_needed
+    end
+
+    should 'go to question 2 if user has an Alien passport' do
+      add_response "alien" # Q1c
+      assert_current_node :purpose_of_visit?
+    end
   end
 end

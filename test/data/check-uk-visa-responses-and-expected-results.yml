@@ -1112,7 +1112,256 @@
   :responses:
   - estonia
   - alien
-  :next_node: :outcome_no_visa_needed
+  :next_node: :purpose_of_visit?
+  :outcome_node: false
+- :current_node: :purpose_of_visit?
+  :responses:
+  - estonia
+  - alien
+  - tourism
+  :next_node: :outcome_standard_visit
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses:
+  - estonia
+  - alien
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - estonia
+  - alien
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - estonia
+  - alien
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses:
+  - estonia
+  - alien
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - estonia
+  - alien
+  - study
+  - six_months_or_less
+  :next_node: :outcome_study_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - estonia
+  - alien
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses:
+  - estonia
+  - alien
+  - transit
+  :next_node: :travelling_to_cta?
+  :outcome_node: false
+- :current_node: :travelling_to_cta?
+  :responses:
+  - estonia
+  - alien
+  - transit
+  - channel_islands_or_isle_of_man
+  :next_node: :channel_islands_or_isle_of_man?
+  :outcome_node: false
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - estonia
+  - alien
+  - transit
+  - channel_islands_or_isle_of_man
+  - tourism
+  :next_node: :outcome_standard_visit
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - estonia
+  - alien
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - estonia
+  - alien
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - six_months_or_less
+  :next_node: :outcome_work_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - estonia
+  - alien
+  - transit
+  - channel_islands_or_isle_of_man
+  - work
+  - longer_than_six_months
+  :next_node: :outcome_work_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - estonia
+  - alien
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  :next_node: :staying_for_how_long?
+  :outcome_node: false
+- :current_node: :staying_for_how_long?
+  :responses:
+  - estonia
+  - alien
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - six_months_or_less
+  :next_node: :outcome_study_m
+  :outcome_node: true
+- :current_node: :staying_for_how_long?
+  :responses:
+  - estonia
+  - alien
+  - transit
+  - channel_islands_or_isle_of_man
+  - study
+  - longer_than_six_months
+  :next_node: :outcome_study_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - estonia
+  - alien
+  - transit
+  - channel_islands_or_isle_of_man
+  - family
+  :next_node: :outcome_joining_family_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - estonia
+  - alien
+  - transit
+  - channel_islands_or_isle_of_man
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - estonia
+  - alien
+  - transit
+  - channel_islands_or_isle_of_man
+  - school
+  :next_node: :outcome_school_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - estonia
+  - alien
+  - transit
+  - channel_islands_or_isle_of_man
+  - medical
+  :next_node: :outcome_medical_y
+  :outcome_node: true
+- :current_node: :channel_islands_or_isle_of_man?
+  :responses:
+  - estonia
+  - alien
+  - transit
+  - channel_islands_or_isle_of_man
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - estonia
+  - alien
+  - transit
+  - republic_of_ireland
+  :next_node: :outcome_transit_to_the_republic_of_ireland
+  :outcome_node: true
+- :current_node: :travelling_to_cta?
+  :responses:
+  - estonia
+  - alien
+  - transit
+  - somewhere_else
+  :next_node: :passing_through_uk_border_control?
+  :outcome_node: false
+- :current_node: :passing_through_uk_border_control?
+  :responses:
+  - estonia
+  - alien
+  - transit
+  - somewhere_else
+  - 'yes'
+  :next_node: :outcome_transit_leaving_airport_datv
+  :outcome_node: true
+- :current_node: :passing_through_uk_border_control?
+  :responses:
+  - estonia
+  - alien
+  - transit
+  - somewhere_else
+  - 'no'
+  :next_node: :outcome_transit_not_leaving_airport
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses:
+  - estonia
+  - alien
+  - family
+  :next_node: :outcome_joining_family_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses:
+  - estonia
+  - alien
+  - marriage
+  :next_node: :outcome_marriage
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses:
+  - estonia
+  - alien
+  - school
+  :next_node: :outcome_school_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses:
+  - estonia
+  - alien
+  - medical
+  :next_node: :outcome_medical_y
+  :outcome_node: true
+- :current_node: :purpose_of_visit?
+  :responses:
+  - estonia
+  - alien
+  - diplomatic
+  :next_node: :outcome_diplomatic_business
   :outcome_node: true
 - :current_node: :what_passport_do_you_have?
   :responses:

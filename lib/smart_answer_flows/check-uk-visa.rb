@@ -52,8 +52,14 @@ module SmartAnswer
         option :citizen
         option :alien
 
-        next_node do
-          outcome :outcome_no_visa_needed
+        next_node do |response|
+          case response
+          when 'citizen'
+            outcome :outcome_no_visa_needed
+          when 'alien'
+            calculator.passport_country = 'estonia-alien-passport'
+            question :purpose_of_visit?
+          end
         end
       end
 
