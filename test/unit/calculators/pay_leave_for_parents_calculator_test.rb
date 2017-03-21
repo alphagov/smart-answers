@@ -111,14 +111,18 @@ module SmartAnswer
         end
       end
 
-      context "due date outside all ranges" do
+      context "due date in 2016-2017 range" do
         setup do
-          @date = Date.parse("2022-1-1")
+          @date = Date.parse("2017-01-01")
           @calculator = PayLeaveForParentsCalculator.new
           @calculator.due_date = @date
         end
 
-        should "return the latest_pat_leave known lower_earnings_amount" do
+        should "be in 2016-2017 financial year" do
+          assert_equal true, @calculator.in_2016_2017_fin_year?(@date)
+        end
+
+        should "return £112 for lower_earnings_amount" do
           assert_equal 112, @calculator.lower_earnings_amount
         end
       end
