@@ -6,6 +6,21 @@ class ApplicationController < ActionController::Base
 
   slimmer_template 'wrapper'
 
+  helper_method :benchmarking_ab_test
+  helper_method :should_track_mouse_movements?
+
+  def benchmarking_ab_test
+    @benchmarking_ab_test ||= begin
+      benchmarking_test = BenchmarkingAbTestRequest.new(request)
+      benchmarking_test.set_response_vary_header(response)
+      benchmarking_test
+    end
+  end
+
+  def should_track_mouse_movements?
+    benchmarking_ab_test.in_benchmarking?
+  end
+
 protected
 
   def error_404; error(404); end

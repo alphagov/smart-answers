@@ -27,7 +27,7 @@ gem 'uk_postcode', '~> 1.0.1'
 gem 'unicorn', '4.8.3'
 gem 'rails_stdout_logging'
 gem 'govuk_navigation_helpers', '~> 4.0'
-gem 'govuk_ab_testing', '1.0.4'
+gem 'govuk_ab_testing', '~> 2.0'
 gem 'statsd-ruby', '1.3.0', require: 'statsd'
 
 group :development do

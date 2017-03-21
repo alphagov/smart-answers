@@ -51,6 +51,7 @@ module SmartAnswers
       dagre.js
       visualise.js
       visualise.css
+      mouseflow.js
     )
 
     # Version of your assets, change this if you want to expire all your assets
@@ -60,5 +61,8 @@ module SmartAnswers
     config.action_dispatch.rack_cache = nil
 
     config.action_dispatch.ignore_accept_header = true
+
+    # Google Analytics dimension assigned to the benchmarking A/B test
+    config.benchmarking_ab_test_dimension = 49
   end
 end
