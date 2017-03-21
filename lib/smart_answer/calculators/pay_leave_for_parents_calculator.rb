@@ -39,8 +39,10 @@ module SmartAnswer::Calculators
         SmartAnswer::Money.new(112)
       elsif in_2016_2017_fin_year?(start_date)
         SmartAnswer::Money.new(112)
+      elsif in_2017_2018_fin_year?(start_date)
+        SmartAnswer::Money.new(113)
       else
-        SmartAnswer::Money.new(112)
+        SmartAnswer::Money.new(113)
       end
     end
 
@@ -145,6 +147,10 @@ module SmartAnswer::Calculators
 
     def in_2016_2017_fin_year?(date)
       (Date.new(2016, 05, 06)..Date.new(2017, 05, 05)).cover?(date)
+    end
+
+    def in_2017_2018_fin_year?(date)
+      (Date.new(2017, 05, 06)..Date.new(2018, 05, 05)).cover?(date)
     end
 
   private
