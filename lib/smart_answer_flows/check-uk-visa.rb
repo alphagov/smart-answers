@@ -217,7 +217,6 @@ module SmartAnswer
       outcome :outcome_joining_family_m
       outcome :outcome_joining_family_nvn
       outcome :outcome_joining_family_y
-      outcome :outcome_marriage
       outcome :outcome_marriage_nvn_ukot
       outcome :outcome_marriage_taiwan
       outcome :outcome_marriage_visa_nat_datv
@@ -306,8 +305,6 @@ module SmartAnswer
             next outcome(:outcome_marriage_taiwan)
           elsif calculator.passport_country_in_datv_list? || calculator.passport_country_in_visa_national_list?
             next outcome(:outcome_marriage_visa_nat_datv)
-          else
-            next outcome(:outcome_marriage)
           end
         end
 
