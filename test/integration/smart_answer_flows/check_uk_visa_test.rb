@@ -261,7 +261,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         add_response 'marriage'
       end
       should "take you to marriage outcome" do
-        assert_current_node :outcome_marriage
+        assert_current_node :outcome_marriage_nvn_ukot
       end
     end
     context "get private medical treatment" do
