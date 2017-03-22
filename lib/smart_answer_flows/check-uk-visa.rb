@@ -218,6 +218,7 @@ module SmartAnswer
       outcome :outcome_joining_family_nvn
       outcome :outcome_joining_family_y
       outcome :outcome_marriage
+      outcome :outcome_marriage_nvn_ukot
       outcome :outcome_medical_n
       outcome :outcome_medical_y
       outcome :outcome_no_visa_needed
@@ -294,7 +295,11 @@ module SmartAnswer
         end
 
         if calculator.marriage_visit?
-          next outcome(:outcome_marriage)
+          if calculator.passport_country_in_ukot_list?
+            next outcome(:outcome_marriage_nvn_ukot)
+          else
+            next outcome(:outcome_marriage)
+          end
         end
 
         if calculator.transit_visit?

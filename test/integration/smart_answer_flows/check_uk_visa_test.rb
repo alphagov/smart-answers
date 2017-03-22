@@ -115,7 +115,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         add_response 'no'
 
         assert_current_node :outcome_transit_refugee_not_leaving_airport
-      end      
+      end
     end
 
     should "suggest to apply in country of originallity or residence for outcome_standard_visit" do
@@ -186,7 +186,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         add_response 'marriage'
       end
       should "take you to the marriage outcome" do
-        assert_current_node :outcome_marriage
+        assert_current_node :outcome_marriage_nvn_ukot
       end
     end
     context "get private medical treatment" do
