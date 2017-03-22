@@ -62,52 +62,60 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       add_response "stateless-or-refugee"
     end
 
-    should "suggest to apply in country of originallity or residence for outcome_marriage" do
-      add_response 'marriage'
+    context "marriage" do
+      should "suggest to apply in country of originallity or residence for outcome_marriage" do
+        add_response 'marriage'
 
-      assert_current_node :outcome_marriage
+        assert_current_node :outcome_marriage
+      end
     end
 
-    should "suggest to apply in country of originallity or residence for outcome_study_m" do
-      add_response 'study'
-      add_response 'six_months_or_less'
+    context "study" do
+      should "suggest to apply in country of originallity or residence for outcome_study_m" do
+        add_response 'study'
+        add_response 'six_months_or_less'
 
-      assert_current_node :outcome_study_m
+        assert_current_node :outcome_study_m
+      end
+
+      should "suggest to apply in country of originallity or residence for outcome_study_y" do
+        add_response 'study'
+        add_response 'longer_than_six_months'
+
+        assert_current_node :outcome_study_y
+      end
     end
 
-    should "suggest to apply in country of originallity or residence for outcome_study_y" do
-      add_response 'study'
-      add_response 'longer_than_six_months'
+    context "work" do
+      should "suggest to apply in country of originallity or residence for outcome_work_m" do
+        add_response 'work'
+        add_response 'six_months_or_less'
+        assert_current_node :outcome_work_m
+      end
 
-      assert_current_node :outcome_study_y
+      should "suggest to apply in country of originallity or residence for outcome_work_y" do
+        add_response 'work'
+        add_response 'longer_than_six_months'
+        assert_current_node :outcome_work_y
+      end
     end
 
-    should "suggest to apply in country of originallity or residence for outcome_work_m" do
-      add_response 'work'
-      add_response 'six_months_or_less'
-      assert_current_node :outcome_work_m
-    end
+    context "transit" do
+      should "suggest to apply in country of originallity or residence for outcome_transit_leaving_airport" do
+        add_response 'transit'
+        add_response 'somewhere_else'
+        add_response 'yes'
 
-    should "suggest to apply in country of originallity or residence for outcome_work_y" do
-      add_response 'work'
-      add_response 'longer_than_six_months'
-      assert_current_node :outcome_work_y
-    end
+        assert_current_node :outcome_transit_leaving_airport
+      end
 
-    should "suggest to apply in country of originallity or residence for outcome_transit_leaving_airport" do
-      add_response 'transit'
-      add_response 'somewhere_else'
-      add_response 'yes'
+      should "suggests to get a Direct Airside Transit visa if not leaving the airport" do
+        add_response 'transit'
+        add_response 'somewhere_else'
+        add_response 'no'
 
-      assert_current_node :outcome_transit_leaving_airport
-    end
-
-    should "suggests to get a Direct Airside Transit visa if not leaving the airport" do
-      add_response 'transit'
-      add_response 'somewhere_else'
-      add_response 'no'
-
-      assert_current_node :outcome_transit_refugee_not_leaving_airport
+        assert_current_node :outcome_transit_refugee_not_leaving_airport
+      end      
     end
 
     should "suggest to apply in country of originallity or residence for outcome_standard_visit" do
