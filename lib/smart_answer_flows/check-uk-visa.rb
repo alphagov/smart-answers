@@ -220,6 +220,7 @@ module SmartAnswer
       outcome :outcome_marriage
       outcome :outcome_marriage_nvn_ukot
       outcome :outcome_marriage_visa_nat_datv
+      outcome :outcome_marriage_electronic_visa_waiver
       outcome :outcome_medical_n
       outcome :outcome_medical_y
       outcome :outcome_no_visa_needed
@@ -298,6 +299,8 @@ module SmartAnswer
         if calculator.marriage_visit?
           if calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
             next outcome(:outcome_marriage_nvn_ukot)
+          elsif calculator.passport_country_in_electronic_visa_waiver_list?
+            next outcome(:outcome_marriage_electronic_visa_waiver)
           elsif calculator.passport_country_in_datv_list? || calculator.passport_country_in_visa_national_list?
             next outcome(:outcome_marriage_visa_nat_datv)
           else

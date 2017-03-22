@@ -10,6 +10,7 @@ lib/smart_answer_flows/check-uk-visa/outcomes/outcome_joining_family_m.govspeak.
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_joining_family_nvn.govspeak.erb: 42c2cb29ee031b0a08d70838fa2748ca
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_joining_family_y.govspeak.erb: 43c472d5d782ea4e863bb502008f4192
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_marriage.govspeak.erb: 0c6e77127968507051f708b93b646f77
+lib/smart_answer_flows/check-uk-visa/outcomes/outcome_marriage_electronic_visa_waiver.govspeak.erb: 75ba568cec1904be105bc3c1fafaff8a
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_marriage_nvn_ukot.govspeak.erb: 19f464f209ab6b3e64f2a7468dc76d60
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_marriage_visa_nat_datv.govspeak.erb: b5a43cf0eafe34210743e78b20c846b3
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_medical_n.govspeak.erb: 1642f779661086644a241887072354b4
@@ -45,6 +46,6 @@ lib/smart_answer_flows/check-uk-visa/questions/staying_for_how_long.govspeak.erb
 lib/smart_answer_flows/check-uk-visa/questions/travelling_to_cta.govspeak.erb: 1be958b6da2caa148849a26b64a01cc3
 lib/smart_answer_flows/check-uk-visa/questions/what_passport_do_you_have.govspeak.erb: 45a59c18a7b570142f32d3b93f8f7db4
 lib/smart_answer_flows/check-uk-visa/questions/what_sort_of_passport.govspeak.erb: c412fbb6a09cf262680432be71135113
-lib/smart_answer_flows/check-uk-visa.rb: e592ff39def58523d06acb7db6bd3f4c
+lib/smart_answer_flows/check-uk-visa.rb: 2aa7036040eb51eca85e91dde60047d9
 test/data/check-uk-visa-questions-and-responses.yml: 33c876a5b75defcf10610c0a81ed14ee
-test/data/check-uk-visa-responses-and-expected-results.yml: 91141f8a4e884a92c6cbe9597926eb3a
+test/data/check-uk-visa-responses-and-expected-results.yml: 80aa10ed573357b80438d4c23a0fe1c3

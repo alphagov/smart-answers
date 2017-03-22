@@ -454,6 +454,16 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         assert_current_node :outcome_school_waiver
       end
     end
+
+    context 'coming to the UK to get married' do
+      setup do
+        add_response 'marriage'
+      end
+
+      should 'take you to the marriage outcome' do
+        assert_current_node :outcome_marriage_electronic_visa_waiver
+      end
+    end
   end
 
   context "choose a DATV country" do

@@ -1998,7 +1998,7 @@
   - transit
   - channel_islands_or_isle_of_man
   - marriage
-  :next_node: :outcome_marriage_visa_nat_datv
+  :next_node: :outcome_marriage_electronic_visa_waiver
   :outcome_node: true
 - :current_node: :channel_islands_or_isle_of_man?
   :responses:
@@ -2064,7 +2064,7 @@
   :responses:
   - kuwait
   - marriage
-  :next_node: :outcome_marriage_visa_nat_datv
+  :next_node: :outcome_marriage_electronic_visa_waiver
   :outcome_node: true
 - :current_node: :purpose_of_visit?
   :responses:
@@ -2488,7 +2488,7 @@
   - transit
   - channel_islands_or_isle_of_man
   - marriage
-  :next_node: :outcome_marriage_visa_nat_datv
+  :next_node: :outcome_marriage_electronic_visa_waiver
   :outcome_node: true
 - :current_node: :channel_islands_or_isle_of_man?
   :responses:
@@ -2554,7 +2554,7 @@
   :responses:
   - oman
   - marriage
-  :next_node: :outcome_marriage_visa_nat_datv
+  :next_node: :outcome_marriage_electronic_visa_waiver
   :outcome_node: true
 - :current_node: :purpose_of_visit?
   :responses:
