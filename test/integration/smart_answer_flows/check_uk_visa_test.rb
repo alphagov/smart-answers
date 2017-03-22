@@ -737,82 +737,92 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     end
   end
 
-  context "outcome taiwan exception study and six_months_or_less" do
+  context "taiwan" do
     setup do
       add_response 'taiwan'
-      add_response 'study'
-      add_response 'six_months_or_less'
     end
-    should "take you to outcome taiwan exception" do
-      assert_current_node :outcome_taiwan_exception
-    end
-  end
 
-  context "outcome taiwan exception tourism" do
-    setup do
-      add_response 'taiwan'
-      add_response 'tourism'
-    end
-    should "take you to outcome taiwan exception" do
-      assert_current_node :outcome_taiwan_exception
-    end
-  end
-
-  context "outcome taiwan exception school" do
-    setup do
-      add_response 'taiwan'
-      add_response 'school'
-    end
-    should "take you to outcome taiwan exception" do
-      assert_current_node :outcome_taiwan_exception
-    end
-  end
-
-  context "outcome taiwan exception medical" do
-    setup do
-      add_response 'taiwan'
-      add_response 'medical'
-    end
-    should "take you to outcome taiwan exception" do
-      assert_current_node :outcome_taiwan_exception
-    end
-  end
-  context "outcome taiwan exception transit" do
-    setup do
-      add_response 'taiwan'
-      add_response 'transit'
-      add_response 'somewhere_else'
-    end
-    should "take you to outcome taiwan exception" do
-      assert_current_node :passing_through_uk_border_control?
-    end
-    context "leaving airport" do
+    context "outcome taiwan exception study and six_months_or_less" do
       setup do
-        add_response "yes"
+        add_response 'study'
+        add_response 'six_months_or_less'
       end
-      should "take you to the transit taiwan outcome" do
-        assert_current_node :outcome_transit_taiwan
+      should "take you to outcome taiwan exception" do
+        assert_current_node :outcome_taiwan_exception
       end
     end
-    context "leaving airport" do
+
+    context "outcome taiwan exception tourism" do
       setup do
-        add_response "no"
+        add_response 'tourism'
       end
-      should "take you to the transit taiwan outcome" do
-        assert_current_node :outcome_transit_taiwan
+      should "take you to outcome taiwan exception" do
+        assert_current_node :outcome_taiwan_exception
+      end
+    end
+
+    context "outcome taiwan exception school" do
+      setup do
+        add_response 'school'
+      end
+
+      should "take you to outcome taiwan exception" do
+        assert_current_node :outcome_taiwan_exception
+      end
+    end
+
+    context "outcome taiwan exception medical" do
+      setup do
+        add_response 'medical'
+      end
+
+      should "take you to outcome taiwan exception" do
+        assert_current_node :outcome_taiwan_exception
+      end
+    end
+
+    context "outcome taiwan exception transit" do
+      setup do
+        add_response 'transit'
+        add_response 'somewhere_else'
+      end
+
+      should "take you to outcome taiwan exception" do
+        assert_current_node :passing_through_uk_border_control?
+      end
+
+      context "leaving airport" do
+        setup do
+          add_response "yes"
+        end
+
+        should "take you to the transit taiwan outcome" do
+          assert_current_node :outcome_transit_taiwan
+        end
+      end
+
+      context "leaving airport" do
+        setup do
+          add_response "no"
+        end
+        should "take you to the transit taiwan outcome" do
+          assert_current_node :outcome_transit_taiwan
+        end
+      end
+    end
+
+    context "check taiwan goes to outcome work n" do
+      setup do
+        add_response 'work'
+        add_response 'six_months_or_less'
+      end
+
+      should "go to ouctome work n" do
+        assert_current_node :outcome_work_n
       end
     end
   end
-  context "check taiwan goes to outcome work n" do
-    setup do
-      add_response 'taiwan'
-      add_response 'work'
-      add_response 'six_months_or_less'
-    end
-    should "go to ouctome work n" do
-      assert_current_node :outcome_work_n
-    end
-  end
+
   context "outcome venezuela exception transit" do
     setup do
       add_response 'venezuela'
