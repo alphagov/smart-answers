@@ -150,7 +150,7 @@ module SmartAnswer
             end
           else
             if calculator.passport_country_is_estonia?
-              outcome :outcome_transit_not_leaving_airport
+              outcome :outcome_transit_datv_exception
             elsif calculator.passport_country_is_taiwan?
               outcome :outcome_transit_taiwan
             elsif calculator.passport_country_is_venezuela?
@@ -234,6 +234,7 @@ module SmartAnswer
       outcome :outcome_study_waiver
       outcome :outcome_study_y
       outcome :outcome_taiwan_exception
+      outcome :outcome_transit_datv_exception
       outcome :outcome_transit_leaving_airport
       outcome :outcome_transit_leaving_airport_datv
       outcome :outcome_transit_not_leaving_airport

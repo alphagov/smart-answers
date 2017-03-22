@@ -1326,7 +1326,7 @@
   - transit
   - somewhere_else
   - 'no'
-  :next_node: :outcome_transit_not_leaving_airport
+  :next_node: :outcome_transit_datv_exception
   :outcome_node: true
 - :current_node: :purpose_of_visit?
   :responses:

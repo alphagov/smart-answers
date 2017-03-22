@@ -932,7 +932,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
 
       should 'go to outcome if not passing through uk border control' do
         add_response 'no'
-        assert_current_node :outcome_transit_not_leaving_airport
+        assert_current_node :outcome_transit_datv_exception
       end
     end
   end
