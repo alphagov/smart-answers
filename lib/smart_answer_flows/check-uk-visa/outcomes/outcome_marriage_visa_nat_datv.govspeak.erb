@@ -5,6 +5,10 @@
 <% content_for :body do %>
   <%= render partial: 'stateless_or_refugee.govspeak.erb', locals: {calculator: calculator} %>
 
+  <% if calculator.passport_country_is_estonia? || calculator.passport_country_is_latvia? %>
+    ^ You must apply for your visa from the country you’re currently living in. ^
+  <% end %>
+
   Apply for a [Marriage Visitor visa](/marriage-visa) if you and your partner want to get married or enter into a civil partnership in the UK.
 
   Apply for a [family of a settled person visa](/join-family-in-uk) if your partner is already in the UK and you plan to stay longer than 6 months.

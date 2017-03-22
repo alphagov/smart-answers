@@ -137,7 +137,7 @@
   - transit
   - channel_islands_or_isle_of_man
   - marriage
-  :next_node: :outcome_marriage
+  :next_node: :outcome_marriage_visa_nat_datv
   :outcome_node: true
 - :current_node: :channel_islands_or_isle_of_man?
   :responses:
@@ -203,7 +203,7 @@
   :responses:
   - afghanistan
   - marriage
-  :next_node: :outcome_marriage
+  :next_node: :outcome_marriage_visa_nat_datv
   :outcome_node: true
 - :current_node: :purpose_of_visit?
   :responses:
@@ -782,7 +782,7 @@
   - transit
   - channel_islands_or_isle_of_man
   - marriage
-  :next_node: :outcome_marriage
+  :next_node: :outcome_marriage_visa_nat_datv
   :outcome_node: true
 - :current_node: :channel_islands_or_isle_of_man?
   :responses:
@@ -848,7 +848,7 @@
   :responses:
   - china
   - marriage
-  :next_node: :outcome_marriage
+  :next_node: :outcome_marriage_visa_nat_datv
   :outcome_node: true
 - :current_node: :purpose_of_visit?
   :responses:
@@ -1011,7 +1011,7 @@
   - transit
   - channel_islands_or_isle_of_man
   - marriage
-  :next_node: :outcome_marriage
+  :next_node: :outcome_marriage_visa_nat_datv
   :outcome_node: true
 - :current_node: :channel_islands_or_isle_of_man?
   :responses:
@@ -1077,7 +1077,7 @@
   :responses:
   - democratic-republic-of-the-congo
   - marriage
-  :next_node: :outcome_marriage
+  :next_node: :outcome_marriage_visa_nat_datv
   :outcome_node: true
 - :current_node: :purpose_of_visit?
   :responses:
@@ -1265,7 +1265,7 @@
   - transit
   - channel_islands_or_isle_of_man
   - marriage
-  :next_node: :outcome_marriage
+  :next_node: :outcome_marriage_visa_nat_datv
   :outcome_node: true
 - :current_node: :channel_islands_or_isle_of_man?
   :responses:
@@ -1340,7 +1340,7 @@
   - estonia
   - alien
   - marriage
-  :next_node: :outcome_marriage
+  :next_node: :outcome_marriage_visa_nat_datv
   :outcome_node: true
 - :current_node: :purpose_of_visit?
   :responses:
@@ -1762,7 +1762,7 @@
   - transit
   - channel_islands_or_isle_of_man
   - marriage
-  :next_node: :outcome_marriage
+  :next_node: :outcome_marriage_visa_nat_datv
   :outcome_node: true
 - :current_node: :channel_islands_or_isle_of_man?
   :responses:
@@ -1837,7 +1837,7 @@
   - israel
   - provisional-passport
   - marriage
-  :next_node: :outcome_marriage
+  :next_node: :outcome_marriage_visa_nat_datv
   :outcome_node: true
 - :current_node: :purpose_of_visit?
   :responses:
@@ -2252,7 +2252,7 @@
   - transit
   - channel_islands_or_isle_of_man
   - marriage
-  :next_node: :outcome_marriage
+  :next_node: :outcome_marriage_visa_nat_datv
   :outcome_node: true
 - :current_node: :channel_islands_or_isle_of_man?
   :responses:
@@ -2327,7 +2327,7 @@
   - latvia
   - alien
   - marriage
-  :next_node: :outcome_marriage
+  :next_node: :outcome_marriage_visa_nat_datv
   :outcome_node: true
 - :current_node: :purpose_of_visit?
   :responses:
@@ -2946,7 +2946,7 @@
   - transit
   - channel_islands_or_isle_of_man
   - marriage
-  :next_node: :outcome_marriage
+  :next_node: :outcome_marriage_visa_nat_datv
   :outcome_node: true
 - :current_node: :channel_islands_or_isle_of_man?
   :responses:
@@ -3012,7 +3012,7 @@
   :responses:
   - syria
   - marriage
-  :next_node: :outcome_marriage
+  :next_node: :outcome_marriage_visa_nat_datv
   :outcome_node: true
 - :current_node: :purpose_of_visit?
   :responses:
@@ -3394,7 +3394,7 @@
   - transit
   - channel_islands_or_isle_of_man
   - marriage
-  :next_node: :outcome_marriage
+  :next_node: :outcome_marriage_visa_nat_datv
   :outcome_node: true
 - :current_node: :channel_islands_or_isle_of_man?
   :responses:
@@ -3460,7 +3460,7 @@
   :responses:
   - turkey
   - marriage
-  :next_node: :outcome_marriage
+  :next_node: :outcome_marriage_visa_nat_datv
   :outcome_node: true
 - :current_node: :purpose_of_visit?
   :responses:
@@ -3618,7 +3618,7 @@
   - transit
   - channel_islands_or_isle_of_man
   - marriage
-  :next_node: :outcome_marriage
+  :next_node: :outcome_marriage_visa_nat_datv
   :outcome_node: true
 - :current_node: :channel_islands_or_isle_of_man?
   :responses:
@@ -3684,7 +3684,7 @@
   :responses:
   - venezuela
   - marriage
-  :next_node: :outcome_marriage
+  :next_node: :outcome_marriage_visa_nat_datv
   :outcome_node: true
 - :current_node: :purpose_of_visit?
   :responses:
