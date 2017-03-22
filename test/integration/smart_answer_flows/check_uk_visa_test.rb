@@ -66,7 +66,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       should "suggest to apply in country of originallity or residence for outcome_marriage" do
         add_response 'marriage'
 
-        assert_current_node :outcome_marriage
+        assert_current_node :outcome_marriage_visa_nat_datv
       end
     end
 
