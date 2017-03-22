@@ -7,7 +7,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    @location_slugs = %w(andorra anguilla armenia bolivia canada china colombia croatia estonia mexico south-africa stateless-or-refugee syria turkey democratic-republic-of-the-congo oman united-arab-emirates qatar taiwan venezuela afghanistan yemen)
+    @location_slugs = %w(andorra anguilla armenia bolivia canada china colombia croatia estonia latvia mexico south-africa stateless-or-refugee syria turkey democratic-republic-of-the-congo oman united-arab-emirates qatar taiwan venezuela afghanistan yemen)
     stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::CheckUkVisaFlow
   end
@@ -878,6 +878,26 @@ class CheckUkVisaTest < ActiveSupport::TestCase
 
     should 'go to question 2 if user has an Alien passport' do
       add_response "alien" # Q1c
+      assert_current_node :purpose_of_visit?
+    end
+  end
+
+  context "Latvia" do
+    setup do
+      add_response 'latvia'
+    end
+
+    should 'ask what sort of passport' do
+      assert_current_node :what_sort_of_passport?
+    end
+
+    should 'go to outcome_no_visa_needed if user has an Latvian passport' do
+      add_response "citizen" # Q1d
+      assert_current_node :outcome_no_visa_needed
+    end
+
+    should 'go to question 2 if user has an Alien passport' do
+      add_response "alien" # Q1d
       assert_current_node :purpose_of_visit?
     end
   end

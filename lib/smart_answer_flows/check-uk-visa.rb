@@ -25,6 +25,8 @@ module SmartAnswer
             question :israeli_document_type?
           elsif calculator.passport_country_is_estonia?
             question :what_sort_of_passport?
+          elsif calculator.passport_country_is_latvia?
+            question :what_sort_of_passport?
           elsif calculator.passport_country_in_eea?
             outcome :outcome_no_visa_needed
           else
@@ -47,7 +49,7 @@ module SmartAnswer
         end
       end
 
-      #Q1c
+      #Q1c / Q1d
       multiple_choice :what_sort_of_passport? do
         option :citizen
         option :alien
@@ -57,7 +59,11 @@ module SmartAnswer
           when 'citizen'
             outcome :outcome_no_visa_needed
           when 'alien'
-            calculator.passport_country = 'estonia-alien-passport'
+            if calculator.passport_country_is_estonia?
+              calculator.passport_country = 'estonia-alien-passport'
+            elsif calculator.passport_country_is_latvia?
+              calculator.passport_country = 'latvia-alien-passport'
+            end
             question :purpose_of_visit?
           end
         end
