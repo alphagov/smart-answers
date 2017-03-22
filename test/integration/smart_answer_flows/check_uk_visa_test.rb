@@ -918,6 +918,23 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       add_response "alien" # Q1c
       assert_current_node :purpose_of_visit?
     end
+
+    context "transit, travelling_to_elsewhere" do
+      setup do
+        add_response "alien" # Q1c
+        add_response 'transit'
+        add_response 'somewhere_else'
+      end
+
+      should 'go to question passing_through_uk_border_control?' do
+        assert_current_node :passing_through_uk_border_control?
+      end
+
+      should 'go to outcome if not passing through uk border control' do
+        add_response 'no'
+        assert_current_node :outcome_transit_not_leaving_airport
+      end
+    end
   end
 
   context "Latvia" do
