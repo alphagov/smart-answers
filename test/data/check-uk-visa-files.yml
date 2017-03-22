@@ -47,6 +47,6 @@ lib/smart_answer_flows/check-uk-visa/questions/staying_for_how_long.govspeak.erb
 lib/smart_answer_flows/check-uk-visa/questions/travelling_to_cta.govspeak.erb: 1be958b6da2caa148849a26b64a01cc3
 lib/smart_answer_flows/check-uk-visa/questions/what_passport_do_you_have.govspeak.erb: 45a59c18a7b570142f32d3b93f8f7db4
 lib/smart_answer_flows/check-uk-visa/questions/what_sort_of_passport.govspeak.erb: c412fbb6a09cf262680432be71135113
-lib/smart_answer_flows/check-uk-visa.rb: 7af30fc69c34b25b53507022f84fdb08
+lib/smart_answer_flows/check-uk-visa.rb: af2d9d65e558b3e6c0104d030bc9e32f
 test/data/check-uk-visa-questions-and-responses.yml: 33c876a5b75defcf10610c0a81ed14ee
-test/data/check-uk-visa-responses-and-expected-results.yml: 408ce34c9b8318080fd589a04dfa6feb
+test/data/check-uk-visa-responses-and-expected-results.yml: 8cafb6170baa3cf70956000540c7d5c3
