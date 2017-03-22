@@ -781,6 +781,16 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
     end
 
+    context "getting married" do
+      setup do
+        add_response 'marriage'
+      end
+
+      should 'take you to the marriage outcome' do
+        assert_current_node :outcome_marriage_taiwan
+      end
+    end
+
     context "outcome taiwan exception transit" do
       setup do
         add_response 'transit'
