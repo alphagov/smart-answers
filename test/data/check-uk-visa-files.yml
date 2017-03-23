@@ -29,7 +29,7 @@ lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_leaving_airport.go
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_leaving_airport_datv.govspeak.erb: ce4fe013c4a9113b8df94a36a62b9df9
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_not_leaving_airport.govspeak.erb: 9c06b075d0ec0a91579c8cdd876af8aa
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_refugee_not_leaving_airport.govspeak.erb: a344b0c62367eac3e00d048563b636dd
-lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_taiwan.govspeak.erb: 72a43a01e16942fd7ffce864e5b1bdee
+lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_taiwan.govspeak.erb: 29e973e921633f8035f76c34a9b504d9
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_taiwan_through_border_control.govspeak.erb: 0bd6d5a68c31ceea4e2f91a3c6436d23
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_to_the_republic_of_ireland.govspeak.erb: 6dd46594af4a1aa984ca5c96b5ce2edb
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_venezuela.govspeak.erb: 391c944ba51eef5af7378c2f581364e0
