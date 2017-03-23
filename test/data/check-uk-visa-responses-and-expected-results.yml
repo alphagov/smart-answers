@@ -3074,7 +3074,7 @@
   - taiwan
   - study
   - six_months_or_less
-  :next_node: :outcome_taiwan_exception
+  :next_node: :outcome_study_waiver_taiwan
   :outcome_node: true
 - :current_node: :staying_for_how_long?
   :responses:
@@ -3145,7 +3145,7 @@
   - channel_islands_or_isle_of_man
   - study
   - six_months_or_less
-  :next_node: :outcome_taiwan_exception
+  :next_node: :outcome_study_waiver_taiwan
   :outcome_node: true
 - :current_node: :staying_for_how_long?
   :responses:
@@ -3178,7 +3178,7 @@
   - transit
   - channel_islands_or_isle_of_man
   - school
-  :next_node: :outcome_taiwan_exception
+  :next_node: :outcome_study_waiver_taiwan
   :outcome_node: true
 - :current_node: :channel_islands_or_isle_of_man?
   :responses:
@@ -3242,7 +3242,7 @@
   :responses:
   - taiwan
   - school
-  :next_node: :outcome_taiwan_exception
+  :next_node: :outcome_study_waiver_taiwan
   :outcome_node: true
 - :current_node: :purpose_of_visit?
   :responses:

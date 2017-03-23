@@ -748,7 +748,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         add_response 'six_months_or_less'
       end
       should "take you to outcome taiwan exception" do
-        assert_current_node :outcome_taiwan_exception
+        assert_current_node :outcome_study_waiver_taiwan
       end
     end
 
@@ -767,7 +767,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
 
       should "take you to outcome taiwan exception" do
-        assert_current_node :outcome_taiwan_exception
+        assert_current_node :outcome_study_waiver_taiwan
       end
     end
 

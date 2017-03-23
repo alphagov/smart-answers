@@ -192,7 +192,7 @@ module SmartAnswer
               if calculator.passport_country_in_electronic_visa_waiver_list?
                 outcome :outcome_study_waiver
               elsif calculator.passport_country_is_taiwan?
-                outcome :outcome_taiwan_exception
+                outcome :outcome_study_waiver_taiwan
               elsif calculator.passport_country_in_datv_list? || calculator.passport_country_in_visa_national_list?
                 outcome :outcome_study_m #outcome 3 study m visa needed short courses
               elsif calculator.passport_country_in_ukot_list? || calculator.passport_country_in_non_visa_national_list?
@@ -232,6 +232,7 @@ module SmartAnswer
       outcome :outcome_standard_visit
       outcome :outcome_study_m
       outcome :outcome_study_waiver
+      outcome :outcome_study_waiver_taiwan
       outcome :outcome_study_y
       outcome :outcome_taiwan_exception
       outcome :outcome_transit_datv_exception
@@ -267,7 +268,7 @@ module SmartAnswer
           if calculator.passport_country_in_electronic_visa_waiver_list?
             next outcome(:outcome_school_waiver)
           elsif calculator.passport_country_is_taiwan?
-            next outcome(:outcome_taiwan_exception)
+            next outcome(:outcome_study_waiver_taiwan)
           elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
             next outcome(:outcome_school_n)
           else
