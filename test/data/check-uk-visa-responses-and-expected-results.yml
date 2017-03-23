@@ -3041,7 +3041,7 @@
   :responses:
   - taiwan
   - tourism
-  :next_node: :outcome_taiwan_exception
+  :next_node: :outcome_visit_waiver_taiwan
   :outcome_node: true
 - :current_node: :purpose_of_visit?
   :responses:
@@ -3102,7 +3102,7 @@
   - transit
   - channel_islands_or_isle_of_man
   - tourism
-  :next_node: :outcome_taiwan_exception
+  :next_node: :outcome_visit_waiver_taiwan
   :outcome_node: true
 - :current_node: :channel_islands_or_isle_of_man?
   :responses:
@@ -3186,7 +3186,7 @@
   - transit
   - channel_islands_or_isle_of_man
   - medical
-  :next_node: :outcome_taiwan_exception
+  :next_node: :outcome_visit_waiver_taiwan
   :outcome_node: true
 - :current_node: :channel_islands_or_isle_of_man?
   :responses:
@@ -3248,7 +3248,7 @@
   :responses:
   - taiwan
   - medical
-  :next_node: :outcome_taiwan_exception
+  :next_node: :outcome_visit_waiver_taiwan
   :outcome_node: true
 - :current_node: :purpose_of_visit?
   :responses:

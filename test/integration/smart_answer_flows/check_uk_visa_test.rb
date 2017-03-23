@@ -757,7 +757,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         add_response 'tourism'
       end
       should "take you to outcome taiwan exception" do
-        assert_current_node :outcome_taiwan_exception
+        assert_current_node :outcome_visit_waiver_taiwan
       end
     end
 
@@ -777,7 +777,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
 
       should "take you to outcome taiwan exception" do
-        assert_current_node :outcome_taiwan_exception
+        assert_current_node :outcome_visit_waiver_taiwan
       end
     end
 
