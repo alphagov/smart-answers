@@ -9,9 +9,7 @@
 
   <%= render partial: 'stateless_or_refugee.govspeak.erb', locals: {calculator: calculator} %>
 
-  <% if calculator.passport_country_is_estonia? || calculator.passport_country_is_latvia? %>
-    ^ You must apply for your visa from the country you’re currently living in. ^
-  <% end %>
+  <%= render partial: 'estonia_or_latvia.govspeak.erb', locals: {calculator: calculator} %>
 
   ##They’re settled in the UK
 

@@ -59,7 +59,5 @@
   - [domestic worker in a private household](/domestic-workers-in-a-private-household-visa)
   - [representative of an overseas business](/representative-overseas-business)
 
-  <% if calculator.passport_country_is_estonia? || calculator.passport_country_is_latvia? %>
-    ^ You must apply for your visa from the country you’re currently living in. ^
-  <% end %>
+  <%= render partial: 'estonia_or_latvia.govspeak.erb', locals: {calculator: calculator} %>
 <% end %>
