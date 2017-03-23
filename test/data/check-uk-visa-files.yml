@@ -13,7 +13,7 @@ lib/smart_answer_flows/check-uk-visa/outcomes/outcome_marriage_electronic_visa_w
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_marriage_nvn_ukot.govspeak.erb: 19f464f209ab6b3e64f2a7468dc76d60
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_marriage_taiwan.govspeak.erb: 346330d53482bcd5ed25614c2682ea55
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_marriage_visa_nat_datv.govspeak.erb: b5a43cf0eafe34210743e78b20c846b3
-lib/smart_answer_flows/check-uk-visa/outcomes/outcome_medical_n.govspeak.erb: 1642f779661086644a241887072354b4
+lib/smart_answer_flows/check-uk-visa/outcomes/outcome_medical_n.govspeak.erb: 25d9fdd14a1710ddc14b269028b1ff26
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_medical_y.govspeak.erb: 3957f2de2436445e519fb5ed58243b35
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_no_visa_needed.govspeak.erb: 50773827c1385f251aa8e09ad2e3ad50
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_school_n.govspeak.erb: 0e132233168964ec480e65172bc106be
