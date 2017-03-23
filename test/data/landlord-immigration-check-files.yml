@@ -22,7 +22,7 @@ lib/smart_answer_flows/landlord-immigration-check/outcomes/outcome_landlords_che
 lib/smart_answer_flows/landlord-immigration-check/questions/family_permit.govspeak.erb: f7040bcd75e71256f2d974da1085ab53
 lib/smart_answer_flows/landlord-immigration-check/questions/has_asylum_card.govspeak.erb: da15f9bb156eed4ff866cfba4072620b
 lib/smart_answer_flows/landlord-immigration-check/questions/has_certificate.govspeak.erb: c670d7bc733232a394b4caa93a6aefb9
-lib/smart_answer_flows/landlord-immigration-check/questions/has_documents.govspeak.erb: f759c794812d9fd4505084dedfec937f
+lib/smart_answer_flows/landlord-immigration-check/questions/has_documents.govspeak.erb: aea7a5dd3123d96382670e8d90e1be1f
 lib/smart_answer_flows/landlord-immigration-check/questions/has_eu_documents.govspeak.erb: c9020cccaea9930824d73d2b4e70431f
 lib/smart_answer_flows/landlord-immigration-check/questions/has_other_documents.govspeak.erb: 6a7bb30a33fa570f75d3aaca86594f1d
 lib/smart_answer_flows/landlord-immigration-check/questions/has_residence_card_or_eu_eea_swiss_family_member.govspeak.erb: 3b3bf6e9a970fa024c4f460ed480f913
