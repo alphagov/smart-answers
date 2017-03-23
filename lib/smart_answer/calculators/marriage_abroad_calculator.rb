@@ -336,6 +336,7 @@ module SmartAnswer::Calculators
          portugal
          sweden
          turkey
+         thailand
          vietnam
         ).include?(ceremony_country)
     end
@@ -347,6 +348,7 @@ module SmartAnswer::Calculators
          philippines
          turkey
          italy
+         thailand
         ).include?(ceremony_country)
     end
 
