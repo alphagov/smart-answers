@@ -76,7 +76,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/_you_dont_need_to_stay_in_countr
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_have_been_divorced_or_widowed.govspeak.erb: e719af472a3ec2c26a9e4ce7202c11ff
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_will_be_asked_for_cni.govspeak.erb: cd1226b515c6a1723da99be2cb207c51
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_will_have_to_wait_to_get_married.govspeak.erb: e32774b08379258450d2d2198c0dbc49
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/china/_opposite_sex.govspeak.erb: 1225188801a3c91b55e188b5a011d992
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/china/_opposite_sex.govspeak.erb: b7c922313d09147467636fe990ac0794
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/china/_same_sex.govspeak.erb: bf8299242e5b5d8dd59f6a4aaa81bfff
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/china/_title.govspeak.erb: 475112c09ab99bdd0d610ab1e79cb0fd
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/_title.govspeak.erb: f3f69700147ffd739c4d3dc86f2ec22b

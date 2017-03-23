@@ -1,50 +1,69 @@
 Marriage in China
 
+## Before you start
 
-Contact the relevant local authorities in China to find out about local marriage laws, including what documents you’ll need.
+Contact the local civil affairs bureau (‘Min zheng ju’) where you or your partner are registered to find out about local marriage laws, including what documents you’ll need.
 
-^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.^
+If you’re a man you must be at least 20 and if you’re a woman you must be at least 22.
 
-##What you need to do
+%You or your partner must live in China to be allowed to get married there.%
 
-Make an appointment at your local British embassy or consulate in China to swear an affirmation or affidavit that you’re free to marry. You’ll need to bring your passport, your partner’s passport and pay a fee.
+## Prove you’re free to get married
 
-[Make an appointment at the British Embassy Beijing.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-beijing/oaths-affirmations-and-affidavits/slot_picker)
+You need to swear an affirmation or affidavit that says you’re legally allowed to get married.
 
-[Make an appointment at the British Consulate General Shanghai.](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-shanghai/oaths-affirmations-and-affidavits/slot_picker)
+This costs £50 per person. You can pay in the [local currency](/government/publications/china-consular-fees) with cash or credit card.
 
-[Make an appointment at the British Consulate General Chongqing.](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-chongqing/oaths-affirmations-and-affidavits/slot_picker)
+An affidavit is a religious document. If you don’t want to swear a religious oath, you can sign an affirmation instead.
 
-[Make an appointment at the British Consulate General Guangzhou.](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-guangzhou/oaths-affirmations-and-affidavits/slot_picker)
+s1. Make an appointment to swear your affirmation or affidavit at [the embassy in Beijing](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-beijing/oaths-affirmations-and-affidavits/slot_picker) or the consulate in [Shanghai](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-shanghai/oaths-affirmations-and-affidavits/slot_picker), [Chongqing](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-chongqing/oaths-affirmations-and-affidavits/slot_picker) or [Guangzhou](https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-guangzhou/oaths-affirmations-and-affidavits/slot_picker).
+s2. When your appointment is confirmed, download an [affirmation](/government/publications/affirmation-form-china) or [affidavit](/government/publications/affidavit-form-china).
+s3. Fill it in on your computer but don’t type in the signature box - you’ll sign it at the embassy.
+s4. Email it to the embassy or consulate where you booked your appointment:
 
-You’ll need to complete an ‘Affirmation of marital status’ form (non-religious) or an ‘Affidavit of marital status’ form (religious). Take this with you to your appointment.
+- [consular.beijing@fco.gov.uk](mailto:consular.beijing@fco.gov.uk)
+- [consular.shanghai@fco.gov.uk](mailto:consular.shanghai@fco.gov.uk)
+- [consular.guangzhou@fco.gov.uk](mailto:consular.guangzhou@fco.gov.uk)
+- [consular.chongqing@fco.gov.uk](mailto:consular.chongqing@fco.gov.uk)
 
-You can download and fill in (but not sign) the forms in advance.
+^If your partner is British, they’ll need to follow the same process to swear their own affirmation or affidavit.^
 
-$D
-[Download ‘Affirmation of marital status’](/government/publications/affirmation-form-china)
+You’ll need to bring:
 
-[Download ‘Affidavit of marital status’](/government/publications/affidavit-form-china)
-$D
+- your passport
+- your affirmation or affidavit
+- proof of your address, for example a tenancy agreement, utility bill or driving licence
+- evidence if you’ve changed your name by deed poll
+- your partner’s Chinese ID card or Hukou (if they’re Chinese)
+- your partner’s passport (if they’re any other foreign national)
 
-If you or your partner have been divorced or widowed, you’ll need to provide:
+If you or your partner have been married or in a civil partnership before, you’ll also need:
 
-- a [decree absolute or final order](/copy-decree-absolute-final-order) or [death certificate](/order-copy-birth-death-marriage-certificate/)
-- evidence of nationality or residence where your divorce took place if it was outside the UK. You’ll need to get it [translated](/government/collections/lists-of-translators-and-interpreters) if it’s not in English
+- the original [decree absolute or final order](/copy-decree-absolute-final-order) (this could be a PDF and covering email from the court) - if either of you are divorced
+- the annulment certificate - if either of you have had a marriage or civil partnership annulled
+- the civil partnership dissolution - if either of you have had a civil partnership dissolved
+- the [death certificate](/order-copy-birth-death-marriage-certificate/) and marriage certificate - if either of you are widowed
 
-You’ll also need to provide evidence if you’ve changed your name by deed poll.
+^If your divorce, civil partnership dissolution or annulment took place outside the UK, you’ll need evidence that you or your ex partner lived in or were a national of that country at the time.^
 
-^Your partner will probably need to get an affirmation or affidavit as well.^
+You need to get your supporting documents [legalised](/get-document-legalised) and [translated](/government/publications/china-list-of-lawyers) if they’re not in English or Chinese.
 
-## Fees
+## Get married
 
-Service | Fee
--|-
-Affidavit or affirmation for marriage | £50
+You’ll need to give your signed affirmation or affidavit to the registrar at the civil affairs bureau where you or your partner are registered.
 
-You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for China](/government/publications/china-consular-fees).
+The registrar will marry you and give you a marriage certificate.
 
-You can pay by cash or credit card, but not by personal cheque.
+## After you get married
+
+Your marriage will be recognised in the UK if:
+
+- you follow the correct process according to the law in China
+- it would be allowed under UK law
+
+You don’t need to register your marriage in the UK.
+
+If your partner isn’t a British citizen, they can apply for [British citizenship](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
 
 
 
