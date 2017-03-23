@@ -16,7 +16,7 @@ lib/smart_answer_flows/check-uk-visa/outcomes/outcome_marriage_visa_nat_datv.gov
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_medical_n.govspeak.erb: 1642f779661086644a241887072354b4
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_medical_y.govspeak.erb: c7f33df94de52c0797c48f3aaa1247cb
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_no_visa_needed.govspeak.erb: 50773827c1385f251aa8e09ad2e3ad50
-lib/smart_answer_flows/check-uk-visa/outcomes/outcome_school_n.govspeak.erb: e9a82b3c28270a075ca24250db9b868b
+lib/smart_answer_flows/check-uk-visa/outcomes/outcome_school_n.govspeak.erb: 0e132233168964ec480e65172bc106be
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_school_waiver.govspeak.erb: 74ffd01d62f3520f37bdc4562ebae9bc
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_school_y.govspeak.erb: ec5eb9ea68ef40ce2d3cacbcf1c9c9b7
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_standard_visit.govspeak.erb: 90ac4f580847563fabaae035896314e6
