@@ -871,27 +871,23 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "ceremony in Turkey, resident in the UK, partner local" do
+  context "ceremony in Turkey, opposite sex" do
     setup do
       add_response 'turkey'
-      add_response 'uk'
-      add_response 'partner_local'
       add_response 'opposite_sex'
     end
     should "go to os affirmation outcome" do
-      assert_current_node :outcome_opposite_sex_marriage_in_turkey
+      assert_current_node :outcome_marriage_abroad_in_country
     end
   end
 
-  context "ceremony in Turkey, resident in Turkey, partner other" do
+  context "ceremony in Turkey, same sex" do
     setup do
       add_response 'turkey'
-      add_response 'ceremony_country'
-      add_response 'partner_other'
-      add_response 'opposite_sex'
+      add_response 'same_sex'
     end
     should "go to os affirmation outcome" do
-      assert_current_node :outcome_opposite_sex_marriage_in_turkey
+      assert_current_node :outcome_marriage_abroad_in_country
     end
   end
 
