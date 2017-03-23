@@ -6,4 +6,8 @@
   You should apply for a [Standard Visitor visa](/standard-visitor-visa).
 
   <%= render partial: 'stateless_or_refugee.govspeak.erb', locals: {calculator: calculator} %>
+
+  <% if calculator.passport_country_is_estonia? || calculator.passport_country_is_latvia? %>
+    ^ You must apply for your visa from the country you’re currently living in. ^
+  <% end %>
 <% end %>
