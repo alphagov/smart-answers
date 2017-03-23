@@ -289,7 +289,7 @@ module SmartAnswer
           when "yes"
             outcome :outcome_landlords_checking_service
           when "no"
-            outcome :outcome_can_not_rent
+            outcome :outcome_can_not_continue_renting
           end
         end
       end
@@ -310,6 +310,7 @@ module SmartAnswer
       end
 
       outcome :outcome_can_not_rent
+      outcome :outcome_can_not_continue_renting
       outcome :outcome_can_rent
       outcome :outcome_can_rent_but_check_will_be_needed_again
       # outcome :outcome_can_rent_for_12_months

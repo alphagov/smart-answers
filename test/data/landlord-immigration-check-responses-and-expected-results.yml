@@ -283,7 +283,7 @@
   - 'no'
   - 'no'
   - 'no'
-  :next_node: :outcome_can_not_rent
+  :next_node: :outcome_can_not_continue_renting
   :outcome_node: true
 - :current_node: :tenant_over_18?
   :responses:
