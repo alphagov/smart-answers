@@ -34,7 +34,7 @@ lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_taiwan_through_bor
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_to_the_republic_of_ireland.govspeak.erb: 6dd46594af4a1aa984ca5c96b5ce2edb
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_venezuela.govspeak.erb: 391c944ba51eef5af7378c2f581364e0
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_visit_waiver.govspeak.erb: 02d5c593f767fe5201de2afe81e65963
-lib/smart_answer_flows/check-uk-visa/outcomes/outcome_visit_waiver_taiwan.govspeak.erb: efbcf67df0d639cb48d102b0b036b8c1
+lib/smart_answer_flows/check-uk-visa/outcomes/outcome_visit_waiver_taiwan.govspeak.erb: 693fe552de15910fac3947fdfd6708dc
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_work_m.govspeak.erb: 2a1143720c3076b6fb8da6e6fe6270d3
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_work_n.govspeak.erb: 8167c4997d0feeb1d9ae8833ea1af258
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_work_waiver.govspeak.erb: 916d5d06e4f6958d2dc287f128fd0bc9
