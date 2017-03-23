@@ -279,7 +279,7 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
         add_response "no" # has_other_documents?
         add_response "no" # waiting_for_documents?
         add_response "no" # immigration_application?
-        assert_current_node :outcome_can_not_rent
+        assert_current_node :outcome_can_not_continue_renting
       end
     end
   end
