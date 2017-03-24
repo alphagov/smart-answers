@@ -6,7 +6,6 @@
     <title><%= yield :title %> - GOV.UK</title>
     <%= yield :head %>
 
-    <%= benchmarking_ab_test.requested_variant.analytics_meta_tag.html_safe %>
     <% if @content_item %>
       <%= render partial: 'govuk_component/analytics_meta_tags', locals: { content_item: @content_item } %>
     <% end %>
@@ -17,9 +16,5 @@
   <div id="wrapper" class="answer smart_answer">
     <%= yield %>
   </div>
-
-  <% if should_track_mouse_movements? %>
-    <%= javascript_include_tag 'mouseflow' %>
-  <% end %>
 </body>
 </html>
