@@ -1034,7 +1034,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'third_country'
       add_response 'partner_other'
       add_response 'opposite_sex'
-      assert_current_node :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
+      assert_current_node :outcome_marriage_abroad_in_country
     end
   end
 
@@ -1359,16 +1359,16 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'uk'
       add_response 'partner_local'
       add_response 'same_sex'
-      assert_current_node :outcome_same_sex_civil_partnership_in_no_cni_countries
       assert_equal 'the USA', current_state.calculator.country_name_lowercase_prefix
+      assert_current_node :outcome_marriage_abroad_in_country
     end
 
     should "go to cp no cni required outcome and suggest legal advice to a US resident" do
       add_response 'ceremony_country'
       add_response 'partner_local'
       add_response 'same_sex'
-      assert_current_node :outcome_same_sex_civil_partnership_in_no_cni_countries
       assert_equal 'the USA', current_state.calculator.country_name_lowercase_prefix
+      assert_current_node :outcome_marriage_abroad_in_country
     end
   end
 
