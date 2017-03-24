@@ -11,5 +11,5 @@ lib/smart_answer_flows/calculate-your-redundancy-pay/questions/weekly_pay_before
 lib/smart_answer_flows/calculate-your-redundancy-pay/questions/years_employed.govspeak.erb: 6bf4ef75048732fab207104b21cdc6e6
 lib/smart_answer_flows/shared/redundancy_pay_flow.rb: 91e04ab20e95e6a5b92bed8b41928038
 lib/smart_answer/calculators/redundancy_calculator.rb: 9ec0274471599d20b95a7a7dd42b6fe1
-lib/data/rates/redundancy_pay.yml: a214c01e46e92847f26b1de107997c78
-lib/data/rates/redundancy_pay_northern_ireland.yml: 83dcea5aa4048b6fb5d4aa222343e5c5
+lib/data/rates/redundancy_pay.yml: d10bc8060a7863e3c29214356c7e1ede
+lib/data/rates/redundancy_pay_northern_ireland.yml: 3fe5571c282cd2f71ce2a1b449874732
