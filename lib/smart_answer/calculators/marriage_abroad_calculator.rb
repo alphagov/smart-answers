@@ -350,6 +350,7 @@ module SmartAnswer::Calculators
          turkey
          italy
          thailand
+         usa
         ).include?(ceremony_country)
     end
 
