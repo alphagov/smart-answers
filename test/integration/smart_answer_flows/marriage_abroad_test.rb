@@ -1359,7 +1359,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'uk'
       add_response 'partner_local'
       add_response 'same_sex'
-      assert_equal 'the USA', current_state.calculator.country_name_lowercase_prefix
       assert_current_node :outcome_marriage_abroad_in_country
     end
 
@@ -1367,7 +1366,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'ceremony_country'
       add_response 'partner_local'
       add_response 'same_sex'
-      assert_equal 'the USA', current_state.calculator.country_name_lowercase_prefix
       assert_current_node :outcome_marriage_abroad_in_country
     end
   end
