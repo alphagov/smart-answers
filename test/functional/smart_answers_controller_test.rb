@@ -199,7 +199,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
       end
     end
 
-    context "EducationNavigation A/B testing" do
+    context "A/B testing" do
       context "pages under A/B test" do
         setup do
           content_item = {
@@ -282,24 +282,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
             assert_response_not_modified_for_ab_test('EducationNavigation')
           end
-        end
-      end
-    end
-
-    context "Benchmarking A/B test" do
-      should "show the mouseflow tag when in the benchmarking test" do
-        with_variant Benchmarking: "B" do
-          get :show, id: 'smart-answers-controller-sample'
-
-          assert_select("script[src*=mouseflow]", 1, "Expected to find one script tag with the mouseflow js code on the page")
-        end
-      end
-
-      should "not show the mouseflow tag when not in the benchmarking test" do
-        with_variant Benchmarking: "A" do
-          get :show, id: 'smart-answers-controller-sample'
-
-          assert_select("script[src*=mouseflow]", 0, "Did not expect to find a script tag with the mouseflow js code on the page")
         end
       end
     end
