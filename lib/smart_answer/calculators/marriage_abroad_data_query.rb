@@ -18,7 +18,7 @@ module SmartAnswer::Calculators
 
     OS_NO_CONSULAR_CNI_COUNTRIES = %w(burundi democratic-republic-of-the-congo mexico saint-barthelemy st-martin)
 
-    OS_MARRIAGE_VIA_LOCAL_AUTHORITIES = %w(argentina costa-rica cote-d-ivoire czech-republic israel liberia madagascar netherlands paraguay senegal taiwan ukraine uruguay usa)
+    OS_MARRIAGE_VIA_LOCAL_AUTHORITIES = %w(argentina costa-rica cote-d-ivoire czech-republic israel liberia madagascar netherlands paraguay senegal taiwan ukraine uruguay)
 
     OS_NO_MARRIAGE_CONSULAR_SERVICES = %w(afghanistan american-samoa andorra aruba benin bhutan bonaire-st-eustatius-saba burkina-faso burundi cape-verde central-african-republic chad comoros congo curacao djibouti equatorial-guinea eritrea gabon guinea guinea-bissau haiti hong-kong iraq kosovo laos liechtenstein mali marshall-islands mauritania micronesia monaco nicaragua niger palau paraguay rwanda san-marino sao-tome-and-principe south-sudan st-maarten suriname timor-leste togo western-sahara)
 
@@ -28,7 +28,7 @@ module SmartAnswer::Calculators
 
     CP_EQUIVALENT_COUNTRIES = %w(austria brazil colombia czech-republic denmark ecuador finland germany iceland luxembourg netherlands norway slovenia)
 
-    CP_CNI_NOT_REQUIRED_COUNTRIES = %w(andorra argentina bonaire-st-eustatius-saba burundi liechtenstein mexico new-zealand uruguay usa)
+    CP_CNI_NOT_REQUIRED_COUNTRIES = %w(andorra argentina bonaire-st-eustatius-saba burundi liechtenstein mexico new-zealand uruguay)
 
     CP_CONSULAR_COUNTRIES = %w(bulgaria croatia cyprus guatemala moldova panama venezuela)
 
