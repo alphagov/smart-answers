@@ -1028,16 +1028,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "ceremony in usa, lives elsewhere, partner other" do
-    should "go to outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries" do
-      add_response 'usa'
-      add_response 'third_country'
-      add_response 'partner_other'
-      add_response 'opposite_sex'
-      assert_current_node :outcome_marriage_abroad_in_country
-    end
-  end
-
   context "ceremony in argentina, lives elsewhere, partner other" do
     should "go to outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries" do
       add_response 'argentina'
@@ -1350,23 +1340,23 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "ceremony in US, same sex local partner" do
+  context "ceremony in usa" do
     setup do
       add_response 'usa'
     end
 
-    should "go to cp no cni required outcome and suggest both legal and travel advice to a UK resident" do
-      add_response 'uk'
-      add_response 'partner_local'
-      add_response 'same_sex'
-      assert_current_node :outcome_marriage_abroad_in_country
+    context "opposite_sex" do
+      should "go to outcome_marriage_abroad_in_country" do
+        add_response 'opposite_sex'
+        assert_current_node :outcome_marriage_abroad_in_country
+      end
     end
 
-    should "go to cp no cni required outcome and suggest legal advice to a US resident" do
-      add_response 'ceremony_country'
-      add_response 'partner_local'
-      add_response 'same_sex'
-      assert_current_node :outcome_marriage_abroad_in_country
+    context "same_sex" do
+      should "go to outcome_marriage_abroad_in_country" do
+        add_response 'same_sex'
+        assert_current_node :outcome_marriage_abroad_in_country
+      end
     end
   end
 
