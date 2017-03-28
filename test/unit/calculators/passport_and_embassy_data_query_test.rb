@@ -18,6 +18,18 @@ module SmartAnswer::Calculators
           assert_equal '14 weeks', @query.find_passport_data('afghanistan')['replacing']
         end
       end
+
+      context '#find_passport_fee' do
+        should 'return the passport fee for an adult standard passport type' do
+          assert_equal 83.00, @query.find_passport_fee('adult_standard')
+        end
+        should 'return the passport fee for an adult jumbo passport type' do
+          assert_equal 91.00, @query.find_passport_fee('adult_jumbo')
+        end
+        should 'return the passport fee for a child passport type' do
+          assert_equal 53.00, @query.find_passport_fee('child')
+        end
+      end
     end
   end
 end
