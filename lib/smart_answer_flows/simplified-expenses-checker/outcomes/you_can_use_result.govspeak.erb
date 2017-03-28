@@ -33,7 +33,7 @@
 
   ^This is an estimate. You should do your own calculations for your tax return.^
 
-  <% unless simple_motorcycle_costs.to_f == 0.0 %>
+  <% if simple_motorcycle_costs.to_f > 0.0 %>
     - <%= format_money(simple_motorcycle_costs) %> to claim for motorcycles
   <% end %>
 
@@ -51,7 +51,7 @@
     **Total to claim per year:** <%= format_money(simple_total) %>
   <% end %>
 
-  <% unless simple_business_costs.to_f == 0.0 %>
+  <% if simple_business_costs.to_f > 0.0 %>
     - <%= format_money(simple_business_costs) %> to deduct from your total business costs - you then claim the balance
   <% end %>
 
@@ -75,38 +75,35 @@
 
   You could claim:
 
-  <% unless vehicle_costs.to_f == 0.0 %>
+  <% if vehicle_costs.to_f > 0.0 %>
     - <%= format_money(vehicle_costs.to_f) %> for the running costs of your car, van or motorcycle
   <% end %>
 
-  <% unless capital_allowances_estimate.to_f == 0.0 %>
+  <% if capital_allowances_estimate.to_f > 0.0 %>
     - <%= format_money(capital_allowances_estimate.to_f) %> of [capital allowances](/capital-allowances) for your car, van or motorcycle
   <% end %>
 
-  <% unless home_costs.to_f == 0.0 %>
+  <% if home_costs.to_f > 0.0 %>
     - <%= format_money(home_costs) %> for working from home
   <% end %>
 
-  <% unless simple_business_costs.to_f == 0.0 %>
+  <% if simple_business_costs.to_f > 0.0 %>
     - <%= format_money(business_premises_cost) %> to deduct from your total business costs - you then claim the balance
   <% end %>
 
-  <% unless green_vehicle_write_off.to_f == 0.0 %>
-    <% unless expenses_or_allowances == "no" %>
-      - <%= format_money(green_vehicle_write_off) %> for cars, vans and motorcycles
-    <% end %>
+  <% if green_vehicle_write_off.to_f > 0.0 &&
+      expenses_or_allowances != "no" %>
+    - <%= format_money(green_vehicle_write_off) %> for cars, vans and motorcycles
   <% end %>
 
-  <% unless dirty_vehicle_write_off.to_f == 0.0 %>
-    <% unless expenses_or_allowances == "no" %>
-      - <%= format_money(dirty_vehicle_write_off) %> for cars, vans and motorcycles
-    <% end %>
+  <% if dirty_vehicle_write_off.to_f > 0.0 &&
+      expenses_or_allowances != "no" %>
+    - <%= format_money(dirty_vehicle_write_off) %> for cars, vans and motorcycles
   <% end %>
 
-  <% unless filthy_vehicle_write_off.to_f == 0.0 %>
-    <% unless expenses_or_allowances == "no" %>
-      - <%= format_money(filthy_vehicle_write_off) %> for cars, vans and motorcycles
-    <% end %>
+  <% if filthy_vehicle_write_off.to_f > 0.0 &&
+      expenses_or_allowances != "no" %>
+    - <%= format_money(filthy_vehicle_write_off) %> for cars, vans and motorcycles
   <% end %>
 
   <% if (list_of_expenses - ['live_on_business_premises']).empty? %>
