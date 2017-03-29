@@ -6,7 +6,7 @@ $C
 
 The National Living Wage per hour for your age | Your actual pay
 - | -
-£7.20 | £15.54
+£7.50 | £15.91
 
 If you work overtime or your employer provides you with [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
 
