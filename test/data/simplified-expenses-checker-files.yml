@@ -21,6 +21,6 @@ lib/smart_answer_flows/simplified-expenses-checker/questions/type_of_expense.gov
 lib/smart_answer_flows/simplified-expenses-checker/questions/vehicle_business_use_time.govspeak.erb: ca9e43553cc020f97b1d17cc4ac5a75e
 lib/smart_answer_flows/simplified-expenses-checker/questions/vehicle_expense.govspeak.erb: beb0a689c3bb82ad1bb43c3e4f94c81e
 lib/smart_answer_flows/simplified-expenses-checker/simplified_expenses_checker.govspeak.erb: 469b5ac5800a682ec504106e808cadb8
-lib/smart_answer_flows/simplified-expenses-checker.rb: 870c7585d6f8625ad59860c2ca785435
+lib/smart_answer_flows/simplified-expenses-checker.rb: 3fdd6cfde2d254a40896b1fc59957cf6
 test/data/simplified-expenses-checker-questions-and-responses.yml: 66de79b2882675671aa80f2e9bef1d61
 test/data/simplified-expenses-checker-responses-and-expected-results.yml: 483db36264d39e10d295ea29d8083587
