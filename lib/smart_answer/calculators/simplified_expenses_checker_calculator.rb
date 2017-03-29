@@ -84,6 +84,14 @@ module SmartAnswer::Calculators
       money(amount)
     end
 
+    def current_scheme_costs
+      money(
+        vehicle_costs.to_f +
+        vehicle_write_off.to_f +
+        home_costs.to_f
+      )
+    end
+
     def simple_business_costs
       amount = case hours_lived_on_business_premises.to_f
                when 0 then 0

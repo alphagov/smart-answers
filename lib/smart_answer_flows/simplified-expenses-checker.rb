@@ -258,24 +258,17 @@ module SmartAnswer
           calculator
         end
 
-        precalculate :current_scheme_costs do
-          vehicle = calculator.vehicle_costs.to_f
-          home = calculator.home_costs.to_f
-
-          Money.new(vehicle + calculator.vehicle_write_off + home)
-        end
-
         precalculate :capital_allowances_estimate do
           if calculator.selected_allowance == "no"
             Money.new(calculator.vehicle_write_off)
           else
             business = calculator.simple_business_costs.to_f
-            Money.new(current_scheme_costs + business)
+            Money.new(calculator.current_scheme_costs + business)
           end
         end
 
         precalculate :can_use_simple do
-          calculator.simple_total > current_scheme_costs
+          calculator.simple_total > calculator.current_scheme_costs
         end
       end
       outcome :capital_allowance_result

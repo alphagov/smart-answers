@@ -17,7 +17,7 @@
     ##For your other business expenses
 
   <% end %>
-  Based on your answers you would probably be better off <% if calculator.simple_total > current_scheme_costs %>using simplified expenses<% else %>working out your expenses based on the actual costs<% end %>.
+  Based on your answers you would probably be better off <% if calculator.simple_total > calculator.current_scheme_costs %>using simplified expenses<% else %>working out your expenses based on the actual costs<% end %>.
 
   These 2 sets of results show what you can claim using each method.
 
@@ -109,7 +109,7 @@
   <% if (calculator.list_of_expenses - ['live_on_business_premises']).empty? %>
     **Total to claim per year:**
   <% else %>
-    **Total to claim per year:** <%= format_money(current_scheme_costs) %>
+    **Total to claim per year:** <%= format_money(calculator.current_scheme_costs) %>
   <% end %>
 
   <% if calculator.over_limit? %>

@@ -828,6 +828,37 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#current_scheme_costs" do
+        setup do
+          @calculator = SimplifiedExpensesCheckerCalculator.new
+        end
+
+        should "equal 0 if vehicle_costs, vehicle_write_off and home_costs aren't set" do
+          assert_equal @calculator.current_scheme_costs, 0
+        end
+
+        should "equal vehicle_costs if only vehicle_costs" do
+          @calculator.vehicle_costs = 1000
+          assert_equal @calculator.current_scheme_costs, 1000
+        end
+
+        should "equal home_costs if only home_costs" do
+          @calculator.home_costs = 999
+          assert_equal @calculator.current_scheme_costs, 999
+        end
+
+        should "equal vehicle_write_off if only vehicle_write_off" do
+          @calculator.stubs(:vehicle_write_off).returns(998)
+          assert_equal @calculator.current_scheme_costs, 998
+        end
+
+        should "equal the sum of vehicle_costs, vehicle_write_off and home_costs if all three exist" do
+          @calculator.vehicle_costs = 1000
+          @calculator.home_costs = 999
+          @calculator.stubs(:vehicle_write_off).returns(998)
+          assert_equal @calculator.current_scheme_costs, 2997
+        end
+      end
       context "#simple_business_costs" do
         setup do
           @calculator = SimplifiedExpensesCheckerCalculator.new
