@@ -75,8 +75,8 @@
 
   You could claim:
 
-  <% if vehicle_costs.to_f > 0.0 %>
-    - <%= format_money(vehicle_costs.to_f) %> for the running costs of your car, van or motorcycle
+  <% if calculator.vehicle_costs.to_f > 0.0 %>
+    - <%= format_money(calculator.vehicle_costs.to_f) %> for the running costs of your car, van or motorcycle
   <% end %>
 
   <% if capital_allowances_estimate.to_f > 0.0 %>
