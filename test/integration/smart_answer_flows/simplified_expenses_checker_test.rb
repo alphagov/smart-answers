@@ -101,7 +101,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
         assert_state_variable :current_scheme_costs, 144
-        assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, true
       end
     end # no new vehicle
@@ -118,7 +117,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
         assert_state_variable :current_scheme_costs, 8000
-        assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
       end
     end # new green vehicle
@@ -135,7 +133,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
         assert_state_variable :current_scheme_costs, 1440
-        assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
       end
     end # new green vehicle
@@ -179,7 +176,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
         assert_state_variable :current_scheme_costs, 2440
-        assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
       end
     end # no new vehicle
@@ -199,7 +195,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
         assert_state_variable :current_scheme_costs, 1800
-        assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
       end
     end # no new vehicle
@@ -216,7 +211,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
         assert_state_variable :current_scheme_costs, 8000
-        assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
       end
     end # new green vehicle
@@ -233,7 +227,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
         assert_state_variable :current_scheme_costs, 1440
-        assert_state_variable :simple_total, 5000
         assert_state_variable :can_use_simple, true
       end
     end # new green vehicle
@@ -250,7 +243,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
         assert_state_variable :current_scheme_costs, 260000
-        assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
       end
     end # new green vehicle
@@ -275,7 +267,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
         assert_state_variable :current_scheme_costs, 1000
-        assert_state_variable :simple_total, 480
         assert_state_variable :can_use_simple, false
       end
     end # no new vehicle
@@ -291,7 +282,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
         assert_state_variable :current_scheme_costs, 0
-        assert_state_variable :simple_total, 480
         assert_state_variable :can_use_simple, true
       end
     end # new green vehicle
@@ -307,7 +297,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
         assert_state_variable :current_scheme_costs, 0
-        assert_state_variable :simple_total, 480
         assert_state_variable :can_use_simple, true
       end
     end # new dirty vehicle
@@ -323,7 +312,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
     should "take you to the results" do
       assert_current_node :you_can_use_result
-      assert_state_variable :simple_total, 312
       assert_state_variable :current_scheme_costs, 1000
     end
   end # main result, existing business, using home
@@ -338,7 +326,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
     should "take you to the results" do
       assert_current_node :you_can_use_result
-      assert_state_variable :simple_total, 0
     end
   end # main result, existing business, living on premises
 
@@ -357,7 +344,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
     should "take you to the results" do
       assert_current_node :you_can_use_result
-      assert_state_variable :simple_total, 1212
       assert_state_variable :current_scheme_costs, 9000
     end
   end # main result, existing business, car_or_van, using home
@@ -377,7 +363,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     end
     should "take you to the results" do
       assert_current_node :you_can_use_result
-      assert_state_variable :simple_total, 480
       assert_state_variable :current_scheme_costs, 1000
     end
   end # main result, existing business, motorcycle, living on premises

@@ -70,6 +70,10 @@ module SmartAnswer::Calculators
       end
     end
 
+    def simple_total
+      money(simple_vehicle_costs.to_f + simple_home_costs.to_f)
+    end
+
     def simple_home_costs
       amount = case hours_worked_home.to_f
                when 0..24 then 0
@@ -198,6 +202,17 @@ module SmartAnswer::Calculators
 
     def money(value)
       SmartAnswer::Money.new(value)
+    end
+
+    def simple_vehicle_costs
+      case
+      when car? || van?
+        simple_vehicle_costs_car_van.to_f
+      when motorcycle?
+        simple_vehicle_costs_motorcycle.to_f
+      else
+        0
+      end
     end
 
     def vehicle_business_use_time

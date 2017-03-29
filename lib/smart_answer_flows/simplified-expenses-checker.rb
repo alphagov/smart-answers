@@ -258,14 +258,6 @@ module SmartAnswer
           calculator
         end
 
-        precalculate :simple_total do
-          vehicle = calculator.simple_vehicle_costs_car_van.to_f
-          motorcycle = calculator.simple_vehicle_costs_motorcycle.to_f
-          home = calculator.simple_home_costs.to_f
-
-          Money.new(vehicle + motorcycle + home)
-        end
-
         precalculate :current_scheme_costs do
           vehicle = calculator.vehicle_costs.to_f
           home = calculator.home_costs.to_f
@@ -283,7 +275,7 @@ module SmartAnswer
         end
 
         precalculate :can_use_simple do
-          simple_total > current_scheme_costs
+          calculator.simple_total > current_scheme_costs
         end
       end
       outcome :capital_allowance_result

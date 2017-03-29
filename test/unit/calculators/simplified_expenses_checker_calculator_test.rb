@@ -721,6 +721,60 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#simple_total" do
+        setup do
+          @calculator = SimplifiedExpensesCheckerCalculator.new
+        end
+
+        should "equal 0 if no car, van, motorcycle or home" do
+          assert_equal @calculator.simple_total, 0
+        end
+
+        should "equal simple_vehicle_costs_car_van if only car" do
+          @calculator.stubs(:car?).returns(true)
+          @calculator.stubs(:simple_vehicle_costs_car_van).returns(10)
+          assert_equal @calculator.simple_total, 10
+        end
+
+        should "equal simple_vehicle_costs_car_van if only van" do
+          @calculator.stubs(:van?).returns(true)
+          @calculator.stubs(:simple_vehicle_costs_car_van).returns(9)
+          assert_equal @calculator.simple_total, 9
+        end
+
+        should "equal simple_vehicle_costs_motorcycle if only motorcycle" do
+          @calculator.stubs(:motorcycle?).returns(true)
+          @calculator.stubs(:simple_vehicle_costs_motorcycle).returns(9)
+          assert_equal @calculator.simple_total, 9
+        end
+
+        should "equal simple_home_costs if only home" do
+          @calculator.stubs(:simple_home_costs).returns(8)
+          assert_equal @calculator.simple_total, 8
+        end
+
+        should "equal sum of simple_vehicle_costs_car_van and simple_home_costs if only car and home" do
+          @calculator.stubs(:car?).returns(true)
+          @calculator.stubs(:simple_vehicle_costs_car_van).returns(7)
+          @calculator.stubs(:simple_home_costs).returns(7)
+          assert_equal @calculator.simple_total, 14
+        end
+
+        should "equal sum of simple_vehicle_costs_car_van and simple_home_costs if only van and home" do
+          @calculator.stubs(:van?).returns(true)
+          @calculator.stubs(:simple_vehicle_costs_car_van).returns(6)
+          @calculator.stubs(:simple_home_costs).returns(6)
+          assert_equal @calculator.simple_total, 12
+        end
+
+        should "equal sum of simple_vehicle_costs_motorcycle and simple_home_costs if only motorcycle and home" do
+          @calculator.stubs(:motorcycle?).returns(true)
+          @calculator.stubs(:simple_vehicle_costs_motorcycle).returns(5)
+          @calculator.stubs(:simple_home_costs).returns(5)
+          assert_equal @calculator.simple_total, 10
+        end
+      end
+
       context "#simple_vehicle_costs_car_van" do
         setup do
           @calculator = SimplifiedExpensesCheckerCalculator.new
