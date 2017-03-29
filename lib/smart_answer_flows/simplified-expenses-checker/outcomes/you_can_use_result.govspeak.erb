@@ -51,8 +51,8 @@
     **Total to claim per year:** <%= format_money(simple_total) %>
   <% end %>
 
-  <% if simple_business_costs.to_f > 0.0 %>
-    - <%= format_money(simple_business_costs) %> to deduct from your total business costs - you then claim the balance
+  <% if calculator.simple_business_costs.to_f > 0.0 %>
+    - <%= format_money(calculator.simple_business_costs) %> to deduct from your total business costs - you then claim the balance
   <% end %>
 
   <% if calculator.capital_allowance_claimed? %>
@@ -87,7 +87,7 @@
     - <%= format_money(calculator.home_costs) %> for working from home
   <% end %>
 
-  <% if simple_business_costs.to_f > 0.0 %>
+  <% if calculator.simple_business_costs.to_f > 0.0 %>
     - <%= format_money(business_premises_cost) %> to deduct from your total business costs - you then claim the balance
   <% end %>
 

@@ -259,10 +259,6 @@ module SmartAnswer
           calculator
         end
 
-        precalculate :simple_business_costs do
-          calculator.simple_business_costs
-        end
-
         precalculate :simple_home_costs do
           calculator.simple_home_costs
         end
@@ -297,7 +293,7 @@ module SmartAnswer
           if expenses_or_allowances == "no"
             Money.new(vehicle_write_offs)
           else
-            business = simple_business_costs.to_f
+            business = calculator.simple_business_costs.to_f
             Money.new(current_scheme_costs + business)
           end
         end

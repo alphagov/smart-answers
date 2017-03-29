@@ -341,7 +341,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       assert_current_node :you_can_use_result
       assert_state_variable :business_premises_cost, 1000
       assert_state_variable :simple_total, 0
-      assert_state_variable :simple_business_costs, 7800
     end
   end # main result, existing business, living on premises
 
@@ -383,7 +382,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       assert_current_node :you_can_use_result
       assert_state_variable :business_premises_cost, 200
       assert_state_variable :simple_total, 480
-      assert_state_variable :simple_business_costs, 6000
       assert_state_variable :current_scheme_costs, 1000
     end
   end # main result, existing business, motorcycle, living on premises
