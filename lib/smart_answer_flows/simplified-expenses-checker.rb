@@ -255,10 +255,6 @@ module SmartAnswer
 
       outcome :you_cant_use_result
       outcome :you_can_use_result do
-        precalculate :vehicle_is_dirty do
-          calculator.vehicle_is_dirty?
-        end
-
         precalculate :vehicle_is_filthy do
           calculator.vehicle_is_filthy?
         end
