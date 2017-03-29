@@ -101,7 +101,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
         assert_state_variable :vehicle_price, 1000
-        assert_state_variable :simple_vehicle_costs, 900
         assert_state_variable :current_scheme_costs, 144
         assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, true
@@ -120,7 +119,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
         assert_state_variable :green_vehicle_write_off, 8000
-        assert_state_variable :simple_vehicle_costs, 900
         assert_state_variable :current_scheme_costs, 8000
         assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
@@ -139,7 +137,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
         assert_state_variable :dirty_vehicle_write_off, 1440
-        assert_state_variable :simple_vehicle_costs, 900
         assert_state_variable :current_scheme_costs, 1440
         assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
@@ -185,7 +182,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
         assert_state_variable :vehicle_costs, 1000
-        assert_state_variable :simple_vehicle_costs, 900
         assert_state_variable :current_scheme_costs, 2440
         assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
@@ -207,7 +203,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
         assert_state_variable :vehicle_costs, 1000
-        assert_state_variable :simple_vehicle_costs, 900
         assert_state_variable :current_scheme_costs, 1800
         assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
@@ -226,7 +221,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
         assert_state_variable :green_vehicle_write_off, 8000
-        assert_state_variable :simple_vehicle_costs, 900
         assert_state_variable :current_scheme_costs, 8000
         assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
@@ -245,7 +239,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
         assert_state_variable :dirty_vehicle_write_off, 1440
-        assert_state_variable :simple_vehicle_costs, 5000
         assert_state_variable :current_scheme_costs, 1440
         assert_state_variable :simple_total, 5000
         assert_state_variable :can_use_simple, true
@@ -264,7 +257,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
         assert_state_variable :green_vehicle_write_off, 260000
-        assert_state_variable :simple_vehicle_costs, 900
         assert_state_variable :current_scheme_costs, 260000
         assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, false
@@ -384,7 +376,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     should "take you to the results" do
       assert_current_node :you_can_use_result
       assert_state_variable :green_vehicle_write_off, 8000
-      assert_state_variable :simple_vehicle_costs, 900
       assert_state_variable :home_costs, 1000
       assert_state_variable :simple_home_costs, 312
       assert_state_variable :simple_total, 1212

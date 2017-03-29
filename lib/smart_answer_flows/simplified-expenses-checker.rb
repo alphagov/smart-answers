@@ -259,10 +259,6 @@ module SmartAnswer
           calculator
         end
 
-        precalculate :simple_vehicle_costs do
-          calculator.simple_vehicle_costs_car_van
-        end
-
         precalculate :simple_motorcycle_costs do
           calculator.simple_vehicle_costs_motorcycle
         end
@@ -311,7 +307,7 @@ module SmartAnswer
         end
 
         precalculate :simple_total do
-          vehicle = simple_vehicle_costs.to_f
+          vehicle = calculator.simple_vehicle_costs_car_van.to_f
           motorcycle = simple_motorcycle_costs.to_f
           home = simple_home_costs.to_f
 

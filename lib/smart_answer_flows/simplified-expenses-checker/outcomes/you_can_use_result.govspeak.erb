@@ -27,8 +27,8 @@
 
   You could claim:
 
-  <% unless calculator.capital_allowance_claimed? or simple_vehicle_costs.to_f == 0.0 %>
-    - <%= format_money(simple_vehicle_costs) %> for your car or van
+  <% unless calculator.capital_allowance_claimed? or calculator.simple_vehicle_costs_car_van.to_f == 0.0 %>
+    - <%= format_money(calculator.simple_vehicle_costs_car_van) %> for your car or van
   <% end %>
 
   ^This is an estimate. You should do your own calculations for your tax return.^
