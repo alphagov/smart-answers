@@ -83,8 +83,8 @@
     - <%= format_money(capital_allowances_estimate.to_f) %> of [capital allowances](/capital-allowances) for your car, van or motorcycle
   <% end %>
 
-  <% if home_costs.to_f > 0.0 %>
-    - <%= format_money(home_costs) %> for working from home
+  <% if calculator.home_costs.to_f > 0.0 %>
+    - <%= format_money(calculator.home_costs) %> for working from home
   <% end %>
 
   <% if simple_business_costs.to_f > 0.0 %>

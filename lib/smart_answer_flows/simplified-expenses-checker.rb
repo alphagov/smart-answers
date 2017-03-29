@@ -259,10 +259,6 @@ module SmartAnswer
           calculator
         end
 
-        precalculate :home_costs do
-          calculator.home_costs
-        end
-
         precalculate :green_vehicle_write_off do
           calculator.green_vehicle_write_off
         end
@@ -304,7 +300,7 @@ module SmartAnswer
 
         precalculate :current_scheme_costs do
           vehicle = calculator.vehicle_costs.to_f
-          home = home_costs.to_f
+          home = calculator.home_costs.to_f
 
           Money.new(vehicle + vehicle_write_offs + home)
         end

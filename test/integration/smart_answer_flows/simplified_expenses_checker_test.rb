@@ -330,7 +330,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
     should "take you to the results" do
       assert_current_node :you_can_use_result
-      assert_state_variable :home_costs, 1000
       assert_state_variable :simple_home_costs, 312
       assert_state_variable :simple_total, 312
       assert_state_variable :current_scheme_costs, 1000
@@ -369,7 +368,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     should "take you to the results" do
       assert_current_node :you_can_use_result
       assert_state_variable :green_vehicle_write_off, 8000
-      assert_state_variable :home_costs, 1000
       assert_state_variable :simple_home_costs, 312
       assert_state_variable :simple_total, 1212
       assert_state_variable :current_scheme_costs, 9000
