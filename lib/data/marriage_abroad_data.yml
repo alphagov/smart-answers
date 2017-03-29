@@ -25,7 +25,6 @@ countries_with_18_outcomes:
   - portugal
   - romania
   - south-africa
-  - spain
   - sweden
   - tanzania
   - tunisia
@@ -39,6 +38,7 @@ countries_with_2_outcomes:
   - italy
   - luxembourg
   - philippines
+  - spain
   - thailand
   - turkey
   - usa
