@@ -101,9 +101,9 @@
     - <%= format_money(calculator.dirty_vehicle_write_off) %> for cars, vans and motorcycles
   <% end %>
 
-  <% if filthy_vehicle_write_off.to_f > 0.0 &&
+  <% if calculator.filthy_vehicle_write_off.to_f > 0.0 &&
       expenses_or_allowances != "no" %>
-    - <%= format_money(filthy_vehicle_write_off) %> for cars, vans and motorcycles
+    - <%= format_money(calculator.filthy_vehicle_write_off) %> for cars, vans and motorcycles
   <% end %>
 
   <% if (calculator.list_of_expenses - ['live_on_business_premises']).empty? %>
