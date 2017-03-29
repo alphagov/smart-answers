@@ -45,7 +45,7 @@
     <% end %>
   <% end %>
 
-  <% if (calculator.list_of_expenses - ['live_on_business_premises']).empty? %>
+  <% if calculator.living_on_business_premises? && calculator.type_of_vehicle == "no_vehicle" %>
     **Total to claim per year:**
   <% else %>
     **Total to claim per year:** <%= format_money(calculator.simple_total) %>
@@ -106,7 +106,7 @@
     - <%= format_money(calculator.filthy_vehicle_write_off) %> for cars, vans and motorcycles
   <% end %>
 
-  <% if (calculator.list_of_expenses - ['live_on_business_premises']).empty? %>
+  <% if calculator.living_on_business_premises? && calculator.type_of_vehicle == "no_vehicle" %>
     **Total to claim per year:**
   <% else %>
     **Total to claim per year:** <%= format_money(calculator.current_scheme_costs) %>

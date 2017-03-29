@@ -12,7 +12,7 @@ You could claim:
 
 ^This is an estimate. You should do your own calculations for your tax return.^
 
-**Total to claim per year:** £0
+**Total to claim per year:**
 
 - £7,800 to deduct from your total business costs - you then claim the balance
 
@@ -34,7 +34,7 @@ You could claim:
 
 - £789 to deduct from your total business costs - you then claim the balance
 
-**Total to claim per year:** £0
+**Total to claim per year:**
 
 ^This is an estimate. You should do your own calculations for your tax return.^
 
