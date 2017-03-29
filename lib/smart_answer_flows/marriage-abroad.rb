@@ -120,8 +120,6 @@ module SmartAnswer
             outcome :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
           elsif calculator.ceremony_country == "switzerland"
             outcome :outcome_ceremonies_in_switzerland
-          elsif calculator.ceremony_country == "spain"
-            outcome :outcome_ceremonies_in_spain
           elsif calculator.partner_is_opposite_sex?
             if calculator.ceremony_country == 'hong-kong'
               outcome :outcome_opposite_sex_marriage_in_hong_kong
@@ -265,7 +263,6 @@ module SmartAnswer
       end
 
       outcome :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
-      outcome :outcome_ceremonies_in_spain
       outcome :outcome_ceremonies_in_switzerland
       outcome :outcome_civil_partnership_in_france_or_french_overseas_territory
       outcome :outcome_civil_partnership_in_monaco

@@ -14,7 +14,7 @@ module SmartAnswer::Calculators
 
     DUTCH_CARIBBEAN_ISLANDS = %w(aruba bonaire-st-eustatius-saba curacao st-maarten)
 
-    OS_CONSULAR_CNI_COUNTRIES = %w(albania angola armenia austria bahrain belarus bolivia bosnia-and-herzegovina bulgaria croatia cuba democratic-republic-of-the-congo denmark dominican-republic estonia ethiopia georgia guatemala honduras hungary iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico montenegro netherlands nepal oman panama russia serbia slovenia spain sudan tajikistan tunisia turkmenistan uzbekistan venezuela).freeze
+    OS_CONSULAR_CNI_COUNTRIES = %w(albania angola armenia austria bahrain belarus bolivia bosnia-and-herzegovina bulgaria croatia cuba democratic-republic-of-the-congo denmark dominican-republic estonia ethiopia georgia guatemala honduras hungary iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico montenegro netherlands nepal oman panama russia serbia slovenia sudan tajikistan tunisia turkmenistan uzbekistan venezuela).freeze
 
     OS_NO_CONSULAR_CNI_COUNTRIES = %w(burundi democratic-republic-of-the-congo mexico saint-barthelemy st-martin)
 
