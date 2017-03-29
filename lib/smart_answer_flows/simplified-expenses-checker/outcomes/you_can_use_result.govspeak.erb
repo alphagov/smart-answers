@@ -79,8 +79,8 @@
     - <%= format_money(calculator.vehicle_costs.to_f) %> for the running costs of your car, van or motorcycle
   <% end %>
 
-  <% if capital_allowances_estimate.to_f > 0.0 %>
-    - <%= format_money(capital_allowances_estimate.to_f) %> of [capital allowances](/capital-allowances) for your car, van or motorcycle
+  <% if calculator.capital_allowances_estimate > 0.0 %>
+    - <%= format_money(calculator.capital_allowances_estimate.to_f) %> of [capital allowances](/capital-allowances) for your car, van or motorcycle
   <% end %>
 
   <% if calculator.home_costs.to_f > 0.0 %>

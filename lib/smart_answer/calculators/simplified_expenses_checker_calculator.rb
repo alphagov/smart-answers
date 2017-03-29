@@ -144,6 +144,14 @@ module SmartAnswer::Calculators
       simplified_expenses? && any_work_location?
     end
 
+    def capital_allowances_estimate
+      if selected_allowance == "no"
+        money(vehicle_write_off.to_f)
+      else
+        money(current_scheme_costs.to_f + simple_business_costs.to_f)
+      end
+    end
+
     def vehicle_is_green?
       vehicle_emission == "low" && new_car?
     end
