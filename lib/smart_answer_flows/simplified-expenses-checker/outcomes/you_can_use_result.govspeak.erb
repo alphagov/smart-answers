@@ -112,7 +112,7 @@
     **Total to claim per year:** <%= format_money(current_scheme_costs) %>
   <% end %>
 
-  <% if is_over_limit %>
+  <% if calculator.over_limit? %>
     The upper limit for Capital Allowance write offs for vans is £250,000.
   <% end %>
 

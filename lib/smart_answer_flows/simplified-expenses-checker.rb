@@ -255,6 +255,10 @@ module SmartAnswer
 
       outcome :you_cant_use_result
       outcome :you_can_use_result do
+        precalculate :calculator do
+          calculator
+        end
+
         precalculate :green_vehicle_price do
           calculator.green_vehicle_price
         end
@@ -269,10 +273,6 @@ module SmartAnswer
 
         precalculate :list_of_expenses do
           calculator.list_of_expenses
-        end
-
-        precalculate :is_over_limit do
-          calculator.over_limit?
         end
 
         precalculate :capital_allowance_claimed do
