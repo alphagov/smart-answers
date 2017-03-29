@@ -259,10 +259,6 @@ module SmartAnswer
           calculator
         end
 
-        precalculate :expenses_or_allowances do
-          calculator.selected_allowance
-        end
-
         precalculate :vehicle_write_offs do
           green = calculator.green_vehicle_write_off.to_f
           dirty = calculator.dirty_vehicle_write_off.to_f
@@ -286,7 +282,7 @@ module SmartAnswer
         end
 
         precalculate :capital_allowances_estimate do
-          if expenses_or_allowances == "no"
+          if calculator.selected_allowance == "no"
             Money.new(vehicle_write_offs)
           else
             business = calculator.simple_business_costs.to_f
