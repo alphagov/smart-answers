@@ -33,8 +33,8 @@
 
   ^This is an estimate. You should do your own calculations for your tax return.^
 
-  <% if simple_motorcycle_costs.to_f > 0.0 %>
-    - <%= format_money(simple_motorcycle_costs) %> to claim for motorcycles
+  <% if calculator.simple_vehicle_costs_motorcycle.to_f > 0.0 %>
+    - <%= format_money(calculator.simple_vehicle_costs_motorcycle) %> to claim for motorcycles
   <% end %>
 
   <% if calculator.list_of_expenses.include?("using_home_for_business") %>
