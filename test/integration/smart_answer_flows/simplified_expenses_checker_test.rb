@@ -119,8 +119,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
-
-        assert_state_variable :green_vehicle_price, 10000
         assert_state_variable :green_vehicle_write_off, 8000
         assert_state_variable :simple_vehicle_costs, 900
         assert_state_variable :current_scheme_costs, 8000
@@ -229,8 +227,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
-
-        assert_state_variable :green_vehicle_price, 10000
         assert_state_variable :green_vehicle_write_off, 8000
         assert_state_variable :simple_vehicle_costs, 900
         assert_state_variable :current_scheme_costs, 8000
@@ -271,8 +267,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
-
-        assert_state_variable :green_vehicle_price, 260000
         assert_state_variable :green_vehicle_write_off, 260000
         assert_state_variable :simple_vehicle_costs, 900
         assert_state_variable :current_scheme_costs, 260000
@@ -318,8 +312,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
-
-        assert_state_variable :green_vehicle_price, nil
         assert_state_variable :green_vehicle_write_off, nil
         assert_state_variable :simple_motorcycle_costs, 480
         assert_state_variable :current_scheme_costs, 0
@@ -397,7 +389,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
     should "take you to the results" do
       assert_current_node :you_can_use_result
-      assert_state_variable :green_vehicle_price, 10000
       assert_state_variable :green_vehicle_write_off, 8000
       assert_state_variable :simple_vehicle_costs, 900
       assert_state_variable :home_costs, 1000
