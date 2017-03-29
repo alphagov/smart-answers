@@ -259,10 +259,6 @@ module SmartAnswer
           calculator
         end
 
-        precalculate :list_of_expenses do
-          calculator.list_of_expenses
-        end
-
         precalculate :capital_allowance_claimed do
           calculator.capital_allowance_claimed?
         end
