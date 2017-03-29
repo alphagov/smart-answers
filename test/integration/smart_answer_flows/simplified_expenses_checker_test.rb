@@ -100,7 +100,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
-        assert_state_variable :vehicle_price, 1000
         assert_state_variable :current_scheme_costs, 144
         assert_state_variable :simple_total, 900
         assert_state_variable :can_use_simple, true

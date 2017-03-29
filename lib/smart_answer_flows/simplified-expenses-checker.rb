@@ -259,10 +259,6 @@ module SmartAnswer
           calculator
         end
 
-        precalculate :vehicle_price do
-          calculator.vehicle_price
-        end
-
         precalculate :home_costs do
           calculator.home_costs
         end
