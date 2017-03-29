@@ -119,7 +119,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
-        assert_state_variable :vehicle_is_green, true
+
         assert_state_variable :green_vehicle_price, 10000
         assert_state_variable :green_vehicle_write_off, 8000
         assert_state_variable :simple_vehicle_costs, 900
@@ -140,7 +140,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
-        assert_state_variable :vehicle_is_green, false
+
         assert_state_variable :dirty_vehicle_price, 1800
         assert_state_variable :dirty_vehicle_write_off, 1440
         assert_state_variable :simple_vehicle_costs, 900
@@ -229,7 +229,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
-        assert_state_variable :vehicle_is_green, true
+
         assert_state_variable :green_vehicle_price, 10000
         assert_state_variable :green_vehicle_write_off, 8000
         assert_state_variable :simple_vehicle_costs, 900
@@ -250,7 +250,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
-        assert_state_variable :vehicle_is_green, false
+
         assert_state_variable :dirty_vehicle_price, 1800
         assert_state_variable :dirty_vehicle_write_off, 1440
         assert_state_variable :simple_vehicle_costs, 5000
@@ -271,7 +271,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
-        assert_state_variable :vehicle_is_green, true
+
         assert_state_variable :green_vehicle_price, 260000
         assert_state_variable :green_vehicle_write_off, 260000
         assert_state_variable :simple_vehicle_costs, 900
@@ -318,7 +318,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
-        assert_state_variable :vehicle_is_green, false
+
         assert_state_variable :green_vehicle_price, nil
         assert_state_variable :green_vehicle_write_off, nil
         assert_state_variable :simple_motorcycle_costs, 480
@@ -338,7 +338,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
       should "take you to result 2 - main result" do
         assert_current_node :you_can_use_result
-        assert_state_variable :vehicle_is_green, false
+
         assert_state_variable :dirty_vehicle_price, nil
         assert_state_variable :dirty_vehicle_write_off, nil
         assert_state_variable :simple_motorcycle_costs, 480
@@ -397,7 +397,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
     should "take you to the results" do
       assert_current_node :you_can_use_result
-      assert_state_variable :vehicle_is_green, true
       assert_state_variable :green_vehicle_price, 10000
       assert_state_variable :green_vehicle_write_off, 8000
       assert_state_variable :simple_vehicle_costs, 900
