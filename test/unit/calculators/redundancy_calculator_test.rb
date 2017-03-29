@@ -30,6 +30,8 @@ module SmartAnswer::Calculators
         assert_equal 450, RedundancyCalculator.redundancy_rates(Date.new(2014, 04, 05)).rate
         assert_equal 464, RedundancyCalculator.redundancy_rates(Date.new(2014, 04, 06)).rate
         assert_equal 475, RedundancyCalculator.redundancy_rates(Date.new(2015, 04, 06)).rate
+        assert_equal 479, RedundancyCalculator.redundancy_rates(Date.new(2016, 04, 06)).rate
+        assert_equal 489, RedundancyCalculator.redundancy_rates(Date.new(2017, 04, 06)).rate
       end
 
       should "vary the max amount per year" do
@@ -40,7 +42,8 @@ module SmartAnswer::Calculators
         assert_equal "13,920", RedundancyCalculator.redundancy_rates(Date.new(2014, 04, 06)).max
         assert_equal "13,920", RedundancyCalculator.redundancy_rates(Date.new(2015, 04, 05)).max
         assert_equal "14,250", RedundancyCalculator.redundancy_rates(Date.new(2015, 04, 06)).max
-        assert_equal "14,370", RedundancyCalculator.redundancy_rates(Date.new(Date.today.year, 12, 31)).max
+        assert_equal "14,370", RedundancyCalculator.redundancy_rates(Date.new(2016, 04, 06)).max
+        assert_equal "14,670", RedundancyCalculator.redundancy_rates(Date.new(Date.today.year, 12, 31)).max
       end
 
       should "use the most recent rate for far future dates" do
