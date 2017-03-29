@@ -589,7 +589,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         add_response 'opposite_sex'
       end
       should "go to outcome_ceremonies_in_spain with UK/OS specific phrases" do
-        assert_current_node :outcome_ceremonies_in_spain
+        assert_current_node :outcome_marriage_abroad_in_country
       end
     end
 
@@ -600,7 +600,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         add_response 'opposite_sex'
       end
       should "go to outcome_ceremonies_in_spain with ceremony country OS specific phrases" do
-        assert_current_node :outcome_ceremonies_in_spain
+        assert_current_node :outcome_marriage_abroad_in_country
       end
     end
 
@@ -612,7 +612,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       end
 
       should "go to outcome_ceremonies_in_spain with third country OS specific phrases" do
-        assert_current_node :outcome_ceremonies_in_spain
+        assert_current_node :outcome_marriage_abroad_in_country
       end
     end
 
@@ -624,7 +624,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       end
 
       should "go to outcome_ceremonies_in_spain with UK/SS specific phrases" do
-        assert_current_node :outcome_ceremonies_in_spain
+        assert_current_node :outcome_marriage_abroad_in_country
       end
     end
 
@@ -636,7 +636,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       end
 
       should "go to outcome_ceremonies_in_spain with third country SS specific phrases" do
-        assert_current_node :outcome_ceremonies_in_spain
+        assert_current_node :outcome_marriage_abroad_in_country
       end
     end
   end
