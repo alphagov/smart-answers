@@ -37,7 +37,7 @@
     - <%= format_money(calculator.simple_vehicle_costs_motorcycle) %> to claim for motorcycles
   <% end %>
 
-  <% if calculator.list_of_expenses.include?("using_home_for_business") %>
+  <% if calculator.working_from_home? %>
     <% if calculator.simple_home_costs.to_f == 0.0 %>
       - you have to work at least 25 hours per month from home to use simplified expenses
     <% else %>
