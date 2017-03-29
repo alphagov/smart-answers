@@ -693,6 +693,34 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#vehicle_write_off" do
+        setup do
+          @calculator = SimplifiedExpensesCheckerCalculator.new
+        end
+
+        should "equal 0 if no vehicle" do
+          assert_equal @calculator.vehicle_write_off, 0
+        end
+
+        should "equal green_vehicle_write_off if vehicle is green" do
+          @calculator.stubs(:vehicle_is_green?).returns(true)
+          @calculator.stubs(:green_vehicle_write_off).returns(10)
+          assert_equal @calculator.vehicle_write_off, 10
+        end
+
+        should "equal dirty_vehicle_write_off if vehicle is dirty" do
+          @calculator.stubs(:vehicle_is_dirty?).returns(true)
+          @calculator.stubs(:dirty_vehicle_write_off).returns(9)
+          assert_equal @calculator.vehicle_write_off, 9
+        end
+
+        should "equal filthy_vehicle_write_off if vehicle is filthy" do
+          @calculator.stubs(:vehicle_is_filthy?).returns(true)
+          @calculator.stubs(:filthy_vehicle_write_off).returns(8)
+          assert_equal @calculator.vehicle_write_off, 8
+        end
+      end
+
       context "#simple_vehicle_costs_car_van" do
         setup do
           @calculator = SimplifiedExpensesCheckerCalculator.new

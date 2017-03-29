@@ -57,6 +57,19 @@ module SmartAnswer::Calculators
       end
     end
 
+    def vehicle_write_off
+      case
+      when vehicle_is_green?
+        green_vehicle_write_off.to_f
+      when vehicle_is_dirty?
+        dirty_vehicle_write_off.to_f
+      when vehicle_is_filthy?
+        filthy_vehicle_write_off.to_f
+      else
+        0
+      end
+    end
+
     def simple_home_costs
       amount = case hours_worked_home.to_f
                when 0..24 then 0
