@@ -259,10 +259,6 @@ module SmartAnswer
           calculator
         end
 
-        precalculate :green_vehicle_write_off do
-          calculator.green_vehicle_write_off
-        end
-
         precalculate :dirty_vehicle_write_off do
           calculator.dirty_vehicle_write_off
         end
@@ -284,7 +280,7 @@ module SmartAnswer
         end
 
         precalculate :vehicle_write_offs do
-          green = green_vehicle_write_off.to_f
+          green = calculator.green_vehicle_write_off.to_f
           dirty = dirty_vehicle_write_off.to_f
           filthy = filthy_vehicle_write_off.to_f
           green + dirty + filthy
