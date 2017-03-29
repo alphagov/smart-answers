@@ -259,10 +259,6 @@ module SmartAnswer
           calculator
         end
 
-        precalculate :dirty_vehicle_price do
-          calculator.dirty_vehicle_price
-        end
-
         precalculate :filthy_vehicle_price do
           calculator.filthy_vehicle_price
         end
