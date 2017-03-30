@@ -8,8 +8,7 @@
 - '2015-02-01' # in 14/15 financial year
 - '2015-04-05' # in 14/15 financial year but on or after 5 Apr 15
 - '2016-02-01' # in 15/16 financial year
-- '2017-02-01' # in 16/17 financial year
-- '2018-02-01' # in 17/18 financial year
+- '2017-02-01' # not in 13/14, 14/15, 15/16 financial years, but after 5 Apr 15
 :mother_started_working_before_continuity_start_date:
 - 'yes'
 - 'no'
