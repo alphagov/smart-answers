@@ -337,6 +337,7 @@ module SmartAnswer::Calculators
          sweden
          turkey
          thailand
+         usa
          vietnam
         ).include?(ceremony_country)
     end
@@ -350,6 +351,7 @@ module SmartAnswer::Calculators
          turkey
          italy
          thailand
+         usa
         ).include?(ceremony_country)
     end
 
