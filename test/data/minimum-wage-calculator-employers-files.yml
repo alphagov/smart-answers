@@ -1,7 +1,7 @@
 ---
 lib/smart_answer_flows/minimum-wage-calculator-employers.rb: 16560e10f0491911e1bed528e37855e2
-test/data/minimum-wage-calculator-employers-questions-and-responses.yml: aa201473058ce2a80bc602b82932353e
-test/data/minimum-wage-calculator-employers-responses-and-expected-results.yml: 53ed6e59740f06e2890bc3060f8ff9be
+test/data/minimum-wage-calculator-employers-questions-and-responses.yml: 167a896aca36890404c59015d4a56ec7
+test/data/minimum-wage-calculator-employers-responses-and-expected-results.yml: 48d889acc42a582609b5b621bfb7c623
 lib/smart_answer_flows/minimum-wage-calculator-employers/minimum_wage_calculator_employers.govspeak.erb: 76db23a801c20285eb34e4c64969cca6
 lib/smart_answer_flows/minimum-wage-calculator-employers/outcomes/current_payment_above.govspeak.erb: 213bc34a9df44bccd60642655f165eed
 lib/smart_answer_flows/minimum-wage-calculator-employers/outcomes/current_payment_below.govspeak.erb: 19282268790be35937da775f3abcc507
@@ -26,12 +26,12 @@ lib/smart_answer_flows/minimum-wage-calculator-employers/questions/how_old_were_
 lib/smart_answer_flows/minimum-wage-calculator-employers/questions/is_provided_with_accommodation.govspeak.erb: 8400b5df23a6c6bf714203a3983d60cc
 lib/smart_answer_flows/minimum-wage-calculator-employers/questions/past_accommodation_charge.govspeak.erb: aab5f1f38fe0fb8dc2a4e29fc846fc2d
 lib/smart_answer_flows/minimum-wage-calculator-employers/questions/past_accommodation_usage.govspeak.erb: 6d75fc091c6818962edb3d56153e1401
-lib/smart_answer_flows/minimum-wage-calculator-employers/questions/past_payment_date.govspeak.erb: af9ff4e41dae3af336bbf1dc5a66009d
+lib/smart_answer_flows/minimum-wage-calculator-employers/questions/past_payment_date.govspeak.erb: 141ab7e512d4fc66dd2fb64da93c2e65
 lib/smart_answer_flows/minimum-wage-calculator-employers/questions/was_provided_with_accommodation.govspeak.erb: c83fa3e8f73b6de38c7da931b3bec429
 lib/smart_answer_flows/minimum-wage-calculator-employers/questions/were_you_an_apprentice.govspeak.erb: 5934af86789f2ebe158bc1239636c050
 lib/smart_answer_flows/minimum-wage-calculator-employers/questions/what_is_overtime_pay_per_hour.govspeak.erb: 72883e35065286ae84b9bb7035b2f081
 lib/smart_answer_flows/minimum-wage-calculator-employers/questions/what_was_overtime_pay_per_hour.govspeak.erb: 82a7b7b692aac807fdd73c4f5b6aea22
-lib/smart_answer_flows/minimum-wage-calculator-employers/questions/what_would_you_like_to_check.govspeak.erb: 6394060d7e8249225e3ca317483d3f5a
-lib/smart_answer_flows/shared/minimum_wage_flow.rb: bdf5a46ad00dc243740c68b5c4506bcc
+lib/smart_answer_flows/minimum-wage-calculator-employers/questions/what_would_you_like_to_check.govspeak.erb: 0b907bdae4261f7c0859e1593c3b11a7
+lib/smart_answer_flows/shared/minimum_wage_flow.rb: 58ec50b57476923ac89920d93977389e
 lib/smart_answer_flows/shared/minimum_wage/_acas_information.govspeak.erb: 582cdf982fa5619072ddd883bf4c1555
 lib/smart_answer/calculators/minimum_wage_calculator.rb: fe2ecdba2ce0b71368e0515799c3ba55
