@@ -37,8 +37,12 @@ module SmartAnswer::Calculators
         SmartAnswer::Money.new(111)
       elsif in_2015_2016_fin_year?(start_date)
         SmartAnswer::Money.new(112)
-      else
+      elsif in_2016_2017_fin_year?(start_date)
         SmartAnswer::Money.new(112)
+      elsif in_2017_2018_fin_year?(start_date)
+        SmartAnswer::Money.new(113)
+      else
+        SmartAnswer::Money.new(113)
       end
     end
 
@@ -105,6 +109,14 @@ module SmartAnswer::Calculators
       date_in_39_week_range?(2015, 2016, due_date)
     end
 
+    def range_in_2016_2017_fin_year?
+      date_in_39_week_range?(2016, 2017, due_date)
+    end
+
+    def range_in_2017_2018_fin_year?
+      date_in_39_week_range?(2017, 2018, due_date)
+    end
+
     def start_of_maternity_allowance
       sunday_before(due_date - 11.weeks)
     end
@@ -131,6 +143,14 @@ module SmartAnswer::Calculators
 
     def in_2015_2016_fin_year?(date)
       (Date.new(2015, 05, 06)..Date.new(2016, 05, 05)).cover?(date)
+    end
+
+    def in_2016_2017_fin_year?(date)
+      (Date.new(2016, 05, 06)..Date.new(2017, 05, 05)).cover?(date)
+    end
+
+    def in_2017_2018_fin_year?(date)
+      (Date.new(2017, 05, 06)..Date.new(2018, 05, 05)).cover?(date)
     end
 
   private
