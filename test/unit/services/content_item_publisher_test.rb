@@ -36,4 +36,52 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
       assert_equal "Content id has not been supplied", exception.message
     end
   end
+
+  context "#redirect_smart_answer" do
+    setup do
+      SecureRandom.stubs(:uuid).returns('content-id')
+      create_url = 'https://publishing-api.test.gov.uk/v2/content/content-id'
+      @create_request = stub_request(:put, create_url)
+      publish_url = 'https://publishing-api.test.gov.uk/v2/content/content-id/publish'
+      @publish_request = stub_request(:post, publish_url)
+      router_url = 'https://router-api.test.gov.uk/routes'
+      @router_request = stub_request(:put, router_url)
+    end
+
+    should 'send a redirect and publish request to content store' do
+      ContentItemPublisher.new.redirect_smart_answer('/path', '/destination-path')
+
+      assert_requested @create_request
+      assert_requested @publish_request
+      assert_requested @router_request
+    end
+
+    should 'raise exception and not attempt publishing and router requests, when create request fails' do
+      GdsApi::Response.any_instance.stubs(:code).returns(500)
+      exception = assert_raises(RuntimeError) do
+        ContentItemPublisher.new.redirect_smart_answer('/path', '/destination-path')
+      end
+
+      assert_equal "This content item has not been created", exception.message
+      assert_requested @create_request
+      assert_not_requested @publish_request
+      assert_not_requested @router_request
+    end
+
+    should 'raises exception if destination is not defined' do
+      exception = assert_raises(RuntimeError) do
+        ContentItemPublisher.new.redirect_smart_answer('/path', nil)
+      end
+
+      assert_equal "The destination or path isn't defined", exception.message
+    end
+
+    should 'raises exception if path is not defined' do
+      exception = assert_raises(RuntimeError) do
+        ContentItemPublisher.new.redirect_smart_answer(nil, '/destination-path')
+      end
+
+      assert_equal "The destination or path isn't defined", exception.message
+    end
+  end
 end
