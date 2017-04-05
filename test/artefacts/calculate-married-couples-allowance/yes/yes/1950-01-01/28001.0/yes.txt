@@ -1,9 +1,5 @@
-How much do you expect to pay into a pension where your contributions are made before tax is taken away?
+How much do you expect to pay for the whole tax year into a retirement annuity contract (these payments are called ‘gross contributions’)?
 
-Enter the total you expect to pay for the whole tax year into:
-
-- pension schemes where your contributions are paid before your income is taxed (called ‘net pay arrangements’)
-- retirement annuity contracts (called ‘gross contributions’)
 
 
 If none, please enter 0.
