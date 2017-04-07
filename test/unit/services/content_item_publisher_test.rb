@@ -28,7 +28,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
       assert_requested unpublish_request
     end
 
-    should 'raises exception if smart answer does not exist' do
+    should 'raise exception if content_id has not been supplied' do
       exception = assert_raises(RuntimeError) do
         ContentItemPublisher.new.unpublish(nil)
       end
@@ -48,7 +48,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
       @router_request = stub_request(:put, router_url)
     end
 
-    should 'send a redirect and publish request to content store' do
+    should 'send a redirect and publish request to publishing-api' do
       ContentItemPublisher.new.redirect_smart_answer('/path', '/destination-path')
 
       assert_requested @create_request

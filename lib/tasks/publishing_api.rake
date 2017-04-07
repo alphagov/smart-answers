@@ -5,14 +5,14 @@ namespace :publishing_api do
     ContentItemPublisher.new.publish(flow_presenters)
   end
 
-  desc "Unpublish a smart answer from content-store"
+  desc "Unpublish a smart answer from content-publisher"
   task :unpublish, [:content_id] => :environment do |_, args|
     raise "Missing content-id parameter" unless args.content_id
 
     ContentItemPublisher.new.unpublish(args.content_id)
   end
 
-  desc "Create redirect for a smart answer's paths on the content-store"
+  desc "Create redirect for a smart answer's paths on the publishin-api"
   task :redirect_smart_answer, [:path, :destination] => :environment do |_, args|
     raise "Missing path parameter" unless args.path
     raise "Missing destination parameter" unless args.destination
