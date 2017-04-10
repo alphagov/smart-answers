@@ -24,6 +24,12 @@ class ContentItemPublisher
     update_segment_mode_in_router_api(path, destination)
   end
 
+  def remove_smart_answer_from_search(base_path)
+    raise "The base_path isn't supplied" unless base_path.present?
+
+    Services.rummager.delete_content(base_path)
+  end
+
 private
 
   def add_redirect_to_publishing_api(path, destination)

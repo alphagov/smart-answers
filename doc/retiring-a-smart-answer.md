@@ -66,6 +66,16 @@ In this document is prescribed the steps that need to be taken:
     RouterReloader.reload
   ```
 
+- Remove smart answer content from search index:
+
+  In order to remove the identified smart answer's content from the
+  search index, the following rake task needs to be run.
+
+  (i.e `rake rummager:remove_smart_answer_from_search[base_path]`)
+
+  After running this task, the smart answer should no longer be
+  discoverable via search.
+
 - Reseting cache (optional):
 
   After rake tasks have been run, it may be important to clear the cache for the smart answer in question.
