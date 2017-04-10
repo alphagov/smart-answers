@@ -328,6 +328,7 @@ module SmartAnswer::Calculators
          france
          hungary
          italy
+         iran
          ireland
          jordan
          latvia
