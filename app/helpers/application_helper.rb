@@ -21,4 +21,12 @@ module ApplicationHelper
       "Start now"
     end
   end
+
+  def start_button_href
+    if @name.to_s == "overseas-passports"
+      "https://www.passport.service.gov.uk/filter"
+    else
+      smart_answer_path(@name, started: 'y')
+    end
+  end
 end
