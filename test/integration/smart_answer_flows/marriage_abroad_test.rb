@@ -1086,6 +1086,18 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
+  context "ceremony in iran, resident in the UK, partner local" do
+    setup do
+      add_response 'iran'
+      add_response 'uk'
+      add_response 'partner_local'
+      add_response 'opposite_sex'
+    end
+    should "go to marriag abroad in country" do
+      assert_current_node :outcome_marriage_abroad_in_country
+    end
+  end
+
   context "ceremony in yemen, resident in the UK, partner local" do
     setup do
       add_response 'yemen'
