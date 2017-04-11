@@ -21,7 +21,6 @@ class ContentItemPublisher
     raise "The destination or path isn't defined" unless path.present? && destination.present?
 
     add_redirect_to_publishing_api(path, destination)
-    update_segment_mode_in_router_api(path, destination)
   end
 
   def remove_smart_answer_from_search(base_path)
@@ -47,15 +46,5 @@ private
     response = Services.publishing_api.put_content(content_id, create_params)
     raise "This content item has not been created" unless response.code == 200
     Services.publishing_api.publish(content_id, :major)
-  end
-
-  def update_segment_mode_in_router_api(path, destination)
-    Services.router_api.add_redirect_route(
-      path,
-      :prefix,
-      destination,
-      :permanent,
-      segments_mode: :ignore
-    )
   end
 end

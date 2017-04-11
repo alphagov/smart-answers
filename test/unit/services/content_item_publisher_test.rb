@@ -44,8 +44,6 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
       @create_request = stub_request(:put, create_url)
       publish_url = 'https://publishing-api.test.gov.uk/v2/content/content-id/publish'
       @publish_request = stub_request(:post, publish_url)
-      router_url = 'https://router-api.test.gov.uk/routes'
-      @router_request = stub_request(:put, router_url)
     end
 
     should 'send a redirect and publish request to publishing-api' do
@@ -53,7 +51,6 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
 
       assert_requested @create_request
       assert_requested @publish_request
-      assert_requested @router_request
     end
 
     should 'raise exception and not attempt publishing and router requests, when create request fails' do
@@ -65,7 +62,6 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
       assert_equal "This content item has not been created", exception.message
       assert_requested @create_request
       assert_not_requested @publish_request
-      assert_not_requested @router_request
     end
 
     should 'raises exception if destination is not defined' do
