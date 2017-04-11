@@ -29,47 +29,25 @@ In this document is prescribed the steps that need to be taken:
 
   The destination is the path where this base_path of the smart asnwer should redirect to. This could be a path to a new flat content etc.
 
-  Below is a break down of other steps and/or rake tasks that make up this
-  process.
+  Below is a break down of steps that make up this process.
 
   - ### Unpublish the identified smart answer:
-
-    To unpublish, the publishing_api:unpublish rake task needs to be run.
-
-    This needs to be supplied with the content id belonging to the
-    identified smart answer. The content id can be found in the flow class
-    for the smart answer.
-
-    (i.e `rake publishing_api:unpublish[content-id]`)
 
     This updates the edition of a document into an unpublished state. The
     edition will be updated and removed from the live content store and
     sets it to type of gone with status 410.
 
-    This uses the publishing-api to un-publish the given smart answer.
+    This is done via publishing-api.
 
   - ### Redirect smart answer paths to new destination:
 
-    To redirect, the publishing_api:redirect_smart_answer rake task needs
-    to be run.
-
-    For this task to run, it needs to be supplied the smart answer's
-    base_path and the new destination.
-
-    (i.e `rake publishing_api:redirect_smart_answer[path,destination]`)
-
-    When this rake task is invoked, a new redirect draft edition is
-    created and published.
+    This creates a new redirect content item edition with the new destination
+    and segments_mode set to ignore.
 
   - ### Remove smart answer content from search index:
 
-    In order to remove the identified smart answer's content from the
-    search index, the following rake task needs to be run.
-
-    (i.e `rake rummager:remove_smart_answer_from_search[base_path]`)
-
-    After running this task, the smart answer should no longer be
-    discoverable via search.
+    This the smart answer from the search index and after this has been removed
+    it should no longer be discoverable via search.
 
 - ## Troubleshooting
 
