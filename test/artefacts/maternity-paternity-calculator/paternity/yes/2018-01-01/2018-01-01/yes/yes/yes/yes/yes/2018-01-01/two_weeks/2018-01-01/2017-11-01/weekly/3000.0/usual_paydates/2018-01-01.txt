@@ -10,8 +10,6 @@ The employee is entitled to Statutory Paternity Leave.
 |End                           | 14 January 2018            |
 |Latest date to [claim leave](/employers-paternity-pay-leave/adoption)     | 23 September 2017  |
 
-^Leave must finish within 56 days of the birth (or due date if the baby is early).^
-
 ##Statutory Paternity Pay (SPP)
 
 The employee is entitled to SPP.
@@ -32,5 +30,5 @@ Date | SPP amount
 The latest date for them to [claim SPP](/employers-paternity-pay-leave/adoption) is usually 15 days before they want it to start.
 
 
-Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees)
+Read the [guide to Statutory Paternity Pay and Leave](/employers-paternity-pay-leave)
 
