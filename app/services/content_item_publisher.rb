@@ -39,7 +39,7 @@ private
       publishing_app: :smartanswers,
       schema_name: :redirect,
       redirects: [
-        { path: path, type: :prefix, destination: destination }
+        { path: path, type: :prefix, destination: destination, segments_mode: :ignore }
       ]
     }
 
