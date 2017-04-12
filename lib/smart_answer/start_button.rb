@@ -31,7 +31,7 @@ module SmartAnswer
       {
         "overseas-passports": {
           text: "Continue",
-          href: "/overseas-passports/y"
+          href: "https://www.passport.service.gov.uk/filter"
         },
         "calculate-your-child-maintenance": {
           text: "Calculate your child maintenance",
