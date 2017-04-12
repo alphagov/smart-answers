@@ -4,21 +4,10 @@ module ApplicationHelper
   end
 
   def start_button
-    case @name.to_s
-    when "overseas-passports"
-      "Continue"
-    when "calculate-your-child-maintenance"
-      "Calculate your child maintenance"
-    else
-      "Start now"
-    end
+    SmartAnswer::StartButton.new(@name, self).text
   end
 
   def start_button_href
-    if @name.to_s == "overseas-passports"
-      "https://www.passport.service.gov.uk/filter"
-    else
-      smart_answer_path(@name, started: 'y')
-    end
+    SmartAnswer::StartButton.new(@name, self).href
   end
 end
