@@ -1,30 +1,17 @@
-<% content_for :head do %>
-  <meta name="robots" content="noindex">
-<% end %>
-
-<%= render 'debug' %>
-
-<%= render partial: 'page_title', locals: { title: @presenter.title } %>
-
-<% outcome = @presenter.current_node %>
-
 <div class="article-container outcome">
   <article class="outcome group">
     <div class="result-info" data-debug-template-path="<%= outcome.relative_erb_template_path %>">
       <div class="inner group">
         <% if outcome.title.present? %>
-          <div class="summary"><h2 class="result-title"><%= outcome.title %></h2></div>
+        <div class="summary"><h2 class="result-title"><%= outcome.title %></h2></div>
         <% end %>
-
         <%= outcome.body %>
       </div>
     </div>
-
     <% if outcome.next_steps.present? %>
       <div class="related-wrapper">
         <div class="related next-steps">
           <h2>Next steps</h2>
-
           <%= outcome.next_steps %>
         </div>
       </div>
@@ -44,5 +31,3 @@
     GOVUK.analytics.trackEvent('Smart Answer', 'Completed', options);
   });
 </script>
-
-<%= render 'previous_answers' %>

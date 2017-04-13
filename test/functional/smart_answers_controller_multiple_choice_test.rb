@@ -11,7 +11,6 @@ class SmartAnswersControllerMultipleChoiceQuestionTest < ActionController::TestC
 
   def setup
     setup_fixture_flows
-    stub_smart_answer_in_content_store("smart-answers-controller-sample-with-multiple-choice-question")
   end
 
   def teardown
@@ -19,10 +18,14 @@ class SmartAnswersControllerMultipleChoiceQuestionTest < ActionController::TestC
   end
 
   context "multiple choice question" do
-    context "no response given" do
-      should "show an error message" do
-        submit_response(nil)
-        assert_select ".step.current .error"
+    context "format=json" do
+      context "no response given" do
+        should "show an error message" do
+          submit_json_response(nil)
+          data = JSON.parse(response.body)
+          doc = Nokogiri::HTML(data['html_fragment'])
+          assert doc.css('.error').size > 0, "#{data['html_fragment']} should contain .error"
+        end
       end
     end
   end

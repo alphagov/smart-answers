@@ -22,23 +22,29 @@ class SmartAnswersController < ApplicationController
 
   def index
     @flows = flow_registry.flows.sort_by(&:name)
-    @title = 'Smart Answers Index'
-    @content_item = {}
   end
 
   def show
-    @title = @presenter.title
-
     respond_to do |format|
       format.html {
         if page_is_under_ab_test?(content_item)
           set_education_navigation_response_header(content_item)
         end
-        render page_type
+        render
+      }
+      format.json {
+        html_fragment = with_format('html') {
+          render_to_string(partial: "content")
+        }
+        render json: {
+          url: smart_answer_path(params[:id], 'y', @presenter.current_state.responses),
+          html_fragment: html_fragment,
+          title: @presenter.current_node.title
+        }
       }
       if Rails.application.config.expose_govspeak
         format.text {
-          render page_type
+          render
         }
       end
     end
@@ -51,7 +57,7 @@ class SmartAnswersController < ApplicationController
       format.html {
         @graph_presenter = GraphPresenter.new(@smart_answer)
         @graph_data = @graph_presenter.to_hash
-        render layout: 'application'
+        render layout: true
       }
       format.gv {
         render text: GraphvizPresenter.new(@smart_answer).to_gv
@@ -66,6 +72,18 @@ private
   end
   helper_method :debug?
 
+  def json_request?
+    request.format == Mime::JSON
+  end
+
+  def with_format(format)
+    old_formats = self.formats
+    self.formats = [format]
+    result = yield
+    self.formats = old_formats
+    result
+  end
+
   def find_smart_answer
     @name = params[:id].to_sym
     @smart_answer = flow_registry.find(@name.to_s)
@@ -74,18 +92,6 @@ private
 
   def flow_registry
     @flow_registry = SmartAnswer::FlowRegistry.instance
-  end
-
-  def page_type
-    if @presenter.started?
-      if @presenter.finished?
-        :result
-      else
-        :question
-      end
-    else
-      :landing
-    end
   end
 
   def redirect_response_to_canonical_url
