@@ -323,6 +323,7 @@ module SmartAnswer::Calculators
 
     def has_outcome_per_path?
       %w(
+         chile
          china
          denmark
          france
