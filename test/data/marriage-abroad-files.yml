@@ -1,7 +1,7 @@
 ---
 lib/smart_answer_flows/marriage-abroad.rb: 2d0c53743fe37cf981dcf66d7a47d1aa
-test/data/marriage-abroad-questions-and-responses.yml: 35a2f04fceb6c1c45cd96ca80dcba991
-test/data/marriage-abroad-responses-and-expected-results.yml: 6712651b52722c78ba24e697d0d16901
+test/data/marriage-abroad-questions-and-responses.yml: 02a89124d43baf7342d47ef22af3d6fa
+test/data/marriage-abroad-responses-and-expected-results.yml: 00c18b318e275832ce3a57d6de549468
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
 lib/smart_answer_flows/marriage-abroad/outcomes/_affirmation_os_translation_in_local_language_text.govspeak.erb: af09e09b909c563d4a587ef1b9285cca
 lib/smart_answer_flows/marriage-abroad/outcomes/_appointment_for_affidavit.govspeak.erb: 4db6fe2ec298d79aefaed0d4ff244e75
