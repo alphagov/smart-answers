@@ -1,0 +1,10 @@
+---
+meta_description: Find out what the Foreign and Commonwealth Office can do to help if you or someone you know is arrested abroad.
+status: draft
+satisfies_need: 100220
+---
+# Help if you're arrested abroad
+
+Find out what help you can get if you or someone you know is arrested abroad.
+
+[start: country]
