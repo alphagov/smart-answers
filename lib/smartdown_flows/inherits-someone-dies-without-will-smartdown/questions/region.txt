@@ -1,0 +1,10 @@
+# Where did the deceased live?
+
+[choice: region]
+* england-and-wales: England and Wales
+* scotland: Scotland
+* northern-ireland: Northern Ireland
+
+* region is 'england-and-wales' => partner
+* region is 'scotland' => partner
+* region is 'northern-ireland' => partner

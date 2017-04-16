@@ -1,0 +1,94 @@
+# Partner, Estate under 250000
+- region: england-and-wales
+- partner: yes
+- estate_over_250000: no
+outcome_1
+
+# Partner, Estate over 250000, Children
+- region: england-and-wales
+- partner: yes
+- estate_over_250000: yes
+- children: yes
+outcome_20
+
+# Partner, Estate over 250000, No children
+- region: england-and-wales
+- partner: yes
+- estate_over_250000: yes
+- children: no
+outcome_1
+
+# No partner, Children
+- region: england-and-wales
+- partner: no
+- children: yes
+outcome_2
+
+# No partner, No children, Parents
+- region: england-and-wales
+- partner: no
+- children: no
+- parents: yes
+outcome_3
+
+# No partner, No children, No parents, Siblings
+- region: england-and-wales
+- partner: no
+- children: no
+- parents: no
+- siblings: yes
+outcome_4
+
+# No partner, No children, No parents, No siblings, Half siblings
+- region: england-and-wales
+- partner: no
+- children: no
+- parents: no
+- siblings: no
+- half_siblings: yes
+outcome_23
+
+# No partner, No children, No parents, No siblings, No half siblings, Grandparents
+- region: england-and-wales
+- partner: no
+- children: no
+- parents: no
+- siblings: no
+- half_siblings: no
+- grandparents: yes
+outcome_5
+
+# No partner, No children, No parents, No siblings, No half siblings, No grandparents, Aunts and Uncles
+- region: england-and-wales
+- partner: no
+- children: no
+- parents: no
+- siblings: no
+- half_siblings: no
+- grandparents: no
+- aunts_or_uncles: yes
+outcome_6
+
+# No partner, No children, No parents, No siblings, No half siblings, No grandparents, No Aunts and Uncles, Half Aunts or Uncles
+- region: england-and-wales
+- partner: no
+- children: no
+- parents: no
+- siblings: no
+- half_siblings: no
+- grandparents: no
+- aunts_or_uncles: no
+- half_aunts_or_uncles: yes
+outcome_24
+
+# No partner, No children, No parents, No siblings, No half siblings, No grandparents, No Aunts and Uncles, No Half Aunts or Uncles
+- region: england-and-wales
+- partner: no
+- children: no
+- parents: no
+- siblings: no
+- half_siblings: no
+- grandparents: no
+- aunts_or_uncles: no
+- half_aunts_or_uncles: no
+outcome_25

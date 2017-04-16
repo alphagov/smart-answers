@@ -1,0 +1,10 @@
+---
+satisfies_need: 100988
+status: draft
+---
+
+# Intestacy - who inherits if someone dies without a will?
+
+Find out who is entitled to a share of someone’s money, property and possessions if they die without making a will.
+
+[start: region]

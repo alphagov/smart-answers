@@ -1,0 +1,35 @@
+# Did the deceased have any brothers or sisters?
+
+[choice: siblings]
+* yes: Yes
+* no: No
+
+* region is 'england-and-wales'
+  * partner is 'yes'
+    * siblings is 'yes' => outcome_22
+    * siblings is 'no' => outcome_1
+  * partner is 'no'
+    * siblings is 'yes' => outcome_4
+    * siblings is 'no' => half_siblings
+* region is 'scotland'
+  * partner is 'yes'
+    * parents is 'yes'
+      * siblings is 'yes' => outcome_43
+      * siblings is 'no' => outcome_42
+    * parents is 'no'
+      * siblings is 'yes' => outcome_41
+      * siblings is 'no' => outcome_1_scotland
+  * partner is 'no'
+    * parents is 'yes'
+      * siblings is 'yes' => outcome_44
+      * siblings is 'no' => outcome_3
+    * parents is 'no'
+      * siblings is 'yes' => outcome_4
+      * siblings is 'no' => aunts_or_uncles
+* region is 'northern-ireland'
+  * partner is 'yes'
+    * siblings is 'yes' => outcome_64
+    * siblings is 'no' => outcome_65
+  * partner is 'no'
+    * siblings is 'yes' => outcome_4
+    * siblings is 'no' => grandparents

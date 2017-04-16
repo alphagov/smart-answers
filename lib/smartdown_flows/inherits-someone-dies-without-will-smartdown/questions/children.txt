@@ -1,0 +1,29 @@
+# Are there any living children, grandchildren or other direct descendants (eg great-grandchildren)?
+
+Children include legally-adopted sons or daughters (but not stepchildren) and any children where the deceased had a parental role.
+
+[choice: children]
+* yes: Yes
+* no: No
+
+* region is 'england-and-wales'
+  * partner is 'yes'
+    * children is 'yes' => outcome_20
+    * children is 'no' => outcome_1
+  * partner is 'no'
+    * children is 'yes' => outcome_2
+    * children is 'no' => parents
+* region is 'scotland'
+  * partner is 'yes'
+    * children is 'yes' => outcome_40
+    * children is 'no' => parents
+  * partner is 'no'
+    * children is 'yes' => outcome_2
+    * children is 'no' => parents
+* region is 'northern-ireland'
+  * partner is 'yes'
+    * children is 'yes' => more_than_one_child
+    * children is 'no' => parents
+  * partner is 'no'
+    * children is 'yes' => outcome_66
+    * children is 'no' => parents

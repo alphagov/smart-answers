@@ -1,0 +1,13 @@
+# Is the estate likely to be worth more than £250,000?
+
+[choice: estate_over_250000]
+* yes: Yes
+* no: No
+
+* region is 'england-and-wales'
+  * estate_over_250000 is 'yes' => children
+  * estate_over_250000 is 'no' => outcome_1
+* region is 'northern-ireland'
+  * estate_over_250000 is 'yes' => children
+  * estate_over_250000 is 'no' => outcome_60
+* region is 'scotland' => children

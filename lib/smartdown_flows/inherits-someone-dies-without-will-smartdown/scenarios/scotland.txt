@@ -1,0 +1,108 @@
+# Partner, Children
+- region: scotland
+- partner: yes
+- children: yes
+outcome_40
+
+# Partner, No Children, No Parents, No Siblings
+- region: scotland
+- partner: yes
+- children: no
+- parents: no
+- siblings: no
+outcome_1_scotland
+
+# Partner, No Children, No Parents, Siblings
+- region: scotland
+- partner: yes
+- children: no
+- parents: no
+- siblings: yes
+outcome_41
+
+# Partner, No Children, Parents, No Siblings
+- region: scotland
+- partner: yes
+- children: no
+- parents: yes
+- siblings: no
+outcome_42
+
+# Partner, No Children, Parents, Siblings
+- region: scotland
+- partner: yes
+- children: no
+- parents: yes
+- siblings: yes
+outcome_43
+
+# No Partner, Children
+- region: scotland
+- partner: no
+- children: yes
+outcome_2
+
+# No Partner, No Children, Parents, Siblings
+- region: scotland
+- partner: no
+- children: no
+- parents: yes
+- siblings: yes
+outcome_44
+
+# No Partner, No Children, Parents, No Siblings
+- region: scotland
+- partner: no
+- children: no
+- parents: yes
+- siblings: no
+outcome_3
+
+# No Partner, No Children, No Parents, Siblings
+- region: scotland
+- partner: no
+- children: no
+- parents: no
+- siblings: yes
+outcome_4
+
+# No Partner, No Children, No Parents, No Siblings
+- region: scotland
+- partner: no
+- children: no
+- parents: no
+- siblings: no
+- aunts_or_uncles: yes
+outcome_6
+
+# No Partner, No Children, No Parents, No Siblings, No Aunts or Uncles, Grandparents
+- region: scotland
+- partner: no
+- children: no
+- parents: no
+- siblings: no
+- aunts_or_uncles: no
+- grandparents: yes
+outcome_5
+
+# No Partner, No Children, No Parents, No Siblings, No Aunts or Uncles, No Grandparents, Great Aunts or Uncles
+- region: scotland
+- partner: no
+- children: no
+- parents: no
+- siblings: no
+- aunts_or_uncles: no
+- grandparents: no
+- great_aunts_or_uncles: yes
+outcome_45
+
+# No Partner, No Children, No Parents, No Siblings, No Aunts or Uncles, No Grandparents, No Great Aunts or Uncles
+- region: scotland
+- partner: no
+- children: no
+- parents: no
+- siblings: no
+- aunts_or_uncles: no
+- grandparents: no
+- great_aunts_or_uncles: no
+outcome_46

@@ -1,0 +1,21 @@
+# Are there any living parents?
+
+[choice: parents]
+* yes: Yes
+* no: No
+
+* region is 'england-and-wales'
+  * partner is 'yes'
+    * parents is 'yes' => outcome_21
+    * parents is 'no' => siblings
+  * partner is 'no'
+    * parents is 'yes' => outcome_3
+    * parents is 'no' => siblings
+* region is 'scotland' => siblings
+* region is 'northern-ireland'
+  * partner is 'yes'
+    * parents is 'yes' => outcome_63
+    * parents is 'no' => siblings_including_mixed_parents
+  * partner is 'no'
+    * parents is 'yes' => outcome_3
+    * parents is 'no' => siblings

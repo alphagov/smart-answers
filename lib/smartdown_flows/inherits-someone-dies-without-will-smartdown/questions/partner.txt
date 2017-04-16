@@ -1,0 +1,15 @@
+# Is there a living husband, wife or civil partner?
+
+A surviving partner who wasn't married or in a civil partnership with the deceased has no automatic right to inherit.
+
+[choice: partner]
+* yes: Yes
+* no: No
+
+* region is 'england-and-wales'
+  * partner is 'yes' => estate_over_250000
+  * partner is 'no' => children
+* region is 'northern-ireland'
+  * partner is 'yes' => estate_over_250000
+  * partner is 'no' => children
+* region is 'scotland' => children

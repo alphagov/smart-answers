@@ -1,0 +1,8 @@
+# Did the deceased have any half-brothers or half-sisters?
+
+[choice: half_siblings]
+* yes: Yes
+* no: No
+
+* half_siblings is 'yes' => outcome_23
+* half_siblings is 'no' => grandparents

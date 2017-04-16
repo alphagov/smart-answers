@@ -1,0 +1,19 @@
+$IF estate_over_250000 is 'yes'
+
+[next_steps]
+
+Read the guide to [wills, probate and inheritance.](/wills-probate-inheritance "Wills, probate and inheritance")
+
+Find out how to pay [Inheritance Tax.](https://www.gov.uk/inheritance-tax "Inheritance Tax")
+
+[end_next_steps]
+
+$ELSE
+
+[next_steps]
+
+Read the guide to [wills, probate and inheritance.](/wills-probate-inheritance "Wills, probate and inheritance")
+
+[end_next_steps]
+
+$ENDIF

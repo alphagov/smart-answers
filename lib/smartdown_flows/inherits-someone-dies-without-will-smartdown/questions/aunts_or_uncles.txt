@@ -1,0 +1,15 @@
+# Did the deceased have any aunts or uncles?
+
+[choice: aunts_or_uncles]
+* yes: Yes
+* no: No
+
+* region is 'england-and-wales'
+  * aunts_or_uncles is 'yes' => outcome_6
+  * aunts_or_uncles is 'no' => half_aunts_or_uncles
+* region is 'scotland'
+  * aunts_or_uncles is 'yes' => outcome_6
+  * aunts_or_uncles is 'no' => grandparents
+* region is 'northern-ireland'
+  * aunts_or_uncles is 'yes' => outcome_6
+  * aunts_or_uncles is 'no' => outcome_67
