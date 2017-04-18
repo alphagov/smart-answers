@@ -48,7 +48,8 @@ This is a Ruby on Rails application that contains:
 See:
 
 * [Developing with the GDS development VM](doc/developing-using-vm.md)
-* [Developing without the GDS development VM](doc/developing-without-vm.md)
+* [Developing with the GDS development VM](doc/developing-using-vm.md)
+* [Developing with Docker](/doc/developing-using-docker-container.md)
 
 ### Running the test suite
 
