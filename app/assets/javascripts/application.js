@@ -1,3 +1,4 @@
+//= require smart-answers
 //= require helpers
 
 $(document).ready(function() {

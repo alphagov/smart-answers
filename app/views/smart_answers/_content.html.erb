@@ -1,0 +1,33 @@
+<% if ! @presenter.started? %>
+  <%= render partial: "landing", locals: { start_node: @presenter.start_node } %>
+<% else %>
+  <% content_for :head do %>
+    <meta name="robots" content="noindex">
+  <% end %>
+  <%= render "debug" %>
+
+  <header class="page-header group">
+    <div>
+      <h1>
+        <%= @presenter.title %>
+      </h1>
+    </div>
+  </header>
+
+  <% if @presenter.finished? %>
+    <%= render partial: "result", locals: { outcome: @presenter.current_node } %>
+  <% else %>
+    <div class="step current">
+      <%= form_tag calculate_current_question_path(@presenter), :method => :get %>
+        <div class="current-question" id="current-question">
+          <%= render partial: "current_question", locals: { question: @presenter.current_node } %>
+          <div class="next-question">
+            <input type="hidden" name="next" value="1" />
+            <button type="submit" class="medium button">Next step</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  <% end %>
+  <%= render "previous_answers" %>
+<% end %>

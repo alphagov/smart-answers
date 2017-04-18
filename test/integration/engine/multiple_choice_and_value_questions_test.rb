@@ -32,7 +32,7 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
 
       # This is asserting that the form URL doesn't get created with a trailing /
       # If this happens, the cache servers strip off the / and redirect.  This breaks things.
-      form = page.find(:xpath, "id('content')//form")
+      form = page.find(:xpath, "id('js-replaceable')//form")
       assert_equal "/bridge-of-death/y", form[:action]
 
       assert page.has_xpath?("//meta[@name = 'robots'][@content = 'noindex']", visible: :all)
