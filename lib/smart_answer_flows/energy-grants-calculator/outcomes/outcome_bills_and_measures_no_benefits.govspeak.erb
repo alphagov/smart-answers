@@ -1,13 +1,17 @@
 <% content_for :title do %>
   <% if calculator.under_green_deal? %>
-    <% render partial: 'title_under_green_deal.govspeak.erb' %>
+    <% if calculator.eligible_for_winter_fuel_payment? || calculator.eligible_for_cold_weather_payment? %>
+      <% render partial: 'title_energy_supplier.govspeak.erb' %>
+    <% else %>
+      <% render partial: 'title_under_green_deal.govspeak.erb' %>
+    <% end %>
   <% else %>
     <% render partial: 'title_energy_supplier.govspeak.erb' %>
   <% end %>
 <% end %>
 
 <% content_for :body do %>
-  <% if calculator.under_green_deal? %>
+  <% if calculator.under_green_deal? && !calculator.eligible_for_winter_fuel_payment? && !calculator.eligible_for_cold_weather_payment? %>
     <%= render partial: 'callout_under_green_deal.govspeak.erb' %>
   <% end %>
   <% if calculator.both_help? %>
@@ -18,6 +22,11 @@
       - <%= render partial: 'cold_weather_payment.govspeak.erb' %>
     <% end %>
     <%= render partial: 'smartmeters.govspeak.erb' %>
+  <% end %>
+  <% if calculator.under_green_deal? && (calculator.eligible_for_winter_fuel_payment? || calculator.eligible_for_cold_weather_payment?) %>
+    <%= render partial: 'header_green_deal.govspeak.erb' %>
+    <%= render partial: 'opt_eco_help.govspeak.erb' %>
+    <%= render partial: 'callout_under_green_deal.govspeak.erb' %>
   <% end %>
   <%= render partial: 'header_boilers_and_insulation.govspeak.erb' %>
   <% unless calculator.modern_boiler? %>
