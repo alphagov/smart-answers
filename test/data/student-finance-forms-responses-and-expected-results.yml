@@ -224,65 +224,6 @@
   - course-start-after-01092012
   :next_node: :outcome_uk_pt_1617_new
   :outcome_node: true
-- :current_node: :what_year_part_time?
-  :responses:
-  - uk-part-time
-  - apply-loans-grants
-  - year-1516
-  :next_node: :continuing_student?
-  :outcome_node: false
-- :current_node: :continuing_student?
-  :responses:
-  - uk-part-time
-  - apply-loans-grants
-  - year-1516
-  - continuing-student
-  :next_node: :pt_course_start?
-  :outcome_node: false
-- :current_node: :pt_course_start?
-  :responses:
-  - uk-part-time
-  - apply-loans-grants
-  - year-1516
-  - continuing-student
-  - course-start-before-01092012
-  :next_node: :outcome_uk_ptgc_1516_grant
-  :outcome_node: true
-- :current_node: :pt_course_start?
-  :responses:
-  - uk-part-time
-  - apply-loans-grants
-  - year-1516
-  - continuing-student
-  - course-start-after-01092012
-  :next_node: :outcome_uk_pt_1516_continuing
-  :outcome_node: true
-- :current_node: :continuing_student?
-  :responses:
-  - uk-part-time
-  - apply-loans-grants
-  - year-1516
-  - new-student
-  :next_node: :pt_course_start?
-  :outcome_node: false
-- :current_node: :pt_course_start?
-  :responses:
-  - uk-part-time
-  - apply-loans-grants
-  - year-1516
-  - new-student
-  - course-start-before-01092012
-  :next_node: :outcome_uk_ptgn_1516_grant
-  :outcome_node: true
-- :current_node: :pt_course_start?
-  :responses:
-  - uk-part-time
-  - apply-loans-grants
-  - year-1516
-  - new-student
-  - course-start-after-01092012
-  :next_node: :outcome_uk_pt_1516_new
-  :outcome_node: true
 - :current_node: :form_needed_for_2?
   :responses:
   - uk-part-time
@@ -296,13 +237,6 @@
   - year-1617
   :next_node: :outcome_proof_identity_1617
   :outcome_node: true
-- :current_node: :what_year_part_time?
-  :responses:
-  - uk-part-time
-  - proof-identity
-  - year-1516
-  :next_node: :outcome_proof_identity_1516
-  :outcome_node: true
 - :current_node: :form_needed_for_2?
   :responses:
   - uk-part-time
@@ -315,13 +249,6 @@
   - apply-dsa
   - year-1617
   :next_node: :outcome_dsa_1617_pt
-  :outcome_node: true
-- :current_node: :what_year_part_time?
-  :responses:
-  - uk-part-time
-  - apply-dsa
-  - year-1516
-  :next_node: :outcome_dsa_1516_pt
   :outcome_node: true
 - :current_node: :form_needed_for_2?
   :responses:
@@ -398,24 +325,4 @@
   - year-1617
   - new-student
   :next_node: :outcome_eu_pt_1617_new
-  :outcome_node: true
-- :current_node: :what_year_part_time?
-  :responses:
-  - eu-part-time
-  - year-1516
-  :next_node: :continuing_student?
-  :outcome_node: false
-- :current_node: :continuing_student?
-  :responses:
-  - eu-part-time
-  - year-1516
-  - continuing-student
-  :next_node: :outcome_eu_pt_1516_continuing
-  :outcome_node: true
-- :current_node: :continuing_student?
-  :responses:
-  - eu-part-time
-  - year-1516
-  - new-student
-  :next_node: :outcome_eu_pt_1516_new
   :outcome_node: true

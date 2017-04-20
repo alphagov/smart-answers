@@ -68,24 +68,6 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
       add_response 'new-student'
       assert_current_node :outcome_eu_pt_1617_new
     end
-
-    should "lead to outcome_eu_pt_1516_continuing" do
-      add_response 'eu-part-time'
-      assert_current_node :what_year_part_time?
-      add_response 'year-1516'
-      assert_current_node :continuing_student?
-      add_response 'continuing-student'
-      assert_current_node :outcome_eu_pt_1516_continuing
-    end
-
-    should "lead to outcome_eu_pt_1516_new" do
-      add_response 'eu-part-time'
-      assert_current_node :what_year_part_time?
-      add_response 'year-1516'
-      assert_current_node :continuing_student?
-      add_response 'new-student'
-      assert_current_node :outcome_eu_pt_1516_new
-    end
   end
 
   context "for UK students" do
@@ -294,78 +276,6 @@ class StudentFinanceFormsTest < ActiveSupport::TestCase
       assert_current_node :what_year_part_time?
       add_response 'year-1617'
       assert_current_node :outcome_dsa_1617_pt
-    end
-
-    should "lead to outcome_uk_ptgc_1516_grant" do
-      add_response 'uk-part-time'
-      assert_current_node :form_needed_for_2?
-      add_response 'apply-loans-grants'
-      assert_current_node :what_year_part_time?
-      add_response 'year-1516'
-      assert_current_node :continuing_student?
-      add_response 'continuing-student'
-      assert_current_node :pt_course_start?
-      add_response 'course-start-before-01092012'
-      # has marker: circumstances_changed
-      assert_current_node :outcome_uk_ptgc_1516_grant
-    end
-
-    should "lead to outcome_uk_pt_1516_continuing" do
-      add_response 'uk-part-time'
-      assert_current_node :form_needed_for_2?
-      add_response 'apply-loans-grants'
-      assert_current_node :what_year_part_time?
-      add_response 'year-1516'
-      assert_current_node :continuing_student?
-      add_response 'continuing-student'
-      assert_current_node :pt_course_start?
-      add_response 'course-start-after-01092012'
-      assert_current_node :outcome_uk_pt_1516_continuing
-    end
-
-    should "lead to outcome_uk_ptgn_1516_grant" do
-      add_response 'uk-part-time'
-      assert_current_node :form_needed_for_2?
-      add_response 'apply-loans-grants'
-      assert_current_node :what_year_part_time?
-      add_response 'year-1516'
-      assert_current_node :continuing_student?
-      add_response 'new-student'
-      assert_current_node :pt_course_start?
-      add_response 'course-start-before-01092012'
-      # has marker: circumstances_changed
-      assert_current_node :outcome_uk_ptgn_1516_grant
-    end
-
-    should "lead to outcome_uk_pt_1516_new" do
-      add_response 'uk-part-time'
-      assert_current_node :form_needed_for_2?
-      add_response 'apply-loans-grants'
-      assert_current_node :what_year_part_time?
-      add_response 'year-1516'
-      assert_current_node :continuing_student?
-      add_response 'new-student'
-      assert_current_node :pt_course_start?
-      add_response 'course-start-after-01092012'
-      assert_current_node :outcome_uk_pt_1516_new
-    end
-
-    should "lead to outcome_proof_identity_1516 for part time students" do
-      add_response 'uk-part-time'
-      assert_current_node :form_needed_for_2?
-      add_response 'proof-identity'
-      assert_current_node :what_year_part_time?
-      add_response 'year-1516'
-      assert_current_node :outcome_proof_identity_1516
-    end
-
-    should "lead to outcome_dsa_1516_pt" do
-      add_response 'uk-part-time'
-      assert_current_node :form_needed_for_2?
-      add_response 'apply-dsa'
-      assert_current_node :what_year_part_time?
-      add_response 'year-1516'
-      assert_current_node :outcome_dsa_1516_pt
     end
 
     should "lead to outcome_dsa_expenses for part time students" do

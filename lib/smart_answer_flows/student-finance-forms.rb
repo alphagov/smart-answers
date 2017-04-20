@@ -121,7 +121,6 @@ module SmartAnswer
 
       multiple_choice :what_year_part_time? do
         option 'year-1617'
-        option 'year-1516'
 
         save_input_as :what_year
 
@@ -135,13 +134,9 @@ module SmartAnswer
               case response
               when 'year-1617'
                 outcome :outcome_proof_identity_1617
-              when 'year-1516'
-                outcome :outcome_proof_identity_1516
               end
             when 'apply-dsa'
               case response
-              when 'year-1516'
-                outcome :outcome_dsa_1516_pt
               when 'year-1617'
                 outcome :outcome_dsa_1617_pt
               end
@@ -179,13 +174,6 @@ module SmartAnswer
             end
           when 'eu-part-time'
             case what_year
-            when 'year-1516'
-              case response
-              when 'continuing-student'
-                outcome :outcome_eu_pt_1516_continuing
-              when 'new-student'
-                outcome :outcome_eu_pt_1516_new
-              end
             when 'year-1617'
               case response
               when 'continuing-student'
@@ -225,23 +213,6 @@ module SmartAnswer
 
         next_node do |response|
           case what_year
-          when 'year-1516'
-            case response
-            when 'course-start-before-01092012'
-              case continuing_student
-              when 'continuing-student'
-                outcome :outcome_uk_ptgc_1516_grant
-              when 'new-student'
-                outcome :outcome_uk_ptgn_1516_grant
-              end
-            when 'course-start-after-01092012'
-              case continuing_student
-              when 'continuing-student'
-                outcome :outcome_uk_pt_1516_continuing
-              when 'new-student'
-                outcome :outcome_uk_pt_1516_new
-              end
-            end
           when 'year-1617'
             case response
             when 'course-start-before-01092012'
@@ -267,7 +238,6 @@ module SmartAnswer
       outcome :outcome_ccg_1617
       outcome :outcome_ccg_expenses
       outcome :outcome_dsa_1718
-      outcome :outcome_dsa_1516_pt
       outcome :outcome_dsa_1617
       outcome :outcome_dsa_1617_pt
       outcome :outcome_dsa_expenses
@@ -277,12 +247,9 @@ module SmartAnswer
       outcome :outcome_eu_ft_1617_new
       outcome :outcome_eu_pt_1617_continuing
       outcome :outcome_eu_pt_1617_new
-      outcome :outcome_eu_pt_1516_continuing
-      outcome :outcome_eu_pt_1516_new
       outcome :outcome_parent_partner_1718
       outcome :outcome_parent_partner_1617
       outcome :outcome_proof_identity_1718
-      outcome :outcome_proof_identity_1516
       outcome :outcome_proof_identity_1617
       outcome :outcome_travel
       outcome :outcome_uk_pt_1617_continuing
@@ -293,10 +260,6 @@ module SmartAnswer
       outcome :outcome_uk_ft_1718_new
       outcome :outcome_uk_ft_1617_continuing
       outcome :outcome_uk_ft_1617_new
-      outcome :outcome_uk_pt_1516_continuing
-      outcome :outcome_uk_pt_1516_new
-      outcome :outcome_uk_ptgc_1516_grant
-      outcome :outcome_uk_ptgn_1516_grant
     end
   end
 end

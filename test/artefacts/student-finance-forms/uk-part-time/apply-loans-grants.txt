@@ -5,7 +5,6 @@ What academic year do you want funding for?
 
 
   * year-1617: 2016 to 2017
-  * year-1516: 2015 to 2016
 
 
 
