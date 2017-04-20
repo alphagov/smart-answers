@@ -120,6 +120,7 @@ module SmartAnswer
       end
 
       multiple_choice :what_year_part_time? do
+        option 'year-1718'
         option 'year-1617'
 
         save_input_as :what_year
@@ -134,11 +135,15 @@ module SmartAnswer
               case response
               when 'year-1617'
                 outcome :outcome_proof_identity_1617
+              when 'year-1718'
+                outcome :outcome_proof_identity_1718
               end
             when 'apply-dsa'
               case response
               when 'year-1617'
                 outcome :outcome_dsa_1617_pt
+              when 'year-1718'
+                outcome :outcome_dsa_1718_pt
               end
             when 'apply-loans-grants'
               question :continuing_student?
@@ -174,6 +179,13 @@ module SmartAnswer
             end
           when 'eu-part-time'
             case what_year
+            when 'year-1718'
+              case response
+              when 'continuing-student'
+                outcome :outcome_eu_pt_1718_continuing
+              when 'new-student'
+                outcome :outcome_eu_pt_1718_new
+              end
             when 'year-1617'
               case response
               when 'continuing-student'
@@ -230,6 +242,23 @@ module SmartAnswer
                 outcome :outcome_uk_pt_1617_new
               end
             end
+          when 'year-1718'
+            case response
+            when 'course-start-before-01092012'
+              case continuing_student
+              when 'continuing-student'
+                outcome :outcome_uk_pt_1718_grant_continuing
+              when 'new-student'
+                outcome :outcome_uk_pt_1718_grant_new
+              end
+            when 'course-start-after-01092012'
+              case continuing_student
+              when 'continuing-student'
+                outcome :outcome_uk_pt_1718_continuing
+              when 'new-student'
+                outcome :outcome_uk_pt_1718_new
+              end
+            end
           end
         end
       end
@@ -260,6 +289,13 @@ module SmartAnswer
       outcome :outcome_uk_ft_1718_new
       outcome :outcome_uk_ft_1617_continuing
       outcome :outcome_uk_ft_1617_new
+      outcome :outcome_uk_pt_1718_grant_continuing
+      outcome :outcome_uk_pt_1718_grant_new
+      outcome :outcome_uk_pt_1718_continuing
+      outcome :outcome_uk_pt_1718_new
+      outcome :outcome_dsa_1718_pt
+      outcome :outcome_eu_pt_1718_continuing
+      outcome :outcome_eu_pt_1718_new
     end
   end
 end
