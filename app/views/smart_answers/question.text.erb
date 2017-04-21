@@ -1,16 +1,3 @@
-<% if !@presenter.started? %>
-<%= @presenter.start_node.title %>
-
-<%= @presenter.start_node.body(html: false) %>
-
-<%= @presenter.start_node.post_body(html: false) %>
-<% elsif @presenter.finished? %>
-<%= @presenter.current_node.title %>
-
-<%= @presenter.current_node.body(html: false) %>
-
-<%= @presenter.current_node.next_steps(html: false) %>
-<% else %>
 <%= @presenter.current_node.title %>
 
 <%= @presenter.current_node.body(html: false) %>
@@ -26,4 +13,3 @@
 <%= @presenter.current_node.suffix_label %>
 
 <%= @presenter.current_node.post_body(html: false) %>
-<% end %>

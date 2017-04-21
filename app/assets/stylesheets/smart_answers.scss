@@ -236,16 +236,6 @@ $is-ie: false !default;
     position: relative;
   }
 
-  @include ie(6) {
-    .smart-answer-questions .current {
-      background-color: #fff;
-      margin-right: 15em;
-      padding: 0 2em 1em 5em;
-      position: relative;
-      zoom: 1;
-    }
-  }
-
   .question-body + p input.button {
     margin-top: 0.5em;
   }
