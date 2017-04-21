@@ -28,7 +28,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
       assert_requested unpublish_request
     end
 
-    should 'raises exception if smart answer does not exist' do
+    should 'raise exception if content_id has not been supplied' do
       exception = assert_raises(RuntimeError) do
         ContentItemPublisher.new.unpublish(nil)
       end
@@ -44,16 +44,13 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
       @create_request = stub_request(:put, create_url)
       publish_url = 'https://publishing-api.test.gov.uk/v2/content/content-id/publish'
       @publish_request = stub_request(:post, publish_url)
-      router_url = 'https://router-api.test.gov.uk/routes'
-      @router_request = stub_request(:put, router_url)
     end
 
-    should 'send a redirect and publish request to content store' do
+    should 'send a redirect and publish request to publishing-api' do
       ContentItemPublisher.new.redirect_smart_answer('/path', '/destination-path')
 
       assert_requested @create_request
       assert_requested @publish_request
-      assert_requested @router_request
     end
 
     should 'raise exception and not attempt publishing and router requests, when create request fails' do
@@ -65,7 +62,6 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
       assert_equal "This content item has not been created", exception.message
       assert_requested @create_request
       assert_not_requested @publish_request
-      assert_not_requested @router_request
     end
 
     should 'raises exception if destination is not defined' do
@@ -82,6 +78,25 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
       end
 
       assert_equal "The destination or path isn't defined", exception.message
+    end
+  end
+
+  context "#remove_smart_answer_from_search" do
+    should 'raise exception if base_path is not supplied' do
+      exception = assert_raises(RuntimeError) do
+        ContentItemPublisher.new.remove_smart_answer_from_search(nil)
+      end
+
+      assert_equal "The base_path isn't supplied", exception.message
+    end
+
+    should 'send remove content request to rummager' do
+      delete_url = 'https://rummager.test.gov.uk/content?link=/base-path'
+      delete_request = stub_request(:delete, delete_url)
+
+      ContentItemPublisher.new.remove_smart_answer_from_search('/base-path')
+
+      assert_requested delete_request
     end
   end
 end
