@@ -203,7 +203,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
       context "pages under A/B test" do
         setup do
           content_item = {
-            "base_path" => '/education-sample',
             "links" => {
               "taxons" => [
                 {
@@ -254,19 +253,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
             refute_match(/NormalBreadcrumb/, response.body)
             sidebar = Nokogiri::HTML.parse(response.body).at_css(".related-container")
             assert_match(/A Taxon/, sidebar)
-          end
-        end
-
-        should "show the old sidebar for a flagged mainstream page for the 'B' version" do
-          MainstreamContentFetcher.stubs(:with_curated_sidebar).returns(
-            ['/education-sample']
-          )
-
-          with_variant EducationNavigation: "B" do
-            get :show, id: 'education-sample'
-
-            sidebar = Nokogiri::HTML.parse(response.body).at_css(".related-container")
-            refute_match(/A Taxon/, sidebar)
           end
         end
       end

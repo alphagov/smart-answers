@@ -10,12 +10,7 @@ class SmartAnswersController < ApplicationController
 
   attr_accessor :navigation_helpers, :content_item
 
-  helper_method(
-    :breadcrumbs,
-    :should_present_new_navigation_view?,
-    :page_is_under_ab_test?,
-    :present_taxonomy_sidebar?
-  )
+  helper_method :breadcrumbs, :should_present_new_navigation_view?, :page_is_under_ab_test?
 
   rescue_from SmartAnswer::FlowRegistry::NotFound, with: :error_404
   rescue_from SmartAnswer::InvalidNode, with: :error_404
