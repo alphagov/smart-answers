@@ -6,11 +6,32 @@ In this document is prescribed the steps that need to be taken:
 
 - ## Remove the identified smart answer:
 
-  Remove all data, YAML, test artefacts, templates and code that belong
-  to the identified smart answers. After this is done, it is very
-  necessary to run the unit, integration and regression tests. It is
-  important that you run these tests on local and in integration
-  environments. If these tests pass, then proceed to the next steps.
+  Remove the following files/directory where possible:
+    - Flow class files
+      - lib/smart_answer_flows/<\smart-answer-name>.rb
+    - ERB templates directory
+      - lib/smart_answer_flows/<\smart-answer-name>
+    - YAML files
+      - test/data/<\smart-answer-name>-files.yml
+      - test/data/<\smart-answer-name>-questions-and-responses.yml
+      - test/data/<\smart-answer-name>-responses-and-expected-results.yml
+      - lib/data/rates/<\smart-answer-name>.yml
+      - lib/data/<\smart-answer-name>.yml
+    - Regression test artefacts directory
+      - test/artefacts/<\smart-answer-name>
+    - Tests for Calculators, rates, data query and other ruby files
+      - test/data/integration/calculators/<\smart-answer-name>_(calculator|rates_query|data_query)_test.rb
+      - test/data/unit/calculators/<\smart-answer-name>_(calculator|rates_query|data_query)_test.rb
+    - Calculators, data query and other ruby files
+      - lib/smart_answer/calculators/<\smart-answer-name>_calculator.rb
+      - lib/smart_answer/calculators/<\smart-answer-name>_data_query.rb
+    - Customised start button
+      - lib/smart_answer/start_button.rb
+      NB: Check if the identified smart answer is listed in `custom_text_and_link` method. Remove if it exists.
+
+  After this is done, it is very necessary to run the unit, integration and
+  regression tests. It is important that you run these tests on local and in
+  integration environments. If these tests pass, then proceed to the next steps.
 
 - ## Retire an identified smart answer:
 
@@ -20,7 +41,7 @@ In this document is prescribed the steps that need to be taken:
 
   (i.e `retire:smart_answer[content_id,base_path,destination]`)
 
-  The content-id for a smart asnwer can be found in the flow class for the smart
+  The content-id for a smart answer can be found in the flow class for the smart
   answer in question. Also it can be found via the content store using the
   GOV.UK chrome extension.
 
