@@ -18,4 +18,12 @@ namespace :retire do
 
     ContentItemPublisher.new.unpublish(args.content_id)
   end
+
+  desc "Create redirect for a smart answer's paths on the publishing-api"
+  task :redirect_smart_answer, [:path, :destination] => :environment do |_,args|
+    raise "Missing path parameter" unless args.path
+    raise "Missing destination parameter" unless args.destination
+
+    ContentItemPublisher.new.redirect_smart_answer(args.path, args.destination)
+  end
 end
