@@ -126,4 +126,33 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
       Rake::Task["retire:remove_smart_answer_from_search"].invoke("/base-path")
     end
   end
+
+  context "retire:change_owning_application rake task" do
+    setup do
+      Rake::Task["retire:change_owning_application"].reenable
+      ContentItemPublisher.any_instance.stubs(:reserve_path_for_publishing_app).returns(nil)
+    end
+
+    should "raise exception when base-path is not defined" do
+      exception = assert_raises RuntimeError do
+        Rake::Task["retire:change_owning_application"].invoke(nil, "a-publisher")
+      end
+
+      assert_equal "Missing base-path parameter", exception.message
+    end
+
+    should "raise exception when publishing_app not defined" do
+      exception = assert_raises RuntimeError do
+        Rake::Task["retire:change_owning_application"].invoke("/base-path", nil)
+      end
+
+      assert_equal "Missing publishing_app parameter", exception.message
+    end
+
+    should "invoke reserve_path_for_publishing_app method on ContentItemPublisher" do
+      ContentItemPublisher.any_instance.expects(:reserve_path_for_publishing_app).with("/base-path", "a-publisher").once
+
+      Rake::Task["retire:change_owning_application"].invoke("/base-path", "a-publisher")
+    end
+  end
 end

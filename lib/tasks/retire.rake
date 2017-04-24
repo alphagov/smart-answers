@@ -33,4 +33,12 @@ namespace :retire do
 
     ContentItemPublisher.new.remove_smart_answer_from_search(args.base_path)
   end
+
+  desc "Change publishing application"
+  task :change_owning_application, [:base_path, :publishing_app] => :environment do |_, args|
+    raise "Missing base-path parameter" unless args.base_path
+    raise "Missing publishing_app parameter" unless args.publishing_app
+
+    ContentItemPublisher.new.reserve_path_for_publishing_app(args.base_path, args.publishing_app)
+  end
 end
