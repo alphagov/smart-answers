@@ -105,4 +105,25 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
       Rake::Task["retire:redirect_smart_answer"].invoke("/base-path", "/destination-path")
     end
   end
+
+  context "retire:remove_smart_answer_from_search rake task" do
+    setup do
+      Rake::Task["retire:remove_smart_answer_from_search"].reenable
+      ContentItemPublisher.any_instance.stubs(:remove_smart_answer_from_search).returns(nil)
+    end
+
+    should "raise exception when base-path is not defined" do
+      exception = assert_raises RuntimeError do
+        Rake::Task["retire:remove_smart_answer_from_search"].invoke
+      end
+
+      assert_equal "Missing base-path parameter", exception.message
+    end
+
+    should "invoke the remove_smart_answer_from_search method on ContentItemPublisher" do
+      ContentItemPublisher.any_instance.expects(:remove_smart_answer_from_search).with("/base-path").once
+
+      Rake::Task["retire:remove_smart_answer_from_search"].invoke("/base-path")
+    end
+  end
 end
