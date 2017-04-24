@@ -29,7 +29,21 @@ class ContentItemPublisher
     Services.rummager.delete_content(base_path)
   end
 
+  def reserve_path_for_publishing_app(base_path, publishing_app)
+    raise "The destination or path isn't supplied" unless base_path.present? && publishing_app.present?
+
+    Services.publishing_api.put_json(
+      reserve_path_url(base_path),
+      publishing_app: publishing_app,
+      override_existing: true
+    )
+  end
+
 private
+
+  def reserve_path_url(base_path)
+    "#{Plek.new.find('publishing-api')}/paths/#{base_path}"
+  end
 
   def add_redirect_to_publishing_api(path, destination)
     content_id = SecureRandom.uuid

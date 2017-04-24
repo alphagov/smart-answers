@@ -99,4 +99,31 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
       assert_requested delete_request
     end
   end
+
+  context "#reserve_path_for_publishing_app" do
+    should 'raise exception if base_path is not supplied' do
+      exception = assert_raises(RuntimeError) do
+        ContentItemPublisher.new.reserve_path_for_publishing_app(nil, "publisher")
+      end
+
+      assert_equal "The destination or path isn't supplied", exception.message
+    end
+
+    should 'raise exception if publishing_app is not supplied' do
+      exception = assert_raises(RuntimeError) do
+        ContentItemPublisher.new.reserve_path_for_publishing_app("/base_path", nil)
+      end
+
+      assert_equal "The destination or path isn't supplied", exception.message
+    end
+
+    should 'send a base_path publishing_app reservation request' do
+      reservation_url = 'https://publishing-api.test.gov.uk/paths//base_path'
+      reservation_request = stub_request(:put, reservation_url)
+
+      ContentItemPublisher.new.reserve_path_for_publishing_app('/base_path', 'publisher')
+
+      assert_requested reservation_request
+    end
+  end
 end
