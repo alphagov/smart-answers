@@ -55,4 +55,25 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
       )
     end
   end
+
+  context "retire:unpublish rake task" do
+    setup do
+      Rake::Task["retire:unpublish"].reenable
+      ContentItemPublisher.any_instance.stubs(:unpublish).returns(nil)
+    end
+
+    should "raise exception when slug isn't defined" do
+      exception = assert_raises RuntimeError do
+        Rake::Task["retire:unpublish"].invoke
+      end
+
+      assert_equal "Missing content-id parameter", exception.message
+    end
+
+    should "invoke the unpublish method on ContentItemPublisher" do
+      ContentItemPublisher.any_instance.expects(:unpublish).with("content-id").once
+
+      Rake::Task["retire:unpublish"].invoke("content-id")
+    end
+  end
 end

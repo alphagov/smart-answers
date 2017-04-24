@@ -11,4 +11,11 @@ namespace :retire do
     content_item_publisher.redirect_smart_answer(args.base_path, args.destination)
     content_item_publisher.remove_smart_answer_from_search(args.base_path)
   end
+
+  desc "Unpublish a smart answer from publishing-api"
+  task :unpublish, [:content_id] => :environment do |_, args|
+    raise "Missing content-id parameter" unless args.content_id
+
+    ContentItemPublisher.new.unpublish(args.content_id)
+  end
 end
