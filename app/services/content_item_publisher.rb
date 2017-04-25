@@ -62,8 +62,7 @@ private
   end
 
   def add_redirect_to_publishing_api(path, destination)
-    content_id = SecureRandom.uuid
-    create_params = {
+    payload = {
       base_path: path,
       document_type: :redirect,
       publishing_app: :smartanswers,
@@ -73,14 +72,11 @@ private
       ]
     }
 
-    response = Services.publishing_api.put_content(content_id, create_params)
-    raise "This content item has not been created" unless response.code == 200
-    Services.publishing_api.publish(content_id, :major)
+    create_and_publish_via_publishing_api(payload)
   end
 
   def publish_transaction_via_publishing_api(base_path, publishing_app:, title:, content:, link:)
-    content_id = SecureRandom.uuid
-    create_params = {
+    payload = {
       base_path: base_path,
       title: title,
       document_type: :transaction,
@@ -105,7 +101,12 @@ private
       schema_name: :transaction
     }
 
-    response = Services.publishing_api.put_content(content_id, create_params)
+    create_and_publish_via_publishing_api(payload)
+  end
+
+  def create_and_publish_via_publishing_api(payload)
+    content_id = SecureRandom.uuid
+    response = Services.publishing_api.put_content(content_id, payload)
     raise "This content item has not been created" unless response.code == 200
     Services.publishing_api.publish(content_id, :major)
   end
