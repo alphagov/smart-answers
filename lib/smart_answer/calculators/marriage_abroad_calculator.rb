@@ -336,6 +336,7 @@ module SmartAnswer::Calculators
          philippines
          portugal
          sweden
+         tunisia
          turkey
          thailand
          usa
