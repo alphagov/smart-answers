@@ -39,6 +39,22 @@ class ContentItemPublisher
     )
   end
 
+  def publish_transaction(base_path, publishing_app:, title:, content:, link:)
+    raise "The base path isn't supplied" unless base_path.present?
+    raise "The publishing_app isn't supplied" unless publishing_app.present?
+    raise "The title isn't supplied" unless title.present?
+    raise "The content isn't supplied" unless content.present?
+    raise "The link isn't supplied" unless link.present?
+
+    publish_transaction_via_publishing_api(
+      base_path,
+      publishing_app: publishing_app,
+      title: title,
+      content: content,
+      link: link
+    )
+  end
+
 private
 
   def reserve_path_url(base_path)
@@ -55,6 +71,38 @@ private
       redirects: [
         { path: path, type: :prefix, destination: destination, segments_mode: :ignore }
       ]
+    }
+
+    response = Services.publishing_api.put_content(content_id, create_params)
+    raise "This content item has not been created" unless response.code == 200
+    Services.publishing_api.publish(content_id, :major)
+  end
+
+  def publish_transaction_via_publishing_api(base_path, publishing_app:, title:, content:, link:)
+    content_id = SecureRandom.uuid
+    create_params = {
+      base_path: base_path,
+      title: title,
+      document_type: :transaction,
+      publishing_app: publishing_app,
+      rendering_app: :frontend,
+      locale: :en,
+      details: {
+        introductory_paragraph: [
+          {
+            content: content,
+            content_type: "text/govspeak"
+          }
+        ],
+        transaction_start_link: link
+      },
+      routes: [
+        {
+          type: :exact,
+          path: base_path
+        }
+      ],
+      schema_name: :transaction
     }
 
     response = Services.publishing_api.put_content(content_id, create_params)

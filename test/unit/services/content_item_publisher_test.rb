@@ -126,4 +126,114 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
       assert_requested reservation_request
     end
   end
+
+  context "#publish_transaction" do
+    setup do
+      SecureRandom.stubs(:uuid).returns('content-id')
+      create_url = "https://publishing-api.test.gov.uk/v2/content/content-id"
+      @create_request = stub_request(:put, create_url)
+      publish_url = "https://publishing-api.test.gov.uk/v2/content/content-id/publish"
+      @publish_request = stub_request(:post, publish_url)
+    end
+
+    should "raise exception if base_path is not supplied" do
+      exception = assert_raises(RuntimeError) do
+        ContentItemPublisher.new.publish_transaction(
+          nil,
+          publishing_app: "publisher",
+          title: "Sample transaction title",
+          content: "Sample transaction content",
+          link: "https://smaple.gov.uk/path/to/somewhere"
+        )
+      end
+
+      assert_equal "The base path isn't supplied", exception.message
+    end
+
+    should "raise exception if publishing_app is not supplied" do
+      exception = assert_raises(RuntimeError) do
+        ContentItemPublisher.new.publish_transaction(
+          "/base-path",
+          publishing_app: nil,
+          title: "Sample transaction title",
+          content: "Sample transaction content",
+          link: "https://smaple.gov.uk/path/to/somewhere"
+        )
+      end
+
+      assert_equal "The publishing_app isn't supplied", exception.message
+    end
+
+    should "raise exception if title is not supplied" do
+      exception = assert_raises(RuntimeError) do
+        ContentItemPublisher.new.publish_transaction(
+          "/base-path",
+          publishing_app: "publisher",
+          title: nil,
+          content: "Sample transaction content",
+          link: "https://smaple.gov.uk/path/to/somewhere"
+        )
+      end
+
+      assert_equal "The title isn't supplied", exception.message
+    end
+
+    should "raise exception if content is not supplied" do
+      exception = assert_raises(RuntimeError) do
+        ContentItemPublisher.new.publish_transaction(
+          "/base-path",
+          publishing_app: "publisher",
+          title: "Sample transaction title",
+          content: nil,
+          link: "https://smaple.gov.uk/path/to/somewhere"
+        )
+      end
+
+      assert_equal "The content isn't supplied", exception.message
+    end
+
+    should "raise exception if link is not supplied" do
+      exception = assert_raises(RuntimeError) do
+        ContentItemPublisher.new.publish_transaction(
+          "/base-path",
+          publishing_app: "publisher",
+          title: "Sample transaction title",
+          content: "Sample transaction content",
+          link: nil
+        )
+      end
+
+      assert_equal "The link isn't supplied", exception.message
+    end
+
+    should "send publish transaction request to publishing-api" do
+      ContentItemPublisher.new.publish_transaction(
+        "/base-path",
+        publishing_app: "publisher",
+        title: "Sample transaction title",
+        content: "Sample transaction content",
+        link: "https://smaple.gov.uk/path/to/somewhere"
+      )
+
+      assert_requested @create_request
+      assert_requested @publish_request
+    end
+
+    should "raise exception and not attempt publishing transaction when create request fails" do
+      GdsApi::Response.any_instance.stubs(:code).returns(500)
+      exception = assert_raises(RuntimeError) do
+        ContentItemPublisher.new.publish_transaction(
+          "/base-path",
+          publishing_app: "publisher",
+          title: "Sample transaction title",
+          content: "Sample transaction content",
+          link: "https://smaple.gov.uk/path/to/somewhere"
+        )
+      end
+
+      assert_equal "This content item has not been created", exception.message
+      assert_requested @create_request
+      assert_not_requested @publish_request
+    end
+  end
 end
