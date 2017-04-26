@@ -255,4 +255,84 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
       )
     end
   end
+
+  context "retire:publish_answer rake task" do
+    setup do
+      ContentItemPublisher.any_instance.stubs(:reserve_path_for_publishing_app)
+        .returns(nil)
+      ContentItemPublisher.any_instance.stubs(:publish_answer).returns(nil)
+      Rake::Task["retire:publish_answer"].reenable
+    end
+
+    should "raise exception when base path is not defined" do
+      exception = assert_raises RuntimeError do
+        Rake::Task["retire:publish_answer"].invoke(
+          nil,
+          "publisher",
+          "Sample answer title",
+          "Sample answer content"
+        )
+      end
+
+      assert_equal "Missing base path parameter", exception.message
+    end
+
+    should "raise exception when publishing application is not defined" do
+      exception = assert_raises RuntimeError do
+        Rake::Task["retire:publish_answer"].invoke(
+          "/base-path",
+          nil,
+          "Sample answer title",
+          "Sample answer content"
+        )
+      end
+
+      assert_equal "Missing publishing_app parameter", exception.message
+    end
+
+    should "raise exception when title is not defined" do
+      exception = assert_raises RuntimeError do
+        Rake::Task["retire:publish_answer"].invoke(
+          "/base-path",
+          "publisher",
+          nil,
+          "Sample answer content"
+        )
+      end
+
+      assert_equal "Missing title parameter", exception.message
+    end
+
+    should "raise exception when content is not defined" do
+      exception = assert_raises RuntimeError do
+        Rake::Task["retire:publish_answer"].invoke(
+          "/base-path",
+          "publisher",
+          "Sample answer title",
+          nil
+        )
+      end
+
+      assert_equal "Missing content parameter", exception.message
+    end
+
+    should "invoke publish_answer method on ContentItemPublisher" do
+      content_item_publisher_mock = ContentItemPublisher.any_instance
+      content_item_publisher_mock.expects(:publish_answer).with(
+        "/base-path",
+        publishing_app: "publisher",
+        title: "Sample answer title",
+        content: "Sample answer content"
+      ).once
+      content_item_publisher_mock.expects(:reserve_path_for_publishing_app)
+        .with("/base-path", "publisher").once
+
+      Rake::Task["retire:publish_answer"].invoke(
+        "/base-path",
+        "publisher",
+        "Sample answer title",
+        "Sample answer content"
+      )
+    end
+  end
 end

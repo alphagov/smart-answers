@@ -55,6 +55,20 @@ class ContentItemPublisher
     )
   end
 
+  def publish_answer(base_path, publishing_app:, title:, content:)
+    raise "The base path isn't supplied" unless base_path.present?
+    raise "The publishing_app isn't supplied" unless publishing_app.present?
+    raise "The title isn't supplied" unless title.present?
+    raise "The content isn't supplied" unless content.present?
+
+    publish_answer_via_publishing_api(
+      base_path,
+      publishing_app: publishing_app,
+      title: title,
+      content: content
+    )
+  end
+
 private
 
   def reserve_path_url(base_path)
@@ -69,6 +83,34 @@ private
       schema_name: :redirect,
       redirects: [
         { path: path, type: :prefix, destination: destination, segments_mode: :ignore }
+      ]
+    }
+
+    create_and_publish_via_publishing_api(payload)
+  end
+
+  def publish_answer_via_publishing_api(base_path, publishing_app:, title:, content:)
+    payload = {
+      base_path: base_path,
+      title: title,
+      document_type: :answer,
+      schema_name: :answer,
+      publishing_app: publishing_app,
+      rendering_app: :frontend,
+      locale: :en,
+      details: {
+        body: [
+          {
+            content: content,
+            content_type: "text/govspeak"
+          }
+        ]
+      },
+      routes: [
+        {
+          type: :exact,
+          path: base_path
+        }
       ]
     }
 

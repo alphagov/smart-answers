@@ -63,4 +63,24 @@ namespace :retire do
       link: args.link
     )
   end
+
+  desc "Publish answer via publishing api"
+  task :publish_answer, [:base_path, :publishing_app, :title, :content] => :environment do |_, args|
+    raise "Missing base path parameter" unless args.base_path
+    raise "Missing publishing_app parameter" unless args.publishing_app
+    raise "Missing title parameter" unless args.title
+    raise "Missing content parameter" unless args.content
+
+    ContentItemPublisher.new.reserve_path_for_publishing_app(
+      args.base_path,
+      args.publishing_app
+    )
+
+    ContentItemPublisher.new.publish_answer(
+      args.base_path,
+      publishing_app: args.publishing_app,
+      title: args.title,
+      content: args.content
+    )
+  end
 end
