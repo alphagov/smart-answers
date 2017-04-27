@@ -2,6 +2,10 @@ require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class RedundancyCalculatorTest < ActiveSupport::TestCase
+    setup do
+      stub_shared_component_locales
+    end
+
     context "Money formatting conforms to styleguide" do
       should "lop off trailing 00s" do
         assert_equal RedundancyCalculator.format_money(12.00), "12"
@@ -26,6 +30,8 @@ module SmartAnswer::Calculators
         assert_equal 450, RedundancyCalculator.redundancy_rates(Date.new(2014, 04, 05)).rate
         assert_equal 464, RedundancyCalculator.redundancy_rates(Date.new(2014, 04, 06)).rate
         assert_equal 475, RedundancyCalculator.redundancy_rates(Date.new(2015, 04, 06)).rate
+        assert_equal 479, RedundancyCalculator.redundancy_rates(Date.new(2016, 04, 06)).rate
+        assert_equal 489, RedundancyCalculator.redundancy_rates(Date.new(2017, 04, 06)).rate
       end
 
       should "vary the max amount per year" do
@@ -36,7 +42,8 @@ module SmartAnswer::Calculators
         assert_equal "13,920", RedundancyCalculator.redundancy_rates(Date.new(2014, 04, 06)).max
         assert_equal "13,920", RedundancyCalculator.redundancy_rates(Date.new(2015, 04, 05)).max
         assert_equal "14,250", RedundancyCalculator.redundancy_rates(Date.new(2015, 04, 06)).max
-        assert_equal "14,370", RedundancyCalculator.redundancy_rates(Date.new(Date.today.year, 12, 31)).max
+        assert_equal "14,370", RedundancyCalculator.redundancy_rates(Date.new(2016, 04, 06)).max
+        assert_equal "14,670", RedundancyCalculator.redundancy_rates(Date.new(Date.today.year, 12, 31)).max
       end
 
       should "use the most recent rate for far future dates" do
@@ -115,6 +122,60 @@ module SmartAnswer::Calculators
         @calculator = RedundancyCalculator.new(430, "48", 14, 381)
         assert_equal 6667.5, @calculator.pay
         assert_equal 17.5, @calculator.number_of_weeks_entitlement
+      end
+    end
+
+    context "Redundancy date selector" do
+      context "Earliest selectable date" do
+        context "Months January to August" do
+          should "return the start of the year, four years ago if date is January 1st" do
+            Timecop.freeze('2016-01-01')
+            assert_equal Date.parse('2012-01-01'), RedundancyCalculator.first_selectable_date
+          end
+
+          should "return the start of the year, four years ago if date is August 31st" do
+            Timecop.freeze('2016-08-31')
+            assert_equal Date.parse('2012-01-01'), RedundancyCalculator.first_selectable_date
+          end
+        end
+
+        context "Months September to December" do
+          should "return the start of the year, three years ago if date is September 1st" do
+            Timecop.freeze('2016-09-01')
+            assert_equal Date.parse('2013-01-01'), RedundancyCalculator.first_selectable_date
+          end
+
+          should "return the start of the year, three years ago if date is December 31st" do
+            Timecop.freeze('2016-12-31')
+            assert_equal Date.parse('2013-01-01'), RedundancyCalculator.first_selectable_date
+          end
+        end
+      end
+
+      context "Last selectable date" do
+        context "Months January to August" do
+          should "return the end of the current year if the date is January 1st" do
+            Timecop.freeze('2016-01-01')
+            assert_equal Date.parse('2016-12-31'), RedundancyCalculator.last_selectable_date
+          end
+
+          should "return the end of the current year if the date is August 31st" do
+            Timecop.freeze('2016-08-31')
+            assert_equal Date.parse('2016-12-31'), RedundancyCalculator.last_selectable_date
+          end
+        end
+
+        context "Months September to December" do
+          should "return end of the next year if the date is September 1st" do
+            Timecop.freeze('2016-09-01')
+            assert_equal Date.parse('2017-12-31'), RedundancyCalculator.last_selectable_date
+          end
+
+          should "return end of the next year if the date is December 31st" do
+            Timecop.freeze('2016-12-31')
+            assert_equal Date.parse('2017-12-31'), RedundancyCalculator.last_selectable_date
+          end
+        end
       end
     end
   end

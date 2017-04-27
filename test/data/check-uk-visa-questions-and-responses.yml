@@ -30,6 +30,19 @@
 - school
 - medical
 - diplomatic
+:travelling_to_cta?:
+- channel_islands_or_isle_of_man
+- republic_of_ireland
+- somewhere_else
+:channel_islands_or_isle_of_man?:
+- tourism
+- work
+- study
+- family
+- marriage
+- school
+- medical
+- diplomatic
 :passing_through_uk_border_control?:
 - 'yes'
 - 'no'

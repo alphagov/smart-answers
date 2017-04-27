@@ -65,7 +65,7 @@ module SmartAnswer
       # Question 4
       date_question :first_sick_day? do
         from { Date.new(2011, 1, 1) }
-        to { Date.today.end_of_year }
+        to { Calculators::StatutorySickPayCalculator.year_of_sickness }
 
         on_response do |response|
           calculator.sick_start_date = response
@@ -81,7 +81,7 @@ module SmartAnswer
       # Question 5
       date_question :last_sick_day? do
         from { Date.new(2011, 1, 1) }
-        to { Date.today.end_of_year }
+        to { Calculators::StatutorySickPayCalculator.year_of_sickness }
 
         on_response do |response|
           calculator.sick_end_date = response
@@ -128,7 +128,7 @@ module SmartAnswer
       # Question 6.1
       date_question :linked_sickness_start_date? do
         from { Date.new(2010, 1, 1) }
-        to { Date.today.end_of_year }
+        to { Calculators::StatutorySickPayCalculator.year_of_sickness }
 
         on_response do |response|
           calculator.linked_sickness_start_date = response
@@ -148,7 +148,7 @@ module SmartAnswer
       # Question 6.2
       date_question :linked_sickness_end_date? do
         from { Date.new(2010, 1, 1) }
-        to { Date.today.end_of_year }
+        to { Calculators::StatutorySickPayCalculator.year_of_sickness }
 
         on_response do |response|
           calculator.linked_sickness_end_date = response
@@ -222,7 +222,7 @@ module SmartAnswer
       # Question 8
       date_question :last_payday_before_sickness? do
         from { Date.new(2010, 1, 1) }
-        to { Date.today.end_of_year }
+        to { Calculators::StatutorySickPayCalculator.year_of_sickness }
         validate_in_range
 
         precalculate :sick_start_date_for_awe do
@@ -245,7 +245,7 @@ module SmartAnswer
       # Question 8.1
       date_question :last_payday_before_offset? do
         from { Date.new(2010, 1, 1) }
-        to { Date.today.end_of_year }
+        to { Calculators::StatutorySickPayCalculator.year_of_sickness }
         validate_in_range
 
         precalculate :pay_day_offset do

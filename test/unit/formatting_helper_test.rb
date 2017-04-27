@@ -4,6 +4,10 @@ module SmartAnswer
   class FormattingHelperTest < ActiveSupport::TestCase
     include FormattingHelper
 
+    setup do
+      stub_shared_component_locales
+    end
+
     test "#format_money doesn't add pence for amounts in whole pounds" do
       assert_equal '£1', format_money('1.00')
       assert_equal '£1', format_money(Money.new('1.00'))

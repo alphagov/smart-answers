@@ -90,6 +90,8 @@ They will contact you - using the details on your application form - when your p
 
 You must bring your existing passport as photo ID.
 
+^You must sign your new passport before you can use it.^
+
 ##Contact the Passport Adviceline
 
 $C

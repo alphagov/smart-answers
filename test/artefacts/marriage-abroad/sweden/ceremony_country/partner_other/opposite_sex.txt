@@ -61,14 +61,18 @@ Box 27819
 115 93 Stockholm
 $A
 
-^You don't need to stay in the country while your notice is posted.^
+Once you’ve posted your notice and paid the registration fee, the embassy or consulate will display your notice of marriage publicly for 7 days, from the day after they receive your payment.
+
+As long as nobody registers an objection, the embassy you will give you a CNI on the 8th day. You don’t need to stay in the country while your notice is posted.
+
+After you receive your CNI, you need to take it to the [Swedish tax authorities](http://www.skatteverket.se/privat.4.76a43be412206334b89800052864.html) to be registered.
 
 ## Fees
 
 Service | Fee
 -|-
-Receiving a notice of marriage | £65
-Issuing a CNI, Nulla Osta or equivalent | £65
+Receiving a notice of marriage | £50
+Issuing a CNI, Nulla Osta or equivalent | £50
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Sweden](/government/publications/sweden-consular-fees).
 

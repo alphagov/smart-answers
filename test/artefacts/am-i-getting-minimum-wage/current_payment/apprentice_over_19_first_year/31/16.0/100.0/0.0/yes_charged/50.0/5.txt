@@ -6,7 +6,7 @@ $C
 
 The National Minimum Wage per hour for your age | Your actual pay | For each pay period your employer owes you
 - | - | -
-£3.40 | -£54.65 * | £928.78
+£3.50 | -£54.10 * | £921.52
 
 \* This figure has been rounded to the nearest penny.
 
@@ -23,6 +23,8 @@ Saturday, 9am to 1pm\\
 $C
 
 Read the guidance on [how to calculate the National Minimum Wage](/minimum-wage-different-types-work).
+
+You can also [make a complaint to HM Revenue and Customs (HMRC)](/government/publications/pay-and-work-rights-complaints) about your employer or employment agency or complain on behalf of someone else.
 
 
 

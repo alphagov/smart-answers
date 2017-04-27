@@ -1,6 +1,5 @@
 require_relative 'test_helper'
 require 'capybara/rails'
-require 'slimmer/test'
 
 Capybara.default_driver = :rack_test
 
@@ -19,6 +18,11 @@ Capybara.javascript_driver = :poltergeist
 
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
+  include Slimmer::TestHelpers::GovukComponents
+
+  setup do
+    stub_shared_component_locales
+  end
 
   teardown do
     Capybara.use_default_driver

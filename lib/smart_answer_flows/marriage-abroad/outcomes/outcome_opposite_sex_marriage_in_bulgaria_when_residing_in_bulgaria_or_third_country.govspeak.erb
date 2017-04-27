@@ -32,8 +32,8 @@
 
   <% calculator.overseas_passports_embassies.each do |embassy| %>
     $A
-    <%= embassy.title %>
-    <%= embassy.address.label.value %>
+    <%= embassy["title"] %>
+    <%= embassy["address"]["label"]["value"] %>
     $A
   <% end %>
 

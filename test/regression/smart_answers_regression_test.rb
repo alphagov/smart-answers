@@ -15,6 +15,9 @@ require 'gds_api/test_helpers/imminence'
 
 require 'mocha/api'
 
+require 'slimmer/test'
+require 'slimmer/test_helpers/govuk_components'
+
 class SmartAnswersRegressionTest < ActionController::TestCase
   i_suck_and_my_tests_are_order_dependent!
   RUN_ME_LAST = 'zzzzzzzzzzz run me last'
@@ -46,6 +49,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
   include FixtureMethods
   include Mocha::API
   include WorldLocationStubbingMethods
+  include Slimmer::TestHelpers::GovukComponents
 
   tests SmartAnswersController
 
@@ -62,11 +66,14 @@ class SmartAnswersRegressionTest < ActionController::TestCase
 
     context "Smart Answer: #{flow_name}" do
       setup do
+        stub_shared_component_locales
         Timecop.freeze(smart_answer_helper.current_time)
 
         next if self.class.setup_has_run? && !self.class.teardown_hooks_installed?
+
+        stub_shared_component_locales
         WebMock.stub_request(:get, WorkingDays::BANK_HOLIDAYS_URL).to_return(body: File.open(fixture_file('bank_holidays.json')))
-        Services.content_store.stubs(:content_item!).returns({})
+        Services.content_store.stubs(:content_item).returns({})
 
         setup_worldwide_locations
 

@@ -1,4 +1,4 @@
-Maternity and paternity calculator for employers
+Maternity, Adoption and paternity calculator for employers
 
 Calculate your employee’s:
 

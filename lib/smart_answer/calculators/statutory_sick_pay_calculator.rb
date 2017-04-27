@@ -263,6 +263,15 @@ module SmartAnswer
         payments
       end
 
+      def self.year_of_sickness
+        current_day = DateHelper.current_day
+        if current_day.month >= 6
+          current_day.next_year.end_of_year
+        else
+          current_day.end_of_year
+        end
+      end
+
     private
 
       def weekly_rate_on(date)

@@ -19,14 +19,6 @@ class FlowRegistrationPresenter
     start_node.title
   end
 
-  def paths
-    ["/#{@flow.name}.json"]
-  end
-
-  def prefixes
-    ["/#{@flow.name}"]
-  end
-
   def description
     start_node.meta_description
   end
@@ -38,7 +30,9 @@ class FlowRegistrationPresenter
   module MethodMissingHelper
     OVERRIDES = {
       'calculator.services_payment_partial_name' => 'pay_by_cash_only',
-      'calculator.holiday_entitlement_days' => 10
+      'calculator.holiday_entitlement_days' => 10,
+      'calculator.path_to_outcome' => %w(italy opposite_sex),
+      'calculator.ceremony_country' => 'italy'
     }
 
     def method_missing(method, *_args, &_block)

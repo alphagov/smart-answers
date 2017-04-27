@@ -2,7 +2,7 @@
 
 ## Overview
 
-Unusually this project includes a set of regression tests. These tests are not *normally* run as part of the `default` Rake task, because they take a long time to run. Thus they do not normally run as part of the [main CI build](continuous-integration#main). However, they *always* run as part of the [regression CI build](continuous-integration#regression) (currently every 2 hours).
+Unusually this project includes a set of regression tests. These tests are not *normally* run as part of the `default` Rake task, because they take a long time to run. Thus they do not normally run as part of the [main CI build](continuous-integration#main). However, they *always* run as part of the [regression CI build](continuous-integration#regression) on the master branch only. Go to this [Jenkins Job](https://ci.integration.publishing.service.gov.uk/job/smartanswers/job/master/), click on the lastest build, click replay and edit the script in the first textarea to run the regressions tests. 
 
 Having said all that, there is a [primitive mechanism](#checksum-file) which detects changes to the files associated with a given flow since the last time the regression tests ran successfully for that flow.
 
@@ -88,7 +88,25 @@ You will need to update it if you:
 
 Note that both the "questions & responses" file and the "responses & expected results" file are checksummed by default.
 
-The `script/generate-checksums-for-smart-answer.rb` script should be used to update the checksums. You can supply paths to any new files as command line arguments to this script.
+The `script/generate-checksums-for-smart-answer.rb` script should be used to update the checksums. As an example, for the Marriage Abroad flow:
+
+```bash
+rails r script/generate-checksums-for-smart-answer.rb marriage-abroad
+```
+
+You can supply paths to any new files as command line arguments to this script. This can be for either a directory or to a single file.
+
+```bash
+rails r script/generate-checksums-for-smart-answer.rb marriage-abroad smart_answer_flows/marriage-abroad/questions
+```
+
+```bash
+rails r script/generate-checksums-for-smart-answer.rb marriage-abroad smart_answer_flows/marriage-abroad/questions/country_of_ceremony.govspeak.erb
+```
+
+The last two options are rarely used and are inconsistent.
+
+### When to update checksums
 
 You should *only* update the checksums if you have run the regression tests for the flow and they have all passed. By updating them you are telling the [main CI build](continuous-integration.md#main) that it doesn't need to run the regression tests for this flow.
 

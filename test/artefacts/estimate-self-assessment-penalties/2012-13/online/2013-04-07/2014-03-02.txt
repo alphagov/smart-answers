@@ -1,12 +1,13 @@
-Please enter how much your tax bill is (or an estimate if you don’t know)
+How much was your tax bill?
 
 
 
-This calculator is anonymous. None of your details will be passed to HMRC.
+Enter an estimate if you don't know the exact amount.
 
 
 
 
-for the tax year
 
+
+Your details won't be passed to HMRC.
 

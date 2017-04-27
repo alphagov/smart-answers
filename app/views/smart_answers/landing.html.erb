@@ -1,0 +1,31 @@
+<% content_for :sidebar do %>
+  <%= render 'related_items' %>
+<% end %>
+
+<% start_node = @presenter.start_node %>
+
+<% if start_node.meta_description.present? %>
+  <% content_for :head do %>
+    <meta name="description" content="<%= start_node.meta_description %>">
+  <% end %>
+<% end %>
+
+<%= render partial: 'page_title', locals: { title: start_node.title } %>
+
+<div class="article-container group">
+  <article role="article" class="group" data-debug-template-path="<%= start_node.relative_erb_template_path %>">
+    <div class="inner">
+      <div class="intro">
+
+        <%= start_node.body %>
+
+        <p class="get-started">
+          <a rel="nofollow" href="<%= start_button_href %>" class="big button"><%= start_button %></a>
+        </p>
+      </div>
+
+      <%= start_node.post_body %>
+
+    </div>
+  </article>
+</div>

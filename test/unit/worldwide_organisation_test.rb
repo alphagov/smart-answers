@@ -4,8 +4,8 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
   context '.for_location' do
     should 'instantiates WorldwideOrganisation objects using data from the API' do
       organisations_data = [
-        OpenStruct.new(title: 'organisation-1-title'),
-        OpenStruct.new(title: 'organisation-2-title')
+        { title: 'organisation-1-title' },
+        { title: 'organisation-2-title' }
       ]
       worldwide_api = stub('worldwide-api')
       worldwide_api.stubs(:organisations_for_world_location).with('location-slug').returns(organisations_data)
@@ -22,20 +22,18 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
 
   context "fco_sponsored?" do
     should "return true for an organisation sponsored by the FCO" do
-      organisation_data = OpenStruct.new(
-        sponsors: [
-          OpenStruct.new(
-            details: OpenStruct.new(acronym: 'FCO')
-          )
+      organisation_data = { sponsors: [
+            { details: { acronym: 'FCO' }
+          }
         ]
-      )
+      }
       worldwide_organisation = WorldwideOrganisation.new(organisation_data)
 
       assert_equal true, worldwide_organisation.fco_sponsored?
     end
 
     should "return false for an organisation not sponsored by the FCO" do
-      organisation_data = OpenStruct.new(sponsors: [])
+      organisation_data = { sponsors: [] }
       worldwide_organisation = WorldwideOrganisation.new(organisation_data)
 
       assert_equal false, worldwide_organisation.fco_sponsored?
@@ -44,56 +42,56 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
 
   context "offices with services" do
     should "find offices with service" do
-      organisation_data = OpenStruct.new(
-        offices: OpenStruct.new(
-          main: OpenStruct.new(
-            title: 'main-office',
+      organisation_data = { offices:
+          { main:
+            { title: 'main-office',
             services: []
-          ),
+          },
           other: [
-            OpenStruct.new(
+            {
               title: 'other-office-1',
-              services: [OpenStruct.new(title: 'service-offered')]
-            ),
-            OpenStruct.new(
+              services: [{ title: 'service-offered' }]
+            },
+            {
               title: 'other-office-2',
-              services: [OpenStruct.new(title: 'service-offered')]
-            )
+              services: [{ title: 'service-offered' }]
+            }
           ]
-        )
-      )
+        }
+      }
       organisation = WorldwideOrganisation.new(organisation_data)
 
       matches = organisation.offices_with_service('service-offered')
       assert_equal 2, matches.length, "Wrong number of offices matched"
-      assert_equal 'other-office-1', matches[0].title
-      assert_equal 'other-office-2', matches[1].title
+      assert_equal 'other-office-1', matches[0]["title"]
+      assert_equal 'other-office-2', matches[1]["title"]
     end
 
     should "fallback to main office" do
-      organisation_data = OpenStruct.new(
-        offices: OpenStruct.new(
-          main: OpenStruct.new(
+      organisation_data = { offices:
+        {
+          main:
+          {
             title: 'main-office',
             services: []
-          ),
+          },
           other: []
-        )
-      )
+        }
+      }
       organisation = WorldwideOrganisation.new(organisation_data)
 
       matches = organisation.offices_with_service('obscure-service')
       assert_equal 1, matches.length, "Wrong number of offices matched"
-      assert_equal 'main-office', matches[0].title
+      assert_equal 'main-office', matches[0]["title"]
     end
 
     should "return empty array if no offices" do
-      organisation_data = OpenStruct.new(
-        offices: OpenStruct.new(
+      organisation_data = { offices:
+        {
           main: nil,
           other: []
-        )
-      )
+        }
+      }
       organisation = WorldwideOrganisation.new(organisation_data)
 
       matches = organisation.offices_with_service('service-name')
@@ -103,20 +101,21 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
 
   context "attribute accessors" do
     setup do
-      organisation_data = OpenStruct.new(
+      organisation_data = {
         title: 'organisation-title',
         web_url: 'organisation-web-url',
-        offices: OpenStruct.new(
-          main: OpenStruct.new(
-            title: 'main-office-title'
-          ),
+        offices:
+          {
+            main: {
+              title: 'main-office-title'
+            },
           other: [
-            OpenStruct.new(
+            {
               title: 'other-office-title'
-            )
+            }
           ]
-        )
-      )
+        }
+      }
       @organisation = WorldwideOrganisation.new(organisation_data)
     end
 
@@ -126,20 +125,16 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
 
     context "accessing office details" do
       should "allow accessing office details" do
-        assert_equal 'main-office-title', @organisation.offices.main.title
-      end
-
-      should "have shortcut accessor for main office" do
-        assert_equal "main-office-title", @organisation.main_office.title
+        assert_equal 'main-office-title', @organisation.main_office["title"]
       end
 
       should "have shortcut accessor for other offices" do
-        assert_equal 'other-office-title', @organisation.other_offices.first.title
+        assert_equal 'other-office-title', @organisation.other_offices.first["title"]
       end
 
       should "have an accessor for all offices" do
         assert_equal 2, @organisation.all_offices.size
-        assert_equal ['main-office-title', 'other-office-title'], @organisation.all_offices.map(&:title)
+        assert_equal ['main-office-title', 'other-office-title'], @organisation.all_offices.map { |office| office[:title] }
       end
 
       should "have an accessor for the URL" do

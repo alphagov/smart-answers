@@ -3,6 +3,8 @@ require_relative 'engine_test_helper'
 class ChangingAnswerTest < EngineIntegrationTest
   with_and_without_javascript do
     should "be able to change country and date answers" do
+      stub_smart_answer_in_content_store("country-and-date-sample")
+
       stub_world_locations(%w(argentina belarus))
 
       visit "/country-and-date-sample/y"
@@ -52,6 +54,8 @@ class ChangingAnswerTest < EngineIntegrationTest
     end
 
     should "be able to change money and salary answers" do
+      stub_smart_answer_in_content_store("money-and-salary-sample")
+
       visit "/money-and-salary-sample/y"
 
       fill_in "response[amount]", with: "5000"
@@ -90,6 +94,8 @@ class ChangingAnswerTest < EngineIntegrationTest
     end
 
     should "be able to change value and multiple choice answers" do
+      stub_smart_answer_in_content_store("bridge-of-death")
+
       visit "/bridge-of-death/y"
 
       fill_in "response", with: "Lancelot"
@@ -154,6 +160,8 @@ class ChangingAnswerTest < EngineIntegrationTest
     end
 
     should "be able to change checkbox answers" do
+      stub_smart_answer_in_content_store("checkbox-sample")
+
       visit "/checkbox-sample/y"
 
       check "Peppers"
@@ -178,6 +186,8 @@ class ChangingAnswerTest < EngineIntegrationTest
     end
 
     should "be able to change postcode answer" do
+      stub_smart_answer_in_content_store("postcode-sample")
+
       visit "/postcode-sample/y"
 
       fill_in "response", with: "B1 1PW"

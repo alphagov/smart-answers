@@ -40,18 +40,6 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
     end
   end
 
-  context "paths" do
-    should "generate and /flow.name.json" do
-      assert_equal ["/flow-sample.json"], @presenter.paths
-    end
-  end
-
-  context "prefixes" do
-    should "generate /flow.name" do
-      assert_equal ["/flow-sample"], @presenter.prefixes
-    end
-  end
-
   context "description" do
     should "use the meta_description from the start node template" do
       assert_equal "FLOW_DESCRIPTION", @presenter.description

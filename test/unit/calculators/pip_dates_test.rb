@@ -26,7 +26,7 @@ module SmartAnswer::Calculators
     context "in_middle_group?" do
       setup do
         @calc = PIPDates.new
-        Timecop.travel('2013-04-07')
+        Timecop.freeze('2013-04-07')
       end
 
       should "be false if born on 1948-04-08" do
@@ -39,10 +39,10 @@ module SmartAnswer::Calculators
         assert @calc.in_middle_group?
       end
 
-      # should "be true if born just before 1997-04-08" do
-      #   @calc.dob = Date.parse('1997-04-07')
-      #   assert @calc.in_middle_group?
-      # end
+      should "be true if born just before 1997-04-08" do
+        @calc.dob = Date.parse('1997-04-07')
+        assert @calc.in_middle_group?
+      end
 
       should "be false if born on 1997-04-08" do
         @calc.dob = Date.parse('1997-04-08')

@@ -22,6 +22,10 @@ module SmartAnswer::Calculators
       vietnam venezuela western-sahara
     )
 
+    PAY_AT_APPOINTMENT_COUNTRIES = %w(venezuela)
+
+    NO_COURIER_SERVICE_COUNTRIES = %w(st-helena-ascension-and-tristan-da-cunha)
+
     EXCLUDE_COUNTRIES = %w(
       holy-see british-antarctic-territory
     )
@@ -43,6 +47,10 @@ module SmartAnswer::Calculators
 
     def initialize(data_query: nil)
       @data_query = data_query || PassportAndEmbassyDataQuery.new
+    end
+
+    def courier_service?
+      NO_COURIER_SERVICE_COUNTRIES.exclude?(current_location)
     end
 
     def book_appointment_online?
@@ -182,6 +190,33 @@ module SmartAnswer::Calculators
 
     def ips_docs_number
       supporting_documents.split("_")[3] if ips_application?
+    end
+
+    def find_passport_fee(passport_type)
+      @data_query.find_passport_fee(passport_type)
+    end
+
+    def courier_fee
+      if current_location == 'tunisia'
+        return 21.57
+      end
+
+      if replacing? && ips_number == '1' && ips_docs_number == '1'
+        return 9.70
+      end
+
+      case ips_number
+      when '1'
+        19.86
+      when '2'
+        24.72
+      when '3'
+        23.01
+      end
+    end
+
+    def total_cost(passport_type)
+      find_passport_fee(passport_type) + courier_fee
     end
   end
 end

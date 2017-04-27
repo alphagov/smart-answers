@@ -29,16 +29,16 @@ You'll see this error if the Smart Answers app can't connect to the Content API.
 
 ```
 SocketError at /marriage-abroad
-Failed to open TCP connection to contentapi.dev.gov.uk:80 (getaddrinfo: nodename nor servname provided, or not known)
+Failed to open TCP connection to content_store.dev.gov.uk:80 (getaddrinfo: nodename nor servname provided, or not known)
 ```
 
 ### Resolution
 
 There are a couple of solutions to this problem:
 
-1. Set the `PLEK_SERVICE_CONTENTAPI_URI` environment variable to a valid host. NOTE. This doesn't need to be hosting the Content API (although you can use "https://www.gov.uk/api" if that's what you want), it simply needs to be a host that responds to HTTP requests.
+1. Set the `PLEK_SERVICE_CONTENT_STORE_URI` environment variable to a valid host. NOTE. This doesn't need to be hosting the Content API (although you can use "https://www.gov.uk/api" if that's what you want), it simply needs to be a host that responds to HTTP requests.
 
-2. Configure a web server (e.g. Apache) on your machine to respond to http://contentapi.dev.gov.uk. This is the default location of the Content API in development so configuring this means that you won't have to set the `PLEK_SERVICE_CONTENTAPI_URI` environment variable.
+2. Configure a web server (e.g. Apache) on your machine to respond to http://content_store.dev.gov.uk. This is the default location of the Content API in development so configuring this means that you won't have to set the `PLEK_SERVICE_CONTENT_STORE_URI` environment variable.
 
 
 ## "SocketError" when viewing a Smart Answer (relating to Worldwide API)

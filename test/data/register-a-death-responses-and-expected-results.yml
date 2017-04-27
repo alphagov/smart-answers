@@ -46,6 +46,11 @@
   :outcome_node: true
 - :current_node: :where_did_the_death_happen?
   :responses:
+  - portugal
+  :next_node: :where_did_the_death_happen?
+  :outcome_node: false
+- :current_node: :where_did_the_death_happen?
+  :responses:
   - scotland
   :next_node: :did_the_person_die_at_home_hospital?
   :outcome_node: false
@@ -228,6 +233,14 @@
   - overseas
   - democratic-republic-of-the-congo
   - another_country
+  - north-korea
+  :next_node: :north_korea_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - democratic-republic-of-the-congo
+  - another_country
   - papua-new-guinea
   :next_node: :oru_result
   :outcome_node: true
@@ -275,6 +288,145 @@
   - overseas
   - australia
   :next_node: :commonwealth_result
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - overseas
+  - austria
+  :next_node: :where_are_you_now?
+  :outcome_node: false
+- :current_node: :where_are_you_now?
+  :responses:
+  - overseas
+  - austria
+  - same_country
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses:
+  - overseas
+  - austria
+  - another_country
+  :next_node: :which_country_are_you_in_now?
+  :outcome_node: false
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - austria
+  - another_country
+  - algeria
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - austria
+  - another_country
+  - brazil
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - austria
+  - another_country
+  - china
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - austria
+  - another_country
+  - czech-republic
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - austria
+  - another_country
+  - estonia
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - austria
+  - another_country
+  - hong-kong
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - austria
+  - another_country
+  - italy
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - austria
+  - another_country
+  - libya
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - austria
+  - another_country
+  - north-korea
+  :next_node: :north_korea_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - austria
+  - another_country
+  - papua-new-guinea
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - austria
+  - another_country
+  - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - austria
+  - another_country
+  - somalia
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - austria
+  - another_country
+  - south-georgia-and-south-sandwich-islands
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - austria
+  - another_country
+  - taiwan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses:
+  - overseas
+  - austria
+  - in_the_uk
+  :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
@@ -377,6 +529,14 @@
   - overseas
   - north-korea
   - another_country
+  - north-korea
+  :next_node: :north_korea_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - north-korea
+  - another_country
   - papua-new-guinea
   :next_node: :oru_result
   :outcome_node: true
@@ -502,6 +662,14 @@
   - another_country
   - libya
   :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - papua-new-guinea
+  - another_country
+  - north-korea
+  :next_node: :north_korea_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
   :responses:

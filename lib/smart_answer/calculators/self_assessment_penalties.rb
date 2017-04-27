@@ -106,11 +106,14 @@ module SmartAnswer::Calculators
     end
 
     def interest
-      if overdue_payment_days <= 0
-        0
-      else
-        SmartAnswer::Money.new(calculate_interest(estimated_bill.value, overdue_payment_days).round(2))
+      return 0 if overdue_payment_days <= 0
+
+      days_with_penalty_interest = payment_deadline..(payment_date - 2)
+      interest_charges_per_day = days_with_penalty_interest.map do |date|
+        calculate_interest_for_date(date)
       end
+
+      SmartAnswer::Money.new(interest_charges_per_day.sum.round(2))
     end
 
     def total_owed
@@ -155,9 +158,18 @@ module SmartAnswer::Calculators
       DEADLINES[:payment_deadline][tax_year.to_sym]
     end
 
-    #interest is 3% per annum
-    def calculate_interest(amount, number_of_days)
-      (amount * (0.03 / 365) * (number_of_days - 1)).round(10)
+    def calculate_interest_for_date(date)
+      estimated_bill.value * daily_rate(date)
+    end
+
+    def daily_rate(date)
+      # Rate drops from 3% to 2.75% on 23 August 2016
+      rate_change_date = Date.new(2016, 8, 23)
+      if date < rate_change_date
+        0.03 / 365.0
+      else
+        0.0275 / 365.0
+      end
     end
   end
 end

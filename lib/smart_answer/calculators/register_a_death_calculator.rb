@@ -67,8 +67,7 @@ module SmartAnswer::Calculators
     end
 
     def currently_in_north_korea?
-      # TODO: current_country == 'north-korea'
-      nil == 'north-korea'
+      current_country == 'north-korea'
     end
 
     def translator_link_url

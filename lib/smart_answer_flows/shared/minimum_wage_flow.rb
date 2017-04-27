@@ -4,6 +4,7 @@ module SmartAnswer
       def define
         # Q1A
         multiple_choice :past_payment_date? do
+          option "2016-10-01"
           option "2016-04-01"
           option "2015-10-01"
           option "2014-10-01"

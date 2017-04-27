@@ -6,7 +6,7 @@
   "benefit-cap-calculator":
     :current_time: 2016-05-05
   "calculate-married-couples-allowance":
-    :current_time: 2016-05-05
+    :current_time: 2018-04-05
   "calculate-your-child-maintenance":
     :current_time: 2016-05-05
   "check-uk-visa":
@@ -14,8 +14,22 @@
   "state-pension-age":
     :current_time: 2016-04-06
   "am-i-getting-minimum-wage":
+    :current_time: 2017-04-01
+  "marriage-abroad":
     :current_time: 2016-10-01
   "minimum-wage-calculator-employers":
+    :current_time: 2017-04-01
+  "marriage-abroad":
     :current_time: 2016-10-01
   "pip-checker":
     :current_time: 2016-04-05
+  "maternity-paternity-calculator":
+    :current_time: 2018-04-05
+  "calculate-statutory-sick-pay":
+    :current_time: 2018-04-05
+  "state-pension-through-partner":
+    :current_time: 2017-05-01
+  "calculate-employee-redundancy-pay":
+    :current_time: 2017-05-01
+  "calculate-your-redundancy-pay":
+    :current_time: 2017-04-06

@@ -3,6 +3,53 @@ require_relative "../../test_helper"
 module SmartAnswer
   module Calculators
     class MarriageAbroadCalculatorTest < ActiveSupport::TestCase
+      context '#path_to_outcome' do
+        setup do
+          @calculator = MarriageAbroadCalculator.new
+        end
+
+        should 'get outcome for country where: opposite_sex marriage, user lives in ceremony country, partner is local' do
+          @calculator.ceremony_country = 'country'
+          @calculator.resident_of = 'ceremony_country'
+          @calculator.partner_nationality = 'partner_local'
+          @calculator.sex_of_your_partner = 'opposite_sex'
+
+          assert_equal %w(country ceremony_country partner_local opposite_sex), @calculator.path_to_outcome
+        end
+
+        should 'get outcome for country where: same_sex marriage, user lives in uk, partner is british' do
+          @calculator.ceremony_country = 'country'
+          @calculator.resident_of = 'uk'
+          @calculator.partner_nationality = 'partner_british'
+          @calculator.sex_of_your_partner = 'same_sex'
+
+          assert_equal %w(country uk partner_british same_sex), @calculator.path_to_outcome
+        end
+
+        should 'get outcome for country where: same_sex marriage, user lives in another country, partner is from another country' do
+          @calculator.ceremony_country = 'country'
+          @calculator.resident_of = 'third_country'
+          @calculator.partner_nationality = 'partner_other'
+          @calculator.sex_of_your_partner = 'same_sex'
+
+          assert_equal %w(country third_country partner_other same_sex), @calculator.path_to_outcome
+        end
+
+        should 'get opposite-sex outcome for Italy' do
+          @calculator.ceremony_country = 'italy'
+          @calculator.sex_of_your_partner = 'opposite_sex'
+
+          assert_equal %w(italy opposite_sex), @calculator.path_to_outcome
+        end
+
+        should 'get same-sex outcome for Italy' do
+          @calculator.ceremony_country = 'italy'
+          @calculator.sex_of_your_partner = 'same_sex'
+
+          assert_equal %w(italy same_sex), @calculator.path_to_outcome
+        end
+      end
+
       context '#partner_british?' do
         setup do
           @calculator = MarriageAbroadCalculator.new
@@ -816,7 +863,7 @@ module SmartAnswer
       context '#cni_posted_after_14_days?' do
         should 'return true if ceremony country will post notice after 14 days' do
           calculator = MarriageAbroadCalculator.new
-          calculator.ceremony_country = 'jordan'
+          calculator.ceremony_country = 'qatar'
 
           assert calculator.cni_posted_after_14_days?
         end
@@ -972,7 +1019,7 @@ module SmartAnswer
         end
 
         should 'return true if a PACS is available in the ceremony country' do
-          @calculator.ceremony_country = 'france'
+          @calculator.ceremony_country = 'monaco'
           assert @calculator.ceremony_country_offers_pacs?
         end
 
@@ -994,7 +1041,7 @@ module SmartAnswer
         end
 
         should "return false if PACS is available in the ceremony country but it's not a French overseas territory" do
-          @calculator.ceremony_country = 'france'
+          @calculator.ceremony_country = 'monaco'
           assert @calculator.ceremony_country_offers_pacs?
           refute @calculator.french_overseas_territory_offering_pacs?
         end
@@ -1026,6 +1073,24 @@ module SmartAnswer
           calculator.ceremony_country = 'ceremony-country'
 
           assert_equal 'partial-name', calculator.services_payment_partial_name
+        end
+      end
+
+      context "outcome per path" do
+        should "return true if country has outcome per path" do
+          @calculator = MarriageAbroadCalculator.new
+          @calculator.ceremony_country = 'italy'
+
+          assert_equal true, @calculator.has_outcome_per_path?
+        end
+      end
+
+      context '#two_questions_country? ' do
+        should 'return true if country has two questions' do
+          @calculator = MarriageAbroadCalculator.new
+          @calculator.ceremony_country = 'italy'
+
+          assert_equal true, @calculator.two_questions_country?
         end
       end
     end

@@ -4,7 +4,7 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if calculator.resident_outside_of_uk? || calculator.ceremony_country == 'usa' %>
+  <% if calculator.resident_outside_of_uk? %>
     <%= render partial: 'contact_local_authorities_in_country_marriage.govspeak.erb',
                locals: { calculator: calculator } %>
   <% else %>

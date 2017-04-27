@@ -31,17 +31,36 @@ module SmartAnswer::Calculators
       end
     end
 
+    context "top-up start date" do
+      context "Should show current year" do
+        should "be 2015" do
+          Timecop.freeze("2015-10-31")
+          assert_equal 2015, @calculator.topup_start_year
+        end
+
+        should "be 2016" do
+          Timecop.freeze("2016-10-31")
+          assert_equal 2016, @calculator.topup_start_year
+        end
+
+        should "be 2015 if year is before scheme start date" do
+          Timecop.freeze("2014-10-31")
+          assert_equal 2015, @calculator.topup_start_year
+        end
+      end
+    end
+
     context "lump_sum_and_age" do
       context "when male" do
         setup do
+          Timecop.freeze('2016-12-01')
           @calculator.gender = "male"
         end
 
-        should "show two rates for ages 85 and 86" do
+        should "show one rate for age 86" do
           @calculator.date_of_birth = Date.parse('1930-04-06')
           @calculator.weekly_amount = 10
           expectation = [
-            { amount: 3940.0, age: 85 },
             { amount: 3660.0, age: 86 }
           ]
           assert_equal expectation, @calculator.lump_sum_and_age
@@ -61,10 +80,29 @@ module SmartAnswer::Calculators
           @calculator.date_of_birth = Date.parse('1953-04-06')
           assert_equal [], @calculator.lump_sum_and_age
         end
+
+        should "show one rate when born on 1944-05-01 and with top-up of £1 a week" do
+          @calculator.date_of_birth = Date.parse('1944-05-01')
+          @calculator.weekly_amount = 1
+          expectation = [
+            { amount: 738.0, age: 72 },
+          ]
+          assert_equal expectation, @calculator.lump_sum_and_age
+        end
+
+        should "show one rate when born on 1949-10-14 and with top-up of £1 a week" do
+          @calculator.date_of_birth = Date.parse('1949-10-14')
+          @calculator.weekly_amount = 1
+          expectation = [
+            { amount: 847.0, age: 67 },
+          ]
+          assert_equal expectation, @calculator.lump_sum_and_age
+        end
       end
 
       context "when female" do
         setup do
+          Timecop.freeze('2016-12-01')
           @calculator.gender = "female"
         end
 
@@ -72,19 +110,16 @@ module SmartAnswer::Calculators
           @calculator.date_of_birth = Date.parse('1953-04-05')
           @calculator.weekly_amount = 1
           expectation = [
-            { amount: 956.0, age: 62 },
             { amount: 934.0, age: 63 },
             { amount: 913.0, age: 64 },
           ]
           assert_equal expectation, @calculator.lump_sum_and_age
         end
 
-        should "show three rates when born on 1952-10-13 and with top-up of £1 a week" do
+        should "show one rate when born on 1952-10-13 and with top-up of £1 a week" do
           @calculator.date_of_birth = Date.parse('1952-10-13')
           @calculator.weekly_amount = 1
           expectation = [
-            { amount: 956.0, age: 62 },
-            { amount: 934.0, age: 63 },
             { amount: 913.0, age: 64 },
           ]
           assert_equal expectation, @calculator.lump_sum_and_age
@@ -93,6 +128,55 @@ module SmartAnswer::Calculators
         should "show no rates when born on 1953-04-06 or after (too young to qualify)" do
           @calculator.date_of_birth = Date.parse('1953-04-06')
           assert_equal [], @calculator.lump_sum_and_age
+        end
+
+        should "show two rates when born on 1951-04-05 and with top-up of £20 per week" do
+          @calculator.date_of_birth = Date.parse('1951-04-05')
+          @calculator.weekly_amount = 20
+          expectation = [
+            { amount: 17800.0, age: 65 },
+            { amount: 17420.0, age: 66 },
+          ]
+          assert_equal expectation, @calculator.lump_sum_and_age
+        end
+      end
+
+      context "end of scheme" do
+        setup do
+          Timecop.freeze('2017-02-01')
+          @calculator.gender = "male"
+        end
+
+        teardown do
+          Timecop.return
+        end
+
+        should "show two rates for final year of scheme when birthday before end of scheme" do
+          @calculator.date_of_birth = Date.parse('1950-04-05')
+          @calculator.weekly_amount = 1
+          expectation = [
+            { amount: 871.0, age: 66 },
+            { amount: 847.0, age: 67 },
+          ]
+          assert_equal expectation, @calculator.lump_sum_and_age
+        end
+
+        should "show one rate for final year of scheme when birthday in final month of scheme but after scheme ends" do
+          @calculator.date_of_birth = Date.parse('1950-04-07')
+          @calculator.weekly_amount = 1
+          expectation = [
+            { amount: 871.0, age: 66 },
+          ]
+          assert_equal expectation, @calculator.lump_sum_and_age
+        end
+
+        should "show one rate when birthday is in the past (before today)" do
+          @calculator.date_of_birth = Date.parse('1950-01-31')
+          @calculator.weekly_amount = 1
+          expectation = [
+            { amount: 847.0, age: 67 },
+          ]
+          assert_equal expectation, @calculator.lump_sum_and_age
         end
       end
     end

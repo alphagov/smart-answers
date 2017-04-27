@@ -10,19 +10,12 @@
      calculator.ceremony_country_is_french_overseas_territory? ||
      calculator.ceremony_country == 'indonesia' ||
      calculator.ceremony_country == 'monaco' ||
-     calculator.ceremony_country == 'france' ||
      calculator.ceremony_country == 'cambodia' ||
      (calculator.ceremony_country == 'brazil' && calculator.resident_outside_of_third_country?) %>
 
-    <% if calculator.ceremony_country == 'vietnam' %>
-      You can pay fees for consular services in the local currency or pounds sterling - these are shown in the list of [consular fees for <%= calculator.country_name_lowercase_prefix %>](/government/publications/<%= calculator.ceremony_country %>-consular-fees).
-    <% else %>
-      You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for <%= calculator.country_name_lowercase_prefix %>](/government/publications/<%= calculator.ceremony_country %>-consular-fees).
-    <% end %>
+     You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for <%= calculator.country_name_lowercase_prefix %>](/government/publications/<%= calculator.ceremony_country %>-consular-fees).
   <% end %>
 
-  <% if calculator.services_payment_partial_name.present? %>
-    <% partial = 'payment_information_partials/' + calculator.services_payment_partial_name + '.govspeak.erb' %>
-    <%= render partial: partial, locals: { calculator: calculator } %>
-  <% end %>
+  <%=  render partial: 'how_to_pay.govspeak.erb',
+              locals: {calculator: calculator}%>
 <% end %>

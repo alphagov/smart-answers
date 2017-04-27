@@ -39,10 +39,7 @@
       - [go to the UK and post notice with a UK registrar](<%= calculator.outcome_path_when_resident_in_uk %>)
       - [go to <%= calculator.country_name_lowercase_prefix %> and post notice at the embassy or consulate there](<%= calculator.outcome_path_when_resident_in_ceremony_country %>)
 
-      <% if calculator.ceremony_country == 'italy' %>
-      <% else %>
-        <%= render partial: 'you_will_have_to_wait_to_get_married.govspeak.erb' %>
-      <% end %>
+      <%= render partial: 'you_will_have_to_wait_to_get_married.govspeak.erb' %>
 
       <% if calculator.ceremony_country == 'poland' %>
         <%= render partial: 'check_if_uk_issued_cnis_accepted.govspeak.erb',

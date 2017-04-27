@@ -561,7 +561,7 @@ class RegisterABirthTest < ActiveSupport::TestCase
       add_response "another_country"
       add_response "north-korea"
 
-      assert_current_node :oru_result
+      assert_current_node :north_korea_result
     end
 
     should "display 3 months if child born in a lower risk (non phase-5) country and currently in Cambodia" do

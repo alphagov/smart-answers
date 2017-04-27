@@ -3,7 +3,7 @@
 The simplest way to get Smart Answers running locally is to run:
 
 ```bash
-$ PLEK_SERVICE_CONTENTAPI_URI=https://www.gov.uk/api \
+$ PLEK_SERVICE_CONTENT_STORE_URI=https://www.gov.uk/api \
 PLEK_SERVICE_WHITEHALL_ADMIN_URI=https://www.gov.uk \
 PLEK_SERVICE_STATIC_URI=assets-origin.integration.publishing.service.gov.uk \
 rails s

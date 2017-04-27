@@ -7,6 +7,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
+    stub_shared_component_locales
     setup_for_testing_flow SmartAnswer::CalculateStatutorySickPayFlow
   end
 

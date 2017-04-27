@@ -1,0 +1,116 @@
+<% content_for :title do %>
+  <% if calculator.passport_country_is_taiwan? %>
+    You won’t need a visa if your passport has a personal ID number on the bio data page.
+  <% elsif calculator.passport_country_in_electronic_visa_waiver_list? %>
+    You’ll need an electronic visa waiver (EVW) or a visitor visa
+  <% else %>
+    You’ll need a visa to pass through the UK (unless you’re exempt)
+  <% end %>
+<% end %>
+
+<% content_for :body do %>
+  <% if calculator.passport_country_is_taiwan? %>
+
+    However, you should bring the [same documents](/government/publications/visitor-visa-guide-to-supporting-documents) you’d need to apply for a visa, to show to officers at the UK border.
+
+    If your passport doesn’t have a personal ID number on the bio data page you’ll usually need to apply for a UK [standard visitor visa](/standard-visitor-visa).
+  <% elsif calculator.passport_country_in_electronic_visa_waiver_list? %>
+
+    You must either apply for:
+
+    - an [EVW](/get-electronic-visa-waiver)
+    - a [Standard Visitor visa](/standard-visitor-visa)
+  <% else %>
+
+    You’ll usually need to apply for a UK [standard visitor visa](/standard-visitor-visa).
+  <% end %>
+
+  <% if calculator.passport_country_in_datv_list? ||
+      calculator.passport_country_is_taiwan? ||
+      calculator.passport_country_in_electronic_visa_waiver_list? ||
+      calculator.passport_country_in_visa_national_list? %>
+
+    ##Transiting without a visa
+
+    You might be eligible for ‘transit without visa’ if:
+
+     - you arrive and depart by air
+
+     - have a confirmed onward flight that leaves on the day you arrive or before midnight on the day after you arrive
+
+     - have the right documents for your destination (for example a visa for that country)
+    <% if calculator.passport_country_in_visa_national_list? ||
+         calculator.passport_country_is_taiwan? ||
+         calculator.passport_country_in_datv_list? ||
+         passport_country_in_electronic_visa_waiver_list? %>
+
+      You must also have an Irish biometric visa (marked ‘BC’ or ‘BC BIVS’ in the ‘Remarks’ section) and an onward flight ticket to the Republic of Ireland.
+
+      E-visas or e-residence permits are not acceptable for transiting through immigration control without a visa.
+
+      All visas and residence permits must be valid.
+
+      You won’t be able to transit without a visa if a Border Force officer decides you don’t qualify under the immigration rules.
+
+    <% else %>
+
+      You must also:
+
+      - be travelling to (or on part of a reasonable journey to) Australia, Canada, New Zealand or the USA and have a valid visa for that country
+
+      - be travelling from (or on part of a reasonable journey from) Australia, Canada, New Zealand or the USA and have a valid visa for that country
+
+      - be travelling from (or on part of a reasonable journey from) Australia, Canada, New Zealand or the USA and it’s less than 6 months since you last entered that country with a valid entry visa
+
+      - have a residence permit issued by Australia or New Zealand
+
+      - have a common format residence permit issued by an European Economic Area (EEA) country or Switzerland
+
+      - have a residence permit issued by Canada issued after 28 June 2002
+
+      - have a uniform format category D visa for entry to a country in the EEA or Switzerland
+
+      - have an Irish biometric visa (marked ‘BC’ or ‘BC BIVS’ in the ‘Remarks’ section) and an onward flight ticket to the Republic of Ireland
+
+      - have a valid USA permanent residence card issued by the USA on or after 21 April 1998
+
+      - have a valid USA I-551 Temporary Immigrant visa issued by the USA (a wet-ink stamp version will not be accepted)
+
+      - have an expired USA I-551 Permanent Residence card issued by the USA on or after 21 April 1998, with a valid I-797 letter authorising extension
+
+      - have a valid standalone US Immigration Form 155A/155B issued by the USA (attached to a sealed brown envelope)
+
+      You won’t be able to transit without a visa if a Border Force officer decides you don’t qualify under the immigration rules. You can [apply for a transit visa](/transit-visa) before you travel if you’re unsure whether you qualify for transiting without a visa.
+
+      E-visas or e-residence permits are not acceptable for transiting through immigration control without a visa.
+
+      All visas and residence permits must be valid.
+
+      Australian paper confirmation slips are not accepted.
+
+      ^Transiting without a visa is decided by the immigration officer at the border. You won’t be allowed to transit if they decide you need a visa, so you might want to apply for a transit visa before you travel.^
+
+    <% end %>
+  <% else %>
+
+    You don’t need a visa if:
+
+    - you’re travelling to (or on part of a reasonable journey to) Australia, Canada, New Zealand or the USA and have a valid visa for that country
+    - you’re travelling from (or on part of a reasonable journey from) Australia, Canada, New Zealand or the USA and have a valid visa for that country
+    - you’re travelling from (or on part of a reasonable journey from) Australia, Canada, New Zealand or the USA and it’s less than 6 months since you last entered that country with a valid entry visa
+
+    You also won’t need a visa if you have any of the following:
+
+    - a residence permit issued by Australia or New Zealand
+    - a common format residence permit issued by an European Economic Area (EEA) country or Switzerland
+    - a residence permit issued by Canada issued after 28 June 2002
+    - a uniform format category D visa for entry to a country in the EEA or Switzerland
+    - an Irish biometric visa (marked ‘BC’ or ‘BC BIVS’ in the ‘Remarks’ section) and an onward flight ticket to the Republic of Ireland
+    - a valid USA permanent residence card issued by the USA on or after 21 April 1998
+    - a valid USA I-551 Temporary Immigrant visa issued by the USA (a wet-ink stamp version will not be accepted)
+    - an expired USA I-551 Permanent Residence card issued by the USA on or after 21 April 1998, with a valid I-797 letter authorising extension
+    - a valid standalone US Immigration Form 155A/155B issued by the USA (attached to a sealed brown envelope)
+    - a Taiwanese passport with a personal ID number on the bio data page
+  <% end %>
+
+<% end %>

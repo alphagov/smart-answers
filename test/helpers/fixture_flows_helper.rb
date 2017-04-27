@@ -15,4 +15,10 @@ module FixtureFlowsHelper
     FLOW_REGISTRY_OPTIONS[:preload_flows] = @preload_flows
     SmartAnswer::FlowRegistry.reset_instance
   end
+
+  def stub_smart_answer_in_content_store(smart_answer_id)
+    Services.content_store.stubs(:content_item)
+      .with("/#{smart_answer_id}")
+      .returns({})
+  end
 end

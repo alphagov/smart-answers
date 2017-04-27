@@ -3,22 +3,11 @@ module ApplicationHelper
     File.mtime(Rails.root.join('REVISION')).to_date rescue Date.today
   end
 
-  def ajax_enabled_for?(name)
-    %w(
-      energy-grants-calculator
-      calculate-employee-redundancy-pay
-      register-a-death
-    ).exclude?(name)
+  def start_button
+    SmartAnswer::StartButton.new(@name, self).text
   end
 
-  def start_button
-    case @name.to_s
-    when "overseas-passports"
-      "Continue"
-    when "calculate-your-child-maintenance"
-      "Calculate your child maintenance"
-    else
-      "Start now"
-    end
+  def start_button_href
+    SmartAnswer::StartButton.new(@name, self).href
   end
 end

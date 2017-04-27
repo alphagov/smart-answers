@@ -633,6 +633,65 @@ module SmartAnswer
           refute @calculator.valid_current_location?
         end
       end
+
+      context '#courier_fee' do
+        setup do
+          @calculator = OverseasPassportsCalculator.new
+        end
+
+        should 'return 19.86 when #ips_number returns 1' do
+          @calculator.stubs(:ips_number).returns('1')
+          assert_equal 19.86, @calculator.courier_fee
+        end
+
+        should 'return 24.72 when #ips_number returns 2' do
+          @calculator.stubs(:ips_number).returns('2')
+          assert_equal 24.72, @calculator.courier_fee
+        end
+
+        should 'return 23.01 when #ips_number returns 3' do
+          @calculator.stubs(:ips_number).returns('3')
+          assert_equal 23.01, @calculator.courier_fee
+        end
+
+        should 'return 21.57 when the country is tunisia' do
+          @calculator.stubs(:current_location).returns('tunisia')
+          assert_equal 21.57, @calculator.courier_fee
+        end
+
+        should 'return 9.70 when replacing a passport and both ips_number and ips_docs_number return 1' do
+          @calculator.stubs(:replacing?).returns(true)
+          @calculator.stubs(:ips_number).returns('1')
+          @calculator.stubs(:ips_docs_number).returns('1')
+          assert_equal 9.70, @calculator.courier_fee
+        end
+      end
+
+      context '#total_cost' do
+        should 'return the total of the passport and courier fees' do
+          calculator = OverseasPassportsCalculator.new
+          calculator.stubs(:find_passport_fee).with('passport-type').returns(3)
+          calculator.stubs(:courier_fee).returns(4)
+
+          assert_equal 7, calculator.total_cost('passport-type')
+        end
+      end
+
+      context '#courier_service?' do
+        setup do
+          @calculator = OverseasPassportsCalculator.new
+        end
+
+        should 'return true for countries that offer a courier service' do
+          @calculator.current_location = 'not-st-helena-ascension-and-tristan-da-cunha'
+          assert @calculator.courier_service?
+        end
+
+        should "return false for countries that don't offer a courier service" do
+          @calculator.current_location = 'st-helena-ascension-and-tristan-da-cunha'
+          refute @calculator.courier_service?
+        end
+      end
     end
   end
 end

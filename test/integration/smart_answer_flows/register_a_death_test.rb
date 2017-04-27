@@ -334,8 +334,8 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'another_country'
         add_response 'north-korea'
       end
-      should "give the oru result and be done" do
-        assert_current_node :oru_result
+      should "give the north korean result and be done" do
+        assert_current_node :north_korea_result
       end
     end # Answer Brazil
     context "Death in Poland, currently in Cameroon" do
@@ -415,7 +415,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
         add_response 'north-korea'
       end
       should "take you to the embassy outcome with specific phrasing" do
-        assert_current_node :oru_result
+        assert_current_node :north_korea_result
       end
     end
 

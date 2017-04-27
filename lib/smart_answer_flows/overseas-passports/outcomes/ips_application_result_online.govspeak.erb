@@ -10,47 +10,18 @@
 
   Applications will take longer if:
 
-  - HM Passport Office need to ask you for more information or documents
+  <% if calculator.birth_location == "philippines" &&
+      calculator.child_or_adult == "child" &&
+      calculator.general_action == "applying" %>
+    - HM Passport Office need to ask you for more information or documents, especially for [applicants born in the Philippines or with parents who are married or divorced and have links to the Philippines](/government/publications/applying-for-a-passport-from-outside-the-uk-applicants-with-links-to-the-philippines)
+  <% else %>
+    - HM Passport Office need to ask you for more information or documents
+  <% end %>
   - the photographs you send are rejected
 
   Don’t book any travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document](/emergency-travel-document).
 
-  ## Cost
-
-  <% if calculator.replacing? and calculator.ips_number == '1' and calculator.ips_docs_number == '1' %>
-    You’ll have to pay a fee for your passport and a courier fee of £9.70.
-
-    The courier fee pays for your passport to be sent back to you securely.
-
-    <% case calculator.child_or_adult %>
-    <% when 'adult' %>
-      | Passport type | Passport fee | Total to pay (including courier fee) |
-      |---------------|--------------|--------------------------------------|
-      | Adult standard 32-page passport | £83.00 | £92.70 |
-      | Adult jumbo 48-page passport | £91.00 | £100.70 |
-    <% when 'child' %>
-      | Passport type | Passport fee | Total to pay (including courier fee) |
-      |---------------|--------------|--------------------------------------|
-      | Child passport | £53.00 | £62.70 |
-    <% end %>
-  <% else %>
-    <% case calculator.ips_number %>
-    <% when '1' %>
-      You’ll have to pay a fee for your passport and a courier fee of £19.86.
-
-      The courier fee pays for your passport and supporting documents to be sent back to you securely.
-    <% when '2' %>
-      You’ll have to pay a fee for your passport and a courier fee of £24.72.
-
-      The courier fee pays for your passport to be sent securely to the British Embassy, high commission or consulate where you applied for you to collect.
-    <% when '3' %>
-      You’ll have to pay a fee for your passport and a courier fee of £23.01.
-
-      The courier fee pays for your passport to be sent securely to the British Embassy, high commission or consulate where you applied for you to collect.
-    <% end %>
-
-    <%= render partial: 'cost/child_or_adult_passport.govspeak.erb', locals: { calculator: calculator } %>
-  <% end %>
+  <%= render partial: 'cost.govspeak.erb', locals: { calculator: calculator } %>
 
   ## How to apply
 
@@ -110,6 +81,8 @@
   ## Getting your passport
 
   <%= render partial: 'getting_your_passport/by_ips_number.govspeak.erb', locals: { calculator: calculator } %>
+
+  <%= render partial: 'must_sign_passport_notice.govspeak.erb' %>
 
   <%= render partial: 'passport_adviceline_contacts.govspeak.erb' %>
 <% end %>

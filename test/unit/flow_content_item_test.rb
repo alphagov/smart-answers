@@ -15,7 +15,7 @@ module SmartAnswer
 
       payload = content_item.payload
 
-      assert_valid_against_schema(payload, 'placeholder')
+      assert_valid_against_schema(payload, 'generic_with_external_related_links')
     end
 
     test '#payload returns a valid content-item with external related links' do
@@ -24,7 +24,7 @@ module SmartAnswer
 
       payload = content_item.payload
 
-      assert_valid_against_schema(payload, 'placeholder')
+      assert_valid_against_schema(payload, 'generic_with_external_related_links')
     end
 
     test '#base_path is the name of the flow' do
