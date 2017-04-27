@@ -6,7 +6,7 @@ module SmartAnswer::Calculators
 
     COUNTRIES_WITH_CONSULATE_GENERALS = %w(brazil hong-kong turkey)
 
-    COUNTRIES_WITH_BIRTH_REGISTRATION_EXCEPTION = %w(afghanistan iraq jordan kuwait oman pakistan qatar saudi-arabia united-arab-emirates)
+    COUNTRIES_WITH_BIRTH_REGISTRATION_EXCEPTION = %w(afghanistan iran iraq jordan kuwait oman pakistan qatar saudi-arabia united-arab-emirates).freeze
 
     ORU_DOCUMENTS_VARIANT_COUNTRIES_BIRTH = %w(andorra belgium denmark finland france india israel italy japan monaco morocco nepal netherlands nigeria poland portugal russia sierra-leone south-korea spain sri-lanka sweden taiwan the-occupied-palestinian-territories turkey united-arab-emirates usa)
 

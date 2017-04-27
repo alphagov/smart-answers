@@ -4,7 +4,7 @@ lib/data/rates/register_a_death.yml: f24583d68edd4b06242b5a92e08e25c3
 lib/data/translators.yml: 79abd2e0c2570130f7d832e4242c153a
 lib/smart_answer/calculators/country_name_formatter.rb: 583df7103672f581bf5510732c1b2be1
 lib/smart_answer/calculators/register_a_death_calculator.rb: 18f8a996d537df9056ba149239cf487e
-lib/smart_answer/calculators/registrations_data_query.rb: 3afcd514ecedadd19b0db67f54ac5ea6
+lib/smart_answer/calculators/registrations_data_query.rb: 80250f09bc28d55a86148de2e7a76429
 lib/smart_answer/calculators/translator_links.rb: 079592f6c5ede06d7c6ae4e8c5553127
 lib/smart_answer_flows/register-a-death/outcomes/_fees.govspeak.erb: 295a443bf733cdeb0fcd70282af042cc
 lib/smart_answer_flows/register-a-death/outcomes/_footnote_oru_variants.govspeak.erb: 5a3909331b2a97a9dac6a13d02e860a9
