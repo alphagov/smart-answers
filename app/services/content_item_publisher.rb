@@ -17,7 +17,7 @@ class ContentItemPublisher
     )
   end
 
-  def redirect_smart_answer(path, destination)
+  def publish_redirect(path, destination)
     raise "The destination or path isn't defined" unless path.present? && destination.present?
 
     add_redirect_to_publishing_api(path, destination)

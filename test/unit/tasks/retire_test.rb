@@ -34,16 +34,16 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
       assert_equal "Missing destination parameter", exception.message
     end
 
-    should "invoke the unpublish, redirect_smart_answer and remove_smart_answer_from_search methods from ContentItemPublisher" do
+    should "invoke the unpublish, publish_redirect and remove_smart_answer_from_search methods from ContentItemPublisher" do
       content_item_publisher_mock = ContentItemPublisher.any_instance
 
       content_item_publisher_mock.stubs(:unpublish).returns(nil)
-      content_item_publisher_mock.stubs(:redirect_smart_answer).returns(nil)
+      content_item_publisher_mock.stubs(:publish_redirect).returns(nil)
       content_item_publisher_mock.stubs(:remove_smart_answer_from_search)
         .returns(nil)
 
       content_item_publisher_mock.expects(:unpublish).with("content-id").once
-      content_item_publisher_mock.expects(:redirect_smart_answer)
+      content_item_publisher_mock.expects(:publish_redirect)
         .with("/base-path", "/new-destination").once
       content_item_publisher_mock.expects(:remove_smart_answer_from_search)
         .with("/base-path").once
@@ -79,13 +79,13 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
 
   context "retire:redirect rake task" do
     setup do
-      Rake::Task["retire:redirect_smart_answer"].reenable
-      ContentItemPublisher.any_instance.stubs(:redirect_smart_answer).returns(nil)
+      Rake::Task["retire:publish_redirect"].reenable
+      ContentItemPublisher.any_instance.stubs(:publish_redirect).returns(nil)
     end
 
     should "raise exception when path isn't defined" do
       exception = assert_raises RuntimeError do
-        Rake::Task["retire:redirect_smart_answer"].invoke(nil, "/destination-path")
+        Rake::Task["retire:publish_redirect"].invoke(nil, "/destination-path")
       end
 
       assert_equal "Missing path parameter", exception.message
@@ -93,16 +93,16 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
 
     should "raise exception when destination isn't defined" do
       exception = assert_raises RuntimeError do
-        Rake::Task["retire:redirect_smart_answer"].invoke("base-path", nil)
+        Rake::Task["retire:publish_redirect"].invoke("base-path", nil)
       end
 
       assert_equal "Missing destination parameter", exception.message
     end
 
-    should "invoke the redirect_smart_answer method on ContentItemPublisher" do
-      ContentItemPublisher.any_instance.expects(:redirect_smart_answer).with("/base-path", "/destination-path").once
+    should "invoke the publish_redirect method on ContentItemPublisher" do
+      ContentItemPublisher.any_instance.expects(:publish_redirect).with("/base-path", "/destination-path").once
 
-      Rake::Task["retire:redirect_smart_answer"].invoke("/base-path", "/destination-path")
+      Rake::Task["retire:publish_redirect"].invoke("/base-path", "/destination-path")
     end
   end
 

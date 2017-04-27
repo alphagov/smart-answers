@@ -37,7 +37,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
     end
   end
 
-  context "#redirect_smart_answer" do
+  context "#publish_redirect" do
     setup do
       SecureRandom.stubs(:uuid).returns('content-id')
       create_url = 'https://publishing-api.test.gov.uk/v2/content/content-id'
@@ -47,7 +47,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
     end
 
     should 'send a redirect and publish request to publishing-api' do
-      ContentItemPublisher.new.redirect_smart_answer('/path', '/destination-path')
+      ContentItemPublisher.new.publish_redirect('/path', '/destination-path')
 
       assert_requested @create_request
       assert_requested @publish_request
@@ -56,7 +56,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
     should 'raise exception and not attempt publishing and router requests, when create request fails' do
       GdsApi::Response.any_instance.stubs(:code).returns(500)
       exception = assert_raises(RuntimeError) do
-        ContentItemPublisher.new.redirect_smart_answer('/path', '/destination-path')
+        ContentItemPublisher.new.publish_redirect('/path', '/destination-path')
       end
 
       assert_equal "This content item has not been created", exception.message
@@ -66,7 +66,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
 
     should 'raises exception if destination is not defined' do
       exception = assert_raises(RuntimeError) do
-        ContentItemPublisher.new.redirect_smart_answer('/path', nil)
+        ContentItemPublisher.new.publish_redirect('/path', nil)
       end
 
       assert_equal "The destination or path isn't defined", exception.message
@@ -74,7 +74,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
 
     should 'raises exception if path is not defined' do
       exception = assert_raises(RuntimeError) do
-        ContentItemPublisher.new.redirect_smart_answer(nil, '/destination-path')
+        ContentItemPublisher.new.publish_redirect(nil, '/destination-path')
       end
 
       assert_equal "The destination or path isn't defined", exception.message
