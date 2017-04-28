@@ -1,12 +1,9 @@
-What are the car’s [CO2 emissions](/get-vehicle-information-from-dvla)?
+How much do you expect to claim as business expenses for running and maintaining your car, van or motorcycle over the tax year?
 
 
 
+Only include the business proportion of costs for your main vehicle, eg fuel, servicing, repairs and insurance.
 
-
-  * low: 75g/km or less (or it’s electric)
-  * medium: between 75g/km and 130g/km
-  * high: over 130g/km
 
 
 

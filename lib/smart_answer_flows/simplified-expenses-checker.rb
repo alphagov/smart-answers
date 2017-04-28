@@ -57,7 +57,7 @@ module SmartAnswer
           calculator.new_or_used_vehicle = response
 
           if response == "new" || response == "used"
-            question :is_vehicle_green?
+            question :how_much_expect_to_claim?
           else
             question :capital_allowances?
           end
