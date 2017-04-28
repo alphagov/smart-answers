@@ -1,0 +1,51 @@
+---
+:which_country_are_you_in?:
+- afghanistan # renewing_replacing_applying?
+- algeria # passport_courier_costs_ips#{ips_number}_uk_visa
+- american-samoa # ips_application_result passport_courier_costs_replacing_ips
+- benin # ALT_EMBASSIES.has_key?(current_location)
+- burundi # send_application_non_uk_visa_renew_new_colour
+- cambodia # getting_your_passport_with_id
+- cuba # passport_costs_ips_cash
+- democratic-republic-of-the-congo
+- falkland-islands # passport_courier_costs_replacing_ips#{ips_number}
+- france # overseas_passports_embassies (organisation)
+- georgia
+- hong-kong # hong_kong_id_required
+- jamaica
+- jordan
+- laos # send_application_uk_visa_renew_new_colour_laos
+- nigeria # #{response}_fco_forms_nigeria
+- north-korea # emergency_travel_help_#{current_location}
+- pakistan # send_application_ips1_pakistan
+- pitcairn-island # passport_courier_costs_ips3_#{current_location}
+- russia
+- south-georgia-and-south-sandwich-islands # apply_in_neighbouring_country
+- south-sudan
+- st-helena-ascension-and-tristan-da-cunha # passport_costs_fee_only
+- st-martin # overseas_passports_embassies (no organisation)
+- tajikistan # passport_courier_costs_#{current_location}
+- the-occupied-palestinian-territories # which_opt?
+- timor-leste # send_application_#{current_location}
+- tunisia
+- turks-and-caicos-islands
+- venezuela # passport_costs_pay_at_appointment
+- western-sahara # send_application_uk_visa_renew_new_colour_western_sahara
+- yemen # cannot_apply
+- zimbabwe
+:which_opt?:
+- gaza
+- jerusalem-or-westbank
+:renewing_replacing_applying?:
+- renewing_new
+- renewing_old
+- applying
+- replacing
+:child_or_adult_passport?:
+- adult
+- child
+:country_of_birth?:
+- afghanistan # supporting_documents
+- south-africa # birth_certificate_#{birth_location}
+- turks-and-caicos-islands
+- philippines
