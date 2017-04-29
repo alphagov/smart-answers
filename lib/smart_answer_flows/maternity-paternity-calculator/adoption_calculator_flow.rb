@@ -4,14 +4,14 @@ module SmartAnswer
       def define
         ## QA0
         multiple_choice :taking_paternity_leave_for_adoption? do
-          option :yes
-          option :no
+          option :paternity
+          option :maternity
 
           next_node do |response|
             case response
-            when 'yes'
+            when 'paternity'
               question :employee_date_matched_paternity_adoption? #QAP1
-            when 'no'
+            when 'maternity'
               question :date_of_adoption_match? # QA1
             end
           end

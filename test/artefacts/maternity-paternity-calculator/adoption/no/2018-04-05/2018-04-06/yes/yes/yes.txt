@@ -1,9 +1,11 @@
-When does the employee want to start their leave?
+Is the employee taking paternity or maternity leave to adopt a child?
 
 
 
-Leave can’t start before 23 March 2018. For overseas adoptions your leave must start within 28 days of the child arriving in the UK.
 
+
+  * paternity: Paternity
+  * maternity: Maternity
 
 
 

@@ -22,8 +22,8 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
     should "ask if the check is for maternity or paternity leave" do
       assert_current_node :taking_paternity_leave_for_adoption?
     end
-    context "answer no (i.e taking maternity leave)" do
-      setup { add_response :no }
+    context "answer taking maternity leave" do
+      setup { add_response :maternity }
       ## QA1
       should "ask the date of the adoption match" do
         assert_current_node :date_of_adoption_match?

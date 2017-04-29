@@ -1,11 +1,11 @@
-Did the employee work for you on or before 14 October 2017?
+Is the employee taking paternity or maternity leave to adopt a child?
 
 
 
 
 
-  * yes: Yes
-  * no: No
+  * paternity: Paternity
+  * maternity: Maternity
 
 
 

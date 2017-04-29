@@ -1,45 +1,14 @@
+Is the employee taking paternity or maternity leave to adopt a child?
 
 
-##Statutory Adoption Leave
-
-The employee is entitled to Statutory Adoption Leave.
-
-|Leave                         | Key dates                    |
-|------------------------------|------------------------------|
-|Start                         |  6 April 2018          |
-|End                           |  4 April 2019            |
-|Latest date to [claim leave](/employers-paternity-pay-leave/)     |   |
-
-##Statutory Adoption Pay (SAP)
-
-The employee is entitled to SAP.
-
-Their average weekly earnings are: £375.00
-
-## SAP calculation
-
-Date | SAP amount
--|-
-9 April 2018|£337.50
-23 April 2018|£675.00
-7 May 2018|£675.00
-21 May 2018|£562.71
-4 June 2018|£281.96
-18 June 2018|£281.96
-2 July 2018|£281.96
-16 July 2018|£281.96
-30 July 2018|£281.96
-13 August 2018|£281.96
-27 August 2018|£281.96
-10 September 2018|£281.96
-24 September 2018|£281.96
-8 October 2018|£281.96
-| **Total SAP: £5069.81**
-
-%This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
-
-The latest date for them to [claim SAP](/employers-adoption-pay-leave/entitlement) is usually 15 days before they want it to start.
 
 
-Read the [guide to Statutory Adoption Pay and Leave](/employers-adoption-pay-leave)
+
+  * paternity: Paternity
+  * maternity: Maternity
+
+
+
+
+
 

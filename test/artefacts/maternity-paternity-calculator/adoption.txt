@@ -4,8 +4,8 @@ Is the employee taking paternity or maternity leave to adopt a child?
 
 
 
-  * yes: Paternity
-  * no: Maternity
+  * paternity: Paternity
+  * maternity: Maternity
 
 
 

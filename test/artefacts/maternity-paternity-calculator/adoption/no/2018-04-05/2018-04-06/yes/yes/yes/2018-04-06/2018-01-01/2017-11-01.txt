@@ -1,13 +1,11 @@
-How often do you pay the employee?
+Is the employee taking paternity or maternity leave to adopt a child?
 
 
 
-If they’re paid irregularly choose ‘weekly’.
 
-  * weekly: Weekly
-  * every_2_weeks: Every 2 weeks
-  * every_4_weeks: Every 4 weeks
-  * monthly: Monthly
+
+  * paternity: Paternity
+  * maternity: Maternity
 
 
 

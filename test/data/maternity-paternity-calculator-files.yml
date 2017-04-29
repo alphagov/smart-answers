@@ -2,7 +2,7 @@
 lib/data/rates/maternity_paternity_adoption.yml: e4a27ae88a179412e306197e4f4a229c
 lib/data/rates/maternity_paternity_birth.yml: ecc6ef0c3163cc0c5448858ad89161a5
 lib/smart_answer/calculators/maternity_paternity_calculator.rb: 5050353d5eb37b612114d522d2ca8290
-lib/smart_answer_flows/maternity-paternity-calculator/adoption_calculator_flow.rb: 05283811de7d12b6ae66d53a168b0572
+lib/smart_answer_flows/maternity-paternity-calculator/adoption_calculator_flow.rb: 45c8efbad99591bbf7214d1b57f4dd54
 lib/smart_answer_flows/maternity-paternity-calculator/maternity_calculator_flow.rb: 4e8f9d4fb0c0feca7b0122b19e80e501
 lib/smart_answer_flows/maternity-paternity-calculator/maternity_paternity_calculator.govspeak.erb: 53228ba67887be950b27acea0147ad00
 lib/smart_answer_flows/maternity-paternity-calculator/outcomes/_must_be_on_payroll.govspeak.erb: 4dab8628489204db74840eea4c82531c
@@ -65,7 +65,7 @@ lib/smart_answer_flows/maternity-paternity-calculator/questions/payday_eight_wee
 lib/smart_answer_flows/maternity-paternity-calculator/questions/payday_eight_weeks_adoption.govspeak.erb: 5f6d57b4b2f2d7a60bc293832f73de77
 lib/smart_answer_flows/maternity-paternity-calculator/questions/payday_eight_weeks_paternity.govspeak.erb: 6264af867eda2e582f636503d9b4dd83
 lib/smart_answer_flows/maternity-paternity-calculator/questions/specific_date_each_month_paternity.govspeak.erb: 198730b8cd8e1dffc7422c600f8a2b1c
-lib/smart_answer_flows/maternity-paternity-calculator/questions/taking_paternity_leave_for_adoption.govspeak.erb: cd3ecb9888c8833a5db00deb4aa9732f
+lib/smart_answer_flows/maternity-paternity-calculator/questions/taking_paternity_leave_for_adoption.govspeak.erb: 3881a92c7d90190fc74b69d01e813601
 lib/smart_answer_flows/maternity-paternity-calculator/questions/what_days_does_the_employee_work.govspeak.erb: ce2d5278933de5dc098e68bb1d01e914
 ? lib/smart_answer_flows/maternity-paternity-calculator/questions/what_particular_day_of_the_month_is_the_employee_paid.govspeak.erb
 : 2a6ab50db7f43412148ab37944723ee2
@@ -75,5 +75,5 @@ lib/smart_answer_flows/maternity-paternity-calculator/questions/when_in_the_mont
 lib/smart_answer_flows/maternity-paternity-calculator/questions/when_is_your_employees_next_pay_day.govspeak.erb: a74aad333d92213910367be1ecee9e80
 lib/smart_answer_flows/maternity-paternity-calculator/questions/which_week_in_month_is_the_employee_paid.govspeak.erb: 19fef5ffcbb85e74f88dd24ce3ccf4c0
 lib/smart_answer_flows/maternity-paternity-calculator.rb: 6cd30422248d4cfd4e75f0deb111ccf1
-test/data/maternity-paternity-calculator-questions-and-responses.yml: f0060d96f4bd51d2ef9b6858d73ea96d
-test/data/maternity-paternity-calculator-responses-and-expected-results.yml: 331529ebd794199d52abc9963aa08f69
+test/data/maternity-paternity-calculator-questions-and-responses.yml: f00cf4f5243f9f97c2bbc11a4cd8cf98
+test/data/maternity-paternity-calculator-responses-and-expected-results.yml: 0e7cbed95194e51bf40f1e7157077af3

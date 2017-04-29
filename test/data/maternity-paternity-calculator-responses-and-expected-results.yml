@@ -12843,7 +12843,7 @@
 - :current_node: :taking_paternity_leave_for_adoption?
   :responses:
   - adoption
-  - 'yes'
+  - 'paternity'
   :next_node: :employee_date_matched_paternity_adoption?
   :outcome_node: false
 - :current_node: :employee_date_matched_paternity_adoption?
@@ -20165,7 +20165,7 @@
 - :current_node: :taking_paternity_leave_for_adoption?
   :responses:
   - adoption
-  - 'no'
+  - 'maternity'
   :next_node: :date_of_adoption_match?
   :outcome_node: false
 - :current_node: :date_of_adoption_match?

@@ -1,11 +1,11 @@
-Does the employee have an employment contract with you?
+Is the employee taking paternity or maternity leave to adopt a child?
 
 
 
 
 
-  * yes: Yes
-  * no: No
+  * paternity: Paternity
+  * maternity: Maternity
 
 
 
