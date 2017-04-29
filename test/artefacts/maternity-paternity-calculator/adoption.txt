@@ -1,11 +1,11 @@
-Is the employee taking paternity leave to adopt a child?
+Is the employee taking paternity or maternity leave to adopt a child?
 
 
 
 
 
-  * yes: Yes
-  * no: No
+  * yes: Paternity
+  * no: Maternity
 
 
 
