@@ -3,7 +3,7 @@ module SmartAnswer
     class AdoptionCalculatorFlow < Flow
       def define
         ## QA0
-        multiple_choice :taking_paternity_leave_for_adoption? do
+        multiple_choice :taking_paternity_or_maternity_leave_for_adoption? do
           option :paternity
           option :maternity
 

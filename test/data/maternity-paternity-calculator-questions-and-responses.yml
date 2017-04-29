@@ -3,7 +3,7 @@
 - maternity
 - paternity
 - adoption
-:taking_paternity_leave_for_adoption?:
+:taking_paternity_or_maternity_leave_for_adoption?:
 - 'paternity'
 - 'maternity'
 :date_of_adoption_match?:

@@ -20,7 +20,7 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
     setup { add_response :adoption }
     ## QA0
     should "ask if the check is for maternity or paternity leave" do
-      assert_current_node :taking_paternity_leave_for_adoption?
+      assert_current_node :taking_paternity_or_maternity_leave_for_adoption?
     end
     context "answer taking maternity leave" do
       setup { add_response :maternity }
