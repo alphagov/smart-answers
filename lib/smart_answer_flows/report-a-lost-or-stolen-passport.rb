@@ -17,7 +17,7 @@ module SmartAnswer
         next_node do |response|
           case response
           when 'in_the_uk'
-            outcome :report_lost_or_stolen_passport
+            outcome :complete_LS01_form
           when 'abroad'
             question :which_country?
           end
@@ -48,7 +48,7 @@ module SmartAnswer
 
       outcome :contact_the_embassy
       outcome :contact_the_embassy_canada
-      outcome :report_lost_or_stolen_passport
+      outcome :complete_LS01_form
     end
   end
 end
