@@ -238,9 +238,8 @@ module SmartAnswer
 
       #Q14 = how much do you deduct from premises for private use?
       money_question :deduct_from_premises? do
-        save_input_as :business_premises_cost
-
-        next_node do
+        next_node do |response|
+          calculator.business_premises_cost = response
           question :people_live_on_premises?
         end
       end

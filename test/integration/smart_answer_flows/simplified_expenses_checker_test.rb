@@ -338,7 +338,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
 
     should "take you to the results" do
       assert_current_node :you_can_use_result
-      assert_state_variable :business_premises_cost, 1000
       assert_state_variable :simple_total, 0
     end
   end # main result, existing business, living on premises
@@ -378,7 +377,6 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     end
     should "take you to the results" do
       assert_current_node :you_can_use_result
-      assert_state_variable :business_premises_cost, 200
       assert_state_variable :simple_total, 480
       assert_state_variable :current_scheme_costs, 1000
     end
