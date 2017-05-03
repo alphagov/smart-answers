@@ -1,0 +1,7 @@
+---
+lib/smart_answer_flows/national-minimum-wage.rb: 9b7435d2a47bab84c2d3e1f8fee7a8d0
+test/data/national-minimum-wage-questions-and-responses.yml: cc059533098e8f30fe9910bf12054f4c
+test/data/national-minimum-wage-responses-and-expected-results.yml: a81661445a3b38297c1c28987a5ddccc
+lib/smart_answer_flows/national-minimum-wage/national_minimum_wage.govspeak.erb: fe422081516d5ff5dd7a7f85468c6da1
+lib/smart_answer_flows/national-minimum-wage/outcomes/earning_more_than_living_wage.govspeak.erb: 081a32dcb4f27a449b0bc31b8730eb54
+lib/smart_answer_flows/national-minimum-wage/questions/what_do_you_want_to_know.govspeak.erb: c0683abec9093961cda5e90edc1d70e0

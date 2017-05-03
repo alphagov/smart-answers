@@ -1,0 +1,6 @@
+---
+- :current_node: :what_do_you_want_to_know?
+  :responses:
+  - current_payment
+  :next_node: :earning_more_than_living_wage
+  :outcome_node: true
