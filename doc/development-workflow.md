@@ -26,7 +26,7 @@ As the Pull Request reviewer:
 
 1. Assign yourself to the Pull Request.
 
-2. Add the "In code review" label to allow people to see at a glance that the PR is being reviewed.
+2. Add the "Ready for code review" label to allow people to see at a glance that the PR is being reviewed.
 
 3. Review the Pull Request.
 
