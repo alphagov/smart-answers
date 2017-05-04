@@ -212,8 +212,6 @@ module SmartAnswer
               outcome :outcome_opposite_sex_marriage_in_ecuador
             elsif calculator.ceremony_country == 'united-arab-emirates'
               outcome :outcome_opposite_sex_marriage_in_united_arab_emirates
-            elsif calculator.ceremony_country == 'egypt'
-              outcome :outcome_opposite_sex_marriage_in_egypt
             elsif calculator.ceremony_country == 'norway'
               outcome :outcome_opposite_sex_marriage_in_norway
             elsif calculator.ceremony_country == 'south-korea'
@@ -324,7 +322,6 @@ module SmartAnswer
       outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
       outcome :outcome_opposite_sex_marriage_in_dominican_republic
       outcome :outcome_opposite_sex_marriage_in_ecuador
-      outcome :outcome_opposite_sex_marriage_in_egypt
       outcome :outcome_opposite_sex_marriage_in_germany_when_residing_in_germany_or_third_country
       outcome :outcome_opposite_sex_marriage_in_germany_when_residing_in_the_uk
       outcome :outcome_opposite_sex_marriage_in_georgia
