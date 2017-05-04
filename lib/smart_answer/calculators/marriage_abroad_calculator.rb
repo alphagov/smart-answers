@@ -326,6 +326,7 @@ module SmartAnswer::Calculators
          chile
          china
          denmark
+         egypt
          france
          hungary
          italy

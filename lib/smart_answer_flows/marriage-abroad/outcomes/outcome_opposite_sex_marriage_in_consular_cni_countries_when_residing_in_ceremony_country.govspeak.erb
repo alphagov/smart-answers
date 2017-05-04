@@ -156,9 +156,7 @@
                locals: { calculator: calculator } %>
   <% end %>
 
-  <% if calculator.ceremony_country == 'egypt' %>
-    <%= render partial: 'required_supporting_documents_egypt.govspeak.erb' %>
-  <% elsif calculator.ceremony_country == 'greece' %>
+  <% if calculator.ceremony_country == 'greece' %>
     You’ll need to provide supporting documents, including:
 
     - your passport
