@@ -337,6 +337,7 @@ module SmartAnswer::Calculators
          mozambique
          philippines
          portugal
+         south-africa
          sweden
          tunisia
          turkey

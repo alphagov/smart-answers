@@ -255,13 +255,13 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         context "opposite sex" do
           setup { add_response 'opposite_sex' }
           should "go to south african or equivalent commonwealth marriage outcome" do
-            assert_current_node :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
+            assert_current_node :outcome_marriage_abroad_in_country
           end
         end
         context "same sex" do
           setup { add_response 'same_sex' }
           should "go to south african or equivalent commonwealth marriage outcome" do
-            assert_current_node :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
+            assert_current_node :outcome_marriage_abroad_in_country
           end
         end
       end
@@ -270,13 +270,13 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         context "opposite sex" do
           setup { add_response 'opposite_sex' }
           should "go to south african or equivalent commonwealth marriage outcome" do
-            assert_current_node :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
+            assert_current_node :outcome_marriage_abroad_in_country
           end
         end
         context "same sex" do
           setup { add_response 'same_sex' }
           should "go to south african or equivalent commonwealth marriage outcome" do
-            assert_current_node :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
+            assert_current_node :outcome_marriage_abroad_in_country
           end
         end
       end
@@ -285,13 +285,13 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         context "opposite sex" do
           setup { add_response 'opposite_sex' }
           should "go to south african or equivalent commonwealth marriage outcome" do
-            assert_current_node :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
+            assert_current_node :outcome_marriage_abroad_in_country
           end
         end
         context "same sex" do
           setup { add_response 'same_sex' }
           should "go to south african or equivalent commonwealth marriage outcome" do
-            assert_current_node :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
+            assert_current_node :outcome_marriage_abroad_in_country
           end
         end
       end
@@ -303,13 +303,13 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         context "opposite sex" do
           setup { add_response 'opposite_sex' }
           should "go to south african or equivalent commonwealth marriage outcome" do
-            assert_current_node :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
+            assert_current_node :outcome_marriage_abroad_in_country
           end
         end
         context "same sex" do
           setup { add_response 'same_sex' }
           should "go to south african or equivalent commonwealth marriage outcome" do
-            assert_current_node :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
+            assert_current_node :outcome_marriage_abroad_in_country
           end
         end
       end
@@ -318,13 +318,13 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         context "opposite sex" do
           setup { add_response 'opposite_sex' }
           should "go to south african or equivalent commonwealth marriage outcome" do
-            assert_current_node :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
+            assert_current_node :outcome_marriage_abroad_in_country
           end
         end
         context "same sex" do
           setup { add_response 'same_sex' }
           should "go to south african or equivalent commonwealth marriage outcome" do
-            assert_current_node :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
+            assert_current_node :outcome_marriage_abroad_in_country
           end
         end
       end
@@ -333,13 +333,13 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         context "opposite sex" do
           setup { add_response 'opposite_sex' }
           should "go to south african or equivalent commonwealth marriage outcome" do
-            assert_current_node :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
+            assert_current_node :outcome_marriage_abroad_in_country
           end
         end
         context "same sex" do
           setup { add_response 'same_sex' }
           should "go to south african or equivalent commonwealth marriage outcome" do
-            assert_current_node :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
+            assert_current_node :outcome_marriage_abroad_in_country
           end
         end
       end
@@ -351,13 +351,13 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         context "opposite sex" do
           setup { add_response 'opposite_sex' }
           should "go to south african or equivalent commonwealth marriage outcome" do
-            assert_current_node :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
+            assert_current_node :outcome_marriage_abroad_in_country
           end
         end
         context "same sex" do
           setup { add_response 'same_sex' }
           should "go to south african or equivalent commonwealth marriage outcome" do
-            assert_current_node :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
+            assert_current_node :outcome_marriage_abroad_in_country
           end
         end
       end
@@ -366,13 +366,13 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         context "opposite sex" do
           setup { add_response 'opposite_sex' }
           should "go to south african or equivalent commonwealth marriage outcome" do
-            assert_current_node :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
+            assert_current_node :outcome_marriage_abroad_in_country
           end
         end
         context "same sex" do
           setup { add_response 'same_sex' }
           should "go to south african or equivalent commonwealth marriage outcome" do
-            assert_current_node :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
+            assert_current_node :outcome_marriage_abroad_in_country
           end
         end
       end
@@ -381,13 +381,13 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         context "opposite sex" do
           setup { add_response 'opposite_sex' }
           should "go to south african or equivalent commonwealth marriage outcome" do
-            assert_current_node :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
+            assert_current_node :outcome_marriage_abroad_in_country
           end
         end
         context "same sex" do
           setup { add_response 'same_sex' }
           should "go to south african or equivalent commonwealth marriage outcome" do
-            assert_current_node :outcome_opposite_same_sex_marriage_residing_in_uk_or_south_africa
+            assert_current_node :outcome_marriage_abroad_in_country
           end
         end
       end
