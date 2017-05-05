@@ -1,21 +1,23 @@
 namespace :checksums do
   desc "Update checksums for smart answer flows"
   task update: :environment do |_, args|
-    flow_names = args.extras
-    flow_names = SmartAnswer::FlowRegistry.new.available_flows if flow_names.empty?
+    available_flows = SmartAnswer::FlowRegistry.new.available_flows
+
+    if args.extras.empty?
+      flow_names = available_flows
+    else
+      flow_names = args.extras
+    end
+
+    unknown_flows = flow_names - available_flows
+    if unknown_flows.any?
+      raise "The following flows could not be found: #{unknown_flows.join(', ')}"
+    end
 
     flow_names.each do |flow_name|
-      flow_helper = SmartAnswerTestHelper.new(flow_name)
+      output_path = ChecksumGenerator.update(flow_name)
 
-      if !flow_helper.files_checksum_data_exists?
-        abort "No checksum data found, use checksums:add_files[#{flow_name}] to generate it"
-      end
-
-      flow_files = SmartAnswerFiles.new(flow_name, *flow_helper.read_files_checksums.keys)
-      hasher = SmartAnswerHasher.new(flow_files.existing_paths)
-      flow_helper.write_files_checksum(hasher)
-
-      puts "Checksum data written to #{flow_helper.files_checksum_path}"
+      puts "Checksum data written to #{output_path}"
     end
   end
 
