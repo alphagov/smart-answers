@@ -37,4 +37,30 @@ class ChecksumsRakeTest < ActiveSupport::TestCase
       end
     end
   end
+
+  context "checksums:add_files rake task" do
+    setup do
+      Rake::Task["checksums:add_files"].reenable
+    end
+
+    context "when the flow name is specified" do
+      should "call ChecksumGenerator.add_files" do
+        ChecksumGenerator.expects(:add_files).once
+
+        capture_io do
+          Rake::Task["checksums:add_files"].invoke('foo')
+        end
+      end
+    end
+
+    context "when the flow name is omitted" do
+      should "raise an exception" do
+        exception = assert_raises RuntimeError do
+          Rake::Task["checksums:add_files"].invoke
+        end
+
+        assert_equal exception.message, "The flow name must be specified"
+      end
+    end
+  end
 end
