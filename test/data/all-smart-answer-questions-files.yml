@@ -1,5 +1,4 @@
 ---
-lib/smart_answer_flows/all-smart-answer-questions.rb: 1eee49f363bbb4ebc2bd299c3ff38259
 lib/smart_answer_flows/all-smart-answer-questions/all_smart_answer_questions.govspeak.erb: 46ce3585e75604db4e80f75f41ae6dbb
 lib/smart_answer_flows/all-smart-answer-questions/outcomes/outcome.govspeak.erb: 4c9b4fa0806b711f21969549f7edde02
 lib/smart_answer_flows/all-smart-answer-questions/questions/how_much_money.govspeak.erb: cd4fb093743c39cadb2ac6d2d90cbfbd
@@ -16,3 +15,4 @@ lib/smart_answer_flows/all-smart-answer-questions/questions/which_float.govspeak
 lib/smart_answer_flows/all-smart-answer-questions/questions/which_integer.govspeak.erb: d467d349c4433e63a96401441f089d0a
 lib/smart_answer_flows/all-smart-answer-questions/questions/which_postcode.govspeak.erb: 87c0087cfbae414f2633f757c1ccdc7f
 lib/smart_answer_flows/all-smart-answer-questions/questions/which_value.govspeak.erb: 915db65124030c6729f118ea5cd76445
+lib/smart_answer_flows/all-smart-answer-questions.rb: 1eee49f363bbb4ebc2bd299c3ff38259
