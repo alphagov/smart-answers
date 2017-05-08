@@ -41,7 +41,7 @@ In this document is prescribed the steps that need to be taken:
   the retire smart answer rake task is available. It needs to be supplied a
   content-id, base_path and it's new destination.
 
-  (i.e `retire:smart_answer[content_id,base_path,destination]`)
+  (i.e `retire:unpublish_redirect_remove_from_search[content_id,base_path,destination]`)
 
   The content-id for a smart answer can be found in the flow class for the smart
   answer in question. Also it can be found via the content store using the
