@@ -1,0 +1,15 @@
+Do you have either of these expenses as part of your business?
+
+
+
+
+
+  * using_home_for_business: Using home for business (you work from home all or some of the time)
+  * live_on_business_premises: Living on your business premises (eg guesthouses or B&Bs)
+  * no_expense: Neither of these
+
+
+
+
+
+

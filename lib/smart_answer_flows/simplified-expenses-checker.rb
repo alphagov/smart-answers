@@ -6,79 +6,40 @@ module SmartAnswer
       status :published
       satisfies_need "100119"
 
-      #Q1 - new or existing business
-      multiple_choice :claimed_expenses_for_current_business? do
-        option :yes
-        option :no
+      calculator = Calculators::SimplifiedExpensesCheckerCalculator.new
 
-        save_input_as :new_or_existing_business
+      #Q1 - vehicle expense
+      multiple_choice :vehicle_expense? do
+        option :car
+        option :van
+        option :motorbike
+        option :no_vehicle
 
-        calculate :is_new_business do
-          new_or_existing_business == "no"
-        end
-
-        calculate :is_existing_business do
-          !is_new_business
-        end
-
-        calculate :capital_allowance_claimed do
-          nil
-        end
-        calculate :simple_vehicle_costs do
-          nil
-        end
-        calculate :simple_motorcycle_costs do
-          nil
-        end
-        calculate :vehicle_costs do
-          nil
-        end
-        calculate :green_vehicle_write_off do
-          nil
-        end
-        calculate :dirty_vehicle_write_off do
-          nil
-        end
-        calculate :simple_business_costs do
-          nil
-        end
-        calculate :is_over_limit do
-          nil
-        end
-        calculate :home_costs do
-          nil
-        end
-        calculate :simple_home_costs do
-          nil
-        end
-
-        next_node do
-          question :type_of_expense?
+        next_node do |response|
+          calculator.type_of_vehicle = response
+          question :home_or_business_premises_expense?
         end
       end
 
-      #Q2 - type of expense
-      checkbox_question :type_of_expense? do
-        option :car_or_van
-        option :motorcycle
+      #Q2 - home or business premises expense
+      multiple_choice :home_or_business_premises_expense? do
         option :using_home_for_business
         option :live_on_business_premises
-
-        calculate :list_of_expenses do |response|
-          response == "none" ? [] : response.split(",")
-        end
+        option :no_expense
 
         next_node do |response|
-          if response == "none"
+          calculator.business_premises_expense = response
+
+          if response == "no_expense" &&
+              calculator.type_of_vehicle == "no_vehicle"
             outcome :you_cant_use_result
           else
-            responses = response.split(",")
             raise InvalidResponse if response =~ /live_on_business_premises.*?using_home_for_business/
-            if (responses & %w(car_or_van motorcycle)).any?
+            if calculator.vehicle?
               question :buying_new_vehicle?
-            elsif responses.include?("using_home_for_business")
+            elsif calculator.working_from_home?
               question :hours_work_home?
-            elsif responses.include?("live_on_business_premises")
+            elsif calculator.living_on_business_premises?
               question :deduct_from_premises?
             end
           end
@@ -87,61 +48,125 @@ module SmartAnswer
 
       #Q3 - buying new vehicle?
       multiple_choice :buying_new_vehicle? do
-        option :yes
+        option :new
+        option :used
         option :no
 
         next_node do |response|
-          if response == "yes"
+          calculator.new_or_used_vehicle = response
+
+          if response == "new" || response == "used"
             question :is_vehicle_green?
           else
-            if is_existing_business
-              question :capital_allowances?
-            else
-              question :how_much_expect_to_claim?
-            end
+            question :capital_allowances?
           end
         end
       end
 
       #Q4 - capital allowances claimed?
-      # if yes => go to Result 3 if in Q2 only [car_van] and/or [motorcylce] was selected
+      # if yes => go to Result 3 if in Q1 only [car_van] and/or [motorcylce] was selected
       #
-      # if yes and other expenses apart from cars and/or motorbikes selected in Q2 store as capital_allowance_claimed and add text to result (see result 2) and go to questions for other expenses, ie don’t go to Q5 & Q9
+      # if yes and other expenses apart from cars and/or motorbikes selected in Q1 store as capital_allowance_claimed and add text to result (see result 2) and go to questions for other expenses, ie don’t go to Q4 & Q8
       #
-      # if no go to Q5
+      # if no go to Q4
       multiple_choice :capital_allowances? do
-        option :yes
+        option :capital_allowance
+        option :simplified_expenses
         option :no
 
-        calculate :capital_allowance_claimed do |response|
-          response == "yes" && (list_of_expenses & %w(using_home_for_business live_on_business_premises)).any?
-        end
-
         next_node do |response|
-          if response == "yes"
-            if (list_of_expenses & %w(using_home_for_business live_on_business_premises)).any?
-              if list_of_expenses.include?("using_home_for_business")
-                # Q11
-                question :hours_work_home?
-              else
-                # Q13
-                question :deduct_from_premises?
-              end
-            else
+          calculator.selected_allowance = response
+          case
+          when calculator.capital_allowance?
+            if calculator.vehicle_only?
               outcome :capital_allowance_result
+            elsif calculator.home?
+              question :hours_work_home?
+            elsif calculator.business_premises?
+              question :deduct_from_premises?
             end
-          else
-            question :how_much_expect_to_claim?
+          when calculator.simplified_expenses?
+            if calculator.vehicle_only?
+              outcome :you_cant_claim_capital_allowance
+            elsif calculator.home?
+              question :hours_work_home?
+            elsif calculator.business_premises?
+              question :deduct_from_premises?
+            end
+          when calculator.no_allowance?
+            if calculator.van? || calculator.motorbike?
+              question :how_much_expect_to_claim?
+            elsif calculator.car?
+              question :car_status_before_usage?
+            end
           end
         end
       end
 
-      #Q5 - claim vehicle expenses
-      money_question :how_much_expect_to_claim? do
-        save_input_as :vehicle_costs
+      #Q5 - Was your car new or second-hand when you started using it for your business?
+      multiple_choice :car_status_before_usage? do
+        option :new
+        option :used
 
-        next_node do
-          if list_of_expenses.include?("car_or_van")
+        next_node do |response|
+          calculator.car_status_before_usage = response
+          question :how_much_expect_to_claim?
+        end
+      end
+
+      #Q6 - claim vehicle expenses
+      money_question :how_much_expect_to_claim? do
+        next_node do |response|
+          calculator.vehicle_costs = response
+
+          if calculator.car?
+            question :is_vehicle_green?
+          elsif calculator.van? || calculator.motorbike?
+            question :price_of_vehicle?
+          end
+        end
+      end
+
+      #Q7 - is vehicle green?
+      multiple_choice :is_vehicle_green? do
+        option :low
+        option :medium
+        option :high
+
+        next_node do |response|
+          case response
+          when "low"
+            if calculator.new_car?
+              calculator.vehicle_emission = response
+            else
+              calculator.vehicle_emission = "medium"
+            end
+          else
+            calculator.vehicle_emission = response
+          end
+
+          question :price_of_vehicle?
+        end
+      end
+
+      #Q8 - price of vehicle
+      money_question :price_of_vehicle? do
+        next_node do |response|
+          calculator.vehicle_price = response
+          question :vehicle_business_use_time?
+        end
+      end
+
+      #Q9 - vehicle private use time
+      value_question :vehicle_business_use_time?, parse: :to_f do
+        # deduct percentage amount from [green_cost] or [dirty_cost] and store as [green_write_off] or [dirty_write_off]
+
+        next_node do |response|
+          calculator.business_use_percent = response
+
+          raise InvalidResponse if response.to_i > 100
+
+          if calculator.car? || calculator.van?
             question :drive_business_miles_car_van?
           else
             question :drive_business_miles_motorcycle?
@@ -149,131 +174,44 @@ module SmartAnswer
         end
       end
 
-      #Q6 - is vehicle green?
-      multiple_choice :is_vehicle_green? do
-        option :yes
-        option :no
-
-        calculate :vehicle_is_green do |response|
-          response == "yes"
-        end
-
-        next_node do
-          question :price_of_vehicle?
-        end
-      end
-
-      #Q7 - price of vehicle
-      money_question :price_of_vehicle? do
-        # if green => take user input and store as [green_cost]
-        # if dirty  => take 18% of user input and store as [dirty_cost]
-        # if input > 250k store as [over_van_limit]
-        save_input_as :vehicle_price
-
-        calculate :green_vehicle_price do
-          vehicle_is_green ? vehicle_price : nil
-        end
-
-        calculate :dirty_vehicle_price do
-          vehicle_is_green ? nil : (vehicle_price * 0.18)
-        end
-
-        calculate :is_over_limit do
-          vehicle_price > 250000.0
-        end
-
-        next_node do
-          question :vehicle_business_use_time?
-        end
-      end
-
-      #Q8 - vehicle private use time
-      value_question :vehicle_business_use_time?, parse: :to_f do
-        # deduct percentage amount from [green_cost] or [dirty_cost] and store as [green_write_off] or [dirty_write_off]
-        calculate :business_use_percent do |response|
-          response
-        end
-        calculate :green_vehicle_write_off do
-          vehicle_is_green ? Money.new(green_vehicle_price * (business_use_percent / 100)) : nil
-        end
-
-        calculate :dirty_vehicle_write_off do
-          vehicle_is_green ? nil : Money.new(dirty_vehicle_price * (business_use_percent / 100))
-        end
-
-        next_node do |response|
-          raise InvalidResponse if response.to_i > 100
-          if list_of_expenses.include?("car_or_van")
-            question(:drive_business_miles_car_van?)
-          else
-            question(:drive_business_miles_motorcycle?)
-          end
-        end
-      end
-
-      #Q9 - miles to drive for business car_or_van
+      #Q10 - miles to drive for business car_or_van
       value_question :drive_business_miles_car_van? do
-        # Calculation:
-        # [user input 1-10,000] x 0.45
-        # [user input > 10,001]  x 0.25
-        calculate :simple_vehicle_costs do |response|
-          answer = response.delete(",").to_f
-          if answer <= 10000
-            Money.new(answer * 0.45)
-          else
-            answer_over_amount = (answer - 10000) * 0.25
-            Money.new(4500.0 + answer_over_amount)
-          end
-        end
-
-        next_node do
-          if list_of_expenses.include?("motorcycle")
-            question :drive_business_miles_motorcycle?
-          elsif list_of_expenses.include?("using_home_for_business")
-            question :hours_work_home?
-          elsif list_of_expenses.include?("live_on_business_premises")
-            question :deduct_from_premises?
-          else
-            outcome :you_can_use_result
-          end
-        end
-      end
-
-      #Q10 - miles to drive for business motorcycle
-      value_question :drive_business_miles_motorcycle? do
-        calculate :simple_motorcycle_costs do |response|
-          Money.new(response.delete(",").to_f * 0.24)
-        end
-
-        next_node do
-          if list_of_expenses.include?("using_home_for_business")
-            question :hours_work_home?
-          elsif list_of_expenses.include?("live_on_business_premises")
-            question :deduct_from_premises?
-          else
-            outcome :you_can_use_result
-          end
-        end
-      end
-
-      #Q11 - hours for home work
-      value_question :hours_work_home? do
-        calculate :hours_worked_home do |response|
-          response.delete(",").to_f
-        end
-
-        calculate :simple_home_costs do
-          amount = case hours_worked_home
-                   when 0..24 then 0
-                   when 25..50 then 120
-                   when 51..100 then 216
-                   else 312
-                   end
-          Money.new(amount)
-        end
-
         next_node do |response|
+          calculator.business_miles_car_van = response.delete(",").to_f
+
+          if calculator.motorbike?
+            question :drive_business_miles_motorcycle?
+          elsif calculator.working_from_home?
+            question :hours_work_home?
+          elsif calculator.living_on_business_premises?
+            question :deduct_from_premises?
+          else
+            outcome :you_can_use_result
+          end
+        end
+      end
+
+      #Q11 - miles to drive for business motorcycle
+      value_question :drive_business_miles_motorcycle? do
+        next_node do |response|
+          calculator.business_miles_motorcycle = response.delete(",").to_f
+
+          if calculator.working_from_home?
+            question :hours_work_home?
+          elsif calculator.living_on_business_premises?
+            question :deduct_from_premises?
+          else
+            outcome :you_can_use_result
+          end
+        end
+      end
+
+      #Q12 - hours for home work
+      value_question :hours_work_home? do
+        next_node do |response|
+          calculator.hours_worked_home = response.delete(',').to_f
           hours = response.to_i
+
           if hours < 1
             raise SmartAnswer::InvalidResponse
           elsif hours < 25
@@ -284,16 +222,20 @@ module SmartAnswer
         end
       end
 
-      #Q12 - how much do you claim?
+      #Q13 - how much do you claim?
       money_question :current_claim_amount_home? do
-        save_input_as :home_costs
+        next_node do |response|
+          calculator.home_costs = response
 
-        next_node do
-          list_of_expenses.include?("live_on_business_premises") ? question(:deduct_from_premises?) : outcome(:you_can_use_result)
+          if calculator.living_on_business_premises?
+            question :deduct_from_premises?
+          else
+            outcome :you_can_use_result
+          end
         end
       end
 
-      #Q13 = how much do you deduct from premises for private use?
+      #Q14 = how much do you deduct from premises for private use?
       money_question :deduct_from_premises? do
         save_input_as :business_premises_cost
 
@@ -302,80 +244,129 @@ module SmartAnswer
         end
       end
 
-      #Q14 - people who live on business premises?
+      #Q15 - people who live on business premises?
       value_question :people_live_on_premises?, parse: :to_i do
-        calculate :live_on_premises do |response|
-          response
-        end
-
-        calculate :simple_business_costs do
-          amount = case live_on_premises
-                   when 0 then 0
-                   when 1 then 4200
-                   when 2 then 6000
-                   else 7800
-                   end
-
-          Money.new(amount)
-        end
-
-        next_node do
+        next_node do |response|
+          calculator.hours_lived_on_business_premises = response
           outcome :you_can_use_result
         end
       end
 
       outcome :you_cant_use_result
       outcome :you_can_use_result do
-        precalculate :capital_allowance_claimed do
-          capital_allowance_claimed
+        precalculate :vehicle_is_green do
+          calculator.vehicle_is_green?
         end
 
-        precalculate :simple_vehicle_costs do
-          simple_vehicle_costs
+        precalculate :vehicle_is_dirty do
+          calculator.vehicle_is_dirty?
         end
 
-        precalculate :simple_motorcycle_costs do
-          simple_motorcycle_costs
+        precalculate :vehicle_is_filthy do
+          calculator.vehicle_is_filthy?
         end
 
-        precalculate :vehicle_costs do
-          vehicle_costs
+        precalculate :green_vehicle_price do
+          calculator.green_vehicle_price
         end
 
-        precalculate :home_costs do
-          home_costs
+        precalculate :dirty_vehicle_price do
+          calculator.dirty_vehicle_price
         end
 
-        precalculate :green_vehicle_write_off do
-          green_vehicle_write_off
+        precalculate :filthy_vehicle_price do
+          calculator.filthy_vehicle_price
         end
 
-        precalculate :dirty_vehicle_write_off do
-          dirty_vehicle_write_off
-        end
-
-        precalculate :simple_business_costs do
-          simple_business_costs
+        precalculate :list_of_expenses do
+          calculator.list_of_expenses
         end
 
         precalculate :is_over_limit do
-          is_over_limit
+          calculator.over_limit?
+        end
+
+        precalculate :capital_allowance_claimed do
+          calculator.capital_allowance_claimed?
+        end
+
+        precalculate :simplified_expenses_claimed do
+          calculator.simplified_expenses_claimed?
+        end
+
+        precalculate :simple_vehicle_costs do
+          calculator.simple_vehicle_costs_car_van
+        end
+
+        precalculate :simple_motorcycle_costs do
+          calculator.simple_vehicle_costs_motorcycle
+        end
+
+        precalculate :vehicle_costs do
+          calculator.vehicle_costs
+        end
+
+        precalculate :vehicle_price do
+          calculator.vehicle_price
+        end
+
+        precalculate :home_costs do
+          calculator.home_costs
+        end
+
+        precalculate :green_vehicle_write_off do
+          calculator.green_vehicle_write_off
+        end
+
+        precalculate :dirty_vehicle_write_off do
+          calculator.dirty_vehicle_write_off
+        end
+
+        precalculate :filthy_vehicle_write_off do
+          calculator.filthy_vehicle_write_off
+        end
+
+        precalculate :simple_business_costs do
+          calculator.simple_business_costs
+        end
+
+        precalculate :simple_home_costs do
+          calculator.simple_home_costs
+        end
+
+        precalculate :expenses_or_allowances do
+          calculator.selected_allowance
+        end
+
+        precalculate :vehicle_write_offs do
+          green = green_vehicle_write_off.to_f
+          dirty = dirty_vehicle_write_off.to_f
+          filthy = filthy_vehicle_write_off.to_f
+          green + dirty + filthy
         end
 
         precalculate :simple_total do
-          vehicle = simple_vehicle_costs.to_f || 0
-          motorcycle = simple_motorcycle_costs.to_f || 0
-          home = simple_home_costs.to_f || 0
+          vehicle = simple_vehicle_costs.to_f
+          motorcycle = simple_motorcycle_costs.to_f
+          home = simple_home_costs.to_f
 
           Money.new(vehicle + motorcycle + home)
         end
 
         precalculate :current_scheme_costs do
-          vehicle = vehicle_costs.to_f || 0
-          green = green_vehicle_write_off.to_f || 0
-          dirty = dirty_vehicle_write_off.to_f || 0
-          home = home_costs.to_f || 0
-          Money.new(vehicle + green + dirty + home)
+          vehicle = vehicle_costs.to_f
+          home = home_costs.to_f
+
+          Money.new(vehicle + vehicle_write_offs + home)
+        end
+
+        precalculate :capital_allowances_estimate do
+          if expenses_or_allowances == "no"
+            Money.new(vehicle_write_offs)
+          else
+            business = simple_business_costs.to_f
+            Money.new(current_scheme_costs + business)
+          end
         end
 
         precalculate :can_use_simple do
@@ -383,6 +374,7 @@ module SmartAnswer
         end
       end
       outcome :capital_allowance_result
+      outcome :you_cant_claim_capital_allowance
     end
   end
 end
