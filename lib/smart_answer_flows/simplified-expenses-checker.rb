@@ -39,6 +39,9 @@ module SmartAnswer
         calculate :dirty_vehicle_write_off do
           nil
         end
+        calculate :filthy_vehicle_write_off do
+          nil
+        end
         calculate :simple_business_costs do
           nil
         end
@@ -87,18 +90,23 @@ module SmartAnswer
 
       #Q3 - buying new vehicle?
       multiple_choice :buying_new_vehicle? do
-        option :yes
+        option :new
+        option :used
         option :no
 
+        calculate :new_or_used do |response|
+          %w(new used).include?(response) ? response : nil
+        end
+
         next_node do |response|
-          if response == "yes"
-            question :is_vehicle_green?
-          else
+          if response == 'no'
             if is_existing_business
               question :capital_allowances?
             else
               question :how_much_expect_to_claim?
             end
+          else
+            question :is_vehicle_green?
           end
         end
       end
@@ -151,11 +159,19 @@ module SmartAnswer
 
       #Q6 - is vehicle green?
       multiple_choice :is_vehicle_green? do
-        option :yes
-        option :no
+        option :low
+        option :medium
+        option :high
 
-        calculate :vehicle_is_green do |response|
-          response == "yes"
+        calculate :vehicle_filthiness do |response|
+          case response
+          when 'low'
+            new_or_used == 'new' ? 'green' : 'dirty'
+          when 'medium'
+            'dirty'
+          when 'high'
+            'filthy'
+          end
         end
 
         next_node do
@@ -165,17 +181,22 @@ module SmartAnswer
 
       #Q7 - price of vehicle
       money_question :price_of_vehicle? do
-        # if green => take user input and store as [green_cost]
+        # if green  => take user input and store as [green_cost]
         # if dirty  => take 18% of user input and store as [dirty_cost]
+        # if filthy => take 8% of user input and store as [filthy_cost]
         # if input > 250k store as [over_van_limit]
         save_input_as :vehicle_price
 
         calculate :green_vehicle_price do
-          vehicle_is_green ? vehicle_price : nil
+          vehicle_filthiness == 'green' ? vehicle_price : nil
         end
 
         calculate :dirty_vehicle_price do
-          vehicle_is_green ? nil : (vehicle_price * 0.18)
+          vehicle_filthiness == 'dirty' ? (vehicle_price * 0.18) : nil
+        end
+
+        calculate :filthy_vehicle_price do
+          vehicle_filthiness == 'filthy' ? (vehicle_price * 0.08) : nil
         end
 
         calculate :is_over_limit do
@@ -194,11 +215,15 @@ module SmartAnswer
           response
         end
         calculate :green_vehicle_write_off do
-          vehicle_is_green ? Money.new(green_vehicle_price * (business_use_percent / 100)) : nil
+          vehicle_filthiness == 'green' ? Money.new(green_vehicle_price * (business_use_percent / 100)) : nil
         end
 
         calculate :dirty_vehicle_write_off do
-          vehicle_is_green ? nil : Money.new(dirty_vehicle_price * (business_use_percent / 100))
+          vehicle_filthiness == 'dirty' ? Money.new(dirty_vehicle_price * (business_use_percent / 100)) : nil
+        end
+
+        calculate :filthy_vehicle_write_off do
+          vehicle_filthiness == 'filthy' ? Money.new(filthy_vehicle_price * (business_use_percent / 100)) : nil
         end
 
         next_node do |response|
@@ -354,6 +379,10 @@ module SmartAnswer
           dirty_vehicle_write_off
         end
 
+        precalculate :filthy_vehicle_write_off do
+          filthy_vehicle_write_off
+        end
+
         precalculate :simple_business_costs do
           simple_business_costs
         end
@@ -374,8 +403,9 @@ module SmartAnswer
           vehicle = vehicle_costs.to_f || 0
           green = green_vehicle_write_off.to_f || 0
           dirty = dirty_vehicle_write_off.to_f || 0
+          filthy = filthy_vehicle_write_off.to_f || 0
           home = home_costs.to_f || 0
-          Money.new(vehicle + green + dirty + home)
+          Money.new(vehicle + green + dirty + filthy + home)
         end
 
         precalculate :can_use_simple do

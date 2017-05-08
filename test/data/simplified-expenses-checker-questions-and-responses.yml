@@ -14,7 +14,8 @@
 - motorcycle,using_home_for_business # :drive_business_miles_motorcycle? -> :hours_work_home?
 - using_home_for_business,live_on_business_premises
 :buying_new_vehicle?:
-- 'yes' # :buying_new_vehicle? -> :is_vehicle_green?
+- 'new' # :buying_new_vehicle? -> :is_vehicle_green?
+- 'used' # :buying_new_vehicle? -> :is_vehicle_green?
 - 'no' # :buying_new_vehicle? -> :capital_allowances? / :how_much_expect_to_claim?
 :capital_allowances?:
 - 'yes' # :capital_allowances? -> :hours_work_home? / :deduct_from_premises? / :capital_allowance_result
@@ -22,8 +23,9 @@
 :how_much_expect_to_claim?:
 - '2345' # :how_much_expect_to_claim? -> :drive_business_miles_car_van? / :drive_business_miles_motorcycle?
 :is_vehicle_green?:
-- 'yes' # :vehicle_is_green == true
-- 'no' # :vehicle_is_green == false (?)
+- 'low'
+- 'medium'
+- 'high'
 :price_of_vehicle?:
 - '35000' # :vehicle_price
 - '250001' # :is_over_limit == true
