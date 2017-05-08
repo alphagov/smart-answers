@@ -63,3 +63,10 @@ example:
 ```bash
 rake checksums:add_files[marriage-abroad,foo,bar/*]
 ```
+
+## Known Issues
+
+For versions of ruby greater than 2.3.2, some hashes in the checksums
+file will be quoted. This is undesirable as ideally the output is
+consistent even when different versions of ruby are used. For the
+moment, please ensure to keep the quotation consistent.
