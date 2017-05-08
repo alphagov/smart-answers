@@ -1,6 +1,8 @@
 # How to retire a Smart Answer
 
-At some point a request might come in for the removal of a SmartAnswer, most likely this request will include redirecting paths belonging to the identified smart answer to a new destination.
+At some point a request might come in for the removal of a SmartAnswer, most likely this request will include redirecting paths belonging to the identified smart answer to a new destination or retain the start page of the smart answer.
+
+NB: It is very important, that after every retirement of a smart answer it is important that the steps and current state of the smart answer are recorded in [retirement log](retirement-log.md)
 
 In this document is prescribed the steps that need to be taken:
 
