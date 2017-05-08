@@ -1,7 +1,5 @@
 ---
-lib/smart_answer_flows/student-finance-calculator.rb: 73f4dc33ef9ec93ae91f52cbe9bb5f63
-test/data/student-finance-calculator-questions-and-responses.yml: 4d58f4807e1e27002aa73a963e0105b5
-test/data/student-finance-calculator-responses-and-expected-results.yml: d68a5f26b330b7d3646f9584aa7263d9
+lib/smart_answer/calculators/student_finance_calculator.rb: c2c019945d85da23105a83b5b4110009
 lib/smart_answer_flows/student-finance-calculator/outcomes/_disclaimer.govspeak.erb: 01560b7c2a22db8723b9837b785730c0
 lib/smart_answer_flows/student-finance-calculator/outcomes/_full_time_tuition.govspeak.erb: dd9a93cb8cd51dd19b29727a3e4b7bbe
 lib/smart_answer_flows/student-finance-calculator/outcomes/_next_steps.govspeak.erb: 6d4a15585ec75dd58d1069a668a4a35f
@@ -25,4 +23,6 @@ lib/smart_answer_flows/student-finance-calculator/questions/whats_your_household
 lib/smart_answer_flows/student-finance-calculator/questions/when_does_your_course_start.govspeak.erb: e50d9ddb84b2c6dc9a9177181ab38a80
 lib/smart_answer_flows/student-finance-calculator/questions/where_will_you_live_while_studying.govspeak.erb: 6971a090166992ed6c3a86865fbbf546
 lib/smart_answer_flows/student-finance-calculator/student_finance_calculator.govspeak.erb: 2ac4887461702e4a27da23576a4098bd
-lib/smart_answer/calculators/student_finance_calculator.rb: c2c019945d85da23105a83b5b4110009
+lib/smart_answer_flows/student-finance-calculator.rb: 73f4dc33ef9ec93ae91f52cbe9bb5f63
+test/data/student-finance-calculator-questions-and-responses.yml: 4d58f4807e1e27002aa73a963e0105b5
+test/data/student-finance-calculator-responses-and-expected-results.yml: d68a5f26b330b7d3646f9584aa7263d9

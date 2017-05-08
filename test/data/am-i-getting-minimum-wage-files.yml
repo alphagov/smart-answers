@@ -1,7 +1,5 @@
 ---
-lib/smart_answer_flows/am-i-getting-minimum-wage.rb: b92b356e4d587b2e98959fc35c5080a2
-test/data/am-i-getting-minimum-wage-questions-and-responses.yml: 167a896aca36890404c59015d4a56ec7
-test/data/am-i-getting-minimum-wage-responses-and-expected-results.yml: 48d889acc42a582609b5b621bfb7c623
+lib/smart_answer/calculators/minimum_wage_calculator.rb: fe2ecdba2ce0b71368e0515799c3ba55
 lib/smart_answer_flows/am-i-getting-minimum-wage/am_i_getting_minimum_wage.govspeak.erb: 2e535c37e9afccd91ee05c61f881eb5a
 lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/current_payment_above.govspeak.erb: 0307275df2e8913676fb967ffe0f0655
 lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/current_payment_below.govspeak.erb: d2e0745865be4429168f53330c08d5ce
@@ -32,6 +30,8 @@ lib/smart_answer_flows/am-i-getting-minimum-wage/questions/were_you_an_apprentic
 lib/smart_answer_flows/am-i-getting-minimum-wage/questions/what_is_overtime_pay_per_hour.govspeak.erb: d9083c3da82c3f5754f7bdd9394e7d4f
 lib/smart_answer_flows/am-i-getting-minimum-wage/questions/what_was_overtime_pay_per_hour.govspeak.erb: 38abdccc0f2f10e6e56837336f4143bb
 lib/smart_answer_flows/am-i-getting-minimum-wage/questions/what_would_you_like_to_check.govspeak.erb: 28dcfd3358e38012413d8cd9939cfa85
-lib/smart_answer_flows/shared/minimum_wage_flow.rb: 58ec50b57476923ac89920d93977389e
+lib/smart_answer_flows/am-i-getting-minimum-wage.rb: b92b356e4d587b2e98959fc35c5080a2
 lib/smart_answer_flows/shared/minimum_wage/_acas_information.govspeak.erb: 582cdf982fa5619072ddd883bf4c1555
-lib/smart_answer/calculators/minimum_wage_calculator.rb: fe2ecdba2ce0b71368e0515799c3ba55
+lib/smart_answer_flows/shared/minimum_wage_flow.rb: 58ec50b57476923ac89920d93977389e
+test/data/am-i-getting-minimum-wage-questions-and-responses.yml: 167a896aca36890404c59015d4a56ec7
+test/data/am-i-getting-minimum-wage-responses-and-expected-results.yml: 48d889acc42a582609b5b621bfb7c623
