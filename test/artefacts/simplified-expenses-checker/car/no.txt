@@ -1,0 +1,15 @@
+Have you claimed capital allowances or simplified expenses for your existing vehicle before?
+
+
+
+
+
+  * capital_allowance_claimed: Yes - capital allowances
+  * simplified_expenses_claimed: Yes - simplified expenses
+  * no: No
+
+
+
+
+
+
