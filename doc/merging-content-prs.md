@@ -27,8 +27,10 @@ $ RUN_REGRESSION_TESTS=<smart-answer-flow-name> ruby test/regression/smart_answe
 6. Run the following command to update the checksums for the smart answer:
 
 ```bash
-$ rails r script/generate-checksums-for-smart-answer.rb <smart-answer-flow-name>
+$ rake checksums:update[<smart-answer-flow-name>]
 ```
+
+For more information, see the [checksums documentation](checksums.md).
 
 7. Run the main test suite
 

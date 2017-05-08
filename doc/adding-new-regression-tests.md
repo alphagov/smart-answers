@@ -61,10 +61,10 @@ $ rm -rf coverage && \
 9. Generate a yaml file containing the set of source files that this Smart Answer depends upon. The script will automatically take the ruby flow file, locale file and erb templates into account. You just need to supply it with the location of any additional files required by the Smart Answer (e.g. calculators and data files). This data is used to determine whether to run the regression tests based on whether the source files have changed.
 
 ```bash
-$ rails r script/generate-checksums-for-smart-answer.rb \
-  <name-of-smart-answer> \
-  <path/to/additional/files>
+$ rake checksums:add_files[<name-of-smart-answer>, <path/to/additional/files>]
 ```
+
+See the [checksums documentation](checksums.md#for-a-new-smart-answer) for more details.
 
 10. Commit the generated yaml file to git.
 
