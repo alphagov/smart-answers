@@ -88,23 +88,24 @@ You will need to update it if you:
 
 Note that both the "questions & responses" file and the "responses & expected results" file are checksummed by default.
 
-The `script/generate-checksums-for-smart-answer.rb` script should be used to update the checksums. As an example, for the Marriage Abroad flow:
+The `checksums:update` rake task should be used to update the checksums. As an example, for the Marriage Abroad flow:
 
 ```bash
-rails r script/generate-checksums-for-smart-answer.rb marriage-abroad
+rake checksums:update[marriage-abroad]
 ```
 
-You can supply paths to any new files as command line arguments to this script. This can be for either a directory or to a single file.
+For more details, see the [checksums:update documentation](checksums.md#updating-checksum-values-for-specific-smart-answers).
+
+You can supply paths to any new files as command line arguments to this script. This can be a file, or a glob.
 
 ```bash
-rails r script/generate-checksums-for-smart-answer.rb marriage-abroad smart_answer_flows/marriage-abroad/questions
+rake checksums:add_files[marriage-abroad,lib/smart_answer_flows/marriage-abroad/questions]
 ```
 
 ```bash
-rails r script/generate-checksums-for-smart-answer.rb marriage-abroad smart_answer_flows/marriage-abroad/questions/country_of_ceremony.govspeak.erb
+rake checksums:add_files[marriage-abroad,lib/smart_answer_flows/marriage-abroad/questions/country_of_ceremony.govspeak.erb]
 ```
-
-The last two options are rarely used and are inconsistent.
+For more details, see the [checksums:add_files documentation](checksums.md#adding-files-for-an-existing-smart-answer).
 
 ### When to update checksums
 
