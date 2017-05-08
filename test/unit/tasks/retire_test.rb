@@ -40,9 +40,10 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
       content_item_publisher_mock.stubs(:unpublish).returns(nil)
       content_item_publisher_mock.stubs(:publish_redirect).returns(nil)
 
-      content_item_publisher_mock.expects(:unpublish).with("content-id").once
-      content_item_publisher_mock.expects(:publish_redirect)
-        .with("/base-path", "/new-destination").once
+      content_item_publisher_mock
+        .expects(:unpublish_with_redirect)
+        .with("content-id", "/base-path", "/new-destination")
+        .once
 
       Rake::Task["retire:unpublish_redirect_remove_from_search"].invoke(
         "content-id",
