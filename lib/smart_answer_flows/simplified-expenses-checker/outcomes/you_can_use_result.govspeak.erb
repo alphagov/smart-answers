@@ -30,7 +30,7 @@
   <% end %>
 
   <% if capital_allowance_claimed %>
-    You can’t use simplified expenses for your vehicle because you’ve already claimed Capital Allowances for it.
+    You can’t use simplified expenses for your vehicle because you’ve already claimed capital allowances for it.
 
     You have to continue to calculate your vehicle expenses by working out the actual costs.
   <% end %>
@@ -46,7 +46,7 @@
   ##Calculating expenses by working out the actual costs
 
   <% unless vehicle_costs.to_f == 0.0 %>
-    - <%= format_money(vehicle_costs) %> for cars and vans and motorcycles
+    - <%= format_money(vehicle_costs) %> for cars, vans and motorcycles
   <% end %>
 
   <% unless green_vehicle_write_off.to_f == 0.0 %>
@@ -54,7 +54,11 @@
   <% end %>
 
   <% unless dirty_vehicle_write_off.to_f == 0.0 %>
-    - <%= format_money(dirty_vehicle_write_off) %> for for cars, vans and motorcycles
+    - <%= format_money(dirty_vehicle_write_off) %> for cars, vans and motorcycles
+  <% end %>
+
+  <% unless filthy_vehicle_write_off.to_f == 0.0 %>
+    - <%= format_money(filthy_vehicle_write_off) %> for cars, vans and motorcycles
   <% end %>
 
   <% unless home_costs.to_f == 0.0 %>

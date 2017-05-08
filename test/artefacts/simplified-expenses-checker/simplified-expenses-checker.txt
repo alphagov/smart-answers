@@ -1,13 +1,27 @@
-Check if simplified expenses works for your business
+Check if simplified expenses could save your business money
 
-If you are a sole trader or partnership there are now 2 ways you can calculate business expenses for vehicles, working from home, and living on your business premises. You can use [simplified expenses](/simpler-income-tax-simplified-expenses) or calculate your expenses by working out the actual costs.
+If you’re a sole trader or partnership there are 2 ways you can calculate business expenses for vehicles, working from home and living on your business premises. You can use [simplified expenses](/simpler-income-tax-simplified-expenses) or calculate your expenses by working out the actual costs.
 
 Use this checker to work out which method is best for you.
 
 ## What you need to know:
-- you’ll be asked to make estimates about some of your business expenses - you don’t have to give accurate amounts
-- this checker doesn’t give exact figures to use in your tax return, it gives you an idea of which way of calculating your expenses might be best for you
-- limited companies aren’t eligible
+
+You’ll be asked to make estimates about some of your business expenses.
+
+This tool:
+
++ doesn't give exact figures to use in your tax return - it tells you which way of calculating expenses might save you money
++ can only give an answer for one vehicle at a time - if you have several vehicles, answer the questions again for each vehicle
+
+## Who can’t use this tool
+
+Don’t use this tool for vehicle expenses if:
+
+- you use [cash basis](/simpler-income-tax-cash-basis) and you’ve already deducted your vehicle as a capital cost
+- the vehicle you’re claiming for is used by an employee and you [pay tax on it as a benefit](https://www.gov.uk/employer-reporting-expenses-benefits)
+- you’re claiming for a car and you started using it for your business before April 2015
+
+^You have to be sole trader or business partnership - limited companies and limited liability partnerships can’t claim simplified expenses.^
 
 
 

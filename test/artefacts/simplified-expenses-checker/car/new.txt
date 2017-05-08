@@ -1,0 +1,16 @@
+What is the vehicle's CO2 emissions figure?
+
+You can [get this information from DVLA](/get-vehicle-information-from-dvla).
+
+
+
+
+  * low: 75g/km or less (or it’s electric)
+  * medium: between 75g/km and 130g/km
+  * high: over 130g/km
+
+
+
+
+
+
