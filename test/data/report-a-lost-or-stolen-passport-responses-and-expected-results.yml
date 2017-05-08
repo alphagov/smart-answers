@@ -2,7 +2,7 @@
 - :current_node: :where_was_the_passport_lost_or_stolen?
   :responses:
   - in_the_uk
-  :next_node: :complete_LS01_form
+  :next_node: :report_lost_or_stolen_passport
   :outcome_node: true
 - :current_node: :where_was_the_passport_lost_or_stolen?
   :responses:
