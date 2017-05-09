@@ -318,11 +318,7 @@ chile:
       - :issuing_cni_or_nulla_osta
   same_sex:
     default:
-      partner_british:
-      - :receiving_notice_of_registration
-      - :registering_marriage
-      - :issuing_marriage_certificate
-      partner_other:
+      default:
       - :receiving_notice_of_registration
       - :registering_marriage
       - :issuing_marriage_certificate

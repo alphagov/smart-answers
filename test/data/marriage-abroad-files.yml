@@ -1,5 +1,5 @@
 ---
-lib/data/marriage_abroad_services.yml: e791919dc454e63168d338152a3ec111
+lib/data/marriage_abroad_services.yml: 65c78874ffede5a627d1b6b7546b04c2
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/smart_answer/calculators/country_name_formatter.rb: 583df7103672f581bf5510732c1b2be1
 lib/smart_answer/calculators/marriage_abroad_calculator.rb: 1326d7b1305e0bcc10e38a4f27105925
@@ -83,19 +83,19 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/_title.govspeak.
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/ceremony_country/partner_british/_opposite_sex.govspeak.erb: e0bd89050cc31b5b010f07f6c6bec9cf
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/ceremony_country/partner_british/_same_sex.govspeak.erb: d2f9a087b393386c1d81733284e5d6b8
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/ceremony_country/partner_local/_opposite_sex.govspeak.erb: a936f81484bd325f7b597b39a1ef5d81
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/ceremony_country/partner_local/_same_sex.govspeak.erb: 184d444dd128d64ce9253863e9f3c112
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/ceremony_country/partner_local/_same_sex.govspeak.erb: 0a73f79eaf5dd45acf4f1cb3ededc8df
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/ceremony_country/partner_other/_opposite_sex.govspeak.erb: a936f81484bd325f7b597b39a1ef5d81
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/ceremony_country/partner_other/_same_sex.govspeak.erb: d361b659b8865c033577a66022e61f6f
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/third_country/partner_british/_opposite_sex.govspeak.erb: 219816d1aa8adf02d17ac27b0900ddfd
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/third_country/partner_british/_same_sex.govspeak.erb: d2f9a087b393386c1d81733284e5d6b8
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/third_country/partner_local/_opposite_sex.govspeak.erb: 0962a55a3c8c215978d4f5d38a7fc09c
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/third_country/partner_local/_same_sex.govspeak.erb: 8fea612bce6ff40cb180230db1e8f983
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/third_country/partner_local/_same_sex.govspeak.erb: d361b659b8865c033577a66022e61f6f
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/third_country/partner_other/_opposite_sex.govspeak.erb: b20417576f2a413ff48092db713c67a0
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/third_country/partner_other/_same_sex.govspeak.erb: d361b659b8865c033577a66022e61f6f
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/uk/partner_british/_opposite_sex.govspeak.erb: c14911facefd54b27af8508d6edf6f17
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/uk/partner_british/_same_sex.govspeak.erb: d2f9a087b393386c1d81733284e5d6b8
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/uk/partner_local/_opposite_sex.govspeak.erb: 402c5ef17562e5d85bd6fd4f9bfb0980
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/uk/partner_local/_same_sex.govspeak.erb: 8fea612bce6ff40cb180230db1e8f983
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/uk/partner_local/_same_sex.govspeak.erb: d361b659b8865c033577a66022e61f6f
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/uk/partner_other/_opposite_sex.govspeak.erb: 402c5ef17562e5d85bd6fd4f9bfb0980
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/uk/partner_other/_same_sex.govspeak.erb: d361b659b8865c033577a66022e61f6f
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/china/_opposite_sex.govspeak.erb: b7fcf64ad0f6c2222af07fe74c5ad27c
