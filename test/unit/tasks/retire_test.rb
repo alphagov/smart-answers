@@ -1,14 +1,14 @@
 require 'test_helper'
 
 class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
-  context "retire:smart_answer rake task" do
+  context "retire:unpublish_redirect_remove_from_search rake task" do
     setup do
-      Rake::Task["retire:smart_answer"].reenable
+      Rake::Task["retire:unpublish_redirect_remove_from_search"].reenable
     end
 
     should "raise exception when content_id isn't supplied" do
       exception = assert_raises RuntimeError do
-        Rake::Task["retire:smart_answer"].invoke
+        Rake::Task["retire:unpublish_redirect_remove_from_search"].invoke
       end
 
       assert_equal "Missing content_id parameter", exception.message
@@ -16,7 +16,7 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
 
     should "raise exception when base_path isn't supplied" do
       exception = assert_raises RuntimeError do
-        Rake::Task["retire:smart_answer"].invoke("content-id", nil)
+        Rake::Task["retire:unpublish_redirect_remove_from_search"].invoke("content-id", nil)
       end
 
       assert_equal "Missing base_path parameter", exception.message
@@ -24,7 +24,7 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
 
     should "raise exception when destination isn't supplied" do
       exception = assert_raises RuntimeError do
-        Rake::Task["retire:smart_answer"].invoke(
+        Rake::Task["retire:unpublish_redirect_remove_from_search"].invoke(
           "content-id",
           "/base-path",
           nil
@@ -48,7 +48,7 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
       content_item_publisher_mock.expects(:remove_smart_answer_from_search)
         .with("/base-path").once
 
-      Rake::Task["retire:smart_answer"].invoke(
+      Rake::Task["retire:unpublish_redirect_remove_from_search"].invoke(
         "content-id",
         "/base-path",
         "/new-destination"

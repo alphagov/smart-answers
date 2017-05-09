@@ -1,6 +1,6 @@
 namespace :retire do
-  desc "Retire an identified smart answer"
-  task :smart_answer, [:content_id, :base_path, :destination] => :environment do |_, args|
+  desc "Unpublish, redirect and remove from the search index an identified smart answer"
+  task :unpublish_redirect_remove_from_search, [:content_id, :base_path, :destination] => :environment do |_, args|
     raise "Missing content_id parameter" unless args.content_id.present?
     raise "Missing base_path parameter" unless args.base_path.present?
     raise "Missing destination parameter" unless args.destination.present?
