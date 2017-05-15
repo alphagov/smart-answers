@@ -351,6 +351,7 @@ module SmartAnswer::Calculators
     def two_questions_country?
       %w(
          china
+         egypt
          france
          ireland
          philippines
