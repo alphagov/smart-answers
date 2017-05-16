@@ -24,9 +24,9 @@ module SmartAnswer::Calculators
 
     OS_CONSULAR_CNI_IN_NEARBY_COUNTRY = %w(nicaragua)
 
-    OS_AFFIRMATION_COUNTRIES = %w(belgium cambodia colombia ecuador lebanon finland macao mongolia morocco norway peru qatar south-korea united-arab-emirates vietnam)
+    OS_AFFIRMATION_COUNTRIES = %w(belgium cambodia ecuador lebanon finland macao mongolia morocco norway peru qatar south-korea united-arab-emirates vietnam)
 
-    CP_EQUIVALENT_COUNTRIES = %w(austria brazil colombia czech-republic denmark ecuador finland germany iceland luxembourg netherlands norway slovenia)
+    CP_EQUIVALENT_COUNTRIES = %w(austria brazil czech-republic denmark ecuador finland germany iceland luxembourg netherlands norway slovenia)
 
     CP_CNI_NOT_REQUIRED_COUNTRIES = %w(andorra argentina bonaire-st-eustatius-saba burundi liechtenstein mexico new-zealand uruguay)
 
@@ -34,7 +34,7 @@ module SmartAnswer::Calculators
 
     COUNTRIES_WITHOUT_CONSULAR_FACILITIES = %w(argentina aruba bonaire-st-eustatius-saba burundi cote-d-ivoire curacao czech-republic saint-barthelemy slovakia st-maarten st-martin taiwan)
 
-    SS_MARRIAGE_COUNTRIES = %w(australia bolivia colombia dominican-republic estonia germany kosovo mongolia montenegro nicaragua russia san-marino serbia)
+    SS_MARRIAGE_COUNTRIES = %w(australia bolivia dominican-republic estonia germany kosovo mongolia montenegro nicaragua russia san-marino serbia)
 
     NO_SS_MARRIAGE_COUNTRIES = %w(san-marino seychelles)
 
