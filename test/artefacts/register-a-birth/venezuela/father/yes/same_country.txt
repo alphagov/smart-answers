@@ -65,22 +65,7 @@ Book an appointment at the British embassy. Take your documents, registration fo
 
 Staff at the embassy will check your application and send it to the Overseas Registration Unit in the UK.
 
-$A
-Consular Section
-Torre La Castellana, Piso 11 
-Avenida Principal de la Castellana (Av. Eugenio Mendoza), 
-Urbanización La Castellana
-Caracas
-Venezuela
-$A
-
-$C
-Emergency: +58 (0) 212 319-5800
-
-Email: <Consular.Venezuela@fco.gov.uk>
-
-[Consular Section - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-venezuela/office/consular-section)
-$C
+No embassy details found
 
 ##Return of your documents
 
