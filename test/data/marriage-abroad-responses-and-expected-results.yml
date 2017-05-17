@@ -22530,6 +22530,236 @@
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:
+  - tanzania
+  :next_node: :legal_residency?
+  :outcome_node: false
+- :current_node: :legal_residency?
+  :responses:
+  - tanzania
+  - uk
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - tanzania
+  - uk
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - tanzania
+  - uk
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - tanzania
+  - uk
+  - partner_british
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - tanzania
+  - uk
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - tanzania
+  - uk
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - tanzania
+  - uk
+  - partner_local
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - tanzania
+  - uk
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - tanzania
+  - uk
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - tanzania
+  - uk
+  - partner_other
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :legal_residency?
+  :responses:
+  - tanzania
+  - ceremony_country
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - tanzania
+  - ceremony_country
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - tanzania
+  - ceremony_country
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - tanzania
+  - ceremony_country
+  - partner_british
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - tanzania
+  - ceremony_country
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - tanzania
+  - ceremony_country
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - tanzania
+  - ceremony_country
+  - partner_local
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - tanzania
+  - ceremony_country
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - tanzania
+  - ceremony_country
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - tanzania
+  - ceremony_country
+  - partner_other
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :legal_residency?
+  :responses:
+  - tanzania
+  - third_country
+  :next_node: :what_is_your_partners_nationality?
+  :outcome_node: false
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - tanzania
+  - third_country
+  - partner_british
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - tanzania
+  - third_country
+  - partner_british
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - tanzania
+  - third_country
+  - partner_british
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - tanzania
+  - third_country
+  - partner_local
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - tanzania
+  - third_country
+  - partner_local
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - tanzania
+  - third_country
+  - partner_local
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :what_is_your_partners_nationality?
+  :responses:
+  - tanzania
+  - third_country
+  - partner_other
+  :next_node: :partner_opposite_or_same_sex?
+  :outcome_node: false
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - tanzania
+  - third_country
+  - partner_other
+  - opposite_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :partner_opposite_or_same_sex?
+  :responses:
+  - tanzania
+  - third_country
+  - partner_other
+  - same_sex
+  :next_node: :outcome_marriage_abroad_in_country
+  :outcome_node: true
+- :current_node: :country_of_ceremony?
+  :responses:
   - thailand
   :next_node: :partner_opposite_or_same_sex?
   :outcome_node: false

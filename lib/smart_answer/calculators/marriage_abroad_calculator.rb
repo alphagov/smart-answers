@@ -339,6 +339,7 @@ module SmartAnswer::Calculators
          portugal
          south-africa
          sweden
+         tanzania
          tunisia
          turkey
          thailand
