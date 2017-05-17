@@ -325,6 +325,7 @@ module SmartAnswer::Calculators
       %w(
          chile
          china
+         colombia
          denmark
          egypt
          france
