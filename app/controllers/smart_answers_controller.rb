@@ -16,6 +16,7 @@ class SmartAnswersController < ApplicationController
     :should_present_new_navigation_view?,
     :page_is_under_ab_test?,
     :present_taxonomy_sidebar?,
+    :is_benchmarking_tested_path?,
     :should_show_benchmarking_variant?
   )
 
@@ -37,7 +38,7 @@ class SmartAnswersController < ApplicationController
           set_education_navigation_response_header(content_item)
         end
 
-        if should_show_benchmarking_variant?
+        if is_benchmarking_tested_path?
           set_benchmark_inline_links_response_header
         end
 

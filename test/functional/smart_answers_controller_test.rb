@@ -276,7 +276,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
     context "Benchmarking A/B testing" do
       context "pages in test" do
         setup do
-          @controller.stubs(:is_benchmarking_tested_path).returns(true)
+          @controller.stubs(:is_benchmarking_tested_path?).returns(true)
 
           content_item = {
             "base_path" => '/benchmarking-sample'
@@ -288,12 +288,12 @@ class SmartAnswersControllerTest < ActionController::TestCase
         end
 
         should "show the original body for the 'A' version" do
-          setup_ab_variant "BenchmarkInlineLink", "A"
+          with_variant BenchmarkInlineLink: "A" do
+            get :show, id: 'benchmarking-sample'
 
-          get :show, id: 'benchmarking-sample'
-
-          assert_match(/Albert loved/, response.body)
-          refute_match(/hated/, response.body)
+            assert_match(/Albert loved/, response.body)
+            refute_match(/hated/, response.body)
+          end
         end
 
 
