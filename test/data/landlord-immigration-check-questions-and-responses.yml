@@ -20,7 +20,14 @@
 :what_nationality?:
 - british-or-irish
 - eea
+- non-eea
 :has_uk_passport?:
+- 'yes'
+- 'no'
+:family_permit?:
+- 'yes'
+- 'no'
+:has_residence_card_or_eu_eea_swiss_family_member?:
 - 'yes'
 - 'no'
 :right_to_abode?:
@@ -39,6 +46,15 @@
 :has_documents?:
 - 'yes'
 - 'no'
+:time_limited_to_remain?:
+- 'yes'
+- 'no'
 :has_other_documents?:
+- 'yes'
+- 'no'
+:waiting_for_documents?:
+- 'yes'
+- 'no'
+:immigration_application?:
 - 'yes'
 - 'no'

@@ -1,0 +1,20 @@
+Does the person have a Home Office document marked ‘exempt from immigration control’, ‘no time limit’ or ‘right of abode’?
+
+This can be any of the following:
+
+- a biometric ‘residence permit’ card
+- a ‘certificate of entitlement’ in their foreign passport
+- a ‘travel document' or ‘immigration status document’
+- an ‘exempt vignette’ (sticker in their foreign passport) - it could also be marked ‘official’ or ‘diplomatic’
+
+
+
+
+  * yes: Yes
+  * no: No
+
+
+
+
+
+
