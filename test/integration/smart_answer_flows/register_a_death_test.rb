@@ -301,10 +301,29 @@ class RegisterADeathTest < ActiveSupport::TestCase
 
     context "answer Iran" do
       setup do
-        add_response 'iran'
+        add_response "iran"
       end
-      should "give the no embassy result" do
-        assert_current_node :no_embassy_result
+
+      should "give the oru result for deaths in Iran" do
+        add_response "same_country"
+        assert_current_node :oru_result
+      end
+
+      should "give the oru result for deaths in another country" do
+        add_response "another_country"
+        add_response "cameroon"
+        assert_current_node :oru_result
+      end
+
+      should "give the oru result for deaths in the uk" do
+        add_response "in_the_uk"
+        assert_current_node :oru_result
+      end
+
+      should "give the north korean result for deaths in north-korea" do
+        add_response "another_country"
+        add_response "north-korea"
+        assert_current_node :north_korea_result
       end
     end # Iran
 

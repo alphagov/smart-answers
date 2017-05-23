@@ -43,7 +43,7 @@ module SmartAnswer::Calculators
     end
 
     def country_has_no_embassy?
-      %w(iran libya syria yemen somalia).include?(country_of_death)
+      %w(libya syria yemen somalia).include?(country_of_death)
     end
 
     def responded_with_commonwealth_country?
