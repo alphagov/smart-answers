@@ -10,4 +10,8 @@ module ApplicationHelper
   def start_button_href
     SmartAnswer::StartButton.new(@name, self).href
   end
+
+  def ab_start_button
+    SmartAnswer::StartButton.new(@name, self).ab_text
+  end
 end

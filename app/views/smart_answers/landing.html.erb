@@ -10,17 +10,24 @@
   <% end %>
 <% end %>
 
-<%= render partial: 'page_title', locals: { title: start_node.title } %>
+<% if should_show_benchmarking_variant? %>
+  <%= render partial: 'page_title', locals: { title: start_node.ab_title } %>
+<% else %>
+  <%= render partial: 'page_title', locals: { title: start_node.title } %>
+<% end %>
 
 <div class="article-container group">
   <article role="article" class="group" data-debug-template-path="<%= start_node.relative_erb_template_path %>">
     <div class="inner">
       <div class="intro">
-
         <%= start_node.body %>
 
         <p class="get-started">
-          <a rel="nofollow" href="<%= start_button_href %>" class="big button"><%= start_button %></a>
+          <% if should_show_benchmarking_variant? %>
+            <a rel="nofollow" href="<%= start_button_href %>" class="big button"><%= ab_start_button %></a>
+          <% else %>
+            <a rel="nofollow" href="<%= start_button_href %>" class="big button"><%= start_button %></a>
+          <% end %>
         </p>
       </div>
 
