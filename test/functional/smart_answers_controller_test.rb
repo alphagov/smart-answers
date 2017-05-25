@@ -272,61 +272,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
         end
       end
     end
-
-    context "Benchmarking A/B testing" do
-      context "pages in test" do
-        setup do
-          @controller.stubs(:is_benchmarking_tested_path?).returns(true)
-
-          content_item = {
-            "base_path" => '/benchmarking-sample'
-          }
-
-          Services.content_store.stubs(:content_item)
-            .with("/benchmarking-sample")
-            .returns(content_item)
-        end
-
-        should "show the original body for the 'A' version" do
-          with_variant BenchmarkInlineLink: "A" do
-            get :show, id: 'benchmarking-sample'
-
-            assert_match(/Albert loved/, response.body)
-            refute_match(/hated/, response.body)
-          end
-        end
-
-
-        should "show the alternate body for the 'B' version" do
-          with_variant BenchmarkInlineLink: "B" do
-            get :show, id: 'benchmarking-sample'
-
-            assert_match(/Albert hated/, response.body)
-            refute_match(/loved/, response.body)
-          end
-        end
-      end
-
-      context "pages not in test" do
-        setup do
-          content_item = {
-            "base_path" => '/bridge-of-death'
-          }
-
-          Services.content_store.stubs(:content_item)
-            .with("/bridge-of-death")
-            .returns(content_item)
-        end
-
-        should "show the normal body for the 'B' version" do
-          setup_ab_variant "BenchmarkInlineLink", "B"
-
-          get :show, id: 'bridge-of-death'
-
-          assert_match(/He who would cross the Bridge of Death/, response.body)
-        end
-      end
-    end
   end
 
   context "GET /<slug>/visualise" do
