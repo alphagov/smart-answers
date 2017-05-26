@@ -9,22 +9,24 @@
 
     ^Registering the death will take about 30 minutes - you might need to make an appointment.^
 
-    Who can register the death
+    Who should register the death
     --------
 
-    You can register the death if you’re:
+    A relative should register the death. 
+    
+    If a relative can’t register the death, you can do it if you:
+
 
     <% if calculator.died_at_home_or_in_hospital? %>
-      - a relative
-      - someone present at the death
-      - an administrator from the hospital
-      - the person making arrangements with the funeral directors
+      - were there at the time of death
+      - are an administrator from the hospital (if the person died in hospital)
+      - are in charge of making funeral arrangements
+
     <% else %>
-      - a relative
-      - someone present at the death
-      - the person who found the body
-      - the person in charge of the body
-      - the person making arrangements with the funeral directors
+      - were there at the time of death
+      - are the person who found the body
+      - are the person in charge of the body
+      - are in charge of making funeral arrangements
     <% end %>
 
     <% if calculator.death_expected? %>
