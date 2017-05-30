@@ -7,7 +7,7 @@ class SmartAnswersController < ApplicationController
   before_action :find_smart_answer, except: %w(index)
   before_action :redirect_response_to_canonical_url, only: %w{show}
   before_action :set_header_footer_only, only: %w{visualise}
-  before_filter :setup_navigation_helpers_and_content_item, except: %w(index)
+  before_action :setup_navigation_helpers_and_content_item, except: %w(index)
 
   attr_accessor :navigation_helpers, :content_item
 
