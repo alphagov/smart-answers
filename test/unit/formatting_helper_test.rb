@@ -23,7 +23,7 @@ module SmartAnswer
     end
 
     test '#format_date returns nil when the value is nil' do
-      assert_equal nil, format_date(nil)
+      assert_nil format_date(nil)
     end
 
     test '#format_salary returns whole number of pounds plus the period in which it was earned' do

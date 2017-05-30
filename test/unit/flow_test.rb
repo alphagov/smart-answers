@@ -21,7 +21,7 @@ class FlowTest < ActiveSupport::TestCase
   test "Defaults the external_related_links to nil" do
     s = SmartAnswer::Flow.new
 
-    assert_equal nil, s.external_related_links
+    assert_nil s.external_related_links
   end
 
   test "Can set the external_related_links" do

@@ -23,10 +23,10 @@ module SmartAnswer
 
         assert_instance_of StudentFinanceCalculator, calculator
 
-        assert_equal nil, calculator.course_start
-        assert_equal nil, calculator.household_income
-        assert_equal nil, calculator.residence
-        assert_equal nil, calculator.course_type
+        assert_nil calculator.course_start
+        assert_nil calculator.household_income
+        assert_nil calculator.residence
+        assert_nil calculator.course_type
 
         calculator.course_start = '2016-2017'
         calculator.household_income = 15_000

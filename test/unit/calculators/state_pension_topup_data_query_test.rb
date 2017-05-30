@@ -18,7 +18,7 @@ module SmartAnswer::Calculators
     end
 
     should "return nil for uncovered age ranges" do
-      assert_equal nil, @query.age_and_rates(61)
+      assert_nil @query.age_and_rates(61)
     end
   end
 end
