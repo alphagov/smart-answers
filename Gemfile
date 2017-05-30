@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby File.read(".ruby-version").chomp
 
-gem 'rails', '~> 4.2.7'
+gem 'rails', '5.0.2'
 
 gem 'airbrake', '4.1.0'
 gem 'ast'
@@ -42,9 +42,10 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara', '2.1.0'
+  gem 'rails-controller-testing'
+  gem 'capybara', '~> 2.8'
   gem 'ci_reporter'
-  gem 'minitest', '~> 5.1'
+  gem 'minitest', '~> 5.10', '!= 5.10.2'
   gem 'minitest-focus', '~> 1.1', '>= 1.1.2'
   gem 'mocha', '1.1.0', require: false
   gem 'poltergeist', '1.6.0'
