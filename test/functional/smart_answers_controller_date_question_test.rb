@@ -23,7 +23,7 @@ class SmartAnswersControllerDateQuestionTest < ActionController::TestCase
   context "GET /<slug>" do
     context "date question" do
       should "display question" do
-        get :show, id: 'smart-answers-controller-sample-with-date-question', started: 'y'
+        get :show, params: { id: 'smart-answers-controller-sample-with-date-question', started: 'y' }
         assert_select ".step.current [data-test=question]", /When\?/
         assert_select "select[name='response[day]']"
         assert_select "select[name='response[month]']"
@@ -58,7 +58,7 @@ class SmartAnswersControllerDateQuestionTest < ActionController::TestCase
       end
 
       should "display collapsed question, and format number" do
-        get :show, id: 'smart-answers-controller-sample-with-date-question', started: 'y', responses: "2011-01-01"
+        get :show, params: { id: 'smart-answers-controller-sample-with-date-question', started: 'y', responses: "2011-01-01" }
         assert_select ".done-questions", /When\?\s+1 January 2011/
       end
     end

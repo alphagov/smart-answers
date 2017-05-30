@@ -23,7 +23,7 @@ class SmartAnswersControllerValueQuestionTest < ActionController::TestCase
   context "GET /<slug>" do
     context "value question" do
       should "display question" do
-        get :show, id: 'smart-answers-controller-sample-with-value-question', started: 'y'
+        get :show, params: { id: 'smart-answers-controller-sample-with-value-question', started: 'y' }
         assert_select ".step.current [data-test=question]", /How many green bottles\?/
         assert_select "input[type=text][name=response]"
       end
@@ -34,13 +34,13 @@ class SmartAnswersControllerValueQuestionTest < ActionController::TestCase
       end
 
       should "display collapsed question, and format number" do
-        get :show, id: 'smart-answers-controller-sample-with-value-question', started: 'y', responses: "12345"
+        get :show, params: { id: 'smart-answers-controller-sample-with-value-question', started: 'y', responses: "12345" }
         assert_select ".done-questions", /How many green bottles\?\s+12,345/
       end
 
       context "label in erb template" do
         setup do
-          get :show, id: 'smart-answers-controller-sample-with-value-question', started: 'y', responses: "12345"
+          get :show, params: { id: 'smart-answers-controller-sample-with-value-question', started: 'y', responses: "12345" } 
         end
         should "show the label text before the question input" do
           assert_match(/value-question-label.*?input.*?name="response".*?/m, response.body)
@@ -50,7 +50,7 @@ class SmartAnswersControllerValueQuestionTest < ActionController::TestCase
 
       context "suffix_label in erb template" do
         setup do
-          get :show, id: 'smart-answers-controller-sample-with-value-question', started: 'y', responses: "123/456"
+          get :show, params: { id: 'smart-answers-controller-sample-with-value-question', started: 'y', responses: "123/456" }
         end
 
         should "show the label text after the question input" do
