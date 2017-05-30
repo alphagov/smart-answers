@@ -2,7 +2,6 @@ class SmartAnswersController < ApplicationController
   include Slimmer::GovukComponents
   include Slimmer::Headers
   include EducationNavigationABTestable
-  include BenchmarkInlineLinkABTestable
 
   before_action :find_smart_answer, except: %w(index)
   before_action :redirect_response_to_canonical_url, only: %w{show}
@@ -15,9 +14,7 @@ class SmartAnswersController < ApplicationController
     :breadcrumbs,
     :should_present_new_navigation_view?,
     :page_is_under_ab_test?,
-    :present_taxonomy_sidebar?,
-    :is_benchmarking_tested_path?,
-    :should_show_benchmarking_variant?
+    :present_taxonomy_sidebar?
   )
 
   rescue_from SmartAnswer::FlowRegistry::NotFound, with: :error_404
@@ -37,11 +34,6 @@ class SmartAnswersController < ApplicationController
         if page_is_under_ab_test?(content_item)
           set_education_navigation_response_header(content_item)
         end
-
-        if is_benchmarking_tested_path?
-          set_benchmark_inline_links_response_header
-        end
-
         render page_type
       }
       if Rails.application.config.expose_govspeak

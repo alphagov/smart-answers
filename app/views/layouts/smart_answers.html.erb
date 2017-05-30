@@ -7,9 +7,6 @@
   <% if page_is_under_ab_test?(@content_item) %>
     <%= education_navigation_variant.analytics_meta_tag.html_safe %>
   <% end %>
-  <% if is_benchmarking_tested_path? %>
-    <%= benchmark_inline_link_variant.analytics_meta_tag.html_safe %>
-  <% end %>
 <% end %>
 
 <% if should_present_new_navigation_view?(@content_item) %>

@@ -17,11 +17,7 @@
     <div class="inner">
       <div class="intro">
 
-      <% if should_show_benchmarking_variant? %>
-        <%= start_node.ab_body %>
-      <% else %>
         <%= start_node.body %>
-      <% end %>
 
         <p class="get-started">
           <a rel="nofollow" href="<%= start_button_href %>" class="big button"><%= start_button %></a>
