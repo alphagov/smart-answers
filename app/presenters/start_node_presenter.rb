@@ -11,6 +11,10 @@ class StartNodePresenter < NodePresenter
     @renderer.single_line_of_content_for(:title)
   end
 
+  def ab_title
+    @renderer.single_line_of_content_for(:ab_title)
+  end
+
   def meta_description
     @renderer.single_line_of_content_for(:meta_description)
   end
