@@ -46,7 +46,7 @@ class ActionDispatch::IntegrationTest
   def wait_until
     if Capybara.current_driver == Capybara.javascript_driver
       begin
-        Timeout.timeout(Capybara.default_wait_time) do
+        Timeout.timeout(Capybara.default_max_wait_time) do
           sleep(0.1) until yield
         end
       rescue Timeout::Error => e
