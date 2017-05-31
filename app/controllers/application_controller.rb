@@ -14,7 +14,7 @@ protected
 
   def error(status_code, exception = nil)
     if exception && defined? Airbrake
-      env["airbrake.error_id"] = notify_airbrake(exception)
+      request.env["airbrake.error_id"] = notify_airbrake(exception)
     end
 
     error_message = "#{status_code} error"
