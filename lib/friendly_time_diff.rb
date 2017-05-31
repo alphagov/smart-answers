@@ -29,7 +29,7 @@ private
     end
 
     def date_part(label, amount)
-      amount > 0 ? pluralize(amount, label) : nil
+      amount.positive? ? "#{amount} #{label.pluralize(amount)}" : nil
     end
 
     def whole_years_away
