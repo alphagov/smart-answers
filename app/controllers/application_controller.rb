@@ -24,7 +24,7 @@ protected
       self.status = status_code
       self.response_body = error_message
     else
-      render status: status_code, text: error_message
+      render status: status_code, plain: error_message
     end
   end
 end
