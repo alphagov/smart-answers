@@ -518,8 +518,10 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "not allow dates next year" do
-      add_response(Date.today.end_of_year + 1.day).to_s
-      assert_current_node_is_error
+      Timecop.freeze("2017-01-01") do
+        add_response(Date.today.end_of_year + 1.day).to_s
+        assert_current_node_is_error
+      end
     end
   end
 
@@ -538,8 +540,10 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "not allow dates next year" do
-      add_response(Date.today.end_of_year + 1.day).to_s
-      assert_current_node_is_error
+      Timecop.freeze("2017-01-01") do
+        add_response(Date.today.end_of_year + 1.day).to_s
+        assert_current_node_is_error
+      end
     end
 
     should "not allow dates before start_date" do
