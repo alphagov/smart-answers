@@ -52,6 +52,7 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.3)
+    byebug (9.0.6)
     capybara (2.14.0)
       addressable
       mime-types (>= 1.16)
@@ -275,6 +276,7 @@ DEPENDENCIES
   ast
   better_errors
   binding_of_caller
+  byebug
   capybara (~> 2.8)
   ci_reporter
   gds-api-adapters (~> 42.0.0)

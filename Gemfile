@@ -39,6 +39,7 @@ end
 group :development, :test do
   gem 'govuk-lint'
   gem 'pry'
+  gem 'byebug'
 end
 
 group :test do
