@@ -247,7 +247,7 @@ class FlowTest < ActiveSupport::TestCase
         @flow.node(:do_you_like_jam?)
           .stubs(:parse_input)
           .with('bad')
-          .raises(SmartAnswer::InvalidResponse.new(@error_message))
+          .raises(SmartAnswer::BaseStateTransitionError.new(@error_message))
       end
 
       should "skip a transation and set error flag" do
