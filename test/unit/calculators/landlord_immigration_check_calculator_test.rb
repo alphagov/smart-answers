@@ -93,5 +93,49 @@ module SmartAnswer::Calculators
 
       refute @calculator.from_somewhere_else?
     end
+
+    context 'when Imminence responds with an error' do
+      setup do
+        @calculator.postcode = "RH6 0NP"
+        stub_request(
+          :get, "#{Plek.new.find('imminence')}/areas/#{@calculator.postcode}.json"
+        ).to_return(status: 500)
+      end
+
+      should 'raise a BaseStateTransitionError' do
+        assert_raises SmartAnswer::BaseStateTransitionError do
+          @calculator.rules_apply?
+        end
+      end
+    end
+
+    context 'when Imminence responds with a not "ok" status' do
+      setup do
+        @calculator.postcode = "RH6 0NP"
+        stub_request(
+          :get, "#{Plek.new.find('imminence')}/areas/#{@calculator.postcode}.json"
+        ).to_return(
+          status: 500,
+          body: {
+            _response_info: {
+              status: 404,
+              links: []
+            },
+            total: 0,
+            start_index: 1,
+            page_size: 0,
+            current_page: 1,
+            pages: 1,
+            results: []
+          }.to_json
+        )
+      end
+
+      should 'raise a BaseStateTransitionError' do
+        assert_raises SmartAnswer::BaseStateTransitionError do
+          @calculator.rules_apply?
+        end
+      end
+    end
   end
 end
