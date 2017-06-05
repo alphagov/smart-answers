@@ -303,6 +303,19 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
 
         assert_current_node :has_eu_documents?
       end
+
+      should "go to outcome_can_rent is user selects yes in has_eu_documents" do
+        add_response "no"
+        add_response "yes"
+
+        assert_current_node :outcome_can_rent
+      end
+
+      should "go to family_permit" do
+        add_response "no"
+        add_response "no"
+
+        assert_current_node :family_permit?
       end
     end
   end
