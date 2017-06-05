@@ -337,6 +337,7 @@ module SmartAnswer::Calculators
          latvia
          mozambique
          philippines
+         poland
          portugal
          south-africa
          sweden
