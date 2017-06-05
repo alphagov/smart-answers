@@ -4,7 +4,7 @@ ruby File.read(".ruby-version").chomp
 
 gem 'rails', '5.0.2'
 
-gem 'airbrake', '4.1.0'
+gem 'airbrake', git: 'https://github.com/alphagov/airbrake'
 gem 'ast'
 gem 'gds-api-adapters', '~> 42.0.0'
 gem 'govspeak', '~> 3.3.0'
@@ -17,7 +17,7 @@ gem 'lrucache', '0.1.4'
 gem 'method_source'
 gem 'parser'
 gem 'plek', '1.12.0'
-gem 'rack_strip_client_ip', '0.0.1'
+gem 'rack_strip_client_ip'
 gem 'rails-i18n'
 gem 'sass-rails', '~> 5.0.0'
 gem 'slimmer', '~> 10.1.1'
