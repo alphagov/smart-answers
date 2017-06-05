@@ -20,7 +20,7 @@ gem 'plek', '1.12.0'
 gem 'rack_strip_client_ip'
 gem 'rails-i18n'
 gem 'sass-rails', '~> 5.0.0'
-gem 'slimmer', '~> 10.1.1'
+gem 'slimmer'
 gem 'tilt', '1.4.1'
 gem 'uglifier'
 gem 'uk_postcode', '~> 1.0.1'
@@ -44,7 +44,7 @@ end
 
 group :test do
   gem 'rails-controller-testing'
-  gem 'capybara', '~> 2.8'
+  gem 'capybara', '2.14.0'
   gem 'ci_reporter'
   gem 'minitest', '~> 5.10', '!= 5.10.2'
   gem 'minitest-focus', '~> 1.1', '>= 1.1.2'
