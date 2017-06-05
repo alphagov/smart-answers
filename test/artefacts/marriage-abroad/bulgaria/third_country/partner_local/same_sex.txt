@@ -4,22 +4,7 @@ You may be able to register a civil partnership at the British embassy or consul
 
 %However, they can’t register a civil partnership between a British national and a national of Bulgaria.%
 
-$A
-British Embassy Sofia
-9, Moskovska St
-1000 Sofia 
-Bulgaria
-$A
-
-$C
-Telephone: (+359) 2 933 9222
-Fax: (+359) 2 933 9250
-Consular e-mail address: consularsection.sofia@fco.gov.uk
-
-Email: <BritishEmbassySofia@fco.gov.uk>
-
-[British Embassy Sofia - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-sofia/office/british-embassy)
-$C
+No embassy details found
 
 ##What documents you’ll need
 
