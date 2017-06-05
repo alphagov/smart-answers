@@ -105,7 +105,7 @@ module SmartAnswer
           when "non-eea"
             question :family_permit?
           when "somewhere-else"
-            question :outcome_can_not_rent
+            question :has_uk_passport?
           end
         end
       end
@@ -120,7 +120,11 @@ module SmartAnswer
           when "yes"
             outcome :outcome_can_rent
           when "no"
-            question :has_other_documents?
+            if calculator.nationality == "somewhere-else"
+              question :has_eu_documents?
+            else
+              question :has_other_documents?
+            end
           end
         end
       end
