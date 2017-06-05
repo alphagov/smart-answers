@@ -90,6 +90,7 @@ module SmartAnswer
         option "british-or-irish"
         option "eea"
         option "non-eea"
+        option "somewhere-else"
 
         on_response do |response|
           calculator.nationality = response
@@ -103,6 +104,8 @@ module SmartAnswer
             question :has_eu_documents?
           when "non-eea"
             question :family_permit?
+          when "somewhere-else"
+            question :outcome_can_not_rent
           end
         end
       end

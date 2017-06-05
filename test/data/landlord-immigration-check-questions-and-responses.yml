@@ -21,6 +21,7 @@
 - british-or-irish
 - eea
 - non-eea
+- somewhere-else
 :has_uk_passport?:
 - 'yes'
 - 'no'

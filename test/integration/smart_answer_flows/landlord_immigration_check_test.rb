@@ -282,6 +282,16 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
         assert_current_node :outcome_can_not_continue_renting
       end
     end
+
+    context "when tenant is from somewhere else or you don't know" do
+      setup do
+        add_response "somewhere-else"
+      end
+
+      should "go to outcome_can_not_rent" do
+        assert_current_node :outcome_can_not_rent
+      end
+    end
   end
 
   should "lead to outcome_can_not_rent" do
