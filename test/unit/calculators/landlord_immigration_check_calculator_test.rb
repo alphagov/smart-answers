@@ -81,5 +81,17 @@ module SmartAnswer::Calculators
         refute @calculator.rules_apply?
       end
     end
+
+    should 'return true when nationality is from somewhere else' do
+      @calculator.nationality = "somewhere-else"
+
+      assert @calculator.from_somewhere_else?
+    end
+
+    should 'return false when nationality is from somewhere else' do
+      @calculator.nationality = "non-eea"
+
+      refute @calculator.from_somewhere_else?
+    end
   end
 end

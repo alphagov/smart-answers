@@ -15,5 +15,9 @@ module SmartAnswer::Calculators
     def areas_for_postcode
       Services.imminence_api.areas_for_postcode(postcode).to_hash["results"]
     end
+
+    def from_somewhere_else?
+      @nationality == "somewhere-else"
+    end
   end
 end

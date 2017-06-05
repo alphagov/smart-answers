@@ -120,7 +120,7 @@ module SmartAnswer
           when "yes"
             outcome :outcome_can_rent
           when "no"
-            if calculator.nationality == "somewhere-else"
+            if calculator.from_somewhere_else?
               question :has_eu_documents?
             else
               question :has_other_documents?
@@ -184,7 +184,7 @@ module SmartAnswer
           when "yes"
             outcome :outcome_can_rent
           when "no"
-            if calculator.nationality == "somewhere-else"
+            if calculator.from_somewhere_else?
               question :family_permit?
             else
               question :has_other_documents?
