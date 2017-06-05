@@ -285,6 +285,14 @@
   - 'no'
   :next_node: :outcome_can_not_continue_renting
   :outcome_node: true
+- :current_node: :what_nationality?
+  :responses:
+  - B1 1PW
+  - 'yes'
+  - 'yes'
+  - somewhere-else
+  :next_node: :outcome_can_not_rent
+  :outcome_node: true
 - :current_node: :tenant_over_18?
   :responses:
   - B1 1PW
