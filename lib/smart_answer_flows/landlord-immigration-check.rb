@@ -144,37 +144,7 @@ module SmartAnswer
         end
       end
 
-      #Q5
-      # multiple_choice :right_to_abode? do
-      #   option "yes"
-      #   option "no"
-      #
-      #   next_node do |response|
-      #     case response
-      #     when "yes"
-      #       outcome :outcome_can_rent
-      #     when "no"
-      #       question :has_certificate?
-      #     end
-      #   end
-      # end
-
-      #Q6
-      # multiple_choice :has_certificate? do
-      #   option "yes"
-      #   option "no"
-      #
-      #   next_node do |response|
-      #     case response
-      #     when "yes"
-      #       outcome :outcome_can_rent
-      #     when "no"
-      #       question :tenant_country?
-      #     end
-      #   end
-      # end
-
-      #new Q7
+      #Q7
       multiple_choice :has_eu_documents? do
         option "yes"
         option "no"
@@ -192,24 +162,6 @@ module SmartAnswer
           end
         end
       end
-
-      #Q7
-      # multiple_choice :tenant_country? do
-      #   option "eu_eea_switzerland"
-      #   option "non_eea_but_with_eu_eea_switzerland_family_member"
-      #   option "somewhere_else"
-      #
-      #   next_node do |response|
-      #     case response
-      #     when "eu_eea_switzerland"
-      #       question :has_documents?
-      #     when "non_eea_but_with_eu_eea_switzerland_family_member"
-      #       question :has_residence_card_or_eu_eea_swiss_family_member?
-      #     when "somewhere_else"
-      #       question :has_other_documents?
-      #     end
-      #   end
-      # end
 
       #Q9
       multiple_choice :has_documents? do
@@ -260,21 +212,6 @@ module SmartAnswer
         end
       end
 
-      #Q14
-      # multiple_choice :has_asylum_card? do
-      #   option "yes"
-      #   option "no"
-      #
-      #   next_node do |response|
-      #     case response
-      #     when "yes"
-      #       outcome :outcome_can_rent_for_12_months
-      #     when "no"
-      #       question :immigration_application?
-      #     end
-      #   end
-      # end
-
       #Q12
       multiple_choice :time_limited_to_remain? do
         option "yes"
@@ -324,7 +261,6 @@ module SmartAnswer
       outcome :outcome_can_not_continue_renting
       outcome :outcome_can_rent
       outcome :outcome_can_rent_but_check_will_be_needed_again
-      # outcome :outcome_can_rent_for_12_months
       outcome :outcome_check_may_be_needed_when_student
       outcome :outcome_check_needed_if_break_clause
       outcome :outcome_check_not_needed
