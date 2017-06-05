@@ -288,8 +288,21 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
         add_response "somewhere-else"
       end
 
-      should "go to outcome_can_not_rent" do
-        assert_current_node :outcome_can_not_rent
+      should "go to has_uk_passport" do
+        assert_current_node :has_uk_passport?
+      end
+
+      should "go to outcome_can_rent is user selects yes in has_uk_passport" do
+        add_response "yes"
+
+        assert_current_node :outcome_can_rent
+      end
+
+      should "go to has_eu_documents" do
+        add_response "no"
+
+        assert_current_node :has_eu_documents?
+      end
       end
     end
   end
