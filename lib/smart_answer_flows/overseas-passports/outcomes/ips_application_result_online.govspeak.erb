@@ -1,0 +1,88 @@
+<% content_for :body do %>
+  ## How long it takes
+
+  <%= render partial: 'how_long.govspeak.erb', locals: { calculator: calculator } %>
+  <% if calculator.replacing? %>
+    If you haven’t already reported the loss or theft, you must include [form LS01](/government/publications/lost-or-stolen-passport-notification--2) with your declaration form.
+
+  <% end %>
+  You may have to attend an interview.
+
+  Applications will take longer if:
+
+  <% if calculator.birth_location == "philippines" &&
+      calculator.child_or_adult == "child" &&
+      calculator.general_action == "applying" %>
+    - HM Passport Office need to ask you for more information or documents, especially for [applicants born in the Philippines or with parents who are married or divorced and have links to the Philippines](/government/publications/applying-for-a-passport-from-outside-the-uk-applicants-with-links-to-the-philippines)
+  <% else %>
+    - HM Passport Office need to ask you for more information or documents
+  <% end %>
+  - the photographs you send are rejected
+
+  Don’t book any travel until you have a valid passport. If you need to travel more urgently, you may be able to apply for an [Emergency Travel Document](/emergency-travel-document).
+
+  <%= render partial: 'cost.govspeak.erb', locals: { calculator: calculator } %>
+
+  ## How to apply
+
+  <% if %w(hong-kong).include?(calculator.current_location) && %w(renewing replacing).include?(calculator.general_action) %>
+    ^Read the information in [Cantonese](/government/publications/how-to-apply-for-a-british-national-overseas-passport-from-hong-kong).^
+  <% end %>
+
+  You must apply and pay for your passport online.
+
+  <% case calculator.general_action %>
+  <% when 'applying' %>
+    Before you start you need:
+
+    - the passport numbers of both parents and their dates and place of birth, and in some cases the same details of grandparents
+    - 2 identical new photos of you (or your child, if it’s a child passport application)
+    - any other current passports issued by other countries
+    - a MasterCard, Visa, Visa Electron, Visa Debit or Maestro (UK Domestic) card - Maestro (International) cards aren’t accepted
+  <% when 'renewing' %>
+    Before you start you need:
+
+    - your current passport
+    - 2 identical new photos of you (or your child, if it’s a child passport application)
+    - any other current passports issued by other countries
+    - a MasterCard, Visa, Visa Electron, Visa Debit or Maestro (UK Domestic) card - Maestro (International) cards aren’t accepted
+  <% when 'replacing' %>
+    Before you start you need:
+
+    - 2 identical new photos of you (or your child, if it’s a child passport application)
+    - any other current passports issued by other countries
+    - a MasterCard, Visa, Visa Electron, Visa Debit or Maestro (UK Domestic) card - Maestro (International) cards aren’t accepted
+  <% end %>
+
+  <% case calculator.ips_docs_number %>
+  <% when '1' %>
+    Read the [guidance notes](/government/publications/help-completing-the-online-passport-application-from-outside-the-uk) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-applications-supporting-documents-guidance) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
+  <% when '2' %>
+    Read the [guidance notes](/government/publications/help-completing-the-online-passport-application-from-outside-the-uk) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-supporting-documents-group-2) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
+  <% when '3' %>
+    Read the [guidance notes](/government/publications/help-completing-the-online-passport-application-from-outside-the-uk) to help you fill in your online application. Check which [supporting documents](/government/publications/overseas-passport-supporting-documents-group-3) you must send with your application. Any documents that aren’t in English (including documents showing an address) must be translated by a professional translator.
+  <% end %>
+  <% case calculator.birth_location %>
+  <% when 'south-africa' %>
+    ^You must include your Vault birth certificate with your application – a photocopy won’t be accepted.^
+  <% when 'spain' %>
+    ^You must include your full birth certificate (‘certificación literal’) with your application - a photocopy won’t be accepted.^
+  <% end %>
+  <% if %w(hong-kong).include?(calculator.current_location) %>
+    ^You must provide a colour photocopy of your Hong Kong Permanent Identity Card with your application if you’re applying for a British National (Overseas) passport.^
+  <% end %>
+
+  You will need to print, sign and post your declaration form at the end.
+
+  [Start your application on Her Majesty’s Passport Office website](https://passportapplication.service.gov.uk/)
+
+  %You must include all your supporting documents with your application. You’ll get 6 weeks to provide any that are missing. Your application will be cancelled and you won’t get a refund if you don’t provide them in time.%
+
+  ## Getting your passport
+
+  <%= render partial: 'getting_your_passport/by_ips_number.govspeak.erb', locals: { calculator: calculator } %>
+
+  <%= render partial: 'must_sign_passport_notice.govspeak.erb' %>
+
+  <%= render partial: 'passport_adviceline_contacts.govspeak.erb' %>
+<% end %>

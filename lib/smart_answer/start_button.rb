@@ -33,6 +33,10 @@ module SmartAnswer
 
     def custom_text_and_link
       {
+        "overseas-passports": {
+          text: "Continue",
+          href: "https://www.passport.service.gov.uk/filter"
+        },
         "calculate-your-child-maintenance": {
           text: "Calculate your child maintenance",
           href: "/calculate-your-child-maintenance/y"

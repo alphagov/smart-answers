@@ -1,0 +1,60 @@
+<% content_for :title do %>
+  You can’t apply for a British passport from <%= calculator.world_location_name %>.
+<% end %>
+
+<% content_for :body do %>
+  You can apply in a neighbouring country of your choice - pick one from the [list of countries](/overseas-passports/y) and follow the application process for that country.
+
+  <% case calculator.current_location %>
+  <% when 'iran' %>
+    If you need an emergency travel document to leave Iran, contact the Foreign and Commonwealth Office.
+
+
+    $C
+    Foreign and Commonwealth Office
+
+    Email: consularenquiries.tehran@fco.gov.uk
+
+    Telephone: (+44) 207 008 1500
+
+    [Find out about call charges](/call-charges)
+    $C
+  <% when 'libya' %>
+    If you need more information read the [Foreign and Commonwealth Office travel advice](/foreign-travel-advice/libya).
+
+  <% when 'north-korea' %>
+    If you need help with emergency travel arrangements in North Korea, contact the [British Embassy in Pyongyang](/government/world/organisations/british-embassy-pyonyang).
+
+  <% when 'syria' %>
+    If you need an emergency travel document to leave Syria, contact the Foreign and Commonwealth Office for further information.
+
+
+    $C
+    Foreign and Commonwealth Office
+
+    Email: consularenquiries.damascus@fco.gov.uk
+
+    Telephone: (+44) 207 008 1500
+
+    [Find out about call charges](/call-charges)
+    $C
+  <% when 'yemen' %>
+    If you need more information read the [Foreign and Commonwealth Office travel advice](/foreign-travel-advice/yemen).
+  <% end %>
+
+<% case calculator.current_location %>
+  <% when 'british-indian-ocean-territory', 'north-korea', 'south-georgia-and-south-sandwich-islands' %>
+    ###Passport Adviceline
+
+    $C
+    Telephone: +44 (0) 300 222 0000
+
+
+    Monday to Friday, 8am to 8pm (UK time)
+
+    Saturday, Sunday and public holidays, 9am to 5:30pm (UK time)
+
+    [Find out about call charges](/call-charges)
+    $C
+  <% end %>
+<% end %>

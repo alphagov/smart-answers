@@ -1,0 +1,13 @@
+<% case calculator.ips_number %>
+<% when '1' %>
+  Your passport and supporting documents will be delivered separately by courier.
+<% when '2', '3' %>
+  Your passport will be delivered to the British Embassy, high commission or consulate where you applied.
+  <%= render partial: 'getting_your_passport/contact.govspeak.erb' %>
+  <%= render partial: 'getting_your_passport/collect_in_person.govspeak.erb' %>
+  <% if calculator.renewing_new? %>
+    <%= render partial: 'getting_your_passport/id_renew_new.govspeak.erb' %>
+  <% else %>
+    <%= render partial: 'getting_your_passport/bring_id.govspeak.erb' %>
+  <% end %>
+<% end %>
