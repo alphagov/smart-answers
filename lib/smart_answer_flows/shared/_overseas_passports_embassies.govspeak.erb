@@ -6,7 +6,7 @@ if overseas_passports_embassies.any?
 
 $A
 <%= embassy["title"] %>
-<%= embassy["address"]["label"]["value"] %>
+<%= embassy["address"]["label"]["value"].gsub(/\s+\n/,"\n") %>
 $A
 
 $C

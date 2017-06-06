@@ -50,7 +50,7 @@ Either parent can register the birth.
 
 $A
 British Embassy Pyongyang
-Munsu-Dong Compound,, 
+Munsu-Dong Compound,,
 Pyongyang,
 Democratic People&#39;s Republic of Korea
 Pyongyang

@@ -12,7 +12,7 @@ $A
 British Embassy Brasilia
 Quadra 801 - Conjunto K - Lote 08
 Av. das Nações - Asa Sul
-CEP 70408-900  Brasilia 
+CEP 70408-900  Brasilia
 Brazil
 $A
 
@@ -29,7 +29,7 @@ $C
 $A
 British Consulate General São Paulo 
 R. Ferreira de Araújo, 741 - Pinheiros
-CEP 05428-002  São Paulo 
+CEP 05428-002  São Paulo
 Brazil
 $A
 
