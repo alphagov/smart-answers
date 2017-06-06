@@ -2,14 +2,21 @@ source 'https://rubygems.org'
 
 ruby File.read(".ruby-version").chomp
 
-gem 'rails', '5.0.2'
+#gem 'rails', '5.0.2'
+gem "actionpack"
+gem "activemodel"
+gem "actionview"
+gem "activejob"
+gem "activesupport"
+gem "railties"
+gem "sprockets-rails"
 
 gem 'airbrake', git: 'https://github.com/alphagov/airbrake'
 gem 'ast'
 gem 'gds-api-adapters', '~> 42.0.0'
 gem 'govspeak', '~> 3.3.0'
 gem 'govuk-content-schema-test-helpers', '~> 1.3.0'
-gem 'govuk_frontend_toolkit', '4.14.0'
+gem 'govuk_frontend_toolkit', '>= 6.0.4'
 gem 'htmlentities', '~> 4'
 gem 'json'
 gem 'logstasher', '0.4.8'
