@@ -13,7 +13,7 @@ gem "sprockets-rails"
 
 gem 'airbrake', git: 'https://github.com/alphagov/airbrake'
 gem 'ast'
-gem 'gds-api-adapters', '~> 42.0.0'
+gem 'gds-api-adapters', '~> 46.0.0'
 gem 'govspeak', '~> 3.3.0'
 gem 'govuk-content-schema-test-helpers', '~> 1.3.0'
 gem 'govuk_frontend_toolkit', '>= 6.0.4'
@@ -33,7 +33,7 @@ gem 'uglifier'
 gem 'uk_postcode', '~> 1.0.1'
 gem 'unicorn', '4.8.3'
 gem 'rails_stdout_logging'
-gem 'govuk_navigation_helpers', '~> 6.0.1'
+gem 'govuk_navigation_helpers', '6.3.0'
 gem 'govuk_ab_testing', '~> 2.0'
 gem 'statsd-ruby', '1.3.0', require: 'statsd'
 
