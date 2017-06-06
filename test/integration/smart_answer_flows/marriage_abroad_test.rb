@@ -394,26 +394,22 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "resident in cyprus, ceremony in cyprus" do
+  context "resident in cyprus, opposite sex" do
     setup do
       add_response 'cyprus'
-      add_response 'ceremony_country'
-      add_response 'partner_other'
       add_response 'opposite_sex'
     end
-    should "go to commonwealth os outcome" do
+    should "go to the generic country outcome" do
       assert_current_node :outcome_marriage_abroad_in_country
     end
   end
 
-  context "resident in england, ceremony in cyprus, partner other" do
+  context "ceremony in cyprus, same sex" do
     setup do
       add_response 'cyprus'
-      add_response 'uk'
-      add_response 'partner_other'
       add_response 'same_sex'
     end
-    should "go to consular cp outcome" do
+    should "go to the generic country outcome" do
       assert_current_node :outcome_marriage_abroad_in_country
     end
   end
