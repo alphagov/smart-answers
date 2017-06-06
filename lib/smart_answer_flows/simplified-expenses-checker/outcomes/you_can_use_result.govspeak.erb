@@ -50,8 +50,6 @@
     **Total to claim per year:** <%= format_money(calculator.simple_total) %>
   <% end %>
 
-  ^This is an estimate. You should do your own calculations for your tax return.^
-
   <% if calculator.simple_business_costs.to_f > 0.0 && calculator.living_on_business_premises? %>
     - <%= format_money(calculator.simple_business_costs) %> to deduct from your total business costs - you then claim the balance
   <% end %>
@@ -61,6 +59,8 @@
 
     You have to continue to calculate your vehicle expenses by working out the actual costs.
   <% end %>
+
+  ^This is an estimate. You should do your own calculations for your tax return.^
 
   ###What to do for your tax return
 
