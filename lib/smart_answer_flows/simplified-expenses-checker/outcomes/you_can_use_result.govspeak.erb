@@ -54,12 +54,6 @@
     - <%= format_money(calculator.simple_business_costs) %> to deduct from your total business costs - you then claim the balance
   <% end %>
 
-  <% if calculator.capital_allowance_claimed? %>
-    You can’t use simplified expenses for your vehicle because you’ve already claimed capital allowances for it.
-
-    You have to continue to calculate your vehicle expenses by working out the actual costs.
-  <% end %>
-
   ^This is an estimate. You should do your own calculations for your tax return.^
 
   ###What to do for your tax return
