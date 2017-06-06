@@ -243,14 +243,6 @@ module SmartAnswer::Calculators
       @data_query.ss_alt_fees_table_country?(ceremony_country, self)
     end
 
-    def civil_partnership_institution_name
-      if ceremony_country == 'cyprus'
-        'High Commission'
-      else
-        'British embassy or consulate'
-      end
-    end
-
     def outcome_path_when_resident_in_uk
       outcome_path_when_resident_in('uk')
     end

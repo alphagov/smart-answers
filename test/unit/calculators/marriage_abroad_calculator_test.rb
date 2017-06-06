@@ -806,20 +806,6 @@ module SmartAnswer
         end
       end
 
-      context '#civil_partnership_institution_name' do
-        should 'return "High Commission" if the ceremony country is cyprus' do
-          calculator = MarriageAbroadCalculator.new
-          calculator.ceremony_country = 'cyprus'
-          assert_equal 'High Commission', calculator.civil_partnership_institution_name
-        end
-
-        should 'return "British embassy or consulate" if the ceremony country is not cyprus' do
-          calculator = MarriageAbroadCalculator.new
-          calculator.ceremony_country = 'not-cyprus'
-          assert_equal 'British embassy or consulate', calculator.civil_partnership_institution_name
-        end
-      end
-
       context '#outcome_path_when_resident_in_uk' do
         should 'build the path' do
           calculator = MarriageAbroadCalculator.new
