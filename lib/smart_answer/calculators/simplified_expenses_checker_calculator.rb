@@ -198,6 +198,10 @@ module SmartAnswer::Calculators
       list_of_expenses.include?("van")
     end
 
+    def neither_new_nor_used_vehicle?
+      new_or_used_vehicle == "no"
+    end
+
     def motorcycle?
       list_of_expenses.include?("motorcycle")
     end

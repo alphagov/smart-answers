@@ -213,6 +213,32 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#neither_new_nor_used_vehicle?" do
+        setup do
+          @calculator = SimplifiedExpensesCheckerCalculator.new
+        end
+
+        should "be true if new_or_used_vehicle is set to no" do
+          @calculator.new_or_used_vehicle = "no"
+          assert @calculator.neither_new_nor_used_vehicle?
+        end
+
+        should "be false if new_or_used_vehicle is set to used" do
+          @calculator.new_or_used_vehicle = "used"
+          refute @calculator.neither_new_nor_used_vehicle?
+        end
+
+        should "be false if new_or_used_vehicle is set to new" do
+          @calculator.new_or_used_vehicle = "new"
+          refute @calculator.neither_new_nor_used_vehicle?
+        end
+
+        should "be false if new_or_used_vehicle is set to anything else" do
+          @calculator.new_or_used_vehicle = "anything else"
+          refute @calculator.neither_new_nor_used_vehicle?
+        end
+      end
+
       context "#van?" do
         setup do
           @calculator = SimplifiedExpensesCheckerCalculator.new
