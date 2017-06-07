@@ -291,7 +291,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
           with_variant BenchmarkCmTitle1: "A" do
             get :show, id: 'benchmarking-sample'
 
-            assert_select "h1", { text: "Memorial bench cost calculator", count: 1 }
+            assert_select "h1", text: "Memorial bench cost calculator", count: 1
 
             assert_match(/Start now/, response.body)
           end
@@ -301,7 +301,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
           with_variant BenchmarkCmTitle1: "B" do
             get :show, id: 'benchmarking-sample'
 
-            assert_select "h1", { text: "Calculate the cost of a memorial bench", count: 1 }
+            assert_select "h1", text: "Calculate the cost of a memorial bench", count: 1
 
             assert_match(/Estimate/, response.body)
           end

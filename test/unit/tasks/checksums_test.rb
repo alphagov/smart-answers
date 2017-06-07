@@ -4,7 +4,7 @@ class ChecksumsRakeTest < ActiveSupport::TestCase
   context "checksums:update rake task" do
     setup do
       Rake::Task["checksums:update"].reenable
-      SmartAnswer::FlowRegistry.any_instance.stubs(:available_flows).returns(['foo', 'bar'])
+      SmartAnswer::FlowRegistry.any_instance.stubs(:available_flows).returns(%w(foo bar))
     end
 
     context "with arguments foo" do

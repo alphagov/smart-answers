@@ -330,9 +330,9 @@ module SmartAnswer::Calculators
          egypt
          france
          hungary
-         italy
          iran
          ireland
+         italy
          jordan
          latvia
          mozambique
@@ -342,9 +342,9 @@ module SmartAnswer::Calculators
          south-africa
          sweden
          tanzania
+         thailand
          tunisia
          turkey
-         thailand
          usa
          vietnam
         ).include?(ceremony_country)
@@ -355,10 +355,10 @@ module SmartAnswer::Calculators
          china
          france
          ireland
-         philippines
-         turkey
          italy
+         philippines
          thailand
+         turkey
          usa
         ).include?(ceremony_country)
     end
