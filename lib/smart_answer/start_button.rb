@@ -14,7 +14,7 @@ module SmartAnswer
     end
 
     def ab_text
-      "Estimate your child maintenance"
+      "Calculate your child maintenance"
     end
 
     def href

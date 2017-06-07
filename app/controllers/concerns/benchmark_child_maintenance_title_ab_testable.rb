@@ -26,6 +26,6 @@ module BenchmarkChildMaintenanceTitleABTestable
 private
 
   def benchmarking_ab_test
-    @ab_test ||= GovukAbTesting::AbTest.new("BenchmarkCmTitle1", dimension: 44)
+    @ab_test ||= GovukAbTesting::AbTest.new("BenchmarkCmTitle2", dimension: 46)
   end
 end

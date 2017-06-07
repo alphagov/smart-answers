@@ -288,7 +288,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
         end
 
         should "show the original title and start button for the 'A' version" do
-          with_variant BenchmarkCmTitle1: "A" do
+          with_variant BenchmarkCmTitle2: "A" do
             get :show, id: 'benchmarking-sample'
 
             assert_select "h1", text: "Memorial bench cost calculator", count: 1
@@ -298,12 +298,12 @@ class SmartAnswersControllerTest < ActionController::TestCase
         end
 
         should "show the alternate title for the 'B' version" do
-          with_variant BenchmarkCmTitle1: "B" do
+          with_variant BenchmarkCmTitle2: "B" do
             get :show, id: 'benchmarking-sample'
 
             assert_select "h1", text: "Calculate the cost of a memorial bench", count: 1
 
-            assert_match(/Estimate/, response.body)
+            assert_match(/Calculate/, response.body)
           end
         end
       end
@@ -320,7 +320,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
         end
 
         should "show the normal body for the 'B' version" do
-          setup_ab_variant "BenchmarkCmTitle1", "B"
+          setup_ab_variant "BenchmarkCmTitle2", "B"
 
           get :show, id: 'bridge-of-death'
 
