@@ -114,7 +114,7 @@
   <% if calculator.living_on_business_premises? && calculator.type_of_vehicle == "no_vehicle" %>
     **Total to claim per year:**
   <% else %>
-    **Total to claim per year:** <%= format_money(calculator.current_scheme_costs) %>
+    **Total to claim per year:** <%= format_money(calculator.vehicle_costs.to_f + calculator.capital_allowances_estimate.to_f) %>
   <% end %>
 
   <% if calculator.over_limit? %>

@@ -363,15 +363,15 @@ module SmartAnswer::Calculators
           @calculator = SimplifiedExpensesCheckerCalculator.new
         end
 
-        should "equal sum of current_scheme_costs and simple_business_costs if selected_allowance isn't set to no" do
-          @calculator.stubs(:current_scheme_costs).returns(10)
-          @calculator.stubs(:simple_business_costs).returns(10)
+        should "equal the percentage business usage of the vehicle_price if vehicle_write_off isn't greater than 0" do
+          @calculator.stubs(:vehicle_write_off).returns(0)
+          @calculator.stubs(:vehicle_price).returns(40)
+          @calculator.stubs(:vehicle_business_use_time).returns(0.5)
 
           assert_equal 20, @calculator.capital_allowances_estimate
         end
 
-        should "equal vehicle_write_off if selected_allowance is set to no" do
-          @calculator.selected_allowance = "no"
+        should "equal vehicle_write_off if vehicle_write_off is greater than 0" do
           @calculator.stubs(:vehicle_write_off).returns(9)
 
           assert_equal 9, @calculator.capital_allowances_estimate

@@ -145,10 +145,10 @@ module SmartAnswer::Calculators
     end
 
     def capital_allowances_estimate
-      if selected_allowance == "no"
+      if vehicle_write_off.to_f > 0.0
         money(vehicle_write_off.to_f)
       else
-        money(current_scheme_costs.to_f + simple_business_costs.to_f)
+        money(vehicle_price.to_f * vehicle_business_use_time.to_f)
       end
     end
 
