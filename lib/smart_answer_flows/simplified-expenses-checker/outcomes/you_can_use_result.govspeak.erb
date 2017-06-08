@@ -108,7 +108,7 @@
   <% if calculator.vehicle_costs.to_f == 0.0 && calculator.capital_allowances_estimate.to_f == 0.0 %>
     **Total to claim per year:**
   <% else %>
-    **Total to claim per year:** <%= format_money(calculator.vehicle_costs.to_f + calculator.capital_allowances_estimate.to_f) %>
+    **Total to claim per year:** <%= format_money(calculator.vehicle_costs.to_f + calculator.capital_allowances_estimate.to_f + calculator.home_costs.to_f) %>
   <% end %>
 
   <% if calculator.over_limit? %>
