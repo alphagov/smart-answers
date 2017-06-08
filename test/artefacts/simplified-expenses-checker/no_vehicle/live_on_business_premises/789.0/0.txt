@@ -8,8 +8,6 @@ You don’t have to use the same method for different types of expenses. For exa
 
 ##If you use simplified expenses
 
-You could claim:
-
 **Total to claim per year:**
 
 ^This is an estimate. You should do your own calculations for your tax return.^
@@ -25,8 +23,6 @@ Multiply the flat rates with either:
 - [the number of people who lived on your business premises](/simpler-income-tax-simplified-expenses/living-at-your-business-premises)
 
 ##If you work out the actual costs
-
-You could claim:
 
 **Total to claim per year:**
 
