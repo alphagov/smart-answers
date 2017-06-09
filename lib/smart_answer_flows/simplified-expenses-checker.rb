@@ -210,12 +210,11 @@ module SmartAnswer
       #Q12 - hours for home work
       value_question :hours_work_home? do
         next_node do |response|
-          calculator.hours_worked_home = response.delete(',').to_f
-          hours = response.to_i
+          calculator.hours_worked_home = response.to_f
 
-          if hours < 1
+          if calculator.hours_worked_home < 1
             raise SmartAnswer::InvalidResponse
-          elsif hours < 25
+          elsif calculator.hours_worked_home < 25
             outcome :you_cant_use_result
           else
             question :current_claim_amount_home?
