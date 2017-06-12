@@ -322,6 +322,7 @@ module SmartAnswer::Calculators
          denmark
          egypt
          france
+         gambia
          hungary
          iran
          ireland

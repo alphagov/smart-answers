@@ -2,7 +2,7 @@
 lib/data/marriage_abroad_services.yml: 12105fab3d6d7a884771035249c782cd
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/smart_answer/calculators/country_name_formatter.rb: 583df7103672f581bf5510732c1b2be1
-lib/smart_answer/calculators/marriage_abroad_calculator.rb: 733e2d9a342b6747f82eb4cb6fc7f7e2
+lib/smart_answer/calculators/marriage_abroad_calculator.rb: ad138652bf78a60feb4e2d834930425b
 lib/smart_answer/calculators/marriage_abroad_data_query.rb: bccc1656f1018329043efef1aa889dfb
 lib/smart_answer/calculators/registrations_data_query.rb: 3afcd514ecedadd19b0db67f54ac5ea6
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
@@ -552,4 +552,4 @@ lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationali
 lib/smart_answer_flows/marriage-abroad.rb: d80088e34f0dc6226d8e82ab3887150a
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1dc349abcd6b21e1bf8c397d96fd02b8
 test/data/marriage-abroad-questions-and-responses.yml: 18d27f7b85cc02c37b8bab7e9afd4acc
-test/data/marriage-abroad-responses-and-expected-results.yml: a400336d47916b31694d51f815936b75
+test/data/marriage-abroad-responses-and-expected-results.yml: 54b46896944aa2c5071cbf1c49d06c9a
