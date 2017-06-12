@@ -188,7 +188,8 @@ module SmartAnswer
           when "yes"
             outcome :outcome_can_rent
           when "no"
-            if calculator.nationality == "non-eea"
+            if calculator.nationality == "non-eea" ||
+                calculator.from_somewhere_else?
               question :waiting_for_documents?
             else
               outcome :outcome_can_not_rent

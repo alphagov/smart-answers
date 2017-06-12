@@ -317,6 +317,20 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
 
         assert_current_node :family_permit?
       end
+
+      should "go to outcome_can_not_continue_renting" do
+        add_response "no"
+        add_response "no"
+        add_response "no"
+        add_response "no"
+        add_response "no"
+        add_response "no"
+        add_response "no"
+        add_response "no"
+        add_response "no"
+
+        assert_current_node :outcome_can_not_continue_renting
+      end
     end
   end
 
