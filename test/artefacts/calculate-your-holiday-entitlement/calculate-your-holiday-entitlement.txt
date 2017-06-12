@@ -5,5 +5,12 @@ Use this tool to calculate holiday entitlement for:
 - a full leave year
 - part of a leave year, if the job started or finished part way through the year
 
+##Leave year dates
+
+The leave year will usually be in an employee’s contract. If it isn’t, their leave year will start:
+
+- on their first day (if the job began after 1 October 1998)
+- on 1 October (if the job began on or before 1 October 1998)
+
 
 
