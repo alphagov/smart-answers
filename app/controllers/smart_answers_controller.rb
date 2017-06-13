@@ -3,6 +3,7 @@ class SmartAnswersController < ApplicationController
   include Slimmer::Headers
   include EducationNavigationABTestable
   include BenchmarkChildMaintenanceTitleABTestable
+  include BenchmarkChildMaintenanceButtonPositionABTestable
 
   before_action :find_smart_answer, except: %w(index)
   before_action :redirect_response_to_canonical_url, only: %w{show}
@@ -17,7 +18,9 @@ class SmartAnswersController < ApplicationController
     :page_is_under_ab_test?,
     :present_taxonomy_sidebar?,
     :is_benchmarking_tested_path?,
-    :should_show_benchmarking_variant?
+    :should_show_benchmarking_variant?,
+    :is_button_position_tested_path?,
+    :should_show_button_position_variant?,
   )
 
   rescue_from SmartAnswer::FlowRegistry::NotFound, with: :error_404
@@ -40,6 +43,10 @@ class SmartAnswersController < ApplicationController
 
         if is_benchmarking_tested_path?
           set_benchmark_child_maintenance_title_response_header
+        end
+
+        if is_button_position_tested_path?
+          set_benchmark_button_position_response_header
         end
 
         render page_type
