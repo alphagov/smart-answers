@@ -11,14 +11,16 @@ Make an appointment at the British embassy in Bogota to swear an affidavit (writ
 [Make an appointment at the embassy in Bogota.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-bogot%25C3%25A1/oaths-affirmations-and-affidavits/slot_picker)
  
 ## Fees
- 
-Service | Fee
-- |-
-Affidavit or affirmation for marriage | £50
- 
+
+<%= render partial: 'consular_fees_table_items.govspeak.erb',
+           collection: calculator.services,
+           as: :service,
+           locals: { calculator: calculator } %>
+  
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Colombia](/government/publications/colombia-consular-fees).
  
-You can pay by cash or credit card, but not by personal cheque.
+<%=  render partial: 'how_to_pay.govspeak.erb',
+            locals: {calculator: calculator} %>
  
 ###Legalisation and translation
  
