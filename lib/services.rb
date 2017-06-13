@@ -4,7 +4,6 @@ require 'gds_api/content_store'
 require 'gds_api/imminence'
 require 'gds_api/worldwide'
 require 'gds_api/rummager'
-require 'gds_api/router'
 
 module Services
   def self.publishing_api
@@ -24,12 +23,6 @@ module Services
 
   def self.rummager
     @rummager ||= GdsApi::Rummager.new(Plek.find("rummager"))
-  end
-
-  def self.router_api
-    @router ||= GdsApi::Router.new(
-      Plek.new.find('router-api')
-    )
   end
 
   def self.content_store
