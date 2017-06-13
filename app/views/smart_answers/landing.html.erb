@@ -20,7 +20,12 @@
   <article role="article" class="group" data-debug-template-path="<%= start_node.relative_erb_template_path %>">
     <div class="inner">
       <div class="intro">
+
+      <% if should_show_button_position_variant? %>
+        <%= start_node.ab_body %>
+      <% else %>
         <%= start_node.body %>
+      <% end %>
 
         <p class="get-started">
           <% if should_show_benchmarking_variant? %>
@@ -30,9 +35,11 @@
           <% end %>
         </p>
       </div>
-
-      <%= start_node.post_body %>
-
+      <% if should_show_button_position_variant? %>
+        <%= start_node.ab_post_body %>
+      <% else %>
+        <%= start_node.post_body %>
+      <% end %>
     </div>
   </article>
 </div>
