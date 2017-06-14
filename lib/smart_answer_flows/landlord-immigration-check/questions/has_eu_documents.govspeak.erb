@@ -1,0 +1,17 @@
+<% content_for :title do %>
+  Has the person proved they’re an EU, EEA or Swiss national by showing you their current or expired:
+<% end %>
+
+<% options(
+  "yes": "Yes",
+  "no": "No"
+) %>
+
+<% content_for :body do %>
+  - passport or national identity card
+  - UK registration certificate marked 'Residence documentation'
+<% end %>
+
+<% content_for :hint do %>
+  The registration certificate can be in their passport, or on a pink or blue document from the Home Office.
+<% end %>

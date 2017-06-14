@@ -1,0 +1,17 @@
+Does the person have a current UK residence card marked with any of the following.
+
+- family member - EU residence
+- derivative residence
+- accession residence
+
+
+
+
+  * yes: Yes
+  * no: No
+
+
+
+
+
+

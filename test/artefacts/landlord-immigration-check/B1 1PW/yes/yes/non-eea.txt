@@ -1,0 +1,14 @@
+Does the person have a UK residence card (current or expired) marked ‘permanent residence’?
+
+
+
+
+
+  * yes: Yes
+  * no: No
+
+
+
+
+
+

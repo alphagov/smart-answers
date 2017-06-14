@@ -17,13 +17,27 @@
 - employee_accommodation
 - student_accommodation
 - 7_year_lease_property
+:what_nationality?:
+- british-or-irish
+- eea
+- non-eea
+- somewhere-else
 :has_uk_passport?:
+- 'yes'
+- 'no'
+:family_permit?:
+- 'yes'
+- 'no'
+:has_residence_card_or_eu_eea_swiss_family_member?:
 - 'yes'
 - 'no'
 :right_to_abode?:
 - 'yes'
 - 'no'
 :has_certificate?:
+- 'yes'
+- 'no'
+:has_eu_documents?:
 - 'yes'
 - 'no'
 :tenant_country?:
@@ -33,18 +47,15 @@
 :has_documents?:
 - 'yes'
 - 'no'
-:has_other_documents?:
-- 'yes'
-- 'no'
-:has_asylum_card?:
-- 'yes'
-- 'no'
 :time_limited_to_remain?:
 - 'yes'
 - 'no'
-:immigration_application?:
+:has_other_documents?:
 - 'yes'
 - 'no'
-:has_residence_card_or_eu_eea_swiss_family_member?:
+:waiting_for_documents?:
+- 'yes'
+- 'no'
+:immigration_application?:
 - 'yes'
 - 'no'

@@ -1,0 +1,14 @@
+Did the Home Office tell the person they have special permission to rent?
+
+
+
+
+
+  * yes: Yes
+  * no: No
+
+
+
+
+
+
