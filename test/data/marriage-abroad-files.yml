@@ -1,5 +1,4 @@
 ---
-lib/data/marriage_abroad_data.yml: 5e72b14df75050f0c9a2a2d0d79a63f1
 lib/data/marriage_abroad_services.yml: 12105fab3d6d7a884771035249c782cd
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/smart_answer/calculators/country_name_formatter.rb: 583df7103672f581bf5510732c1b2be1
@@ -282,6 +281,25 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_loca
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_local/_same_sex.govspeak.erb: cc481d56f4ceed1fbe7f52b001ed86e6
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_other/_opposite_sex.govspeak.erb: 13a2434ff467168a471218b9279b95eb
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_other/_same_sex.govspeak.erb: f14a355018bfe4bafc0dd56ccf6d6abb
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/_title.govspeak.erb: 92dcede7d7b6f5b0f7f6972b18d72e28
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/ceremony_country/partner_british/_opposite_sex.erb: 44dabd60b213702f714ef9b7606dacca
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/ceremony_country/partner_british/_same_sex.erb: 6f00189af788677dd4774aebd43bb123
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/ceremony_country/partner_local/_opposite_sex.erb: f4dc6e3a2a95afd12c27b159d01ee458
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/ceremony_country/partner_local/_same_sex.erb: a49fb60a575ff4d6e4977f928388ad34
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/ceremony_country/partner_other/_opposite_sex.erb: f4dc6e3a2a95afd12c27b159d01ee458
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/ceremony_country/partner_other/_same_sex.erb: a49fb60a575ff4d6e4977f928388ad34
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/third_country/partner_british/_opposite_sex.erb: b0df26b59a54751d5f25c3997d95614d
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/third_country/partner_british/_same_sex.erb: ab9f76674a5f73f8b62f6a0ab1f48bef
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/third_country/partner_local/_opposite_sex.erb: 1b28344e5ea30124d0bae7a04139709b
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/third_country/partner_local/_same_sex.erb: 2675708594816f1e657eae1934692b34
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/third_country/partner_other/_opposite_sex.erb: 71ab7f72cfb2fd0fd1f4fa31df9858c8
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/third_country/partner_other/_same_sex.erb: 2675708594816f1e657eae1934692b34
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/uk/partner_british/_opposite_sex.erb: 7b14ff44f4034eb54afe5ad083bce014
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/uk/partner_british/_same_sex.erb: 31bbd649d29940850bf1d5bc2f4b37a9
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/uk/partner_local/_opposite_sex.erb: a00087652cf25f6b0cdf40bc1d180447
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/uk/partner_local/_same_sex.erb: d071a7e93056c2aa5837f22e6712fa38
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/uk/partner_other/_opposite_sex.erb: a00087652cf25f6b0cdf40bc1d180447
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/uk/partner_other/_same_sex.erb: d071a7e93056c2aa5837f22e6712fa38
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/mozambique/_title.govspeak.erb: 02dfe62310d38985f5b8c0330cee5b29
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/mozambique/ceremony_country/partner_british/_opposite_sex.govspeak.erb: 394c92edfaacdac9a6220322cc21eec9
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/mozambique/ceremony_country/partner_british/_same_sex.govspeak.erb: aee27299ffc25ae3d29a71bb8f07bb01
@@ -553,4 +571,4 @@ lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationali
 lib/smart_answer_flows/marriage-abroad.rb: 95963a05f462380b5f6986eb55ad7754
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1dc349abcd6b21e1bf8c397d96fd02b8
 test/data/marriage-abroad-questions-and-responses.yml: 18d27f7b85cc02c37b8bab7e9afd4acc
-test/data/marriage-abroad-responses-and-expected-results.yml: 54b46896944aa2c5071cbf1c49d06c9a
+test/data/marriage-abroad-responses-and-expected-results.yml: 3f4b5d10abab6f92e757143646a44c3c
