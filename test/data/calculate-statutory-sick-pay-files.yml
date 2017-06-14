@@ -28,5 +28,5 @@ lib/smart_answer_flows/calculate-statutory-sick-pay/questions/total_earnings_bef
 lib/smart_answer_flows/calculate-statutory-sick-pay/questions/total_employee_earnings.govspeak.erb: 77831bed05434968d38648a40d3ce6e9
 lib/smart_answer_flows/calculate-statutory-sick-pay/questions/usual_work_days.govspeak.erb: 5570b649de33ac95bf274bcae70895a9
 lib/smart_answer_flows/calculate-statutory-sick-pay.rb: 38a93f1b8fc1fa8e2ac90f5a13b99805
-test/data/calculate-statutory-sick-pay-questions-and-responses.yml: cfe39fc2f67d8a434d0f2c0e69ff736c
-test/data/calculate-statutory-sick-pay-responses-and-expected-results.yml: 9751a227e58002ac465cc0b9c7e35540
+test/data/calculate-statutory-sick-pay-questions-and-responses.yml: 0ecf3e02975d84724f88ecb7777f0a12
+test/data/calculate-statutory-sick-pay-responses-and-expected-results.yml: 23837c3fadcc5415004d9900020e624a
