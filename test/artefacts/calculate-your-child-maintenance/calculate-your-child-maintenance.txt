@@ -16,7 +16,7 @@ Don't use the calculator if you have a ['1993 scheme' or '2003 scheme' case](/ho
 
 If you already have a case with the Child Support Agency (CSA) or the Child Maintenance Service and your circumstances have changed, [contact the office managing your case](/child-maintenance/contact). They’ll tell you if your child maintenance payments will change.
 
-^The calculator gives an estimate. The exact amount the Child Maintenance Service calculates may be different.^
+^The calculator is based on the rules used by the Child Maintenance Service. The exact amount the Child Maintenance Service calculates may be different.^
 
 
 
