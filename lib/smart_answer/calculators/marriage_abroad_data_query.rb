@@ -152,5 +152,15 @@ module SmartAnswer::Calculators
     def os_consular_cni_in_nearby_country?(country_slug)
       OS_CONSULAR_CNI_IN_NEARBY_COUNTRY.include?(country_slug)
     end
+    
+    def marriage_data
+      @marriage_data ||= YAML.load_file(path_to_data_file).with_indifferent_access
+    end
+
+  private
+
+    def path_to_data_file
+      Rails.root.join("lib", "data", "marriage_abroad_data.yml")
+    end
   end
 end
