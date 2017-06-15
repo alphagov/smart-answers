@@ -27,7 +27,7 @@ module SmartAnswer
           end
 
           should "only contain pre-defined data keys" do
-            keys = %w(countries_with_18_outcomes countries_with_2_outcomes)
+            keys = %w(countries_with_18_outcomes countries_with_2_outcomes countries_with_6_outcomes)
             data = @data_query.marriage_data
 
             assert_equal keys, data.keys
@@ -103,6 +103,42 @@ module SmartAnswer
             end
 
             assert_equal exception.message, "key not found: \"countries_with_2_outcomes\""
+          end
+        end
+
+        context "#countries_with_6_outcomes" do
+          should "returns countries that are listed to have 6 outcomes" do
+            YAML.stubs(:load_file).returns(countries_with_6_outcomes: %w(argentina brazil))
+
+            assert_equal %w(argentina brazil), @data_query.countries_with_6_outcomes
+          end
+
+          should "return empty array if no country is found" do
+            YAML.stubs(:load_file).returns(countries_with_6_outcomes: nil)
+
+            assert_equal [], @data_query.countries_with_6_outcomes
+          end
+
+          should "return empty array if data structure isn't an array of strings" do
+            YAML.stubs(:load_file).returns(countries_with_18_outcomes: [{ sample: "value" }])
+
+            assert_equal [], @data_query.countries_with_18_outcomes
+          end
+
+          should "return empty array if data structure is a Hash" do
+            YAML.stubs(:load_file).returns(countries_with_18_outcomes: Hash.new)
+
+            assert_equal [], @data_query.countries_with_18_outcomes
+          end
+
+          should "throw key not found exception if countries_with_6_outcomes is missing" do
+            YAML.stubs(:load_file).returns({})
+
+            exception = assert_raises KeyError do
+              @data_query.countries_with_6_outcomes
+            end
+
+            assert_equal exception.message, "key not found: \"countries_with_6_outcomes\""
           end
         end
       end

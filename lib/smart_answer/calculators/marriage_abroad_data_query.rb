@@ -161,6 +161,10 @@ module SmartAnswer::Calculators
       country_outcomes(:countries_with_2_outcomes)
     end
 
+    def countries_with_6_outcomes
+      country_outcomes(:countries_with_6_outcomes)
+    end
+
     def marriage_data
       @marriage_data ||= YAML.load_file(path_to_data_file).with_indifferent_access
     end
