@@ -318,16 +318,7 @@ module SmartAnswer::Calculators
     end
 
     def two_questions_country?
-      %w(
-         china
-         france
-         ireland
-         italy
-         philippines
-         thailand
-         turkey
-         usa
-        ).include?(ceremony_country)
+      @data_query.countries_with_2_outcomes.include?(ceremony_country)
     end
 
   private

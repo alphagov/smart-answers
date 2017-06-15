@@ -26,3 +26,12 @@ countries_with_18_outcomes:
   - turkey
   - usa
   - vietnam
+countries_with_2_outcomes:
+  - china
+  - france
+  - ireland
+  - italy
+  - philippines
+  - thailand
+  - turkey
+  - usa

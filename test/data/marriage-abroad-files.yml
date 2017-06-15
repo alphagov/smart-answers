@@ -1,10 +1,10 @@
 ---
-lib/data/marriage_abroad_data.yml: fadad4c54bb0689b4a876699a6c33d8d
+lib/data/marriage_abroad_data.yml: 37b5388074a27f9677cf43e1ec995aed
 lib/data/marriage_abroad_services.yml: 12105fab3d6d7a884771035249c782cd
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/smart_answer/calculators/country_name_formatter.rb: 583df7103672f581bf5510732c1b2be1
-lib/smart_answer/calculators/marriage_abroad_calculator.rb: 3c15afab37fb81d7ccc38cd04e59e7a1
-lib/smart_answer/calculators/marriage_abroad_data_query.rb: 3a0ea450dd0abea32bbf50f5cfaf40a4
+lib/smart_answer/calculators/marriage_abroad_calculator.rb: 9bef76c113be65ce20b559805a915a1b
+lib/smart_answer/calculators/marriage_abroad_data_query.rb: 6e12d3e18e8bb2dad79d1b58e77f877e
 lib/smart_answer/calculators/registrations_data_query.rb: 3afcd514ecedadd19b0db67f54ac5ea6
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
 lib/smart_answer_flows/marriage-abroad/outcomes/_affirmation_os_translation_in_local_language_text.govspeak.erb: af09e09b909c563d4a587ef1b9285cca

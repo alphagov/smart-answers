@@ -154,8 +154,11 @@ module SmartAnswer::Calculators
     end
 
     def countries_with_18_outcomes
-      countries = marriage_data.fetch(:countries_with_18_outcomes)
-      valid_outcomes_country_data_structure?(countries) ? countries : []
+      country_outcomes(:countries_with_18_outcomes)
+    end
+
+    def countries_with_2_outcomes
+      country_outcomes(:countries_with_2_outcomes)
     end
 
     def marriage_data
@@ -166,6 +169,11 @@ module SmartAnswer::Calculators
 
     def valid_outcomes_country_data_structure?(countries)
       countries.is_a?(Array) && countries.any? { |country| country.is_a?(String) }
+    end
+
+    def country_outcomes(key)
+      countries = marriage_data.fetch(key)
+      valid_outcomes_country_data_structure?(countries) ? countries : []
     end
 
     def path_to_data_file
