@@ -314,34 +314,7 @@ module SmartAnswer::Calculators
     end
 
     def has_outcome_per_path?
-      %w(
-         chile
-         china
-         colombia
-         cyprus
-         denmark
-         egypt
-         france
-         gambia
-         hungary
-         iran
-         ireland
-         italy
-         jordan
-         latvia
-         mozambique
-         philippines
-         poland
-         portugal
-         south-africa
-         sweden
-         tanzania
-         thailand
-         tunisia
-         turkey
-         usa
-         vietnam
-        ).include?(ceremony_country)
+      @data_query.countries_with_18_outcomes.include?(ceremony_country)
     end
 
     def two_questions_country?

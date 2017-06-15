@@ -152,12 +152,21 @@ module SmartAnswer::Calculators
     def os_consular_cni_in_nearby_country?(country_slug)
       OS_CONSULAR_CNI_IN_NEARBY_COUNTRY.include?(country_slug)
     end
-    
+
+    def countries_with_18_outcomes
+      countries = marriage_data.fetch(:countries_with_18_outcomes)
+      valid_outcomes_country_data_structure?(countries) ? countries : []
+    end
+
     def marriage_data
       @marriage_data ||= YAML.load_file(path_to_data_file).with_indifferent_access
     end
 
   private
+
+    def valid_outcomes_country_data_structure?(countries)
+      countries.is_a?(Array) && countries.any? { |country| country.is_a?(String) }
+    end
 
     def path_to_data_file
       Rails.root.join("lib", "data", "marriage_abroad_data.yml")
