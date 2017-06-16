@@ -172,12 +172,16 @@ module SmartAnswer::Calculators
   private
 
     def valid_outcomes_country_data_structure?(countries)
-      countries.is_a?(Array) && countries.any? { |country| country.is_a?(String) }
+      countries.nil? || (countries.is_a?(Array) && countries.all? { |country| country.is_a?(String) })
     end
 
     def country_outcomes(key)
       countries = marriage_data.fetch(key)
-      valid_outcomes_country_data_structure?(countries) ? countries : []
+      if valid_outcomes_country_data_structure?(countries)
+        countries || []
+      else
+        raise "Country list must be an array of strings"
+      end
     end
 
     def path_to_data_file

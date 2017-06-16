@@ -47,19 +47,27 @@ module SmartAnswer
             assert_equal [], @data_query.countries_with_18_outcomes
           end
 
-          should "return empty array if data structure isn't an array of strings" do
+          should "throw RuntimeError if data structure isn't an array of strings" do
             YAML.stubs(:load_file).returns(countries_with_18_outcomes: [{ sample: "value" }])
 
-            assert_equal [], @data_query.countries_with_18_outcomes
+            exception = assert_raises RuntimeError do
+              @data_query.countries_with_18_outcomes
+            end
+
+            assert_equal exception.message, "Country list must be an array of strings"
           end
 
-          should "return empty array if data structure is a Hash" do
+          should "throw RuntimeError if data structure is a Hash" do
             YAML.stubs(:load_file).returns(countries_with_18_outcomes: Hash.new)
 
-            assert_equal [], @data_query.countries_with_18_outcomes
+            exception = assert_raises RuntimeError do
+              @data_query.countries_with_18_outcomes
+            end
+
+            assert_equal exception.message, "Country list must be an array of strings"
           end
 
-          should "throw key not found exception if countries_with_18_outcomes is missing" do
+          should "throw KeyError if countries_with_18_outcomes is missing" do
             YAML.stubs(:load_file).returns({})
 
             exception = assert_raises KeyError do
@@ -83,19 +91,27 @@ module SmartAnswer
             assert_equal [], @data_query.countries_with_2_outcomes
           end
 
-          should "return empty array if data structure isn't an array of strings" do
-            YAML.stubs(:load_file).returns(countries_with_18_outcomes: [{ sample: "value" }])
+          should "throw RuntimeError if data structure isn't an array of strings" do
+            YAML.stubs(:load_file).returns(countries_with_2_outcomes: [{ sample: "value" }])
 
-            assert_equal [], @data_query.countries_with_18_outcomes
+            exception = assert_raises RuntimeError do
+              @data_query.countries_with_2_outcomes
+            end
+
+            assert_equal exception.message, "Country list must be an array of strings"
           end
 
-          should "return empty array if data structure is a Hash" do
-            YAML.stubs(:load_file).returns(countries_with_18_outcomes: Hash.new)
+          should "throw RuntimeError if data structure is a Hash" do
+            YAML.stubs(:load_file).returns(countries_with_2_outcomes: Hash.new)
 
-            assert_equal [], @data_query.countries_with_18_outcomes
+            exception = assert_raises RuntimeError do
+              @data_query.countries_with_2_outcomes
+            end
+
+            assert_equal exception.message, "Country list must be an array of strings"
           end
 
-          should "throw key not found exception if countries_with_2_outcomes is missing" do
+          should "throw KeyError if countries_with_2_outcomes is missing" do
             YAML.stubs(:load_file).returns({})
 
             exception = assert_raises KeyError do
@@ -119,19 +135,27 @@ module SmartAnswer
             assert_equal [], @data_query.countries_with_6_outcomes
           end
 
-          should "return empty array if data structure isn't an array of strings" do
-            YAML.stubs(:load_file).returns(countries_with_18_outcomes: [{ sample: "value" }])
+          should "throw RuntimeError if data structure isn't an array of strings" do
+            YAML.stubs(:load_file).returns(countries_with_6_outcomes: [{ sample: "value" }])
 
-            assert_equal [], @data_query.countries_with_18_outcomes
+            exception = assert_raises RuntimeError do
+              @data_query.countries_with_6_outcomes
+            end
+
+            assert_equal exception.message, "Country list must be an array of strings"
           end
 
-          should "return empty array if data structure is a Hash" do
-            YAML.stubs(:load_file).returns(countries_with_18_outcomes: Hash.new)
+          should "throw RuntimeError if data structure is a Hash" do
+            YAML.stubs(:load_file).returns(countries_with_6_outcomes: Hash.new)
 
-            assert_equal [], @data_query.countries_with_18_outcomes
+            exception = assert_raises RuntimeError do
+              @data_query.countries_with_6_outcomes
+            end
+
+            assert_equal exception.message, "Country list must be an array of strings"
           end
 
-          should "throw key not found exception if countries_with_6_outcomes is missing" do
+          should "throw KeyError if countries_with_6_outcomes is missing" do
             YAML.stubs(:load_file).returns({})
 
             exception = assert_raises KeyError do
