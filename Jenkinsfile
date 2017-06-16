@@ -16,7 +16,11 @@ node {
         [$class: 'StringParameterDefinition',
           name: 'SCHEMA_BRANCH',
           defaultValue: DEFAULT_SCHEMA_BRANCH,
-          description: 'The branch of govuk-content-schemas to test against']]
+          description: 'The branch of govuk-content-schemas to test against'],
+        [$class: 'BooleanParameterDefinition',
+          name: 'RUN_REGRESSION_TESTS',
+          defaultValue: false,
+          description: 'Run regression tests, these are always run on the master branch, and by default disabled on other branches']]
     ],
   ])
 
@@ -54,12 +58,14 @@ node {
       govuk.runTests()
     }
 
-    if (env.BRANCH_NAME == 'master') {
+    if (env.BRANCH_NAME == 'master' || params.RUN_REGRESSION_TESTS) {
       stage('Regression tests') {
         govuk.setEnvar("RUN_REGRESSION_TESTS", "true")
         sh("bundle exec ruby test/regression/smart_answers_regression_test.rb")
       }
+    }
 
+    if (env.BRANCH_NAME == 'master') {
       stage('Push release tag') {
         govuk.pushTag(REPOSITORY, BRANCH_NAME, 'release_' + BUILD_NUMBER)
       }
