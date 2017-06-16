@@ -9,6 +9,22 @@
 <% question = @presenter.current_node %>
 
 <div class="step current">
+
+  <% if should_show_holiday_entitlement_variant? %>
+    <div class="ab-context">
+      <h2 id="leave-year-dates">
+        Leave year dates
+      </h2>
+      <p>
+       The leave year will usually be in an employee’s contract. If it isn’t, their leave year will start:
+      </p>
+      <ul>
+        <li>on their first day (if the job began after 1 October 1998)</li>
+        <li>on 1 October (if the job began on or before 1 October 1998)</li>
+      </ul>
+    </div>
+  <% end %>
+
   <%= form_tag calculate_current_question_path(@presenter), :method => :get %>
     <div class="current-question" id="current-question">
 

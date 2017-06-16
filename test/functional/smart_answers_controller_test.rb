@@ -328,6 +328,96 @@ class SmartAnswersControllerTest < ActionController::TestCase
     end
   end
 
+  context "Annual leave descrption placement A/B testing" do
+    context "pages in test" do
+      setup do
+        @controller.stubs(:is_holiday_entitlement_tested_path?).returns(true)
+
+        content_item = {
+          "base_path" => '/bridge-of-death'
+        }
+
+        Services.content_store.stubs(:content_item)
+          .with("/bridge-of-death")
+          .returns(content_item)
+      end
+
+      context "landing page" do
+        should "show the original text for the 'A' version" do
+          with_variant BenchmarkALDescription1: "A" do
+            get :show, params: { id: 'bridge-of-death' }
+
+            assert_match(/He who would cross the Bridge of Death/, response.body)
+            assert_no_match(/Tim/, response.body)
+          end
+        end
+
+        should "show the alternate text for the 'B' version" do
+          with_variant BenchmarkALDescription1: "B" do
+            get :show, params: { id: 'bridge-of-death' }
+
+            assert_match(/There are some who call me Tim!/, response.body)
+            assert_no_match(/these questions threee/, response.body)
+          end
+        end
+      end
+
+      context "question page" do
+        should "show the original text for the 'A' version" do
+          with_variant BenchmarkALDescription1: "A" do
+            get :show, params: { id: 'bridge-of-death', started: 'y', responses: ['what-is-your-quest'] }
+
+            assert_match(/To seek the Holy Grail/, response.body)
+            assert_no_match(/The leave year will/, response.body)
+          end
+        end
+
+        should "show the additional text for the 'B' version" do
+          with_variant BenchmarkALDescription1: "B" do
+            get :show, params: { id: 'bridge-of-death', started: 'y', responses: ['what-is-your-quest'] }
+
+            assert_match(/The leave year will/, response.body)
+            assert_match(/To seek the Holy Grail/, response.body)
+          end
+        end
+      end
+    end
+
+    context "pages not in test" do
+      setup do
+        @controller.stubs(:is_holiday_entitlement_tested_path?).returns(false)
+
+        content_item = {
+          "base_path" => '/bridge-of-death'
+        }
+
+        Services.content_store.stubs(:content_item)
+          .with("/bridge-of-death")
+          .returns(content_item)
+      end
+
+      context "landing page" do
+        should "show the original text" do
+          setup_ab_variant "BenchmarkCmButton1", "B"
+
+          get :show, params: { id: 'bridge-of-death' }
+          assert_match(/He who would cross the Bridge of Death/, response.body)
+          assert_no_match(/Tim/, response.body)
+        end
+      end
+
+      context "question page" do
+        should "show the original text" do
+          setup_ab_variant "BenchmarkCmButton1", "B"
+
+          get :show, params: { id: 'bridge-of-death', started: 'y', responses: ['what-is-your-quest'] }
+
+          assert_match(/To seek the Holy Grail/, response.body)
+          assert_no_match(/The leave year will/, response.body)
+        end
+      end
+    end
+  end
 
   context "GET /<slug>/visualise" do
     should "display the visualisation" do

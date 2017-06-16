@@ -17,7 +17,7 @@
     <div class="inner">
       <div class="intro">
 
-      <% if should_show_button_position_variant? %>
+      <% if should_show_button_position_variant? || should_show_holiday_entitlement_variant? %>
         <%= start_node.ab_body %>
       <% else %>
         <%= start_node.body %>

@@ -3,6 +3,7 @@ class SmartAnswersController < ApplicationController
   include Slimmer::Headers
   include EducationNavigationABTestable
   include BenchmarkChildMaintenanceButtonPositionABTestable
+  include BenchmarkHolidayEntitlementABTestable
 
   before_action :find_smart_answer, except: %w(index)
   before_action :redirect_response_to_canonical_url, only: %w{show}
@@ -18,6 +19,8 @@ class SmartAnswersController < ApplicationController
     :present_taxonomy_sidebar?,
     :is_button_position_tested_path?,
     :should_show_button_position_variant?,
+    :is_holiday_entitlement_tested_path?,
+    :should_show_holiday_entitlement_variant?
   )
 
   rescue_from SmartAnswer::FlowRegistry::NotFound, with: :error_404
@@ -40,6 +43,10 @@ class SmartAnswersController < ApplicationController
 
         if is_button_position_tested_path?
           set_benchmark_button_position_response_header
+        end
+
+        if is_holiday_entitlement_tested_path?
+          set_benchmark_holiday_entitlement_response_header
         end
 
         render page_type
