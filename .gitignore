@@ -13,3 +13,5 @@ tmp/
 
 # SimplCov
 coverage
+
+.byebug_history

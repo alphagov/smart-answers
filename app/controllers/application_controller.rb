@@ -14,7 +14,7 @@ protected
 
   def error(status_code, exception = nil)
     if exception && defined? Airbrake
-      env["airbrake.error_id"] = notify_airbrake(exception)
+      request.env["airbrake.error_id"] = notify_airbrake(exception)
     end
 
     error_message = "#{status_code} error"
@@ -24,7 +24,7 @@ protected
       self.status = status_code
       self.response_body = error_message
     else
-      render status: status_code, text: error_message
+      render status: status_code, plain: error_message
     end
   end
 end

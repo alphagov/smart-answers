@@ -251,7 +251,7 @@ class WorldLocationTest < ActiveSupport::TestCase
 
       should "return nil if there are no fco orgs" do
         WorldwideOrganisation.stubs(:for_location).once.returns([@org1, @org3])
-        assert_equal nil, @location.fco_organisation
+        assert_nil @location.fco_organisation
       end
 
       should "return the first if multiple match" do

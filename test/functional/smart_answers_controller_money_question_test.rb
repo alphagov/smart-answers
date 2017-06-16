@@ -23,7 +23,7 @@ class SmartAnswersControllerMoneyQuestionTest < ActionController::TestCase
   context "GET /<slug>" do
     context "money question" do
       should "display question" do
-        get :show, id: 'smart-answers-controller-sample-with-money-question', started: 'y'
+        get :show, params: { id: 'smart-answers-controller-sample-with-money-question', started: 'y' }
         assert_select ".step.current [data-test=question]", /How much\?/
         assert_select "input[type=text][name=response]"
       end
@@ -36,7 +36,7 @@ class SmartAnswersControllerMoneyQuestionTest < ActionController::TestCase
 
       context "suffix_label in erb template" do
         setup do
-          get :show, id: 'smart-answers-controller-sample-with-money-question', started: 'y', responses: '1.23'
+          get :show, params: { id: 'smart-answers-controller-sample-with-money-question', started: 'y', responses: '1.23' }
         end
 
         should "show the label after the question input" do

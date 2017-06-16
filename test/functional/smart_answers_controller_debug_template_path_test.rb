@@ -23,7 +23,7 @@ class SmartAnswersControllerDebugTemplatePathTest < ActionController::TestCase
 
   context 'rendering landing page' do
     setup do
-      get :show, id: 'smart-answers-controller-sample'
+      get :show, params: { id: 'smart-answers-controller-sample' }
     end
 
     should 'include element with debug-template-path data attribute' do
@@ -35,7 +35,7 @@ class SmartAnswersControllerDebugTemplatePathTest < ActionController::TestCase
 
   context 'rendering question page' do
     setup do
-      get :show, id: 'smart-answers-controller-sample', started: 'y'
+      get :show, params: { id: 'smart-answers-controller-sample', started: 'y' }
     end
 
     should 'include element with debug-template-path data attribute' do
@@ -47,7 +47,7 @@ class SmartAnswersControllerDebugTemplatePathTest < ActionController::TestCase
 
   context 'rendering outcome page' do
     setup do
-      get :show, id: 'smart-answers-controller-sample', started: 'y', responses: 'yes'
+      get :show, params: { id: 'smart-answers-controller-sample', started: 'y', responses: 'yes' }
     end
 
     should 'include element with debug-template-path data attribute' do

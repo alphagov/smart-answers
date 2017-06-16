@@ -11,7 +11,7 @@ class ErrorHandlingTest < ActionDispatch::IntegrationTest
       if self.class.exception_to_raise_before_render
         raise self.class.exception_to_raise_before_render
       end
-      render text: 'rendered-from-test-action'
+      render plain: 'rendered-from-test-action'
       if self.class.exception_to_raise_after_render
         raise self.class.exception_to_raise_after_render
       end

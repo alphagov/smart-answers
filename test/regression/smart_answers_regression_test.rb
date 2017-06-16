@@ -107,7 +107,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
       end
 
       should "render and save the landing page" do
-        get :show, id: flow_name, format: 'txt'
+        get :show, params: { id: flow_name, format: 'txt' }
         assert_response :success
 
         artefact_path = smart_answer_helper.save_output([flow_name], response)
@@ -115,7 +115,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
       end
 
       should "render and save the first question page" do
-        get :show, id: flow_name, started: 'y', format: 'txt'
+        get :show, params: { id: flow_name, started: 'y', format: 'txt' }
         assert_response :success
 
         artefact_path = smart_answer_helper.save_output(['y'], response)
@@ -132,7 +132,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
         visited_nodes << next_node
 
         should "render and save output for responses: #{responses.join(', ')}" do
-          get :show, id: flow_name, started: 'y', responses: responses.join('/'), format: 'txt'
+          get :show, params: { id: flow_name, started: 'y', responses: responses.join('/'), format: 'txt' }
           assert_response :success
 
           artefact_path = smart_answer_helper.save_output(responses, response)

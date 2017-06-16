@@ -23,7 +23,7 @@ class SmartAnswersControllerSalaryQuestionTest < ActionController::TestCase
   context "GET /<slug>" do
     context "salary question" do
       should "display question" do
-        get :show, id: 'smart-answers-controller-sample-with-salary-question', started: 'y'
+        get :show, params: { id: 'smart-answers-controller-sample-with-salary-question', started: 'y' }
         assert_select ".step.current [data-test=question]", /How much\?/
         assert_select "input[type=text][name='response[amount]']"
         assert_select "select[name='response[period]']"
@@ -62,7 +62,7 @@ class SmartAnswersControllerSalaryQuestionTest < ActionController::TestCase
       context "a response has been accepted" do
         setup do
           with_cache_control_expiry do
-            get :show, id: 'smart-answers-controller-sample-with-salary-question', started: 'y', responses: "1.0-month"
+            get :show, params: { id: 'smart-answers-controller-sample-with-salary-question', started: 'y', responses: "1.0-month" }
           end
         end
 

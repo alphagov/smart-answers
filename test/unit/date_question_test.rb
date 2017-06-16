@@ -109,7 +109,7 @@ module SmartAnswer
     test 'to_response returns nil if parse_input raises an InvalidResponse exception' do
       q = Question::Date.new(nil, :example)
       q.stubs(:parse_input).with('invalid-date').raises(InvalidResponse)
-      assert_equal nil, q.to_response('invalid-date')
+      assert_nil q.to_response('invalid-date')
     end
 
     test 'to_response raises the exception if parse_input raises anything other than an InvalidResponse exception' do

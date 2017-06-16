@@ -6,7 +6,7 @@ class FlowPresenterTest < ActiveSupport::TestCase
       name 'flow-name'
       value_question :first_question_key
     end
-    @request = ActionDispatch::TestRequest.new
+    @request = ActionDispatch::TestRequest.create
     @flow_presenter = FlowPresenter.new(@request, @flow)
   end
 
