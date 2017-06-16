@@ -62,5 +62,7 @@ module SmartAnswers
     config.action_dispatch.rack_cache = nil
 
     config.action_dispatch.ignore_accept_header = true
+
+    config.eager_load_paths << Rails.root.join('lib')
   end
 end
