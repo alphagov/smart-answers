@@ -152,5 +152,40 @@ module SmartAnswer::Calculators
     def os_consular_cni_in_nearby_country?(country_slug)
       OS_CONSULAR_CNI_IN_NEARBY_COUNTRY.include?(country_slug)
     end
+
+    def countries_with_18_outcomes
+      country_outcomes(:countries_with_18_outcomes)
+    end
+
+    def countries_with_2_outcomes
+      country_outcomes(:countries_with_2_outcomes)
+    end
+
+    def countries_with_6_outcomes
+      country_outcomes(:countries_with_6_outcomes)
+    end
+
+    def marriage_data
+      @marriage_data ||= YAML.load_file(path_to_data_file).with_indifferent_access
+    end
+
+  private
+
+    def valid_outcomes_country_data_structure?(countries)
+      countries.nil? || (countries.is_a?(Array) && countries.all? { |country| country.is_a?(String) })
+    end
+
+    def country_outcomes(key)
+      countries = marriage_data.fetch(key)
+      if valid_outcomes_country_data_structure?(countries)
+        countries || []
+      else
+        raise "Country list must be an array of strings"
+      end
+    end
+
+    def path_to_data_file
+      Rails.root.join("lib", "data", "marriage_abroad_data.yml")
+    end
   end
 end

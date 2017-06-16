@@ -48,6 +48,56 @@ module SmartAnswer
 
           assert_equal %w(italy same_sex), @calculator.path_to_outcome
         end
+
+        context 'when ceremony country is a three questions country' do
+          setup do
+            MarriageAbroadDataQuery.any_instance
+              .stubs(:countries_with_6_outcomes).returns(%w(6_outcome_country))
+            @calculator.ceremony_country = '6_outcome_country'
+          end
+
+          should 'get outcome for opposite sex in ceremony country where marriage is between opposite sex partners, user is resident and getting married in ceremony country' do
+            @calculator.resident_of = 'ceremony_country'
+            @calculator.sex_of_your_partner = 'opposite_sex'
+
+            assert_equal %w(6_outcome_country ceremony_country opposite_sex), @calculator.path_to_outcome
+          end
+
+          should 'get outcome for same sex in ceremony country where marriage is between same sex partners, user is resident and getting married in ceremony country' do
+            @calculator.resident_of = 'ceremony_country'
+            @calculator.sex_of_your_partner = 'same_sex'
+
+            assert_equal %w(6_outcome_country ceremony_country same_sex), @calculator.path_to_outcome
+          end
+
+          should 'get outcome for opposite sex in third country where marriage is between opposite sex partners, user is resident and getting married in third country' do
+            @calculator.resident_of = 'third_country'
+            @calculator.sex_of_your_partner = 'opposite_sex'
+
+            assert_equal %w(6_outcome_country third_country opposite_sex), @calculator.path_to_outcome
+          end
+
+          should 'get outcome for same sex in third country where marriage is between same sex partners, user is resident and getting married in third country' do
+            @calculator.resident_of = 'third_country'
+            @calculator.sex_of_your_partner = 'same_sex'
+
+            assert_equal %w(6_outcome_country third_country same_sex), @calculator.path_to_outcome
+          end
+
+          should 'get outcome for opposite sex in UK where marriage is between opposite sex partners, user is resident and getting married in UK' do
+            @calculator.resident_of = 'uk'
+            @calculator.sex_of_your_partner = 'opposite_sex'
+
+            assert_equal %w(6_outcome_country uk opposite_sex), @calculator.path_to_outcome
+          end
+
+          should 'get outcome for same sex in UK where marriage is between same sex partners, user is resident and getting married in UK' do
+            @calculator.resident_of = 'uk'
+            @calculator.sex_of_your_partner = 'same_sex'
+
+            assert_equal %w(6_outcome_country uk same_sex), @calculator.path_to_outcome
+          end
+        end
       end
 
       context '#partner_british?' do

@@ -307,54 +307,24 @@ module SmartAnswer::Calculators
 
     def path_to_outcome
       if two_questions_country?
-        return [ceremony_country, marriage_type_path_name]
+        [ceremony_country, marriage_type_path_name]
+      elsif three_questions_country?
+        [ceremony_country, ceremony_location_path_name, marriage_type_path_name]
+      else
+        [ceremony_country, ceremony_location_path_name, partner_nationality_path_name, marriage_type_path_name]
       end
-
-      [ceremony_country, ceremony_location_path_name, partner_nationality_path_name, marriage_type_path_name]
     end
 
     def has_outcome_per_path?
-      %w(
-         chile
-         china
-         colombia
-         cyprus
-         denmark
-         egypt
-         france
-         gambia
-         hungary
-         iran
-         ireland
-         italy
-         jordan
-         latvia
-         mozambique
-         philippines
-         poland
-         portugal
-         south-africa
-         sweden
-         tanzania
-         thailand
-         tunisia
-         turkey
-         usa
-         vietnam
-        ).include?(ceremony_country)
+      @data_query.countries_with_18_outcomes.include?(ceremony_country)
+    end
+
+    def three_questions_country?
+      @data_query.countries_with_6_outcomes.include?(ceremony_country)
     end
 
     def two_questions_country?
-      %w(
-         china
-         france
-         ireland
-         italy
-         philippines
-         thailand
-         turkey
-         usa
-        ).include?(ceremony_country)
+      @data_query.countries_with_2_outcomes.include?(ceremony_country)
     end
 
   private
