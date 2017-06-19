@@ -79,11 +79,11 @@ module SmartAnswer
       end
 
       def paternity_maternity_warning?
-        (other_pay_types_received & %w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay}).any?
+        (other_pay_types_received & %w{statutory_paternity_pay shared_parental_leave_and_pay statutory_adoption_pay}).any?
       end
 
       def already_getting_maternity_pay?
-        (other_pay_types_received & %w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay none}).none?
+        (other_pay_types_received & %w{statutory_paternity_pay shared_parental_leave_and_pay statutory_adoption_pay none}).none?
       end
 
       def valid_last_sick_day?
