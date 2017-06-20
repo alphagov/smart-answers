@@ -325,6 +325,46 @@ module SmartAnswer
         end
       end
 
+      context '#passport_country_is_estonia?' do
+        should 'return true if passport_country is Estonia' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'estonia'
+          assert calculator.passport_country_is_estonia?
+        end
+
+        should 'return false if passport_country is not Estonia' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'not-estonia'
+          refute calculator.passport_country_is_estonia?
+        end
+
+        should 'return true of user has an alien passport' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'estonia-alien-passport'
+          assert calculator.passport_country_is_estonia?
+        end
+      end
+
+      context '#passport_country_is_latvia?' do
+        should 'return true if passport_country is Latvia' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'latvia'
+          assert calculator.passport_country_is_latvia?
+        end
+
+        should 'return false if passport_country is not Latvia' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'not-latvia'
+          refute calculator.passport_country_is_latvia?
+        end
+
+        should 'return true of user has an alien passport' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'latvia-alien-passport'
+          assert calculator.passport_country_is_latvia?
+        end
+      end
+
       context '#applicant_is_stateless_or_a_refugee?' do
         should 'return true if passport_country is "stateless-or-refugee"' do
           calculator = UkVisaCalculator.new

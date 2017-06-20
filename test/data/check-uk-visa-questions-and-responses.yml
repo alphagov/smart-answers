@@ -7,8 +7,10 @@
 - china
 - croatia
 - democratic-republic-of-the-congo
+- estonia
 - israel
 - kuwait
+- latvia
 - oman
 - saint-barthelemy
 - stateless-or-refugee
@@ -20,6 +22,9 @@
 :israeli_document_type?:
 - full-passport
 - provisional-passport
+:what_sort_of_passport?:
+- citizen
+- alien
 :purpose_of_visit?:
 - tourism
 - work

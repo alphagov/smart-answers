@@ -1,0 +1,15 @@
+<% content_for :title do %>
+  What sort of passport do you have?
+<% end %>
+
+<% if calculator.passport_country_is_estonia? %>
+  <% options(
+    "citizen": "Estonian passport",
+    "alien": "Välismaalase pass",
+  ) %>
+<% elsif calculator.passport_country_is_latvia? %>
+  <% options(
+    "citizen": "Latvian passport",
+    "alien": "Nepilsona Pase",
+  ) %>
+<% end %>

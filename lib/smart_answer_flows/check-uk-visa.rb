@@ -23,6 +23,10 @@ module SmartAnswer
         next_node do
           if calculator.passport_country_is_israel?
             question :israeli_document_type?
+          elsif calculator.passport_country_is_estonia?
+            question :what_sort_of_passport?
+          elsif calculator.passport_country_is_latvia?
+            question :what_sort_of_passport?
           elsif calculator.passport_country_in_eea?
             outcome :outcome_no_visa_needed
           else
@@ -42,6 +46,26 @@ module SmartAnswer
 
         next_node do
           question :purpose_of_visit?
+        end
+      end
+
+      #Q1c / Q1d
+      multiple_choice :what_sort_of_passport? do
+        option :citizen
+        option :alien
+
+        next_node do |response|
+          case response
+          when 'citizen'
+            outcome :outcome_no_visa_needed
+          when 'alien'
+            if calculator.passport_country_is_estonia?
+              calculator.passport_country = 'estonia-alien-passport'
+            elsif calculator.passport_country_is_latvia?
+              calculator.passport_country = 'latvia-alien-passport'
+            end
+            question :purpose_of_visit?
+          end
         end
       end
 
@@ -124,18 +148,18 @@ module SmartAnswer
             elsif calculator.passport_country_in_datv_list?
               outcome :outcome_transit_leaving_airport_datv
             end
-          else
-            if calculator.passport_country_is_taiwan?
-              outcome :outcome_transit_taiwan
-            elsif calculator.passport_country_is_venezuela?
-              outcome :outcome_transit_venezuela
-            elsif calculator.applicant_is_stateless_or_a_refugee?
-              outcome :outcome_transit_refugee_not_leaving_airport
-            elsif calculator.passport_country_in_datv_list?
-              outcome :outcome_transit_not_leaving_airport
-            elsif calculator.passport_country_in_visa_national_list?
-              outcome :outcome_no_visa_needed
-            end
+          elsif calculator.passport_country_is_estonia? || calculator.passport_country_is_latvia?
+            outcome :outcome_transit_datv_exception
+          elsif calculator.passport_country_is_taiwan?
+            outcome :outcome_transit_taiwan
+          elsif calculator.passport_country_is_venezuela?
+            outcome :outcome_transit_venezuela
+          elsif calculator.applicant_is_stateless_or_a_refugee?
+            outcome :outcome_transit_refugee_not_leaving_airport
+          elsif calculator.passport_country_in_datv_list?
+            outcome :outcome_transit_not_leaving_airport
+          elsif calculator.passport_country_in_visa_national_list?
+            outcome :outcome_no_visa_needed
           end
         end
       end
@@ -166,7 +190,7 @@ module SmartAnswer
               if calculator.passport_country_in_electronic_visa_waiver_list?
                 outcome :outcome_study_waiver
               elsif calculator.passport_country_is_taiwan?
-                outcome :outcome_taiwan_exception
+                outcome :outcome_study_waiver_taiwan
               elsif calculator.passport_country_in_datv_list? || calculator.passport_country_in_visa_national_list?
                 outcome :outcome_study_m #outcome 3 study m visa needed short courses
               elsif calculator.passport_country_in_ukot_list? || calculator.passport_country_in_non_visa_national_list?
@@ -193,7 +217,10 @@ module SmartAnswer
       outcome :outcome_joining_family_m
       outcome :outcome_joining_family_nvn
       outcome :outcome_joining_family_y
-      outcome :outcome_marriage
+      outcome :outcome_marriage_nvn_ukot
+      outcome :outcome_marriage_taiwan
+      outcome :outcome_marriage_visa_nat_datv
+      outcome :outcome_marriage_electronic_visa_waiver
       outcome :outcome_medical_n
       outcome :outcome_medical_y
       outcome :outcome_no_visa_needed
@@ -203,8 +230,10 @@ module SmartAnswer
       outcome :outcome_standard_visit
       outcome :outcome_study_m
       outcome :outcome_study_waiver
+      outcome :outcome_study_waiver_taiwan
       outcome :outcome_study_y
-      outcome :outcome_taiwan_exception
+      outcome :outcome_visit_waiver_taiwan
+      outcome :outcome_transit_datv_exception
       outcome :outcome_transit_leaving_airport
       outcome :outcome_transit_leaving_airport_datv
       outcome :outcome_transit_not_leaving_airport
@@ -237,7 +266,7 @@ module SmartAnswer
           if calculator.passport_country_in_electronic_visa_waiver_list?
             next outcome(:outcome_school_waiver)
           elsif calculator.passport_country_is_taiwan?
-            next outcome(:outcome_taiwan_exception)
+            next outcome(:outcome_study_waiver_taiwan)
           elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
             next outcome(:outcome_school_n)
           else
@@ -249,7 +278,7 @@ module SmartAnswer
           if calculator.passport_country_in_electronic_visa_waiver_list?
             next outcome(:outcome_visit_waiver)
           elsif calculator.passport_country_is_taiwan?
-            next outcome(:outcome_taiwan_exception)
+            next outcome(:outcome_visit_waiver_taiwan)
           elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
             next outcome(:outcome_medical_n)
           else
@@ -261,7 +290,7 @@ module SmartAnswer
           if calculator.passport_country_in_electronic_visa_waiver_list?
             next outcome(:outcome_visit_waiver)
           elsif calculator.passport_country_is_taiwan?
-            next outcome(:outcome_taiwan_exception)
+            next outcome(:outcome_visit_waiver_taiwan)
           elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
             next outcome(:outcome_school_n) # outcome does not contain school specific content
           else
@@ -270,7 +299,15 @@ module SmartAnswer
         end
 
         if calculator.marriage_visit?
-          next outcome(:outcome_marriage)
+          if calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
+            next outcome(:outcome_marriage_nvn_ukot)
+          elsif calculator.passport_country_in_electronic_visa_waiver_list?
+            next outcome(:outcome_marriage_electronic_visa_waiver)
+          elsif calculator.passport_country_is_taiwan?
+            next outcome(:outcome_marriage_taiwan)
+          elsif calculator.passport_country_in_datv_list? || calculator.passport_country_in_visa_national_list?
+            next outcome(:outcome_marriage_visa_nat_datv)
+          end
         end
 
         if calculator.transit_visit?
