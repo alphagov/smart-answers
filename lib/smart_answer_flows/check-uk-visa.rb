@@ -148,20 +148,18 @@ module SmartAnswer
             elsif calculator.passport_country_in_datv_list?
               outcome :outcome_transit_leaving_airport_datv
             end
-          else
-            if calculator.passport_country_is_estonia? || calculator.passport_country_is_latvia?
-              outcome :outcome_transit_datv_exception
-            elsif calculator.passport_country_is_taiwan?
-              outcome :outcome_transit_taiwan
-            elsif calculator.passport_country_is_venezuela?
-              outcome :outcome_transit_venezuela
-            elsif calculator.applicant_is_stateless_or_a_refugee?
-              outcome :outcome_transit_refugee_not_leaving_airport
-            elsif calculator.passport_country_in_datv_list?
-              outcome :outcome_transit_not_leaving_airport
-            elsif calculator.passport_country_in_visa_national_list?
-              outcome :outcome_no_visa_needed
-            end
+          elsif calculator.passport_country_is_estonia? || calculator.passport_country_is_latvia?
+            outcome :outcome_transit_datv_exception
+          elsif calculator.passport_country_is_taiwan?
+            outcome :outcome_transit_taiwan
+          elsif calculator.passport_country_is_venezuela?
+            outcome :outcome_transit_venezuela
+          elsif calculator.applicant_is_stateless_or_a_refugee?
+            outcome :outcome_transit_refugee_not_leaving_airport
+          elsif calculator.passport_country_in_datv_list?
+            outcome :outcome_transit_not_leaving_airport
+          elsif calculator.passport_country_in_visa_national_list?
+            outcome :outcome_no_visa_needed
           end
         end
       end
