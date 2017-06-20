@@ -20,10 +20,10 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
     setup { add_response :adoption }
     ## QA0
     should "ask if the check is for maternity or paternity leave" do
-      assert_current_node :taking_paternity_leave_for_adoption?
+      assert_current_node :taking_paternity_or_maternity_leave_for_adoption?
     end
-    context "answer no (i.e taking maternity leave)" do
-      setup { add_response :no }
+    context "answer taking maternity leave" do
+      setup { add_response :maternity }
       ## QA1
       should "ask the date of the adoption match" do
         assert_current_node :date_of_adoption_match?
@@ -99,7 +99,7 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
                             # QA12
                             should "go to outcome" do
                               assert_current_node :adoption_leave_and_pay
-                              assert_state_variable :average_weekly_earnings, "346.15"
+                              assert_state_variable :average_weekly_earnings, "375.00"
                             end
                           end # weekly_starting
                           context "answer based on usual paydates" do

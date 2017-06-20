@@ -302,7 +302,7 @@ module SmartAnswer::Calculators
         should "work out the weekly average for a monthly pay pattern" do
           @calculator.pay_pattern = "monthly"
           @calculator.earnings_for_pay_period = 16000
-          assert_equal 1846.15385, @calculator.average_weekly_earnings
+          assert_equal 2000.0, @calculator.average_weekly_earnings
         end
       end
       context "HMRC scenarios" do
@@ -324,10 +324,10 @@ module SmartAnswer::Calculators
           @calculator.last_payday = Date.parse("2012-10-31")
           @calculator.pay_pattern = "monthly"
           @calculator.earnings_for_pay_period = 1600
-          assert_equal 184.61538, @calculator.average_weekly_earnings
+          assert_equal 200.0, @calculator.average_weekly_earnings
           @calculator.last_payday = Date.parse("2012-10-26")
           @calculator.earnings_for_pay_period = 1250.75
-          assert_equal 144.31731, @calculator.average_weekly_earnings
+          assert_equal 156.34375, @calculator.average_weekly_earnings
         end
       end
 
@@ -786,10 +786,10 @@ module SmartAnswer::Calculators
           expected_pay_dates = %w(2015-04-07 2015-04-14 2015-04-21 2015-04-28 2015-05-05 2015-05-12 2015-05-19 2015-05-26 2015-06-02 2015-06-09 2015-06-16 2015-06-23 2015-06-30 2015-07-07 2015-07-14 2015-07-21 2015-07-28 2015-08-04 2015-08-11 2015-08-18 2015-08-25 2015-09-01 2015-09-08 2015-09-15 2015-09-22 2015-09-29 2015-10-06 2015-10-13 2015-10-20 2015-10-27 2015-11-03 2015-11-10 2015-11-17 2015-11-24 2015-12-01 2015-12-08 2015-12-15 2015-12-22 2015-12-29)
           @calculator.pay_pattern = 'monthly'
           @calculator.earnings_for_pay_period = 3000
-          assert_equal 346.15, @calculator.average_weekly_earnings.round(2)
+          assert_equal 375.0, @calculator.average_weekly_earnings.round(2)
           assert_equal expected_pay_dates, @calculator.paydates_and_pay.map { |p| p[:date].to_s }
 
-          assert_equal [(346.15385 * 0.9).round(2)], @calculator.paydates_and_pay.first(6).map { |p| p[:pay] }.uniq
+          assert_equal [(375 * 0.9).round(2)], @calculator.paydates_and_pay.first(6).map { |p| p[:pay] }.uniq
           assert_equal [139.58], @calculator.paydates_and_pay[6..-1].map { |p| p[:pay] }.uniq
         end
       end

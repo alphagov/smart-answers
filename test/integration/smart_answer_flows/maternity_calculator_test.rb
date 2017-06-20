@@ -481,8 +481,8 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                         end
 
                         should "calculate the dates and payment amounts" do
-                          assert_state_variable "average_weekly_earnings", 208.59
-                          assert_state_variable "smp_a", "187.73"
+                          assert_state_variable "average_weekly_earnings", 225.9725
+                          assert_state_variable "smp_a", "203.38"
                           assert_state_variable "smp_b", "135.45" # Uses the statutory maternity rate
                         end
                       end

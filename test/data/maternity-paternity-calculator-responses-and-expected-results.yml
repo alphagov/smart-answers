@@ -12838,25 +12838,25 @@
 - :current_node: :what_type_of_leave?
   :responses:
   - adoption
-  :next_node: :taking_paternity_leave_for_adoption?
+  :next_node: :taking_paternity_or_maternity_leave_for_adoption?
   :outcome_node: false
-- :current_node: :taking_paternity_leave_for_adoption?
+- :current_node: :taking_paternity_or_maternity_leave_for_adoption?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   :next_node: :employee_date_matched_paternity_adoption?
   :outcome_node: false
 - :current_node: :employee_date_matched_paternity_adoption?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   :next_node: :padoption_date_of_adoption_placement?
   :outcome_node: false
 - :current_node: :padoption_date_of_adoption_placement?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   :next_node: :padoption_employee_responsible_for_upbringing?
@@ -12864,7 +12864,7 @@
 - :current_node: :padoption_employee_responsible_for_upbringing?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -12873,7 +12873,7 @@
 - :current_node: :employee_work_before_employment_start?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -12883,7 +12883,7 @@
 - :current_node: :employee_has_contract_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -12894,7 +12894,7 @@
 - :current_node: :employee_on_payroll_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -12906,7 +12906,7 @@
 - :current_node: :employee_still_employed_on_birth_date?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -12919,7 +12919,7 @@
 - :current_node: :employee_start_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -12933,7 +12933,7 @@
 - :current_node: :employee_paternity_length?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -12948,7 +12948,7 @@
 - :current_node: :last_normal_payday_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -12964,7 +12964,7 @@
 - :current_node: :payday_eight_weeks_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -12981,7 +12981,7 @@
 - :current_node: :pay_frequency_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -12999,7 +12999,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13018,7 +13018,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13037,7 +13037,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13057,7 +13057,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13077,7 +13077,7 @@
 - :current_node: :next_pay_day_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13098,7 +13098,7 @@
 - :current_node: :pay_frequency_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13116,7 +13116,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13135,7 +13135,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13154,7 +13154,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13174,7 +13174,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13194,7 +13194,7 @@
 - :current_node: :next_pay_day_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13215,7 +13215,7 @@
 - :current_node: :pay_frequency_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13233,7 +13233,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13252,7 +13252,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13271,7 +13271,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13291,7 +13291,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13311,7 +13311,7 @@
 - :current_node: :next_pay_day_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13332,7 +13332,7 @@
 - :current_node: :pay_frequency_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13350,7 +13350,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13369,7 +13369,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13388,7 +13388,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13408,7 +13408,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13428,7 +13428,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13449,7 +13449,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13470,7 +13470,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13491,7 +13491,7 @@
 - :current_node: :specific_date_each_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13513,7 +13513,7 @@
 - :current_node: :specific_date_each_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13535,7 +13535,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13556,7 +13556,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13578,7 +13578,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13600,7 +13600,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13622,7 +13622,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13644,7 +13644,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13666,7 +13666,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13688,7 +13688,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13710,7 +13710,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13731,7 +13731,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13753,7 +13753,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13776,7 +13776,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13799,7 +13799,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13822,7 +13822,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13845,7 +13845,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13868,7 +13868,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13890,7 +13890,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13913,7 +13913,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13936,7 +13936,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13959,7 +13959,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -13982,7 +13982,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14005,7 +14005,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14027,7 +14027,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14050,7 +14050,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14073,7 +14073,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14096,7 +14096,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14119,7 +14119,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14142,7 +14142,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14164,7 +14164,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14187,7 +14187,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14210,7 +14210,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14233,7 +14233,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14256,7 +14256,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14279,7 +14279,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14301,7 +14301,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14324,7 +14324,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14347,7 +14347,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14370,7 +14370,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14393,7 +14393,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14416,7 +14416,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14438,7 +14438,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14461,7 +14461,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14484,7 +14484,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14507,7 +14507,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14530,7 +14530,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14553,7 +14553,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14575,7 +14575,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14598,7 +14598,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14621,7 +14621,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14644,7 +14644,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14667,7 +14667,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14690,7 +14690,7 @@
 - :current_node: :employee_paternity_length?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14705,7 +14705,7 @@
 - :current_node: :last_normal_payday_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14721,7 +14721,7 @@
 - :current_node: :payday_eight_weeks_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14738,7 +14738,7 @@
 - :current_node: :pay_frequency_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14756,7 +14756,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14775,7 +14775,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14794,7 +14794,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14814,7 +14814,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14834,7 +14834,7 @@
 - :current_node: :next_pay_day_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14855,7 +14855,7 @@
 - :current_node: :pay_frequency_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14873,7 +14873,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14892,7 +14892,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14911,7 +14911,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14931,7 +14931,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14951,7 +14951,7 @@
 - :current_node: :next_pay_day_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14972,7 +14972,7 @@
 - :current_node: :pay_frequency_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -14990,7 +14990,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15009,7 +15009,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15028,7 +15028,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15048,7 +15048,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15068,7 +15068,7 @@
 - :current_node: :next_pay_day_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15089,7 +15089,7 @@
 - :current_node: :pay_frequency_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15107,7 +15107,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15126,7 +15126,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15145,7 +15145,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15165,7 +15165,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15185,7 +15185,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15206,7 +15206,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15227,7 +15227,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15248,7 +15248,7 @@
 - :current_node: :specific_date_each_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15270,7 +15270,7 @@
 - :current_node: :specific_date_each_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15292,7 +15292,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15313,7 +15313,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15335,7 +15335,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15357,7 +15357,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15379,7 +15379,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15401,7 +15401,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15423,7 +15423,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15445,7 +15445,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15467,7 +15467,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15488,7 +15488,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15510,7 +15510,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15533,7 +15533,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15556,7 +15556,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15579,7 +15579,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15602,7 +15602,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15625,7 +15625,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15647,7 +15647,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15670,7 +15670,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15693,7 +15693,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15716,7 +15716,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15739,7 +15739,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15762,7 +15762,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15784,7 +15784,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15807,7 +15807,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15830,7 +15830,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15853,7 +15853,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15876,7 +15876,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15899,7 +15899,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15921,7 +15921,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15944,7 +15944,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15967,7 +15967,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -15990,7 +15990,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16013,7 +16013,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16036,7 +16036,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16058,7 +16058,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16081,7 +16081,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16104,7 +16104,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16127,7 +16127,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16150,7 +16150,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16173,7 +16173,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16195,7 +16195,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16218,7 +16218,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16241,7 +16241,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16264,7 +16264,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16287,7 +16287,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16310,7 +16310,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16332,7 +16332,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16355,7 +16355,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16378,7 +16378,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16401,7 +16401,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16424,7 +16424,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16447,7 +16447,7 @@
 - :current_node: :employee_still_employed_on_birth_date?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16460,7 +16460,7 @@
 - :current_node: :employee_start_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16474,7 +16474,7 @@
 - :current_node: :employee_paternity_length?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16489,7 +16489,7 @@
 - :current_node: :employee_paternity_length?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16504,7 +16504,7 @@
 - :current_node: :employee_on_payroll_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16516,7 +16516,7 @@
 - :current_node: :employee_start_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16529,7 +16529,7 @@
 - :current_node: :employee_paternity_length?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16543,7 +16543,7 @@
 - :current_node: :employee_paternity_length?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16557,7 +16557,7 @@
 - :current_node: :employee_has_contract_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16568,7 +16568,7 @@
 - :current_node: :employee_on_payroll_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16580,7 +16580,7 @@
 - :current_node: :employee_still_employed_on_birth_date?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16593,7 +16593,7 @@
 - :current_node: :employee_start_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16607,7 +16607,7 @@
 - :current_node: :employee_paternity_length?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16622,7 +16622,7 @@
 - :current_node: :last_normal_payday_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16638,7 +16638,7 @@
 - :current_node: :payday_eight_weeks_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16655,7 +16655,7 @@
 - :current_node: :pay_frequency_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16673,7 +16673,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16692,7 +16692,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16711,7 +16711,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16731,7 +16731,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16751,7 +16751,7 @@
 - :current_node: :next_pay_day_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16772,7 +16772,7 @@
 - :current_node: :pay_frequency_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16790,7 +16790,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16809,7 +16809,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16828,7 +16828,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16848,7 +16848,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16868,7 +16868,7 @@
 - :current_node: :next_pay_day_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16889,7 +16889,7 @@
 - :current_node: :pay_frequency_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16907,7 +16907,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16926,7 +16926,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16945,7 +16945,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16965,7 +16965,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -16985,7 +16985,7 @@
 - :current_node: :next_pay_day_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17006,7 +17006,7 @@
 - :current_node: :pay_frequency_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17024,7 +17024,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17043,7 +17043,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17062,7 +17062,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17082,7 +17082,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17102,7 +17102,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17123,7 +17123,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17144,7 +17144,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17165,7 +17165,7 @@
 - :current_node: :specific_date_each_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17187,7 +17187,7 @@
 - :current_node: :specific_date_each_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17209,7 +17209,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17230,7 +17230,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17252,7 +17252,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17274,7 +17274,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17296,7 +17296,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17318,7 +17318,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17340,7 +17340,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17362,7 +17362,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17384,7 +17384,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17405,7 +17405,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17427,7 +17427,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17450,7 +17450,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17473,7 +17473,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17496,7 +17496,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17519,7 +17519,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17542,7 +17542,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17564,7 +17564,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17587,7 +17587,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17610,7 +17610,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17633,7 +17633,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17656,7 +17656,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17679,7 +17679,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17701,7 +17701,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17724,7 +17724,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17747,7 +17747,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17770,7 +17770,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17793,7 +17793,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17816,7 +17816,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17838,7 +17838,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17861,7 +17861,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17884,7 +17884,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17907,7 +17907,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17930,7 +17930,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17953,7 +17953,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17975,7 +17975,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -17998,7 +17998,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18021,7 +18021,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18044,7 +18044,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18067,7 +18067,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18090,7 +18090,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18112,7 +18112,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18135,7 +18135,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18158,7 +18158,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18181,7 +18181,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18204,7 +18204,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18227,7 +18227,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18249,7 +18249,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18272,7 +18272,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18295,7 +18295,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18318,7 +18318,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18341,7 +18341,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18364,7 +18364,7 @@
 - :current_node: :employee_paternity_length?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18379,7 +18379,7 @@
 - :current_node: :last_normal_payday_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18395,7 +18395,7 @@
 - :current_node: :payday_eight_weeks_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18412,7 +18412,7 @@
 - :current_node: :pay_frequency_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18430,7 +18430,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18449,7 +18449,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18468,7 +18468,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18488,7 +18488,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18508,7 +18508,7 @@
 - :current_node: :next_pay_day_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18529,7 +18529,7 @@
 - :current_node: :pay_frequency_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18547,7 +18547,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18566,7 +18566,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18585,7 +18585,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18605,7 +18605,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18625,7 +18625,7 @@
 - :current_node: :next_pay_day_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18646,7 +18646,7 @@
 - :current_node: :pay_frequency_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18664,7 +18664,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18683,7 +18683,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18702,7 +18702,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18722,7 +18722,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18742,7 +18742,7 @@
 - :current_node: :next_pay_day_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18763,7 +18763,7 @@
 - :current_node: :pay_frequency_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18781,7 +18781,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18800,7 +18800,7 @@
 - :current_node: :earnings_for_pay_period_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18819,7 +18819,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18839,7 +18839,7 @@
 - :current_node: :how_do_you_want_the_spp_calculated?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18859,7 +18859,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18880,7 +18880,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18901,7 +18901,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18922,7 +18922,7 @@
 - :current_node: :specific_date_each_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18944,7 +18944,7 @@
 - :current_node: :specific_date_each_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18966,7 +18966,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -18987,7 +18987,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19009,7 +19009,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19031,7 +19031,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19053,7 +19053,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19075,7 +19075,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19097,7 +19097,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19119,7 +19119,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19141,7 +19141,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19162,7 +19162,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19184,7 +19184,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19207,7 +19207,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19230,7 +19230,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19253,7 +19253,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19276,7 +19276,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19299,7 +19299,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19321,7 +19321,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19344,7 +19344,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19367,7 +19367,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19390,7 +19390,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19413,7 +19413,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19436,7 +19436,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19458,7 +19458,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19481,7 +19481,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19504,7 +19504,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19527,7 +19527,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19550,7 +19550,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19573,7 +19573,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19595,7 +19595,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19618,7 +19618,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19641,7 +19641,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19664,7 +19664,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19687,7 +19687,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19710,7 +19710,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19732,7 +19732,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19755,7 +19755,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19778,7 +19778,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19801,7 +19801,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19824,7 +19824,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19847,7 +19847,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19869,7 +19869,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19892,7 +19892,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19915,7 +19915,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19938,7 +19938,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19961,7 +19961,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -19984,7 +19984,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -20006,7 +20006,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -20029,7 +20029,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -20052,7 +20052,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -20075,7 +20075,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -20098,7 +20098,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -20121,7 +20121,7 @@
 - :current_node: :employee_still_employed_on_birth_date?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -20134,7 +20134,7 @@
 - :current_node: :employee_on_payroll_paternity?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -20146,7 +20146,7 @@
 - :current_node: :employee_work_before_employment_start?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'yes'
@@ -20156,29 +20156,29 @@
 - :current_node: :padoption_employee_responsible_for_upbringing?
   :responses:
   - adoption
-  - 'yes'
+  - paternity
   - '2018-01-01'
   - '2018-01-01'
   - 'no'
   :next_node: :paternity_not_entitled_to_leave_or_pay
   :outcome_node: true
-- :current_node: :taking_paternity_leave_for_adoption?
+- :current_node: :taking_paternity_or_maternity_leave_for_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   :next_node: :date_of_adoption_match?
   :outcome_node: false
 - :current_node: :date_of_adoption_match?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   :next_node: :date_of_adoption_placement?
   :outcome_node: false
 - :current_node: :date_of_adoption_placement?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   :next_node: :adoption_did_the_employee_work_for_you?
@@ -20186,7 +20186,7 @@
 - :current_node: :adoption_did_the_employee_work_for_you?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20195,7 +20195,7 @@
 - :current_node: :adoption_employment_contract?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20205,7 +20205,7 @@
 - :current_node: :adoption_is_the_employee_on_your_payroll?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20216,7 +20216,7 @@
 - :current_node: :adoption_date_leave_starts?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20228,7 +20228,7 @@
 - :current_node: :last_normal_payday_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20241,7 +20241,7 @@
 - :current_node: :payday_eight_weeks_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20255,7 +20255,7 @@
 - :current_node: :pay_frequency_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20270,7 +20270,7 @@
 - :current_node: :earnings_for_pay_period_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20286,7 +20286,7 @@
 - :current_node: :earnings_for_pay_period_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20302,7 +20302,7 @@
 - :current_node: :how_do_you_want_the_sap_calculated?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20319,7 +20319,7 @@
 - :current_node: :how_do_you_want_the_sap_calculated?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20336,7 +20336,7 @@
 - :current_node: :next_pay_day_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20354,7 +20354,7 @@
 - :current_node: :pay_frequency_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20369,7 +20369,7 @@
 - :current_node: :earnings_for_pay_period_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20385,7 +20385,7 @@
 - :current_node: :earnings_for_pay_period_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20401,7 +20401,7 @@
 - :current_node: :how_do_you_want_the_sap_calculated?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20418,7 +20418,7 @@
 - :current_node: :how_do_you_want_the_sap_calculated?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20435,7 +20435,7 @@
 - :current_node: :next_pay_day_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20453,7 +20453,7 @@
 - :current_node: :pay_frequency_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20468,7 +20468,7 @@
 - :current_node: :earnings_for_pay_period_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20484,7 +20484,7 @@
 - :current_node: :earnings_for_pay_period_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20500,7 +20500,7 @@
 - :current_node: :how_do_you_want_the_sap_calculated?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20517,7 +20517,7 @@
 - :current_node: :how_do_you_want_the_sap_calculated?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20534,7 +20534,7 @@
 - :current_node: :next_pay_day_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20552,7 +20552,7 @@
 - :current_node: :pay_frequency_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20567,7 +20567,7 @@
 - :current_node: :earnings_for_pay_period_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20583,7 +20583,7 @@
 - :current_node: :earnings_for_pay_period_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20599,7 +20599,7 @@
 - :current_node: :how_do_you_want_the_sap_calculated?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20616,7 +20616,7 @@
 - :current_node: :how_do_you_want_the_sap_calculated?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20633,7 +20633,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20651,7 +20651,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20669,7 +20669,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20687,7 +20687,7 @@
 - :current_node: :specific_date_each_month_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20706,7 +20706,7 @@
 - :current_node: :specific_date_each_month_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20725,7 +20725,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20743,7 +20743,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20762,7 +20762,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20781,7 +20781,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20800,7 +20800,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20819,7 +20819,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20838,7 +20838,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20857,7 +20857,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20876,7 +20876,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20894,7 +20894,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20913,7 +20913,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20933,7 +20933,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20953,7 +20953,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20973,7 +20973,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -20993,7 +20993,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21013,7 +21013,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21032,7 +21032,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21052,7 +21052,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21072,7 +21072,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21092,7 +21092,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21112,7 +21112,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21132,7 +21132,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21151,7 +21151,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21171,7 +21171,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21191,7 +21191,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21211,7 +21211,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21231,7 +21231,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21251,7 +21251,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21270,7 +21270,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21290,7 +21290,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21310,7 +21310,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21330,7 +21330,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21350,7 +21350,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21370,7 +21370,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21389,7 +21389,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21409,7 +21409,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21429,7 +21429,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21449,7 +21449,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21469,7 +21469,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21489,7 +21489,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21508,7 +21508,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21528,7 +21528,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21548,7 +21548,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21568,7 +21568,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21588,7 +21588,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21608,7 +21608,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21627,7 +21627,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21647,7 +21647,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21667,7 +21667,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21687,7 +21687,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21707,7 +21707,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21727,7 +21727,7 @@
 - :current_node: :adoption_is_the_employee_on_your_payroll?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21738,7 +21738,7 @@
 - :current_node: :adoption_date_leave_starts?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21750,7 +21750,7 @@
 - :current_node: :adoption_employment_contract?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21760,7 +21760,7 @@
 - :current_node: :adoption_is_the_employee_on_your_payroll?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21771,7 +21771,7 @@
 - :current_node: :adoption_date_leave_starts?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21783,7 +21783,7 @@
 - :current_node: :last_normal_payday_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21796,7 +21796,7 @@
 - :current_node: :payday_eight_weeks_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21810,7 +21810,7 @@
 - :current_node: :pay_frequency_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21825,7 +21825,7 @@
 - :current_node: :earnings_for_pay_period_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21841,7 +21841,7 @@
 - :current_node: :earnings_for_pay_period_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21857,7 +21857,7 @@
 - :current_node: :how_do_you_want_the_sap_calculated?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21874,7 +21874,7 @@
 - :current_node: :how_do_you_want_the_sap_calculated?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21891,7 +21891,7 @@
 - :current_node: :next_pay_day_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21909,7 +21909,7 @@
 - :current_node: :pay_frequency_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21924,7 +21924,7 @@
 - :current_node: :earnings_for_pay_period_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21940,7 +21940,7 @@
 - :current_node: :earnings_for_pay_period_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21956,7 +21956,7 @@
 - :current_node: :how_do_you_want_the_sap_calculated?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21973,7 +21973,7 @@
 - :current_node: :how_do_you_want_the_sap_calculated?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -21990,7 +21990,7 @@
 - :current_node: :next_pay_day_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22008,7 +22008,7 @@
 - :current_node: :pay_frequency_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22023,7 +22023,7 @@
 - :current_node: :earnings_for_pay_period_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22039,7 +22039,7 @@
 - :current_node: :earnings_for_pay_period_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22055,7 +22055,7 @@
 - :current_node: :how_do_you_want_the_sap_calculated?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22072,7 +22072,7 @@
 - :current_node: :how_do_you_want_the_sap_calculated?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22089,7 +22089,7 @@
 - :current_node: :next_pay_day_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22107,7 +22107,7 @@
 - :current_node: :pay_frequency_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22122,7 +22122,7 @@
 - :current_node: :earnings_for_pay_period_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22138,7 +22138,7 @@
 - :current_node: :earnings_for_pay_period_adoption?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22154,7 +22154,7 @@
 - :current_node: :how_do_you_want_the_sap_calculated?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22171,7 +22171,7 @@
 - :current_node: :how_do_you_want_the_sap_calculated?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22188,7 +22188,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22206,7 +22206,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22224,7 +22224,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22242,7 +22242,7 @@
 - :current_node: :specific_date_each_month_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22261,7 +22261,7 @@
 - :current_node: :specific_date_each_month_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22280,7 +22280,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22298,7 +22298,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22317,7 +22317,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22336,7 +22336,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22355,7 +22355,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22374,7 +22374,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22393,7 +22393,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22412,7 +22412,7 @@
 - :current_node: :days_of_the_week_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22431,7 +22431,7 @@
 - :current_node: :monthly_pay_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22449,7 +22449,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22468,7 +22468,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22488,7 +22488,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22508,7 +22508,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22528,7 +22528,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22548,7 +22548,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22568,7 +22568,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22587,7 +22587,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22607,7 +22607,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22627,7 +22627,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22647,7 +22647,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22667,7 +22667,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22687,7 +22687,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22706,7 +22706,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22726,7 +22726,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22746,7 +22746,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22766,7 +22766,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22786,7 +22786,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22806,7 +22806,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22825,7 +22825,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22845,7 +22845,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22865,7 +22865,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22885,7 +22885,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22905,7 +22905,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22925,7 +22925,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22944,7 +22944,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22964,7 +22964,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -22984,7 +22984,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -23004,7 +23004,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -23024,7 +23024,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -23044,7 +23044,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -23063,7 +23063,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -23083,7 +23083,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -23103,7 +23103,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -23123,7 +23123,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -23143,7 +23143,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -23163,7 +23163,7 @@
 - :current_node: :day_of_the_month_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -23182,7 +23182,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -23202,7 +23202,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -23222,7 +23222,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -23242,7 +23242,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -23262,7 +23262,7 @@
 - :current_node: :pay_date_options_paternity?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -23282,7 +23282,7 @@
 - :current_node: :adoption_is_the_employee_on_your_payroll?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -23293,7 +23293,7 @@
 - :current_node: :adoption_did_the_employee_work_for_you?
   :responses:
   - adoption
-  - 'no'
+  - maternity
   - '2018-04-05'
   - '2018-04-06'
   - 'no'
