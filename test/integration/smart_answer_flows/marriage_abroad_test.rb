@@ -2483,8 +2483,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         add_response 'opposite_sex'
       end
 
-      should "leads to outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country" do
-        assert_current_node :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
+      should "leads to outcome_marriage_abroad_in_country" do
+        assert_current_node :outcome_marriage_abroad_in_country
       end
     end
 
@@ -2494,8 +2494,8 @@ class MarriageAbroadTest < ActiveSupport::TestCase
         add_response 'partner_other'
         add_response 'opposite_sex'
       end
-      should "lead to outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_ceremony_country with Greece-specific appoitnment link and document requirements" do
-        assert_current_node :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_ceremony_country
+      should "lead to outcome_marriage_abroad_in_country with Greece-specific appoitnment link and document requirements" do
+        assert_current_node :outcome_marriage_abroad_in_country
       end
     end
   end
