@@ -55,6 +55,24 @@ class ContentItemPublisher
     )
   end
 
+  def publish_transaction_start_page(content_id, base_path, publishing_app:, title:, content:, link:)
+    raise "The content id isn't supplied" unless content_id.present?
+    raise "The base path isn't supplied" unless base_path.present?
+    raise "The publishing_app isn't supplied" unless publishing_app.present?
+    raise "The title isn't supplied" unless title.present?
+    raise "The content isn't supplied" unless content.present?
+    raise "The link isn't supplied" unless link.present?
+
+    publish_transaction_start_page_via_publishing_api(
+      content_id,
+      base_path,
+      publishing_app: publishing_app,
+      title: title,
+      content: content,
+      link: link
+    )
+  end
+
   def publish_answer(base_path, publishing_app:, title:, content:)
     raise "The base path isn't supplied" unless base_path.present?
     raise "The publishing_app isn't supplied" unless publishing_app.present?
@@ -146,8 +164,36 @@ private
     create_and_publish_via_publishing_api(payload)
   end
 
-  def create_and_publish_via_publishing_api(payload)
-    content_id = SecureRandom.uuid
+  def publish_transaction_start_page_via_publishing_api(content_id, base_path, publishing_app:, title:, content:, link:)
+    payload = {
+      base_path: base_path,
+      title: title,
+      document_type: :transaction,
+      publishing_app: publishing_app,
+      rendering_app: :frontend,
+      locale: :en,
+      details: {
+        introductory_paragraph: [
+          {
+            content: content,
+            content_type: "text/govspeak"
+          }
+        ],
+        transaction_start_link: link
+      },
+      routes: [
+        {
+          type: :exact,
+          path: base_path
+        }
+      ],
+      schema_name: :transaction
+    }
+
+    create_and_publish_via_publishing_api(payload, content_id)
+  end
+
+  def create_and_publish_via_publishing_api(payload, content_id=SecureRandom.uuid)
     response = Services.publishing_api.put_content(content_id, payload)
     raise "This content item has not been created" unless response.code == 200
     Services.publishing_api.publish(content_id, :major)

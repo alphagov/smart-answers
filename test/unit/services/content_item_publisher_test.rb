@@ -237,6 +237,133 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
     end
   end
 
+  context "#publish_transaction_start_page" do
+    setup do
+      SecureRandom.stubs(:uuid).returns('content-id')
+      create_url = "https://publishing-api.test.gov.uk/v2/content/content-id"
+      @create_request = stub_request(:put, create_url)
+      publish_url = "https://publishing-api.test.gov.uk/v2/content/content-id/publish"
+      @publish_request = stub_request(:post, publish_url)
+    end
+
+    should "raise exception if content id is not supplied" do
+      exception = assert_raises(RuntimeError) do
+        ContentItemPublisher.new.publish_transaction_start_page(
+          nil,
+          "/base-path",
+          publishing_app: "publisher",
+          title: "Sample transaction title",
+          content: "Sample transaction content",
+          link: "/path/to/smartanswers/y"
+        )
+      end
+
+      assert_equal "The content id isn't supplied", exception.message
+    end
+
+    should "raise exception if base path is not supplied" do
+      exception = assert_raises(RuntimeError) do
+        ContentItemPublisher.new.publish_transaction_start_page(
+          "content_id",
+          nil,
+          publishing_app: "publisher",
+          title: "Sample transaction title",
+          content: "Sample transaction content",
+          link: "/path/to/smartanswers/y"
+        )
+      end
+
+      assert_equal "The base path isn't supplied", exception.message
+    end
+
+    should "raise exception if publishing_app is not supplied" do
+      exception = assert_raises(RuntimeError) do
+        ContentItemPublisher.new.publish_transaction_start_page(
+          "content_id",
+          "/base-path",
+          publishing_app: nil,
+          title: "Sample transaction title",
+          content: "Sample transaction content",
+          link: "/path/to/smartanswers/y"
+        )
+      end
+
+      assert_equal "The publishing_app isn't supplied", exception.message
+    end
+
+    should "raise exception if title is not supplied" do
+      exception = assert_raises(RuntimeError) do
+        ContentItemPublisher.new.publish_transaction_start_page(
+          "content_id",
+          "/base-path",
+          publishing_app: "publisher",
+          title: nil,
+          content: "Sample transaction content",
+          link: "/path/to/smartanswers/y"
+        )
+      end
+
+      assert_equal "The title isn't supplied", exception.message
+    end
+
+    should "raise exception if content is not supplied" do
+      exception = assert_raises(RuntimeError) do
+        ContentItemPublisher.new.publish_transaction_start_page(
+          "content_id",
+          "/base-path",
+          publishing_app: "publisher",
+          title: "Sample transaction title",
+          content: nil,
+          link: "/path/to/smartanswers/y"
+        )
+      end
+
+      assert_equal "The content isn't supplied", exception.message
+    end
+
+    should "raise exception if link is not supplied" do
+      exception = assert_raises(RuntimeError) do
+        ContentItemPublisher.new.publish_transaction_start_page(
+          "content_id",
+          "/base-path",
+          publishing_app: "publisher",
+          title: "Sample transaction title",
+          content: "Sample transaction content",
+          link: nil
+        )
+      end
+
+      assert_equal "The link isn't supplied", exception.message
+    end
+
+    should "send publish transaction message to publish_transaction_start_page_via_publishing_api" do
+      ContentItemPublisher.any_instance.expects(:publish_transaction_start_page_via_publishing_api).once
+
+      ContentItemPublisher.new.publish_transaction_start_page(
+        "content-id",
+        "/base-path",
+        publishing_app: "publisher",
+        title: "Sample transaction title",
+        content: "Sample transaction content",
+        link: "/path/to/smartanswers/y"
+      )
+    end
+
+    should "send publish transaction request to publish_transaction_start_page_via_publishing_api" do
+      ContentItemPublisher.new.publish_transaction_start_page(
+        "content-id",
+        "/base-path",
+        publishing_app: "publisher",
+        title: "Sample transaction title",
+        content: "Sample transaction content",
+        link: "/path/to/smartanswers/y"
+      )
+
+      assert_requested @create_request
+      assert_requested @publish_request
+    end
+  end
+
   context "#publish_answer" do
     setup do
       SecureRandom.stubs(:uuid).returns('content-id')
