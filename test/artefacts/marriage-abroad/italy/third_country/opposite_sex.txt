@@ -1,3 +1,5 @@
+Marriage in Italy
+
 ## Before you start
 
 Contact the local Italian ‘comune’ (town hall) to find out about local marriage laws, including what documents you and your partner will need.
@@ -59,10 +61,9 @@ Via XX Settembre 80/a
 Italy
 $A
 
-
 You need to be in Italy for 3 full days before you can give notice. This means if you arrive on Monday you can’t give notice until Friday.
 
-It costs <%= format_money calculator.consular_fee(:receiving_notice_of_marriage) %> to give notice and <%= format_money calculator.consular_fee(:issuing_cni_or_nulla_osta) %> for the Nulla Osta. You can pay by card. If you want to pay in cash you need to pay in the [local currency](/government/publications/italy-consular-fees).
+It costs £50 to give notice and £50 for the Nulla Osta. You can pay by card. If you want to pay in cash you need to pay in the [local currency](/government/publications/italy-consular-fees).
 
 You’ll need to bring:
 
@@ -125,3 +126,6 @@ You won’t need to register your marriage in the UK.
 If you need extra copies of your marriage certificate, you can apply for them at the local comune.
 
 If your partner isn’t a British citizen, they can apply for [British citizenship](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
+
+
+
