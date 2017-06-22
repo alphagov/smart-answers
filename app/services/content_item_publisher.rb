@@ -1,6 +1,11 @@
 class ContentItemPublisher
   def publish(flow_presenters)
     flow_presenters.each do |smart_answer|
+      if smart_answer.slug == "part-year-profit-tax-credits"
+        content_item = StartPageLessFlowContentItem.new(smart_answer)
+      else
+        content_item = FlowContentItem.new(smart_answer)
+      end
       Services.publishing_api.put_content(content_item.content_id, content_item.payload)
       Services.publishing_api.publish(content_item.content_id, 'minor')
     end
