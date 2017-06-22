@@ -2,7 +2,7 @@
 
 ## Overview
 
-Unusually this project includes a set of regression tests. These tests are not *normally* run as part of the `default` Rake task, because they take a long time to run. Thus they do not normally run as part of the [main CI build](continuous-integration#main). However, they *always* run as part of the [regression CI build](continuous-integration#regression) on the master branch only. Go to this [Jenkins Job](https://ci.integration.publishing.service.gov.uk/job/smartanswers/job/master/), click on the lastest build, click replay and edit the script in the first textarea to run the regressions tests. 
+Unusually this project includes a set of regression tests. These tests are not *normally* run as part of the `default` Rake task, because they take a long time to run. Thus they do not normally run as part of the [main CI build](continuous-integration#main). However, they *always* run as part of the [regression CI build](continuous-integration#regression) on the master branch only. Go to this [Jenkins Job](https://ci.integration.publishing.service.gov.uk/job/smartanswers/job/master/), click on the lastest build, click replay and edit the script in the first textarea to run the regressions tests.
 
 Having said all that, there is a [primitive mechanism](#checksum-file) which detects changes to the files associated with a given flow since the last time the regression tests ran successfully for that flow.
 
@@ -52,6 +52,12 @@ You *will* need to update it if you:
 
   * change the "questions & responses" file
   * change the routing logic
+
+Example:
+
+```shell
+bundle exec rails r script/generate-responses-and-expected-results-for-smart-answer.rb marriage-abroad
+```
 
 ### Artefact files
 
