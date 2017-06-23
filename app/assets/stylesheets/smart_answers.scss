@@ -375,19 +375,4 @@ $is-ie: false !default;
     vertical-align: top;
   }
 
-  .ab-context {
-    padding: 0;
-    margin:  0;
-
-    h2 {
-      border: none;
-      @include bold-19;
-      margin: 0 0 1em;
-      position: relative;
-
-      @include ie-lte(8) {
-        line-height: 1.2em;
-      }
-    }
-  }
 }
