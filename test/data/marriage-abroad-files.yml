@@ -1,10 +1,10 @@
 ---
-lib/data/marriage_abroad_data.yml: d75b7c20a560fe9a80b2c437ac52a842
+lib/data/marriage_abroad_data.yml: 2a7a81c358c619509b4dc0d081b942cc
 lib/data/marriage_abroad_services.yml: 40598840da892562da37f79c36b3208e
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/smart_answer/calculators/country_name_formatter.rb: 583df7103672f581bf5510732c1b2be1
 lib/smart_answer/calculators/marriage_abroad_calculator.rb: e48d4ea4a380262a7950e9a397686600
-lib/smart_answer/calculators/marriage_abroad_data_query.rb: dd6b6ac358728ff0344d3c6ca9120964
+lib/smart_answer/calculators/marriage_abroad_data_query.rb: 1b9cce8660c0917186e2e288b35c1f80
 lib/smart_answer/calculators/registrations_data_query.rb: 3afcd514ecedadd19b0db67f54ac5ea6
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
 lib/smart_answer_flows/marriage-abroad/outcomes/_affirmation_os_translation_in_local_language_text.govspeak.erb: af09e09b909c563d4a587ef1b9285cca
@@ -320,6 +320,25 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/uk/partner_
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/uk/partner_local/_same_sex.erb: d071a7e93056c2aa5837f22e6712fa38
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/uk/partner_other/_opposite_sex.erb: a00087652cf25f6b0cdf40bc1d180447
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/uk/partner_other/_same_sex.erb: d071a7e93056c2aa5837f22e6712fa38
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/maldives/_title.govspeak.erb: 00274dd1f2ee56ab2baacc0d9eef0372
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/maldives/ceremony_country/partner_british/_opposite_sex.govspeak.erb: 33ce3c3de5a203e213104b1d4fa2b6a0
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/maldives/ceremony_country/partner_british/_same_sex.govspeak.erb: e5a8b1a60f0b52a030451162acafd64a
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/maldives/ceremony_country/partner_local/_opposite_sex.govspeak.erb: bb06f502582c6b050f5d94eeb7514ce8
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/maldives/ceremony_country/partner_local/_same_sex.govspeak.erb: e5a8b1a60f0b52a030451162acafd64a
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/maldives/ceremony_country/partner_other/_opposite_sex.govspeak.erb: bb06f502582c6b050f5d94eeb7514ce8
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/maldives/ceremony_country/partner_other/_same_sex.govspeak.erb: e5a8b1a60f0b52a030451162acafd64a
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/maldives/third_country/partner_british/_opposite_sex.govspeak.erb: b074e57765bde907dd39368721bf29b6
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/maldives/third_country/partner_british/_same_sex.govspeak.erb: e5a8b1a60f0b52a030451162acafd64a
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/maldives/third_country/partner_local/_opposite_sex.govspeak.erb: 78d56d9c4d27ce4a6731e3518a2dce68
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/maldives/third_country/partner_local/_same_sex.govspeak.erb: e5a8b1a60f0b52a030451162acafd64a
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/maldives/third_country/partner_other/_opposite_sex.govspeak.erb: 78d56d9c4d27ce4a6731e3518a2dce68
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/maldives/third_country/partner_other/_same_sex.govspeak.erb: e5a8b1a60f0b52a030451162acafd64a
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/maldives/uk/partner_british/_opposite_sex.govspeak.erb: 7586f9556f18e385e7cf1fa3cb101f91
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/maldives/uk/partner_british/_same_sex.govspeak.erb: e5a8b1a60f0b52a030451162acafd64a
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/maldives/uk/partner_local/_opposite_sex.govspeak.erb: cba6107081af3fcb5df145e6a652147a
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/maldives/uk/partner_local/_same_sex.govspeak.erb: e5a8b1a60f0b52a030451162acafd64a
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/maldives/uk/partner_other/_opposite_sex.govspeak.erb: cba6107081af3fcb5df145e6a652147a
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/maldives/uk/partner_other/_same_sex.govspeak.erb: e5a8b1a60f0b52a030451162acafd64a
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/mozambique/_title.govspeak.erb: 02dfe62310d38985f5b8c0330cee5b29
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/mozambique/ceremony_country/partner_british/_opposite_sex.govspeak.erb: 394c92edfaacdac9a6220322cc21eec9
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/mozambique/ceremony_country/partner_british/_same_sex.govspeak.erb: aee27299ffc25ae3d29a71bb8f07bb01
@@ -578,5 +597,5 @@ lib/smart_answer_flows/marriage-abroad/questions/partner_opposite_or_same_sex.go
 lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationality.govspeak.erb: 80e04f36c75c232bede1a244d621471e
 lib/smart_answer_flows/marriage-abroad.rb: a55cda88d170a6d0ee2f08d6dbff73b8
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1dc349abcd6b21e1bf8c397d96fd02b8
-test/data/marriage-abroad-questions-and-responses.yml: 18d27f7b85cc02c37b8bab7e9afd4acc
-test/data/marriage-abroad-responses-and-expected-results.yml: 0c54f644afd9f3deccc3a006b9644843
+test/data/marriage-abroad-questions-and-responses.yml: 0cf7490bec14366a6e296763e3c30a0f
+test/data/marriage-abroad-responses-and-expected-results.yml: 7b70e2e10f8d4a44c23145df20b04d8d
