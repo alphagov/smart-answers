@@ -44,16 +44,23 @@ You *might* want to consider updating it (for [coverage purposes](#coverage)) if
 
 ### Responses & expected results file
 
-This file is effectively a cache of the nodes reached by particular combinations of responses. This is an optimisation which makes running the regression tests faster when this cached data does not need to change. The filenames are of the form: `test/data/<smart-answer-flow-name>-responses-and-expected-results.yml`
-
-The `script/generate-responses-and-expected-results-for-smart-answer.rb` script should always be used to generate this file.
+This file is effectively a cache of the nodes reached by particular combinations of responses. This is an optimisation which makes running the regression tests faster when this cached data does not need to change.
 
 You *will* need to update it if you:
 
-  * change the "questions & responses" file
-  * change the routing logic
+* change the "questions & responses" file
+* change the routing logic
 
-Example:
+The filenames are of the form: `test/data/<smart-answer-flow-name>-responses-and-expected-results.yml`
+
+The `script/generate-responses-and-expected-results-for-smart-answer.rb` script should always be used to generate this file.
+
+Usage:
+```shell
+bundle exec rails r script/generate-responses-and-expected-results-for-smart-answer.rb <smart-answer-flow-name>
+```
+
+For example to regenerate `test/data/marriage-abroad-responses-and-expected-results.yml`:
 
 ```shell
 bundle exec rails r script/generate-responses-and-expected-results-for-smart-answer.rb marriage-abroad
