@@ -806,9 +806,7 @@ colombia:
   same_sex:
     default:
       default:
-      - :receiving_notice_of_registration
-      - :registering_marriage
-      - :issuing_marriage_certificate
+      - :affidavit_or_affirmation_for_marriage
   opposite_sex:
     default:
       default:
