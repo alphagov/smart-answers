@@ -2,7 +2,6 @@ class SmartAnswersController < ApplicationController
   include Slimmer::GovukComponents
   include Slimmer::Headers
   include EducationNavigationABTestable
-  include BenchmarkChildMaintenanceButtonPositionABTestable
   include BenchmarkHolidayEntitlementABTestable
 
   before_action :find_smart_answer, except: %w(index)
@@ -17,8 +16,6 @@ class SmartAnswersController < ApplicationController
     :should_present_new_navigation_view?,
     :page_is_under_ab_test?,
     :present_taxonomy_sidebar?,
-    :is_button_position_tested_path?,
-    :should_show_button_position_variant?,
     :is_holiday_entitlement_tested_path?,
     :should_show_holiday_entitlement_variant?
   )
@@ -39,10 +36,6 @@ class SmartAnswersController < ApplicationController
       format.html {
         if page_is_under_ab_test?(content_item)
           set_education_navigation_response_header(content_item)
-        end
-
-        if is_button_position_tested_path?
-          set_benchmark_button_position_response_header
         end
 
         if is_holiday_entitlement_tested_path?
