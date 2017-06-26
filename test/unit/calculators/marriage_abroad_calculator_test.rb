@@ -3,6 +3,15 @@ require_relative "../../test_helper"
 module SmartAnswer
   module Calculators
     class MarriageAbroadCalculatorTest < ActiveSupport::TestCase
+      setup do
+        MarriageAbroadDataQuery.any_instance
+            .stubs(:countries_with_18_outcomes).returns(%w(18_outcome_country country))
+        MarriageAbroadDataQuery.any_instance
+            .stubs(:countries_with_6_outcomes).returns(%w(6_outcome_country))
+        MarriageAbroadDataQuery.any_instance
+            .stubs(:countries_with_2_outcomes).returns(%w(2_outcome_country italy))
+      end
+
       context '#path_to_outcome' do
         setup do
           @calculator = MarriageAbroadCalculator.new
@@ -1113,20 +1122,36 @@ module SmartAnswer
       end
 
       context "outcome per path" do
-        should "return true if country has outcome per path" do
-          @calculator = MarriageAbroadCalculator.new
-          @calculator.ceremony_country = 'italy'
+        context "#two_questions_country? " do
+          should "return true if this 2 outcome country is part of the outcome per path countries" do
+            @calculator = MarriageAbroadCalculator.new
+            @calculator.ceremony_country = "2_outcome_country"
 
-          assert_equal true, @calculator.has_outcome_per_path?
+            assert_equal true, @calculator.has_outcome_per_path?
+          end
+
+          should "return true if country has two questions" do
+            @calculator = MarriageAbroadCalculator.new
+            @calculator.ceremony_country = "2_outcome_country"
+
+            assert_equal true, @calculator.two_questions_country?
+          end
         end
-      end
 
-      context '#two_questions_country? ' do
-        should 'return true if country has two questions' do
-          @calculator = MarriageAbroadCalculator.new
-          @calculator.ceremony_country = 'italy'
+        context "#three_questions_country? " do
+          should "return true if this 6 outcome country is part of the outcome per path countries" do
+            @calculator = MarriageAbroadCalculator.new
+            @calculator.ceremony_country = "6_outcome_country"
 
-          assert_equal true, @calculator.two_questions_country?
+            assert_equal true, @calculator.has_outcome_per_path?
+          end
+
+          should "return true if country has three questions" do
+            @calculator = MarriageAbroadCalculator.new
+            @calculator.ceremony_country = "6_outcome_country"
+
+            assert_equal true, @calculator.three_questions_country?
+          end
         end
       end
     end
