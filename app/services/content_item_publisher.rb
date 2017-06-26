@@ -1,14 +1,27 @@
 class ContentItemPublisher
   def publish(flow_presenters)
+    start_page_less_smart_answer = flow_presenters.select { |smart_answer| smart_answer.slug == "part-year-profit-tax-credits/y" }.first
+    start_page_smart_answer = flow_presenters.select { |smart_answer| smart_answer.slug == "part-year-profit-tax-credits" }.first
     flow_presenters.each do |smart_answer|
-      if smart_answer.slug == "part-year-profit-tax-credits"
+      if smart_answer == start_page_less_smart_answer
         content_item = StartPageLessFlowContentItem.new(smart_answer)
+      elsif smart_answer == start_page_smart_answer
+        content_item = nil
       else
         content_item = FlowContentItem.new(smart_answer)
       end
-      Services.publishing_api.put_content(content_item.content_id, content_item.payload)
-      Services.publishing_api.publish(content_item.content_id, 'minor')
+      Services.publishing_api.put_content(content_item.content_id, content_item.payload) unless smart_answer == start_page_smart_answer
+      Services.publishing_api.publish(content_item.content_id, 'minor') unless smart_answer == start_page_smart_answer
     end
+    self.unpublish("de6723a5-7256-4bfd-aad3-82b04b06b73e")
+    self.publish_transaction_start_page(
+      "de6723a5-7256-4bfd-aad3-82b04b06b73e",
+      "/part-year-profit-tax-credits",
+      publishing_app: publisher,
+      title: "Calculate your part-year profits to finalise your tax credits",
+      content:"  You need to report your part-year profits to end your Tax Credits claim because of a claim to Universal Credit and you’re self-employed.\n\nYou’ll need to know the following to use this calculator:\n\n- your Tax Credits award end date (you can find this on your award review)\n- your accounting dates for your business\n- your accounting year profit for the tax year in which your tax credits award ends\n\nYou can use this calculator to complete box 2.4 of your award review.",
+      link: "https://www.gov.uk/part-year-profit-tax-credits/y"
+    )
   end
 
   def unpublish(content_id)
