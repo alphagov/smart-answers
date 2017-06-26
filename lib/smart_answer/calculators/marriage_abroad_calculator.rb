@@ -316,7 +316,7 @@ module SmartAnswer::Calculators
     end
 
     def has_outcome_per_path?
-      @data_query.countries_with_18_outcomes.include?(ceremony_country)
+      @data_query.outcome_per_path_countries.include?(ceremony_country)
     end
 
     def three_questions_country?
