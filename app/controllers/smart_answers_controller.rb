@@ -2,7 +2,6 @@ class SmartAnswersController < ApplicationController
   include Slimmer::GovukComponents
   include Slimmer::Headers
   include EducationNavigationABTestable
-  include BenchmarkHolidayEntitlementABTestable
 
   before_action :find_smart_answer, except: %w(index)
   before_action :redirect_response_to_canonical_url, only: %w{show}
@@ -16,8 +15,6 @@ class SmartAnswersController < ApplicationController
     :should_present_new_navigation_view?,
     :page_is_under_ab_test?,
     :present_taxonomy_sidebar?,
-    :is_holiday_entitlement_tested_path?,
-    :should_show_holiday_entitlement_variant?
   )
 
   rescue_from SmartAnswer::FlowRegistry::NotFound, with: :error_404
@@ -36,10 +33,6 @@ class SmartAnswersController < ApplicationController
       format.html {
         if page_is_under_ab_test?(content_item)
           set_education_navigation_response_header(content_item)
-        end
-
-        if is_holiday_entitlement_tested_path?
-          set_benchmark_holiday_entitlement_response_header
         end
 
         render page_type

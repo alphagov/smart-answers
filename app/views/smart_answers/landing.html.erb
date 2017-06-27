@@ -16,12 +16,7 @@
   <article role="article" class="group" data-debug-template-path="<%= start_node.relative_erb_template_path %>">
     <div class="inner">
       <div class="intro">
-
-      <% if should_show_holiday_entitlement_variant? %>
-        <%= start_node.ab_body %>
-      <% else %>
         <%= start_node.body %>
-      <% end %>
 
         <p class="get-started">
           <a rel="nofollow" href="<%= start_button_href %>" class="big button"><%= start_button %></a>
