@@ -153,6 +153,12 @@ module SmartAnswer::Calculators
       OS_CONSULAR_CNI_IN_NEARBY_COUNTRY.include?(country_slug)
     end
 
+    def outcome_per_path_countries
+      (countries_with_18_outcomes +
+      countries_with_6_outcomes +
+      countries_with_2_outcomes).sort
+    end
+
     def countries_with_18_outcomes
       country_outcomes(:countries_with_18_outcomes)
     end

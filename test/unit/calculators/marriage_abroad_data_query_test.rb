@@ -165,6 +165,19 @@ module SmartAnswer
             assert_equal exception.message, "key not found: \"countries_with_6_outcomes\""
           end
         end
+
+        context "#outcome_per_path_countries" do
+          should "return an alphabetical list of countries under 2, 6, and 18 outcome groups" do
+            YAML.stubs(:load_file).returns(
+              countries_with_18_outcomes: %w(anguilla),
+              countries_with_6_outcomes: %w(bermuda),
+              countries_with_2_outcomes: %w(cayman-islands)
+            )
+
+            assert_equal @data_query.outcome_per_path_countries,
+              %w(anguilla bermuda cayman-islands)
+          end
+        end
       end
     end
   end
