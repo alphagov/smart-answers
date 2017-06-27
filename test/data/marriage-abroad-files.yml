@@ -1,5 +1,5 @@
 ---
-lib/data/marriage_abroad_data.yml: 2a7a81c358c619509b4dc0d081b942cc
+lib/data/marriage_abroad_data.yml: f78424d93de6825dc286259b3e447c2a
 lib/data/marriage_abroad_services.yml: 40598840da892562da37f79c36b3208e
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/smart_answer/calculators/country_name_formatter.rb: 583df7103672f581bf5510732c1b2be1
@@ -121,25 +121,9 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/colombia/uk/partner_lo
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/colombia/uk/partner_local/_same_sex.govspeak.erb: 3f73e429b5ed87efd6ada2a5ef3bad0e
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/colombia/uk/partner_other/_opposite_sex.govspeak.erb: bbc5ae85ada490b5f642868541332162
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/colombia/uk/partner_other/_same_sex.govspeak.erb: 3f73e429b5ed87efd6ada2a5ef3bad0e
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/cyprus/_opposite_sex.govspeak.erb: 7ed3fcb1cc2e6508a6e1cd691f66d5cc
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/cyprus/_same_sex.govspeak.erb: 39f0c356a58197943e719b6f93ddade1
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/cyprus/_title.govspeak.erb: 669bca4d320cacd23b7377f53a673368
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/cyprus/ceremony_country/partner_british/_opposite_sex.erb: 22392bd95052daeca4a90483886792c5
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/cyprus/ceremony_country/partner_british/_same_sex.erb: 15c34d28e33b261bf597b4261a33ceb9
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/cyprus/ceremony_country/partner_local/_opposite_sex.erb: bfd3aa911514a68c3a142895a27ddfd1
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/cyprus/ceremony_country/partner_local/_same_sex.erb: 75c84214e95255fee83f60af9ee3d6c8
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/cyprus/ceremony_country/partner_other/_opposite_sex.erb: bfd3aa911514a68c3a142895a27ddfd1
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/cyprus/ceremony_country/partner_other/_same_sex.erb: 75c84214e95255fee83f60af9ee3d6c8
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/cyprus/third_country/partner_british/_opposite_sex.erb: e0d2dfe35a8e9e1bf71930adc4290f17
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/cyprus/third_country/partner_british/_same_sex.erb: a38104521806aad71c7bed759b158fa3
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/cyprus/third_country/partner_local/_opposite_sex.erb: 3a661c4934260bbb5a99780c72544dc8
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/cyprus/third_country/partner_local/_same_sex.erb: 75c84214e95255fee83f60af9ee3d6c8
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/cyprus/third_country/partner_other/_opposite_sex.erb: 3a661c4934260bbb5a99780c72544dc8
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/cyprus/third_country/partner_other/_same_sex.erb: 75c84214e95255fee83f60af9ee3d6c8
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/cyprus/uk/partner_british/_opposite_sex.erb: 2092c9e485c85c071a823b574ed0f781
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/cyprus/uk/partner_british/_same_sex.erb: a38104521806aad71c7bed759b158fa3
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/cyprus/uk/partner_local/_opposite_sex.erb: b763dfcf19bed6095f88b5c6b73585f8
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/cyprus/uk/partner_local/_same_sex.erb: 75c84214e95255fee83f60af9ee3d6c8
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/cyprus/uk/partner_other/_opposite_sex.erb: b763dfcf19bed6095f88b5c6b73585f8
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/cyprus/uk/partner_other/_same_sex.erb: 75c84214e95255fee83f60af9ee3d6c8
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/_title.govspeak.erb: f3f69700147ffd739c4d3dc86f2ec22b
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/ceremony_country/partner_british/_opposite_sex.govspeak.erb: 7d0c5e38504d5db6d760347c84d23bbd
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/ceremony_country/partner_british/_same_sex.govspeak.erb: c7e41bcc2c3c2c879ccb39b932f186d3
@@ -598,4 +582,4 @@ lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationali
 lib/smart_answer_flows/marriage-abroad.rb: a55cda88d170a6d0ee2f08d6dbff73b8
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1dc349abcd6b21e1bf8c397d96fd02b8
 test/data/marriage-abroad-questions-and-responses.yml: 0cf7490bec14366a6e296763e3c30a0f
-test/data/marriage-abroad-responses-and-expected-results.yml: 7b70e2e10f8d4a44c23145df20b04d8d
+test/data/marriage-abroad-responses-and-expected-results.yml: 39bea195c80f2637cb2fee944c6e568a
