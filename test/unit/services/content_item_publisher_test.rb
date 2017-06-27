@@ -1,6 +1,8 @@
 require 'test_helper'
+require 'gds_api/test_helpers/publishing_api_v2'
 
 class ContentItemPublisherTest < ActiveSupport::TestCase
+  include GdsApi::TestHelpers::PublishingApiV2
   setup do
     load_path = fixture_file('smart_answer_flows')
     SmartAnswer::FlowRegistry.stubs(:instance).returns(stub("Flow registry", find: @flow, load_path: load_path))
@@ -9,6 +11,11 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
   test 'sending item to content store' do
     draft_request = stub_request(:put, "https://publishing-api.test.gov.uk/v2/content/3e6f33b8-0723-4dd5-94a2-cab06f23a685")
     publishing_request = stub_request(:post, "https://publishing-api.test.gov.uk/v2/content/3e6f33b8-0723-4dd5-94a2-cab06f23a685/publish")
+    unpublishing_request = stub_request(:post, "https://publishing-api.test.gov.uk/v2/content/de6723a5-7256-4bfd-aad3-82b04b06b73e/unpublish")
+    publishing_api_has_lookups({"/part-year-profit-tax-credits" => "de6723a5-7256-4bfd-aad3-82b04b06b73e"})
+    stub_publishing_api_discard_draft("de6723a5-7256-4bfd-aad3-82b04b06b73e")
+    stub_any_publishing_api_put_content
+    stub_any_publishing_api_publish
 
     presenter = FlowRegistrationPresenter.new(stub('flow', name: 'bridge-of-death', content_id: '3e6f33b8-0723-4dd5-94a2-cab06f23a685', external_related_links: nil))
 
@@ -16,6 +23,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
 
     assert_requested draft_request
     assert_requested publishing_request
+    assert_requested unpublishing_request
   end
 
   context "#unpublish" do
