@@ -87,7 +87,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
       should "have up to date checksum data" do
         message = []
         message << "Expected #{smart_answer_helper.files_checksum_path} to exist and to contain up to date data"
-        message << "Use the checksums:generate[#{flow_name}] rake task to update it"
+        message << "Use the checksums:add_files[#{flow_name}] rake task to update it"
         assert_equal false, smart_answer_helper.files_checksum_data_needs_updating?, message.join('. ')
       end
 

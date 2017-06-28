@@ -4,7 +4,7 @@ Based on your answers the child maintenance payment is the reduced rate of £7.0
 
 ^This is the total weekly amount, not the amount per child.^
 
-The calculator is based on the rules used by the Child Maintenance Service. The exact amount the Child Maintenance Service calculates may be different.
+The calculator gives an estimate. The exact amount the Child Maintenance Service calculates may be different.
 
 Depending on how child maintenance is arranged, fees may be added to this amount.
 
