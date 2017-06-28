@@ -24,10 +24,10 @@ countries_with_2_outcomes:
   - cyprus
   - france
   - ireland
-  - italy
   - philippines
   - thailand
   - turkey
   - usa
 countries_with_6_outcomes:
   - poland
+  - italy

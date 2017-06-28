@@ -9,7 +9,7 @@ module SmartAnswer
         MarriageAbroadDataQuery.any_instance
             .stubs(:countries_with_6_outcomes).returns(%w(6_outcome_country))
         MarriageAbroadDataQuery.any_instance
-            .stubs(:countries_with_2_outcomes).returns(%w(2_outcome_country italy))
+            .stubs(:countries_with_2_outcomes).returns(%w(2_outcome_country))
       end
 
       context '#path_to_outcome' do
@@ -44,18 +44,18 @@ module SmartAnswer
           assert_equal %w(country third_country partner_other same_sex), @calculator.path_to_outcome
         end
 
-        should 'get opposite-sex outcome for Italy' do
-          @calculator.ceremony_country = 'italy'
+        should 'get opposite-sex outcome for 2 outcome country' do
+          @calculator.ceremony_country = '2_outcome_country'
           @calculator.sex_of_your_partner = 'opposite_sex'
 
-          assert_equal %w(italy opposite_sex), @calculator.path_to_outcome
+          assert_equal %w(2_outcome_country opposite_sex), @calculator.path_to_outcome
         end
 
-        should 'get same-sex outcome for Italy' do
-          @calculator.ceremony_country = 'italy'
+        should 'get same-sex outcome for 2 outcome country' do
+          @calculator.ceremony_country = '2_outcome_country'
           @calculator.sex_of_your_partner = 'same_sex'
 
-          assert_equal %w(italy same_sex), @calculator.path_to_outcome
+          assert_equal %w(2_outcome_country same_sex), @calculator.path_to_outcome
         end
 
         context 'when ceremony country is a three questions country' do
