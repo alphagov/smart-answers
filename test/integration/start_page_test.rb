@@ -4,6 +4,7 @@ class StartPageTest < ActionDispatch::IntegrationTest
   context "start page" do
     RegisterableSmartAnswers.new.flow_presenters.each do |flow_presenter|
       slug = flow_presenter.slug
+      next if slug == "part-year-profit-tax-credits/y"
       context "when the smart answer is `#{slug}`" do
         setup do
           @view = mock("view")
