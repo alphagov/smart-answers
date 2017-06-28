@@ -6,9 +6,9 @@ require 'smart_answer_flows/marriage-abroad'
 class MarriageAbroadTest < ActiveSupport::TestCase
   include FlowTestHelper
 
-  FLATTEN_COUNTRIES_2_OUTCOMES = %w(china cyprus egypt france ireland italy luxembourg philippines thailand turkey usa).freeze
+  FLATTEN_COUNTRIES_2_OUTCOMES = %w(china cyprus egypt france ireland italy luxembourg japan philippines thailand turkey usa).freeze
   FLATTEN_COUNTRIES_6_OUTCOMES = %w(poland greece).freeze
-  FLATTEN_COUNTRIES_18_OUTCOMES = %w(algeria azerbaijan brazil british-indian-ocean-territory burma cambodia chile colombia denmark el-salvador gambia germany hungary indonesia iran japan jordan latvia maldives moldova mozambique nicaragua portugal romania south-africa sweden tanzania tunisia vietnam).freeze
+  FLATTEN_COUNTRIES_18_OUTCOMES = %w(algeria azerbaijan brazil british-indian-ocean-territory burma cambodia chile colombia denmark el-salvador gambia germany hungary indonesia iran jordan latvia maldives moldova mozambique nicaragua portugal romania south-africa sweden tanzania tunisia vietnam).freeze
   FLATTEN_COUNTRIES = FLATTEN_COUNTRIES_2_OUTCOMES + FLATTEN_COUNTRIES_6_OUTCOMES + FLATTEN_COUNTRIES_18_OUTCOMES
   NOT_FLATTEN_COUNTRIES = %w(albania american-samoa anguilla argentina armenia aruba australia austria bahamas belarus belgium bonaire-st-eustatius-saba burundi canada costa-rica cote-d-ivoire croatia czech-republic democratic-republic-of-the-congo ecuador estonia finland hong-kong kazakhstan kosovo kyrgyzstan laos lebanon lithuania macao macedonia malta mayotte mexico monaco montenegro morocco netherlands north-korea norway oman guatemala paraguay peru qatar russia rwanda saint-barthelemy san-marino saudi-arabia serbia seychelles slovakia slovenia somalia st-maarten st-martin south-korea spain switzerland turkmenistan ukraine united-arab-emirates uzbekistan wallis-and-futuna yemen zimbabwe).freeze
 
