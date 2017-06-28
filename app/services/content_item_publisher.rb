@@ -215,6 +215,7 @@ private
       schema_name: :transaction
     }
 
+    reserve_path_for_publishing_app(base_path, publishing_app)
     create_and_publish_via_publishing_api(payload, content_id)
   end
 

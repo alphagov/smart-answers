@@ -12,6 +12,8 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
     draft_request = stub_request(:put, "https://publishing-api.test.gov.uk/v2/content/3e6f33b8-0723-4dd5-94a2-cab06f23a685")
     publishing_request = stub_request(:post, "https://publishing-api.test.gov.uk/v2/content/3e6f33b8-0723-4dd5-94a2-cab06f23a685/publish")
     unpublishing_request = stub_request(:post, "https://publishing-api.test.gov.uk/v2/content/de6723a5-7256-4bfd-aad3-82b04b06b73e/unpublish")
+    reserve_path_request = stub_request(:put, "https://publishing-api.test.gov.uk/paths//part-year-profit-tax-credits")
+
     publishing_api_has_lookups({"/part-year-profit-tax-credits" => "de6723a5-7256-4bfd-aad3-82b04b06b73e"})
     stub_publishing_api_discard_draft("de6723a5-7256-4bfd-aad3-82b04b06b73e")
     stub_any_publishing_api_put_content
@@ -24,6 +26,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
     assert_requested draft_request
     assert_requested publishing_request
     assert_requested unpublishing_request
+    assert_requested reserve_path_request
   end
 
   context "#unpublish" do
