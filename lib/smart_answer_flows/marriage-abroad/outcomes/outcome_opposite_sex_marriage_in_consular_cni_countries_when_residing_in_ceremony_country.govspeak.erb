@@ -148,7 +148,7 @@
   <% if calculator.ceremony_country == 'macao' %>
     <%= render partial: 'required_supporting_documents_macao.govspeak.erb' %>
   <% else %>
-    <% if calculator.birth_certificate_required_as_supporting_document? && (calculator.notary_public_ceremony_country? || %w(japan macedonia).include?(calculator.ceremony_country)) %>
+    <% if calculator.birth_certificate_required_as_supporting_document? && (calculator.notary_public_ceremony_country? || %w(macedonia).include?(calculator.ceremony_country)) %>
       You’ll need to provide supporting documents, including:
 
       - your passport
@@ -166,7 +166,7 @@
       - equivalent documents for your partner
 
 
-    <% elsif (calculator.notary_public_ceremony_country? || %w(japan macedonia).include?(calculator.ceremony_country)) %>
+    <% elsif (calculator.notary_public_ceremony_country? || %w(macedonia).include?(calculator.ceremony_country)) %>
       You’ll need to provide supporting documents, including:
 
       - your passport
