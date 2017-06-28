@@ -1,21 +1,33 @@
 class ContentItemPublisher
   def publish(flow_presenters)
-    start_page_less_smart_answer = flow_presenters.select { |smart_answer| smart_answer.slug == "part-year-profit-tax-credits/y" }.first
-    start_page_smart_answer = flow_presenters.select { |smart_answer| smart_answer.slug == "part-year-profit-tax-credits" }.first
+    find_smart_answers_without_start_pages(flow_presenters)
     flow_presenters.each do |smart_answer|
-      content_item = case smart_answer
-                     when start_page_less_smart_answer
-                       StartPageLessFlowContentItem.new(smart_answer)
-                     when start_page_smart_answer
-                       nil
-                     else
-                       FlowContentItem.new(smart_answer)
-                     end
+      content_item = assign_content_item(smart_answer)
       if content_item
         Services.publishing_api.put_content(content_item.content_id, content_item.payload)
         Services.publishing_api.publish(content_item.content_id, 'minor')
       end
     end
+    republish_start_page
+  end
+
+  def find_smart_answers_without_start_pages(flow_presenters)
+    @start_page_less_smart_answer = flow_presenters.select { |smart_answer| smart_answer.slug == "part-year-profit-tax-credits/y" }.first
+    @start_page_smart_answer = flow_presenters.select { |smart_answer| smart_answer.slug == "part-year-profit-tax-credits" }.first
+  end
+
+  def assign_content_item(smart_answer)
+    case smart_answer
+    when @start_page_less_smart_answer
+      StartPageLessFlowContentItem.new(smart_answer)
+    when @start_page_smart_answer
+      nil
+    else
+      FlowContentItem.new(smart_answer)
+    end
+  end
+
+  def republish_start_page
     remove_start_page
     self.publish_transaction_start_page(
       "de6723a5-7256-4bfd-aad3-82b04b06b73e",
