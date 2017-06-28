@@ -3,19 +3,20 @@ class ContentItemPublisher
     start_page_less_smart_answer = flow_presenters.select { |smart_answer| smart_answer.slug == "part-year-profit-tax-credits/y" }.first
     start_page_smart_answer = flow_presenters.select { |smart_answer| smart_answer.slug == "part-year-profit-tax-credits" }.first
     flow_presenters.each do |smart_answer|
-      if smart_answer == start_page_less_smart_answer
-        content_item = StartPageLessFlowContentItem.new(smart_answer)
-      elsif smart_answer == start_page_smart_answer
-        content_item = nil
-      else
-        content_item = FlowContentItem.new(smart_answer)
-      end
+      content_item = case smart_answer
+                     when start_page_less_smart_answer
+                       StartPageLessFlowContentItem.new(smart_answer)
+                     when start_page_smart_answer
+                       nil
+                     else
+                       FlowContentItem.new(smart_answer)
+                     end
       if content_item
         Services.publishing_api.put_content(content_item.content_id, content_item.payload)
         Services.publishing_api.publish(content_item.content_id, 'minor')
       end
     end
-    remove_start_page(self)
+    remove_start_page
     self.publish_transaction_start_page(
       "de6723a5-7256-4bfd-aad3-82b04b06b73e",
       "/part-year-profit-tax-credits",
@@ -26,7 +27,7 @@ class ContentItemPublisher
     )
   end
 
-  def remove_start_page(content_item_publisher)
+  def remove_start_page
     self.unpublish("de6723a5-7256-4bfd-aad3-82b04b06b73e")
     content_id_of_draft_to_discard = Services.publishing_api.lookup_content_ids(base_paths: "/part-year-profit-tax-credits").values.first
     Services.publishing_api.discard_draft(content_id_of_draft_to_discard) if content_id_of_draft_to_discard
@@ -217,7 +218,7 @@ private
     create_and_publish_via_publishing_api(payload, content_id)
   end
 
-  def create_and_publish_via_publishing_api(payload, content_id=SecureRandom.uuid)
+  def create_and_publish_via_publishing_api(payload, content_id = SecureRandom.uuid)
     response = Services.publishing_api.put_content(content_id, payload)
     raise "This content item has not been created" unless response.code == 200
     Services.publishing_api.publish(content_id, :major)

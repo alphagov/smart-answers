@@ -1,7 +1,7 @@
 class StartPageLessFlowContentItem < FlowContentItem
   CONTENT_ID_FOR_BASE_PATH = {
     "/part-year-profit-tax-credits/y" => "22e523d6-a153-4f66-b0fa-53ec46bcd61f"
-  }
+  }.freeze
 
   def payload
     {
@@ -22,5 +22,4 @@ class StartPageLessFlowContentItem < FlowContentItem
   def content_id
     CONTENT_ID_FOR_BASE_PATH[base_path]
   end
-
 end
