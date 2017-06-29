@@ -12,14 +12,14 @@ class ContentItemPublisher
   end
 
   def find_smart_answers_without_start_pages(flow_presenters)
-    @start_page_less_smart_answer = flow_presenters.select { |smart_answer| smart_answer.slug == "part-year-profit-tax-credits/y" }.first
+    @smart_answer_without_start_page = flow_presenters.select { |smart_answer| smart_answer.slug == "part-year-profit-tax-credits/y" }.first
     @start_page_smart_answer = flow_presenters.select { |smart_answer| smart_answer.slug == "part-year-profit-tax-credits" }.first
   end
 
   def assign_content_item(smart_answer)
     case smart_answer
-    when @start_page_less_smart_answer
-      StartPageLessFlowContentItem.new(smart_answer)
+    when @smart_answer_without_start_page
+      FlowContentItemWithoutStartPage.new(smart_answer)
     when @start_page_smart_answer
       nil
     else

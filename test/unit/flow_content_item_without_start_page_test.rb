@@ -1,7 +1,7 @@
 require_relative '../test_helper'
 
 module SmartAnswer
-  class StartPageLessFlowContentItemTest < ActiveSupport::TestCase
+  class FlowContentItemWithoutStartPageTest < ActiveSupport::TestCase
     include GovukContentSchemaTestHelpers::TestUnit
 
     setup do
@@ -11,7 +11,7 @@ module SmartAnswer
 
     test '#payload returns a valid content-item' do
       presenter = FlowRegistrationPresenter.new(stub('flow', name: 'bridge-of-death', content_id: "22e523d6-a153-4f66-b0fa-53ec46bcd61f", external_related_links: nil))
-      content_item = StartPageLessFlowContentItem.new(presenter)
+      content_item = FlowContentItemWithoutStartPage.new(presenter)
 
       payload = content_item.payload
 
@@ -20,7 +20,7 @@ module SmartAnswer
 
     test '#payload returns a valid content-item with external related links' do
       presenter = FlowRegistrationPresenter.new(stub('flow', name: 'bridge-of-death', content_id: "22e523d6-a153-4f66-b0fa-53ec46bcd61f", external_related_links: [{ title: "hmrc", url: "https://hmrc.gov.uk" }]))
-      content_item = StartPageLessFlowContentItem.new(presenter)
+      content_item = FlowContentItemWithoutStartPage.new(presenter)
 
       payload = content_item.payload
 
@@ -29,7 +29,7 @@ module SmartAnswer
 
     test '#base_path is the name of the flow' do
       presenter = FlowRegistrationPresenter.new(stub('flow', name: 'bridge-of-death', content_id: "22e523d6-a153-4f66-b0fa-53ec46bcd61f", external_related_links: nil))
-      content_item = StartPageLessFlowContentItem.new(presenter)
+      content_item = FlowContentItemWithoutStartPage.new(presenter)
 
       base_path = content_item.payload[:base_path]
 

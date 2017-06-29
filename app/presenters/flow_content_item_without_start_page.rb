@@ -1,4 +1,4 @@
-class StartPageLessFlowContentItem < FlowContentItem
+class FlowContentItemWithoutStartPage < FlowContentItem
   CONTENT_ID_FOR_BASE_PATH = {
     "/part-year-profit-tax-credits/y" => "22e523d6-a153-4f66-b0fa-53ec46bcd61f"
   }.freeze
