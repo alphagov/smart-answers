@@ -77,9 +77,9 @@ $A
 $C
 Emergency: +58 (0) 212 319-5800
 
-Email: <Consular.Venezuela@fco.gov.uk>
+Email: <venezuela.consulate@fco.gov.uk>
 
-[Consular Section - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-venezuela/office/consular-section)
+[Consular Section - opening hours](https://www.gov.uk/world/organisations/british-embassy-venezuela/office/consular-section)
 $C
 
 ##Return of your documents
