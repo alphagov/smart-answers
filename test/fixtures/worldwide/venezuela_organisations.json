@@ -5,7 +5,7 @@
       "title": "British Embassy Caracas",
       "format": "Worldwide Organisation",
       "updated_at": "2015-12-22T14:42:58.000+00:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-venezuela",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-venezuela",
       "details": {
         "slug": "british-embassy-venezuela"
       },
@@ -15,12 +15,12 @@
           "title": "Consular Section",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:53.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-venezuela/office/consular-section",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-venezuela/office/consular-section",
           "details": {
-            "email": "Consular.Venezuela@fco.gov.uk",
+            "email": "venezuela.consulate@fco.gov.uk",
             "description": "Open to the public:\r\nMonday to Wednesday & Friday 8:30am to 11:30am\r\nClosed on Thursdays.  \r\n\r\n(Outside of normal Embassy operating hours our switchboard will direct you to the appropriate out-of-hours number).",
-            "contact_form_url": "https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-caracas/-/service_list",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"embassy-public-and-privilege-holidays\">2016 Embassy public and privilege holidays</h2>\n\n<p>Please note that the Embassy will be closed without further notice these days:</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Day</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>01 January</td>\n      <td>Friday</td>\n      <td>New Year’s Day (UK &amp; Ven)</td>\n    </tr>\n    <tr>\n      <td>08 February</td>\n      <td>Monday</td>\n      <td>Carnival (Ven)</td>\n    </tr>\n    <tr>\n      <td>09 February</td>\n      <td>Tuesday</td>\n      <td>Carnival (Ven)</td>\n    </tr>\n    <tr>\n      <td>24 March</td>\n      <td>Thursday</td>\n      <td>Maundy Thursday (Ven)</td>\n    </tr>\n    <tr>\n      <td>25 March</td>\n      <td>Friday</td>\n      <td>Good Friday (UK &amp; Ven)</td>\n    </tr>\n    <tr>\n      <td>28 March</td>\n      <td>Monday</td>\n      <td>Easter Monday (UK)</td>\n    </tr>\n    <tr>\n      <td>19 April</td>\n      <td>Tuesday</td>\n      <td>Independence Declaration Day (Ven)</td>\n    </tr>\n    <tr>\n      <td>30 May</td>\n      <td>Monday</td>\n      <td>Spring Bank Holiday (UK)</td>\n    </tr>\n    <tr>\n      <td>24 June</td>\n      <td>Friday</td>\n      <td>Battle of Carabobo Day (Ven)</td>\n    </tr>\n    <tr>\n      <td>05 July</td>\n      <td>Tuesday</td>\n      <td>Independence Day (Ven)</td>\n    </tr>\n    <tr>\n      <td>29 August</td>\n      <td>Monday</td>\n      <td>Summer Bank Holiday (UK)</td>\n    </tr>\n    <tr>\n      <td>12 October</td>\n      <td>Wednesday</td>\n      <td>Indigenous Resistance Day (Ven)</td>\n    </tr>\n    <tr>\n      <td>26 December</td>\n      <td>Monday</td>\n      <td>Boxing Day (UK)</td>\n    </tr>\n    <tr>\n      <td>27 December</td>\n      <td>Tuesday</td>\n      <td>Christmas Day (UK)</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"embassy-public-and-privilege-holidays\">2017 Embassy public and privilege holidays</h2>\n\n<p>Please note that the Embassy will be closed without further notice on the following days:</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Day</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>02 January</td>\n      <td>Monday</td>\n      <td>New Year´s Day (UK)</td>\n    </tr>\n    <tr>\n      <td>27 February</td>\n      <td>Monday</td>\n      <td>Carnival (Ven)</td>\n    </tr>\n    <tr>\n      <td>28 February</td>\n      <td>Tuesday</td>\n      <td>Carnival (Ven)</td>\n    </tr>\n    <tr>\n      <td>13 April</td>\n      <td>Thursday</td>\n      <td>Maundry Thursday (Ven)</td>\n    </tr>\n    <tr>\n      <td>14 April</td>\n      <td>Friday</td>\n      <td>Good Friday (UK and Ven)</td>\n    </tr>\n    <tr>\n      <td>17 April</td>\n      <td>Monday</td>\n      <td>Easter Monday (UK)</td>\n    </tr>\n    <tr>\n      <td>19 April</td>\n      <td>Wednesday</td>\n      <td>Independence Declaration Day (Ven)</td>\n    </tr>\n    <tr>\n      <td>01 May</td>\n      <td>Monday</td>\n      <td>Labour Day (Ven) and May Bank Holiday (UK)</td>\n    </tr>\n    <tr>\n      <td>05 July</td>\n      <td>Wednesday</td>\n      <td>Independence Day (Ven)</td>\n    </tr>\n    <tr>\n      <td>24 July</td>\n      <td>Monday</td>\n      <td>Simon Bolivar/National Day (Ven)</td>\n    </tr>\n    <tr>\n      <td>28 August</td>\n      <td>Monday</td>\n      <td>Summer Bank Holiday (UK)</td>\n    </tr>\n    <tr>\n      <td>12 October</td>\n      <td>Thursday</td>\n      <td>Indigenous Resistance Day (Ven)</td>\n    </tr>\n    <tr>\n      <td>25 December</td>\n      <td>Monday</td>\n      <td>Christmas Day (Ven and UK)</td>\n    </tr>\n    <tr>\n      <td>26 December</td>\n      <td>Tuesday</td>\n      <td>Boxing Day (UK)</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
             "type": "Other"
           },
           "address": {
@@ -82,12 +82,12 @@
             "title": "British Embassy Venezuela",
             "format": "World Office",
             "updated_at": "2014-09-23T11:12:12.000+01:00",
-            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-venezuela/office/british-embassy-venezuela",
+            "web_url": "https://www.gov.uk/world/organisations/british-embassy-venezuela/office/british-embassy-venezuela",
             "details": {
               "email": "ukinvenezuela@fco.gov.uk ",
               "description": "Office hours:\r\nMonday to Thursday 8:00am to 4:30pm; \r\nFriday 8:00am to 1:15pm",
               "contact_form_url": "",
-              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"embassy-public-and-privilege-holidays\">2016 Embassy public and privilege holidays</h2>\n\n<p>Please note that the Embassy will be closed without further notice these days:</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Day</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>01 January</td>\n      <td>Friday</td>\n      <td>New Year’s Day (UK &amp; Ven)</td>\n    </tr>\n    <tr>\n      <td>08 February</td>\n      <td>Monday</td>\n      <td>Carnival (Ven)</td>\n    </tr>\n    <tr>\n      <td>09 February</td>\n      <td>Tuesday</td>\n      <td>Carnival (Ven)</td>\n    </tr>\n    <tr>\n      <td>24 March</td>\n      <td>Thursday</td>\n      <td>Maundy Thursday (Ven)</td>\n    </tr>\n    <tr>\n      <td>25 March</td>\n      <td>Friday</td>\n      <td>Good Friday (UK &amp; Ven)</td>\n    </tr>\n    <tr>\n      <td>28 March</td>\n      <td>Monday</td>\n      <td>Easter Monday (UK)</td>\n    </tr>\n    <tr>\n      <td>19 April</td>\n      <td>Tuesday</td>\n      <td>Independence Declaration Day (Ven)</td>\n    </tr>\n    <tr>\n      <td>30 May</td>\n      <td>Monday</td>\n      <td>Spring Bank Holiday (UK)</td>\n    </tr>\n    <tr>\n      <td>24 June</td>\n      <td>Friday</td>\n      <td>Battle of Carabobo Day (Ven)</td>\n    </tr>\n    <tr>\n      <td>05 July</td>\n      <td>Tuesday</td>\n      <td>Independence Day (Ven)</td>\n    </tr>\n    <tr>\n      <td>29 August</td>\n      <td>Monday</td>\n      <td>Summer Bank Holiday (UK)</td>\n    </tr>\n    <tr>\n      <td>12 October</td>\n      <td>Wednesday</td>\n      <td>Indigenous Resistance Day (Ven)</td>\n    </tr>\n    <tr>\n      <td>26 December</td>\n      <td>Monday</td>\n      <td>Boxing Day (UK)</td>\n    </tr>\n    <tr>\n      <td>27 December</td>\n      <td>Tuesday</td>\n      <td>Christmas Day (UK)</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"embassy-public-and-privilege-holidays\">2017 Embassy public and privilege holidays</h2>\n\n<p>Please note that the Embassy will be closed without further notice on the following days:</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Day</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>02 January</td>\n      <td>Monday</td>\n      <td>New Year´s Day (UK)</td>\n    </tr>\n    <tr>\n      <td>27 February</td>\n      <td>Monday</td>\n      <td>Carnival (Ven)</td>\n    </tr>\n    <tr>\n      <td>28 February</td>\n      <td>Tuesday</td>\n      <td>Carnival (Ven)</td>\n    </tr>\n    <tr>\n      <td>13 April</td>\n      <td>Thursday</td>\n      <td>Maundry Thursday (Ven)</td>\n    </tr>\n    <tr>\n      <td>14 April</td>\n      <td>Friday</td>\n      <td>Good Friday (UK and Ven)</td>\n    </tr>\n    <tr>\n      <td>17 April</td>\n      <td>Monday</td>\n      <td>Easter Monday (UK)</td>\n    </tr>\n    <tr>\n      <td>19 April</td>\n      <td>Wednesday</td>\n      <td>Independence Declaration Day (Ven)</td>\n    </tr>\n    <tr>\n      <td>01 May</td>\n      <td>Monday</td>\n      <td>Labour Day (Ven) and May Bank Holiday (UK)</td>\n    </tr>\n    <tr>\n      <td>05 July</td>\n      <td>Wednesday</td>\n      <td>Independence Day (Ven)</td>\n    </tr>\n    <tr>\n      <td>24 July</td>\n      <td>Monday</td>\n      <td>Simon Bolivar/National Day (Ven)</td>\n    </tr>\n    <tr>\n      <td>28 August</td>\n      <td>Monday</td>\n      <td>Summer Bank Holiday (UK)</td>\n    </tr>\n    <tr>\n      <td>12 October</td>\n      <td>Thursday</td>\n      <td>Indigenous Resistance Day (Ven)</td>\n    </tr>\n    <tr>\n      <td>25 December</td>\n      <td>Monday</td>\n      <td>Christmas Day (Ven and UK)</td>\n    </tr>\n    <tr>\n      <td>26 December</td>\n      <td>Tuesday</td>\n      <td>Boxing Day (UK)</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
               "type": "Embassy"
             },
             "address": {
@@ -121,12 +121,12 @@
             "title": "Visa Application Centre ",
             "format": "World Office",
             "updated_at": "2014-03-11T13:31:24.000+00:00",
-            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-venezuela/office/visa-application-centre",
+            "web_url": "https://www.gov.uk/world/organisations/british-embassy-venezuela/office/visa-application-centre",
             "details": {
               "email": "caracvisainfo@fco.gov.uk",
               "description": "Open to the public:\r\nMonday to Friday 9:00am to 4:00pm to receive applications; 4:00pm to 5:00pm to return passports",
               "contact_form_url": "http://www.vfsglobal.co.uk/venezuela/",
-              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"embassy-public-and-privilege-holidays\">2016 Embassy public and privilege holidays</h2>\n\n<p>Please note that the Embassy will be closed without further notice these days:</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Day</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>01 January</td>\n      <td>Friday</td>\n      <td>New Year’s Day (UK &amp; Ven)</td>\n    </tr>\n    <tr>\n      <td>08 February</td>\n      <td>Monday</td>\n      <td>Carnival (Ven)</td>\n    </tr>\n    <tr>\n      <td>09 February</td>\n      <td>Tuesday</td>\n      <td>Carnival (Ven)</td>\n    </tr>\n    <tr>\n      <td>24 March</td>\n      <td>Thursday</td>\n      <td>Maundy Thursday (Ven)</td>\n    </tr>\n    <tr>\n      <td>25 March</td>\n      <td>Friday</td>\n      <td>Good Friday (UK &amp; Ven)</td>\n    </tr>\n    <tr>\n      <td>28 March</td>\n      <td>Monday</td>\n      <td>Easter Monday (UK)</td>\n    </tr>\n    <tr>\n      <td>19 April</td>\n      <td>Tuesday</td>\n      <td>Independence Declaration Day (Ven)</td>\n    </tr>\n    <tr>\n      <td>30 May</td>\n      <td>Monday</td>\n      <td>Spring Bank Holiday (UK)</td>\n    </tr>\n    <tr>\n      <td>24 June</td>\n      <td>Friday</td>\n      <td>Battle of Carabobo Day (Ven)</td>\n    </tr>\n    <tr>\n      <td>05 July</td>\n      <td>Tuesday</td>\n      <td>Independence Day (Ven)</td>\n    </tr>\n    <tr>\n      <td>29 August</td>\n      <td>Monday</td>\n      <td>Summer Bank Holiday (UK)</td>\n    </tr>\n    <tr>\n      <td>12 October</td>\n      <td>Wednesday</td>\n      <td>Indigenous Resistance Day (Ven)</td>\n    </tr>\n    <tr>\n      <td>26 December</td>\n      <td>Monday</td>\n      <td>Boxing Day (UK)</td>\n    </tr>\n    <tr>\n      <td>27 December</td>\n      <td>Tuesday</td>\n      <td>Christmas Day (UK)</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"embassy-public-and-privilege-holidays\">2017 Embassy public and privilege holidays</h2>\n\n<p>Please note that the Embassy will be closed without further notice on the following days:</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Day</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>02 January</td>\n      <td>Monday</td>\n      <td>New Year´s Day (UK)</td>\n    </tr>\n    <tr>\n      <td>27 February</td>\n      <td>Monday</td>\n      <td>Carnival (Ven)</td>\n    </tr>\n    <tr>\n      <td>28 February</td>\n      <td>Tuesday</td>\n      <td>Carnival (Ven)</td>\n    </tr>\n    <tr>\n      <td>13 April</td>\n      <td>Thursday</td>\n      <td>Maundry Thursday (Ven)</td>\n    </tr>\n    <tr>\n      <td>14 April</td>\n      <td>Friday</td>\n      <td>Good Friday (UK and Ven)</td>\n    </tr>\n    <tr>\n      <td>17 April</td>\n      <td>Monday</td>\n      <td>Easter Monday (UK)</td>\n    </tr>\n    <tr>\n      <td>19 April</td>\n      <td>Wednesday</td>\n      <td>Independence Declaration Day (Ven)</td>\n    </tr>\n    <tr>\n      <td>01 May</td>\n      <td>Monday</td>\n      <td>Labour Day (Ven) and May Bank Holiday (UK)</td>\n    </tr>\n    <tr>\n      <td>05 July</td>\n      <td>Wednesday</td>\n      <td>Independence Day (Ven)</td>\n    </tr>\n    <tr>\n      <td>24 July</td>\n      <td>Monday</td>\n      <td>Simon Bolivar/National Day (Ven)</td>\n    </tr>\n    <tr>\n      <td>28 August</td>\n      <td>Monday</td>\n      <td>Summer Bank Holiday (UK)</td>\n    </tr>\n    <tr>\n      <td>12 October</td>\n      <td>Thursday</td>\n      <td>Indigenous Resistance Day (Ven)</td>\n    </tr>\n    <tr>\n      <td>25 December</td>\n      <td>Monday</td>\n      <td>Christmas Day (Ven and UK)</td>\n    </tr>\n    <tr>\n      <td>26 December</td>\n      <td>Tuesday</td>\n      <td>Boxing Day (UK)</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
               "type": "Other"
             },
             "address": {
@@ -166,20 +166,20 @@
     },
     {
       "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-venezuela",
-      "title": "UK Trade & Investment Venezuela",
+      "title": "Department for International Trade Venezuela",
       "format": "Worldwide Organisation",
-      "updated_at": "2013-04-17T10:40:51.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-venezuela",
+      "updated_at": "2016-08-09T16:25:56.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-venezuela",
       "details": {
         "slug": "uk-trade-investment-venezuela"
       },
       "analytics_identifier": "WO282",
       "offices": {
         "main": {
-          "title": "UK Trade & Investment Venezuela",
+          "title": "Department for International Trade Venezuela",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:54.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-venezuela/office/uk-trade-investment-venezuela",
+          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-venezuela/office/uk-trade-investment-venezuela",
           "details": {
             "email": "",
             "description": "",
@@ -212,20 +212,20 @@
         },
         "other": [
           {
-            "title": "Head of trade and investment",
+            "title": "Head of trade and investment, Department for International Trade Venezuela",
             "format": "World Office",
             "updated_at": "2013-03-25T10:37:54.000+00:00",
-            "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-venezuela/office/head-of-trade-and-investment",
+            "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-venezuela/office/head-of-trade-and-investment",
             "details": {
-              "email": "Ian.Mason@fco.gov.uk",
-              "description": "Sector responsibilities: environment, financial and legal services, oil and gas (planning), power",
+              "email": "Cesar.Hernandez@fco.gov.uk",
+              "description": "",
               "contact_form_url": "",
               "access_and_opening_times": "",
               "type": "Other"
             },
             "address": {
               "adr": {
-                "fn": "Ian Mason",
+                "fn": "Cesar Hernandez",
                 "street-address": "British Embassy",
                 "postal-code": "",
                 "locality": "",
@@ -233,13 +233,13 @@
                 "country-name": "Venezuela"
               },
               "label": {
-                "value": "Ian Mason\nBritish Embassy\nCaracas\nVenezuela"
+                "value": "Cesar Hernandez\nBritish Embassy\nCaracas\nVenezuela"
               }
             },
             "contact_numbers": [
               {
                 "label": "Direct line",
-                "number": "+58 212 319 5814"
+                "number": "+58 212 3195826"
               }
             ],
             "services": [
@@ -247,13 +247,13 @@
             ]
           },
           {
-            "title": "Trade and investment officer",
+            "title": "Trade and investment officer, Department for International Trade Venezuela",
             "format": "World Office",
             "updated_at": "2013-03-25T10:37:54.000+00:00",
-            "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-venezuela/office/trade-and-investment-officer",
+            "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-venezuela/office/trade-and-investment-officer",
             "details": {
-              "email": "Email Virginia.Nieto@fco.gov.uk",
-              "description": "Sector responsibilities: oil and gas; power",
+              "email": "Virginia.Nieto@fco.gov.uk",
+              "description": "Sector responsibilities: Energy sector/ oil and gas specialist",
               "contact_form_url": "",
               "access_and_opening_times": "",
               "type": "Other"
@@ -282,20 +282,20 @@
             ]
           },
           {
-            "title": "Trade and investment officer",
+            "title": "Trade and investment advisor, Department for International Trade Venezuela",
             "format": "World Office",
             "updated_at": "2014-11-10T19:37:59.000+00:00",
-            "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-venezuela/office/trade-and-investment-officer--2",
+            "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-venezuela/office/trade-and-investment-officer--2",
             "details": {
-              "email": "Luis.Sanchez@fco.gov.uk ",
-              "description": "Sector responsibilities: life sciences; security and defence; consumer goods and logistics",
+              "email": "Lucia.Lopez@fco.gov.uk",
+              "description": "Sector responsibilities: Aid Funded Business, communications, energy",
               "contact_form_url": "",
               "access_and_opening_times": "",
               "type": "Other"
             },
             "address": {
               "adr": {
-                "fn": "Luis Ernesto Sánchez",
+                "fn": "Lucia Lopez",
                 "street-address": "British Embassy",
                 "postal-code": "",
                 "locality": "Caracas",
@@ -303,14 +303,46 @@
                 "country-name": "Venezuela"
               },
               "label": {
-                "value": "Luis Ernesto Sánchez\nBritish Embassy\nCaracas\nVenezuela"
+                "value": "Lucia Lopez\nBritish Embassy\nCaracas\nVenezuela"
               }
             },
             "contact_numbers": [
               {
                 "label": "Direct line",
-                "number": "+58 212 319 5826"
+                "number": "+58 212 319 5830"
               }
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "Regional Director Caribbean and Central America",
+            "format": "World Office",
+            "updated_at": "2017-05-30T12:41:01.000+01:00",
+            "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-venezuela/office/regional-director-caribbean-and-central-america",
+            "details": {
+              "email": "Richard.Hyde@fco.gsi.gov.uk",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "Richard Hyde",
+                "street-address": "British Embassy,\r\nSan Jose",
+                "postal-code": "",
+                "locality": "",
+                "region": "",
+                "country-name": "Costa Rica"
+              },
+              "label": {
+                "value": "Richard Hyde\nBritish Embassy,\r\nSan Jose\nCosta Rica"
+              }
+            },
+            "contact_numbers": [
+
             ],
             "services": [
 
@@ -320,10 +352,10 @@
       },
       "sponsors": [
         {
-          "title": "UK Trade & Investment",
-          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "title": "Department for International Trade",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-trade",
           "details": {
-            "acronym": "UKTI"
+            "acronym": "DIT"
           }
         }
       ]

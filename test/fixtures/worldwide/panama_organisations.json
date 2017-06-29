@@ -5,7 +5,7 @@
       "title": "British Embassy Panama City",
       "format": "Worldwide Organisation",
       "updated_at": "2014-05-06T16:24:26.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-panama-city",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-panama-city",
       "details": {
         "slug": "british-embassy-panama-city"
       },
@@ -15,12 +15,12 @@
           "title": "British Embassy Panama City",
           "format": "World Office",
           "updated_at": "2014-09-23T11:12:12.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-panama-city/office/british-embassy-panama-city",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-panama-city/office/british-embassy-panama-city",
           "details": {
-            "email": "",
+            "email": "panama.consulate@fco.gov.uk",
             "description": "Office hours:\r\nMonday to Thursday 7:30am to 4:30pm\r\nFriday 7:30am to 12:30pm",
             "contact_form_url": "",
-            "access_and_opening_times": "",
+            "access_and_opening_times": "<div class=\"govspeak\">\n<h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>Monday to Thursday 7:30am to 4:30pm\nFriday 7:30am to 12:30pm</p>\n\n<h1 id=\"public-holidays\">2017 public holidays</h1>\n\n<p>Our office will be closed on the following dates in 2017:</p>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 2 January</td>\n      <td>New Year’s Day (in lieu of 1 January)</td>\n    </tr>\n    <tr>\n      <td>Monday 9 January</td>\n      <td>Martyr´s Day</td>\n    </tr>\n    <tr>\n      <td>Monday 27 February</td>\n      <td>Carnival Monday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 28 February</td>\n      <td>Carnival Tuesday</td>\n    </tr>\n    <tr>\n      <td>Friday 14 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Friday 26 May</td>\n      <td>Privilege Queens Birthday</td>\n    </tr>\n    <tr>\n      <td>Friday 3 November</td>\n      <td>Independence Day from Colombia</td>\n    </tr>\n    <tr>\n      <td>Monday 6 November</td>\n      <td>Colon´s Day (in lieu of 5 November)</td>\n    </tr>\n    <tr>\n      <td>Friday 10 November</td>\n      <td>Exclamation of Independence in Villa de Los Santos</td>\n    </tr>\n    <tr>\n      <td>Monday 27 November ^</td>\n      <td>Independence Day from Spain (in lieu of 28 November)</td>\n    </tr>\n    <tr>\n      <td>Friday 8 December</td>\n      <td>Mother’s Day</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n<div role=\"note\" aria-label=\"Information\" class=\"application-notice info-notice\">\n<p>Subject to change by local government</p>\n</div>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -66,20 +66,20 @@
     },
     {
       "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-panama",
-      "title": "UK Trade & Investment Panama",
+      "title": "Department for International Trade Panama",
       "format": "Worldwide Organisation",
-      "updated_at": "2013-04-16T13:58:38.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-panama",
+      "updated_at": "2016-08-11T10:47:46.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-panama",
       "details": {
         "slug": "uk-trade-investment-panama"
       },
       "analytics_identifier": "WO280",
       "offices": {
         "main": {
-          "title": "UK Trade & Investment Panama",
+          "title": "Department for International Trade Panama",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:54.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-panama/office/uk-trade-investment-panama",
+          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-panama/office/uk-trade-investment-panama",
           "details": {
             "email": "ariel.perez@fco.gov.uk",
             "description": "",
@@ -89,7 +89,7 @@
           },
           "address": {
             "adr": {
-              "fn": "Ariel R. Perez Price LL.M - UKTI Director ",
+              "fn": "Ariel R. Perez Price LL.M - DIT Director ",
               "street-address": "British Embassy, Commercial Section\r\n4th floor, Humboldt Tower\r\n53rd Street ,Marbella",
               "postal-code": "P. O. Box 0816-07946 ",
               "locality": "",
@@ -97,7 +97,7 @@
               "country-name": "Panama"
             },
             "label": {
-              "value": "Ariel R. Perez Price LL.M - UKTI Director \nBritish Embassy, Commercial Section\r\n4th floor, Humboldt Tower\r\n53rd Street ,Marbella\nPanama City\nP. O. Box 0816-07946 \nPanama"
+              "value": "Ariel R. Perez Price LL.M - DIT Director \nBritish Embassy, Commercial Section\r\n4th floor, Humboldt Tower\r\n53rd Street ,Marbella\nPanama City\nP. O. Box 0816-07946 \nPanama"
             }
           },
           "contact_numbers": [
@@ -116,10 +116,10 @@
       },
       "sponsors": [
         {
-          "title": "UK Trade & Investment",
-          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "title": "Department for International Trade",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-trade",
           "details": {
-            "acronym": "UKTI"
+            "acronym": "DIT"
           }
         }
       ]

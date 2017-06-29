@@ -5,7 +5,7 @@
       "title": "British High Commission Nairobi",
       "format": "Worldwide Organisation",
       "updated_at": "2013-05-30T08:51:16.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-nairobi",
+      "web_url": "https://www.gov.uk/world/organisations/british-high-commission-nairobi",
       "details": {
         "slug": "british-high-commission-nairobi"
       },
@@ -15,12 +15,12 @@
           "title": "British High Commission Nairobi",
           "format": "World Office",
           "updated_at": "2014-09-23T11:12:12.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-nairobi/office/british-high-commission-nairobi",
+          "web_url": "https://www.gov.uk/world/organisations/british-high-commission-nairobi/office/british-high-commission-nairobi",
           "details": {
             "email": "Nairobi.Enquiries@fco.gov.uk",
-            "description": "Opening Hours : Monday to Thursday: 7am to 4pm and Friday 7am to 1pm \r\n\r\nGeneral Enquiries\r\nEmail: Nairobi.Enquiries@fco.gov.uk\r\n\r\nConsular \r\nEmail: consular.enquiries@fco.gov.uk\r\nOpening hours:\r\nLocal time: Monday to Thursday: 7:45am to 2pm\r\nClosed on Friday (except for emergencies)\r\n\r\nFor Visa Enquiries\r\nContact: https://ukvi-international.faq-help.com/\r\n\r\nFor Passport enquiries\r\nEmail correspondence should be submitted via the online enquiry form at the following web address: www.gov.uk/passport-advice-line \r\nPassport collection Opening hours: 2pm to 3pm Tuesday and Thursday\r\nThe Passport Office will be closed on Thursday, 14th April 2016.",
+            "description": "Opening Hours : Monday to Thursday: 7am to 4pm and Friday 7am to 1pm \r\n\r\nGeneral Enquiries\r\nEmail: Nairobi.Enquiries@fco.gov.uk\r\n\r\nConsular \r\nEmail: consular.enquiries@fco.gov.uk\r\nOpening hours:\r\nLocal time: Monday to Thursday: 7:45am to 2pm\r\nClosed on Friday (except for emergencies)\r\n\r\nFor Visa Enquiries\r\nContact: https://ukvi-international.faq-help.com/\r\n\r\nFor Passport enquiries\r\nEmail correspondence should be submitted via the online enquiry form at the following web address: www.gov.uk/passport-advice-line \r\n\r\nPassport collection Opening hours: 10am to 11am Tuesday and Thursday",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays-2016\">Public Holidays 2016</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Monday 2 May</td>\n      <td>Early May Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 30 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Wednesday 1 June</td>\n      <td>Madaraka Day (Privilege)</td>\n    </tr>\n    <tr>\n      <td>TBA - Jul/Aug</td>\n      <td>Eid al-Fitr (End of Ramadhan)</td>\n    </tr>\n    <tr>\n      <td>Monday 29 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Thursday 20 October</td>\n      <td>Mashujaa Day</td>\n    </tr>\n    <tr>\n      <td>Monday 12 December</td>\n      <td>Jamhuri Day Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 December</td>\n      <td>Christmas Day (substitute day)</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays-2017\">Public Holidays 2017</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Monday 2 January</td>\n      <td>New Year’s Day (in lieu)</td>\n    </tr>\n    <tr>\n      <td>Friday 14 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 17 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 1 May</td>\n      <td>Labour Day (May Bank Holiday)</td>\n    </tr>\n    <tr>\n      <td>Monday 29 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Thursday 1 June</td>\n      <td>Madaraka Day (Privilege)</td>\n    </tr>\n    <tr>\n      <td>Monday June 26</td>\n      <td>Eid al-Fitr (End of Ramadhan) in lieu</td>\n    </tr>\n    <tr>\n      <td>Monday 28 August</td>\n      <td>Summer Bank Holiday*</td>\n    </tr>\n    <tr>\n      <td>Friday 1 September</td>\n      <td>Eid Ul Adha*</td>\n    </tr>\n    <tr>\n      <td>Friday 20 October</td>\n      <td>Mashujaa Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 12 December</td>\n      <td>Jamhuri Day Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n<ul>\n  <li>Staff will have to choose to either take the Summer Bank Holiday or Eid Ul Adha but not both.</li>\n</ul>\n</div>",
             "type": "High Commission"
           },
           "address": {
@@ -101,20 +101,20 @@
     },
     {
       "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-kenya",
-      "title": "UK Trade & Investment Kenya",
+      "title": "Department for International Trade Kenya",
       "format": "Worldwide Organisation",
-      "updated_at": "2014-04-24T16:49:12.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-kenya",
+      "updated_at": "2016-08-10T12:35:29.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-kenya",
       "details": {
         "slug": "uk-trade-investment-kenya"
       },
       "analytics_identifier": "WO167",
       "offices": {
         "main": {
-          "title": "UK Trade & Investment Kenya",
+          "title": "Department for International Trade Kenya",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:53.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-kenya/office/uk-trade-investment-kenya",
+          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-kenya/office/uk-trade-investment-kenya",
           "details": {
             "email": "Ukti.Nairobi@fco.gov.uk",
             "description": "",
@@ -151,10 +151,10 @@
       },
       "sponsors": [
         {
-          "title": "UK Trade & Investment",
-          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "title": "Department for International Trade",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-trade",
           "details": {
-            "acronym": "UKTI"
+            "acronym": "DIT"
           }
         }
       ]
@@ -164,7 +164,7 @@
       "title": "DFID Kenya",
       "format": "Worldwide Organisation",
       "updated_at": "2013-10-31T10:30:51.000+00:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/dfid-kenya",
+      "web_url": "https://www.gov.uk/world/organisations/dfid-kenya",
       "details": {
         "slug": "dfid-kenya"
       },
@@ -174,7 +174,7 @@
           "title": "DFID Kenya",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:54.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/dfid-kenya/office/dfid-kenya",
+          "web_url": "https://www.gov.uk/world/organisations/dfid-kenya/office/dfid-kenya",
           "details": {
             "email": "enquiry@dfid.gov.uk ",
             "description": "",
@@ -222,10 +222,42 @@
           }
         }
       ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/uk-science-innovation-network-in-kenya",
+      "title": "UK Science & Innovation Network in Kenya",
+      "format": "Worldwide Organisation",
+      "updated_at": "2016-09-06T10:08:18.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/uk-science-innovation-network-in-kenya",
+      "details": {
+        "slug": "uk-science-innovation-network-in-kenya"
+      },
+      "analytics_identifier": "WO463",
+      "offices": {
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        },
+        {
+          "title": "Department for Business, Energy & Industrial Strategy",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy",
+          "details": {
+            "acronym": "BEIS"
+          }
+        }
+      ]
     }
   ],
   "current_page": 1,
-  "total": 3,
+  "total": 4,
   "pages": 1,
   "page_size": 20,
   "start_index": 1,

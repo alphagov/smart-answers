@@ -5,7 +5,7 @@
       "title": "British Embassy Phnom Penh",
       "format": "Worldwide Organisation",
       "updated_at": "2013-12-19T07:00:52.000+00:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-phnom-penh",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-phnom-penh",
       "details": {
         "slug": "british-embassy-phnom-penh"
       },
@@ -15,12 +15,12 @@
           "title": "British Embassy Phnom Penh",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:54.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-phnom-penh/office/british-embassy-phnom-penh",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-phnom-penh/office/british-embassy-phnom-penh",
           "details": {
-            "email": "ukincambodia@fco.gov.uk",
-            "description": "OFFICE\r\nOpening hours (local time GMT+07:00):\r\nMonday to Thursday, 8.15am to 4.45pm, Friday, 8.15am to 1.15pm\r\n\r\nCONSULAR\r\nMonday to Friday - 8.30am to 11.30am\r\nEmail: consular.phnompenh@fco.gov.uk",
+            "email": "UKinCambodia@fco.gov.uk",
+            "description": "OFFICE Opening hours (local time GMT+07:00):\r\n\r\nMonday to Thursday: 8:15 a.m. to 4:45 p.m.\r\nFriday: 8:15 a.m. to 1:15 p.m.",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>The Foreign &amp; Commonwealth Office and this Embassy are keen to ensure that their buildings and services are fully accessible to disabled members of the public. Wherever possible, we have made our buildings and services accessible. Sometimes however, this is not possible due to security or other restrictions. In these situations we will endeavour to provide a service or access to a building in an alternative way to ensure equality of access for disabled people. To assist disabled visitors, we have set out below details of disabled access at this Embassy. We hope this information is helpful.</p>\n\n<ul>\n  <li>The main security entrance is accessible to all visitors, including wheelchairs. An induction loop system is installed to assist hearing-impaired visitors.</li>\n  <li>Entrance to the main reception area is by a ramp, accessible to wheelchairs, with handrail</li>\n  <li>The reception counter is equipped with microphones, speakers and a hearing aid induction loop. </li>\n  <li>The waiting room and interview room are light and airy with flat floors and few obstructions. Microphones and speakers are installed in the interview room.</li>\n</ul>\n\n<p>If you need to visit us or use our services and feel that they may be inaccessible to you, please contact the Management Officer on tel: +855 (0)23 427 124 or email: <a href=\"mailto:ukincambodia@fco.gov.uk\" title=\"ukincambodia@fco.gov.uk\">ukincambodia@fco.gov.uk</a></p>\n\n<h2 id=\"office-holidays\">Office holidays</h2>\n\n<p>The British Embassy in Phnom Penh will be closed on the following Public Holidays in 2016:</p>\n\n<ul>\n  <li>1 January: New Year’s Day</li>\n  <li>25 March: Good Friday</li>\n  <li>28 March: Easter Monday</li>\n  <li>13, 14, 15 April: Khmer New Year</li>\n  <li>30 September and 3, 4 October: Pchum Ben Day</li>\n  <li>14, 15, 16 November: Water Festival</li>\n  <li>26 December: Boxing Day</li>\n  <li>27 December: in lieu of Christmas Day</li>\n</ul>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>The Foreign &amp; Commonwealth Office and our British Embassy are keen to ensure that their buildings and services are fully accessible to disabled members of the public. Wherever possible, we have made our buildings and services accessible. Sometimes however, this is not possible due to security or other restrictions. In these situations, we will endeavour to provide a service or access to a building in an alternative way to ensure equality of access for disabled people. To assist disabled visitors, we have set out below details of disabled access at this Embassy. We hope this information is helpful.</p>\n\n<ul>\n  <li>The main security entrance is accessible to all visitors, including wheelchairs. An induction loop system is installed to assist hearing-impaired visitors.</li>\n  <li>Entrance to the main reception area is by a ramp, accessible to wheelchairs, with handrail</li>\n  <li>The reception counter is equipped with microphones, speakers and a hearing aid induction loop.</li>\n  <li>The waiting room and interview room are light and airy with flat floors and few obstructions. Microphones and speakers are installed in the interview room.</li>\n</ul>\n\n<p>If you need to visit us or use our services and feel that they may be inaccessible to you, please contact the Management Officer on tel: +855 (0)23 427 124 or email: <a href=\"mailto:ukincambodia@fco.gov.uk\" title=\"ukincambodia@fco.gov.uk\">UKinCambodia@fco.gov.uk</a></p>\n\n<h2 id=\"office-holidays\">Office holidays</h2>\n\n<p>The British Embassy in Phnom Penh will be closed on the following Public Holidays in 2017:</p>\n\n<ul>\n  <li>Mon, 2 January: New Year</li>\n  <li>Thu, 13 April: Khmer New Year</li>\n  <li>Fri, 14 April: Khmer New Year/ Good Friday</li>\n  <li>Mon, 17 April: Khmer New Year/ Easter Monday</li>\n  <li>Mon, 1 May: International Labour Day</li>\n  <li>Mon, 15 May: King’s Birthday</li>\n  <li>Mon, 28 August: UK Bank Holiday</li>\n  <li>Tue-Thu,19-21 September: Pchum Ben</li>\n  <li>Thu-Fri, 2-3 November: Water Festival</li>\n  <li>Mon, 25 December: Christmas</li>\n  <li>Tue, 26 December: Boxing Day</li>\n</ul>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -39,11 +39,11 @@
           "contact_numbers": [
             {
               "label": "Telephone",
-              "number": "+855 (0) 23 427124"
+              "number": "+855 (0)23 427 124"
             },
             {
               "label": "Fax",
-              "number": "+855 (0) 23 427125"
+              "number": "+855 (0)23 427 125"
             }
           ],
           "services": [
@@ -78,17 +78,17 @@
             "title": "Consular services",
             "format": "World Office",
             "updated_at": "2013-03-25T10:37:54.000+00:00",
-            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-phnom-penh/office/consular-services",
+            "web_url": "https://www.gov.uk/world/organisations/british-embassy-phnom-penh/office/consular-services",
             "details": {
-              "email": "consular.phnompenh@fco.gov.uk",
-              "description": "Consular public hours (local time GMT+07:00):\r\nMonday to Friday, 8.30am to 11.30am",
+              "email": "Consular.Enquiriesphnompenh@fco.gov.uk",
+              "description": "Consular public hours (local time GMT+07:00):\r\nMonday to Friday: 8:30 a.m. to 11:30 a.m.",
               "contact_form_url": "",
-              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>The Foreign &amp; Commonwealth Office and this Embassy are keen to ensure that their buildings and services are fully accessible to disabled members of the public. Wherever possible, we have made our buildings and services accessible. Sometimes however, this is not possible due to security or other restrictions. In these situations we will endeavour to provide a service or access to a building in an alternative way to ensure equality of access for disabled people. To assist disabled visitors, we have set out below details of disabled access at this Embassy. We hope this information is helpful.</p>\n\n<ul>\n  <li>The main security entrance is accessible to all visitors, including wheelchairs. An induction loop system is installed to assist hearing-impaired visitors.</li>\n  <li>Entrance to the main reception area is by a ramp, accessible to wheelchairs, with handrail</li>\n  <li>The reception counter is equipped with microphones, speakers and a hearing aid induction loop. </li>\n  <li>The waiting room and interview room are light and airy with flat floors and few obstructions. Microphones and speakers are installed in the interview room.</li>\n</ul>\n\n<p>If you need to visit us or use our services and feel that they may be inaccessible to you, please contact the Management Officer on tel: +855 (0)23 427 124 or email: <a href=\"mailto:ukincambodia@fco.gov.uk\" title=\"ukincambodia@fco.gov.uk\">ukincambodia@fco.gov.uk</a></p>\n\n<h2 id=\"office-holidays\">Office holidays</h2>\n\n<p>The British Embassy in Phnom Penh will be closed on the following Public Holidays in 2016:</p>\n\n<ul>\n  <li>1 January: New Year’s Day</li>\n  <li>25 March: Good Friday</li>\n  <li>28 March: Easter Monday</li>\n  <li>13, 14, 15 April: Khmer New Year</li>\n  <li>30 September and 3, 4 October: Pchum Ben Day</li>\n  <li>14, 15, 16 November: Water Festival</li>\n  <li>26 December: Boxing Day</li>\n  <li>27 December: in lieu of Christmas Day</li>\n</ul>\n</div>",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>The Foreign &amp; Commonwealth Office and our British Embassy are keen to ensure that their buildings and services are fully accessible to disabled members of the public. Wherever possible, we have made our buildings and services accessible. Sometimes however, this is not possible due to security or other restrictions. In these situations, we will endeavour to provide a service or access to a building in an alternative way to ensure equality of access for disabled people. To assist disabled visitors, we have set out below details of disabled access at this Embassy. We hope this information is helpful.</p>\n\n<ul>\n  <li>The main security entrance is accessible to all visitors, including wheelchairs. An induction loop system is installed to assist hearing-impaired visitors.</li>\n  <li>Entrance to the main reception area is by a ramp, accessible to wheelchairs, with handrail</li>\n  <li>The reception counter is equipped with microphones, speakers and a hearing aid induction loop.</li>\n  <li>The waiting room and interview room are light and airy with flat floors and few obstructions. Microphones and speakers are installed in the interview room.</li>\n</ul>\n\n<p>If you need to visit us or use our services and feel that they may be inaccessible to you, please contact the Management Officer on tel: +855 (0)23 427 124 or email: <a href=\"mailto:ukincambodia@fco.gov.uk\" title=\"ukincambodia@fco.gov.uk\">UKinCambodia@fco.gov.uk</a></p>\n\n<h2 id=\"office-holidays\">Office holidays</h2>\n\n<p>The British Embassy in Phnom Penh will be closed on the following Public Holidays in 2017:</p>\n\n<ul>\n  <li>Mon, 2 January: New Year</li>\n  <li>Thu, 13 April: Khmer New Year</li>\n  <li>Fri, 14 April: Khmer New Year/ Good Friday</li>\n  <li>Mon, 17 April: Khmer New Year/ Easter Monday</li>\n  <li>Mon, 1 May: International Labour Day</li>\n  <li>Mon, 15 May: King’s Birthday</li>\n  <li>Mon, 28 August: UK Bank Holiday</li>\n  <li>Tue-Thu,19-21 September: Pchum Ben</li>\n  <li>Thu-Fri, 2-3 November: Water Festival</li>\n  <li>Mon, 25 December: Christmas</li>\n  <li>Tue, 26 December: Boxing Day</li>\n</ul>\n</div>",
               "type": "Other"
             },
             "address": {
               "adr": {
-                "fn": "",
+                "fn": "British Embassy Phnom Penh",
                 "street-address": "27-29 Street 75,\r\nSangkat Srah Chak,\r\nKhan Daun Penh",
                 "postal-code": "12201",
                 "locality": "Phnom Penh",
@@ -96,17 +96,17 @@
                 "country-name": "Cambodia"
               },
               "label": {
-                "value": "27-29 Street 75,\r\nSangkat Srah Chak,\r\nKhan Daun Penh\nPhnom Penh\n12201\nCambodia"
+                "value": "British Embassy Phnom Penh\n27-29 Street 75,\r\nSangkat Srah Chak,\r\nKhan Daun Penh\nPhnom Penh\n12201\nCambodia"
               }
             },
             "contact_numbers": [
               {
                 "label": "Telephone",
-                "number": "+855 (0) 23 427124"
+                "number": "+855 (0)23 427 124"
               },
               {
                 "label": "Fax",
-                "number": "+855 (0) 23 427125"
+                "number": "+855 (0)23 427 125"
               }
             ],
             "services": [
@@ -117,38 +117,38 @@
             ]
           },
           {
-            "title": "UK Trade & Investment Cambodia",
+            "title": "Department for International Trade (DIT) Cambodia",
             "format": "World Office",
             "updated_at": "2013-03-27T05:05:44.000+00:00",
-            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-phnom-penh/office/uk-trade-investment-cambodia",
+            "web_url": "https://www.gov.uk/world/organisations/british-embassy-phnom-penh/office/uk-trade-investment-cambodia",
             "details": {
-              "email": "commercial.phnompenh@fco.gov.uk",
+              "email": "Commercial.PhnomPenh@fco.gov.uk",
               "description": "",
               "contact_form_url": "",
-              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>The Foreign &amp; Commonwealth Office and this Embassy are keen to ensure that their buildings and services are fully accessible to disabled members of the public. Wherever possible, we have made our buildings and services accessible. Sometimes however, this is not possible due to security or other restrictions. In these situations we will endeavour to provide a service or access to a building in an alternative way to ensure equality of access for disabled people. To assist disabled visitors, we have set out below details of disabled access at this Embassy. We hope this information is helpful.</p>\n\n<ul>\n  <li>The main security entrance is accessible to all visitors, including wheelchairs. An induction loop system is installed to assist hearing-impaired visitors.</li>\n  <li>Entrance to the main reception area is by a ramp, accessible to wheelchairs, with handrail</li>\n  <li>The reception counter is equipped with microphones, speakers and a hearing aid induction loop. </li>\n  <li>The waiting room and interview room are light and airy with flat floors and few obstructions. Microphones and speakers are installed in the interview room.</li>\n</ul>\n\n<p>If you need to visit us or use our services and feel that they may be inaccessible to you, please contact the Management Officer on tel: +855 (0)23 427 124 or email: <a href=\"mailto:ukincambodia@fco.gov.uk\" title=\"ukincambodia@fco.gov.uk\">ukincambodia@fco.gov.uk</a></p>\n\n<h2 id=\"office-holidays\">Office holidays</h2>\n\n<p>The British Embassy in Phnom Penh will be closed on the following Public Holidays in 2016:</p>\n\n<ul>\n  <li>1 January: New Year’s Day</li>\n  <li>25 March: Good Friday</li>\n  <li>28 March: Easter Monday</li>\n  <li>13, 14, 15 April: Khmer New Year</li>\n  <li>30 September and 3, 4 October: Pchum Ben Day</li>\n  <li>14, 15, 16 November: Water Festival</li>\n  <li>26 December: Boxing Day</li>\n  <li>27 December: in lieu of Christmas Day</li>\n</ul>\n</div>",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>The Foreign &amp; Commonwealth Office and our British Embassy are keen to ensure that their buildings and services are fully accessible to disabled members of the public. Wherever possible, we have made our buildings and services accessible. Sometimes however, this is not possible due to security or other restrictions. In these situations, we will endeavour to provide a service or access to a building in an alternative way to ensure equality of access for disabled people. To assist disabled visitors, we have set out below details of disabled access at this Embassy. We hope this information is helpful.</p>\n\n<ul>\n  <li>The main security entrance is accessible to all visitors, including wheelchairs. An induction loop system is installed to assist hearing-impaired visitors.</li>\n  <li>Entrance to the main reception area is by a ramp, accessible to wheelchairs, with handrail</li>\n  <li>The reception counter is equipped with microphones, speakers and a hearing aid induction loop.</li>\n  <li>The waiting room and interview room are light and airy with flat floors and few obstructions. Microphones and speakers are installed in the interview room.</li>\n</ul>\n\n<p>If you need to visit us or use our services and feel that they may be inaccessible to you, please contact the Management Officer on tel: +855 (0)23 427 124 or email: <a href=\"mailto:ukincambodia@fco.gov.uk\" title=\"ukincambodia@fco.gov.uk\">UKinCambodia@fco.gov.uk</a></p>\n\n<h2 id=\"office-holidays\">Office holidays</h2>\n\n<p>The British Embassy in Phnom Penh will be closed on the following Public Holidays in 2017:</p>\n\n<ul>\n  <li>Mon, 2 January: New Year</li>\n  <li>Thu, 13 April: Khmer New Year</li>\n  <li>Fri, 14 April: Khmer New Year/ Good Friday</li>\n  <li>Mon, 17 April: Khmer New Year/ Easter Monday</li>\n  <li>Mon, 1 May: International Labour Day</li>\n  <li>Mon, 15 May: King’s Birthday</li>\n  <li>Mon, 28 August: UK Bank Holiday</li>\n  <li>Tue-Thu,19-21 September: Pchum Ben</li>\n  <li>Thu-Fri, 2-3 November: Water Festival</li>\n  <li>Mon, 25 December: Christmas</li>\n  <li>Tue, 26 December: Boxing Day</li>\n</ul>\n</div>",
               "type": "Other"
             },
             "address": {
               "adr": {
                 "fn": "British Embassy Phnom Penh",
-                "street-address": " 27-29 Street 75,\r\nSangkat Srah Chak,\r\nKhan Daun Penh",
+                "street-address": "27-29 Street 75,\r\nSangkat Srah Chak,\r\nKhan Daun Penh",
                 "postal-code": "12201",
                 "locality": "Phnom Penh",
                 "region": "",
                 "country-name": "Cambodia"
               },
               "label": {
-                "value": "British Embassy Phnom Penh\n 27-29 Street 75,\r\nSangkat Srah Chak,\r\nKhan Daun Penh\nPhnom Penh\n12201\nCambodia"
+                "value": "British Embassy Phnom Penh\n27-29 Street 75,\r\nSangkat Srah Chak,\r\nKhan Daun Penh\nPhnom Penh\n12201\nCambodia"
               }
             },
             "contact_numbers": [
               {
                 "label": "Telephone",
-                "number": "+855 (0) 23 427124 Ext. 2203"
+                "number": "+855 (0) 23 427 124 Ext. 2203"
               },
               {
                 "label": "Fax",
-                "number": "+855 (0) 23 427125"
+                "number": "+855 (0) 23 427 125"
               }
             ],
             "services": [
@@ -169,20 +169,20 @@
     },
     {
       "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-cambodia",
-      "title": "UK Trade & Investment Cambodia",
+      "title": "Department for International Trade Cambodia",
       "format": "Worldwide Organisation",
-      "updated_at": "2013-04-10T14:35:12.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-cambodia",
+      "updated_at": "2016-08-09T10:03:11.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-cambodia",
       "details": {
         "slug": "uk-trade-investment-cambodia"
       },
       "analytics_identifier": "WO329",
       "offices": {
         "main": {
-          "title": "UK Trade & Investment Cambodia",
+          "title": "Department for International Trade Cambodia",
           "format": "World Office",
           "updated_at": "2013-04-09T09:03:55.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-cambodia/office/uk-trade-investment-cambodia",
+          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-cambodia/office/uk-trade-investment-cambodia",
           "details": {
             "email": "commercial.phnompenh@fco.gov.uk",
             "description": "",
@@ -219,10 +219,10 @@
       },
       "sponsors": [
         {
-          "title": "Foreign & Commonwealth Office",
-          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "title": "Department for International Trade",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-trade",
           "details": {
-            "acronym": "FCO"
+            "acronym": "DIT"
           }
         }
       ]
@@ -232,51 +232,12 @@
       "title": "DFID Vietnam",
       "format": "Worldwide Organisation",
       "updated_at": "2013-03-19T16:47:23.000+00:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/dfid-vietnam",
+      "web_url": "https://www.gov.uk/world/organisations/dfid-vietnam",
       "details": {
         "slug": "dfid-vietnam"
       },
       "analytics_identifier": "WO248",
       "offices": {
-        "main": {
-          "title": "DFID Vietnam",
-          "format": "World Office",
-          "updated_at": "2013-03-25T10:37:54.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/dfid-vietnam/office/dfid-vietnam",
-          "details": {
-            "email": "enquiry@dfid.gov.uk",
-            "description": "",
-            "contact_form_url": "",
-            "access_and_opening_times": "",
-            "type": "Other"
-          },
-          "address": {
-            "adr": {
-              "fn": "",
-              "street-address": "Central Building, 7th Floor\r\n31 Hai Ba Trung",
-              "postal-code": "",
-              "locality": "Hanoi",
-              "region": "",
-              "country-name": "Vietnam"
-            },
-            "label": {
-              "value": "Central Building, 7th Floor\r\n31 Hai Ba Trung\nHanoi\nVietnam"
-            }
-          },
-          "contact_numbers": [
-            {
-              "label": "Telephone",
-              "number": "+84 (0)4 3936 0500"
-            },
-            {
-              "label": "Fax",
-              "number": "+84 (0)4 3936 0556"
-            }
-          ],
-          "services": [
-
-          ]
-        },
         "other": [
 
         ]

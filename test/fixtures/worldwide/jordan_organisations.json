@@ -5,7 +5,7 @@
       "title": "British Embassy Amman",
       "format": "Worldwide Organisation",
       "updated_at": "2014-03-31T13:31:52.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-amman",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-amman",
       "details": {
         "slug": "british-embassy-amman"
       },
@@ -15,7 +15,7 @@
           "title": "British Embassy Amman, main locality",
           "format": "World Office",
           "updated_at": "2014-09-23T11:12:12.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-amman/office/british-embassy-amman-main-locality",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-amman/office/british-embassy-amman-main-locality",
           "details": {
             "email": "Amman.enquiries@fco.gov.uk  ",
             "description": "Office hours:\r\nSunday to Wednesday, 6am to 1pm GMT (8am to 3:30pm local time)\r\nThursday, 6am to 1pm GMT (8am to 3pm local time)\r\n\r\nConsular appointment hours:\r\nSundays to Wednesdays from 08:30 - 12:00 (local time)\r\nEmail: cons.amman@fco.gov.uk",
@@ -59,7 +59,7 @@
             "title": "Consular Section",
             "format": "World Office",
             "updated_at": "2014-01-08T12:26:35.000+00:00",
-            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-amman/office/consular-section",
+            "web_url": "https://www.gov.uk/world/organisations/british-embassy-amman/office/consular-section",
             "details": {
               "email": "cons.amman@fco.gov.uk",
               "description": "Appointment hours:\r\nSundays - Wednesdays from 08:30 - 12:00 (local time)",
@@ -104,20 +104,20 @@
     },
     {
       "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-jordan",
-      "title": "UK Trade & Investment Jordan",
+      "title": "Department for International Trade Jordan",
       "format": "Worldwide Organisation",
-      "updated_at": "2014-04-24T16:48:53.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-jordan",
+      "updated_at": "2016-08-10T12:08:03.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-jordan",
       "details": {
         "slug": "uk-trade-investment-jordan"
       },
       "analytics_identifier": "WO221",
       "offices": {
         "main": {
-          "title": "UK Trade & Investment Jordan",
+          "title": "Department for International Trade Jordan",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:54.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-jordan/office/uk-trade-investment-jordan",
+          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-jordan/office/uk-trade-investment-jordan",
           "details": {
             "email": "uktiamman@fco.gov.uk",
             "description": "",
@@ -151,10 +151,10 @@
       },
       "sponsors": [
         {
-          "title": "UK Trade & Investment",
-          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "title": "Department for International Trade",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-trade",
           "details": {
-            "acronym": "UKTI"
+            "acronym": "DIT"
           }
         }
       ]
@@ -164,7 +164,7 @@
       "title": "DFID Middle East and North Africa",
       "format": "Worldwide Organisation",
       "updated_at": "2014-04-07T16:32:29.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/dfid-middle-east-and-north-africa",
+      "web_url": "https://www.gov.uk/world/organisations/dfid-middle-east-and-north-africa",
       "details": {
         "slug": "dfid-middle-east-and-north-africa"
       },

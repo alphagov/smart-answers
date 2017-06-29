@@ -5,7 +5,7 @@
       "title": "British Embassy Tbilisi",
       "format": "Worldwide Organisation",
       "updated_at": "2014-02-04T05:26:44.000+00:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-tbilisi",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-tbilisi",
       "details": {
         "slug": "british-embassy-tbilisi"
       },
@@ -15,12 +15,12 @@
           "title": "British Embassy Tbilisi",
           "format": "World Office",
           "updated_at": "2014-09-23T11:12:12.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-tbilisi/office/british-embassy",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-tbilisi/office/british-embassy",
           "details": {
             "email": "British.Embassy.Tbilisi@fco.gov.uk",
             "description": "",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<p>Monday to Friday, 9am to 5pm </p>\n\n<h2 id=\"public-holidays\">2016 public holidays</h2>\n\n<ul>\n  <li>Friday 1 January\t\tNew Year’s Day </li>\n  <li>Thursday 7 January\tOrthodox Christmas  </li>\n  <li>Tuesday 19 January\tEpiphany</li>\n  <li>Friday 25 March\t\tGood Friday (UK)</li>\n  <li>Monday 28 March\t        Easter Monday (UK)</li>\n  <li>Friday 29 April\t\tOrthodox Good Friday</li>\n  <li>Monday 2 May\t        Orthodox Easter Monday/ Commemoration of \t\t\t\t\t\t\t <br>\n                                      Deceased; May Bank Holiday \t</li>\n  <li>Thursday 26 May\t\tGeorgian Independence Day </li>\n  <li>Friday, 27 May \t\tPrivilege Holiday for Queen’s Birthday</li>\n  <li>Monday 29 August\tSummer Bank Holiday/ St Mary’s day (in lieu of 28 August)</li>\n  <li>Friday 14 October\t        Mtskhetoba</li>\n  <li>Wednesday 23 November\tSt George’s Day </li>\n  <li>Monday 26 December\t\tBoxing Day</li>\n  <li>Tuesday 27 December\t\tChristmas Day (in lieu of Saturday 25 Dec)</li>\n</ul>\n\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<p>Monday to Friday, 9am to 5pm</p>\n\n<h2 id=\"public-holidays\">2017 public holidays</h2>\n\n<ul>\n  <li>Monday 2 January\t (New Year)</li>\n  <li>Thursday 19 January (Orthodox Epiphany)</li>\n  <li>Friday 3 March (Mother’s Day)</li>\n  <li>Wednesday 8 March (International Women’s Day)</li>\n  <li>Friday 14 April (Good Friday)</li>\n  <li>Monday 17 April (Easter Monday)</li>\n  <li>Monday 1 May (May Bank Holiday)</li>\n  <li>Friday 12 May (St Andrew’s Day)</li>\n  <li>Friday 26 May (Georgian Independence Day/Privilege Holiday for Queen’s Birthday)</li>\n  <li>Monday 29 May (Spring Bank Holiday)</li>\n  <li>Monday 28 August (Summer Bank Holiday/St Mary’s Day)</li>\n  <li>Thursday 23 November\t (St George’s Day)</li>\n  <li>Monday 25 December (Christmas Day)</li>\n  <li>Tuesday 26 December (Boxing Day)</li>\n</ul>\n\n</div>",
             "type": "Embassy"
           },
           "address": {

@@ -5,7 +5,7 @@
       "title": "British High Commission Malta",
       "format": "Worldwide Organisation",
       "updated_at": "2014-03-18T13:50:23.000+00:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-malta",
+      "web_url": "https://www.gov.uk/world/organisations/british-high-commission-malta",
       "details": {
         "slug": "british-high-commission-malta"
       },
@@ -15,12 +15,12 @@
           "title": "British High Commission Malta",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:52.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-malta/office/british-high-commission",
+          "web_url": "https://www.gov.uk/world/organisations/british-high-commission-malta/office/british-high-commission",
           "details": {
-            "email": "bhcvalletta@fco.gov.uk",
-            "description": "",
+            "email": "malta.consulate@fco.gov.uk",
+            "description": "Consular enquiries email (not visas or passports): malta.consulate@fco.gov.uk",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><p>The High Commission is located in Whitehall Mansions along the Seafront in Ta’ Xbiex.</p>\n\n<h4 id=\"opening-hours\">Opening hours</h4>\n\n<p>Consular section\nOpen to visitors, Monday, Tuesday, Thursday, Friday, 9am to 1pm (closed all day Wednesday)</p>\n\n<p>Consular officers will accept phone calls for assistance to British nationals Monday to Friday, 9am to 3pm.</p>\n\n<p>Please note that our reception and consular staff cannot answer any passport or visa queries. Please visit the relevant websites for further information. For other queries not relating to passports or visas, please email us at malta.consulate@fco.gov.uk.</p>\n\n<h4 id=\"access-by-public-transport\">Access by public transport</h4>\n<p>Bus number 15, which runs between Valletta and Sliema, passes in front of the High Commission building in both directions.</p>\n\n<p>Buses 13 and 14 will get you close to the High Commission when travelling from Sliema to Valletta.  You will need to get off the bus in L-Abate Rigord Street, walk down the hill, turn to your left and keep walking until you reach Whitehall Mansions.</p>\n\n<p>Visit the Transport Malta <a rel=\"external\" href=\"http://www.publictransport.com.mt/home?l=1\">website</a> for further information on bus routes.</p>\n\n<h4 id=\"parking\">Parking</h4>\n<p>Ample parking is available in front of the High Commission.</p>\n\n<h2 id=\"public-holidays-in-2016\">Public holidays in 2016</h2>\n<ul>\n  <li>Friday 1 January</li>\n  <li>Wednesday 10 February</li>\n  <li>Friday 25 March</li>\n  <li>Monday 28 March</li>\n  <li>Thursday 31 March</li>\n  <li>Monday 2 May</li>\n  <li>Tuesday 7 June</li>\n  <li>Wednesday 29 June</li>\n  <li>Monday 15 August</li>\n  <li>Thursday 8 September</li>\n  <li>Wednesday 21 September</li>\n  <li>Thursday 8 December</li>\n  <li>Monday 26 December</li>\n</ul>\n\n<p>To contact us in emergencies, out-of-hours and during office closures please call +356 2323 0000.</p>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><p>The High Commission is located in Whitehall Mansions along the Seafront in Ta’ Xbiex.</p>\n\n<h4 id=\"opening-hours\">Opening hours</h4>\n\n<p>Consular section\nOpen to visitors, Monday, Tuesday, Thursday, Friday, 9am to 1pm (closed all day Wednesday)</p>\n\n<p>Consular officers will accept phone calls for assistance to British nationals Monday to Friday, 9am to 3pm.</p>\n\n<p>Please note that our reception and consular staff cannot answer any passport or visa queries. Please visit the relevant websites for further information. For other queries not relating to passports or visas, please email us at malta.consulate@fco.gov.uk.</p>\n\n<h4 id=\"access-by-public-transport\">Access by public transport</h4>\n<p>Bus number 15, which runs between Valletta and Sliema, passes in front of the High Commission building in both directions.</p>\n\n<p>Buses 13 and 14 will get you close to the High Commission when travelling from Sliema to Valletta.  You will need to get off the bus in L-Abate Rigord Street, walk down the hill, turn to your left and keep walking until you reach Whitehall Mansions.</p>\n\n<p>Visit the Transport Malta <a rel=\"external\" href=\"http://www.publictransport.com.mt/home?l=1\">website</a> for further information on bus routes.</p>\n\n<h4 id=\"parking\">Parking</h4>\n<p>Ample parking is available in front of the High Commission.</p>\n\n<h2 id=\"public-holidays-in-2017\">Public holidays in 2017</h2>\n\n<ul>\n  <li>Monday 2 January</li>\n  <li>Friday 10 February</li>\n  <li>Friday 31 March</li>\n  <li>Friday 14 April</li>\n  <li>Monday 17 April</li>\n  <li>Monday 1 May</li>\n  <li>Wednesday 7 June</li>\n  <li>Thursday 29 June</li>\n  <li>Tuesday 15 August</li>\n  <li>Friday 8 September</li>\n  <li>Thursday 21 September</li>\n  <li>Friday 8 December</li>\n  <li>Wednesday 13 December</li>\n  <li>Monday 25 December</li>\n</ul>\n\n<p>To contact us in emergencies, out-of-hours and during office closures please call +356 2323 0000.</p>\n</div>",
             "type": "High Commission"
           },
           "address": {
@@ -37,10 +37,6 @@
             }
           },
           "contact_numbers": [
-            {
-              "label": "malta.consulate@fco.gov.uk",
-              "number": "(Consular enquiries only, not visas or passports)"
-            },
             {
               "label": "Telephone",
               "number": "(+356) 2323 0000"

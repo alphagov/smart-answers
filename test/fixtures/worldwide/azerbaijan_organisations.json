@@ -5,7 +5,7 @@
       "title": "British Embassy Baku",
       "format": "Worldwide Organisation",
       "updated_at": "2014-05-06T07:47:53.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-baku",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-baku",
       "details": {
         "slug": "british-embassy-baku"
       },
@@ -15,12 +15,12 @@
           "title": "British Embassy Baku",
           "format": "World Office",
           "updated_at": "2013-04-28T11:13:23.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-baku/office/british-embassy-baku",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-baku/office/british-embassy-baku",
           "details": {
             "email": "generalenquiries.baku@fco.gov.uk",
             "description": "Office hours:\r\nMonday to Friday\r\n5am - 1pm  GMT\r\n9am - 5pm Local Time",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h3 id=\"public-holidays-2016\">PUBLIC HOLIDAYS 2016</h3>\n\n<p>PUBLIC HOLIDAYS 2016</p>\n\n<ul>\n  <li>1 January               \tNew Year </li>\n  <li>4 January              \tNew Year</li>\n  <li>21 March               \tNovruz </li>\n  <li>22 March              \tNovruz  </li>\n  <li>25 March\t             \tGood Friday </li>\n  <li>28 March                   \tEaster Monday </li>\n  <li>30 May                  \tAzerbaijan Republic Day </li>\n  <li>7 July          \t\tRamadan </li>\n  <li>8 July         \t\tRamadan </li>\n  <li>12 September              Qurban </li>\n  <li>13 September              Qurban  </li>\n  <li>26 December         \tBoxing Day </li>\n  <li>27 December \t\tChristmas Day </li>\n  <li>30 December         \tWorld Azerbaijanis Solidarity Day </li>\n</ul>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\">\n<h3 id=\"public-holidays-2017\">Public Holidays 2017</h3>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 2 January</td>\n      <td>New Year in lieu of 1 January (Sunday)</td>\n    </tr>\n    <tr>\n      <td>Tuesday 3 January</td>\n      <td>New Year (Tuesday) in lieu of 2 January (Monday)</td>\n    </tr>\n    <tr>\n      <td>Monday 20 March</td>\n      <td>Novruz</td>\n    </tr>\n    <tr>\n      <td>Tuesday 21 March</td>\n      <td>Novruz</td>\n    </tr>\n    <tr>\n      <td>Friday 14 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 17 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 29 May</td>\n      <td>Azerbaijan Republic Day in lieu of 28 May (Sunday)</td>\n    </tr>\n    <tr>\n      <td>Monday 26 June</td>\n      <td>Ramazan</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 June</td>\n      <td>Ramazan</td>\n    </tr>\n    <tr>\n      <td>Friday 1 September</td>\n      <td>Qurban</td>\n    </tr>\n    <tr>\n      <td>Monday 4 September</td>\n      <td>Qurban in lieu of 2 September (Saturday)</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Friday 29 December</td>\n      <td>World Azerbaijanis Solidarity Day in lieu of 31 December (Sunday)</td>\n    </tr>\n  </tbody>\n</table>\n\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -85,20 +85,20 @@
     },
     {
       "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-azerbaijan",
-      "title": "UK Trade & Investment Azerbaijan",
+      "title": "Department for International Trade Azerbaijan",
       "format": "Worldwide Organisation",
-      "updated_at": "2014-04-24T16:42:58.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-azerbaijan",
+      "updated_at": "2016-08-08T13:25:26.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-azerbaijan",
       "details": {
         "slug": "uk-trade-investment-azerbaijan"
       },
       "analytics_identifier": "WO266",
       "offices": {
         "main": {
-          "title": "UK Trade & Investment Azerbaijan",
+          "title": "Department for International Trade Azerbaijan",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:54.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-azerbaijan/office/uk-trade-investment-azerbaijan",
+          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-azerbaijan/office/uk-trade-investment-azerbaijan",
           "details": {
             "email": "UKTI.Azerbaijan@fco.gov.uk ",
             "description": "Office hours:\r\nMonday to Friday, 9am to 5pm local time (5am to 1pm GMT)",
@@ -135,10 +135,10 @@
       },
       "sponsors": [
         {
-          "title": "UK Trade & Investment",
-          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "title": "Department for International Trade",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-trade",
           "details": {
-            "acronym": "UKTI"
+            "acronym": "DIT"
           }
         }
       ]

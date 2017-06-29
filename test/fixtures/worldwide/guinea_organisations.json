@@ -5,7 +5,7 @@
       "title": "British Embassy Conakry",
       "format": "Worldwide Organisation",
       "updated_at": "2014-04-04T11:23:00.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-conakry",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-conakry",
       "details": {
         "slug": "british-embassy-conakry"
       },
@@ -15,12 +15,12 @@
           "title": "British Embassy Conakry",
           "format": "World Office",
           "updated_at": "2013-06-21T10:36:12.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-conakry/office/british-embassy-conakry",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-conakry/office/british-embassy-conakry",
           "details": {
-            "email": "britembconakry@hotmail.com",
+            "email": "BritishEmbassy.Conakry@fco.gov.uk",
             "description": "Emergency consular assistance (24 hours)\r\nFor emergency assistance, such as in the event of the death, assault, arrest or hospitalisation of a British national in Guinea, call +44 (0)1908 516 666 and follow the instructions to be connected with consular officers.\r\nIf you are calling from the UK about a British national in Guinea, call our Consular Assistance Team in London on + 44 (0) 207 008 1500.",
             "contact_form_url": "",
-            "access_and_opening_times": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h4 id=\"consular-opening-hours\">Consular opening hours</h4>\n\n<p>10 am to 12 noon Monday - Thursday</p>\n</div>",
             "type": "Embassy"
           },
           "address": {

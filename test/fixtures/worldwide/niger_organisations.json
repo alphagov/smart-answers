@@ -5,7 +5,7 @@
       "title": "DFID Niger",
       "format": "Worldwide Organisation",
       "updated_at": "2013-04-29T12:23:05.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/dfid-niger",
+      "web_url": "https://www.gov.uk/world/organisations/dfid-niger",
       "details": {
         "slug": "dfid-niger"
       },
@@ -30,7 +30,7 @@
       "title": "British Embassy  Bamako",
       "format": "Worldwide Organisation",
       "updated_at": "2015-06-25T07:45:54.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-bamako",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-bamako",
       "details": {
         "slug": "british-embassy-bamako"
       },
@@ -40,12 +40,12 @@
           "title": "British Embassy Bamako",
           "format": "World Office",
           "updated_at": "2015-06-25T11:54:27.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-bamako/office/british-embassy-bamako",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-bamako/office/british-embassy-bamako",
           "details": {
             "email": "bebamako@fco.gov.uk",
             "description": "",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening Hours</h2>\n\n<p>Monday to Thursday: 1000 to 1200     /    1400 to 1600</p>\n\n<p>Friday: 1000 to 1200 </p>\n\n<h2 id=\"public-holiday-list-2016\">Public Holiday List 2016</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 02 May</td>\n      <td>May Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Wednesday 25 May</td>\n      <td>Africa Day</td>\n    </tr>\n    <tr>\n      <td>Monday 30 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Thursday 07 July</td>\n      <td>End of Ramadan (Eid al Fitr)</td>\n    </tr>\n    <tr>\n      <td>Monday 12 September</td>\n      <td>Tabaski (Eid al Adha)</td>\n    </tr>\n    <tr>\n      <td>Tuesday 13 September</td>\n      <td>Tabaski (Eid al Adha)</td>\n    </tr>\n    <tr>\n      <td>Thursday 22 September</td>\n      <td>Mali Independence Day</td>\n    </tr>\n    <tr>\n      <td>Monday 12 December</td>\n      <td>Mawlid (Birth of the Prophet)</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 December</td>\n      <td>In lieu of Christmas Day 25 December</td>\n    </tr>\n  </tbody>\n</table>\n\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening Hours</h2>\n\n<p>Monday to Thursday: 1000 to 1200     /    1400 to 1600</p>\n\n<p>Friday: 1000 to 1200</p>\n\n<h2 id=\"public-holiday-list-2017\">Public Holiday List 2017</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Monday 02 January 2017</td>\n      <td>In lieu of New Year Day</td>\n    </tr>\n    <tr>\n      <td>Friday 13 January 2017</td>\n      <td>Africa France Summit</td>\n    </tr>\n    <tr>\n      <td>Friday 14 April 2017</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 17 April 2017</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 01 May 2017</td>\n      <td>May Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Thursday 25 May 2017</td>\n      <td>Africa Day</td>\n    </tr>\n    <tr>\n      <td>Monday 29 May 2017</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 26 June 2017</td>\n      <td>End of Ramadan (Eid al Fitr)</td>\n    </tr>\n    <tr>\n      <td>Monday 28 August 2017</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 04 September 2017</td>\n      <td>Tabaski (Eid al Adha)</td>\n    </tr>\n    <tr>\n      <td>Tuesday 05 September 2017</td>\n      <td>Tabaski (Eid al Adha)</td>\n    </tr>\n    <tr>\n      <td>Monday 25 September 2017</td>\n      <td>In lieu of Mali Independence Day 22 September</td>\n    </tr>\n    <tr>\n      <td>Monday 04 December 2017</td>\n      <td>Mawlid (Birth of the Prophet)</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December 2017</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December 2017</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n</div>",
             "type": "Embassy"
           },
           "address": {

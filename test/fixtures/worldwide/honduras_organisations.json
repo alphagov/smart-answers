@@ -5,7 +5,7 @@
       "title": "British Embassy Guatemala City (for Honduras)",
       "format": "Worldwide Organisation",
       "updated_at": "2015-08-19T18:51:50.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-honduras",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-honduras",
       "details": {
         "slug": "british-embassy-honduras"
       },
@@ -15,12 +15,12 @@
           "title": "British Embassy",
           "format": "World Office",
           "updated_at": "2014-09-23T11:12:12.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-honduras/office/british-embassy",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-honduras/office/british-embassy",
           "details": {
-            "email": "",
+            "email": "guatemala.consulate@fco.gov.uk",
             "description": "",
             "contact_form_url": "",
-            "access_and_opening_times": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"e-mail-embajadabritanicagtgmailcom\">E-mail: embajadabritanicagt@gmail.com</h2>\n\n<h2 id=\"opening-times\">Opening Times</h2>\n<p>The British Embassy Guatemala City is open from Mondays to Thursdays from 07:30 to 12:30 and 13:30 to 16:30 and Fridays from 07:30 to 11:30.</p>\n</div>",
             "type": "Embassy"
           },
           "address": {

@@ -5,7 +5,7 @@
       "title": "British Embassy Dakar",
       "format": "Worldwide Organisation",
       "updated_at": "2014-05-05T12:45:03.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-dakar",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-dakar",
       "details": {
         "slug": "british-embassy-dakar"
       },
@@ -15,12 +15,12 @@
           "title": "British Embassy Dakar",
           "format": "World Office",
           "updated_at": "2014-09-23T11:12:12.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-dakar/office/british-embassy-dakar",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-dakar/office/british-embassy-dakar",
           "details": {
             "email": "britembe@orange.sn",
             "description": "Office hours:\r\nMonday to Thursday \r\n8am to 4:30pm\r\nFriday \r\n8am to 12:30pm",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"office-access\">Office access</h2>\n\n<h3 id=\"important-information-about-accessing-the-british-embassy-in-dakar\">Important information about accessing the British Embassy in Dakar</h3>\n\n<h3 id=\"security-regulations\">Security regulations</h3>\n\n<p>Please be aware that all visitors to the British Embassy will have to pass through Embassy security. While we aim for this to be as light-touch as possible, it does require a search of bags and pockets.\nThe British Embassy in Dakar security regulations, in line with all British Diplomatic Missions world-wide, do not permit visitors to enter the embassy with mobile telephones, laptops, PDAs or any other similar electrical devices. We prefer that you arrive at the Embassy without them. If this is not possible we can retain them at the entrance during your visit. </p>\n\n<p>Weapons (including pepper sprays), or any object that our Security Staff consider could be used as a weapon, are also forbidden. These will not be retained by our staff. Should you arrive with such an object you will not be granted access but will be asked to return without it.</p>\n\n<p>These regulations are intended to help us ensure the security for our staff and visitors. Your cooperation is appreciated.</p>\n\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"office-access\">Office access</h2>\n\n<h3 id=\"important-information-about-accessing-the-british-embassy-in-dakar\">Important information about accessing the British Embassy in Dakar</h3>\n\n<h3 id=\"security-regulations\">Security regulations</h3>\n\n<p>Please be aware that all visitors to the British Embassy will have to pass through Embassy security. While we aim for this to be as light-touch as possible, it does require a search of bags and pockets.\nThe British Embassy in Dakar security regulations, in line with all British Diplomatic Missions world-wide, do not permit visitors to enter the embassy with mobile telephones, laptops, PDAs or any other similar electrical devices. We prefer that you arrive at the Embassy without them. If this is not possible we can retain them at the entrance during your visit.</p>\n\n<p>Weapons (including pepper sprays), or any object that our Security Staff consider could be used as a weapon, are also forbidden. These will not be retained by our staff. Should you arrive with such an object you will not be granted access but will be asked to return without it.</p>\n\n<p>These regulations are intended to help us ensure the security for our staff and visitors. Your cooperation is appreciated.</p>\n\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -46,7 +46,7 @@
               "number": "+221 33 823 27 66"
             },
             {
-              "label": "Consular assistance (24 hour)",
+              "label": "Consular assistance: Monday-Thursday 0900-1100  ",
               "number": "+221 33 823 73 92"
             }
           ],
@@ -71,34 +71,34 @@
         },
         "other": [
           {
-            "title": "Visa Section",
+            "title": "Visa Services",
             "format": "World Office",
             "updated_at": "2014-02-20T12:49:19.000+00:00",
-            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-dakar/office/visa-section",
+            "web_url": "https://www.gov.uk/world/organisations/british-embassy-dakar/office/visa-section",
             "details": {
               "email": "",
               "description": "",
               "contact_form_url": "https://www.visainfoservices.com/Pages/dest_org.aspx",
-              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening Hours</h2>\n\n<h3 id=\"passport-collection-times\">Passport Collection Times:</h3>\n\n<p>Monday to Thursday:  2 pm to 2:30 pm</p>\n\n<p>Friday: 9 am - 11am</p>\n</div>",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening Hours</h2>\n\n<h3 id=\"passport-collection-times\">Passport Collection Times:</h3>\n\n<p>Please access the TLScontact/ FedEx Visa Centre \n<a rel=\"external\" href=\"https://uk.tlscontact.com/sn/dkr/index.php\">website</a></p>\n\n</div>",
               "type": "Other"
             },
             "address": {
               "adr": {
                 "fn": "",
-                "street-address": "20 Rue du Dr Guillet",
-                "postal-code": "BP 6025",
+                "street-address": "TLScontact/ FedEx Visa Centre \r\nLot 15 Route de Ngor x Route des Almadies ",
+                "postal-code": "",
                 "locality": "Dakar",
-                "region": "Dakar",
+                "region": "",
                 "country-name": "Senegal"
               },
               "label": {
-                "value": "20 Rue du Dr Guillet\nDakar\nDakar\nBP 6025\nSenegal"
+                "value": "TLScontact/ FedEx Visa Centre \r\nLot 15 Route de Ngor x Route des Almadies \nDakar\nSenegal"
               }
             },
             "contact_numbers": [
               {
                 "label": "UKVISAS Phone Number",
-                "number": "00 44 1243 213 342."
+                "number": " 00 44 1243 213 342."
               }
             ],
             "services": [
