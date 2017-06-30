@@ -2,6 +2,7 @@
   "results": [
 
   ],
+  "next_page_url": "https://www.gov.uk/api/world-locations/british-indian-ocean-territory/organisations?page=2",
   "current_page": 1,
   "total": 0,
   "pages": 0,
@@ -10,6 +11,10 @@
   "_response_info": {
     "status": "ok",
     "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/british-indian-ocean-territory/organisations?page=2",
+        "rel": "next"
+      },
       {
         "href": "https://www.gov.uk/api/world-locations/british-indian-ocean-territory/organisations?page=1",
         "rel": "self"

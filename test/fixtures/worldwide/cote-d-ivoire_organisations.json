@@ -5,7 +5,7 @@
       "title": "British Embassy Abidjan",
       "format": "Worldwide Organisation",
       "updated_at": "2014-03-18T17:57:03.000+00:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-abidjan",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-abidjan",
       "details": {
         "slug": "british-embassy-abidjan"
       },
@@ -15,7 +15,7 @@
           "title": "British Embassy Abidjan",
           "format": "World Office",
           "updated_at": "2014-09-23T11:12:12.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-abidjan/office/british-embassy-abidjan",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-abidjan/office/british-embassy-abidjan",
           "details": {
             "email": "British.Embassy.Abidjan@fco.gov.uk",
             "description": "Opening Hours\r\nMonday to Thursday: 8:30 am to 4:30 pm\r\nFriday: 8:30 am to 2:30 pm\r\n\r\nFor consular information and emergency assistance call +44 (0)1908 516 666 or +225 2244 2669",
@@ -70,20 +70,20 @@
     },
     {
       "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-cote-divoire",
-      "title": "UK Trade & Investment Cote d'Ivoire ",
+      "title": "Department for International Trade Cote d'Ivoire ",
       "format": "Worldwide Organisation",
-      "updated_at": "2014-08-06T11:44:21.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-cote-divoire",
+      "updated_at": "2016-08-09T12:52:42.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-cote-divoire",
       "details": {
         "slug": "uk-trade-investment-cote-divoire"
       },
       "analytics_identifier": "WO370",
       "offices": {
         "main": {
-          "title": "UK Trade & Investment Cote d'Ivoire",
+          "title": "Department for International Trade Cote d'Ivoire",
           "format": "World Office",
           "updated_at": "2014-08-06T11:48:25.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-cote-divoire/office/uk-trade-investment-cote-divoire",
+          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-cote-divoire/office/uk-trade-investment-cote-divoire",
           "details": {
             "email": "Marcel.Ngosso@fconet.fco.gov.uk ",
             "description": "",
@@ -120,10 +120,10 @@
       },
       "sponsors": [
         {
-          "title": "UK Trade & Investment",
-          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "title": "Department for International Trade",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-trade",
           "details": {
-            "acronym": "UKTI"
+            "acronym": "DIT"
           }
         }
       ]

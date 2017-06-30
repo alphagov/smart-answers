@@ -5,7 +5,7 @@
       "title": "British Embassy Pristina",
       "format": "Worldwide Organisation",
       "updated_at": "2013-11-20T12:50:32.000+00:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-pristina",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-pristina",
       "details": {
         "slug": "british-embassy-pristina"
       },
@@ -15,25 +15,25 @@
           "title": "British Embassy Pristina",
           "format": "World Office",
           "updated_at": "2014-09-23T11:12:12.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-pristina/office/british-embassy",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-pristina/office/british-embassy",
           "details": {
             "email": "britishembassy.pristina@fco.gov.uk",
             "description": "",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<ul>\n  <li>Monday to Thursday, 8:30am to 5pm</li>\n  <li>Friday, 8:30am to 1:30pm</li>\n</ul>\n\n<p>We are not open on Saturdays and Sundays. Please note, time in Kosovo is GMT+1 during the winter (end of October till end of March) and GMT+2 during the summer (end of March till end of October).</p>\n\n<h2 id=\"disabled-access\">Disabled access</h2>\n<p>Customers with disabilities should contact the Embassy in advance to discuss their requirements so we can ensure they have full access to our services. The number to ring is +381 (38) 254 700. </p>\n\n<h2 id=\"public-holidays\">2016 public holidays</h2>\n\n<p>The British Embassy Pristina will be closed on the following public holidays:</p>\n\n<ul>\n  <li>Friday 01 January\t\t\t</li>\n  <li>Monday 04 January\t\t\t</li>\n  <li>Thursday 07 January\t\t </li>\n  <li>Wednesday 17 February\t\t </li>\n  <li>Friday 25 March\t\t\t</li>\n  <li>Monday 28 March \t\t</li>\n  <li>Monday 11 April\t\t\t </li>\n  <li>Monday 02 May\t </li>\n  <li>Monday 9 May </li>\n  <li>Tuesday 05 July </li>\n  <li>Monday 12 September</li>\n  <li>Friday 23 December \t\t  \t</li>\n  <li>Monday 26 December</li>\n  <li>Tuesday 27 December\t\t\t\t\t\t</li>\n</ul>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<ul>\n  <li>Monday to Thursday, 8:30am to 5pm</li>\n  <li>Friday, 8:30am to 1:30pm</li>\n</ul>\n\n<p>We are not open on Saturdays and Sundays. Please note, time in Kosovo is GMT+1 during the winter (end of October till end of March) and GMT+2 during the summer (end of March till end of October).</p>\n\n<h2 id=\"consular-section\">Consular section</h2>\n<p>The Consular Section office works by appointment only and is therefore not open to the public at all times. See more information on how to make an appointment <a rel=\"external\" href=\"https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-pristina/-/service_list\">here</a>.</p>\n\n<h2 id=\"disabled-access\">Disabled access</h2>\n<p>Customers with disabilities should contact the Embassy in advance to discuss their requirements so we can ensure they have full access to our services. The number to ring is +381 (38) 254 700.</p>\n\n<h2 id=\"public-holidays\">2017 public holidays</h2>\n\n<p>The British Embassy Pristina will be closed on the following public holidays:</p>\n\n<ul>\n  <li>Monday 2 January</li>\n  <li>Tuesday 3 January</li>\n  <li>Monday 9 January</li>\n  <li>Friday 17 February</li>\n  <li>Monday 10 April</li>\n  <li>Friday 14 April</li>\n  <li>Monday 17 April</li>\n  <li>Monday 1 May</li>\n  <li>Monday 29 May</li>\n  <li>Monday 26 June</li>\n  <li>Monday 28 August</li>\n  <li>Friday 1 September</li>\n  <li>Monday 25 December</li>\n  <li>Tuesday 26 December</li>\n</ul>\n</div>",
             "type": "Embassy"
           },
           "address": {
             "adr": {
               "fn": "",
-              "street-address": "Ismail Qemali 6\r\nArberi/Dragodan",
-              "postal-code": "",
+              "street-address": "Lidhja e Pejes 177",
+              "postal-code": "10000",
               "locality": "Pristina",
               "region": "",
               "country-name": "Kosovo"
             },
             "label": {
-              "value": "Ismail Qemali 6\r\nArberi/Dragodan\nPristina\nKosovo"
+              "value": "Lidhja e Pejes 177\nPristina\n10000\nKosovo"
             }
           },
           "contact_numbers": [
@@ -43,7 +43,7 @@
             },
             {
               "label": "Fax",
-              "number": "+381 (0) 38 243 062"
+              "number": "+381 (0) 38 606 662"
             }
           ],
           "services": [
@@ -55,12 +55,12 @@
             "title": "Visa Section",
             "format": "World Office",
             "updated_at": "2014-02-21T08:52:16.000+00:00",
-            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-pristina/office/visa-section",
+            "web_url": "https://www.gov.uk/world/organisations/british-embassy-pristina/office/visa-section",
             "details": {
               "email": "",
               "description": "Opening hours: Monday, Tuesday and Wednesday, 09.00am to 14.30pm",
               "contact_form_url": "http://corp.tlscontact.com",
-              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<ul>\n  <li>Monday to Thursday, 8:30am to 5pm</li>\n  <li>Friday, 8:30am to 1:30pm</li>\n</ul>\n\n<p>We are not open on Saturdays and Sundays. Please note, time in Kosovo is GMT+1 during the winter (end of October till end of March) and GMT+2 during the summer (end of March till end of October).</p>\n\n<h2 id=\"disabled-access\">Disabled access</h2>\n<p>Customers with disabilities should contact the Embassy in advance to discuss their requirements so we can ensure they have full access to our services. The number to ring is +381 (38) 254 700. </p>\n\n<h2 id=\"public-holidays\">2016 public holidays</h2>\n\n<p>The British Embassy Pristina will be closed on the following public holidays:</p>\n\n<ul>\n  <li>Friday 01 January\t\t\t</li>\n  <li>Monday 04 January\t\t\t</li>\n  <li>Thursday 07 January\t\t </li>\n  <li>Wednesday 17 February\t\t </li>\n  <li>Friday 25 March\t\t\t</li>\n  <li>Monday 28 March \t\t</li>\n  <li>Monday 11 April\t\t\t </li>\n  <li>Monday 02 May\t </li>\n  <li>Monday 9 May </li>\n  <li>Tuesday 05 July </li>\n  <li>Monday 12 September</li>\n  <li>Friday 23 December \t\t  \t</li>\n  <li>Monday 26 December</li>\n  <li>Tuesday 27 December\t\t\t\t\t\t</li>\n</ul>\n</div>",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<ul>\n  <li>Monday to Thursday, 8:30am to 5pm</li>\n  <li>Friday, 8:30am to 1:30pm</li>\n</ul>\n\n<p>We are not open on Saturdays and Sundays. Please note, time in Kosovo is GMT+1 during the winter (end of October till end of March) and GMT+2 during the summer (end of March till end of October).</p>\n\n<h2 id=\"consular-section\">Consular section</h2>\n<p>The Consular Section office works by appointment only and is therefore not open to the public at all times. See more information on how to make an appointment <a rel=\"external\" href=\"https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-pristina/-/service_list\">here</a>.</p>\n\n<h2 id=\"disabled-access\">Disabled access</h2>\n<p>Customers with disabilities should contact the Embassy in advance to discuss their requirements so we can ensure they have full access to our services. The number to ring is +381 (38) 254 700.</p>\n\n<h2 id=\"public-holidays\">2017 public holidays</h2>\n\n<p>The British Embassy Pristina will be closed on the following public holidays:</p>\n\n<ul>\n  <li>Monday 2 January</li>\n  <li>Tuesday 3 January</li>\n  <li>Monday 9 January</li>\n  <li>Friday 17 February</li>\n  <li>Monday 10 April</li>\n  <li>Friday 14 April</li>\n  <li>Monday 17 April</li>\n  <li>Monday 1 May</li>\n  <li>Monday 29 May</li>\n  <li>Monday 26 June</li>\n  <li>Monday 28 August</li>\n  <li>Friday 1 September</li>\n  <li>Monday 25 December</li>\n  <li>Tuesday 26 December</li>\n</ul>\n</div>",
               "type": "Other"
             },
             "address": {
@@ -103,7 +103,7 @@
       "title": "DFID Kosovo",
       "format": "Worldwide Organisation",
       "updated_at": "2013-04-29T12:30:10.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/dfid-kosovo",
+      "web_url": "https://www.gov.uk/world/organisations/dfid-kosovo",
       "details": {
         "slug": "dfid-kosovo"
       },

@@ -5,7 +5,7 @@
       "title": "British Embassy Lima",
       "format": "Worldwide Organisation",
       "updated_at": "2014-01-08T20:19:47.000+00:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-peru",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-peru",
       "details": {
         "slug": "british-embassy-peru"
       },
@@ -15,25 +15,25 @@
           "title": "British Embassy Lima",
           "format": "World Office",
           "updated_at": "2014-01-14T18:09:08.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-peru/office/british-embassy-lima",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-peru/office/british-embassy-lima",
           "details": {
-            "email": "belima@fco.gov.uk",
-            "description": "",
+            "email": "",
+            "description": "General enquiries\r\nbelima@fco.gov.uk\r\nConsular enquiries\r\nperu.consulate@fco.gov.uk",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><p><a href=\"https://www.gov.uk/government/organisations/foreign-commonwealth-office/about/complaints-procedure#consular-services-complaints-and-compliments\">Consular services complaints and compliments</a></p>\n\n<h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Our offices will be closed for the following public holidays in 2016:</p>\n\n<ul>\n  <li>Friday 01 January</li>\n  <li>Thursday 24 March</li>\n  <li>Friday 25 March</li>\n  <li>Monday 2 May</li>\n  <li>Monday 30 May</li>\n  <li>Wednesday 29 June</li>\n  <li>Thursday 28 July</li>\n  <li>Friday 29 July</li>\n  <li>Monday 29 August</li>\n  <li>Tuesday 30 August</li>\n  <li>Tuesday 1 November</li>\n  <li>Thursday 8 December</li>\n  <li>Monday 26 December</li>\n  <li>Tuesday 27 December</li>\n</ul>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><p><a href=\"https://www.gov.uk/government/organisations/foreign-commonwealth-office/about/complaints-procedure#consular-services-complaints-and-compliments\">Consular services complaints and compliments</a></p>\n\n<h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Our offices will be closed for the following public holidays in 2017:</p>\n\n<ul>\n  <li>Monday 02 January</li>\n  <li>Thursday 13 April</li>\n  <li>Friday 14 April</li>\n  <li>Monday 01 May</li>\n  <li>Monday 29 May</li>\n  <li>Tuesday 30 May</li>\n  <li>Thursday 29 June</li>\n  <li>Friday 28 July</li>\n  <li>Monday 28 August</li>\n  <li>Wednesday 30 August</li>\n  <li>Wednesday 1 November</li>\n  <li>Friday 8 December</li>\n  <li>Monday 25 December</li>\n  <li>Tuesday 26 December</li>\n</ul>\n</div>",
             "type": "Embassy"
           },
           "address": {
             "adr": {
               "fn": "",
-              "street-address": "Torre Parque Mar (22nd Floor)\r\nAvenida José Larco 1301\r\nMiraflores",
+              "street-address": "Torre Parque Mar (22nd Floor)\r\nAvenida José Larco 1301\r\nMiraflores\r\n\r\nEmbassy opening hours:\r\n08:00 - 13:00 and 14:00 - 16:30 (Monday to Thursday)\r\n08:00 - 13:00 (Friday)",
               "postal-code": "",
               "locality": "Lima",
               "region": "",
               "country-name": "Peru"
             },
             "label": {
-              "value": "Torre Parque Mar (22nd Floor)\r\nAvenida José Larco 1301\r\nMiraflores\nLima\nPeru"
+              "value": "Torre Parque Mar (22nd Floor)\r\nAvenida José Larco 1301\r\nMiraflores\r\n\r\nEmbassy opening hours:\r\n08:00 - 13:00 and 14:00 - 16:30 (Monday to Thursday)\r\n08:00 - 13:00 (Friday)\nLima\nPeru"
             }
           },
           "contact_numbers": [
@@ -91,28 +91,28 @@
         },
         "other": [
           {
-            "title": "Visa Section",
+            "title": "Consular Section",
             "format": "World Office",
             "updated_at": "2014-02-18T21:00:56.000+00:00",
-            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-peru/office/visa-section",
+            "web_url": "https://www.gov.uk/world/organisations/british-embassy-peru/office/visa-section",
             "details": {
               "email": "",
-              "description": "Opening times:  From Monday to Friday from 8:00 to 12:00\r\n\r\nPassport collection times:  From Monday to Friday from 11:30 to 12:00\r\n\r\nTo obtain information on visas please visit our web page http://www.vfsglobal.co.uk/Peru/, where you can obtain free information regarding visas.",
-              "contact_form_url": "http://www.vfsglobal.co.uk/Peru/",
-              "access_and_opening_times": "<div class=\"govspeak\"><p><a href=\"https://www.gov.uk/government/organisations/foreign-commonwealth-office/about/complaints-procedure#consular-services-complaints-and-compliments\">Consular services complaints and compliments</a> </p>\n\n<h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Our offices will be closed for the following public holidays in 2016:</p>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Date</td>\n    </tr>\n    <tr>\n      <td>Friday 01 January</td>\n    </tr>\n    <tr>\n      <td>Thursday 24 March</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n    </tr>\n    <tr>\n      <td>Monday 2 May</td>\n    </tr>\n    <tr>\n      <td>Monday 30 May</td>\n    </tr>\n    <tr>\n      <td>Wednesday 29 June</td>\n    </tr>\n    <tr>\n      <td>Thursday 28 July</td>\n    </tr>\n    <tr>\n      <td>Friday 29 July</td>\n    </tr>\n    <tr>\n      <td>Monday 29 August</td>\n    </tr>\n    <tr>\n      <td>Tuesday 30 August</td>\n    </tr>\n    <tr>\n      <td>Tuesday 1 November</td>\n    </tr>\n    <tr>\n      <td>Thursday 8 December</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 December</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+              "description": "Consular Section opening hours: \r\n8:00 - 12:00 (Monday to Friday)",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><p><a href=\"https://www.gov.uk/government/organisations/foreign-commonwealth-office/about/complaints-procedure#consular-services-complaints-and-compliments\">Consular services complaints and compliments</a></p>\n\n<h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Our offices will be closed for the following public holidays in 2017:</p>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Date</td>\n    </tr>\n    <tr>\n      <td>Monday 02 January</td>\n    </tr>\n    <tr>\n      <td>Thursday 13 April</td>\n    </tr>\n    <tr>\n      <td>Friday 14 April</td>\n    </tr>\n    <tr>\n      <td>Monday 01 May</td>\n    </tr>\n    <tr>\n      <td>Monday 29 May</td>\n    </tr>\n    <tr>\n      <td>Tuesday 30 May</td>\n    </tr>\n    <tr>\n      <td>Thursday 29 June</td>\n    </tr>\n    <tr>\n      <td>Friday 28 July</td>\n    </tr>\n    <tr>\n      <td>Monday 28 August</td>\n    </tr>\n    <tr>\n      <td>Wednesday 30 August</td>\n    </tr>\n    <tr>\n      <td>Wednesday 1 November</td>\n    </tr>\n    <tr>\n      <td>Friday 8 December</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
               "type": "Other"
             },
             "address": {
               "adr": {
-                "fn": "Visa Section",
-                "street-address": "Torre Parque Mar (23rd Floor) \r\nAvenida José Larco, 1301 \r\nMiraflores",
+                "fn": "",
+                "street-address": "Torre Parque Mar (23rd Floor) \r\nAvenida José Larco, 1301\r\nLima \r\nMiraflores",
                 "postal-code": "",
                 "locality": "",
                 "region": "",
                 "country-name": "Peru"
               },
               "label": {
-                "value": "Visa Section\nTorre Parque Mar (23rd Floor) \r\nAvenida José Larco, 1301 \r\nMiraflores\nPeru"
+                "value": "Torre Parque Mar (23rd Floor) \r\nAvenida José Larco, 1301\r\nLima \r\nMiraflores\nPeru"
               }
             },
             "contact_numbers": [
@@ -136,22 +136,22 @@
     },
     {
       "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-peru",
-      "title": "UK Trade & Investment Peru",
+      "title": "Department for International Trade Peru",
       "format": "Worldwide Organisation",
-      "updated_at": "2013-04-16T14:05:35.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-peru",
+      "updated_at": "2016-08-11T11:16:34.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-peru",
       "details": {
         "slug": "uk-trade-investment-peru"
       },
       "analytics_identifier": "WO168",
       "offices": {
         "main": {
-          "title": "UK Trade & Investment Peru",
+          "title": "Department for International Trade Peru",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:53.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-peru/office/uk-trade-investment-peru",
+          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-peru/office/uk-trade-investment-peru",
           "details": {
-            "email": "UKTI.Lima@fco.gov.uk",
+            "email": "DIT.lima@fco.gov.uk",
             "description": "",
             "contact_form_url": "",
             "access_and_opening_times": "",
@@ -177,18 +177,7 @@
             }
           ],
           "services": [
-            {
-              "title": "Registrations of Marriage and Civil Partnerships",
-              "type": "Documentary Services"
-            },
-            {
-              "title": "Citizenship Ceremony service",
-              "type": "Documentary Services"
-            },
-            {
-              "title": "Legalisation Service",
-              "type": "Other Services"
-            }
+
           ]
         },
         "other": [
@@ -197,10 +186,10 @@
       },
       "sponsors": [
         {
-          "title": "UK Trade & Investment",
-          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "title": "Department for International Trade",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-trade",
           "details": {
-            "acronym": "UKTI"
+            "acronym": "DIT"
           }
         }
       ]

@@ -5,7 +5,7 @@
       "title": "British High Commission Freetown",
       "format": "Worldwide Organisation",
       "updated_at": "2014-05-01T13:38:51.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-freetown",
+      "web_url": "https://www.gov.uk/world/organisations/british-high-commission-freetown",
       "details": {
         "slug": "british-high-commission-freetown"
       },
@@ -15,7 +15,7 @@
           "title": "British High Commission Freetown",
           "format": "World Office",
           "updated_at": "2014-09-23T11:12:12.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-freetown/office/british-high-commission-freetown",
+          "web_url": "https://www.gov.uk/world/organisations/british-high-commission-freetown/office/british-high-commission-freetown",
           "details": {
             "email": "freetown.general.enquiries@fco.gov.uk",
             "description": "General consular enquiries email: freetown.consular.enquiries@fco.gov.uk",
@@ -42,11 +42,7 @@
               "number": "+232 (0) 76541386 / +232 (0) 78200190"
             },
             {
-              "label": "General consular enquiries during office hours",
-              "number": "+232 (0) 99801493 / +232 (0) 76912606 /+232 (0) 99912606"
-            },
-            {
-              "label": "Consular assistance (24 hour)",
+              "label": "Consular enquiries",
               "number": "+44 (0)1908 516 666  or  +232 (0) 76780713"
             }
           ],
@@ -92,7 +88,7 @@
       "title": "DFID Sierra Leone",
       "format": "Worldwide Organisation",
       "updated_at": "2013-10-25T13:39:18.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/dfid-sierra-leone",
+      "web_url": "https://www.gov.uk/world/organisations/dfid-sierra-leone",
       "details": {
         "slug": "dfid-sierra-leone"
       },
@@ -102,7 +98,7 @@
           "title": "DFID Sierra Leone",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:54.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/dfid-sierra-leone/office/dfid-sierra-leone",
+          "web_url": "https://www.gov.uk/world/organisations/dfid-sierra-leone/office/dfid-sierra-leone",
           "details": {
             "email": "sl-enquiries@dfid.gov.uk   ",
             "description": "",

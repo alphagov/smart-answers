@@ -5,7 +5,7 @@
       "title": "British Embassy Asunción",
       "format": "Worldwide Organisation",
       "updated_at": "2014-05-02T17:08:55.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-asuncion",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-asuncion",
       "details": {
         "slug": "british-embassy-asuncion"
       },
@@ -15,10 +15,10 @@
           "title": "British Embassy Asunción",
           "format": "World Office",
           "updated_at": "2013-07-09T16:58:07.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-asuncion/office/british-embassy-asuncion",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-asuncion/office/british-embassy-asuncion",
           "details": {
-            "email": "BE-Asuncion.Enquiries@fco.gov.uk",
-            "description": "Monday to Thursday: 08:30am to 5:30pm\r\nFriday: 08:30am to 1:00pm",
+            "email": "",
+            "description": "Monday to Thursday: 09:00am to 5:30pm\r\nFriday: 09:00am to 1:00pm\r\n\r\nGeneral enquiries\r\nBE-Asuncion.Enquiries@fco.gov.uk\r\nConsular enquiries\r\nparaguay.consulate@fco.gov.uk",
             "contact_form_url": "",
             "access_and_opening_times": "",
             "type": "Embassy"

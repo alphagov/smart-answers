@@ -5,7 +5,7 @@
       "title": "British High Commission Lilongwe",
       "format": "Worldwide Organisation",
       "updated_at": "2013-05-30T08:43:39.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-lilongwe",
+      "web_url": "https://www.gov.uk/world/organisations/british-high-commission-lilongwe",
       "details": {
         "slug": "british-high-commission-lilongwe"
       },
@@ -15,31 +15,31 @@
           "title": "British High Commission Lilongwe",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:53.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-lilongwe/office/british-high-commission-lilongwe",
+          "web_url": "https://www.gov.uk/world/organisations/british-high-commission-lilongwe/office/british-high-commission-lilongwe",
           "details": {
             "email": "bhclilongwe@fco.gov.uk",
-            "description": "",
+            "description": "We are experiencing technical issues with our phone line. If you cannot reach us on our usual number, please call +44 1908 516666.",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours:</h2>\n\n<h3 id=\"gmt\">GMT</h3>\n<p>Monday to Thursday: 5:30 am to 10 am/11:30 am to 2:30 pm and Friday: 5:30 am to 10:30 am</p>\n\n<h3 id=\"local-time\">Local Time:</h3>\n<p>Monday to Thursday: 7:30 am - 12 pm/1:30 pm to 4:30 pm and Friday: 7:30 am to 12:30 pm</p>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours:</h2>\n\n<h3 id=\"gmt\">GMT</h3>\n<p>Monday to Thursday: 5:30 am to 10 am/11:30 am to 2:30 pm and Friday: 5:30 am to 10:30 am</p>\n\n<h3 id=\"local-time\">Local Time:</h3>\n<p>Monday to Thursday: 7:30 am - 12 pm/1:30 pm to 4:30 pm and Friday: 7:30 am to 12:30 pm</p>\n\n<h3 id=\"consular-opening-hours\">Consular Opening Hours</h3>\n<p>Monday to Thursday:  08:00 am - 11:30 am. Friday the counter is closed, effective 18 July 2016.</p>\n\n<h2 id=\"public-holidays-2017\">Public Holidays 2017</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Date</td>\n      <td>Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 January in lieu of 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Monday 16 January in lieu of 15 January</td>\n      <td>Chilembwe Day</td>\n    </tr>\n    <tr>\n      <td>Friday 3 March</td>\n      <td>Martyrs’ Day</td>\n    </tr>\n    <tr>\n      <td>Friday 14 February</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 17 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Monday 15 May in lieu of 14 May</td>\n      <td>Kamuzu Day</td>\n    </tr>\n    <tr>\n      <td>Monday 26 June</td>\n      <td>Eid al Fitr</td>\n    </tr>\n    <tr>\n      <td>Thursday 6 July</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Monday 28 August</td>\n      <td>August Bank Holiday(UK)</td>\n    </tr>\n    <tr>\n      <td>Monday 16 October in lieu of 15 October</td>\n      <td>Mothers Day</td>\n    </tr>\n    <tr>\n      <td>Friday 22 December</td>\n      <td>Christmas Privilege Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
             "type": "High Commission"
           },
           "address": {
             "adr": {
               "fn": "",
-              "street-address": "Off Convention Drive, P.O. box 30042",
+              "street-address": "Off Convention Drive, P.O. Box 30042",
               "postal-code": "",
               "locality": "Lilongwe",
               "region": " Lilongwe 3",
               "country-name": "Malawi"
             },
             "label": {
-              "value": "Off Convention Drive, P.O. box 30042\nLilongwe\n Lilongwe 3\nMalawi"
+              "value": "Off Convention Drive, P.O. Box 30042\nLilongwe\n Lilongwe 3\nMalawi"
             }
           },
           "contact_numbers": [
             {
               "label": "Enquiries",
-              "number": "Telephone +265 1772400"
+              "number": "Telephone +265 1772400 or +44 1908 516666"
             },
             {
               "label": "Enquiries",
@@ -69,7 +69,7 @@
       "title": "DFID Malawi",
       "format": "Worldwide Organisation",
       "updated_at": "2013-10-30T11:24:06.000+00:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/dfid-malawi",
+      "web_url": "https://www.gov.uk/world/organisations/dfid-malawi",
       "details": {
         "slug": "dfid-malawi"
       },
@@ -79,7 +79,7 @@
           "title": "DFID Malawi",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:54.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/dfid-malawi/office/dfid-malawi",
+          "web_url": "https://www.gov.uk/world/organisations/dfid-malawi/office/dfid-malawi",
           "details": {
             "email": "malawienquiries@DFID.gov.uk",
             "description": "",

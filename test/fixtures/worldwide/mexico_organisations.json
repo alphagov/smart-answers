@@ -5,7 +5,7 @@
       "title": "British Embassy Mexico City",
       "format": "Worldwide Organisation",
       "updated_at": "2015-12-22T14:43:18.000+00:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-mexico-city",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-mexico-city",
       "details": {
         "slug": "british-embassy-mexico-city"
       },
@@ -15,12 +15,12 @@
           "title": "British Embassy Mexico City",
           "format": "World Office",
           "updated_at": "2014-09-23T11:12:12.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-mexico-city/office/british-embassy-mexico-city",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-mexico-city/office/british-embassy-mexico-city",
           "details": {
-            "email": "ukinmexico@fco.gov.uk",
-            "description": "Office hours:\r\nMonday to Thursday  8:00am to 4:30pm \r\nFriday 8:00am to 2:00pm",
+            "email": "",
+            "description": "General enquiries\r\nukinmexico@fco.gov.uk\r\n\r\nConsular enquiries\r\nmexico.consulate@fco.gov.uk\r\n\r\nOffice hours:\r\nMonday to Thursday  8:00am to 4:30pm \r\nFriday 8:00am to 2:00pm",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><p>Access to the British Embassy in Mexico City for people with a disability is via Rio Sena.</p>\n\n<p>Embassy Hours (GMT):<br>\nMon-Thurs: 14:00-22:00\nFri: 14:00-19:30</p>\n\n<p>Consulate Hours (GMT):\nMon-Thurs: 15:00 to 17:30\nFriday: Closed</p>\n\n<h2 id=\"public-holidays-in-2016\">Public holidays in 2016</h2>\n<p>On the following public holidays, our office will be closed for normal business.  Emergency consular assistance for British nationals is available by telephone.</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Monday 1 February</td>\n      <td>In lieu of constitution Day</td>\n    </tr>\n    <tr>\n      <td>Monday 21 March</td>\n      <td>Juarez’ Birthday</td>\n    </tr>\n    <tr>\n      <td>Thursday 24 March</td>\n      <td>Maundy Thursday</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Monday 30 May</td>\n      <td>Late May Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 16 September</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>*Monday 31 October</td>\n      <td>In lieu of All Souls Day</td>\n    </tr>\n    <tr>\n      <td>Monday 21 November</td>\n      <td>Mexican Revolution Day</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>*Tuesday 27 December</td>\n      <td>In lieu of Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 28 December</td>\n      <td>Christmas Privilege Holiday</td>\n    </tr>\n  </tbody>\n</table>\n\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><p>Access to the British Embassy in Mexico City for people with a disability is via Rio Sena.</p>\n\n<p>Embassy Hours (GMT):<br>\nMon-Thurs: 14:00-22:30\nFri: 14:00-20:00</p>\n\n<p>Consulate Hours (GMT):\nMon-Thurs: 15:00 to 17:30\nFriday: Closed</p>\n\n<h2 id=\"public-holidays-in-2017\">Public holidays in 2017</h2>\n<p>On the following public holidays, our office will be closed for normal business.  Emergency consular assistance for British nationals is available by telephone.</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Monday 2 January</td>\n      <td>In lieu of New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Monday 6 February</td>\n      <td>In lieu of constitution Day</td>\n    </tr>\n    <tr>\n      <td>Monday 20 March</td>\n      <td>Juarez’ Birthday</td>\n    </tr>\n    <tr>\n      <td>Thursday 13 April</td>\n      <td>Maundy Thursday</td>\n    </tr>\n    <tr>\n      <td>Friday 14 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 17 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Monday 28 August</td>\n      <td>Late August Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 18 September</td>\n      <td>In lieu of Independence Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 2 November</td>\n      <td>All Souls Day</td>\n    </tr>\n    <tr>\n      <td>Monday 20 November</td>\n      <td>Mexican Revolution Day</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 27 December</td>\n      <td>Christmas Privilege Holiday</td>\n    </tr>\n  </tbody>\n</table>\n\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -92,21 +92,21 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-mexico",
-      "title": "UK Trade & Investment Mexico",
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-mexico",
+      "title": "Department for International Trade Mexico",
       "format": "Worldwide Organisation",
-      "updated_at": "2014-04-24T16:05:27.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-mexico",
+      "updated_at": "2016-11-11T16:13:05.000+00:00",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-mexico",
       "details": {
-        "slug": "uk-trade-investment-mexico"
+        "slug": "department-for-international-trade-mexico"
       },
       "analytics_identifier": "WO207",
       "offices": {
         "main": {
-          "title": "UK Trade & Investment Mexico City",
+          "title": "Department for International Trade Mexico City",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:53.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-mexico/office/uk-trade-investment-mexico-city",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-mexico/office/uk-trade-investment-mexico-city",
           "details": {
             "email": "uktimexico@fco.gov.uk",
             "description": "",
@@ -142,10 +142,10 @@
         },
         "other": [
           {
-            "title": "UK Trade & Investment Guadalajara",
+            "title": "Department for International Trade Guadalajara",
             "format": "World Office",
             "updated_at": "2013-03-25T10:37:53.000+00:00",
-            "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-mexico/office/uk-trade-investment-guadalajara",
+            "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-mexico/office/uk-trade-investment-guadalajara",
             "details": {
               "email": "uktimexico@fco.gov.uk",
               "description": "",
@@ -177,10 +177,10 @@
             ]
           },
           {
-            "title": "UK Trade & Investment Monterrey",
+            "title": "Department for International Trade Monterrey",
             "format": "World Office",
             "updated_at": "2013-03-25T10:37:53.000+00:00",
-            "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-mexico/office/uk-trade-investment-monterrey",
+            "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-mexico/office/uk-trade-investment-monterrey",
             "details": {
               "email": "uktimexico@fco.gov.uk",
               "description": "",
@@ -212,10 +212,10 @@
             ]
           },
           {
-            "title": "UK Trade & Investment Tijuana",
+            "title": "Department for International Trade Tijuana",
             "format": "World Office",
             "updated_at": "2013-03-25T10:37:53.000+00:00",
-            "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-mexico/office/uk-trade-investment-tijuana",
+            "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-mexico/office/uk-trade-investment-tijuana",
             "details": {
               "email": "uktimexico@fco.gov.uk",
               "description": "",
@@ -250,10 +250,10 @@
       },
       "sponsors": [
         {
-          "title": "UK Trade & Investment",
-          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "title": "Department for International Trade",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-trade",
           "details": {
-            "acronym": "UKTI"
+            "acronym": "DIT"
           }
         }
       ]
@@ -263,7 +263,7 @@
       "title": "British Consulate General Cancun",
       "format": "Worldwide Organisation",
       "updated_at": "2015-10-08T17:08:14.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-consulate-general-cancun",
+      "web_url": "https://www.gov.uk/world/organisations/british-consulate-general-cancun",
       "details": {
         "slug": "british-consulate-general-cancun"
       },
@@ -273,25 +273,25 @@
           "title": "British Consulate General Cancun",
           "format": "World Office",
           "updated_at": "2015-10-07T19:43:07.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-consulate-general-cancun/office/british-consulate-general-cancun",
+          "web_url": "https://www.gov.uk/world/organisations/british-consulate-general-cancun/office/british-consulate-general-cancun",
           "details": {
-            "email": "",
+            "email": "mexico.consulate@fco.gov.uk",
             "description": "Hours:  \r\nOpen to the public from 8:00am –1:00 pm\r\n",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><p>Open to the public from 8:00am –1:00 pm</p>\n\n<h2 id=\"public-holidays-in-2016\">Public holidays in 2016</h2>\n<p>On the following public holidays, our office will be closed for normal business.  Emergency consular assistance for British nationals is available by telephone.</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Monday 1 February</td>\n      <td>In lieu of constitution Day</td>\n    </tr>\n    <tr>\n      <td>Monday 21 March</td>\n      <td>Juarez’ Birthday</td>\n    </tr>\n    <tr>\n      <td>Thursday 24 March</td>\n      <td>Maundy Thursday</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Monday 30 May</td>\n      <td>Late May Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 16 September</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>*Monday 31 October</td>\n      <td>In lieu of All Souls Day</td>\n    </tr>\n    <tr>\n      <td>Monday 21 November</td>\n      <td>Mexican Revolution Day</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>*Tuesday 27 December</td>\n      <td>In lieu of Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 28 December</td>\n      <td>Christmas Privilege Holiday</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><p>Open to the public from 8:00am –1:00 pm</p>\n\n<h2 id=\"public-holidays-in-2017\">Public holidays in 2017</h2>\n<p>On the following public holidays, our office will be closed for normal business.  Emergency consular assistance for British nationals is available by telephone.</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Monday 2 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Monday 6 February</td>\n      <td>In lieu of constitution Day</td>\n    </tr>\n    <tr>\n      <td>Monday 20 March</td>\n      <td>Juarez’ Birthday</td>\n    </tr>\n    <tr>\n      <td>Thursday 13 April</td>\n      <td>Maundy Thursday</td>\n    </tr>\n    <tr>\n      <td>Friday 14 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 17 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Monday 28 August</td>\n      <td>Late May Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 18 September</td>\n      <td>In Lieu of Independence Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 2 November</td>\n      <td>All Souls Day</td>\n    </tr>\n    <tr>\n      <td>Monday 20 November</td>\n      <td>Mexican Revolution Day</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 27 December</td>\n      <td>Christmas Privilege Holiday</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
             "type": "Consulate"
           },
           "address": {
             "adr": {
               "fn": "",
-              "street-address": "The Royal Sands Resort\r\nBlvd. Kukulcan KM 13.5\r\nCancun Hotel Zone  \r\n",
+              "street-address": "Torre Europea\r\nOffice 202 \r\nBlvd. Kukulcan KM 12.5 \r\nCancun Hotel Zone  ",
               "postal-code": " 77500",
               "locality": "Cancun",
               "region": "",
               "country-name": "Mexico"
             },
             "label": {
-              "value": "The Royal Sands Resort\r\nBlvd. Kukulcan KM 13.5\r\nCancun Hotel Zone  \r\n 77500 Cancun \nMexico"
+              "value": "Torre Europea\r\nOffice 202 \r\nBlvd. Kukulcan KM 12.5 \r\nCancun Hotel Zone  \n 77500 Cancun \nMexico"
             }
           },
           "contact_numbers": [

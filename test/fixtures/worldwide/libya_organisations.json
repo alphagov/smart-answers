@@ -5,7 +5,7 @@
       "title": "British Embassy Tripoli",
       "format": "Worldwide Organisation",
       "updated_at": "2015-07-12T18:54:53.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-tripoli",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-tripoli",
       "details": {
         "slug": "british-embassy-tripoli"
       },
@@ -15,7 +15,7 @@
           "title": "British Embassy Tripoli has temporarily suspended operations from 4 August 2014",
           "format": "World Office",
           "updated_at": "2014-09-23T11:12:12.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-tripoli/office/british-embassy-tripoli-main",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-tripoli/office/british-embassy-tripoli-main",
           "details": {
             "email": "",
             "description": "",
@@ -51,7 +51,7 @@
             "title": "British Embassy Benghazi",
             "format": "World Office",
             "updated_at": "2014-09-23T11:12:12.000+01:00",
-            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-tripoli/office/british-embassy-benghazi",
+            "web_url": "https://www.gov.uk/world/organisations/british-embassy-tripoli/office/british-embassy-benghazi",
             "details": {
               "email": "",
               "description": "The Office of the British Embassy in Benghazi is currently closed for security reasons.\r\n",
@@ -93,20 +93,20 @@
     },
     {
       "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-libya",
-      "title": "UK Trade & Investment Libya",
+      "title": "Department for International Trade Libya",
       "format": "Worldwide Organisation",
-      "updated_at": "2013-04-11T15:54:38.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-libya",
+      "updated_at": "2016-08-10T13:05:12.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-libya",
       "details": {
         "slug": "uk-trade-investment-libya"
       },
       "analytics_identifier": "WO271",
       "offices": {
         "main": {
-          "title": "UK Trade & Investment Libya",
+          "title": "Department for International Trade Libya",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:54.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-libya/office/uk-trade-investment-libya",
+          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-libya/office/uk-trade-investment-libya",
           "details": {
             "email": "trade.libya@fco.gov.uk",
             "description": "",
@@ -140,10 +140,10 @@
       },
       "sponsors": [
         {
-          "title": "UK Trade & Investment",
-          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "title": "Department for International Trade",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-trade",
           "details": {
-            "acronym": "UKTI"
+            "acronym": "DIT"
           }
         }
       ]
@@ -153,7 +153,7 @@
       "title": "DFID Middle East and North Africa",
       "format": "Worldwide Organisation",
       "updated_at": "2014-04-07T16:32:29.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/dfid-middle-east-and-north-africa",
+      "web_url": "https://www.gov.uk/world/organisations/dfid-middle-east-and-north-africa",
       "details": {
         "slug": "dfid-middle-east-and-north-africa"
       },

@@ -5,7 +5,7 @@
       "title": "British Embassy Mogadishu",
       "format": "Worldwide Organisation",
       "updated_at": "2013-08-14T08:52:49.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-mogadishu",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-mogadishu",
       "details": {
         "slug": "british-embassy-mogadishu"
       },
@@ -15,12 +15,12 @@
           "title": "British Embassy Mogadishu",
           "format": "World Office",
           "updated_at": "2013-10-09T07:43:45.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-mogadishu/office/british-embassy-mogadishu",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-mogadishu/office/british-embassy-mogadishu",
           "details": {
             "email": "Somalia.Enquiries@fco.gov.uk",
             "description": "",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening Hours:</h2>\n\n<h4 id=\"gmt\">GMT</h4>\n<p>Monday to Thursday: 4 am to 1 pm\nFriday: 4 am to 10 am</p>\n\n<h4 id=\"local-time\">Local time</h4>\n<p>Monday to Thursday: 7 am to 4 pm\nFriday: 7 am to 1 pm</p>\n\n<h4 id=\"visa-section\">Visa Section</h4>\n<p>Monday to Thursday: 1.30 pm to 3:30 pm\nFriday: 11 am to 12:30 pm</p>\n\n<h4 id=\"consular-department\">Consular Department</h4>\n<p>Monday to Thursday: 7:45 am to 2 pm \nFriday: Closed (except for emergencies)</p>\n\n<h4 id=\"uk-trade--investment\">UK Trade &amp; Investment</h4>\n<p>Monday to Friday: 8 am to 11 am </p>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><p>“The British Embassy in Mogadishu does not have regular opening hours and access is restricted due to the security situation.”</p>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -62,7 +62,7 @@
       "title": "DFID Somalia",
       "format": "Worldwide Organisation",
       "updated_at": "2013-10-25T13:43:28.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/dfid-somalia",
+      "web_url": "https://www.gov.uk/world/organisations/dfid-somalia",
       "details": {
         "slug": "dfid-somalia"
       },
@@ -72,7 +72,7 @@
           "title": "DFID Somalia",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:54.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/dfid-somalia/office/dfid-somalia",
+          "web_url": "https://www.gov.uk/world/organisations/dfid-somalia/office/dfid-somalia",
           "details": {
             "email": "enquiry@dfid.gov.uk  ",
             "description": "",

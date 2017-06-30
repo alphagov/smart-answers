@@ -5,7 +5,7 @@
       "title": "British Embassy Vilnius",
       "format": "Worldwide Organisation",
       "updated_at": "2014-04-02T13:02:58.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-vilnius",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-vilnius",
       "details": {
         "slug": "british-embassy-vilnius"
       },
@@ -15,12 +15,12 @@
           "title": "British Embassy Vilnius",
           "format": "World Office",
           "updated_at": "2013-06-27T22:08:16.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-vilnius/office/british-embassy",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-vilnius/office/british-embassy",
           "details": {
             "email": "be-vilnius@britain.lt ",
             "description": "",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>GMT+2</p>\n\n<h3 id=\"summer-mid-june-to-end-august\">Summer (mid June to end August)</h3>\n<ul>\n  <li>Monday to Thursday, 8.30am to 4.45pm </li>\n  <li>Friday 8.30am to 1pm  </li>\n</ul>\n\n<h3 id=\"winter\">Winter</h3>\n<ul>\n  <li>Monday to Thursday 8.30am to 4.45pm</li>\n  <li>Friday 8.30am to 3.30pm</li>\n</ul>\n\n<h2 id=\"consular-hours\">Consular hours</h2>\n<p>Monday, Tuesday, Thursday, Friday 9.00am to 11.00am</p>\n\n<h2 id=\"public-holidays-in-2016\">Public holidays in 2016</h2>\n\n<ul>\n  <li>Friday 1 January, New Year’s Day</li>\n  <li>Tuesday 16 February Lithuanian Independence Day </li>\n  <li>Friday 11 March, Restoration of Lithuanian Independence </li>\n  <li>Friday 25 March, Good Friday</li>\n  <li>Monday 28 March, Easter Monday</li>\n  <li>Monday 2 May, Early May Bank Holiday</li>\n  <li>Monday 30 May, Spring Bank Holiday</li>\n  <li>Friday 24 June, St. John’s /Mid-Summer’s Day</li>\n  <li>Wednesday 6 July, King Mindaugas Coronation Day</li>\n  <li>Monday 15 August, Žolinė</li>\n  <li>Monday 29 August, Summer bank holiday</li>\n  <li>Tuesday 1 November, All Souls Day </li>\n  <li>Monday 26 December, Boxing Day</li>\n  <li>Tuesday 27 December, Christmas Day (substitute day)</li>\n</ul>\n\n<h2 id=\"getting-to-the-embassy\">Getting to the embassy</h2>\n\n<p>The British embassy is located 10 minutes drive from Vilnius old town next to the Church of St Peter and St Paul. Take trolleybus no. 2,3,4,14,17 or 20 and get off at the stop for ‘Šv.Petro ir Povilo bažnyčia’.</p>\n\n<h3 id=\"parking\">Parking</h3>\n\n<p>No parking available</p>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>GMT+2</p>\n\n<h3 id=\"summer-mid-june-to-end-august\">Summer (mid June to end August)</h3>\n<ul>\n  <li>Monday to Thursday, 8.30am to 4.45pm</li>\n  <li>Friday 8.30am to 1pm</li>\n</ul>\n\n<h3 id=\"winter\">Winter</h3>\n<ul>\n  <li>Monday to Thursday 8.30am to 4.45pm</li>\n  <li>Friday 8.30am to 3.30pm</li>\n</ul>\n\n<h2 id=\"consular-hours\">Consular hours</h2>\n<p>Monday, Wednesday, Friday 9.00am to 12.00am</p>\n\n<h2 id=\"public-holidays-in-2017\">Public holidays in 2017</h2>\n\n<ul>\n  <li>Monday 2 January</li>\n  <li>Thursday 16 February</li>\n  <li>Friday 14 April</li>\n  <li>Monday 17 April</li>\n  <li>Tuesday 18 April</li>\n  <li>Monday 1 May</li>\n  <li>Monday 29 May</li>\n  <li>Thursday 6 July</li>\n  <li>Tuesday 15 August</li>\n  <li>Monday 28 August</li>\n  <li>Wednesday 1 November</li>\n  <li>Monday 25 December</li>\n  <li>Tuesday 26 December</li>\n  <li>Wednesday 27 December</li>\n</ul>\n\n<h2 id=\"getting-to-the-embassy\">Getting to the embassy</h2>\n\n<p>The British embassy is located 10 minutes drive from Vilnius old town next to the Church of St Peter and St Paul. Take trolleybus no. 2,3,4,14,17 or 20 and get off at the stop for ‘Šv.Petro ir Povilo bažnyčia’.</p>\n\n<h3 id=\"parking\">Parking</h3>\n\n<p>No parking available</p>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -85,20 +85,20 @@
     },
     {
       "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-lithuania",
-      "title": "UK Trade & Investment Lithuania",
+      "title": "Department for International Trade Lithuania",
       "format": "Worldwide Organisation",
-      "updated_at": "2013-05-15T08:12:50.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-lithuania",
+      "updated_at": "2016-08-10T14:10:07.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-lithuania",
       "details": {
         "slug": "uk-trade-investment-lithuania"
       },
       "analytics_identifier": "WO296",
       "offices": {
         "main": {
-          "title": "UK Trade & Investment Lithuania",
+          "title": "Department for International Trade Lithuania",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:54.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-lithuania/office/uk-trade-investment-lithuania",
+          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-lithuania/office/uk-trade-investment-lithuania",
           "details": {
             "email": "ukti.vilnius@fco.gov.uk",
             "description": "",
@@ -125,15 +125,15 @@
               "number": "+370 5 246 2900"
             },
             {
-              "label": "Ieva Binkauskaitė -  Head of Trade Section Lithuania",
-              "number": "+370 5 246 2916"
-            },
-            {
-              "label": "Dovilė Janeliauskaitė- Senior Market Adviser",
+              "label": "Laura Leščinskienė - Head of Trade Section Lithuania",
               "number": "+370 5 246 2927"
             },
             {
-              "label": "Juliana Kucevičiūtė - Senior Market Adviser",
+              "label": "Ieva Binkauskaitė - Senior Trade Adviser",
+              "number": "+370 5 246 2916"
+            },
+            {
+              "label": "Juliana Kucevičiūtė - Senior Trade Adviser",
               "number": "+370 5 246 2929"
             }
           ],
@@ -147,10 +147,10 @@
       },
       "sponsors": [
         {
-          "title": "UK Trade & Investment",
-          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "title": "Department for International Trade",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-trade",
           "details": {
-            "acronym": "UKTI"
+            "acronym": "DIT"
           }
         }
       ]
