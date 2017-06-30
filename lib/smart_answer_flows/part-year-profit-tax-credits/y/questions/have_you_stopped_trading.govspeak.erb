@@ -1,0 +1,16 @@
+<% content_for :title do %>
+  Have you stopped trading?
+<% end %>
+
+<% options(
+  "yes": "Yes",
+  "no": "No"
+) %>
+
+<% content_for :hint do %>
+  This means you’re no longer running your business.
+<% end %>
+
+<% content_for :error_message do %>
+  You need to select yes or no to continue.
+<% end %>

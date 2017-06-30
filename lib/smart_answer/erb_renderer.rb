@@ -45,6 +45,7 @@ module SmartAnswer
   private
 
     def erb_template_name
+      return "part_year_profit_tax_credits.govspeak.erb" if @template_name == "part_year_profit_tax_credits/y"
       "#{@template_name}.govspeak.erb"
     end
 

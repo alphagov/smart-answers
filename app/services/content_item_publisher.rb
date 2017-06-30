@@ -1,10 +1,48 @@
 class ContentItemPublisher
   def publish(flow_presenters)
+    find_smart_answers_without_start_pages(flow_presenters)
     flow_presenters.each do |smart_answer|
-      content_item = FlowContentItem.new(smart_answer)
-      Services.publishing_api.put_content(content_item.content_id, content_item.payload)
-      Services.publishing_api.publish(content_item.content_id, 'minor')
+      content_item = assign_content_item(smart_answer)
+      if content_item
+        Services.publishing_api.put_content(content_item.content_id, content_item.payload)
+        Services.publishing_api.publish(content_item.content_id, 'minor')
+      end
     end
+    republish_start_page
+  end
+
+  def find_smart_answers_without_start_pages(flow_presenters)
+    @smart_answer_without_start_page = flow_presenters.select { |smart_answer| smart_answer.slug == "part-year-profit-tax-credits/y" }.first
+    @start_page_smart_answer = flow_presenters.select { |smart_answer| smart_answer.slug == "part-year-profit-tax-credits" }.first
+  end
+
+  def assign_content_item(smart_answer)
+    case smart_answer
+    when @smart_answer_without_start_page
+      FlowContentItemWithoutStartPage.new(smart_answer)
+    when @start_page_smart_answer
+      nil
+    else
+      FlowContentItem.new(smart_answer)
+    end
+  end
+
+  def republish_start_page
+    remove_start_page
+    self.publish_transaction_start_page(
+      "de6723a5-7256-4bfd-aad3-82b04b06b73e",
+      "/part-year-profit-tax-credits",
+      publishing_app: "publisher",
+      title: "Calculate your part-year profits to finalise your tax credits",
+      content: "You need to report your part-year profits to end your Tax Credits claim because of a claim to Universal Credit and you’re self-employed.\n\nYou’ll need to know the following to use this calculator:\n\n- your Tax Credits award end date (you can find this on your award review)\n- your accounting dates for your business\n- your accounting year profit for the tax year in which your tax credits award ends\n\nYou can use this calculator to complete box 2.4 of your award review.",
+      link: "https://www.gov.uk/part-year-profit-tax-credits/y"
+    )
+  end
+
+  def remove_start_page
+    self.unpublish("de6723a5-7256-4bfd-aad3-82b04b06b73e")
+    content_id_of_draft_to_discard = Services.publishing_api.lookup_content_ids(base_paths: "/part-year-profit-tax-credits").values.first
+    Services.publishing_api.discard_draft(content_id_of_draft_to_discard) if content_id_of_draft_to_discard
   end
 
   def unpublish(content_id)
@@ -47,6 +85,23 @@ class ContentItemPublisher
     raise "The link isn't supplied" unless link.present?
 
     publish_transaction_via_publishing_api(
+      base_path,
+      publishing_app: publishing_app,
+      title: title,
+      content: content,
+      link: link
+    )
+  end
+
+  def publish_transaction_start_page(content_id, base_path, publishing_app:, title:, content:, link:)
+    raise "The base path isn't supplied" unless base_path.present?
+    raise "The publishing_app isn't supplied" unless publishing_app.present?
+    raise "The title isn't supplied" unless title.present?
+    raise "The content isn't supplied" unless content.present?
+    raise "The link isn't supplied" unless link.present?
+
+    publish_transaction_start_page_via_publishing_api(
+      content_id,
       base_path,
       publishing_app: publishing_app,
       title: title,
@@ -146,8 +201,37 @@ private
     create_and_publish_via_publishing_api(payload)
   end
 
-  def create_and_publish_via_publishing_api(payload)
-    content_id = SecureRandom.uuid
+  def publish_transaction_start_page_via_publishing_api(content_id, base_path, publishing_app:, title:, content:, link:)
+    payload = {
+      base_path: base_path,
+      title: title,
+      document_type: :transaction,
+      publishing_app: publishing_app,
+      rendering_app: :frontend,
+      locale: :en,
+      details: {
+        introductory_paragraph: [
+          {
+            content: content,
+            content_type: "text/govspeak"
+          }
+        ],
+        transaction_start_link: link
+      },
+      routes: [
+        {
+          type: :exact,
+          path: base_path
+        }
+      ],
+      schema_name: :transaction
+    }
+
+    reserve_path_for_publishing_app(base_path, publishing_app)
+    create_and_publish_via_publishing_api(payload, content_id)
+  end
+
+  def create_and_publish_via_publishing_api(payload, content_id = SecureRandom.uuid)
     response = Services.publishing_api.put_content(content_id, payload)
     raise "This content item has not been created" unless response.code == 200
     Services.publishing_api.publish(content_id, :major)

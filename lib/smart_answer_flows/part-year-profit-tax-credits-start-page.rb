@@ -1,11 +1,11 @@
 module SmartAnswer
-  class PartYearProfitTaxCreditsFlow < Flow
+  class PartYearProfitTaxCreditsStartPageFlow < Flow
     def define
-      name 'part-year-profit-tax-credits/y'
+      name 'part-year-profit-tax-credits'
 
       status :published
       satisfies_need "103438"
-      content_id "22e523d6-a153-4f66-b0fa-53ec46bcd61f"
+      content_id "de6723a5-7256-4bfd-aad3-82b04b06b73e"
 
       date_question :when_did_your_tax_credits_award_end? do
         from { Calculators::PartYearProfitTaxCreditsCalculator::TAX_CREDITS_AWARD_ENDS_EARLIEST_DATE }
