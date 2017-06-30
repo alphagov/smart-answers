@@ -10,12 +10,34 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal "sweet-or-savoury", s.name
   end
 
+  test "returns true if content_id and flow_content_id are defined" do
+    flow = SmartAnswer::Flow.new
+    flow.content_id "content_id"
+    flow.flow_content_id "flow_content_id"
+
+    assert flow.transaction_start_page?
+  end
+
+  test "returns false if content_id and flow_content_id aren't defined" do
+    flow = SmartAnswer::Flow.new
+
+    refute flow.transaction_start_page?
+  end
+
   test "Can set the content_id" do
     s = SmartAnswer::Flow.new do
       content_id "587920ff-b854-4adb-9334-451b45652467"
     end
 
     assert_equal "587920ff-b854-4adb-9334-451b45652467", s.content_id
+  end
+
+  test "Can set the flow content id" do
+    flow = SmartAnswer::Flow.new do
+      flow_content_id "587920ff-b854-4adb-9334-451b45652467"
+    end
+
+    assert_equal "587920ff-b854-4adb-9334-451b45652467", flow.flow_content_id
   end
 
   test "Defaults the external_related_links to nil" do
