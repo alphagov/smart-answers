@@ -55,7 +55,7 @@ module SmartAnswer
           when 'paternity'
             question :leave_or_pay_for_adoption?
           when 'adoption'
-            question :taking_paternity_or_maternity_leave_for_adoption?
+            question :taking_paternity_leave_for_adoption?
           end
         end
       end

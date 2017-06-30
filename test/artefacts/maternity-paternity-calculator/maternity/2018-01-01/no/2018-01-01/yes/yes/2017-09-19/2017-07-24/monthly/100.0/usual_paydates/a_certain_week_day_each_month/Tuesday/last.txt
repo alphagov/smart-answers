@@ -9,9 +9,9 @@ Write to them within 28 days of their leave request confirming this.
 ##Statutory maternity pay
 
 The employee is not entitled to statutory maternity pay.
-Their average weekly earnings are £12.5 (you can’t round this figure up or down). To qualify:
+Their average weekly earnings are £11.53846 (you can’t round this figure up or down). To qualify:
 
-+ their average weekly earnings (£12.5) between Tuesday, 25 July 2017 and Tuesday, 19 September 2017 must be at least £113.00
++ their average weekly earnings (£11.53846) between Tuesday, 25 July 2017 and Tuesday, 19 September 2017 must be at least £113.00
 
 You must write confirming this within 28 days of their maternity pay request.
 

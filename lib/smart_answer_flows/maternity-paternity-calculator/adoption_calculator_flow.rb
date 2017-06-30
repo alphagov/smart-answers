@@ -3,15 +3,15 @@ module SmartAnswer
     class AdoptionCalculatorFlow < Flow
       def define
         ## QA0
-        multiple_choice :taking_paternity_or_maternity_leave_for_adoption? do
-          option :paternity
-          option :maternity
+        multiple_choice :taking_paternity_leave_for_adoption? do
+          option :yes
+          option :no
 
           next_node do |response|
             case response
-            when 'paternity'
+            when 'yes'
               question :employee_date_matched_paternity_adoption? #QAP1
-            when 'maternity'
+            when 'no'
               question :date_of_adoption_match? # QA1
             end
           end
