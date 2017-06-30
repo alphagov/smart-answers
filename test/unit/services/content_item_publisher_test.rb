@@ -6,16 +6,26 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
     SmartAnswer::FlowRegistry.stubs(:instance).returns(stub("Flow registry", find: @flow, load_path: load_path))
   end
 
-  test 'sending item to content store' do
-    draft_request = stub_request(:put, "https://publishing-api.test.gov.uk/v2/content/3e6f33b8-0723-4dd5-94a2-cab06f23a685")
-    publishing_request = stub_request(:post, "https://publishing-api.test.gov.uk/v2/content/3e6f33b8-0723-4dd5-94a2-cab06f23a685/publish")
+  context "#publish" do
+    should "send message to create_and_publish_transaction_start_page if smart_answer start page is a transaction start page" do
+      presenters = [mock("FlowRegistrationPresenter", transaction_start_page?: true)]
 
-    presenter = FlowRegistrationPresenter.new(stub('flow', name: 'bridge-of-death', content_id: '3e6f33b8-0723-4dd5-94a2-cab06f23a685', external_related_links: nil))
+      ContentItemPublisher.any_instance.expects(:create_and_publish_transaction_start_page).once
 
-    ContentItemPublisher.new.publish([presenter])
+      ContentItemPublisher.new.publish(presenters)
+    end
 
-    assert_requested draft_request
-    assert_requested publishing_request
+    should "send content item to publishing_api" do
+      draft_request = stub_request(:put, "https://publishing-api.test.gov.uk/v2/content/3e6f33b8-0723-4dd5-94a2-cab06f23a685")
+      publishing_request = stub_request(:post, "https://publishing-api.test.gov.uk/v2/content/3e6f33b8-0723-4dd5-94a2-cab06f23a685/publish")
+
+      presenter = FlowRegistrationPresenter.new(stub('flow', name: 'bridge-of-death', content_id: '3e6f33b8-0723-4dd5-94a2-cab06f23a685', external_related_links: nil, transaction_start_page?: false))
+
+      ContentItemPublisher.new.publish([presenter])
+
+      assert_requested draft_request
+      assert_requested publishing_request
+    end
   end
 
   context "#unpublish" do
@@ -124,6 +134,33 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
       ContentItemPublisher.new.reserve_path_for_publishing_app('/base_path', 'publisher')
 
       assert_requested reservation_request
+    end
+  end
+
+  context "#create_and_publish_transaction_start_page" do
+    should "send create and publish transaction to publishing-api" do
+      reservation_url = 'https://publishing-api.test.gov.uk/paths//smart-answer-slug'
+      reservation_request = stub_request(:put, reservation_url)
+      create_url = "https://publishing-api.test.gov.uk/v2/content/content_id"
+      create_request = stub_request(:put, create_url)
+      publish_url = "https://publishing-api.test.gov.uk/v2/content/content_id/publish"
+      publish_request = stub_request(:post, publish_url)
+
+      flow_create_url = "https://publishing-api.test.gov.uk/v2/content/flow_content_id"
+      flow_create_request = stub_request(:put, flow_create_url)
+      flow_publish_url = "https://publishing-api.test.gov.uk/v2/content/flow_content_id/publish"
+      flow_publish_request = stub_request(:post, flow_publish_url)
+
+      flow_presenter = mock("FlowRegistrationPresenter", slug: "smart-answer-slug", title: "Title", body: "Sample body content")
+      content_item = mock("FlowContentItem", flow_presenter: flow_presenter, content_id: "content_id", flow_content_id: "flow_content_id", payload: {})
+
+      ContentItemPublisher.new.create_and_publish_transaction_start_page(content_item)
+
+      assert_requested reservation_request
+      assert_requested create_request
+      assert_requested publish_request
+      assert_requested flow_create_request
+      assert_requested flow_publish_request
     end
   end
 

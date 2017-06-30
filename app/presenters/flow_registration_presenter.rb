@@ -15,12 +15,24 @@ class FlowRegistrationPresenter
     @flow.content_id
   end
 
+  def flow_content_id
+    @flow.flow_content_id
+  end
+
+  def transaction_start_page?
+    @flow.transaction_start_page?
+  end
+
   def title
     start_node.title
   end
 
   def description
     start_node.meta_description
+  end
+
+  def body
+    start_node.body
   end
 
   def external_related_links

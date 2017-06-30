@@ -23,8 +23,14 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
   end
 
   context "content_id" do
-    should "use the flow content_id" do
+    should "use the transaction start page content_id" do
       assert_equal "f26e566e-2557-4921-b944-9373c32255f1", @presenter.content_id
+    end
+  end
+
+  context "flow content_id" do
+    should "use the flow content_id" do
+      assert_equal "e87b0e18-eccf-4ad7-9e4d-aaefad726883", @presenter.flow_content_id
     end
   end
 
@@ -43,6 +49,12 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
   context "description" do
     should "use the meta_description from the start node template" do
       assert_equal "FLOW_DESCRIPTION", @presenter.description
+    end
+  end
+
+  context "content body" do
+    should "use the body from the start node template" do
+      assert_match %r{FLOW_BODY}, @presenter.body
     end
   end
 

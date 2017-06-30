@@ -26,6 +26,10 @@ class FlowContentItem
     flow_presenter.content_id
   end
 
+  def flow_content_id
+    flow_presenter.flow_content_id
+  end
+
 private
 
   def routes
@@ -36,7 +40,11 @@ private
   end
 
   def base_path
-    '/' + flow_presenter.slug
+    if flow_presenter.transaction_start_page?
+      "/#{flow_presenter.slug}/y"
+    else
+      "/#{flow_presenter.slug}"
+    end
   end
 
   def json_path

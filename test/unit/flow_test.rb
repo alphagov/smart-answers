@@ -34,10 +34,10 @@ class FlowTest < ActiveSupport::TestCase
 
   test "Can set the flow content id" do
     flow = SmartAnswer::Flow.new do
-      flow_content_id "587920ff-b854-4adb-9334-451b45652467"
+      flow_content_id "e87b0e18-eccf-4ad7-9e4d-aaefad726883"
     end
 
-    assert_equal "587920ff-b854-4adb-9334-451b45652467", flow.flow_content_id
+    assert_equal "e87b0e18-eccf-4ad7-9e4d-aaefad726883", flow.flow_content_id
   end
 
   test "Defaults the external_related_links to nil" do
