@@ -148,8 +148,6 @@ module SmartAnswer
               outcome :outcome_opposite_sex_marriage_in_kuwait_when_residing_in_kuwait
             elsif calculator.ceremony_country == 'kuwait' && calculator.resident_of_third_country?
               outcome :outcome_opposite_sex_marriage_in_kuwait_when_residing_in_third_country
-            elsif calculator.ceremony_country == 'japan'
-              outcome :outcome_opposite_sex_marriage_in_japan
             elsif calculator.ceremony_country == 'rwanda'
               outcome :outcome_opposite_sex_marriage_in_commonwealth_countries
             elsif calculator.ceremony_country == 'bulgaria'
@@ -253,8 +251,6 @@ module SmartAnswer
               outcome :outcome_same_sex_marriage_in_dominican_republic
             elsif calculator.same_sex_ceremony_country_unknown_or_has_no_embassies?
               outcome :outcome_opposite_sex_in_no_cni_countries_when_residing_in_ceremony_or_third_country
-            elsif calculator.ceremony_country == "japan"
-              outcome :outcome_same_sex_marriage_and_civil_partnership_in_japan
             elsif calculator.ceremony_country == "malta"
               outcome :outcome_same_sex_marriage_and_civil_partnership_in_malta
             elsif calculator.same_sex_marriage_not_possible?
@@ -318,7 +314,6 @@ module SmartAnswer
       outcome :outcome_opposite_sex_marriage_in_georgia
       outcome :outcome_opposite_sex_marriage_in_hong_kong
       outcome :outcome_opposite_sex_marriage_in_indonesia
-      outcome :outcome_opposite_sex_marriage_in_japan
       outcome :outcome_same_sex_for_non_romanians
       outcome :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_kosovo
       outcome :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_uk
@@ -349,7 +344,6 @@ module SmartAnswer
       outcome :outcome_same_sex_civil_partnership_in_no_cni_countries
       outcome :outcome_same_sex_marriage_and_civil_partnership
       outcome :outcome_same_sex_marriage_and_civil_partnership_in_gibraltar
-      outcome :outcome_same_sex_marriage_and_civil_partnership_in_japan
       outcome :outcome_same_sex_marriage_and_civil_partnership_in_malta
       outcome :outcome_same_sex_marriage_and_civil_partnership_not_possible
       outcome :outcome_same_sex_marriage_in_dominican_republic
