@@ -1198,18 +1198,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "ceremony in burma, resident in the UK, partner local" do
-    setup do
-      add_response 'burma'
-      add_response 'uk'
-      add_response 'partner_local'
-      add_response 'opposite_sex'
-    end
-    should "go to outcome_opposite_sex_marriage_in_burma" do
-      assert_current_node :outcome_opposite_sex_marriage_in_burma
-    end
-  end
-
   context "ceremony in burundi, resident in 3rd country, partner anywhere" do
     setup do
       add_response 'burundi'
@@ -3585,9 +3573,160 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       end
     end
   end
+
   context "ceremony in maldives," do
     setup do
       add_response "maldives"
+    end
+    context "resident in uk," do
+      setup { add_response "uk" }
+      context "partner is british," do
+        setup { add_response "partner_british" }
+        context "opposite sex" do
+          setup { add_response "opposite_sex" }
+          should "go to generic country outcome" do
+            assert_current_node :outcome_marriage_abroad_in_country
+          end
+        end
+        context "same sex" do
+          setup { add_response "same_sex" }
+          should "go to generic country outcome" do
+            assert_current_node :outcome_marriage_abroad_in_country
+          end
+        end
+      end
+      context "partner is local," do
+        setup { add_response "partner_local" }
+        context "opposite sex" do
+          setup { add_response "opposite_sex" }
+          should "go to generic country outcome" do
+            assert_current_node :outcome_marriage_abroad_in_country
+          end
+        end
+        context "same sex" do
+          setup { add_response "same_sex" }
+          should "go to generic country outcome" do
+            assert_current_node :outcome_marriage_abroad_in_country
+          end
+        end
+      end
+      context "partner is other," do
+        setup { add_response "partner_other" }
+        context "opposite sex" do
+          setup { add_response "opposite_sex" }
+          should "go to generic country outcome" do
+            assert_current_node :outcome_marriage_abroad_in_country
+          end
+        end
+        context "same sex" do
+          setup { add_response "same_sex" }
+          should "go to generic country outcome" do
+            assert_current_node :outcome_marriage_abroad_in_country
+          end
+        end
+      end
+    end
+    context "resident in ceremony country" do
+      setup { add_response "ceremony_country" }
+      context "partner is british," do
+        setup { add_response "partner_british" }
+        context "opposite sex" do
+          setup { add_response "opposite_sex" }
+          should "go to generic country outcome" do
+            assert_current_node :outcome_marriage_abroad_in_country
+          end
+        end
+        context "same sex" do
+          setup { add_response "same_sex" }
+          should "go to generic country outcome" do
+            assert_current_node :outcome_marriage_abroad_in_country
+          end
+        end
+      end
+      context "partner is local," do
+        setup { add_response "partner_local" }
+        context "opposite sex" do
+          setup { add_response "opposite_sex" }
+          should "go to generic country outcome" do
+            assert_current_node :outcome_marriage_abroad_in_country
+          end
+        end
+        context "same sex" do
+          setup { add_response "same_sex" }
+          should "go to generic country outcome" do
+            assert_current_node :outcome_marriage_abroad_in_country
+          end
+        end
+      end
+      context "partner is other," do
+        setup { add_response "partner_other" }
+        context "opposite sex" do
+          setup { add_response "opposite_sex" }
+          should "go to generic country outcome" do
+            assert_current_node :outcome_marriage_abroad_in_country
+          end
+        end
+        context "same sex" do
+          setup { add_response "same_sex" }
+          should "go to generic country outcome" do
+            assert_current_node :outcome_marriage_abroad_in_country
+          end
+        end
+      end
+    end
+    context "resident in third country" do
+      setup { add_response "third_country" }
+      context "partner is british," do
+        setup { add_response "partner_british" }
+        context "opposite sex" do
+          setup { add_response "opposite_sex" }
+          should "go to generic country outcome" do
+            assert_current_node :outcome_marriage_abroad_in_country
+          end
+        end
+        context "same sex" do
+          setup { add_response "same_sex" }
+          should "go to generic country outcome" do
+            assert_current_node :outcome_marriage_abroad_in_country
+          end
+        end
+      end
+      context "partner is local," do
+        setup { add_response "partner_local" }
+        context "opposite sex" do
+          setup { add_response "opposite_sex" }
+          should "go to generic country outcome" do
+            assert_current_node :outcome_marriage_abroad_in_country
+          end
+        end
+        context "same sex" do
+          setup { add_response "same_sex" }
+          should "go to generic country outcome" do
+            assert_current_node :outcome_marriage_abroad_in_country
+          end
+        end
+      end
+      context "partner is other," do
+        setup { add_response "partner_other" }
+        context "opposite sex" do
+          setup { add_response "opposite_sex" }
+          should "go to generic country outcome" do
+            assert_current_node :outcome_marriage_abroad_in_country
+          end
+        end
+        context "same sex" do
+          setup { add_response "same_sex" }
+          should "go to generic country outcome" do
+            assert_current_node :outcome_marriage_abroad_in_country
+          end
+        end
+      end
+    end
+  end
+
+  context "ceremony in Burma," do
+    setup do
+      add_response "burma"
     end
     context "resident in uk," do
       setup { add_response "uk" }
