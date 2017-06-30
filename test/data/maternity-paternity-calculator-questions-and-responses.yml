@@ -3,9 +3,9 @@
 - maternity
 - paternity
 - adoption
-:taking_paternity_or_maternity_leave_for_adoption?:
-- 'paternity'
-- 'maternity'
+:taking_paternity_leave_for_adoption?:
+- 'yes'
+- 'no'
 :date_of_adoption_match?:
 - '2018-04-05' # @match_date >= Date.parse('5 April 2018') # => true
 :date_of_adoption_placement?:

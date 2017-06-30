@@ -126,7 +126,7 @@ module SmartAnswer::Calculators
       sprintf("%.5f", (
         case pay_pattern
         when "monthly"
-          earnings_for_pay_period.to_f / 2 * 13 / 52
+          earnings_for_pay_period.to_f / 2 * 12 / 52
         else
           earnings_for_pay_period.to_f / 8
         end
