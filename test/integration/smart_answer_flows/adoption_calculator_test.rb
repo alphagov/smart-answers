@@ -99,7 +99,7 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
                             # QA12
                             should "go to outcome" do
                               assert_current_node :adoption_leave_and_pay
-                              assert_state_variable :average_weekly_earnings, "375.00"
+                              assert_state_variable :average_weekly_earnings, "346.15"
                             end
                           end # weekly_starting
                           context "answer based on usual paydates" do
