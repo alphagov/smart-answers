@@ -12,7 +12,7 @@ The employee is entitled to up to 39 weeks Statutory Maternity Pay (SMP) if they
 
 Pay | Key facts
 -|-
-Average weekly earnings | £375.0 (don't round this up or down)
+Average weekly earnings | £346.15385 (don't round this up or down)
 Latest date to claim SMP |  4 December 2017
 SMP start date due to pregnancy related illness|  3 December 2017
 Proof of pregnancy | Usually within 21 days of the SMP start date (or as soon as possible if baby born early)
@@ -23,8 +23,8 @@ Proof of pregnancy | Usually within 21 days of the SMP start date (or as soon as
 
 Date | SMP amount
 -|-
-29 January 2018|£1398.22
-26 February 2018|£928.89
+29 January 2018|£1290.67
+26 February 2018|£880.68
 26 March 2018|£563.92
 30 April 2018|£704.90
 28 May 2018|£563.92
@@ -32,7 +32,7 @@ Date | SMP amount
 30 July 2018|£704.90
 27 August 2018|£563.92
 24 September 2018|£563.92
-| **Total SMP: £6556.51**
+| **Total SMP: £6400.75**
 
 *[SMP]: Statutory Maternity Pay
 

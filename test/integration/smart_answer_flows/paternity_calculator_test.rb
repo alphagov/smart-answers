@@ -237,7 +237,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                                     should "go to outcome" do
                                       assert_current_node :paternity_leave_and_pay
                                       assert_state_variable "has_contract", "yes"
-                                      assert_state_variable :pay_dates_and_pay, "18 June 2013|£112.50"
+                                      assert_state_variable :pay_dates_and_pay, "18 June 2013|£103.85"
                                     end
                                   end #QP14 end SPP calculated weekly
                                 end #QP13 end earings above 109 between relevant period

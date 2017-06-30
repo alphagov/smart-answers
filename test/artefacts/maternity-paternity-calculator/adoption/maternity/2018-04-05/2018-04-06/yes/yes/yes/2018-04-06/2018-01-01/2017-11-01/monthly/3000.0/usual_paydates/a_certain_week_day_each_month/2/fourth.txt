@@ -13,12 +13,12 @@ The employee is entitled to up to 52 weeks Statutory Adoption Leave if they [cla
 
 The employee is entitled to up to 39 weeks Statutory Adoption Pay (SAP) if they [claim SAP in time](/employers-adoption-pay-leave/notice-period) and give you [proof of the adoption](/employers-adoption-pay-leave/proof-of-adoption).
 
-The employee’s average weekly earnings are: £375.00.
+The employee’s average weekly earnings are: £346.15.
 
 Date | SAP amount
 -|-
-24 April 2018|£916.08
-22 May 2018|£1209.63
+24 April 2018|£845.61
+22 May 2018|£1124.34
 26 June 2018|£704.90
 24 July 2018|£563.92
 28 August 2018|£704.90
@@ -27,7 +27,7 @@ Date | SAP amount
 27 November 2018|£704.90
 25 December 2018|£563.92
 22 January 2019|£181.26
-| **Total SAP: £6677.35**
+| **Total SAP: £6521.59**
 
 %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
 
