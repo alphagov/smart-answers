@@ -14,8 +14,8 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
 
     ContentItemPublisher.new.publish([presenter])
 
-    assert_requested draft_request
-    assert_requested publishing_request
+    assert_requested draft_request, times: 2
+    assert_requested publishing_request, times: 2
   end
 
   context "#unpublish" do
