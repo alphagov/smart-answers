@@ -31,6 +31,18 @@ class FlowRegistrationPresenter
     @flow.external_related_links || []
   end
 
+  def start_page_body
+    start_node.body
+  end
+
+  def start_page_post_body
+    start_node.post_body
+  end
+
+  def start_page_button_text
+    start_node.start_button_text
+  end
+
   module MethodMissingHelper
     OVERRIDES = {
       'calculator.services_payment_partial_name' => 'pay_by_cash_only',

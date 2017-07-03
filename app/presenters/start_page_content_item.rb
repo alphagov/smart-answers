@@ -9,13 +9,26 @@ class StartPageContentItem
     {
       base_path: base_path,
       title: flow_presenter.title,
+      description: flow_presenter.description,
       details: {
-          external_related_links: external_related_links
+          external_related_links: external_related_links,
+          introductory_paragraph: [
+            {
+              content: flow_presenter.start_page_body,
+              content_type: 'text/govspeak'
+            }
+          ],
+          more_information: [
+            content: flow_presenter.start_page_post_body,
+            content_type: 'text/govspeak'
+          ],
+          transaction_start_link: base_path + '/y',
+          start_button_text: flow_presenter.start_page_button_text
       },
-      schema_name: 'generic_with_external_related_links',
-      document_type: 'smart_answer',
+      schema_name: 'transaction',
+      document_type: 'transaction',
       publishing_app: 'smartanswers',
-      rendering_app: 'smartanswers',
+      rendering_app: 'frontend',
       locale: 'en',
       public_updated_at: Time.now.iso8601,
       routes: routes
