@@ -23,7 +23,7 @@ class FlowContentItem
   end
 
   def content_id
-    flow_presenter.content_id
+    flow_presenter.start_page_content_id
   end
 
 private

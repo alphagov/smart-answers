@@ -9,7 +9,7 @@ lib/smart_answer_flows/calculate-your-redundancy-pay/questions/age_of_employee.g
 lib/smart_answer_flows/calculate-your-redundancy-pay/questions/date_of_redundancy.govspeak.erb: bdb2975cce5bd91c754ac13fad1af4b8
 lib/smart_answer_flows/calculate-your-redundancy-pay/questions/weekly_pay_before_tax.govspeak.erb: 9662fd7b09d3722850ede311bf27b844
 lib/smart_answer_flows/calculate-your-redundancy-pay/questions/years_employed.govspeak.erb: 6bf4ef75048732fab207104b21cdc6e6
-lib/smart_answer_flows/calculate-your-redundancy-pay.rb: e58954e0f32350e9f71886d01f695768
+lib/smart_answer_flows/calculate-your-redundancy-pay.rb: 218f1ec957217c6399a6bc5567318148
 lib/smart_answer_flows/shared/redundancy_pay_flow.rb: 91e04ab20e95e6a5b92bed8b41928038
 test/data/calculate-your-redundancy-pay-questions-and-responses.yml: ec149a5afdcd7ee2f11c1daae5268747
 test/data/calculate-your-redundancy-pay-responses-and-expected-results.yml: 47e5d64c625064c78de0a5041a348854

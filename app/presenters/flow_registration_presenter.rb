@@ -11,8 +11,8 @@ class FlowRegistrationPresenter
     @flow.need_id
   end
 
-  def content_id
-    @flow.content_id
+  def start_page_content_id
+    @flow.start_page_content_id
   end
 
   def title

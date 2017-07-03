@@ -45,6 +45,6 @@ lib/smart_answer_flows/student-finance-forms/questions/type_of_student.govspeak.
 lib/smart_answer_flows/student-finance-forms/questions/what_year_full_time.govspeak.erb: ba33987c1eee3ecd089045ca9e874b0e
 lib/smart_answer_flows/student-finance-forms/questions/what_year_part_time.govspeak.erb: 03d19fedbc8d455a39904b7833dcc955
 lib/smart_answer_flows/student-finance-forms/student_finance_forms.govspeak.erb: 41695473d757c255ec52ef041d662c86
-lib/smart_answer_flows/student-finance-forms.rb: 90f50a1c3ea772a571125b06a4898724
+lib/smart_answer_flows/student-finance-forms.rb: 08ba0df22015b22a914733a6f593311b
 test/data/student-finance-forms-questions-and-responses.yml: 7b564b5cb1382c6a1cf638c1926cfb2a
 test/data/student-finance-forms-responses-and-expected-results.yml: 5327046aaeab2637522962801706c886

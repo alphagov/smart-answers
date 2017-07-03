@@ -3,7 +3,7 @@ require 'smart_answer/calculators/energy_grants_calculator'
 module SmartAnswer
   class EnergyGrantsCalculatorFlow < Flow
     def define
-      content_id "20c0a04d-1db4-4828-bd40-bc99954ca5f9"
+      start_page_content_id "20c0a04d-1db4-4828-bd40-bc99954ca5f9"
       name 'energy-grants-calculator'
       status :published
       satisfies_need "100259"

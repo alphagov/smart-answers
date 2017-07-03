@@ -3,7 +3,7 @@ require 'smart_answer_flows/shared/minimum_wage_flow'
 module SmartAnswer
   class AmIGettingMinimumWageFlow < Flow
     def define
-      content_id "111e006d-2b22-4b1f-989a-56bb61355d68"
+      start_page_content_id "111e006d-2b22-4b1f-989a-56bb61355d68"
       name 'am-i-getting-minimum-wage'
       status :published
       satisfies_need "100145"

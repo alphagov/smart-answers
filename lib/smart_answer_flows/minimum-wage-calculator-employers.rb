@@ -3,7 +3,7 @@ require 'smart_answer_flows/shared/minimum_wage_flow'
 module SmartAnswer
   class MinimumWageCalculatorEmployersFlow < Flow
     def define
-      content_id "cc25f6ca-0553-4400-9dba-a43294fee84b"
+      start_page_content_id "cc25f6ca-0553-4400-9dba-a43294fee84b"
       name 'minimum-wage-calculator-employers'
       status :published
       satisfies_need "100145"

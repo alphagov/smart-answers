@@ -19,7 +19,7 @@ module SmartAnswer
 
     test '#content_id is the content_id of the presenter' do
       presenter = stub_flow_registration_presenter
-      presenter.stubs(:content_id).returns('content-id')
+      presenter.stubs(:start_page_content_id).returns('content-id')
       content_item = StartPageContentItem.new(presenter)
 
       assert_equal "content-id", content_item.content_id

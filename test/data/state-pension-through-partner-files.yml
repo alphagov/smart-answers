@@ -17,6 +17,6 @@ lib/smart_answer_flows/state-pension-through-partner/questions/what_is_your_mari
 lib/smart_answer_flows/state-pension-through-partner/questions/when_will_you_reach_pension_age.govspeak.erb: c6a3f6fea345139b99ef5cd6f0b86f9f
 lib/smart_answer_flows/state-pension-through-partner/questions/when_will_your_partner_reach_pension_age.govspeak.erb: 4e7f1b88683a7d15bc817c925e390257
 lib/smart_answer_flows/state-pension-through-partner/state_pension_through_partner.govspeak.erb: a8c9a75e2e4fa40a3ba0cf1ee212187d
-lib/smart_answer_flows/state-pension-through-partner.rb: f3dfe8b21da1687656f3d7601b6578d5
+lib/smart_answer_flows/state-pension-through-partner.rb: 6bc4f32700d4f37ce0ce74cb07b85789
 test/data/state-pension-through-partner-questions-and-responses.yml: 743b0b6dc9a8d33502d402c4da8220af
 test/data/state-pension-through-partner-responses-and-expected-results.yml: 3f0949246808bddc383a063183273c14

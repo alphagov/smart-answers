@@ -22,9 +22,9 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
     end
   end
 
-  context "content_id" do
-    should "use the flow content_id" do
-      assert_equal "f26e566e-2557-4921-b944-9373c32255f1", @presenter.content_id
+  context "start_page_content_id" do
+    should "use the flow start_page_content_id" do
+      assert_equal "f26e566e-2557-4921-b944-9373c32255f1", @presenter.start_page_content_id
     end
   end
 

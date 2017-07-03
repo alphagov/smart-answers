@@ -8,6 +8,6 @@ lib/smart_answer_flows/estimate-self-assessment-penalties/questions/how_submitte
 lib/smart_answer_flows/estimate-self-assessment-penalties/questions/when_paid.govspeak.erb: fd629bd5e95648f5a22246a423cfd026
 lib/smart_answer_flows/estimate-self-assessment-penalties/questions/when_submitted.govspeak.erb: 590022eac4fbf8db1976da66d777f776
 lib/smart_answer_flows/estimate-self-assessment-penalties/questions/which_year.govspeak.erb: 3431fda0cc0bf6c0c7670c04ef38458c
-lib/smart_answer_flows/estimate-self-assessment-penalties.rb: c0ac9db38e425b61e8ff935420501d2d
+lib/smart_answer_flows/estimate-self-assessment-penalties.rb: ac1b64340a8d372970fa340ee4dd2f62
 test/data/estimate-self-assessment-penalties-questions-and-responses.yml: 93dcab8e10c0f76286c3d432505c45bb
 test/data/estimate-self-assessment-penalties-responses-and-expected-results.yml: 0d48b872d6a38861912032981a446777

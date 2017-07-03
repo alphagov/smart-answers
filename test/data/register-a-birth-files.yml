@@ -23,7 +23,7 @@ lib/smart_answer_flows/register-a-birth/questions/where_are_you_now.govspeak.erb
 lib/smart_answer_flows/register-a-birth/questions/which_country.govspeak.erb: 913b5637a2814cbd529affffc55b1f72
 lib/smart_answer_flows/register-a-birth/questions/who_has_british_nationality.govspeak.erb: 9a1a1acec4abc5a3f5199ab2eae0cd1c
 lib/smart_answer_flows/register-a-birth/register_a_birth.govspeak.erb: 05cf2d9426fc91f395fc524fdfdac800
-lib/smart_answer_flows/register-a-birth.rb: ecd4500ead144c94294a25e9bb66b420
+lib/smart_answer_flows/register-a-birth.rb: b0cab874cd3698eb25c340fb55a0f99d
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1dc349abcd6b21e1bf8c397d96fd02b8
 lib/smart_answer_flows/shared/births_and_deaths_registration/_button.govspeak.erb: bdd3818dfd2b9d6396daf6f60fd887a0
 test/data/register-a-birth-questions-and-responses.yml: b4dd33367f71386f8fca61bc9ec36300

@@ -23,9 +23,9 @@ module SmartAnswer
       end
     end
 
-    def content_id(cid = nil)
-      @content_id = cid unless cid.nil?
-      @content_id
+    def start_page_content_id(cid = nil)
+      @start_page_content_id = cid unless cid.nil?
+      @start_page_content_id
     end
 
     def name(name = nil)
