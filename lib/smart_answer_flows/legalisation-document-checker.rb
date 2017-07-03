@@ -2,6 +2,7 @@ module SmartAnswer
   class LegalisationDocumentCheckerFlow < Flow
     def define
       start_page_content_id "86acf061-f878-4da1-b05b-80c7ef61305c"
+      flow_content_id "3f1673a7-62b5-4ea0-883d-faa602e7f6a9"
       name 'legalisation-document-checker'
       status :published
       satisfies_need "101010"

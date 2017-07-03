@@ -4,6 +4,7 @@ module SmartAnswer
   class EnergyGrantsCalculatorFlow < Flow
     def define
       start_page_content_id "20c0a04d-1db4-4828-bd40-bc99954ca5f9"
+      flow_content_id "1d5a5069-8970-4710-a5fd-d2714639656e"
       name 'energy-grants-calculator'
       status :published
       satisfies_need "100259"

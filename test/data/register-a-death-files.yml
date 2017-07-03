@@ -20,7 +20,7 @@ lib/smart_answer_flows/register-a-death/questions/where_did_the_death_happen.gov
 lib/smart_answer_flows/register-a-death/questions/which_country.govspeak.erb: e816742682e96117df80d67faff13fc8
 lib/smart_answer_flows/register-a-death/questions/which_country_are_you_in_now.govspeak.erb: 9c9399d1588c7d5e01ebf1bf5efa31a1
 lib/smart_answer_flows/register-a-death/register_a_death.govspeak.erb: 1820ba3a5f3ed47816c7f151217be439
-lib/smart_answer_flows/register-a-death.rb: d598dd06489fa36634fb38a77fc2fd7e
+lib/smart_answer_flows/register-a-death.rb: 22f57306240fd5cfc4fa9cdc14a15b74
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1dc349abcd6b21e1bf8c397d96fd02b8
 lib/smart_answer_flows/shared/births_and_deaths_registration/_button.govspeak.erb: bdd3818dfd2b9d6396daf6f60fd887a0
 test/data/register-a-death-questions-and-responses.yml: a422d90c6e5ee9ebbbf2da30f039d846

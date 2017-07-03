@@ -109,11 +109,11 @@ module SmartAnswer
       assert_equal now.iso8601, content_item.payload[:public_updated_at]
     end
 
-    test '#payload registers a prefix route using the slug of the smart answer' do
+    test '#payload registers an exact route using the slug of the smart answer' do
       presenter = stub_flow_registration_presenter
       content_item = StartPageContentItem.new(presenter)
 
-      expected_route = {type: 'prefix', path: '/flow-slug'}
+      expected_route = {type: 'exact', path: '/flow-slug'}
       assert content_item.payload[:routes].include?(expected_route)
     end
 

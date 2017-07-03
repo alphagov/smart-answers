@@ -23,20 +23,19 @@ class FlowContentItem
   end
 
   def content_id
-    flow_presenter.start_page_content_id
+    flow_presenter.flow_content_id
   end
 
 private
 
   def routes
     [
-      { type: 'prefix', path: base_path },
-      { type: 'exact', path: json_path }
+      { type: 'prefix', path: base_path }
     ]
   end
 
   def base_path
-    '/' + flow_presenter.slug
+    '/' + flow_presenter.slug + '/y'
   end
 
   def json_path

@@ -30,7 +30,7 @@ private
 
   def routes
     [
-      { type: 'prefix', path: base_path },
+      { type: 'exact', path: base_path },
       { type: 'exact', path: json_path }
     ]
   end

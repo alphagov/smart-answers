@@ -28,6 +28,11 @@ module SmartAnswer
       @start_page_content_id
     end
 
+    def flow_content_id(cid = nil)
+      @flow_content_id = cid unless cid.nil?
+      @flow_content_id
+    end
+
     def name(name = nil)
       @name = name unless name.nil?
       @name

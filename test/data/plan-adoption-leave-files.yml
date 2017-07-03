@@ -6,6 +6,6 @@ lib/smart_answer_flows/plan-adoption-leave/questions/child_arrival_date.govspeak
 lib/smart_answer_flows/plan-adoption-leave/questions/child_match_date.govspeak.erb: 8d6b8f807bd5ab925cb62b26967960da
 lib/smart_answer_flows/plan-adoption-leave/questions/leave_start.govspeak.erb: 09b93227b795d55d9106851116460f2c
 lib/smart_answer_flows/plan-adoption-leave/questions/meta.govspeak.erb: 695d31e59d3b964c430b8c7ccfe3928b
-lib/smart_answer_flows/plan-adoption-leave.rb: c3113888c508d986b7670763ac2b3a5a
+lib/smart_answer_flows/plan-adoption-leave.rb: 4f1d627109ef7d187b8478906575f850
 test/data/plan-adoption-leave-questions-and-responses.yml: 7f0c938658602739b7c7451f60255ac4
 test/data/plan-adoption-leave-responses-and-expected-results.yml: 51c73fbdb544c4b15e8562e614946c42

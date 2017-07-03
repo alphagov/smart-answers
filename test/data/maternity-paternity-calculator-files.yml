@@ -74,6 +74,6 @@ lib/smart_answer_flows/maternity-paternity-calculator/questions/what_type_of_lea
 lib/smart_answer_flows/maternity-paternity-calculator/questions/when_in_the_month_is_the_employee_paid.govspeak.erb: d540503a4470d20b26ceb4fd5a84a3f4
 lib/smart_answer_flows/maternity-paternity-calculator/questions/when_is_your_employees_next_pay_day.govspeak.erb: a74aad333d92213910367be1ecee9e80
 lib/smart_answer_flows/maternity-paternity-calculator/questions/which_week_in_month_is_the_employee_paid.govspeak.erb: 19fef5ffcbb85e74f88dd24ce3ccf4c0
-lib/smart_answer_flows/maternity-paternity-calculator.rb: 2d72ada0a040d26c3cad36125f6ae392
+lib/smart_answer_flows/maternity-paternity-calculator.rb: 39b094b0d9e1cc6c451ec95ef7a9c11a
 test/data/maternity-paternity-calculator-questions-and-responses.yml: 39531d58adfb042e8938bd128b6e183b
 test/data/maternity-paternity-calculator-responses-and-expected-results.yml: f85632ca8eb5ac69fa2848af8e475f66

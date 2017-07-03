@@ -2,6 +2,7 @@ module SmartAnswer
   class StudentFinanceFormsFlow < Flow
     def define
       start_page_content_id "67764435-e8ed-4700-a657-2e0432cb1f5b"
+      flow_content_id "bd777b24-6879-44bc-a44d-3e57a7a29e90"
       name 'student-finance-forms'
       status :published
       satisfies_need "100982"

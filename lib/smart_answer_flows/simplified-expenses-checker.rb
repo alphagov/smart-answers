@@ -2,6 +2,7 @@ module SmartAnswer
   class SimplifiedExpensesCheckerFlow < Flow
     def define
       start_page_content_id "8ad76560-8a27-42ee-9a99-8aaa8f0109a5"
+      flow_content_id "09f5f2b6-dc09-4594-8c2a-d907fed427d5"
       name 'simplified-expenses-checker'
       status :published
       satisfies_need "100119"

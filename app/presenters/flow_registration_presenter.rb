@@ -15,6 +15,10 @@ class FlowRegistrationPresenter
     @flow.start_page_content_id
   end
 
+  def flow_content_id
+    @flow.flow_content_id
+  end
+
   def title
     start_node.title
   end

@@ -29,6 +29,6 @@ lib/smart_answer_flows/childcare-costs-for-tax-credits/questions/old_weekly_amou
 lib/smart_answer_flows/childcare-costs-for-tax-credits/questions/old_weekly_amount_2.govspeak.erb: 1c38a10cec3686e68b0f0ca3b18af15a
 lib/smart_answer_flows/childcare-costs-for-tax-credits/questions/old_weekly_amount_3.govspeak.erb: 1c38a10cec3686e68b0f0ca3b18af15a
 lib/smart_answer_flows/childcare-costs-for-tax-credits/questions/pay_same_each_time.govspeak.erb: 0668d5cdd6a6ded48824d204ac7c04cf
-lib/smart_answer_flows/childcare-costs-for-tax-credits.rb: e6775fff05249d0575d8cc9d29438bb5
+lib/smart_answer_flows/childcare-costs-for-tax-credits.rb: 4ff4daeada9d2875c125e6f2f6416c77
 test/data/childcare-costs-for-tax-credits-questions-and-responses.yml: 626012bfcc3d89170729eb2140fc1aa4
 test/data/childcare-costs-for-tax-credits-responses-and-expected-results.yml: 37aa1c49681770c252fd9ca273d1ba07

@@ -6,6 +6,7 @@ module SmartAnswer
       status :published
       satisfies_need "103438"
       start_page_content_id "de6723a5-7256-4bfd-aad3-82b04b06b73e"
+      flow_content_id "a0720c77-f45d-437c-a867-405d5f5dd40c"
 
       date_question :when_did_your_tax_credits_award_end? do
         from { Calculators::PartYearProfitTaxCreditsCalculator::TAX_CREDITS_AWARD_ENDS_EARLIEST_DATE }

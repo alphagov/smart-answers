@@ -4,6 +4,7 @@ module SmartAnswer
   class MinimumWageCalculatorEmployersFlow < Flow
     def define
       start_page_content_id "cc25f6ca-0553-4400-9dba-a43294fee84b"
+      flow_content_id "fe2a4b16-bd8c-42c7-bd89-8c5f825673e2"
       name 'minimum-wage-calculator-employers'
       status :published
       satisfies_need "100145"

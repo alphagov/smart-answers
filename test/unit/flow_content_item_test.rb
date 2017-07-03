@@ -17,12 +17,12 @@ module SmartAnswer
       )
     end
 
-    test '#content_id is the content_id of the presenter' do
+    test '#content_id is the flow_content_id of the presenter' do
       presenter = stub_flow_registration_presenter
-      presenter.stubs(:start_page_content_id).returns('content-id')
+      presenter.stubs(:flow_content_id).returns('flow-content-id')
       content_item = FlowContentItem.new(presenter)
 
-      assert_equal "content-id", content_item.content_id
+      assert_equal "flow-content-id", content_item.content_id
     end
 
     test '#payload returns a valid content-item' do
@@ -42,11 +42,11 @@ module SmartAnswer
       assert_valid_against_schema(content_item.payload, 'generic_with_external_related_links')
     end
 
-    test '#base_path is the slug of the presenter with a prepended slash' do
+    test '#base_path is the slug of the presenter with a prepended slash and appended /y' do
       presenter = stub_flow_registration_presenter
       content_item = FlowContentItem.new(presenter)
 
-      assert_equal "/flow-slug", content_item.payload[:base_path]
+      assert_equal "/flow-slug/y", content_item.payload[:base_path]
     end
 
     test '#payload title is the title of the presenter' do
@@ -109,19 +109,11 @@ module SmartAnswer
       assert_equal now.iso8601, content_item.payload[:public_updated_at]
     end
 
-    test '#payload registers a prefix route using the slug of the smart answer' do
+    test '#payload registers a prefix route using the slug of the smart answer with /y appended' do
       presenter = stub_flow_registration_presenter
       content_item = FlowContentItem.new(presenter)
 
-      expected_route = {type: 'prefix', path: '/flow-slug'}
-      assert content_item.payload[:routes].include?(expected_route)
-    end
-
-    test '#payload registers an exact json route using the slug of the smart answer' do
-      presenter = stub_flow_registration_presenter
-      content_item = FlowContentItem.new(presenter)
-
-      expected_route = {type: 'exact', path: '/flow-slug.json'}
+      expected_route = {type: 'prefix', path: '/flow-slug/y'}
       assert content_item.payload[:routes].include?(expected_route)
     end
   end
