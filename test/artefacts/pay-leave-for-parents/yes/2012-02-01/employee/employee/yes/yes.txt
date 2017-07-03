@@ -9,5 +9,5 @@ How much does the mother earn in this job (or did she earn, if she’s left the 
 
 
 
-This is her take-home pay before any deductions, eg tax.
+This is her pay before any deductions, eg tax.
 

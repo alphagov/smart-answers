@@ -9,5 +9,5 @@ How much does the mother’s partner earn in this job (or did they earn, if they
 
 
 
-This is their take-home pay before any deductions, eg tax.
+This is their pay before any deductions, eg tax.
 
