@@ -9,9 +9,6 @@ You can use this calculator to estimate your child maintenance. It can help you 
 ^The calculator gives an estimate. The exact amount the Child Maintenance Service calculates may be different.^
 
 
-
-##Before you start
-
 You need information about the income of the parent who'll be paying.
 
 ##If you already have a case and your circumstances have changed
