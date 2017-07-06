@@ -23,12 +23,5 @@ module SmartAnswer
         assert_equal "Custom text", start_button.text
       end
     end
-
-    context "#href" do
-      should "return /another-smart-answer/y" do
-        start_button = StartButton.new("another-smart-answer", @view)
-        assert_equal "/another-smart-answer/y", start_button.href
-      end
-    end
   end
 end

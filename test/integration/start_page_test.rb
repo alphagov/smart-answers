@@ -22,7 +22,7 @@ class StartPageTest < ActionDispatch::IntegrationTest
           within ".intro" do
             assert page.has_link?(
               start_button.text,
-              href: start_button.href
+              href: "/#{slug}/y"
             )
           end
         end

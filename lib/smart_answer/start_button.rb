@@ -13,10 +13,6 @@ module SmartAnswer
       end
     end
 
-    def href
-      @view.smart_answer_path(@smart_answer.to_s, started: "y")
-    end
-
   private
 
     def customized_start_button?
