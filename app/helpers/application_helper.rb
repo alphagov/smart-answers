@@ -6,8 +6,4 @@ module ApplicationHelper
   def start_button
     SmartAnswer::StartButton.new(@name, self).text
   end
-
-  def start_button_href
-    smart_answer_path(@name.to_s, started: "y")
-  end
 end
