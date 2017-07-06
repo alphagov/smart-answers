@@ -13,10 +13,6 @@ module SmartAnswer
       end
     end
 
-    def ab_text
-      "Calculate your child maintenance"
-    end
-
     def href
       if customized_start_button?
         custom_text_and_link[@smart_answer][:href]
