@@ -28,6 +28,11 @@ module SmartAnswer
       @content_id
     end
 
+    def flow_content_id(flow_content_id = nil)
+      @flow_content_id = flow_content_id unless flow_content_id.nil?
+      @flow_content_id
+    end
+
     def name(name = nil)
       @name = name unless name.nil?
       @name
@@ -44,6 +49,10 @@ module SmartAnswer
 
     def draft?
       status == :draft
+    end
+
+    def transaction_start_page?
+      content_id.present? && flow_content_id.present?
     end
 
     def status(s = nil)

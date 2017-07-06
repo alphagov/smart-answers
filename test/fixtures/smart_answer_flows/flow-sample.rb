@@ -4,6 +4,7 @@ module SmartAnswer
       name 'flow-sample'
       satisfies_need 4242
       content_id "f26e566e-2557-4921-b944-9373c32255f1"
+      flow_content_id "e87b0e18-eccf-4ad7-9e4d-aaefad726883"
 
       multiple_choice :hotter_or_colder? do
         option :hotter

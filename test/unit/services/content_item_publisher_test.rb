@@ -6,16 +6,26 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
     SmartAnswer::FlowRegistry.stubs(:instance).returns(stub("Flow registry", find: @flow, load_path: load_path))
   end
 
-  test 'sending item to content store' do
-    draft_request = stub_request(:put, "https://publishing-api.test.gov.uk/v2/content/3e6f33b8-0723-4dd5-94a2-cab06f23a685")
-    publishing_request = stub_request(:post, "https://publishing-api.test.gov.uk/v2/content/3e6f33b8-0723-4dd5-94a2-cab06f23a685/publish")
+  context "#publish" do
+    should "send message to create_and_publish_transaction_start_page if smart_answer start page is a transaction start page" do
+      presenters = [mock("FlowRegistrationPresenter", transaction_start_page?: true)]
 
-    presenter = FlowRegistrationPresenter.new(stub('flow', name: 'bridge-of-death', content_id: '3e6f33b8-0723-4dd5-94a2-cab06f23a685', external_related_links: nil))
+      ContentItemPublisher.any_instance.expects(:create_and_publish_transaction_start_page).once
 
-    ContentItemPublisher.new.publish([presenter])
+      ContentItemPublisher.new.publish(presenters)
+    end
 
-    assert_requested draft_request
-    assert_requested publishing_request
+    should "send content item to publishing_api" do
+      draft_request = stub_request(:put, "https://publishing-api.test.gov.uk/v2/content/3e6f33b8-0723-4dd5-94a2-cab06f23a685")
+      publishing_request = stub_request(:post, "https://publishing-api.test.gov.uk/v2/content/3e6f33b8-0723-4dd5-94a2-cab06f23a685/publish")
+
+      presenter = FlowRegistrationPresenter.new(stub('flow', name: 'bridge-of-death', content_id: '3e6f33b8-0723-4dd5-94a2-cab06f23a685', external_related_links: nil, transaction_start_page?: false))
+
+      ContentItemPublisher.new.publish([presenter])
+
+      assert_requested draft_request
+      assert_requested publishing_request
+    end
   end
 
   context "#unpublish" do
@@ -127,6 +137,33 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
     end
   end
 
+  context "#create_and_publish_transaction_start_page" do
+    should "send create and publish transaction to publishing-api" do
+      reservation_url = 'https://publishing-api.test.gov.uk/paths//smart-answer-slug'
+      reservation_request = stub_request(:put, reservation_url)
+      create_url = "https://publishing-api.test.gov.uk/v2/content/content_id"
+      create_request = stub_request(:put, create_url)
+      publish_url = "https://publishing-api.test.gov.uk/v2/content/content_id/publish"
+      publish_request = stub_request(:post, publish_url)
+
+      flow_create_url = "https://publishing-api.test.gov.uk/v2/content/flow_content_id"
+      flow_create_request = stub_request(:put, flow_create_url)
+      flow_publish_url = "https://publishing-api.test.gov.uk/v2/content/flow_content_id/publish"
+      flow_publish_request = stub_request(:post, flow_publish_url)
+
+      flow_presenter = mock("FlowRegistrationPresenter", slug: "smart-answer-slug", title: "Title", body: "Sample body content")
+      content_item = mock("FlowContentItem", flow_presenter: flow_presenter, content_id: "content_id", flow_content_id: "flow_content_id", payload: {})
+
+      ContentItemPublisher.new.create_and_publish_transaction_start_page(content_item)
+
+      assert_requested reservation_request
+      assert_requested create_request
+      assert_requested publish_request
+      assert_requested flow_create_request
+      assert_requested flow_publish_request
+    end
+  end
+
   context "#publish_transaction" do
     setup do
       SecureRandom.stubs(:uuid).returns('content-id')
@@ -234,6 +271,133 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
       assert_equal "This content item has not been created", exception.message
       assert_requested @create_request
       assert_not_requested @publish_request
+    end
+  end
+
+  context "#publish_transaction_start_page" do
+    setup do
+      SecureRandom.stubs(:uuid).returns('content-id')
+      create_url = "https://publishing-api.test.gov.uk/v2/content/content-id"
+      @create_request = stub_request(:put, create_url)
+      publish_url = "https://publishing-api.test.gov.uk/v2/content/content-id/publish"
+      @publish_request = stub_request(:post, publish_url)
+    end
+
+    should "raise exception if content id is not supplied" do
+      exception = assert_raises(RuntimeError) do
+        ContentItemPublisher.new.publish_transaction_start_page(
+          nil,
+          "/base-path",
+          publishing_app: "publisher",
+          title: "Sample transaction title",
+          content: "Sample transaction content",
+          link: "/path/to/smartanswers/y"
+        )
+      end
+
+      assert_equal "The content id isn't supplied", exception.message
+    end
+
+    should "raise exception if base path is not supplied" do
+      exception = assert_raises(RuntimeError) do
+        ContentItemPublisher.new.publish_transaction_start_page(
+          "content_id",
+          nil,
+          publishing_app: "publisher",
+          title: "Sample transaction title",
+          content: "Sample transaction content",
+          link: "/path/to/smartanswers/y"
+        )
+      end
+
+      assert_equal "The base path isn't supplied", exception.message
+    end
+
+    should "raise exception if publishing_app is not supplied" do
+      exception = assert_raises(RuntimeError) do
+        ContentItemPublisher.new.publish_transaction_start_page(
+          "content_id",
+          "/base-path",
+          publishing_app: nil,
+          title: "Sample transaction title",
+          content: "Sample transaction content",
+          link: "/path/to/smartanswers/y"
+        )
+      end
+
+      assert_equal "The publishing_app isn't supplied", exception.message
+    end
+
+    should "raise exception if title is not supplied" do
+      exception = assert_raises(RuntimeError) do
+        ContentItemPublisher.new.publish_transaction_start_page(
+          "content_id",
+          "/base-path",
+          publishing_app: "publisher",
+          title: nil,
+          content: "Sample transaction content",
+          link: "/path/to/smartanswers/y"
+        )
+      end
+
+      assert_equal "The title isn't supplied", exception.message
+    end
+
+    should "raise exception if content is not supplied" do
+      exception = assert_raises(RuntimeError) do
+        ContentItemPublisher.new.publish_transaction_start_page(
+          "content_id",
+          "/base-path",
+          publishing_app: "publisher",
+          title: "Sample transaction title",
+          content: nil,
+          link: "/path/to/smartanswers/y"
+        )
+      end
+
+      assert_equal "The content isn't supplied", exception.message
+    end
+
+    should "raise exception if link is not supplied" do
+      exception = assert_raises(RuntimeError) do
+        ContentItemPublisher.new.publish_transaction_start_page(
+          "content_id",
+          "/base-path",
+          publishing_app: "publisher",
+          title: "Sample transaction title",
+          content: "Sample transaction content",
+          link: nil
+        )
+      end
+
+      assert_equal "The link isn't supplied", exception.message
+    end
+
+    should "send publish transaction message to publish_transaction_start_page_via_publishing_api" do
+      ContentItemPublisher.any_instance.expects(:publish_transaction_start_page_via_publishing_api).once
+
+      ContentItemPublisher.new.publish_transaction_start_page(
+        "content-id",
+        "/base-path",
+        publishing_app: "publisher",
+        title: "Sample transaction title",
+        content: "Sample transaction content",
+        link: "/path/to/smartanswers/y"
+      )
+    end
+
+    should "send publish transaction request to publish_transaction_start_page_via_publishing_api" do
+      ContentItemPublisher.new.publish_transaction_start_page(
+        "content-id",
+        "/base-path",
+        publishing_app: "publisher",
+        title: "Sample transaction title",
+        content: "Sample transaction content",
+        link: "/path/to/smartanswers/y"
+      )
+
+      assert_requested @create_request
+      assert_requested @publish_request
     end
   end
 

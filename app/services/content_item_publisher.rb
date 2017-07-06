@@ -2,8 +2,12 @@ class ContentItemPublisher
   def publish(flow_presenters)
     flow_presenters.each do |smart_answer|
       content_item = FlowContentItem.new(smart_answer)
-      Services.publishing_api.put_content(content_item.content_id, content_item.payload)
-      Services.publishing_api.publish(content_item.content_id, 'minor')
+      if smart_answer.transaction_start_page?
+        create_and_publish_transaction_start_page(content_item)
+      else
+        Services.publishing_api.put_content(content_item.content_id, content_item.payload)
+        Services.publishing_api.publish(content_item.content_id, 'minor')
+      end
     end
   end
 
@@ -21,6 +25,24 @@ class ContentItemPublisher
     raise "The destination or path isn't defined" unless path.present? && destination.present?
 
     add_redirect_to_publishing_api(path, destination)
+  end
+
+  def create_and_publish_transaction_start_page(content_item)
+    presenter = content_item.flow_presenter
+    base_path = "/#{presenter.slug}"
+    flow_content_id = content_item.flow_content_id
+
+    reserve_path_for_publishing_app(base_path, "publisher")
+    publish_transaction_start_page(
+      content_item.content_id,
+      base_path,
+      publishing_app: "publisher",
+      title: presenter.title,
+      content: presenter.body,
+      link: "#{base_path}/y"
+    )
+    Services.publishing_api.put_content(flow_content_id, content_item.payload)
+    Services.publishing_api.publish(flow_content_id, "minor")
   end
 
   def remove_smart_answer_from_search(base_path)
@@ -47,6 +69,24 @@ class ContentItemPublisher
     raise "The link isn't supplied" unless link.present?
 
     publish_transaction_via_publishing_api(
+      base_path,
+      publishing_app: publishing_app,
+      title: title,
+      content: content,
+      link: link
+    )
+  end
+
+  def publish_transaction_start_page(content_id, base_path, publishing_app:, title:, content:, link:)
+    raise "The content id isn't supplied" unless content_id.present?
+    raise "The base path isn't supplied" unless base_path.present?
+    raise "The publishing_app isn't supplied" unless publishing_app.present?
+    raise "The title isn't supplied" unless title.present?
+    raise "The content isn't supplied" unless content.present?
+    raise "The link isn't supplied" unless link.present?
+
+    publish_transaction_start_page_via_publishing_api(
+      content_id,
       base_path,
       publishing_app: publishing_app,
       title: title,
@@ -146,8 +186,36 @@ private
     create_and_publish_via_publishing_api(payload)
   end
 
-  def create_and_publish_via_publishing_api(payload)
-    content_id = SecureRandom.uuid
+  def publish_transaction_start_page_via_publishing_api(content_id, base_path, publishing_app:, title:, content:, link:)
+    payload = {
+      base_path: base_path,
+      title: title,
+      document_type: :transaction,
+      publishing_app: publishing_app,
+      rendering_app: :frontend,
+      locale: :en,
+      details: {
+        introductory_paragraph: [
+          {
+            content: content,
+            content_type: "text/govspeak"
+          }
+        ],
+        transaction_start_link: link
+      },
+      routes: [
+        {
+          type: :exact,
+          path: base_path
+        }
+      ],
+      schema_name: :transaction
+    }
+
+    create_and_publish_via_publishing_api(payload, content_id)
+  end
+
+  def create_and_publish_via_publishing_api(payload, content_id = SecureRandom.uuid)
     response = Services.publishing_api.put_content(content_id, payload)
     raise "This content item has not been created" unless response.code == 200
     Services.publishing_api.publish(content_id, :major)
