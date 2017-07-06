@@ -57,6 +57,18 @@ module SmartAnswer
       assert_equal 'post-body-govspeak', @presenter.post_body(html: false)
     end
 
+    test '#start_button_text returns single line of content rendered for start_button_text block' do
+      @renderer.stubs(:single_line_of_content_for).with(:start_button_text).returns('start-button-text')
+
+      assert_equal 'start-button-text', @presenter.start_button_text
+    end
+
+    test '#start_button_text returns "Start now" when there is no custom button text' do
+      @renderer.stubs(:single_line_of_content_for).with(:start_button_text).returns('')
+
+      assert_equal 'Start now', @presenter.start_button_text
+    end
+
     test '#relative_erb_template_path delegates to renderer' do
       @renderer.stubs(:relative_erb_template_path).returns('relative-erb-template-path')
 
