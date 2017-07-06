@@ -71,9 +71,9 @@ class RegisterABirthTest < ActiveSupport::TestCase
   end # Andorra
 
   context "answer Iran" do
-    should "give the no embassy outcome and be done" do
+    should "ask who has British nationality" do
       add_response 'iran'
-      assert_current_node :no_embassy_result
+      assert_current_node :who_has_british_nationality?
     end
   end # Iran
 
