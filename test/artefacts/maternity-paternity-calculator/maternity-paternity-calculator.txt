@@ -7,8 +7,6 @@ Calculate your employee’s:
 + leave period
 
 
-##What you need
-
 You need:
 
 + the baby’s due date
