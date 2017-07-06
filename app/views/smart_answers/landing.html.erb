@@ -19,7 +19,7 @@
         <%= start_node.body %>
 
         <p class="get-started">
-          <a rel="nofollow" href="<%= start_button_href %>" class="big button"><%= start_button %></a>
+          <a rel="nofollow" href="<%= smart_answer_path(@name.to_s, started: "y") %>" class="big button"><%= start_node.start_button_text %></a>
         </p>
       </div>
       <%= start_node.post_body %>

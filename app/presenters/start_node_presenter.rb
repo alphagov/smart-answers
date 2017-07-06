@@ -35,6 +35,11 @@ class StartNodePresenter < NodePresenter
     @renderer.content_for(:ab_post_body, html: html)
   end
 
+  def start_button_text
+    custom_button_text = @renderer.single_line_of_content_for(:start_button_text)
+    custom_button_text.present? ? custom_button_text : "Start now"
+  end
+
   def relative_erb_template_path
     @renderer.relative_erb_template_path
   end
