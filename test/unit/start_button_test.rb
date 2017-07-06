@@ -5,8 +5,7 @@ module SmartAnswer
     setup do
       StartButton.any_instance.stubs(:custom_text_and_link).returns(
         "customized-smart-answer": {
-          text: "Custom text",
-          href: "https://www.custom.service.gov.uk/path/to/external"
+          text: "Custom text"
         }
       )
       @view = mock("view")
@@ -26,14 +25,9 @@ module SmartAnswer
     end
 
     context "#href" do
-      should "return /another-smart-answer/y when smart answer hasn't been customized" do
+      should "return /another-smart-answer/y" do
         start_button = StartButton.new("another-smart-answer", @view)
         assert_equal "/another-smart-answer/y", start_button.href
-      end
-
-      should "return the given link when smart answer has been customized" do
-        start_button = StartButton.new("customized-smart-answer", @view)
-        assert_equal "https://www.custom.service.gov.uk/path/to/external", start_button.href
       end
     end
   end
