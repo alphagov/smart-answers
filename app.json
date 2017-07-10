@@ -9,7 +9,10 @@
     "PLEK_SERVICE_STATIC_URI": "https://assets-origin.integration.publishing.service.gov.uk/",
     "RUNNING_ON_HEROKU": "true",
     "EXPOSE_GOVSPEAK": "true",
-    "ERRBIT_ENV": "integration"
+    "ERRBIT_ENV": "integration",
+    "HEROKU_APP_NAME": {
+      "required": true
+    }
   },
   "image": "heroku/ruby",
   "buildpacks": [ { "url": "heroku/ruby" } ]
