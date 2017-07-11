@@ -78,6 +78,19 @@ module SmartAnswer::Calculators
       end
     end
 
+    def adoption_matching_week_start
+      @match_date.sunday? ? @match_date : @match_date.beginning_of_week(:sunday)
+    end
+
+    def adoption_qualifying_start
+      case leave_type
+      when "adoption", "paternity_adoption"
+        adoption_matching_week_start
+      else
+        qualifying_week.first
+      end
+    end
+
     def notice_request_pay
       28.days.ago(pay_start_date)
     end

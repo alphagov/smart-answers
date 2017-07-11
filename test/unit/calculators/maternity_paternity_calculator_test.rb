@@ -255,6 +255,46 @@ module SmartAnswer::Calculators
         # 03/02/13 to 09/02/13 21/10/12 to 27/10/12 05/05/2012 18/11/2012 06/01/2013
       end
 
+      context "adoption matching week start" do
+        should "return Sunday date before the adoption matching week start date" do
+          calculator = MaternityPaternityCalculator.new(Date.parse("2017-03-25"))
+
+          assert_equal Date.parse("Sun, 19 Mar 2017"), calculator.adoption_matching_week_start
+        end
+
+        should "return the same adoption matching week start if match date is a Sunday" do
+          calculator = MaternityPaternityCalculator.new(Date.parse("2017-03-26"))
+
+          assert_equal Date.parse("Sun, 26 Mar 2017"), calculator.adoption_matching_week_start
+        end
+      end
+
+      context "adoption or qualifying start" do
+        should "send message to #adoption_matching_week_start if leave_type is adoption" do
+          calculator = MaternityPaternityCalculator.new(Date.parse("2017-03-26"), "adoption")
+
+          calculator.expects(:adoption_matching_week_start).once
+
+          calculator.adoption_qualifying_start
+        end
+
+        should "send message to #adoption_matching_week_start if leave_type is parternity_adoption" do
+          calculator = MaternityPaternityCalculator.new(Date.parse("2017-03-26"), "paternity_adoption")
+
+          calculator.expects(:adoption_matching_week_start).once
+
+          calculator.adoption_qualifying_start
+        end
+
+        should "send message to #qualifying_week if leave_type isn't adoption or parternity_adoption" do
+          calculator = MaternityPaternityCalculator.new(Date.parse("2017-03-26"), "paternity")
+
+          calculator.expects(:qualifying_week).once.returns([])
+
+          calculator.adoption_qualifying_start
+        end
+      end
+
       context "adoption employment start tests" do
         # 27/05/12 to 02/06/12 10/12/11
         should "matched_date Monday 28th May 2012" do
