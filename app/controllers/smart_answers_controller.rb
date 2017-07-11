@@ -14,7 +14,6 @@ class SmartAnswersController < ApplicationController
     :breadcrumbs,
     :should_present_new_navigation_view?,
     :page_is_under_ab_test?,
-    :present_taxonomy_sidebar?,
   )
 
   rescue_from SmartAnswer::FlowRegistry::NotFound, with: :error_404
