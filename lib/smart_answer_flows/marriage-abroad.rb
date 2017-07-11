@@ -115,10 +115,6 @@ module SmartAnswer
         next_node do
           if calculator.has_outcome_per_path?
             outcome :outcome_marriage_abroad_in_country
-          elsif calculator.ceremony_country == 'brazil' && calculator.resident_of_ceremony_country?
-            outcome :outcome_marriage_in_brazil_when_residing_in_brazil
-          elsif calculator.ceremony_country == 'brazil' && calculator.resident_of_third_country?
-            outcome :outcome_marriage_in_brazil_when_residing_in_third_country
           elsif calculator.ceremony_country == "netherlands"
             outcome :outcome_ceremonies_in_netherlands_or_marriage_via_local_authority_countries
           elsif calculator.ceremony_country == "switzerland"
@@ -286,8 +282,6 @@ module SmartAnswer
       outcome :outcome_ceremonies_in_switzerland
       outcome :outcome_civil_partnership_in_france_or_french_overseas_territory
       outcome :outcome_civil_partnership_in_monaco
-      outcome :outcome_marriage_in_brazil_when_residing_in_brazil
-      outcome :outcome_marriage_in_brazil_when_residing_in_third_country
       outcome :outcome_marriage_in_france_or_french_overseas_territory
       outcome :outcome_marriage_in_monaco
       outcome :outcome_opposite_sex_in_no_cni_countries_when_residing_in_ceremony_or_third_country
