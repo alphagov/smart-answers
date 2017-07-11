@@ -15,7 +15,5 @@ Use the student finance calculator to estimate:
 Your result will be more accurate if you know your annual household income (your parents’ or partner’s income plus your own).
 
 
-##Before you start
-
 You can’t use the calculator if you’re from [Scotland](http://www.saas.gov.uk/), [Wales](http://www.studentfinancewales.co.uk) or [Northern Ireland.](http://www.studentfinanceni.co.uk)
 

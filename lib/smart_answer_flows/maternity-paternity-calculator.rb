@@ -5,7 +5,8 @@ require 'smart_answer_flows/maternity-paternity-calculator/maternity_calculator_
 module SmartAnswer
   class MaternityPaternityCalculatorFlow < Flow
     def define
-      content_id "05d5412d-455b-485e-a570-020c9176a46e"
+      start_page_content_id "05d5412d-455b-485e-a570-020c9176a46e"
+      flow_content_id "38c0b111-e9be-40f3-915b-ad1d9bbf3b2b"
       name 'maternity-paternity-calculator'
       status :published
       satisfies_need "100990"

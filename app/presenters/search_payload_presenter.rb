@@ -4,7 +4,7 @@ class SearchPayloadPresenter
            :title,
            :description,
            :indexable_content,
-           :content_id,
+           :start_page_content_id,
            to: :flow_presenter
 
   def initialize(flow_presenter)
@@ -17,7 +17,7 @@ class SearchPayloadPresenter
 
   def call
     {
-      content_id: content_id,
+      content_id: start_page_content_id,
       rendering_app: 'smartanswers',
       publishing_app: 'smartanswers',
       format: 'smart-answer',

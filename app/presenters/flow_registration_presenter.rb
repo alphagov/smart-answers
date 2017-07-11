@@ -11,8 +11,12 @@ class FlowRegistrationPresenter
     @flow.need_id
   end
 
-  def content_id
-    @flow.content_id
+  def start_page_content_id
+    @flow.start_page_content_id
+  end
+
+  def flow_content_id
+    @flow.flow_content_id
   end
 
   def title
@@ -25,6 +29,18 @@ class FlowRegistrationPresenter
 
   def external_related_links
     @flow.external_related_links || []
+  end
+
+  def start_page_body
+    start_node.body
+  end
+
+  def start_page_post_body
+    start_node.post_body
+  end
+
+  def start_page_button_text
+    start_node.start_button_text
   end
 
   module MethodMissingHelper

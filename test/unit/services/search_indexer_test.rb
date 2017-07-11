@@ -7,12 +7,12 @@ class SearchIndexerTest < ActiveSupport::TestCase
       title: 'Student finance forms',
       description: 'Download Student Finance',
       indexable_content: 'Download student finance content',
-      content_id: '67764435-e8ed-4700-a657-2e0432cb1f5b'
+      start_page_content_id: '67764435-e8ed-4700-a657-2e0432cb1f5b'
     )
     Services.rummager.expects(:add_document).with(
       'edition',
       "/#{flow_presenter.slug}",
-      content_id: flow_presenter.content_id,
+      content_id: flow_presenter.start_page_content_id,
       rendering_app:  "smartanswers",
       publishing_app: "smartanswers",
       format: "smart-answer",
