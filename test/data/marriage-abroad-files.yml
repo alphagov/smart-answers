@@ -1,5 +1,5 @@
 ---
-lib/data/marriage_abroad_data.yml: c4bd8b9bd876ba23b71cc736c9c565a0
+lib/data/marriage_abroad_data.yml: 192a91b846b3788eaec020664c5261f7
 lib/data/marriage_abroad_services.yml: 40598840da892562da37f79c36b3208e
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/smart_answer/calculators/country_name_formatter.rb: 583df7103672f581bf5510732c1b2be1
@@ -606,7 +606,6 @@ lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in
 : 39d2260270ba6e7a43d2b37e3730c7e6
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_germany_when_residing_in_the_uk.govspeak.erb: beb068dcaf04373367b79a95c88a9b17
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_hong_kong.govspeak.erb: 9c1686c0a3ba24dff0297e4e04f2fae6
-lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_indonesia.govspeak.erb: acf64526cc21e306b9ae85d367c760d1
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_kosovo_when_residing_in_kosovo.govspeak.erb: c51c60840ccef99ff752adaa9c4638bb
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_kosovo_when_residing_in_uk.govspeak.erb: 06c8957b23799a4cdee3a5e7961f6da0
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_kuwait_when_residing_in_kuwait.govspeak.erb: 675d3652a7a3a756b2f4579bdb576b37
@@ -668,7 +667,7 @@ lib/smart_answer_flows/marriage-abroad/questions/legal_residency.govspeak.erb: 7
 lib/smart_answer_flows/marriage-abroad/questions/marriage_or_pacs.govspeak.erb: a51aecfac697188f90ca9efefcb2e0ea
 lib/smart_answer_flows/marriage-abroad/questions/partner_opposite_or_same_sex.govspeak.erb: 40d0c99a5be50f0625c6562f06fe4afd
 lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationality.govspeak.erb: 80e04f36c75c232bede1a244d621471e
-lib/smart_answer_flows/marriage-abroad.rb: 61d2364e2f3a359d17a2b5102173c83d
+lib/smart_answer_flows/marriage-abroad.rb: 395ea1aad2a43226bc236dfdcdb91c96
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1dc349abcd6b21e1bf8c397d96fd02b8
 test/data/marriage-abroad-questions-and-responses.yml: 0cf7490bec14366a6e296763e3c30a0f
-test/data/marriage-abroad-responses-and-expected-results.yml: 432cb43f995a6336ff81250660147327
+test/data/marriage-abroad-responses-and-expected-results.yml: f5e2d2c253421f9c8ac14e4eba1e3d7e

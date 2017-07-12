@@ -168,8 +168,6 @@ module SmartAnswer
               outcome :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_uk
             elsif calculator.ceremony_country == "kosovo" && calculator.resident_of_ceremony_country?
               outcome :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_kosovo
-            elsif calculator.ceremony_country == "indonesia"
-              outcome :outcome_opposite_sex_marriage_in_indonesia
             elsif calculator.ceremony_country == "laos" && calculator.partner_is_not_national_of_ceremony_country?
               outcome :outcome_opposite_sex_marriage_in_laos_without_lao_national
             elsif calculator.ceremony_country == "laos"
@@ -303,7 +301,6 @@ module SmartAnswer
       outcome :outcome_opposite_sex_marriage_in_germany_when_residing_in_the_uk
       outcome :outcome_opposite_sex_marriage_in_georgia
       outcome :outcome_opposite_sex_marriage_in_hong_kong
-      outcome :outcome_opposite_sex_marriage_in_indonesia
       outcome :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_kosovo
       outcome :outcome_opposite_sex_marriage_in_kosovo_when_residing_in_uk
       outcome :outcome_opposite_sex_marriage_in_kuwait_when_residing_in_third_country

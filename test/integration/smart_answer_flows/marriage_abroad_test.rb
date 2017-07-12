@@ -2040,23 +2040,135 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "Indonesia, opposite sex outcome" do
+  context "Marrying in Indonesia" do
     setup do
       add_response 'indonesia'
     end
 
-    should "bring you to the custom Indonesia os outcome for uk residents" do
+    should "bring you to the outcome marriage abroad in country" do
       add_response 'uk'
       add_response 'partner_british'
       add_response 'opposite_sex'
-      assert_current_node :outcome_opposite_sex_marriage_in_indonesia
+      assert_current_node :outcome_marriage_abroad_in_country
     end
 
-    should "bring you to the custom Indonesia os outcome for third country residents" do
+    should "bring you to the outcome marriage abroad in country 2" do
+      add_response 'uk'
+      add_response 'partner_british'
+      add_response 'same_sex'
+      assert_current_node :outcome_marriage_abroad_in_country
+    end
+
+    should "bring you to the outcome marriage abroad in country 3" do
+      add_response 'uk'
+      add_response 'partner_local'
+      add_response 'opposite_sex'
+      assert_current_node :outcome_marriage_abroad_in_country
+    end
+
+    should "bring you to the outcome marriage abroad in country 4" do
+      add_response 'uk'
+      add_response 'partner_local'
+      add_response 'same_sex'
+      assert_current_node :outcome_marriage_abroad_in_country
+    end
+
+    should "bring you to the outcome marriage abroad in country 5" do
+      add_response 'uk'
+      add_response 'partner_other'
+      add_response 'opposite_sex'
+      assert_current_node :outcome_marriage_abroad_in_country
+    end
+
+    should "bring you to the outcome marriage abroad in country 6" do
+      add_response 'uk'
+      add_response 'partner_other'
+      add_response 'same_sex'
+      assert_current_node :outcome_marriage_abroad_in_country
+    end
+
+    should "bring you to the outcome marriage abroad in country 7" do
+      add_response 'ceremony_country'
+      add_response 'partner_british'
+      add_response 'opposite_sex'
+      assert_current_node :outcome_marriage_abroad_in_country
+    end
+
+    should "bring you to the outcome marriage abroad in country 8" do
+      add_response 'ceremony_country'
+      add_response 'partner_british'
+      add_response 'same_sex'
+      assert_current_node :outcome_marriage_abroad_in_country
+    end
+
+    should "bring you to the outcome marriage abroad in country 9" do
+      add_response 'ceremony_country'
+      add_response 'partner_local'
+      add_response 'opposite_sex'
+      assert_current_node :outcome_marriage_abroad_in_country
+    end
+
+    should "bring you to the outcome marriage abroad in country 10" do
+      add_response 'ceremony_country'
+      add_response 'partner_local'
+      add_response 'same_sex'
+      assert_current_node :outcome_marriage_abroad_in_country
+    end
+
+    should "bring you to the outcome marriage abroad in country 11" do
+      add_response 'ceremony_country'
+      add_response 'partner_other'
+      add_response 'opposite_sex'
+      assert_current_node :outcome_marriage_abroad_in_country
+    end
+
+    should "bring you to the outcome marriage abroad in country 12" do
+      add_response 'ceremony_country'
+      add_response 'partner_other'
+      add_response 'same_sex'
+      assert_current_node :outcome_marriage_abroad_in_country
+    end
+
+    should "bring you to the outcome marriage abroad in country 13" do
       add_response 'third_country'
       add_response 'partner_british'
       add_response 'opposite_sex'
-      assert_current_node :outcome_opposite_sex_marriage_in_indonesia
+      assert_current_node :outcome_marriage_abroad_in_country
+    end
+
+    should "bring you to the outcome marriage abroad in country 14" do
+      add_response 'third_country'
+      add_response 'partner_british'
+      add_response 'same_sex'
+      assert_current_node :outcome_marriage_abroad_in_country
+    end
+
+    should "bring you to the outcome marriage abroad in country 15" do
+      add_response 'third_country'
+      add_response 'partner_local'
+      add_response 'opposite_sex'
+      assert_current_node :outcome_marriage_abroad_in_country
+    end
+
+    should "bring you to the outcome marriage abroad in country 16" do
+      add_response 'third_country'
+      add_response 'partner_local'
+      add_response 'same_sex'
+      assert_current_node :outcome_marriage_abroad_in_country
+    end
+
+    should "bring you to the outcome marriage abroad in country 17" do
+      add_response 'third_country'
+      add_response 'partner_other'
+      add_response 'opposite_sex'
+      assert_current_node :outcome_marriage_abroad_in_country
+    end
+
+    should "bring you to the outcome marriage abroad in country 18" do
+      add_response 'third_country'
+      add_response 'partner_other'
+      add_response 'same_sex'
+      assert_current_node :outcome_marriage_abroad_in_country
     end
   end
 
