@@ -21,7 +21,13 @@ module SmartAnswer
 
         next_node do
           if calculator.died_in_uk?
-            question :did_the_person_die_at_home_hospital?
+            if calculator.location_of_death == 'scotland'
+              outcome :scotland_result
+            elsif calculator.location_of_death == 'northern_ireland'
+              outcome :northern_ireland_result
+            else
+              question :did_the_person_die_at_home_hospital?
+            end
           else
             question :which_country?
           end
@@ -114,6 +120,8 @@ module SmartAnswer
       outcome :uk_result
       outcome :oru_result
       outcome :north_korea_result
+      outcome :scotland_result
+      outcome :northern_ireland_result
     end
   end
 end
