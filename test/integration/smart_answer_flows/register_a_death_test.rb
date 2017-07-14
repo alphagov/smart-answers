@@ -62,41 +62,8 @@ class RegisterADeathTest < ActiveSupport::TestCase
     setup do
       add_response 'scotland'
     end
-    should "ask whether the death occurred at home, in hospital or elsewhere" do
-      assert_current_node :did_the_person_die_at_home_hospital?
-    end
-    context "answer home or in hospital" do
-      setup do
-        add_response 'at_home_hospital'
-      end
-      should "ask if the death was expected" do
-        assert_current_node :was_death_expected?
-      end
-      should "be outcome5 if death was expected" do
-        add_response :yes
-        assert_current_node :uk_result
-      end
-      should "be outcome7 if death not expected" do
-        add_response :no
-        assert_current_node :uk_result
-      end
-    end
-    context "answer elsewhere" do
-      setup do
-        add_response 'elsewhere'
-      end
-      should "ask if the death was expected" do
-        assert_current_node :was_death_expected?
-      end
-      should "be outcome6 if death was expected" do
-        add_response :yes
-        assert_current_node :uk_result
-      end
-
-      should "be outcome8 if death not expected" do
-        add_response :no
-        assert_current_node :uk_result
-      end
+    should "lead to the Scotland result" do
+      assert_current_node :scotland_result
     end
   end # Scotland
 
@@ -104,41 +71,8 @@ class RegisterADeathTest < ActiveSupport::TestCase
     setup do
       add_response 'northern_ireland'
     end
-    should "ask whether the death occurred at home, in hospital or elsewhere" do
-      assert_current_node :did_the_person_die_at_home_hospital?
-    end
-    context "answer home or in hospital" do
-      setup do
-        add_response 'at_home_hospital'
-      end
-      should "ask if the death was expected" do
-        assert_current_node :was_death_expected?
-      end
-      should "be outcome5 if death was expected" do
-        add_response :yes
-        assert_current_node :uk_result
-      end
-      should "be outcome7 if death not expected" do
-        add_response :no
-        assert_current_node :uk_result
-      end
-    end
-    context "answer elsewhere" do
-      setup do
-        add_response 'elsewhere'
-      end
-      should "ask if the death was expected" do
-        assert_current_node :was_death_expected?
-      end
-      should "be outcome6 if death was expected" do
-        add_response :yes
-        assert_current_node :uk_result
-      end
-
-      should "be outcome8 if death not expected" do
-        add_response :no
-        assert_current_node :uk_result
-      end
+    should "lead to the Northern Ireland result" do
+      assert_current_node :northern_ireland_result
     end
   end # Northern Ireland
 
