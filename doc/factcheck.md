@@ -4,6 +4,10 @@ When making bigger changes that need to be tested or fact-checked before they ar
 
 ## Deploying to Heroku
 
+### Automatic deployment
+We have [Heroku Review](https://devcenter.heroku.com/articles/github-integration-review-apps) apps set up. This is running under [@chao-xian](https://github.com/chao-xian)'s Heroku account. This will automatically deploy a Heroku instance of Smart Answers on creation of a PR. The PR number will also be automatically suffixed to the Heroku app name. The review app will also be automatically linked to from the PR. It will also update on each new commit to the PR.
+
+### Manual process
 Start by creating a GitHub pull request with the changes you want to deploy. Add the ["Waiting on factcheck" label](https://github.com/alphagov/smart-answers/labels/Waiting%20on%20factcheck) to the pull request to let other developers know that it's not ready to be reviewed.
 
 Make a note of the pull request number and use the `startup_heroku.sh` script to deploy your changes to Heroku:
