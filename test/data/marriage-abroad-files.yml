@@ -565,7 +565,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/tunisia/uk/partner_loc
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/tunisia/uk/partner_local/_same_sex.govspeak.erb: 467f8b2b113a89f251359fde1a65efa5
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/tunisia/uk/partner_other/_opposite_sex.govspeak.erb: f947faa5385ccce5322f6a56b4f71e53
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/tunisia/uk/partner_other/_same_sex.govspeak.erb: 467f8b2b113a89f251359fde1a65efa5
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/turkey/_opposite_sex.govspeak.erb: a9f9918c8d7a100785e17e03df4d2cb5
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/turkey/_opposite_sex.govspeak.erb: f44efa7ada0c8fc47ceaa4458ea2b31a
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/turkey/_same_sex.govspeak.erb: 4ac2c9180a2c2d3e783a266d61fdfd70
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/turkey/_title.govspeak.erb: 323cdb9e9165cdc8804dff528da5432f
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/usa/_opposite_sex.govspeak.erb: f4e5c834c8c564ab5a15bb67ba14af7b
