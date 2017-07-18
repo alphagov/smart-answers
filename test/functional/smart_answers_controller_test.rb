@@ -67,6 +67,48 @@ class SmartAnswersControllerTest < ActionController::TestCase
       assert_select "h1", /Smart answers controller sample/
     end
 
+    context "when a smart answer exist on the content store" do
+      setup do
+        @content_item = {
+            base_path: "/smart-answers-controller-sample",
+            links: {
+              taxons: [
+                {
+                  title: "A Taxon",
+                  base_path: "/a-taxon",
+                }
+              ],
+            },
+          }.with_indifferent_access
+        ContentItemRetriever.stubs(:without_links_organisations)
+          .returns(@content_item)
+        get :show, params: { id: "smart-answers-controller-sample" }
+      end
+
+      should "assign response from content store" do
+        assert_equal @content_item, assigns(:content_item)
+      end
+
+      should "assign navigation_helpers" do
+        assert_kind_of GovukNavigationHelpers::NavigationHelper, assigns(:navigation_helpers)
+      end
+    end
+
+    context "when a smart answer does not exist on the content store" do
+      setup do
+        ContentItemRetriever.stubs(:without_links_organisations).returns({})
+        get :show, params: { id: "smart-answers-controller-sample" }
+      end
+
+      should "assign empty hash to content_item" do
+        assert_equal Hash.new, assigns(:content_item)
+      end
+
+      should "assign nil to navigation_helpers" do
+        assert_nil assigns(:navigation_helpers)
+      end
+    end
+
     should "not have noindex tag on landing page" do
       get :show, params: { id: 'smart-answers-controller-sample' }
       assert_select "meta[name=robots][content=noindex]", count: 0

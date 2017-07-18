@@ -116,24 +116,12 @@ private
   end
 
   def setup_navigation_helpers_and_content_item
-    @content_item = Services.content_store.content_item("/" + params[:id]).to_hash
-
-    # The GOV.UK analytics component[1] automatically sets `govuk:analytics:organisations`
-    # if there's a `organisations` key in the links. This will be sent to Google
-    # Analytics At the moment we want to avoid setting this because it will flood
-    # the analytics reports with (unexpected) data. We are currently working on
-    # a solution to this conundrum[2].
-    #
-    # [1] http://govuk-component-guide.herokuapp.com/components/analytics_meta_tags
-    # [2] https://trello.com/c/DkR63grd
-    if @content_item["links"]
-      @content_item["links"].delete("organisations")
-    end
-
-    @navigation_helpers = GovukNavigationHelpers::NavigationHelper.new(@content_item)
-  rescue GdsApi::HTTPNotFound, GdsApi::HTTPGone
+    @content_item = ContentItemRetriever.without_links_organisations(params[:id])
     @navigation_helpers = nil
-    @content_item = nil
+
+    if @content_item.present?
+      @navigation_helpers = GovukNavigationHelpers::NavigationHelper.new(@content_item)
+    end
   end
 
   def breadcrumbs
