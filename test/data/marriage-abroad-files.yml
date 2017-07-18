@@ -156,7 +156,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/uk/partner_local
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/uk/partner_local/_same_sex.govspeak.erb: d361b659b8865c033577a66022e61f6f
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/uk/partner_other/_opposite_sex.govspeak.erb: 402c5ef17562e5d85bd6fd4f9bfb0980
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/chile/uk/partner_other/_same_sex.govspeak.erb: d361b659b8865c033577a66022e61f6f
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/china/_opposite_sex.govspeak.erb: b7fcf64ad0f6c2222af07fe74c5ad27c
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/china/_opposite_sex.govspeak.erb: 8e1939a0048123b3fa53732f85f365c3
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/china/_same_sex.govspeak.erb: 4dd6d096a63386e1cd3db8168262c6e8
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/china/_title.govspeak.erb: 475112c09ab99bdd0d610ab1e79cb0fd
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/colombia/_title.govspeak.erb: 1174aaf165516eba4c46bce4d4f26748
