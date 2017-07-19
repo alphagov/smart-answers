@@ -6,7 +6,7 @@ If a flow needs to be removed urgently then it be can archived quickly by changi
 
 Once a flow has been removed the artefact will no longer register itself when the Smart Answers application is released.
 
-You will then need to add a redirect in [router-data](https://github.gds/gds/router-data) for the artefact slug. This should be a `prefix` route, so all parts of the Smart Answer URL are matched and preserved. ([This is a good example](https://github.gds/gds/router-data/blob/master/data/slug-changes.csv#L623))
+You will then need to add a redirect in [router-data](https://github.gds/gds/router-data) for the artefact slug. This should be a `prefix` route, so all parts of the Smart Answer URL are matched and preserved. ([This is a good example](https://github.digital.cabinet-office.gov.uk/gds/router-data/pull/336))
 
 ## Flow file naming convention
 
