@@ -6,6 +6,8 @@
 <% content_for :body do %>
   Your State Pension age is <%= calculator.state_pension_age %>.
 
+  ^[The State Pension age is under review](/government/news/proposed-new-timetable-for-state-pension-age-increases) and may change in the future.^
+
   <% if calculator.can_apply? %>
     You can [claim your State Pension](<%= calculator.how_to_claim_url %>) now. Your payments will start after you reach State Pension age.
 
@@ -20,8 +22,6 @@
   <% else %>
     You’ve already reached the Pension Credit qualifying age. Check if you’re eligible to claim [Pension Credit](/pension-credit/eligibility).
   <% end %>
-
-  The State Pension age is regularly reviewed and may change in the future. This may also affect Pension Credit.
 
   <% if calculator.before_state_pension_date?(days: 30) && calculator.over_16_years_old? %>
     ^You can get a [forecast or statement of how much State Pension you may get](/state-pension-statement).^
