@@ -90,13 +90,13 @@ lib/smart_answer_flows/pay-leave-for-parents/questions/employment_status_of_moth
 lib/smart_answer_flows/pay-leave-for-parents/questions/employment_status_of_partner.govspeak.erb: a34db0d45e962f3aefa61fab29529a68
 lib/smart_answer_flows/pay-leave-for-parents/questions/mother_earned_at_least_390.govspeak.erb: f63e16170b110c0490f306d71aaa971a
 lib/smart_answer_flows/pay-leave-for-parents/questions/mother_earned_more_than_lower_earnings_limit.govspeak.erb: acfe91404042ee805365b28dc2463bf7
-lib/smart_answer_flows/pay-leave-for-parents/questions/mother_salary.govspeak.erb: 04ee8455757a9dea2b23d637d0cd05e5
+lib/smart_answer_flows/pay-leave-for-parents/questions/mother_salary.govspeak.erb: 16995c3f239bddfaa160a679cbc1f637
 lib/smart_answer_flows/pay-leave-for-parents/questions/mother_started_working_before_continuity_start_date.govspeak.erb: d0819dcadd3ba2315f638c92cde5c7f0
 lib/smart_answer_flows/pay-leave-for-parents/questions/mother_still_working_on_continuity_end_date.govspeak.erb: 4bbbf62cd73050e3ba2d134ee0b2e998
 lib/smart_answer_flows/pay-leave-for-parents/questions/mother_worked_at_least_26_weeks.govspeak.erb: 84b49fa06e5f41d02e0d207f7dbaaafb
 lib/smart_answer_flows/pay-leave-for-parents/questions/partner_earned_at_least_390.govspeak.erb: c06d5b8e54fc10e30eb1265eb37e5c7f
 lib/smart_answer_flows/pay-leave-for-parents/questions/partner_earned_more_than_lower_earnings_limit.govspeak.erb: 532e0468f189314aeb728f3332d7ffdf
-lib/smart_answer_flows/pay-leave-for-parents/questions/partner_salary.govspeak.erb: d74166b4402ab7eefc0fa2b0f53cd34c
+lib/smart_answer_flows/pay-leave-for-parents/questions/partner_salary.govspeak.erb: 05d70ddafc72460f1e398d0114ea1ab6
 lib/smart_answer_flows/pay-leave-for-parents/questions/partner_started_working_before_continuity_start_date.govspeak.erb: c34c0237f36902df658166c02a553810
 lib/smart_answer_flows/pay-leave-for-parents/questions/partner_still_working_on_continuity_end_date.govspeak.erb: 148ed4d11126f45b1a27b089b9666c54
 lib/smart_answer_flows/pay-leave-for-parents/questions/partner_worked_at_least_26_weeks.govspeak.erb: d9f1d868bbc5d89545a6f56396a9dd83
