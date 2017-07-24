@@ -1,5 +1,5 @@
 ---
-lib/data/marriage_abroad_data.yml: 877a622427029346d49892fad8e22cac
+lib/data/marriage_abroad_data.yml: b0b69496af67892136ff8e6dc9fd9b5c
 lib/data/marriage_abroad_services.yml: 40598840da892562da37f79c36b3208e
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/smart_answer/calculators/country_name_formatter.rb: 583df7103672f581bf5510732c1b2be1
@@ -28,7 +28,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/_contact_laadoul.govspeak.erb: 1
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_local_authorities.govspeak.erb: f8d276a3b65ce8160406b5c341c7d783
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_local_authorities_in_country_cp.govspeak.erb: 73747f26d97a7fe1f4b24ceffc54afe4
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_local_authorities_in_country_marriage.govspeak.erb: 4f1ee7fa2b363e928fb8d8902b15b681
-lib/smart_answer_flows/marriage-abroad/outcomes/_contact_method.govspeak.erb: 913c56bd959b74b042355db3b6bbe5b0
+lib/smart_answer_flows/marriage-abroad/outcomes/_contact_method.govspeak.erb: 284bdefb8814358078b6f2733b802b9f
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_nearest_embassy_of_country.govspeak.erb: e12d9c675e88c6efb49d9fcf54cb4570
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_to_make_appointment.govspeak.erb: a7e4a184e974b3989a697578277b3b7a
 lib/smart_answer_flows/marriage-abroad/outcomes/_convert_cc_to_ss_marriage.govspeak.erb: 38e1be8bb7bdd80ef0c4c6c3af8f7f04
@@ -727,4 +727,4 @@ lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationali
 lib/smart_answer_flows/marriage-abroad.rb: 395ea1aad2a43226bc236dfdcdb91c96
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1dc349abcd6b21e1bf8c397d96fd02b8
 test/data/marriage-abroad-questions-and-responses.yml: 32974764cdbf7f4287c082ec60abaf61
-test/data/marriage-abroad-responses-and-expected-results.yml: 1302fb0e095094ca07fa9d11e55accf5
+test/data/marriage-abroad-responses-and-expected-results.yml: f42cdc8abe03760df5be7c8efd2b472a
