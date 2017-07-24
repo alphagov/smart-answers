@@ -1,5 +1,5 @@
 ---
-lib/data/marriage_abroad_data.yml: b875946e84d87904fbe2ad81e2df5fc8
+lib/data/marriage_abroad_data.yml: fde29c9fdc8bc3643cbf11bd28720375
 lib/data/marriage_abroad_services.yml: 40598840da892562da37f79c36b3208e
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/smart_answer/calculators/country_name_formatter.rb: 583df7103672f581bf5510732c1b2be1
@@ -80,6 +80,25 @@ lib/smart_answer_flows/marriage-abroad/outcomes/_you_dont_need_to_stay_in_countr
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_have_been_divorced_or_widowed.govspeak.erb: e719af472a3ec2c26a9e4ce7202c11ff
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_will_be_asked_for_cni.govspeak.erb: cd1226b515c6a1723da99be2cb207c51
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_will_have_to_wait_to_get_married.govspeak.erb: e32774b08379258450d2d2198c0dbc49
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/_title.govspeak.erb: 819dd99cc9318867a05c1b651a80329f
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/ceremony_country/partner_british/_opposite_sex.govspeak.erb: 6f2b86578c1d1b6d6af8e0333279a021
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/ceremony_country/partner_british/_same_sex.govspeak.erb: 6235bfb6174b65e37fb13f44f28e5b60
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/ceremony_country/partner_local/_opposite_sex.govspeak.erb: 0a5860218ed34bf90d5f53a36fa52efe
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/ceremony_country/partner_local/_same_sex.govspeak.erb: 6235bfb6174b65e37fb13f44f28e5b60
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/ceremony_country/partner_other/_opposite_sex.govspeak.erb: 0a5860218ed34bf90d5f53a36fa52efe
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/ceremony_country/partner_other/_same_sex.govspeak.erb: 6235bfb6174b65e37fb13f44f28e5b60
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/third_country/partner_british/_opposite_sex.govspeak.erb: 3d44d70edc696df3f112cf945a8011e3
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/third_country/partner_british/_same_sex.govspeak.erb: 6235bfb6174b65e37fb13f44f28e5b60
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/third_country/partner_local/_opposite_sex.govspeak.erb: e37af068d436072cb639bfe6d80e58a5
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/third_country/partner_local/_same_sex.govspeak.erb: 6235bfb6174b65e37fb13f44f28e5b60
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/third_country/partner_other/_opposite_sex.govspeak.erb: e37af068d436072cb639bfe6d80e58a5
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/third_country/partner_other/_same_sex.govspeak.erb: 6235bfb6174b65e37fb13f44f28e5b60
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/uk/partner_british/_opposite_sex.govspeak.erb: 3de45629860898fe3608c870eec2d2ef
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/uk/partner_british/_same_sex.govspeak.erb: abc3c9efc7df0c59910bce130719ff76
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/uk/partner_local/_opposite_sex.govspeak.erb: 175021d3e4a754d1393f02dae4e4f324
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/uk/partner_local/_same_sex.govspeak.erb: 6235bfb6174b65e37fb13f44f28e5b60
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/uk/partner_other/_opposite_sex.govspeak.erb: 175021d3e4a754d1393f02dae4e4f324
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/uk/partner_other/_same_sex.govspeak.erb: 6235bfb6174b65e37fb13f44f28e5b60
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/azerbaijan/_title.govspeak.erb: 78d1dc92913316a6804b14e892246c76
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/azerbaijan/ceremony_country/partner_british/_opposite_sex.erb: 914ca41ec46f27c3ba292a3470633d24
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/azerbaijan/ceremony_country/partner_british/_same_sex.erb: 36d76c82441dae638cb75d47a03e6778
