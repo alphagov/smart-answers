@@ -3,11 +3,11 @@ class ContentItemPublisher
     flow_presenters.each do |smart_answer|
       start_page_content_item = StartPageContentItem.new(smart_answer)
       Services.publishing_api.put_content(start_page_content_item.content_id, start_page_content_item.payload)
-      Services.publishing_api.publish(start_page_content_item.content_id, 'minor')
+      Services.publishing_api.publish(start_page_content_item.content_id)
 
       flow_content_item = FlowContentItem.new(smart_answer)
       Services.publishing_api.put_content(flow_content_item.content_id, flow_content_item.payload)
-      Services.publishing_api.publish(flow_content_item.content_id, 'minor')
+      Services.publishing_api.publish(flow_content_item.content_id)
     end
   end
 
@@ -125,6 +125,7 @@ private
     payload = {
       base_path: base_path,
       title: title,
+      update_type: "major",
       document_type: :transaction,
       publishing_app: publishing_app,
       rendering_app: :frontend,
@@ -154,6 +155,6 @@ private
     content_id = SecureRandom.uuid
     response = Services.publishing_api.put_content(content_id, payload)
     raise "This content item has not been created" unless response.code == 200
-    Services.publishing_api.publish(content_id, :major)
+    Services.publishing_api.publish(content_id)
   end
 end
