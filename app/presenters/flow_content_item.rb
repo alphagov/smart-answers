@@ -9,6 +9,7 @@ class FlowContentItem
     {
       base_path: base_path,
       title: flow_presenter.title,
+      update_type: 'minor',
       details: {
           external_related_links: external_related_links
       },

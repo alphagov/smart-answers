@@ -10,6 +10,7 @@ class StartPageContentItem
       base_path: base_path,
       title: flow_presenter.title,
       description: flow_presenter.description,
+      update_type: 'minor',
       details: {
           external_related_links: external_related_links,
           introductory_paragraph: [
