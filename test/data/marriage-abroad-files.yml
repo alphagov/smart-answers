@@ -1,10 +1,10 @@
 ---
-lib/data/marriage_abroad_data.yml: b0b69496af67892136ff8e6dc9fd9b5c
+lib/data/marriage_abroad_data.yml: d44a8cd13b4f0528f0906ff2f21cb98f
 lib/data/marriage_abroad_services.yml: 40598840da892562da37f79c36b3208e
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/smart_answer/calculators/country_name_formatter.rb: 583df7103672f581bf5510732c1b2be1
 lib/smart_answer/calculators/marriage_abroad_calculator.rb: 0c0be55c3621e81a75af0f55827ad31c
-lib/smart_answer/calculators/marriage_abroad_data_query.rb: e797b34e7ddc9da1cba1579a97a0f988
+lib/smart_answer/calculators/marriage_abroad_data_query.rb: ff83e2e9f0f8c51c9e59abd8973b29f4
 lib/smart_answer/calculators/registrations_data_query.rb: 80250f09bc28d55a86148de2e7a76429
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
 lib/smart_answer_flows/marriage-abroad/outcomes/_affirmation_os_translation_in_local_language_text.govspeak.erb: af09e09b909c563d4a587ef1b9285cca
@@ -28,7 +28,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/_contact_laadoul.govspeak.erb: 1
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_local_authorities.govspeak.erb: f8d276a3b65ce8160406b5c341c7d783
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_local_authorities_in_country_cp.govspeak.erb: 73747f26d97a7fe1f4b24ceffc54afe4
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_local_authorities_in_country_marriage.govspeak.erb: 4f1ee7fa2b363e928fb8d8902b15b681
-lib/smart_answer_flows/marriage-abroad/outcomes/_contact_method.govspeak.erb: 284bdefb8814358078b6f2733b802b9f
+lib/smart_answer_flows/marriage-abroad/outcomes/_contact_method.govspeak.erb: df2935e22599859f823841f5a13947c9
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_nearest_embassy_of_country.govspeak.erb: e12d9c675e88c6efb49d9fcf54cb4570
 lib/smart_answer_flows/marriage-abroad/outcomes/_contact_to_make_appointment.govspeak.erb: a7e4a184e974b3989a697578277b3b7a
 lib/smart_answer_flows/marriage-abroad/outcomes/_convert_cc_to_ss_marriage.govspeak.erb: 38e1be8bb7bdd80ef0c4c6c3af8f7f04
@@ -80,6 +80,25 @@ lib/smart_answer_flows/marriage-abroad/outcomes/_you_dont_need_to_stay_in_countr
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_have_been_divorced_or_widowed.govspeak.erb: e719af472a3ec2c26a9e4ce7202c11ff
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_will_be_asked_for_cni.govspeak.erb: cd1226b515c6a1723da99be2cb207c51
 lib/smart_answer_flows/marriage-abroad/outcomes/_you_will_have_to_wait_to_get_married.govspeak.erb: e32774b08379258450d2d2198c0dbc49
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/_title.govspeak.erb: e8edb9db619edb969ef3cdb18d40c167
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/ceremony_country/partner_british/_opposite_sex.erb: f2e04f760db58898593d84c1a193e075
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/ceremony_country/partner_british/_same_sex.erb: 012aa5bd3ce9dce24c79aed0505c605f
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/ceremony_country/partner_local/_opposite_sex.erb: e82c9c66a478379bb741ce73a0db633a
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/ceremony_country/partner_local/_same_sex.erb: 012aa5bd3ce9dce24c79aed0505c605f
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/ceremony_country/partner_other/_opposite_sex.erb: e82c9c66a478379bb741ce73a0db633a
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/ceremony_country/partner_other/_same_sex.erb: 012aa5bd3ce9dce24c79aed0505c605f
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/third_country/partner_british/_opposite_sex.erb: 7b78031f821263727066f17bb9d2aa4d
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/third_country/partner_british/_same_sex.erb: 012aa5bd3ce9dce24c79aed0505c605f
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/third_country/partner_local/_opposite_sex.erb: 807e1ade38d964ac944211c5cd680107
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/third_country/partner_local/_same_sex.erb: 012aa5bd3ce9dce24c79aed0505c605f
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/third_country/partner_other/_opposite_sex.erb: 3b02e1e2f21e503bf4bc2c9e7fe361db
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/third_country/partner_other/_same_sex.erb: 012aa5bd3ce9dce24c79aed0505c605f
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/uk/partner_british/_opposite_sex.erb: 380dda27cd5a818b454a79ccdb0485d9
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/uk/partner_british/_same_sex.erb: 012aa5bd3ce9dce24c79aed0505c605f
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/uk/partner_local/_opposite_sex.erb: 3a727df0baee3022cc987bed0e7f160a
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/uk/partner_local/_same_sex.erb: 012aa5bd3ce9dce24c79aed0505c605f
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/uk/partner_other/_opposite_sex.erb: 3a727df0baee3022cc987bed0e7f160a
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/algeria/uk/partner_other/_same_sex.erb: 012aa5bd3ce9dce24c79aed0505c605f
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/azerbaijan/_title.govspeak.erb: 78d1dc92913316a6804b14e892246c76
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/azerbaijan/ceremony_country/partner_british/_opposite_sex.erb: 914ca41ec46f27c3ba292a3470633d24
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/azerbaijan/ceremony_country/partner_british/_same_sex.erb: 36d76c82441dae638cb75d47a03e6778
@@ -726,5 +745,5 @@ lib/smart_answer_flows/marriage-abroad/questions/partner_opposite_or_same_sex.go
 lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationality.govspeak.erb: 80e04f36c75c232bede1a244d621471e
 lib/smart_answer_flows/marriage-abroad.rb: 395ea1aad2a43226bc236dfdcdb91c96
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1dc349abcd6b21e1bf8c397d96fd02b8
-test/data/marriage-abroad-questions-and-responses.yml: 32974764cdbf7f4287c082ec60abaf61
-test/data/marriage-abroad-responses-and-expected-results.yml: f42cdc8abe03760df5be7c8efd2b472a
+test/data/marriage-abroad-questions-and-responses.yml: 0f079512ee2f1fd27145bf9db84ef5eb
+test/data/marriage-abroad-responses-and-expected-results.yml: bf63e03b9e5a52a88a5c51f2d008c481
