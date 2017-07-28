@@ -405,7 +405,7 @@ class RegisterADeathTest < ActiveSupport::TestCase
       end
     end
 
-    context "Democratic Republic of Congo" do
+    context "Democratic Republic of the Congo" do
       should "lead to an ORU outcome with a custom translator link" do
         add_response "democratic-republic-of-the-congo"
         add_response "in_the_uk"
