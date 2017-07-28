@@ -16,6 +16,61 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
     assert_current_node :what_type_of_leave?
   end
 
+  context "paternity adoption to employee payroll" do
+    setup do
+      add_response :adoption
+      add_response :paternity
+    end
+
+    should "qualifying_week_start be equal to the match date" do
+      add_response "2017-03-26" #match_date
+      add_response "2017-04-19"
+      add_response :yes
+      add_response :yes
+      add_response :yes
+
+      assert_current_node :employee_on_payroll_paternity?
+      assert_state_variable "qualifying_week_start", Date.parse("26 March 2017")
+    end
+
+    should "qualifying_week_start be equal to the Sunday before match date" do
+      add_response "2017-03-25" #match_date
+      add_response "2017-04-19"
+      add_response :yes
+      add_response :yes
+      add_response :yes
+
+      assert_current_node :employee_on_payroll_paternity?
+      assert_state_variable "qualifying_week_start", Date.parse("19 March 2017")
+    end
+  end
+
+  context "maternity adoption to employee adoption payroll" do
+    setup do
+      add_response :adoption
+      add_response :maternity
+    end
+    should "qualifying_week_start be equal to the match date" do
+      add_response "2017-03-26" #match_date
+      add_response "2017-04-19"
+      add_response :yes
+      add_response :yes
+
+      assert_current_node :adoption_is_the_employee_on_your_payroll?
+      assert_state_variable "qualifying_week_start", Date.parse("26 March 2017")
+    end
+
+    should "qualifying_week_start be equal to the Sunday before match date" do
+      add_response "2017-03-25" #match_date
+      add_response "2017-04-19"
+      add_response :yes
+      add_response :yes
+
+      assert_current_node :adoption_is_the_employee_on_your_payroll?
+      assert_state_variable "qualifying_week_start", Date.parse("19 March 2017")
+    end
+  end
+
   context "answer maternity" do
     setup do
       add_response :maternity

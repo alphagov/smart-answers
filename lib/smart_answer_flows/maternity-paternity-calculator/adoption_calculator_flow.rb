@@ -53,7 +53,7 @@ module SmartAnswer
           end
 
           calculate :qualifying_week_start do
-            calculator.qualifying_week.first
+            calculator.adoption_qualifying_start
           end
 
           next_node do
