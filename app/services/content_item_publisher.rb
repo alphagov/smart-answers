@@ -85,6 +85,7 @@ private
       document_type: :redirect,
       publishing_app: :smartanswers,
       schema_name: :redirect,
+      update_type: :major,
       redirects: [
         { path: path, type: :prefix, destination: destination, segments_mode: :ignore }
       ]
@@ -101,6 +102,7 @@ private
       schema_name: :answer,
       publishing_app: publishing_app,
       rendering_app: :frontend,
+      update_type: :major,
       locale: :en,
       details: {
         body: [
@@ -125,7 +127,7 @@ private
     payload = {
       base_path: base_path,
       title: title,
-      update_type: "major",
+      update_type: :major,
       document_type: :transaction,
       publishing_app: publishing_app,
       rendering_app: :frontend,
