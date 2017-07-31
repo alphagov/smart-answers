@@ -2323,7 +2323,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "Marriage in Democratic Republic of Congo, living elsewhere, partner British, opposite sex" do
+  context "Marriage in Democratic Republic of the Congo, living elsewhere, partner British, opposite sex" do
     setup do
       add_response 'democratic-republic-of-the-congo'
       add_response 'third_country'
