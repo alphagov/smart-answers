@@ -2,7 +2,12 @@
 
 At some point a request might come in for the removal of a SmartAnswer, most likely this request will include redirecting paths belonging to the identified smart answer to a new destination or retain the start page of the smart answer.
 
-NB: It is very important, that after every retirement of a smart answer it is important that the steps and current state of the smart answer are recorded in [retirement log](retirement-log.md)
+### NB:
+
+  - It is important to bear in mind that a smart answer comprises of
+  two main content items, the start page and the flow. These two need to be retired.
+
+  - It is very important, that after every retirement of a smart answer it is important that the steps and current state of the smart answer are recorded in [retirement log](retirement-log.md)
 
 In this document is prescribed the steps that need to be taken:
 
