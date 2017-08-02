@@ -18,7 +18,6 @@ countries_with_18_outcomes:
   - japan
   - jordan
   - latvia
-  - luxembourg
   - maldives
   - moldova
   - mozambique
@@ -36,6 +35,7 @@ countries_with_2_outcomes:
   - france
   - ireland
   - italy
+  - luxembourg
   - philippines
   - thailand
   - turkey

@@ -3497,104 +3497,23 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       end
     end
   end
-  context "ceremony in luxembourg," do
+
+  context "ceremony in Luxembourg," do
     setup do
       add_response "luxembourg"
     end
-    context "resident in uk," do
-      setup { add_response "uk" }
-      context "partner is british," do
-        setup { add_response "partner_british" }
-        context "opposite sex" do
-          setup { add_response "opposite_sex" }
-          should "go to generic country outcome" do
-            assert_current_node :outcome_marriage_abroad_in_country
-          end
-        end
-        context "same sex" do
-          setup { add_response "same_sex" }
-          should "go to generic country outcome" do
-            assert_current_node :outcome_marriage_abroad_in_country
-          end
-        end
-      end
-      context "partner is local," do
-        setup { add_response "partner_local" }
-        context "opposite sex" do
-          setup { add_response "opposite_sex" }
-          should "go to generic country outcome" do
-            assert_current_node :outcome_marriage_abroad_in_country
-          end
-        end
-        context "same sex" do
-          setup { add_response "same_sex" }
-          should "go to generic country outcome" do
-            assert_current_node :outcome_marriage_abroad_in_country
-          end
-        end
-      end
-      context "partner is other," do
-        setup { add_response "partner_other" }
-        context "opposite sex" do
-          setup { add_response "opposite_sex" }
-          should "go to generic country outcome" do
-            assert_current_node :outcome_marriage_abroad_in_country
-          end
-        end
-        context "same sex" do
-          setup { add_response "same_sex" }
-          should "go to generic country outcome" do
-            assert_current_node :outcome_marriage_abroad_in_country
-          end
-        end
+
+    context "opposite sex" do
+      setup { add_response "opposite_sex" }
+      should "go to generic country outcome" do
+        assert_current_node :outcome_marriage_abroad_in_country
       end
     end
-    context "resident in ceremony country" do
-      setup { add_response "ceremony_country" }
-      context "partner is british," do
-        setup { add_response "partner_british" }
-        context "opposite sex" do
-          setup { add_response "opposite_sex" }
-          should "go to generic country outcome" do
-            assert_current_node :outcome_marriage_abroad_in_country
-          end
-        end
-        context "same sex" do
-          setup { add_response "same_sex" }
-          should "go to generic country outcome" do
-            assert_current_node :outcome_marriage_abroad_in_country
-          end
-        end
-      end
-      context "partner is local," do
-        setup { add_response "partner_local" }
-        context "opposite sex" do
-          setup { add_response "opposite_sex" }
-          should "go to generic country outcome" do
-            assert_current_node :outcome_marriage_abroad_in_country
-          end
-        end
-        context "same sex" do
-          setup { add_response "same_sex" }
-          should "go to generic country outcome" do
-            assert_current_node :outcome_marriage_abroad_in_country
-          end
-        end
-      end
-      context "partner is other," do
-        setup { add_response "partner_other" }
-        context "opposite sex" do
-          setup { add_response "opposite_sex" }
-          should "go to generic country outcome" do
-            assert_current_node :outcome_marriage_abroad_in_country
-          end
-        end
-        context "same sex" do
-          setup { add_response "same_sex" }
-          should "go to generic country outcome" do
-            assert_current_node :outcome_marriage_abroad_in_country
-          end
-        end
+    
+    context "same sex" do
+      setup { add_response "same_sex" }
+      should "go to generic country outcome" do
+        assert_current_node :outcome_marriage_abroad_in_country
       end
     end
   end
