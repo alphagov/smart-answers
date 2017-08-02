@@ -19,3 +19,15 @@
   - Associated [pull request](https://github.com/alphagov/smart-answers/pull/3035)
   - Redirects from `/pip-checker` (and all descendants i.e `/pip-checker/\*`) to `/pip`
   - Artefact on publisher remain un-change and it's slug changed to `/pip-checker`.
+
+- Legalisation document Checker
+  - Date of retirement:  [01/08/2017](https://github.com/alphagov/smart-answers/releases/tag/release_3690)
+  - Associated [pull request](https://github.com/alphagov/smart-answers/pull/3163)
+  - Redirects from `/legalisation-document-checker` (and all descendants i.e `/legalisation-document-checker/\*`) to `/get-document-legalised`
+    - This is the first retirement post the [splitting of the start pages from the rest of the flow](https://github.com/alphagov/smart-answers/pull/3126). So the retiring rake task is different and should be use onward.
+    ```ruby
+      retire:unpublish_redirect_remove_from_search[86acf061-f878-4da1-b05b-80c7ef61305c,/legalisation-document-checker,/get-document-legalised]
+      retire:unpublish[3f1673a7-62b5-4ea0-883d-faa602e7f6a9]
+      retire:publish_redirect[/legalisation-document-checker/y,/get-document-legalised]
+    ```
+  - Artefact on publisher remain un-change and it's slug changed to `/legalisation-document-checker`.
