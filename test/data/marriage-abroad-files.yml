@@ -452,8 +452,8 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_loca
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_local/_same_sex.govspeak.erb: cc481d56f4ceed1fbe7f52b001ed86e6
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_other/_opposite_sex.govspeak.erb: 13a2434ff467168a471218b9279b95eb
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_other/_same_sex.govspeak.erb: f14a355018bfe4bafc0dd56ccf6d6abb
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/_opposite_sex.erb: 44dabd60b213702f714ef9b7606dacca
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/_same_sex.erb: 6f00189af788677dd4774aebd43bb123
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/_opposite_sex.erb: 137ac0f5f54b6d25157c8c7380f23f6e
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/_same_sex.erb: 137ac0f5f54b6d25157c8c7380f23f6e
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/_title.govspeak.erb: 92dcede7d7b6f5b0f7f6972b18d72e28
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/maldives/_title.govspeak.erb: 00274dd1f2ee56ab2baacc0d9eef0372
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/maldives/ceremony_country/partner_british/_opposite_sex.govspeak.erb: e4948813eb14668253d434c341f621f1
