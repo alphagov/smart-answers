@@ -31,8 +31,14 @@
 - 'yes'
 - 'no'
 :do_either_of_the_following_apply?:
-- 'yes'
-- 'no'
+- bereavement_benefits
+- severe_disablement_allowance
+- employment_and_support_allowance
+- incapacity_benefit
+- industrial_injuries_disablement_benefit
+- state_pension
+- incapacity_benefit,state_pension,bereavement_benefits
+- none
 :working_for_uk_employer_ssp?:
 - 'yes'
 - 'no'

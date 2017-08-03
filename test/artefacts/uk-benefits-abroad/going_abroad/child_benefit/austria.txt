@@ -12,8 +12,12 @@ You're currently receiving at least one of the following UK benefits:
 
 
 
-  * yes: Yes
-  * no: No
+  * bereavement_benefits: Bereavement benefits
+  * severe_disablement_allowance: Severe Disablement Allowance
+  * employment_and_support_allowance: Employment and Support Allowance
+  * incapacity_benefit: Incapacity Benefit
+  * industrial_injuries_disablement_benefit: Industrial Injuries Disablement Benefit
+  * state_pension: State Pension
 
 
 

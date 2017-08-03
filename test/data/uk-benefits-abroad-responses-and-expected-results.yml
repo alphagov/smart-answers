@@ -354,7 +354,7 @@
   - going_abroad
   - child_benefit
   - austria
-  - 'yes'
+  - bereavement_benefits
   :next_node: :child_benefit_entitled_outcome
   :outcome_node: true
 - :current_node: :do_either_of_the_following_apply?
@@ -362,7 +362,55 @@
   - going_abroad
   - child_benefit
   - austria
-  - 'no'
+  - severe_disablement_allowance
+  :next_node: :child_benefit_entitled_outcome
+  :outcome_node: true
+- :current_node: :do_either_of_the_following_apply?
+  :responses:
+  - going_abroad
+  - child_benefit
+  - austria
+  - employment_and_support_allowance
+  :next_node: :child_benefit_entitled_outcome
+  :outcome_node: true
+- :current_node: :do_either_of_the_following_apply?
+  :responses:
+  - going_abroad
+  - child_benefit
+  - austria
+  - incapacity_benefit
+  :next_node: :child_benefit_entitled_outcome
+  :outcome_node: true
+- :current_node: :do_either_of_the_following_apply?
+  :responses:
+  - going_abroad
+  - child_benefit
+  - austria
+  - industrial_injuries_disablement_benefit
+  :next_node: :child_benefit_entitled_outcome
+  :outcome_node: true
+- :current_node: :do_either_of_the_following_apply?
+  :responses:
+  - going_abroad
+  - child_benefit
+  - austria
+  - state_pension
+  :next_node: :child_benefit_entitled_outcome
+  :outcome_node: true
+- :current_node: :do_either_of_the_following_apply?
+  :responses:
+  - going_abroad
+  - child_benefit
+  - austria
+  - incapacity_benefit,state_pension,bereavement_benefits
+  :next_node: :child_benefit_entitled_outcome
+  :outcome_node: true
+- :current_node: :do_either_of_the_following_apply?
+  :responses:
+  - going_abroad
+  - child_benefit
+  - austria
+  - none
   :next_node: :child_benefit_not_entitled_outcome
   :outcome_node: true
 - :current_node: :which_country?
@@ -1365,7 +1413,7 @@
   - already_abroad
   - child_benefit
   - austria
-  - 'yes'
+  - bereavement_benefits
   :next_node: :child_benefit_entitled_outcome
   :outcome_node: true
 - :current_node: :do_either_of_the_following_apply?
@@ -1373,7 +1421,55 @@
   - already_abroad
   - child_benefit
   - austria
-  - 'no'
+  - severe_disablement_allowance
+  :next_node: :child_benefit_entitled_outcome
+  :outcome_node: true
+- :current_node: :do_either_of_the_following_apply?
+  :responses:
+  - already_abroad
+  - child_benefit
+  - austria
+  - employment_and_support_allowance
+  :next_node: :child_benefit_entitled_outcome
+  :outcome_node: true
+- :current_node: :do_either_of_the_following_apply?
+  :responses:
+  - already_abroad
+  - child_benefit
+  - austria
+  - incapacity_benefit
+  :next_node: :child_benefit_entitled_outcome
+  :outcome_node: true
+- :current_node: :do_either_of_the_following_apply?
+  :responses:
+  - already_abroad
+  - child_benefit
+  - austria
+  - industrial_injuries_disablement_benefit
+  :next_node: :child_benefit_entitled_outcome
+  :outcome_node: true
+- :current_node: :do_either_of_the_following_apply?
+  :responses:
+  - already_abroad
+  - child_benefit
+  - austria
+  - state_pension
+  :next_node: :child_benefit_entitled_outcome
+  :outcome_node: true
+- :current_node: :do_either_of_the_following_apply?
+  :responses:
+  - already_abroad
+  - child_benefit
+  - austria
+  - incapacity_benefit,state_pension,bereavement_benefits
+  :next_node: :child_benefit_entitled_outcome
+  :outcome_node: true
+- :current_node: :do_either_of_the_following_apply?
+  :responses:
+  - already_abroad
+  - child_benefit
+  - austria
+  - none
   :next_node: :child_benefit_not_entitled_outcome
   :outcome_node: true
 - :current_node: :which_country?
