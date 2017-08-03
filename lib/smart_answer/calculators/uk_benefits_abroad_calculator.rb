@@ -4,7 +4,7 @@ module SmartAnswer::Calculators
 
     COUNTRIES_OF_FORMER_YUGOSLAVIA = %w(bosnia-and-herzegovina kosovo macedonia montenegro serbia).freeze
 
-    attr_accessor :country
+    attr_accessor :country, :benefits
 
     def eea_country?
       %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia
@@ -29,6 +29,25 @@ module SmartAnswer::Calculators
     def social_security_countries_bereavement_benefits?
       (COUNTRIES_OF_FORMER_YUGOSLAVIA +
       %w(barbados bermuda canada guernsey jersey israel jamaica mauritius new-zealand philippines turkey usa)).include?(country)
+    end
+
+    def benefits?
+      benefits.present? && benefits.is_a?(Array) && valid_benefits?
+    end
+
+  private
+
+    def valid_benefits?
+      benefits.all? do |benefit|
+        %w(
+          bereavement_benefits
+          severe_disablement_allowance
+          employment_and_support_allowance
+          incapacity_benefit
+          industrial_injuries_disablement_benefit
+          state_pension
+        ).include?(benefit)
+      end
     end
   end
 end

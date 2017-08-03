@@ -322,15 +322,22 @@ module SmartAnswer
       end
 
       # Q13 going_abroad and Q12 already_abroad
-      multiple_choice :do_either_of_the_following_apply? do
-        option :yes
-        option :no
+      checkbox_question :do_either_of_the_following_apply? do
+        option :bereavement_benefits
+        option :severe_disablement_allowance
+        option :employment_and_support_allowance
+        option :incapacity_benefit
+        option :industrial_injuries_disablement_benefit
+        option :state_pension
+
+        on_response do |response|
+          calculator.benefits = response.split(",")
+        end
 
         next_node do |response|
-          case response
-          when 'yes'
+          if calculator.benefits?
             outcome :child_benefit_entitled_outcome # A17 going_abroad and A15 already_abroad
-          when 'no'
+          else
             outcome :child_benefit_not_entitled_outcome # A18 going_abroad and A16 already_abroad
           end
         end

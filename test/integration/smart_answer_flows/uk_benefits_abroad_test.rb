@@ -318,21 +318,46 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         setup do
           add_response 'austria'
         end
+
         should "ask you do any of the following apply" do
           assert_current_node :do_either_of_the_following_apply?
         end
-        context "answer yes" do
+
+        context "selects more than one benefit" do
           setup do
-            add_response 'yes'
+            add_response "incapacity_benefit,state_pension"
           end
+
           should "take you to the entitled outcome" do
             assert_current_node :child_benefit_entitled_outcome
           end
         end
-        context "answer no" do
+
+        context "selects only one benefit" do
           setup do
-            add_response 'no'
+            add_response "incapacity_benefit"
           end
+
+          should "take you to the entitled outcome" do
+            assert_current_node :child_benefit_entitled_outcome
+          end
+        end
+
+        context "selects at least one invalid benefit" do
+          setup do
+            add_response "invalid_benefit,state_pension"
+          end
+
+          should "get illegal option invalid_benefit error" do
+            assert_current_node_is_error "Illegal option invalid_benefit for do_either_of_the_following_apply?"
+          end
+        end
+
+        context "does not select any benefits" do
+          setup do
+            add_response "none"
+          end
+
           should "take you to not entitled outcome" do
             assert_current_node :child_benefit_not_entitled_outcome
           end
@@ -1114,7 +1139,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       setup do
         add_response 'child_benefit'
         add_response 'austria'
-        add_response 'yes'
+        add_response 'state_pension'
       end
       should "take you to entitled outcome" do
         assert_current_node :child_benefit_entitled_outcome
@@ -1124,7 +1149,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       setup do
         add_response 'child_benefit'
         add_response 'austria'
-        add_response 'no'
+        add_response 'none'
       end
       should "take you to not entitled outcome" do
         assert_current_node :child_benefit_not_entitled_outcome
