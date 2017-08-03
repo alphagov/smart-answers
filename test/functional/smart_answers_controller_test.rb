@@ -44,8 +44,8 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
     should "render links to visualise flows" do
       get :index
-      assert_select "ul li a[href='/flow-a/visualise']", text: "visualise"
-      assert_select "ul li a[href='/flow-b/visualise']", text: "visualise"
+      assert_select "ul li a[href='/flow-a/y/visualise']", text: "visualise"
+      assert_select "ul li a[href='/flow-b/y/visualise']", text: "visualise"
     end
   end
 
