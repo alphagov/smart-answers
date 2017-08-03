@@ -2,6 +2,11 @@
   Does the following apply to you?
 <% end %>
 
+<% content_for :hint do %>
+  If you do not receive any of these click 'Next step'.
+
+<% end %>
+
 <% options(
   "bereavement_benefits": "Bereavement benefits",
   "severe_disablement_allowance": "Severe Disablement Allowance",
@@ -10,15 +15,3 @@
   "industrial_injuries_disablement_benefit": "Industrial Injuries Disablement Benefit",
   "state_pension": "State Pension"
 ) %>
-
-<% content_for :body do %>
-  You're currently receiving at least one of the following UK benefits:
-
-  - Bereavement benefits
-  - Severe Disablement Allowance
-  - Employment and Support Allowance
-  - Incapacity Benefit
-  - Industrial Injuries Disablement Benefit
-  - State Pension
-
-<% end %>

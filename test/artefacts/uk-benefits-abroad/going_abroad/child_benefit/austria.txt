@@ -1,16 +1,8 @@
 Does the following apply to you?
 
-You're currently receiving at least one of the following UK benefits:
-
-- Bereavement benefits
-- Severe Disablement Allowance
-- Employment and Support Allowance
-- Incapacity Benefit
-- Industrial Injuries Disablement Benefit
-- State Pension
 
 
-
+If you do not receive any of these click 'Next step'.
 
   * bereavement_benefits: Bereavement benefits
   * severe_disablement_allowance: Severe Disablement Allowance
