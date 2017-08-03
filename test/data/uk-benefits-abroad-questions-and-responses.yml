@@ -75,8 +75,11 @@
 - 'yes'
 - 'no'
 :is_any_of_the_following_apply?:
-- 'yes'
-- 'no'
+- trades_dispute
+- full_time_secondary_education
+- appealing_against_decision
+- trades_dispute,appealing_against_decision
+- none
 :jsa_how_long_abroad?:
 - less_than_a_year_medical
 - less_than_a_year_other

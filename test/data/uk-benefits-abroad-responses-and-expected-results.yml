@@ -1064,7 +1064,7 @@
   - is_under_a_year_other
   - 'no'
   - 'no'
-  - 'yes'
+  - trades_dispute
   :next_node: :is_not_eligible_outcome
   :outcome_node: true
 - :current_node: :is_any_of_the_following_apply?
@@ -1074,7 +1074,37 @@
   - is_under_a_year_other
   - 'no'
   - 'no'
+  - full_time_secondary_education
+  :next_node: :is_not_eligible_outcome
+  :outcome_node: true
+- :current_node: :is_any_of_the_following_apply?
+  :responses:
+  - going_abroad
+  - income_support
+  - is_under_a_year_other
   - 'no'
+  - 'no'
+  - appealing_against_decision
+  :next_node: :is_not_eligible_outcome
+  :outcome_node: true
+- :current_node: :is_any_of_the_following_apply?
+  :responses:
+  - going_abroad
+  - income_support
+  - is_under_a_year_other
+  - 'no'
+  - 'no'
+  - trades_dispute,appealing_against_decision
+  :next_node: :is_not_eligible_outcome
+  :outcome_node: true
+- :current_node: :is_any_of_the_following_apply?
+  :responses:
+  - going_abroad
+  - income_support
+  - is_under_a_year_other
+  - 'no'
+  - 'no'
+  - none
   :next_node: :is_abroad_for_treatment_outcome
   :outcome_node: true
 - :current_node: :is_how_long_abroad?
