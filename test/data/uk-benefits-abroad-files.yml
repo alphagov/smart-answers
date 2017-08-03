@@ -80,7 +80,7 @@ lib/smart_answer_flows/uk-benefits-abroad/questions/going_or_already_abroad.govs
 lib/smart_answer_flows/uk-benefits-abroad/questions/iidb_already_claiming.govspeak.erb: d1e78d8e8d18cbab5c263b3dc6646319
 lib/smart_answer_flows/uk-benefits-abroad/questions/is_abroad_for_treatment.govspeak.erb: 16025e9e97ed830fb7d6860299719f62
 lib/smart_answer_flows/uk-benefits-abroad/questions/is_any_of_the_following_apply.govspeak.erb: bd433863eabd3a34c56f488ed2df4fa7
-lib/smart_answer_flows/uk-benefits-abroad/questions/is_claiming_benefits.govspeak.erb: 4dd132f4ce9bd53c4d1aa0a4c2c06ca6
+lib/smart_answer_flows/uk-benefits-abroad/questions/is_claiming_benefits.govspeak.erb: 9c0a23d2417107dcf1975989c856093e
 lib/smart_answer_flows/uk-benefits-abroad/questions/is_either_of_the_following.govspeak.erb: fc7e6cfe8cdfc2efb81badd21c180fec
 lib/smart_answer_flows/uk-benefits-abroad/questions/is_how_long_abroad.govspeak.erb: 370e0431a76ce65473a1e45d717da114
 lib/smart_answer_flows/uk-benefits-abroad/questions/is_work_or_sick_pay.govspeak.erb: 46c0f74b75bdc20a90188af27ff04fb3
