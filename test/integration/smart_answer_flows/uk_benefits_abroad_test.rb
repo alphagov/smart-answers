@@ -892,23 +892,48 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             setup do
               add_response 'no'
             end
+
             should "ask are you one of the following" do
               assert_current_node :is_any_of_the_following_apply?
             end
-            context "answer yes" do
+
+            context "selects more than one criterion" do
               setup do
-                add_response 'yes'
+                add_response "trades_dispute,appealing_against_decision"
               end
+
               should "take you to not eligible outcome" do
                 assert_current_node :is_not_eligible_outcome
               end
             end
-            context "answer no" do
+
+            context "selects only one criterion" do
               setup do
-                add_response 'no'
+                add_response "trades_dispute"
               end
+
+              should "take you to not eligible outcome" do
+                assert_current_node :is_not_eligible_outcome
+              end
+            end
+
+            context "does not select any criteria" do
+              setup do
+                add_response "none"
+              end
+
               should "take you to carry on claiming for 4 weeks outcome" do
                 assert_current_node :is_abroad_for_treatment_outcome
+              end
+            end
+
+            context "selects at least an invalid criterion" do
+              setup do
+                add_response "invalid_criterion,trades_dispute"
+              end
+
+              should "get illegal option invalid_criterion error" do
+                assert_current_node_is_error "Illegal option invalid_criterion for is_any_of_the_following_apply?"
               end
             end
           end

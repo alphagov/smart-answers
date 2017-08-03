@@ -527,15 +527,19 @@ module SmartAnswer
       end
 
       # Q37 going_abroad
-      multiple_choice :is_any_of_the_following_apply? do
-        option :yes
-        option :no
+      checkbox_question :is_any_of_the_following_apply? do
+        option :trades_dispute
+        option :full_time_secondary_education
+        option :appealing_against_decision
+
+        on_response do |response|
+          calculator.dispute_criteria = response.split(",")
+        end
 
         next_node do |response|
-          case response
-          when 'yes'
+          if calculator.dispute_criteria?
             outcome :is_not_eligible_outcome # A45 going_abroad
-          when 'no'
+          else
             outcome :is_abroad_for_treatment_outcome # A44 going_abroad
           end
         end
