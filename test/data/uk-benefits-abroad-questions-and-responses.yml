@@ -63,8 +63,12 @@
 - 'yes'
 - 'no'
 :is_claiming_benefits?:
-- 'yes'
-- 'no'
+- pension_premium
+- higher_pensioner
+- disability_premium
+- severe_disability_premium
+- pension_premium,higher_pensioner
+- none
 :is_either_of_the_following?:
 - 'yes'
 - 'no'

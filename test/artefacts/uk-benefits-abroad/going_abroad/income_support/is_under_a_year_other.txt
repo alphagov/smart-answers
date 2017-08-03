@@ -8,8 +8,10 @@ Are you travelling abroad with a partner who is getting Income Support with one 
 
 Your partner must be getting the premium, not you.
 
-  * yes: Yes
-  * no: No
+  * pension_premium: Pensioner premium
+  * higher_pensioner: Higher Pensioner premium
+  * disability_premium: Disability premium
+  * severe_disability_premium: Severe Disability premium
 
 
 
