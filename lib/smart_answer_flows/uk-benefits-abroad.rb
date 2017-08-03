@@ -487,15 +487,18 @@ module SmartAnswer
       end
 
       # Q34 going_abroad
-      multiple_choice :is_either_of_the_following? do
-        option :yes
-        option :no
+      checkbox_question :is_either_of_the_following? do
+        option :too_ill_to_work
+        option :temporarily_incapable_of_work
+
+        on_response do |response|
+          calculator.possible_impairments = response.split(",")
+        end
 
         next_node do |response|
-          case response
-          when 'yes'
+          if calculator.getting_income_support?
             question :is_abroad_for_treatment? # Q35 going_abroad
-          when 'no'
+          else
             question :is_any_of_the_following_apply? # Q37 going_abroad
           end
         end

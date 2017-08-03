@@ -873,9 +873,9 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
             assert_current_node :is_either_of_the_following?
           end
 
-          context "answer yes" do
+          context "selects at least one possible impairment" do
             setup do
-              add_response 'yes'
+              add_response "too_ill_to_work"
             end
             should "ask if you're going for medical treatment" do
               assert_current_node :is_abroad_for_treatment?
@@ -913,9 +913,30 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               end
             end
           end
-          context "answer no" do
+
+          context "selects more than one possible impairment" do
             setup do
-              add_response 'no'
+              add_response "too_ill_to_work,temporarily_incapable_of_work"
+            end
+
+            should "ask if you're going for medical treatment" do
+              assert_current_node :is_abroad_for_treatment?
+            end
+          end
+
+          context "selects at least an invalid impairment" do
+            setup do
+              add_response "invalid_impairment,temporarily_incapable_of_work"
+            end
+
+            should "get illegal option invalid_impairment error" do
+              assert_current_node_is_error "Illegal option invalid_impairment for is_either_of_the_following?"
+            end
+          end
+
+          context "does not select any impairment" do
+            setup do
+              add_response "none"
             end
 
             should "ask are you one of the following" do

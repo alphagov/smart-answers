@@ -119,5 +119,43 @@ module SmartAnswer::Calculators
         refute @calculator.partner_premiums?
       end
     end
+
+    context "#getting_income_support?" do
+      should "returns true if possible impairments is valid" do
+        @calculator.possible_impairments = %w(too_ill_to_work temporarily_incapable_of_work)
+
+        assert @calculator.getting_income_support?
+      end
+
+      should "returns false if possible impairments isn't valid" do
+        @calculator.possible_impairments = %w(arbitary_impairment)
+
+        refute @calculator.getting_income_support?
+      end
+
+      should "returns false if possible impairments contains at least one invalid impairment" do
+        @calculator.possible_impairments = %w(invalid_impairment too_ill_to_work)
+
+        refute @calculator.getting_income_support?
+      end
+
+      should "returns false if possible impairments isn't an array" do
+        @calculator.possible_impairments = "invalid"
+
+        refute @calculator.getting_income_support?
+      end
+
+      should "returns false if possible impairments is empty" do
+        @calculator.possible_impairments = []
+
+        refute @calculator.getting_income_support?
+      end
+
+      should "returns false if possible impairments is nil" do
+        @calculator.possible_impairments = nil
+
+        refute @calculator.getting_income_support?
+      end
+    end
   end
 end
