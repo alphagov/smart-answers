@@ -467,15 +467,20 @@ module SmartAnswer
       end
 
       # Q33 going_abroad
-      multiple_choice :is_claiming_benefits? do
-        option :yes
-        option :no
+      checkbox_question :is_claiming_benefits? do
+        option :pension_premium
+        option :higher_pensioner
+        option :disability_premium
+        option :severe_disability_premium
+
+        on_response do |response|
+          calculator.partner_premiums = response.split(",")
+        end
 
         next_node do |response|
-          case response
-          when 'yes'
+          if calculator.partner_premiums?
             outcome :is_claiming_benefits_outcome # A43 going_abroad
-          when 'no'
+          else
             question :is_either_of_the_following? # Q34 going_abroad
           end
         end

@@ -4,7 +4,7 @@ module SmartAnswer::Calculators
 
     COUNTRIES_OF_FORMER_YUGOSLAVIA = %w(bosnia-and-herzegovina kosovo macedonia montenegro serbia).freeze
 
-    attr_accessor :country, :benefits, :dispute_criteria
+    attr_accessor :country, :benefits, :dispute_criteria, :partner_premiums
 
     def eea_country?
       %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia
@@ -41,6 +41,12 @@ module SmartAnswer::Calculators
         valid_dispute_criteria?
     end
 
+    def partner_premiums?
+      partner_premiums.present? &&
+        partner_premiums.is_a?(Array) &&
+        valid_partner_premiums?
+    end
+
   private
 
     def valid_benefits?
@@ -63,6 +69,17 @@ module SmartAnswer::Calculators
           full_time_secondary_education
           appealing_against_decision
         ).include?(criterion)
+      end
+    end
+
+    def valid_partner_premiums?
+      partner_premiums.all? do |premium|
+        %w(
+          pension_premium
+          higher_pensioner
+          disability_premium
+          severe_disability_premium
+        ).include?(premium)
       end
     end
   end

@@ -829,21 +829,46 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         setup do
           add_response 'is_under_a_year_other'
         end
+
         should "ask you if you'd traveliing with a partner getting IS" do
           assert_current_node :is_claiming_benefits?
         end
-        context "answer yes" do
+
+        context "selects more than one partner premium" do
           setup do
-            add_response 'yes'
+            add_response "pension_premium,higher_pensioner"
           end
+
           should "take you to the carry on claiming 4 weeks outcome" do
             assert_current_node :is_claiming_benefits_outcome
           end
         end
-        context "answer no" do
+
+        context "selects only one partner premium" do
           setup do
-            add_response 'no'
+            add_response "higher_pensioner"
           end
+
+          should "take you to the carry on claiming 4 weeks outcome" do
+            assert_current_node :is_claiming_benefits_outcome
+          end
+        end
+
+        context "selects at least an invalid partner premium" do
+          setup do
+            add_response "invalid_premium,higher_pensioner"
+          end
+
+          should "get illegal option invalid_premium error" do
+            assert_current_node_is_error "Illegal option invalid_premium for is_claiming_benefits?"
+          end
+        end
+
+        context "does not select any partner premium" do
+          setup do
+            add_response "none"
+          end
+
           should "ask if you're getting IS with SSP or are incapable of work" do
             assert_current_node :is_either_of_the_following?
           end

@@ -81,5 +81,43 @@ module SmartAnswer::Calculators
         refute @calculator.dispute_criteria?
       end
     end
+
+    context "#partner_premiums?" do
+      should "returns true if partner premiums is valid" do
+        @calculator.partner_premiums = %w(pension_premium higher_pensioner)
+
+        assert @calculator.partner_premiums?
+      end
+
+      should "returns false if partner premiums isn't valid" do
+        @calculator.partner_premiums = %w(arbitary_premium)
+
+        refute @calculator.partner_premiums?
+      end
+
+      should "returns false if partner premiums contains at least one invalid premium" do
+        @calculator.partner_premiums = %w(invalid_premium higher_pensioner)
+
+        refute @calculator.partner_premiums?
+      end
+
+      should "returns false if partner premiums isn't an array" do
+        @calculator.partner_premiums = "invalid"
+
+        refute @calculator.partner_premiums?
+      end
+
+      should "returns false if partner premiums is empty" do
+        @calculator.partner_premiums = []
+
+        refute @calculator.partner_premiums?
+      end
+
+      should "returns false if partner premiums is nil" do
+        @calculator.partner_premiums = nil
+
+        refute @calculator.partner_premiums?
+      end
+    end
   end
 end
