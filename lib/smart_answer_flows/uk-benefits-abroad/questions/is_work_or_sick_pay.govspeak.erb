@@ -1,14 +1,13 @@
 <% content_for :title do %>
-  Have you been unable to work or received Statutory Sick Pay for one of the following:
+  Have you been unable to work or received Statutory Sick Pay for one of the following?
+<% end %>
+
+<% content_for :hint do %>
+  If you don’t receive either of these click 'Next step'.
+
 <% end %>
 
 <% options(
   "364_days": "364 days",
   "196_days": "196 days if you're terminally ill, or getting the highest rate of Disability Living Allowance (care component) or the enhanced rate of Personal Independence Payment (daily living component)"
 ) %>
-
-<% content_for :body do %>
-  - 364 days
-  - 196 days if you're terminally ill, or getting the highest rate of Disability Living Allowance (care component) or the enhanced rate of Personal Independence Payment (daily living component)
-
-<% end %>

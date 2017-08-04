@@ -83,7 +83,7 @@ lib/smart_answer_flows/uk-benefits-abroad/questions/is_any_of_the_following_appl
 lib/smart_answer_flows/uk-benefits-abroad/questions/is_claiming_benefits.govspeak.erb: 9c0a23d2417107dcf1975989c856093e
 lib/smart_answer_flows/uk-benefits-abroad/questions/is_either_of_the_following.govspeak.erb: 82f332083f83cfbf48446818a4c6e1cf
 lib/smart_answer_flows/uk-benefits-abroad/questions/is_how_long_abroad.govspeak.erb: 370e0431a76ce65473a1e45d717da114
-lib/smart_answer_flows/uk-benefits-abroad/questions/is_work_or_sick_pay.govspeak.erb: f70eb815376d3f688827094003b4abae
+lib/smart_answer_flows/uk-benefits-abroad/questions/is_work_or_sick_pay.govspeak.erb: 94635a2fd6d4f67f61a784841b647666
 lib/smart_answer_flows/uk-benefits-abroad/questions/jsa_how_long_abroad.govspeak.erb: c2dd0e4515fc21df9ecc271d00c43149
 lib/smart_answer_flows/uk-benefits-abroad/questions/tax_credits_children.govspeak.erb: 6ad03b8f74c1b68fb4121521e1df5ee2
 lib/smart_answer_flows/uk-benefits-abroad/questions/tax_credits_currently_claiming.govspeak.erb: 085fc61d088cf22326fcbff08f823e0a
