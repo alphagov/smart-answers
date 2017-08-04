@@ -49,19 +49,37 @@ module SmartAnswer
       end
 
       ## Q2
-      multiple_choice :gets_benefits? do
-        option "yes"
-        option "no"
+      checkbox_question :gets_benefits? do
+        option :income_support
+        option :ib_jobseekers_allowance
+        option :employment_support_allowance
+        option :pension_credit
+        option :cb_jobseekers_allowance
+        option :cb_employment_support_llowance
+        option :state_pension
+        option :incapacity_benefit
+        option :training_allowance
+        option :armed_forces_compensation_scheme_payments
+        option :war_disablement_pension
+        option :bereavement_allowance
+        option :carers_allowance
+        option :maternity_allowance
+        option :severe_disablement_allowance
+        option :industrial_injuries_disablement_benefit
+        option :widowed_parents_allowance
+        option :widows_pension
+        option :universal_credit_no_earned_income
+        option :skillseekers_training
+        option :war_partner_pension
 
         on_response do |response|
-          calculator.benefits = response
+          calculator.benefits = response.split(",")
         end
 
         next_node do |response|
-          case response
-          when 'yes'
+          if calculator.state_benefits?
             question :how_many_nights_children_stay_with_payee?
-          when 'no'
+          else
             question :gross_income_of_payee?
           end
         end

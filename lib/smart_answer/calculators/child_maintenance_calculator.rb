@@ -21,7 +21,7 @@ module SmartAnswer::Calculators
 
     # called after we enter income (we know benefits == no)
     def rate_type
-      if @benefits == 'yes'
+      if state_benefits?
         if @number_of_shared_care_nights > 0
           :nil
         else
@@ -34,11 +34,8 @@ module SmartAnswer::Calculators
     end
 
     def calculate_maintenance_payment
-      if @benefits == 'no'
-        send("calculate_#{rate_type}_rate_payment")
-      else
-        0 #irrelevant what we return, with benefits rate is either nil or flat
-      end
+      return 0 if state_benefits? #irrelevant what we return, with benefits rate is either nil or flat
+      send("calculate_#{rate_type}_rate_payment")
     end
 
     def calculate_reduced_rate_payment
@@ -172,6 +169,40 @@ module SmartAnswer::Calculators
 
     def self.child_maintenance_data
       @child_maintenance_data ||= YAML.load_file(Rails.root.join("lib/data/child_maintenance_data.yml"))
+    end
+
+    def state_benefits?
+      benefits.present? && benefits.is_a?(Array) && valid_state_benefits?
+    end
+
+  private
+
+    def valid_state_benefits?
+      benefits.all? do |benefit|
+        %w(
+          income_support
+          ib_jobseekers_allowance
+          employment_support_allowance
+          pension_credit
+          cb_jobseekers_allowance
+          cb_employment_support_llowance
+          state_pension
+          incapacity_benefit
+          training_allowance
+          armed_forces_compensation_scheme_payments
+          war_disablement_pension
+          bereavement_allowance
+          carers_allowance
+          maternity_allowance
+          severe_disablement_allowance
+          industrial_injuries_disablement_benefit
+          widowed_parents_allowance
+          widows_pension
+          universal_credit_no_earned_income
+          skillseekers_training
+          war_partner_pension
+        ).include?(benefit)
+      end
     end
   end
 end
