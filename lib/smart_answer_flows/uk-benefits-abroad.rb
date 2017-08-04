@@ -399,15 +399,23 @@ module SmartAnswer
       end
 
       # Q20 already_abroad
-      multiple_choice :tax_credits_currently_claiming? do
-        option :yes
-        option :no
+      checkbox_question :tax_credits_currently_claiming? do
+        option :state_pension
+        option :widows_benefit
+        option :incapacity_benefit
+        option :bereavement_benefit
+        option :severe_disablement_allowance
+        option :industrial_injuries_disablement_benefit
+        option :contribution_based_employment_support_allowance
+
+        on_response do |response|
+          calculator.tax_credits = response.split(",")
+        end
 
         next_node do |response|
-          case response
-          when 'yes'
+          if calculator.tax_credits?
             outcome :tax_credits_eea_entitled_outcome # A22 already_abroad and A24 going_abroad
-          when 'no'
+          else
             outcome :tax_credits_unlikely_outcome # A21 already_abroad and A23 going_abroad
           end
         end

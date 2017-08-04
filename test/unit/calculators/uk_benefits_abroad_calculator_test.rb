@@ -195,5 +195,43 @@ module SmartAnswer::Calculators
         refute @calculator.not_getting_sick_pay?
       end
     end
+
+    context "#tax_credits?" do
+      should "returns true if tax credit benefits is valid" do
+        @calculator.tax_credits = %w(widows_benefit contribution_based_employment_support_allowance)
+
+        assert @calculator.tax_credits?
+      end
+
+      should "returns false if tax credit benefits isn't valid" do
+        @calculator.tax_credits = %w(arbitary_tax_credit_benefit)
+
+        refute @calculator.tax_credits?
+      end
+
+      should "returns false if tax credit benefits contains at least one invalid element" do
+        @calculator.tax_credits = %w(invalid_tax_credit_benefit widows_benefit)
+
+        refute @calculator.tax_credits?
+      end
+
+      should "returns false if tax credit benefits isn't an array" do
+        @calculator.tax_credits = "invalid"
+
+        refute @calculator.tax_credits?
+      end
+
+      should "returns false if tax credit benefits is empty" do
+        @calculator.tax_credits = []
+
+        refute @calculator.tax_credits?
+      end
+
+      should "returns false if tax credit benefits is nil" do
+        @calculator.tax_credits = nil
+
+        refute @calculator.tax_credits?
+      end
+    end
   end
 end

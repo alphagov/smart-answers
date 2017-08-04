@@ -5,7 +5,7 @@ module SmartAnswer::Calculators
     COUNTRIES_OF_FORMER_YUGOSLAVIA = %w(bosnia-and-herzegovina kosovo macedonia montenegro serbia).freeze
 
     attr_accessor :country, :benefits, :dispute_criteria, :partner_premiums
-    attr_accessor :possible_impairments, :impairment_periods
+    attr_accessor :possible_impairments, :impairment_periods, :tax_credits
 
     def eea_country?
       %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia
@@ -60,6 +60,12 @@ module SmartAnswer::Calculators
         valid_impairment_periods?
     end
 
+    def tax_credits?
+      tax_credits.present? &&
+        tax_credits.is_a?(Array) &&
+        valid_tax_credits_benefits?
+    end
+
   private
 
     def valid_benefits?
@@ -111,6 +117,20 @@ module SmartAnswer::Calculators
           364_days
           196_days
         ).include?(period)
+      end
+    end
+
+    def valid_tax_credits_benefits?
+      tax_credits.all? do |tax_credit|
+        %w(
+          state_pension
+          widows_benefit
+          incapacity_benefit
+          bereavement_benefit
+          severe_disablement_allowance
+          industrial_injuries_disablement_benefit
+          contribution_based_employment_support_allowance
+        ).include?(tax_credit)
       end
     end
   end

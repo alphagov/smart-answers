@@ -552,23 +552,48 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               should "ask are you claiming any of these benefits" do
                 assert_current_node :tax_credits_currently_claiming?
               end
-              context "answer yes" do
+
+              context "selects at least one tax credit" do
                 setup do
-                  add_response 'yes'
+                  add_response "widows_benefit"
                 end
+
                 should "take you to EEA may qualify outcome" do
                   assert_current_node :tax_credits_eea_entitled_outcome
                 end
               end
-              context "answer no" do
+
+              context "selects more than one tax credit" do
                 setup do
-                  add_response 'no'
+                  add_response "widows_benefit,contribution_based_employment_support_allowance"
                 end
+
+                should "take you to EEA may qualify outcome" do
+                  assert_current_node :tax_credits_eea_entitled_outcome
+                end
+              end
+
+              context "selects at least one invalid tax credit benefit" do
+                setup do
+                  add_response "invalid_tax_credit_benefit,widows_benefit"
+                end
+
+                should "get illegal options error" do
+                  assert_current_node_is_error "Illegal option invalid_tax_credit_benefit for tax_credits_currently_claiming?"
+                end
+              end
+
+              context "does not selects any tax credit" do
+                setup do
+                  add_response "none"
+                end
+
                 should "take you to not entitled outcome" do
                   assert_current_node :tax_credits_unlikely_outcome
                 end
               end
             end
+
             context "answer other country" do
               setup do
                 add_response 'albania'
@@ -1390,7 +1415,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         add_response 'tax_credits_more_than_a_year'
         add_response 'yes'
         add_response 'austria'
-        add_response 'yes'
+        add_response 'widows_benefit'
       end
       should "take you to entitled outcome" do
         assert_current_node :tax_credits_eea_entitled_outcome
@@ -1403,7 +1428,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         add_response 'tax_credits_more_than_a_year'
         add_response 'yes'
         add_response 'austria'
-        add_response 'no'
+        add_response 'none'
       end
       should "take you to unlikely outcome" do
         assert_current_node :tax_credits_unlikely_outcome
