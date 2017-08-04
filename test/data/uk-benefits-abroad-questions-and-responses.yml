@@ -50,8 +50,15 @@
 - 'yes'
 - 'no'
 :tax_credits_currently_claiming?:
-- 'yes'
-- 'no'
+- state_pension
+- widows_benefit
+- incapacity_benefit
+- bereavement_benefit
+- severe_disablement_allowance
+- industrial_injuries_disablement_benefit
+- contribution_based_employment_support_allowance
+- widows_benefit,contribution_based_employment_support_allowance
+- none
 :tax_credits_why_going_abroad?:
 - tax_credits_holiday
 - tax_credits_medical_treatment

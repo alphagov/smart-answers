@@ -908,7 +908,7 @@
   - tax_credits_more_than_a_year
   - 'yes'
   - austria
-  - 'yes'
+  - state_pension
   :next_node: :tax_credits_eea_entitled_outcome
   :outcome_node: true
 - :current_node: :tax_credits_currently_claiming?
@@ -919,7 +919,84 @@
   - tax_credits_more_than_a_year
   - 'yes'
   - austria
-  - 'no'
+  - widows_benefit
+  :next_node: :tax_credits_eea_entitled_outcome
+  :outcome_node: true
+- :current_node: :tax_credits_currently_claiming?
+  :responses:
+  - going_abroad
+  - tax_credits
+  - none_of_the_above
+  - tax_credits_more_than_a_year
+  - 'yes'
+  - austria
+  - incapacity_benefit
+  :next_node: :tax_credits_eea_entitled_outcome
+  :outcome_node: true
+- :current_node: :tax_credits_currently_claiming?
+  :responses:
+  - going_abroad
+  - tax_credits
+  - none_of_the_above
+  - tax_credits_more_than_a_year
+  - 'yes'
+  - austria
+  - bereavement_benefit
+  :next_node: :tax_credits_eea_entitled_outcome
+  :outcome_node: true
+- :current_node: :tax_credits_currently_claiming?
+  :responses:
+  - going_abroad
+  - tax_credits
+  - none_of_the_above
+  - tax_credits_more_than_a_year
+  - 'yes'
+  - austria
+  - severe_disablement_allowance
+  :next_node: :tax_credits_eea_entitled_outcome
+  :outcome_node: true
+- :current_node: :tax_credits_currently_claiming?
+  :responses:
+  - going_abroad
+  - tax_credits
+  - none_of_the_above
+  - tax_credits_more_than_a_year
+  - 'yes'
+  - austria
+  - industrial_injuries_disablement_benefit
+  :next_node: :tax_credits_eea_entitled_outcome
+  :outcome_node: true
+- :current_node: :tax_credits_currently_claiming?
+  :responses:
+  - going_abroad
+  - tax_credits
+  - none_of_the_above
+  - tax_credits_more_than_a_year
+  - 'yes'
+  - austria
+  - contribution_based_employment_support_allowance
+  :next_node: :tax_credits_eea_entitled_outcome
+  :outcome_node: true
+- :current_node: :tax_credits_currently_claiming?
+  :responses:
+  - going_abroad
+  - tax_credits
+  - none_of_the_above
+  - tax_credits_more_than_a_year
+  - 'yes'
+  - austria
+  - widows_benefit,contribution_based_employment_support_allowance
+  :next_node: :tax_credits_eea_entitled_outcome
+  :outcome_node: true
+- :current_node: :tax_credits_currently_claiming?
+  :responses:
+  - going_abroad
+  - tax_credits
+  - none_of_the_above
+  - tax_credits_more_than_a_year
+  - 'yes'
+  - austria
+  - none
   :next_node: :tax_credits_unlikely_outcome
   :outcome_node: true
 - :current_node: :which_country?
@@ -2197,7 +2274,7 @@
   - tax_credits_more_than_a_year
   - 'yes'
   - austria
-  - 'yes'
+  - state_pension
   :next_node: :tax_credits_eea_entitled_outcome
   :outcome_node: true
 - :current_node: :tax_credits_currently_claiming?
@@ -2208,7 +2285,84 @@
   - tax_credits_more_than_a_year
   - 'yes'
   - austria
-  - 'no'
+  - widows_benefit
+  :next_node: :tax_credits_eea_entitled_outcome
+  :outcome_node: true
+- :current_node: :tax_credits_currently_claiming?
+  :responses:
+  - already_abroad
+  - tax_credits
+  - none_of_the_above
+  - tax_credits_more_than_a_year
+  - 'yes'
+  - austria
+  - incapacity_benefit
+  :next_node: :tax_credits_eea_entitled_outcome
+  :outcome_node: true
+- :current_node: :tax_credits_currently_claiming?
+  :responses:
+  - already_abroad
+  - tax_credits
+  - none_of_the_above
+  - tax_credits_more_than_a_year
+  - 'yes'
+  - austria
+  - bereavement_benefit
+  :next_node: :tax_credits_eea_entitled_outcome
+  :outcome_node: true
+- :current_node: :tax_credits_currently_claiming?
+  :responses:
+  - already_abroad
+  - tax_credits
+  - none_of_the_above
+  - tax_credits_more_than_a_year
+  - 'yes'
+  - austria
+  - severe_disablement_allowance
+  :next_node: :tax_credits_eea_entitled_outcome
+  :outcome_node: true
+- :current_node: :tax_credits_currently_claiming?
+  :responses:
+  - already_abroad
+  - tax_credits
+  - none_of_the_above
+  - tax_credits_more_than_a_year
+  - 'yes'
+  - austria
+  - industrial_injuries_disablement_benefit
+  :next_node: :tax_credits_eea_entitled_outcome
+  :outcome_node: true
+- :current_node: :tax_credits_currently_claiming?
+  :responses:
+  - already_abroad
+  - tax_credits
+  - none_of_the_above
+  - tax_credits_more_than_a_year
+  - 'yes'
+  - austria
+  - contribution_based_employment_support_allowance
+  :next_node: :tax_credits_eea_entitled_outcome
+  :outcome_node: true
+- :current_node: :tax_credits_currently_claiming?
+  :responses:
+  - already_abroad
+  - tax_credits
+  - none_of_the_above
+  - tax_credits_more_than_a_year
+  - 'yes'
+  - austria
+  - widows_benefit,contribution_based_employment_support_allowance
+  :next_node: :tax_credits_eea_entitled_outcome
+  :outcome_node: true
+- :current_node: :tax_credits_currently_claiming?
+  :responses:
+  - already_abroad
+  - tax_credits
+  - none_of_the_above
+  - tax_credits_more_than_a_year
+  - 'yes'
+  - austria
+  - none
   :next_node: :tax_credits_unlikely_outcome
   :outcome_node: true
 - :current_node: :which_country?
