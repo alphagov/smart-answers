@@ -1,5 +1,5 @@
 ---
-lib/data/marriage_abroad_data.yml: f839d74d4d40e074fd108fb84d705c50
+lib/data/marriage_abroad_data.yml: 4674ee133ea150186fc24a406af58fa8
 lib/data/marriage_abroad_services.yml: 40598840da892562da37f79c36b3208e
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/smart_answer/calculators/country_name_formatter.rb: 6e9aab3c79a59e54e056b473b9cc4151
@@ -250,6 +250,8 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_loc
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_local/_same_sex.govspeak.erb: ac7df60c085f94264a9d675e3fde244f
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_other/_opposite_sex.govspeak.erb: 6c8dd251ffaaa9584a555a49c7016482
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_other/_same_sex.govspeak.erb: ac7df60c085f94264a9d675e3fde244f
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/egypt/_opposite_sex.govspeak.erb: 498ec02238231a03e2f199dfed153dc7
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/egypt/_same_sex.govspeak.erb: 6cd2d3e2fdc4c164ddc7cfbf34dea6b9
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/egypt/_title.govspeak.erb: 634e6af91bcf937249a01aa66ad32da8
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/egypt/ceremony_country/partner_british/_opposite_sex.govspeak.erb: 498ec02238231a03e2f199dfed153dc7
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/egypt/ceremony_country/partner_british/_same_sex.govspeak.erb: 6cd2d3e2fdc4c164ddc7cfbf34dea6b9
