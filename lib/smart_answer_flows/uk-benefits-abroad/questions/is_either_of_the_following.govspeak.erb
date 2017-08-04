@@ -1,14 +1,13 @@
 <% content_for :title do %>
-  Are you getting Income Support while either:
+  Which of these applies to you?
+<% end %>
+
+<% content_for :hint do %>
+  If neither apply, click 'Next Step'.
+
 <% end %>
 
 <% options(
   "too_ill_to_work": "I’m getting Statutory Sick Pay",
   "temporarily_incapable_of_work": "I’m incapable of work, but being treated as capable of work because I’m temporarily disqualified from receiving Income Support"
 ) %>
-
-<% content_for :body do %>
-  - getting [Statutory Sick Pay](/statutory-sick-pay/)
-  - incapable of work, but being treated as capable of work because you are temporarily disqualified from receiving Income Support
-
-<% end %>
