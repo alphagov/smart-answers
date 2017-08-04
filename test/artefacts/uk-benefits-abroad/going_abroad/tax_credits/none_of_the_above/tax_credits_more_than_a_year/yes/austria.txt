@@ -1,14 +1,8 @@
-Are you currently claiming State Pension or any of the following benefits?
-
-- Incapacity Benefit
-- Widow's Benefit
-- Bereavement Benefit
-- Industrial Injuries Disablement Benefit
-- contribution-based Employment and Support Allowance
-- Severe Disablement Allowance
+Are you currently claiming any of the following?
 
 
 
+If you don’t receive any of these click 'Next step'.
 
   * state_pension: State Pension
   * widows_benefit: Widow’s Benefit
