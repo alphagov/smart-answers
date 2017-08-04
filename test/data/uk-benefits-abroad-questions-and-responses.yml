@@ -78,8 +78,10 @@
 - 'yes'
 - 'no'
 :is_work_or_sick_pay?:
-- 'yes'
-- 'no'
+- 364_days
+- 196_days
+- 364_days,196_days
+- none
 :is_any_of_the_following_apply?:
 - trades_dispute
 - full_time_secondary_education

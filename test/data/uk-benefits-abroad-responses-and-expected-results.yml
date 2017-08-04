@@ -1066,7 +1066,7 @@
   - none
   - too_ill_to_work
   - 'no'
-  - 'yes'
+  - 364_days
   :next_node: :is_abroad_for_treatment_outcome
   :outcome_node: true
 - :current_node: :is_work_or_sick_pay?
@@ -1077,7 +1077,29 @@
   - none
   - too_ill_to_work
   - 'no'
+  - 196_days
+  :next_node: :is_abroad_for_treatment_outcome
+  :outcome_node: true
+- :current_node: :is_work_or_sick_pay?
+  :responses:
+  - going_abroad
+  - income_support
+  - is_under_a_year_other
+  - none
+  - too_ill_to_work
   - 'no'
+  - 364_days,196_days
+  :next_node: :is_abroad_for_treatment_outcome
+  :outcome_node: true
+- :current_node: :is_work_or_sick_pay?
+  :responses:
+  - going_abroad
+  - income_support
+  - is_under_a_year_other
+  - none
+  - too_ill_to_work
+  - 'no'
+  - none
   :next_node: :is_not_eligible_outcome
   :outcome_node: true
 - :current_node: :is_either_of_the_following?
@@ -1117,7 +1139,7 @@
   - none
   - temporarily_incapable_of_work
   - 'no'
-  - 'yes'
+  - 364_days
   :next_node: :is_abroad_for_treatment_outcome
   :outcome_node: true
 - :current_node: :is_work_or_sick_pay?
@@ -1128,7 +1150,29 @@
   - none
   - temporarily_incapable_of_work
   - 'no'
+  - 196_days
+  :next_node: :is_abroad_for_treatment_outcome
+  :outcome_node: true
+- :current_node: :is_work_or_sick_pay?
+  :responses:
+  - going_abroad
+  - income_support
+  - is_under_a_year_other
+  - none
+  - temporarily_incapable_of_work
   - 'no'
+  - 364_days,196_days
+  :next_node: :is_abroad_for_treatment_outcome
+  :outcome_node: true
+- :current_node: :is_work_or_sick_pay?
+  :responses:
+  - going_abroad
+  - income_support
+  - is_under_a_year_other
+  - none
+  - temporarily_incapable_of_work
+  - 'no'
+  - none
   :next_node: :is_not_eligible_outcome
   :outcome_node: true
 - :current_node: :is_either_of_the_following?
@@ -1168,7 +1212,7 @@
   - none
   - temporarily_incapable_of_work,too_ill_to_work
   - 'no'
-  - 'yes'
+  - 364_days
   :next_node: :is_abroad_for_treatment_outcome
   :outcome_node: true
 - :current_node: :is_work_or_sick_pay?
@@ -1179,7 +1223,29 @@
   - none
   - temporarily_incapable_of_work,too_ill_to_work
   - 'no'
+  - 196_days
+  :next_node: :is_abroad_for_treatment_outcome
+  :outcome_node: true
+- :current_node: :is_work_or_sick_pay?
+  :responses:
+  - going_abroad
+  - income_support
+  - is_under_a_year_other
+  - none
+  - temporarily_incapable_of_work,too_ill_to_work
   - 'no'
+  - 364_days,196_days
+  :next_node: :is_abroad_for_treatment_outcome
+  :outcome_node: true
+- :current_node: :is_work_or_sick_pay?
+  :responses:
+  - going_abroad
+  - income_support
+  - is_under_a_year_other
+  - none
+  - temporarily_incapable_of_work,too_ill_to_work
+  - 'no'
+  - none
   :next_node: :is_not_eligible_outcome
   :outcome_node: true
 - :current_node: :is_either_of_the_following?

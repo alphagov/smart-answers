@@ -95,5 +95,5 @@ lib/smart_answer_flows/uk-benefits-abroad/questions/working_for_a_uk_employer.go
 lib/smart_answer_flows/uk-benefits-abroad/questions/working_for_uk_employer_ssp.govspeak.erb: 15e9162bb80fe215af169d0e39dd53d0
 lib/smart_answer_flows/uk-benefits-abroad/uk_benefits_abroad.govspeak.erb: 289ed7bd184696294095c760f24ffb0d
 lib/smart_answer_flows/uk-benefits-abroad.rb: 22a6872325cde8a371b0c865de6b2d34
-test/data/uk-benefits-abroad-questions-and-responses.yml: 5a5b1faf278afa7a9ed2d344b7cfadc2
-test/data/uk-benefits-abroad-responses-and-expected-results.yml: fee3e33d638d352ea1c769e293b9103b
+test/data/uk-benefits-abroad-questions-and-responses.yml: 233690761e72c7fb2605ce9447024b14
+test/data/uk-benefits-abroad-responses-and-expected-results.yml: 7fff55c6062bc4939a46fd13e08c7ff7
