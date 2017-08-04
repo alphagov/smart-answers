@@ -70,8 +70,10 @@
 - pension_premium,higher_pensioner
 - none
 :is_either_of_the_following?:
-- 'yes'
-- 'no'
+- too_ill_to_work
+- temporarily_incapable_of_work
+- too_ill_to_work,temporarily_incapable_of_work
+- none
 :is_abroad_for_treatment?:
 - 'yes'
 - 'no'

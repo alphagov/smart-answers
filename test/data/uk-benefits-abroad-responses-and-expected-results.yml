@@ -1035,7 +1035,7 @@
   - income_support
   - is_under_a_year_other
   - none
-  - 'yes'
+  - too_ill_to_work
   :next_node: :is_abroad_for_treatment?
   :outcome_node: false
 - :current_node: :is_abroad_for_treatment?
@@ -1044,7 +1044,7 @@
   - income_support
   - is_under_a_year_other
   - none
-  - 'yes'
+  - too_ill_to_work
   - 'yes'
   :next_node: :is_abroad_for_treatment_outcome
   :outcome_node: true
@@ -1054,7 +1054,7 @@
   - income_support
   - is_under_a_year_other
   - none
-  - 'yes'
+  - too_ill_to_work
   - 'no'
   :next_node: :is_work_or_sick_pay?
   :outcome_node: false
@@ -1064,7 +1064,7 @@
   - income_support
   - is_under_a_year_other
   - none
-  - 'yes'
+  - too_ill_to_work
   - 'no'
   - 'yes'
   :next_node: :is_abroad_for_treatment_outcome
@@ -1075,7 +1075,7 @@
   - income_support
   - is_under_a_year_other
   - none
-  - 'yes'
+  - too_ill_to_work
   - 'no'
   - 'no'
   :next_node: :is_not_eligible_outcome
@@ -1086,7 +1086,109 @@
   - income_support
   - is_under_a_year_other
   - none
+  - temporarily_incapable_of_work
+  :next_node: :is_abroad_for_treatment?
+  :outcome_node: false
+- :current_node: :is_abroad_for_treatment?
+  :responses:
+  - going_abroad
+  - income_support
+  - is_under_a_year_other
+  - none
+  - temporarily_incapable_of_work
+  - 'yes'
+  :next_node: :is_abroad_for_treatment_outcome
+  :outcome_node: true
+- :current_node: :is_abroad_for_treatment?
+  :responses:
+  - going_abroad
+  - income_support
+  - is_under_a_year_other
+  - none
+  - temporarily_incapable_of_work
   - 'no'
+  :next_node: :is_work_or_sick_pay?
+  :outcome_node: false
+- :current_node: :is_work_or_sick_pay?
+  :responses:
+  - going_abroad
+  - income_support
+  - is_under_a_year_other
+  - none
+  - temporarily_incapable_of_work
+  - 'no'
+  - 'yes'
+  :next_node: :is_abroad_for_treatment_outcome
+  :outcome_node: true
+- :current_node: :is_work_or_sick_pay?
+  :responses:
+  - going_abroad
+  - income_support
+  - is_under_a_year_other
+  - none
+  - temporarily_incapable_of_work
+  - 'no'
+  - 'no'
+  :next_node: :is_not_eligible_outcome
+  :outcome_node: true
+- :current_node: :is_either_of_the_following?
+  :responses:
+  - going_abroad
+  - income_support
+  - is_under_a_year_other
+  - none
+  - too_ill_to_work,temporarily_incapable_of_work
+  :next_node: :is_abroad_for_treatment?
+  :outcome_node: false
+- :current_node: :is_abroad_for_treatment?
+  :responses:
+  - going_abroad
+  - income_support
+  - is_under_a_year_other
+  - none
+  - temporarily_incapable_of_work,too_ill_to_work
+  - 'yes'
+  :next_node: :is_abroad_for_treatment_outcome
+  :outcome_node: true
+- :current_node: :is_abroad_for_treatment?
+  :responses:
+  - going_abroad
+  - income_support
+  - is_under_a_year_other
+  - none
+  - temporarily_incapable_of_work,too_ill_to_work
+  - 'no'
+  :next_node: :is_work_or_sick_pay?
+  :outcome_node: false
+- :current_node: :is_work_or_sick_pay?
+  :responses:
+  - going_abroad
+  - income_support
+  - is_under_a_year_other
+  - none
+  - temporarily_incapable_of_work,too_ill_to_work
+  - 'no'
+  - 'yes'
+  :next_node: :is_abroad_for_treatment_outcome
+  :outcome_node: true
+- :current_node: :is_work_or_sick_pay?
+  :responses:
+  - going_abroad
+  - income_support
+  - is_under_a_year_other
+  - none
+  - temporarily_incapable_of_work,too_ill_to_work
+  - 'no'
+  - 'no'
+  :next_node: :is_not_eligible_outcome
+  :outcome_node: true
+- :current_node: :is_either_of_the_following?
+  :responses:
+  - going_abroad
+  - income_support
+  - is_under_a_year_other
+  - none
+  - none
   :next_node: :is_any_of_the_following_apply?
   :outcome_node: false
 - :current_node: :is_any_of_the_following_apply?
@@ -1095,7 +1197,7 @@
   - income_support
   - is_under_a_year_other
   - none
-  - 'no'
+  - none
   - trades_dispute
   :next_node: :is_not_eligible_outcome
   :outcome_node: true
@@ -1105,7 +1207,7 @@
   - income_support
   - is_under_a_year_other
   - none
-  - 'no'
+  - none
   - full_time_secondary_education
   :next_node: :is_not_eligible_outcome
   :outcome_node: true
@@ -1115,7 +1217,7 @@
   - income_support
   - is_under_a_year_other
   - none
-  - 'no'
+  - none
   - appealing_against_decision
   :next_node: :is_not_eligible_outcome
   :outcome_node: true
@@ -1125,7 +1227,7 @@
   - income_support
   - is_under_a_year_other
   - none
-  - 'no'
+  - none
   - trades_dispute,appealing_against_decision
   :next_node: :is_not_eligible_outcome
   :outcome_node: true
@@ -1135,7 +1237,7 @@
   - income_support
   - is_under_a_year_other
   - none
-  - 'no'
+  - none
   - none
   :next_node: :is_abroad_for_treatment_outcome
   :outcome_node: true
