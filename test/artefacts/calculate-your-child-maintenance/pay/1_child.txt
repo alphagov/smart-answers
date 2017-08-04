@@ -23,8 +23,27 @@ Do you get any of these benefits?
 
 In Scotland, this also includes: Skillseekers training, War Widow’s, Widower’s or Surviving Civil Partner’s Pension
 
-  * yes: Yes
-  * no: No
+  * income_support: Income Support
+  * ib_jobseekers_allowance: income-based Jobseeker’s Allowance
+  * employment_support_allowance: income-related Employment and Support Allowance
+  * pension_credit: Pension Credit
+  * cb_jobseekers_allowance: contribution-based Jobseeker’s Allowance
+  * cb_employment_support_llowance: contribution-based Employment and Support Allowance
+  * state_pension: State Pension
+  * incapacity_benefit: Incapacity Benefit
+  * training_allowance: Training Allowance
+  * armed_forces_compensation_scheme_payments: Armed Forces Compensation Scheme payments
+  * war_disablement_pension: War Disablement Pension
+  * bereavement_allowance: Bereavement Allowance
+  * carers_allowance: Carer’s Allowance
+  * maternity_allowance: Maternity Allowance
+  * severe_disablement_allowance: Severe Disablement Allowance
+  * industrial_injuries_disablement_benefit: Industrial Injuries Disablement Benefit
+  * widowed_parents_allowance: Widowed Parent’s Allowance
+  * widows_pension: Widow’s pension
+  * universal_credit_no_earned_income: Universal Credit with no earned income
+  * skillseekers_training: Skillseekers training
+  * war_partner_pension: War Widow’s, Widower’s or Surviving Civil Partner’s Pension
 
 
 
