@@ -1,5 +1,5 @@
 ---
-lib/smart_answer/calculators/uk_benefits_abroad_calculator.rb: 4dbb7a87eb0ee136b9c573535e62167e
+lib/smart_answer/calculators/uk_benefits_abroad_calculator.rb: 3fe41f9c0e37d0acbb38f8c9b606fe7b
 lib/smart_answer_flows/uk-benefits-abroad/outcomes/_tax_credits_already_abroad_helpline.govspeak.erb: d79b1b09c2fe01c66cdda028a7679b8b
 lib/smart_answer_flows/uk-benefits-abroad/outcomes/_tax_credits_going_abroad_helpline.govspeak.erb: 1ceb38a208a4d7f9a9b813a33856fc78
 lib/smart_answer_flows/uk-benefits-abroad/outcomes/bb_already_abroad_eea_outcome.govspeak.erb: 29a2e99d0c3d251af8ec60c20e204549
@@ -83,7 +83,7 @@ lib/smart_answer_flows/uk-benefits-abroad/questions/is_any_of_the_following_appl
 lib/smart_answer_flows/uk-benefits-abroad/questions/is_claiming_benefits.govspeak.erb: 9c0a23d2417107dcf1975989c856093e
 lib/smart_answer_flows/uk-benefits-abroad/questions/is_either_of_the_following.govspeak.erb: 82f332083f83cfbf48446818a4c6e1cf
 lib/smart_answer_flows/uk-benefits-abroad/questions/is_how_long_abroad.govspeak.erb: 370e0431a76ce65473a1e45d717da114
-lib/smart_answer_flows/uk-benefits-abroad/questions/is_work_or_sick_pay.govspeak.erb: 46c0f74b75bdc20a90188af27ff04fb3
+lib/smart_answer_flows/uk-benefits-abroad/questions/is_work_or_sick_pay.govspeak.erb: f70eb815376d3f688827094003b4abae
 lib/smart_answer_flows/uk-benefits-abroad/questions/jsa_how_long_abroad.govspeak.erb: c2dd0e4515fc21df9ecc271d00c43149
 lib/smart_answer_flows/uk-benefits-abroad/questions/tax_credits_children.govspeak.erb: 6ad03b8f74c1b68fb4121521e1df5ee2
 lib/smart_answer_flows/uk-benefits-abroad/questions/tax_credits_currently_claiming.govspeak.erb: 085fc61d088cf22326fcbff08f823e0a
@@ -94,6 +94,6 @@ lib/smart_answer_flows/uk-benefits-abroad/questions/which_country.govspeak.erb: 
 lib/smart_answer_flows/uk-benefits-abroad/questions/working_for_a_uk_employer.govspeak.erb: 8367cff3d1d36a843d6d966a547d179b
 lib/smart_answer_flows/uk-benefits-abroad/questions/working_for_uk_employer_ssp.govspeak.erb: 15e9162bb80fe215af169d0e39dd53d0
 lib/smart_answer_flows/uk-benefits-abroad/uk_benefits_abroad.govspeak.erb: 289ed7bd184696294095c760f24ffb0d
-lib/smart_answer_flows/uk-benefits-abroad.rb: be234155cd2e000ef8f47f77dc6de318
+lib/smart_answer_flows/uk-benefits-abroad.rb: 22a6872325cde8a371b0c865de6b2d34
 test/data/uk-benefits-abroad-questions-and-responses.yml: 5a5b1faf278afa7a9ed2d344b7cfadc2
 test/data/uk-benefits-abroad-responses-and-expected-results.yml: fee3e33d638d352ea1c769e293b9103b

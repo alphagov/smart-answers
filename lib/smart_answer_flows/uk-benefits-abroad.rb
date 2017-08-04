@@ -520,15 +520,18 @@ module SmartAnswer
       end
 
       # Q36 going_abroad
-      multiple_choice :is_work_or_sick_pay? do
-        option :yes
-        option :no
+      checkbox_question :is_work_or_sick_pay? do
+        option :"364_days"
+        option :"196_days"
+
+        on_response do |response|
+          calculator.impairment_periods = response.split(",")
+        end
 
         next_node do |response|
-          case response
-          when 'yes'
+          if calculator.not_getting_sick_pay?
             outcome :is_abroad_for_treatment_outcome # A44 going_abroad
-          when 'no'
+          else
             outcome :is_not_eligible_outcome # A45 going_abroad
           end
         end

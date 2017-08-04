@@ -157,5 +157,43 @@ module SmartAnswer::Calculators
         refute @calculator.getting_income_support?
       end
     end
+
+    context "#not_getting_sick_pay?" do
+      should "returns true if impairment periods is valid" do
+        @calculator.impairment_periods = %w(364_days 196_days)
+
+        assert @calculator.not_getting_sick_pay?
+      end
+
+      should "returns false if impairment periods isn't valid" do
+        @calculator.impairment_periods = %w(arbitary_impairment_period)
+
+        refute @calculator.not_getting_sick_pay?
+      end
+
+      should "returns false if impairment periods contains at least one invalid element" do
+        @calculator.impairment_periods = %w(invalid_impairment_period 364_days)
+
+        refute @calculator.not_getting_sick_pay?
+      end
+
+      should "returns false if impairment periods isn't an array" do
+        @calculator.impairment_periods = "invalid"
+
+        refute @calculator.not_getting_sick_pay?
+      end
+
+      should "returns false if impairment periods is empty" do
+        @calculator.impairment_periods = []
+
+        refute @calculator.not_getting_sick_pay?
+      end
+
+      should "returns false if impairment periods is nil" do
+        @calculator.impairment_periods = nil
+
+        refute @calculator.not_getting_sick_pay?
+      end
+    end
   end
 end

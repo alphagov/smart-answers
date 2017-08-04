@@ -895,20 +895,44 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               should "ask if you've been unable to work or received SSP" do
                 assert_current_node :is_work_or_sick_pay?
               end
-              context "answer yes" do
+
+              context "selects more than one impairment period" do
                 setup do
-                  add_response 'yes'
+                  add_response "364_days,196_days"
                 end
+
                 should "take you to carry on claiming for 4 weeks outcome" do
                   assert_current_node :is_abroad_for_treatment_outcome
                 end
               end
-              context "answer no" do
+
+              context "selects at least one impairment period" do
                 setup do
-                  add_response 'no'
+                  add_response "364_days"
                 end
+
+                should "take you to carry on claiming for 4 weeks outcome" do
+                  assert_current_node :is_abroad_for_treatment_outcome
+                end
+              end
+
+              context "does not select any impairment period" do
+                setup do
+                  add_response "none"
+                end
+
                 should "take you to not eligible outcome" do
                   assert_current_node :is_not_eligible_outcome
+                end
+              end
+
+              context "selects at least an impairment period" do
+                setup do
+                  add_response "invalid_impairment_period,196_days"
+                end
+
+                should "get illegal option invalid_impairment_period error" do
+                  assert_current_node_is_error "Illegal option invalid_impairment_period for is_work_or_sick_pay?"
                 end
               end
             end
