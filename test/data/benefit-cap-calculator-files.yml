@@ -1,13 +1,13 @@
 ---
-lib/data/benefit_cap_data.yml: 8650b5c0937d03a96dc086b7c68d0b96
+lib/data/benefit_cap_data.yml: 90309e12c0009b38ae5de5bc08195d8e
 lib/smart_answer/calculators/benefit_cap_calculator_configuration.rb: 45fe15f6690f8d7d6698021c331b6786
 lib/smart_answer_flows/benefit-cap-calculator/benefit_cap_calculator.govspeak.erb: e1c2a5fc044662ff2ad6237a3177e75c
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/_dwp_contact_details.govspeak.erb: 3bab6f0d1df0457dbf0ff7548150ba4f
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_affected_greater_than_cap.govspeak.erb: d8e15629e5e2285d0196131813bd4369
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_affected_greater_than_cap_london.govspeak.erb: 73153da0dd838bd87fc43c1d3ae08ae6
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_affected_greater_than_cap_national.govspeak.erb: c0842d647460bc8f92ebc9ab0be6a346
-lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected_exemptions.govspeak.erb: 8fa5043ee99ac7a09564c2ec7739c58b
-lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected_exemptions_future.govspeak.erb: 4fd5d2322010bf3d781c96d3196c73e0
+lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected_exemptions.govspeak.erb: 567b016cb9f9a2410480f6617a2bfcd2
+lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected_exemptions_future.govspeak.erb: a25d8b328e120c8b2b9e35b8f125d6a8
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected_less_than_cap.govspeak.erb: 087356ce1a5002a8344541459308aa73
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected_less_than_cap_london.govspeak.erb: 4a470b5f1490e348b59ad0e984ace2b3
 lib/smart_answer_flows/benefit-cap-calculator/outcomes/outcome_not_affected_less_than_cap_national.govspeak.erb: 40d5581c7d3a17d300cd90269548cca7
@@ -27,7 +27,7 @@ lib/smart_answer_flows/benefit-cap-calculator/questions/income_support_amount.go
 lib/smart_answer_flows/benefit-cap-calculator/questions/jsa_amount.govspeak.erb: 3524383fb4b337bfff5709f17f7a613a
 lib/smart_answer_flows/benefit-cap-calculator/questions/maternity_amount.govspeak.erb: 475c1770892ff2d2e276c7cce4598708
 lib/smart_answer_flows/benefit-cap-calculator/questions/receive_housing_benefit.govspeak.erb: d5eaf64a3eac78bfc0924f6a4ea3030d
-lib/smart_answer_flows/benefit-cap-calculator/questions/receiving_exemption_benefits.govspeak.erb: 55b55fb2efb3a96ccb31ecca6427539d
+lib/smart_answer_flows/benefit-cap-calculator/questions/receiving_exemption_benefits.govspeak.erb: a94c0a1eb183e86f1ca6b697f6ae1bf0
 lib/smart_answer_flows/benefit-cap-calculator/questions/receiving_non_exemption_benefits.govspeak.erb: 8d0fe6ac62cae963d35b674f996375d1
 lib/smart_answer_flows/benefit-cap-calculator/questions/sda_amount.govspeak.erb: 17f4b60221a75f7dc4a28535b809237d
 lib/smart_answer_flows/benefit-cap-calculator/questions/single_couple_lone_parent.govspeak.erb: edbfa6496d8191e1ccfd3608e12585c7
@@ -36,6 +36,6 @@ lib/smart_answer_flows/benefit-cap-calculator/questions/widowed_mother_amount.go
 lib/smart_answer_flows/benefit-cap-calculator/questions/widowed_parent_amount.govspeak.erb: 0ed745d8fc4c3ca57a1e15c9aa2431f6
 lib/smart_answer_flows/benefit-cap-calculator/questions/widows_aged_amount.govspeak.erb: fdeaf95afd6103b96e4e05291650277d
 lib/smart_answer_flows/benefit-cap-calculator/questions/working_tax_credit.govspeak.erb: d96c2ff97c1bb068389fbefc25b9ed1a
-lib/smart_answer_flows/benefit-cap-calculator.rb: b9fd77672ba02b0293cf86234ccb1e19
+lib/smart_answer_flows/benefit-cap-calculator.rb: 43f6b0fd2b63d1159cb22efd45574a18
 test/data/benefit-cap-calculator-questions-and-responses.yml: 14d8ae941a68a59e4c248f0e1e5a0291
 test/data/benefit-cap-calculator-responses-and-expected-results.yml: 1a94faafc8daabb0b60f3850535f33fe

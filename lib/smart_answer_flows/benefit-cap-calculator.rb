@@ -30,8 +30,8 @@ module SmartAnswer
         option :yes
         option :no
 
-        calculate :exempt_benefits do
-          config.exempt_benefits
+        calculate :exempt_benefits_descriptions do
+          config.exempt_benefits.values
         end
 
         next_node do |response|
