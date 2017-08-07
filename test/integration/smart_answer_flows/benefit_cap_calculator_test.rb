@@ -49,8 +49,16 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
             assert_current_node :receiving_exemption_benefits?
           end
 
-          context "answer yes" do
-            setup { add_response :yes }
+          context "selects more than one exempt benefit" do
+            setup { add_response "attendance_allowance,war_pensions" }
+
+            should "go to outcome 1" do
+              assert_current_node :outcome_not_affected_exemptions
+            end
+          end
+
+          context "selects at least one exempt benefit" do
+            setup { add_response :attendance_allowance }
 
             should "go to outcome 1" do
               assert_current_node :outcome_not_affected_exemptions
@@ -58,8 +66,8 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
           end # Q3 receiving benefits end at Outcome 1
 
           # not receiving exemption benefits from Q3
-          context "answer no" do
-            setup { add_response :no }
+          context "does not select any exempt benefit" do
+            setup { add_response :none }
 
             #Q4
             should "ask if household receiving other benefits" do
@@ -246,7 +254,7 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
         should "show :outcome_affected_greater_than_cap outcome" do
           add_response :yes
           add_response :no
-          add_response :no
+          add_response :none
           add_response :child_benefit
           add_response "100"
           add_response "400"

@@ -51,6 +51,44 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#exempted_benefits?" do
+        should "returns true if exempted benefit list is valid" do
+          @config.exempted_benefits = %w(attendance_allowance war_pensions)
+
+          assert @config.exempted_benefits?
+        end
+
+        should "returns false if exempted benefit list isn't valid" do
+          @config.exempted_benefits = %w(arbitary_benefit)
+
+          refute @config.exempted_benefits?
+        end
+
+        should "returns false if exempted benefit list contains at least one invalid element" do
+          @config.exempted_benefits = %w(invalid_benefit war_pensions)
+
+          refute @config.exempted_benefits?
+        end
+
+        should "returns false if exempted benefit list isn't an array" do
+          @config.exempted_benefits = "invalid"
+
+          refute @config.exempted_benefits?
+        end
+
+        should "returns false if exempted benefit list is empty" do
+          @config.exempted_benefits = []
+
+          refute @config.exempted_benefits?
+        end
+
+        should "returns false if exempted benefit list is nil" do
+          @config.exempted_benefits = nil
+
+          refute @config.exempted_benefits?
+        end
+      end
+
       context "Flow configuration" do
         setup do
           BenefitCapCalculatorConfiguration.any_instance.stubs(:data).returns(

@@ -2,10 +2,7 @@
   Do you or someone in your household get any of the following benefits?
 <% end %>
 
-<% options(
-  "yes": "Yes",
-  "no": "No"
-) %>
+<% options(exempt_benefits) %>
 
 <% content_for :body do %>
   <% exempt_benefits_descriptions.each do |exempt_benefit| %>
