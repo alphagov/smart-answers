@@ -6,8 +6,19 @@
 - 'yes'
 - 'no'
 :receiving_exemption_benefits?:
-- 'yes'
-- 'no'
+- attendance_allowance
+- carers_allowance
+- disability_living_allowance
+- guardians_allowance
+- industrial_injuries_benefit
+- personal_independence_payment
+- employment_support_allowance
+- war_partner_pension
+- armed_forces_compensation_scheme
+- armed_forces_independence_payment
+- war_pensions
+- attendance_allowance,war_pensions
+- none
 :receiving_non_exemption_benefits?:
 - none
 - bereavement
