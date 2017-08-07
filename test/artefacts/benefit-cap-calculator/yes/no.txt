@@ -1,19 +1,8 @@
 Do you or someone in your household get any of the following benefits?
 
-- Attendance Allowance
-- Carer&#39;s Allowance
-- Disability Living Allowance
-- Guardian&#39;s Allowance
-- Industrial Injuries Benefit
-- Personal Independence Payment
-- Employment and Support Allowance (support component)
-- War Widow’s or War Widower’s Pension
-- Armed Forces Compensation Scheme
-- Armed Forces Independence Payment
-- War pensions
 
 
-
+If you do not receive any of these click 'Next step'.
 
   * attendance_allowance: Attendance Allowance
   * carers_allowance: Carer's Allowance
