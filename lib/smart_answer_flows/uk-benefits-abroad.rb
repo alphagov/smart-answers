@@ -527,8 +527,9 @@ module SmartAnswer
 
       # Q36 going_abroad
       checkbox_question :is_work_or_sick_pay? do
-        option :"364_days"
-        option :"196_days"
+        uk_benefits_abroad_calculator.periods_of_impairment.keys.each do |period|
+          option period
+        end
 
         on_response do |response|
           calculator.impairment_periods = response.split(",")

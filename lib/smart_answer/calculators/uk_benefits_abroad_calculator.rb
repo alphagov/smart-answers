@@ -29,7 +29,12 @@ module SmartAnswer::Calculators
       too_ill_to_work: "I’m getting Statutory Sick Pay",
       temporarily_incapable_of_work: "I’m incapable of work, but being treated as capable of work because I’m temporarily disqualified from receiving Income Support"
     }.freeze
+    PERIODS_OF_IMPAIRMENT = {
+      "364_days": "364 days",
+      "196_days": "196 days if you're terminally ill, or getting the highest rate of Disability Living Allowance (care component) or the enhanced rate of Personal Independence Payment (daily living component)"
+    }.freeze
     private_constant :STATE_BENEFITS, :DISPUTE_CRITERIA, :PREMIUMS, :IMPAIRMENTS
+    private_constant :PERIODS_OF_IMPAIRMENT
 
     def eea_country?
       %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia
@@ -70,6 +75,10 @@ module SmartAnswer::Calculators
 
     def impairments
       IMPAIRMENTS
+    end
+
+    def periods_of_impairment
+      PERIODS_OF_IMPAIRMENT
     end
 
     def benefits?
@@ -131,11 +140,8 @@ module SmartAnswer::Calculators
     end
 
     def valid_impairment_periods?
-      impairment_periods.all? do |period|
-        %w(
-          364_days
-          196_days
-        ).include?(period)
+      impairment_periods.map(&:to_sym).all? do |period|
+        periods_of_impairment.keys.include?(period)
       end
     end
 
