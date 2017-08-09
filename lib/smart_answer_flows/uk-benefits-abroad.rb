@@ -545,9 +545,9 @@ module SmartAnswer
 
       # Q37 going_abroad
       checkbox_question :is_any_of_the_following_apply? do
-        option :trades_dispute
-        option :full_time_secondary_education
-        option :appealing_against_decision
+        uk_benefits_abroad_calculator.all_dispute_criteria.keys.each do |criterion|
+          option criterion
+        end
 
         on_response do |response|
           calculator.dispute_criteria = response.split(",")

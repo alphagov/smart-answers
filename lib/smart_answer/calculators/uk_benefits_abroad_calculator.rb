@@ -14,7 +14,12 @@ module SmartAnswer::Calculators
       industrial_injuries_disablement_benefit: "Industrial Injuries Disablement Benefit",
       state_pension: "State Pension"
     }.freeze
-    private_constant :STATE_BENEFITS
+    DISPUTE_CRITERIA = {
+      trades_dispute: "I'm affected by a trades dispute (eg on strike)",
+      full_time_secondary_education: "I'm age 16 to 19 and in full-time secondary education",
+      appealing_against_decision: "I'm appealing against a decision about your ability to work"
+    }.freeze
+    private_constant :STATE_BENEFITS, :DISPUTE_CRITERIA
 
     def eea_country?
       %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia
@@ -43,6 +48,10 @@ module SmartAnswer::Calculators
 
     def state_benefits
       STATE_BENEFITS
+    end
+
+    def all_dispute_criteria
+      DISPUTE_CRITERIA
     end
 
     def benefits?
@@ -86,12 +95,8 @@ module SmartAnswer::Calculators
     end
 
     def valid_dispute_criteria?
-      dispute_criteria.all? do |criterion|
-        %w(
-          trades_dispute
-          full_time_secondary_education
-          appealing_against_decision
-        ).include?(criterion)
+      dispute_criteria.map(&:to_sym).all? do |criterion|
+        all_dispute_criteria.keys.include?(criterion)
       end
     end
 
