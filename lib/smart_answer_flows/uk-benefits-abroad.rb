@@ -493,8 +493,9 @@ module SmartAnswer
 
       # Q34 going_abroad
       checkbox_question :is_either_of_the_following? do
-        option :too_ill_to_work
-        option :temporarily_incapable_of_work
+        uk_benefits_abroad_calculator.impairments.keys.each do |impairment|
+          option impairment
+        end
 
         on_response do |response|
           calculator.possible_impairments = response.split(",")

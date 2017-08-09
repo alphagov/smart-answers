@@ -25,7 +25,11 @@ module SmartAnswer::Calculators
       disability_premium: "Disability premium",
       severe_disability_premium: "Severe Disability premium"
     }.freeze
-    private_constant :STATE_BENEFITS, :DISPUTE_CRITERIA, :PREMIUMS
+    IMPAIRMENTS = {
+      too_ill_to_work: "I’m getting Statutory Sick Pay",
+      temporarily_incapable_of_work: "I’m incapable of work, but being treated as capable of work because I’m temporarily disqualified from receiving Income Support"
+    }.freeze
+    private_constant :STATE_BENEFITS, :DISPUTE_CRITERIA, :PREMIUMS, :IMPAIRMENTS
 
     def eea_country?
       %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia
@@ -62,6 +66,10 @@ module SmartAnswer::Calculators
 
     def premiums
       PREMIUMS
+    end
+
+    def impairments
+      IMPAIRMENTS
     end
 
     def benefits?
@@ -117,11 +125,8 @@ module SmartAnswer::Calculators
     end
 
     def possible_impairments?
-      possible_impairments.all? do |impairment|
-        %w(
-          too_ill_to_work
-          temporarily_incapable_of_work
-        ).include?(impairment)
+      possible_impairments.map(&:to_sym).all? do |impairment|
+        impairments.keys.include?(impairment)
       end
     end
 
