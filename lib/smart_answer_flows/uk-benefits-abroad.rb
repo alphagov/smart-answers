@@ -398,13 +398,9 @@ module SmartAnswer
 
       # Q20 already_abroad
       checkbox_question :tax_credits_currently_claiming? do
-        option :state_pension
-        option :widows_benefit
-        option :incapacity_benefit
-        option :bereavement_benefit
-        option :severe_disablement_allowance
-        option :industrial_injuries_disablement_benefit
-        option :contribution_based_employment_support_allowance
+        uk_benefits_abroad_calculator.tax_credits_benefits.keys.each do |credit|
+          option credit
+        end
 
         on_response do |response|
           calculator.tax_credits = response.split(",")

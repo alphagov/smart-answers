@@ -33,8 +33,17 @@ module SmartAnswer::Calculators
       "364_days": "364 days",
       "196_days": "196 days if you're terminally ill, or getting the highest rate of Disability Living Allowance (care component) or the enhanced rate of Personal Independence Payment (daily living component)"
     }.freeze
+    TAX_CREDITS_BENEFITS = {
+      state_pension: "State Pension",
+      widows_benefit: "Widow’s Benefit",
+      incapacity_benefit: "Incapacity Benefit",
+      bereavement_benefit: "Bereavement Benefit",
+      severe_disablement_allowance: "Severe Disablement Allowance",
+      industrial_injuries_disablement_benefit: "Industrial Injuries Disablement Benefit",
+      contribution_based_employment_support_allowance: "contribution-based Employment and Support Allowance"
+    }.freeze
     private_constant :STATE_BENEFITS, :DISPUTE_CRITERIA, :PREMIUMS, :IMPAIRMENTS
-    private_constant :PERIODS_OF_IMPAIRMENT
+    private_constant :PERIODS_OF_IMPAIRMENT, :TAX_CREDITS_BENEFITS
 
     def eea_country?
       %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia
@@ -79,6 +88,10 @@ module SmartAnswer::Calculators
 
     def periods_of_impairment
       PERIODS_OF_IMPAIRMENT
+    end
+
+    def tax_credits_benefits
+      TAX_CREDITS_BENEFITS
     end
 
     def benefits?
@@ -146,16 +159,8 @@ module SmartAnswer::Calculators
     end
 
     def valid_tax_credits_benefits?
-      tax_credits.all? do |tax_credit|
-        %w(
-          state_pension
-          widows_benefit
-          incapacity_benefit
-          bereavement_benefit
-          severe_disablement_allowance
-          industrial_injuries_disablement_benefit
-          contribution_based_employment_support_allowance
-        ).include?(tax_credit)
+      tax_credits.map(&:to_sym).all? do |tax_credit|
+        tax_credits_benefits.keys.include?(tax_credit)
       end
     end
   end
