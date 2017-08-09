@@ -11,6 +11,7 @@ module SmartAnswer
       additional_countries = [OpenStruct.new(slug: "jersey", name: "Jersey"), OpenStruct.new(slug: "guernsey", name: "Guernsey")]
 
       countries_of_former_yugoslavia = Calculators::UkBenefitsAbroadCalculator::COUNTRIES_OF_FORMER_YUGOSLAVIA
+      uk_benefits_abroad_calculator = Calculators::UkBenefitsAbroadCalculator.new
 
       # Q1
       multiple_choice :going_or_already_abroad? do
@@ -19,7 +20,7 @@ module SmartAnswer
         save_input_as :going_or_already_abroad
 
         on_response do
-          self.calculator = Calculators::UkBenefitsAbroadCalculator.new
+          self.calculator = uk_benefits_abroad_calculator
         end
 
         calculate :country_question_title do
@@ -323,12 +324,9 @@ module SmartAnswer
 
       # Q13 going_abroad and Q12 already_abroad
       checkbox_question :do_either_of_the_following_apply? do
-        option :bereavement_benefits
-        option :severe_disablement_allowance
-        option :employment_and_support_allowance
-        option :incapacity_benefit
-        option :industrial_injuries_disablement_benefit
-        option :state_pension
+        uk_benefits_abroad_calculator.state_benefits.keys.each do |benefit|
+          option benefit
+        end
 
         on_response do |response|
           calculator.benefits = response.split(",")

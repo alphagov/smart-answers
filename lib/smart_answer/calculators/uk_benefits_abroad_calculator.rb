@@ -2,10 +2,19 @@ module SmartAnswer::Calculators
   class UkBenefitsAbroadCalculator
     include ActiveModel::Model
 
-    COUNTRIES_OF_FORMER_YUGOSLAVIA = %w(bosnia-and-herzegovina kosovo macedonia montenegro serbia).freeze
-
     attr_accessor :country, :benefits, :dispute_criteria, :partner_premiums
     attr_accessor :possible_impairments, :impairment_periods, :tax_credits
+
+    COUNTRIES_OF_FORMER_YUGOSLAVIA = %w(bosnia-and-herzegovina kosovo macedonia montenegro serbia).freeze
+    STATE_BENEFITS = {
+      bereavement_benefits: "Bereavement benefits",
+      severe_disablement_allowance: "Severe Disablement Allowance",
+      employment_and_support_allowance: "Employment and Support Allowance",
+      incapacity_benefit: "Incapacity Benefit",
+      industrial_injuries_disablement_benefit: "Industrial Injuries Disablement Benefit",
+      state_pension: "State Pension"
+    }.freeze
+    private_constant :STATE_BENEFITS
 
     def eea_country?
       %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia
@@ -30,6 +39,10 @@ module SmartAnswer::Calculators
     def social_security_countries_bereavement_benefits?
       (COUNTRIES_OF_FORMER_YUGOSLAVIA +
       %w(barbados bermuda canada guernsey jersey israel jamaica mauritius new-zealand philippines turkey usa)).include?(country)
+    end
+
+    def state_benefits
+      STATE_BENEFITS
     end
 
     def benefits?
@@ -69,16 +82,7 @@ module SmartAnswer::Calculators
   private
 
     def valid_benefits?
-      benefits.all? do |benefit|
-        %w(
-          bereavement_benefits
-          severe_disablement_allowance
-          employment_and_support_allowance
-          incapacity_benefit
-          industrial_injuries_disablement_benefit
-          state_pension
-        ).include?(benefit)
-      end
+      benefits.map(&:to_sym).all? { |benefit| state_benefits.keys.include?(benefit) }
     end
 
     def valid_dispute_criteria?
