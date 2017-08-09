@@ -474,10 +474,9 @@ module SmartAnswer
 
       # Q33 going_abroad
       checkbox_question :is_claiming_benefits? do
-        option :pension_premium
-        option :higher_pensioner
-        option :disability_premium
-        option :severe_disability_premium
+        uk_benefits_abroad_calculator.premiums.keys.each do |premium|
+          option premium
+        end
 
         on_response do |response|
           calculator.partner_premiums = response.split(",")

@@ -19,7 +19,13 @@ module SmartAnswer::Calculators
       full_time_secondary_education: "I'm age 16 to 19 and in full-time secondary education",
       appealing_against_decision: "I'm appealing against a decision about your ability to work"
     }.freeze
-    private_constant :STATE_BENEFITS, :DISPUTE_CRITERIA
+    PREMIUMS = {
+      pension_premium: "Pensioner premium",
+      higher_pensioner: "Higher Pensioner premium",
+      disability_premium: "Disability premium",
+      severe_disability_premium: "Severe Disability premium"
+    }.freeze
+    private_constant :STATE_BENEFITS, :DISPUTE_CRITERIA, :PREMIUMS
 
     def eea_country?
       %w(austria belgium bulgaria croatia cyprus czech-republic denmark estonia
@@ -52,6 +58,10 @@ module SmartAnswer::Calculators
 
     def all_dispute_criteria
       DISPUTE_CRITERIA
+    end
+
+    def premiums
+      PREMIUMS
     end
 
     def benefits?
@@ -101,13 +111,8 @@ module SmartAnswer::Calculators
     end
 
     def valid_partner_premiums?
-      partner_premiums.all? do |premium|
-        %w(
-          pension_premium
-          higher_pensioner
-          disability_premium
-          severe_disability_premium
-        ).include?(premium)
+      partner_premiums.map(&:to_sym).all? do |premium|
+        premiums.keys.include?(premium)
       end
     end
 
