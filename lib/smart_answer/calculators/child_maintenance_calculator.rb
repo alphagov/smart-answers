@@ -14,6 +14,31 @@ module SmartAnswer::Calculators
     SHARED_CARE_MAX_RELIEF_EXTRA_AMOUNT = 7.00
     SCHEME_MAX_INCOME = 3000
 
+    STATE_BENEFITS = {
+      income_support: "Income Support",
+      ib_jobseekers_allowance: "income-based Jobseeker’s Allowance",
+      employment_support_allowance: "income-related Employment and Support Allowance",
+      pension_credit: "Pension Credit",
+      cb_jobseekers_allowance: "contribution-based Jobseeker’s Allowance",
+      cb_employment_support_llowance: "contribution-based Employment and Support Allowance",
+      state_pension: "State Pension",
+      incapacity_benefit: "Incapacity Benefit",
+      training_allowance: "Training Allowance",
+      armed_forces_compensation_scheme_payments: "Armed Forces Compensation Scheme payments",
+      war_disablement_pension: "War Disablement Pension",
+      bereavement_allowance: "Bereavement Allowance",
+      carers_allowance: "Carer’s Allowance",
+      maternity_allowance: "Maternity Allowance",
+      severe_disablement_allowance: "Severe Disablement Allowance",
+      industrial_injuries_disablement_benefit: "Industrial Injuries Disablement Benefit",
+      widowed_parents_allowance: "Widowed Parent’s Allowance",
+      widows_pension: "Widow’s pension",
+      universal_credit_no_earned_income: "Universal Credit with no earned income",
+      skillseekers_training: "Skillseekers training",
+      war_partner_pension: "War Widow’s, Widower’s or Surviving Civil Partner’s Pension"
+    }.freeze
+    private_constant :STATE_BENEFITS
+
     def initialize(attributes = {})
       super
       @calculator_data = self.class.child_maintenance_data
@@ -171,6 +196,10 @@ module SmartAnswer::Calculators
       @child_maintenance_data ||= YAML.load_file(Rails.root.join("lib/data/child_maintenance_data.yml"))
     end
 
+    def state_benefits
+      STATE_BENEFITS
+    end
+
     def state_benefits?
       benefits.present? && benefits.is_a?(Array) && valid_state_benefits?
     end
@@ -178,31 +207,7 @@ module SmartAnswer::Calculators
   private
 
     def valid_state_benefits?
-      benefits.all? do |benefit|
-        %w(
-          income_support
-          ib_jobseekers_allowance
-          employment_support_allowance
-          pension_credit
-          cb_jobseekers_allowance
-          cb_employment_support_llowance
-          state_pension
-          incapacity_benefit
-          training_allowance
-          armed_forces_compensation_scheme_payments
-          war_disablement_pension
-          bereavement_allowance
-          carers_allowance
-          maternity_allowance
-          severe_disablement_allowance
-          industrial_injuries_disablement_benefit
-          widowed_parents_allowance
-          widows_pension
-          universal_credit_no_earned_income
-          skillseekers_training
-          war_partner_pension
-        ).include?(benefit)
-      end
+      benefits.map(&:to_sym).all? { |benefit| STATE_BENEFITS.keys.include?(benefit) }
     end
   end
 end

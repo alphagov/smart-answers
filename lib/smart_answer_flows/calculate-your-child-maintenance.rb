@@ -16,14 +16,14 @@ module SmartAnswer
           url: "http://www.cmoptions.org/en/maintenance/ways-to-pay.asp"
         },
       ]
-
+      child_maintenance_calculator = Calculators::ChildMaintenanceCalculator.new
       ## Q0
       multiple_choice :are_you_paying_or_receiving? do
         option :pay
         option :receive
 
         on_response do |response|
-          self.calculator = Calculators::ChildMaintenanceCalculator.new
+          self.calculator = child_maintenance_calculator
           calculator.paying_or_receiving = response
         end
 
@@ -50,27 +50,9 @@ module SmartAnswer
 
       ## Q2
       checkbox_question :gets_benefits? do
-        option :income_support
-        option :ib_jobseekers_allowance
-        option :employment_support_allowance
-        option :pension_credit
-        option :cb_jobseekers_allowance
-        option :cb_employment_support_llowance
-        option :state_pension
-        option :incapacity_benefit
-        option :training_allowance
-        option :armed_forces_compensation_scheme_payments
-        option :war_disablement_pension
-        option :bereavement_allowance
-        option :carers_allowance
-        option :maternity_allowance
-        option :severe_disablement_allowance
-        option :industrial_injuries_disablement_benefit
-        option :widowed_parents_allowance
-        option :widows_pension
-        option :universal_credit_no_earned_income
-        option :skillseekers_training
-        option :war_partner_pension
+        child_maintenance_calculator.state_benefits.keys.each do |benefit|
+          option benefit
+        end
 
         on_response do |response|
           calculator.benefits = response.split(",")
