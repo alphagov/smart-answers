@@ -5,12 +5,16 @@ module SmartAnswer::Calculators
     context "rate_type when benefits and no shared care" do
       should "show nil rate for low income or any income and benefits and shared care > 0" do
         @calculator = ChildMaintenanceCalculator.new(
-          number_of_children: 4, benefits: 'no', paying_or_receiving: 'pay'
+          number_of_children: 4,
+          benefits: %w(none),
+          paying_or_receiving: "pay"
         )
         @calculator.income = 5.00
         assert_equal :nil, @calculator.rate_type
         @calculator = ChildMaintenanceCalculator.new(
-          number_of_children: 4, benefits: 'yes', paying_or_receiving: 'pay'
+          number_of_children: 4,
+          benefits: %w(cb_jobseekers_allowance state_pension),
+          paying_or_receiving: "pay"
         )
         @calculator.number_of_shared_care_nights = 1
         assert_equal :nil, @calculator.rate_type
@@ -20,7 +24,9 @@ module SmartAnswer::Calculators
     context "rate_type method based on income" do
       should "give flat rate type based on the income of the payee" do
         @calculator = ChildMaintenanceCalculator.new(
-          number_of_children: 3, benefits: 'no', paying_or_receiving: 'pay'
+          number_of_children: 3,
+          benefits: %w(none),
+          paying_or_receiving: "pay"
         )
         @calculator.income = 7
         assert_equal :flat, @calculator.rate_type
@@ -28,7 +34,9 @@ module SmartAnswer::Calculators
 
       should "give reduced rate type based on the income of the payee" do
         @calculator = ChildMaintenanceCalculator.new(
-          number_of_children: 2, benefits: 'no', paying_or_receiving: 'pay'
+          number_of_children: 2,
+          benefits: %w(none),
+          paying_or_receiving: "pay"
         )
         @calculator.income = 126
         assert_equal :reduced, @calculator.rate_type
@@ -36,7 +44,9 @@ module SmartAnswer::Calculators
 
       should "give basic rate type based on the income of the payee" do
         @calculator = ChildMaintenanceCalculator.new(
-          number_of_children: 1, benefits: 'no', paying_or_receiving: 'pay'
+          number_of_children: 1,
+          benefits: %w(none),
+          paying_or_receiving: "pay"
         )
         @calculator.income = 800
         assert_equal :basic, @calculator.rate_type
@@ -44,7 +54,9 @@ module SmartAnswer::Calculators
 
       should "give basic+ rate type based on the income of the payee" do
         @calculator = ChildMaintenanceCalculator.new(
-          number_of_children: 1, benefits: 'no', paying_or_receiving: 'pay'
+          number_of_children: 1,
+          benefits: %w(none),
+          paying_or_receiving: "pay"
         )
         @calculator.income = 2000
         assert_equal :basic_plus, @calculator.rate_type
@@ -55,7 +67,9 @@ module SmartAnswer::Calculators
     context "calculate_reduced_rate_payment method" do
       should "give the reduced rate payment total" do
         @calculator = ChildMaintenanceCalculator.new(
-          number_of_children: 2, benefits: 'no', paying_or_receiving: 'pay'
+          number_of_children: 2,
+          benefits: %w(none),
+          paying_or_receiving: "pay"
         )
         @calculator.income = 173.00
         @calculator.number_of_other_children = 1
@@ -67,7 +81,9 @@ module SmartAnswer::Calculators
 
       should "calculate the child maintenance payment using the correct scheme and rate - reduced rate minimum of 7 pounds" do
         @calculator = ChildMaintenanceCalculator.new(
-          number_of_children: 2, benefits: 'no', paying_or_receiving: 'pay'
+          number_of_children: 2,
+          benefits: %w(none),
+          paying_or_receiving: "pay"
         )
         @calculator.income = 180.0
         @calculator.number_of_other_children = 1
@@ -79,7 +95,9 @@ module SmartAnswer::Calculators
     context "calculate_basic_rate_payment method" do
       setup do
         @calculator = ChildMaintenanceCalculator.new(
-          number_of_children: 2, benefits: 'no', paying_or_receiving: 'pay'
+          number_of_children: 2,
+          benefits: %w(none),
+          paying_or_receiving: "pay"
         )
         @calculator.income = 600.00
         @calculator.number_of_other_children = 0
@@ -97,7 +115,9 @@ module SmartAnswer::Calculators
     context "calculate_basic_rate_payment method" do
       setup do
         @calculator = ChildMaintenanceCalculator.new(
-          number_of_children: 3, benefits: 'no', paying_or_receiving: 'pay'
+          number_of_children: 3,
+          benefits: %w(none),
+          paying_or_receiving: "pay"
         )
         @calculator.income = 517.81
         @calculator.number_of_other_children = 1
@@ -115,7 +135,9 @@ module SmartAnswer::Calculators
     context "calculate_basic_plus_rate_payment method" do
       setup do
         @calculator = ChildMaintenanceCalculator.new(
-          number_of_children: 2, benefits: 'no', paying_or_receiving: 'pay'
+          number_of_children: 2,
+          benefits: %w(none),
+          paying_or_receiving: "pay"
         )
         @calculator.income = 1000.00
         @calculator.number_of_other_children = 0
@@ -133,7 +155,9 @@ module SmartAnswer::Calculators
     context "calculate_basic_plus_rate_payment method for 1 child" do
       setup do
         @calculator = ChildMaintenanceCalculator.new(
-          number_of_children: 1, benefits: 'no', paying_or_receiving: 'pay'
+          number_of_children: 1,
+          benefits: %w(none),
+          paying_or_receiving: "pay"
         )
         @calculator.income = 1600.00
         @calculator.number_of_other_children = 0
@@ -149,7 +173,9 @@ module SmartAnswer::Calculators
     context "calculate_maintenance_payment method" do
       should "make shared care reductions for the basic plus scheme" do
         @calculator = ChildMaintenanceCalculator.new(
-          number_of_children: 3, benefits: 'no', paying_or_receiving: 'pay'
+          number_of_children: 3,
+          benefits: %w(none),
+          paying_or_receiving: "pay"
         )
         @calculator.income = 925
         @calculator.number_of_other_children = 0
@@ -162,7 +188,9 @@ module SmartAnswer::Calculators
     context "collect fees totals are 20% of flat rate for payers" do
       setup do
         @calculator = ChildMaintenanceCalculator.new(
-          number_of_children: 2, benefits: 'yes', paying_or_receiving: 'pay'
+          number_of_children: 2,
+          benefits: %w(cb_jobseekers_allowance state_pension),
+          paying_or_receiving: "pay"
         )
         @calculator.number_of_shared_care_nights = 0
         @calculator.income = 100
@@ -176,7 +204,9 @@ module SmartAnswer::Calculators
     context "collect fees total are 4% of flat rate for receivers" do
       setup do
         @calculator = ChildMaintenanceCalculator.new(
-          number_of_children: 2, benefits: 'yes', paying_or_receiving: 'receive'
+          number_of_children: 2,
+          benefits: %w(cb_jobseekers_allowance state_pension),
+          paying_or_receiving: "receive"
         )
         @calculator.number_of_shared_care_nights = 0
         @calculator.income = 100
@@ -191,7 +221,9 @@ module SmartAnswer::Calculators
     context "total fees are flat rate + collect fees for payers" do
       setup do
         @calculator = ChildMaintenanceCalculator.new(
-          number_of_children: 2, benefits: 'yes', paying_or_receiving: 'pay'
+          number_of_children: 2,
+          benefits: %w(cb_jobseekers_allowance state_pension),
+          paying_or_receiving: "pay"
         )
       end
       should "give the fees totals with an cmp of 57.00" do
@@ -200,12 +232,56 @@ module SmartAnswer::Calculators
       context "total fees are flat rate - collect rate for receivers" do
         setup do
           @calculator = ChildMaintenanceCalculator.new(
-            number_of_children: 2, benefits: 'yes', paying_or_receiving: 'receive'
+            number_of_children: 2,
+            benefits: %w(cb_jobseekers_allowance state_pension),
+            paying_or_receiving: "receive"
           )
         end
         should "" do
           assert_equal 54.72, @calculator.total_fees_cmp(57.00, 2.28)
         end
+      end
+    end
+
+    context "#state_benefits?" do
+      setup do
+        @calculator = ChildMaintenanceCalculator.new
+      end
+
+      should "returns true if state benefit list is valid" do
+        @calculator.benefits = %w(cb_jobseekers_allowance incapacity_benefit)
+
+        assert @calculator.state_benefits?
+      end
+
+      should "returns false if state benefit list isn't valid" do
+        @calculator.benefits = %w(arbitary_element)
+
+        refute @calculator.state_benefits?
+      end
+
+      should "returns false if state benefit list contains at least one invalid element" do
+        @calculator.benefits = %w(invalid_element cb_jobseekers_allowance)
+
+        refute @calculator.state_benefits?
+      end
+
+      should "returns false if state benefit list isn't an array" do
+        @calculator.benefits = "invalid"
+
+        refute @calculator.state_benefits?
+      end
+
+      should "returns false if state benefit list is empty" do
+        @calculator.benefits = []
+
+        refute @calculator.state_benefits?
+      end
+
+      should "returns false if state benefit list is nil" do
+        @calculator.benefits = nil
+
+        refute @calculator.state_benefits?
       end
     end
   end

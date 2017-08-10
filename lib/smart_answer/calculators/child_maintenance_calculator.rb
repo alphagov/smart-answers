@@ -14,6 +14,31 @@ module SmartAnswer::Calculators
     SHARED_CARE_MAX_RELIEF_EXTRA_AMOUNT = 7.00
     SCHEME_MAX_INCOME = 3000
 
+    STATE_BENEFITS = {
+      income_support: "Income Support",
+      ib_jobseekers_allowance: "income-based Jobseeker’s Allowance",
+      employment_support_allowance: "income-related Employment and Support Allowance",
+      pension_credit: "Pension Credit",
+      cb_jobseekers_allowance: "contribution-based Jobseeker’s Allowance",
+      cb_employment_support_llowance: "contribution-based Employment and Support Allowance",
+      state_pension: "State Pension",
+      incapacity_benefit: "Incapacity Benefit",
+      training_allowance: "Training Allowance",
+      armed_forces_compensation_scheme_payments: "Armed Forces Compensation Scheme payments",
+      war_disablement_pension: "War Disablement Pension",
+      bereavement_allowance: "Bereavement Allowance",
+      carers_allowance: "Carer’s Allowance",
+      maternity_allowance: "Maternity Allowance",
+      severe_disablement_allowance: "Severe Disablement Allowance",
+      industrial_injuries_disablement_benefit: "Industrial Injuries Disablement Benefit",
+      widowed_parents_allowance: "Widowed Parent’s Allowance",
+      widows_pension: "Widow’s pension",
+      universal_credit_no_earned_income: "Universal Credit with no earned income",
+      skillseekers_training: "Skillseekers training",
+      war_partner_pension: "War Widow’s, Widower’s or Surviving Civil Partner’s Pension"
+    }.freeze
+    private_constant :STATE_BENEFITS
+
     def initialize(attributes = {})
       super
       @calculator_data = self.class.child_maintenance_data
@@ -21,7 +46,7 @@ module SmartAnswer::Calculators
 
     # called after we enter income (we know benefits == no)
     def rate_type
-      if @benefits == 'yes'
+      if state_benefits?
         if @number_of_shared_care_nights > 0
           :nil
         else
@@ -34,11 +59,8 @@ module SmartAnswer::Calculators
     end
 
     def calculate_maintenance_payment
-      if @benefits == 'no'
-        send("calculate_#{rate_type}_rate_payment")
-      else
-        0 #irrelevant what we return, with benefits rate is either nil or flat
-      end
+      return 0 if state_benefits? #irrelevant what we return, with benefits rate is either nil or flat
+      send("calculate_#{rate_type}_rate_payment")
     end
 
     def calculate_reduced_rate_payment
@@ -172,6 +194,20 @@ module SmartAnswer::Calculators
 
     def self.child_maintenance_data
       @child_maintenance_data ||= YAML.load_file(Rails.root.join("lib/data/child_maintenance_data.yml"))
+    end
+
+    def state_benefits
+      STATE_BENEFITS
+    end
+
+    def state_benefits?
+      benefits.present? && benefits.is_a?(Array) && valid_state_benefits?
+    end
+
+  private
+
+    def valid_state_benefits?
+      benefits.map(&:to_sym).all? { |benefit| STATE_BENEFITS.keys.include?(benefit) }
     end
   end
 end
