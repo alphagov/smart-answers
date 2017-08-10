@@ -17,7 +17,7 @@ module SmartAnswer::Calculators
     DISPUTE_CRITERIA = {
       trades_dispute: "I'm affected by a trades dispute (eg on strike)",
       full_time_secondary_education: "I'm age 16 to 19 and in full-time secondary education",
-      appealing_against_decision: "I'm appealing against a decision about your ability to work"
+      appealing_against_decision: "I'm appealing against a decision about my ability to work"
     }.freeze
     PREMIUMS = {
       pension_premium: "Pensioner premium",
