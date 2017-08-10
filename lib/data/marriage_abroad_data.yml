@@ -8,7 +8,6 @@ countries_with_18_outcomes:
   - chile
   - colombia
   - denmark
-  - egypt
   - el-salvador
   - gambia
   - greece
@@ -32,6 +31,7 @@ countries_with_18_outcomes:
 countries_with_2_outcomes:
   - china
   - cyprus
+  - egypt
   - france
   - ireland
   - italy
