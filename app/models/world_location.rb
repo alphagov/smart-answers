@@ -13,13 +13,18 @@ class WorldLocation
 
   def self.all
     cache_fetch("all") do
-      world_locations = Services.worldwide_api.world_locations.with_subsequent_pages.map do |response|
-        location = response.to_hash
-        if valid_world_location_format?(location)
-          self.new(location)
+      world_locations = Services.worldwide_api
+        .world_locations
+        .with_subsequent_pages
+        .each_with_object([]) do |response, locations|
+          location = response.to_hash
+          if valid_world_location_format?(location)
+            locations << self.new(location)
+          end
         end
-      end
-      world_locations.compact
+
+      raise NoLocationsFromWorldwideApiError if world_locations.empty?
+      world_locations
     end
   end
 
@@ -77,4 +82,6 @@ class WorldLocation
   def fco_organisation
     self.organisations.find(&:fco_sponsored?)
   end
+
+  class NoLocationsFromWorldwideApiError < StandardError; end
 end
