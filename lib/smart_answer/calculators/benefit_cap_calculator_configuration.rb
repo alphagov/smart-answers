@@ -26,9 +26,7 @@ module SmartAnswer::Calculators
     end
 
     def exempted_benefits?
-      exempted_benefits.present? &&
-        exempted_benefits.is_a?(Array) &&
-        valid_exempted_benefits?
+      ListValidator.new(exempt_benefits.keys).all_valid?(exempted_benefits)
     end
 
     def questions
@@ -61,13 +59,6 @@ module SmartAnswer::Calculators
     end
 
   private
-
-    def valid_exempted_benefits?
-      keys = exempt_benefits.keys
-      exempted_benefits.all? do |exempted_benefit|
-        keys.include?(exempted_benefit)
-      end
-    end
 
     def data
       @data ||= YAML.load_file(Rails.root.join('lib', 'data', 'benefit_cap_data.yml')).with_indifferent_access
