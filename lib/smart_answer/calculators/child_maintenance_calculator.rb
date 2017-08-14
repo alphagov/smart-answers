@@ -201,13 +201,7 @@ module SmartAnswer::Calculators
     end
 
     def state_benefits?
-      benefits.present? && benefits.is_a?(Array) && valid_state_benefits?
-    end
-
-  private
-
-    def valid_state_benefits?
-      benefits.map(&:to_sym).all? { |benefit| STATE_BENEFITS.keys.include?(benefit) }
+      ListValidator.new(state_benefits.keys).all_valid?(benefits.map(&:to_sym))
     end
   end
 end

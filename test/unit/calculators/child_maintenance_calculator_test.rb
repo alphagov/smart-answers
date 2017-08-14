@@ -242,47 +242,5 @@ module SmartAnswer::Calculators
         end
       end
     end
-
-    context "#state_benefits?" do
-      setup do
-        @calculator = ChildMaintenanceCalculator.new
-      end
-
-      should "returns true if state benefit list is valid" do
-        @calculator.benefits = %w(cb_jobseekers_allowance incapacity_benefit)
-
-        assert @calculator.state_benefits?
-      end
-
-      should "returns false if state benefit list isn't valid" do
-        @calculator.benefits = %w(arbitary_element)
-
-        refute @calculator.state_benefits?
-      end
-
-      should "returns false if state benefit list contains at least one invalid element" do
-        @calculator.benefits = %w(invalid_element cb_jobseekers_allowance)
-
-        refute @calculator.state_benefits?
-      end
-
-      should "returns false if state benefit list isn't an array" do
-        @calculator.benefits = "invalid"
-
-        refute @calculator.state_benefits?
-      end
-
-      should "returns false if state benefit list is empty" do
-        @calculator.benefits = []
-
-        refute @calculator.state_benefits?
-      end
-
-      should "returns false if state benefit list is nil" do
-        @calculator.benefits = nil
-
-        refute @calculator.state_benefits?
-      end
-    end
   end
 end
