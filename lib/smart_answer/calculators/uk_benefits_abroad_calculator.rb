@@ -95,73 +95,33 @@ module SmartAnswer::Calculators
     end
 
     def benefits?
-      benefits.present? && benefits.is_a?(Array) && valid_benefits?
+      ListValidator.new(state_benefits.keys)
+        .all_valid?(benefits.map(&:to_sym))
     end
 
     def dispute_criteria?
-      dispute_criteria.present? &&
-        dispute_criteria.is_a?(Array) &&
-        valid_dispute_criteria?
+      ListValidator.new(all_dispute_criteria.keys)
+        .all_valid?(dispute_criteria.map(&:to_sym))
     end
 
     def partner_premiums?
-      partner_premiums.present? &&
-        partner_premiums.is_a?(Array) &&
-        valid_partner_premiums?
+      ListValidator.new(premiums.keys)
+        .all_valid?(partner_premiums.map(&:to_sym))
     end
 
     def getting_income_support?
-      possible_impairments.present? &&
-        possible_impairments.is_a?(Array) &&
-        possible_impairments?
+      ListValidator.new(impairments.keys)
+        .all_valid?(possible_impairments.map(&:to_sym))
     end
 
     def not_getting_sick_pay?
-      impairment_periods.present? &&
-        impairment_periods.is_a?(Array) &&
-        valid_impairment_periods?
+      ListValidator.new(periods_of_impairment.keys)
+        .all_valid?(impairment_periods.map(&:to_sym))
     end
 
     def tax_credits?
-      tax_credits.present? &&
-        tax_credits.is_a?(Array) &&
-        valid_tax_credits_benefits?
-    end
-
-  private
-
-    def valid_benefits?
-      benefits.map(&:to_sym).all? { |benefit| state_benefits.keys.include?(benefit) }
-    end
-
-    def valid_dispute_criteria?
-      dispute_criteria.map(&:to_sym).all? do |criterion|
-        all_dispute_criteria.keys.include?(criterion)
-      end
-    end
-
-    def valid_partner_premiums?
-      partner_premiums.map(&:to_sym).all? do |premium|
-        premiums.keys.include?(premium)
-      end
-    end
-
-    def possible_impairments?
-      possible_impairments.map(&:to_sym).all? do |impairment|
-        impairments.keys.include?(impairment)
-      end
-    end
-
-    def valid_impairment_periods?
-      impairment_periods.map(&:to_sym).all? do |period|
-        periods_of_impairment.keys.include?(period)
-      end
-    end
-
-    def valid_tax_credits_benefits?
-      tax_credits.map(&:to_sym).all? do |tax_credit|
-        tax_credits_benefits.keys.include?(tax_credit)
-      end
+      ListValidator.new(tax_credits_benefits.keys)
+        .all_valid?(tax_credits.map(&:to_sym))
     end
   end
 end
