@@ -58,12 +58,11 @@ module SmartAnswer::Calculators
     end
 
     def vehicle_write_off
-      case
-      when vehicle_is_green?
+      if vehicle_is_green?
         green_vehicle_write_off.to_f
-      when vehicle_is_dirty?
+      elsif vehicle_is_dirty?
         dirty_vehicle_write_off.to_f
-      when vehicle_is_filthy?
+      elsif vehicle_is_filthy?
         filthy_vehicle_write_off.to_f
       else
         0
@@ -225,10 +224,9 @@ module SmartAnswer::Calculators
     end
 
     def simple_vehicle_costs
-      case
-      when car? || van?
+      if car? || van?
         simple_vehicle_costs_car_van.to_f
-      when motorcycle?
+      elsif motorcycle?
         simple_vehicle_costs_motorcycle.to_f
       else
         0

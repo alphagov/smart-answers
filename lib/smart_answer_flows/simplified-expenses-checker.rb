@@ -88,8 +88,7 @@ module SmartAnswer
 
         next_node do |response|
           calculator.selected_allowance = response
-          case
-          when calculator.capital_allowance?
+          if calculator.capital_allowance?
             if calculator.vehicle_only?
               outcome :capital_allowance_result
             elsif calculator.home?
@@ -97,7 +96,7 @@ module SmartAnswer
             elsif calculator.business_premises?
               question :deduct_from_premises?
             end
-          when calculator.simplified_expenses?
+          elsif calculator.simplified_expenses?
             if calculator.vehicle_only?
               outcome :you_cant_claim_capital_allowance
             elsif calculator.home?
@@ -105,7 +104,7 @@ module SmartAnswer
             elsif calculator.business_premises?
               question :deduct_from_premises?
             end
-          when calculator.no_allowance?
+          elsif calculator.no_allowance?
             if calculator.van? || calculator.motorcycle?
               question :how_much_expect_to_claim?
             elsif calculator.car?
@@ -151,16 +150,16 @@ module SmartAnswer
         option :high
 
         on_response do |response|
-          case response
-          when "low"
-            if calculator.new_car?
-              calculator.vehicle_emission = response
-            else
-              calculator.vehicle_emission = "medium"
-            end
-          else
-            calculator.vehicle_emission = response
-          end
+          calculator.vehicle_emission = case response
+                                        when "low"
+                                          if calculator.new_car?
+                                            response
+                                          else
+                                            "medium"
+                                          end
+                                        else
+                                          response
+                                        end
         end
 
         next_node do
