@@ -318,21 +318,46 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         setup do
           add_response 'austria'
         end
+
         should "ask you do any of the following apply" do
           assert_current_node :do_either_of_the_following_apply?
         end
-        context "answer yes" do
+
+        context "selects more than one benefit" do
           setup do
-            add_response 'yes'
+            add_response "incapacity_benefit,state_pension"
           end
+
           should "take you to the entitled outcome" do
             assert_current_node :child_benefit_entitled_outcome
           end
         end
-        context "answer no" do
+
+        context "selects only one benefit" do
           setup do
-            add_response 'no'
+            add_response "incapacity_benefit"
           end
+
+          should "take you to the entitled outcome" do
+            assert_current_node :child_benefit_entitled_outcome
+          end
+        end
+
+        context "selects at least one invalid benefit" do
+          setup do
+            add_response "invalid_benefit,state_pension"
+          end
+
+          should "get illegal option invalid_benefit error" do
+            assert_current_node_is_error "Illegal option invalid_benefit for do_either_of_the_following_apply?"
+          end
+        end
+
+        context "does not select any benefits" do
+          setup do
+            add_response "none"
+          end
+
           should "take you to not entitled outcome" do
             assert_current_node :child_benefit_not_entitled_outcome
           end
@@ -527,23 +552,48 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               should "ask are you claiming any of these benefits" do
                 assert_current_node :tax_credits_currently_claiming?
               end
-              context "answer yes" do
+
+              context "selects at least one tax credit" do
                 setup do
-                  add_response 'yes'
+                  add_response "widows_benefit"
                 end
+
                 should "take you to EEA may qualify outcome" do
                   assert_current_node :tax_credits_eea_entitled_outcome
                 end
               end
-              context "answer no" do
+
+              context "selects more than one tax credit" do
                 setup do
-                  add_response 'no'
+                  add_response "widows_benefit,contribution_based_employment_support_allowance"
                 end
+
+                should "take you to EEA may qualify outcome" do
+                  assert_current_node :tax_credits_eea_entitled_outcome
+                end
+              end
+
+              context "selects at least one invalid tax credit benefit" do
+                setup do
+                  add_response "invalid_tax_credit_benefit,widows_benefit"
+                end
+
+                should "get illegal options error" do
+                  assert_current_node_is_error "Illegal option invalid_tax_credit_benefit for tax_credits_currently_claiming?"
+                end
+              end
+
+              context "does not selects any tax credit" do
+                setup do
+                  add_response "none"
+                end
+
                 should "take you to not entitled outcome" do
                   assert_current_node :tax_credits_unlikely_outcome
                 end
               end
             end
+
             context "answer other country" do
               setup do
                 add_response 'albania'
@@ -804,28 +854,53 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         setup do
           add_response 'is_under_a_year_other'
         end
+
         should "ask you if you'd traveliing with a partner getting IS" do
           assert_current_node :is_claiming_benefits?
         end
-        context "answer yes" do
+
+        context "selects more than one partner premium" do
           setup do
-            add_response 'yes'
+            add_response "pension_premium,higher_pensioner"
           end
+
           should "take you to the carry on claiming 4 weeks outcome" do
             assert_current_node :is_claiming_benefits_outcome
           end
         end
-        context "answer no" do
+
+        context "selects only one partner premium" do
           setup do
-            add_response 'no'
+            add_response "higher_pensioner"
           end
+
+          should "take you to the carry on claiming 4 weeks outcome" do
+            assert_current_node :is_claiming_benefits_outcome
+          end
+        end
+
+        context "selects at least an invalid partner premium" do
+          setup do
+            add_response "invalid_premium,higher_pensioner"
+          end
+
+          should "get illegal option invalid_premium error" do
+            assert_current_node_is_error "Illegal option invalid_premium for is_claiming_benefits?"
+          end
+        end
+
+        context "does not select any partner premium" do
+          setup do
+            add_response "none"
+          end
+
           should "ask if you're getting IS with SSP or are incapable of work" do
             assert_current_node :is_either_of_the_following?
           end
 
-          context "answer yes" do
+          context "selects at least one possible impairment" do
             setup do
-              add_response 'yes'
+              add_response "too_ill_to_work"
             end
             should "ask if you're going for medical treatment" do
               assert_current_node :is_abroad_for_treatment?
@@ -845,45 +920,115 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
               should "ask if you've been unable to work or received SSP" do
                 assert_current_node :is_work_or_sick_pay?
               end
-              context "answer yes" do
+
+              context "selects more than one impairment period" do
                 setup do
-                  add_response 'yes'
+                  add_response "364_days,196_days"
                 end
+
                 should "take you to carry on claiming for 4 weeks outcome" do
                   assert_current_node :is_abroad_for_treatment_outcome
                 end
               end
-              context "answer no" do
+
+              context "selects at least one impairment period" do
                 setup do
-                  add_response 'no'
+                  add_response "364_days"
                 end
+
+                should "take you to carry on claiming for 4 weeks outcome" do
+                  assert_current_node :is_abroad_for_treatment_outcome
+                end
+              end
+
+              context "does not select any impairment period" do
+                setup do
+                  add_response "none"
+                end
+
                 should "take you to not eligible outcome" do
                   assert_current_node :is_not_eligible_outcome
                 end
               end
+
+              context "selects at least an impairment period" do
+                setup do
+                  add_response "invalid_impairment_period,196_days"
+                end
+
+                should "get illegal option invalid_impairment_period error" do
+                  assert_current_node_is_error "Illegal option invalid_impairment_period for is_work_or_sick_pay?"
+                end
+              end
             end
           end
-          context "answer no" do
+
+          context "selects more than one possible impairment" do
             setup do
-              add_response 'no'
+              add_response "too_ill_to_work,temporarily_incapable_of_work"
             end
+
+            should "ask if you're going for medical treatment" do
+              assert_current_node :is_abroad_for_treatment?
+            end
+          end
+
+          context "selects at least an invalid impairment" do
+            setup do
+              add_response "invalid_impairment,temporarily_incapable_of_work"
+            end
+
+            should "get illegal option invalid_impairment error" do
+              assert_current_node_is_error "Illegal option invalid_impairment for is_either_of_the_following?"
+            end
+          end
+
+          context "does not select any impairment" do
+            setup do
+              add_response "none"
+            end
+
             should "ask are you one of the following" do
               assert_current_node :is_any_of_the_following_apply?
             end
-            context "answer yes" do
+
+            context "selects more than one criterion" do
               setup do
-                add_response 'yes'
+                add_response "trades_dispute,appealing_against_decision"
               end
+
               should "take you to not eligible outcome" do
                 assert_current_node :is_not_eligible_outcome
               end
             end
-            context "answer no" do
+
+            context "selects only one criterion" do
               setup do
-                add_response 'no'
+                add_response "trades_dispute"
               end
+
+              should "take you to not eligible outcome" do
+                assert_current_node :is_not_eligible_outcome
+              end
+            end
+
+            context "does not select any criteria" do
+              setup do
+                add_response "none"
+              end
+
               should "take you to carry on claiming for 4 weeks outcome" do
                 assert_current_node :is_abroad_for_treatment_outcome
+              end
+            end
+
+            context "selects at least an invalid criterion" do
+              setup do
+                add_response "invalid_criterion,trades_dispute"
+              end
+
+              should "get illegal option invalid_criterion error" do
+                assert_current_node_is_error "Illegal option invalid_criterion for is_any_of_the_following_apply?"
               end
             end
           end
@@ -1114,7 +1259,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       setup do
         add_response 'child_benefit'
         add_response 'austria'
-        add_response 'yes'
+        add_response 'state_pension'
       end
       should "take you to entitled outcome" do
         assert_current_node :child_benefit_entitled_outcome
@@ -1124,7 +1269,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
       setup do
         add_response 'child_benefit'
         add_response 'austria'
-        add_response 'no'
+        add_response 'none'
       end
       should "take you to not entitled outcome" do
         assert_current_node :child_benefit_not_entitled_outcome
@@ -1270,7 +1415,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         add_response 'tax_credits_more_than_a_year'
         add_response 'yes'
         add_response 'austria'
-        add_response 'yes'
+        add_response 'widows_benefit'
       end
       should "take you to entitled outcome" do
         assert_current_node :tax_credits_eea_entitled_outcome
@@ -1283,7 +1428,7 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
         add_response 'tax_credits_more_than_a_year'
         add_response 'yes'
         add_response 'austria'
-        add_response 'no'
+        add_response 'none'
       end
       should "take you to unlikely outcome" do
         assert_current_node :tax_credits_unlikely_outcome

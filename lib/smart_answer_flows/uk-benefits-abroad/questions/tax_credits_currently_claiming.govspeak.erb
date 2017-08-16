@@ -1,18 +1,10 @@
 <% content_for :title do %>
-  Are you currently claiming State Pension or any of the following benefits?
+  Are you currently claiming any of the following?
 <% end %>
 
-<% options(
-  "yes": "Yes",
-  "no": "No"
-) %>
-
-<% content_for :body do %>
-  - Incapacity Benefit
-  - Widow's Benefit
-  - Bereavement Benefit
-  - Industrial Injuries Disablement Benefit
-  - contribution-based Employment and Support Allowance
-  - Severe Disablement Allowance
+<% content_for :hint do %>
+  If you don’t receive any of these click 'Next step'.
 
 <% end %>
+
+<% options(calculator.tax_credits_benefits) %>
