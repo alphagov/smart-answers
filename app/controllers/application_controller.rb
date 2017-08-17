@@ -26,5 +26,7 @@ protected
     else
       render status: status_code, plain: error_message
     end
+
+    puts "GTM is great"
   end
 end
