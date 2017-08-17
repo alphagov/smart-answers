@@ -11,7 +11,7 @@ gem "activesupport"
 gem "railties"
 gem "sprockets-rails"
 
-gem 'airbrake', git: 'https://github.com/alphagov/airbrake'
+gem 'airbrake', github: 'alphagov/airbrake', branch: 'silence-dep-warnings-for-rails-5'
 gem 'ast'
 gem 'gds-api-adapters', '~> 47.2'
 gem 'govspeak', '~> 3.3.0'
