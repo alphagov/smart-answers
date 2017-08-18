@@ -69,16 +69,23 @@ module SmartAnswer::Calculators
 
     context 'when postcode is unknown' do
       setup do
-        imminence_has_areas_for_postcode("E15", [])
         @calculator.postcode = "E15"
+
+        stub_request(
+          :get,
+          %r{\A#{GdsApi::TestHelpers::Imminence::IMMINENCE_API_ENDPOINT}/areas/#{@calculator.postcode}\.json}
+        ).to_return(
+          body: {
+            "_response_info" => { "status" => 404, "links" => [] },
+            "results" => []
+          }.to_json
+        )
       end
 
-      should 'return no areas for postcode' do
-        assert_equal [], @calculator.areas_for_postcode
-      end
-
-      should 'determine that the rules do not apply' do
-        refute @calculator.rules_apply?
+      should 'raise an exception' do
+        assert_raises SmartAnswer::BaseStateTransitionError do
+          @calculator.areas_for_postcode
+        end
       end
     end
 
@@ -102,8 +109,8 @@ module SmartAnswer::Calculators
         ).to_return(status: 500)
       end
 
-      should 'raise a BaseStateTransitionError' do
-        assert_raises SmartAnswer::BaseStateTransitionError do
+      should 'raise an error' do
+        assert_raises GdsApi::HTTPServerError do
           @calculator.rules_apply?
         end
       end
@@ -115,10 +122,10 @@ module SmartAnswer::Calculators
         stub_request(
           :get, "#{Plek.new.find('imminence')}/areas/#{@calculator.postcode}.json"
         ).to_return(
-          status: 500,
+          status: 200,
           body: {
             _response_info: {
-              status: 404,
+              status: 400,
               links: []
             },
             total: 0,
@@ -131,7 +138,7 @@ module SmartAnswer::Calculators
         )
       end
 
-      should 'raise a BaseStateTransitionError' do
+      should 'raise an error' do
         assert_raises SmartAnswer::BaseStateTransitionError do
           @calculator.rules_apply?
         end
