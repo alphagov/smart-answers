@@ -14,19 +14,27 @@ module SmartAnswer::Calculators
 
     def areas_for_postcode
       response = Services.imminence_api.areas_for_postcode(postcode)
+      response_status = response.dig("_response_info", "status")
 
-      case response.dig("_response_info", "status")
+      case response_status
       when "ok"
         response["results"]
       when 404
-        raise postcode_lookup_exception(:error_postcode_invalid)
+        raise invalid_postcode_error
       else
-        raise postcode_lookup_exception(:error_postcode_lookup_failed)
+        raise failed_postcode_lookup_error(response_status, postcode)
       end
     end
 
-    def postcode_lookup_exception(error)
-      SmartAnswer::BaseStateTransitionError.new(error.to_s)
+    def invalid_postcode_error
+      SmartAnswer::BaseStateTransitionError.new("error_postcode_invalid")
+    end
+
+    def failed_postcode_lookup_error(status, postcode)
+      SmartAnswer::LoggedError.new(
+        "error_postcode_lookup_failed",
+        "Got '#{status}' status looking up postcode '#{postcode}'",
+      )
     end
 
     def from_somewhere_else?

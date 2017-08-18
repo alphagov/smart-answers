@@ -276,6 +276,22 @@ class FlowTest < ActiveSupport::TestCase
       end
     end
 
+    context "a question raises a logged error" do
+      setup do
+        @error_message = "Sorry, that's not valid"
+        @log_message = "Logged message"
+        @flow.node(:do_you_like_jam?)
+          .stubs(:parse_input)
+          .with('bad')
+          .raises(SmartAnswer::LoggedError.new(@error_message, @log_message))
+      end
+
+      should "notify Airbrake" do
+        Airbrake.expects(:notify).with(SmartAnswer::LoggedError.new(@log_message))
+        @flow.process(%w{no bad})
+      end
+    end
+
     should "calculate the path traversed by a series of responses" do
       assert_equal [], @flow.path([])
       assert_equal [:do_you_like_chocolate?], @flow.path(%w{no})

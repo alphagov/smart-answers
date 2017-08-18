@@ -1,5 +1,5 @@
 ---
-lib/smart_answer/calculators/landlord_immigration_check_calculator.rb: 6d788c019279b822966e71820b0f0d5f
+lib/smart_answer/calculators/landlord_immigration_check_calculator.rb: 546bed2288d24b1d17f9cdab4773320b
 lib/smart_answer_flows/landlord-immigration-check/landlord_immigration_check.govspeak.erb: fc5098e5876826a7360b69e4b163feea
 lib/smart_answer_flows/landlord-immigration-check/outcomes/_landlord_code_of_practice.govspeak.erb: cfb1261ac17c7aa40445173406459290
 lib/smart_answer_flows/landlord-immigration-check/outcomes/outcome_can_not_continue_renting.govspeak.erb: ddb33bbfc2857647dbd6b9ec919eca99

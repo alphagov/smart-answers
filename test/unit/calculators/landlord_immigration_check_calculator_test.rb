@@ -139,7 +139,7 @@ module SmartAnswer::Calculators
       end
 
       should 'raise an error' do
-        assert_raises SmartAnswer::BaseStateTransitionError do
+        assert_raises SmartAnswer::LoggedError do
           @calculator.rules_apply?
         end
       end
