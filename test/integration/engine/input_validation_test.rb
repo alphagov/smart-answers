@@ -27,7 +27,7 @@ class InputValidationTest < EngineIntegrationTest
 
       within '.current-question' do
         assert_page_has_content "What size bonus do you want?"
-        within('.error') { assert_page_has_content "Sorry, I couldn't understand that number. Please try again." }
+        within('.error') { assert_page_has_content "Sorry, that number is not valid. Please try again." }
         assert page.has_field?("response", type: "text", with: "asdfasdf")
       end
 
