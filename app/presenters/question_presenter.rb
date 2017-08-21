@@ -7,7 +7,8 @@ class QuestionPresenter < NodePresenter
       template_directory: @node.template_directory.join('questions'),
       template_name: @node.filesystem_friendly_name,
       locals: @state.to_hash,
-      helpers: [SmartAnswer::FormattingHelper] + helpers
+      helpers: [SmartAnswer::FormattingHelper] + helpers,
+      controller: options[:controller]
     )
   end
 

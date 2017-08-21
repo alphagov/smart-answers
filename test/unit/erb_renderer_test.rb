@@ -250,6 +250,52 @@ Hello world
       end
     end
 
+    test 'can setup action view with controller' do
+      controller = SmartAnswersController.new
+      controller.request = ActionDispatch::TestRequest.create
+      prefixes = %w(smart_answers application)
+      lookup_context = ActionView::LookupContext.new([], {}, prefixes)
+      view = mock('ActionView::Base', lookup_context: lookup_context)
+
+      ActionView::Base
+        .expects(:new)
+        .with(is_a(Array), {}, is_a(ActionController::Base))
+        .returns(view)
+
+      ActionView::LookupContext
+        .any_instance
+        .expects(:prefixes=)
+        .with([])
+        .once
+
+      ErbRenderer.new(
+        template_directory: '/path',
+        template_name: 'temp-name',
+        locals: {},
+        helpers: [],
+        controller: controller
+      )
+    end
+
+    test 'can setup action view without a controller' do
+      ActionView::Base
+        .expects(:new)
+        .with(is_a(Array), {}, nil)
+
+      ActionView::LookupContext
+        .any_instance
+        .expects(:prefixes=)
+        .never
+
+      ErbRenderer.new(
+        template_directory: '/path',
+        template_name: 'temp-name',
+        locals: {},
+        helpers: [],
+        controller: nil
+      )
+    end
+
   private
 
     def content_for(key, template)
