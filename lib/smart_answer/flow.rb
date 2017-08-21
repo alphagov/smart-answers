@@ -123,6 +123,8 @@ module SmartAnswer
           state = node(state.current_node).transition(state, response)
           node(state.current_node).evaluate_precalculations(state)
         rescue BaseStateTransitionError => e
+          Airbrake.notify(e.log_exception) if e.is_a?(LoggedError)
+
           state.dup.tap do |new_state|
             new_state.error = e.message
             new_state.freeze
