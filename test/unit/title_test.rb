@@ -4,7 +4,7 @@ module SmartAnswer
   class TitleTest < ActiveSupport::TestCase
     context "#wrapped_with_debug_div?" do
       should "return true if content is wrapped with debug div" do
-        html = "<div data-debug-template-path=\"/path\"><p>Hello</p></div>"
+        html = "<div data-debug-partial-template-path=\"/path\"><p>Hello</p></div>"
 
         assert Title.new(html).wrapped_with_debug_div?
       end
@@ -16,7 +16,7 @@ module SmartAnswer
 
     context "#text" do
       should "return text if content is wrapped with debug div" do
-        html = "<div data-debug-template-path=\"/path\"><p>Hello</p></div>"
+        html = "<div data-debug-partial-template-path=\"/path\"><p>Hello</p></div>"
 
         assert_equal "Hello", Title.new(html).text
       end
@@ -28,7 +28,7 @@ module SmartAnswer
 
     context "#partial_template_path" do
       should "return path to partial template if content is wrapped with debug div" do
-        html = "<div data-debug-template-path=\"/path\"><p>Hello</p></div>"
+        html = "<div data-debug-partial-template-path=\"/path\"><p>Hello</p></div>"
 
         assert_equal "/path", Title.new(html).partial_template_path
       end

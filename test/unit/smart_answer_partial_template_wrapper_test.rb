@@ -42,7 +42,7 @@ class SmartAnswerPartialTemplateWrapperTest < ActionView::TestCase
 
       should "return partial content when request is html and under smart answer path" do
         assert_match(
-          /^<div data-debug-template-path=\".*#{@path}\"><h1>Hello<\/h1><\/div>/,
+          /^<div data-debug-partial-template-path=\".*#{@path}\"><h1>Hello<\/h1><\/div>/,
           @sample_renderer.render(@context, {}, nil)
         )
       end
@@ -51,7 +51,7 @@ class SmartAnswerPartialTemplateWrapperTest < ActionView::TestCase
         TestRenderer.any_instance.stubs(:render).returns("## Hello")
 
         assert_match(
-          /^<div data-debug-template-path=\".*#{@path}\"><h2 id=\"hello\">Hello<\/h2><\/div>/,
+          /^<div data-debug-partial-template-path=\".*#{@path}\"><h2 id=\"hello\">Hello<\/h2><\/div>/,
           @sample_renderer.render(@context, {}, nil)
         )
       end

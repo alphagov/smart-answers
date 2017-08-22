@@ -6,7 +6,7 @@ module SmartAnswer
       @question = Question::Base.new(nil, :question_name?)
       @renderer = stub('renderer')
       @presenter = QuestionPresenter.new(@question, nil, renderer: @renderer)
-      @div = "<div data-debug-template-path='/path'><p>title-text</p></div>"
+      @div = "<div data-debug-partial-template-path='/path'><p>title-text</p></div>"
     end
 
     test 'renderer is constructed using template name and directory obtained from question node' do

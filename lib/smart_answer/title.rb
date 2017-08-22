@@ -5,7 +5,7 @@ module SmartAnswer
     end
 
     def wrapped_with_debug_div?
-      @content.match(/^<div data-debug-template-path=.*><p>.*<\/p><\/div>$/i)
+      @content.match(/^<div data-debug-partial-template-path=.*><p>.*<\/p><\/div>$/i)
     end
 
     def text

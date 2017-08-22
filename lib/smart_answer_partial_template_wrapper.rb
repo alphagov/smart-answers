@@ -8,7 +8,7 @@ module SmartAnswerPartialTemplateWrapper
     content_tag(
       :div,
       govspeak_to_html(content),
-      data: { debug_template_path: smart_answer_partial_path }
+      data: { debug_partial_template_path: smart_answer_partial_path }
     )
   end
 

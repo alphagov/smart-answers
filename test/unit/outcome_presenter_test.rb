@@ -6,7 +6,7 @@ module SmartAnswer
       outcome = Outcome.new(nil, :outcome_name)
       @renderer = stub('renderer')
       @presenter = OutcomePresenter.new(outcome, nil, renderer: @renderer)
-      @div = "<div data-debug-template-path='/path'><p>title-text</p></div>"
+      @div = "<div data-debug-partial-template-path='/path'><p>title-text</p></div>"
     end
 
     test 'renderer is constructed using template name and directory obtained from outcome node' do

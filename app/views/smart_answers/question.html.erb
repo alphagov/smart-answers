@@ -14,7 +14,7 @@
 
       <div class="question" data-debug-template-path="<%= question.relative_erb_template_path %>">
         <% if question.wrapped_with_debug_div? %>
-          <div data-debug-template-path="<%= question.partial_template_path %>">
+          <div data-debug-partial-template-path="<%= question.partial_template_path %>">
             <h2 data-test="question"><%= question.title %></h2>
           </div>
         <% else %>
