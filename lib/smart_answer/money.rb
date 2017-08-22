@@ -10,7 +10,7 @@ module SmartAnswer
 
     def initialize(raw_input)
       input = self.class.parse(raw_input)
-      self.class.validate(input)
+      self.class.validate!(input)
       @value = BigDecimal.new(input.to_s)
     end
 
@@ -30,7 +30,7 @@ module SmartAnswer
       raw_input.is_a?(Numeric) ? raw_input : raw_input.to_s.delete(',').gsub(/\s/, '')
     end
 
-    def self.validate(input)
+    def self.validate!(input)
       unless input.is_a?(Numeric) || input.is_a?(Money) || input =~ /\A *[0-9]+(\.[0-9]{1,2})? *\z/
         raise InvalidResponse, "Sorry, that number is not valid. Please try again.", caller
       end
