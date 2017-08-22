@@ -13,7 +13,7 @@ class QuestionPresenter < NodePresenter
   end
 
   def title
-    @renderer.single_line_of_content_for(:title)
+    question_title.text
   end
 
   def error
@@ -77,5 +77,21 @@ class QuestionPresenter < NodePresenter
 
   def default_error_message
     "Please answer this question"
+  end
+
+  def partial_template_path
+    question_title.partial_template_path
+  end
+
+  def wrapped_with_debug_div?
+    question_title.wrapped_with_debug_div?
+  end
+
+private
+
+  def question_title
+    @question_title ||= SmartAnswer::Title.new(
+      @renderer.single_line_of_content_for(:title)
+    )
   end
 end

@@ -6,6 +6,7 @@ module SmartAnswer
       outcome = Outcome.new(nil, :outcome_name)
       @renderer = stub('renderer')
       @presenter = OutcomePresenter.new(outcome, nil, renderer: @renderer)
+      @div = "<div data-debug-template-path='/path'><p>title-text</p></div>"
     end
 
     test 'renderer is constructed using template name and directory obtained from outcome node' do
@@ -51,6 +52,12 @@ module SmartAnswer
       assert_equal 'title-text', @presenter.title
     end
 
+    test '#title returns single line of content rendered for title block wrapped with debug div' do
+      @renderer.stubs(:single_line_of_content_for).with(:title).returns(@div)
+
+      assert_equal 'title-text', @presenter.title
+    end
+
     test '#body returns content rendered for body block with govspeak processing enabled by default' do
       @renderer.stubs(:content_for).with(:body, html: true).returns('body-html')
 
@@ -79,6 +86,30 @@ module SmartAnswer
       @renderer.stubs(:relative_erb_template_path).returns('relative-erb-template-path')
 
       assert_equal 'relative-erb-template-path', @presenter.relative_erb_template_path
+    end
+
+    test '#partial_template_path when wrapped with debug div returns path' do
+      @renderer.stubs(:single_line_of_content_for).with(:title).returns(@div)
+
+      assert_equal '/path', @presenter.partial_template_path
+    end
+
+    test '#partial_template_path when it isn\'t wrapped with debug div returns nil' do
+      @renderer.stubs(:single_line_of_content_for).with(:title).returns('Hello')
+
+      assert_nil @presenter.partial_template_path
+    end
+
+    test '#wrapped_with_debug_div? when wrapped with debug div returns true' do
+      @renderer.stubs(:single_line_of_content_for).with(:title).returns(@div)
+
+      assert @presenter.wrapped_with_debug_div?
+    end
+
+    test '#wrapped_with_debug_div? when it isn\'t wrapped with debug div returns false' do
+      @renderer.stubs(:single_line_of_content_for).with(:title).returns('Hello')
+
+      refute @presenter.wrapped_with_debug_div?
     end
   end
 end

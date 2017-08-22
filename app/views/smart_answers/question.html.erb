@@ -13,9 +13,14 @@
     <div class="current-question" id="current-question">
 
       <div class="question" data-debug-template-path="<%= question.relative_erb_template_path %>">
-        <h2 data-test="question">
-          <%= question.title %>
-        </h2>
+        <% if question.wrapped_with_debug_div? %>
+          <div data-debug-template-path="<%= question.partial_template_path %>">
+            <h2 data-test="question"><%= question.title %></h2>
+          </div>
+        <% else %>
+          <h2 data-test="question"><%= question.title %></h2>
+        <% end %>
+
         <div class="question-body">
           <% if question.body.present? %>
             <article role="article">
