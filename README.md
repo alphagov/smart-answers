@@ -41,6 +41,9 @@ This is a Ruby on Rails application that contains:
 ### Dependencies
 
 * [alphagov/static](https://github.com/alphagov/static): provides static assets (JS/CSS) and the GOV.UK templates.
+* [alphagov/imminence](https://github.com/alphagov/imminence): provides post code lookup
+* [alphagov/whitehall](https://github.com/alphagov/whitehall): provides country
+  lookup; and information about high commisions and embassies
 * [nodejs/node](https://github.com/nodejs/node): provides JS runtime for precompiling assets for deployment
 
 ### Running the application
