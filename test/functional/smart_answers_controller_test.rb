@@ -198,18 +198,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
         assert_match(/yes\: Yes/, response.body)
         assert_match(/no\: No/, response.body)
       end
-
-      context "when Rails.application.config.expose_govspeak is not set" do
-        setup do
-          Rails.application.config.stubs(:expose_govspeak).returns(false)
-        end
-
-        should "render not found" do
-          get :show, params: { id: 'smart-answers-controller-sample', started: 'y', responses: "yes", format: "txt" }
-
-          assert_response :missing
-        end
-      end
     end
 
     context "debugging" do
