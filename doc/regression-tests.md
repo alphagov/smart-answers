@@ -2,9 +2,14 @@
 
 ## Overview
 
-Unusually this project includes a set of regression tests. These tests are not *normally* run as part of the `default` Rake task, because they take a long time to run. Thus they do not normally run as part of the [main CI build](continuous-integration#main). However, they *always* run as part of the [regression CI build](continuous-integration#regression) on the master branch only. Go to this [Jenkins Job](https://ci.integration.publishing.service.gov.uk/job/smartanswers/job/master/), click on the lastest build, click replay and edit the script in the first textarea to run the regressions tests. 
+Unusually this project includes a set of regression tests. These tests are not *normally* run as part of the `default` Rake task, because they take a long time to run. Thus they do not normally run as part of the [main CI build](continuous-integration#main). However, they *always* run as part of the [regression CI build](continuous-integration#regression) on the master branch only.
 
 Having said all that, there is a [primitive mechanism](#checksum-file) which detects changes to the files associated with a given flow since the last time the regression tests ran successfully for that flow.
+
+### Running regression tests on CI
+
+Go to this [Jenkins Job](https://ci.integration.publishing.service.gov.uk/job/smartanswers/job/master/), and choose `Build with parameters`. You can select the option `RUN_REGRESSION_TESTS` to include running the regression tests in the build.
+
 
 ## Motivation
 
@@ -44,14 +49,27 @@ You *might* want to consider updating it (for [coverage purposes](#coverage)) if
 
 ### Responses & expected results file
 
-This file is effectively a cache of the nodes reached by particular combinations of responses. This is an optimisation which makes running the regression tests faster when this cached data does not need to change. The filenames are of the form: `test/data/<smart-answer-flow-name>-responses-and-expected-results.yml`
-
-The `script/generate-responses-and-expected-results-for-smart-answer.rb` script should always be used to generate this file.
+This file is effectively a cache of the nodes reached by particular combinations of responses. This is an optimisation which makes running the regression tests faster when this cached data does not need to change.
 
 You *will* need to update it if you:
 
-  * change the "questions & responses" file
-  * change the routing logic
+* change the "questions & responses" file
+* change the routing logic
+
+The filenames are of the form: `test/data/<smart-answer-flow-name>-responses-and-expected-results.yml`
+
+The `script/generate-responses-and-expected-results-for-smart-answer.rb` script should always be used to generate this file.
+
+Usage:
+```shell
+bundle exec rails r script/generate-responses-and-expected-results-for-smart-answer.rb <smart-answer-flow-name>
+```
+
+For example to regenerate `test/data/marriage-abroad-responses-and-expected-results.yml`:
+
+```shell
+bundle exec rails r script/generate-responses-and-expected-results-for-smart-answer.rb marriage-abroad
+```
 
 ### Artefact files
 
