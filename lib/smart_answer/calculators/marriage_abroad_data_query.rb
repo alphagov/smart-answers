@@ -24,7 +24,7 @@ module SmartAnswer::Calculators
 
     OS_CONSULAR_CNI_IN_NEARBY_COUNTRY = %w(nicaragua)
 
-    OS_AFFIRMATION_COUNTRIES = %w(belgium cambodia ecuador lebanon finland macao mongolia morocco norway peru qatar south-korea united-arab-emirates vietnam)
+    OS_AFFIRMATION_COUNTRIES = %w(belgium ecuador lebanon finland macao mongolia morocco norway peru qatar south-korea united-arab-emirates vietnam).freeze
 
     CP_EQUIVALENT_COUNTRIES = %w(austria czech-republic denmark ecuador finland germany iceland luxembourg netherlands norway slovenia).freeze
 
@@ -40,7 +40,7 @@ module SmartAnswer::Calculators
 
     SS_MARRIAGE_COUNTRIES_WHEN_COUPLE_BRITISH = %w(lithuania)
 
-    SS_MARRIAGE_AND_PARTNERSHIP_COUNTRIES = %w(albania cambodia peru vietnam).freeze
+    SS_MARRIAGE_AND_PARTNERSHIP_COUNTRIES = %w(albania peru vietnam).freeze
 
     SS_ALT_FEES_TABLE_COUNTRY = %w(australia bolivia estonia san-marino serbia seychelles)
 
@@ -79,13 +79,12 @@ module SmartAnswer::Calculators
     def ss_alt_fees_table_country?(country_slug, calculator)
       SS_ALT_FEES_TABLE_COUNTRY.include?(country_slug) ||
         (SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_A.include?(country_slug) && calculator.partner_british?) ||
-        (SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B.include?(country_slug) && calculator.partner_is_not_national_of_ceremony_country?) &&
-          (%w(cambodia).exclude?(country_slug))
+        (SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B.include?(country_slug) && calculator.partner_is_not_national_of_ceremony_country?)
     end
 
     def ss_marriage_not_possible?(country_slug, calculator)
       (SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_A.include?(country_slug) && calculator.partner_not_british?) ||
-        ((SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B.include?(country_slug) || %w(cambodia).include?(country_slug)) && calculator.partner_is_national_of_ceremony_country?) ||
+        SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B.include?(country_slug) && calculator.partner_is_national_of_ceremony_country? ||
         NO_SS_MARRIAGE_COUNTRIES.include?(country_slug)
     end
 
