@@ -7,6 +7,7 @@ class CalculateEmployeeRedundancyPayTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
+    Timecop.freeze("2017-08-31")
     stub_shared_component_locales
     setup_for_testing_flow SmartAnswer::CalculateEmployeeRedundancyPayFlow
   end
