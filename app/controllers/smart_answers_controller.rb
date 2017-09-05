@@ -64,6 +64,11 @@ class SmartAnswersController < ApplicationController
 
 private
 
+  def heroku?
+    request.host.include? "herokuapp"
+  end
+  helper_method :heroku?
+
   def debug?
     Rails.env.development? && params[:debug]
   end

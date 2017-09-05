@@ -376,3 +376,18 @@ $is-ie: false !default;
   }
 
 }
+
+//Heroku alert
+.heroku-alert {
+    margin: 0 15px 15px 15px;
+    border: 1px solid #B01117;
+    background-color: #B01117;
+    color: #FFF;
+    padding: 1em;
+    font-weight: bold;
+
+    a {
+      cursor: pointer;
+      color: #FFF3CF;
+    }
+}
