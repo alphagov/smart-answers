@@ -859,6 +859,70 @@ module SmartAnswer::Calculators
           assert_equal 454.03, paydates_and_pay.last[:pay]
         end
       end
+
+      context "#weekly?" do
+        setup do
+          @calculator = MaternityPaternityCalculator.new(Date.parse("04 Sept 2017"))
+        end
+
+        should "return true if pay_pattern is set to weekly" do
+          @calculator.pay_pattern = "weekly"
+
+          assert @calculator.weekly?
+        end
+
+        should "return false if pay_pattern isn't set to weekly" do
+          @calculator.pay_pattern = "monthly"
+
+          refute @calculator.weekly?
+        end
+      end
+
+      context "#monthly?" do
+        setup do
+          @calculator = MaternityPaternityCalculator.new(Date.parse("04 Sept 2017"))
+        end
+
+        should "return true if pay_pattern is set to monthly" do
+          @calculator.pay_pattern = "monthly"
+
+          assert @calculator.monthly?
+        end
+
+        should "return false if pay_pattern isn't set to monthly" do
+          @calculator.pay_pattern = "weekly"
+
+          refute @calculator.monthly?
+        end
+      end
+
+      context "payment_options" do
+        should "return weekly payment options when supplied with weekly" do
+          weekly = MaternityPaternityCalculator.payment_options("weekly")
+
+          assert_equal %w(8), weekly.keys
+          assert_equal ["8 payments or fewer"], weekly.values
+        end
+
+        should "return monthly payment options when supplied with monthly" do
+          monthly = MaternityPaternityCalculator.payment_options("monthly")
+
+          assert_equal %w(2), monthly.keys
+          assert_equal ["1 or 2 payments"], monthly.values
+        end
+
+        should "return empty hash when supplied with every 2 weeks" do
+          every2weeks = MaternityPaternityCalculator.payment_options("every_2_weeks")
+
+          assert_equal Hash.new, every2weeks
+        end
+
+        should "return empty hash when supplied with every 4 weeks" do
+          every4weeks = MaternityPaternityCalculator.payment_options("every_4_weeks")
+
+          assert_equal Hash.new, every4weeks
+        end
+      end
     end
   end
 end

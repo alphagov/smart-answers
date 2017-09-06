@@ -2,10 +2,10 @@ How many payments did the employee receive between Tuesday, 25 July 2017 and Tue
 
 
 
-If you have paid the employee 2 weeks’ pay in one week, count it as 2 payments. 
+If you have paid the employee 2 month’s pay in one month, count it as 2 payments. 
 Don't count bonuses or holiday payments on top of paid annual leave.
 
-  * 8: 8 payments or fewer
+  * 2: 1 or 2 payments
 
 
 

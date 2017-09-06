@@ -102,6 +102,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
           add_response Date.parse("10 July 2012")
           add_response "weekly"
           add_response "200"
+          add_response "8"
           add_response "weekly_starting"
           assert_state_variable "lower_earning_limit", sprintf("%.2f", 107)
         end
@@ -116,6 +117,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
           add_response Date.parse("10 July 2011")
           add_response "weekly"
           add_response "200"
+          add_response "9"
           add_response "weekly_starting"
           assert_state_variable "lower_earning_limit", sprintf("%.2f", 102)
         end
@@ -205,54 +207,64 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                           add_response 1083.20
                         end
 
-                        should "calculate and present the result" do
-                          assert_current_node :how_do_you_want_the_smp_calculated?
+                        should "ask how many payments weekly" do
+                          assert_current_node :how_many_payments_weekly?
                         end
 
-                        context "usual pay dates" do
+                        context "answer 8 payments" do
                           setup do
-                            add_response "usual_paydates"
+                            add_response "8"
                           end
 
-                          should "ask when the next pay day is" do
-                            assert_current_node :when_is_your_employees_next_pay_day?
-                            assert_state_variable :pay_start_date, Date.parse("21 November 2012")
+                          should "calculate and present the result" do
+                            assert_current_node :how_do_you_want_the_smp_calculated?
                           end
 
-                          context "next pay date is 11th August 2012" do
+                          context "usual pay dates" do
                             setup do
-                              add_response Date.parse("11 August 2012")
+                              add_response "usual_paydates"
                             end
 
-                            should "show the result node" do
+                            should "ask when the next pay day is" do
+                              assert_current_node :when_is_your_employees_next_pay_day?
+                              assert_state_variable :pay_start_date, Date.parse("21 November 2012")
+                            end
+
+                            context "next pay date is 11th August 2012" do
+                              setup do
+                                add_response Date.parse("11 August 2012")
+                              end
+
+                              should "show the result node" do
+                                assert_current_node :maternity_leave_and_pay_result
+                                assert_state_variable :pay_method, "weekly"
+                              end
+
+                              should "calculate dates and pay amounts" do
+                                leave_start = Date.parse("21 November 2012")
+                                start_of_week = leave_start - leave_start.wday
+                                assert_state_variable "leave_start_date", leave_start
+                                assert_state_variable "leave_end_date", 52.weeks.since(leave_start) - 1
+                                assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week).end_of_week + 6
+                                assert_state_variable "pay_start_date", leave_start
+                                assert_state_variable "pay_end_date", 39.weeks.since(leave_start) - 1
+                                assert_state_variable "average_weekly_earnings", 135.4
+                                assert_state_variable "smp_a", "121.86"
+                                assert_state_variable "smp_b", "121.86"
+                                assert_state_variable "total_smp", "4752.93"
+                              end
+                            end
+                          end
+
+                          context "weekly calculations" do
+                            setup do
+                              add_response "weekly_starting"
+                            end
+
+                            should "go straight to the SMP result" do
                               assert_current_node :maternity_leave_and_pay_result
-                              assert_state_variable :pay_method, "weekly"
+                              assert_state_variable :pay_method, 'weekly_starting'
                             end
-
-                            should "calculate dates and pay amounts" do
-                              leave_start = Date.parse("21 November 2012")
-                              start_of_week = leave_start - leave_start.wday
-                              assert_state_variable "leave_start_date", leave_start
-                              assert_state_variable "leave_end_date", 52.weeks.since(leave_start) - 1
-                              assert_state_variable "notice_of_leave_deadline", 15.weeks.ago(start_of_week).end_of_week + 6
-                              assert_state_variable "pay_start_date", leave_start
-                              assert_state_variable "pay_end_date", 39.weeks.since(leave_start) - 1
-                              assert_state_variable "average_weekly_earnings", 135.4
-                              assert_state_variable "smp_a", "121.86"
-                              assert_state_variable "smp_b", "121.86"
-                              assert_state_variable "total_smp", "4752.93"
-                            end
-                          end
-                        end
-
-                        context "weekly calculations" do
-                          setup do
-                            add_response "weekly_starting"
-                          end
-
-                          should "go straight to the SMP result" do
-                            assert_current_node :maternity_leave_and_pay_result
-                            assert_state_variable :pay_method, 'weekly_starting'
                           end
                         end
                       end
@@ -262,6 +274,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                       should "ask for the next pay date if pay frequency is weekly" do
                         add_response "weekly"
                         add_response 1083.20
+                        add_response "8"
                         add_response "usual_paydates"
                         assert_current_node :when_is_your_employees_next_pay_day?
                       end
@@ -284,6 +297,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                         setup do
                           add_response "monthly"
                           add_response 1083.20
+                          add_response "2"
                           add_response "usual_paydates"
                         end
 
@@ -439,6 +453,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                       should "calculate awe and state that they must earn over the minimum threshold" do
                         add_response "weekly"
                         add_response "799"
+                        add_response "8"
                         add_response "weekly_starting"
 
                         assert_current_node :maternity_leave_and_pay_result
@@ -458,6 +473,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                       context "answer 1083.20" do
                         setup do
                           add_response "1083.20"
+                          add_response "8"
                           add_response "weekly_starting"
                         end
 
@@ -532,6 +548,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                       context "answer 1807.78" do
                         setup do
                           add_response "1807.78"
+                          add_response "2"
                           add_response "weekly_starting"
                         end
 
@@ -560,6 +577,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
           add_response Date.parse("2012-09-14")
           add_response :monthly
           add_response "3000"
+          add_response "2"
           add_response "usual_paydates"
           add_response "specific_date_each_month"
           add_response "32"
@@ -579,6 +597,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
           add_response Date.parse("2012-09-14")
           add_response :monthly
           add_response "3000"
+          add_response "2"
           add_response "usual_paydates"
           add_response "specific_date_each_month"
           add_response "29"
@@ -598,6 +617,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
           add_response Date.parse("2012-09-14")
           add_response :monthly
           add_response 4000
+          add_response "2"
           add_response "weekly_starting"
         end
 
@@ -631,6 +651,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
         add_response Date.parse("2014-02-07")
         add_response :monthly
         add_response 956
+        add_response "2"
         add_response "weekly_starting"
       end
 
@@ -652,6 +673,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
         add_response Date.parse("2014-02-03")
         add_response :monthly
         add_response 956
+        add_response "2"
         add_response "weekly_starting"
       end
 
@@ -673,6 +695,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
         add_response Date.parse("2014-02-07")
         add_response :weekly
         add_response 880
+        add_response "8"
         add_response "weekly_starting"
       end
 
@@ -694,6 +717,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
         add_response Date.parse("2014-02-07")
         add_response :weekly
         add_response 880
+        add_response "8"
         add_response "usual_paydates"
         add_response Date.parse('2014-06-27')
       end
@@ -738,6 +762,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
         add_response Date.parse("2013-02-01")
         add_response :weekly
         add_response 864
+        add_response "8"
         add_response "weekly_starting"
       end
 

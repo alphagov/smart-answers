@@ -12,12 +12,21 @@ module SmartAnswer::Calculators
       :a_notice_leave, :last_payday, :pre_offset_payday, :pay_date, :paternity_leave_duration,
       :pay_day_in_month, :pay_day_in_week, :pay_method, :pay_week_in_month, :work_days, :date_of_birth, :awe
 
-    attr_accessor :pay_pattern
+    attr_accessor :pay_pattern, :payment_option
     attr_accessor :earnings_for_pay_period
     attr_accessor :employee_has_contract_adoption
     attr_accessor :on_payroll
 
     DAYS_OF_THE_WEEK = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
+    PAYMENT_OPTIONS = {
+      weekly: {
+        "8": "8 payments or fewer"
+      },
+      monthly: {
+        "2": "1 or 2 payments"
+      }
+    }.with_indifferent_access.freeze
+    private_constant :PAYMENT_OPTIONS
 
     def initialize(match_or_due_date, leave_type = "maternity")
       expected_start = match_or_due_date - match_or_due_date.wday
@@ -35,6 +44,18 @@ module SmartAnswer::Calculators
 
       # Adoption instance vars
       @a_notice_leave = @match_date + 7
+    end
+
+    def self.payment_options(period)
+      PAYMENT_OPTIONS.fetch(period, {})
+    end
+
+    def monthly?
+      pay_pattern == "monthly"
+    end
+
+    def weekly?
+      pay_pattern == "weekly"
     end
 
     def format_date(date)
