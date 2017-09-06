@@ -971,6 +971,82 @@ module SmartAnswer::Calculators
           assert_equal Hash.new, every4weeks
         end
       end
+        
+      context "#number_of_payments" do
+        setup do
+          @calculator = MaternityPaternityCalculator.new(Date.parse("04 Sept 2017"), "maternity")
+        end
+
+        should "return supplied payment_option when pay pattern is monthly" do
+          @calculator.pay_pattern = "monthly"
+          @calculator.payment_option = "3"
+
+          assert_equal 3, @calculator.number_of_payments
+        end
+
+        should "return supplied payment_option when pay pattern is weekly" do
+          @calculator.pay_pattern = "weekly"
+          @calculator.payment_option = "9"
+
+          assert_equal 9, @calculator.number_of_payments
+        end
+
+        should "return 2 when pay pattern is monthly and payment_option is set to non Numeric value" do
+          @calculator.pay_pattern = "monthly"
+          @calculator.payment_option = "invalid_numeral"
+
+          assert_equal 2, @calculator.number_of_payments
+        end
+
+        should "return 8 when pay pattern is weekly and payment_option is set to non Numeric value" do
+          @calculator.pay_pattern = "weekly"
+          @calculator.payment_option = "invalid_numeral"
+
+          assert_equal 8, @calculator.number_of_payments
+        end
+
+        should "return 8 when pay pattern is every_2_weeks and payment_option is set to non Numeric value" do
+          @calculator.pay_pattern = "every_2_weeks"
+          @calculator.payment_option = "invalid_numeral"
+
+          assert_equal 8, @calculator.number_of_payments
+        end
+
+        should "return 8 when pay pattern is every_4_weeks and payment_option is set to non Numeric value" do
+          @calculator.pay_pattern = "every_4_weeks"
+          @calculator.payment_option = "invalid_numeral"
+
+          assert_equal 8, @calculator.number_of_payments
+        end
+
+        should "return 2 when pay pattern is monthly and payment_option isn't set" do
+          @calculator.pay_pattern = "monthly"
+          @calculator.payment_option = nil
+
+          assert_equal 2, @calculator.number_of_payments
+        end
+
+        should "return 8 when pay pattern is weekly and payment_option isn't set" do
+          @calculator.pay_pattern = "weekly"
+          @calculator.payment_option = nil
+
+          assert_equal 8, @calculator.number_of_payments
+        end
+
+        should "return 8 when pay pattern is every_2_weeks and payment_option isn't set" do
+          @calculator.pay_pattern = "every_2_weeks"
+          @calculator.payment_option = nil
+
+          assert_equal 8, @calculator.number_of_payments
+        end
+
+        should "return 8 when pay pattern is every_4_weeks and payment_option isn't set" do
+          @calculator.pay_pattern = "every_4_weeks"
+          @calculator.payment_option = nil
+
+          assert_equal 8, @calculator.number_of_payments
+        end
+      end
     end
   end
 end

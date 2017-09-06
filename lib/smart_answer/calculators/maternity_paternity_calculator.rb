@@ -53,6 +53,16 @@ module SmartAnswer::Calculators
       PAYMENT_OPTIONS.fetch(period, {})
     end
 
+    def number_of_payments
+      if valid_payment_option?
+        payment_option.to_f
+      elsif monthly?
+        2.0
+      else
+        8.0
+      end
+    end
+
     def monthly?
       pay_pattern == "monthly"
     end
@@ -179,9 +189,9 @@ module SmartAnswer::Calculators
       sprintf("%.5f", (
         case pay_pattern
         when "monthly"
-          earnings_for_pay_period.to_f / 2 * 12 / 52
+          earnings_for_pay_period.to_f / number_of_payments * 12 / 52
         else
-          earnings_for_pay_period.to_f / 8
+          earnings_for_pay_period.to_f / number_of_payments
         end
       )).to_f # HMRC truncation at 5 places.
     end
@@ -311,6 +321,15 @@ module SmartAnswer::Calculators
     end
 
   private
+
+    def valid_payment_option?
+      (monthly? || weekly?) &&
+        possible_payment_options.include?(payment_option)
+    end
+
+    def possible_payment_options
+      @possible_payment_options ||= PAYMENT_OPTIONS.values.flat_map(&:keys)
+    end
 
     def paydates_every_n_days(days)
       [].tap do |ary|
