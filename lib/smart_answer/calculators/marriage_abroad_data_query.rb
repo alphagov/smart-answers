@@ -20,9 +20,9 @@ module SmartAnswer::Calculators
 
     OS_MARRIAGE_VIA_LOCAL_AUTHORITIES = %w(argentina costa-rica cote-d-ivoire czech-republic israel liberia madagascar netherlands paraguay senegal taiwan ukraine uruguay)
 
-    OS_NO_MARRIAGE_CONSULAR_SERVICES = %w(afghanistan american-samoa andorra aruba benin bhutan bonaire-st-eustatius-saba burkina-faso burundi cape-verde central-african-republic chad comoros congo curacao djibouti equatorial-guinea eritrea gabon guinea guinea-bissau haiti hong-kong iraq kosovo laos liechtenstein mali marshall-islands mauritania micronesia monaco nicaragua niger palau paraguay rwanda san-marino sao-tome-and-principe south-sudan st-maarten suriname timor-leste togo western-sahara)
+    OS_NO_MARRIAGE_CONSULAR_SERVICES = %w(afghanistan american-samoa andorra aruba benin bhutan bonaire-st-eustatius-saba burkina-faso burundi cape-verde central-african-republic chad comoros congo curacao djibouti equatorial-guinea eritrea gabon guinea guinea-bissau haiti hong-kong iraq kosovo laos liechtenstein mali marshall-islands mauritania micronesia monaco niger palau paraguay rwanda san-marino sao-tome-and-principe south-sudan st-maarten suriname timor-leste togo western-sahara).freeze
 
-    OS_CONSULAR_CNI_IN_NEARBY_COUNTRY = %w(nicaragua)
+    OS_CONSULAR_CNI_IN_NEARBY_COUNTRY = %w().freeze
 
     OS_AFFIRMATION_COUNTRIES = %w(belgium ecuador lebanon finland macao mongolia morocco norway peru qatar south-korea united-arab-emirates vietnam).freeze
 
@@ -34,7 +34,7 @@ module SmartAnswer::Calculators
 
     COUNTRIES_WITHOUT_CONSULAR_FACILITIES = %w(argentina aruba bonaire-st-eustatius-saba burundi cote-d-ivoire curacao czech-republic saint-barthelemy slovakia st-maarten st-martin taiwan)
 
-    SS_MARRIAGE_COUNTRIES = %w(australia bolivia dominican-republic estonia germany kosovo mongolia montenegro nicaragua russia san-marino serbia)
+    SS_MARRIAGE_COUNTRIES = %w(australia bolivia dominican-republic estonia germany kosovo mongolia montenegro russia san-marino serbia).freeze
 
     NO_SS_MARRIAGE_COUNTRIES = %w(san-marino seychelles)
 
@@ -44,7 +44,7 @@ module SmartAnswer::Calculators
 
     SS_ALT_FEES_TABLE_COUNTRY = %w(australia bolivia estonia san-marino serbia seychelles)
 
-    SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_A = %w(mongolia montenegro nicaragua russia)
+    SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_A = %w(mongolia montenegro russia).freeze
 
     SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_B = %w(dominican-republic kosovo).freeze
 
@@ -56,7 +56,7 @@ module SmartAnswer::Calculators
 
     CNI_NOTARY_PUBLIC_COUNTRIES = %w(albania angola armenia austria bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg mexico montenegro russia serbia tajikistan turkmenistan ukraine uzbekistan venezuela).freeze
 
-    NO_DOCUMENT_DOWNLOAD_LINK_IF_OS_RESIDENT_OF_UK_COUNTRIES = %w(albania angola armenia austria bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico montenegro nicaragua russia serbia tajikistan turkmenistan ukraine uzbekistan venezuela).freeze
+    NO_DOCUMENT_DOWNLOAD_LINK_IF_OS_RESIDENT_OF_UK_COUNTRIES = %w(albania angola armenia austria bahrain bolivia bosnia-and-herzegovina bulgaria croatia cuba estonia georgia iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico montenegro russia serbia tajikistan turkmenistan ukraine uzbekistan venezuela).freeze
 
     CNI_POSTED_AFTER_14_DAYS_COUNTRIES = %w(qatar saudi-arabia united-arab-emirates yemen)
 
