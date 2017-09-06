@@ -239,6 +239,10 @@ module SmartAnswer
           next_node do
             if calculator.average_weekly_earnings_under_lower_earning_limit?
               outcome :adoption_leave_and_pay
+            elsif calculator.weekly?
+              question :how_many_payments_weekly? # See SharedAdoptionMaternityPaternityFlow for definition
+            elsif calculator.monthly?
+              question :how_many_payments_monthly? # See SharedAdoptionMaternityPaternityFlow for definition
             else
               question :how_do_you_want_the_sap_calculated?
             end

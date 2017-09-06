@@ -20661,6 +20661,23 @@
   - '2017-11-01'
   - weekly
   - '3000'
+  :next_node: :how_many_payments_weekly?
+  :outcome_node: false
+- :current_node: :how_many_payments_weekly?
+  :responses:
+  - adoption
+  - maternity
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '8'
   :next_node: :how_do_you_want_the_sap_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_sap_calculated?
@@ -20677,6 +20694,7 @@
   - '2017-11-01'
   - weekly
   - '3000.0'
+  - '8'
   - weekly_starting
   :next_node: :adoption_leave_and_pay
   :outcome_node: true
@@ -20694,6 +20712,7 @@
   - '2017-11-01'
   - weekly
   - '3000.0'
+  - '8'
   - usual_paydates
   :next_node: :next_pay_day_paternity?
   :outcome_node: false
@@ -20711,6 +20730,7 @@
   - '2017-11-01'
   - weekly
   - '3000.0'
+  - '8'
   - usual_paydates
   - '2018-01-01'
   :next_node: :paternity_leave_and_pay
@@ -20958,6 +20978,23 @@
   - '2017-11-01'
   - monthly
   - '3000'
+  :next_node: :how_many_payments_monthly?
+  :outcome_node: false
+- :current_node: :how_many_payments_monthly?
+  :responses:
+  - adoption
+  - maternity
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
   :next_node: :how_do_you_want_the_sap_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_sap_calculated?
@@ -20974,6 +21011,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - weekly_starting
   :next_node: :adoption_leave_and_pay
   :outcome_node: true
@@ -20991,6 +21029,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   :next_node: :monthly_pay_paternity?
   :outcome_node: false
@@ -21008,6 +21047,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - first_day_of_the_month
   :next_node: :adoption_leave_and_pay
@@ -21026,6 +21066,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - last_day_of_the_month
   :next_node: :adoption_leave_and_pay
@@ -21044,6 +21085,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - specific_date_each_month
   :next_node: :specific_date_each_month_paternity?
@@ -21062,6 +21104,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - specific_date_each_month
   - '14'
@@ -21081,6 +21124,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - specific_date_each_month
   - '29'
@@ -21100,6 +21144,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - last_working_day_of_the_month
   :next_node: :days_of_the_week_paternity?
@@ -21118,6 +21163,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - last_working_day_of_the_month
   - '0'
@@ -21137,6 +21183,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - last_working_day_of_the_month
   - '1'
@@ -21156,6 +21203,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - last_working_day_of_the_month
   - '2'
@@ -21175,6 +21223,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - last_working_day_of_the_month
   - '3'
@@ -21194,6 +21243,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - last_working_day_of_the_month
   - '4'
@@ -21213,6 +21263,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - last_working_day_of_the_month
   - '5'
@@ -21232,6 +21283,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - last_working_day_of_the_month
   - '6'
@@ -21251,6 +21303,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   :next_node: :day_of_the_month_paternity?
@@ -21269,6 +21322,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '0'
@@ -21288,6 +21342,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '0'
@@ -21308,6 +21363,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '0'
@@ -21328,6 +21384,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '0'
@@ -21348,6 +21405,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '0'
@@ -21368,6 +21426,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '0'
@@ -21388,6 +21447,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '1'
@@ -21407,6 +21467,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '1'
@@ -21427,6 +21488,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '1'
@@ -21447,6 +21509,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '1'
@@ -21467,6 +21530,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '1'
@@ -21487,6 +21551,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '1'
@@ -21507,6 +21572,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '2'
@@ -21526,6 +21592,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '2'
@@ -21546,6 +21613,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '2'
@@ -21566,6 +21634,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '2'
@@ -21586,6 +21655,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '2'
@@ -21606,6 +21676,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '2'
@@ -21626,6 +21697,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '3'
@@ -21645,6 +21717,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '3'
@@ -21665,6 +21738,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '3'
@@ -21685,6 +21759,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '3'
@@ -21705,6 +21780,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '3'
@@ -21725,6 +21801,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '3'
@@ -21745,6 +21822,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '4'
@@ -21764,6 +21842,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '4'
@@ -21784,6 +21863,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '4'
@@ -21804,6 +21884,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '4'
@@ -21824,6 +21905,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '4'
@@ -21844,6 +21926,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '4'
@@ -21864,6 +21947,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '5'
@@ -21883,6 +21967,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '5'
@@ -21903,6 +21988,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '5'
@@ -21923,6 +22009,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '5'
@@ -21943,6 +22030,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '5'
@@ -21963,6 +22051,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '5'
@@ -21983,6 +22072,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '6'
@@ -22002,6 +22092,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '6'
@@ -22022,6 +22113,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '6'
@@ -22042,6 +22134,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '6'
@@ -22062,6 +22155,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '6'
@@ -22082,6 +22176,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '6'
@@ -22216,6 +22311,23 @@
   - '2017-11-01'
   - weekly
   - '3000'
+  :next_node: :how_many_payments_weekly?
+  :outcome_node: false
+- :current_node: :how_many_payments_weekly?
+  :responses:
+  - adoption
+  - maternity
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '8'
   :next_node: :how_do_you_want_the_sap_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_sap_calculated?
@@ -22232,6 +22344,7 @@
   - '2017-11-01'
   - weekly
   - '3000.0'
+  - '8'
   - weekly_starting
   :next_node: :adoption_leave_and_pay
   :outcome_node: true
@@ -22249,6 +22362,7 @@
   - '2017-11-01'
   - weekly
   - '3000.0'
+  - '8'
   - usual_paydates
   :next_node: :next_pay_day_paternity?
   :outcome_node: false
@@ -22266,6 +22380,7 @@
   - '2017-11-01'
   - weekly
   - '3000.0'
+  - '8'
   - usual_paydates
   - '2018-01-01'
   :next_node: :paternity_leave_and_pay
@@ -22513,6 +22628,23 @@
   - '2017-11-01'
   - monthly
   - '3000'
+  :next_node: :how_many_payments_monthly?
+  :outcome_node: false
+- :current_node: :how_many_payments_monthly?
+  :responses:
+  - adoption
+  - maternity
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
   :next_node: :how_do_you_want_the_sap_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_sap_calculated?
@@ -22529,6 +22661,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - weekly_starting
   :next_node: :adoption_leave_and_pay
   :outcome_node: true
@@ -22546,6 +22679,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   :next_node: :monthly_pay_paternity?
   :outcome_node: false
@@ -22563,6 +22697,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - first_day_of_the_month
   :next_node: :adoption_leave_and_pay
@@ -22581,6 +22716,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - last_day_of_the_month
   :next_node: :adoption_leave_and_pay
@@ -22599,6 +22735,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - specific_date_each_month
   :next_node: :specific_date_each_month_paternity?
@@ -22617,6 +22754,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - specific_date_each_month
   - '14'
@@ -22636,6 +22774,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - specific_date_each_month
   - '29'
@@ -22655,6 +22794,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - last_working_day_of_the_month
   :next_node: :days_of_the_week_paternity?
@@ -22673,6 +22813,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - last_working_day_of_the_month
   - '0'
@@ -22692,6 +22833,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - last_working_day_of_the_month
   - '1'
@@ -22711,6 +22853,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - last_working_day_of_the_month
   - '2'
@@ -22730,6 +22873,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - last_working_day_of_the_month
   - '3'
@@ -22749,6 +22893,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - last_working_day_of_the_month
   - '4'
@@ -22768,6 +22913,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - last_working_day_of_the_month
   - '5'
@@ -22787,6 +22933,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - last_working_day_of_the_month
   - '6'
@@ -22806,6 +22953,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   :next_node: :day_of_the_month_paternity?
@@ -22824,6 +22972,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '0'
@@ -22843,6 +22992,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '0'
@@ -22863,6 +23013,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '0'
@@ -22883,6 +23034,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '0'
@@ -22903,6 +23055,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '0'
@@ -22923,6 +23076,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '0'
@@ -22943,6 +23097,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '1'
@@ -22962,6 +23117,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '1'
@@ -22982,6 +23138,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '1'
@@ -23002,6 +23159,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '1'
@@ -23022,6 +23180,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '1'
@@ -23042,6 +23201,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '1'
@@ -23062,6 +23222,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '2'
@@ -23081,6 +23242,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '2'
@@ -23101,6 +23263,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '2'
@@ -23121,6 +23284,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '2'
@@ -23141,6 +23305,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '2'
@@ -23161,6 +23326,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '2'
@@ -23181,6 +23347,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '3'
@@ -23200,6 +23367,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '3'
@@ -23220,6 +23388,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '3'
@@ -23240,6 +23409,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '3'
@@ -23260,6 +23430,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '3'
@@ -23280,6 +23451,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '3'
@@ -23300,6 +23472,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '4'
@@ -23319,6 +23492,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '4'
@@ -23339,6 +23513,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '4'
@@ -23359,6 +23534,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '4'
@@ -23379,6 +23555,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '4'
@@ -23399,6 +23576,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '4'
@@ -23419,6 +23597,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '5'
@@ -23438,6 +23617,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '5'
@@ -23458,6 +23638,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '5'
@@ -23478,6 +23659,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '5'
@@ -23498,6 +23680,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '5'
@@ -23518,6 +23701,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '5'
@@ -23538,6 +23722,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '6'
@@ -23557,6 +23742,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '6'
@@ -23577,6 +23763,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '6'
@@ -23597,6 +23784,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '6'
@@ -23617,6 +23805,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '6'
@@ -23637,6 +23826,7 @@
   - '2017-11-01'
   - monthly
   - '3000.0'
+  - '2'
   - usual_paydates
   - a_certain_week_day_each_month
   - '6'

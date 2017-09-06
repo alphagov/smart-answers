@@ -58,6 +58,14 @@ module SmartAnswer::Calculators
       pay_pattern == "weekly"
     end
 
+    def adoption?
+      @leave_type == "adoption"
+    end
+
+    def maternity?
+      @leave_type == "maternity"
+    end
+
     def format_date(date)
       date.strftime("%e %B %Y")
     end
