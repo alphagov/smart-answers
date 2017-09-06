@@ -920,6 +920,30 @@ module SmartAnswer::Calculators
         end
       end
 
+      context "#paternity?" do
+        should "return true if leave_type is set to paternity" do
+          calculator = MaternityPaternityCalculator.new(Date.parse("04 Sept 2017"), "paternity")
+          assert calculator.paternity?
+        end
+
+        should "return false if leave_type isn't set to paternity" do
+          calculator = MaternityPaternityCalculator.new(Date.parse("04 Sept 2017"), "paternity_adoption")
+          refute calculator.paternity?
+        end
+      end
+
+      context "#paternity_adoption?" do
+        should "return true if leave_type is set to paternity_adoption" do
+          calculator = MaternityPaternityCalculator.new(Date.parse("04 Sept 2017"), "paternity_adoption")
+          assert calculator.paternity_adoption?
+        end
+
+        should "return false if leave_type isn't set to paternity_adoption" do
+          calculator = MaternityPaternityCalculator.new(Date.parse("04 Sept 2017"), "paternity")
+          refute calculator.paternity_adoption?
+        end
+      end
+
       context "payment_options" do
         should "return weekly payment options when supplied with weekly" do
           weekly = MaternityPaternityCalculator.payment_options("weekly")

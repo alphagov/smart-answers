@@ -66,6 +66,14 @@ module SmartAnswer::Calculators
       @leave_type == "maternity"
     end
 
+    def paternity?
+      @leave_type == "paternity"
+    end
+
+    def paternity_adoption?
+      @leave_type == "paternity_adoption"
+    end
+
     def format_date(date)
       date.strftime("%e %B %Y")
     end
