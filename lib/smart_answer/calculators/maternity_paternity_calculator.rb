@@ -20,10 +20,13 @@ module SmartAnswer::Calculators
     DAYS_OF_THE_WEEK = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
     PAYMENT_OPTIONS = {
       weekly: {
-        "8": "8 payments or fewer"
+        "8": "8 payments or fewer",
+        "9": "9 payments",
+        "10": "10 payments"
       },
       monthly: {
-        "2": "1 or 2 payments"
+        "2": "1 or 2 payments",
+        "3": "3 payments"
       }
     }.with_indifferent_access.freeze
     private_constant :PAYMENT_OPTIONS

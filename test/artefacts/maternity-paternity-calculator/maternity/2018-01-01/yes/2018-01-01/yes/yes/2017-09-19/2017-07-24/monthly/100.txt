@@ -6,6 +6,7 @@ If you have paid the employee 2 month’s pay in one month, count it as 2 paymen
 Don't count bonuses or holiday payments on top of paid annual leave.
 
   * 2: 1 or 2 payments
+  * 3: 3 payments
 
 
 

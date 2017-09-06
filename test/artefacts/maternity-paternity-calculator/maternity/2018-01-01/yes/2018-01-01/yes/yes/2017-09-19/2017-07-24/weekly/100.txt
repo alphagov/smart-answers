@@ -6,6 +6,8 @@ If you have paid the employee 2 weeks’ pay in one week, count it as 2 payments
 Don't count bonuses or holiday payments on top of paid annual leave.
 
   * 8: 8 payments or fewer
+  * 9: 9 payments
+  * 10: 10 payments
 
 
 

@@ -943,20 +943,20 @@ module SmartAnswer::Calculators
           refute calculator.paternity_adoption?
         end
       end
-
+      
       context "payment_options" do
         should "return weekly payment options when supplied with weekly" do
           weekly = MaternityPaternityCalculator.payment_options("weekly")
 
-          assert_equal %w(8), weekly.keys
-          assert_equal ["8 payments or fewer"], weekly.values
+          assert_equal %w(8 9 10), weekly.keys
+          assert_equal ["8 payments or fewer", "9 payments", "10 payments"], weekly.values
         end
 
         should "return monthly payment options when supplied with monthly" do
           monthly = MaternityPaternityCalculator.payment_options("monthly")
 
-          assert_equal %w(2), monthly.keys
-          assert_equal ["1 or 2 payments"], monthly.values
+          assert_equal %w(2 3), monthly.keys
+          assert_equal ["1 or 2 payments", "3 payments"], monthly.values
         end
 
         should "return empty hash when supplied with every 2 weeks" do

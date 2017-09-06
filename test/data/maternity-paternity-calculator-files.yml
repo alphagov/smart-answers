@@ -1,7 +1,7 @@
 ---
 lib/data/rates/maternity_paternity_adoption.yml: e4a27ae88a179412e306197e4f4a229c
 lib/data/rates/maternity_paternity_birth.yml: ecc6ef0c3163cc0c5448858ad89161a5
-lib/smart_answer/calculators/maternity_paternity_calculator.rb: d0951ad2f3768ffbda7d5adc07a3b1ba
+lib/smart_answer/calculators/maternity_paternity_calculator.rb: 3d35ae7e3809685b4e803795fdbe561e
 lib/smart_answer_flows/maternity-paternity-calculator/adoption_calculator_flow.rb: 3008fb4648bf9129f1839f1ebf105df3
 lib/smart_answer_flows/maternity-paternity-calculator/maternity_calculator_flow.rb: 4f27952b9962f29249b133d4bea7d8b8
 lib/smart_answer_flows/maternity-paternity-calculator/maternity_paternity_calculator.govspeak.erb: 019bbbe8b47309afce398e707263d0e5
@@ -78,5 +78,5 @@ lib/smart_answer_flows/maternity-paternity-calculator/questions/when_is_your_emp
 lib/smart_answer_flows/maternity-paternity-calculator/questions/which_week_in_month_is_the_employee_paid.govspeak.erb: 19fef5ffcbb85e74f88dd24ce3ccf4c0
 lib/smart_answer_flows/maternity-paternity-calculator/shared_adoption_maternity_paternity_flow.rb: 8d8fc3ecdc8de1a22629682729d06071
 lib/smart_answer_flows/maternity-paternity-calculator.rb: eb23092e976904e884a60f9fb73f973a
-test/data/maternity-paternity-calculator-questions-and-responses.yml: bf4687e3469f5190e0a4171853e6e615
-test/data/maternity-paternity-calculator-responses-and-expected-results.yml: a95a07d1598703fd7ee583998767815b
+test/data/maternity-paternity-calculator-questions-and-responses.yml: bdf02d173ae0b1f67f8d50c8acfbd914
+test/data/maternity-paternity-calculator-responses-and-expected-results.yml: 3fce1074b0e2ce08c1c3429d5b169011
