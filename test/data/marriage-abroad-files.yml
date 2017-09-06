@@ -1,10 +1,10 @@
 ---
-lib/data/marriage_abroad_data.yml: ed3ee1230ca1cdfc5f4bff27536dc21b
+lib/data/marriage_abroad_data.yml: ec3968738db75457621953ea245c5e4a
 lib/data/marriage_abroad_services.yml: 40598840da892562da37f79c36b3208e
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/smart_answer/calculators/country_name_formatter.rb: 6e9aab3c79a59e54e056b473b9cc4151
 lib/smart_answer/calculators/marriage_abroad_calculator.rb: 0c0be55c3621e81a75af0f55827ad31c
-lib/smart_answer/calculators/marriage_abroad_data_query.rb: 73e3ef201c98bae938d5aff74e151c3e
+lib/smart_answer/calculators/marriage_abroad_data_query.rb: 2f4a7dfff5977fdfd7453f4aaf33a240
 lib/smart_answer/calculators/registrations_data_query.rb: 80250f09bc28d55a86148de2e7a76429
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
 lib/smart_answer_flows/marriage-abroad/outcomes/_affirmation_os_translation_in_local_language_text.govspeak.erb: af09e09b909c563d4a587ef1b9285cca
@@ -512,6 +512,25 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/mozambique/uk/partner_
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/mozambique/uk/partner_local/_same_sex.govspeak.erb: 796f2753a7e62343e67f3371364b6abb
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/mozambique/uk/partner_other/_opposite_sex.govspeak.erb: 97f9de6d2c1fec923e74e9166a84ab72
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/mozambique/uk/partner_other/_same_sex.govspeak.erb: ed1f54294d9d3fd852aad9d793500507
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/_title.govspeak.erb: 888d85a580de83d17aff8199cf9a1b28
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/ceremony_country/partner_british/_opposite_sex.erb: 45baea143381be741b68205aa6612cd5
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/ceremony_country/partner_british/_same_sex.erb: 1da15a1dc484d8477b763f9222093091
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/ceremony_country/partner_local/_opposite_sex.erb: a398eecbab014061a8df73dd097c8468
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/ceremony_country/partner_local/_same_sex.erb: da6d954617dbb8534608a9e73f526504
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/ceremony_country/partner_other/_opposite_sex.erb: a398eecbab014061a8df73dd097c8468
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/ceremony_country/partner_other/_same_sex.erb: da6d954617dbb8534608a9e73f526504
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/third_country/partner_british/_opposite_sex.erb: 97a9470d9aba0b7f5ddc6b7fb007aa14
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/third_country/partner_british/_same_sex.erb: 1da15a1dc484d8477b763f9222093091
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/third_country/partner_local/_opposite_sex.erb: 4be08ee373c7996ba4c268d61bb0dee9
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/third_country/partner_local/_same_sex.erb: da6d954617dbb8534608a9e73f526504
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/third_country/partner_other/_opposite_sex.erb: ab30d3c25188ab787ab3f29bf008dbc0
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/third_country/partner_other/_same_sex.erb: da6d954617dbb8534608a9e73f526504
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/uk/partner_british/_opposite_sex.erb: b02f27dc6a18d1fef328a7735ba2e303
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/uk/partner_british/_same_sex.erb: 1da15a1dc484d8477b763f9222093091
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/uk/partner_local/_opposite_sex.erb: 234e0802f5b9a15b65749746d2870f76
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/uk/partner_local/_same_sex.erb: da6d954617dbb8534608a9e73f526504
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/uk/partner_other/_opposite_sex.erb: 234e0802f5b9a15b65749746d2870f76
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/uk/partner_other/_same_sex.erb: da6d954617dbb8534608a9e73f526504
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/philippines/_opposite_sex.govspeak.erb: 17f03c901e3fb4aa9a79a5c1ae5bf7d9
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/philippines/_same_sex.govspeak.erb: 25b5e80abb9a880dbfb538ef07c7864a
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/philippines/_title.govspeak.erb: 0854b3acba978d232a8983b9438d7342
@@ -762,4 +781,4 @@ lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationali
 lib/smart_answer_flows/marriage-abroad.rb: 9e4136918406da1c78444e0b3b4cfdfa
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1dc349abcd6b21e1bf8c397d96fd02b8
 test/data/marriage-abroad-questions-and-responses.yml: 0f079512ee2f1fd27145bf9db84ef5eb
-test/data/marriage-abroad-responses-and-expected-results.yml: 1a33f068e5c86dd6e0c913f195186294
+test/data/marriage-abroad-responses-and-expected-results.yml: c2800fb9824e48e890cb7a127dae0118
