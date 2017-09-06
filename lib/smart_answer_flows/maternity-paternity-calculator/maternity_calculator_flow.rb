@@ -3,8 +3,6 @@ module SmartAnswer
     class MaternityCalculatorFlow < Flow
       def define
         days_of_the_week = Calculators::MaternityPaternityCalculator::DAYS_OF_THE_WEEK
-        payment_options_weekly = Calculators::MaternityPaternityCalculator.payment_options("weekly")
-        payment_options_monthly = Calculators::MaternityPaternityCalculator.payment_options("monthly")
 
         ## QM1
         date_question :baby_due_date_maternity? do
@@ -193,50 +191,12 @@ module SmartAnswer
           end
           next_node do
             if calculator.weekly?
-              question :how_many_payments_weekly?
+              question :how_many_payments_weekly? # See SharedAdoptionMaternityPaternityFlow for definition
             elsif calculator.monthly?
-              question :how_many_payments_monthly?
+              question :how_many_payments_monthly? # See SharedAdoptionMaternityPaternityFlow for definition
             else
               question :how_do_you_want_the_smp_calculated?
             end
-          end
-        end
-
-        ## QA9b
-        multiple_choice :how_many_payments_weekly? do
-          payment_options_weekly.keys.each do |payment_option|
-            option payment_option
-          end
-
-          precalculate :payment_options_weekly do
-            payment_options_weekly
-          end
-
-          on_response do |response|
-            calculator.payment_option = response
-          end
-
-          next_node do
-            question :how_do_you_want_the_smp_calculated?
-          end
-        end
-
-        ## QA9c
-        multiple_choice :how_many_payments_monthly? do
-          payment_options_monthly.keys.each do |payment_option|
-            option payment_option
-          end
-
-          precalculate :payment_options_monthly do
-            payment_options_monthly
-          end
-
-          on_response do |response|
-            calculator.payment_option = response
-          end
-
-          next_node do
-            question :how_do_you_want_the_smp_calculated?
           end
         end
 
