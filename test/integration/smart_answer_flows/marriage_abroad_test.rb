@@ -2786,10 +2786,20 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'greece'
     end
 
+    context "lives in uk, all opposite-sex outcomes" do
+      setup do
+        add_response 'uk'
+        add_response 'opposite_sex'
+      end
+
+      should "leads to outcome_marriage_abroad_in_country" do
+        assert_current_node :outcome_marriage_abroad_in_country
+      end
+    end
+
     context "lives in 3rd country, all opposite-sex outcomes" do
       setup do
         add_response 'third_country'
-        add_response 'partner_other'
         add_response 'opposite_sex'
       end
 
@@ -2801,7 +2811,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     context "resident in Greece, all opposite-sex outcomes" do
       setup do
         add_response 'ceremony_country'
-        add_response 'partner_other'
         add_response 'opposite_sex'
       end
       should "lead to outcome_marriage_abroad_in_country with Greece-specific appoitnment link and document requirements" do

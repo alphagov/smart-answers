@@ -9286,20 +9286,12 @@
   :responses:
   - greece
   - uk
-  :next_node: :what_is_your_partners_nationality?
-  :outcome_node: false
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - greece
-  - uk
-  - partner_british
   :next_node: :partner_opposite_or_same_sex?
   :outcome_node: false
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
   - greece
   - uk
-  - partner_british
   - opposite_sex
   :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
@@ -9307,53 +9299,6 @@
   :responses:
   - greece
   - uk
-  - partner_british
-  - same_sex
-  :next_node: :outcome_marriage_abroad_in_country
-  :outcome_node: true
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - greece
-  - uk
-  - partner_local
-  :next_node: :partner_opposite_or_same_sex?
-  :outcome_node: false
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - greece
-  - uk
-  - partner_local
-  - opposite_sex
-  :next_node: :outcome_marriage_abroad_in_country
-  :outcome_node: true
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - greece
-  - uk
-  - partner_local
-  - same_sex
-  :next_node: :outcome_marriage_abroad_in_country
-  :outcome_node: true
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - greece
-  - uk
-  - partner_other
-  :next_node: :partner_opposite_or_same_sex?
-  :outcome_node: false
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - greece
-  - uk
-  - partner_other
-  - opposite_sex
-  :next_node: :outcome_marriage_abroad_in_country
-  :outcome_node: true
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - greece
-  - uk
-  - partner_other
   - same_sex
   :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
@@ -9361,20 +9306,12 @@
   :responses:
   - greece
   - ceremony_country
-  :next_node: :what_is_your_partners_nationality?
-  :outcome_node: false
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - greece
-  - ceremony_country
-  - partner_british
   :next_node: :partner_opposite_or_same_sex?
   :outcome_node: false
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
   - greece
   - ceremony_country
-  - partner_british
   - opposite_sex
   :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
@@ -9382,53 +9319,6 @@
   :responses:
   - greece
   - ceremony_country
-  - partner_british
-  - same_sex
-  :next_node: :outcome_marriage_abroad_in_country
-  :outcome_node: true
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - greece
-  - ceremony_country
-  - partner_local
-  :next_node: :partner_opposite_or_same_sex?
-  :outcome_node: false
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - greece
-  - ceremony_country
-  - partner_local
-  - opposite_sex
-  :next_node: :outcome_marriage_abroad_in_country
-  :outcome_node: true
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - greece
-  - ceremony_country
-  - partner_local
-  - same_sex
-  :next_node: :outcome_marriage_abroad_in_country
-  :outcome_node: true
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - greece
-  - ceremony_country
-  - partner_other
-  :next_node: :partner_opposite_or_same_sex?
-  :outcome_node: false
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - greece
-  - ceremony_country
-  - partner_other
-  - opposite_sex
-  :next_node: :outcome_marriage_abroad_in_country
-  :outcome_node: true
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - greece
-  - ceremony_country
-  - partner_other
   - same_sex
   :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
@@ -9436,20 +9326,12 @@
   :responses:
   - greece
   - third_country
-  :next_node: :what_is_your_partners_nationality?
-  :outcome_node: false
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - greece
-  - third_country
-  - partner_british
   :next_node: :partner_opposite_or_same_sex?
   :outcome_node: false
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
   - greece
   - third_country
-  - partner_british
   - opposite_sex
   :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
@@ -9457,53 +9339,6 @@
   :responses:
   - greece
   - third_country
-  - partner_british
-  - same_sex
-  :next_node: :outcome_marriage_abroad_in_country
-  :outcome_node: true
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - greece
-  - third_country
-  - partner_local
-  :next_node: :partner_opposite_or_same_sex?
-  :outcome_node: false
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - greece
-  - third_country
-  - partner_local
-  - opposite_sex
-  :next_node: :outcome_marriage_abroad_in_country
-  :outcome_node: true
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - greece
-  - third_country
-  - partner_local
-  - same_sex
-  :next_node: :outcome_marriage_abroad_in_country
-  :outcome_node: true
-- :current_node: :what_is_your_partners_nationality?
-  :responses:
-  - greece
-  - third_country
-  - partner_other
-  :next_node: :partner_opposite_or_same_sex?
-  :outcome_node: false
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - greece
-  - third_country
-  - partner_other
-  - opposite_sex
-  :next_node: :outcome_marriage_abroad_in_country
-  :outcome_node: true
-- :current_node: :partner_opposite_or_same_sex?
-  :responses:
-  - greece
-  - third_country
-  - partner_other
   - same_sex
   :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
