@@ -69,7 +69,7 @@ See:
   * [Question templates](doc/question-templates.md)
   * [Outcome templates](doc/outcome-templates.md)
 
-### Smart Answer flow development
+### Smart Answer flow development
 
 * [Development principles](doc/development-principles.md)
 * [Deploying changes for Factcheck](doc/factcheck.md)
