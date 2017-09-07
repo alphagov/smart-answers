@@ -582,62 +582,14 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'spain'
     end
 
-    context "resident in uk, partner british, opposite sex" do
-      setup do
-        add_response 'uk'
-        add_response 'partner_british'
-        add_response 'opposite_sex'
-      end
-      should "go to outcome_ceremonies_in_spain with UK/OS specific phrases" do
-        assert_current_node :outcome_ceremonies_in_spain
-      end
+    should "go to outcome_marriage_abroad_in_country for opposite sex" do
+      add_response 'opposite_sex'
+      assert_current_node :outcome_marriage_abroad_in_country
     end
 
-    context "resident in spain, partner local" do
-      setup do
-        add_response 'ceremony_country'
-        add_response 'partner_local'
-        add_response 'opposite_sex'
-      end
-      should "go to outcome_ceremonies_in_spain with ceremony country OS specific phrases" do
-        assert_current_node :outcome_ceremonies_in_spain
-      end
-    end
-
-    context "lives elsewhere, partner opposite sex other" do
-      setup do
-        add_response 'third_country'
-        add_response 'partner_other'
-        add_response 'opposite_sex'
-      end
-
-      should "go to outcome_ceremonies_in_spain with third country OS specific phrases" do
-        assert_current_node :outcome_ceremonies_in_spain
-      end
-    end
-
-    context "resident in england, partner british, same sex" do
-      setup do
-        add_response 'uk'
-        add_response 'partner_british'
-        add_response 'same_sex'
-      end
-
-      should "go to outcome_ceremonies_in_spain with UK/SS specific phrases" do
-        assert_current_node :outcome_ceremonies_in_spain
-      end
-    end
-
-    context "lives elsewhere, partner same sex other" do
-      setup do
-        add_response 'third_country'
-        add_response 'partner_other'
-        add_response 'same_sex'
-      end
-
-      should "go to outcome_ceremonies_in_spain with third country SS specific phrases" do
-        assert_current_node :outcome_ceremonies_in_spain
-      end
+    should "go to outcome_marriage_abroad_in_country for same sex" do
+      add_response 'same_sex'
+      assert_current_node :outcome_marriage_abroad_in_country
     end
   end
 
