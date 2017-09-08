@@ -28,6 +28,8 @@
 <%= render partial: 'govuk_component/breadcrumbs', locals: breadcrumbs %>
 
 <div class="grid-row">
+  <%= render partial: "smart_answers/heroku_alert" if heroku? %>
+
   <main id="content" role="main">
     <%= yield %>
 
