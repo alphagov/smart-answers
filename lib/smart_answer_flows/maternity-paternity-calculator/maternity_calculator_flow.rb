@@ -186,9 +186,6 @@ module SmartAnswer
             calculator.earnings_for_pay_period = response
           end
 
-          calculate :average_weekly_earnings do
-            calculator.average_weekly_earnings
-          end
           next_node do
             if calculator.weekly?
               question :how_many_payments_weekly? # See SharedAdoptionMaternityPaternityFlow for definition
@@ -368,6 +365,10 @@ module SmartAnswer
               end
               lines.join("\n")
             end
+          end
+
+          precalculate :average_weekly_earnings do
+            calculator.average_weekly_earnings
           end
         end
       end

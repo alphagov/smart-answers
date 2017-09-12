@@ -12,7 +12,7 @@ The employee is entitled to up to 39 weeks Statutory Maternity Pay (SMP) if they
 
 Pay | Key facts
 -|-
-Average weekly earnings | £375.0 (don't round this up or down)
+Average weekly earnings | £333.33333 (don't round this up or down)
 Latest date to claim SMP |  4 December 2017
 SMP start date due to pregnancy related illness|  3 December 2017
 Proof of pregnancy | Usually within 21 days of the SMP start date (or as soon as possible if baby born early)
