@@ -27,13 +27,7 @@
     You may be able to register a civil partnership or get married at the British embassy or consulate in <%= calculator.country_name_lowercase_prefix %>.
   <% end %>
 
-  <% if calculator.ceremony_country == 'germany' %>
-    Contact the British Embassy in Berlin to make an appointment.
-
-    <%= render partial: 'contact_method.govspeak.erb',
-               locals: { calculator: calculator } %>
-
-  <% elsif calculator.ceremony_country == 'peru' %>
+  <% if calculator.ceremony_country == 'peru' %>
     <%= render partial: 'contact_method.govspeak.erb', locals: { calculator: calculator } %>
 
   <% else %>
@@ -56,12 +50,6 @@
 
   <% if calculator.partner_british? %>
     <%= render partial: 'documents_needed_ss_british.govspeak.erb' %>
-  <% elsif calculator.ceremony_country == 'germany' %>
-    You’ll both need to bring your original passports. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need to provide:
-
-    - a [decree absolute or final order](/copy-decree-absolute-final-order)
-    - the [death certificate](/order-copy-birth-death-marriage-certificate/)
-
   <% else %>
     You’ll both need to bring your original passports. You’ll also need evidence that your partner is free to marry - a document from their government or their passport that says they are unmarried. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need to provide:
 
@@ -119,7 +107,7 @@
   <%= render partial: 'services_and_fees.govspeak.erb',
              locals: { calculator: calculator } %>
 
-  <% if %w{albania australia germany russia serbia vietnam}.include?(calculator.ceremony_country) %>
+  <% if %w{albania australia russia serbia vietnam}.include?(calculator.ceremony_country) %>
 
   <%= render partial: 'convert_cc_to_ss_marriage.govspeak.erb' %>
   <% end %>

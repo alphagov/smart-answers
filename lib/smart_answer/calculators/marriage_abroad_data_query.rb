@@ -14,7 +14,7 @@ module SmartAnswer::Calculators
 
     DUTCH_CARIBBEAN_ISLANDS = %w(aruba bonaire-st-eustatius-saba curacao st-maarten)
 
-    OS_CONSULAR_CNI_COUNTRIES = %w(albania angola armenia austria bahrain belarus bolivia bosnia-and-herzegovina bulgaria croatia cuba democratic-republic-of-the-congo denmark dominican-republic estonia ethiopia georgia germany guatemala honduras hungary iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico montenegro netherlands nepal oman panama russia serbia slovenia spain sudan tajikistan tunisia turkmenistan uzbekistan venezuela).freeze
+    OS_CONSULAR_CNI_COUNTRIES = %w(albania angola armenia austria bahrain belarus bolivia bosnia-and-herzegovina bulgaria croatia cuba democratic-republic-of-the-congo denmark dominican-republic estonia ethiopia georgia guatemala honduras hungary iceland kazakhstan kuwait kyrgyzstan libya lithuania luxembourg macedonia mexico montenegro netherlands nepal oman panama russia serbia slovenia spain sudan tajikistan tunisia turkmenistan uzbekistan venezuela).freeze
 
     OS_NO_CONSULAR_CNI_COUNTRIES = %w(burundi democratic-republic-of-the-congo mexico saint-barthelemy st-martin)
 
@@ -26,7 +26,7 @@ module SmartAnswer::Calculators
 
     OS_AFFIRMATION_COUNTRIES = %w(belgium ecuador lebanon finland macao mongolia morocco norway peru qatar south-korea united-arab-emirates vietnam).freeze
 
-    CP_EQUIVALENT_COUNTRIES = %w(austria czech-republic denmark ecuador finland germany iceland luxembourg netherlands norway slovenia).freeze
+    CP_EQUIVALENT_COUNTRIES = %w(austria czech-republic denmark ecuador finland iceland luxembourg netherlands norway slovenia).freeze
 
     CP_CNI_NOT_REQUIRED_COUNTRIES = %w(andorra argentina bonaire-st-eustatius-saba burundi liechtenstein mexico new-zealand uruguay)
 
@@ -34,7 +34,7 @@ module SmartAnswer::Calculators
 
     COUNTRIES_WITHOUT_CONSULAR_FACILITIES = %w(argentina aruba bonaire-st-eustatius-saba burundi cote-d-ivoire curacao czech-republic saint-barthelemy slovakia st-maarten st-martin taiwan)
 
-    SS_MARRIAGE_COUNTRIES = %w(australia bolivia dominican-republic estonia germany kosovo mongolia montenegro russia san-marino serbia).freeze
+    SS_MARRIAGE_COUNTRIES = %w(australia bolivia dominican-republic estonia kosovo mongolia montenegro russia san-marino serbia).freeze
 
     NO_SS_MARRIAGE_COUNTRIES = %w(san-marino seychelles)
 
