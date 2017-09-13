@@ -280,14 +280,15 @@ class FlowTest < ActiveSupport::TestCase
       setup do
         @error_message = "Sorry, that's not valid"
         @log_message = "Logged message"
+        @error = SmartAnswer::LoggedError.new(@error_message, @log_message)
         @flow.node(:do_you_like_jam?)
           .stubs(:parse_input)
           .with('bad')
-          .raises(SmartAnswer::LoggedError.new(@error_message, @log_message))
+          .raises(@error)
       end
 
-      should "notify Airbrake" do
-        Airbrake.expects(:notify).with(SmartAnswer::LoggedError.new(@log_message))
+      should "notify Sentry" do
+        GovukError.expects(:notify).with(@error)
         @flow.process(%w{no bad})
       end
     end

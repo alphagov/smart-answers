@@ -123,7 +123,9 @@ module SmartAnswer
           state = node(state.current_node).transition(state, response)
           node(state.current_node).evaluate_precalculations(state)
         rescue BaseStateTransitionError => e
-          Airbrake.notify(e.log_exception) if e.is_a?(LoggedError)
+          if e.is_a?(LoggedError)
+            GovukError.notify e
+          end
 
           state.dup.tap do |new_state|
             new_state.error = e.message
