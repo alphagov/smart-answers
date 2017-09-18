@@ -38,33 +38,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "ceremony in ireland" do
-    setup do
-      add_response 'ireland'
-    end
-    should "go to partner's sex question" do
-      assert_current_node :partner_opposite_or_same_sex?
-    end
-    context "partner is opposite sex" do
-      setup do
-        add_response 'opposite_sex'
-      end
-      should "give outcome ireland os" do
-        assert_current_node :outcome_marriage_abroad_in_country
-      end
-    end
-    context "partner is same sex" do
-      setup do
-        add_response 'same_sex'
-      end
-      should "give outcome ireland ss" do
-        assert_current_node :outcome_marriage_abroad_in_country
-        expected_location = WorldLocation.find('ireland')
-        assert_equal expected_location, current_state.calculator.world_location
-      end
-    end
-  end
-
   context "ceremony is outside ireland" do
     setup do
       add_response 'bahamas'
@@ -249,26 +222,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "resident in cyprus, opposite sex" do
-    setup do
-      add_response 'cyprus'
-      add_response 'opposite_sex'
-    end
-    should "go to the generic country outcome" do
-      assert_current_node :outcome_marriage_abroad_in_country
-    end
-  end
-
-  context "ceremony in cyprus, same sex" do
-    setup do
-      add_response 'cyprus'
-      add_response 'same_sex'
-    end
-    should "go to the generic country outcome" do
-      assert_current_node :outcome_marriage_abroad_in_country
-    end
-  end
-
   context "resident in anguilla, ceremony in anguilla" do
     setup do
       add_response 'anguilla'
@@ -317,30 +270,9 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  # variants for italy
-  context "ceremony in italy, opposite-sex" do
-    setup do
-      add_response 'italy'
-      add_response 'opposite_sex'
-    end
-    should "go to generic country outcome" do
-      assert_current_node :outcome_marriage_abroad_in_country
-    end
-  end
-
-  context "ceremony in italy, same-sex" do
-    setup do
-      add_response 'italy'
-      add_response 'opposite_sex'
-    end
-    should "go to generic country outcome" do
-      assert_current_node :outcome_marriage_abroad_in_country
-    end
-  end
-
   #variants for uk residency (again)
 
-  #variant for uk resident, ceremony not in italy
+  #variant for uk resident
   context "ceremony in guatemala, resident in wales, partner other" do
     setup do
       add_response 'guatemala'
@@ -357,7 +289,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       assert_current_node :outcome_same_sex_civil_partnership_in_consular_countries
     end
   end
-  #variant for local resident, ceremony not in italy
+  #variant for local resident
 
   context "Spain" do
     setup do
@@ -462,56 +394,13 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  #France or french overseas territories outcome
+  #French overseas territories outcome
   context "ceremony in fot" do
     setup do
       add_response 'mayotte'
     end
     should "go to marriage in france or fot outcome" do
       assert_current_node :outcome_marriage_in_france_or_french_overseas_territory
-    end
-  end
-
-  context "ceremony in france" do
-    setup do
-      add_response 'france'
-      add_response 'opposite_sex'
-    end
-    should "go to france or fot marriage outcome" do
-      assert_current_node :outcome_marriage_abroad_in_country
-    end
-  end
-
-  #tests for affirmation to marry outcomes
-  context "ceremony in thailand, opposite sex" do
-    setup do
-      add_response 'thailand'
-      add_response 'opposite_sex'
-    end
-    should "go to os affirmation outcome" do
-      assert_current_node :outcome_marriage_abroad_in_country
-    end
-  end
-
-  context "ceremony in Egypt," do
-    setup do
-      add_response "egypt"
-    end
-
-    context "opposite sex" do
-      setup { add_response "opposite_sex" }
-
-      should "go to generic country outcome" do
-        assert_current_node :outcome_marriage_abroad_in_country
-      end
-    end
-
-    context "same sex" do
-      setup { add_response "same_sex" }
-
-      should "go to generic country outcome" do
-        assert_current_node :outcome_marriage_abroad_in_country
-      end
     end
   end
 
@@ -548,26 +437,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to os oman outcome" do
       assert_current_node :outcome_opposite_sex_marriage_in_oman
-    end
-  end
-
-  context "ceremony in Turkey, opposite sex" do
-    setup do
-      add_response 'turkey'
-      add_response 'opposite_sex'
-    end
-    should "go to os affirmation outcome" do
-      assert_current_node :outcome_marriage_abroad_in_country
-    end
-  end
-
-  context "ceremony in Turkey, same sex" do
-    setup do
-      add_response 'turkey'
-      add_response 'same_sex'
-    end
-    should "go to os affirmation outcome" do
-      assert_current_node :outcome_marriage_abroad_in_country
     end
   end
 
@@ -800,16 +669,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "ceremony in france, " do
-    setup do
-      add_response 'france'
-      add_response 'same_sex'
-    end
-    should "go to fran ce ot fot PACS outcome" do
-      assert_current_node :outcome_marriage_abroad_in_country
-    end
-  end
-
   context "ceremony in wallis and futuna, pacs" do
     setup do
       add_response 'wallis-and-futuna'
@@ -817,26 +676,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to france or fot pacs outcome" do
       assert_current_node :outcome_civil_partnership_in_france_or_french_overseas_territory
-    end
-  end
-
-  context "ceremony in usa" do
-    setup do
-      add_response 'usa'
-    end
-
-    context "opposite_sex" do
-      should "go to outcome_marriage_abroad_in_country" do
-        add_response 'opposite_sex'
-        assert_current_node :outcome_marriage_abroad_in_country
-      end
-    end
-
-    context "same_sex" do
-      should "go to outcome_marriage_abroad_in_country" do
-        add_response 'same_sex'
-        assert_current_node :outcome_marriage_abroad_in_country
-      end
     end
   end
 
@@ -943,22 +782,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'same_sex'
       assert_current_node :outcome_same_sex_marriage_and_civil_partnership
-    end
-  end
-
-  context "ceremony in china, opposite sex" do
-    should "render address from API" do
-      add_response 'china'
-      add_response 'opposite_sex'
-      assert_current_node :outcome_marriage_abroad_in_country
-    end
-  end
-
-  context "ceremony in china, same sex" do
-    should "render address from API" do
-      add_response 'china'
-      add_response 'same_sex'
-      assert_current_node :outcome_marriage_abroad_in_country
     end
   end
 
@@ -1103,16 +926,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'opposite_sex'
       assert_current_node :outcome_opposite_sex_marriage_in_south_korea
-    end
-  end
-
-  context "ceremony in philippines, opposite sex" do
-    setup do
-      add_response 'philippines'
-      add_response 'opposite_sex'
-    end
-    should "go to os affirmation outcome" do
-      assert_current_node :outcome_marriage_abroad_in_country
     end
   end
 
@@ -1773,26 +1586,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "ceremony in Luxembourg," do
-    setup do
-      add_response "luxembourg"
-    end
-
-    context "opposite sex" do
-      setup { add_response "opposite_sex" }
-      should "go to generic country outcome" do
-        assert_current_node :outcome_marriage_abroad_in_country
-      end
-    end
-
-    context "same sex" do
-      setup { add_response "same_sex" }
-      should "go to generic country outcome" do
-        assert_current_node :outcome_marriage_abroad_in_country
-      end
-    end
-  end
-
   FLATTEN_COUNTRIES_18_OUTCOMES.each do |country|
     context "ceremony in #{country}," do
       setup do
@@ -1993,6 +1786,28 @@ class MarriageAbroadTest < ActiveSupport::TestCase
           should "go to generic country outcome" do
             assert_current_node :outcome_marriage_abroad_in_country
           end
+        end
+      end
+    end
+  end
+
+  FLATTEN_COUNTRIES_2_OUTCOMES.each do |country|
+    context "ceremony in #{country}," do
+      setup do
+        add_response "#{country}"
+      end
+
+      context "opposite sex" do
+        setup { add_response "opposite_sex" }
+        should "go to generic country outcome" do
+          assert_current_node :outcome_marriage_abroad_in_country
+        end
+      end
+
+      context "same sex" do
+        setup { add_response "same_sex" }
+        should "go to generic country outcome" do
+          assert_current_node :outcome_marriage_abroad_in_country
         end
       end
     end
