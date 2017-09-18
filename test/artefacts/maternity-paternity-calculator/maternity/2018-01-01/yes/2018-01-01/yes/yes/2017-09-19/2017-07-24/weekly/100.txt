@@ -1,11 +1,13 @@
-How do you want the Statutory Maternity Pay calculated? 
+How many payments did the employee receive between Tuesday, 25 July 2017 and Tuesday, 19 September 2017?
 
 
 
+If you have paid the employee 2 weeks’ pay in one week, count it as 2 payments. 
+Don't count bonuses or holiday payments on top of paid annual leave.
 
-
-  * weekly_starting: weekly starting  1 January 2018
-  * usual_paydates: based on their usual paydates
+  * 8: 8 payments or fewer
+  * 9: 9 payments
+  * 10: 10 payments
 
 
 

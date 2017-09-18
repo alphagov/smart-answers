@@ -1,0 +1,10 @@
+<% content_for :title do %>
+  How many payments did the employee receive between <%= relevant_period %>?
+<% end %>
+
+<% content_for :hint do %>
+  If you have paid the employee 2 weeks’ pay in one week, count it as 2 payments. 
+  Don't count bonuses or holiday payments on top of paid annual leave.
+<% end %>
+
+<% options(payment_options_weekly) %>

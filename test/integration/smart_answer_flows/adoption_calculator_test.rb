@@ -90,78 +90,85 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
                         context "answer £3000" do
                           setup { add_response 3000 }
                           ## QA11
-                          should "ask how sap should be calculated" do
+                          should "ask how many payments monthly" do
                             assert_equal "monthly", current_state.calculator.pay_pattern
-                            assert_current_node :how_do_you_want_the_sap_calculated?
+                            assert_current_node :how_many_payments_monthly?
                           end
-                          context "answer weekly_starting" do
-                            setup { add_response "weekly_starting" }
-                            # QA12
-                            should "go to outcome" do
-                              assert_current_node :adoption_leave_and_pay
-                              assert_state_variable :average_weekly_earnings, "346.15"
+                          context "answer 8 payments" do
+                            setup { add_response "2" }
+                            should "ask how sap should be calculated" do
+                              assert_equal "monthly", current_state.calculator.pay_pattern
+                              assert_current_node :how_do_you_want_the_sap_calculated?
                             end
-                          end # weekly_starting
-                          context "answer based on usual paydates" do
-                            setup { add_response "usual_paydates" }
-                            # QP16 - shared with paternity calculator
-                            should "ask when in the month the employee is paid" do
-                              assert_current_node :monthly_pay_paternity?
-                            end
-                            context "answer first day of the month" do
-                              setup { add_response "first_day_of_the_month" }
-                              should "go to outcome and show leave and pay results" do
+                            context "answer weekly_starting" do
+                              setup { add_response "weekly_starting" }
+                              # QA12
+                              should "go to outcome" do
                                 assert_current_node :adoption_leave_and_pay
+                                assert_state_variable :average_weekly_earnings, "346.15"
                               end
-                            end # first day in month
-                            context "answer specific day in month" do
-                              setup { add_response "specific_date_each_month" }
-                              # QP17 - shared with paternity calculator
-                              should "ask what date in month employee is paid" do
-                                assert_current_node :specific_date_each_month_paternity?
+                            end # weekly_starting
+                            context "answer based on usual paydates" do
+                              setup { add_response "usual_paydates" }
+                              # QP16 - shared with paternity calculator
+                              should "ask when in the month the employee is paid" do
+                                assert_current_node :monthly_pay_paternity?
                               end
-                              context "answer 20th" do
-                                setup { add_response 20 }
-                                should "go to outcome and show leave and pay tables" do
+                              context "answer first day of the month" do
+                                setup { add_response "first_day_of_the_month" }
+                                should "go to outcome and show leave and pay results" do
                                   assert_current_node :adoption_leave_and_pay
                                 end
-                              end
-                            end # specific day in month
-                            context "answer last working day of the month" do
-                              setup { add_response "last_working_day_of_the_month" }
-                              # QP18 - shared with paternity calculator
-                              should "ask what days the employee works" do
-                                assert_current_node :days_of_the_week_paternity?
-                              end
-                              context "answer monday to thursday" do
-                                setup { add_response "1,2,3,4" }
-                                should "go to outcome and show pay and leave tables" do
-                                  assert_current_node :adoption_leave_and_pay
+                              end # first day in month
+                              context "answer specific day in month" do
+                                setup { add_response "specific_date_each_month" }
+                                # QP17 - shared with paternity calculator
+                                should "ask what date in month employee is paid" do
+                                  assert_current_node :specific_date_each_month_paternity?
                                 end
-                              end
-                            end # last working day of the month
-                            context "answer a certain weekday in each month" do
-                              setup { add_response "a_certain_week_day_each_month" }
-                              #QP19 - shared with paternity calculator
-                              should "ask what day of the month employee is paid" do
-                                assert_current_node :day_of_the_month_paternity?
-                              end
-                              context "answer wednesday" do
-                                setup { add_response 3 }
-                                # QP20 - shared with paternity calculator
-                                should "ask if employee paid on 1st, 2nd, 3rd or last Wednesday" do
-                                  assert_current_node :pay_date_options_paternity?
-                                  assert_state_variable :pay_day_in_week, "Wednesday"
-                                end
-                                context "answer last" do
-                                  setup { add_response "last" }
-                                  should "go to outcome and show pay tables" do
+                                context "answer 20th" do
+                                  setup { add_response 20 }
+                                  should "go to outcome and show leave and pay tables" do
                                     assert_current_node :adoption_leave_and_pay
                                   end
                                 end
-                              end
-                            end # a certain weekday in each month
-                          end # usual paydates
+                              end # specific day in month
+                              context "answer last working day of the month" do
+                                setup { add_response "last_working_day_of_the_month" }
+                                # QP18 - shared with paternity calculator
+                                should "ask what days the employee works" do
+                                  assert_current_node :days_of_the_week_paternity?
+                                end
+                                context "answer monday to thursday" do
+                                  setup { add_response "1,2,3,4" }
+                                  should "go to outcome and show pay and leave tables" do
+                                    assert_current_node :adoption_leave_and_pay
+                                  end
+                                end
+                              end # last working day of the month
+                              context "answer a certain weekday in each month" do
+                                setup { add_response "a_certain_week_day_each_month" }
+                                #QP19 - shared with paternity calculator
+                                should "ask what day of the month employee is paid" do
+                                  assert_current_node :day_of_the_month_paternity?
+                                end
+                                context "answer wednesday" do
+                                  setup { add_response 3 }
+                                  # QP20 - shared with paternity calculator
+                                  should "ask if employee paid on 1st, 2nd, 3rd or last Wednesday" do
+                                    assert_current_node :pay_date_options_paternity?
+                                    assert_state_variable :pay_day_in_week, "Wednesday"
+                                  end
+                                  context "answer last" do
+                                    setup { add_response "last" }
+                                    should "go to outcome and show pay tables" do
+                                      assert_current_node :adoption_leave_and_pay
+                                    end
+                                  end
+                                end
+                              end # a certain weekday in each month
+                            end # usual paydates
+                          end
                         end
                       end # pay employee monthly
                     end
@@ -196,6 +203,7 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
                 add_response Date.parse("8 November 2013")
                 add_response "monthly"
                 add_response 3000
+                add_response "2"
                 add_response "weekly_starting"
               end
               should "go through to outcome show pay table but not entitled to leave" do

@@ -12,12 +12,24 @@ module SmartAnswer::Calculators
       :a_notice_leave, :last_payday, :pre_offset_payday, :pay_date, :paternity_leave_duration,
       :pay_day_in_month, :pay_day_in_week, :pay_method, :pay_week_in_month, :work_days, :date_of_birth, :awe
 
-    attr_accessor :pay_pattern
+    attr_accessor :pay_pattern, :payment_option
     attr_accessor :earnings_for_pay_period
     attr_accessor :employee_has_contract_adoption
     attr_accessor :on_payroll
 
     DAYS_OF_THE_WEEK = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
+    PAYMENT_OPTIONS = {
+      weekly: {
+        "8": "8 payments or fewer",
+        "9": "9 payments",
+        "10": "10 payments"
+      },
+      monthly: {
+        "2": "1 or 2 payments",
+        "3": "3 payments"
+      }
+    }.with_indifferent_access.freeze
+    private_constant :PAYMENT_OPTIONS
 
     def initialize(match_or_due_date, leave_type = "maternity")
       expected_start = match_or_due_date - match_or_due_date.wday
@@ -35,6 +47,44 @@ module SmartAnswer::Calculators
 
       # Adoption instance vars
       @a_notice_leave = @match_date + 7
+    end
+
+    def self.payment_options(period)
+      PAYMENT_OPTIONS.fetch(period, {})
+    end
+
+    def number_of_payments
+      if valid_payment_option?
+        payment_option.to_f
+      elsif monthly?
+        2.0
+      else
+        8.0
+      end
+    end
+
+    def monthly?
+      pay_pattern == "monthly"
+    end
+
+    def weekly?
+      pay_pattern == "weekly"
+    end
+
+    def adoption?
+      @leave_type == "adoption"
+    end
+
+    def maternity?
+      @leave_type == "maternity"
+    end
+
+    def paternity?
+      @leave_type == "paternity"
+    end
+
+    def paternity_adoption?
+      @leave_type == "paternity_adoption"
     end
 
     def format_date(date)
@@ -139,9 +189,9 @@ module SmartAnswer::Calculators
       sprintf("%.5f", (
         case pay_pattern
         when "monthly"
-          earnings_for_pay_period.to_f / 2 * 12 / 52
+          earnings_for_pay_period.to_f / number_of_payments * 12 / 52
         else
-          earnings_for_pay_period.to_f / 8
+          earnings_for_pay_period.to_f / number_of_payments
         end
       )).to_f # HMRC truncation at 5 places.
     end
@@ -271,6 +321,15 @@ module SmartAnswer::Calculators
     end
 
   private
+
+    def valid_payment_option?
+      (monthly? || weekly?) &&
+        possible_payment_options.include?(payment_option)
+    end
+
+    def possible_payment_options
+      @possible_payment_options ||= PAYMENT_OPTIONS.values.flat_map(&:keys)
+    end
 
     def paydates_every_n_days(days)
       [].tap do |ary|

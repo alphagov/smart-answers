@@ -859,6 +859,194 @@ module SmartAnswer::Calculators
           assert_equal 454.03, paydates_and_pay.last[:pay]
         end
       end
+
+      context "#weekly?" do
+        setup do
+          @calculator = MaternityPaternityCalculator.new(Date.parse("04 Sept 2017"))
+        end
+
+        should "return true if pay_pattern is set to weekly" do
+          @calculator.pay_pattern = "weekly"
+
+          assert @calculator.weekly?
+        end
+
+        should "return false if pay_pattern isn't set to weekly" do
+          @calculator.pay_pattern = "monthly"
+
+          refute @calculator.weekly?
+        end
+      end
+
+      context "#monthly?" do
+        setup do
+          @calculator = MaternityPaternityCalculator.new(Date.parse("04 Sept 2017"))
+        end
+
+        should "return true if pay_pattern is set to monthly" do
+          @calculator.pay_pattern = "monthly"
+
+          assert @calculator.monthly?
+        end
+
+        should "return false if pay_pattern isn't set to monthly" do
+          @calculator.pay_pattern = "weekly"
+
+          refute @calculator.monthly?
+        end
+      end
+
+      context "#maternity?" do
+        should "return true if leave_type is set to maternity" do
+          calculator = MaternityPaternityCalculator.new(Date.parse("04 Sept 2017"), "maternity")
+          assert calculator.maternity?
+        end
+
+        should "return false if leave_type isn't set to maternity" do
+          calculator = MaternityPaternityCalculator.new(Date.parse("04 Sept 2017"), "adoption")
+          refute calculator.maternity?
+        end
+      end
+
+      context "#adoption?" do
+        should "return true if leave_type is set to adoption" do
+          calculator = MaternityPaternityCalculator.new(Date.parse("04 Sept 2017"), "adoption")
+          assert calculator.adoption?
+        end
+
+        should "return false if leave_type isn't set to adoption" do
+          calculator = MaternityPaternityCalculator.new(Date.parse("04 Sept 2017"), "maternity")
+          refute calculator.adoption?
+        end
+      end
+
+      context "#paternity?" do
+        should "return true if leave_type is set to paternity" do
+          calculator = MaternityPaternityCalculator.new(Date.parse("04 Sept 2017"), "paternity")
+          assert calculator.paternity?
+        end
+
+        should "return false if leave_type isn't set to paternity" do
+          calculator = MaternityPaternityCalculator.new(Date.parse("04 Sept 2017"), "paternity_adoption")
+          refute calculator.paternity?
+        end
+      end
+
+      context "#paternity_adoption?" do
+        should "return true if leave_type is set to paternity_adoption" do
+          calculator = MaternityPaternityCalculator.new(Date.parse("04 Sept 2017"), "paternity_adoption")
+          assert calculator.paternity_adoption?
+        end
+
+        should "return false if leave_type isn't set to paternity_adoption" do
+          calculator = MaternityPaternityCalculator.new(Date.parse("04 Sept 2017"), "paternity")
+          refute calculator.paternity_adoption?
+        end
+      end
+      
+      context "payment_options" do
+        should "return weekly payment options when supplied with weekly" do
+          weekly = MaternityPaternityCalculator.payment_options("weekly")
+
+          assert_equal %w(8 9 10), weekly.keys
+          assert_equal ["8 payments or fewer", "9 payments", "10 payments"], weekly.values
+        end
+
+        should "return monthly payment options when supplied with monthly" do
+          monthly = MaternityPaternityCalculator.payment_options("monthly")
+
+          assert_equal %w(2 3), monthly.keys
+          assert_equal ["1 or 2 payments", "3 payments"], monthly.values
+        end
+
+        should "return empty hash when supplied with every 2 weeks" do
+          every2weeks = MaternityPaternityCalculator.payment_options("every_2_weeks")
+
+          assert_equal Hash.new, every2weeks
+        end
+
+        should "return empty hash when supplied with every 4 weeks" do
+          every4weeks = MaternityPaternityCalculator.payment_options("every_4_weeks")
+
+          assert_equal Hash.new, every4weeks
+        end
+      end
+        
+      context "#number_of_payments" do
+        setup do
+          @calculator = MaternityPaternityCalculator.new(Date.parse("04 Sept 2017"), "maternity")
+        end
+
+        should "return supplied payment_option when pay pattern is monthly" do
+          @calculator.pay_pattern = "monthly"
+          @calculator.payment_option = "3"
+
+          assert_equal 3, @calculator.number_of_payments
+        end
+
+        should "return supplied payment_option when pay pattern is weekly" do
+          @calculator.pay_pattern = "weekly"
+          @calculator.payment_option = "9"
+
+          assert_equal 9, @calculator.number_of_payments
+        end
+
+        should "return 2 when pay pattern is monthly and payment_option is set to non Numeric value" do
+          @calculator.pay_pattern = "monthly"
+          @calculator.payment_option = "invalid_numeral"
+
+          assert_equal 2, @calculator.number_of_payments
+        end
+
+        should "return 8 when pay pattern is weekly and payment_option is set to non Numeric value" do
+          @calculator.pay_pattern = "weekly"
+          @calculator.payment_option = "invalid_numeral"
+
+          assert_equal 8, @calculator.number_of_payments
+        end
+
+        should "return 8 when pay pattern is every_2_weeks and payment_option is set to non Numeric value" do
+          @calculator.pay_pattern = "every_2_weeks"
+          @calculator.payment_option = "invalid_numeral"
+
+          assert_equal 8, @calculator.number_of_payments
+        end
+
+        should "return 8 when pay pattern is every_4_weeks and payment_option is set to non Numeric value" do
+          @calculator.pay_pattern = "every_4_weeks"
+          @calculator.payment_option = "invalid_numeral"
+
+          assert_equal 8, @calculator.number_of_payments
+        end
+
+        should "return 2 when pay pattern is monthly and payment_option isn't set" do
+          @calculator.pay_pattern = "monthly"
+          @calculator.payment_option = nil
+
+          assert_equal 2, @calculator.number_of_payments
+        end
+
+        should "return 8 when pay pattern is weekly and payment_option isn't set" do
+          @calculator.pay_pattern = "weekly"
+          @calculator.payment_option = nil
+
+          assert_equal 8, @calculator.number_of_payments
+        end
+
+        should "return 8 when pay pattern is every_2_weeks and payment_option isn't set" do
+          @calculator.pay_pattern = "every_2_weeks"
+          @calculator.payment_option = nil
+
+          assert_equal 8, @calculator.number_of_payments
+        end
+
+        should "return 8 when pay pattern is every_4_weeks and payment_option isn't set" do
+          @calculator.pay_pattern = "every_4_weeks"
+          @calculator.payment_option = nil
+
+          assert_equal 8, @calculator.number_of_payments
+        end
+      end
     end
   end
 end

@@ -33,6 +33,13 @@
 :earnings_for_pay_period_adoption?:
 - '100' # calculator.average_weekly_earnings < calculator.lower_earning_limit # => true
 - '3000' # calculator.average_weekly_earnings < calculator.lower_earning_limit # => false
+:how_many_payments_weekly?:
+- '8'
+- '9'
+- '10'
+:how_many_payments_monthly?:
+- '2'
+- '3'
 :how_do_you_want_the_sap_calculated?:
 - weekly_starting
 - usual_paydates

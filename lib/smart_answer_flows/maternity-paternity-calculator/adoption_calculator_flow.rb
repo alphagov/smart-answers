@@ -228,17 +228,13 @@ module SmartAnswer
             sprintf("%.2f", calculator.lower_earning_limit)
           end
 
-          calculate :average_weekly_earnings do
-            sprintf("%.2f", calculator.average_weekly_earnings)
-          end
-
-          calculate :above_lower_earning_limit do
-            calculator.average_weekly_earnings > calculator.lower_earning_limit
-          end
-
           next_node do
             if calculator.average_weekly_earnings_under_lower_earning_limit?
               outcome :adoption_leave_and_pay
+            elsif calculator.weekly?
+              question :how_many_payments_weekly? # See SharedAdoptionMaternityPaternityFlow for definition
+            elsif calculator.monthly?
+              question :how_many_payments_monthly? # See SharedAdoptionMaternityPaternityFlow for definition
             else
               question :how_do_you_want_the_sap_calculated?
             end
@@ -264,6 +260,10 @@ module SmartAnswer
         end
 
         outcome :adoption_leave_and_pay do
+          precalculate :above_lower_earning_limit do
+            calculator.average_weekly_earnings > calculator.lower_earning_limit
+          end
+
           precalculate :pay_method do
             calculator.pay_method = (
               if monthly_pay_method
@@ -293,6 +293,10 @@ module SmartAnswer
             if above_lower_earning_limit
               sprintf("%.2f", calculator.total_statutory_pay)
             end
+          end
+
+          precalculate :average_weekly_earnings do
+            sprintf("%.2f", calculator.average_weekly_earnings)
           end
         end
 
