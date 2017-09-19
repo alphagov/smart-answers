@@ -14,7 +14,7 @@ class ContentItemRetriever
     # the analytics reports with (unexpected) data. We are currently working on
     # a solution to this conundrum[2].
     #
-    # [1] http://govuk-component-guide.herokuapp.com/components/analytics_meta_tags
+    # [1] https://govuk-static.herokuapp.com/component-guide/analytics_meta_tags
     # [2] https://trello.com/c/DkR63grd
     content_item = fetch(slug)
     content_item[:links].delete(:organisations) if valid_links_organisations?(content_item)
