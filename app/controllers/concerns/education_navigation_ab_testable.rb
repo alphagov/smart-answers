@@ -1,6 +1,6 @@
 module EducationNavigationABTestable
   def should_present_new_navigation_view?(content_item)
-    education_navigation_variant.variant_b? && content_is_tagged_to_a_taxon?(content_item)
+    education_navigation_variant.variant?("B") && content_is_tagged_to_a_taxon?(content_item)
   end
 
   def education_navigation_variant
