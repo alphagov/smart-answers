@@ -2,18 +2,15 @@ source 'https://rubygems.org'
 
 ruby File.read(".ruby-version").chomp
 
-#gem 'rails', '5.0.2'
-gem "actionpack"
-gem "activemodel"
-gem "actionview"
-gem "activejob"
-gem "activesupport"
+gem 'rails', '5.0.5'
 gem "railties"
 gem "sprockets-rails"
 
-gem 'airbrake', github: 'alphagov/airbrake', branch: 'silence-dep-warnings-for-rails-5'
+# Upgrade to Sentry
+gem "govuk_app_config", "~> 0.2.0"
+
 gem 'ast'
-gem 'gds-api-adapters', '~> 47.2'
+gem "gds-api-adapters", "~> 47.9.1"
 gem 'govspeak', '~> 3.3.0'
 gem 'govuk-content-schema-test-helpers', '~> 1.3.0'
 gem 'govuk_frontend_toolkit', '>= 6.0.4'
@@ -27,7 +24,7 @@ gem 'plek', '1.12.0'
 gem 'rack_strip_client_ip'
 gem 'rails-i18n'
 gem 'sass-rails', '~> 5.0.0'
-gem 'slimmer'
+gem 'slimmer', '~> 11.1.1'
 gem 'tilt', '1.4.1'
 gem 'uglifier'
 gem 'uk_postcode', '~> 1.0.1'
@@ -35,7 +32,6 @@ gem 'unicorn', '4.8.3'
 gem 'rails_stdout_logging'
 gem 'govuk_navigation_helpers', '~> 6.3.0'
 gem 'govuk_ab_testing', '~> 2.0'
-gem 'statsd-ruby', '1.3.0', require: 'statsd'
 
 group :development do
   gem 'better_errors'
