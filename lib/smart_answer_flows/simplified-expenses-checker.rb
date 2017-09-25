@@ -63,7 +63,7 @@ module SmartAnswer
         end
 
         next_node do |response|
-          if response == "new" || response == "used"
+          if %w(new used).include?(response)
             question :how_much_expect_to_claim?
           else
             question :capital_allowances?
