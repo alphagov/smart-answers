@@ -1,8 +1,9 @@
 <% content_for :title do %>
-  Is the vehicle you're buying green, ie a low emission vehicle?
+  What are the car’s [CO2 emissions](/get-vehicle-information-from-dvla)?
 <% end %>
 
 <% options(
-  "yes": "Yes",
-  "no": "No"
+  "low": "75g/km or less (or it’s electric)",
+  "medium": "between 75g/km and 130g/km",
+  "high": "over 130g/km"
 ) %>

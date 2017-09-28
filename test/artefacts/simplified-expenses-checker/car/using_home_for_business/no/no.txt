@@ -1,0 +1,14 @@
+Was your car new or second-hand when you started using it for your business?
+
+
+
+
+
+  * new: New
+  * used: Second hand
+
+
+
+
+
+
