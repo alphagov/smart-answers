@@ -37,6 +37,16 @@
 - '8'
 - '9'
 - '10'
+:how_many_payments_every_2_weeks?:
+- '4'
+- '5'
+:how_many_payments_every_4_weeks?:
+- '1'
+- '2'
+:how_many_payments_weekly?:
+- '8'
+- '9'
+- '10'
 :how_many_payments_monthly?:
 - '2'
 - '3'

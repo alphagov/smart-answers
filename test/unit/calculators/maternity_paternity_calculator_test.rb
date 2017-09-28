@@ -860,7 +860,7 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "#weekly?" do
+      context "#weekly_payment_sequences?" do
         setup do
           @calculator = MaternityPaternityCalculator.new(Date.parse("04 Sept 2017"))
         end
@@ -871,10 +871,24 @@ module SmartAnswer::Calculators
           assert @calculator.weekly?
         end
 
-        should "return false if pay_pattern isn't set to weekly" do
+        should "return true if pay_pattern is set to every_2_weeks" do
+          @calculator.pay_pattern = "every_2_weeks"
+
+          assert @calculator.every_2_weeks?
+        end
+
+        should "return true if pay_pattern is set to every_4_weeks" do
+          @calculator.pay_pattern = "every_4_weeks"
+
+          assert @calculator.every_4_weeks?
+        end
+
+        should "return false if pay_pattern isn't set to weekly, every_2_weeks or every_4_weeks" do
           @calculator.pay_pattern = "monthly"
 
           refute @calculator.weekly?
+          refute @calculator.every_2_weeks?
+          refute @calculator.every_4_weeks?
         end
       end
 
@@ -943,7 +957,7 @@ module SmartAnswer::Calculators
           refute calculator.paternity_adoption?
         end
       end
-      
+
       context "payment_options" do
         should "return weekly payment options when supplied with weekly" do
           weekly = MaternityPaternityCalculator.payment_options("weekly")
@@ -959,19 +973,21 @@ module SmartAnswer::Calculators
           assert_equal ["1 or 2 payments", "3 payments"], monthly.values
         end
 
-        should "return empty hash when supplied with every 2 weeks" do
-          every2weeks = MaternityPaternityCalculator.payment_options("every_2_weeks")
+        should "return 2 weeks payment options when supplied with every 2 weeks" do
+          every_2_weeks = MaternityPaternityCalculator.payment_options("every_2_weeks")
 
-          assert_equal Hash.new, every2weeks
+          assert_equal %w(4 5), every_2_weeks.keys
+          assert_equal ["4 payments or fewer", "5 payments"], every_2_weeks.values
         end
 
-        should "return empty hash when supplied with every 4 weeks" do
-          every4weeks = MaternityPaternityCalculator.payment_options("every_4_weeks")
+        should "return 4 weeks payment options when supplied with every 4 weeks" do
+          every_4_weeks = MaternityPaternityCalculator.payment_options("every_4_weeks")
 
-          assert_equal Hash.new, every4weeks
+          assert_equal %w(1 2), every_4_weeks.keys
+          assert_equal ["1 payment", "2 payments"], every_4_weeks.values
         end
       end
-        
+
       context "#number_of_payments" do
         setup do
           @calculator = MaternityPaternityCalculator.new(Date.parse("04 Sept 2017"), "maternity")

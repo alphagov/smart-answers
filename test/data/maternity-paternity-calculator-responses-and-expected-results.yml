@@ -500,6 +500,21 @@
   - '2017-07-24'
   - every_2_weeks
   - '100'
+  :next_node: :how_many_payments_every_2_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'yes'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_2_weeks
+  - '100.0'
+  - '4'
   :next_node: :how_do_you_want_the_smp_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_smp_calculated?
@@ -514,6 +529,7 @@
   - '2017-07-24'
   - every_2_weeks
   - '100.0'
+  - '4'
   - weekly_starting
   :next_node: :maternity_leave_and_pay_result
   :outcome_node: true
@@ -529,6 +545,7 @@
   - '2017-07-24'
   - every_2_weeks
   - '100.0'
+  - '4'
   - usual_paydates
   :next_node: :when_is_your_employees_next_pay_day?
   :outcome_node: false
@@ -544,6 +561,71 @@
   - '2017-07-24'
   - every_2_weeks
   - '100.0'
+  - '4'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :maternity_leave_and_pay_result
+  :outcome_node: true
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'yes'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_2_weeks
+  - '100.0'
+  - '5'
+  :next_node: :how_do_you_want_the_smp_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_smp_calculated?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'yes'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_2_weeks
+  - '100.0'
+  - '5'
+  - weekly_starting
+  :next_node: :maternity_leave_and_pay_result
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_smp_calculated?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'yes'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_2_weeks
+  - '100.0'
+  - '5'
+  - usual_paydates
+  :next_node: :when_is_your_employees_next_pay_day?
+  :outcome_node: false
+- :current_node: :when_is_your_employees_next_pay_day?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'yes'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_2_weeks
+  - '100.0'
+  - '5'
   - usual_paydates
   - '2018-01-01'
   :next_node: :maternity_leave_and_pay_result
@@ -560,6 +642,21 @@
   - '2017-07-24'
   - every_2_weeks
   - '3000'
+  :next_node: :how_many_payments_every_2_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'yes'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_2_weeks
+  - '3000.0'
+  - '4'
   :next_node: :how_do_you_want_the_smp_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_smp_calculated?
@@ -574,6 +671,7 @@
   - '2017-07-24'
   - every_2_weeks
   - '3000.0'
+  - '4'
   - weekly_starting
   :next_node: :maternity_leave_and_pay_result
   :outcome_node: true
@@ -589,6 +687,7 @@
   - '2017-07-24'
   - every_2_weeks
   - '3000.0'
+  - '4'
   - usual_paydates
   :next_node: :when_is_your_employees_next_pay_day?
   :outcome_node: false
@@ -604,6 +703,71 @@
   - '2017-07-24'
   - every_2_weeks
   - '3000.0'
+  - '4'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :maternity_leave_and_pay_result
+  :outcome_node: true
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'yes'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  :next_node: :how_do_you_want_the_smp_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_smp_calculated?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'yes'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - weekly_starting
+  :next_node: :maternity_leave_and_pay_result
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_smp_calculated?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'yes'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - usual_paydates
+  :next_node: :when_is_your_employees_next_pay_day?
+  :outcome_node: false
+- :current_node: :when_is_your_employees_next_pay_day?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'yes'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
   - usual_paydates
   - '2018-01-01'
   :next_node: :maternity_leave_and_pay_result
@@ -633,6 +797,21 @@
   - '2017-07-24'
   - every_4_weeks
   - '100'
+  :next_node: :how_many_payments_every_4_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'yes'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_4_weeks
+  - '100.0'
+  - '1'
   :next_node: :how_do_you_want_the_smp_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_smp_calculated?
@@ -647,6 +826,7 @@
   - '2017-07-24'
   - every_4_weeks
   - '100.0'
+  - '1'
   - weekly_starting
   :next_node: :maternity_leave_and_pay_result
   :outcome_node: true
@@ -662,6 +842,7 @@
   - '2017-07-24'
   - every_4_weeks
   - '100.0'
+  - '1'
   - usual_paydates
   :next_node: :when_is_your_employees_next_pay_day?
   :outcome_node: false
@@ -677,6 +858,71 @@
   - '2017-07-24'
   - every_4_weeks
   - '100.0'
+  - '1'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :maternity_leave_and_pay_result
+  :outcome_node: true
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'yes'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_4_weeks
+  - '100.0'
+  - '2'
+  :next_node: :how_do_you_want_the_smp_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_smp_calculated?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'yes'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_4_weeks
+  - '100.0'
+  - '2'
+  - weekly_starting
+  :next_node: :maternity_leave_and_pay_result
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_smp_calculated?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'yes'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_4_weeks
+  - '100.0'
+  - '2'
+  - usual_paydates
+  :next_node: :when_is_your_employees_next_pay_day?
+  :outcome_node: false
+- :current_node: :when_is_your_employees_next_pay_day?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'yes'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_4_weeks
+  - '100.0'
+  - '2'
   - usual_paydates
   - '2018-01-01'
   :next_node: :maternity_leave_and_pay_result
@@ -693,6 +939,21 @@
   - '2017-07-24'
   - every_4_weeks
   - '3000'
+  :next_node: :how_many_payments_every_4_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'yes'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_4_weeks
+  - '3000.0'
+  - '1'
   :next_node: :how_do_you_want_the_smp_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_smp_calculated?
@@ -707,6 +968,7 @@
   - '2017-07-24'
   - every_4_weeks
   - '3000.0'
+  - '1'
   - weekly_starting
   :next_node: :maternity_leave_and_pay_result
   :outcome_node: true
@@ -722,6 +984,7 @@
   - '2017-07-24'
   - every_4_weeks
   - '3000.0'
+  - '1'
   - usual_paydates
   :next_node: :when_is_your_employees_next_pay_day?
   :outcome_node: false
@@ -737,6 +1000,71 @@
   - '2017-07-24'
   - every_4_weeks
   - '3000.0'
+  - '1'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :maternity_leave_and_pay_result
+  :outcome_node: true
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'yes'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  :next_node: :how_do_you_want_the_smp_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_smp_calculated?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'yes'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - weekly_starting
+  :next_node: :maternity_leave_and_pay_result
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_smp_calculated?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'yes'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  :next_node: :when_is_your_employees_next_pay_day?
+  :outcome_node: false
+- :current_node: :when_is_your_employees_next_pay_day?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'yes'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
   - usual_paydates
   - '2018-01-01'
   :next_node: :maternity_leave_and_pay_result
@@ -5648,6 +5976,21 @@
   - '2017-07-24'
   - every_2_weeks
   - '100'
+  :next_node: :how_many_payments_every_2_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'no'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_2_weeks
+  - '100.0'
+  - '4'
   :next_node: :how_do_you_want_the_smp_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_smp_calculated?
@@ -5662,6 +6005,7 @@
   - '2017-07-24'
   - every_2_weeks
   - '100.0'
+  - '4'
   - weekly_starting
   :next_node: :maternity_leave_and_pay_result
   :outcome_node: true
@@ -5677,6 +6021,7 @@
   - '2017-07-24'
   - every_2_weeks
   - '100.0'
+  - '4'
   - usual_paydates
   :next_node: :when_is_your_employees_next_pay_day?
   :outcome_node: false
@@ -5692,6 +6037,71 @@
   - '2017-07-24'
   - every_2_weeks
   - '100.0'
+  - '4'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :maternity_leave_and_pay_result
+  :outcome_node: true
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'no'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_2_weeks
+  - '100.0'
+  - '5'
+  :next_node: :how_do_you_want_the_smp_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_smp_calculated?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'no'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_2_weeks
+  - '100.0'
+  - '5'
+  - weekly_starting
+  :next_node: :maternity_leave_and_pay_result
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_smp_calculated?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'no'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_2_weeks
+  - '100.0'
+  - '5'
+  - usual_paydates
+  :next_node: :when_is_your_employees_next_pay_day?
+  :outcome_node: false
+- :current_node: :when_is_your_employees_next_pay_day?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'no'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_2_weeks
+  - '100.0'
+  - '5'
   - usual_paydates
   - '2018-01-01'
   :next_node: :maternity_leave_and_pay_result
@@ -5708,6 +6118,21 @@
   - '2017-07-24'
   - every_2_weeks
   - '3000'
+  :next_node: :how_many_payments_every_2_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'no'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_2_weeks
+  - '3000.0'
+  - '4'
   :next_node: :how_do_you_want_the_smp_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_smp_calculated?
@@ -5722,6 +6147,7 @@
   - '2017-07-24'
   - every_2_weeks
   - '3000.0'
+  - '4'
   - weekly_starting
   :next_node: :maternity_leave_and_pay_result
   :outcome_node: true
@@ -5737,6 +6163,7 @@
   - '2017-07-24'
   - every_2_weeks
   - '3000.0'
+  - '4'
   - usual_paydates
   :next_node: :when_is_your_employees_next_pay_day?
   :outcome_node: false
@@ -5752,6 +6179,71 @@
   - '2017-07-24'
   - every_2_weeks
   - '3000.0'
+  - '4'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :maternity_leave_and_pay_result
+  :outcome_node: true
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'no'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  :next_node: :how_do_you_want_the_smp_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_smp_calculated?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'no'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - weekly_starting
+  :next_node: :maternity_leave_and_pay_result
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_smp_calculated?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'no'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - usual_paydates
+  :next_node: :when_is_your_employees_next_pay_day?
+  :outcome_node: false
+- :current_node: :when_is_your_employees_next_pay_day?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'no'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
   - usual_paydates
   - '2018-01-01'
   :next_node: :maternity_leave_and_pay_result
@@ -5781,6 +6273,21 @@
   - '2017-07-24'
   - every_4_weeks
   - '100'
+  :next_node: :how_many_payments_every_4_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'no'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_4_weeks
+  - '100.0'
+  - '1'
   :next_node: :how_do_you_want_the_smp_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_smp_calculated?
@@ -5795,6 +6302,7 @@
   - '2017-07-24'
   - every_4_weeks
   - '100.0'
+  - '1'
   - weekly_starting
   :next_node: :maternity_leave_and_pay_result
   :outcome_node: true
@@ -5810,6 +6318,7 @@
   - '2017-07-24'
   - every_4_weeks
   - '100.0'
+  - '1'
   - usual_paydates
   :next_node: :when_is_your_employees_next_pay_day?
   :outcome_node: false
@@ -5825,6 +6334,71 @@
   - '2017-07-24'
   - every_4_weeks
   - '100.0'
+  - '1'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :maternity_leave_and_pay_result
+  :outcome_node: true
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'no'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_4_weeks
+  - '100.0'
+  - '2'
+  :next_node: :how_do_you_want_the_smp_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_smp_calculated?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'no'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_4_weeks
+  - '100.0'
+  - '2'
+  - weekly_starting
+  :next_node: :maternity_leave_and_pay_result
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_smp_calculated?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'no'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_4_weeks
+  - '100.0'
+  - '2'
+  - usual_paydates
+  :next_node: :when_is_your_employees_next_pay_day?
+  :outcome_node: false
+- :current_node: :when_is_your_employees_next_pay_day?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'no'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_4_weeks
+  - '100.0'
+  - '2'
   - usual_paydates
   - '2018-01-01'
   :next_node: :maternity_leave_and_pay_result
@@ -5841,6 +6415,21 @@
   - '2017-07-24'
   - every_4_weeks
   - '3000'
+  :next_node: :how_many_payments_every_4_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'no'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_4_weeks
+  - '3000.0'
+  - '1'
   :next_node: :how_do_you_want_the_smp_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_smp_calculated?
@@ -5855,6 +6444,7 @@
   - '2017-07-24'
   - every_4_weeks
   - '3000.0'
+  - '1'
   - weekly_starting
   :next_node: :maternity_leave_and_pay_result
   :outcome_node: true
@@ -5870,6 +6460,7 @@
   - '2017-07-24'
   - every_4_weeks
   - '3000.0'
+  - '1'
   - usual_paydates
   :next_node: :when_is_your_employees_next_pay_day?
   :outcome_node: false
@@ -5885,6 +6476,71 @@
   - '2017-07-24'
   - every_4_weeks
   - '3000.0'
+  - '1'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :maternity_leave_and_pay_result
+  :outcome_node: true
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'no'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  :next_node: :how_do_you_want_the_smp_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_smp_calculated?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'no'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - weekly_starting
+  :next_node: :maternity_leave_and_pay_result
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_smp_calculated?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'no'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  :next_node: :when_is_your_employees_next_pay_day?
+  :outcome_node: false
+- :current_node: :when_is_your_employees_next_pay_day?
+  :responses:
+  - maternity
+  - '2018-01-01'
+  - 'no'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - '2017-09-19'
+  - '2017-07-24'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
   - usual_paydates
   - '2018-01-01'
   :next_node: :maternity_leave_and_pay_result
@@ -10794,6 +11450,26 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000'
+  :next_node: :how_many_payments_every_2_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '4'
   :next_node: :how_do_you_want_the_spp_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_spp_calculated?
@@ -10813,6 +11489,7 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
   - weekly_starting
   :next_node: :paternity_leave_and_pay
   :outcome_node: true
@@ -10833,6 +11510,7 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
   - usual_paydates
   :next_node: :next_pay_day_paternity?
   :outcome_node: false
@@ -10853,6 +11531,91 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  :next_node: :how_do_you_want_the_spp_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - weekly_starting
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
   - usual_paydates
   - '2018-01-01'
   :next_node: :paternity_leave_and_pay
@@ -10911,6 +11674,26 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000'
+  :next_node: :how_many_payments_every_4_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '1'
   :next_node: :how_do_you_want_the_spp_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_spp_calculated?
@@ -10930,6 +11713,7 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
   - weekly_starting
   :next_node: :paternity_leave_and_pay
   :outcome_node: true
@@ -10950,6 +11734,7 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
   - usual_paydates
   :next_node: :next_pay_day_paternity?
   :outcome_node: false
@@ -10970,6 +11755,91 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  :next_node: :how_do_you_want_the_spp_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - weekly_starting
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
   - usual_paydates
   - '2018-01-01'
   :next_node: :paternity_leave_and_pay
@@ -14200,6 +15070,26 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000'
+  :next_node: :how_many_payments_every_2_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '4'
   :next_node: :how_do_you_want_the_spp_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_spp_calculated?
@@ -14219,6 +15109,7 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
   - weekly_starting
   :next_node: :paternity_leave_and_pay
   :outcome_node: true
@@ -14239,6 +15130,7 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
   - usual_paydates
   :next_node: :next_pay_day_paternity?
   :outcome_node: false
@@ -14259,6 +15151,91 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  :next_node: :how_do_you_want_the_spp_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - weekly_starting
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
   - usual_paydates
   - '2018-01-01'
   :next_node: :paternity_leave_and_pay
@@ -14317,6 +15294,26 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000'
+  :next_node: :how_many_payments_every_4_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '1'
   :next_node: :how_do_you_want_the_spp_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_spp_calculated?
@@ -14336,6 +15333,7 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
   - weekly_starting
   :next_node: :paternity_leave_and_pay
   :outcome_node: true
@@ -14356,6 +15354,7 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
   - usual_paydates
   :next_node: :next_pay_day_paternity?
   :outcome_node: false
@@ -14376,6 +15375,91 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  :next_node: :how_do_you_want_the_spp_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - weekly_starting
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
   - usual_paydates
   - '2018-01-01'
   :next_node: :paternity_leave_and_pay
@@ -17766,6 +18850,26 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000'
+  :next_node: :how_many_payments_every_2_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '4'
   :next_node: :how_do_you_want_the_spp_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_spp_calculated?
@@ -17785,6 +18889,7 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
   - weekly_starting
   :next_node: :paternity_leave_and_pay
   :outcome_node: true
@@ -17805,6 +18910,7 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
   - usual_paydates
   :next_node: :next_pay_day_paternity?
   :outcome_node: false
@@ -17825,6 +18931,91 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  :next_node: :how_do_you_want_the_spp_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - weekly_starting
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
   - usual_paydates
   - '2018-01-01'
   :next_node: :paternity_leave_and_pay
@@ -17883,6 +19074,26 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000'
+  :next_node: :how_many_payments_every_4_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '1'
   :next_node: :how_do_you_want_the_spp_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_spp_calculated?
@@ -17902,6 +19113,7 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
   - weekly_starting
   :next_node: :paternity_leave_and_pay
   :outcome_node: true
@@ -17922,6 +19134,7 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
   - usual_paydates
   :next_node: :next_pay_day_paternity?
   :outcome_node: false
@@ -17942,6 +19155,91 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  :next_node: :how_do_you_want_the_spp_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - weekly_starting
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
   - usual_paydates
   - '2018-01-01'
   :next_node: :paternity_leave_and_pay
@@ -21172,6 +22470,26 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000'
+  :next_node: :how_many_payments_every_2_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '4'
   :next_node: :how_do_you_want_the_spp_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_spp_calculated?
@@ -21191,6 +22509,7 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
   - weekly_starting
   :next_node: :paternity_leave_and_pay
   :outcome_node: true
@@ -21211,6 +22530,7 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
   - usual_paydates
   :next_node: :next_pay_day_paternity?
   :outcome_node: false
@@ -21231,6 +22551,91 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  :next_node: :how_do_you_want_the_spp_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - weekly_starting
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
   - usual_paydates
   - '2018-01-01'
   :next_node: :paternity_leave_and_pay
@@ -21289,6 +22694,26 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000'
+  :next_node: :how_many_payments_every_4_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '1'
   :next_node: :how_do_you_want_the_spp_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_spp_calculated?
@@ -21308,6 +22733,7 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
   - weekly_starting
   :next_node: :paternity_leave_and_pay
   :outcome_node: true
@@ -21328,6 +22754,7 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
   - usual_paydates
   :next_node: :next_pay_day_paternity?
   :outcome_node: false
@@ -21348,6 +22775,91 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  :next_node: :how_do_you_want_the_spp_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - weekly_starting
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - paternity
+  - 'yes'
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
   - usual_paydates
   - '2018-01-01'
   :next_node: :paternity_leave_and_pay
@@ -25135,6 +26647,26 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000'
+  :next_node: :how_many_payments_every_2_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '4'
   :next_node: :how_do_you_want_the_spp_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_spp_calculated?
@@ -25154,6 +26686,7 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
   - weekly_starting
   :next_node: :paternity_leave_and_pay
   :outcome_node: true
@@ -25174,6 +26707,7 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
   - usual_paydates
   :next_node: :next_pay_day_paternity?
   :outcome_node: false
@@ -25194,6 +26728,91 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  :next_node: :how_do_you_want_the_spp_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - weekly_starting
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
   - usual_paydates
   - '2018-01-01'
   :next_node: :paternity_leave_and_pay
@@ -25252,6 +26871,26 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000'
+  :next_node: :how_many_payments_every_4_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '1'
   :next_node: :how_do_you_want_the_spp_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_spp_calculated?
@@ -25271,6 +26910,7 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
   - weekly_starting
   :next_node: :paternity_leave_and_pay
   :outcome_node: true
@@ -25291,6 +26931,7 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
   - usual_paydates
   :next_node: :next_pay_day_paternity?
   :outcome_node: false
@@ -25311,6 +26952,91 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  :next_node: :how_do_you_want_the_spp_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - weekly_starting
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
   - usual_paydates
   - '2018-01-01'
   :next_node: :paternity_leave_and_pay
@@ -28541,6 +30267,26 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000'
+  :next_node: :how_many_payments_every_2_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '4'
   :next_node: :how_do_you_want_the_spp_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_spp_calculated?
@@ -28560,6 +30306,7 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
   - weekly_starting
   :next_node: :paternity_leave_and_pay
   :outcome_node: true
@@ -28580,6 +30327,7 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
   - usual_paydates
   :next_node: :next_pay_day_paternity?
   :outcome_node: false
@@ -28600,6 +30348,91 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  :next_node: :how_do_you_want_the_spp_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - weekly_starting
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
   - usual_paydates
   - '2018-01-01'
   :next_node: :paternity_leave_and_pay
@@ -28658,6 +30491,26 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000'
+  :next_node: :how_many_payments_every_4_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '1'
   :next_node: :how_do_you_want_the_spp_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_spp_calculated?
@@ -28677,6 +30530,7 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
   - weekly_starting
   :next_node: :paternity_leave_and_pay
   :outcome_node: true
@@ -28697,6 +30551,7 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
   - usual_paydates
   :next_node: :next_pay_day_paternity?
   :outcome_node: false
@@ -28717,6 +30572,91 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  :next_node: :how_do_you_want_the_spp_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - weekly_starting
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
   - usual_paydates
   - '2018-01-01'
   :next_node: :paternity_leave_and_pay
@@ -32107,6 +34047,26 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000'
+  :next_node: :how_many_payments_every_2_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '4'
   :next_node: :how_do_you_want_the_spp_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_spp_calculated?
@@ -32126,6 +34086,7 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
   - weekly_starting
   :next_node: :paternity_leave_and_pay
   :outcome_node: true
@@ -32146,6 +34107,7 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
   - usual_paydates
   :next_node: :next_pay_day_paternity?
   :outcome_node: false
@@ -32166,6 +34128,91 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  :next_node: :how_do_you_want_the_spp_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - weekly_starting
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
   - usual_paydates
   - '2018-01-01'
   :next_node: :paternity_leave_and_pay
@@ -32224,6 +34271,26 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000'
+  :next_node: :how_many_payments_every_4_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '1'
   :next_node: :how_do_you_want_the_spp_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_spp_calculated?
@@ -32243,6 +34310,7 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
   - weekly_starting
   :next_node: :paternity_leave_and_pay
   :outcome_node: true
@@ -32263,6 +34331,7 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
   - usual_paydates
   :next_node: :next_pay_day_paternity?
   :outcome_node: false
@@ -32283,6 +34352,91 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  :next_node: :how_do_you_want_the_spp_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - weekly_starting
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - one_week
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
   - usual_paydates
   - '2018-01-01'
   :next_node: :paternity_leave_and_pay
@@ -35513,6 +37667,26 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000'
+  :next_node: :how_many_payments_every_2_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '4'
   :next_node: :how_do_you_want_the_spp_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_spp_calculated?
@@ -35532,6 +37706,7 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
   - weekly_starting
   :next_node: :paternity_leave_and_pay
   :outcome_node: true
@@ -35552,6 +37727,7 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
   - usual_paydates
   :next_node: :next_pay_day_paternity?
   :outcome_node: false
@@ -35572,6 +37748,91 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  :next_node: :how_do_you_want_the_spp_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - weekly_starting
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
   - usual_paydates
   - '2018-01-01'
   :next_node: :paternity_leave_and_pay
@@ -35630,6 +37891,26 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000'
+  :next_node: :how_many_payments_every_4_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '1'
   :next_node: :how_do_you_want_the_spp_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_spp_calculated?
@@ -35649,6 +37930,7 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
   - weekly_starting
   :next_node: :paternity_leave_and_pay
   :outcome_node: true
@@ -35669,6 +37951,7 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
   - usual_paydates
   :next_node: :next_pay_day_paternity?
   :outcome_node: false
@@ -35689,6 +37972,91 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  :next_node: :how_do_you_want_the_spp_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - weekly_starting
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_spp_calculated?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - paternity
+  - '2018-01-01'
+  - '2018-01-01'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - 'yes'
+  - '2018-01-01'
+  - two_weeks
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
   - usual_paydates
   - '2018-01-01'
   :next_node: :paternity_leave_and_pay
@@ -38951,6 +41319,23 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000'
+  :next_node: :how_many_payments_every_2_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - adoption
+  - maternity
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '4'
   :next_node: :how_do_you_want_the_sap_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_sap_calculated?
@@ -38967,6 +41352,7 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
   - weekly_starting
   :next_node: :adoption_leave_and_pay
   :outcome_node: true
@@ -38984,6 +41370,7 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
   - usual_paydates
   :next_node: :next_pay_day_paternity?
   :outcome_node: false
@@ -39001,6 +41388,79 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - adoption
+  - maternity
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  :next_node: :how_do_you_want_the_sap_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - weekly_starting
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
   - usual_paydates
   - '2018-01-01'
   :next_node: :paternity_leave_and_pay
@@ -39050,6 +41510,23 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000'
+  :next_node: :how_many_payments_every_4_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - adoption
+  - maternity
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '1'
   :next_node: :how_do_you_want_the_sap_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_sap_calculated?
@@ -39066,6 +41543,7 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
   - weekly_starting
   :next_node: :adoption_leave_and_pay
   :outcome_node: true
@@ -39083,6 +41561,7 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
   - usual_paydates
   :next_node: :next_pay_day_paternity?
   :outcome_node: false
@@ -39100,6 +41579,79 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - adoption
+  - maternity
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  :next_node: :how_do_you_want_the_sap_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - weekly_starting
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
   - usual_paydates
   - '2018-01-01'
   :next_node: :paternity_leave_and_pay
@@ -41948,6 +44500,23 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000'
+  :next_node: :how_many_payments_every_2_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - adoption
+  - maternity
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '4'
   :next_node: :how_do_you_want_the_sap_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_sap_calculated?
@@ -41964,6 +44533,7 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
   - weekly_starting
   :next_node: :adoption_leave_and_pay
   :outcome_node: true
@@ -41981,6 +44551,7 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
   - usual_paydates
   :next_node: :next_pay_day_paternity?
   :outcome_node: false
@@ -41998,6 +44569,79 @@
   - '2017-11-01'
   - every_2_weeks
   - '3000.0'
+  - '4'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - adoption
+  - maternity
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  :next_node: :how_do_you_want_the_sap_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - weekly_starting
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
   - usual_paydates
   - '2018-01-01'
   :next_node: :paternity_leave_and_pay
@@ -42047,6 +44691,23 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000'
+  :next_node: :how_many_payments_every_4_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - adoption
+  - maternity
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '1'
   :next_node: :how_do_you_want_the_sap_calculated?
   :outcome_node: false
 - :current_node: :how_do_you_want_the_sap_calculated?
@@ -42063,6 +44724,7 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
   - weekly_starting
   :next_node: :adoption_leave_and_pay
   :outcome_node: true
@@ -42080,6 +44742,7 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
   - usual_paydates
   :next_node: :next_pay_day_paternity?
   :outcome_node: false
@@ -42097,6 +44760,79 @@
   - '2017-11-01'
   - every_4_weeks
   - '3000.0'
+  - '1'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - adoption
+  - maternity
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  :next_node: :how_do_you_want_the_sap_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - weekly_starting
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
   - usual_paydates
   - '2018-01-01'
   :next_node: :paternity_leave_and_pay

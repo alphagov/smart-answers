@@ -14,9 +14,9 @@ The employee’s average weekly earnings are: £230.77.
 
 Date | SAP amount
 -|-
-18 April 2018|£385.72
+18 April 2018|£385.71
 16 May 2018|£830.76
-20 June 2018|£714.44
+20 June 2018|£714.43
 18 July 2018|£563.92
 15 August 2018|£563.92
 19 September 2018|£704.90
@@ -24,7 +24,7 @@ Date | SAP amount
 21 November 2018|£704.90
 19 December 2018|£563.92
 16 January 2019|£302.10
-| **Total SAP: £5,898.50**
+| **Total SAP: £5,898.48**
 
 %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
 

@@ -24,6 +24,14 @@ module SmartAnswer::Calculators
         "9": "9 payments",
         "10": "10 payments"
       },
+      every_2_weeks: {
+        "4": "4 payments or fewer",
+        "5": "5 payments"
+      },
+      every_4_weeks: {
+        "1": "1 payment",
+        "2": "2 payments"
+      },
       monthly: {
         "2": "1 or 2 payments",
         "3": "3 payments"
@@ -61,7 +69,13 @@ module SmartAnswer::Calculators
 
     def number_of_payments
       if valid_payment_option?
-        payment_option.to_f
+        if weekly? || monthly?
+          payment_option.to_f
+        elsif every_2_weeks?
+          payment_option.to_f * 2
+        elsif every_4_weeks?
+          payment_option.to_f * 4
+        end
       elsif monthly?
         2.0
       else
@@ -69,12 +83,15 @@ module SmartAnswer::Calculators
       end
     end
 
-    def monthly?
-      pay_pattern == "monthly"
+    #monthly? every_2_weeks? every_4_weeks? weekly?
+    PAYMENT_OPTIONS.keys.each do |frequence|
+      define_method "#{frequence}?" do
+        pay_pattern == frequence
+      end
     end
 
-    def weekly?
-      pay_pattern == "weekly"
+    def valid_pay_pattern?
+      PAYMENT_OPTIONS.keys.map(&:to_s).include?(pay_pattern)
     end
 
     def adoption?
@@ -329,8 +346,7 @@ module SmartAnswer::Calculators
   private
 
     def valid_payment_option?
-      (monthly? || weekly?) &&
-        possible_payment_options.include?(payment_option)
+      valid_pay_pattern? && possible_payment_options.include?(payment_option)
     end
 
     def possible_payment_options
