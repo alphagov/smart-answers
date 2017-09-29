@@ -401,7 +401,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_opposite_sex.go
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_same_sex.govspeak.erb: 57a93fbbf2dd3254d13acf2b4eb02ee4
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_title.govspeak.erb: 9ed9b141d5d5418375ec81e96fe67ca7
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/japan/_opposite_sex.govspeak.erb: 062151ba6bb455af4d0d1b13641375e5
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/japan/_same_sex.govspeak.erb: 8ee3ea02aadb5938f10db277303251bc
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/japan/_same_sex.govspeak.erb: f61ac1ede045e980c2f110a4ca284877
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/japan/_title.govspeak.erb: b136a47f052cbd595714742008d771a5
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/jordan/_title.govspeak.erb: 244778b903869fce5ce20769b189ad23
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/jordan/ceremony_country/partner_british/_opposite_sex.govspeak.erb: f419c024409087f34a6facc650098c64
