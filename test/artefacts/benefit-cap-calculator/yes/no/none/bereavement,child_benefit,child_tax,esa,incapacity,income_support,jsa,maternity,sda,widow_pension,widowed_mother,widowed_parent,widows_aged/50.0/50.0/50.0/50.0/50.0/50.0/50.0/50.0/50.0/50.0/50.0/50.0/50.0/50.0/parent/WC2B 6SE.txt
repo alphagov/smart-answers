@@ -3,7 +3,7 @@ Based on your answers, you’re affected by the Greater London benefit cap.
 
 Your weekly benefits | Greater London benefit cap
 -|-
-£700.00 | £442.31
+£700 | £442.31
 
 Your Housing Benefit will be: £0.50.
 
@@ -11,17 +11,17 @@ Your Housing Benefit will be: £0.50.
 
 The benefits you get are added together. The total amount of benefits over your benefit cap is subtracted from your Housing Benefit:
 
-Total amount of benefits affected by the Greater London cap: £700.00
+Total amount of benefits affected by the Greater London cap: £700
 
 Your Housing Benefit is reduced by the amount you are over your benefit cap of £442.31:
 
-Total benefits affected: £700.00
+Total benefits affected: £700
 
 Minus Greater London benefit cap: £442.31
 
 Total over Greater London cap: £257.69
 
-Housing benefit: £50.00
+Housing benefit: £50
 
 Minus total over Greater London cap: £257.69
 

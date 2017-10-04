@@ -6,7 +6,7 @@ This is because the total amount of benefits you get are the same as or lower th
 
 The total amount of your benefits are added together:
 
-Total amount of benefits affected by cap: £50.00
+Total amount of benefits affected by cap: £50
 
 As this amount is lower than your benefit cap of £296.35, your benefits won’t change.
 
