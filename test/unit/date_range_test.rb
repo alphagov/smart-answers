@@ -51,6 +51,10 @@ module SmartAnswer
         assert_equal 7, @date_range.number_of_days
       end
 
+      should 'calculate non_inclusive_days days in range' do
+        assert_equal 6, @date_range.non_inclusive_days
+      end
+
       should 'equal another DateRange with the same begins_on & ends_on' do
         assert @date_range == @date_range.dup
       end

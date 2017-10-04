@@ -38,7 +38,11 @@ module SmartAnswer
     alias_method :&, :intersection
 
     def number_of_days
-      infinite? ? Float::INFINITY : (@ends_on - @begins_on).to_i + 1
+      non_inclusive_days + 1
+    end
+
+    def non_inclusive_days
+      infinite? ? Float::INFINITY : (@ends_on - @begins_on).to_i
     end
 
     def ==(other)
