@@ -14,10 +14,12 @@ module SmartAnswer::Calculators
           end
           should "return basic calcs" do
             assert_equal @due_date, @calculator.due_date
-            assert_equal Date.parse("16 Dec 2012")..Date.parse("22 Dec 2012"), @calculator.expected_week
+            assert_equal Date.parse("16 Dec 2012"), @calculator.expected_week.begins_on
+            assert_equal Date.parse("22 Dec 2012"), @calculator.expected_week.ends_on
           end
           should "qualifying week" do
-            assert_equal Date.parse("02 Sep 2012")..Date.parse("08 Sep 2012"), @calculator.qualifying_week
+            assert_equal Date.parse("02 Sep 2012"), @calculator.qualifying_week.begins_on
+            assert_equal Date.parse("08 Sep 2012"), @calculator.qualifying_week.ends_on
           end
           should "employment start" do
             assert_equal Date.parse("17 Mar 2012"), @calculator.employment_start
