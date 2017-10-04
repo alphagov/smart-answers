@@ -10,7 +10,8 @@ module SmartAnswer::Calculators
         end
         should "return basic calcs" do
           assert_equal @due_date, @calculator.due_date
-          assert_equal Date.parse("2012-12-30")..Date.parse("2013-01-05"), @calculator.expected_week
+          assert_equal Date.parse("2012-12-30"), @calculator.expected_week.begins_on
+          assert_equal Date.parse("2013-01-05"), @calculator.expected_week.ends_on
         end
       end
 
@@ -24,7 +25,8 @@ module SmartAnswer::Calculators
             @calculator = MaternityBenefitsCalculator.new(@due_date)
           end
           should "qualifying week" do
-            assert_equal Date.parse("02 Sep 2012")..Date.parse("08 Sep 2012"), @calculator.qualifying_week
+            assert_equal Date.parse("02 Sep 2012"), @calculator.qualifying_week.begins_on
+            assert_equal Date.parse("08 Sep 2012"), @calculator.qualifying_week.ends_on
           end
           should "employment start" do
             assert_equal Date.parse("17 Mar 2012"), @calculator.employment_start
