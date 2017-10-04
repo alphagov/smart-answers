@@ -29,28 +29,28 @@
 
       The employee is entitled to SAP.
 
-      Their average weekly earnings are: £<%= average_weekly_earnings %>
+      Their average weekly earnings are: <%= format_money(average_weekly_earnings) %>
 
       ## SAP calculation
 
       Date | SAP amount
       -|-
       <%= pay_dates_and_pay %>
-       | **Total SAP: £<%= total_spp %>**
+       | **Total SAP: <%= format_money(total_spp) %>**
 
     <% else %>
       ##Statutory Paternity Pay (SPP)
 
       The employee is entitled to SPP.
 
-      Their average weekly earnings are: £<%= average_weekly_earnings %>
+      Their average weekly earnings are: <%= format_money(average_weekly_earnings) %>
 
       ## SPP calculation
 
       Date | SPP amount
       -|-
       <%= pay_dates_and_pay %>
-       | **Total SPP: £<%= total_spp %>**
+       | **Total SPP: <%= format_money(total_spp) %>**
 
     <% end %>
 
