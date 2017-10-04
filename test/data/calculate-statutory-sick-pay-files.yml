@@ -6,7 +6,7 @@ lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/already_getting_mat
 lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/entitled_to_sick_pay.govspeak.erb: 948d6c5966a30455942bc41f364f12cf
 lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/maximum_entitlement_reached.govspeak.erb: eb12d5290c873df20fd23ff9eb06c273
 lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/must_be_sick_for_4_days.govspeak.erb: 17b34a7463bcbbf7e2a5c417ec5452f9
-lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/not_earned_enough.govspeak.erb: 1e5cd1c6d99b6bd3145578416d62e7c5
+lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/not_earned_enough.govspeak.erb: 27fb4b6c67a674cfe1e5f86ff0dd6f45
 lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/not_entitled_3_days_not_paid.govspeak.erb: 2bb339147988e5beeeda2e0da1bb956a
 lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/not_regular_schedule.govspeak.erb: 98b6f0d902fabae8fda39c1859cd2a46
 lib/smart_answer_flows/calculate-statutory-sick-pay/questions/contractual_days_covered_by_earnings.govspeak.erb: 617e75cefa51fcf508f20575c39bd76d
