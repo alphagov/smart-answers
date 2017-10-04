@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  Your weekly childcare costs are £<%= weekly_cost %>.
+  Your weekly childcare costs are <%= format_money(weekly_cost) %>.
 <% end %>
 
 <% content_for :body do %>
