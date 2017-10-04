@@ -89,6 +89,26 @@ module SmartAnswer
         sub_class_instance = Class.new(DateRange).new(begins_on: @date_range.begins_on, ends_on: @date_range.ends_on)
         refute_equal sub_class_instance.hash, @date_range.hash
       end
+
+      should 'allow increase by X days' do
+        new_range = @date_range + 10
+        assert_equal new_range.begins_on, @date_range.begins_on + 10
+        assert_equal new_range.ends_on, @date_range.ends_on + 10
+      end
+
+      should 'allow increase by X weeks' do
+        new_range = @date_range.weeks_after 1
+        assert_equal new_range.begins_on, @date_range.begins_on + 7
+        assert_equal new_range.ends_on, @date_range.ends_on + 7
+
+        new_range = @date_range.weeks_after 2
+        assert_equal new_range.begins_on, @date_range.begins_on + 7*2
+        assert_equal new_range.ends_on, @date_range.ends_on + 7*2
+      end
+
+      should 'return a formatted string' do
+        assert_equal "01 January 2000 to 07 January 2000", @date_range.to_s
+      end
     end
 
     context 'when range is built with begins_on & ends_on as instances of Time' do

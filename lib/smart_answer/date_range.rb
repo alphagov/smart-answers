@@ -1,5 +1,7 @@
 module SmartAnswer
   class DateRange
+    include SmartAnswer::DateHelper
+
     EARLIEST_DATE = -Date::Infinity.new
     LATEST_DATE = Date::Infinity.new
 
@@ -54,6 +56,10 @@ module SmartAnswer
       (self.class == other.class) && ([begins_on, ends_on] == [other.begins_on, other.ends_on])
     end
 
+    def +(days)
+      DateRange.new begins_on: begins_on + days, ends_on: ends_on + days
+    end
+
     def hash
       self.class.hash ^ [begins_on, ends_on].hash
     end
@@ -98,11 +104,11 @@ module SmartAnswer
       leap_dates.any?
     end
 
-    def weeks_later(weeks)
+    def weeks_after(weeks)
       self + weeks * 7
     end
 
-    def formatted
+    def to_s
       "#{formatted_date begins_on} to #{formatted_date ends_on}"
     end
   end
