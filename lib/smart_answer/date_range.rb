@@ -26,7 +26,8 @@ module SmartAnswer
     end
 
     def include?(date)
-      (ComparableDate.new(date.to_date) >= ComparableDate.new(@begins_on)) && (ComparableDate.new(date.to_date) <= ComparableDate.new(@ends_on))
+      (ComparableDate.new(date.to_date) >= ComparableDate.new(@begins_on)) &&
+        (ComparableDate.new(date.to_date) <= ComparableDate.new(@ends_on))
     end
 
     def intersection(other)
@@ -74,6 +75,35 @@ module SmartAnswer
         begins_on: [ComparableDate.new(ends_on), ComparableDate.new(other.ends_on)].min.date + 1,
         ends_on: [ComparableDate.new(begins_on), ComparableDate.new(other.begins_on)].max.date - 1
       )
+    end
+
+    def years
+      (begins_on.year..ends_on.year).to_a
+    end
+
+    def feb29th_date(year)
+      Date.new(year, 2, 29)
+    end
+
+    def leap_dates
+      years.inject([]) { |mem, year|
+        if Date.leap?(year) && include?(feb29th_date(year))
+          mem << feb29th_date(year)
+        end
+        mem
+      }
+    end
+
+    def leap?
+      leap_dates.any?
+    end
+
+    def weeks_later(weeks)
+      self + weeks * 7
+    end
+
+    def formatted
+      "#{formatted_date begins_on} to #{formatted_date ends_on}"
     end
   end
 end

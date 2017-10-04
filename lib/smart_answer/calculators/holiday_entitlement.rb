@@ -47,13 +47,7 @@ module SmartAnswer::Calculators
     end
 
     def feb29th_in_range(start_date, end_date)
-      iterator = start_date
-      while iterator <= end_date
-        return true if feb29th_in_year_range(iterator, start_date, end_date)
-        iterator = iterator + 1.year
-      end
-      # Helps with edge conditions - e.g 2011-12-31 to 2012-12-30
-      feb29th_in_year_range(end_date, start_date, end_date)
+      SmartAnswer::DateRange.new(begins_on: start_date, ends_on: end_date).leap?
     end
 
     def fraction_of_year
@@ -134,19 +128,6 @@ module SmartAnswer::Calculators
         start_date
       else
         leaving_date
-      end
-    end
-
-    def feb29th_in_year_of_date(date)
-      Date.new(date.year, 2, 29)
-    end
-
-    def feb29th_in_year_range(iterator, start_date, end_date)
-      if iterator.leap?
-        feb29th = feb29th_in_year_of_date(iterator)
-        start_date <= feb29th && end_date >= feb29th
-      else
-        false
       end
     end
 
