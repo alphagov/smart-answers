@@ -25,7 +25,7 @@
       ##Statutory maternity pay
 
       The employee is not entitled to statutory maternity pay.
-      Their average weekly earnings are £<%= average_weekly_earnings %> (you can’t round this figure up or down). To qualify:
+      Their average weekly earnings are <%= format_money(average_weekly_earnings) %> (you can’t round this figure up or down). To qualify:
 
     <% else %>
       ##Statutory maternity pay
@@ -64,7 +64,7 @@
 
     Pay | Key facts
     -|-
-    Average weekly earnings | £<%= average_weekly_earnings %> (don't round this up or down)
+    Average weekly earnings | <%= format_money(average_weekly_earnings) %> (don't round this up or down)
     Latest date to claim SMP | <%= format_date(notice_request_pay) %>
     SMP start date due to pregnancy related illness| <%= format_date(ssp_stop) %>
     Proof of pregnancy | Usually within 21 days of the SMP start date (or as soon as possible if baby born early)
@@ -77,7 +77,7 @@
     Date | SMP amount
     -|-
     <%= pay_dates_and_pay %>
-     | **Total SMP: £<%= total_smp %>**
+     | **Total SMP: <%= format_money(total_smp) %>**
 
   <% end %>
 

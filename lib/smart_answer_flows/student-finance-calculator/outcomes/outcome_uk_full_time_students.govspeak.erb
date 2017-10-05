@@ -18,12 +18,12 @@
 
     <% if uk_ft_circumstances.include?('children-under-17') %>
       - up to <%= number_to_currency(calculator.childcare_grant_one_child, precision: 2) %> a week (1 child) or up to <%= number_to_currency(calculator.childcare_grant_more_than_one_child, precision: 2) %> a week (2 or more children) [Childcare Grant](/childcare-grant)
-      - up to £<%= number_with_delimiter(calculator.parent_learning_allowance) %> per year [Parents’ Learning Allowance](/parents-learning-allowance)
+      - up to <%= format_money(calculator.parent_learning_allowance) %> per year [Parents’ Learning Allowance](/parents-learning-allowance)
       - [Child Tax Credit](/child-tax-credit)
     <% end %>
 
     <% if uk_ft_circumstances.include?('dependant-adult') %>
-      - up to £<%= number_with_delimiter(calculator.adult_dependant_allowance) %> per year [Adult Dependant’s Grant](/adult-dependants-grant)
+      - up to <%= format_money(calculator.adult_dependant_allowance) %> per year [Adult Dependant’s Grant](/adult-dependants-grant)
     <% end %>
 
     <% if uk_ft_circumstances.include?('has-disability') %>

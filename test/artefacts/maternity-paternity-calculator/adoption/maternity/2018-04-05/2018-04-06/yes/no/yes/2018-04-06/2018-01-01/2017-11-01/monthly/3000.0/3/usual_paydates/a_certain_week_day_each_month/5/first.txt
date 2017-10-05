@@ -24,7 +24,7 @@ Date | SAP amount
 2 November 2018|£563.92
 7 December 2018|£704.90
 4 January 2019|£543.78
-| **Total SAP: £5898.49**
+| **Total SAP: £5,898.49**
 
 %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
 

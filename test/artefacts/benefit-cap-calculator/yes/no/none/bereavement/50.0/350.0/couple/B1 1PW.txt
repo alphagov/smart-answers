@@ -3,7 +3,7 @@ Based on your answers, you’re affected by the outside London benefit cap.
 
 Your weekly benefits | Outside London benefit cap
 -|-
-£400.00 | £384.62
+£400 | £384.62
 
 Your Housing Benefit will be: £334.62.
 
@@ -11,17 +11,17 @@ Your Housing Benefit will be: £334.62.
 
 The benefits you get are added together. The total amount of benefits over the outside London benefit cap is subtracted from your Housing Benefit:
 
-Total amount of benefits affected by the outside London cap: £400.00
+Total amount of benefits affected by the outside London cap: £400
 
 Your Housing Benefit is reduced by the amount you are over the outside London benefit cap of £384.62:
 
-Total benefits affected: £400.00
+Total benefits affected: £400
 
 Minus outside London benefit cap: £384.62
 
 Total over outside London cap: £15.38
 
-Housing benefit: £350.00
+Housing benefit: £350
 
 Minus total over outside London cap: £15.38
 

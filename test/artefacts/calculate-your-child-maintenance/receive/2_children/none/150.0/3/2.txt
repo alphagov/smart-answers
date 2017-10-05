@@ -1,6 +1,6 @@
 
 
-Your child maintenance payment is the reduced rate of £12.00 per week.
+Your child maintenance payment is the reduced rate of £12 per week.
 
 ^This is an estimate. The exact amount the Child Maintenance Service calculates may be different.^
 
@@ -10,9 +10,9 @@ For example, if the paying parent also supports other children, the amount you r
 
 Payment type | Weekly payment | Fees | Total amount you’ll receive | Application fee  - you only pay this once
 - | -
-[Collect and Pay](/child-maintenance/how-to-pay) | £12.00 | £0.48 | £11.52 | £20.00
-[Direct pay](/child-maintenance/how-to-pay) | £12.00 | No fees | £12.00 | £20.00
-[Arranging child maintenance yourself](/arranging-child-maintenance-yourself) | £12.00 | No fees | £12.00 | No fee
+[Collect and Pay](/child-maintenance/how-to-pay) | £12 | £0.48 | £11.52 | £20.00
+[Direct pay](/child-maintenance/how-to-pay) | £12 | No fees | £12 | £20.00
+[Arranging child maintenance yourself](/arranging-child-maintenance-yourself) | £12 | No fees | £12 | No fee
 
 You will pay up to £24.96 in fees per year if you receive child maintenance through the Collect and Pay service.
 
