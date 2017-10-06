@@ -45,7 +45,7 @@ module SmartAnswer::Calculators
         end
 
         should "qualifying_week give last date of 1 September 2012" do
-          assert_equal Date.parse("1 September 2012"), @calculator.qualifying_week.last
+          assert_equal Date.parse("1 September 2012"), @calculator.qualifying_week.ends_on
         end
 
         should "earliest_start give date of 23 September 2012" do
@@ -53,11 +53,11 @@ module SmartAnswer::Calculators
         end
 
         should "period_of_ordinary_leave give range of 25 November 2012 to 25 May 2013" do
-          assert_equal "25 November 2012 to 25 May 2013", @calculator.format_date_range(@calculator.period_of_ordinary_leave)
+          assert_equal "25 November 2012 to 25 May 2013", @calculator.period_of_ordinary_leave.to_s
         end
 
         should "period_of_additional_leave give range of 26 May 2013 to 23 November 2013" do
-          assert_equal "26 May 2013 to 23 November 2013", @calculator.format_date_range(@calculator.period_of_additional_leave)
+          assert_equal "26 May 2013 to 23 November 2013", @calculator.period_of_additional_leave.to_s
         end
       end
     end

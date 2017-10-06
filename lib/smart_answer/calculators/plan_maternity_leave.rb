@@ -1,6 +1,7 @@
 module SmartAnswer::Calculators
   class PlanMaternityLeave
     include ActionView::Helpers::DateHelper
+    include SmartAnswer::DateHelper
 
     attr_reader :formatted_due_date, :formatted_start_date, :leave_earliest_start_date
 
@@ -16,16 +17,6 @@ module SmartAnswer::Calculators
       @formatted_start_date = formatted_date(@start_date)
     end
 
-    def formatted_date(dt)
-      dt.strftime("%d %B %Y")
-    end
-
-    def format_date_range(range)
-      first = formatted_date(range.first)
-      last = formatted_date(range.last)
-      (first + " to " + last)
-    end
-
     def distance_start
       distance_of_time_in_words(@due_date, @start_date)
     end
@@ -35,29 +26,26 @@ module SmartAnswer::Calculators
     def expected_week_of_childbirth
       sunday = @due_date - @due_date.wday
       saturday = sunday + 6
-      sunday..saturday
+      SmartAnswer::DateRange.new(begins_on: sunday, ends_on: saturday)
     end
 
     def qualifying_week
-      expected_week_of_childbirth && weeks_later(expected_week_of_childbirth, -15)
+      expected_week_of_childbirth && expected_week_of_childbirth.weeks_after(-15)
     end
 
     def earliest_start
-      expected_week_of_childbirth && expected_week_of_childbirth.first - 11 * 7
+      expected_week_of_childbirth && expected_week_of_childbirth.begins_on - 11 * 7
     end
 
     def period_of_ordinary_leave
-      @start_date..@start_date + 26 * 7 - 1
+      SmartAnswer::DateRange.new(
+        begins_on: @start_date,
+        ends_on: @start_date + 26 * 7 - 1
+      )
     end
 
     def period_of_additional_leave
-      period_of_ordinary_leave && weeks_later(period_of_ordinary_leave, 26)
-    end
-
-  private
-
-    def weeks_later(range, weeks)
-      (range.first + weeks * 7)..(range.last + weeks * 7)
+      period_of_ordinary_leave && period_of_ordinary_leave.weeks_after(26)
     end
   end
 end

@@ -65,10 +65,10 @@ module SmartAnswer
           calculator.earliest_start_formatted
         end
         precalculate :period_of_ordinary_leave do
-          calculator.format_date_range calculator.period_of_ordinary_leave
+          calculator.period_of_ordinary_leave.to_s
         end
         precalculate :period_of_additional_leave do
-          calculator.format_date_range calculator.period_of_additional_leave
+          calculator.period_of_additional_leave.to_s
         end
       end
     end

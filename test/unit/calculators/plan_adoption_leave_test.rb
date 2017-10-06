@@ -43,7 +43,7 @@ module SmartAnswer::Calculators
         context "test date range methods" do
           # /plan-adoption-leave/y/2012-06-25/2012-12-25/weeks_2
           should "qualifying_week give last date of 23 June 2012" do
-            assert_equal Date.parse("23 June 2012"), @calculator.qualifying_week.last
+            assert_equal Date.parse("23 June 2012"), @calculator.qualifying_week.ends_on
           end
 
           should "last_qualifying_week_formatted give 23 June 2012" do
@@ -59,11 +59,11 @@ module SmartAnswer::Calculators
           end
 
           should "period_of_ordinary_leave give range of 11 December 2012 - 11 June 2013" do
-            assert_equal "11 December 2012 to 11 June 2013", @calculator.format_date_range(@calculator.period_of_ordinary_leave)
+            assert_equal "11 December 2012 to 11 June 2013", @calculator.period_of_ordinary_leave.to_s
           end
 
           should "period_of_additional_leave give range of 10 December 2012 - 10 June 2013" do
-            assert_equal "11 June 2013 to 10 December 2013", @calculator.format_date_range(@calculator.period_of_additional_leave)
+            assert_equal "11 June 2013 to 10 December 2013", @calculator.period_of_additional_leave.to_s
           end
         end
       end

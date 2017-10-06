@@ -49,12 +49,17 @@ module SmartAnswer::Calculators
     end
 
     def weeks_worked(holiday_start)
-      days = (holiday_start.to_datetime - calculation_period.to_datetime).to_i
-      days / 7
+      SmartAnswer::DateRange.new(
+        begins_on: calculation_period,
+        ends_on: holiday_start
+      ).number_of_days / 7
     end
 
     def available_days
-      (Date.today.to_datetime - calculation_period.to_datetime).to_i
+      SmartAnswer::DateRange.new(
+        begins_on: calculation_period,
+        ends_on: Date.today
+      ).non_inclusive_days
     end
 
     def holiday_days(days_worked_per_week)
