@@ -36,7 +36,6 @@ countries_with_2_outcomes:
   - egypt
   - france
   - ireland
-  - italy
   - luxembourg
   - japan
   - philippines
@@ -44,5 +43,6 @@ countries_with_2_outcomes:
   - turkey
   - usa
 countries_with_6_outcomes:
-  - poland
   - greece
+  - italy
+  - poland
