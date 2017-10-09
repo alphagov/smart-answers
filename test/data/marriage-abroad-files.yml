@@ -400,6 +400,12 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/ireland/_title.govspea
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_opposite_sex.govspeak.erb: aa8ceb9107db058e83f54e298abe24ff
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_same_sex.govspeak.erb: 57a93fbbf2dd3254d13acf2b4eb02ee4
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_title.govspeak.erb: 9ed9b141d5d5418375ec81e96fe67ca7
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/ceremony_country/_opposite_sex.govspeak.erb: 66ef1a512a69f084864ff631dc0dc551
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/ceremony_country/_same_sex.govspeak.erb: 5f4449fdaac1de1586633563939cae41
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/third_country/_opposite_sex.govspeak.erb: 6bcd8fc720017c80a8dbc4b6e3c07ca2
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/third_country/_same_sex.govspeak.erb: b2818b5c08161e0b6a8b8494524a2a90
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/uk/_opposite_sex.govspeak.erb: c43ad58e36750346d929fc580ee1b02f
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/uk/_same_sex.govspeak.erb: da9551c46e7c44a6f29dd7b4051b3990
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/japan/_opposite_sex.govspeak.erb: dec33d2f936be64fbb0ce2dad12ecd56
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/japan/_same_sex.govspeak.erb: f61ac1ede045e980c2f110a4ca284877
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/japan/_title.govspeak.erb: b136a47f052cbd595714742008d771a5
