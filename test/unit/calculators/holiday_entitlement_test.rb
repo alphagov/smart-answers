@@ -2,44 +2,6 @@ require_relative '../../test_helper'
 
 module SmartAnswer::Calculators
   class HolidayEntitlementTest < ActiveSupport::TestCase
-    context "seeing if feb 29th in range" do
-      should "return true for 2010-01-01 to 2012-05-05" do
-        assert_equal true, HolidayEntitlement.new.feb29th_in_range(Date.new(2010, 1, 1), Date.new(2012, 5, 5))
-      end
-
-      should "return true for 2012-01-01 to 2012-05-05" do
-        assert_equal true, HolidayEntitlement.new.feb29th_in_range(Date.new(2012, 1, 1), Date.new(2012, 5, 5))
-      end
-
-      should "return true for 2012-02-28 to 2012-03-01" do
-        assert_equal true, HolidayEntitlement.new.feb29th_in_range(Date.new(2012, 2, 28), Date.new(2012, 3, 1))
-      end
-
-      should "return true for 2012-02-29 to 2012-03-01" do
-        assert_equal true, HolidayEntitlement.new.feb29th_in_range(Date.new(2012, 2, 29), Date.new(2012, 3, 1))
-      end
-
-      should "return true for 1986-01-01 to 2010-05-04" do
-        assert_equal true, HolidayEntitlement.new.feb29th_in_range(Date.new(1986, 1, 1), Date.new(2012, 5, 4))
-      end
-
-      should "return true for 2011-12-31 to 2012-12-30" do
-        assert_equal true, HolidayEntitlement.new.feb29th_in_range(Date.new(2011, 12, 31), Date.new(2012,  12, 30))
-      end
-
-      should "return false for 2010-05-20 to 2011-04-03" do
-        assert_equal false, HolidayEntitlement.new.feb29th_in_range(Date.new(2010, 5, 20), Date.new(2011, 4, 3))
-      end
-
-      should "return false for 2012-03-01 to 2012-08-08" do
-        assert_equal false, HolidayEntitlement.new.feb29th_in_range(Date.new(2012, 3, 1), Date.new(2012, 8, 8))
-      end
-
-      should "return false for 2012-01-01 to 2012-02-02" do
-        assert_equal false, HolidayEntitlement.new.feb29th_in_range(Date.new(2012, 1, 1), Date.new(2012, 2, 2))
-      end
-    end
-
     context "calculating fraction of year" do
       should "return 1 with no start date or leaving date" do
         calc = HolidayEntitlement.new
