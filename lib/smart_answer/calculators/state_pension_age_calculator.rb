@@ -2,8 +2,6 @@ require "data/state_pension_date_query"
 
 module SmartAnswer::Calculators
   class StatePensionAgeCalculator
-    include FriendlyTimeDiff
-
     attr_reader :dob
     attr_accessor :gender
 
@@ -22,9 +20,15 @@ module SmartAnswer::Calculators
 
     def state_pension_age
       if birthday_on_feb_29?
-        friendly_time_diff(dob, state_pension_date - 1.day)
+        SmartAnswer::DateRange.new(
+          begins_on: dob,
+          ends_on: state_pension_date - 1.day
+        ).friendly_time_diff
       else
-        friendly_time_diff(dob, state_pension_date)
+        SmartAnswer::DateRange.new(
+          begins_on: dob,
+          ends_on: state_pension_date
+        ).friendly_time_diff
       end
     end
 

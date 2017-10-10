@@ -97,24 +97,11 @@ module SmartAnswer::Calculators
       earnings_employment == "yes" && work_employment == "yes"
     end
 
-    def range_in_2013_2014_fin_year?
-      date_in_39_week_range?(2013, 2014, due_date)
-    end
-
-    def range_in_2014_2015_fin_year?
-      date_in_39_week_range?(2014, 2015, due_date)
-    end
-
-    def range_in_2015_2016_fin_year?
-      date_in_39_week_range?(2015, 2016, due_date)
-    end
-
-    def range_in_2016_2017_fin_year?
-      date_in_39_week_range?(2016, 2017, due_date)
-    end
-
-    def range_in_2017_2018_fin_year?
-      date_in_39_week_range?(2017, 2018, due_date)
+    (2013..2017).each do |year_start|
+      year_end = year_start + 1
+      define_method "range_in_#{year_start}_#{year_end}_fin_year?" do
+        date_in_39_week_range?(year_start, due_date)
+      end
     end
 
     def start_of_maternity_allowance
@@ -122,35 +109,21 @@ module SmartAnswer::Calculators
     end
 
     def earliest_start_mat_leave
-      sunday_before(due_date - 11.weeks)
+      start_of_maternity_allowance
     end
 
     def maternity_leave_notice_date
       saturday_before(due_date - 14.weeks)
     end
+    alias_method :paternity_leave_notice_date, :maternity_leave_notice_date
 
-    def paternity_leave_notice_date
-      saturday_before(due_date - 14.weeks)
-    end
-
-    def in_2013_2014_fin_year?(date)
-      (Date.new(2013, 05, 06)..Date.new(2014, 05, 05)).cover?(date)
-    end
-
-    def in_2014_2015_fin_year?(date)
-      (Date.new(2014, 05, 06)..Date.new(2015, 05, 05)).cover?(date)
-    end
-
-    def in_2015_2016_fin_year?(date)
-      (Date.new(2015, 05, 06)..Date.new(2016, 05, 05)).cover?(date)
-    end
-
-    def in_2016_2017_fin_year?(date)
-      (Date.new(2016, 05, 06)..Date.new(2017, 05, 05)).cover?(date)
-    end
-
-    def in_2017_2018_fin_year?(date)
-      (Date.new(2017, 05, 06)..Date.new(2018, 05, 05)).cover?(date)
+    (2013..2017).each do |year_start|
+      year_end = year_start + 1
+      define_method "in_#{year_start}_#{year_end}_fin_year?" do |date|
+        SmartAnswer::YearRange.new(
+          begins_on: Date.new(year_start, 5, 6)
+        ).include? date
+      end
     end
 
   private
@@ -163,11 +136,15 @@ module SmartAnswer::Calculators
       date - date.wday
     end
 
-    def date_in_39_week_range?(range_start, range_end, date)
-      start_date = date
-      end_date = start_date + 39.weeks
-      (Date.new(range_start, 05, 06)..Date.new(range_end, 05, 05)).cover?(start_date) ||
-        (Date.new(range_start, 05, 06)..Date.new(range_end, 05, 05)).cover?(end_date)
+    def date_in_39_week_range?(year_range_start, date)
+      year_range = SmartAnswer::YearRange.new(
+        begins_on: Date.new(year_range_start, 5, 6)
+      )
+      range_39_week = SmartAnswer::DateRange.new(
+        begins_on: date,
+        ends_on: date + 39.weeks
+      )
+      (range_39_week & year_range).number_of_days.positive?
     end
   end
 end
