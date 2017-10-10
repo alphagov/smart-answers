@@ -39,6 +39,8 @@ module SmartAnswer
     end
 
     alias_method :&, :intersection
+    alias_method :first, :begins_on
+    alias_method :last, :ends_on
 
     def number_of_days
       non_inclusive_days + 1
@@ -111,5 +113,10 @@ module SmartAnswer
     def to_s
       "#{formatted_date begins_on} to #{formatted_date ends_on}"
     end
+
+    def to_r
+      begins_on..ends_on
+    end
+    alias_method :to_range, :to_r
   end
 end

@@ -37,13 +37,19 @@ module SmartAnswer::Calculators
 
       @due_date = @match_date = match_or_due_date
       @leave_type = leave_type
-      @expected_week = @matched_week = expected_start..expected_start + 6.days
+      @expected_week = @matched_week = SmartAnswer::DateRange.new(
+        begins_on: expected_start,
+        ends_on: expected_start + 6.days
+      )
       @notice_of_leave_deadline = next_saturday(qualifying_start)
-      @qualifying_week = qualifying_start..qualifying_start + 6.days
-      @employment_start = 25.weeks.ago(@qualifying_week.last)
-      @a_employment_start = 25.weeks.ago(@matched_week.last)
-      @leave_earliest_start_date = 11.weeks.ago(@expected_week.first)
-      @ssp_stop = 4.weeks.ago(@expected_week.first)
+      @qualifying_week = SmartAnswer::DateRange.new(
+        begins_on: qualifying_start,
+        ends_on: qualifying_start + 6.days
+      )
+      @employment_start = @qualifying_week.weeks_after(-25).ends_on
+      @a_employment_start = @matched_week.weeks_after(-25).ends_on
+      @leave_earliest_start_date = @expected_week.weeks_after(-11).begins_on
+      @ssp_stop = @expected_week.weeks_after(-4).begins_on
 
       # Adoption instance vars
       @a_notice_leave = @match_date + 7
