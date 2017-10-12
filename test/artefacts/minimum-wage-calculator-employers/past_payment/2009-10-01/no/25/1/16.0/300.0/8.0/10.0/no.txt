@@ -8,7 +8,7 @@ $C
 
 The National Minimum Wage per hour at the time | The worker’s actual pay
 - | -
-£5.80 | £10
+£5.80 | £15.83
 
 If the worker worked overtime or you provided [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
 
