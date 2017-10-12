@@ -567,6 +567,14 @@ nicaragua:
       - :receiving_notice_of_registration
       - :registering_marriage
       - :issuing_marriage_certificate
+      partner_local:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
+      partner_other:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
   payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 panama:
   opposite_sex:
