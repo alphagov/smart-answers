@@ -1,8 +1,8 @@
-What specific date each month is the employee paid?
+When does the employee want to start their leave?
 
 
 
-If they’re paid on the 25th enter "25". The calculator will treat an employee as paid on the last day of the month if you enter 29, 30 or 31.
+Based on the baby's due date, leave usually can’t start before 15 October 2017.
 
 
 

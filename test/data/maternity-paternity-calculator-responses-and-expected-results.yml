@@ -8,13 +8,6 @@
   :responses:
   - maternity
   - '2018-01-01'
-  :next_node: :employment_contract?
-  :outcome_node: false
-- :current_node: :employment_contract?
-  :responses:
-  - maternity
-  - '2018-01-01'
-  - 'yes'
   :next_node: :date_leave_starts?
   :outcome_node: false
 - :current_node: :date_leave_starts?
@@ -23,24 +16,14 @@
   - '2018-01-01'
   - 'yes'
   - '2018-01-01'
-  :next_node: :did_the_employee_work_for_you?
+  :next_node: :did_the_employee_work_for_you_between?
   :outcome_node: false
-- :current_node: :did_the_employee_work_for_you?
+- :current_node: :did_the_employee_work_for_you_between?
   :responses:
   - maternity
   - '2018-01-01'
   - 'yes'
   - '2018-01-01'
-  - 'yes'
-  :next_node: :is_the_employee_on_your_payroll?
-  :outcome_node: false
-- :current_node: :is_the_employee_on_your_payroll?
-  :responses:
-  - maternity
-  - '2018-01-01'
-  - 'yes'
-  - '2018-01-01'
-  - 'yes'
   - 'yes'
   :next_node: :last_normal_payday?
   :outcome_node: false

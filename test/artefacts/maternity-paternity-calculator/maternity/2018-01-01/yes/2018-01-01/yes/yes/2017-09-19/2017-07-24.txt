@@ -1,14 +1,9 @@
-How often do you pay the employee?
-
-If you don’t pay your employee on the same day every pay period, you’ll need to [work out their Statutory Maternity Pay manually](/guidance/statutory-maternity-pay-manually-calculate-your-employees-payments).
+When does the employee want to start their leave?
 
 
 
+Based on the baby's due date, leave usually can’t start before 15 October 2017.
 
-  * weekly: Weekly
-  * every_2_weeks: Every 2 weeks
-  * every_4_weeks: Every 4 weeks
-  * monthly: Monthly
 
 
 
