@@ -5,7 +5,7 @@ Your weekly benefits | Greater London benefit cap
 -|-
 £700 | £442.31
 
-Your Housing Benefit will be: £0.50.
+Your Housing Benefit will be: 50p.
 
 ##How this is worked out
 
@@ -25,7 +25,7 @@ Housing benefit: £50
 
 Minus total over Greater London cap: £257.69
 
-New Housing Benefit amount: £0.50
+New Housing Benefit amount: 50p
 
 Your Housing Benefit won’t be reduced to less than £0.50. You need to be getting some Housing Benefit to be eligible for other services.
 
