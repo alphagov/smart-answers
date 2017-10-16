@@ -1,6 +1,6 @@
 module SmartAnswer::Calculators
   class MarriageAbroadDataQuery
-    COMMONWEALTH_COUNTRIES = %w(antigua-and-barbuda australia bahamas bangladesh barbados belize botswana brunei cameroon canada cyprus dominica fiji ghana grenada guyana india jamaica kenya kiribati lesotho malawi malaysia malta mauritius namibia nauru new-zealand nigeria pakistan papua-new-guinea samoa seychelles sierra-leone singapore solomon-islands sri-lanka st-kitts-and-nevis st-lucia st-vincent-and-the-grenadines swaziland tonga trinidad-and-tobago tuvalu uganda vanuatu zambia).freeze
+    COMMONWEALTH_COUNTRIES = %w(antigua-and-barbuda australia bahamas bangladesh barbados belize botswana brunei cameroon canada cyprus dominica fiji ghana grenada guyana india jamaica kiribati lesotho malawi malaysia malta mauritius namibia nauru new-zealand nigeria pakistan papua-new-guinea samoa seychelles sierra-leone singapore solomon-islands sri-lanka st-kitts-and-nevis st-lucia st-vincent-and-the-grenadines swaziland tonga trinidad-and-tobago tuvalu uganda vanuatu zambia).freeze
 
     REQUIRES_7_DAY_NOTICE_CEREMONY_COUNTRIES = (COMMONWEALTH_COUNTRIES - %w(brunei)) + %w(ireland rwanda st-lucia)
 
