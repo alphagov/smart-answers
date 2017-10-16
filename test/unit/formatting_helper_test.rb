@@ -8,14 +8,53 @@ module SmartAnswer
       stub_shared_component_locales
     end
 
-    test "#format_money doesn't add pence for amounts in whole pounds" do
+    test "#format_money accepts large formatted values" do
+      assert_equal '£1,234.56', format_money('1,234.56')
+      assert_equal '-£1,234.56', format_money('-1,234.56')
+    end
+
+    test "#format_money doesn't add pence for amounts in whole pounds, or for amounts that round to whole pounds" do
       assert_equal '£1', format_money('1.00')
       assert_equal '£1', format_money(Money.new('1.00'))
+      assert_equal '£1', format_money('1.00001')
+      assert_equal '£1', format_money(Money.new(1.00001))
+
+      assert_equal '-£1', format_money('-1.00')
+      assert_equal '-£1', format_money(Money.new(-1.00))
+      assert_equal '-£1', format_money('-1.00001')
+      assert_equal '-£1', format_money(Money.new(-1.00001))
     end
 
     test "#format_money adds pence for amounts that aren't whole pounds" do
       assert_equal '£1.23', format_money('1.23')
       assert_equal '£1.23', format_money(Money.new('1.23'))
+
+      assert_equal '-£1.23', format_money('-1.23')
+      assert_equal '-£1.23', format_money(Money.new(-1.23))
+    end
+
+    test "#format_money doesn't use pounds for amounts less than £1 and greater than -£1" do
+      assert_equal '10p', format_money('0.10')
+      assert_equal '10p', format_money(Money.new('0.10'))
+
+      assert_equal '-10p', format_money('-0.10')
+      assert_equal '-10p', format_money(Money.new(-0.10))
+    end
+
+    test "#format_money leaves the value in pounds if it is exactly 0, or rounds to 0" do
+      assert_equal '£0', format_money('0')
+      assert_equal '£0', format_money(Money.new('0'))
+
+      assert_equal '£0', format_money('0.00001')
+      assert_equal '£0', format_money(Money.new(0.00001))
+    end
+
+    test "#format_money doesn't use leading 0s for amounts less than 10p" do
+      assert_equal '5p', format_money('0.05')
+      assert_equal '5p', format_money(Money.new('0.05'))
+
+      assert_equal '-5p', format_money('-0.05')
+      assert_equal '-5p', format_money(Money.new(-0.05))
     end
 
     test '#format_date returns the date formatted using "%e %B %Y"' do

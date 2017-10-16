@@ -3,7 +3,12 @@ module SmartAnswer
     include ActionView::Helpers::NumberHelper
 
     def format_money(amount)
-      number_to_currency(amount, precision: ((amount.to_f == amount.to_f.round) ? 0 : 2))
+      amount = extract_number(amount)
+      if show_in_pence?(amount)
+        number_to_currency(amount * 100, precision: 0, unit: 'p', format: '%n%u')
+      else
+        number_to_currency(amount, precision: ((amount == amount.round) ? 0 : 2))
+      end
     end
 
     def format_salary(salary)
@@ -13,6 +18,18 @@ module SmartAnswer
     def format_date(date)
       return nil unless date
       date.strftime('%e %B %Y')
+    end
+
+  private
+
+    def extract_number(amount)
+      BigDecimal(amount.to_s.gsub(/[,\s]/, '')).round(2)
+    rescue ArgumentError, TypeError
+      amount
+    end
+
+    def show_in_pence?(amount)
+      amount.is_a?(Numeric) && ((amount < 1) && (amount > -1)) && !amount.round(2).zero?
     end
   end
 end
