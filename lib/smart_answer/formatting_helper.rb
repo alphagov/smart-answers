@@ -2,12 +2,13 @@ module SmartAnswer
   module FormattingHelper
     include ActionView::Helpers::NumberHelper
 
-    def format_money(amount)
+    def format_money(amount, pounds_only: false)
       amount = extract_number(amount)
       if show_in_pence?(amount)
         number_to_currency(amount * 100, precision: 0, unit: 'p', format: '%n%u')
       else
-        number_to_currency(amount, precision: ((amount == amount.round) ? 0 : 2))
+        ignore_pence_value = pounds_only || amount == amount.round
+        number_to_currency(amount, precision: ignore_pence_value ? 0 : 2)
       end
     end
 

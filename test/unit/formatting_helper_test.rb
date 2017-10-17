@@ -57,6 +57,11 @@ module SmartAnswer
       assert_equal '-5p', format_money(Money.new(-0.05))
     end
 
+    test "#format_money can be asked to ignore pence" do
+      assert_equal '£1', format_money('1.23', pounds_only: true)
+      assert_equal '£1', format_money(Money.new('1.23'), pounds_only: true)
+    end
+
     test '#format_date returns the date formatted using "%e %B %Y"' do
       assert_equal ' 1 January 2015', format_date(Date.parse('2015-01-01'))
     end
