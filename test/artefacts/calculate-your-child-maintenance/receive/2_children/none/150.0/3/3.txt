@@ -10,7 +10,7 @@ For example, if the paying parent also supports other children, the amount you r
 
 Payment type | Weekly payment | Fees | Total amount you’ll receive | Application fee  - you only pay this once
 - | -
-[Collect and Pay](/child-maintenance/how-to-pay) | £9 | £0.36 | £8.64 | £20.00
+[Collect and Pay](/child-maintenance/how-to-pay) | £9 | 36p | £8.64 | £20.00
 [Direct pay](/child-maintenance/how-to-pay) | £9 | No fees | £9 | £20.00
 [Arranging child maintenance yourself](/arranging-child-maintenance-yourself) | £9 | No fees | £9 | No fee
 
