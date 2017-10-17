@@ -582,13 +582,13 @@ module SmartAnswer::Calculators
         should "equal nil if dirty vehicle" do
           @calculator.vehicle_emission = "medium"
           @calculator.vehicle_price = 10000
-          assert_equal @calculator.green_vehicle_price, nil
+          assert_nil @calculator.green_vehicle_price
         end
 
         should "equal nil if filthy vehicle" do
           @calculator.vehicle_emission = "high"
           @calculator.vehicle_price = 10000
-          assert_equal @calculator.green_vehicle_price, nil
+          assert_nil @calculator.green_vehicle_price
         end
       end
 
@@ -602,14 +602,14 @@ module SmartAnswer::Calculators
           @calculator.new_or_used_vehicle = "new"
           @calculator.vehicle_emission = "low"
           @calculator.vehicle_price = 10000
-          assert_equal @calculator.dirty_vehicle_price, nil
+          assert_nil @calculator.dirty_vehicle_price
         end
 
         should "equal nil if filthy vehicle" do
           @calculator.type_of_vehicle = "car"
           @calculator.vehicle_emission = "high"
           @calculator.vehicle_price = 10000
-          assert_equal @calculator.dirty_vehicle_price, nil
+          assert_nil @calculator.dirty_vehicle_price
         end
 
         should "equal 18% of vehicle_price if vehicle is medium" do
@@ -630,14 +630,14 @@ module SmartAnswer::Calculators
           @calculator.new_or_used_vehicle = "new"
           @calculator.vehicle_emission = "low"
           @calculator.vehicle_price = 10000
-          assert_equal @calculator.filthy_vehicle_price, nil
+          assert_nil @calculator.filthy_vehicle_price
         end
 
         should "equal nil if dirty vehicle" do
           @calculator.type_of_vehicle = "car"
           @calculator.vehicle_emission = "dirty"
           @calculator.vehicle_price = 10000
-          assert_equal @calculator.filthy_vehicle_price, nil
+          assert_nil @calculator.filthy_vehicle_price
         end
 
         should "equal 8% of vehicle_price if vehicle is high" do
@@ -666,14 +666,14 @@ module SmartAnswer::Calculators
           @calculator.vehicle_emission = "medium"
           @calculator.vehicle_price = 10000
           @calculator.business_use_percent = 80
-          assert_equal @calculator.green_vehicle_write_off, nil
+          assert_nil @calculator.green_vehicle_write_off
         end
 
         should "equal nil if filthy vehicle" do
           @calculator.vehicle_emission = "high"
           @calculator.vehicle_price = 10000
           @calculator.business_use_percent = 80
-          assert_equal @calculator.green_vehicle_write_off, nil
+          assert_nil @calculator.green_vehicle_write_off
         end
       end
 
@@ -688,7 +688,7 @@ module SmartAnswer::Calculators
           @calculator.vehicle_emission = "low"
           @calculator.vehicle_price = 10000
           @calculator.business_use_percent = 80
-          assert_equal @calculator.dirty_vehicle_write_off, nil
+          assert_nil @calculator.dirty_vehicle_write_off
         end
 
         should "equal nil if filthy vehicle" do
@@ -696,7 +696,7 @@ module SmartAnswer::Calculators
           @calculator.vehicle_emission = "high"
           @calculator.vehicle_price = 10000
           @calculator.business_use_percent = 80
-          assert_equal @calculator.dirty_vehicle_write_off, nil
+          assert_nil @calculator.dirty_vehicle_write_off
         end
 
         should "equal business usage percentage of vehicle's dirty price if vehicle is medium" do
@@ -719,7 +719,7 @@ module SmartAnswer::Calculators
           @calculator.vehicle_emission = "low"
           @calculator.vehicle_price = 10000
           @calculator.business_use_percent = 80
-          assert_equal @calculator.filthy_vehicle_write_off, nil
+          assert_nil @calculator.filthy_vehicle_write_off
         end
 
         should "equal nil if dirty vehicle" do
@@ -727,7 +727,7 @@ module SmartAnswer::Calculators
           @calculator.vehicle_emission = "medium"
           @calculator.vehicle_price = 10000
           @calculator.business_use_percent = 80
-          assert_equal @calculator.filthy_vehicle_write_off, nil
+          assert_nil @calculator.filthy_vehicle_write_off
         end
 
         should "equal business usage percentage of vehicle's filthy price if vehicle is high" do
