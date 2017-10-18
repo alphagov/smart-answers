@@ -2,7 +2,7 @@ How much do you expect to pay for the whole tax year into a retirement annuity c
 
 
 
-If none, please enter 0.
+These are payments into pension schemes where your contributions are paid before your income is taxed (called ‘net pay arrangements’) or retirement annuity contracts (called ‘gross contributions’). Enter the total for the whole year. If none, enter 0.
 
 
 
