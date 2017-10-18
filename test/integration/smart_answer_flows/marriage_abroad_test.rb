@@ -773,73 +773,28 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "ceremony in finland, resident in the UK, partner british" do
+  context "ceremony in Finland," do
     setup do
-      add_response 'finland'
-      add_response 'uk'
-      add_response 'partner_british'
-      add_response 'opposite_sex'
+      add_response "finland"
     end
-    should "go to cni outcome" do
-      assert_current_node :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
-    end
-  end
 
-  context "ceremony in finland, resident in the UK, partner local" do
-    setup do
-      add_response 'finland'
-      add_response 'uk'
-      add_response 'partner_local'
-      add_response 'opposite_sex'
+    context "uk" do
+      setup { add_response "uk" }
+      should "go to outcome marriage abroad in finland" do
+        assert_current_node :outcome_marriage_abroad_in_finland
+      end
     end
-    should "go to cni outcome" do
-      assert_current_node :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
+    context "ceremony country" do
+      setup { add_response "ceremony_country" }
+      should "go to outcome marriage abroad in finland" do
+        assert_current_node :outcome_marriage_abroad_in_finland
+      end
     end
-  end
-
-  context "ceremony in finland, resident in Albania, partner other" do
-    setup do
-      add_response 'finland'
-      add_response 'third_country'
-      add_response 'partner_other'
-      add_response 'opposite_sex'
-    end
-    should "go to affirmation outcome with specific fee table" do
-      assert_current_node :outcome_opposite_sex_marriage_in_affirmation_countries
-    end
-  end
-
-  context "ceremony in finland, resident in the UK, partner other" do
-    setup do
-      add_response 'finland'
-      add_response 'uk'
-      add_response 'partner_other'
-      add_response 'opposite_sex'
-    end
-    should "go to outcome cni with specific fee table" do
-      assert_current_node :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
-    end
-  end
-
-  context "ceremony in finland, resident in the UK, partner other, SS" do
-    setup do
-      add_response 'finland'
-      add_response 'uk'
-      add_response 'partner_other'
-      add_response 'same_sex'
-    end
-    should "go to affirmation outcome with specific fee table" do
-      assert_current_node :outcome_same_sex_civil_partnership
-    end
-  end
-
-  context "south-korea new outcome" do
-    should "go to :outcome_opposite_sex_marriage_in_affirmation_countries outcome" do
-      add_response 'south-korea'
-      add_response 'uk'
-      add_response 'partner_british'
-      add_response 'opposite_sex'
-      assert_current_node :outcome_opposite_sex_marriage_in_south_korea
+    context "third country" do
+      setup { add_response "third_country" }
+      should "go to outcome marriage abroad in finland" do
+        assert_current_node :outcome_marriage_abroad_in_finland
+      end
     end
   end
 

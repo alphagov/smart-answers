@@ -57,6 +57,8 @@ module SmartAnswer
             question :partner_opposite_or_same_sex?
           elsif calculator.ceremony_country == 'switzerland'
             question :partner_opposite_or_same_sex?
+          elsif calculator.ceremony_country == 'finland'
+            outcome :outcome_marriage_abroad_in_finland
           else
             question :what_is_your_partners_nationality?
           end
@@ -171,8 +173,6 @@ module SmartAnswer
               outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
             elsif calculator.opposite_sex_consular_cni_in_nearby_country? && calculator.resident_of_ceremony_country?
               outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_ceremony_country
-            elsif calculator.ceremony_country == "finland" && calculator.resident_of_uk?
-              outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
             elsif calculator.ceremony_country == "norway" && calculator.resident_of_uk?
               outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
             elsif calculator.ceremony_country == 'macao'
@@ -308,6 +308,7 @@ module SmartAnswer
       outcome :outcome_same_sex_marriage_and_civil_partnership_not_possible
       outcome :outcome_same_sex_marriage_in_dominican_republic
       outcome :outcome_marriage_abroad_in_country
+      outcome :outcome_marriage_abroad_in_finland
     end
   end
 end
