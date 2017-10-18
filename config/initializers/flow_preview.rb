@@ -1,10 +1,8 @@
-# This file potentially overwritten on deploy
+# If an env var isn't to specify showing drafts we'll decide it based on Rails
+# environment
+show_drafts = ENV["SHOW_DRAFT_FLOWS"] ? true : !Rails.env.production?
 
-if Rails.env.production?
-  FLOW_REGISTRY_OPTIONS = {}
-else
-  FLOW_REGISTRY_OPTIONS = { show_drafts: true }
-end
+FLOW_REGISTRY_OPTIONS = { show_drafts: show_drafts }
 
 # Uncomment the following to run smartanswers with the test flows instead of the real ones
 #
