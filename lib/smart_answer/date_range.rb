@@ -1,6 +1,7 @@
 module SmartAnswer
   class DateRange
     include SmartAnswer::DateHelper
+    include ActionView::Helpers::TextHelper
 
     EARLIEST_DATE = -Date::Infinity.new
     LATEST_DATE = Date::Infinity.new
@@ -39,6 +40,8 @@ module SmartAnswer
     end
 
     alias_method :&, :intersection
+    alias_method :first, :begins_on
+    alias_method :last, :ends_on
 
     def number_of_days
       non_inclusive_days + 1
@@ -110,6 +113,55 @@ module SmartAnswer
 
     def to_s
       "#{formatted_date begins_on} to #{formatted_date ends_on}"
+    end
+
+    def to_r
+      begins_on..ends_on
+    end
+    alias_method :to_range, :to_r
+
+    def friendly_time_diff
+      describe
+    end
+
+    def describe
+      date_parts.compact.join(", ")
+    end
+
+  private
+
+    def date_parts
+      [
+        date_part('year', whole_years_away),
+        date_part('month', whole_months_away),
+        date_part('day', whole_days_away)
+      ]
+    end
+
+    def date_part(label, amount)
+      amount.positive? ? "#{amount} #{label.pluralize(amount)}" : nil
+    end
+
+    def whole_years_away
+      month_difference / 12
+    end
+
+    def whole_months_away
+      month_difference % 12
+    end
+
+    def month_difference
+      month = 0
+      loop do
+        month += 1
+        break unless (begins_on >> month) <= ends_on
+      end
+      month - 1
+    end
+
+    def whole_days_away
+      begins_on_shifted_to_ends_on_month = (begins_on >> month_difference)
+      (ends_on - begins_on_shifted_to_ends_on_month).to_i
     end
   end
 end

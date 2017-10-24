@@ -214,10 +214,10 @@ module SmartAnswer::Calculators
           @due_date = Date.parse("2012 Apr 09")
           @calculator = MaternityPaternityCalculator.new(@due_date)
           assert_equal Date.parse("09 Apr 2012"), @calculator.employment_end
-          assert_equal Date.parse("08 Apr 2012")..Date.parse("14 Apr 2012"), @calculator.expected_week
+          assert_equal Date.parse("08 Apr 2012")..Date.parse("14 Apr 2012"), @calculator.expected_week.to_r
           assert_equal Date.parse("25 Dec 2011"), 15.weeks.ago(@calculator.expected_week.first)
           assert_equal Date.parse("31 Dec 2011"), 15.weeks.ago(@calculator.expected_week.first) + 6
-          assert_equal Date.parse("25 Dec 2011")..Date.parse("31 Dec 2011"), @calculator.qualifying_week
+          assert_equal Date.parse("25 Dec 2011")..Date.parse("31 Dec 2011"), @calculator.qualifying_week.to_r
           # assert_equal 26, (Date.parse(" Dec 2011").julian - Date.parse("09 Jul 2011").julian).to_i / 7
           # assert_equal 26, (Date.parse("14 Apr 2012").julian - Date.parse("15 Oct 2011").julian).to_i / 7
           # FIXME: this should work but 25 weeks rather than 26
@@ -230,8 +230,8 @@ module SmartAnswer::Calculators
           @due_date = Date.parse("2012 Jul 18")
           @calculator = MaternityPaternityCalculator.new(@due_date)
           assert_equal Date.parse("18 Jul 2012"), @calculator.employment_end
-          assert_equal Date.parse("15 Jul 2012")..Date.parse("21 Jul 2012"), @calculator.expected_week
-          assert_equal Date.parse("01 Apr 2012")..Date.parse("07 Apr 2012"), @calculator.qualifying_week
+          assert_equal Date.parse("15 Jul 2012")..Date.parse("21 Jul 2012"), @calculator.expected_week.to_r
+          assert_equal Date.parse("01 Apr 2012")..Date.parse("07 Apr 2012"), @calculator.qualifying_week.to_r
           # DEBUG test
           # assert_equal 26, (Date.parse("21 Jul 2012").julian - Date.parse("15 Oct 2011").julian).to_i / 7
           # FIXME: ...
@@ -244,8 +244,8 @@ module SmartAnswer::Calculators
           @due_date = Date.parse("2012 Sep 14")
           @calculator = MaternityPaternityCalculator.new(@due_date)
           assert_equal Date.parse("14 Sep 2012"), @calculator.employment_end
-          assert_equal Date.parse("09 Sep 2012")..Date.parse("15 Sep 2012"), @calculator.expected_week
-          assert_equal Date.parse("27 May 2012")..Date.parse("02 Jun 2012"), @calculator.qualifying_week
+          assert_equal Date.parse("09 Sep 2012")..Date.parse("15 Sep 2012"), @calculator.expected_week.to_r
+          assert_equal Date.parse("27 May 2012")..Date.parse("02 Jun 2012"), @calculator.qualifying_week.to_r
           assert_equal Date.parse("10 Dec 2011"), @calculator.employment_start
           assert_equal Date.parse("24 Jun 2012"), @calculator.leave_earliest_start_date
           assert_equal Date.parse("12 Aug 2012"), @calculator.ssp_stop
@@ -300,14 +300,14 @@ module SmartAnswer::Calculators
         should "matched_date Monday 28th May 2012" do
           @matched_date = Date.parse("2012 May 28")
           @calculator = MaternityPaternityCalculator.new(@matched_date, "adoption")
-          assert_equal Date.parse("2012 May 27")..Date.parse("2012 Jun 02"), @calculator.matched_week
+          assert_equal Date.parse("2012 May 27")..Date.parse("2012 Jun 02"), @calculator.matched_week.to_r
           assert_equal Date.parse("2011 Dec 10"), @calculator.a_employment_start
         end
         # 15/07/12 to 21/07/12 28/01/12
         should "matched_date Wednesday 18th July 2012" do
           @matched_date = Date.parse("2012 Jul 18")
           @calculator = MaternityPaternityCalculator.new(@matched_date, "adoption")
-          assert_equal Date.parse("2012 Jul 15")..Date.parse("2012 Jul 21"), @calculator.matched_week
+          assert_equal Date.parse("2012 Jul 15")..Date.parse("2012 Jul 21"), @calculator.matched_week.to_r
           assert_equal Date.parse("2012 Jan 28"), @calculator.a_employment_start
           assert_equal 25, (Date.parse("2012 Jul 21").julian - Date.parse("2012 Jan 28").julian).to_i / 7
         end

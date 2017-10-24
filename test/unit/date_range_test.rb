@@ -373,5 +373,105 @@ module SmartAnswer
         end
       end
     end
+
+    context 'friendly_time_diff' do
+      should "calculate whole years" do
+        diff = DateRange.new(
+          begins_on: Date.parse('2013-01-01'),
+          ends_on: Date.parse('2014-01-01')
+        ).friendly_time_diff
+        assert_equal "1 year", diff
+      end
+
+      should "calculate whole months" do
+        diff = DateRange.new(
+          begins_on: Date.parse('2013-01-01'),
+          ends_on: Date.parse('2013-02-01')
+        ).friendly_time_diff
+        assert_equal "1 month", diff
+      end
+
+      should "calculate whole days" do
+        diff = DateRange.new(
+          begins_on: Date.parse('2013-01-01'),
+          ends_on: Date.parse('2013-01-02')
+        ).friendly_time_diff
+        assert_equal "1 day", diff
+      end
+
+      should "pluralize" do
+        diff = DateRange.new(
+          begins_on: Date.parse('2013-01-01'),
+          ends_on: Date.parse('2013-01-03')
+        ).friendly_time_diff
+        assert_equal "2 days", diff
+      end
+
+      should "combine whole years, months and days" do
+        diff = DateRange.new(
+          begins_on: Date.parse('2013-01-01'),
+          ends_on: Date.parse('2014-02-02')
+        ).friendly_time_diff
+        assert_equal "1 year, 1 month, 1 day", diff
+      end
+
+      should "skip empty elements" do
+        diff = DateRange.new(
+          begins_on: Date.parse('2013-01-01'),
+          ends_on: Date.parse('2014-01-02')
+        ).friendly_time_diff
+        assert_equal "1 year, 1 day", diff
+      end
+
+      should "not be confused by differing month lengths" do
+        diff = DateRange.new(
+          begins_on: Date.parse('2013-02-01'),
+          ends_on: Date.parse('2013-03-01')
+        ).friendly_time_diff
+        assert_equal "1 month", diff
+      end
+
+      should "not be confused by leap years" do
+        diff = DateRange.new(
+          begins_on: Date.parse('2008-02-01'),
+          ends_on: Date.parse('2008-03-01')
+        ).friendly_time_diff
+        assert_equal "1 month", diff
+      end
+
+      should "perform calculations using the UTC date" do
+        from = Time.zone.parse('2008-01-02 01:59 +02:00') # equivalent to 2008-01-01 23:59 +00:00
+        diff = DateRange.new(
+          begins_on: from,
+          ends_on: Date.parse("2008-01-02")
+        ).friendly_time_diff
+        assert_equal "1 day", diff
+      end
+
+      should "avoid edge cases with dates at the end of the month" do
+        assert_equal "9 months", DateRange.new(
+          begins_on: Date.parse('1960-12-30'),
+          ends_on: Date.parse("1961-09-30")
+        ).friendly_time_diff
+      end
+
+      should "avoid year rounding errors" do
+        assert_equal "11 months, 29 days", DateRange.new(
+          begins_on: Date.parse('1960-12-31'),
+          ends_on: Date.parse("1961-12-29")
+        ).friendly_time_diff
+      end
+
+      should "avoid edge cases for 29th feb" do
+        assert_equal "4 years", DateRange.new(
+          begins_on: Date.parse('2004-02-29'),
+          ends_on: Date.parse("2008-02-29")
+        ).friendly_time_diff
+        assert_equal "4 years, 1 day", DateRange.new(
+          begins_on: Date.parse('2004-02-29'),
+          ends_on: Date.parse("2008-03-01")
+        ).friendly_time_diff
+      end
+    end
   end
 end
