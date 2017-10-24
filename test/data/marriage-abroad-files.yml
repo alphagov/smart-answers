@@ -1,5 +1,5 @@
 ---
-lib/data/marriage_abroad_data.yml: 208488e1095986ac411ab01940c0fab6
+lib/data/marriage_abroad_data.yml: 53d10ce23d5e7f43ded09f977d6ba117
 lib/data/marriage_abroad_services.yml: 6a4a5b0168d8426b98382e69c92ea57d
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/smart_answer/calculators/country_name_formatter.rb: 6e9aab3c79a59e54e056b473b9cc4151
@@ -400,6 +400,12 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/ireland/_title.govspea
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_opposite_sex.govspeak.erb: aa8ceb9107db058e83f54e298abe24ff
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_same_sex.govspeak.erb: 57a93fbbf2dd3254d13acf2b4eb02ee4
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_title.govspeak.erb: 9ed9b141d5d5418375ec81e96fe67ca7
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/ceremony_country/_opposite_sex.govspeak.erb: 66ef1a512a69f084864ff631dc0dc551
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/ceremony_country/_same_sex.govspeak.erb: 5f4449fdaac1de1586633563939cae41
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/third_country/_opposite_sex.govspeak.erb: 6bcd8fc720017c80a8dbc4b6e3c07ca2
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/third_country/_same_sex.govspeak.erb: b2818b5c08161e0b6a8b8494524a2a90
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/uk/_opposite_sex.govspeak.erb: c43ad58e36750346d929fc580ee1b02f
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/uk/_same_sex.govspeak.erb: da9551c46e7c44a6f29dd7b4051b3990
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/japan/_opposite_sex.govspeak.erb: dec33d2f936be64fbb0ce2dad12ecd56
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/japan/_same_sex.govspeak.erb: f61ac1ede045e980c2f110a4ca284877
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/japan/_title.govspeak.erb: b136a47f052cbd595714742008d771a5
@@ -786,4 +792,4 @@ lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationali
 lib/smart_answer_flows/marriage-abroad.rb: 5baa826bfa5354c27b97ccaf4030628e
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1dc349abcd6b21e1bf8c397d96fd02b8
 test/data/marriage-abroad-questions-and-responses.yml: 0f079512ee2f1fd27145bf9db84ef5eb
-test/data/marriage-abroad-responses-and-expected-results.yml: bd6421ffa521f2aab9d0aff7e9fee0f4
+test/data/marriage-abroad-responses-and-expected-results.yml: eed80b3341a3df8b7fc2cbacd7264c62
