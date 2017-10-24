@@ -1,10 +1,10 @@
 ---
-lib/data/marriage_abroad_data.yml: c7e6d93077ff046cf8e96394c9dd204d
+lib/data/marriage_abroad_data.yml: 208488e1095986ac411ab01940c0fab6
 lib/data/marriage_abroad_services.yml: 6a4a5b0168d8426b98382e69c92ea57d
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/smart_answer/calculators/country_name_formatter.rb: 6e9aab3c79a59e54e056b473b9cc4151
 lib/smart_answer/calculators/marriage_abroad_calculator.rb: 0c0be55c3621e81a75af0f55827ad31c
-lib/smart_answer/calculators/marriage_abroad_data_query.rb: 6e9e6d258c49b423833d084308e7bbc5
+lib/smart_answer/calculators/marriage_abroad_data_query.rb: 8f2157939ebc2d0dd2dd926d76a50e4c
 lib/smart_answer/calculators/registrations_data_query.rb: 80250f09bc28d55a86148de2e7a76429
 lib/smart_answer_flows/marriage-abroad/marriage_abroad.govspeak.erb: b4d0cfc1c7c4776d968c9b5b6df85027
 lib/smart_answer_flows/marriage-abroad/outcomes/_affirmation_os_translation_in_local_language_text.govspeak.erb: af09e09b909c563d4a587ef1b9285cca
@@ -422,6 +422,25 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/jordan/uk/partner_loca
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/jordan/uk/partner_local/_same_sex.govspeak.erb: 84ad27e2cd66595dcbf54efbc1ef10f1
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/jordan/uk/partner_other/_opposite_sex.govspeak.erb: 681accc015dec138b41ee8c697ec8c43
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/jordan/uk/partner_other/_same_sex.govspeak.erb: 84ad27e2cd66595dcbf54efbc1ef10f1
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/kenya/_title.govspeak.erb: 6e85b0baf375250e28c8b08cffa93903
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/kenya/ceremony_country/partner_british/_opposite_sex.erb: 12e9363f803fbbd4bab7d536e48b882b
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/kenya/ceremony_country/partner_british/_same_sex.erb: 6093c8df17266159ee7177cb57ca844e
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/kenya/ceremony_country/partner_local/_opposite_sex.erb: 1ce12747178700638d5e8133ba8a2df9
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/kenya/ceremony_country/partner_local/_same_sex.erb: 6093c8df17266159ee7177cb57ca844e
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/kenya/ceremony_country/partner_other/_opposite_sex.erb: 1ce12747178700638d5e8133ba8a2df9
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/kenya/ceremony_country/partner_other/_same_sex.erb: 6093c8df17266159ee7177cb57ca844e
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/kenya/third_country/partner_british/_opposite_sex.erb: dedf5a10f1474ade028322e25b4bf1ea
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/kenya/third_country/partner_british/_same_sex.erb: 6093c8df17266159ee7177cb57ca844e
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/kenya/third_country/partner_local/_opposite_sex.erb: 673ef60588aa55fa1a3212e1dd2b7c97
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/kenya/third_country/partner_local/_same_sex.erb: 6093c8df17266159ee7177cb57ca844e
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/kenya/third_country/partner_other/_opposite_sex.erb: 673ef60588aa55fa1a3212e1dd2b7c97
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/kenya/third_country/partner_other/_same_sex.erb: 6093c8df17266159ee7177cb57ca844e
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/kenya/uk/partner_british/_opposite_sex.erb: dedf5a10f1474ade028322e25b4bf1ea
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/kenya/uk/partner_british/_same_sex.erb: 6093c8df17266159ee7177cb57ca844e
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/kenya/uk/partner_local/_opposite_sex.erb: 673ef60588aa55fa1a3212e1dd2b7c97
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/kenya/uk/partner_local/_same_sex.erb: 6093c8df17266159ee7177cb57ca844e
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/kenya/uk/partner_other/_opposite_sex.erb: 673ef60588aa55fa1a3212e1dd2b7c97
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/kenya/uk/partner_other/_same_sex.erb: 6093c8df17266159ee7177cb57ca844e
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/_title.govspeak.erb: f6ce88513e69e5202d0c9c8b25a4ef18
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/ceremony_country/partner_british/_opposite_sex.govspeak.erb: a2f9c0739c60a6223991d5ed34282c59
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/ceremony_country/partner_british/_same_sex.govspeak.erb: c394c40e1b3052793dc962e01b738699
@@ -692,7 +711,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in
 ? lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_bulgaria_when_residing_in_bulgaria_or_third_country.govspeak.erb
 : 5e9ed5d86211414f4c02c7006cf9f4d9
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_bulgaria_when_residing_in_uk.govspeak.erb: ed84e2d8a8056851e14af4bbb5cf7581
-lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_commonwealth_countries.govspeak.erb: dc8294e0fb40e080539902f8e181f0bc
+lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_commonwealth_countries.govspeak.erb: 8cfe94240d3d7a24d20a95c5aa0e081e
 ? lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_ceremony_country.govspeak.erb
 : f84b21b0fb1eba7dec74332a41e95a4d
 ? lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country.govspeak.erb
@@ -767,4 +786,4 @@ lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationali
 lib/smart_answer_flows/marriage-abroad.rb: 5baa826bfa5354c27b97ccaf4030628e
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1dc349abcd6b21e1bf8c397d96fd02b8
 test/data/marriage-abroad-questions-and-responses.yml: 0f079512ee2f1fd27145bf9db84ef5eb
-test/data/marriage-abroad-responses-and-expected-results.yml: 880f69b066eb5887d7b49b49935711f2
+test/data/marriage-abroad-responses-and-expected-results.yml: bd6421ffa521f2aab9d0aff7e9fee0f4
