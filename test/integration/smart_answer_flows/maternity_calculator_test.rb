@@ -230,7 +230,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                             assert_state_variable "average_weekly_earnings", 135.4
                             assert_state_variable "smp_a", "121.86"
                             assert_state_variable "smp_b", "121.86"
-                            assert_state_variable "total_smp", "4752.93"
+                            assert_state_variable "total_smp", "4752.54"
                           end
                         end
                       end
@@ -285,6 +285,21 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                       add_response "last_day_of_the_month"
                       assert_current_node :maternity_leave_and_pay_result
                       assert_state_variable :pay_method, "last_day_of_the_month"
+                    end
+
+                    should "calculate the dates and payment amounts" do
+                      add_response "last_day_of_the_month"
+                      leave_start = Date.parse("21 November 2012")
+                      start_of_week = leave_start - leave_start.wday
+                      assert_state_variable "average_weekly_earnings", 124.98462
+                      assert_state_variable "leave_start_date", leave_start
+                      assert_state_variable "leave_end_date", 52.weeks.since(leave_start) - 1
+                      assert_state_variable "notice_of_leave_deadline", next_saturday(15.weeks.ago(start_of_week))
+                      assert_state_variable "pay_start_date", leave_start
+                      assert_state_variable "pay_end_date", 39.weeks.since(leave_start) - 1
+                      assert_state_variable "smp_a", "112.49"
+                      assert_state_variable "smp_b", "112.49"
+                      assert_state_variable "total_smp", "4386.93"
                     end
 
                     context "specific date each month" do

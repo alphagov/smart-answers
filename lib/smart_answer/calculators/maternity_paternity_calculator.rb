@@ -230,7 +230,7 @@ module SmartAnswer::Calculators
           # Pay period includes the date of payment hence the range starts the day after.
           last_paydate = index == 0 ? pay_start_date : paydates[index - 1] + 1
           pay = pay_for_period(last_paydate, paydate)
-          ary << { date: paydate, pay: pay } if pay > 0
+          ary << { date: paydate, pay: pay.round(2) } if pay.positive?
         end
       end
     end
@@ -384,16 +384,14 @@ module SmartAnswer::Calculators
           # for each day of the partial week
           week.each do |day|
             if within_pay_date_range?(day)
-              pay += sprintf("%.5f", (rate_for(day) / 7)).to_f
+              pay += rate_for(day) / 7
             end
           end
         else
-          # When calculating a full SMP pay week round up the weekly rate at the second decimal place
-          pay += BigDecimal.new(rate_for(week.first).to_s).round(2, BigDecimal::ROUND_UP).to_f
+          pay += rate_for(week.first)
         end
       end
-      # HMRC rules stipulate rounding up at 2 decimal places.
-      BigDecimal.new(pay.to_s).round(2, BigDecimal::ROUND_UP).to_f
+      pay
     end
 
     # Gives the weekly rate for a date.
