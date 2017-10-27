@@ -1,5 +1,7 @@
 <% content_for :title do %>
-    Did the employee work for you between <%= format_date(employment_start) %> and <%= format_date(qualifying_week_start) %>?
+  Did the employee have a contract with you covering
+  <%= format_date(employment_start) %> to
+  <%= format_date(qualifying_week_start) %>?
 <% end %>
 
 <% options(
