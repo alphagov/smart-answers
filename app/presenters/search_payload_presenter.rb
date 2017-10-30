@@ -25,7 +25,7 @@ class SearchPayloadPresenter
       description: description,
       indexable_content: indexable_content,
       link: "/#{slug}",
-      content_store_document_type: 'smart_answer',
+      content_store_document_type: 'transaction',
     }
   end
 end
