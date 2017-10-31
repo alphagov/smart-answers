@@ -1,12 +1,9 @@
-How many payments did the employee receive between Tuesday, 25 July 2017 and Tuesday, 19 September 2017?
+When does the employee want to start their leave?
 
 
 
-If you have paid the employee 2 month’s pay in one month, count it as 2 payments. 
-Don't count bonuses or holiday payments on top of paid annual leave.
+Based on the baby's due date, leave usually can’t start before 15 October 2017.
 
-  * 2: 1 or 2 payments
-  * 3: 3 payments
 
 
 

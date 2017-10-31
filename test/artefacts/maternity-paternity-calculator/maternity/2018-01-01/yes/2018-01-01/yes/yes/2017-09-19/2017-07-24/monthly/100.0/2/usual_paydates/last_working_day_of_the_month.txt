@@ -1,16 +1,9 @@
-What days does the employee work?
+When does the employee want to start their leave?
 
 
 
+Based on the baby's due date, leave usually can’t start before 15 October 2017.
 
-
-  * 0: Sunday
-  * 1: Monday
-  * 2: Tuesday
-  * 3: Wednesday
-  * 4: Thursday
-  * 5: Friday
-  * 6: Saturday
 
 
 

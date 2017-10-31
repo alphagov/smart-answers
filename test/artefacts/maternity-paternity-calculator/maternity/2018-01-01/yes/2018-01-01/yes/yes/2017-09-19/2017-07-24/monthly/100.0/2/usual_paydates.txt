@@ -1,14 +1,9 @@
-When in the month is the employee paid?
+When does the employee want to start their leave?
 
 
 
-If the pay date is the 29th, 30th or 31st choose 'Last working day of the month'.
+Based on the baby's due date, leave usually can’t start before 15 October 2017.
 
-  * first_day_of_the_month: First day of the month
-  * last_day_of_the_month: Last day of the month
-  * specific_date_each_month: Specific date each month
-  * last_working_day_of_the_month: Last working day of the month
-  * a_certain_week_day_each_month: A certain week day each month
 
 
 

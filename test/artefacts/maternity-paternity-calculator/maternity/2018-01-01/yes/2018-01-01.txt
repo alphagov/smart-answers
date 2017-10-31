@@ -1,11 +1,9 @@
-Did the employee work for you on or before  1 April 2017?
+When does the employee want to start their leave?
 
 
 
+Based on the baby's due date, leave usually can’t start before 15 October 2017.
 
-
-  * yes: Yes
-  * no: No
 
 
 

@@ -1,11 +1,9 @@
-How do you want the Statutory Maternity Pay calculated? 
+When does the employee want to start their leave?
 
 
 
+Based on the baby's due date, leave usually can’t start before 15 October 2017.
 
-
-  * weekly_starting: weekly starting  1 January 2018
-  * usual_paydates: based on their usual paydates
 
 
 

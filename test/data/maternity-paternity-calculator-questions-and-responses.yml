@@ -132,10 +132,7 @@
 - 'no'
 :date_leave_starts?:
 - '2018-01-01'
-:did_the_employee_work_for_you?:
-- 'yes'
-- 'no'
-:is_the_employee_on_your_payroll?:
+:did_the_employee_work_for_you_between?:
 - 'yes'
 - 'no'
 :last_normal_payday?:
