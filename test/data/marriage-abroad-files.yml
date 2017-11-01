@@ -395,8 +395,8 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/iran/uk/partner_local/
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/iran/uk/partner_other/_opposite_sex.govspeak.erb: 7eefee55db9ca37c466755072d7c872b
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/iran/uk/partner_other/_same_sex.govspeak.erb: 45a0e9a164866db1d8fac512f28edbba
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/ireland/_opposite_sex.govspeak.erb: f0abd764c71f1af9f3b0a625bfb7e185
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/ireland/_same_sex.govspeak.erb: 8b85a31d089af46889eb665136403ce0
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/ireland/_title.govspeak.erb: c7f3e2d5e41aa82806b1aedbe69b33b8
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/ireland/_same_sex.govspeak.erb: f0abd764c71f1af9f3b0a625bfb7e185
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/ireland/_title.govspeak.erb: 05afa68fe03e988f9bae054e75bbe5b2
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_opposite_sex.govspeak.erb: aa8ceb9107db058e83f54e298abe24ff
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_same_sex.govspeak.erb: 57a93fbbf2dd3254d13acf2b4eb02ee4
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/italy/_title.govspeak.erb: 9ed9b141d5d5418375ec81e96fe67ca7
