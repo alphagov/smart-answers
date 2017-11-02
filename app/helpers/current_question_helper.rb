@@ -22,7 +22,10 @@ module CurrentQuestionHelper
   end
 
   def default_for_date(value)
-    value.blank? ? nil : value.to_i
+    integer = Integer(value)
+    integer.to_s == value.to_s ? integer : nil
+  rescue
+    nil
   end
 
   def prefill_value_for(question, attribute = nil)
