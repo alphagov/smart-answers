@@ -8,9 +8,6 @@
 <%= javascript_include_tag 'visualise' %>
 <%= stylesheet_link_tag 'joint' %>
 <%= stylesheet_link_tag 'visualise' %>
-<% if page_is_under_ab_test?(@content_item) %>
-  <%= education_navigation_variant.analytics_meta_tag.html_safe %>
-<% end %>
 <% end %>
 
 <% content_for :before_wrapper do %>
