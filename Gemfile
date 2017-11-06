@@ -31,7 +31,6 @@ gem 'uk_postcode', '~> 1.0.1'
 gem 'unicorn', '4.8.3'
 gem 'rails_stdout_logging'
 gem 'govuk_navigation_helpers', '~> 6.3.0'
-gem 'govuk_ab_testing', '~> 2.0'
 
 group :development do
   gem 'better_errors'

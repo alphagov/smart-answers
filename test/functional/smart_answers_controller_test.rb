@@ -6,7 +6,6 @@ require_relative 'smart_answers_controller_test_helper'
 class SmartAnswersControllerTest < ActionController::TestCase
   include FixtureFlowsHelper
   include SmartAnswersControllerTestHelper
-  include GovukAbTesting::MinitestHelpers
 
   def setup
     setup_fixture_flows
@@ -82,6 +81,10 @@ class SmartAnswersControllerTest < ActionController::TestCase
           }.with_indifferent_access
         ContentItemRetriever.stubs(:without_links_organisations)
           .returns(@content_item)
+        GovukNavigationHelpers::NavigationHelper.any_instance
+          .stubs(:taxon_breadcrumbs)
+          .returns(breadcrumbs: ['TaxonBreadcrumb'])
+
         get :show, params: { id: "smart-answers-controller-sample" }
       end
 
@@ -228,31 +231,54 @@ class SmartAnswersControllerTest < ActionController::TestCase
       end
     end
 
-    context "A/B testing" do
-      context "pages under A/B test" do
+    context "tagged content" do
+      setup do
+        @content_item = {
+          base_path: "/education-sample",
+          links: {},
+        }
+
+        Services.content_store.stubs(:content_item)
+          .with("/education-sample")
+          .returns(@content_item)
+
+        mock = GovukNavigationHelpers::NavigationHelper.any_instance
+        mock.stubs(:breadcrumbs).returns(breadcrumbs: ['NormalBreadcrumb'])
+        mock.stubs(:taxon_breadcrumbs).returns(breadcrumbs: ['TaxonBreadcrumb'])
+      end
+
+      context "pages tagged to worldwidetaxonomy" do
         setup do
-          content_item = {
-            "base_path" => '/education-sample',
-            "links" => {
-              "taxons" => [
+          @content_item[:links] = {
+              taxons: [
                 {
-                  "title" => "A Taxon",
-                  "base_path" => "/a-taxon",
+                  title: "A Taxon",
+                  base_path: "/world/a-taxon",
                 }
               ],
-            },
-          }
+            }
+        end
 
-          Services.content_store.stubs(:content_item)
-            .with("/education-sample")
-            .returns(content_item)
+        should "show taxon breadcrumbs" do
+          get :show, params: { id: 'education-sample' }
 
-          navigation_helper = GovukNavigationHelpers::NavigationHelper.new(content_item)
-          navigation_helper.stubs(:breadcrumbs).returns(breadcrumbs: ['NormalBreadcrumb'])
-          navigation_helper.stubs(:taxon_breadcrumbs).returns(breadcrumbs: ['TaxonBreadcrumb'])
-          GovukNavigationHelpers::NavigationHelper.stubs(:new)
-            .with(content_item)
-            .returns(navigation_helper)
+          assert_match(/TaxonBreadcrumb/, response.body)
+          refute_match(/NormalBreadcrumb/, response.body)
+          sidebar = Nokogiri::HTML.parse(response.body).at_css(".related-container")
+          assert_match(/A Taxon/, sidebar)
+        end
+      end
+
+      context "pages tagged to mainstream browse" do
+        setup do
+          @content_item[:links] = {
+              mainstream_browse_pages: [
+                {
+                  title: "A Browse Page",
+                  base_path: "/a-browse-page",
+                }
+              ],
+            }
         end
 
         should "show normal breadcrumbs by default" do
@@ -263,41 +289,55 @@ class SmartAnswersControllerTest < ActionController::TestCase
           sidebar = Nokogiri::HTML.parse(response.body).at_css(".related-container")
           refute_match(/A Taxon/, sidebar)
         end
+      end
 
-        should "show normal breadcrumbs for the 'A' version" do
-          with_variant EducationNavigation: "A" do
-            get :show, params: { id: 'education-sample' }
-
-            assert_match(/NormalBreadcrumb/, response.body)
-            refute_match(/TaxonBreadcrumb/, response.body)
-            sidebar = Nokogiri::HTML.parse(response.body).at_css(".related-container")
-            refute_match(/A Taxon/, sidebar)
-          end
+      context "pages tagged to taxonomy" do
+        setup do
+          @content_item[:links] = {
+              taxons: [
+                {
+                  title: "A Taxon",
+                  base_path: "/a-taxon",
+                }
+              ],
+            }
         end
 
-        should "show taxon breadcrumbs for the 'B' version" do
-          with_variant EducationNavigation: "B" do
-            get :show, params: { id: 'education-sample' }
+        should "show taxon breadcrumbs" do
+          get :show, params: { id: 'education-sample' }
 
-            assert_match(/TaxonBreadcrumb/, response.body)
-            refute_match(/NormalBreadcrumb/, response.body)
-            sidebar = Nokogiri::HTML.parse(response.body).at_css(".related-container")
-            assert_match(/A Taxon/, sidebar)
-          end
+          assert_match(/TaxonBreadcrumb/, response.body)
+          refute_match(/NormalBreadcrumb/, response.body)
+          sidebar = Nokogiri::HTML.parse(response.body).at_css(".related-container")
+          assert_match(/A Taxon/, sidebar)
         end
       end
 
-      context "pages outside the A/B test" do
-        %w(A B).each do |variant|
-          should "not modify response when visited in #{variant} variant" do
-            stub_smart_answer_in_content_store("smart-answers-controller-sample")
+      context "pages tagged to mainstream browse and taxonomy" do
+        setup do
+          @content_item[:links] = {
+            mainstream_browse_pages: [
+              {
+                title: "A Browse Page",
+                base_path: "/a-browse-page",
+              }
+            ],
+            taxons: [
+              {
+                title: "A Taxon",
+                base_path: "/a-taxon",
+              }
+            ],
+          }
+        end
 
-            setup_ab_variant("EducationNavigation", variant)
+        should "show normal breadcrumbs by default" do
+          get :show, params: { id: 'education-sample' }
 
-            get :show, params: { id: 'smart-answers-controller-sample' }
-
-            assert_response_not_modified_for_ab_test('EducationNavigation')
-          end
+          assert_match(/NormalBreadcrumb/, response.body)
+          refute_match(/TaxonBreadcrumb/, response.body)
+          sidebar = Nokogiri::HTML.parse(response.body).at_css(".related-container")
+          refute_match(/A Taxon/, sidebar)
         end
       end
     end
