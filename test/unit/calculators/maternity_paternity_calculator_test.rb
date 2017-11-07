@@ -530,6 +530,7 @@ module SmartAnswer::Calculators
           end
         end
       end
+
       context "paydates and pay" do
         setup do
           @calculator = MaternityPaternityCalculator.new(Date.parse('21 January 2013'))
@@ -626,6 +627,27 @@ module SmartAnswer::Calculators
           assert_equal 371.26, paydates_and_pay.last[:pay]
         end
       end
+
+      context "End of SMP period falls between payday and end of calendar month" do
+        setup do
+          @calculator = MaternityPaternityCalculator.new(Date.parse('8 October 2017'))
+          @calculator.leave_start_date = Date.parse('1 October 2017')
+          @calculator.work_days = [1, 2, 3, 4, 5]
+        end
+
+        should "calculate pay due on the last working day of the month" do
+          @calculator.pay_method = 'last_working_day_of_the_month'
+          @calculator.stubs(:average_weekly_earnings).returns(203.0769)
+          paydates_and_pay = @calculator.paydates_and_pay
+
+          assert_equal 10, paydates_and_pay.size
+          assert_equal '2017-10-31', paydates_and_pay.first[:date].to_s
+          assert_equal 809.41, paydates_and_pay.first[:pay]
+          assert_equal '2018-07-31', paydates_and_pay.last[:date].to_s
+          assert_equal 20.14, paydates_and_pay.last[:pay]
+        end
+      end
+
       context "HMRC test scenario for SMP Pay week offset" do
         setup do
           @calculator = MaternityPaternityCalculator.new(Date.parse('22 February 2013'))
