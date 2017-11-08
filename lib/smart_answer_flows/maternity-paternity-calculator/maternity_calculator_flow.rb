@@ -159,6 +159,10 @@ module SmartAnswer
           next_node do
             if calculator.weekly?
               question :how_many_payments_weekly? # See SharedAdoptionMaternityPaternityFlow for definition
+            elsif calculator.every_2_weeks?
+              question :how_many_payments_every_2_weeks? # See SharedAdoptionMaternityPaternityFlow for definition
+            elsif calculator.every_4_weeks?
+              question :how_many_payments_every_4_weeks? # See SharedAdoptionMaternityPaternityFlow for definition
             elsif calculator.monthly?
               question :how_many_payments_monthly? # See SharedAdoptionMaternityPaternityFlow for definition
             else

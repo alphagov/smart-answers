@@ -380,7 +380,7 @@ module SmartAnswer::Calculators
 
         should "be statutory leave times statutory rates A and B" do
           @calculator.stubs(:average_weekly_earnings).returns(120.40)
-          assert_equal 4226.43, @calculator.total_statutory_pay
+          assert_equal 4226.04, @calculator.total_statutory_pay
         end
 
         should "be statutory leave times statutory higher rate A and statutory rate B" do
@@ -496,7 +496,7 @@ module SmartAnswer::Calculators
         should "pay on the leave start date" do
           assert_equal '2013-03-01', @calculator.paydates_first_day_of_the_month.first.to_s
           assert_equal '2013-03-01', @calculator.paydates_and_pay.first[:date].to_s
-          assert_equal 38.58, @calculator.paydates_and_pay.first[:pay]
+          assert_equal 38.57, @calculator.paydates_and_pay.first[:pay]
           assert @calculator.paydates_and_pay.last[:date] > @calculator.pay_end_date, "Last paydate should be after SMP end date"
           assert @calculator.paydates_and_pay.last[:pay] > 0
         end
@@ -571,7 +571,7 @@ module SmartAnswer::Calculators
             "2013-10-10"
           ]
           assert_equal expected_pay_dates, paydates_and_pay.map { |p| p[:date].to_s }
-          assert_equal 32.15, paydates_and_pay.first[:pay]
+          assert_equal 32.14, paydates_and_pay.first[:pay]
           assert_equal 450, paydates_and_pay.second[:pay]
           assert_equal 270.9, paydates_and_pay[4][:pay]
           assert_equal 117.24, paydates_and_pay.last[:pay]
@@ -587,7 +587,7 @@ module SmartAnswer::Calculators
           assert_equal '2013-01-05', paydates_and_pay.first[:date].to_s
           assert_equal 96.43, paydates_and_pay.first[:pay]
           assert_equal '2013-10-05', paydates_and_pay.last[:date].to_s
-          assert_equal 527.59, paydates_and_pay.last[:pay]
+          assert_equal 527.58, paydates_and_pay.last[:pay]
         end
         should "calculate pay due on the first day of the month" do
           @calculator.pay_method = 'first_day_of_the_month'
@@ -607,7 +607,7 @@ module SmartAnswer::Calculators
 
           assert_equal 10, paydates_and_pay.size
           assert_equal '2013-01-31', paydates_and_pay.first[:date].to_s
-          assert_equal 932.15, paydates_and_pay.first[:pay]
+          assert_equal 932.14, paydates_and_pay.first[:pay]
           assert_equal '2013-10-31', paydates_and_pay.last[:date].to_s
           assert_equal 39.08, paydates_and_pay.last[:pay]
         end
@@ -623,7 +623,7 @@ module SmartAnswer::Calculators
           assert_equal '2013-01-11', paydates_and_pay.first[:date].to_s
           assert_equal 289.29, paydates_and_pay.first[:pay]
           assert_equal '2013-10-11', paydates_and_pay.last[:date].to_s
-          assert_equal 371.27, paydates_and_pay.last[:pay]
+          assert_equal 371.26, paydates_and_pay.last[:pay]
         end
       end
       context "HMRC test scenario for SMP Pay week offset" do
@@ -637,7 +637,7 @@ module SmartAnswer::Calculators
         should "calculate pay on paydates with April 2013 uprating" do
           paydates_and_pay =  @calculator.paydates_and_pay
 
-          assert_equal 25.72, paydates_and_pay.first[:pay]
+          assert_equal 25.71, paydates_and_pay.first[:pay]
           assert_equal 180.0, paydates_and_pay.second[:pay]
           assert_equal 173.64, paydates_and_pay[6][:pay]
           assert_equal 173.64, paydates_and_pay.find { |p| p[:date].to_s == '2013-03-08' }[:pay]
@@ -658,8 +658,8 @@ module SmartAnswer::Calculators
         should "calculate pay on paydates with April 2013 uprating" do
           paydates_and_pay =  @calculator.paydates_and_pay
           assert_equal({ date: Date.parse('25 January 2013'), pay: 18.56 }, paydates_and_pay.first)
-          assert_equal({ date: Date.parse('29 March 2013'), pay: 649.45 }, paydates_and_pay.third)
-          assert_equal({ date: Date.parse('31 May 2013'), pay: 649.45 }, paydates_and_pay[4])
+          assert_equal({ date: Date.parse('29 March 2013'), pay: 649.44 }, paydates_and_pay.third)
+          assert_equal({ date: Date.parse('31 May 2013'), pay: 649.44 }, paydates_and_pay[4])
         end
       end
 
@@ -855,12 +855,12 @@ module SmartAnswer::Calculators
           ]
           assert_equal expected_pay_dates, paydates_and_pay.map { |p| p[:date].to_s }
           assert_equal 234.48, paydates_and_pay.first[:pay]
-          assert_equal 550.93, paydates_and_pay[3][:pay]
-          assert_equal 454.03, paydates_and_pay.last[:pay]
+          assert_equal 550.92, paydates_and_pay[3][:pay]
+          assert_equal 454.02, paydates_and_pay.last[:pay]
         end
       end
 
-      context "#weekly?" do
+      context "#weekly_payment_sequences?" do
         setup do
           @calculator = MaternityPaternityCalculator.new(Date.parse("04 Sept 2017"))
         end
@@ -871,10 +871,24 @@ module SmartAnswer::Calculators
           assert @calculator.weekly?
         end
 
-        should "return false if pay_pattern isn't set to weekly" do
+        should "return true if pay_pattern is set to every_2_weeks" do
+          @calculator.pay_pattern = "every_2_weeks"
+
+          assert @calculator.every_2_weeks?
+        end
+
+        should "return true if pay_pattern is set to every_4_weeks" do
+          @calculator.pay_pattern = "every_4_weeks"
+
+          assert @calculator.every_4_weeks?
+        end
+
+        should "return false if pay_pattern isn't set to weekly, every_2_weeks or every_4_weeks" do
           @calculator.pay_pattern = "monthly"
 
           refute @calculator.weekly?
+          refute @calculator.every_2_weeks?
+          refute @calculator.every_4_weeks?
         end
       end
 
@@ -943,7 +957,7 @@ module SmartAnswer::Calculators
           refute calculator.paternity_adoption?
         end
       end
-      
+
       context "payment_options" do
         should "return weekly payment options when supplied with weekly" do
           weekly = MaternityPaternityCalculator.payment_options("weekly")
@@ -959,19 +973,21 @@ module SmartAnswer::Calculators
           assert_equal ["1 or 2 payments", "3 payments"], monthly.values
         end
 
-        should "return empty hash when supplied with every 2 weeks" do
-          every2weeks = MaternityPaternityCalculator.payment_options("every_2_weeks")
+        should "return 2 weeks payment options when supplied with every 2 weeks" do
+          every_2_weeks = MaternityPaternityCalculator.payment_options("every_2_weeks")
 
-          assert_equal Hash.new, every2weeks
+          assert_equal %w(4 5), every_2_weeks.keys
+          assert_equal ["4 payments or fewer", "5 payments"], every_2_weeks.values
         end
 
-        should "return empty hash when supplied with every 4 weeks" do
-          every4weeks = MaternityPaternityCalculator.payment_options("every_4_weeks")
+        should "return 4 weeks payment options when supplied with every 4 weeks" do
+          every_4_weeks = MaternityPaternityCalculator.payment_options("every_4_weeks")
 
-          assert_equal Hash.new, every4weeks
+          assert_equal %w(1 2), every_4_weeks.keys
+          assert_equal ["1 payment", "2 payments"], every_4_weeks.values
         end
       end
-        
+
       context "#number_of_payments" do
         setup do
           @calculator = MaternityPaternityCalculator.new(Date.parse("04 Sept 2017"), "maternity")

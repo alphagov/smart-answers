@@ -230,19 +230,8 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                             assert_state_variable "average_weekly_earnings", 135.4
                             assert_state_variable "smp_a", "121.86"
                             assert_state_variable "smp_b", "121.86"
-                            assert_state_variable "total_smp", "4752.93"
+                            assert_state_variable "total_smp", "4752.54"
                           end
-                        end
-                      end
-
-                      context "weekly calculations" do
-                        setup do
-                          add_response "weekly_starting"
-                        end
-
-                        should "go straight to the SMP result" do
-                          assert_current_node :maternity_leave_and_pay_result
-                          assert_state_variable :pay_method, 'weekly_starting'
                         end
                       end
                     end
@@ -261,6 +250,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                   should "ask for the next pay date if pay frequency is fortnightly" do
                     add_response "every_2_weeks"
                     add_response 1083.20
+                    add_response "5"
                     add_response "usual_paydates"
                     assert_current_node :when_is_your_employees_next_pay_day?
                   end
@@ -268,6 +258,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                   should "ask for the next pay date if pay frequency is every 4 weeks" do
                     add_response "every_4_weeks"
                     add_response 1083.20
+                    add_response "2"
                     add_response "usual_paydates"
                     assert_current_node :when_is_your_employees_next_pay_day?
                   end
@@ -294,6 +285,21 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                       add_response "last_day_of_the_month"
                       assert_current_node :maternity_leave_and_pay_result
                       assert_state_variable :pay_method, "last_day_of_the_month"
+                    end
+
+                    should "calculate the dates and payment amounts" do
+                      add_response "last_day_of_the_month"
+                      leave_start = Date.parse("21 November 2012")
+                      start_of_week = leave_start - leave_start.wday
+                      assert_state_variable "average_weekly_earnings", 124.98462
+                      assert_state_variable "leave_start_date", leave_start
+                      assert_state_variable "leave_end_date", 52.weeks.since(leave_start) - 1
+                      assert_state_variable "notice_of_leave_deadline", next_saturday(15.weeks.ago(start_of_week))
+                      assert_state_variable "pay_start_date", leave_start
+                      assert_state_variable "pay_end_date", 39.weeks.since(leave_start) - 1
+                      assert_state_variable "smp_a", "112.49"
+                      assert_state_variable "smp_b", "112.49"
+                      assert_state_variable "total_smp", "4386.93"
                     end
 
                     context "specific date each month" do
@@ -342,9 +348,17 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                           assert_current_node :which_week_in_month_is_the_employee_paid?
                         end
                         context "answer the second week" do
-                          should "calculate the SMP" do
+                          setup do
                             add_response "second"
+                          end
+                          should "calculate the SMP" do
                             assert_current_node :maternity_leave_and_pay_result
+                          end
+
+                          should "calculate the dates and payment amounts" do
+                            assert_state_variable "average_weekly_earnings", 124.98462
+                            assert_state_variable "smp_a", "112.49"
+                            assert_state_variable "smp_b", "112.49" # Uses the statutory maternity rate
                           end
                         end
                       end
@@ -524,6 +538,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
         add_response Date.parse("2013-10-25")
         add_response :every_2_weeks
         add_response 880
+        add_response "4"
         add_response "usual_paydates"
         add_response Date.parse('2014-01-17')
       end

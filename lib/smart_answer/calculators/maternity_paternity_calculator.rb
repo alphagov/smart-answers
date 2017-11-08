@@ -24,6 +24,14 @@ module SmartAnswer::Calculators
         "9": "9 payments",
         "10": "10 payments"
       },
+      every_2_weeks: {
+        "4": "4 payments or fewer",
+        "5": "5 payments"
+      },
+      every_4_weeks: {
+        "1": "1 payment",
+        "2": "2 payments"
+      },
       monthly: {
         "2": "1 or 2 payments",
         "3": "3 payments"
@@ -61,7 +69,13 @@ module SmartAnswer::Calculators
 
     def number_of_payments
       if valid_payment_option?
-        payment_option.to_f
+        if weekly? || monthly?
+          payment_option.to_f
+        elsif every_2_weeks?
+          payment_option.to_f * 2
+        elsif every_4_weeks?
+          payment_option.to_f * 4
+        end
       elsif monthly?
         2.0
       else
@@ -69,12 +83,15 @@ module SmartAnswer::Calculators
       end
     end
 
-    def monthly?
-      pay_pattern == "monthly"
+    #monthly? every_2_weeks? every_4_weeks? weekly?
+    PAYMENT_OPTIONS.keys.each do |frequence|
+      define_method "#{frequence}?" do
+        pay_pattern == frequence
+      end
     end
 
-    def weekly?
-      pay_pattern == "weekly"
+    def valid_pay_pattern?
+      PAYMENT_OPTIONS.keys.map(&:to_s).include?(pay_pattern)
     end
 
     def adoption?
@@ -213,7 +230,7 @@ module SmartAnswer::Calculators
           # Pay period includes the date of payment hence the range starts the day after.
           last_paydate = index == 0 ? pay_start_date : paydates[index - 1] + 1
           pay = pay_for_period(last_paydate, paydate)
-          ary << { date: paydate, pay: pay } if pay > 0
+          ary << { date: paydate, pay: pay.round(2) } if pay.positive?
         end
       end
     end
@@ -329,8 +346,7 @@ module SmartAnswer::Calculators
   private
 
     def valid_payment_option?
-      (monthly? || weekly?) &&
-        possible_payment_options.include?(payment_option)
+      valid_pay_pattern? && possible_payment_options.include?(payment_option)
     end
 
     def possible_payment_options
@@ -368,16 +384,14 @@ module SmartAnswer::Calculators
           # for each day of the partial week
           week.each do |day|
             if within_pay_date_range?(day)
-              pay += sprintf("%.5f", (rate_for(day) / 7)).to_f
+              pay += rate_for(day) / 7
             end
           end
         else
-          # When calculating a full SMP pay week round up the weekly rate at the second decimal place
-          pay += BigDecimal.new(rate_for(week.first).to_s).round(2, BigDecimal::ROUND_UP).to_f
+          pay += rate_for(week.first)
         end
       end
-      # HMRC rules stipulate rounding up at 2 decimal places.
-      BigDecimal.new(pay.to_s).round(2, BigDecimal::ROUND_UP).to_f
+      pay
     end
 
     # Gives the weekly rate for a date.
