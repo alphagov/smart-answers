@@ -1,11 +1,9 @@
-How many payments did the employee receive between Tuesday, 25 July 2017 and Tuesday, 19 September 2017?
+When does the employee want to start their leave?
 
 
 
+Based on the baby's due date, leave usually can’t start before 15 October 2017.
 
-
-  * 1: 1 payment
-  * 2: 2 payments
 
 
 

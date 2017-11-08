@@ -9,27 +9,4 @@ Based on the baby's due date, leave usually can’t start before 15 October 2017
 
 
 
-<<<<<<< HEAD
-=======
-## SMP calculation
-
-Date | SMP amount
--|-
-13 January 2018|£578.57
-10 February 2018|£1246.15
-10 March 2018|£588.29
-14 April 2018|£704.90
-12 May 2018|£563.92
-9 June 2018|£563.92
-14 July 2018|£704.90
-11 August 2018|£563.92
-8 September 2018|£563.92
-13 October 2018|£443.08
-| **Total SMP: £6,521.57**
-
-*[SMP]: Statutory Maternity Pay
-
-
-Read the [guide to Statutory Maternity Pay and Leave](/employers-maternity-pay-leave)
->>>>>>> Refactor: Include all weekly payment sequences
 
