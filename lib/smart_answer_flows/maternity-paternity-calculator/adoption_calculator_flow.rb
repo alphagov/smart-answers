@@ -159,9 +159,10 @@ module SmartAnswer
           to { 2.years.since(Date.today) }
 
           calculate :last_payday do |response|
-            calculator.last_payday = response
-            raise SmartAnswer::InvalidResponse if calculator.last_payday > to_saturday
-            calculator.last_payday
+            last_payday = response
+            calculator.last_payday = last_payday
+            raise SmartAnswer::InvalidResponse if last_payday > to_saturday
+            last_payday
           end
           next_node do
             question :payday_eight_weeks_adoption?
