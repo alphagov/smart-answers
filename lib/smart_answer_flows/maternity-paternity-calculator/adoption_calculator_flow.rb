@@ -48,6 +48,14 @@ module SmartAnswer
             calculator.format_date a_leave_earliest_start
           end
 
+          calculate :a_leave_latest_start do
+            adoption_placement_date + 1
+          end
+
+          calculate :a_leave_latest_start_formatted do
+            calculator.format_date(a_leave_latest_start)
+          end
+
           calculate :employment_start do
             calculator.a_employment_start
           end
@@ -119,9 +127,15 @@ module SmartAnswer
         ## QA6
         date_question :adoption_date_leave_starts? do
           calculate :adoption_date_leave_starts do |response|
-            ald_start = response
-            raise SmartAnswer::InvalidResponse if ald_start < a_leave_earliest_start
-            calculator.leave_start_date = ald_start
+            adoption_leave_start_date = response
+
+            if adoption_leave_start_date < a_leave_earliest_start
+              raise SmartAnswer::InvalidResponse, :leave_starts_too_early
+            elsif adoption_leave_start_date > a_leave_latest_start
+              raise SmartAnswer::InvalidResponse, :leave_starts_too_late
+            end
+
+            calculator.leave_start_date = adoption_leave_start_date
           end
 
           calculate :leave_start_date do

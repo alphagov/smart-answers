@@ -56,6 +56,20 @@ module SmartAnswer
         @question.answer_with(Date.parse("1 November 2017"))
         assert_node_has_name(:adoption_did_the_employee_work_for_you?, @question.next_node)
       end
+
+      context "with a placement date of 15 November 2017" do
+        setup do
+          @question.answer_with(Date.parse("15 November 2017"))
+        end
+
+        should "have an earliest leave start date 14 days prior" do
+          assert_equal(Date.parse("1 November 2017"), @question.next_node.a_leave_earliest_start)
+        end
+
+        should "have a latest start date 1 day after placement" do
+          assert_equal(Date.parse("16 November 2017"), @question.next_node.a_leave_latest_start)
+        end
+      end
     end
 
     context "when answering adoption_did_the_employee_work_for_you?" do
@@ -118,7 +132,8 @@ module SmartAnswer
         setup do
           @question
             .with(a_leave_earliest_start: Date.parse("1 November 2017"))
-            .answer_with(Date.parse("9 November 2017"))
+            .with(a_leave_latest_start: Date.parse("16 November 2017"))
+            .answer_with(Date.parse("15 November 2017"))
         end
 
         should "respond to having a contract and not being on the payroll with adoption_leave_and_pay" do
@@ -129,6 +144,27 @@ module SmartAnswer
         should "respond to having no contract and not being on the payroll with last_normal_payday_adoption?" do
           @question.with_stubbed_calculator(has_contract_not_on_payroll?: false)
           assert_node_has_name(:last_normal_payday_adoption?, @question.next_node)
+        end
+      end
+
+      context "with invalid dates" do
+        setup do
+          @question
+            .with_stubbed_calculator
+            .with(a_leave_earliest_start: Date.parse("2 November 2017"))
+            .with(a_leave_latest_start: Date.parse("29 November 2017"))
+        end
+
+        should "raise an InvalidResponse when leave starts before the earliest date" do
+          @question.answer_with(Date.parse("1 November 2017"))
+          error = assert_raises(SmartAnswer::InvalidResponse) { @question.next_node }
+          assert_equal "leave_starts_too_early", error.message
+        end
+
+        should "raise an InvalidResponse when leave starts after the latest date" do
+          @question.answer_with(Date.parse("30 November 2017"))
+          error = assert_raises(SmartAnswer::InvalidResponse) { @question.next_node }
+          assert_equal "leave_starts_too_late", error.message
         end
       end
     end
