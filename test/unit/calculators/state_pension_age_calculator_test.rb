@@ -60,6 +60,17 @@ module SmartAnswer::Calculators
           assert_equal @calculator.state_pension_age, '60 years'
         end
       end
+
+      context 'given a state_pension_date on the 29th of Feb when the pension age is 68' do
+        setup do
+          @calculator.stubs(:dob).returns(Date.parse("29 Feb 1980"))
+          @calculator.stubs(:state_pension_date).returns(Date.parse('29 Feb 2048'))
+        end
+
+        should 'should return the number of years to your state pension' do
+          assert_equal @calculator.state_pension_age, '68 years'
+        end
+      end
     end
 
     context "#birthday_on_feb_29??" do
