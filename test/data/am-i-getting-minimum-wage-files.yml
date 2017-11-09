@@ -1,5 +1,5 @@
 ---
-lib/smart_answer/calculators/minimum_wage_calculator.rb: fe2ecdba2ce0b71368e0515799c3ba55
+lib/smart_answer/calculators/minimum_wage_calculator.rb: e867b28df54f8f5a034609cac03e3d2c
 lib/smart_answer_flows/am-i-getting-minimum-wage/am_i_getting_minimum_wage.govspeak.erb: 2e535c37e9afccd91ee05c61f881eb5a
 lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/current_payment_above.govspeak.erb: 0307275df2e8913676fb967ffe0f0655
 lib/smart_answer_flows/am-i-getting-minimum-wage/outcomes/current_payment_below.govspeak.erb: d2e0745865be4429168f53330c08d5ce
