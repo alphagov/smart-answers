@@ -37,27 +37,20 @@ module SmartAnswer::Calculators
       weeks_worked(holiday_starts_on)
     end
 
-    def calculation_period
-      # Agricultural holiday calculations run from Oct 1 - Oct 1
-      this_year_period = Date.civil(Date.today.year, 10, 1)
-      if Date.today > this_year_period
-        this_year_period
-      else
-        # last year's Oct 1
-        Date.civil(Date.today.year.to_i - 1, 10, 1)
-      end
+    def start_of_holiday_year
+      SmartAnswer::YearRange.agricultural_holiday_year.current.begins_on
     end
 
     def weeks_worked(holiday_start)
       SmartAnswer::DateRange.new(
-        begins_on: calculation_period,
+        begins_on: start_of_holiday_year,
         ends_on: holiday_start
       ).number_of_days / 7
     end
 
     def available_days
       SmartAnswer::DateRange.new(
-        begins_on: calculation_period,
+        begins_on: start_of_holiday_year,
         ends_on: Date.today
       ).non_inclusive_days
     end

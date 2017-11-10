@@ -8,6 +8,10 @@ module SmartAnswer
       resetting_on("6 April")
     end
 
+    def self.agricultural_holiday_year
+      resetting_on("1 October")
+    end
+
     def initialize(begins_on:)
       ends_on = begins_on - 1 + 1.year
       if ends_on.month == 2 && ends_on.day == 28 && ends_on.leap?
