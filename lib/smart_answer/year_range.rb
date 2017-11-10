@@ -20,6 +20,10 @@ module SmartAnswer
       super(begins_on: begins_on, ends_on: ends_on)
     end
 
+    def next
+      self.class.new(begins_on: begins_on + 1.year)
+    end
+
     def previous
       self.class.new(begins_on: begins_on - 1.year)
     end

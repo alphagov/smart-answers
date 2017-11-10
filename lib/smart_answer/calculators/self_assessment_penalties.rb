@@ -2,48 +2,59 @@ require "ostruct"
 
 module SmartAnswer::Calculators
   class SelfAssessmentPenalties < OpenStruct
+    ONLINE_FILING_DEADLINE_YEAR = SmartAnswer::YearRange.resetting_on("31 January").freeze
+    OFFLINE_FILING_DEADLINE_YEAR = SmartAnswer::YearRange.resetting_on("31 October").freeze
+    PAYMENT_DEADLINE_YEAR = SmartAnswer::YearRange.resetting_on("31 January").freeze
+    PENALTY_YEAR = SmartAnswer::YearRange.resetting_on("1 February").freeze
+
     DEADLINES = {
       online_filing_deadline: {
-        "2012-13": Date.new(2014, 1, 31),
-        "2013-14": Date.new(2015, 1, 31),
-        "2014-15": Date.new(2016, 1, 31),
-        "2015-16": Date.new(2017, 1, 31)
+        "2012-13": ONLINE_FILING_DEADLINE_YEAR.starting_in(2014).begins_on,
+        "2013-14": ONLINE_FILING_DEADLINE_YEAR.starting_in(2015).begins_on,
+        "2014-15": ONLINE_FILING_DEADLINE_YEAR.starting_in(2016).begins_on,
+        "2015-16": ONLINE_FILING_DEADLINE_YEAR.starting_in(2017).begins_on,
       },
       offline_filing_deadline: {
-        "2012-13": Date.new(2013, 10, 31),
-        "2013-14": Date.new(2014, 10, 31),
-        "2014-15": Date.new(2015, 10, 31),
-        "2015-16": Date.new(2016, 10, 31)
+        "2012-13": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2013).begins_on,
+        "2013-14": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2014).begins_on,
+        "2014-15": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2015).begins_on,
+        "2015-16": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2016).begins_on,
       },
       payment_deadline: {
-        "2012-13": Date.new(2014, 1, 31),
-        "2013-14": Date.new(2015, 1, 31),
-        "2014-15": Date.new(2016, 1, 31),
-        "2015-16": Date.new(2017, 1, 31)
+        "2012-13": PAYMENT_DEADLINE_YEAR.starting_in(2014).begins_on,
+        "2013-14": PAYMENT_DEADLINE_YEAR.starting_in(2015).begins_on,
+        "2014-15": PAYMENT_DEADLINE_YEAR.starting_in(2016).begins_on,
+        "2015-16": PAYMENT_DEADLINE_YEAR.starting_in(2017).begins_on,
       },
-    }
+    }.freeze
 
-    def start_of_next_tax_year
-      if tax_year == '2012-13'
-        Date.new(2013, 4, 6)
-      elsif tax_year == '2013-14'
-        Date.new(2014, 4, 6)
-      elsif tax_year == '2014-15'
-        Date.new(2015, 4, 6)
-      elsif tax_year == '2015-16'
-        Date.new(2016, 4, 6)
+    def tax_year_range
+      case tax_year
+      when '2012-13'
+        SmartAnswer::YearRange.tax_year.starting_in(2012)
+      when '2013-14'
+        SmartAnswer::YearRange.tax_year.starting_in(2013)
+      when '2014-15'
+        SmartAnswer::YearRange.tax_year.starting_in(2014)
+      when '2015-16'
+        SmartAnswer::YearRange.tax_year.starting_in(2015)
       end
     end
 
+    def start_of_next_tax_year
+      tax_year_range.next.begins_on
+    end
+
     def one_year_after_start_date_for_penalties
-      if tax_year == '2012-13'
-        Date.new(2015, 2, 01)
-      elsif tax_year == '2013-14'
-        Date.new(2016, 2, 01)
-      elsif tax_year == '2014-15'
-        Date.new(2017, 2, 01)
-      elsif tax_year == '2015-16'
-        Date.new(2018, 2, 01)
+      case tax_year
+      when '2012-13'
+        PENALTY_YEAR.starting_in(2015).begins_on
+      when '2013-14'
+        PENALTY_YEAR.starting_in(2016).begins_on
+      when '2014-15'
+        PENALTY_YEAR.starting_in(2017).begins_on
+      when '2015-16'
+        PENALTY_YEAR.starting_in(2018).begins_on
       end
     end
 

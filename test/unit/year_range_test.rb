@@ -61,5 +61,21 @@ module SmartAnswer
         assert_equal 366, @year_range.number_of_days
       end
     end
+
+    context 'scrolling through ranges' do
+      setup do
+        @year_range = YearRange.new(begins_on: Date.parse("2000-01-01"))
+      end
+
+      should 'give the next year range' do
+        assert_equal Date.parse("2001-01-01"), @year_range.next.begins_on
+        assert_equal Date.parse("2001-12-31"), @year_range.next.ends_on
+      end
+
+      should 'give the previous year range' do
+        assert_equal Date.parse("1999-01-01"), @year_range.previous.begins_on
+        assert_equal Date.parse("1999-12-31"), @year_range.previous.ends_on
+      end
+    end
   end
 end
