@@ -247,28 +247,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
         mock.stubs(:taxon_breadcrumbs).returns(breadcrumbs: ['TaxonBreadcrumb'])
       end
 
-      context "pages tagged to worldwidetaxonomy" do
-        setup do
-          @content_item[:links] = {
-              taxons: [
-                {
-                  title: "A Taxon",
-                  base_path: "/world/a-taxon",
-                }
-              ],
-            }
-        end
-
-        should "show taxon breadcrumbs" do
-          get :show, params: { id: 'education-sample' }
-
-          assert_match(/TaxonBreadcrumb/, response.body)
-          refute_match(/NormalBreadcrumb/, response.body)
-          sidebar = Nokogiri::HTML.parse(response.body).at_css(".related-container")
-          assert_match(/A Taxon/, sidebar)
-        end
-      end
-
       context "pages tagged to mainstream browse" do
         setup do
           @content_item[:links] = {
@@ -325,7 +303,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
             taxons: [
               {
                 title: "A Taxon",
-                base_path: "/a-taxon",
+                base_path: "/world/a-taxon",
               }
             ],
           }
