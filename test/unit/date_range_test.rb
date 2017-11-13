@@ -248,6 +248,7 @@ module SmartAnswer
 
       should 'contain zero days' do
         assert_equal 0, @date_range.number_of_days
+        assert_equal 0, @date_range.non_inclusive_days
       end
 
       should 'be empty' do

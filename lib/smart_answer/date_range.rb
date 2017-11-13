@@ -25,7 +25,6 @@ module SmartAnswer
     def initialize(begins_on: nil, ends_on: nil)
       @begins_on = (begins_on || EARLIEST_DATE).to_date
       @ends_on = (ends_on || LATEST_DATE).to_date
-      @ends_on = [@begins_on - 1, @ends_on].max unless infinite?
     end
 
     def include?(date)
@@ -44,10 +43,12 @@ module SmartAnswer
     alias_method :last, :ends_on
 
     def number_of_days
+      return 0 unless is_valid?
       non_inclusive_days + 1
     end
 
     def non_inclusive_days
+      return 0 unless is_valid?
       infinite? ? Float::INFINITY : (@ends_on - @begins_on).to_i
     end
 
@@ -162,6 +163,11 @@ module SmartAnswer
     def whole_days_away
       begins_on_shifted_to_ends_on_month = (begins_on >> month_difference)
       (ends_on - begins_on_shifted_to_ends_on_month).to_i
+    end
+
+    def is_valid?
+      return true if infinite?
+      @ends_on >= @begins_on
     end
   end
 end
