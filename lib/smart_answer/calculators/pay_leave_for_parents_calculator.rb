@@ -31,15 +31,15 @@ module SmartAnswer::Calculators
 
     def lower_earnings_amount
       start_date = lower_earnings_start_date
-      if in_2013_2014_fin_year?(start_date)
+      if in_2013_2014_tax_year?(start_date)
         SmartAnswer::Money.new(109)
-      elsif in_2014_2015_fin_year?(start_date)
+      elsif in_2014_2015_tax_year?(start_date)
         SmartAnswer::Money.new(111)
-      elsif in_2015_2016_fin_year?(start_date)
+      elsif in_2015_2016_tax_year?(start_date)
         SmartAnswer::Money.new(112)
-      elsif in_2016_2017_fin_year?(start_date)
+      elsif in_2016_2017_tax_year?(start_date)
         SmartAnswer::Money.new(112)
-      elsif in_2017_2018_fin_year?(start_date)
+      elsif in_2017_2018_tax_year?(start_date)
         SmartAnswer::Money.new(113)
       else
         SmartAnswer::Money.new(113)
@@ -99,7 +99,7 @@ module SmartAnswer::Calculators
 
     (2013..2017).each do |year_start|
       year_end = year_start + 1
-      define_method "range_in_#{year_start}_#{year_end}_fin_year?" do
+      define_method "range_in_#{year_start}_#{year_end}_tax_year?" do
         date_in_39_week_range?(year_start, due_date)
       end
     end
@@ -119,9 +119,9 @@ module SmartAnswer::Calculators
 
     (2013..2017).each do |year_start|
       year_end = year_start + 1
-      define_method "in_#{year_start}_#{year_end}_fin_year?" do |date|
+      define_method "in_#{year_start}_#{year_end}_tax_year?" do |date|
         SmartAnswer::YearRange.new(
-          begins_on: Date.new(year_start, 5, 6)
+          begins_on: Date.new(year_start, 4, 6)
         ).include? date
       end
     end
@@ -138,7 +138,7 @@ module SmartAnswer::Calculators
 
     def date_in_39_week_range?(year_range_start, date)
       year_range = SmartAnswer::YearRange.new(
-        begins_on: Date.new(year_range_start, 5, 6)
+        begins_on: Date.new(year_range_start, 4, 6)
       )
       range_39_week = SmartAnswer::DateRange.new(
         begins_on: date,

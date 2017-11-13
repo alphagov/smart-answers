@@ -71,7 +71,7 @@ module SmartAnswer
         end
 
         should "be in 2013-2014 range" do
-          assert_equal true, @calculator.in_2013_2014_fin_year?(@date)
+          assert_equal true, @calculator.in_2013_2014_tax_year?(@date)
         end
 
         should "return £ 109 for lower_earnings_amount" do
@@ -87,7 +87,7 @@ module SmartAnswer
         end
 
         should "be in 2013-2014 range" do
-          assert_equal true, @calculator.in_2014_2015_fin_year?(@date)
+          assert_equal true, @calculator.in_2014_2015_tax_year?(@date)
         end
 
         should "return £ 111 for lower_earnings_amount" do
@@ -103,7 +103,7 @@ module SmartAnswer
         end
 
         should "be in 2015-2016 range" do
-          assert_equal true, @calculator.in_2015_2016_fin_year?(@date)
+          assert_equal true, @calculator.in_2015_2016_tax_year?(@date)
         end
 
         should "return £ 112 for lower_earnings_amount" do
@@ -119,7 +119,7 @@ module SmartAnswer
         end
 
         should "be in 2016-2017 financial year" do
-          assert_equal true, @calculator.in_2016_2017_fin_year?(@date)
+          assert_equal true, @calculator.in_2016_2017_tax_year?(@date)
         end
 
         should "return £112 for lower_earnings_amount" do
@@ -135,7 +135,7 @@ module SmartAnswer
         end
 
         should "be in 2017-2018 financial year" do
-          assert_equal true, @calculator.in_2017_2018_fin_year?(@date)
+          assert_equal true, @calculator.in_2017_2018_tax_year?(@date)
         end
 
         should "return £113 for lower_earnings_amount" do
@@ -152,6 +152,26 @@ module SmartAnswer
 
         should "return the latest_pay_leave known lower_earnings_amount" do
           assert_equal 113, @calculator.lower_earnings_amount
+        end
+      end
+
+      context "due date is the start of the 2017-2018 financial year" do
+        setup do
+          start_of_2017_2018_financial_year = Date.parse("6 April 2017")
+          @calculator = PayLeaveForParentsCalculator.new
+          @calculator.due_date = start_of_2017_2018_financial_year
+        end
+
+        should "say that the pay period is in the 2017-2018 financial year" do
+          assert(@calculator.range_in_2017_2018_tax_year?)
+        end
+
+        should "not say that the pay period is in the 2016-2017 financial year" do
+          refute(@calculator.range_in_2016_2017_tax_year?)
+        end
+
+        should "say that the due date is in the 2017-2018 financial year" do
+          assert(@calculator.in_2017_2018_tax_year?(@calculator.due_date))
         end
       end
     end
