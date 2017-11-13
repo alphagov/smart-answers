@@ -64,10 +64,6 @@ module SmartAnswer::Calculators
       format_number(fraction_of_year, dp)
     end
 
-    def date_of_year(date, year)
-      date.advance(years: year - date.year)
-    end
-
     def strip_zeros(number)
       number.to_s.sub(/\.0+$/, '')
     end
@@ -94,18 +90,8 @@ module SmartAnswer::Calculators
     end
 
     def leave_year_range
-      if self.leave_year_start_date
-        needs_offset = date_calc >= date_of_year(leave_year_start_date, date_calc.year)
-        number_years = date_calc.year - (needs_offset ? 0 : 1)
-
-        SmartAnswer::YearRange.new(
-          begins_on: date_of_year(leave_year_start_date, number_years)
-        )
-      else
-        SmartAnswer::YearRange.new(
-          begins_on: date_calc.beginning_of_year
-        )
-      end
+      leave_year_start = self.leave_year_start_date || "1 January"
+      SmartAnswer::YearRange.resetting_on(leave_year_start).including(date_calc)
     end
 
     def shifts_per_week

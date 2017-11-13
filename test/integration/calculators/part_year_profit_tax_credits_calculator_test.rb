@@ -12,7 +12,7 @@ module SmartAnswer
       end
 
       should "use the 2015/16 tax year" do
-        expected_tax_year = TaxYear.new(begins_in: 2015)
+        expected_tax_year = YearRange.tax_year.starting_in(2015)
         assert_equal expected_tax_year, @calculator.tax_year
       end
 
@@ -56,7 +56,7 @@ module SmartAnswer
       end
 
       should "use the 2015/16 tax year" do
-        expected_tax_year = TaxYear.new(begins_in: 2015)
+        expected_tax_year = YearRange.tax_year.starting_in(2015)
         assert_equal expected_tax_year, @calculator.tax_year
       end
 
@@ -101,7 +101,7 @@ module SmartAnswer
       end
 
       should "use the 2015/16 tax year" do
-        expected_tax_year = TaxYear.new(begins_in: 2015)
+        expected_tax_year = YearRange.tax_year.starting_in(2015)
         assert_equal expected_tax_year, @calculator.tax_year
       end
 
@@ -140,7 +140,7 @@ module SmartAnswer
       end
 
       should "use the 2015/16 tax year" do
-        expected_tax_year = TaxYear.new(begins_in: 2015)
+        expected_tax_year = YearRange.tax_year.starting_in(2015)
         assert_equal expected_tax_year, @calculator.tax_year
       end
 
@@ -193,7 +193,7 @@ module SmartAnswer
       end
 
       should "use the 2015/16 tax year" do
-        expected_tax_year = TaxYear.new(begins_in: 2015)
+        expected_tax_year = YearRange.tax_year.starting_in(2015)
         assert_equal expected_tax_year, @calculator.tax_year
       end
 

@@ -77,9 +77,8 @@ module SmartAnswer
         end
 
         should 'calculate tax year in which tax credits award ends' do
-          tax_year = stub('tax-year')
-          TaxYear.stubs(:on).with(@tax_credits_award_ends_on).returns(tax_year)
-          assert_equal tax_year, @calculator.tax_year
+          expected_tax_year = YearRange.tax_year.starting_in(2015)
+          assert_equal expected_tax_year, @calculator.tax_year
         end
       end
 

@@ -30,16 +30,20 @@ module SmartAnswer::Calculators
     end
 
     def lower_earnings_amount
-      start_date = lower_earnings_start_date
-      if in_2013_2014_fin_year?(start_date)
+      tax_year_start = SmartAnswer::YearRange.tax_year
+        .including(lower_earnings_start_date)
+        .begins_on
+
+      case tax_year_start.year
+      when 2013
         SmartAnswer::Money.new(109)
-      elsif in_2014_2015_fin_year?(start_date)
+      when 2014
         SmartAnswer::Money.new(111)
-      elsif in_2015_2016_fin_year?(start_date)
+      when 2015
         SmartAnswer::Money.new(112)
-      elsif in_2016_2017_fin_year?(start_date)
+      when 2016
         SmartAnswer::Money.new(112)
-      elsif in_2017_2018_fin_year?(start_date)
+      when 2017
         SmartAnswer::Money.new(113)
       else
         SmartAnswer::Money.new(113)
@@ -97,11 +101,15 @@ module SmartAnswer::Calculators
       earnings_employment == "yes" && work_employment == "yes"
     end
 
-    (2013..2017).each do |year_start|
-      year_end = year_start + 1
-      define_method "range_in_#{year_start}_#{year_end}_fin_year?" do
-        date_in_39_week_range?(year_start, due_date)
-      end
+    def paid_leave_is_in_tax_year?(year)
+      (paid_leave_period & SmartAnswer::YearRange.tax_year.starting_in(year)).number_of_days.positive?
+    end
+
+    def paid_leave_period
+      SmartAnswer::DateRange.new(
+        begins_on: due_date,
+        ends_on: due_date + 39.weeks,
+      )
     end
 
     def start_of_maternity_allowance
@@ -117,15 +125,6 @@ module SmartAnswer::Calculators
     end
     alias_method :paternity_leave_notice_date, :maternity_leave_notice_date
 
-    (2013..2017).each do |year_start|
-      year_end = year_start + 1
-      define_method "in_#{year_start}_#{year_end}_fin_year?" do |date|
-        SmartAnswer::YearRange.new(
-          begins_on: Date.new(year_start, 5, 6)
-        ).include? date
-      end
-    end
-
   private
 
     def saturday_before(date)
@@ -134,17 +133,6 @@ module SmartAnswer::Calculators
 
     def sunday_before(date)
       date - date.wday
-    end
-
-    def date_in_39_week_range?(year_range_start, date)
-      year_range = SmartAnswer::YearRange.new(
-        begins_on: Date.new(year_range_start, 5, 6)
-      )
-      range_39_week = SmartAnswer::DateRange.new(
-        begins_on: date,
-        ends_on: date + 39.weeks
-      )
-      (range_39_week & year_range).number_of_days.positive?
     end
   end
 end

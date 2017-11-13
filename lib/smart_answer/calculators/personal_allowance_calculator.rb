@@ -59,7 +59,7 @@ module SmartAnswer
     private
 
       def age_at_end_of_current_tax_year(birth_date)
-        end_of_tax_year = TaxYear.current.ends_on
+        end_of_tax_year = YearRange.tax_year.current.ends_on
         DateOfBirth.new(birth_date).age(on: end_of_tax_year)
       end
 
