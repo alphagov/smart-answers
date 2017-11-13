@@ -265,13 +265,18 @@ module SmartAnswer::Calculators
     end
 
     def paydates_last_working_day_of_the_month
-      end_date = Date.civil(pay_end_date.year, pay_end_date.month, -1)
+      first_pay_day = last_working_day_of_the_month(pay_start_date)
 
-      [].tap do |ary|
-        pay_start_date.step(end_date) do |d|
-          ary << d if d.day == Date.new(d.year, d.month, last_working_day_of_the_month_offset(d)).day
+      [first_pay_day].tap do |dates|
+        while dates.last < pay_end_date
+          date = dates.last + 1.month
+          dates << Date.new(date.year, date.month, last_working_day_of_the_month_offset(date))
         end
       end
+    end
+
+    def last_working_day_of_the_month(date)
+      Date.new(date.year, date.month, last_working_day_of_the_month_offset(date))
     end
 
     def paydates_monthly
