@@ -104,12 +104,12 @@ module SmartAnswer
             .answer_with(Date.parse("1 November 2017"))
         end
 
-        should "have an earliest leave start date 14 days prior" do
+        should "have an earliest start date of 1 November 2017" do
           assert_equal(Date.parse("1 November 2017"), @question.next_node.a_leave_earliest_start)
         end
 
-        should "have a latest start date 1 day after placement" do
-          assert_equal(Date.parse("16 November 2017"), @question.next_node.a_leave_latest_start)
+        should "have a latest start date of 28 November 2017" do
+          assert_equal(Date.parse("28 November 2017"), @question.next_node.a_leave_latest_start)
         end
       end
     end

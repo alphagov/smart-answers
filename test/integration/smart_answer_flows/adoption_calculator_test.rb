@@ -79,8 +79,8 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
                     assert_current_node :adoption_date_leave_starts?
                   end
 
-                  context "give leave start date of 20 January 2014" do
-                    setup { add_response Date.parse("20 January 2014") }
+                  context "give leave start date of 3 February 2014" do
+                    setup { add_response Date.parse("3 February 2014") }
 
                     should "ask for last normal payday" do
                       assert_current_node :last_normal_payday_adoption?
@@ -220,7 +220,7 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
                 context "answer not on payroll but has contract" do
                   setup do
                     add_response :no
-                    add_response Date.parse("20 January 2014") # leave start date
+                    add_response Date.parse("3 February 2014") # leave start date
                   end
 
                   should "go to adoption_leave_and_pay outcome" do
@@ -318,8 +318,8 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
                     assert_current_node :adoption_date_leave_starts?
                   end
 
-                  context "give leave start date of 20 January 2014" do
-                    setup { add_response Date.parse("20 January 2014") }
+                  context "give leave start date of 3 February 2014" do
+                    setup { add_response Date.parse("3 February 2014") }
 
                     should "ask for last normal payday" do
                       assert_current_node :last_normal_payday_adoption?
@@ -460,7 +460,7 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
                 context "answer not on payroll but has contract" do
                   setup do
                     add_response :no
-                    add_response Date.parse("20 January 2014") # leave start date
+                    add_response Date.parse("3 February 2014") # leave start date
                   end
 
                   should "go to adoption_leave_and_pay outcome" do
