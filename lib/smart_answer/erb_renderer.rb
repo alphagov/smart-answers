@@ -10,11 +10,16 @@ module SmartAnswer
       end
     end
 
-    def initialize(template_directory:, template_name:, locals: {}, helpers: [])
+    def initialize(template_directory:, template_name:, locals: {}, helpers: [], controller: nil)
       @template_directory = template_directory
       @template_name = template_name
       @locals = locals
-      @view = ActionView::Base.new([@template_directory, FlowRegistry.instance.load_path])
+      @view = ActionView::Base.new(
+        [@template_directory, FlowRegistry.instance.load_path],
+        {},
+        controller
+      )
+      @view.lookup_context.prefixes = [] if any_lookup_prefixes?(controller)
       helpers.each { |helper| @view.extend(helper) }
       @view.extend(QuestionOptionsHelper)
     end
@@ -43,6 +48,11 @@ module SmartAnswer
     end
 
   private
+
+    def any_lookup_prefixes?(context)
+      context.is_a?(ActionController::Base) &&
+        context.lookup_context.prefixes.any?
+    end
 
     def erb_template_name
       "#{@template_name}.govspeak.erb"

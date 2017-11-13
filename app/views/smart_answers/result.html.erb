@@ -12,7 +12,11 @@
   <article class="outcome group">
     <div class="result-info" data-debug-template-path="<%= outcome.relative_erb_template_path %>">
       <div class="inner group">
-        <% if outcome.title.present? %>
+        <% if outcome.wrapped_with_debug_div? %>
+          <div data-debug-partial-template-path="<%= outcome.partial_template_path %>">
+            <div class="summary"><h2 class="result-title"><%= outcome.title %></h2></div>
+          </div>
+        <% elsif outcome.title.present? %>
           <div class="summary"><h2 class="result-title"><%= outcome.title %></h2></div>
         <% end %>
 

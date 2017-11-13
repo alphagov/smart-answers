@@ -8,8 +8,9 @@ class FlowPresenter
 
   def_delegators :@flow, :need_id
 
-  def initialize(request, flow)
-    @request = request
+  def initialize(controller, flow)
+    @controller = controller
+    @request = controller.request
     @params = request.params
     @flow = flow
     @node_presenters = {}
@@ -64,7 +65,7 @@ class FlowPresenter
                       else
                         NodePresenter
                       end
-    @node_presenters[node.name] ||= presenter_class.new(node, current_state)
+    @node_presenters[node.name] ||= presenter_class.new(node, current_state, controller: @controller)
   end
 
   def current_question_number
@@ -77,7 +78,7 @@ class FlowPresenter
 
   def start_node
     node = SmartAnswer::Node.new(@flow, @flow.name.underscore.to_sym)
-    @start_node ||= StartNodePresenter.new(node)
+    @start_node ||= StartNodePresenter.new(node, nil, controller: @controller)
   end
 
   def change_collapsed_question_link(question_number)

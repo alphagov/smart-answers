@@ -1,0 +1,1 @@
+ActionView::PartialRenderer.prepend(SmartAnswerPartialTemplateWrapper)

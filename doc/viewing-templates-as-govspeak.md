@@ -2,8 +2,6 @@
 
 Seeing [Govspeak](https://github.com/alphagov/govspeak) markup of Smart Answer pages can be useful to content designers when preparing content change requests or to developers inspecting generated Govspeak that later gets translated to HTML.
 
-This feature can be enabled by setting `EXPOSE_GOVSPEAK` to a non-empty value. It is enabled by default in the Integration environment and in Heroku apps deployed via the `startup_heroku.sh` script.
-
 The Govspeak version of the pages can be accessed by appending `.txt` to URLs.
 
 ## In Development environment

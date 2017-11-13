@@ -10,12 +10,13 @@ class OutcomePresenter < NodePresenter
         SmartAnswer::FormattingHelper,
         SmartAnswer::OverseasPassportsHelper,
         SmartAnswer::MarriageAbroadHelper
-      ] + helpers
+      ] + helpers,
+      controller: options[:controller]
     )
   end
 
   def title
-    @renderer.single_line_of_content_for(:title)
+    outcome_title.text
   end
 
   def body(html: true)
@@ -28,5 +29,21 @@ class OutcomePresenter < NodePresenter
 
   def relative_erb_template_path
     @renderer.relative_erb_template_path
+  end
+
+  def partial_template_path
+    outcome_title.partial_template_path
+  end
+
+  def wrapped_with_debug_div?
+    outcome_title.wrapped_with_debug_div?
+  end
+
+private
+
+  def outcome_title
+    @outcome_title ||= SmartAnswer::Title.new(
+      @renderer.single_line_of_content_for(:title)
+    )
   end
 end
