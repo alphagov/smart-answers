@@ -22,14 +22,35 @@ module SmartAnswer
           .with_stubbed_calculator
       end
 
-      should "respond to 'maternity' with date_of_adoption_match?" do
+      should "respond to 'maternity' with adoption_from_abroad?" do
         @question.answer_with("maternity")
-        assert_node_has_name(:date_of_adoption_match?, @question.next_node)
+        assert_node_has_name(:adoption_from_abroad?, @question.next_node)
       end
 
       should "respond to 'paternity' with employee_date_matched_paternity_adoption?" do
         @question.answer_with("paternity")
         assert_node_has_name(:employee_date_matched_paternity_adoption?, @question.next_node, belongs_to_another_flow: true)
+      end
+    end
+
+    context "when answering adoption_from_abroad?" do
+      setup do
+        @question = TestNode.new(@flow, :adoption_from_abroad?)
+      end
+
+      should "respond with date_of_adoption_match?" do
+        @question.answer_with('uk')
+        assert_node_has_name(:date_of_adoption_match?, @question.next_node)
+      end
+
+      should "set adoption_is_from_abroad to true when answering with 'abroad'" do
+        @question.answer_with('abroad')
+        assert(@question.next_node.adoption_is_from_abroad)
+      end
+
+      should "set adoption_is_from_abroad to false when answering with 'uk'" do
+        @question.answer_with('uk')
+        refute(@question.next_node.adoption_is_from_abroad)
       end
     end
 
