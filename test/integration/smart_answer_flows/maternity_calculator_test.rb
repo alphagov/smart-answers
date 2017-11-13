@@ -49,6 +49,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
     setup do
       add_response :adoption
       add_response :maternity
+      add_response :no
     end
     should "qualifying_week_start be equal to the match date" do
       add_response "2017-03-26" #match_date
