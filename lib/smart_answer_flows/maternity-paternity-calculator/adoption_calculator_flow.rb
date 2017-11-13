@@ -51,7 +51,12 @@ module SmartAnswer
           end
 
           calculate :a_leave_earliest_start do
-            adoption_placement_date - 14
+            if adoption_is_from_abroad
+              # TODO: Confirm value for overseas
+              adoption_placement_date - 14
+            else
+              adoption_placement_date - 14
+            end
           end
 
           calculate :a_leave_earliest_start_formatted do
@@ -59,7 +64,11 @@ module SmartAnswer
           end
 
           calculate :a_leave_latest_start do
-            adoption_placement_date + 1
+            if adoption_is_from_abroad
+              adoption_placement_date + 27
+            else
+              adoption_placement_date + 1
+            end
           end
 
           calculate :a_leave_latest_start_formatted do
