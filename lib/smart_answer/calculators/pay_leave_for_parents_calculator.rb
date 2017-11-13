@@ -121,7 +121,7 @@ module SmartAnswer::Calculators
       year_end = year_start + 1
       define_method "in_#{year_start}_#{year_end}_fin_year?" do |date|
         SmartAnswer::YearRange.new(
-          begins_on: Date.new(year_start, 5, 6)
+          begins_on: Date.new(year_start, 4, 6)
         ).include? date
       end
     end
@@ -138,7 +138,7 @@ module SmartAnswer::Calculators
 
     def date_in_39_week_range?(year_range_start, date)
       year_range = SmartAnswer::YearRange.new(
-        begins_on: Date.new(year_range_start, 5, 6)
+        begins_on: Date.new(year_range_start, 4, 6)
       )
       range_39_week = SmartAnswer::DateRange.new(
         begins_on: date,

@@ -154,6 +154,26 @@ module SmartAnswer
           assert_equal 113, @calculator.lower_earnings_amount
         end
       end
+
+      context "due date is the start of the 2017-2018 financial year" do
+        setup do
+          start_of_2017_2018_financial_year = Date.parse("6 April 2017")
+          @calculator = PayLeaveForParentsCalculator.new
+          @calculator.due_date = start_of_2017_2018_financial_year
+        end
+
+        should "say that the pay period is in the 2017-2018 financial year" do
+          assert(@calculator.range_in_2017_2018_fin_year?)
+        end
+
+        should "not say that the pay period is in the 2016-2017 financial year" do
+          refute(@calculator.range_in_2016_2017_fin_year?)
+        end
+
+        should "say that the due date is in the 2017-2018 financial year" do
+          assert(@calculator.in_2017_2018_fin_year?(@calculator.due_date))
+        end
+      end
     end
   end
 end
