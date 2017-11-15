@@ -22,14 +22,35 @@ module SmartAnswer
           .with_stubbed_calculator
       end
 
-      should "respond to 'maternity' with date_of_adoption_match?" do
+      should "respond to 'maternity' with adoption_from_abroad?" do
         @question.answer_with("maternity")
-        assert_node_has_name(:date_of_adoption_match?, @question.next_node)
+        assert_node_has_name(:adoption_from_abroad?, @question.next_node)
       end
 
       should "respond to 'paternity' with employee_date_matched_paternity_adoption?" do
         @question.answer_with("paternity")
         assert_node_has_name(:employee_date_matched_paternity_adoption?, @question.next_node, belongs_to_another_flow: true)
+      end
+    end
+
+    context "when answering adoption_from_abroad?" do
+      setup do
+        @question = TestNode.new(@flow, :adoption_from_abroad?)
+      end
+
+      should "respond with date_of_adoption_match?" do
+        @question.answer_with('uk')
+        assert_node_has_name(:date_of_adoption_match?, @question.next_node)
+      end
+
+      should "set adoption_is_from_abroad to true when answering with 'abroad'" do
+        @question.answer_with('abroad')
+        assert(@question.next_node.adoption_is_from_abroad)
+      end
+
+      should "set adoption_is_from_abroad to false when answering with 'uk'" do
+        @question.answer_with('uk')
+        refute(@question.next_node.adoption_is_from_abroad)
       end
     end
 
@@ -52,22 +73,44 @@ module SmartAnswer
           .with(match_date: Date.parse("1 October 2017"))
       end
 
-      should "ask adoption_did_the_employee_work_for_you? next" do
-        @question.answer_with(Date.parse("1 November 2017"))
-        assert_node_has_name(:adoption_did_the_employee_work_for_you?, @question.next_node)
+      context "with an adoption from the UK" do
+        setup do
+          @question.with(adoption_is_from_abroad: false)
+        end
+
+        should "ask adoption_did_the_employee_work_for_you? next" do
+          @question.answer_with(Date.today)
+          assert_node_has_name(:adoption_did_the_employee_work_for_you?, @question.next_node)
+        end
+
+        context "with a placement date of 15 November 2017" do
+          setup do
+            @question.answer_with(Date.parse("15 November 2017"))
+          end
+
+          should "have an earliest leave start date 14 days prior" do
+            assert_equal(Date.parse("1 November 2017"), @question.next_node.a_leave_earliest_start)
+          end
+
+          should "have a latest start date 1 day after placement" do
+            assert_equal(Date.parse("16 November 2017"), @question.next_node.a_leave_latest_start)
+          end
+        end
       end
 
-      context "with a placement date of 15 November 2017" do
+      context "with an adoption from abroad and the child entering the UK on 1 November 2017" do
         setup do
-          @question.answer_with(Date.parse("15 November 2017"))
+          @question.with(adoption_is_from_abroad: true)
+            .answer_with(Date.parse("1 November 2017"))
         end
 
-        should "have an earliest leave start date 14 days prior" do
-          assert_equal(Date.parse("1 November 2017"), @question.next_node.a_leave_earliest_start)
+        should "have an earliest start date..." do
+          refute("TODO: Check this")
         end
 
-        should "have a latest start date 1 day after placement" do
-          assert_equal(Date.parse("16 November 2017"), @question.next_node.a_leave_latest_start)
+        should "have a latest start date of 28 November 2017" do
+          assert_equal(Date.parse("28 November 2017"), @question.next_node.a_leave_latest_start)
+          refute("TODO: Check this")
         end
       end
     end

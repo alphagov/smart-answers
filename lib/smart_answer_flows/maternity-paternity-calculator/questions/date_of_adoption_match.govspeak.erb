@@ -3,5 +3,7 @@
 <% end %>
 
 <% content_for :hint do %>
-  For overseas adoptions, enter the official notification date (the permission to adopt from abroad).
+  <% if adoption_is_from_abroad %>
+    Enter the official notification date (the permission to adopt from abroad).
+  <% end %>
 <% end %>

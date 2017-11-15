@@ -2,7 +2,6 @@ module SmartAnswer
   class MaternityPaternityCalculatorFlow < Flow
     class AdoptionCalculatorFlow < Flow
       def define
-        ## QA0
         multiple_choice :taking_paternity_or_maternity_leave_for_adoption? do
           option :paternity
           option :maternity
@@ -10,14 +9,26 @@ module SmartAnswer
           next_node do |response|
             case response
             when 'paternity'
-              question :employee_date_matched_paternity_adoption? #QAP1
+              question :employee_date_matched_paternity_adoption?
             when 'maternity'
-              question :date_of_adoption_match? # QA1
+              question :adoption_from_abroad?
             end
           end
         end
 
-        ## QA1
+        multiple_choice :adoption_from_abroad? do
+          option :uk
+          option :abroad
+
+          calculate :adoption_is_from_abroad do |response|
+            response == "abroad"
+          end
+
+          next_node do
+            question :date_of_adoption_match?
+          end
+        end
+
         date_question :date_of_adoption_match? do
           calculate :match_date do |response|
             response
@@ -31,7 +42,6 @@ module SmartAnswer
           end
         end
 
-        ## QA2
         date_question :date_of_adoption_placement? do
           calculate :adoption_placement_date do |response|
             placement_date = response
@@ -41,7 +51,12 @@ module SmartAnswer
           end
 
           calculate :a_leave_earliest_start do
-            adoption_placement_date - 14
+            if adoption_is_from_abroad
+              # TODO: Confirm value for overseas
+              adoption_placement_date - 14
+            else
+              adoption_placement_date - 14
+            end
           end
 
           calculate :a_leave_earliest_start_formatted do
@@ -49,7 +64,11 @@ module SmartAnswer
           end
 
           calculate :a_leave_latest_start do
-            adoption_placement_date + 1
+            if adoption_is_from_abroad
+              adoption_placement_date + 27
+            else
+              adoption_placement_date + 1
+            end
           end
 
           calculate :a_leave_latest_start_formatted do
@@ -69,7 +88,6 @@ module SmartAnswer
           end
         end
 
-        ## QA3
         multiple_choice :adoption_did_the_employee_work_for_you? do
           option :yes
           option :no
@@ -84,7 +102,6 @@ module SmartAnswer
           end
         end
 
-        ## QA4
         multiple_choice :adoption_employment_contract? do
           option :yes
           option :no
@@ -98,7 +115,6 @@ module SmartAnswer
           end
         end
 
-        ## QA5
         multiple_choice :adoption_is_the_employee_on_your_payroll? do
           option :yes
           option :no
@@ -124,7 +140,6 @@ module SmartAnswer
           end
         end
 
-        ## QA6
         date_question :adoption_date_leave_starts? do
           calculate :adoption_date_leave_starts do |response|
             adoption_leave_start_date = response
@@ -167,7 +182,6 @@ module SmartAnswer
           end
         end
 
-        # QA7
         date_question :last_normal_payday_adoption? do
           from { 2.years.ago(Date.today) }
           to { 2.years.since(Date.today) }
@@ -183,7 +197,6 @@ module SmartAnswer
           end
         end
 
-        # QA8
         date_question :payday_eight_weeks_adoption? do
           from { 2.year.ago(Date.today) }
           to { 2.years.since(Date.today) }
@@ -212,7 +225,6 @@ module SmartAnswer
           end
         end
 
-        # QA9
         multiple_choice :pay_frequency_adoption? do
           option :weekly
           option :every_2_weeks
@@ -233,7 +245,6 @@ module SmartAnswer
           end
         end
 
-        ## QA10
         money_question :earnings_for_pay_period_adoption? do
           on_response do |response|
             calculator.earnings_for_pay_period = response
@@ -260,7 +271,6 @@ module SmartAnswer
           end
         end
 
-        ## QA11
         multiple_choice :how_do_you_want_the_sap_calculated? do
           option :weekly_starting
           option :usual_paydates
