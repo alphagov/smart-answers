@@ -27,14 +27,13 @@ In this document is prescribed the steps that need to be taken:
     - Regression test artefacts directory
       - test/artefacts/<\smart-answer-name>
     - Tests for Calculators, rates, data query and other ruby files
-      - test/data/integration/calculators/<\smart-answer-name>_(calculator|rates_query|data_query)_test.rb
-      - test/data/unit/calculators/<\smart-answer-name>_(calculator|rates_query|data_query)_test.rb
+      - test/integration/calculators/<\smart-answer-name>_(calculator|rates_query|data_query)_test.rb
+      - test/integration/smart_answer_flows/<\smart-answer-name>_test.rb
+      - test/unit/calculators/<\smart-answer-name>_(calculator|rates_query|data_query)_test.rb
+      - test/unit/calculators/smart_answer_flows/<\smart-answer-name>_flow_test.rb
     - Calculators, data query and other ruby files
       - lib/smart_answer/calculators/<\smart-answer-name>_calculator.rb
       - lib/smart_answer/calculators/<\smart-answer-name>_data_query.rb
-    - Customised start button
-      - lib/smart_answer/start_button.rb
-      NB: Check if the identified smart answer is listed in `custom_text_and_link` method. Remove if it exists.
 
   After this is done, it is very necessary to run the unit, integration and
   regression tests. It is important that you run these tests on local and in
@@ -189,6 +188,41 @@ In this document is prescribed the steps that need to be taken:
     This creates and publishes an answer format edition to be used as the new start page in replace of the smart answer.
 
     This is done via publishing-api.
+
+- ## Retire and publish a simple smart answer:
+
+  After deleting its files from smart-answers ([guide](https://github.com/alphagov/smart-answers/blob/master/doc/retiring-a-smart-answer.md)), the following steps have to be followed to apply the changes to the other applications and on **staging/production environments**:
+
+  **Retire the smart-answer via rake task**
+  - go to Jenkins: https://deploy.integration.publishing.service.gov.uk/job/run-rake-task/build?delay=0sec
+  - set & run:
+    ```
+    TARGET_APPLICATION = smartanswers
+    MACHINE_CLASS = calculators_frontend
+    RAKE_TASK = <rake task name only (no bundle exec rake) …. > 
+    ```
+    ```
+    (bundle exec rake) retire:unpublish[67764435-e8ed-4700-a657-2e0432cb1f5b]
+    (bundle exec rake) retire:change_owning_application[/student-finance-forms,publisher]
+    ```
+  Verify success on Publishing API with:
+    - SSH to backend: ```ssh publishing-api-1.backend.(integration|staging|production)```
+    - rails console: ```govuk_app_console publishing-api```
+    - check publishing_app: "publisher" (no more smart-answers) with `PathReservation.find_by(base_path: '/student-finance-forms')`
+
+  **Publish the simple smart answer document with the format manually**
+    - Manually archive existing Artefact on publisher storage.
+      - SSH to backend: ```ssh backend-1.backend.(integration|staging|production)```
+      - rails console: ```govuk_app_console publisher```
+      ``` 
+      artefact = Artefact.find_by(slug: "student-finance-forms")
+      artefact.state = "archived"
+      artefact.save!
+      artefact.slug = "archived-student-finance-forms"
+      artefact.save!
+      ```
+    - Publish new simple smart answer for student-finance-forms from publisher
+    - Update the retirement log ([link](https://github.com/alphagov/smart-answers/blob/master/doc/retirement-log.md))
 
 - ## Troubleshooting
 

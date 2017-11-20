@@ -1,5 +1,11 @@
 ## Retirement log
 
+- Student finance forms
+  - Date of retirement: [TBD](TBD).
+  - Associated [pull request](https://github.com/alphagov/smart-answers/pull/3255)
+  - Changed format of `/student-finance-forms` to simple smart answer.
+  - Artefact on publisher has been archived and it's slug changed to `archived-student-finance-forms`.
+
 - Overseas passports
   - Date of retirement: [28/04/2017](https://github.com/alphagov/smart-answers/releases/tag/release_3562).
   - Associated [pull request](https://github.com/alphagov/smart-answers/pull/3014)
