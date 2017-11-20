@@ -1,6 +1,6 @@
 module SmartAnswer::Calculators
   class MarriageAbroadDataQuery
-    COMMONWEALTH_COUNTRIES = %w(antigua-and-barbuda australia bahamas bangladesh barbados belize botswana brunei cameroon canada cyprus dominica fiji ghana grenada guyana india jamaica kiribati lesotho malawi malaysia malta mauritius namibia nauru new-zealand nigeria pakistan papua-new-guinea samoa seychelles sierra-leone singapore solomon-islands sri-lanka st-kitts-and-nevis st-lucia st-vincent-and-the-grenadines swaziland tonga trinidad-and-tobago tuvalu uganda vanuatu zambia).freeze
+    COMMONWEALTH_COUNTRIES = %w(antigua-and-barbuda bahamas bangladesh barbados belize botswana brunei cameroon canada cyprus dominica fiji ghana grenada guyana india jamaica kiribati lesotho malawi malaysia malta mauritius namibia nauru new-zealand nigeria pakistan papua-new-guinea samoa seychelles sierra-leone singapore solomon-islands sri-lanka st-kitts-and-nevis st-lucia st-vincent-and-the-grenadines swaziland tonga trinidad-and-tobago tuvalu uganda vanuatu zambia).freeze
 
     REQUIRES_7_DAY_NOTICE_CEREMONY_COUNTRIES = (COMMONWEALTH_COUNTRIES - %w(brunei)) + %w(ireland rwanda st-lucia)
 
@@ -34,7 +34,7 @@ module SmartAnswer::Calculators
 
     COUNTRIES_WITHOUT_CONSULAR_FACILITIES = %w(argentina aruba bonaire-st-eustatius-saba burundi cote-d-ivoire curacao czech-republic saint-barthelemy slovakia st-maarten st-martin taiwan)
 
-    SS_MARRIAGE_COUNTRIES = %w(australia bolivia dominican-republic estonia kosovo mongolia montenegro russia san-marino serbia).freeze
+    SS_MARRIAGE_COUNTRIES = %w(bolivia dominican-republic estonia kosovo mongolia montenegro russia san-marino serbia).freeze
 
     NO_SS_MARRIAGE_COUNTRIES = %w(san-marino seychelles)
 
@@ -42,7 +42,7 @@ module SmartAnswer::Calculators
 
     SS_MARRIAGE_AND_PARTNERSHIP_COUNTRIES = %w(albania peru vietnam).freeze
 
-    SS_ALT_FEES_TABLE_COUNTRY = %w(australia bolivia estonia san-marino serbia seychelles)
+    SS_ALT_FEES_TABLE_COUNTRY = %w(bolivia estonia san-marino serbia seychelles).freeze
 
     SS_ALT_FEES_TABLE_OR_OUTCOME_GROUP_A = %w(mongolia montenegro russia).freeze
 
