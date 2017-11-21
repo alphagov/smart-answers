@@ -1,7 +1,7 @@
 ## Retirement log
 
 - Student finance forms
-  - Date of retirement: [TBD](TBD).
+  - Date of retirement: [21/11/2017](https://github.com/alphagov/smart-answers/releases/tag/release_3787).
   - Associated [pull request](https://github.com/alphagov/smart-answers/pull/3255)
   - Changed format of `/student-finance-forms` to simple smart answer.
   - Artefact on publisher has been archived and it's slug changed to `archived-student-finance-forms`.
