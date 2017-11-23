@@ -25,7 +25,6 @@ module SmartAnswer
     def initialize(begins_on: nil, ends_on: nil)
       @begins_on = (begins_on || EARLIEST_DATE).to_date
       @ends_on = (ends_on || LATEST_DATE).to_date
-      @ends_on = [@begins_on - 1, @ends_on].max unless infinite?
     end
 
     def include?(date)
@@ -72,7 +71,7 @@ module SmartAnswer
     end
 
     def empty?
-      number_of_days == 0
+      number_of_days <= 0
     end
 
     def begins_before?(other)
