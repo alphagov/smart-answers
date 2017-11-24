@@ -75,7 +75,7 @@ module SmartAnswer
           end
 
           calculate :to_saturday_formatted do
-            calculator.format_date_day to_saturday
+            to_saturday.to_s(:weekday_name)
           end
 
           save_input_as :has_employment_contract
@@ -115,7 +115,7 @@ module SmartAnswer
           end
 
           precalculate :payday_offset_formatted do
-            calculator.format_date_day payday_offset
+            payday_offset.to_s(:weekday_name)
           end
 
           calculate :last_payday_eight_weeks do |response|
@@ -335,7 +335,7 @@ module SmartAnswer
           precalculate :pay_dates_and_pay do
             unless not_entitled_to_pay_reason.present?
               lines = calculator.paydates_and_pay.map do |date_and_pay|
-                %(#{date_and_pay[:date].strftime('%e %B %Y')}|£#{sprintf('%.2f', date_and_pay[:pay])})
+                %(#{date_and_pay[:date].to_s(:govuk)}|£#{sprintf('%.2f', date_and_pay[:pay])})
               end
               lines.join("\n")
             end

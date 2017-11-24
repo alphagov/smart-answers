@@ -12,8 +12,8 @@
 
     |Leave                         | Key dates                   |
     |------------------------------|-----------------------------|
-    |Start                         | <%= format_date(leave_start_date) %>         |
-    |End                           | <%= format_date(leave_end_date) %>           |
+    |Start                         | <%= leave_start_date.to_s(:govuk) %>         |
+    |End                           | <%= leave_end_date.to_s(:govuk) %>           |
   <% end %>
 
   <% if calculator.on_payroll == 'no' || calculator.average_weekly_earnings_under_lower_earning_limit? %>

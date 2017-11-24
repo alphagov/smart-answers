@@ -34,10 +34,10 @@ module SmartAnswer
         end
 
         calculate :last_payment_date do
-          calculator.last_payment_date.strftime("%e %B %Y").strip
+          calculator.last_payment_date.to_s(:govuk).strip
         end
         calculate :funds_received_by do
-          calculator.funds_received_by.strftime("%e %B %Y").strip
+          calculator.funds_received_by.to_s(:govuk).strip
         end
 
         next_node do |response|

@@ -21,7 +21,7 @@
     <% elsif employed_dob == 'no' %>
       <% case leave_type %>
       <% when 'paternity' %>
-        + they must still be employed by you on <%= format_date(due_date) %>
+        + they must still be employed by you on <%= due_date.to_s(:govuk) %>
       <% when 'paternity_adoption' %>
         + they must still be employed by you on <%= ap_adoption_date_formatted %>
       <% end %>

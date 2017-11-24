@@ -112,7 +112,7 @@ module SmartAnswer
     end
 
     def to_s
-      "#{formatted_date begins_on} to #{formatted_date ends_on}"
+      "#{begins_on.to_s(:govuk)} to #{ends_on.to_s(:govuk)}"
     end
 
     def to_r

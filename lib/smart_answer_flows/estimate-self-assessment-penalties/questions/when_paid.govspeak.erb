@@ -7,5 +7,5 @@
 <% end %>
 
 <% content_for :error_message do %>
-  Please enter a date on or after <%= format_date(calculator.filing_date) %>
+  Please enter a date on or after <%= calculator.filing_date.to_s(:govuk) %>
 <% end %>

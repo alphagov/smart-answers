@@ -11,6 +11,6 @@
 
 |Leave                         | Key dates                    |
 |------------------------------|------------------------------|
-|Start                         | <%= format_date(leave_start_date) %>          |
-|End                           | <%= format_date(leave_end_date) %>            |
-|Latest date to [claim leave](/employers-paternity-pay-leave/<%= leave_spp_claim_link %>)     | <%= format_date(notice_of_leave_deadline) %>  |
+|Start                         | <%= leave_start_date.to_s(:govuk) %>          |
+|End                           | <%= leave_end_date.to_s(:govuk) %>            |
+|Latest date to [claim leave](/employers-paternity-pay-leave/<%= leave_spp_claim_link %>)     | <%= notice_of_leave_deadline.to_s(:govuk) %>  |

@@ -83,11 +83,11 @@ module SmartAnswer
           end
 
           calculate :ap_adoption_date_formatted do
-            calculator.format_date_day ap_adoption_date
+            ap_adoption_date.to_s(:weekday_name)
           end
 
           calculate :matched_date_formatted do
-            calculator.format_date_day matched_date
+            matched_date.to_s(:weekday_name)
           end
 
           next_node do
@@ -206,7 +206,7 @@ module SmartAnswer
           end
 
           calculate :to_saturday_formatted do
-            calculator.format_date_day to_saturday
+            to_saturday.to_s(:weekday_name)
           end
 
           calculate :still_employed_date do
@@ -315,7 +315,7 @@ module SmartAnswer
           end
 
           precalculate :payday_offset_formatted do
-            calculator.format_date_day payday_offset
+            payday_offset.to_s(:weekday_name)
           end
 
           calculate :pre_offset_payday do |response|
@@ -559,7 +559,7 @@ module SmartAnswer
           precalculate :pay_dates_and_pay do
             if entitled_to_pay && above_lower_earning_limit
               lines = calculator.paydates_and_pay.map do |date_and_pay|
-                %(#{date_and_pay[:date].strftime('%e %B %Y')}|£#{sprintf('%.2f', date_and_pay[:pay])})
+                %(#{date_and_pay[:date].to_s(:govuk)}|£#{sprintf('%.2f', date_and_pay[:pay])})
               end
               lines.join("\n")
             end

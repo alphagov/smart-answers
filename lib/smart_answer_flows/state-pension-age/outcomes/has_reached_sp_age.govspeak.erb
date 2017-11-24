@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  You reached State Pension age on <%= format_date(calculator.state_pension_date) %>.
+  You reached State Pension age on <%= calculator.state_pension_date.to_s(:govuk) %>.
 
 <% end %>
 

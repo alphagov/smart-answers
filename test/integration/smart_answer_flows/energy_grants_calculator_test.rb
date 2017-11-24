@@ -5,6 +5,7 @@ require "smart_answer_flows/energy-grants-calculator"
 
 class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
   include FlowTestHelper
+  include SmartAnswer::DateHelper
 
   setup do
     setup_for_testing_flow SmartAnswer::EnergyGrantsCalculatorFlow
@@ -57,7 +58,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         end
         context "answer over 60" do
           setup do
-            add_response 60.years.ago(Date.today).strftime("%Y-%m-%d")
+            add_response 60.years.ago(Date.today).to_s(:db)
           end
           should "store over 60 variable" do
             assert_equal :over_60, current_state.calculator.age_variant
@@ -184,7 +185,7 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
         # over 60 years old
         context "answer over 60" do
           setup do
-            add_response 60.years.ago(Date.today).strftime("%Y-%m-%d")
+            add_response 60.years.ago(Date.today).to_s(:db)
           end
           should "store over 60 variable" do
             assert_equal :over_60, current_state.calculator.age_variant

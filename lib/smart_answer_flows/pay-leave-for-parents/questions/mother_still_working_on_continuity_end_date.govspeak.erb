@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  Was the mother (or will she be) still working in that job on <%= format_date(calculator.continuity_end_date) %>?
+  Was the mother (or will she be) still working in that job on <%= calculator.continuity_end_date.to_s(:govuk) %>?
 <% end %>
 
 <% options(
