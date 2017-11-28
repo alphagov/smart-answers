@@ -92,7 +92,7 @@ module SmartAnswer::Calculators
           should "someone born on #{test_case[:birth_date]} and getting their pension on #{test_case[:pension_date]} should have a pension age of #{test_case[:age]}" do
             @calculator.stubs(:dob).returns(test_case[:birth_date])
             @calculator.stubs(:state_pension_date).returns(test_case[:pension_date])
-            assert_equal @calculator.state_pension_age, test_case[:expected_age]
+            assert_equal test_case[:expected_age], @calculator.state_pension_age
           end
         end
       end
@@ -128,7 +128,7 @@ module SmartAnswer::Calculators
           should "someone born on #{test_case[:birth_date]} and getting their pension on #{test_case[:pension_date]} should have a pension age of #{test_case[:age]}" do
             @calculator.stubs(:dob).returns(test_case[:birth_date])
             @calculator.stubs(:state_pension_date).returns(test_case[:pension_date])
-            assert_equal @calculator.state_pension_age, test_case[:expected_age]
+            assert_equal test_case[:expected_age], @calculator.state_pension_age
           end
         end
       end
@@ -157,7 +157,7 @@ module SmartAnswer::Calculators
         end
 
         should "be true for a date that is the 29th of Feb" do
-          assert_equal true, @calculator.pension_on_feb_29?
+          assert @calculator.pension_on_feb_29?
         end
       end
 
@@ -169,7 +169,7 @@ module SmartAnswer::Calculators
         end
 
         should "be false for a date that is not the 29th of Feb" do
-          assert_equal false, @calculator.pension_on_feb_29?
+          refute @calculator.pension_on_feb_29?
         end
       end
     end
