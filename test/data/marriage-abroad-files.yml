@@ -614,12 +614,12 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/uk/partne
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/uk/partner_other/_opposite_sex.govspeak.erb: 54480804bdd7eb5e8ca52f6ec8d9ae87
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/uk/partner_other/_same_sex.govspeak.erb: 54480804bdd7eb5e8ca52f6ec8d9ae87
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/spain/_title.govspeak.erb: 276c524a92c0591d53fc92c86250be6c
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/spain/ceremony_country/_opposite_sex.govspeak.erb: 8d03367fb015793313089115fe544427
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/spain/ceremony_country/_same_sex.govspeak.erb: 71f171a2ca4a7e46e5ed7a2dc8444953
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/spain/ceremony_country/_opposite_sex.govspeak.erb: 7372e1cc4ca1064ad7c2bc1b945a766a
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/spain/ceremony_country/_same_sex.govspeak.erb: 0b0d800adf9e2512f043e5164e26ca83
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/spain/third_country/_opposite_sex.govspeak.erb: 24f818187209787ce05e392faf006fa3
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/spain/third_country/_same_sex.govspeak.erb: 6870bb3aaa8cc3b6934fa1668f3a132d
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/spain/uk/_opposite_sex.govspeak.erb: a9351e6cd6ba1955a0db74c7d8fdc3e0
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/spain/uk/_same_sex.govspeak.erb: 6d9046a1b8736c9dfc05e2e8a246a8c0
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/spain/uk/_opposite_sex.govspeak.erb: 0732b8c2e3bae75a8626fbcf2843a22a
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/spain/uk/_same_sex.govspeak.erb: 1d9228241069d20bbd78e1e93619a345
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/sweden/_title.govspeak.erb: 0a2cc626a2299c1297363135c8aca02b
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/sweden/ceremony_country/partner_british/_opposite_sex.govspeak.erb: 026c60e08b84cbee3f2ac71d12eb6f4e
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/sweden/ceremony_country/partner_british/_same_sex.govspeak.erb: e3a0f811317edef414312dafd7a11b77
