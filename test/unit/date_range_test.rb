@@ -253,6 +253,10 @@ module SmartAnswer
       should 'be empty' do
         assert @date_range.empty?
       end
+
+      should 'set the ends_on date to the date before the begins_on date' do
+        assert_equal Date.parse('2000-01-01'), @date_range.ends_on
+      end
     end
 
     context 'intersection of' do
