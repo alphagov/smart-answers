@@ -18,8 +18,12 @@ module SmartAnswer::Calculators
       Date.today >= earliest_application_date
     end
 
+    def pension_on_feb_29?
+      state_pension_date.month == 2 && state_pension_date.day == 29
+    end
+
     def state_pension_age
-      if birthday_on_feb_29?
+      if birthday_on_feb_29? && !pension_on_feb_29?
         SmartAnswer::DateRange.new(
           begins_on: dob,
           ends_on: state_pension_date - 1.day

@@ -60,6 +60,78 @@ module SmartAnswer::Calculators
           assert_equal @calculator.state_pension_age, '60 years'
         end
       end
+
+      context 'given variable changes to state pension age between 66 - 67 years for births between 6 Apr 1960 - 5 Mar 1961' do
+        [
+          {
+            birth_date: Date.parse('6 Apr 1960'),
+            pension_date: Date.parse('6 May 2026'),
+            expected_age: '66 years, 1 month'
+          },
+          {
+            birth_date: Date.parse('20 May 1960'),
+            pension_date: Date.parse('20 Jul 2026'),
+            expected_age: '66 years, 2 months'
+          },
+          {
+            birth_date: Date.parse('1 Jul 1960'),
+            pension_date: Date.parse('1 Oct 2026'),
+            expected_age: '66 years, 3 months'
+          },
+          {
+            birth_date: Date.parse('8 Dec 1960'),
+            pension_date: Date.parse('8 Sep 2027'),
+            expected_age: '66 years, 9 months'
+          },
+          {
+            birth_date: Date.parse('28 Feb 1961'),
+            pension_date: Date.parse('28 Jan 2028'),
+            expected_age: '66 years, 11 months'
+          },
+        ].each do |test_case|
+          should "someone born on #{test_case[:birth_date]} and getting their pension on #{test_case[:pension_date]} should have a pension age of #{test_case[:age]}" do
+            @calculator.stubs(:dob).returns(test_case[:birth_date])
+            @calculator.stubs(:state_pension_date).returns(test_case[:pension_date])
+            assert_equal test_case[:expected_age], @calculator.state_pension_age
+          end
+        end
+      end
+
+      context 'given a series of dates around 28 Feb test the calculated state_pension_age' do
+        [
+          {
+            birth_date: Date.parse('28 Feb 1980'),
+            pension_date: Date.parse('28 Feb 2048'),
+            expected_age: '68 years'
+          },
+          {
+            birth_date: Date.parse('29 Feb 1980'),
+            pension_date: Date.parse('29 Feb 2048'),
+            expected_age: '68 years'
+          },
+          {
+            birth_date: Date.parse('1 Mar 1980'),
+            pension_date: Date.parse('1 Mar 2048'),
+            expected_age: '68 years'
+          },
+          {
+            birth_date: Date.parse('28 Feb 1981'),
+            pension_date: Date.parse('28 Feb 2049'),
+            expected_age: '68 years'
+          },
+          {
+            birth_date: Date.parse('1 Mar 1981'),
+            pension_date: Date.parse('1 Mar 2049'),
+            expected_age: '68 years'
+          },
+        ].each do |test_case|
+          should "someone born on #{test_case[:birth_date]} and getting their pension on #{test_case[:pension_date]} should have a pension age of #{test_case[:age]}" do
+            @calculator.stubs(:dob).returns(test_case[:birth_date])
+            @calculator.stubs(:state_pension_date).returns(test_case[:pension_date])
+            assert_equal test_case[:expected_age], @calculator.state_pension_age
+          end
+        end
+      end
     end
 
     context "#birthday_on_feb_29??" do
@@ -73,6 +145,32 @@ module SmartAnswer::Calculators
         @calculator = StatePensionAgeCalculator.new(
           gender: "male", dob: Date.parse("7 June 1960"))
         assert_equal false, @calculator.birthday_on_feb_29?
+      end
+    end
+
+    context '#pension_on_feb_29??' do
+      context 'pension due on 29th of Feb' do
+        setup do
+          @calculator = StatePensionAgeCalculator.new(
+            gender: "male", dob: Date.parse("29 Feb 1980"))
+          @calculator.stubs(:state_pension_date).returns(Date.parse('29 Feb 2048'))
+        end
+
+        should "be true for a date that is the 29th of Feb" do
+          assert @calculator.pension_on_feb_29?
+        end
+      end
+
+      context 'pension not due on 29th of Feb' do
+        setup do
+          @calculator = StatePensionAgeCalculator.new(
+            gender: "male", dob: Date.parse("28 Aug 1974"))
+          @calculator.stubs(:state_pension_date).returns(Date.parse('28 Aug 2041'))
+        end
+
+        should "be false for a date that is not the 29th of Feb" do
+          refute @calculator.pension_on_feb_29?
+        end
       end
     end
 
