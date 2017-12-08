@@ -116,7 +116,7 @@ private
   end
 
   def setup_navigation_helpers_and_content_item
-    @content_item = ContentItemRetriever.without_links_organisations(params[:id])
+    @content_item = ContentItemRetriever.fetch(params[:id])
     @navigation_helpers = nil
 
     if @content_item.present?
