@@ -13,6 +13,7 @@ module SmartAnswer
       stub('flow-registration-presenter',
         slug: 'flow-slug',
         title: 'flow-title',
+        flows_content: ['question title'],
         description: '',
         start_page_body: '',
         start_page_post_body: '',
