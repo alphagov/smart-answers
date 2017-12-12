@@ -79,7 +79,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
               ],
             },
           }.with_indifferent_access
-        ContentItemRetriever.stubs(:without_links_organisations)
+        ContentItemRetriever.stubs(:fetch)
           .returns(@content_item)
         GovukNavigationHelpers::NavigationHelper.any_instance
           .stubs(:taxon_breadcrumbs)
@@ -99,7 +99,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
     context "when a smart answer does not exist on the content store" do
       setup do
-        ContentItemRetriever.stubs(:without_links_organisations).returns({})
+        ContentItemRetriever.stubs(:fetch).returns({})
         get :show, params: { id: "smart-answers-controller-sample" }
       end
 

@@ -59,21 +59,4 @@ require "test_helper"
         end
       end
     end
-
-    context "without_links_organisations" do
-      setup do
-        ContentItemRetriever.stubs(:fetch).returns(@content_store_response)
-      end
-
-      should "send message to fetch at least once" do
-        ContentItemRetriever.expects(:fetch).at_least_once.returns(@content_store_response)
-        ContentItemRetriever.without_links_organisations(@slug)
-      end
-
-      should "returns content item with organisations property under links" do
-        content_item = ContentItemRetriever.without_links_organisations(@slug)
-
-        assert_equal content_item[:links], {}
-      end
-    end
   end
