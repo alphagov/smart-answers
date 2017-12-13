@@ -34,19 +34,15 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
       assert_equal "Missing destination parameter", exception.message
     end
 
-    should "invoke the unpublish, publish_redirect and remove_smart_answer_from_search methods from ContentItemPublisher" do
+    should "invoke the unpublish and publish_redirect methods from ContentItemPublisher" do
       content_item_publisher_mock = ContentItemPublisher.any_instance
 
       content_item_publisher_mock.stubs(:unpublish).returns(nil)
       content_item_publisher_mock.stubs(:publish_redirect).returns(nil)
-      content_item_publisher_mock.stubs(:remove_smart_answer_from_search)
-        .returns(nil)
 
       content_item_publisher_mock.expects(:unpublish).with("content-id").once
       content_item_publisher_mock.expects(:publish_redirect)
         .with("/base-path", "/new-destination").once
-      content_item_publisher_mock.expects(:remove_smart_answer_from_search)
-        .with("/base-path").once
 
       Rake::Task["retire:unpublish_redirect_remove_from_search"].invoke(
         "content-id",
@@ -103,27 +99,6 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
       ContentItemPublisher.any_instance.expects(:publish_redirect).with("/base-path", "/destination-path").once
 
       Rake::Task["retire:publish_redirect"].invoke("/base-path", "/destination-path")
-    end
-  end
-
-  context "retire:remove_smart_answer_from_search rake task" do
-    setup do
-      Rake::Task["retire:remove_smart_answer_from_search"].reenable
-      ContentItemPublisher.any_instance.stubs(:remove_smart_answer_from_search).returns(nil)
-    end
-
-    should "raise exception when base-path is not defined" do
-      exception = assert_raises RuntimeError do
-        Rake::Task["retire:remove_smart_answer_from_search"].invoke
-      end
-
-      assert_equal "Missing base-path parameter", exception.message
-    end
-
-    should "invoke the remove_smart_answer_from_search method on ContentItemPublisher" do
-      ContentItemPublisher.any_instance.expects(:remove_smart_answer_from_search).with("/base-path").once
-
-      Rake::Task["retire:remove_smart_answer_from_search"].invoke("/base-path")
     end
   end
 
