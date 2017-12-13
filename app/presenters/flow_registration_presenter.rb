@@ -71,6 +71,7 @@ class FlowRegistrationPresenter
 
     content
       .compact
+      .reject(&:blank?)
       .map do |html|
         HTMLEntities.new
           .decode(html)
