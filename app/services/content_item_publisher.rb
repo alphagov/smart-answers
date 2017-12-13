@@ -27,12 +27,6 @@ class ContentItemPublisher
     add_redirect_to_publishing_api(path, destination)
   end
 
-  def remove_smart_answer_from_search(base_path)
-    raise "The base_path isn't supplied" unless base_path.present?
-
-    Services.rummager.delete_content(base_path)
-  end
-
   def reserve_path_for_publishing_app(base_path, publishing_app)
     raise "The destination or path isn't supplied" unless base_path.present? && publishing_app.present?
 

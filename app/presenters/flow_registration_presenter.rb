@@ -79,25 +79,6 @@ class FlowRegistrationPresenter
       end
   end
 
-  def indexable_content
-    HTMLEntities.new.decode(
-      @flow.nodes.inject([start_node.body]) { |acc, node|
-        case node
-        when SmartAnswer::Question::Base
-          pres = QuestionPresenter.new(node, nil, helpers: [MethodMissingHelper])
-          acc.concat([:title, :body, :hint].map { |method|
-            pres.send(method)
-          })
-        when SmartAnswer::Outcome
-          pres = OutcomePresenter.new(node, nil, helpers: [MethodMissingHelper])
-          acc.concat([:title, :body].map { |method|
-            pres.send(method)
-          })
-        end
-      }.compact.join(" ").gsub(/(?:<[^>]+>|\s)+/, " ")
-    )
-  end
-
   def state
     'live'
   end
