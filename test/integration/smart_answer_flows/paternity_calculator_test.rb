@@ -435,7 +435,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
           add_response "monthly"
           add_response "500"
           assert_current_node :paternity_leave_and_pay
-          assert_state_variable :relevant_period, "Wednesday, 03 April 2013 and Sunday, 06 April 2014"
+          assert_state_variable :relevant_period, "Wednesday, 3 April 2013 and Sunday, 6 April 2014"
           assert_state_variable :to_saturday_formatted, "Saturday, 12 April 2014"
           assert_state_variable :lower_earning_limit, '111.00'
         end

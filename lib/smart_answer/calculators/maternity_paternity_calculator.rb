@@ -110,14 +110,6 @@ module SmartAnswer::Calculators
       @leave_type == "paternity_adoption"
     end
 
-    def format_date(date)
-      date.strftime("%e %B %Y")
-    end
-
-    def format_date_day(date)
-      date.strftime("%A, %d %B %Y")
-    end
-
     def payday_offset
       8.weeks.ago(last_payday) + 1
     end
@@ -127,7 +119,7 @@ module SmartAnswer::Calculators
     end
 
     def formatted_relevant_period
-      relevant_period.map { |p| format_date_day(p) }.join(" and ")
+      relevant_period.map { |p| p.to_s(:weekday_name) }.join(" and ")
     end
 
     def leave_end_date

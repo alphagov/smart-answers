@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  Did the mother’s partner work (or will they have worked) for at least 26 weeks in this job between <%= format_date(calculator.earnings_employment_start_date) %> and <%= format_date(calculator.earnings_employment_end_date) %>?
+  Did the mother’s partner work (or will they have worked) for at least 26 weeks in this job between <%= calculator.earnings_employment_start_date.to_s(:govuk) %> and <%= calculator.earnings_employment_end_date.to_s(:govuk) %>?
 <% end %>
 
 <% options(

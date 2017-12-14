@@ -7,5 +7,5 @@
 <% end %>
 
 <% content_for :error_message do %>
-  Please enter a date on or after <%= format_date(calculator.start_of_next_tax_year) %>
+  Please enter a date on or after <%= calculator.start_of_next_tax_year.to_s(:govuk) %>
 <% end %>

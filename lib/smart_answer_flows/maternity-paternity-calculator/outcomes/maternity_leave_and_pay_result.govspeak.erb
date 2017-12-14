@@ -6,10 +6,10 @@
 
     |Leave                         | Key dates                    |
     |------------------------------|------------------------------|
-    |Start                         | <%= format_date(leave_start_date) %>          |
-    |End                           | <%= format_date(leave_end_date) %>            |
-    |Latest date to [claim leave](/maternity-leave-pay-employees/notice-period "Notice period")    | <%= format_date(notice_of_leave_deadline) %>  |
-    |Earliest date leave can start | <%= format_date(leave_earliest_start_date) %> |
+    |Start                         | <%= leave_start_date.to_s(:govuk) %>          |
+    |End                           | <%= leave_end_date.to_s(:govuk) %>            |
+    |Latest date to [claim leave](/maternity-leave-pay-employees/notice-period "Notice period")    | <%= notice_of_leave_deadline.to_s(:govuk) %>  |
+    |Earliest date leave can start | <%= leave_earliest_start_date.to_s(:govuk) %> |
 
   <% else %>
     ##Statutory Maternity Leave
@@ -44,7 +44,7 @@
                  } %>
     <% when :not_worked_long_enough_and_not_on_payroll %>
 
-      + they must have worked continually for you between <%= format_date(employment_start) %> and <%= format_date(qualifying_week_start) %>.
+      + they must have worked continually for you between <%= employment_start.to_s(:govuk) %> and <%= qualifying_week_start.to_s(:govuk) %>.
       + <%= render partial: 'must_be_on_payroll.govspeak.erb' %>
     <% end %>
     You must write confirming this within 28 days of their maternity pay request.
@@ -62,8 +62,8 @@
     Pay | Key facts
     -|-
     Average weekly earnings | <%= format_money(average_weekly_earnings) %> (don't round this up or down)
-    Latest date to claim SMP | <%= format_date(notice_request_pay) %>
-    SMP start date due to pregnancy related illness| <%= format_date(ssp_stop) %>
+    Latest date to claim SMP | <%= notice_request_pay.to_s(:govuk) %>
+    SMP start date due to pregnancy related illness| <%= ssp_stop.to_s(:govuk) %>
     Proof of pregnancy | Usually within 21 days of the SMP start date (or as soon as possible if baby born early)
 
     %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%

@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  Did the mother’s partner start their current or most recent job before <%= format_date(calculator.continuity_start_date) %>?
+  Did the mother’s partner start their current or most recent job before <%= calculator.continuity_start_date.to_s(:govuk) %>?
 <% end %>
 
 <%= render partial: 'warning_hint.govspeak.erb' %>
