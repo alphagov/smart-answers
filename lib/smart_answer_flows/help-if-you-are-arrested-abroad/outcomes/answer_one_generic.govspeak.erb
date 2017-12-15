@@ -52,7 +52,11 @@
     <%= region_downloads %>
   <% end %>
 
-  <%= render partial: 'common_downloads.govspeak.erb', locals: { transfer_back: transfers_back_to_uk_treaty_change_countries.exclude?(country) } %>
+  <% if iran %>
+    <%= render partial: 'iran_downloads.govspeak.erb', locals: { transfer_back: transfers_back_to_uk_treaty_change_countries.exclude?(country) } %>
+  <% else %>
+    <%= render partial: 'common_downloads.govspeak.erb', locals: { transfer_back: transfers_back_to_uk_treaty_change_countries.exclude?(country) } %>
+  <% end %>
 
   ##What the FCO and British consulate can’t do
 
