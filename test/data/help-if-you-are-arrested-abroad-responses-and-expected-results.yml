@@ -31,6 +31,11 @@
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
+  - iran
+  :next_node: :answer_one_generic
+  :outcome_node: true
+- :current_node: :which_country?
+  :responses:
   - spain
   :next_node: :answer_one_generic
   :outcome_node: true

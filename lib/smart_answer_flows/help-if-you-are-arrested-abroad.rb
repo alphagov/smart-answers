@@ -87,6 +87,10 @@ module SmartAnswer
       end
 
       outcome :answer_one_generic do
+        precalculate :iran do
+          country_name == "Iran" ? true : false
+        end
+
         precalculate :transfers_back_to_uk_treaty_change_countries do
           %w(austria belgium croatia denmark finland hungary italy latvia luxembourg malta netherlands slovakia)
         end
