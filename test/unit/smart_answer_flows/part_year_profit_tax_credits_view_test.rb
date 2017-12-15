@@ -61,7 +61,7 @@ module SmartAnswer
       end
 
       should 'display title with interpolated basis_period_ends_on' do
-        expected = "Do your accounts cover the 12 month period up to 5 April 2016?"
+        expected = "Do your accounts cover the 12 month period up to  5 April 2016?"
         assert_equal expected, @presenter.title
       end
 
@@ -85,7 +85,7 @@ module SmartAnswer
       end
 
       should 'display title with interpolated basis_period_begins_on and basis_period_ends_on' do
-        expected = "What is your actual or estimated taxable profit between 6 April 2015 and 5 April 2016?"
+        expected = "What is your actual or estimated taxable profit between  6 April 2015 and  5 April 2016?"
         assert_equal expected, @presenter.title
       end
 
@@ -113,7 +113,7 @@ module SmartAnswer
       end
 
       should 'display title with interpolated accounting_year_begins_on' do
-        expected = "Did you start trading before 6 April 2015?"
+        expected = "Did you start trading before  6 April 2015?"
         assert_equal expected, @presenter.title
       end
     end
@@ -128,7 +128,7 @@ module SmartAnswer
       end
 
       should 'display hint with interpolated tax_year_begins_on and tax_year_ends_on' do
-        expected = "This date must be between 6 April 2015 and 5 April 2016"
+        expected = "This date must be between  6 April 2015 and  5 April 2016"
         assert_match expected, @presenter.hint
       end
 
@@ -139,7 +139,7 @@ module SmartAnswer
 
       should 'display a useful error message when an invalid date is entered' do
         @state.error = 'not_in_tax_year_error'
-        expected = "The date must be between 6 April 2015 and 5 April 2016."
+        expected = "The date must be between  6 April 2015 and  5 April 2016."
         assert_equal expected, @presenter.error
       end
     end
@@ -153,7 +153,7 @@ module SmartAnswer
       end
 
       should 'display hint with interpolated award_period_ends_on' do
-        expected = "This date must be before 1 August 2015."
+        expected = "This date must be before  1 August 2015."
         assert_equal expected, @presenter.hint
       end
 
@@ -194,7 +194,7 @@ module SmartAnswer
         end
 
         should 'display taxable_profit' do
-          assert_match 'Your estimated taxable profit between 6 April 2015 and 5 April 2016 was: £15,000', @body
+          assert_match 'Your estimated taxable profit between  6 April 2015 and  5 April 2016 was: £15,000', @body
         end
       end
 
@@ -206,7 +206,7 @@ module SmartAnswer
         end
 
         should 'display basis_period ends_on' do
-          assert_match 'Your business accounts end on: 5 April 2016', @body
+          assert_match 'Your business accounts end on:  5 April 2016', @body
         end
       end
 
@@ -218,7 +218,7 @@ module SmartAnswer
         end
 
         should 'display the date the business stopped trading' do
-          assert_match 'Your business stopped trading on: 5 April 2016', @body
+          assert_match 'Your business stopped trading on:  5 April 2016', @body
         end
       end
     end

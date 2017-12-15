@@ -7,11 +7,11 @@ module SmartAnswer::Calculators
 
     def initialize(options = {})
       @match_date = options[:match_date]
-      @formatted_match_date = @match_date.to_s(:govuk)
+      @formatted_match_date = formatted_date(@match_date)
       @arrival_date = options[:arrival_date]
-      @formatted_arrival_date = @arrival_date.to_s(:govuk)
+      @formatted_arrival_date = formatted_date(@arrival_date)
       @start_date = options[:start_date]
-      @formatted_start_date = @start_date.to_s(:govuk)
+      @formatted_start_date = formatted_date(@start_date)
     end
 
     def distance_start
@@ -25,7 +25,7 @@ module SmartAnswer::Calculators
     end
 
     def earliest_start_formatted
-      earliest_start.to_s(:govuk)
+      formatted_date(earliest_start)
     end
 
     def expected_week
@@ -39,7 +39,7 @@ module SmartAnswer::Calculators
     end
 
     def last_qualifying_week_formatted
-      qualifying_week.ends_on.to_s(:govuk)
+      formatted_date(qualifying_week.ends_on)
     end
 
     def period_of_ordinary_leave

@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  Did the mother’s partner earn (or will they have earned) a total of £390 or more in any 13 weeks of this job between <%= calculator.earnings_employment_start_date.to_s(:govuk) %> and <%= calculator.earnings_employment_end_date.to_s(:govuk) %>?
+  Did the mother’s partner earn (or will they have earned) a total of £390 or more in any 13 weeks of this job between <%= format_date(calculator.earnings_employment_start_date) %> and <%= format_date(calculator.earnings_employment_end_date) %>?
 <% end %>
 
 <% options(

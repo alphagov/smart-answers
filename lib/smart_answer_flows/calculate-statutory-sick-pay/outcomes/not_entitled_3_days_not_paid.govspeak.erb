@@ -1,5 +1,5 @@
 <% content_for :body do %>
   Your employee isn’t entitled to Statutory Sick Pay because the first 3 days of illness aren’t paid.
 
-  This employee has taken <%= normal_workdays_out %> working days off sick between <%= calculator.sick_start_date.to_s(:govuk) %> and <%= calculator.sick_end_date.to_s(:govuk) %>.
+  This employee has taken <%= normal_workdays_out %> working days off sick between <%= format_date(calculator.sick_start_date) %> and <%= format_date(calculator.sick_end_date) %>.
 <% end %>

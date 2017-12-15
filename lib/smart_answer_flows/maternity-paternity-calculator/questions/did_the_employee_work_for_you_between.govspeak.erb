@@ -1,7 +1,7 @@
 <% content_for :title do %>
   Did the employee have a contract with you covering
-  <%= employment_start.to_s(:govuk) %> to
-  <%= qualifying_week_start.to_s(:govuk) %>?
+  <%= format_date(employment_start) %> to
+  <%= format_date(qualifying_week_start) %>?
 <% end %>
 
 <% options(

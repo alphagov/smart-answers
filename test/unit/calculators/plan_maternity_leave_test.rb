@@ -11,7 +11,7 @@ module SmartAnswer::Calculators
 
       context "formatted dates" do
         should "show formatted due date" do
-          assert_equal "Wednesday, 2 January 2013", @calculator.formatted_due_date
+          assert_equal "Wednesday, 02 January 2013", @calculator.formatted_due_date
         end
 
         should "show formatted start_date (2 weeks)" do

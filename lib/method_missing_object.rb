@@ -15,7 +15,7 @@ class MethodMissingObject
     @parent_method ? "#{@parent_method.description}.#{@method}" : @method.to_s
   end
 
-  def to_s(_ = nil)
+  def to_s
     @blank_to_s ? "" : "<%= #{description} %>".html_safe
   end
 

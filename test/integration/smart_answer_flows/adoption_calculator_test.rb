@@ -5,6 +5,7 @@ require_relative '../../../lib/smart_answer/date_helper'
 require "smart_answer_flows/maternity-paternity-calculator"
 
 class AdoptionCalculatorTest < ActiveSupport::TestCase
+  include SmartAnswer::DateHelper
   include FlowTestHelper
 
   setup do
