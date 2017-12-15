@@ -40,6 +40,6 @@ Tell the partner’s employer | 28 days before they want to start paternity pay
 
 <% else %>
 
-Tell the partner’s employer | <%= calculator.paternity_leave_notice_date.to_s(:govuk) %>
+Tell the partner’s employer | <%= format_date(calculator.paternity_leave_notice_date) %>
 
 <% end %>

@@ -9,12 +9,12 @@ module SmartAnswer::Calculators
       @due_date = Date.parse(options[:due_date])
       due_date_week_start = @due_date - @due_date.wday
       @leave_earliest_start_date = 11.weeks.ago(due_date_week_start)
-      @formatted_due_date = @due_date.to_s(:weekday_name)
+      @formatted_due_date = @due_date.strftime("%A, %d %B %Y")
     end
 
     def enter_start_date(entered_start_date)
       @start_date = Date.parse(entered_start_date)
-      @formatted_start_date = @start_date.to_s(:govuk)
+      @formatted_start_date = formatted_date(@start_date)
     end
 
     def distance_start

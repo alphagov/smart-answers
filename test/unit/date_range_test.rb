@@ -107,7 +107,7 @@ module SmartAnswer
       end
 
       should 'return a formatted string' do
-        assert_equal "1 January 2000 to 7 January 2000", @date_range.to_s
+        assert_equal "01 January 2000 to 07 January 2000", @date_range.to_s
       end
     end
 

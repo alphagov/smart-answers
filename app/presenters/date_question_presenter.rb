@@ -3,9 +3,9 @@ class DateQuestionPresenter < QuestionPresenter
 
   def response_label(value)
     if only_display_day_and_month?(value)
-      value.to_s(:day_month)
+      value.strftime("%e %B")
     else
-      value.to_s(:govuk)
+      value.strftime("%e %B %Y")
     end
   end
 

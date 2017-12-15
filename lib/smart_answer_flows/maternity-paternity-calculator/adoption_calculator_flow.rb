@@ -45,7 +45,7 @@ module SmartAnswer
           end
 
           calculate :a_leave_earliest_start_formatted do
-            a_leave_earliest_start.to_s(:govuk)
+            calculator.format_date a_leave_earliest_start
           end
 
           calculate :employment_start do
@@ -104,7 +104,7 @@ module SmartAnswer
           end
 
           calculate :to_saturday_formatted do
-            to_saturday.to_s(:weekday_name)
+            calculator.format_date_day to_saturday
           end
 
           next_node do
@@ -141,7 +141,7 @@ module SmartAnswer
           end
 
           calculate :a_notice_leave do
-            calculator.a_notice_leave.to_s(:govuk)
+            calculator.format_date calculator.a_notice_leave
           end
 
           next_node do
@@ -178,7 +178,7 @@ module SmartAnswer
           end
 
           precalculate :payday_offset_formatted do
-            payday_offset.to_s(:weekday_name)
+            calculator.format_date_day payday_offset
           end
 
           calculate :last_payday_eight_weeks do |response|
@@ -287,7 +287,7 @@ module SmartAnswer
           precalculate :pay_dates_and_pay do
             if above_lower_earning_limit
               lines = calculator.paydates_and_pay.map do |date_and_pay|
-                %(#{date_and_pay[:date].to_s(:govuk)}|£#{sprintf('%.2f', date_and_pay[:pay])})
+                %(#{date_and_pay[:date].strftime('%e %B %Y')}|£#{sprintf('%.2f', date_and_pay[:pay])})
               end
               lines.join("\n")
             end
