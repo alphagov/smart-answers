@@ -28,7 +28,7 @@ gem 'slimmer', '~> 11.1.1'
 gem 'tilt', '1.4.1'
 gem 'uglifier'
 gem 'uk_postcode', '~> 1.0.1'
-gem 'unicorn', '4.8.3'
+gem 'unicorn', '5.3.1'
 gem 'rails_stdout_logging'
 gem 'govuk_navigation_helpers', '~> 6.3.0'
 
