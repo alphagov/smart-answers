@@ -73,7 +73,7 @@ GEM
     execjs (2.7.0)
     faraday (0.13.1)
       multipart-post (>= 1.2, < 3)
-    gds-api-adapters (47.9.1)
+    gds-api-adapters (50.6.0)
       link_header
       lrucache (~> 0.1.1)
       null_logger
@@ -286,7 +286,7 @@ DEPENDENCIES
   byebug
   capybara (= 2.14.0)
   ci_reporter
-  gds-api-adapters (~> 47.9.1)
+  gds-api-adapters (~> 50.6.0)
   govspeak (~> 3.3.0)
   govuk-content-schema-test-helpers (~> 1.3.0)
   govuk-lint
