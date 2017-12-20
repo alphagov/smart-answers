@@ -258,7 +258,7 @@ GEM
     timecop (0.9.1)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
-    uglifier (3.2.0)
+    uglifier (4.0.2)
       execjs (>= 0.3.0, < 3)
     uk_postcode (1.0.1)
     unf (0.1.4)
