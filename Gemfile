@@ -46,7 +46,7 @@ end
 
 group :test do
   gem 'rails-controller-testing'
-  gem 'capybara', '2.14.0'
+  gem 'capybara', '2.16.1'
   gem 'ci_reporter'
   gem 'minitest', '~> 5.10', '!= 5.10.2'
   gem 'minitest-focus', '~> 1.1', '>= 1.1.2'
