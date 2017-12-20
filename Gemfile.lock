@@ -100,7 +100,7 @@ GEM
     govuk_frontend_toolkit (7.0.1)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-    govuk_navigation_helpers (6.3.0)
+    govuk_navigation_helpers (7.3.0)
       gds-api-adapters (>= 43.0)
     htmlentities (4.3.4)
     http-cookie (1.0.3)
@@ -300,7 +300,7 @@ DEPENDENCIES
   govuk-lint
   govuk_app_config (~> 0.2.0)
   govuk_frontend_toolkit (>= 6.0.4)
-  govuk_navigation_helpers (~> 6.3.0)
+  govuk_navigation_helpers (~> 7.3.0)
   htmlentities (~> 4)
   json
   logstasher (= 0.4.8)
