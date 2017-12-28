@@ -50,7 +50,7 @@ group :test do
   gem 'ci_reporter'
   gem 'minitest', '~> 5.10', '!= 5.10.2'
   gem 'minitest-focus', '~> 1.1', '>= 1.1.2'
-  gem 'mocha', '1.1.0', require: false
+  gem 'mocha', '1.3.0', require: false
   gem 'poltergeist', '1.6.0'
   gem 'shoulda', '~> 3.5.0'
   gem 'simplecov', '~> 0.10.0', require: false
