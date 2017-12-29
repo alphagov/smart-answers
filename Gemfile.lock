@@ -103,6 +103,7 @@ GEM
       sass (>= 3.2.0)
     govuk_navigation_helpers (6.3.0)
       gds-api-adapters (>= 43.0)
+    hashdiff (0.3.7)
     htmlentities (4.3.4)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -278,9 +279,10 @@ GEM
     unicorn (5.4.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
-    webmock (1.20.4)
+    webmock (3.1.1)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
+      hashdiff
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -334,7 +336,7 @@ DEPENDENCIES
   uglifier
   uk_postcode (~> 1.0.1)
   unicorn (= 5.4.0)
-  webmock (= 1.20.4)
+  webmock (= 3.1.1)
 
 RUBY VERSION
    ruby 2.3.1p112
