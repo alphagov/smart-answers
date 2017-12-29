@@ -10,7 +10,7 @@ gem "sprockets-rails"
 gem "govuk_app_config", "~> 0.2.0"
 
 gem 'ast'
-gem "gds-api-adapters", "~> 47.9.1"
+gem "gds-api-adapters", "~> 50.8.0"
 gem 'govspeak', '~> 3.3.0'
 gem 'govuk-content-schema-test-helpers', '~> 1.3.0'
 gem 'govuk_frontend_toolkit', '>= 6.0.4'
