@@ -268,7 +268,7 @@ GEM
     statsd-ruby (1.4.0)
     thor (0.20.0)
     thread_safe (0.3.6)
-    tilt (1.4.1)
+    tilt (2.0.8)
     timecop (0.9.1)
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
@@ -334,7 +334,7 @@ DEPENDENCIES
   simplecov-rcov (~> 0.2.3)
   slimmer (~> 11.1.1)
   sprockets-rails
-  tilt (= 1.4.1)
+  tilt (= 2.0.8)
   timecop
   uglifier
   uk_postcode (~> 1.0.1)
