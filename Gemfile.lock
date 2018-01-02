@@ -133,7 +133,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
-    minitest (5.10.3)
+    minitest (5.11.0)
     minitest-focus (1.1.2)
       minitest (>= 4, < 6)
     mocha (1.3.0)
@@ -312,7 +312,7 @@ DEPENDENCIES
   logstasher (= 1.2.2)
   lrucache (= 0.1.4)
   method_source
-  minitest (~> 5.10, != 5.10.2)
+  minitest (~> 5.11)
   minitest-focus (~> 1.1, >= 1.1.2)
   mocha (= 1.3.0)
   nokogiri
