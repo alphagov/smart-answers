@@ -48,7 +48,7 @@ group :test do
   gem 'rails-controller-testing'
   gem 'capybara', '2.16.1'
   gem 'ci_reporter'
-  gem 'minitest', '~> 5.10', '!= 5.10.2'
+  gem 'minitest', '~> 5.11'
   gem 'minitest-focus', '~> 1.1', '>= 1.1.2'
   gem 'mocha', '1.3.0', require: false
   gem 'poltergeist', '1.6.0'
