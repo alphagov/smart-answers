@@ -13,7 +13,6 @@ class SmartAnswersControllerDebugPartialTemplatePathTest < ActionController::Tes
     setup_fixture_flows
     registry = SmartAnswer::FlowRegistry.instance
     @template_directory = registry.load_path
-    Rails.application.config.stubs(:debug_partials).returns(true)
   end
 
   def teardown

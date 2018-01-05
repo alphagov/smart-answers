@@ -1,5 +1,4 @@
 ENV["RAILS_ENV"] = "test"
-ENV["DISABLE_DEBUG_PARTIAL_TEMPLATE_PATHS"] = "true"
 require File.expand_path('../../../config/environment', __FILE__)
 
 FLOW_REGISTRY_OPTIONS[:preload_flows] = false
@@ -67,6 +66,8 @@ class SmartAnswersRegressionTest < ActionController::TestCase
 
     context "Smart Answer: #{flow_name}" do
       setup do
+        ENV["DISABLE_DEBUG_PARTIAL_TEMPLATE_PATHS"] = "true"
+
         stub_shared_component_locales
         Timecop.freeze(smart_answer_helper.current_time)
 
@@ -83,6 +84,10 @@ class SmartAnswersRegressionTest < ActionController::TestCase
         imminence_has_areas_for_postcode("WC2B%206SE", [{ type: 'EUR', name: 'London', country_name: 'England' }])
 
         self.class.setup_has_run!
+      end
+
+      teardown do
+        ENV.delete "DISABLE_DEBUG_PARTIAL_TEMPLATE_PATHS"
       end
 
       should "have up to date checksum data" do

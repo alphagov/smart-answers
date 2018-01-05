@@ -2,7 +2,7 @@ class PartialTemplateWrapper
   include ActionView::Helpers::TagHelper
 
   def call(identifier, result)
-    if result.blank? || identifier.to_s.start_with?("govuk_component") || template_path_from(identifier).start_with?("app/views")
+    if result.blank? || identifier.to_s.start_with?("govuk_component") || template_path_from(identifier).start_with?("app/views") || ENV["DISABLE_DEBUG_PARTIAL_TEMPLATE_PATHS"] == "true"
       result
     else
       content_tag(
