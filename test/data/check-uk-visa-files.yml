@@ -27,7 +27,7 @@ lib/smart_answer_flows/check-uk-visa/outcomes/outcome_study_waiver_taiwan.govspe
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_study_y.govspeak.erb: 743176c3e1aad7e8a8c0b1e07d5d7187
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_datv_exception.govspeak.erb: 77bb4e610e6fd52830675f8e479f0870
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_leaving_airport.govspeak.erb: 66ed2a517e30265f3e5e06b5f9aa50f1
-lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_leaving_airport_datv.govspeak.erb: ce4fe013c4a9113b8df94a36a62b9df9
+lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_leaving_airport_datv.govspeak.erb: 0fdcad0992b5fa152aca2ab4b4dc6ba1
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_not_leaving_airport.govspeak.erb: 9c06b075d0ec0a91579c8cdd876af8aa
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_refugee_not_leaving_airport.govspeak.erb: a344b0c62367eac3e00d048563b636dd
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_taiwan.govspeak.erb: 29e973e921633f8035f76c34a9b504d9
