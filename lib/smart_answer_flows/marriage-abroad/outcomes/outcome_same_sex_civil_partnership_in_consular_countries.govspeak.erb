@@ -5,7 +5,7 @@
 <% content_for :body do %>
   You may be able to register a civil partnership at the British embassy or consulate in <%= calculator.country_name_lowercase_prefix %>.
 
-  <% if %w(bulgaria).include?(calculator.ceremony_country) && calculator.partner_is_national_of_ceremony_country? %>
+  <% if %w(croatia bulgaria).include?(calculator.ceremony_country) && calculator.partner_is_national_of_ceremony_country? %>
     %However, they can’t register a civil partnership between a British national and a national of <%= calculator.country_name_lowercase_prefix %>.%
 
   <% else %>
