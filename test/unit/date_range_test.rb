@@ -246,12 +246,16 @@ module SmartAnswer
         refute @date_range.include?(@date_range.ends_on)
       end
 
-      should 'contain zero days' do
-        assert_equal 0, @date_range.number_of_days
+      should 'contain a non positive amount days' do
+        refute @date_range.number_of_days.positive?
       end
 
       should 'be empty' do
         assert @date_range.empty?
+      end
+
+      should 'not modify the ends_on date' do
+        assert_equal Date.parse('2000-01-01'), @date_range.ends_on
       end
     end
 
