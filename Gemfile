@@ -7,7 +7,7 @@ gem "railties"
 gem "sprockets-rails"
 
 # Upgrade to Sentry
-gem "govuk_app_config", "~> 0.2.0"
+gem "govuk_app_config", "~> 1.2.1"
 
 gem 'ast'
 gem "gds-api-adapters", "~> 51.0.0"
