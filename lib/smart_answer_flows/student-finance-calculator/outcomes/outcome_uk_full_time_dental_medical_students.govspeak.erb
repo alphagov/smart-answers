@@ -7,7 +7,7 @@
 
   In each of your first 4 years, you could get:
 
-  <%= render partial: 'full_time_tuition.govspeak.erb', locals: { tuition_fee_amount: tuition_fee_amount, maintenance_loan_amount: maintenance_loan_amount, maintenance_grant_amount: maintenance_grant_amount, start_date: start_date } %>
+  <%= render partial: 'full_time_tuition.govspeak.erb', locals: { tuition_fee_amount: tuition_fee_amount, maintenance_loan_amount: calculator.maintenance_loan_amount, maintenance_grant_amount: calculator.maintenance_grant_amount, start_date: start_date } %>
 
   <% if uk_ft_circumstances.include?('children-under-17') %>
     - up to <%= format_money(calculator.childcare_grant_one_child) %> a week (1 child) or up to <%= format_money(calculator.childcare_grant_more_than_one_child) %> a week (2 or more children) [Childcare Grant](/childcare-grant)

@@ -82,20 +82,8 @@ module SmartAnswer
 
       #Q5
       money_question :whats_your_household_income? do
-        calculate :test_calculator do |response|
-          Calculators::StudentFinanceCalculator.new(
-            course_start: start_date,
-            household_income: response,
-            residence: where_living
-          )
-        end
-
-        calculate :maintenance_grant_amount do
-          test_calculator.maintenance_grant_amount
-        end
-
-        calculate :maintenance_loan_amount do
-          test_calculator.maintenance_loan_amount
+        on_response do |response|
+          calculator.household_income = response
         end
 
         next_node do
