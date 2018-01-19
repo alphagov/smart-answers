@@ -48,8 +48,30 @@ module SmartAnswer
           "part-time" => 6935
         }
       }
-
-      delegate :maintenance_loan_amount, :maintenance_grant_amount, to: :strategy
+      LOAN_MINIMUMS = {
+        "2016-2017" => {
+          "at-home" => 3_039,
+          "away-outside-london" => 3_821,
+          "away-in-london" => 5_330
+        },
+        "2017-2018" => {
+          "at-home" => 3_124,
+          "away-outside-london" => 3_928,
+          "away-in-london" => 5_479
+        }
+      }.freeze
+      INCOME_PENALTY_RATIO = {
+        "2016-2017" => {
+          "at-home" => 8.59,
+          "away-outside-london" => 8.49,
+          "away-in-london" => 8.34
+        },
+        "2017-2018" => {
+          "at-home" => 8.36,
+          "away-outside-london" => 8.26,
+          "away-in-london" => 8.12
+        }
+      }.freeze
 
       def initialize(params = {})
         @course_start = params[:course_start]
@@ -101,73 +123,30 @@ module SmartAnswer
           courses.include?(@dental_or_medical_course))
       end
 
-    private
-
-      def strategy
-        @strategy ||= Strategy.new(
-          course_start: @course_start,
-          household_income: @household_income,
-          residence: @residence
-        )
+      def maintenance_grant_amount
+        Money.new('0')
       end
 
-      class Strategy
-        LOAN_MINIMUMS = {
-          "2016-2017" => {
-            "at-home" => 3_039,
-            "away-outside-london" => 3_821,
-            "away-in-london" => 5_330
-          },
-          "2017-2018" => {
-            "at-home" => 3_124,
-            "away-outside-london" => 3_928,
-            "away-in-london" => 5_479
-          }
-        }.freeze
-        INCOME_PENALTY_RATIO = {
-          "2016-2017" => {
-            "at-home" => 8.59,
-            "away-outside-london" => 8.49,
-            "away-in-london" => 8.34
-          },
-          "2017-2018" => {
-            "at-home" => 8.36,
-            "away-outside-london" => 8.26,
-            "away-in-london" => 8.12
-          }
-        }
+      def maintenance_loan_amount
+        reduced_amount = max_loan_amount - reduction_based_on_income
+        Money.new([reduced_amount, min_loan_amount].max)
+      end
 
-        def initialize(course_start:, household_income:, residence:)
-          @course_start = course_start
-          @household_income = household_income
-          @residence = residence
-        end
+    private
 
-        def maintenance_grant_amount
-          Money.new('0')
-        end
+      def max_loan_amount
+        LOAN_MAXIMUMS[@course_start][@residence]
+      end
 
-        def maintenance_loan_amount
-          reduced_amount = max_loan_amount - reduction_based_on_income
-          Money.new([reduced_amount, min_loan_amount].max)
-        end
+      def min_loan_amount
+        LOAN_MINIMUMS[@course_start][@residence]
+      end
 
-      private
+      def reduction_based_on_income
+        return 0 if @household_income <= 25_000
 
-        def max_loan_amount
-          LOAN_MAXIMUMS[@course_start][@residence]
-        end
-
-        def min_loan_amount
-          LOAN_MINIMUMS[@course_start][@residence]
-        end
-
-        def reduction_based_on_income
-          return 0 if @household_income <= 25_000
-
-          ratio = INCOME_PENALTY_RATIO[@course_start][@residence]
-          ((@household_income - 25_000) / ratio).floor
-        end
+        ratio = INCOME_PENALTY_RATIO[@course_start][@residence]
+        ((@household_income - 25_000) / ratio).floor
       end
     end
   end
