@@ -2,17 +2,15 @@
 
 ## Integration
 
-This happens automatically as a post build action when the [govuk_smart_answers](https://ci.dev.publishing.service.gov.uk/job/govuk_smart_answers/) build passes on CI.
+This happens automatically as a post build action when the [govuk_smart_answers master build](https://ci.integration.publishing.service.gov.uk/job/smartanswers/job/master/) passes on CI.
 
 ### Manually
 
-If you have sufficient permissions, you can use the [Integration Deploy App](https://deploy.integration.publishing.service.gov.uk/job/Deploy_App/). Click the "Build with Parameters" link and enter "release" as the "TAG".
-
-If you do not have sufficient permissions, you can either kick the [main CI build](continuous-integration.md#main) in Jenkins or commit & push something to the `master` branch.
+You can use the [Integration Deploy App](https://deploy.integration.publishing.service.gov.uk/job/Deploy_App/). Click the "Build with Parameters" link and enter "release" as the "TAG".
 
 ## Production
 
-These are usually done with a Smart Answers developer sitting with someone from 2nd-line Support. You need to prepare and book a production deployment as folows:
+These are usually done with a Smart Answers developer sitting with someone from 2nd-line Support. You need to prepare a production deployment as follows:
 
 ### Create the Release in GitHub
 
@@ -58,14 +56,5 @@ TODO: List each of the Pull Requests that contain user facing changes here, for 
 
 * PR https://github.com/alphagov/smart-answers/pull/nnn - <title-of-pull-request>
 ```
-
-### Create the deployment calendar event
-
-1. Add an event to the "GOVUK Release Calender"
-
-  * Title: "Smart Answers (2nd line required)"
-  * Time: <The time you'd like to deploy>
-  * Duration: 30 minutes
-  * Description: https://github.com/alphagov/smart-answers/releases/tag/$RELEASE-TAG
 
 [smart-answers-releases]: https://github.com/alphagov/smart-answers/releases
