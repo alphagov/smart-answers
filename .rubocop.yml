@@ -1,3 +1,4 @@
 AllCops:
   Exclude:
+    - 'test/artefacts/**/*'
     - 'tmp/**/*'
