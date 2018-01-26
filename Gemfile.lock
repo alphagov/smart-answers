@@ -41,7 +41,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.8)
     arel (7.1.4)
-    ast (2.3.0)
+    ast (2.4.0)
     better_errors (2.4.0)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
