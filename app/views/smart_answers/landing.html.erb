@@ -22,7 +22,12 @@
           <a rel="nofollow" href="<%= smart_answer_path(@name.to_s, started: "y") %>" class="big button"><%= start_node.start_button_text %></a>
         </p>
       </div>
-      <%= start_node.post_body %>
+      <% unless start_node.post_body.blank? %>
+        <div id="before-you-start">
+          <h2>Before you start</h2>
+          <%= start_node.post_body %>
+        </div>
+      <% end %>
     </div>
   </article>
 </div>
