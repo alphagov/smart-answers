@@ -10,19 +10,28 @@
   <% end %>
 <% end %>
 
-<%= render partial: 'page_title', locals: { title: start_node.title } %>
+<div class="transaction">
+  <%= render partial: 'page_title', locals: { title: start_node.title } %>
 
-<div class="article-container group">
-  <article role="article" class="group" data-debug-template-path="<%= start_node.relative_erb_template_path %>">
-    <div class="inner">
-      <div class="intro">
-        <%= start_node.body %>
+  <div class="article-container group">
+    <article role="article" class="group" data-debug-template-path="<%= start_node.relative_erb_template_path %>">
+      <div class="inner">
+        <section class="intro">
+          <%= start_node.body %>
 
-        <p class="get-started">
-          <a rel="nofollow" href="<%= smart_answer_path(@name.to_s, started: "y") %>" class="big button"><%= start_node.start_button_text %></a>
-        </p>
+          <p class="get-started">
+            <a rel="nofollow" href="<%= smart_answer_path(@name.to_s, started: "y") %>" class="big button" role="button"><%= start_node.start_button_text %></a>
+          </p>
+        </section>
+        <section class="more">
+          <% unless start_node.post_body.blank? %>
+            <div id="before-you-start">
+              <h2>Before you start</h2>
+              <%= start_node.post_body %>
+            </div>
+          <% end %>
+        </section>
       </div>
-      <%= start_node.post_body %>
-    </div>
-  </article>
+    </article>
+  </div>
 </div>
