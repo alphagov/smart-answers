@@ -6,6 +6,7 @@ FLOW_REGISTRY_OPTIONS[:preload_flows] = false
 require 'rails/test_help'
 
 require 'webmock'
+WebMock.enable!
 WebMock.disable_net_connect!(allow_localhost: true)
 
 require_relative '../support/fixture_methods'

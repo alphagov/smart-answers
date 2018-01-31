@@ -36,7 +36,7 @@ lib/smart_answer_flows/towing-rules/questions/how_old_are_you_lv.govspeak.erb: c
 lib/smart_answer_flows/towing-rules/questions/how_old_are_you_minibus.govspeak.erb: ca5962f1aee9ae73b09d3fb177ff4916
 lib/smart_answer_flows/towing-rules/questions/how_old_are_you_msv.govspeak.erb: ca5962f1aee9ae73b09d3fb177ff4916
 lib/smart_answer_flows/towing-rules/questions/how_old_are_you_msv_2.govspeak.erb: a8a3db03d4691aff0dce48043629acc5
-lib/smart_answer_flows/towing-rules/questions/medium_sized_vehicle_licenceholder.govspeak.erb: 095d820f653504cc53abe87ff65b912b
+lib/smart_answer_flows/towing-rules/questions/medium_sized_vehicle_licenceholder.govspeak.erb: '095d820f653504cc53abe87ff65b912b'
 lib/smart_answer_flows/towing-rules/questions/towing_vehicle_type.govspeak.erb: a7819a41ea3de67acf574811a3e80756
 lib/smart_answer_flows/towing-rules/towing_rules.govspeak.erb: d48bec315e82adf8e068fa2b20d748c2
 lib/smart_answer_flows/towing-rules.rb: 995a4127236cb413cbbab7dc48baee2c
