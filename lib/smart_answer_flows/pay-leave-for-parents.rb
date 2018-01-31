@@ -97,12 +97,6 @@ module SmartAnswer
         end
 
         next_node do
-          outcome :mother_salary
-        end
-      end
-
-      salary_question :mother_salary do
-        next_node do
           outcome :mother_earned_more_than_lower_earnings_limit
         end
       end
@@ -264,12 +258,6 @@ module SmartAnswer
           calculator.partner_still_working_on_continuity_end_date = response
         end
 
-        next_node do
-          outcome :partner_salary
-        end
-      end
-
-      salary_question :partner_salary do
         next_node do
           outcome :partner_earned_more_than_lower_earnings_limit
         end
