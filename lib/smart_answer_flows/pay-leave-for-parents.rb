@@ -162,52 +162,6 @@ module SmartAnswer
 
         next_node do
           if calculator.two_carers?
-            if calculator.mother_earnings_employment?
-              question :salary_1_66_weeks
-            elsif %w(employee worker).include?(calculator.employment_status_of_partner)
-              question :partner_started_working_before_continuity_start_date
-            elsif %w(self-employed unemployed).include?(calculator.employment_status_of_partner)
-              if calculator.employment_status_of_mother == 'employee'
-                if calculator.mother_continuity? && calculator.due_date >= Date.parse('2015-04-05')
-                  question :partner_worked_at_least_26_weeks
-                elsif calculator.mother_still_working_on_continuity_end_date == 'yes'
-                  outcome :outcome_mat_leave
-                elsif calculator.mother_still_working_on_continuity_end_date == 'no'
-                  outcome :outcome_birth_nothing
-                end
-              elsif %w(worker self-employed).include?(calculator.employment_status_of_mother)
-                outcome :outcome_birth_nothing
-              elsif calculator.employment_status_of_mother == 'unemployed'
-                if calculator.employment_status_of_partner == 'self-employed'
-                  outcome :outcome_mat_allowance_14_weeks
-                elsif calculator.employment_status_of_partner == 'unemployed'
-                  outcome :outcome_birth_nothing
-                end
-              end
-            end
-          else
-            if calculator.mother_earnings_employment?
-              question :salary_1_66_weeks
-            elsif calculator.employment_status_of_mother == 'employee'
-              if calculator.mother_still_working_on_continuity_end_date == 'yes'
-                outcome :outcome_mat_leave
-              elsif calculator.mother_still_working_on_continuity_end_date == 'no'
-                outcome :outcome_single_birth_nothing
-              end
-            elsif %w(worker self-employed unemployed).include?(calculator.employment_status_of_mother)
-              outcome :outcome_single_birth_nothing
-            end
-          end
-        end
-      end
-
-      salary_question :salary_1_66_weeks do
-        precalculate :earnings_employment_start_date do
-          calculator.earnings_employment_start_date
-        end
-
-        next_node do
-          if calculator.two_carers?
             if %w(employee worker).include?(calculator.employment_status_of_partner)
               question :partner_started_working_before_continuity_start_date
             elsif %w(self-employed unemployed).include?(calculator.employment_status_of_partner)
@@ -215,23 +169,46 @@ module SmartAnswer
                 if calculator.mother_continuity? && calculator.due_date >= Date.parse('2015-04-05')
                   question :partner_worked_at_least_26_weeks
                 elsif calculator.mother_still_working_on_continuity_end_date == 'yes'
-                  outcome :outcome_mat_allowance_mat_leave
+                  if calculator.mother_earnings_employment?
+                    outcome :outcome_mat_allowance_mat_leave
+                  else
+                    outcome :outcome_mat_leave
+                  end
                 elsif calculator.mother_still_working_on_continuity_end_date == 'no'
-                  outcome :outcome_mat_allowance
+                  if calculator.mother_earnings_employment?
+                    outcome :outcome_mat_allowance
+                  else
+                    outcome :outcome_birth_nothing
+                  end
                 end
-              elsif %w(worker self-employed unemployed).include?(calculator.employment_status_of_mother)
+              elsif calculator.mother_earnings_employment?
                 outcome :outcome_mat_allowance
+              elsif %w(worker self-employed).include?(calculator.employment_status_of_mother) ||
+                  calculator.employment_status_of_partner == 'unemployed'
+                outcome :outcome_birth_nothing
+              elsif calculator.employment_status_of_partner == 'self-employed'
+                outcome :outcome_mat_allowance_14_weeks
               end
             end
-          else
-            if calculator.employment_status_of_mother == 'employee'
-              if calculator.mother_still_working_on_continuity_end_date == 'yes'
+          elsif calculator.employment_status_of_mother == 'employee'
+            if calculator.mother_still_working_on_continuity_end_date == 'yes'
+              if calculator.mother_earnings_employment?
                 outcome :outcome_mat_allowance_mat_leave
-              elsif calculator.mother_still_working_on_continuity_end_date == 'no'
-                outcome :outcome_mat_allowance
+              else
+                outcome :outcome_mat_leave
               end
-            elsif %w(worker self-employed unemployed).include?(calculator.employment_status_of_mother)
+            elsif calculator.mother_still_working_on_continuity_end_date == 'no'
+              if calculator.mother_earnings_employment?
+                outcome :outcome_mat_allowance
+              else
+                outcome :outcome_single_birth_nothing
+              end
+            end
+          elsif %w(worker self-employed unemployed).include?(calculator.employment_status_of_mother)
+            if calculator.mother_earnings_employment?
               outcome :outcome_mat_allowance
+            else
+              outcome :outcome_single_birth_nothing
             end
           end
         end

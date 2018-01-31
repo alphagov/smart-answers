@@ -31,7 +31,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # mother_earned_more_than_lower_earnings_limit
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       assert_current_node :outcome_mat_allowance
     end
 
@@ -53,7 +52,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "self-employed" # employment_status_of_mother
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       assert_current_node :outcome_mat_allowance
     end
 
@@ -66,7 +64,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "no" # mother_earned_more_than_lower_earnings_limit
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       assert_current_node :outcome_mat_allowance
     end
 
@@ -79,7 +76,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "no" # mother_earned_more_than_lower_earnings_limit
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       assert_current_node :outcome_mat_allowance_mat_leave
     end
 
@@ -137,7 +133,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # mother_earned_more_than_lower_earnings_limit
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       add_response "no" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "no" # partner_earned_more_than_lower_earnings_limit
@@ -151,7 +146,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "self-employed" # employment_status_of_partner
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       assert_current_node :outcome_mat_allowance
     end
 
@@ -165,7 +159,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # mother_earned_more_than_lower_earnings_limit
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       add_response "no" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "no" # partner_earned_more_than_lower_earnings_limit
@@ -192,7 +185,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "no" # mother_earned_more_than_lower_earnings_limit
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       assert_current_node :outcome_mat_allowance_mat_leave
     end
 
@@ -206,7 +198,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "no" # mother_earned_more_than_lower_earnings_limit
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
@@ -223,7 +214,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "no" # mother_earned_more_than_lower_earnings_limit
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
@@ -237,7 +227,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "employee" # employment_status_of_partner
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
@@ -254,7 +243,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "no" # mother_earned_more_than_lower_earnings_limit
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
@@ -268,7 +256,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "worker" # employment_status_of_partner
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
@@ -285,7 +272,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "no" # mother_earned_more_than_lower_earnings_limit
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
@@ -315,7 +301,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # mother_earned_more_than_lower_earnings_limit
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       add_response "no" # partner_started_working_before_continuity_start_date
       add_response "no" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
@@ -558,7 +543,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # mother_earned_more_than_lower_earnings_limit
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
@@ -603,7 +587,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # mother_earned_more_than_lower_earnings_limit
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       assert_current_node :outcome_mat_allowance
     end
 
@@ -630,7 +613,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "self-employed" # employment_status_of_partner
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       assert_current_node :outcome_mat_allowance
     end
 
@@ -641,7 +623,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "unemployed" # employment_status_of_partner
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       assert_current_node :outcome_mat_allowance
     end
 
@@ -655,7 +636,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # mother_earned_more_than_lower_earnings_limit
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       assert_current_node :outcome_mat_allowance
     end
 
@@ -669,7 +649,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # mother_earned_more_than_lower_earnings_limit
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "no" # partner_still_working_on_continuity_end_date
       add_response "no" # partner_earned_more_than_lower_earnings_limit
@@ -696,7 +675,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "no" # mother_earned_more_than_lower_earnings_limit
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       add_response "yes" # partner_worked_at_least_26_weeks
       add_response "yes" # partner_earned_at_least_390
       assert_current_node :outcome_mat_allowance_mat_leave_mat_shared_leave
@@ -712,7 +690,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "no" # mother_earned_more_than_lower_earnings_limit
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       add_response "no" # partner_worked_at_least_26_weeks
       add_response "no" # partner_earned_at_least_390
       assert_current_node :outcome_mat_allowance_mat_leave
@@ -758,7 +735,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "no" # mother_earned_more_than_lower_earnings_limit
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       add_response "no" # partner_started_working_before_continuity_start_date
       add_response "no" # partner_still_working_on_continuity_end_date
       add_response "no" # partner_earned_more_than_lower_earnings_limit
@@ -775,7 +751,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "no" # mother_earned_more_than_lower_earnings_limit
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
@@ -792,7 +767,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "no" # mother_earned_more_than_lower_earnings_limit
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
@@ -806,7 +780,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "employee" # employment_status_of_partner
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
@@ -820,7 +793,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "worker" # employment_status_of_partner
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
@@ -837,7 +809,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "no" # mother_earned_more_than_lower_earnings_limit
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "yes" # partner_earned_more_than_lower_earnings_limit
@@ -854,7 +825,6 @@ class PayLeaveForParentsFlowTest < ActiveSupport::TestCase
       add_response "yes" # mother_earned_more_than_lower_earnings_limit
       add_response "yes" # mother_worked_at_least_26_weeks
       add_response "yes" # mother_earned_at_least_390
-      add_response "400-week" # salary_1_66_weeks
       add_response "yes" # partner_started_working_before_continuity_start_date
       add_response "yes" # partner_still_working_on_continuity_end_date
       add_response "no" # partner_earned_more_than_lower_earnings_limit
