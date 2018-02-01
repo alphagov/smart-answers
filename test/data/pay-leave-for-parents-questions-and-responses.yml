@@ -16,8 +16,6 @@
 :mother_still_working_on_continuity_end_date:
 - 'yes'
 - 'no'
-:mother_salary:
-- '10000-year'
 :mother_earned_more_than_lower_earnings_limit:
 - 'yes'
 - 'no'
@@ -27,16 +25,12 @@
 :mother_earned_at_least_390:
 - 'yes'
 - 'no'
-:salary_1_66_weeks:
-- '10000-year'
 :partner_started_working_before_continuity_start_date:
 - 'yes'
 - 'no'
 :partner_still_working_on_continuity_end_date:
 - 'yes'
 - 'no'
-:partner_salary:
-- '10000-year'
 :partner_earned_more_than_lower_earnings_limit:
 - 'yes'
 - 'no'
