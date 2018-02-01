@@ -1,5 +1,5 @@
 ---
-lib/data/marriage_abroad_data.yml: fa0995252330c501b6048f4f9170785f
+lib/data/marriage_abroad_data.yml: d01738fbb618552a581524a7db633fb3
 lib/data/marriage_abroad_services.yml: 6a4a5b0168d8426b98382e69c92ea57d
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/smart_answer/calculators/country_name_formatter.rb: 6e9aab3c79a59e54e056b473b9cc4151
@@ -358,6 +358,9 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/uk/partner_loc
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/uk/partner_local/_same_sex.govspeak.erb: ff190c3f37e6a09e3abdd9cac4ae6946
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/uk/partner_other/_opposite_sex.govspeak.erb: 3792c9972e4b5655045ddb1399952cd7
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/hungary/uk/partner_other/_same_sex.govspeak.erb: ff190c3f37e6a09e3abdd9cac4ae6946
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/india/_opposite_sex.erb: 8ef771bde4cd21116aac53c6bc184f5c
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/india/_same_sex.erb: 2d762f8f71ad44e024641ff163fac79f
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/india/_title.govspeak.erb: 673be9937f59b6e203b19ab5c41ecffe
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/indonesia/_title.govspeak.erb: fc439c8c1e3579d9ca2da9f7d1e57011
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/indonesia/ceremony_country/partner_british/_opposite_sex.govspeak.erb: 97f040eb01a27f60f2fadcb0cfd93902
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/indonesia/ceremony_country/partner_british/_same_sex.govspeak.erb: 596e92c45795550ed972b917319cf468
@@ -815,4 +818,4 @@ lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationali
 lib/smart_answer_flows/marriage-abroad.rb: a5cbdc635d65367712b2ffbc67d0029a
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1dc349abcd6b21e1bf8c397d96fd02b8
 test/data/marriage-abroad-questions-and-responses.yml: 0f079512ee2f1fd27145bf9db84ef5eb
-test/data/marriage-abroad-responses-and-expected-results.yml: 982ed6ef5b241a4dc6baa4162f075e65
+test/data/marriage-abroad-responses-and-expected-results.yml: 46c008308313eb8751ec3f7266d9932a
