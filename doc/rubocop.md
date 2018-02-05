@@ -4,11 +4,11 @@ We're using the `govuk-lint` Gem to include Rubocop and the GOV.UK styleguide ru
 
 ### Jenkins
 
-We run `govuk-lint-ruby` as part of the test suite executed on Jenkins (see jenkins.sh). Behind the scenes this runs Rubocop with a set of cops defined in the `govuk-lint` gem.
+We run `govuk-lint-ruby` as part of the test suite executed on Jenkins. Behind the scenes this runs Rubocop with a set of cops defined in the `govuk-lint` gem.
 
 ### Running locally
 
-Testing for violations in the entire codebase (used by `jenkins.sh`):
+Testing for violations in the entire codebase:
 
 ```bash
 $ govuk-lint-ruby
