@@ -2,7 +2,6 @@ Student finance calculator
 
 This calculator is for students from England or the European Union (EU) starting a new course in academic years:
 
-+ 2016 to 2017
 + 2017 to 2018
 
 ^There will be no change to the [rights and status of EU nationals living in the UK, nor UK nationals living in the EU](https://www.gov.uk/government/collections/uk-leaving-the-eu-what-you-need-to-know), while the UK remains in the EU.^
