@@ -7,6 +7,10 @@
 
   - <%= format_money(tuition_fee_amount, pounds_only: true) %> [Tuition Fee Loan](/student-finance/parttime-students)
 
+  <% if calculator.maintenance_loan_amount > 0 %>
+    - <%= format_money(calculator.maintenance_loan_amount, pounds_only: true) %> [Maintenance Loan](/student-finance/parttime-students)
+  <% end %>
+
   ###Extra student funding
 
   <% if all_uk_students_circumstances.include?('no') and course_studied == 'none-of-the-above' %>

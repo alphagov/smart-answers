@@ -1,0 +1,11 @@
+<% content_for :title do %>
+  How many credits will you study in the <%= calculator.course_start_years[0] %> to <%= calculator.course_start_years[1] %> academic year?
+<% end %>
+
+<% content_for :hint do %>
+  Ask your university or college if you're not sure.
+<% end %>
+
+<% content_for :error_message do %>
+  Please enter a number greater than 0
+<% end %>

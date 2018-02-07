@@ -6,6 +6,8 @@ module SmartAnswer
         :household_income,
         :residence,
         :course_type,
+        :part_time_credits,
+        :full_time_credits,
         :dental_or_medical_course,
         :doctor_or_dentist,
       )
@@ -79,6 +81,8 @@ module SmartAnswer
         @household_income = params[:household_income]
         @residence = params[:residence]
         @course_type = params[:course_type]
+        @part_time_credits = params[:part_time_credits]
+        @full_time_credits = params[:full_time_credits]
         @dental_or_medical_course = params[:dental_or_medical_course]
         @doctor_or_dentist = params[:doctor_or_dentist]
       end
@@ -125,12 +129,19 @@ module SmartAnswer
       end
 
       def maintenance_grant_amount
-        Money.new('0')
+        Money.new(0)
       end
 
       def maintenance_loan_amount
+        return Money.new(0) if @course_start == '2017-2018' && @course_type == "uk-part-time"
+
         reduced_amount = max_loan_amount - reduction_based_on_income
-        Money.new([reduced_amount, min_loan_amount].max)
+        Money.new([reduced_amount, min_loan_amount].max * loan_proportion)
+      end
+
+      def course_start_years
+        year_matches = /(\d{4})-(\d{4})/.match(@course_start)
+        [year_matches[1].to_i, year_matches[2].to_i]
       end
 
     private
@@ -148,6 +159,20 @@ module SmartAnswer
 
         ratio = INCOME_PENALTY_RATIO[@course_start][@residence]
         ((@household_income - 25_000) / ratio).floor
+      end
+
+      def course_intensity
+        100 * (part_time_credits.to_f / full_time_credits)
+      end
+
+      def loan_proportion
+        return 1 if @course_type == "uk-full-time" || course_intensity == 100
+        return 0.75 if course_intensity >= 75
+        return 0.666 if course_intensity >= 66.6
+        return 0.5 if course_intensity >= 50
+        return 0.333 if course_intensity >= 33.3
+        return 0.25 if course_intensity >= 25
+        0
       end
     end
   end

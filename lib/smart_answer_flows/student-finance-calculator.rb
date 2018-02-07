@@ -57,7 +57,11 @@ module SmartAnswer
           when 'uk-full-time'
             question :where_will_you_live_while_studying?
           when 'uk-part-time'
-            question :do_any_of_the_following_apply_all_uk_students?
+            if start_date == '2018-2019'
+              question :where_will_you_live_while_studying?
+            else
+              question :do_any_of_the_following_apply_all_uk_students?
+            end
           when 'eu-full-time', 'eu-part-time'
             outcome :outcome_eu_students
           end
@@ -87,11 +91,46 @@ module SmartAnswer
         end
 
         next_node do
-          question :do_any_of_the_following_apply_uk_full_time_students_only?
+          case course_type
+          when 'uk-full-time'
+            question :do_any_of_the_following_apply_uk_full_time_students_only?
+          when 'uk-part-time'
+            question :how_many_credits_will_you_study?
+          end
         end
       end
 
-      #Q6a uk full-time students
+      #Q6a
+      value_question :how_many_credits_will_you_study?, parse: Float do
+        on_response do |response|
+          if response.negative?
+            raise SmartAnswer::InvalidResponse
+          end
+
+          calculator.part_time_credits = response
+        end
+
+        next_node do
+          question :how_many_credits_does_a_full_time_student_study?
+        end
+      end
+
+      #Q6b
+      value_question :how_many_credits_does_a_full_time_student_study?, parse: Float do
+        on_response do |response|
+          if response.negative? || response < calculator.part_time_credits
+            raise SmartAnswer::InvalidResponse
+          end
+
+          calculator.full_time_credits = response
+        end
+
+        next_node do
+          question :do_any_of_the_following_apply_all_uk_students?
+        end
+      end
+
+      #Q7a uk full-time students
       checkbox_question :do_any_of_the_following_apply_uk_full_time_students_only? do
         option :"children-under-17"
         option :"dependant-adult"
@@ -108,7 +147,7 @@ module SmartAnswer
         end
       end
 
-      #Q6b uk students
+      #Q7b uk students
       checkbox_question :do_any_of_the_following_apply_all_uk_students? do
         option :"has-disability"
         option :"low-income"
@@ -123,7 +162,7 @@ module SmartAnswer
         end
       end
 
-      #Q7a
+      #Q8a
       multiple_choice :what_course_are_you_studying? do
         option :"teacher-training"
         option :"dental-medical-healthcare"
@@ -156,7 +195,7 @@ module SmartAnswer
         end
       end
 
-      #Q7b
+      #Q8b
       multiple_choice :are_you_studying_one_of_these_dental_or_medical_courses? do
         option :"doctor-or-dentist"
         option :"dental-hygiene-or-dental-therapy"
@@ -177,7 +216,7 @@ module SmartAnswer
         end
       end
 
-      #Q7c
+      #Q8c
       multiple_choice :are_you_studying_dental_hygiene_or_dental_therapy? do
         option :yes
         option :no
@@ -191,7 +230,7 @@ module SmartAnswer
         end
       end
 
-      #Q7d
+      #Q8d
       multiple_choice :are_you_a_doctor_or_dentist? do
         option :yes
         option :no
