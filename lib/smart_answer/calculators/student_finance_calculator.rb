@@ -4,11 +4,6 @@ module SmartAnswer
       attr_accessor :course_start, :household_income, :residence, :course_type, :dental_or_medical_course
 
       LOAN_MAXIMUMS = {
-        "2016-2017" => {
-          "at-home" => 6_904,
-          "away-outside-london" => 8_200,
-          "away-in-london" => 10_702
-        },
         "2017-2018" => {
           "at-home" => 7_097,
           "away-outside-london" => 8_430,
@@ -21,39 +16,24 @@ module SmartAnswer
         "away-outside-london" => 2324
       }
       CHILD_CARE_GRANTS = {
-        "2016-2017" => {
-          "one-child" => 155.24,
-          "more-than-one-child" => 266.15
-        },
         "2017-2018" => {
           "one-child" => 159.59,
           "more-than-one-child" => 273.60
         }
       }
       PARENTS_LEARNING_ALLOWANCE = {
-        "2016-2017" => 1573,
         "2017-2018" => 1617
       }
       ADULT_DEPENDANT_ALLOWANCE = {
-        "2016-2017" => 2757,
         "2017-2018" => 2834
       }
       TUITION_FEE_MAXIMUM = {
-        "2016-2017" => {
-          "full-time" => 9000,
-          "part-time" => 6750
-        },
         "2017-2018" => {
           "full-time" => 9250,
           "part-time" => 6935
         }
       }
       LOAN_MINIMUMS = {
-        "2016-2017" => {
-          "at-home" => 3_039,
-          "away-outside-london" => 3_821,
-          "away-in-london" => 5_330
-        },
         "2017-2018" => {
           "at-home" => 3_124,
           "away-outside-london" => 3_928,
@@ -61,11 +41,6 @@ module SmartAnswer
         }
       }.freeze
       INCOME_PENALTY_RATIO = {
-        "2016-2017" => {
-          "at-home" => 8.59,
-          "away-outside-london" => 8.49,
-          "away-in-london" => 8.34
-        },
         "2017-2018" => {
           "at-home" => 8.36,
           "away-outside-london" => 8.26,
@@ -117,10 +92,8 @@ module SmartAnswer
         TUITION_FEE_MAXIMUM.fetch(@course_start).fetch("part-time")
       end
 
-      def dental_or_medical_student_2017_2018?
-        courses = %w(doctor-or-dentist dental-hygiene-or-dental-therapy)
-        (@course_start == "2017-2018" &&
-          courses.include?(@dental_or_medical_course))
+      def doctor_or_dentist?
+        @dental_or_medical_course == "doctor-or-dentist"
       end
 
       def maintenance_grant_amount

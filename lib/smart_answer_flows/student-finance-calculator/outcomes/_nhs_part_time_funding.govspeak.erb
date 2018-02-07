@@ -1,16 +1,8 @@
 - NHS Bursary (funding towards your fees and living costs)
 <% if all_uk_students_circumstances.include?('has-disability') %>
-  <% if calculator.course_start == "2016-2017" %>
-    - up to £27,680 Disabled Students' Allowance
-  <% else %>
-    - Disabled Students' Allowance
-  <% end %>
+  - Disabled Students' Allowance
 <% end %>
-<% if calculator.course_start == "2016-2017" %>
-  - up to £108 a week Extra Weeks Allowance
-<% else %>
-  - Extra Weeks Allowance
-<% end %>
+- Extra Weeks Allowance
 - Practice placement expenses
 
 <% if all_uk_students_circumstances.include?('low-income') %>

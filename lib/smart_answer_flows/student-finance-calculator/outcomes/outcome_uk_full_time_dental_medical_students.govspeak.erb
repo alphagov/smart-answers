@@ -28,10 +28,10 @@
 
   ^ If you're on a 4 year accelerated graduate course, you'll have to apply for an NHS bursary from your second year.
 
-  <% if calculator.dental_or_medical_student_2017_2018? %>
-    ##If you're studying dental hygiene or dental therapy
+  <% if calculator.doctor_or_dentist? %>
+    ##If you're studying to become a doctor or dentist
   <% else %>
-    ##If you're studying another eligible healthcare course
+    ##If you're studying dental hygiene or dental therapy
   <% end %>
 
   Each year you could get <%= format_money(calculator.reduced_maintenance_loan_for_healthcare, pounds_only: true) %> reduced Maintenance Loan. You can also apply for [NHS funding](/nhs-bursaries) and get the following depending on your circumstances:
