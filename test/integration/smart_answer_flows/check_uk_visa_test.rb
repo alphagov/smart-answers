@@ -634,6 +634,64 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
     end
   end
+
+  context "choose Hong Kong (travel document)" do
+    setup do
+      add_response 'hong-kong'
+      add_response 'travel_document'
+    end
+
+    context "get private medical treatment" do
+      should "take you to the medical_y outcome" do
+        add_response 'medical'
+        assert_current_node :outcome_medical_y
+      end
+    end
+
+    context "tourism, visiting friends or family" do
+      should "take you to the outcome 6y - standard visit" do
+        add_response 'tourism'
+        assert_current_node :outcome_standard_visit
+      end
+    end
+
+    context 'travelling to Republic of Ireland' do
+      should 'take you to the outcome 14a' do
+        add_response 'transit'
+        add_response 'republic_of_ireland'
+        assert_current_node :outcome_transit_to_the_republic_of_ireland
+      end
+    end
+  end
+
+  context "choose Macao (travel document)" do
+    setup do
+      add_response 'macao'
+      add_response 'travel_document'
+    end
+
+    context "get private medical treatment" do
+      should "take you to the medical_y outcome" do
+        add_response 'medical'
+        assert_current_node :outcome_medical_y
+      end
+    end
+
+    context "tourism, visiting friends or family" do
+      should "take you to the outcome 6y - standard visit" do
+        add_response 'tourism'
+        assert_current_node :outcome_standard_visit
+      end
+    end
+
+    context 'travelling to Republic of Ireland' do
+      should 'take you to the outcome 14a' do
+        add_response 'transit'
+        add_response 'republic_of_ireland'
+        assert_current_node :outcome_transit_to_the_republic_of_ireland
+      end
+    end
+  end
   context "testing turkey phrase list" do
     setup do
       add_response "turkey"
