@@ -1,6 +1,7 @@
 ---
 :when_does_your_course_start?:
 - 2017-2018
+- 2018-2019
 :what_type_of_student_are_you?:
 - uk-full-time
 - uk-part-time
@@ -33,5 +34,8 @@
 - dental-hygiene-or-dental-therapy
 - none-of-the-above
 :are_you_studying_dental_hygiene_or_dental_therapy?:
+- 'yes'
+- 'no'
+:are_you_a_doctor_or_dentist?:
 - 'yes'
 - 'no'
