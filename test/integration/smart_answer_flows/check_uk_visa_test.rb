@@ -680,6 +680,24 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         end
       end
     end
+
+    context 'working in the UK' do
+      setup do
+        add_response 'work'
+      end
+      context '6 months or less' do
+        should "takes you to outcome_work_m" do
+          add_response "six_months_or_less"
+          assert_current_node :outcome_work_m
+        end
+      end
+      context 'more than 6 months' do
+        should "takes you to outcome_work_y" do
+          add_response "longer_than_six_months"
+          assert_current_node :outcome_work_y
+        end
+      end
+    end
   end
 
   context "choose Macao (travel document)" do
@@ -724,6 +742,23 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         should "takes you to outcome_study_y" do
           add_response "longer_than_six_months"
           assert_current_node :outcome_study_y
+        end
+      end
+    end
+    context 'working in the UK' do
+      setup do
+        add_response 'work'
+      end
+      context '6 months or less' do
+        should "takes you to outcome_work_m" do
+          add_response "six_months_or_less"
+          assert_current_node :outcome_work_m
+        end
+      end
+      context 'more than 6 months' do
+        should "takes you to outcome_work_y" do
+          add_response "longer_than_six_months"
+          assert_current_node :outcome_work_y
         end
       end
     end
