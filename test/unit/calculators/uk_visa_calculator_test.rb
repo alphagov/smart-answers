@@ -345,6 +345,24 @@ module SmartAnswer
         end
       end
 
+      context '#passport_country_is_hong_kong?' do
+        should 'return true if passport_country is "hong-kong"' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'hong-kong'
+          assert calculator.passport_country_is_hong_kong?
+        end
+
+        should 'return false if passport_country is not "hong-kong"' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'not-hong-kong'
+          refute calculator.passport_country_is_hong_kong?
+
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'hong-kong-(british-national-overseas)'
+          refute calculator.passport_country_is_hong_kong?
+        end
+      end
+
       context '#passport_country_is_latvia?' do
         should 'return true if passport_country is Latvia' do
           calculator = UkVisaCalculator.new
@@ -362,6 +380,20 @@ module SmartAnswer
           calculator = UkVisaCalculator.new
           calculator.passport_country = 'latvia-alien-passport'
           assert calculator.passport_country_is_latvia?
+        end
+      end
+
+      context '#passport_country_is_macao?' do
+        should 'return true if passport_country is "macao"' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'macao'
+          assert calculator.passport_country_is_macao?
+        end
+
+        should 'return false if passport_country is not "macao"' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = 'not-macao'
+          refute calculator.passport_country_is_macao?
         end
       end
 
