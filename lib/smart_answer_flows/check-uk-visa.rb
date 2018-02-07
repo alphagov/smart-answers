@@ -79,6 +79,10 @@ module SmartAnswer
         option :passport
         option :travel_document
 
+        on_response do |response|
+          calculator.travel_document_type = response
+        end
+
         next_node do |_|
           question :purpose_of_visit?
         end
@@ -113,15 +117,17 @@ module SmartAnswer
           if calculator.travelling_to_channel_islands_or_isle_of_man?
             next question(:channel_islands_or_isle_of_man?)
           elsif calculator.travelling_to_ireland?
-            if calculator.passport_country_in_non_visa_national_list? ||
-                calculator.passport_country_in_ukot_list?
+            if (calculator.passport_country_in_non_visa_national_list? ||
+                calculator.passport_country_in_ukot_list?) &&
+                !calculator.travel_document?
               next outcome(:outcome_no_visa_needed)
             else
               next outcome(:outcome_transit_to_the_republic_of_ireland)
             end
           elsif calculator.travelling_to_elsewhere?
-            if calculator.passport_country_in_non_visa_national_list? ||
-                calculator.passport_country_in_ukot_list?
+            if (calculator.passport_country_in_non_visa_national_list? ||
+                calculator.passport_country_in_ukot_list?) &&
+                !calculator.travel_document?
               next outcome(:outcome_no_visa_needed)
             else
               next question(:passing_through_uk_border_control?)
@@ -158,7 +164,8 @@ module SmartAnswer
             if calculator.passport_country_is_taiwan?
               outcome :outcome_transit_taiwan_through_border_control
             elsif calculator.passport_country_in_visa_national_list? ||
-                calculator.passport_country_in_electronic_visa_waiver_list?
+                calculator.passport_country_in_electronic_visa_waiver_list? ||
+                calculator.travel_document?
               outcome :outcome_transit_leaving_airport
             elsif calculator.passport_country_in_datv_list?
               outcome :outcome_transit_leaving_airport_datv
@@ -173,7 +180,7 @@ module SmartAnswer
             outcome :outcome_transit_refugee_not_leaving_airport
           elsif calculator.passport_country_in_datv_list?
             outcome :outcome_transit_not_leaving_airport
-          elsif calculator.passport_country_in_visa_national_list?
+          elsif calculator.passport_country_in_visa_national_list? || calculator.travel_document?
             outcome :outcome_no_visa_needed
           end
         end
@@ -206,7 +213,9 @@ module SmartAnswer
                 outcome :outcome_study_waiver
               elsif calculator.passport_country_is_taiwan?
                 outcome :outcome_study_waiver_taiwan
-              elsif calculator.passport_country_in_datv_list? || calculator.passport_country_in_visa_national_list?
+              elsif calculator.passport_country_in_datv_list? ||
+                  calculator.passport_country_in_visa_national_list? ||
+                  calculator.travel_document?
                 outcome :outcome_study_m #outcome 3 study m visa needed short courses
               elsif calculator.passport_country_in_ukot_list? || calculator.passport_country_in_non_visa_national_list?
                 outcome :outcome_no_visa_needed #outcome 1 no visa needed
@@ -214,11 +223,13 @@ module SmartAnswer
             elsif calculator.work_visit?
               if calculator.passport_country_in_electronic_visa_waiver_list?
                 outcome :outcome_work_waiver
-              elsif calculator.passport_country_in_ukot_list? ||
-                  calculator.passport_country_is_taiwan? || calculator.passport_country_in_non_visa_national_list?
+              elsif (calculator.passport_country_in_ukot_list? ||
+                  calculator.passport_country_is_taiwan? ||
+                  calculator.passport_country_in_non_visa_national_list?) &&
+                  !calculator.travel_document?
                 #outcome 5.5 work N no visa needed
                 outcome :outcome_work_n
-              elsif calculator.passport_country_in_datv_list? || calculator.passport_country_in_visa_national_list?
+              else
                 # outcome 5 work m visa needed short courses
                 outcome :outcome_work_m
               end
@@ -294,7 +305,9 @@ module SmartAnswer
             next outcome(:outcome_visit_waiver)
           elsif calculator.passport_country_is_taiwan?
             next outcome(:outcome_visit_waiver_taiwan)
-          elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
+          elsif (calculator.passport_country_in_non_visa_national_list? ||
+              calculator.passport_country_in_ukot_list?) &&
+              !calculator.travel_document?
             next outcome(:outcome_medical_n)
           else
             next outcome(:outcome_medical_y)
@@ -306,7 +319,9 @@ module SmartAnswer
             next outcome(:outcome_visit_waiver)
           elsif calculator.passport_country_is_taiwan?
             next outcome(:outcome_visit_waiver_taiwan)
-          elsif calculator.passport_country_in_non_visa_national_list? || calculator.passport_country_in_ukot_list?
+          elsif (calculator.passport_country_in_non_visa_national_list? ||
+              calculator.passport_country_in_ukot_list?) &&
+              !calculator.travel_document?
             next outcome(:outcome_school_n) # outcome does not contain school specific content
           else
             next outcome(:outcome_standard_visit)
@@ -329,7 +344,8 @@ module SmartAnswer
           if calculator.passport_country_in_datv_list? ||
               calculator.passport_country_in_visa_national_list? || calculator.passport_country_is_taiwan? || calculator.passport_country_is_venezuela? ||
               calculator.passport_country_in_non_visa_national_list? ||
-              calculator.passport_country_in_ukot_list?
+              calculator.passport_country_in_ukot_list? ||
+              calculator.travel_document?
             next question(:travelling_to_cta?)
           else
             next outcome(:outcome_no_visa_needed)

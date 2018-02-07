@@ -6,6 +6,7 @@ module SmartAnswer::Calculators
     attr_writer :purpose_of_visit_answer
     attr_writer :travelling_to_cta_answer
     attr_writer :passing_through_uk_border_control_answer
+    attr_writer :travel_document_type
 
     def passport_country_in_eea?
       COUNTRY_GROUP_EEA.include?(@passport_country)
@@ -81,6 +82,10 @@ module SmartAnswer::Calculators
 
     def applicant_is_stateless_or_a_refugee?
       @passport_country == 'stateless-or-refugee'
+    end
+
+    def travel_document?
+      @travel_document_type == "travel_document"
     end
 
     def tourism_visit?
