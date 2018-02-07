@@ -1,45 +1,42 @@
 <% content_for :body do %>
   <%= render partial: 'disclaimer.govspeak.erb' %>
 
-  ##If you’re studying to become a doctor or dentist
-
-  The amount you get will change during your course.
-
-  In each of your first 4 years, you could get:
-
-  <%= render partial: 'full_time_tuition.govspeak.erb', locals: { tuition_fee_amount: tuition_fee_amount, maintenance_loan_amount: calculator.maintenance_loan_amount, maintenance_grant_amount: calculator.maintenance_grant_amount, start_date: start_date } %>
-
-  <% if uk_ft_circumstances.include?('children-under-17') %>
-    - up to <%= format_money(calculator.childcare_grant_one_child) %> a week (1 child) or up to <%= format_money(calculator.childcare_grant_more_than_one_child) %> a week (2 or more children) [Childcare Grant](/childcare-grant)
-    - up to <%= format_money(calculator.parent_learning_allowance) %> per year [Parents’ Learning Allowance](/parents-learning-allowance)
-  <% end %>
-
-  <% if uk_ft_circumstances.include?('dependant-adult') %>
-    - up to <%= format_money(calculator.adult_dependant_allowance) %> per year [Adult Dependant’s Grant](/adult-dependants-grant)
-  <% end %>
-
-  <% if uk_ft_circumstances.include?('has-disability') %>
-    - [Disabled Students' Allowances](/disabled-students-allowances-dsas)
-  <% end %>
-
-  In your fifth and sixth years, you could get <%= format_money(calculator.reduced_maintenance_loan_for_healthcare, pounds_only: true) %> reduced Maintenance Loan. You can also apply for [NHS funding](/nhs-bursaries) and get the following depending on your circumstances:
-
-  <%= render partial: 'nhs_full_time_funding.govspeak.erb', locals: { uk_ft_circumstances: uk_ft_circumstances, calculator: calculator } %>
-
-  ^ If you're on a 4 year accelerated graduate course, you'll have to apply for an NHS bursary from your second year.
-
   <% if calculator.doctor_or_dentist? %>
-    ##If you're studying to become a doctor or dentist
+    ##If you’re studying to become a doctor or dentist
+
+    The amount you get will change during your course.
+
+    In each of your first 4 years, you could get:
+
+    <%= render partial: 'full_time_tuition.govspeak.erb', locals: { tuition_fee_amount: tuition_fee_amount, maintenance_loan_amount: calculator.maintenance_loan_amount, maintenance_grant_amount: calculator.maintenance_grant_amount, start_date: start_date } %>
+
+    <% if uk_ft_circumstances.include?('children-under-17') %>
+      - up to <%= format_money(calculator.childcare_grant_one_child) %> a week (1 child) or up to <%= format_money(calculator.childcare_grant_more_than_one_child) %> a week (2 or more children) [Childcare Grant](/childcare-grant)
+      - up to <%= format_money(calculator.parent_learning_allowance) %> per year [Parents’ Learning Allowance](/parents-learning-allowance)
+    <% end %>
+
+    <% if uk_ft_circumstances.include?('dependant-adult') %>
+      - up to <%= format_money(calculator.adult_dependant_allowance) %> per year [Adult Dependant’s Grant](/adult-dependants-grant)
+    <% end %>
+
+    <% if uk_ft_circumstances.include?('has-disability') %>
+      - [Disabled Students' Allowances](/disabled-students-allowances-dsas)
+    <% end %>
+
+    In your fifth and sixth years, you could get <%= format_money(calculator.reduced_maintenance_loan_for_healthcare, pounds_only: true) %> reduced Maintenance Loan. You can also apply for [NHS funding](/nhs-bursaries) and get the following depending on your circumstances:
+
+    <%= render partial: 'nhs_full_time_funding.govspeak.erb', locals: { uk_ft_circumstances: uk_ft_circumstances, calculator: calculator } %>
+
+    ^ If you're on a 4 year accelerated graduate course, you'll have to apply for an NHS bursary from your second year.
   <% else %>
     ##If you're studying dental hygiene or dental therapy
-  <% end %>
 
-  Each year you could get <%= format_money(calculator.reduced_maintenance_loan_for_healthcare, pounds_only: true) %> reduced Maintenance Loan. You can also apply for [NHS funding](/nhs-bursaries) and get the following depending on your circumstances:
+    Each year you could get <%= format_money(calculator.reduced_maintenance_loan_for_healthcare, pounds_only: true) %> reduced Maintenance Loan. You can also apply for [NHS funding](/nhs-bursaries) and get the following depending on your circumstances:
+  <% end %>
 
   <%= render partial: 'nhs_full_time_funding.govspeak.erb', locals: { uk_ft_circumstances: uk_ft_circumstances, calculator: calculator } %>
 
   <%= render partial: 'uk_extra_help.govspeak.erb' %>
 
   <%= render partial: 'next_steps.govspeak.erb' %>
-
 <% end %>

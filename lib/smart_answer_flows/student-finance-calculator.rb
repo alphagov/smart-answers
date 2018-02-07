@@ -12,6 +12,7 @@ module SmartAnswer
       #Q1
       multiple_choice :when_does_your_course_start? do
         option :"2017-2018"
+        option :"2018-2019"
 
         on_response do |response|
           self.calculator = sf_calculator
@@ -135,12 +136,16 @@ module SmartAnswer
           case course_type
           when 'uk-full-time'
             if response == 'dental-medical-healthcare'
-              question :are_you_studying_one_of_these_dental_or_medical_courses?
+              if start_date == '2018-2019'
+                question :are_you_a_doctor_or_dentist?
+              else
+                question :are_you_studying_one_of_these_dental_or_medical_courses?
+              end
             else
               outcome :outcome_uk_full_time_students
             end
           when 'uk-part-time'
-            if response == 'dental-medical-healthcare'
+            if response == 'dental-medical-healthcare' && start_date == '2017-2018'
               question :are_you_studying_dental_hygiene_or_dental_therapy?
             else
               outcome :outcome_uk_all_students
@@ -182,6 +187,24 @@ module SmartAnswer
             outcome :outcome_uk_all_students
           else
             outcome :outcome_uk_part_time_dental_medical_students
+          end
+        end
+      end
+
+      #Q7d
+      multiple_choice :are_you_a_doctor_or_dentist? do
+        option :yes
+        option :no
+
+        on_response do |response|
+          calculator.doctor_or_dentist = (response == 'yes')
+        end
+
+        next_node do |response|
+          if response == "yes"
+            outcome :outcome_uk_full_time_dental_medical_students
+          else
+            outcome :outcome_uk_full_time_students
           end
         end
       end

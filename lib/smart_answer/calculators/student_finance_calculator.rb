@@ -1,13 +1,25 @@
 module SmartAnswer
   module Calculators
     class StudentFinanceCalculator
-      attr_accessor :course_start, :household_income, :residence, :course_type, :dental_or_medical_course
+      attr_accessor(
+        :course_start,
+        :household_income,
+        :residence,
+        :course_type,
+        :dental_or_medical_course,
+        :doctor_or_dentist,
+      )
 
       LOAN_MAXIMUMS = {
         "2017-2018" => {
           "at-home" => 7_097,
           "away-outside-london" => 8_430,
           "away-in-london" => 11_002
+        },
+        "2018-2019" => {
+          "at-home" => 7_324,
+          "away-outside-london" => 8_700,
+          "away-in-london" => 11_354
         }
       }.freeze
       REDUCED_MAINTENTANCE_LOAN_AMOUNTS = {
@@ -19,33 +31,47 @@ module SmartAnswer
         "2017-2018" => {
           "one-child" => 159.59,
           "more-than-one-child" => 273.60
-        }
+        },
+        "2018-2019" => {
+          "one-child" => 164.70,
+          "more-than-one-child" => 282.36
+        },
       }
       PARENTS_LEARNING_ALLOWANCE = {
-        "2017-2018" => 1617
+        "2017-2018" => 1_617,
+        "2018-2019" => 1_669,
       }
       ADULT_DEPENDANT_ALLOWANCE = {
-        "2017-2018" => 2834
+        "2017-2018" => 2_834,
+        "2018-2019" => 2_925,
       }
       TUITION_FEE_MAXIMUM = {
-        "2017-2018" => {
-          "full-time" => 9250,
-          "part-time" => 6935
-        }
+        "full-time" => 9_250,
+        "part-time" => 6_935,
       }
       LOAN_MINIMUMS = {
         "2017-2018" => {
           "at-home" => 3_124,
           "away-outside-london" => 3_928,
           "away-in-london" => 5_479
-        }
+        },
+        "2018-2019" => {
+          "at-home" => 3_224,
+          "away-outside-london" => 4_054,
+          "away-in-london" => 5_654
+        },
       }.freeze
       INCOME_PENALTY_RATIO = {
         "2017-2018" => {
           "at-home" => 8.36,
           "away-outside-london" => 8.26,
           "away-in-london" => 8.12
-        }
+        },
+        "2018-2019" => {
+          "at-home" => 8.10,
+          "away-outside-london" => 8.01,
+          "away-in-london" => 7.87
+        },
       }.freeze
 
       def initialize(params = {})
@@ -54,6 +80,7 @@ module SmartAnswer
         @residence = params[:residence]
         @course_type = params[:course_type]
         @dental_or_medical_course = params[:dental_or_medical_course]
+        @doctor_or_dentist = params[:doctor_or_dentist]
       end
 
       def reduced_maintenance_loan_for_healthcare
@@ -85,15 +112,16 @@ module SmartAnswer
       end
 
       def tuition_fee_maximum_full_time
-        TUITION_FEE_MAXIMUM.fetch(@course_start).fetch("full-time")
+        TUITION_FEE_MAXIMUM.fetch("full-time")
       end
 
       def tuition_fee_maximum_part_time
-        TUITION_FEE_MAXIMUM.fetch(@course_start).fetch("part-time")
+        TUITION_FEE_MAXIMUM.fetch("part-time")
       end
 
       def doctor_or_dentist?
-        @dental_or_medical_course == "doctor-or-dentist"
+        (@course_start == '2017-2018' && @dental_or_medical_course == "doctor-or-dentist") ||
+          (@course_start == '2018-2019' && @doctor_or_dentist)
       end
 
       def maintenance_grant_amount
