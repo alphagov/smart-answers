@@ -28,6 +28,10 @@ module SmartAnswer
             question :what_sort_of_passport?
           elsif calculator.passport_country_is_latvia?
             question :what_sort_of_passport?
+          elsif calculator.passport_country_is_hong_kong?
+            question :what_sort_of_travel_document?
+          elsif calculator.passport_country_is_macao?
+            question :what_sort_of_travel_document?
           elsif calculator.passport_country_in_eea?
             outcome :outcome_no_visa_needed
           else
@@ -67,6 +71,16 @@ module SmartAnswer
             end
             question :purpose_of_visit?
           end
+        end
+      end
+
+      #Q1e / Q1f
+      multiple_choice :what_sort_of_travel_document? do
+        option :passport
+        option :travel_document
+
+        next_node do |_|
+          question :purpose_of_visit?
         end
       end
 

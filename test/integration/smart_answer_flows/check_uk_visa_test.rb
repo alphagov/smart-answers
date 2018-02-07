@@ -7,9 +7,49 @@ class CheckUkVisaTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    @location_slugs = %w(andorra anguilla armenia bolivia canada china colombia croatia estonia latvia mexico south-africa stateless-or-refugee syria turkey democratic-republic-of-the-congo oman united-arab-emirates qatar taiwan venezuela afghanistan yemen)
+    @location_slugs = %w(andorra anguilla armenia bolivia canada china colombia croatia estonia hong-kong latvia macao mexico south-africa stateless-or-refugee syria turkey democratic-republic-of-the-congo oman united-arab-emirates qatar taiwan venezuela afghanistan yemen)
     stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::CheckUkVisaFlow
+  end
+
+  context "hong-kong" do
+    setup do
+      add_response 'hong-kong'
+    end
+
+    should "direct user to what sort of travel document do you have? (Q1e)" do
+      assert_current_node :what_sort_of_travel_document?
+    end
+
+    should "direct user to purpose_of_visit (Q2) for passport" do
+      add_response 'passport'
+      assert_current_node :purpose_of_visit?
+    end
+
+    should "direct user to purpose_of_visit (Q2) for travel document" do
+      add_response 'travel_document'
+      assert_current_node :purpose_of_visit?
+    end
+  end
+
+  context "macao" do
+    setup do
+      add_response 'macao'
+    end
+
+    should "direct user to what sort of travel document do you have? (Q1f)" do
+      assert_current_node :what_sort_of_travel_document?
+    end
+
+    should "direct user to purpose_of_visit (Q2) for passport" do
+      add_response 'passport'
+      assert_current_node :purpose_of_visit?
+    end
+
+    should "direct user to purpose_of_visit (Q2) for travel document" do
+      add_response 'travel_document'
+      assert_current_node :purpose_of_visit?
+    end
   end
 
   context "transit" do
