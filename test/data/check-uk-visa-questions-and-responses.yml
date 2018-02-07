@@ -8,9 +8,12 @@
 - croatia
 - democratic-republic-of-the-congo
 - estonia
+- hong-kong
+- hong-kong-(british-national-overseas)
 - israel
 - kuwait
 - latvia
+- macao
 - oman
 - saint-barthelemy
 - stateless-or-refugee
@@ -25,6 +28,9 @@
 :what_sort_of_passport?:
 - citizen
 - alien
+:what_sort_of_travel_document?:
+- passport
+- travel_document
 :purpose_of_visit?:
 - tourism
 - work
