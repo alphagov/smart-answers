@@ -569,8 +569,8 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/uk/partner_l
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/uk/partner_local/_same_sex.erb: 827ae302f6d822515ff1a1cacac0a745
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/uk/partner_other/_opposite_sex.erb: 234e0802f5b9a15b65749746d2870f76
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/uk/partner_other/_same_sex.erb: 42357f1a7b08df49d6637d6168e98d78
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/philippines/_opposite_sex.govspeak.erb: 17f03c901e3fb4aa9a79a5c1ae5bf7d9
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/philippines/_same_sex.govspeak.erb: 25b5e80abb9a880dbfb538ef07c7864a
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/philippines/_opposite_sex.govspeak.erb: 4fba49406d101b2b2fc9a45c1f666e60
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/philippines/_same_sex.govspeak.erb: 1f365652aeeaee04a5fc6959fac34439
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/philippines/_title.govspeak.erb: '0854b3acba978d232a8983b9438d7342'
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/poland/_title.govspeak.erb: b9732ed6507af2fea521b341a87f12ab
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/poland/ceremony_country/_opposite_sex.govspeak.erb: fab626f346b23c72a4494e0b859c7d71
