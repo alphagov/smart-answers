@@ -145,7 +145,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
 
       should "#{RUN_ME_LAST} and generate the same set of output files" do
         diff_output = `git status --short -- #{smart_answer_helper.path_to_outputs_for_flow}`
-        assert diff_output.blank?, "Changes in outcome page artefacts have been detected:\n#{diff_output}\nIf these changes are expected then re-generate the checksums, re-run the regression test, and commit all the changes."
+        assert diff_output.blank?, "Changes in outcome page artefacts have been detected:\n#{diff_output}\nIf these changes are expected then re-generate the checksums, commit all the changes, and re-run the regression test."
       end
     end
   end
