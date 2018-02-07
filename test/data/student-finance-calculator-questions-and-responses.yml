@@ -18,6 +18,10 @@
 - 43875
 - 35000
 - 24500
+:how_many_credits_will_you_study?:
+- 80
+:how_many_credits_does_a_full_time_student_study?:
+- 120
 :do_any_of_the_following_apply_uk_full_time_students_only?:
 - children-under-17,dependant-adult,has-disability,low-income
 - 'no'
