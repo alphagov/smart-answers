@@ -682,7 +682,7 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/tanzania/uk/partner_lo
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/tanzania/uk/partner_local/_same_sex.govspeak.erb: 13840a0ab33e959767dbedad82ed340a
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/tanzania/uk/partner_other/_opposite_sex.govspeak.erb: 521c574af6d443d02c9bd1a5b5fcaa02
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/tanzania/uk/partner_other/_same_sex.govspeak.erb: 13840a0ab33e959767dbedad82ed340a
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/thailand/_opposite_sex.govspeak.erb: 835e9b13b13e4bbf2d336298764e46c3
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/thailand/_opposite_sex.govspeak.erb: 2868c1048dbbb54b7d6e2903874ad521
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/thailand/_same_sex.govspeak.erb: 8b5b18c463388127a068c7de509d3683
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/thailand/_title.govspeak.erb: 0fe584efebbddb53398d749efcc43ea9
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/tunisia/_title.govspeak.erb: a4e5918ab1ca322cd6071f74fa20623a
