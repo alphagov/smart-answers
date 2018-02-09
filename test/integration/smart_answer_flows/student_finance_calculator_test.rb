@@ -135,15 +135,15 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     end # end context part-time student
   end
 
-  context "course starting between 2016 and 2017" do
+  context "course starting between 2018 and 2019" do
     setup do
-      add_response '2016-2017'
+      add_response '2018-2019'
     end
     should "ask what sort of a student you are" do
       assert_current_node :what_type_of_student_are_you?
     end
 
-    context "full-time uk student between 2016 and 2017" do
+    context "full-time uk student between 2018 and 2019" do
       setup do
         add_response 'uk-full-time'
       end
@@ -151,8 +151,8 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       should "ask how much your tuition fees are per year" do
         assert_current_node :how_much_are_your_tuition_fees_per_year?
       end
-      should "be invalid if a fee over 9000 is entered" do
-        add_response '9001'
+      should "be invalid if a fee over 9250 is entered" do
+        add_response '9251'
         assert_current_node :how_much_are_your_tuition_fees_per_year?, error: true
       end
 
@@ -187,37 +187,207 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
               should "ask what course you are studying" do
                 assert_current_node :what_course_are_you_studying?
               end
-            end # end context children
-          end # end context income
-        end # end context living at home
-      end # end context valid fees
-    end # end context full-time student
+              context "What course are you studying?" do
+                setup do
+                  add_response 'dental-medical-healthcare'
+                end
+                should "ask are you studying one of these dental or medical courses?" do
+                  assert_current_node :are_you_a_doctor_or_dentist?
+                end
+
+                context "You are a doctor or dentist" do
+                  setup do
+                    add_response 'yes'
+                  end
+                  should "be on the full time dental and medical student outcome" do
+                    assert_current_node :outcome_uk_full_time_dental_medical_students
+                  end
+                end
+
+                context "You are not a doctor dentist" do
+                  setup do
+                    add_response 'no'
+                  end
+
+                  should "be on the full time student outcome" do
+                    assert_current_node :outcome_uk_full_time_students
+                  end
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+
+    context "part-time uk student between 2018 and 2019" do
+      should "ask how much your tuition fees are per year" do
+        add_response 'uk-part-time'
+        assert_current_node :how_much_are_your_tuition_fees_per_year?
+      end
+      should "be invalid if a fee over 6935 is entered" do
+        add_response 'uk-part-time'
+        add_response '6936'
+        assert_current_node :how_much_are_your_tuition_fees_per_year?, error: true
+      end
+      should "ask where you live" do
+        add_response 'uk-part-time'
+        add_response '6935'
+        assert_current_node :where_will_you_live_while_studying?
+      end
+      should "ask for your household income" do
+        add_response 'uk-part-time'
+        add_response '6935'
+        add_response 'at-home'
+        assert_current_node :whats_your_household_income?
+      end
+      should "ask how many credits you will study" do
+        add_response 'uk-part-time'
+        add_response '6935'
+        add_response 'at-home'
+        add_response '5000'
+        assert_current_node :how_many_credits_will_you_study?
+      end
+      should "be invalid if course credits are negative" do
+        add_response 'uk-part-time'
+        add_response '6935'
+        add_response 'at-home'
+        add_response '5000'
+        add_response '-1'
+        assert_current_node :how_many_credits_will_you_study?, error: true
+      end
+      should "ask how many credits a full-time student on the same course would study" do
+        add_response 'uk-part-time'
+        add_response '6935'
+        add_response 'at-home'
+        add_response '5000'
+        add_response '10'
+        assert_current_node :how_many_credits_does_a_full_time_student_study?
+      end
+      should "be invalid if full time credits are negative" do
+        add_response 'uk-part-time'
+        add_response '6935'
+        add_response 'at-home'
+        add_response '5000'
+        add_response '5'
+        add_response '-1'
+        assert_current_node :how_many_credits_does_a_full_time_student_study?, error: true
+      end
+      should "be invalid if full time credits are less than part time course credits" do
+        add_response 'uk-part-time'
+        add_response '6935'
+        add_response 'at-home'
+        add_response '5000'
+        add_response '20'
+        add_response '19'
+        assert_current_node :how_many_credits_does_a_full_time_student_study?, error: true
+      end
+      should "ask do any of the following apply?" do
+        add_response 'uk-part-time'
+        add_response '6935'
+        add_response 'at-home'
+        add_response '5000'
+        add_response '5'
+        add_response '10'
+        assert_current_node :do_any_of_the_following_apply_all_uk_students?
+      end
+      should "ask what course are you studying?" do
+        add_response 'uk-part-time'
+        add_response '6935'
+        add_response 'at-home'
+        add_response '5000'
+        add_response '5'
+        add_response '10'
+        add_response 'has-disability,low-income'
+        assert_current_node :what_course_are_you_studying?
+      end
+      should "go to the outcome for all part-time UK students" do
+        add_response 'uk-part-time'
+        add_response '6935'
+        add_response 'at-home'
+        add_response '5000'
+        add_response '5'
+        add_response '10'
+        add_response 'has-disability,low-income'
+        add_response 'dental-medical-healthcare'
+        assert_current_node :outcome_uk_all_students
+      end
+    end
   end
 
   context "#dental-medical-healthcare" do
     context "#uk-full-time students" do
-      should "Go to outcome_uk_full_time_students" do
-        add_response '2016-2017' # When does your course start?
-        add_response 'uk-full-time' # What type of student are you?
-        add_response '9000' # Tuition fee amount
-        add_response 'away-in-london' # Living situation
-        add_response '0' # Household income
-        add_response 'no' # Any special circumstances
-        add_response 'dental-medical-healthcare' # Studying dental-medical-healthcare
+      context "#doctor-or-dentist" do
+        should "Go to outcome_uk_full_time_dental_medical_students" do
+          add_response '2017-2018' # When does your course start?
+          add_response 'uk-full-time' # What type of student are you?
+          add_response '9000' # Tuition fee amount
+          add_response 'away-in-london' # Living situation
+          add_response '0' # Household income
+          add_response 'no' # Any special circumstances
+          add_response 'dental-medical-healthcare' # Studying dental-medical-healthcare
+          add_response 'doctor-or-dentist' # Studying to be a doctor or dentist
 
-        assert_current_node :outcome_uk_full_time_dental_medical_students
+          assert_current_node :outcome_uk_full_time_dental_medical_students
+        end
+      end
+
+      context "#dental-hygiene-or-dental-therapy" do
+        should "Go to outcome_uk_full_time_dental_medical_students" do
+          add_response '2017-2018' # When does your course start?
+          add_response 'uk-full-time' # What type of student are you?
+          add_response '9000' # Tuition fee amount
+          add_response 'away-in-london' # Living situation
+          add_response '0' # Household income
+          add_response 'no' # Any special circumstances
+          add_response 'dental-medical-healthcare' # Studying dental-medical-healthcare
+          add_response 'dental-hygiene-or-dental-therapy' # Studying dental hygiene or dental therapy
+
+          assert_current_node :outcome_uk_full_time_dental_medical_students
+        end
+      end
+
+      context "#none-of-the-above" do
+        should "Go to outcome_uk_full_time_students" do
+          add_response '2017-2018' # When does your course start?
+          add_response 'uk-full-time' # What type of student are you?
+          add_response '9000' # Tuition fee amount
+          add_response 'away-in-london' # Living situation
+          add_response '0' # Household income
+          add_response 'no' # Any special circumstances
+          add_response 'dental-medical-healthcare' # Studying dental-medical-healthcare
+          add_response 'none-of-the-above' # Studying another dental or medical course
+
+          assert_current_node :outcome_uk_full_time_students
+        end
       end
     end
 
-    context "#uk-full-time students" do
-      should "Go to outcome_uk_part_time_students" do
-        add_response '2016-2017' # When does your course start?
-        add_response 'uk-part-time' # What type of student are you?
-        add_response '6750' # Tuition fee amount
-        add_response 'no' # Any special circumstances
-        add_response 'dental-medical-healthcare' # Studying dental-medical-healthcare
+    context "#uk-part-time students" do
+      context "dental hygiene or dental therapy" do
+        should "Go to outcome_uk_part_time_dental_medical_students" do
+          add_response '2017-2018' # When does your course start?
+          add_response 'uk-part-time' # What type of student are you?
+          add_response '6750' # Tuition fee amount
+          add_response 'no' # Any special circumstances
+          add_response 'dental-medical-healthcare' # Studying dental-medical-healthcare
+          add_response 'yes' # Studying dental hygiene or dental therapy
 
-        assert_current_node :outcome_uk_part_time_dental_medical_students
+          assert_current_node :outcome_uk_part_time_dental_medical_students
+        end
+      end
+
+      context "other medical or dental course" do
+        should "Go to outcome_uk_all_students" do
+          add_response '2017-2018' # When does your course start?
+          add_response 'uk-part-time' # What type of student are you?
+          add_response '6750' # Tuition fee amount
+          add_response 'no' # Any special circumstances
+          add_response 'dental-medical-healthcare' # Studying dental-medical-healthcare
+          add_response 'no' # Not studying dental hygiene or dental therapy
+
+          assert_current_node :outcome_uk_all_students
+        end
       end
     end
   end
@@ -225,7 +395,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
   context "#teacher-training" do
     context "#uk-full-time students" do
       should "Go to outcome_uk_full_time_students" do
-        add_response '2016-2017' # When does your course start?
+        add_response '2017-2018' # When does your course start?
         add_response 'uk-full-time' # What type of student are you?
         add_response '9000' # Tuition fee amount
         add_response 'away-in-london' # Living situation
@@ -239,7 +409,7 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
 
     context "#uk-full-time students" do
       should "Go to outcome_uk_part_time_students" do
-        add_response '2016-2017' # When does your course start?
+        add_response '2017-2018' # When does your course start?
         add_response 'uk-part-time' # What type of student are you?
         add_response '6750' # Tuition fee amount
         add_response 'no' # Any special circumstances
