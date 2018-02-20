@@ -11,7 +11,7 @@ gem 'govuk_app_config'
 gem 'ast'
 gem "gds-api-adapters", "~> 51.2.0"
 gem 'govspeak', '~> 3.3.0'
-gem 'govuk-content-schema-test-helpers', '~> 1.3.0'
+gem 'govuk-content-schema-test-helpers', '~> 1.6.0'
 gem 'govuk_frontend_toolkit', '>= 6.0.4'
 gem 'htmlentities', '~> 4'
 gem 'json'
