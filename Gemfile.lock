@@ -74,7 +74,7 @@ GEM
     execjs (2.7.0)
     faraday (0.14.0)
       multipart-post (>= 1.2, < 3)
-    ffi (1.9.18)
+    ffi (1.9.21)
     gds-api-adapters (51.2.0)
       addressable
       link_header
@@ -101,7 +101,7 @@ GEM
       sentry-raven (~> 2.7.1)
       statsd-ruby (~> 1.4.0)
       unicorn (~> 5.4.0)
-    govuk_frontend_toolkit (7.2.0)
+    govuk_frontend_toolkit (7.4.1)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
     govuk_navigation_helpers (6.3.0)
