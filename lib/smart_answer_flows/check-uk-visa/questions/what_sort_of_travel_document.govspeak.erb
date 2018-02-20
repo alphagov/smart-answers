@@ -1,0 +1,15 @@
+<% content_for :title do %>
+  What sort of travel document do you have?
+<% end %>
+
+<% if calculator.passport_country_is_hong_kong? %>
+  <% options(
+    "passport": "Hong Kong passport",
+    "travel_document": "Hong Kong travel document",
+  ) %>
+<% elsif calculator.passport_country_is_macao? %>
+  <% options(
+    "passport": "Macao passport",
+    "travel_document": "Macao travel document",
+  ) %>
+<% end %>

@@ -7,9 +7,49 @@ class CheckUkVisaTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    @location_slugs = %w(andorra anguilla armenia bolivia canada china colombia croatia estonia latvia mexico south-africa stateless-or-refugee syria turkey democratic-republic-of-the-congo oman united-arab-emirates qatar taiwan venezuela afghanistan yemen)
+    @location_slugs = %w(andorra anguilla armenia bolivia canada china colombia croatia estonia hong-kong latvia macao mexico south-africa stateless-or-refugee syria turkey democratic-republic-of-the-congo oman united-arab-emirates qatar taiwan venezuela afghanistan yemen)
     stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::CheckUkVisaFlow
+  end
+
+  context "hong-kong" do
+    setup do
+      add_response 'hong-kong'
+    end
+
+    should "direct user to what sort of travel document do you have? (Q1e)" do
+      assert_current_node :what_sort_of_travel_document?
+    end
+
+    should "direct user to purpose_of_visit (Q2) for passport" do
+      add_response 'passport'
+      assert_current_node :purpose_of_visit?
+    end
+
+    should "direct user to purpose_of_visit (Q2) for travel document" do
+      add_response 'travel_document'
+      assert_current_node :purpose_of_visit?
+    end
+  end
+
+  context "macao" do
+    setup do
+      add_response 'macao'
+    end
+
+    should "direct user to what sort of travel document do you have? (Q1f)" do
+      assert_current_node :what_sort_of_travel_document?
+    end
+
+    should "direct user to purpose_of_visit (Q2) for passport" do
+      add_response 'passport'
+      assert_current_node :purpose_of_visit?
+    end
+
+    should "direct user to purpose_of_visit (Q2) for travel document" do
+      add_response 'travel_document'
+      assert_current_node :purpose_of_visit?
+    end
   end
 
   context "transit" do
@@ -594,6 +634,344 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
     end
   end
+
+  context "choose Hong Kong" do
+    setup do
+      add_response "hong-kong"
+    end
+
+    context "with travel document" do
+      setup do
+        add_response "travel_document"
+      end
+
+      context "get private medical treatment" do
+        should "take you to the medical_y outcome" do
+          add_response 'medical'
+          assert_current_node :outcome_medical_y
+        end
+      end
+
+      context "tourism, visiting friends or family" do
+        should "take you to the outcome 6y - standard visit" do
+          add_response 'tourism'
+          assert_current_node :outcome_standard_visit
+        end
+      end
+
+      context "in transit" do
+        setup do
+          add_response "transit"
+        end
+
+        context "travelling to the Republic of Ireland" do
+          should "take you to the outcome 14a" do
+            add_response "republic_of_ireland"
+            assert_current_node :outcome_transit_to_the_republic_of_ireland
+          end
+        end
+
+        context "travelling elsewhere" do
+          setup do
+            add_response "somewhere_else"
+          end
+
+          should "not require a visa if not passing through border control" do
+            add_response "no"
+
+            assert_current_node :outcome_no_visa_needed
+          end
+
+          should "take you to outcome_transit_leaving_airport if passing through border control" do
+            add_response "yes"
+            assert_current_node :outcome_transit_leaving_airport
+          end
+        end
+      end
+
+      context 'studying in the UK' do
+        setup do
+          add_response 'study'
+        end
+        context '6 months or less' do
+          should "takes you to outcome_study_m" do
+            add_response "six_months_or_less"
+            assert_current_node :outcome_study_m
+          end
+        end
+        context 'more than 6 months' do
+          should "takes you to outcome_study_y" do
+            add_response "longer_than_six_months"
+            assert_current_node :outcome_study_y
+          end
+        end
+      end
+
+      context 'working in the UK' do
+        setup do
+          add_response 'work'
+        end
+        context '6 months or less' do
+          should "takes you to outcome_work_m" do
+            add_response "six_months_or_less"
+            assert_current_node :outcome_work_m
+          end
+        end
+        context 'more than 6 months' do
+          should "takes you to outcome_work_y" do
+            add_response "longer_than_six_months"
+            assert_current_node :outcome_work_y
+          end
+        end
+      end
+    end
+
+    context "with passport" do
+      setup do
+        add_response "passport"
+      end
+
+      context "get private medical treatment" do
+        should "take you to the medical_n outcome" do
+          add_response 'medical'
+          assert_current_node :outcome_medical_n
+        end
+      end
+
+      context "tourism, visiting friends or family" do
+        should "take you to the school_n" do
+          add_response 'tourism'
+          # The school outcome does not contain school-specific content
+          assert_current_node :outcome_school_n
+        end
+      end
+
+      context "in transit" do
+        setup do
+          add_response "transit"
+        end
+
+        context "travelling to the Republic of Ireland" do
+          should "not require a visa" do
+            add_response "somewhere_else"
+            assert_current_node :outcome_no_visa_needed
+          end
+        end
+
+        context "travelling elsewhere" do
+          should "not require a visa" do
+            add_response "republic_of_ireland"
+            assert_current_node :outcome_no_visa_needed
+          end
+        end
+      end
+
+      context 'studying in the UK' do
+        setup do
+          add_response 'study'
+        end
+        context '6 months or less' do
+          should "take you to no visa needed outcome" do
+            add_response "six_months_or_less"
+            assert_current_node :outcome_no_visa_needed
+          end
+        end
+        context 'more than 6 months' do
+          should "takes you to outcome_study_y" do
+            add_response "longer_than_six_months"
+            assert_current_node :outcome_study_y
+          end
+        end
+      end
+
+      context 'working in the UK' do
+        setup do
+          add_response 'work'
+        end
+        context '6 months or less' do
+          should "take you to no outcome_work_n" do
+            add_response "six_months_or_less"
+            assert_current_node :outcome_work_n
+          end
+        end
+        context 'more than 6 months' do
+          should "takes you to outcome_work_y" do
+            add_response "longer_than_six_months"
+            assert_current_node :outcome_work_y
+          end
+        end
+      end
+    end
+  end
+
+  context "choose Macao (travel document)" do
+    setup do
+      add_response "macao"
+    end
+
+    context "with travel document" do
+      setup do
+        add_response "travel_document"
+      end
+
+      context "get private medical treatment" do
+        should "take you to the medical_y outcome" do
+          add_response 'medical'
+          assert_current_node :outcome_medical_y
+        end
+      end
+
+      context "tourism, visiting friends or family" do
+        should "take you to the outcome 6y - standard visit" do
+          add_response 'tourism'
+          assert_current_node :outcome_standard_visit
+        end
+      end
+
+      context "in transit" do
+        setup do
+          add_response "transit"
+        end
+
+        context "travelling to the Republic of Ireland" do
+          should "take you to the outcome 14a" do
+            add_response "republic_of_ireland"
+            assert_current_node :outcome_transit_to_the_republic_of_ireland
+          end
+        end
+
+        context "travelling elsewhere" do
+          setup do
+            add_response "somewhere_else"
+          end
+
+          should "not require a visa if not passing through border control" do
+            add_response "no"
+            assert_current_node :outcome_no_visa_needed
+          end
+
+          should "take you to outcome_transit_leaving_airport if passing through border control" do
+            add_response "yes"
+            assert_current_node :outcome_transit_leaving_airport
+          end
+        end
+      end
+
+      context 'studying in the UK' do
+        setup do
+          add_response 'study'
+        end
+        context '6 months or less' do
+          should "takes you to outcome_study_m" do
+            add_response "six_months_or_less"
+            assert_current_node :outcome_study_m
+          end
+        end
+        context 'more than 6 months' do
+          should "takes you to outcome_study_y" do
+            add_response "longer_than_six_months"
+            assert_current_node :outcome_study_y
+          end
+        end
+      end
+
+      context 'working in the UK' do
+        setup do
+          add_response 'work'
+        end
+        context '6 months or less' do
+          should "takes you to outcome_work_m" do
+            add_response "six_months_or_less"
+            assert_current_node :outcome_work_m
+          end
+        end
+        context 'more than 6 months' do
+          should "takes you to outcome_work_y" do
+            add_response "longer_than_six_months"
+            assert_current_node :outcome_work_y
+          end
+        end
+      end
+    end
+
+    context "with passport" do
+      setup do
+        add_response "passport"
+      end
+
+      context "get private medical treatment" do
+        should "take you to the medical_n outcome" do
+          add_response 'medical'
+          assert_current_node :outcome_medical_n
+        end
+      end
+
+      context "tourism, visiting friends or family" do
+        should "take you to the school_n" do
+          add_response 'tourism'
+          # The school outcome does not contain school-specific content
+          assert_current_node :outcome_school_n
+        end
+      end
+
+      context "in transit" do
+        setup do
+          add_response "transit"
+        end
+
+        context "travelling to the Republic of Ireland" do
+          should "not require a visa" do
+            add_response "somewhere_else"
+            assert_current_node :outcome_no_visa_needed
+          end
+        end
+
+        context "travelling elsewhere" do
+          should "not require a visa" do
+            add_response "republic_of_ireland"
+            assert_current_node :outcome_no_visa_needed
+          end
+        end
+      end
+
+      context 'studying in the UK' do
+        setup do
+          add_response 'study'
+        end
+        context '6 months or less' do
+          should "take you to no visa needed outcome" do
+            add_response "six_months_or_less"
+            assert_current_node :outcome_no_visa_needed
+          end
+        end
+        context 'more than 6 months' do
+          should "takes you to outcome_study_y" do
+            add_response "longer_than_six_months"
+            assert_current_node :outcome_study_y
+          end
+        end
+      end
+
+      context 'working in the UK' do
+        setup do
+          add_response 'work'
+        end
+        context '6 months or less' do
+          should "take you to outcome_work_n outcome" do
+            add_response "six_months_or_less"
+            assert_current_node :outcome_work_n
+          end
+        end
+        context 'more than 6 months' do
+          should "takes you to outcome_work_y" do
+            add_response "longer_than_six_months"
+            assert_current_node :outcome_work_y
+          end
+        end
+      end
+    end
+  end
+
   context "testing turkey phrase list" do
     setup do
       add_response "turkey"

@@ -6,6 +6,7 @@ module SmartAnswer::Calculators
     attr_writer :purpose_of_visit_answer
     attr_writer :travelling_to_cta_answer
     attr_writer :passing_through_uk_border_control_answer
+    attr_writer :travel_document_type
 
     def passport_country_in_eea?
       COUNTRY_GROUP_EEA.include?(@passport_country)
@@ -63,8 +64,16 @@ module SmartAnswer::Calculators
       @passport_country == 'estonia' || @passport_country == 'estonia-alien-passport'
     end
 
+    def passport_country_is_hong_kong?
+      @passport_country == 'hong-kong'
+    end
+
     def passport_country_is_latvia?
       @passport_country == 'latvia' || @passport_country == 'latvia-alien-passport'
+    end
+
+    def passport_country_is_macao?
+      @passport_country == 'macao'
     end
 
     def passport_country_is_turkey?
@@ -73,6 +82,10 @@ module SmartAnswer::Calculators
 
     def applicant_is_stateless_or_a_refugee?
       @passport_country == 'stateless-or-refugee'
+    end
+
+    def travel_document?
+      @travel_document_type == "travel_document"
     end
 
     def tourism_visit?
@@ -131,9 +144,9 @@ module SmartAnswer::Calculators
 
     COUNTRY_GROUP_UKOT = %w(anguilla bermuda british-dependent-territories-citizen british-overseas-citizen british-protected-person british-virgin-islands cayman-islands falkland-islands montserrat st-helena-ascension-and-tristan-da-cunha south-georgia-and-south-sandwich-islands turks-and-caicos-islands)
 
-    COUNTRY_GROUP_NON_VISA_NATIONAL = %w(andorra antigua-and-barbuda argentina aruba australia bahamas barbados belize bonaire-st-eustatius-saba botswana brazil british-national-overseas brunei canada chile costa-rica curacao dominica timor-leste el-salvador grenada guatemala honduras hong-kong hong-kong-(british-national-overseas) israel japan kiribati south-korea macao malaysia maldives marshall-islands mauritius mexico micronesia monaco namibia nauru new-zealand nicaragua palau panama papua-new-guinea paraguay pitcairn-island st-kitts-and-nevis st-lucia st-maarten st-vincent-and-the-grenadines samoa san-marino seychelles singapore solomon-islands tonga trinidad-and-tobago tuvalu usa uruguay vanuatu vatican-city)
+    COUNTRY_GROUP_NON_VISA_NATIONAL = %w(andorra antigua-and-barbuda argentina aruba australia bahamas barbados belize bonaire-st-eustatius-saba botswana brazil british-national-overseas brunei canada chile costa-rica curacao dominica timor-leste el-salvador grenada guatemala honduras hong-kong hong-kong-(british-national-overseas) israel japan kiribati south-korea macao malaysia maldives marshall-islands mauritius mexico micronesia monaco namibia nauru new-zealand nicaragua palau panama papua-new-guinea paraguay pitcairn-island st-kitts-and-nevis st-lucia st-maarten st-vincent-and-the-grenadines samoa san-marino seychelles singapore solomon-islands tonga trinidad-and-tobago tuvalu usa uruguay vanuatu vatican-city).freeze
 
-    COUNTRY_GROUP_VISA_NATIONAL = %w(stateless-or-refugee armenia azerbaijan bahrain benin bhutan bolivia bosnia-and-herzegovina burkina-faso cambodia cape-verde central-african-republic chad colombia comoros cuba djibouti dominican-republic ecuador equatorial-guinea fiji gabon georgia guyana haiti indonesia jordan kazakhstan north-korea kuwait kyrgyzstan laos madagascar mali  montenegro mauritania morocco mozambique niger oman peru philippines qatar russia sao-tome-and-principe saudi-arabia suriname tajikistan taiwan thailand togo tunisia turkmenistan ukraine united-arab-emirates uzbekistan zambia)
+    COUNTRY_GROUP_VISA_NATIONAL = %w(stateless-or-refugee armenia azerbaijan bahrain benin bhutan bolivia bosnia-and-herzegovina burkina-faso cambodia cape-verde central-african-republic chad colombia comoros cuba djibouti dominican-republic ecuador equatorial-guinea fiji gabon georgia guyana haiti indonesia jordan kazakhstan north-korea kuwait kyrgyzstan laos madagascar mali montenegro mauritania morocco mozambique niger oman peru philippines qatar russia sao-tome-and-principe saudi-arabia suriname tajikistan taiwan thailand togo tunisia turkmenistan ukraine united-arab-emirates uzbekistan zambia).freeze
 
     COUNTRY_GROUP_DATV = %w(afghanistan albania algeria angola bangladesh belarus burma burundi cameroon china congo cyprus-north democratic-republic-of-the-congo egypt eritrea estonia-alien-passport ethiopia gambia ghana guinea guinea-bissau india iran iraq israel-provisional-passport cote-d-ivoire jamaica kenya kosovo latvia-alien-passport lebanon lesotho liberia libya macedonia malawi moldova mongolia nepal nigeria palestinian-territories pakistan rwanda senegal serbia sierra-leone somalia south-africa south-sudan sri-lanka sudan swaziland syria tanzania turkey uganda venezuela vietnam yemen zimbabwe).freeze
 

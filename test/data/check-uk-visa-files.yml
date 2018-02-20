@@ -1,7 +1,7 @@
 ---
 app/models/ukba_country.rb: 56879bb5efb4225cbf56850269385d44
 lib/data/ukba_additional_countries.yml: 5e84d01caf6b2841d0ea9f03f0f4974c
-lib/smart_answer/calculators/uk_visa_calculator.rb: cd7b9c05814e900c3fba19c9930dcd2c
+lib/smart_answer/calculators/uk_visa_calculator.rb: 8059686888cc1fdaff45b6c96c252cfa
 lib/smart_answer_flows/check-uk-visa/check_uk_visa.govspeak.erb: a442b4ddd169b26a401c70d145e5b44e
 lib/smart_answer_flows/check-uk-visa/outcomes/_b1_b2_visa_exception.govspeak.erb: 410e39d565d0a5caed2d1b8c20c1ca77
 lib/smart_answer_flows/check-uk-visa/outcomes/_estonia_or_latvia.govspeak.erb: 248b438c79c81dcd120a0d0fa5d3f0b3
@@ -16,7 +16,7 @@ lib/smart_answer_flows/check-uk-visa/outcomes/outcome_marriage_taiwan.govspeak.e
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_marriage_visa_nat_datv.govspeak.erb: 8f0cf0b2587c71b4f1447f74eea9f9ef
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_medical_n.govspeak.erb: 25d9fdd14a1710ddc14b269028b1ff26
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_medical_y.govspeak.erb: fdaf1c367c5a3a77220b64cb9745d075
-lib/smart_answer_flows/check-uk-visa/outcomes/outcome_no_visa_needed.govspeak.erb: e9aecfb31a1a051cef9ce6c098a0cc55
+lib/smart_answer_flows/check-uk-visa/outcomes/outcome_no_visa_needed.govspeak.erb: 365cbbd8b378b4623c518f567e9424bb
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_school_n.govspeak.erb: 0e132233168964ec480e65172bc106be
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_school_waiver.govspeak.erb: 74ffd01d62f3520f37bdc4562ebae9bc
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_school_y.govspeak.erb: 87327ca6da46ae1b53fa894ff18f8a17
@@ -49,6 +49,7 @@ lib/smart_answer_flows/check-uk-visa/questions/staying_for_how_long.govspeak.erb
 lib/smart_answer_flows/check-uk-visa/questions/travelling_to_cta.govspeak.erb: 1be958b6da2caa148849a26b64a01cc3
 lib/smart_answer_flows/check-uk-visa/questions/what_passport_do_you_have.govspeak.erb: 45a59c18a7b570142f32d3b93f8f7db4
 lib/smart_answer_flows/check-uk-visa/questions/what_sort_of_passport.govspeak.erb: c412fbb6a09cf262680432be71135113
-lib/smart_answer_flows/check-uk-visa.rb: 344d5c9291d648907d02dc5f6ec13828
-test/data/check-uk-visa-questions-and-responses.yml: 33c876a5b75defcf10610c0a81ed14ee
-test/data/check-uk-visa-responses-and-expected-results.yml: 1353c01efe9e28ebcb739867baf0f6fe
+lib/smart_answer_flows/check-uk-visa/questions/what_sort_of_travel_document.govspeak.erb: 053bebd591d0a1ba002f70150723d24b
+lib/smart_answer_flows/check-uk-visa.rb: 0ffdee74782d45320a966d4b83d263ca
+test/data/check-uk-visa-questions-and-responses.yml: 0d62e8a399c5e9c851266ac5832e3f5a
+test/data/check-uk-visa-responses-and-expected-results.yml: 78aa1f2c527956fe792084d842fc19a9
