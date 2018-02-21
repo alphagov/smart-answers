@@ -9,7 +9,7 @@ lib/smart_answer_flows/check-uk-visa/outcomes/_stateless_or_refugee.govspeak.erb
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_diplomatic_business.govspeak.erb: 8ff5d960abb0c6b285249fc5fdacbb29
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_joining_family_m.govspeak.erb: b8c20bebba5c9aba8467b04ecb6cb2ab
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_joining_family_nvn.govspeak.erb: 42c2cb29ee031b0a08d70838fa2748ca
-lib/smart_answer_flows/check-uk-visa/outcomes/outcome_joining_family_y.govspeak.erb: 8634531a21f504450a6455e0596b1a60
+lib/smart_answer_flows/check-uk-visa/outcomes/outcome_joining_family_y.govspeak.erb: 69d01da781cb77ede1335d03e6c72d9c
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_marriage_electronic_visa_waiver.govspeak.erb: fc41100e2dff74f2d5bf6c08271b732f
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_marriage_nvn_ukot.govspeak.erb: 83c0cab3c23607ffa366e9e333e8048d
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_marriage_taiwan.govspeak.erb: 2af6a33c544c0fa0fca90250b1148550
