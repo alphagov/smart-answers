@@ -81,21 +81,3 @@ class ActionDispatch::IntegrationTest
     end
   end
 end
-
-module Slimmer
-  class Skin
-    # Monkeypatch slimmer's mocked template so that we can test the behaviour of
-    # showing/hiding report a problem in smart answers.
-    alias :unpatched_load_template :load_template
-    def load_template name
-      # only override the report a problem that we need to test with specific
-      # markup
-      if name == "report_a_problem.raw"
-        logger.debug "Monkeypatching Slimmer: TEST MODE - Loading fixture template from #{__FILE__}"
-        File.read(File.join(File.dirname(__FILE__), 'fixtures', "report-a-problem.html.erb"))
-      else
-        unpatched_load_template name
-      end
-    end
-  end
-end
