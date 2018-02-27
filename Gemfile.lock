@@ -62,6 +62,8 @@ GEM
       builder (>= 2.1.2)
     cliver (0.3.2)
     coderay (1.1.2)
+    commander (4.4.4)
+      highline (~> 1.7.2)
     concurrent-ruby (1.0.5)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -85,9 +87,14 @@ GEM
       rest-client (~> 2.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    govspeak (3.3.0)
+    govspeak (5.0.3)
+      actionview (>= 4.1, < 6)
+      addressable (>= 2.3.8, < 3)
+      commander (~> 4.4)
       htmlentities (~> 4)
-      kramdown (~> 1.4.1)
+      i18n (~> 0.7)
+      kramdown (~> 1.12.0)
+      money (~> 6.7)
       nokogiri (~> 1.5)
       sanitize (~> 2.1.0)
     govuk-content-schema-test-helpers (1.6.0)
@@ -106,7 +113,16 @@ GEM
       sass (>= 3.2.0)
     govuk_navigation_helpers (6.3.0)
       gds-api-adapters (>= 43.0)
+    govuk_publishing_components (5.2.3)
+      govspeak (>= 5.0.3)
+      govuk_frontend_toolkit
+      rails (>= 5.0.0.1)
+      rake
+      rouge
+      sass-rails (>= 5.0.4)
+      slimmer (>= 11.1.0)
     hashdiff (0.3.7)
+    highline (1.7.10)
     htmlentities (4.3.4)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -116,7 +132,7 @@ GEM
     json-schema (2.8.0)
       addressable (>= 2.4)
     kgio (2.11.2)
-    kramdown (1.4.2)
+    kramdown (1.12.0)
     link_header (0.0.8)
     logstash-event (1.2.02)
     logstasher (1.2.2)
@@ -142,6 +158,8 @@ GEM
       minitest (>= 4, < 6)
     mocha (1.3.0)
       metaclass (~> 0.0.1)
+    money (6.10.1)
+      i18n (>= 0.6.4, < 1.0)
     multi_json (1.13.1)
     multipart-post (2.0.0)
     netrc (0.11.0)
@@ -213,6 +231,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    rouge (3.1.1)
     rubocop (0.51.0)
       parallel (~> 1.10)
       parser (>= 2.3.3.1, < 3.0)
@@ -255,7 +274,7 @@ GEM
     simplecov-html (0.10.2)
     simplecov-rcov (0.2.3)
       simplecov (>= 0.4.1)
-    slimmer (11.1.1)
+    slimmer (12.0.0)
       activesupport
       json
       nokogiri (~> 1.7)
@@ -308,12 +327,13 @@ DEPENDENCIES
   capybara (= 2.18.0)
   ci_reporter
   gds-api-adapters (~> 51.3.0)
-  govspeak (~> 3.3.0)
+  govspeak (~> 5.0.3)
   govuk-content-schema-test-helpers (~> 1.6.0)
   govuk-lint
   govuk_app_config
   govuk_frontend_toolkit (>= 6.0.4)
   govuk_navigation_helpers (~> 6.3.0)
+  govuk_publishing_components (= 5.2.3)
   htmlentities (~> 4)
   json
   lrucache (= 0.1.4)
@@ -336,7 +356,7 @@ DEPENDENCIES
   shoulda (~> 3.5.0)
   simplecov (~> 0.15.1)
   simplecov-rcov (~> 0.2.3)
-  slimmer (~> 11.1.1)
+  slimmer (~> 12.0.0)
   sprockets-rails
   tilt (= 2.0.8)
   timecop

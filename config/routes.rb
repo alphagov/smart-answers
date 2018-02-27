@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get 'healthcheck', to: proc { [200, {}, ['']] }
 
+  mount GovukPublishingComponents::Engine, at: "/component-guide"
+
   constraints id: /[a-z0-9-]+/i do
     get '/:id/y/visualise(.:format)', to: 'smart_answers#visualise', as: :visualise
 
