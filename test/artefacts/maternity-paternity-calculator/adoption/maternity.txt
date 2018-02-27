@@ -1,9 +1,11 @@
-When was the child matched with the employee?
+Will the child be coming from overseas?
 
 
 
-For overseas adoptions, enter the official notification date (the permission to adopt from abroad).
 
+
+  * yes: Yes
+  * no: No
 
 
 

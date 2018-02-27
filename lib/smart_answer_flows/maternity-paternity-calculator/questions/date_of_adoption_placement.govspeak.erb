@@ -1,11 +1,15 @@
 <% content_for :title do %>
-  When will the child be placed with the employee?
-<% end %>
-
-<% content_for :hint do %>
-  For overseas adoptions enter the date of arrival in the UK.
+  <% if adoption_is_from_overseas %>
+    When will the child arrive in the UK?
+  <% else %>
+    When will the child be placed with the employee?
+  <% end %>
 <% end %>
 
 <% content_for :error_message do %>
-  Placement date can't be before matching date
+  <% if adoption_is_from_overseas %>
+    Arrival date can’t be before official notification date
+  <% else %>
+    Placement date can't be before matching date
+  <% end %>
 <% end %>

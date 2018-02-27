@@ -3,9 +3,13 @@
 <% end %>
 
 <% content_for :hint do %>
-  Leave can’t start before <%= a_leave_earliest_start_formatted %>. For overseas adoptions your leave must start within 28 days of the child arriving in the UK.
+  Leave can’t start before <%= a_leave_earliest_start_formatted %> or after <%= a_leave_latest_start_formatted %>.
 <% end %>
 
-<% content_for :error_message do %>
-  Please enter a valid date
+<% content_for :leave_starts_too_early do %>
+  Leave can’t start before <%= a_leave_earliest_start_formatted %>.
+<% end %>
+
+<% content_for :leave_starts_too_late do %>
+  Leave can't start after <%= a_leave_latest_start_formatted %>.
 <% end %>

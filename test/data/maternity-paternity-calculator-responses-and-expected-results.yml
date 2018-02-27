@@ -40925,12 +40925,20 @@
   :responses:
   - adoption
   - maternity
+  :next_node: :adoption_is_from_overseas?
+  :outcome_node: false
+- :current_node: :adoption_is_from_overseas?
+  :responses:
+  - adoption
+  - maternity
+  - 'no'
   :next_node: :date_of_adoption_match?
   :outcome_node: false
 - :current_node: :date_of_adoption_match?
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   :next_node: :date_of_adoption_placement?
   :outcome_node: false
@@ -40938,6 +40946,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   :next_node: :adoption_did_the_employee_work_for_you?
@@ -40946,6 +40955,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -40955,6 +40965,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -40965,6 +40976,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -40976,6 +40988,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -40988,6 +41001,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41001,6 +41015,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41015,6 +41030,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41030,6 +41046,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41046,6 +41063,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41062,6 +41080,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41079,6 +41098,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41097,6 +41117,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41115,6 +41136,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41134,6 +41156,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41151,6 +41174,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41169,6 +41193,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41187,6 +41212,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41206,6 +41232,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41223,6 +41250,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41241,6 +41269,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41259,6 +41288,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41278,6 +41308,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41293,6 +41324,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41309,6 +41341,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41325,6 +41358,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41342,6 +41376,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41360,6 +41395,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41378,6 +41414,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41397,6 +41434,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41414,6 +41452,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41432,6 +41471,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41450,6 +41490,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41469,6 +41510,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41484,6 +41526,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41500,6 +41543,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41516,6 +41560,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41533,6 +41578,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41551,6 +41597,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41569,6 +41616,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41588,6 +41636,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41605,6 +41654,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41623,6 +41673,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41641,6 +41692,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41660,6 +41712,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41675,6 +41728,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41691,6 +41745,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41707,6 +41762,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41724,6 +41780,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41742,6 +41799,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41760,6 +41818,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41779,6 +41838,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41798,6 +41858,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41817,6 +41878,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41837,6 +41899,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41857,6 +41920,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41876,6 +41940,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41896,6 +41961,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41916,6 +41982,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41936,6 +42003,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41956,6 +42024,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41976,6 +42045,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -41996,6 +42066,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42016,6 +42087,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42035,6 +42107,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42055,6 +42128,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42076,6 +42150,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42097,6 +42172,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42118,6 +42194,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42139,6 +42216,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42160,6 +42238,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42180,6 +42259,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42201,6 +42281,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42222,6 +42303,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42243,6 +42325,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42264,6 +42347,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42285,6 +42369,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42305,6 +42390,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42326,6 +42412,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42347,6 +42434,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42368,6 +42456,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42389,6 +42478,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42410,6 +42500,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42430,6 +42521,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42451,6 +42543,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42472,6 +42565,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42493,6 +42587,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42514,6 +42609,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42535,6 +42631,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42555,6 +42652,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42576,6 +42674,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42597,6 +42696,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42618,6 +42718,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42639,6 +42740,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42660,6 +42762,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42680,6 +42783,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42701,6 +42805,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42722,6 +42827,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42743,6 +42849,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42764,6 +42871,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42785,6 +42893,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42805,6 +42914,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42826,6 +42936,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42847,6 +42958,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42868,6 +42980,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42889,6 +43002,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42910,6 +43024,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42927,6 +43042,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42945,6 +43061,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42963,6 +43080,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -42982,6 +43100,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43001,6 +43120,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43020,6 +43140,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43040,6 +43161,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43060,6 +43182,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43079,6 +43202,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43099,6 +43223,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43119,6 +43244,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43139,6 +43265,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43159,6 +43286,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43179,6 +43307,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43199,6 +43328,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43219,6 +43349,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43238,6 +43369,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43258,6 +43390,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43279,6 +43412,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43300,6 +43434,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43321,6 +43456,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43342,6 +43478,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43363,6 +43500,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43383,6 +43521,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43404,6 +43543,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43425,6 +43565,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43446,6 +43587,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43467,6 +43609,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43488,6 +43631,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43508,6 +43652,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43529,6 +43674,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43550,6 +43696,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43571,6 +43718,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43592,6 +43740,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43613,6 +43762,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43633,6 +43783,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43654,6 +43805,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43675,6 +43827,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43696,6 +43849,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43717,6 +43871,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43738,6 +43893,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43758,6 +43914,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43779,6 +43936,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43800,6 +43958,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43821,6 +43980,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43842,6 +44002,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43863,6 +44024,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43883,6 +44045,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43904,6 +44067,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43925,6 +44089,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43946,6 +44111,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43967,6 +44133,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -43988,6 +44155,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44008,6 +44176,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44029,6 +44198,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44050,6 +44220,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44071,6 +44242,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44092,6 +44264,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44113,6 +44286,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44124,6 +44298,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44136,6 +44311,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44146,6 +44322,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44157,6 +44334,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44169,6 +44347,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44182,6 +44361,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44196,6 +44376,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44211,6 +44392,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44227,6 +44409,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44243,6 +44426,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44260,6 +44444,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44278,6 +44463,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44296,6 +44482,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44315,6 +44502,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44332,6 +44520,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44350,6 +44539,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44368,6 +44558,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44387,6 +44578,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44404,6 +44596,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44422,6 +44615,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44440,6 +44634,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44459,6 +44654,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44474,6 +44670,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44490,6 +44687,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44506,6 +44704,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44523,6 +44722,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44541,6 +44741,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44559,6 +44760,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44578,6 +44780,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44595,6 +44798,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44613,6 +44817,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44631,6 +44836,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44650,6 +44856,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44665,6 +44872,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44681,6 +44889,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44697,6 +44906,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44714,6 +44924,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44732,6 +44943,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44750,6 +44962,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44769,6 +44982,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44786,6 +45000,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44804,6 +45019,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44822,6 +45038,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44841,6 +45058,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44856,6 +45074,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44872,6 +45091,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44888,6 +45108,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44905,6 +45126,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44923,6 +45145,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44941,6 +45164,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44960,6 +45184,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44979,6 +45204,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -44998,6 +45224,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45018,6 +45245,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45038,6 +45266,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45057,6 +45286,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45077,6 +45307,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45097,6 +45328,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45117,6 +45349,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45137,6 +45370,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45157,6 +45391,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45177,6 +45412,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45197,6 +45433,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45216,6 +45453,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45236,6 +45474,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45257,6 +45496,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45278,6 +45518,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45299,6 +45540,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45320,6 +45562,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45341,6 +45584,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45361,6 +45605,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45382,6 +45627,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45403,6 +45649,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45424,6 +45671,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45445,6 +45693,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45466,6 +45715,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45486,6 +45736,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45507,6 +45758,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45528,6 +45780,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45549,6 +45802,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45570,6 +45824,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45591,6 +45846,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45611,6 +45867,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45632,6 +45889,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45653,6 +45911,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45674,6 +45933,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45695,6 +45955,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45716,6 +45977,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45736,6 +45998,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45757,6 +46020,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45778,6 +46042,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45799,6 +46064,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45820,6 +46086,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45841,6 +46108,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45861,6 +46129,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45882,6 +46151,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45903,6 +46173,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45924,6 +46195,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45945,6 +46217,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45966,6 +46239,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -45986,6 +46260,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46007,6 +46282,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46028,6 +46304,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46049,6 +46326,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46070,6 +46348,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46091,6 +46370,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46108,6 +46388,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46126,6 +46407,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46144,6 +46426,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46163,6 +46446,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46182,6 +46466,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46201,6 +46486,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46221,6 +46507,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46241,6 +46528,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46260,6 +46548,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46280,6 +46569,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46300,6 +46590,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46320,6 +46611,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46340,6 +46632,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46360,6 +46653,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46380,6 +46674,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46400,6 +46695,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46419,6 +46715,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46439,6 +46736,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46460,6 +46758,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46481,6 +46780,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46502,6 +46802,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46523,6 +46824,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46544,6 +46846,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46564,6 +46867,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46585,6 +46889,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46606,6 +46911,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46627,6 +46933,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46648,6 +46955,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46669,6 +46977,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46689,6 +46998,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46710,6 +47020,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46731,6 +47042,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46752,6 +47064,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46773,6 +47086,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46794,6 +47108,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46814,6 +47129,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46835,6 +47151,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46856,6 +47173,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46877,6 +47195,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46898,6 +47217,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46919,6 +47239,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46939,6 +47260,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46960,6 +47282,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -46981,6 +47304,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -47002,6 +47326,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -47023,6 +47348,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -47044,6 +47370,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -47064,6 +47391,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -47085,6 +47413,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -47106,6 +47435,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -47127,6 +47457,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -47148,6 +47479,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -47169,6 +47501,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -47189,6 +47522,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -47210,6 +47544,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -47231,6 +47566,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -47252,6 +47588,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -47273,6 +47610,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -47294,6 +47632,7 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
   - '2018-04-05'
   - '2018-04-06'
   - 'yes'
@@ -47305,6 +47644,6730 @@
   :responses:
   - adoption
   - maternity
+  - 'no'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'no'
+  :next_node: :adoption_not_entitled_to_leave_or_pay
+  :outcome_node: true
+- :current_node: :adoption_is_from_overseas?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  :next_node: :date_of_adoption_match?
+  :outcome_node: false
+- :current_node: :date_of_adoption_match?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  :next_node: :date_of_adoption_placement?
+  :outcome_node: false
+- :current_node: :date_of_adoption_placement?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  :next_node: :adoption_did_the_employee_work_for_you?
+  :outcome_node: false
+- :current_node: :adoption_did_the_employee_work_for_you?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  :next_node: :adoption_employment_contract?
+  :outcome_node: false
+- :current_node: :adoption_employment_contract?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  :next_node: :adoption_is_the_employee_on_your_payroll?
+  :outcome_node: false
+- :current_node: :adoption_is_the_employee_on_your_payroll?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  :next_node: :adoption_date_leave_starts?
+  :outcome_node: false
+- :current_node: :adoption_date_leave_starts?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  :next_node: :last_normal_payday_adoption?
+  :outcome_node: false
+- :current_node: :last_normal_payday_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  :next_node: :payday_eight_weeks_adoption?
+  :outcome_node: false
+- :current_node: :payday_eight_weeks_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  :next_node: :pay_frequency_adoption?
+  :outcome_node: false
+- :current_node: :pay_frequency_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  :next_node: :earnings_for_pay_period_adoption?
+  :outcome_node: false
+- :current_node: :earnings_for_pay_period_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '100'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :earnings_for_pay_period_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000'
+  :next_node: :how_many_payments_weekly?
+  :outcome_node: false
+- :current_node: :how_many_payments_weekly?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '8'
+  :next_node: :how_do_you_want_the_sap_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '8'
+  - weekly_starting
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '8'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '8'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_weekly?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '9'
+  :next_node: :how_do_you_want_the_sap_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '9'
+  - weekly_starting
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '9'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '9'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_weekly?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '10'
+  :next_node: :how_do_you_want_the_sap_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '10'
+  - weekly_starting
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '10'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '10'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_frequency_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  :next_node: :earnings_for_pay_period_adoption?
+  :outcome_node: false
+- :current_node: :earnings_for_pay_period_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '100'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :earnings_for_pay_period_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000'
+  :next_node: :how_many_payments_every_2_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '4'
+  :next_node: :how_do_you_want_the_sap_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '4'
+  - weekly_starting
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '4'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '4'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  :next_node: :how_do_you_want_the_sap_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - weekly_starting
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_frequency_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  :next_node: :earnings_for_pay_period_adoption?
+  :outcome_node: false
+- :current_node: :earnings_for_pay_period_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '100'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :earnings_for_pay_period_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000'
+  :next_node: :how_many_payments_every_4_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '1'
+  :next_node: :how_do_you_want_the_sap_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '1'
+  - weekly_starting
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '1'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '1'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  :next_node: :how_do_you_want_the_sap_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - weekly_starting
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_frequency_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  :next_node: :earnings_for_pay_period_adoption?
+  :outcome_node: false
+- :current_node: :earnings_for_pay_period_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '100'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :earnings_for_pay_period_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000'
+  :next_node: :how_many_payments_monthly?
+  :outcome_node: false
+- :current_node: :how_many_payments_monthly?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  :next_node: :how_do_you_want_the_sap_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - weekly_starting
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  :next_node: :monthly_pay_paternity?
+  :outcome_node: false
+- :current_node: :monthly_pay_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - first_day_of_the_month
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :monthly_pay_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - last_day_of_the_month
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :monthly_pay_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - specific_date_each_month
+  :next_node: :specific_date_each_month_paternity?
+  :outcome_node: false
+- :current_node: :specific_date_each_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - specific_date_each_month
+  - '14'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :specific_date_each_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - specific_date_each_month
+  - '29'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :monthly_pay_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - last_working_day_of_the_month
+  :next_node: :days_of_the_week_paternity?
+  :outcome_node: false
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '0'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '1'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '2'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '3'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '4'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '5'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '6'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :monthly_pay_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  :next_node: :day_of_the_month_paternity?
+  :outcome_node: false
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '0'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '0'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '0'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '0'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '0'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '0'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '1'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '1'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '1'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '1'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '1'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '1'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '2'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '2'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '2'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '2'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '2'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '2'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '3'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '3'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '3'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '3'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '3'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '3'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '4'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '4'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '4'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '4'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '4'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '4'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '5'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '5'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '5'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '5'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '5'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '5'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '6'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '6'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '6'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '6'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '6'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '6'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_monthly?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  :next_node: :how_do_you_want_the_sap_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - weekly_starting
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  :next_node: :monthly_pay_paternity?
+  :outcome_node: false
+- :current_node: :monthly_pay_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - first_day_of_the_month
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :monthly_pay_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - last_day_of_the_month
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :monthly_pay_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - specific_date_each_month
+  :next_node: :specific_date_each_month_paternity?
+  :outcome_node: false
+- :current_node: :specific_date_each_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - specific_date_each_month
+  - '14'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :specific_date_each_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - specific_date_each_month
+  - '29'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :monthly_pay_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - last_working_day_of_the_month
+  :next_node: :days_of_the_week_paternity?
+  :outcome_node: false
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '0'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '1'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '2'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '3'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '4'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '5'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '6'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :monthly_pay_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  :next_node: :day_of_the_month_paternity?
+  :outcome_node: false
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '0'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '0'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '0'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '0'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '0'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '0'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '1'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '1'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '1'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '1'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '1'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '1'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '2'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '2'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '2'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '2'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '2'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '2'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '3'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '3'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '3'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '3'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '3'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '3'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '4'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '4'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '4'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '4'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '4'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '4'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '5'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '5'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '5'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '5'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '5'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '5'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '6'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '6'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '6'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '6'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '6'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '6'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :adoption_is_the_employee_on_your_payroll?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  :next_node: :adoption_date_leave_starts?
+  :outcome_node: false
+- :current_node: :adoption_date_leave_starts?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'yes'
+  - 'no'
+  - '2018-04-06'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :adoption_employment_contract?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  :next_node: :adoption_is_the_employee_on_your_payroll?
+  :outcome_node: false
+- :current_node: :adoption_is_the_employee_on_your_payroll?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  :next_node: :adoption_date_leave_starts?
+  :outcome_node: false
+- :current_node: :adoption_date_leave_starts?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  :next_node: :last_normal_payday_adoption?
+  :outcome_node: false
+- :current_node: :last_normal_payday_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  :next_node: :payday_eight_weeks_adoption?
+  :outcome_node: false
+- :current_node: :payday_eight_weeks_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  :next_node: :pay_frequency_adoption?
+  :outcome_node: false
+- :current_node: :pay_frequency_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  :next_node: :earnings_for_pay_period_adoption?
+  :outcome_node: false
+- :current_node: :earnings_for_pay_period_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '100'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :earnings_for_pay_period_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000'
+  :next_node: :how_many_payments_weekly?
+  :outcome_node: false
+- :current_node: :how_many_payments_weekly?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '8'
+  :next_node: :how_do_you_want_the_sap_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '8'
+  - weekly_starting
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '8'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '8'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_weekly?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '9'
+  :next_node: :how_do_you_want_the_sap_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '9'
+  - weekly_starting
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '9'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '9'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_weekly?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '10'
+  :next_node: :how_do_you_want_the_sap_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '10'
+  - weekly_starting
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '10'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - weekly
+  - '3000.0'
+  - '10'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_frequency_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  :next_node: :earnings_for_pay_period_adoption?
+  :outcome_node: false
+- :current_node: :earnings_for_pay_period_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '100'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :earnings_for_pay_period_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000'
+  :next_node: :how_many_payments_every_2_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '4'
+  :next_node: :how_do_you_want_the_sap_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '4'
+  - weekly_starting
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '4'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '4'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_every_2_weeks?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  :next_node: :how_do_you_want_the_sap_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - weekly_starting
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_2_weeks
+  - '3000.0'
+  - '5'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_frequency_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  :next_node: :earnings_for_pay_period_adoption?
+  :outcome_node: false
+- :current_node: :earnings_for_pay_period_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '100'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :earnings_for_pay_period_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000'
+  :next_node: :how_many_payments_every_4_weeks?
+  :outcome_node: false
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '1'
+  :next_node: :how_do_you_want_the_sap_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '1'
+  - weekly_starting
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '1'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '1'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_every_4_weeks?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  :next_node: :how_do_you_want_the_sap_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - weekly_starting
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  :next_node: :next_pay_day_paternity?
+  :outcome_node: false
+- :current_node: :next_pay_day_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - every_4_weeks
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - '2018-01-01'
+  :next_node: :paternity_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_frequency_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  :next_node: :earnings_for_pay_period_adoption?
+  :outcome_node: false
+- :current_node: :earnings_for_pay_period_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '100'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :earnings_for_pay_period_adoption?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000'
+  :next_node: :how_many_payments_monthly?
+  :outcome_node: false
+- :current_node: :how_many_payments_monthly?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  :next_node: :how_do_you_want_the_sap_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - weekly_starting
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  :next_node: :monthly_pay_paternity?
+  :outcome_node: false
+- :current_node: :monthly_pay_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - first_day_of_the_month
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :monthly_pay_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - last_day_of_the_month
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :monthly_pay_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - specific_date_each_month
+  :next_node: :specific_date_each_month_paternity?
+  :outcome_node: false
+- :current_node: :specific_date_each_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - specific_date_each_month
+  - '14'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :specific_date_each_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - specific_date_each_month
+  - '29'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :monthly_pay_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - last_working_day_of_the_month
+  :next_node: :days_of_the_week_paternity?
+  :outcome_node: false
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '0'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '1'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '2'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '3'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '4'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '5'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '6'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :monthly_pay_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  :next_node: :day_of_the_month_paternity?
+  :outcome_node: false
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '0'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '0'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '0'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '0'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '0'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '0'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '1'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '1'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '1'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '1'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '1'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '1'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '2'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '2'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '2'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '2'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '2'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '2'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '3'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '3'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '3'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '3'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '3'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '3'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '4'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '4'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '4'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '4'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '4'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '4'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '5'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '5'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '5'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '5'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '5'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '5'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '6'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '6'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '6'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '6'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '6'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '2'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '6'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_many_payments_monthly?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  :next_node: :how_do_you_want_the_sap_calculated?
+  :outcome_node: false
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - weekly_starting
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :how_do_you_want_the_sap_calculated?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  :next_node: :monthly_pay_paternity?
+  :outcome_node: false
+- :current_node: :monthly_pay_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - first_day_of_the_month
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :monthly_pay_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - last_day_of_the_month
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :monthly_pay_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - specific_date_each_month
+  :next_node: :specific_date_each_month_paternity?
+  :outcome_node: false
+- :current_node: :specific_date_each_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - specific_date_each_month
+  - '14'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :specific_date_each_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - specific_date_each_month
+  - '29'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :monthly_pay_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - last_working_day_of_the_month
+  :next_node: :days_of_the_week_paternity?
+  :outcome_node: false
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '0'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '1'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '2'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '3'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '4'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '5'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :days_of_the_week_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - last_working_day_of_the_month
+  - '6'
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :monthly_pay_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  :next_node: :day_of_the_month_paternity?
+  :outcome_node: false
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '0'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '0'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '0'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '0'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '0'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '0'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '1'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '1'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '1'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '1'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '1'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '1'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '2'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '2'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '2'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '2'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '2'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '2'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '3'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '3'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '3'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '3'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '3'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '3'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '4'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '4'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '4'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '4'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '4'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '4'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '5'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '5'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '5'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '5'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '5'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '5'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :day_of_the_month_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '6'
+  :next_node: :pay_date_options_paternity?
+  :outcome_node: false
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '6'
+  - first
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '6'
+  - second
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '6'
+  - third
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '6'
+  - fourth
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :pay_date_options_paternity?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'yes'
+  - '2018-04-06'
+  - '2018-01-01'
+  - '2017-11-01'
+  - monthly
+  - '3000.0'
+  - '3'
+  - usual_paydates
+  - a_certain_week_day_each_month
+  - '6'
+  - last
+  :next_node: :adoption_leave_and_pay
+  :outcome_node: true
+- :current_node: :adoption_is_the_employee_on_your_payroll?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
+  - '2018-04-05'
+  - '2018-04-06'
+  - 'yes'
+  - 'no'
+  - 'no'
+  :next_node: :adoption_not_entitled_to_leave_or_pay
+  :outcome_node: true
+- :current_node: :adoption_did_the_employee_work_for_you?
+  :responses:
+  - adoption
+  - maternity
+  - 'yes'
   - '2018-04-05'
   - '2018-04-06'
   - 'no'

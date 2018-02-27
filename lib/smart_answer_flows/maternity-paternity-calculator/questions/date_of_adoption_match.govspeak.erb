@@ -1,7 +1,13 @@
 <% content_for :title do %>
-  When was the child matched with the employee?
+  <% if adoption_is_from_overseas %>
+    When did you get permission to adopt?
+  <% else %>
+    When was the child matched with the employee?
+  <% end %>
 <% end %>
 
-<% content_for :hint do %>
-  For overseas adoptions, enter the official notification date (the permission to adopt from abroad).
+<% if adoption_is_from_overseas %>
+  <% content_for :hint do %>
+    Enter the official notification date.
+  <% end %>
 <% end %>
