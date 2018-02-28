@@ -65,7 +65,7 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
         "QUESTION_1_BODY",
         "QUESTION_1_HINT",
         "QUESTION_2_TITLE",
-        "QUESTION_2_BODY LINK TEXT",
+        "QUESTION_2_BODY LINK TEXT →",
         "QUESTION_2_HINT",
         "OUTCOME_1_TITLE",
         "OUTCOME_1_BODY",
