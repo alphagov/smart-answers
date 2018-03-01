@@ -1,9 +1,9 @@
 <% content_for :title do %>
-  Based on your answers, you’re not affected by the benefit cap.
+  Based on your answers, you are not affected by the benefit cap.
 <% end %>
 
 <% content_for :body do %>
-  These benefits are exempt from the new benefit cap:
+  These benefits are exempt from the benefit cap:
 
 - Working Tax Credit
   <% exempt_benefits_descriptions.each do |exempt_benefit| %>
@@ -12,7 +12,7 @@
 
   You may be affected by the cap if your circumstances change.
 
-  Contact the Department for Work and Pensions if you need further help:
+  Contact the DWP if you need further help:
 
   <%= render partial: 'dwp_contact_details.govspeak.erb' %>
 <% end %>
