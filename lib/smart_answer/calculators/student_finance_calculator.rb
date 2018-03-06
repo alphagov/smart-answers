@@ -129,14 +129,14 @@ module SmartAnswer
       end
 
       def maintenance_grant_amount
-        Money.new(0)
+        SmartAnswer::Money.new(0)
       end
 
       def maintenance_loan_amount
-        return Money.new(0) if @course_start == '2017-2018' && @course_type == "uk-part-time"
+        return SmartAnswer::Money.new(0) if @course_start == '2017-2018' && @course_type == "uk-part-time"
 
         reduced_amount = max_loan_amount - reduction_based_on_income
-        Money.new([reduced_amount, min_loan_amount].max * loan_proportion)
+        SmartAnswer::Money.new([reduced_amount, min_loan_amount].max * loan_proportion)
       end
 
       def course_start_years

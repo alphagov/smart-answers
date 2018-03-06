@@ -49,7 +49,7 @@ module SmartAnswer
           if response > calculator.tuition_fee_maximum
             raise SmartAnswer::InvalidResponse
           end
-          Money.new(response)
+          SmartAnswer::Money.new(response)
         end
 
         next_node do

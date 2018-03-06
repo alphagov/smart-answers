@@ -226,7 +226,7 @@ module SmartAnswer
 
       def ssp_payment
         amount = BigDecimal.new(weekly_payments.map(&:last).sum.round(10).to_s).round(2, BigDecimal::ROUND_UP).to_f
-        Money.new(amount)
+        SmartAnswer::Money.new(amount)
       end
 
       def not_earned_enough?

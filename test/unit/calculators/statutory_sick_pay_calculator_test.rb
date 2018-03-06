@@ -251,7 +251,7 @@ module SmartAnswer
         end
 
         should "return correct ssp_payment" do
-          assert_equal Money.new(85.85), @calculator.ssp_payment
+          assert_equal SmartAnswer::Money.new(85.85), @calculator.ssp_payment
         end
       end
 

@@ -208,7 +208,7 @@ module SmartAnswer
       context 'profit per day' do
         setup do
           @number_of_days_in_basis_period = 366
-          @taxable_profit = Money.new(15000)
+          @taxable_profit = SmartAnswer::Money.new(15000)
           basis_period = stub('basis_period', number_of_days: @number_of_days_in_basis_period)
           @calculator = PartYearProfitTaxCreditsCalculator.new(taxable_profit: @taxable_profit)
           @calculator.stubs(:basis_period).returns(basis_period)
