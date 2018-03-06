@@ -72,7 +72,7 @@ GEM
     docile (1.1.5)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
-    erubi (1.7.0)
+    erubi (1.7.1)
     execjs (2.7.0)
     faraday (0.14.0)
       multipart-post (>= 1.2, < 3)
@@ -113,7 +113,7 @@ GEM
       sass (>= 3.2.0)
     govuk_navigation_helpers (6.3.0)
       gds-api-adapters (>= 43.0)
-    govuk_publishing_components (5.2.3)
+    govuk_publishing_components (5.3.0)
       govspeak (>= 5.0.3)
       govuk_frontend_toolkit
       rails (>= 5.0.0.1)
@@ -184,7 +184,7 @@ GEM
     rack (2.0.4)
     rack-cache (1.7.1)
       rack (>= 0.4)
-    rack-test (0.8.2)
+    rack-test (0.8.3)
       rack (>= 1.0, < 3)
     rack_strip_client_ip (0.0.2)
     rails (5.1.5)
@@ -222,7 +222,7 @@ GEM
       rake
     raindrops (0.19.0)
     rake (12.3.0)
-    rb-fsevent (0.10.2)
+    rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     request_store (1.4.0)
@@ -333,7 +333,7 @@ DEPENDENCIES
   govuk_app_config
   govuk_frontend_toolkit (>= 6.0.4)
   govuk_navigation_helpers (~> 6.3.0)
-  govuk_publishing_components (= 5.2.3)
+  govuk_publishing_components (= 5.3.0)
   htmlentities (~> 4)
   json
   lrucache (= 0.1.4)
