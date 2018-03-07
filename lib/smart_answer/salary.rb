@@ -13,7 +13,7 @@ module SmartAnswer
       else
         amount = amount_or_options
       end
-      @amount = Money.new(amount)
+      @amount = SmartAnswer::Money.new(amount)
       @period = period || 'week'
       raise InvalidResponse, "Sorry, I couldn't understand that salary period", caller unless %w{year month week}.include?(@period)
     end
@@ -33,9 +33,9 @@ module SmartAnswer
       when "week"
         @amount
       when "month"
-        Money.new((@amount.value * 12) / 52)
+        SmartAnswer::Money.new((@amount.value * 12) / 52)
       when "year"
-        Money.new(@amount.value / 52)
+        SmartAnswer::Money.new(@amount.value / 52)
       end
     end
   end

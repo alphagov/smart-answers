@@ -231,7 +231,7 @@ module SmartAnswer
               residence: @residence,
               course_type: "uk-full-time",
             )
-            assert_equal Money.new(7_097).to_s, calculator.maintenance_loan_amount.to_s
+            assert_equal SmartAnswer::Money.new(7_097).to_s, calculator.maintenance_loan_amount.to_s
           end
 
           should "reduce the maximum amount (£7,097) by £1 for every complete £8.36 of income above £25k" do
@@ -254,7 +254,7 @@ module SmartAnswer
                 residence: @residence,
                 course_type: "uk-full-time",
               )
-              assert_equal Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
+              assert_equal SmartAnswer::Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
             end
           end
 
@@ -265,7 +265,7 @@ module SmartAnswer
               residence: @residence,
               course_type: "uk-full-time",
             )
-            assert_equal Money.new(3_124).to_s, calculator.maintenance_loan_amount.to_s
+            assert_equal SmartAnswer::Money.new(3_124).to_s, calculator.maintenance_loan_amount.to_s
           end
         end
 
@@ -282,7 +282,7 @@ module SmartAnswer
               residence: @residence,
               course_type: "uk-full-time",
             )
-            assert_equal Money.new(7324).to_s, calculator.maintenance_loan_amount.to_s
+            assert_equal SmartAnswer::Money.new(7324).to_s, calculator.maintenance_loan_amount.to_s
           end
 
           should "reduce the maximum amount (£7,324) by £1 for every complete £8.10 of income above £25k" do
@@ -305,7 +305,7 @@ module SmartAnswer
                 residence: @residence,
                 course_type: "uk-full-time",
               )
-              assert_equal Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
+              assert_equal SmartAnswer::Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
             end
           end
 
@@ -316,7 +316,7 @@ module SmartAnswer
               residence: @residence,
               course_type: "uk-full-time",
             )
-            assert_equal Money.new(3_224).to_s, calculator.maintenance_loan_amount.to_s
+            assert_equal SmartAnswer::Money.new(3_224).to_s, calculator.maintenance_loan_amount.to_s
           end
         end
 
@@ -333,7 +333,7 @@ module SmartAnswer
               residence: @residence,
               course_type: "uk-full-time",
             )
-            assert_equal Money.new(8_430).to_s, calculator.maintenance_loan_amount.to_s
+            assert_equal SmartAnswer::Money.new(8_430).to_s, calculator.maintenance_loan_amount.to_s
           end
 
           should "reduce the maximum amount (£8,430) by £1 for every complete £8.26 of income above £25k" do
@@ -357,7 +357,7 @@ module SmartAnswer
                 residence: @residence,
                 course_type: "uk-full-time",
               )
-              assert_equal Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
+              assert_equal SmartAnswer::Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
             end
           end
 
@@ -368,7 +368,7 @@ module SmartAnswer
               residence: @residence,
               course_type: "uk-full-time",
             )
-            assert_equal Money.new(3_928).to_s, calculator.maintenance_loan_amount.to_s
+            assert_equal SmartAnswer::Money.new(3_928).to_s, calculator.maintenance_loan_amount.to_s
           end
         end
 
@@ -385,7 +385,7 @@ module SmartAnswer
               residence: @residence,
               course_type: "uk-full-time",
             )
-            assert_equal Money.new(8_700).to_s, calculator.maintenance_loan_amount.to_s
+            assert_equal SmartAnswer::Money.new(8_700).to_s, calculator.maintenance_loan_amount.to_s
           end
 
           should "reduce the maximum amount (£8,700) by £1 for every complete £8.01 of income above £25k" do
@@ -409,7 +409,7 @@ module SmartAnswer
                 residence: @residence,
                 course_type: "uk-full-time",
               )
-              assert_equal Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
+              assert_equal SmartAnswer::Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
             end
           end
 
@@ -420,7 +420,7 @@ module SmartAnswer
               residence: @residence,
               course_type: "uk-full-time",
             )
-            assert_equal Money.new(4_054).to_s, calculator.maintenance_loan_amount.to_s
+            assert_equal SmartAnswer::Money.new(4_054).to_s, calculator.maintenance_loan_amount.to_s
           end
         end
 
@@ -437,7 +437,7 @@ module SmartAnswer
               residence: @residence,
               course_type: "uk-full-time",
             )
-            assert_equal Money.new(11_002).to_s, calculator.maintenance_loan_amount.to_s
+            assert_equal SmartAnswer::Money.new(11_002).to_s, calculator.maintenance_loan_amount.to_s
           end
 
           should "reduce the maximum amount (£11,002) by £1 for every complete £8.12 of income above £25k" do
@@ -461,7 +461,7 @@ module SmartAnswer
                 residence: @residence,
                 course_type: "uk-full-time",
               )
-              assert_equal Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
+              assert_equal SmartAnswer::Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
             end
           end
 
@@ -472,7 +472,7 @@ module SmartAnswer
               residence: @residence,
               course_type: "uk-full-time",
             )
-            assert_equal Money.new(5_479).to_s, calculator.maintenance_loan_amount.to_s
+            assert_equal SmartAnswer::Money.new(5_479).to_s, calculator.maintenance_loan_amount.to_s
           end
         end
 
@@ -489,7 +489,7 @@ module SmartAnswer
               residence: @residence,
               course_type: "uk-full-time",
             )
-            assert_equal Money.new(11_354).to_s, calculator.maintenance_loan_amount.to_s
+            assert_equal SmartAnswer::Money.new(11_354).to_s, calculator.maintenance_loan_amount.to_s
           end
 
           should "reduce the maximum amount (£11,354) by £1 for every complete £7.87 of income above £25k" do
@@ -513,7 +513,7 @@ module SmartAnswer
                 residence: @residence,
                 course_type: "uk-full-time",
               )
-              assert_equal Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
+              assert_equal SmartAnswer::Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
             end
           end
 
@@ -524,7 +524,7 @@ module SmartAnswer
               residence: @residence,
               course_type: "uk-full-time",
             )
-            assert_equal Money.new(5_654).to_s, calculator.maintenance_loan_amount.to_s
+            assert_equal SmartAnswer::Money.new(5_654).to_s, calculator.maintenance_loan_amount.to_s
           end
         end
 
@@ -534,7 +534,7 @@ module SmartAnswer
               course_start: '2017-2018',
               course_type: 'uk-part-time',
             )
-            assert_equal Money.new(0).to_s, calculator.maintenance_loan_amount.to_s
+            assert_equal SmartAnswer::Money.new(0).to_s, calculator.maintenance_loan_amount.to_s
           end
         end
 
@@ -553,7 +553,7 @@ module SmartAnswer
               part_time_credits: 12,
               full_time_credits: 20,
             )
-            assert_equal Money.new(4_406.50).to_s, calculator.maintenance_loan_amount.to_s
+            assert_equal SmartAnswer::Money.new(4_406.50).to_s, calculator.maintenance_loan_amount.to_s
           end
 
           should "be zero if course intensity is less than 25%" do
@@ -565,7 +565,7 @@ module SmartAnswer
               part_time_credits: 2,
               full_time_credits: 10,
             )
-            assert_equal Money.new(0).to_s, calculator.maintenance_loan_amount.to_s
+            assert_equal SmartAnswer::Money.new(0).to_s, calculator.maintenance_loan_amount.to_s
           end
 
           should "be the same as a full-time course if intensity is 100%" do
@@ -577,7 +577,7 @@ module SmartAnswer
               part_time_credits: 15,
               full_time_credits: 15,
             )
-            assert_equal Money.new(4331).to_s, calculator.maintenance_loan_amount.to_s
+            assert_equal SmartAnswer::Money.new(4331).to_s, calculator.maintenance_loan_amount.to_s
           end
         end
       end

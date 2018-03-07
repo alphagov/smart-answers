@@ -319,7 +319,7 @@ module SmartAnswer
       end
 
       should 'store parsed response on calculator as taxable_profit' do
-        assert_equal Money.new(15000), @calculator.taxable_profit
+        assert_equal SmartAnswer::Money.new(15000), @calculator.taxable_profit
       end
 
       should 'go to result outcome' do
