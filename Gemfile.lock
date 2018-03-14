@@ -168,7 +168,7 @@ GEM
       mini_portile2 (~> 2.3.0)
     null_logger (0.0.1)
     parallel (1.12.1)
-    parser (2.5.0.3)
+    parser (2.5.0.4)
       ast (~> 2.4.0)
     plek (2.1.1)
     poltergeist (1.6.0)
