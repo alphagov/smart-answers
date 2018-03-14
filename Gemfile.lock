@@ -160,7 +160,6 @@ GEM
       metaclass (~> 0.0.1)
     money (6.10.1)
       i18n (>= 0.6.4, < 1.0)
-    multi_json (1.13.1)
     multipart-post (2.0.0)
     netrc (0.11.0)
     nio4r (2.2.0)
@@ -171,10 +170,9 @@ GEM
     parser (2.5.0.4)
       ast (~> 2.4.0)
     plek (2.1.1)
-    poltergeist (1.6.0)
+    poltergeist (1.17.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
-      multi_json (~> 1.0)
       websocket-driver (>= 0.2.0)
     powerpack (0.1.1)
     pry (0.11.3)
@@ -344,7 +342,7 @@ DEPENDENCIES
   nokogiri
   parser
   plek (= 2.1.1)
-  poltergeist (= 1.6.0)
+  poltergeist (= 1.17.0)
   pry
   rack_strip_client_ip
   rails (= 5.1.5)

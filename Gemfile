@@ -49,7 +49,7 @@ group :test do
   gem 'minitest', '~> 5.11'
   gem 'minitest-focus', '~> 1.1', '>= 1.1.2'
   gem 'mocha', '1.3.0', require: false
-  gem 'poltergeist', '1.6.0'
+  gem 'poltergeist', '1.17.0'
   gem 'shoulda', '~> 3.5.0'
   gem 'simplecov', '~> 0.15.1', require: false
   gem 'simplecov-rcov', '~> 0.2.3', require: false
