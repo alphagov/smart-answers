@@ -524,9 +524,29 @@ module SmartAnswer::Calculators
           end
         end
 
+        context "correct rates for 2017/2018" do
+          setup do
+            Timecop.travel('1 Feb 2018')
+          end
+
+          should "give the correct rate for the period" do
+            assert_equal 140.98, @calculator.statutory_rate(Date.parse('12 April 2017'))
+          end
+        end
+
+        context "correct rates for 2018/2019" do
+          setup do
+            Timecop.travel('1 Feb 2019')
+          end
+
+          should "give the correct rate for the period" do
+            assert_equal 145.18, @calculator.statutory_rate(Date.parse('12 April 2018'))
+          end
+        end
+
         context "for 2043 rates" do
           should "give a default rate for a date in the future" do
-            assert_equal 140.98, @calculator.statutory_rate(Date.parse('6 April 2043'))
+            assert_equal 145.18, @calculator.statutory_rate(Date.parse('6 April 2043'))
           end
         end
       end
@@ -642,9 +662,9 @@ module SmartAnswer::Calculators
 
           assert_equal 10, paydates_and_pay.size
           assert_equal '2017-10-31', paydates_and_pay.first[:date].to_s
-          assert_equal 809.41, paydates_and_pay.first[:pay]
+          assert_equal 809.41, paydates_and_pay.first[:pay] # uses 2017/2018 rate
           assert_equal '2018-07-31', paydates_and_pay.last[:date].to_s
-          assert_equal 20.14, paydates_and_pay.last[:pay]
+          assert_equal 20.74, paydates_and_pay.last[:pay] # uses 2018/2019 rate
         end
       end
 
