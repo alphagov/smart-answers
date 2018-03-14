@@ -113,7 +113,7 @@ GEM
       sass (>= 3.2.0)
     govuk_navigation_helpers (6.3.0)
       gds-api-adapters (>= 43.0)
-    govuk_publishing_components (5.4.0)
+    govuk_publishing_components (5.5.4)
       govspeak (>= 5.0.3)
       govuk_frontend_toolkit
       rails (>= 5.0.0.1)
@@ -333,7 +333,7 @@ DEPENDENCIES
   govuk_app_config
   govuk_frontend_toolkit (>= 6.0.4)
   govuk_navigation_helpers (~> 6.3.0)
-  govuk_publishing_components (= 5.4.0)
+  govuk_publishing_components (= 5.5.4)
   htmlentities (~> 4)
   json
   lrucache (= 0.1.4)
