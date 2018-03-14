@@ -87,13 +87,13 @@ GEM
       rest-client (~> 2.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    govspeak (5.0.3)
+    govspeak (5.5.0)
       actionview (>= 4.1, < 6)
       addressable (>= 2.3.8, < 3)
       commander (~> 4.4)
       htmlentities (~> 4)
       i18n (~> 0.7)
-      kramdown (~> 1.12.0)
+      kramdown (~> 1.15.0)
       money (~> 6.7)
       nokogiri (~> 1.5)
       sanitize (~> 2.1.0)
@@ -132,7 +132,7 @@ GEM
     json-schema (2.8.0)
       addressable (>= 2.4)
     kgio (2.11.2)
-    kramdown (1.12.0)
+    kramdown (1.15.0)
     link_header (0.0.8)
     logstash-event (1.2.02)
     logstasher (1.2.2)
@@ -327,7 +327,7 @@ DEPENDENCIES
   capybara (= 2.18.0)
   ci_reporter
   gds-api-adapters (~> 52.1.0)
-  govspeak (~> 5.0.3)
+  govspeak (~> 5.5.0)
   govuk-content-schema-test-helpers (~> 1.6.0)
   govuk-lint
   govuk_app_config
