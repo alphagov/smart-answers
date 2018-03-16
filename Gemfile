@@ -28,7 +28,7 @@ gem 'tilt', '2.0.8'
 gem 'uglifier'
 gem 'uk_postcode', '~> 2.1.2'
 gem 'rails_stdout_logging'
-gem 'govuk_navigation_helpers', '~> 6.3.0'
+gem 'govuk_navigation_helpers', '~> 9.2.0'
 
 group :development do
   gem 'better_errors'
