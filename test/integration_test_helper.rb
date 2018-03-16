@@ -33,12 +33,16 @@ class ActionDispatch::IntegrationTest
   end
 
   def assert_current_url(path_with_query, options = {})
-    expected = URI.parse(path_with_query)
-    wait_until { expected.path == URI.parse(current_url).path }
-    current = URI.parse(current_url)
-    assert_equal expected.path, current.path
+    assert_same_url(current_url, path_with_query, options.merge(wait_until: true))
+  end
+
+  def assert_same_url(expected_url, actual_url, options = {})
+    expected = URI.parse(expected_url)
+    wait_until { expected.path == URI.parse(current_url).path } if options[:wait_until]
+    actual = URI.parse(actual_url)
+    assert_equal expected.path, actual.path
     unless options[:ignore_query]
-      assert_equal Rack::Utils.parse_query(expected.query), Rack::Utils.parse_query(current.query)
+      assert_equal Rack::Utils.parse_query(expected.query), Rack::Utils.parse_query(actual.query)
     end
   end
 
