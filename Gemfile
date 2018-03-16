@@ -51,7 +51,7 @@ group :test do
   gem 'mocha', '1.3.0', require: false
   gem 'poltergeist', '1.17.0'
   gem 'shoulda', '~> 3.5.0'
-  gem 'simplecov', '~> 0.15.1', require: false
+  gem 'simplecov', '~> 0.16.0', require: false
   gem 'simplecov-rcov', '~> 0.2.3', require: false
   gem 'timecop'
   gem 'webmock', '~> 3.3.0', require: false
