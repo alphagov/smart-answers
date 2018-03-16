@@ -113,7 +113,7 @@ GEM
       sass (>= 3.2.0)
     govuk_navigation_helpers (6.3.0)
       gds-api-adapters (>= 43.0)
-    govuk_publishing_components (5.5.5)
+    govuk_publishing_components (5.5.6)
       govspeak (>= 5.0.3)
       govuk_frontend_toolkit
       rails (>= 5.0.0.1)
@@ -162,7 +162,7 @@ GEM
       i18n (>= 0.6.4, < 1.0)
     multipart-post (2.0.0)
     netrc (0.11.0)
-    nio4r (2.2.0)
+    nio4r (2.3.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     null_logger (0.0.1)
@@ -331,7 +331,7 @@ DEPENDENCIES
   govuk_app_config
   govuk_frontend_toolkit (>= 6.0.4)
   govuk_navigation_helpers (~> 6.3.0)
-  govuk_publishing_components (= 5.5.5)
+  govuk_publishing_components (= 5.5.6)
   htmlentities (~> 4)
   json
   lrucache (= 0.1.4)
