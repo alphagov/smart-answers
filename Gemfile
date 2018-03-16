@@ -26,7 +26,7 @@ gem 'sass-rails', '~> 5.0.7'
 gem 'slimmer', '~> 12.0.0'
 gem 'tilt', '2.0.8'
 gem 'uglifier'
-gem 'uk_postcode', '~> 1.0.1'
+gem 'uk_postcode', '~> 2.1.2'
 gem 'rails_stdout_logging'
 gem 'govuk_navigation_helpers', '~> 6.3.0'
 
