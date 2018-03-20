@@ -70,30 +70,16 @@ class SmartAnswersControllerTest < ActionController::TestCase
       setup do
         @content_item = {
             base_path: "/smart-answers-controller-sample",
-            links: {
-              taxons: [
-                {
-                  title: "A Taxon",
-                  base_path: "/a-taxon",
-                }
-              ],
-            },
           }.with_indifferent_access
+
         ContentItemRetriever.stubs(:fetch)
           .returns(@content_item)
-        GovukNavigationHelpers::NavigationHelper.any_instance
-          .stubs(:taxon_breadcrumbs)
-          .returns(breadcrumbs: ['TaxonBreadcrumb'])
 
         get :show, params: { id: "smart-answers-controller-sample" }
       end
 
       should "assign response from content store" do
         assert_equal @content_item, assigns(:content_item)
-      end
-
-      should "assign navigation_helpers" do
-        assert_kind_of GovukNavigationHelpers::NavigationHelper, assigns(:navigation_helpers)
       end
     end
 
@@ -105,10 +91,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
       should "assign empty hash to content_item" do
         assert_equal Hash.new, assigns(:content_item)
-      end
-
-      should "assign nil to navigation_helpers" do
-        assert_nil assigns(:navigation_helpers)
       end
     end
 
@@ -228,95 +210,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
         get :show, params: { id: 'smart-answers-controller-sample', started: 'y', responses: "no", debug: nil }
 
         assert_select "pre.debug", false, "The page should not render debug information"
-      end
-    end
-
-    context "tagged content" do
-      setup do
-        @content_item = {
-          base_path: "/education-sample",
-          links: {},
-        }
-
-        Services.content_store.stubs(:content_item)
-          .with("/education-sample")
-          .returns(@content_item)
-
-        mock = GovukNavigationHelpers::NavigationHelper.any_instance
-        mock.stubs(:breadcrumbs).returns(breadcrumbs: ['NormalBreadcrumb'])
-        mock.stubs(:taxon_breadcrumbs).returns(breadcrumbs: ['TaxonBreadcrumb'])
-      end
-
-      context "pages tagged to mainstream browse" do
-        setup do
-          @content_item[:links] = {
-              mainstream_browse_pages: [
-                {
-                  title: "A Browse Page",
-                  base_path: "/a-browse-page",
-                }
-              ],
-            }
-        end
-
-        should "show normal breadcrumbs by default" do
-          get :show, params: { id: 'education-sample' }
-
-          assert_match(/NormalBreadcrumb/, response.body)
-          refute_match(/TaxonBreadcrumb/, response.body)
-          sidebar = Nokogiri::HTML.parse(response.body).at_css(".related-container")
-          refute_match(/A Taxon/, sidebar)
-        end
-      end
-
-      context "pages tagged to taxonomy" do
-        setup do
-          @content_item[:links] = {
-              taxons: [
-                {
-                  title: "A Taxon",
-                  base_path: "/a-taxon",
-                }
-              ],
-            }
-        end
-
-        should "show taxon breadcrumbs" do
-          get :show, params: { id: 'education-sample' }
-
-          assert_match(/TaxonBreadcrumb/, response.body)
-          refute_match(/NormalBreadcrumb/, response.body)
-          sidebar = Nokogiri::HTML.parse(response.body).at_css(".related-container")
-          assert_match(/A Taxon/, sidebar)
-        end
-      end
-
-      context "pages tagged to mainstream browse and taxonomy" do
-        setup do
-          @content_item[:links] = {
-            mainstream_browse_pages: [
-              {
-                title: "A Browse Page",
-                base_path: "/a-browse-page",
-              }
-            ],
-            taxons: [
-              {
-                title: "A Taxon",
-                base_path: "/world/a-taxon",
-              }
-            ],
-          }
-        end
-
-        should "show normal breadcrumbs by default" do
-          get :show, params: { id: 'education-sample' }
-
-          assert_match(/NormalBreadcrumb/, response.body)
-          refute_match(/TaxonBreadcrumb/, response.body)
-          sidebar = Nokogiri::HTML.parse(response.body).at_css(".related-container")
-          refute_match(/A Taxon/, sidebar)
-        end
       end
     end
   end

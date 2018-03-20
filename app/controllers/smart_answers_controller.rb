@@ -1,19 +1,13 @@
 class SmartAnswersController < ApplicationController
   include Slimmer::GovukComponents
   include Slimmer::Headers
-  include TaxonomyNavigation
 
   before_action :find_smart_answer, except: %w(index)
   before_action :redirect_response_to_canonical_url, only: %w{show}
   before_action :set_header_footer_only, only: %w{visualise}
-  before_action :setup_navigation_helpers_and_content_item, except: %w(index)
+  before_action :setup_content_item, except: %w(index)
 
-  attr_accessor :navigation_helpers, :content_item
-
-  helper_method(
-    :breadcrumbs,
-    :should_present_taxonomy_navigation_view?,
-  )
+  attr_accessor :content_item
 
   rescue_from SmartAnswer::FlowRegistry::NotFound, with: :error_404
   rescue_from SmartAnswer::InvalidNode, with: :error_404
@@ -115,21 +109,7 @@ private
     end
   end
 
-  def setup_navigation_helpers_and_content_item
+  def setup_content_item
     @content_item = ContentItemRetriever.fetch(params[:id])
-    @navigation_helpers = nil
-
-    if @content_item.present?
-      @navigation_helpers = GovukNavigationHelpers::NavigationHelper.new(@content_item)
-    end
-  end
-
-  def breadcrumbs
-    return {} if navigation_helpers.nil?
-    if should_present_taxonomy_navigation_view?(content_item)
-      navigation_helpers.taxon_breadcrumbs
-    else
-      navigation_helpers.breadcrumbs
-    end
   end
 end

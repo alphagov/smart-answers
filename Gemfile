@@ -13,7 +13,7 @@ gem "gds-api-adapters", "~> 52.1.0"
 gem 'govspeak', '~> 5.5.0'
 gem 'govuk-content-schema-test-helpers', '~> 1.6.1'
 gem 'govuk_frontend_toolkit', '>= 6.0.4'
-gem 'govuk_publishing_components', '5.5.6'
+gem 'govuk_publishing_components', '5.6.0'
 gem 'htmlentities', '~> 4'
 gem 'json'
 gem 'lrucache', '0.1.4'
@@ -28,7 +28,6 @@ gem 'tilt', '2.0.8'
 gem 'uglifier'
 gem 'uk_postcode', '~> 2.1.2'
 gem 'rails_stdout_logging'
-gem 'govuk_navigation_helpers', '~> 6.3.0'
 
 group :development do
   gem 'better_errors'
