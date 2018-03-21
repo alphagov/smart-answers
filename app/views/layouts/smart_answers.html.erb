@@ -6,8 +6,6 @@
   <%= javascript_include_tag "application", defer: true %>
 <% end %>
 
-<%= render partial: 'govuk_component/breadcrumbs', locals: breadcrumbs %>
-
 <div class="grid-row">
   <%= render partial: "smart_answers/heroku_alert" if heroku? %>
 
@@ -16,8 +14,6 @@
 
     <%= render 'smartanswer_metadata' %>
   </main>
-
-  <%= yield :sidebar %>
 </div>
 
 <% parent_layout 'application' %>

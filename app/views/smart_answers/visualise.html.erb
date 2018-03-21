@@ -10,10 +10,6 @@
 <%= stylesheet_link_tag 'visualise' %>
 <% end %>
 
-<% content_for :before_wrapper do %>
-  <div id="global-breadcrumb" class="header-context"></div>
-<% end %>
-
 <script defer="false">
   var adjacencyList = <%= JSON.pretty_generate(@graph_data).html_safe %>;
 </script>
