@@ -104,7 +104,7 @@ GEM
       rubocop-rspec (~> 1.19.0)
       scss_lint
     govuk_ab_testing (2.4.1)
-    govuk_app_config (1.4.0)
+    govuk_app_config (1.4.1)
       logstasher (~> 1.2.2)
       sentry-raven (~> 2.7.1)
       statsd-ruby (~> 1.4.0)
@@ -227,7 +227,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    request_store (1.4.0)
+    request_store (1.4.1)
       rack (>= 1.4)
     rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
