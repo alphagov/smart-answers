@@ -10,7 +10,7 @@ gem 'govuk_app_config'
 
 gem 'ast'
 gem "gds-api-adapters", "~> 52.2.1"
-gem 'govspeak', '~> 5.5.0'
+gem 'govspeak', '~> 5.6.0'
 gem 'govuk-content-schema-test-helpers', '~> 1.6.1'
 gem 'govuk_frontend_toolkit', '>= 6.0.4'
 gem 'govuk_publishing_components', '5.6.0'
