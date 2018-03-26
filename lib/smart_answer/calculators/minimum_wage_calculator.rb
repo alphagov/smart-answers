@@ -159,10 +159,6 @@ module SmartAnswer::Calculators
       minimum_hourly_rate
     end
 
-    def apprentice_eligible_for_minimum_wage?
-      date >= Date.parse('2010-10-01')
-    end
-
     def eligible_for_living_wage?
       valid_age_for_living_wage?(age) && date >= Date.parse('2016-04-01')
     end
