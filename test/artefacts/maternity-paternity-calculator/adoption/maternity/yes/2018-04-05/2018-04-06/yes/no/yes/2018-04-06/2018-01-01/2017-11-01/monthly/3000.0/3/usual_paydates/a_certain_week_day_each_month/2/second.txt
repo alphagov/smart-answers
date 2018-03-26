@@ -16,15 +16,15 @@ Date | SAP amount
 -|-
 10 April 2018|£148.35
 8 May 2018|£830.76
-12 June 2018|£790.67
-10 July 2018|£563.92
-14 August 2018|£704.90
-11 September 2018|£563.92
-9 October 2018|£563.92
-13 November 2018|£704.90
-11 December 2018|£563.92
-8 January 2019|£463.22
-| **Total SAP: £5,898.48**
+12 June 2018|£806.27
+10 July 2018|£580.72
+14 August 2018|£725.90
+11 September 2018|£580.72
+9 October 2018|£580.72
+13 November 2018|£725.90
+11 December 2018|£580.72
+8 January 2019|£477.02
+| **Total SAP: £6,037.08**
 
 %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
 
