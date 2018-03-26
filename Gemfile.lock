@@ -116,7 +116,7 @@ GEM
       activesupport (~> 5.1)
       gds-api-adapters (>= 43.0)
       govuk_ab_testing (~> 2.4)
-    govuk_publishing_components (5.6.0)
+    govuk_publishing_components (5.7.0)
       govspeak (>= 5.0.3)
       govuk_frontend_toolkit
       govuk_navigation_helpers (~> 9.2.1)
@@ -225,7 +225,7 @@ GEM
     rainbow (2.2.2)
       rake
     raindrops (0.19.0)
-    rake (12.3.0)
+    rake (12.3.1)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -251,7 +251,7 @@ GEM
       crass (~> 1.0.2)
       nokogiri (>= 1.4.4)
       nokogumbo (~> 1.4)
-    sass (3.5.5)
+    sass (3.5.6)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -338,7 +338,7 @@ DEPENDENCIES
   govuk-lint
   govuk_app_config
   govuk_frontend_toolkit (>= 6.0.4)
-  govuk_publishing_components (= 5.6.0)
+  govuk_publishing_components (= 5.7.0)
   htmlentities (~> 4)
   json
   lrucache (= 0.1.4)
