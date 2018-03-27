@@ -878,6 +878,32 @@ module SmartAnswer
           assert_equal calculator.ssp_payment,
                        calculator.send(:weekly_payments).map(&:second).sum
         end
+
+        should "have the correct 2017/2018 value" do
+          calculator = StatutorySickPayCalculator.new(
+            sick_start_date: Date.parse("5 June 2017"),
+            sick_end_date: Date.parse("9 June 2017"),
+            days_of_the_week_worked: %w(1 2 3 4 5),
+            has_linked_sickness: true,
+            linked_sickness_start_date: Date.parse("Fri, 21 Sep 2016"),
+            linked_sickness_end_date: Date.parse("Fri, 28 Dec 2016")
+          )
+
+          assert_equal 89.35, calculator.ssp_payment.to_f
+        end
+
+        should "have the correct 2018/2019 value" do
+          calculator = StatutorySickPayCalculator.new(
+            sick_start_date: Date.parse("4 June 2018"),
+            sick_end_date: Date.parse("8 June 2018"),
+            days_of_the_week_worked: %w(1 2 3 4 5),
+            has_linked_sickness: true,
+            linked_sickness_start_date: Date.parse("Fri, 21 Sep 2017"),
+            linked_sickness_end_date: Date.parse("Fri, 28 Dec 2017")
+          )
+
+          assert_equal 92.05, calculator.ssp_payment.to_f
+        end
       end
 
       context "average weekly earnings for new employees who fell sick before first payday" do
