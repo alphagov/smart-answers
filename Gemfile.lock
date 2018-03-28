@@ -103,7 +103,6 @@ GEM
       rubocop (~> 0.51.0)
       rubocop-rspec (~> 1.19.0)
       scss_lint
-    govuk_ab_testing (2.4.1)
     govuk_app_config (1.4.1)
       logstasher (~> 1.2.2)
       sentry-raven (~> 2.7.1)
@@ -112,14 +111,10 @@ GEM
     govuk_frontend_toolkit (7.4.2)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-    govuk_navigation_helpers (9.2.1)
-      activesupport (~> 5.1)
-      gds-api-adapters (>= 43.0)
-      govuk_ab_testing (~> 2.4)
-    govuk_publishing_components (5.7.0)
+    govuk_publishing_components (6.0.0)
       govspeak (>= 5.0.3)
+      govuk_app_config
       govuk_frontend_toolkit
-      govuk_navigation_helpers (~> 9.2.1)
       rails (>= 5.0.0.1)
       rake
       rouge
@@ -188,7 +183,7 @@ GEM
     rack (2.0.4)
     rack-cache (1.7.1)
       rack (>= 0.4)
-    rack-test (0.8.3)
+    rack-test (1.0.0)
       rack (>= 1.0, < 3)
     rack_strip_client_ip (0.0.2)
     rails (5.1.5)
@@ -338,7 +333,7 @@ DEPENDENCIES
   govuk-lint
   govuk_app_config
   govuk_frontend_toolkit (>= 6.0.4)
-  govuk_publishing_components (= 5.7.0)
+  govuk_publishing_components (= 6.0.0)
   htmlentities (~> 4)
   json
   lrucache (= 0.1.4)
