@@ -6,7 +6,7 @@ $C
 
 The National Minimum Wage per hour for your age | Your actual pay | For each pay period your employer owes you
 - | - | -
-£3.50 | -£54.10 * | £921.52
+£3.70 | -£53.27 * | £911.44
 
 \* This figure has been rounded to the nearest penny.
 
