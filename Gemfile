@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby File.read(".ruby-version").chomp
 
-gem 'rails', '5.1.5'
+gem 'rails', '5.1.6'
 gem "railties"
 gem "sprockets-rails"
 
