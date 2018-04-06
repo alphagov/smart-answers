@@ -23,3 +23,8 @@
   end_date: 2018-04-05
   maximum_married_couple_allowance: 8445
   minimum_married_couple_allowance: 3260
+
+- start_date: 2018-04-06
+  end_date: 2019-04-05
+  maximum_married_couple_allowance: 8445
+  minimum_married_couple_allowance: 3360
