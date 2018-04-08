@@ -25,6 +25,11 @@
   lower_weekly_rate: 71.50
 
 - start_date: 2017-04-10
-  end_date: 2018-04-10
+  end_date: 2018-04-08
   weekly_rate: 122.30
   lower_weekly_rate: 73.30
+
+- start_date: 2018-04-09
+  end_date: 2019-04-10
+  weekly_rate: 125.95
+  lower_weekly_rate: 75.50
