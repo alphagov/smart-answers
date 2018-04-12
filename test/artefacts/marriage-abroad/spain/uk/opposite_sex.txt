@@ -44,7 +44,7 @@ Send the form and documents by courier to the address in the application pack.
 
 The consulate will issue your CNI and send it to you with your original documents by courier. You'll usually get your CNI 30 working days after the consulate receives your form and documents.
 
-^Your new CNI will be valid for 3 months from when your original CNI was issued.^
+^Your new CNI will be valid for 6 months from when your original CNI was issued.^
 
 It costs £50 to give notice and £50 for the CNI. You'll need to pay in the [local currency](/government/publications/spain-consular-fees) by card. Fill in the payment form in the pack.
 
