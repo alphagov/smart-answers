@@ -4,14 +4,13 @@ module SmartAnswer
       def define
         # Q1A
         multiple_choice :past_payment_date? do
+          option "2017-04-01"
+          option "2016-10-01"
           option "2016-04-01"
           option "2015-10-01"
           option "2014-10-01"
           option "2013-10-01"
           option "2012-10-01"
-          option "2011-10-01"
-          option "2010-10-01"
-          option "2009-10-01"
 
           next_node do |response|
             calculator.date = Date.parse(response)
@@ -51,11 +50,7 @@ module SmartAnswer
               question :how_old_were_you?
             else
               calculator.is_apprentice = true
-              if calculator.apprentice_eligible_for_minimum_wage?
-                question :how_often_did_you_get_paid?
-              else
-                outcome :does_not_apply_to_historical_apprentices
-              end
+              question :how_often_did_you_get_paid?
             end
           end
         end
@@ -297,7 +292,6 @@ module SmartAnswer
         outcome :past_payment_below
 
         outcome :under_school_leaving_age
-        outcome :does_not_apply_to_historical_apprentices
         outcome :under_school_leaving_age_past
       end
     end

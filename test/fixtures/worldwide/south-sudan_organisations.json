@@ -5,7 +5,7 @@
       "title": "British Embassy Juba",
       "format": "Worldwide Organisation",
       "updated_at": "2013-07-23T09:53:02.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-juba",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-juba",
       "details": {
         "slug": "british-embassy-juba"
       },
@@ -15,12 +15,12 @@
           "title": "British Embassy Juba",
           "format": "World Office",
           "updated_at": "2014-09-23T11:12:12.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-juba/office/british-embassy-juba",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-juba/office/british-embassy-juba",
           "details": {
             "email": "ukin.southsudan@fco.gov.uk",
             "description": "",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h3 id=\"office-hours\">Office Hours:</h3>\n\n<p>Monday to Thursday: 8.30 am - 5.15 pm\nFriday: 8.30 am - 1.30 pm</p>\n\n<h3 id=\"consular-enquiries\">Consular Enquiries:</h3>\n\n<p>Monday to Thursday: 9.30 am - 12.30 pm\nFriday closed</p>\n\n<p>We will additionally respond to consular emergencies outside of these times.</p>\n\n<p>The Embassy will be closed for the following holidays in 2015</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>3 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>6 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>9 July</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>20 July (to be confirmed)</td>\n      <td>Eid Al FitrI</td>\n    </tr>\n    <tr>\n      <td>30 July</td>\n      <td>Martyrs Day</td>\n    </tr>\n    <tr>\n      <td>18 August</td>\n      <td>Veterans Day</td>\n    </tr>\n    <tr>\n      <td>25 August</td>\n      <td>UK Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>24 September (to be confirmed)</td>\n      <td>Eid Al Adha</td>\n    </tr>\n    <tr>\n      <td>23-25 December</td>\n      <td>Christmas</td>\n    </tr>\n    <tr>\n      <td>28 December</td>\n      <td>In lieu of Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h3 id=\"office-hours\">Office Hours:</h3>\n\n<p>Monday to Thursday: 8.30 am - 5.15 pm\nFriday: 8.30 am - 1.30 pm</p>\n\n<h3 id=\"consular-enquiries\">Consular Enquiries:</h3>\n\n<p>Monday to Thursday: 9.30 am - 12.30 pm\nFriday closed</p>\n\n<p>We will additionally respond to consular emergencies outside of these times.</p>\n\n<p>The Embassy is closed for the following holidays in the second part of 2017:</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>26 June</td>\n      <td>Eid Al Fitr</td>\n    </tr>\n    <tr>\n      <td>10 July</td>\n      <td>in lieu of Independence Day</td>\n    </tr>\n    <tr>\n      <td>31 July</td>\n      <td>in lieu of Martyrs Day</td>\n    </tr>\n    <tr>\n      <td>28 August</td>\n      <td>Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>31 August</td>\n      <td>Eid Al Adha</td>\n    </tr>\n    <tr>\n      <td>22 December</td>\n      <td>in lieu of Christmas Eve</td>\n    </tr>\n    <tr>\n      <td>25 December</td>\n      <td>Christmas</td>\n    </tr>\n    <tr>\n      <td>26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -67,7 +67,7 @@
       "title": "DFID South Sudan",
       "format": "Worldwide Organisation",
       "updated_at": "2013-10-25T13:52:49.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/dfid-south-sudan",
+      "web_url": "https://www.gov.uk/world/organisations/dfid-south-sudan",
       "details": {
         "slug": "dfid-south-sudan"
       },
@@ -77,7 +77,7 @@
           "title": "DFID South Sudan",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:54.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/dfid-south-sudan/office/dfid-south-sudan",
+          "web_url": "https://www.gov.uk/world/organisations/dfid-south-sudan/office/dfid-south-sudan",
           "details": {
             "email": "enquiry@dfid.gov.uk",
             "description": "",
@@ -99,10 +99,7 @@
             }
           },
           "contact_numbers": [
-            {
-              "label": "Tel",
-              "number": "+211 912 323172/+211 959 200010"
-            }
+
           ],
           "services": [
 

@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  Statutory redundancy payment: £<%= statutory_redundancy_pay %> (£<%= statutory_redundancy_pay_ni %> In Northern Ireland).
+  Statutory redundancy payment: <%= format_money(statutory_redundancy_pay) %> (<%= format_money(statutory_redundancy_pay_ni) %> in Northern Ireland).
 
 <% end %>
 
@@ -14,9 +14,9 @@
   + 1 week’s pay for each full year they were 22 or older, but under 41
   + 1.5 week’s pay for each full year they were 41 or older
 
-  Length of service is capped at 20 years and weekly pay at £<%= rate %> (£<%= ni_rate %> In Northern Ireland). Years of service or earnings over these amounts are not included in the calculation.
+  Length of service is capped at 20 years and weekly pay at <%= format_money(rate) %> (<%= format_money(ni_rate) %> in Northern Ireland). Years of service or earnings over these amounts are not included in the calculation.
 
-  The maximum amount of statutory redundancy pay is £<%= max_amount %> (£<%= ni_max_amount %> In Northern Ireland).
+  The maximum amount of statutory redundancy pay is <%= format_money(max_amount) %> (<%= format_money(ni_max_amount) %> in Northern Ireland).
 
   ^Redundancy pay under £30,000 is not taxable.^
 <% end %>

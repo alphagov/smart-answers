@@ -1,0 +1,19 @@
+Does the person have a Home Office document showing they have ‘leave to enter’ or ‘leave to remain’ in the UK until a future date?
+
+This can be any of the following:
+
+- a sticker or stamp in their passport
+- a biometric ‘residence permit’ card
+- a ‘travel document’ or ‘immigration status document’
+
+
+
+
+  * yes: Yes
+  * no: No
+
+
+
+
+
+

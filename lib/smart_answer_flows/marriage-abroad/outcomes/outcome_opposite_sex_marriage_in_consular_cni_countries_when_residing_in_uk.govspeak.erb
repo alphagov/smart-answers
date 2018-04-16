@@ -43,10 +43,7 @@
 
   <% end %>
 
-  <% if calculator.ceremony_country == 'tunisia' %>
-    You’ll need to exchange your UK-issued CNI for one that’s valid in Tunisia at the nearest British embassy to where you’re getting married.
-
-  <% elsif calculator.ceremony_country == 'montenegro' %>
+  <% if calculator.ceremony_country == 'montenegro' %>
     ###Getting a Montenegrin version of your CNI
 
     You might need to exchange your UK-issued CNI for one that’s valid in Montenegro at the British Embassy in Podgorica.
@@ -58,12 +55,6 @@
 
     You should check with the local authorities in <%= calculator.country_name_lowercase_prefix %> to see if your CNI needs to be:
 
-
-  <% elsif calculator.ceremony_country == 'greece' %>
-    <%= render partial: 'legalisation_and_translation.govspeak.erb' %>
-    Your UK-issued CNI should be accepted by the town hall.
-
-    You should also check if it needs to be:
 
   <% else %>
     <%= render partial: 'legisation_and_translation_intro_uk.govspeak.erb',
@@ -78,8 +69,7 @@
   <% if calculator.partner_is_same_sex? ||
     (
       calculator.document_download_link_if_opposite_sex_resident_of_uk_countries? &&
-      (calculator.notary_public_ceremony_country? || %w(macedonia).include?(calculator.ceremony_country)) &&
-      %w(greece tunisia).exclude?(calculator.ceremony_country)
+      (calculator.notary_public_ceremony_country? || %w(macedonia).include?(calculator.ceremony_country))
     ) %>
     <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
 
@@ -101,14 +91,6 @@
 
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 
-  <% end %>
-
-  <% if calculator.ceremony_country == 'poland' %>
-    ## What happens next
-
-    If you’re getting married in a registry office, you must give them your CNI at least 2 months before your wedding. If you’re getting married in a church, you can do this 2 days before the wedding.
-
-    You may be asked to provide a copy of your birth certificate. Make sure you send a [certified copy](/order-copy-birth-death-marriage-certificate) as you won’t get it back.
   <% end %>
 
   <%= render partial: 'services_and_fees.govspeak.erb',

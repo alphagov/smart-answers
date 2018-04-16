@@ -5,7 +5,7 @@
       "title": "British Embassy Luxembourg",
       "format": "Worldwide Organisation",
       "updated_at": "2014-11-11T10:25:55.000+00:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-in-luxembourg",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-in-luxembourg",
       "details": {
         "slug": "british-embassy-in-luxembourg"
       },
@@ -15,12 +15,12 @@
           "title": "British Embassy Luxembourg",
           "format": "World Office",
           "updated_at": "2013-04-30T11:38:34.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-in-luxembourg/office/british-embassy",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-in-luxembourg/office/british-embassy",
           "details": {
-            "email": "britemb@internet.lu",
+            "email": "britemb@internet.lu / consularsection.luxembourg@fco.gov.uk",
             "description": "",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<p>Consular services are provided at the British Embassy <a href=\"https://www.gov.uk/government/world/organisations/british-embassy-in-luxembourg/office/british-consulate-luxembourg\">by appointment only</a>.</p>\n\n<h2 id=\"public-holidays\">2016 public holidays</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Friday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 May</td>\n      <td>May/Labour Day (falls on Sunday)</td>\n    </tr>\n    <tr>\n      <td>Thursday 5 May</td>\n      <td>Ascension Day</td>\n    </tr>\n    <tr>\n      <td>Monday 16 May</td>\n      <td>Whit Monday</td>\n    </tr>\n    <tr>\n      <td>Thursday 23 June</td>\n      <td>Luxembourg National Day</td>\n    </tr>\n    <tr>\n      <td>Monday 15 August</td>\n      <td>Assumption Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 1 November</td>\n      <td>All Saints</td>\n    </tr>\n    <tr>\n      <td>Friday 23 December</td>\n      <td>Half Day</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>In lieu of Christmas Eve</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 December</td>\n      <td>In lieu of Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 28 December</td>\n      <td>In lieu of Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>Consular services are provided at the British Embassy by appointment only. To make an appointment for a consular service use our <a rel=\"external\" href=\"https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-luxembourg/-/service_list\">online appointment booking service</a></p>\n\n<p>We only have slots available on Mondays for appointments. All other days of the week are restricted to urgent cases only.</p>\n\n<p>If your case is urgent, please call us on +352 22 98 64 and we will try to accommodate where appropriate and possible.</p>\n\n<h2 id=\"public-holidays\">2017 public holidays</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 2 January 2017</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 14 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 17 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 25 May</td>\n      <td>Ascension Day</td>\n    </tr>\n    <tr>\n      <td>Friday 26 May</td>\n      <td>Bridge Day</td>\n    </tr>\n    <tr>\n      <td>Monday 5 June</td>\n      <td>Whit Monday</td>\n    </tr>\n    <tr>\n      <td>Friday 23 June</td>\n      <td>National Day Luxembourg</td>\n    </tr>\n    <tr>\n      <td>Tuesday 15 August</td>\n      <td>Assumption Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 1 November</td>\n      <td>All Saints Days</td>\n    </tr>\n    <tr>\n      <td>Friday 22 December (from 1pm)</td>\n      <td>Christmas Eve</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -55,12 +55,12 @@
             "title": "Consular Services",
             "format": "World Office",
             "updated_at": "2013-06-27T12:14:36.000+01:00",
-            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-in-luxembourg/office/british-consulate-luxembourg",
+            "web_url": "https://www.gov.uk/world/organisations/british-embassy-in-luxembourg/office/british-consulate-luxembourg",
             "details": {
               "email": "consularsection.luxembourg@fco.gov.uk",
               "description": "",
               "contact_form_url": "",
-              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"by-appointment-only\">By appointment only</h2>\n\n<ul>\n  <li>to make an appointment for a consular service use our <a rel=\"external\" href=\"https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-brussels/-/service_list\">online appointment booking service</a>. We only have slots available on Mondays for appointments. All other days of the week are restricted to urgent cases only. </li>\n  <li>if your case is urgent, please call us on +352 22 98 64 and we will try to accommodate where appropriate and possible.</li>\n</ul>\n\n<h2 id=\"public-holidays\">2015 public holidays</h2>\n\n<ul>\n  <li>Thursday 1 January - New Year’s Day </li>\n  <li>Thursday 2 April - Maundy Thursday  </li>\n  <li>Friday 3 April - Good Friday</li>\n  <li>Monday 6 April - Easter Monday</li>\n  <li>Friday 1 May - Labour Day </li>\n  <li>Thursday 14 May - Ascension Day</li>\n  <li>Monday 25 May - Whit Monday </li>\n  <li>Tuesday 23 June - Luxembourg National Day</li>\n  <li>Monday 17 August - In lieu of Assumption </li>\n  <li>Monday 2 November\t - In lieu of All Saints</li>\n  <li>Thursday 24 December - Christmas Eve</li>\n  <li>Friday 25 December\t - Christmas Day</li>\n  <li>Monday 28 December - In lieu of Boxing Day</li>\n</ul>\n\n</div>",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"by-appointment-only\">By appointment only</h2>\n\n<ul>\n  <li>to make an appointment for a consular service use our <a rel=\"external\" href=\"https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-brussels/-/service_list\">online appointment booking service</a>. We only have slots available on Mondays for appointments. All other days of the week are restricted to urgent cases only.</li>\n  <li>if your case is urgent, please call us on +352 22 98 64 and we will try to accommodate where appropriate and possible.</li>\n</ul>\n\n<h2 id=\"public-holidays\">2017 public holidays</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 2 January 2017</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 14 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 17 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 25 May</td>\n      <td>Ascension Day</td>\n    </tr>\n    <tr>\n      <td>Friday 26 May</td>\n      <td>Bridge Day</td>\n    </tr>\n    <tr>\n      <td>Monday 5 June</td>\n      <td>Whit Monday</td>\n    </tr>\n    <tr>\n      <td>Friday 23 June</td>\n      <td>National Day Luxembourg</td>\n    </tr>\n    <tr>\n      <td>Tuesday 15 August</td>\n      <td>Assumption Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 1 November</td>\n      <td>All Saints Days</td>\n    </tr>\n    <tr>\n      <td>Friday 22 December (from 1pm)</td>\n      <td>Christmas Eve</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
               "type": "Consulate"
             },
             "address": {
@@ -131,20 +131,20 @@
     },
     {
       "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-luxembourg",
-      "title": "UK Trade & Investment Luxembourg",
+      "title": "Department for International Trade Luxembourg",
       "format": "Worldwide Organisation",
-      "updated_at": "2013-04-11T16:09:51.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-luxembourg",
+      "updated_at": "2016-08-10T14:16:34.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-luxembourg",
       "details": {
         "slug": "uk-trade-investment-luxembourg"
       },
       "analytics_identifier": "WO325",
       "offices": {
         "main": {
-          "title": "UK Trade & Investment Luxembourg",
+          "title": "Department for International Trade Luxembourg",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:55.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-luxembourg/office/uk-trade-investment-luxembourg",
+          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-luxembourg/office/uk-trade-investment-luxembourg",
           "details": {
             "email": "",
             "description": "",
@@ -177,10 +177,10 @@
         },
         "other": [
           {
-            "title": "Trade & Investment Adviser",
+            "title": "Trade and Investment Adviser",
             "format": "World Office",
             "updated_at": "2013-03-25T10:37:55.000+00:00",
-            "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-luxembourg/office/trade-investment-adviser",
+            "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-luxembourg/office/trade-investment-adviser",
             "details": {
               "email": "Thomas.flammant@fco.gov.uk",
               "description": "",
@@ -215,10 +215,10 @@
       },
       "sponsors": [
         {
-          "title": "UK Trade & Investment",
-          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "title": "Department for International Trade",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-trade",
           "details": {
-            "acronym": "UKTI"
+            "acronym": "DIT"
           }
         }
       ]

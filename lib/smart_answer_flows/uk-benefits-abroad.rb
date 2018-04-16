@@ -1,7 +1,8 @@
 module SmartAnswer
   class UkBenefitsAbroadFlow < Flow
     def define
-      content_id "e1eaf183-1211-4fd7-b439-5c94498814ef"
+      start_page_content_id "e1eaf183-1211-4fd7-b439-5c94498814ef"
+      flow_content_id "99f0e249-aaf2-43da-8e5e-7a8de934fc64"
       name 'uk-benefits-abroad'
       status :published
       satisfies_need "100490"
@@ -10,6 +11,7 @@ module SmartAnswer
       additional_countries = [OpenStruct.new(slug: "jersey", name: "Jersey"), OpenStruct.new(slug: "guernsey", name: "Guernsey")]
 
       countries_of_former_yugoslavia = Calculators::UkBenefitsAbroadCalculator::COUNTRIES_OF_FORMER_YUGOSLAVIA
+      uk_benefits_abroad_calculator = Calculators::UkBenefitsAbroadCalculator.new
 
       # Q1
       multiple_choice :going_or_already_abroad? do
@@ -18,7 +20,7 @@ module SmartAnswer
         save_input_as :going_or_already_abroad
 
         on_response do
-          self.calculator = Calculators::UkBenefitsAbroadCalculator.new
+          self.calculator = uk_benefits_abroad_calculator
         end
 
         calculate :country_question_title do
@@ -321,15 +323,19 @@ module SmartAnswer
       end
 
       # Q13 going_abroad and Q12 already_abroad
-      multiple_choice :do_either_of_the_following_apply? do
-        option :yes
-        option :no
+      checkbox_question :do_either_of_the_following_apply? do
+        uk_benefits_abroad_calculator.state_benefits.keys.each do |benefit|
+          option benefit
+        end
+
+        on_response do |response|
+          calculator.benefits = response.split(",")
+        end
 
         next_node do |response|
-          case response
-          when 'yes'
+          if calculator.benefits?
             outcome :child_benefit_entitled_outcome # A17 going_abroad and A15 already_abroad
-          when 'no'
+          else
             outcome :child_benefit_not_entitled_outcome # A18 going_abroad and A16 already_abroad
           end
         end
@@ -391,15 +397,19 @@ module SmartAnswer
       end
 
       # Q20 already_abroad
-      multiple_choice :tax_credits_currently_claiming? do
-        option :yes
-        option :no
+      checkbox_question :tax_credits_currently_claiming? do
+        uk_benefits_abroad_calculator.tax_credits_benefits.keys.each do |credit|
+          option credit
+        end
+
+        on_response do |response|
+          calculator.tax_credits = response.split(",")
+        end
 
         next_node do |response|
-          case response
-          when 'yes'
+          if calculator.tax_credits?
             outcome :tax_credits_eea_entitled_outcome # A22 already_abroad and A24 going_abroad
-          when 'no'
+          else
             outcome :tax_credits_unlikely_outcome # A21 already_abroad and A23 going_abroad
           end
         end
@@ -459,30 +469,38 @@ module SmartAnswer
       end
 
       # Q33 going_abroad
-      multiple_choice :is_claiming_benefits? do
-        option :yes
-        option :no
+      checkbox_question :is_claiming_benefits? do
+        uk_benefits_abroad_calculator.premiums.keys.each do |premium|
+          option premium
+        end
+
+        on_response do |response|
+          calculator.partner_premiums = response.split(",")
+        end
 
         next_node do |response|
-          case response
-          when 'yes'
+          if calculator.partner_premiums?
             outcome :is_claiming_benefits_outcome # A43 going_abroad
-          when 'no'
+          else
             question :is_either_of_the_following? # Q34 going_abroad
           end
         end
       end
 
       # Q34 going_abroad
-      multiple_choice :is_either_of_the_following? do
-        option :yes
-        option :no
+      checkbox_question :is_either_of_the_following? do
+        uk_benefits_abroad_calculator.impairments.keys.each do |impairment|
+          option impairment
+        end
+
+        on_response do |response|
+          calculator.possible_impairments = response.split(",")
+        end
 
         next_node do |response|
-          case response
-          when 'yes'
+          if calculator.getting_income_support?
             question :is_abroad_for_treatment? # Q35 going_abroad
-          when 'no'
+          else
             question :is_any_of_the_following_apply? # Q37 going_abroad
           end
         end
@@ -504,30 +522,38 @@ module SmartAnswer
       end
 
       # Q36 going_abroad
-      multiple_choice :is_work_or_sick_pay? do
-        option :yes
-        option :no
+      checkbox_question :is_work_or_sick_pay? do
+        uk_benefits_abroad_calculator.periods_of_impairment.keys.each do |period|
+          option period
+        end
+
+        on_response do |response|
+          calculator.impairment_periods = response.split(",")
+        end
 
         next_node do |response|
-          case response
-          when 'yes'
+          if calculator.not_getting_sick_pay?
             outcome :is_abroad_for_treatment_outcome # A44 going_abroad
-          when 'no'
+          else
             outcome :is_not_eligible_outcome # A45 going_abroad
           end
         end
       end
 
       # Q37 going_abroad
-      multiple_choice :is_any_of_the_following_apply? do
-        option :yes
-        option :no
+      checkbox_question :is_any_of_the_following_apply? do
+        uk_benefits_abroad_calculator.all_dispute_criteria.keys.each do |criterion|
+          option criterion
+        end
+
+        on_response do |response|
+          calculator.dispute_criteria = response.split(",")
+        end
 
         next_node do |response|
-          case response
-          when 'yes'
+          if calculator.dispute_criteria?
             outcome :is_not_eligible_outcome # A45 going_abroad
-          when 'no'
+          else
             outcome :is_abroad_for_treatment_outcome # A44 going_abroad
           end
         end

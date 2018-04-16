@@ -10,18 +10,26 @@ class FlowTest < ActiveSupport::TestCase
     assert_equal "sweet-or-savoury", s.name
   end
 
-  test "Can set the content_id" do
+  test "Can set the start page content_id" do
     s = SmartAnswer::Flow.new do
-      content_id "587920ff-b854-4adb-9334-451b45652467"
+      start_page_content_id "587920ff-b854-4adb-9334-451b45652467"
     end
 
-    assert_equal "587920ff-b854-4adb-9334-451b45652467", s.content_id
+    assert_equal "587920ff-b854-4adb-9334-451b45652467", s.start_page_content_id
+  end
+
+  test "Can set the flow content_id" do
+    s = SmartAnswer::Flow.new do
+      flow_content_id "587920ff-b854-4adb-9334-451b45652467"
+    end
+
+    assert_equal "587920ff-b854-4adb-9334-451b45652467", s.flow_content_id
   end
 
   test "Defaults the external_related_links to nil" do
     s = SmartAnswer::Flow.new
 
-    assert_equal nil, s.external_related_links
+    assert_nil s.external_related_links
   end
 
   test "Can set the external_related_links" do
@@ -247,7 +255,7 @@ class FlowTest < ActiveSupport::TestCase
         @flow.node(:do_you_like_jam?)
           .stubs(:parse_input)
           .with('bad')
-          .raises(SmartAnswer::InvalidResponse.new(@error_message))
+          .raises(SmartAnswer::BaseStateTransitionError.new(@error_message))
       end
 
       should "skip a transation and set error flag" do
@@ -265,6 +273,23 @@ class FlowTest < ActiveSupport::TestCase
 
       should "truncate path after error" do
         assert_equal [:do_you_like_chocolate?], @flow.path(%w{no bad})
+      end
+    end
+
+    context "a question raises a logged error" do
+      setup do
+        @error_message = "Sorry, that's not valid"
+        @log_message = "Logged message"
+        @error = SmartAnswer::LoggedError.new(@error_message, @log_message)
+        @flow.node(:do_you_like_jam?)
+          .stubs(:parse_input)
+          .with('bad')
+          .raises(@error)
+      end
+
+      should "notify Sentry" do
+        GovukError.expects(:notify).with(@error)
+        @flow.process(%w{no bad})
       end
     end
 

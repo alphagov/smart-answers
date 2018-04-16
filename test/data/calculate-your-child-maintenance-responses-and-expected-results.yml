@@ -14,14 +14,14 @@
   :responses:
   - pay
   - 1_child
-  - 'yes'
+  - income_support
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
   :responses:
   - pay
   - 1_child
-  - 'yes'
+  - income_support
   - '0'
   :next_node: :flat_rate_result
   :outcome_node: true
@@ -29,7 +29,7 @@
   :responses:
   - pay
   - 1_child
-  - 'yes'
+  - income_support
   - '1'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -37,7 +37,7 @@
   :responses:
   - pay
   - 1_child
-  - 'yes'
+  - income_support
   - '2'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -45,7 +45,7 @@
   :responses:
   - pay
   - 1_child
-  - 'yes'
+  - income_support
   - '3'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -53,7 +53,7 @@
   :responses:
   - pay
   - 1_child
-  - 'yes'
+  - income_support
   - '4'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -61,14 +61,1001 @@
   :responses:
   - pay
   - 1_child
-  - 'no'
+  - ib_jobseekers_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - ib_jobseekers_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - ib_jobseekers_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - ib_jobseekers_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - ib_jobseekers_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - ib_jobseekers_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 1_child
+  - employment_support_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - employment_support_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - employment_support_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - employment_support_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - employment_support_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - employment_support_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 1_child
+  - pension_credit
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - pension_credit
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - pension_credit
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - pension_credit
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - pension_credit
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - pension_credit
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 1_child
+  - cb_jobseekers_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - cb_jobseekers_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - cb_jobseekers_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - cb_jobseekers_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - cb_jobseekers_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - cb_jobseekers_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 1_child
+  - cb_employment_support_llowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - cb_employment_support_llowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - cb_employment_support_llowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - cb_employment_support_llowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - cb_employment_support_llowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - cb_employment_support_llowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 1_child
+  - state_pension
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - state_pension
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - state_pension
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - state_pension
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - state_pension
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - state_pension
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 1_child
+  - incapacity_benefit
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - incapacity_benefit
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - incapacity_benefit
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - incapacity_benefit
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - incapacity_benefit
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - incapacity_benefit
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 1_child
+  - training_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - training_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - training_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - training_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - training_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - training_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 1_child
+  - armed_forces_compensation_scheme_payments
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - armed_forces_compensation_scheme_payments
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - armed_forces_compensation_scheme_payments
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - armed_forces_compensation_scheme_payments
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - armed_forces_compensation_scheme_payments
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - armed_forces_compensation_scheme_payments
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 1_child
+  - war_disablement_pension
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - war_disablement_pension
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - war_disablement_pension
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - war_disablement_pension
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - war_disablement_pension
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - war_disablement_pension
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 1_child
+  - bereavement_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - bereavement_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - bereavement_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - bereavement_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - bereavement_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - bereavement_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 1_child
+  - carers_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - carers_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - carers_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - carers_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - carers_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - carers_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 1_child
+  - maternity_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - maternity_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - maternity_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - maternity_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - maternity_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - maternity_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 1_child
+  - severe_disablement_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - severe_disablement_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - severe_disablement_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - severe_disablement_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - severe_disablement_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - severe_disablement_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 1_child
+  - industrial_injuries_disablement_benefit
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - industrial_injuries_disablement_benefit
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - industrial_injuries_disablement_benefit
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - industrial_injuries_disablement_benefit
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - industrial_injuries_disablement_benefit
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - industrial_injuries_disablement_benefit
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 1_child
+  - widowed_parents_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - widowed_parents_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - widowed_parents_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - widowed_parents_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - widowed_parents_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - widowed_parents_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 1_child
+  - widows_pension
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - widows_pension
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - widows_pension
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - widows_pension
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - widows_pension
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - widows_pension
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 1_child
+  - universal_credit_no_earned_income
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - universal_credit_no_earned_income
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - universal_credit_no_earned_income
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - universal_credit_no_earned_income
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - universal_credit_no_earned_income
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - universal_credit_no_earned_income
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 1_child
+  - skillseekers_training
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - skillseekers_training
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - skillseekers_training
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - skillseekers_training
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - skillseekers_training
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - skillseekers_training
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 1_child
+  - war_partner_pension
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - war_partner_pension
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - war_partner_pension
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - war_partner_pension
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - war_partner_pension
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - war_partner_pension
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 1_child
+  - pension_credit,ib_jobseekers_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - ib_jobseekers_allowance,pension_credit
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - ib_jobseekers_allowance,pension_credit
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - ib_jobseekers_allowance,pension_credit
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - ib_jobseekers_allowance,pension_credit
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 1_child
+  - ib_jobseekers_allowance,pension_credit
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 1_child
+  - none
   :next_node: :gross_income_of_payee?
   :outcome_node: false
 - :current_node: :gross_income_of_payee?
   :responses:
   - pay
   - 1_child
-  - 'no'
+  - none
   - '5'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -76,7 +1063,7 @@
   :responses:
   - pay
   - 1_child
-  - 'no'
+  - none
   - '90'
   :next_node: :flat_rate_result
   :outcome_node: true
@@ -84,7 +1071,7 @@
   :responses:
   - pay
   - 1_child
-  - 'no'
+  - none
   - '150'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
@@ -92,7 +1079,7 @@
   :responses:
   - pay
   - 1_child
-  - 'no'
+  - none
   - '150.0'
   - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
@@ -101,7 +1088,7 @@
   :responses:
   - pay
   - 1_child
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '0'
@@ -111,7 +1098,7 @@
   :responses:
   - pay
   - 1_child
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '1'
@@ -121,7 +1108,7 @@
   :responses:
   - pay
   - 1_child
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '2'
@@ -131,7 +1118,7 @@
   :responses:
   - pay
   - 1_child
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '3'
@@ -141,7 +1128,7 @@
   :responses:
   - pay
   - 1_child
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '4'
@@ -151,7 +1138,7 @@
   :responses:
   - pay
   - 1_child
-  - 'no'
+  - none
   - '200'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
@@ -159,7 +1146,7 @@
   :responses:
   - pay
   - 1_child
-  - 'no'
+  - none
   - '200.0'
   - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
@@ -168,7 +1155,7 @@
   :responses:
   - pay
   - 1_child
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '0'
@@ -178,7 +1165,7 @@
   :responses:
   - pay
   - 1_child
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '1'
@@ -188,7 +1175,7 @@
   :responses:
   - pay
   - 1_child
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '2'
@@ -198,7 +1185,7 @@
   :responses:
   - pay
   - 1_child
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '3'
@@ -208,7 +1195,7 @@
   :responses:
   - pay
   - 1_child
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '4'
@@ -218,7 +1205,7 @@
   :responses:
   - pay
   - 1_child
-  - 'no'
+  - none
   - '1000'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
@@ -226,7 +1213,7 @@
   :responses:
   - pay
   - 1_child
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
@@ -235,7 +1222,7 @@
   :responses:
   - pay
   - 1_child
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '0'
@@ -245,7 +1232,7 @@
   :responses:
   - pay
   - 1_child
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '1'
@@ -255,7 +1242,7 @@
   :responses:
   - pay
   - 1_child
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '2'
@@ -265,7 +1252,7 @@
   :responses:
   - pay
   - 1_child
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '3'
@@ -275,7 +1262,7 @@
   :responses:
   - pay
   - 1_child
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '4'
@@ -291,14 +1278,14 @@
   :responses:
   - pay
   - 2_children
-  - 'yes'
+  - income_support
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
   :responses:
   - pay
   - 2_children
-  - 'yes'
+  - income_support
   - '0'
   :next_node: :flat_rate_result
   :outcome_node: true
@@ -306,7 +1293,7 @@
   :responses:
   - pay
   - 2_children
-  - 'yes'
+  - income_support
   - '1'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -314,7 +1301,7 @@
   :responses:
   - pay
   - 2_children
-  - 'yes'
+  - income_support
   - '2'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -322,7 +1309,7 @@
   :responses:
   - pay
   - 2_children
-  - 'yes'
+  - income_support
   - '3'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -330,7 +1317,7 @@
   :responses:
   - pay
   - 2_children
-  - 'yes'
+  - income_support
   - '4'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -338,14 +1325,1001 @@
   :responses:
   - pay
   - 2_children
-  - 'no'
+  - ib_jobseekers_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - ib_jobseekers_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - ib_jobseekers_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - ib_jobseekers_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - ib_jobseekers_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - ib_jobseekers_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 2_children
+  - employment_support_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - employment_support_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - employment_support_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - employment_support_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - employment_support_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - employment_support_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 2_children
+  - pension_credit
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - pension_credit
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - pension_credit
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - pension_credit
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - pension_credit
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - pension_credit
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 2_children
+  - cb_jobseekers_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - cb_jobseekers_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - cb_jobseekers_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - cb_jobseekers_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - cb_jobseekers_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - cb_jobseekers_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 2_children
+  - cb_employment_support_llowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - cb_employment_support_llowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - cb_employment_support_llowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - cb_employment_support_llowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - cb_employment_support_llowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - cb_employment_support_llowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 2_children
+  - state_pension
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - state_pension
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - state_pension
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - state_pension
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - state_pension
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - state_pension
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 2_children
+  - incapacity_benefit
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - incapacity_benefit
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - incapacity_benefit
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - incapacity_benefit
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - incapacity_benefit
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - incapacity_benefit
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 2_children
+  - training_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - training_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - training_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - training_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - training_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - training_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 2_children
+  - armed_forces_compensation_scheme_payments
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - armed_forces_compensation_scheme_payments
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - armed_forces_compensation_scheme_payments
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - armed_forces_compensation_scheme_payments
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - armed_forces_compensation_scheme_payments
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - armed_forces_compensation_scheme_payments
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 2_children
+  - war_disablement_pension
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - war_disablement_pension
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - war_disablement_pension
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - war_disablement_pension
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - war_disablement_pension
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - war_disablement_pension
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 2_children
+  - bereavement_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - bereavement_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - bereavement_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - bereavement_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - bereavement_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - bereavement_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 2_children
+  - carers_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - carers_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - carers_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - carers_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - carers_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - carers_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 2_children
+  - maternity_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - maternity_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - maternity_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - maternity_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - maternity_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - maternity_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 2_children
+  - severe_disablement_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - severe_disablement_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - severe_disablement_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - severe_disablement_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - severe_disablement_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - severe_disablement_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 2_children
+  - industrial_injuries_disablement_benefit
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - industrial_injuries_disablement_benefit
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - industrial_injuries_disablement_benefit
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - industrial_injuries_disablement_benefit
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - industrial_injuries_disablement_benefit
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - industrial_injuries_disablement_benefit
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 2_children
+  - widowed_parents_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - widowed_parents_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - widowed_parents_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - widowed_parents_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - widowed_parents_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - widowed_parents_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 2_children
+  - widows_pension
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - widows_pension
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - widows_pension
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - widows_pension
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - widows_pension
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - widows_pension
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 2_children
+  - universal_credit_no_earned_income
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - universal_credit_no_earned_income
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - universal_credit_no_earned_income
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - universal_credit_no_earned_income
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - universal_credit_no_earned_income
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - universal_credit_no_earned_income
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 2_children
+  - skillseekers_training
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - skillseekers_training
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - skillseekers_training
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - skillseekers_training
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - skillseekers_training
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - skillseekers_training
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 2_children
+  - war_partner_pension
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - war_partner_pension
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - war_partner_pension
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - war_partner_pension
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - war_partner_pension
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - war_partner_pension
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 2_children
+  - pension_credit,ib_jobseekers_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - ib_jobseekers_allowance,pension_credit
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - ib_jobseekers_allowance,pension_credit
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - ib_jobseekers_allowance,pension_credit
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - ib_jobseekers_allowance,pension_credit
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 2_children
+  - ib_jobseekers_allowance,pension_credit
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 2_children
+  - none
   :next_node: :gross_income_of_payee?
   :outcome_node: false
 - :current_node: :gross_income_of_payee?
   :responses:
   - pay
   - 2_children
-  - 'no'
+  - none
   - '5'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -353,7 +2327,7 @@
   :responses:
   - pay
   - 2_children
-  - 'no'
+  - none
   - '90'
   :next_node: :flat_rate_result
   :outcome_node: true
@@ -361,7 +2335,7 @@
   :responses:
   - pay
   - 2_children
-  - 'no'
+  - none
   - '150'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
@@ -369,7 +2343,7 @@
   :responses:
   - pay
   - 2_children
-  - 'no'
+  - none
   - '150.0'
   - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
@@ -378,7 +2352,7 @@
   :responses:
   - pay
   - 2_children
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '0'
@@ -388,7 +2362,7 @@
   :responses:
   - pay
   - 2_children
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '1'
@@ -398,7 +2372,7 @@
   :responses:
   - pay
   - 2_children
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '2'
@@ -408,7 +2382,7 @@
   :responses:
   - pay
   - 2_children
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '3'
@@ -418,7 +2392,7 @@
   :responses:
   - pay
   - 2_children
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '4'
@@ -428,7 +2402,7 @@
   :responses:
   - pay
   - 2_children
-  - 'no'
+  - none
   - '200'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
@@ -436,7 +2410,7 @@
   :responses:
   - pay
   - 2_children
-  - 'no'
+  - none
   - '200.0'
   - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
@@ -445,7 +2419,7 @@
   :responses:
   - pay
   - 2_children
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '0'
@@ -455,7 +2429,7 @@
   :responses:
   - pay
   - 2_children
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '1'
@@ -465,7 +2439,7 @@
   :responses:
   - pay
   - 2_children
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '2'
@@ -475,7 +2449,7 @@
   :responses:
   - pay
   - 2_children
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '3'
@@ -485,7 +2459,7 @@
   :responses:
   - pay
   - 2_children
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '4'
@@ -495,7 +2469,7 @@
   :responses:
   - pay
   - 2_children
-  - 'no'
+  - none
   - '1000'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
@@ -503,7 +2477,7 @@
   :responses:
   - pay
   - 2_children
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
@@ -512,7 +2486,7 @@
   :responses:
   - pay
   - 2_children
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '0'
@@ -522,7 +2496,7 @@
   :responses:
   - pay
   - 2_children
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '1'
@@ -532,7 +2506,7 @@
   :responses:
   - pay
   - 2_children
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '2'
@@ -542,7 +2516,7 @@
   :responses:
   - pay
   - 2_children
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '3'
@@ -552,7 +2526,7 @@
   :responses:
   - pay
   - 2_children
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '4'
@@ -568,14 +2542,14 @@
   :responses:
   - pay
   - 3_children
-  - 'yes'
+  - income_support
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
   :responses:
   - pay
   - 3_children
-  - 'yes'
+  - income_support
   - '0'
   :next_node: :flat_rate_result
   :outcome_node: true
@@ -583,7 +2557,7 @@
   :responses:
   - pay
   - 3_children
-  - 'yes'
+  - income_support
   - '1'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -591,7 +2565,7 @@
   :responses:
   - pay
   - 3_children
-  - 'yes'
+  - income_support
   - '2'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -599,7 +2573,7 @@
   :responses:
   - pay
   - 3_children
-  - 'yes'
+  - income_support
   - '3'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -607,7 +2581,7 @@
   :responses:
   - pay
   - 3_children
-  - 'yes'
+  - income_support
   - '4'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -615,14 +2589,1001 @@
   :responses:
   - pay
   - 3_children
-  - 'no'
+  - ib_jobseekers_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - ib_jobseekers_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - ib_jobseekers_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - ib_jobseekers_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - ib_jobseekers_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - ib_jobseekers_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 3_children
+  - employment_support_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - employment_support_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - employment_support_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - employment_support_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - employment_support_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - employment_support_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 3_children
+  - pension_credit
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - pension_credit
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - pension_credit
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - pension_credit
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - pension_credit
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - pension_credit
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 3_children
+  - cb_jobseekers_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - cb_jobseekers_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - cb_jobseekers_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - cb_jobseekers_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - cb_jobseekers_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - cb_jobseekers_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 3_children
+  - cb_employment_support_llowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - cb_employment_support_llowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - cb_employment_support_llowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - cb_employment_support_llowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - cb_employment_support_llowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - cb_employment_support_llowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 3_children
+  - state_pension
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - state_pension
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - state_pension
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - state_pension
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - state_pension
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - state_pension
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 3_children
+  - incapacity_benefit
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - incapacity_benefit
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - incapacity_benefit
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - incapacity_benefit
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - incapacity_benefit
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - incapacity_benefit
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 3_children
+  - training_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - training_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - training_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - training_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - training_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - training_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 3_children
+  - armed_forces_compensation_scheme_payments
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - armed_forces_compensation_scheme_payments
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - armed_forces_compensation_scheme_payments
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - armed_forces_compensation_scheme_payments
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - armed_forces_compensation_scheme_payments
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - armed_forces_compensation_scheme_payments
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 3_children
+  - war_disablement_pension
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - war_disablement_pension
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - war_disablement_pension
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - war_disablement_pension
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - war_disablement_pension
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - war_disablement_pension
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 3_children
+  - bereavement_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - bereavement_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - bereavement_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - bereavement_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - bereavement_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - bereavement_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 3_children
+  - carers_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - carers_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - carers_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - carers_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - carers_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - carers_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 3_children
+  - maternity_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - maternity_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - maternity_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - maternity_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - maternity_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - maternity_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 3_children
+  - severe_disablement_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - severe_disablement_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - severe_disablement_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - severe_disablement_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - severe_disablement_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - severe_disablement_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 3_children
+  - industrial_injuries_disablement_benefit
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - industrial_injuries_disablement_benefit
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - industrial_injuries_disablement_benefit
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - industrial_injuries_disablement_benefit
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - industrial_injuries_disablement_benefit
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - industrial_injuries_disablement_benefit
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 3_children
+  - widowed_parents_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - widowed_parents_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - widowed_parents_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - widowed_parents_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - widowed_parents_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - widowed_parents_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 3_children
+  - widows_pension
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - widows_pension
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - widows_pension
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - widows_pension
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - widows_pension
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - widows_pension
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 3_children
+  - universal_credit_no_earned_income
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - universal_credit_no_earned_income
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - universal_credit_no_earned_income
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - universal_credit_no_earned_income
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - universal_credit_no_earned_income
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - universal_credit_no_earned_income
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 3_children
+  - skillseekers_training
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - skillseekers_training
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - skillseekers_training
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - skillseekers_training
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - skillseekers_training
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - skillseekers_training
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 3_children
+  - war_partner_pension
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - war_partner_pension
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - war_partner_pension
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - war_partner_pension
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - war_partner_pension
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - war_partner_pension
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 3_children
+  - pension_credit,ib_jobseekers_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - ib_jobseekers_allowance,pension_credit
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - ib_jobseekers_allowance,pension_credit
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - ib_jobseekers_allowance,pension_credit
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - ib_jobseekers_allowance,pension_credit
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - pay
+  - 3_children
+  - ib_jobseekers_allowance,pension_credit
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - pay
+  - 3_children
+  - none
   :next_node: :gross_income_of_payee?
   :outcome_node: false
 - :current_node: :gross_income_of_payee?
   :responses:
   - pay
   - 3_children
-  - 'no'
+  - none
   - '5'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -630,7 +3591,7 @@
   :responses:
   - pay
   - 3_children
-  - 'no'
+  - none
   - '90'
   :next_node: :flat_rate_result
   :outcome_node: true
@@ -638,7 +3599,7 @@
   :responses:
   - pay
   - 3_children
-  - 'no'
+  - none
   - '150'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
@@ -646,7 +3607,7 @@
   :responses:
   - pay
   - 3_children
-  - 'no'
+  - none
   - '150.0'
   - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
@@ -655,7 +3616,7 @@
   :responses:
   - pay
   - 3_children
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '0'
@@ -665,7 +3626,7 @@
   :responses:
   - pay
   - 3_children
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '1'
@@ -675,7 +3636,7 @@
   :responses:
   - pay
   - 3_children
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '2'
@@ -685,7 +3646,7 @@
   :responses:
   - pay
   - 3_children
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '3'
@@ -695,7 +3656,7 @@
   :responses:
   - pay
   - 3_children
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '4'
@@ -705,7 +3666,7 @@
   :responses:
   - pay
   - 3_children
-  - 'no'
+  - none
   - '200'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
@@ -713,7 +3674,7 @@
   :responses:
   - pay
   - 3_children
-  - 'no'
+  - none
   - '200.0'
   - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
@@ -722,7 +3683,7 @@
   :responses:
   - pay
   - 3_children
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '0'
@@ -732,7 +3693,7 @@
   :responses:
   - pay
   - 3_children
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '1'
@@ -742,7 +3703,7 @@
   :responses:
   - pay
   - 3_children
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '2'
@@ -752,7 +3713,7 @@
   :responses:
   - pay
   - 3_children
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '3'
@@ -762,7 +3723,7 @@
   :responses:
   - pay
   - 3_children
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '4'
@@ -772,7 +3733,7 @@
   :responses:
   - pay
   - 3_children
-  - 'no'
+  - none
   - '1000'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
@@ -780,7 +3741,7 @@
   :responses:
   - pay
   - 3_children
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
@@ -789,7 +3750,7 @@
   :responses:
   - pay
   - 3_children
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '0'
@@ -799,7 +3760,7 @@
   :responses:
   - pay
   - 3_children
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '1'
@@ -809,7 +3770,7 @@
   :responses:
   - pay
   - 3_children
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '2'
@@ -819,7 +3780,7 @@
   :responses:
   - pay
   - 3_children
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '3'
@@ -829,7 +3790,7 @@
   :responses:
   - pay
   - 3_children
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '4'
@@ -850,14 +3811,14 @@
   :responses:
   - receive
   - 1_child
-  - 'yes'
+  - income_support
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
   :responses:
   - receive
   - 1_child
-  - 'yes'
+  - income_support
   - '0'
   :next_node: :flat_rate_result
   :outcome_node: true
@@ -865,7 +3826,7 @@
   :responses:
   - receive
   - 1_child
-  - 'yes'
+  - income_support
   - '1'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -873,7 +3834,7 @@
   :responses:
   - receive
   - 1_child
-  - 'yes'
+  - income_support
   - '2'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -881,7 +3842,7 @@
   :responses:
   - receive
   - 1_child
-  - 'yes'
+  - income_support
   - '3'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -889,7 +3850,7 @@
   :responses:
   - receive
   - 1_child
-  - 'yes'
+  - income_support
   - '4'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -897,14 +3858,1001 @@
   :responses:
   - receive
   - 1_child
-  - 'no'
+  - ib_jobseekers_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - ib_jobseekers_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - ib_jobseekers_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - ib_jobseekers_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - ib_jobseekers_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - ib_jobseekers_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 1_child
+  - employment_support_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - employment_support_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - employment_support_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - employment_support_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - employment_support_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - employment_support_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 1_child
+  - pension_credit
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - pension_credit
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - pension_credit
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - pension_credit
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - pension_credit
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - pension_credit
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 1_child
+  - cb_jobseekers_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - cb_jobseekers_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - cb_jobseekers_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - cb_jobseekers_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - cb_jobseekers_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - cb_jobseekers_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 1_child
+  - cb_employment_support_llowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - cb_employment_support_llowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - cb_employment_support_llowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - cb_employment_support_llowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - cb_employment_support_llowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - cb_employment_support_llowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 1_child
+  - state_pension
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - state_pension
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - state_pension
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - state_pension
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - state_pension
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - state_pension
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 1_child
+  - incapacity_benefit
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - incapacity_benefit
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - incapacity_benefit
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - incapacity_benefit
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - incapacity_benefit
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - incapacity_benefit
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 1_child
+  - training_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - training_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - training_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - training_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - training_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - training_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 1_child
+  - armed_forces_compensation_scheme_payments
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - armed_forces_compensation_scheme_payments
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - armed_forces_compensation_scheme_payments
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - armed_forces_compensation_scheme_payments
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - armed_forces_compensation_scheme_payments
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - armed_forces_compensation_scheme_payments
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 1_child
+  - war_disablement_pension
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - war_disablement_pension
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - war_disablement_pension
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - war_disablement_pension
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - war_disablement_pension
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - war_disablement_pension
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 1_child
+  - bereavement_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - bereavement_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - bereavement_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - bereavement_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - bereavement_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - bereavement_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 1_child
+  - carers_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - carers_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - carers_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - carers_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - carers_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - carers_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 1_child
+  - maternity_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - maternity_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - maternity_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - maternity_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - maternity_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - maternity_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 1_child
+  - severe_disablement_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - severe_disablement_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - severe_disablement_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - severe_disablement_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - severe_disablement_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - severe_disablement_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 1_child
+  - industrial_injuries_disablement_benefit
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - industrial_injuries_disablement_benefit
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - industrial_injuries_disablement_benefit
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - industrial_injuries_disablement_benefit
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - industrial_injuries_disablement_benefit
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - industrial_injuries_disablement_benefit
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 1_child
+  - widowed_parents_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - widowed_parents_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - widowed_parents_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - widowed_parents_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - widowed_parents_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - widowed_parents_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 1_child
+  - widows_pension
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - widows_pension
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - widows_pension
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - widows_pension
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - widows_pension
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - widows_pension
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 1_child
+  - universal_credit_no_earned_income
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - universal_credit_no_earned_income
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - universal_credit_no_earned_income
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - universal_credit_no_earned_income
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - universal_credit_no_earned_income
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - universal_credit_no_earned_income
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 1_child
+  - skillseekers_training
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - skillseekers_training
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - skillseekers_training
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - skillseekers_training
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - skillseekers_training
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - skillseekers_training
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 1_child
+  - war_partner_pension
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - war_partner_pension
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - war_partner_pension
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - war_partner_pension
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - war_partner_pension
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - war_partner_pension
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 1_child
+  - pension_credit,ib_jobseekers_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - ib_jobseekers_allowance,pension_credit
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - ib_jobseekers_allowance,pension_credit
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - ib_jobseekers_allowance,pension_credit
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - ib_jobseekers_allowance,pension_credit
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 1_child
+  - ib_jobseekers_allowance,pension_credit
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 1_child
+  - none
   :next_node: :gross_income_of_payee?
   :outcome_node: false
 - :current_node: :gross_income_of_payee?
   :responses:
   - receive
   - 1_child
-  - 'no'
+  - none
   - '5'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -912,7 +4860,7 @@
   :responses:
   - receive
   - 1_child
-  - 'no'
+  - none
   - '90'
   :next_node: :flat_rate_result
   :outcome_node: true
@@ -920,7 +4868,7 @@
   :responses:
   - receive
   - 1_child
-  - 'no'
+  - none
   - '150'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
@@ -928,7 +4876,7 @@
   :responses:
   - receive
   - 1_child
-  - 'no'
+  - none
   - '150.0'
   - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
@@ -937,7 +4885,7 @@
   :responses:
   - receive
   - 1_child
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '0'
@@ -947,7 +4895,7 @@
   :responses:
   - receive
   - 1_child
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '1'
@@ -957,7 +4905,7 @@
   :responses:
   - receive
   - 1_child
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '2'
@@ -967,7 +4915,7 @@
   :responses:
   - receive
   - 1_child
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '3'
@@ -977,7 +4925,7 @@
   :responses:
   - receive
   - 1_child
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '4'
@@ -987,7 +4935,7 @@
   :responses:
   - receive
   - 1_child
-  - 'no'
+  - none
   - '200'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
@@ -995,7 +4943,7 @@
   :responses:
   - receive
   - 1_child
-  - 'no'
+  - none
   - '200.0'
   - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
@@ -1004,7 +4952,7 @@
   :responses:
   - receive
   - 1_child
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '0'
@@ -1014,7 +4962,7 @@
   :responses:
   - receive
   - 1_child
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '1'
@@ -1024,7 +4972,7 @@
   :responses:
   - receive
   - 1_child
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '2'
@@ -1034,7 +4982,7 @@
   :responses:
   - receive
   - 1_child
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '3'
@@ -1044,7 +4992,7 @@
   :responses:
   - receive
   - 1_child
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '4'
@@ -1054,7 +5002,7 @@
   :responses:
   - receive
   - 1_child
-  - 'no'
+  - none
   - '1000'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
@@ -1062,7 +5010,7 @@
   :responses:
   - receive
   - 1_child
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
@@ -1071,7 +5019,7 @@
   :responses:
   - receive
   - 1_child
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '0'
@@ -1081,7 +5029,7 @@
   :responses:
   - receive
   - 1_child
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '1'
@@ -1091,7 +5039,7 @@
   :responses:
   - receive
   - 1_child
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '2'
@@ -1101,7 +5049,7 @@
   :responses:
   - receive
   - 1_child
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '3'
@@ -1111,7 +5059,7 @@
   :responses:
   - receive
   - 1_child
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '4'
@@ -1127,14 +5075,14 @@
   :responses:
   - receive
   - 2_children
-  - 'yes'
+  - income_support
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
   :responses:
   - receive
   - 2_children
-  - 'yes'
+  - income_support
   - '0'
   :next_node: :flat_rate_result
   :outcome_node: true
@@ -1142,7 +5090,7 @@
   :responses:
   - receive
   - 2_children
-  - 'yes'
+  - income_support
   - '1'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -1150,7 +5098,7 @@
   :responses:
   - receive
   - 2_children
-  - 'yes'
+  - income_support
   - '2'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -1158,7 +5106,7 @@
   :responses:
   - receive
   - 2_children
-  - 'yes'
+  - income_support
   - '3'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -1166,7 +5114,7 @@
   :responses:
   - receive
   - 2_children
-  - 'yes'
+  - income_support
   - '4'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -1174,14 +5122,1001 @@
   :responses:
   - receive
   - 2_children
-  - 'no'
+  - ib_jobseekers_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - ib_jobseekers_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - ib_jobseekers_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - ib_jobseekers_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - ib_jobseekers_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - ib_jobseekers_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 2_children
+  - employment_support_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - employment_support_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - employment_support_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - employment_support_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - employment_support_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - employment_support_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 2_children
+  - pension_credit
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - pension_credit
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - pension_credit
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - pension_credit
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - pension_credit
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - pension_credit
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 2_children
+  - cb_jobseekers_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - cb_jobseekers_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - cb_jobseekers_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - cb_jobseekers_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - cb_jobseekers_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - cb_jobseekers_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 2_children
+  - cb_employment_support_llowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - cb_employment_support_llowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - cb_employment_support_llowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - cb_employment_support_llowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - cb_employment_support_llowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - cb_employment_support_llowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 2_children
+  - state_pension
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - state_pension
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - state_pension
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - state_pension
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - state_pension
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - state_pension
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 2_children
+  - incapacity_benefit
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - incapacity_benefit
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - incapacity_benefit
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - incapacity_benefit
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - incapacity_benefit
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - incapacity_benefit
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 2_children
+  - training_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - training_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - training_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - training_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - training_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - training_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 2_children
+  - armed_forces_compensation_scheme_payments
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - armed_forces_compensation_scheme_payments
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - armed_forces_compensation_scheme_payments
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - armed_forces_compensation_scheme_payments
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - armed_forces_compensation_scheme_payments
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - armed_forces_compensation_scheme_payments
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 2_children
+  - war_disablement_pension
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - war_disablement_pension
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - war_disablement_pension
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - war_disablement_pension
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - war_disablement_pension
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - war_disablement_pension
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 2_children
+  - bereavement_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - bereavement_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - bereavement_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - bereavement_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - bereavement_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - bereavement_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 2_children
+  - carers_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - carers_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - carers_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - carers_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - carers_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - carers_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 2_children
+  - maternity_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - maternity_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - maternity_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - maternity_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - maternity_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - maternity_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 2_children
+  - severe_disablement_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - severe_disablement_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - severe_disablement_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - severe_disablement_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - severe_disablement_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - severe_disablement_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 2_children
+  - industrial_injuries_disablement_benefit
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - industrial_injuries_disablement_benefit
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - industrial_injuries_disablement_benefit
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - industrial_injuries_disablement_benefit
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - industrial_injuries_disablement_benefit
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - industrial_injuries_disablement_benefit
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 2_children
+  - widowed_parents_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - widowed_parents_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - widowed_parents_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - widowed_parents_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - widowed_parents_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - widowed_parents_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 2_children
+  - widows_pension
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - widows_pension
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - widows_pension
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - widows_pension
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - widows_pension
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - widows_pension
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 2_children
+  - universal_credit_no_earned_income
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - universal_credit_no_earned_income
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - universal_credit_no_earned_income
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - universal_credit_no_earned_income
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - universal_credit_no_earned_income
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - universal_credit_no_earned_income
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 2_children
+  - skillseekers_training
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - skillseekers_training
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - skillseekers_training
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - skillseekers_training
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - skillseekers_training
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - skillseekers_training
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 2_children
+  - war_partner_pension
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - war_partner_pension
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - war_partner_pension
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - war_partner_pension
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - war_partner_pension
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - war_partner_pension
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 2_children
+  - pension_credit,ib_jobseekers_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - ib_jobseekers_allowance,pension_credit
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - ib_jobseekers_allowance,pension_credit
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - ib_jobseekers_allowance,pension_credit
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - ib_jobseekers_allowance,pension_credit
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 2_children
+  - ib_jobseekers_allowance,pension_credit
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 2_children
+  - none
   :next_node: :gross_income_of_payee?
   :outcome_node: false
 - :current_node: :gross_income_of_payee?
   :responses:
   - receive
   - 2_children
-  - 'no'
+  - none
   - '5'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -1189,7 +6124,7 @@
   :responses:
   - receive
   - 2_children
-  - 'no'
+  - none
   - '90'
   :next_node: :flat_rate_result
   :outcome_node: true
@@ -1197,7 +6132,7 @@
   :responses:
   - receive
   - 2_children
-  - 'no'
+  - none
   - '150'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
@@ -1205,7 +6140,7 @@
   :responses:
   - receive
   - 2_children
-  - 'no'
+  - none
   - '150.0'
   - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
@@ -1214,7 +6149,7 @@
   :responses:
   - receive
   - 2_children
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '0'
@@ -1224,7 +6159,7 @@
   :responses:
   - receive
   - 2_children
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '1'
@@ -1234,7 +6169,7 @@
   :responses:
   - receive
   - 2_children
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '2'
@@ -1244,7 +6179,7 @@
   :responses:
   - receive
   - 2_children
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '3'
@@ -1254,7 +6189,7 @@
   :responses:
   - receive
   - 2_children
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '4'
@@ -1264,7 +6199,7 @@
   :responses:
   - receive
   - 2_children
-  - 'no'
+  - none
   - '200'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
@@ -1272,7 +6207,7 @@
   :responses:
   - receive
   - 2_children
-  - 'no'
+  - none
   - '200.0'
   - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
@@ -1281,7 +6216,7 @@
   :responses:
   - receive
   - 2_children
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '0'
@@ -1291,7 +6226,7 @@
   :responses:
   - receive
   - 2_children
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '1'
@@ -1301,7 +6236,7 @@
   :responses:
   - receive
   - 2_children
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '2'
@@ -1311,7 +6246,7 @@
   :responses:
   - receive
   - 2_children
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '3'
@@ -1321,7 +6256,7 @@
   :responses:
   - receive
   - 2_children
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '4'
@@ -1331,7 +6266,7 @@
   :responses:
   - receive
   - 2_children
-  - 'no'
+  - none
   - '1000'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
@@ -1339,7 +6274,7 @@
   :responses:
   - receive
   - 2_children
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
@@ -1348,7 +6283,7 @@
   :responses:
   - receive
   - 2_children
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '0'
@@ -1358,7 +6293,7 @@
   :responses:
   - receive
   - 2_children
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '1'
@@ -1368,7 +6303,7 @@
   :responses:
   - receive
   - 2_children
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '2'
@@ -1378,7 +6313,7 @@
   :responses:
   - receive
   - 2_children
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '3'
@@ -1388,7 +6323,7 @@
   :responses:
   - receive
   - 2_children
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '4'
@@ -1404,14 +6339,14 @@
   :responses:
   - receive
   - 3_children
-  - 'yes'
+  - income_support
   :next_node: :how_many_nights_children_stay_with_payee?
   :outcome_node: false
 - :current_node: :how_many_nights_children_stay_with_payee?
   :responses:
   - receive
   - 3_children
-  - 'yes'
+  - income_support
   - '0'
   :next_node: :flat_rate_result
   :outcome_node: true
@@ -1419,7 +6354,7 @@
   :responses:
   - receive
   - 3_children
-  - 'yes'
+  - income_support
   - '1'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -1427,7 +6362,7 @@
   :responses:
   - receive
   - 3_children
-  - 'yes'
+  - income_support
   - '2'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -1435,7 +6370,7 @@
   :responses:
   - receive
   - 3_children
-  - 'yes'
+  - income_support
   - '3'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -1443,7 +6378,7 @@
   :responses:
   - receive
   - 3_children
-  - 'yes'
+  - income_support
   - '4'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -1451,14 +6386,1001 @@
   :responses:
   - receive
   - 3_children
-  - 'no'
+  - ib_jobseekers_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - ib_jobseekers_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - ib_jobseekers_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - ib_jobseekers_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - ib_jobseekers_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - ib_jobseekers_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 3_children
+  - employment_support_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - employment_support_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - employment_support_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - employment_support_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - employment_support_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - employment_support_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 3_children
+  - pension_credit
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - pension_credit
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - pension_credit
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - pension_credit
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - pension_credit
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - pension_credit
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 3_children
+  - cb_jobseekers_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - cb_jobseekers_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - cb_jobseekers_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - cb_jobseekers_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - cb_jobseekers_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - cb_jobseekers_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 3_children
+  - cb_employment_support_llowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - cb_employment_support_llowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - cb_employment_support_llowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - cb_employment_support_llowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - cb_employment_support_llowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - cb_employment_support_llowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 3_children
+  - state_pension
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - state_pension
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - state_pension
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - state_pension
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - state_pension
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - state_pension
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 3_children
+  - incapacity_benefit
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - incapacity_benefit
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - incapacity_benefit
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - incapacity_benefit
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - incapacity_benefit
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - incapacity_benefit
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 3_children
+  - training_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - training_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - training_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - training_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - training_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - training_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 3_children
+  - armed_forces_compensation_scheme_payments
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - armed_forces_compensation_scheme_payments
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - armed_forces_compensation_scheme_payments
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - armed_forces_compensation_scheme_payments
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - armed_forces_compensation_scheme_payments
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - armed_forces_compensation_scheme_payments
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 3_children
+  - war_disablement_pension
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - war_disablement_pension
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - war_disablement_pension
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - war_disablement_pension
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - war_disablement_pension
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - war_disablement_pension
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 3_children
+  - bereavement_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - bereavement_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - bereavement_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - bereavement_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - bereavement_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - bereavement_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 3_children
+  - carers_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - carers_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - carers_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - carers_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - carers_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - carers_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 3_children
+  - maternity_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - maternity_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - maternity_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - maternity_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - maternity_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - maternity_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 3_children
+  - severe_disablement_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - severe_disablement_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - severe_disablement_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - severe_disablement_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - severe_disablement_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - severe_disablement_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 3_children
+  - industrial_injuries_disablement_benefit
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - industrial_injuries_disablement_benefit
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - industrial_injuries_disablement_benefit
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - industrial_injuries_disablement_benefit
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - industrial_injuries_disablement_benefit
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - industrial_injuries_disablement_benefit
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 3_children
+  - widowed_parents_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - widowed_parents_allowance
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - widowed_parents_allowance
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - widowed_parents_allowance
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - widowed_parents_allowance
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - widowed_parents_allowance
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 3_children
+  - widows_pension
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - widows_pension
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - widows_pension
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - widows_pension
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - widows_pension
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - widows_pension
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 3_children
+  - universal_credit_no_earned_income
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - universal_credit_no_earned_income
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - universal_credit_no_earned_income
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - universal_credit_no_earned_income
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - universal_credit_no_earned_income
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - universal_credit_no_earned_income
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 3_children
+  - skillseekers_training
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - skillseekers_training
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - skillseekers_training
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - skillseekers_training
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - skillseekers_training
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - skillseekers_training
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 3_children
+  - war_partner_pension
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - war_partner_pension
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - war_partner_pension
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - war_partner_pension
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - war_partner_pension
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - war_partner_pension
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 3_children
+  - pension_credit,ib_jobseekers_allowance
+  :next_node: :how_many_nights_children_stay_with_payee?
+  :outcome_node: false
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - ib_jobseekers_allowance,pension_credit
+  - '0'
+  :next_node: :flat_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - ib_jobseekers_allowance,pension_credit
+  - '1'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - ib_jobseekers_allowance,pension_credit
+  - '2'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - ib_jobseekers_allowance,pension_credit
+  - '3'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :how_many_nights_children_stay_with_payee?
+  :responses:
+  - receive
+  - 3_children
+  - ib_jobseekers_allowance,pension_credit
+  - '4'
+  :next_node: :nil_rate_result
+  :outcome_node: true
+- :current_node: :gets_benefits?
+  :responses:
+  - receive
+  - 3_children
+  - none
   :next_node: :gross_income_of_payee?
   :outcome_node: false
 - :current_node: :gross_income_of_payee?
   :responses:
   - receive
   - 3_children
-  - 'no'
+  - none
   - '5'
   :next_node: :nil_rate_result
   :outcome_node: true
@@ -1466,7 +7388,7 @@
   :responses:
   - receive
   - 3_children
-  - 'no'
+  - none
   - '90'
   :next_node: :flat_rate_result
   :outcome_node: true
@@ -1474,7 +7396,7 @@
   :responses:
   - receive
   - 3_children
-  - 'no'
+  - none
   - '150'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
@@ -1482,7 +7404,7 @@
   :responses:
   - receive
   - 3_children
-  - 'no'
+  - none
   - '150.0'
   - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
@@ -1491,7 +7413,7 @@
   :responses:
   - receive
   - 3_children
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '0'
@@ -1501,7 +7423,7 @@
   :responses:
   - receive
   - 3_children
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '1'
@@ -1511,7 +7433,7 @@
   :responses:
   - receive
   - 3_children
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '2'
@@ -1521,7 +7443,7 @@
   :responses:
   - receive
   - 3_children
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '3'
@@ -1531,7 +7453,7 @@
   :responses:
   - receive
   - 3_children
-  - 'no'
+  - none
   - '150.0'
   - '3'
   - '4'
@@ -1541,7 +7463,7 @@
   :responses:
   - receive
   - 3_children
-  - 'no'
+  - none
   - '200'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
@@ -1549,7 +7471,7 @@
   :responses:
   - receive
   - 3_children
-  - 'no'
+  - none
   - '200.0'
   - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
@@ -1558,7 +7480,7 @@
   :responses:
   - receive
   - 3_children
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '0'
@@ -1568,7 +7490,7 @@
   :responses:
   - receive
   - 3_children
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '1'
@@ -1578,7 +7500,7 @@
   :responses:
   - receive
   - 3_children
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '2'
@@ -1588,7 +7510,7 @@
   :responses:
   - receive
   - 3_children
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '3'
@@ -1598,7 +7520,7 @@
   :responses:
   - receive
   - 3_children
-  - 'no'
+  - none
   - '200.0'
   - '3'
   - '4'
@@ -1608,7 +7530,7 @@
   :responses:
   - receive
   - 3_children
-  - 'no'
+  - none
   - '1000'
   :next_node: :how_many_other_children_in_payees_household?
   :outcome_node: false
@@ -1616,7 +7538,7 @@
   :responses:
   - receive
   - 3_children
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   :next_node: :how_many_nights_children_stay_with_payee?
@@ -1625,7 +7547,7 @@
   :responses:
   - receive
   - 3_children
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '0'
@@ -1635,7 +7557,7 @@
   :responses:
   - receive
   - 3_children
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '1'
@@ -1645,7 +7567,7 @@
   :responses:
   - receive
   - 3_children
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '2'
@@ -1655,7 +7577,7 @@
   :responses:
   - receive
   - 3_children
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '3'
@@ -1665,7 +7587,7 @@
   :responses:
   - receive
   - 3_children
-  - 'no'
+  - none
   - '1000.0'
   - '3'
   - '4'

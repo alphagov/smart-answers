@@ -30,15 +30,23 @@ module SmartAnswer::Calculators
     end
 
     def lower_earnings_amount
-      start_date = lower_earnings_start_date
-      if in_2013_2014_fin_year?(start_date)
+      tax_year_start = SmartAnswer::YearRange.tax_year
+        .including(lower_earnings_start_date)
+        .begins_on
+
+      case tax_year_start.year
+      when 2013
         SmartAnswer::Money.new(109)
-      elsif in_2014_2015_fin_year?(start_date)
+      when 2014
         SmartAnswer::Money.new(111)
-      elsif in_2015_2016_fin_year?(start_date)
+      when 2015
         SmartAnswer::Money.new(112)
+      when 2016
+        SmartAnswer::Money.new(112)
+      when 2017
+        SmartAnswer::Money.new(113)
       else
-        SmartAnswer::Money.new(112)
+        SmartAnswer::Money.new(113)
       end
     end
 
@@ -93,16 +101,15 @@ module SmartAnswer::Calculators
       earnings_employment == "yes" && work_employment == "yes"
     end
 
-    def range_in_2013_2014_fin_year?
-      date_in_39_week_range?(2013, 2014, due_date)
+    def paid_leave_is_in_tax_year?(year)
+      (paid_leave_period & SmartAnswer::YearRange.tax_year.starting_in(year)).number_of_days.positive?
     end
 
-    def range_in_2014_2015_fin_year?
-      date_in_39_week_range?(2014, 2015, due_date)
-    end
-
-    def range_in_2015_2016_fin_year?
-      date_in_39_week_range?(2015, 2016, due_date)
+    def paid_leave_period
+      SmartAnswer::DateRange.new(
+        begins_on: due_date,
+        ends_on: due_date + 39.weeks,
+      )
     end
 
     def start_of_maternity_allowance
@@ -110,28 +117,13 @@ module SmartAnswer::Calculators
     end
 
     def earliest_start_mat_leave
-      sunday_before(due_date - 11.weeks)
+      start_of_maternity_allowance
     end
 
     def maternity_leave_notice_date
       saturday_before(due_date - 14.weeks)
     end
-
-    def paternity_leave_notice_date
-      saturday_before(due_date - 14.weeks)
-    end
-
-    def in_2013_2014_fin_year?(date)
-      (Date.new(2013, 05, 06)..Date.new(2014, 05, 05)).cover?(date)
-    end
-
-    def in_2014_2015_fin_year?(date)
-      (Date.new(2014, 05, 06)..Date.new(2015, 05, 05)).cover?(date)
-    end
-
-    def in_2015_2016_fin_year?(date)
-      (Date.new(2015, 05, 06)..Date.new(2016, 05, 05)).cover?(date)
-    end
+    alias_method :paternity_leave_notice_date, :maternity_leave_notice_date
 
   private
 
@@ -141,13 +133,6 @@ module SmartAnswer::Calculators
 
     def sunday_before(date)
       date - date.wday
-    end
-
-    def date_in_39_week_range?(range_start, range_end, date)
-      start_date = date
-      end_date = start_date + 39.weeks
-      (Date.new(range_start, 05, 06)..Date.new(range_end, 05, 05)).cover?(start_date) ||
-        (Date.new(range_start, 05, 06)..Date.new(range_end, 05, 05)).cover?(end_date)
     end
   end
 end

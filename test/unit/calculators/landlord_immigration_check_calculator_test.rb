@@ -69,16 +69,79 @@ module SmartAnswer::Calculators
 
     context 'when postcode is unknown' do
       setup do
-        imminence_has_areas_for_postcode("E15", [])
         @calculator.postcode = "E15"
+
+        stub_request(
+          :get,
+          %r{\A#{GdsApi::TestHelpers::Imminence::IMMINENCE_API_ENDPOINT}/areas/#{@calculator.postcode}\.json}
+        ).to_return(
+          body: {
+            "_response_info" => { "status" => 404, "links" => [] },
+            "results" => []
+          }.to_json
+        )
       end
 
-      should 'return no areas for postcode' do
-        assert_equal [], @calculator.areas_for_postcode
+      should 'raise an exception' do
+        assert_raises SmartAnswer::BaseStateTransitionError do
+          @calculator.areas_for_postcode
+        end
+      end
+    end
+
+    should 'return true when nationality is from somewhere else' do
+      @calculator.nationality = "somewhere-else"
+
+      assert @calculator.from_somewhere_else?
+    end
+
+    should 'return false when nationality is from somewhere else' do
+      @calculator.nationality = "non-eea"
+
+      refute @calculator.from_somewhere_else?
+    end
+
+    context 'when Imminence responds with an error' do
+      setup do
+        @calculator.postcode = "RH6 0NP"
+        stub_request(
+          :get, "#{Plek.new.find('imminence')}/areas/#{@calculator.postcode}.json"
+        ).to_return(status: 500)
       end
 
-      should 'determine that the rules do not apply' do
-        refute @calculator.rules_apply?
+      should 'raise an error' do
+        assert_raises GdsApi::HTTPServerError do
+          @calculator.rules_apply?
+        end
+      end
+    end
+
+    context 'when Imminence responds with a not "ok" status' do
+      setup do
+        @calculator.postcode = "RH6 0NP"
+        stub_request(
+          :get, "#{Plek.new.find('imminence')}/areas/#{@calculator.postcode}.json"
+        ).to_return(
+          status: 200,
+          body: {
+            _response_info: {
+              status: 400,
+              links: []
+            },
+            total: 0,
+            start_index: 1,
+            page_size: 0,
+            current_page: 1,
+            pages: 1,
+            results: []
+          }.to_json
+        )
+      end
+
+      should 'raise an error' do
+        assert_raises SmartAnswer::LoggedError do
+          @calculator.rules_apply?
+        end
       end
     end
   end

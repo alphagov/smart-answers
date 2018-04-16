@@ -22,7 +22,7 @@ class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
     end
 
     should "tell you to fill out the LS01 form" do
-      assert_current_node :complete_LS01_form
+      assert_current_node :report_lost_or_stolen_passport
     end
   end
 

@@ -1,18 +1,27 @@
 module SmartAnswer
   module Calculators
     class StudentFinanceCalculator
-      attr_accessor :course_start, :household_income, :residence, :course_type, :dental_or_medical_course
+      attr_accessor(
+        :course_start,
+        :household_income,
+        :residence,
+        :course_type,
+        :part_time_credits,
+        :full_time_credits,
+        :dental_or_medical_course,
+        :doctor_or_dentist,
+      )
 
       LOAN_MAXIMUMS = {
-        "2016-2017" => {
-          "at-home" => 6_904,
-          "away-outside-london" => 8_200,
-          "away-in-london" => 10_702
-        },
         "2017-2018" => {
           "at-home" => 7_097,
           "away-outside-london" => 8_430,
           "away-in-london" => 11_002
+        },
+        "2018-2019" => {
+          "at-home" => 7_324,
+          "away-outside-london" => 8_700,
+          "away-in-london" => 11_354
         }
       }.freeze
       REDUCED_MAINTENTANCE_LOAN_AMOUNTS = {
@@ -21,42 +30,61 @@ module SmartAnswer
         "away-outside-london" => 2324
       }
       CHILD_CARE_GRANTS = {
-        "2016-2017" => {
-          "one-child" => 155.24,
-          "more-than-one-child" => 266.15
-        },
         "2017-2018" => {
           "one-child" => 159.59,
           "more-than-one-child" => 273.60
-        }
+        },
+        "2018-2019" => {
+          "one-child" => 164.70,
+          "more-than-one-child" => 282.36
+        },
       }
       PARENTS_LEARNING_ALLOWANCE = {
-        "2016-2017" => 1573,
-        "2017-2018" => 1617
+        "2017-2018" => 1_617,
+        "2018-2019" => 1_669,
       }
       ADULT_DEPENDANT_ALLOWANCE = {
-        "2016-2017" => 2757,
-        "2017-2018" => 2834
+        "2017-2018" => 2_834,
+        "2018-2019" => 2_925,
       }
       TUITION_FEE_MAXIMUM = {
-        "2016-2017" => {
-          "full-time" => 9000,
-          "part-time" => 6750
-        },
-        "2017-2018" => {
-          "full-time" => 9250,
-          "part-time" => 6935
-        }
+        "full-time" => 9_250,
+        "part-time" => 6_935,
       }
-
-      delegate :maintenance_loan_amount, :maintenance_grant_amount, to: :strategy
+      LOAN_MINIMUMS = {
+        "2017-2018" => {
+          "at-home" => 3_124,
+          "away-outside-london" => 3_928,
+          "away-in-london" => 5_479
+        },
+        "2018-2019" => {
+          "at-home" => 3_224,
+          "away-outside-london" => 4_054,
+          "away-in-london" => 5_654
+        },
+      }.freeze
+      INCOME_PENALTY_RATIO = {
+        "2017-2018" => {
+          "at-home" => 8.36,
+          "away-outside-london" => 8.26,
+          "away-in-london" => 8.12
+        },
+        "2018-2019" => {
+          "at-home" => 8.10,
+          "away-outside-london" => 8.01,
+          "away-in-london" => 7.87
+        },
+      }.freeze
 
       def initialize(params = {})
         @course_start = params[:course_start]
         @household_income = params[:household_income]
         @residence = params[:residence]
         @course_type = params[:course_type]
+        @part_time_credits = params[:part_time_credits]
+        @full_time_credits = params[:full_time_credits]
         @dental_or_medical_course = params[:dental_or_medical_course]
+        @doctor_or_dentist = params[:doctor_or_dentist]
       end
 
       def reduced_maintenance_loan_for_healthcare
@@ -88,86 +116,63 @@ module SmartAnswer
       end
 
       def tuition_fee_maximum_full_time
-        TUITION_FEE_MAXIMUM.fetch(@course_start).fetch("full-time")
+        TUITION_FEE_MAXIMUM.fetch("full-time")
       end
 
       def tuition_fee_maximum_part_time
-        TUITION_FEE_MAXIMUM.fetch(@course_start).fetch("part-time")
+        TUITION_FEE_MAXIMUM.fetch("part-time")
       end
 
-      def dental_or_medical_student_2017_2018?
-        courses = %w(doctor-or-dentist dental-hygiene-or-dental-therapy)
-        (@course_start == "2017-2018" &&
-          courses.include?(@dental_or_medical_course))
+      def doctor_or_dentist?
+        (@course_start == '2017-2018' && @dental_or_medical_course == "doctor-or-dentist") ||
+          (@course_start == '2018-2019' && @doctor_or_dentist)
+      end
+
+      def maintenance_grant_amount
+        SmartAnswer::Money.new(0)
+      end
+
+      def maintenance_loan_amount
+        return SmartAnswer::Money.new(0) if @course_start == '2017-2018' && @course_type == "uk-part-time"
+
+        reduced_amount = max_loan_amount - reduction_based_on_income
+        SmartAnswer::Money.new([reduced_amount, min_loan_amount].max * loan_proportion)
+      end
+
+      def course_start_years
+        year_matches = /(\d{4})-(\d{4})/.match(@course_start)
+        [year_matches[1].to_i, year_matches[2].to_i]
       end
 
     private
 
-      def strategy
-        @strategy ||= Strategy.new(
-          course_start: @course_start,
-          household_income: @household_income,
-          residence: @residence
-        )
+      def max_loan_amount
+        LOAN_MAXIMUMS[@course_start][@residence]
       end
 
-      class Strategy
-        LOAN_MINIMUMS = {
-          "2016-2017" => {
-            "at-home" => 3_039,
-            "away-outside-london" => 3_821,
-            "away-in-london" => 5_330
-          },
-          "2017-2018" => {
-            "at-home" => 3_124,
-            "away-outside-london" => 3_928,
-            "away-in-london" => 5_479
-          }
-        }.freeze
-        INCOME_PENALTY_RATIO = {
-          "2016-2017" => {
-            "at-home" => 8.59,
-            "away-outside-london" => 8.49,
-            "away-in-london" => 8.34
-          },
-          "2017-2018" => {
-            "at-home" => 8.36,
-            "away-outside-london" => 8.26,
-            "away-in-london" => 8.12
-          }
-        }
+      def min_loan_amount
+        LOAN_MINIMUMS[@course_start][@residence]
+      end
 
-        def initialize(course_start:, household_income:, residence:)
-          @course_start = course_start
-          @household_income = household_income
-          @residence = residence
-        end
+      def reduction_based_on_income
+        return 0 if @household_income <= 25_000
 
-        def maintenance_grant_amount
-          Money.new('0')
-        end
+        ratio = INCOME_PENALTY_RATIO[@course_start][@residence]
+        ((@household_income - 25_000) / ratio).floor
+      end
 
-        def maintenance_loan_amount
-          reduced_amount = max_loan_amount - reduction_based_on_income
-          Money.new([reduced_amount, min_loan_amount].max)
-        end
+      def course_intensity
+        100 * (part_time_credits.to_f / full_time_credits)
+      end
 
-      private
-
-        def max_loan_amount
-          LOAN_MAXIMUMS[@course_start][@residence]
-        end
-
-        def min_loan_amount
-          LOAN_MINIMUMS[@course_start][@residence]
-        end
-
-        def reduction_based_on_income
-          return 0 if @household_income <= 25_000
-
-          ratio = INCOME_PENALTY_RATIO[@course_start][@residence]
-          ((@household_income - 25_000) / ratio).floor
-        end
+      def loan_proportion
+        return 1 if @course_type == "uk-full-time" || course_intensity == 100
+        return 0.75 if course_intensity >= 75
+        return 0.666 if course_intensity >= 66.6
+        return 0.5 if course_intensity >= 50
+        return 0.333 if course_intensity >= 33.3
+        return 0.25 if course_intensity >= 25
+        0
       end
     end
   end

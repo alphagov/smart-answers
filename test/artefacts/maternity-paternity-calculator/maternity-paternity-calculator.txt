@@ -1,4 +1,4 @@
-Maternity and paternity calculator for employers
+Maternity, Adoption and paternity calculator for employers
 
 Calculate your employee’s:
 
@@ -6,8 +6,6 @@ Calculate your employee’s:
 + relevant employment period and average weekly earnings
 + leave period
 
-
-##What you need
 
 You need:
 

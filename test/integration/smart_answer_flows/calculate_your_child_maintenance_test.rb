@@ -33,9 +33,9 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
         assert_current_node :gets_benefits?
       end
 
-      context "answer yes" do
+      context "selects at least one state benefit" do
         setup do
-          add_response "yes"
+          add_response "cb_jobseekers_allowance,state_pension"
         end
 
         should "ask how many night's child stays with parent paying maintenance" do
@@ -63,9 +63,9 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
         end
       end
 
-      context "answer no" do
+      context "does not select any state benefit" do
         setup do
-          add_response "no"
+          add_response "none"
         end
 
         should "ask for gross weekly income of payee" do
@@ -100,7 +100,7 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
     context "answer 2 children, receives benefits, child stays less than once a week" do
       setup do
         add_response "2_children"
-        add_response "yes"
+        add_response "cb_jobseekers_allowance,state_pension"
         add_response "0"
       end
 
@@ -112,7 +112,7 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
     context "answer 2 children, receives benefits, child stays more than once a week" do
       setup do
         add_response "2_children"
-        add_response "yes"
+        add_response "cb_jobseekers_allowance,state_pension"
         add_response "4"
       end
 
@@ -124,7 +124,7 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
     context "answer 2 children, doesn't receives benefits, income £500, one other child in house, child stays more than once a week" do
       setup do
         add_response "2_children"
-        add_response "no"
+        add_response "none"
         add_response "500"
         add_response "1"
         add_response "0"
@@ -139,7 +139,7 @@ class CalculateChildMaintentanceTest < ActiveSupport::TestCase
     context "answer 2 children, doesn't receives benefits, income £850, one other child in house, child stays 2 or three nights a week" do
       setup do
         add_response "2_children"
-        add_response "no"
+        add_response "none"
         add_response "850"
         add_response "1"
         add_response "3"

@@ -79,11 +79,11 @@ module SmartAnswer
       end
 
       def paternity_maternity_warning?
-        (other_pay_types_received & %w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay}).any?
+        (other_pay_types_received & %w{statutory_paternity_pay shared_parental_leave_and_pay statutory_adoption_pay}).any?
       end
 
       def already_getting_maternity_pay?
-        (other_pay_types_received & %w{statutory_paternity_pay additional_statutory_paternity_pay statutory_adoption_pay none}).none?
+        (other_pay_types_received & %w{statutory_paternity_pay shared_parental_leave_and_pay statutory_adoption_pay none}).none?
       end
 
       def valid_last_sick_day?
@@ -226,7 +226,7 @@ module SmartAnswer
 
       def ssp_payment
         amount = BigDecimal.new(weekly_payments.map(&:last).sum.round(10).to_s).round(2, BigDecimal::ROUND_UP).to_f
-        Money.new(amount)
+        SmartAnswer::Money.new(amount)
       end
 
       def not_earned_enough?

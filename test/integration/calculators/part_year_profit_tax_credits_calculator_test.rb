@@ -8,11 +8,11 @@ module SmartAnswer
 
         @calculator.tax_credits_award_ends_on  = Date.parse('2015-08-01')
         @calculator.accounts_end_month_and_day = Date.parse('0000-04-05')
-        @calculator.taxable_profit             = Money.new(10_000)
+        @calculator.taxable_profit             = SmartAnswer::Money.new(10_000)
       end
 
       should "use the 2015/16 tax year" do
-        expected_tax_year = TaxYear.new(begins_in: 2015)
+        expected_tax_year = YearRange.tax_year.starting_in(2015)
         assert_equal expected_tax_year, @calculator.tax_year
       end
 
@@ -34,7 +34,7 @@ module SmartAnswer
       end
 
       should "calculate the profit per day" do
-        expected_profit_per_day = (Money.new(10_000) / 366).floor(2)
+        expected_profit_per_day = (SmartAnswer::Money.new(10_000) / 366).floor(2)
         assert_equal 27.32, expected_profit_per_day
         assert_equal expected_profit_per_day, @calculator.profit_per_day
       end
@@ -52,11 +52,11 @@ module SmartAnswer
 
         @calculator.tax_credits_award_ends_on  = Date.parse('2015-08-01')
         @calculator.accounts_end_month_and_day = Date.parse('0000-12-31')
-        @calculator.taxable_profit             = Money.new(10_000)
+        @calculator.taxable_profit             = SmartAnswer::Money.new(10_000)
       end
 
       should "use the 2015/16 tax year" do
-        expected_tax_year = TaxYear.new(begins_in: 2015)
+        expected_tax_year = YearRange.tax_year.starting_in(2015)
         assert_equal expected_tax_year, @calculator.tax_year
       end
 
@@ -78,7 +78,7 @@ module SmartAnswer
       end
 
       should "calculate the profit per day" do
-        expected_profit_per_day = (Money.new(10_000) / 365).floor(2)
+        expected_profit_per_day = (SmartAnswer::Money.new(10_000) / 365).floor(2)
         assert_equal 27.39, expected_profit_per_day
         assert_equal expected_profit_per_day, @calculator.profit_per_day
       end
@@ -97,11 +97,11 @@ module SmartAnswer
         @calculator.tax_credits_award_ends_on  = Date.parse('2015-08-01')
         @calculator.stopped_trading_on         = Date.parse('2015-07-01')
         @calculator.accounts_end_month_and_day = Date.parse('0000-04-05')
-        @calculator.taxable_profit             = Money.new(10_000)
+        @calculator.taxable_profit             = SmartAnswer::Money.new(10_000)
       end
 
       should "use the 2015/16 tax year" do
-        expected_tax_year = TaxYear.new(begins_in: 2015)
+        expected_tax_year = YearRange.tax_year.starting_in(2015)
         assert_equal expected_tax_year, @calculator.tax_year
       end
 
@@ -136,11 +136,11 @@ module SmartAnswer
         @calculator.tax_credits_award_ends_on  = Date.parse('2015-08-01')
         @calculator.stopped_trading_on         = Date.parse('2015-07-01')
         @calculator.accounts_end_month_and_day = Date.parse('0000-05-31')
-        @calculator.taxable_profit             = Money.new(10_000)
+        @calculator.taxable_profit             = SmartAnswer::Money.new(10_000)
       end
 
       should "use the 2015/16 tax year" do
-        expected_tax_year = TaxYear.new(begins_in: 2015)
+        expected_tax_year = YearRange.tax_year.starting_in(2015)
         assert_equal expected_tax_year, @calculator.tax_year
       end
 
@@ -170,7 +170,7 @@ module SmartAnswer
       end
 
       should "calculate the profit per day" do
-        expected_profit_per_day = (Money.new(10_000) / 396).floor(2)
+        expected_profit_per_day = (SmartAnswer::Money.new(10_000) / 396).floor(2)
         assert_equal 25.25, expected_profit_per_day
         assert_equal expected_profit_per_day, @calculator.profit_per_day
       end
@@ -189,11 +189,11 @@ module SmartAnswer
         @calculator.tax_credits_award_ends_on  = Date.parse('2015-08-01')
         @calculator.stopped_trading_on         = Date.parse('2015-07-01')
         @calculator.accounts_end_month_and_day = Date.parse('0000-09-30')
-        @calculator.taxable_profit             = Money.new(10_000)
+        @calculator.taxable_profit             = SmartAnswer::Money.new(10_000)
       end
 
       should "use the 2015/16 tax year" do
-        expected_tax_year = TaxYear.new(begins_in: 2015)
+        expected_tax_year = YearRange.tax_year.starting_in(2015)
         assert_equal expected_tax_year, @calculator.tax_year
       end
 
@@ -223,7 +223,7 @@ module SmartAnswer
       end
 
       should "calculate the profit per day" do
-        expected_profit_per_day = (Money.new(10_000) / 274).floor(2)
+        expected_profit_per_day = (SmartAnswer::Money.new(10_000) / 274).floor(2)
         assert_equal 36.49, expected_profit_per_day
         assert_equal expected_profit_per_day, @calculator.profit_per_day
       end

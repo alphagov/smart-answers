@@ -1,7 +1,8 @@
 module SmartAnswer
   class EstimateSelfAssessmentPenaltiesFlow < Flow
     def define
-      content_id "32b54f44-fca1-4480-b13b-ddeb0b0238e1"
+      start_page_content_id "32b54f44-fca1-4480-b13b-ddeb0b0238e1"
+      flow_content_id "14244ee4-6d7d-4e05-90a7-aaf1a776d312"
       name 'estimate-self-assessment-penalties'
       status :published
       satisfies_need "100615"
@@ -11,6 +12,7 @@ module SmartAnswer
         option :"2013-14"
         option :"2014-15"
         option :"2015-16"
+        option :"2016-17"
 
         on_response do |response|
           self.calculator = Calculators::SelfAssessmentPenalties.new

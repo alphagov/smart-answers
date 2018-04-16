@@ -1,6 +1,6 @@
 module CurrentQuestionHelper
   def calculate_current_question_path(presenter)
-    attrs = params.slice(:id, :started).symbolize_keys
+    attrs = params.permit(:id, :started).to_h.symbolize_keys
     attrs[:responses] = presenter.accepted_responses if presenter.accepted_responses.any?
     smart_answer_path(attrs)
   end
@@ -22,7 +22,10 @@ module CurrentQuestionHelper
   end
 
   def default_for_date(value)
-    value.blank? ? nil : value.to_i
+    integer = Integer(value)
+    integer.to_s == value.to_s ? integer : nil
+  rescue
+    nil
   end
 
   def prefill_value_for(question, attribute = nil)

@@ -7,8 +7,29 @@
 - 2_children
 - 3_children
 :gets_benefits?:
-- 'yes'
-- 'no'
+- income_support
+- ib_jobseekers_allowance
+- employment_support_allowance
+- pension_credit
+- cb_jobseekers_allowance
+- cb_employment_support_llowance
+- state_pension
+- incapacity_benefit
+- training_allowance
+- armed_forces_compensation_scheme_payments
+- war_disablement_pension
+- bereavement_allowance
+- carers_allowance
+- maternity_allowance
+- severe_disablement_allowance
+- industrial_injuries_disablement_benefit
+- widowed_parents_allowance
+- widows_pension
+- universal_credit_no_earned_income
+- skillseekers_training
+- war_partner_pension
+- pension_credit,ib_jobseekers_allowance
+- none
 :gross_income_of_payee?:
 - 5
 - 90

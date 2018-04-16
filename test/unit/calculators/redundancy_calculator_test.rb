@@ -24,23 +24,28 @@ module SmartAnswer::Calculators
 
     context "amounts for the redundancy date" do
       should "vary the rate per year" do
-        assert_equal 430, RedundancyCalculator.redundancy_rates(Date.new(2013, 01, 01)).rate
-        assert_equal 430, RedundancyCalculator.redundancy_rates(Date.new(2013, 01, 31)).rate
-        assert_equal 450, RedundancyCalculator.redundancy_rates(Date.new(2013, 02, 01)).rate
-        assert_equal 450, RedundancyCalculator.redundancy_rates(Date.new(2014, 04, 05)).rate
-        assert_equal 464, RedundancyCalculator.redundancy_rates(Date.new(2014, 04, 06)).rate
-        assert_equal 475, RedundancyCalculator.redundancy_rates(Date.new(2015, 04, 06)).rate
+        assert_equal 430, RedundancyCalculator.redundancy_rates(Date.new(2013, 1, 1)).rate
+        assert_equal 430, RedundancyCalculator.redundancy_rates(Date.new(2013, 1, 31)).rate
+        assert_equal 450, RedundancyCalculator.redundancy_rates(Date.new(2013, 2, 1)).rate
+        assert_equal 450, RedundancyCalculator.redundancy_rates(Date.new(2014, 4, 5)).rate
+        assert_equal 464, RedundancyCalculator.redundancy_rates(Date.new(2014, 4, 6)).rate
+        assert_equal 475, RedundancyCalculator.redundancy_rates(Date.new(2015, 4, 6)).rate
+        assert_equal 479, RedundancyCalculator.redundancy_rates(Date.new(2016, 4, 6)).rate
+        assert_equal 489, RedundancyCalculator.redundancy_rates(Date.new(2017, 4, 6)).rate
+        assert_equal 508, RedundancyCalculator.redundancy_rates(Date.new(2018, 4, 6)).rate
       end
 
       should "vary the max amount per year" do
-        assert_equal "12,900", RedundancyCalculator.redundancy_rates(Date.new(2013, 01, 01)).max
-        assert_equal "12,900", RedundancyCalculator.redundancy_rates(Date.new(2013, 01, 31)).max
-        assert_equal "13,500", RedundancyCalculator.redundancy_rates(Date.new(2013, 02, 01)).max
-        assert_equal "13,500", RedundancyCalculator.redundancy_rates(Date.new(2014, 04, 05)).max
-        assert_equal "13,920", RedundancyCalculator.redundancy_rates(Date.new(2014, 04, 06)).max
-        assert_equal "13,920", RedundancyCalculator.redundancy_rates(Date.new(2015, 04, 05)).max
-        assert_equal "14,250", RedundancyCalculator.redundancy_rates(Date.new(2015, 04, 06)).max
-        assert_equal "14,370", RedundancyCalculator.redundancy_rates(Date.new(Date.today.year, 12, 31)).max
+        assert_equal "12,900", RedundancyCalculator.redundancy_rates(Date.new(2013, 1, 1)).max
+        assert_equal "12,900", RedundancyCalculator.redundancy_rates(Date.new(2013, 1, 31)).max
+        assert_equal "13,500", RedundancyCalculator.redundancy_rates(Date.new(2013, 2, 1)).max
+        assert_equal "13,500", RedundancyCalculator.redundancy_rates(Date.new(2014, 4, 5)).max
+        assert_equal "13,920", RedundancyCalculator.redundancy_rates(Date.new(2014, 4, 6)).max
+        assert_equal "13,920", RedundancyCalculator.redundancy_rates(Date.new(2015, 4, 5)).max
+        assert_equal "14,250", RedundancyCalculator.redundancy_rates(Date.new(2015, 4, 6)).max
+        assert_equal "14,370", RedundancyCalculator.redundancy_rates(Date.new(2016, 4, 6)).max
+        assert_equal "14,670", RedundancyCalculator.redundancy_rates(Date.new(2017, 4, 6)).max
+        assert_equal "15,240", RedundancyCalculator.redundancy_rates(Date.new(Date.today.year, 12, 31)).max
       end
 
       should "use the most recent rate for far future dates" do
@@ -49,6 +54,7 @@ module SmartAnswer::Calculators
         assert future_calculator.max.present?
       end
     end
+
     context "use correct weekly pay and number of years limits" do
       # Aged 45, 12 years service, 350 per week
       should "be 4900" do

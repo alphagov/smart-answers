@@ -4,8 +4,8 @@
       "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-kinshasa",
       "title": "British Embassy Kinshasa",
       "format": "Worldwide Organisation",
-      "updated_at": "2013-05-30T07:51:41.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-kinshasa",
+      "updated_at": "2017-03-07T09:20:29.000+00:00",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-kinshasa",
       "details": {
         "slug": "british-embassy-kinshasa"
       },
@@ -15,12 +15,12 @@
           "title": "British Embassy Kinshasa",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:53.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-kinshasa/office/british-embassy-kinshasa",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-kinshasa/office/british-embassy-kinshasa",
           "details": {
             "email": "ambassade.britannique@fco.gov.uk",
             "description": "",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<h3 id=\"gmt\">GMT</h3>\n<p>Monday to Thursday: 6:30 am to 3 pm and Friday: 6:30 am to 1 pm</p>\n\n<h3 id=\"local-time\">Local Time</h3>\n<p>Monday to Thursday: 7:30 am to 4 pm and Friday: 7:30 am to 2 pm</p>\n\n<h3 id=\"out-of-hours-embassy-answer-machine-gives-a-contact-number\">Out of hours: Embassy answer machine gives a contact number.</h3>\n\n<h2 id=\"public-holidays-2016\">Public Holidays 2016</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Monday 4 January</td>\n      <td>Martyrs’ Day</td>\n    </tr>\n    <tr>\n      <td>Friday 15 January</td>\n      <td>Hero’s Day (Laurent-Désiré Kabila)</td>\n    </tr>\n    <tr>\n      <td>Monday 18 January</td>\n      <td>Hero’s Day (Lumumba)</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 17 May</td>\n      <td>Armed Forces Revolution Day</td>\n    </tr>\n    <tr>\n      <td>Friday 27 May</td>\n      <td>Privilege Bank Holiday for Queen’s Birthday</td>\n    </tr>\n    <tr>\n      <td>Thursday 30 June</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Monday 1 August</td>\n      <td>Parents Day</td>\n    </tr>\n    <tr>\n      <td>Monday 29 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 December</td>\n      <td>Christmas Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><pre><code>                                 Email\n                                 Kinshasa.consular@fco.gov.uk\n</code></pre>\n\n<h2 id=\"opening-hours\">Opening hours</h2>\n\n<h3 id=\"gmt\">GMT</h3>\n<p>Monday to Thursday: 7:00 am to 3 pm and Friday: 7:00 am to 1 pm\nConsular opening hours - Monday to Friday: 7:00 am to 11 am</p>\n\n<h3 id=\"local-time\">Local Time</h3>\n<p>Monday to Thursday: 8:00 am to 4 pm and Friday: 8:00 am to 2 pm\nConsular opening hours - Monday to Friday: 8:00 am to 12:00</p>\n\n<h3 id=\"out-of-hours-embassy-answer-machine-gives-a-contact-number\">Out of hours: Embassy answer machine gives a contact number.</h3>\n\n<h2 id=\"public-holidays-2017\">Public Holidays 2017</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Monday 2 January</td>\n      <td>Substitute day for New Year’s Day (as the 1st January falls on Sunday)</td>\n    </tr>\n    <tr>\n      <td>Wednesday 4 January</td>\n      <td>Martyrs’ Day</td>\n    </tr>\n    <tr>\n      <td>Monday 16 January</td>\n      <td>Hero’s Day (LD Kabila)</td>\n    </tr>\n    <tr>\n      <td>Tuesday 17 January</td>\n      <td>Hero’s Day (Lumumba)</td>\n    </tr>\n    <tr>\n      <td>Friday 14 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 17 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 17 May</td>\n      <td>Armed Forces Revolution Day</td>\n    </tr>\n    <tr>\n      <td>Monday 29 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 30 June</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 1 August</td>\n      <td>Parents Day</td>\n    </tr>\n    <tr>\n      <td>Monday 28 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -30,16 +30,16 @@
               "postal-code": "",
               "locality": "Kinshasa",
               "region": "",
-              "country-name": "Democratic Republic of Congo"
+              "country-name": "Democratic Republic of the Congo"
             },
             "label": {
-              "value": "83, Avenue Roi Baudoin\r\nGombe\nKinshasa\nDemocratic Republic of Congo"
+              "value": "83, Avenue Roi Baudoin\r\nGombe\nKinshasa\nDemocratic Republic of the Congo"
             }
           },
           "contact_numbers": [
             {
               "label": "Enquiries ",
-              "number": "Telephone +243 81 556 6200"
+              "number": "Telephone +243 81 556 6200. If the Embassy number is not available please call +44 1908 516 666"
             },
             {
               "label": "Enquiries ",
@@ -47,7 +47,11 @@
             },
             {
               "label": "Consular assistance (24 hour)",
-              "number": "+243 81 556 6200"
+              "number": "243 81 556 6200 or call +44 1908 516 666 if the Embassy number is not available."
+            },
+            {
+              "label": "Email",
+              "number": "Kinshasa.consular@fco.gov.uk"
             }
           ],
           "services": [
@@ -59,12 +63,12 @@
             "title": "Visas Section",
             "format": "World Office",
             "updated_at": "2015-02-18T08:37:08.000+00:00",
-            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-kinshasa/office/visas-section",
+            "web_url": "https://www.gov.uk/world/organisations/british-embassy-kinshasa/office/visas-section",
             "details": {
-              "email": "Malou-vac@malabar-group.com ",
+              "email": "",
               "description": "",
               "contact_form_url": "",
-              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays\">Public Holidays</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Date</td>\n      <td>Holiday</td>\n    </tr>\n    <tr>\n      <td>2015——–</td>\n      <td>——-</td>\n    </tr>\n    <tr>\n      <td>Thursday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 2 January</td>\n      <td>Privilege Day</td>\n    </tr>\n    <tr>\n      <td>Monday 5 January</td>\n      <td>Martyrs’ Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 16 January</td>\n      <td>Heroes’ Day</td>\n    </tr>\n    <tr>\n      <td>Friday 17 January</td>\n      <td>Heroes’ Day</td>\n    </tr>\n    <tr>\n      <td>Friday 3 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 6 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Friday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Friday 15 May</td>\n      <td>Armed Forces Revolution Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 30 June</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Friday 31 July</td>\n      <td>Parents and Dead Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 24 December</td>\n      <td>Christmas Eve</td>\n    </tr>\n    <tr>\n      <td>Friday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Monday 28 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays\">Public Holidays</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Date</td>\n      <td>Holiday</td>\n    </tr>\n    <tr>\n      <td>2015——–</td>\n      <td>——-</td>\n    </tr>\n    <tr>\n      <td>Thursday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 4January</td>\n      <td>Marty’s Day</td>\n    </tr>\n    <tr>\n      <td>Monday 16 J Martyrs’ Day</td>\n      <td> </td>\n    </tr>\n    <tr>\n      <td>Tuesday 17 January</td>\n      <td>Heroes’ Day</td>\n    </tr>\n    <tr>\n      <td>Friday 14 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 17 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 17 May</td>\n      <td>Armed Forces Revolution Day</td>\n    </tr>\n    <tr>\n      <td>Monday 29 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 30 June independence day</td>\n      <td> </td>\n    </tr>\n    <tr>\n      <td>Tuesday 1 August</td>\n      <td>Parents and Dead Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 28 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
               "type": "Other"
             },
             "address": {
@@ -74,10 +78,10 @@
                 "postal-code": "",
                 "locality": "Gombe",
                 "region": "Kinshasa",
-                "country-name": "Democratic Republic of Congo"
+                "country-name": "Democratic Republic of the Congo"
               },
               "label": {
-                "value": "Malabar Group ( Fedex)\n491, Avenue Colonel Mondjiba\r\nOpposite ( English School CALI)\nGombe\nKinshasa\nDemocratic Republic of Congo"
+                "value": "Malabar Group ( Fedex)\n491, Avenue Colonel Mondjiba\r\nOpposite ( English School CALI)\nGombe\nKinshasa\nDemocratic Republic of the Congo"
               }
             },
             "contact_numbers": [

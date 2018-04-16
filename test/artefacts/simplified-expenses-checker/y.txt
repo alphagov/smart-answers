@@ -1,11 +1,13 @@
-Have you claimed expenses for your current business before?
+Do you have a vehicle that you use for your business?
 
 
 
-If you’re a new business you won’t have claimed expenses before.
 
-  * yes: Yes
-  * no: No
+
+  * car: Car
+  * van: Van
+  * motorcycle: Motorcycle
+  * no_vehicle: No - I don’t have a vehicle
 
 
 

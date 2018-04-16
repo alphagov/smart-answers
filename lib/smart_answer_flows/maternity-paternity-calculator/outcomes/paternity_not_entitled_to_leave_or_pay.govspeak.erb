@@ -6,6 +6,7 @@
     <% elsif has_contract == 'yes' %>
       <%= render partial: 'paternity_entitled_to_leave.govspeak.erb',
                  locals: {
+                   leave_type: calculator.leave_type,
                    leave_start_date: leave_start_date,
                    leave_end_date: leave_end_date,
                    leave_spp_claim_link: leave_spp_claim_link,
@@ -50,13 +51,13 @@
                  locals: {employment_start: employment_start} %>
     <% end %>
 
-    You must write confirming this. Also, send them form OSP1 confirming they’re not entitled to pay within 28 days of their pay request.
+    You must write confirming this. Also, send them form SPP1 confirming they’re not entitled to pay within 28 days of their pay request.
 
-    $D [Download Form OSPP1, refusing Statutory Paternity Pay (PDF, 100KB)](http://www.hmrc.gov.uk/forms/spp1.pdf) $D
+    $D [Download Form SPP1, refusing Statutory Paternity Pay (PDF, 100KB)](http://www.hmrc.gov.uk/forms/spp1.pdf) $D
 
   <% end %>
 <% end %>
 
 <% content_for :next_steps do %>
-  Read the [guide to Statutory Paternity Pay and Leave](/paternity-leave-pay-employees)
+  Read the [guide to Statutory Adoption Pay and Leave](/employers-adoption-pay-leave)
 <% end %>

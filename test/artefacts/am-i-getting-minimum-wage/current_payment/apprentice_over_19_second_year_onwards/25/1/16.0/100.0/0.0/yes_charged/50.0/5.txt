@@ -6,7 +6,7 @@ $C
 
 The National Living Wage per hour for your age | Your actual pay | For each pay period your employer owes you
 - | - | -
-£7.20 | £4.28 * | £46.66
+£7.83 | £4.33 * | £56.02
 
 \* This figure has been rounded to the nearest penny.
 

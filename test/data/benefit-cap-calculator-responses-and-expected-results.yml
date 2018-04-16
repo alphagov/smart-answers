@@ -20,21 +20,98 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'yes'
+  - attendance_allowance
   :next_node: :outcome_not_affected_exemptions
   :outcome_node: true
 - :current_node: :receiving_exemption_benefits?
   :responses:
   - 'yes'
   - 'no'
+  - carers_allowance
+  :next_node: :outcome_not_affected_exemptions
+  :outcome_node: true
+- :current_node: :receiving_exemption_benefits?
+  :responses:
+  - 'yes'
   - 'no'
+  - disability_living_allowance
+  :next_node: :outcome_not_affected_exemptions
+  :outcome_node: true
+- :current_node: :receiving_exemption_benefits?
+  :responses:
+  - 'yes'
+  - 'no'
+  - guardians_allowance
+  :next_node: :outcome_not_affected_exemptions
+  :outcome_node: true
+- :current_node: :receiving_exemption_benefits?
+  :responses:
+  - 'yes'
+  - 'no'
+  - industrial_injuries_benefit
+  :next_node: :outcome_not_affected_exemptions
+  :outcome_node: true
+- :current_node: :receiving_exemption_benefits?
+  :responses:
+  - 'yes'
+  - 'no'
+  - personal_independence_payment
+  :next_node: :outcome_not_affected_exemptions
+  :outcome_node: true
+- :current_node: :receiving_exemption_benefits?
+  :responses:
+  - 'yes'
+  - 'no'
+  - employment_support_allowance
+  :next_node: :outcome_not_affected_exemptions
+  :outcome_node: true
+- :current_node: :receiving_exemption_benefits?
+  :responses:
+  - 'yes'
+  - 'no'
+  - war_partner_pension
+  :next_node: :outcome_not_affected_exemptions
+  :outcome_node: true
+- :current_node: :receiving_exemption_benefits?
+  :responses:
+  - 'yes'
+  - 'no'
+  - armed_forces_compensation_scheme
+  :next_node: :outcome_not_affected_exemptions
+  :outcome_node: true
+- :current_node: :receiving_exemption_benefits?
+  :responses:
+  - 'yes'
+  - 'no'
+  - armed_forces_independence_payment
+  :next_node: :outcome_not_affected_exemptions
+  :outcome_node: true
+- :current_node: :receiving_exemption_benefits?
+  :responses:
+  - 'yes'
+  - 'no'
+  - war_pensions
+  :next_node: :outcome_not_affected_exemptions
+  :outcome_node: true
+- :current_node: :receiving_exemption_benefits?
+  :responses:
+  - 'yes'
+  - 'no'
+  - attendance_allowance,war_pensions
+  :next_node: :outcome_not_affected_exemptions
+  :outcome_node: true
+- :current_node: :receiving_exemption_benefits?
+  :responses:
+  - 'yes'
+  - 'no'
+  - none
   :next_node: :receiving_non_exemption_benefits?
   :outcome_node: false
 - :current_node: :receiving_non_exemption_benefits?
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - none
   :next_node: :housing_benefit_amount?
   :outcome_node: false
@@ -42,7 +119,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - none
   - '50'
   :next_node: :single_couple_lone_parent?
@@ -51,7 +128,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - none
   - '50.0'
   - single
@@ -61,7 +138,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - none
   - '50.0'
   - single
@@ -72,7 +149,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - none
   - '50.0'
   - single
@@ -83,7 +160,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - none
   - '50.0'
   - couple
@@ -93,7 +170,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - none
   - '50.0'
   - couple
@@ -104,7 +181,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - none
   - '50.0'
   - couple
@@ -115,7 +192,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - none
   - '50.0'
   - parent
@@ -125,7 +202,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - none
   - '50.0'
   - parent
@@ -136,7 +213,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - none
   - '50.0'
   - parent
@@ -147,7 +224,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - none
   - '350'
   :next_node: :single_couple_lone_parent?
@@ -156,7 +233,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - none
   - '350.0'
   - single
@@ -166,7 +243,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - none
   - '350.0'
   - single
@@ -177,7 +254,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - none
   - '350.0'
   - single
@@ -188,7 +265,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - none
   - '350.0'
   - couple
@@ -198,7 +275,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - none
   - '350.0'
   - couple
@@ -209,7 +286,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - none
   - '350.0'
   - couple
@@ -220,7 +297,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - none
   - '350.0'
   - parent
@@ -230,7 +307,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - none
   - '350.0'
   - parent
@@ -241,7 +318,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - none
   - '350.0'
   - parent
@@ -252,7 +329,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement
   :next_node: :bereavement_amount?
   :outcome_node: false
@@ -260,7 +337,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement
   - '50'
   :next_node: :housing_benefit_amount?
@@ -269,7 +346,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement
   - '50.0'
   - '50'
@@ -279,7 +356,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement
   - '50.0'
   - '50.0'
@@ -290,7 +367,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement
   - '50.0'
   - '50.0'
@@ -302,7 +379,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement
   - '50.0'
   - '50.0'
@@ -314,7 +391,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement
   - '50.0'
   - '50.0'
@@ -325,7 +402,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement
   - '50.0'
   - '50.0'
@@ -337,7 +414,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement
   - '50.0'
   - '50.0'
@@ -349,7 +426,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement
   - '50.0'
   - '50.0'
@@ -360,7 +437,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement
   - '50.0'
   - '50.0'
@@ -372,7 +449,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement
   - '50.0'
   - '50.0'
@@ -384,7 +461,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement
   - '50.0'
   - '350'
@@ -394,7 +471,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement
   - '50.0'
   - '350.0'
@@ -405,7 +482,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement
   - '50.0'
   - '350.0'
@@ -417,7 +494,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement
   - '50.0'
   - '350.0'
@@ -429,7 +506,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement
   - '50.0'
   - '350.0'
@@ -440,7 +517,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement
   - '50.0'
   - '350.0'
@@ -452,7 +529,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement
   - '50.0'
   - '350.0'
@@ -464,7 +541,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement
   - '50.0'
   - '350.0'
@@ -475,7 +552,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement
   - '50.0'
   - '350.0'
@@ -487,7 +564,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement
   - '50.0'
   - '350.0'
@@ -499,7 +576,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widowed_mother,widowed_parent,widow_pension,widows_aged
   :next_node: :bereavement_amount?
   :outcome_node: false
@@ -507,7 +584,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50'
   :next_node: :child_benefit_amount?
@@ -516,7 +593,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50'
@@ -526,7 +603,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -537,7 +614,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -549,7 +626,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -562,7 +639,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -576,7 +653,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -591,7 +668,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -607,7 +684,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -624,7 +701,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -642,7 +719,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -661,7 +738,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -681,7 +758,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -702,7 +779,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -724,7 +801,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -747,7 +824,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -771,7 +848,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -795,7 +872,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -818,7 +895,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -842,7 +919,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -866,7 +943,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -889,7 +966,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -913,7 +990,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -937,7 +1014,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -959,7 +1036,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -982,7 +1059,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -1006,7 +1083,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -1030,7 +1107,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -1053,7 +1130,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -1077,7 +1154,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -1101,7 +1178,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -1124,7 +1201,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'
@@ -1148,7 +1225,7 @@
   :responses:
   - 'yes'
   - 'no'
-  - 'no'
+  - none
   - bereavement,child_benefit,child_tax,esa,incapacity,income_support,jsa,maternity,sda,widow_pension,widowed_mother,widowed_parent,widows_aged
   - '50.0'
   - '50.0'

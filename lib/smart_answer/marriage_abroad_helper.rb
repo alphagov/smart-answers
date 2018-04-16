@@ -14,7 +14,6 @@ module SmartAnswer
 
     def specific_local_authorities(country_slug)
       {
-        "cambodia" => " (the local district office, ‘Sangkat’, and the Ministry of Foreign Affairs)",
         "germany"  => " (registry office ‘standesamt’ or church) ",
         "greece"   => " (the town hall or the local priest)",
         "oman"     => " (the local church, mosque or temple) ",

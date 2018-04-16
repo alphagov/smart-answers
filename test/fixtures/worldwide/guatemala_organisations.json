@@ -5,7 +5,7 @@
       "title": "British Embassy Guatemala City",
       "format": "Worldwide Organisation",
       "updated_at": "2013-11-18T12:42:30.000+00:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-guatemala",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-guatemala",
       "details": {
         "slug": "british-embassy-guatemala"
       },
@@ -15,12 +15,12 @@
           "title": "British Embassy",
           "format": "World Office",
           "updated_at": "2013-07-30T21:32:23.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-guatemala/office/british-embassy",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-guatemala/office/british-embassy",
           "details": {
-            "email": "embassy@intelnett.com",
-            "description": "",
+            "email": "",
+            "description": "General enquiries\r\nembajadabritanicagt@gmail.com\r\n\r\nConsular enquiries\r\nguatemala.consulate@fco.gov.uk",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><p>E-mail:  embassy@intelnett.com</p>\n\n<h2 id=\"public-holidays-in-2016\">Public holidays in 2016</h2>\n<p>On the following public holidays, our office will be closed for normal business.  Emergency consular assistance for British nationals is available by telephone.</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 23 March</td>\n      <td>Easter</td>\n    </tr>\n    <tr>\n      <td>Thursday 24 March</td>\n      <td>Maundy Thursday</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 30 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 1 July</td>\n      <td>Army Day</td>\n    </tr>\n    <tr>\n      <td>Monday 15 August</td>\n      <td>Asuncion Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 15 September</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 20 October</td>\n      <td>Revolution of 1944</td>\n    </tr>\n    <tr>\n      <td>Monday 31 October</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 1 November</td>\n      <td>All Saints Day</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>*Tuesday 27 December</td>\n      <td>In lieu of Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Friday 30 December</td>\n      <td>New Years Eve</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><p>E-mail:  embajadabritanicagt@gmail.com</p>\n\n<h2 id=\"opening-times\">Opening Times</h2>\n\n<p>The British Embassy Guatemala City is open from Monday to Thursday from 07:30 to 12:30 and 13:30 to 16:30 and Friday from 07:30 to 11:30.</p>\n\n<h2 id=\"public-holidays-2017\">Public Holidays 2017</h2>\n\n<p>On the following public holidays, our office will be closed for normal business.  Emergency consular assistance for British nationals is available by telephone.</p>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 2 January</td>\n      <td>New Year’s Day Holiday</td>\n    </tr>\n    <tr>\n      <td>Wednesday 12 April</td>\n      <td>Easter</td>\n    </tr>\n    <tr>\n      <td>Thursday 13 April</td>\n      <td>Maundy Thursday</td>\n    </tr>\n    <tr>\n      <td>Friday 14 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Monday 29 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 30 June</td>\n      <td>Army Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 15 August</td>\n      <td>Asuncion Day</td>\n    </tr>\n    <tr>\n      <td>Friday 15 September</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Friday 20 October</td>\n      <td>Revolution of 1944</td>\n    </tr>\n    <tr>\n      <td>Wednesday 1 November</td>\n      <td>All Saints Day</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 27 December</td>\n      <td>Christmas Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
             "type": "Embassy"
           },
           "address": {

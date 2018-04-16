@@ -1,0 +1,53 @@
+---
+countries_with_18_outcomes:
+  - algeria
+  - azerbaijan
+  - brazil
+  - british-indian-ocean-territory
+  - burma
+  - cambodia
+  - chile
+  - colombia
+  - denmark
+  - el-salvador
+  - gambia
+  - germany
+  - greece
+  - hungary
+  - indonesia
+  - iran
+  - jordan
+  - kenya
+  - kuwait
+  - latvia
+  - maldives
+  - moldova
+  - mozambique
+  - nicaragua
+  - portugal
+  - romania
+  - south-africa
+  - sweden
+  - tanzania
+  - tunisia
+  - vietnam
+countries_with_2_outcomes:
+  - australia
+  - china
+  - croatia
+  - cyprus
+  - egypt
+  - france
+  - india
+  - ireland
+  - luxembourg
+  - japan
+  - philippines
+  - thailand
+  - turkey
+  - usa
+countries_with_6_outcomes:
+  - greece
+  - italy
+  - spain
+  - poland

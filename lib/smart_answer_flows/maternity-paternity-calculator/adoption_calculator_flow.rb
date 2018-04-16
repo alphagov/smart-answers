@@ -2,22 +2,33 @@ module SmartAnswer
   class MaternityPaternityCalculatorFlow < Flow
     class AdoptionCalculatorFlow < Flow
       def define
-        ## QA0
-        multiple_choice :taking_paternity_leave_for_adoption? do
-          option :yes
-          option :no
+        multiple_choice :taking_paternity_or_maternity_leave_for_adoption? do
+          option :paternity
+          option :maternity
 
           next_node do |response|
             case response
-            when 'yes'
-              question :employee_date_matched_paternity_adoption? #QAP1
-            when 'no'
-              question :date_of_adoption_match? # QA1
+            when 'paternity'
+              question :employee_date_matched_paternity_adoption?
+            when 'maternity'
+              question :adoption_is_from_overseas?
             end
           end
         end
 
-        ## QA1
+        multiple_choice :adoption_is_from_overseas? do
+          option :yes
+          option :no
+
+          calculate :adoption_is_from_overseas do |response|
+            response == "yes"
+          end
+
+          next_node do
+            question :date_of_adoption_match?
+          end
+        end
+
         date_question :date_of_adoption_match? do
           calculate :match_date do |response|
             response
@@ -31,7 +42,6 @@ module SmartAnswer
           end
         end
 
-        ## QA2
         date_question :date_of_adoption_placement? do
           calculate :adoption_placement_date do |response|
             placement_date = response
@@ -41,11 +51,27 @@ module SmartAnswer
           end
 
           calculate :a_leave_earliest_start do
-            adoption_placement_date - 14
+            if adoption_is_from_overseas
+              adoption_placement_date
+            else
+              adoption_placement_date - 14
+            end
           end
 
           calculate :a_leave_earliest_start_formatted do
             calculator.format_date a_leave_earliest_start
+          end
+
+          calculate :a_leave_latest_start do
+            if adoption_is_from_overseas
+              adoption_placement_date + 27
+            else
+              adoption_placement_date + 1
+            end
+          end
+
+          calculate :a_leave_latest_start_formatted do
+            calculator.format_date(a_leave_latest_start)
           end
 
           calculate :employment_start do
@@ -53,7 +79,7 @@ module SmartAnswer
           end
 
           calculate :qualifying_week_start do
-            calculator.qualifying_week.first
+            calculator.adoption_qualifying_start
           end
 
           next_node do
@@ -61,7 +87,6 @@ module SmartAnswer
           end
         end
 
-        ## QA3
         multiple_choice :adoption_did_the_employee_work_for_you? do
           option :yes
           option :no
@@ -76,7 +101,6 @@ module SmartAnswer
           end
         end
 
-        ## QA4
         multiple_choice :adoption_employment_contract? do
           option :yes
           option :no
@@ -90,7 +114,6 @@ module SmartAnswer
           end
         end
 
-        ## QA5
         multiple_choice :adoption_is_the_employee_on_your_payroll? do
           option :yes
           option :no
@@ -116,12 +139,17 @@ module SmartAnswer
           end
         end
 
-        ## QA6
         date_question :adoption_date_leave_starts? do
           calculate :adoption_date_leave_starts do |response|
-            ald_start = response
-            raise SmartAnswer::InvalidResponse if ald_start < a_leave_earliest_start
-            calculator.leave_start_date = ald_start
+            adoption_leave_start_date = response
+
+            if adoption_leave_start_date < a_leave_earliest_start
+              raise SmartAnswer::InvalidResponse, :leave_starts_too_early
+            elsif adoption_leave_start_date > a_leave_latest_start
+              raise SmartAnswer::InvalidResponse, :leave_starts_too_late
+            end
+
+            calculator.leave_start_date = adoption_leave_start_date
           end
 
           calculate :leave_start_date do
@@ -153,22 +181,21 @@ module SmartAnswer
           end
         end
 
-        # QA7
         date_question :last_normal_payday_adoption? do
           from { 2.years.ago(Date.today) }
           to { 2.years.since(Date.today) }
 
           calculate :last_payday do |response|
-            calculator.last_payday = response
-            raise SmartAnswer::InvalidResponse if calculator.last_payday > to_saturday
-            calculator.last_payday
+            last_payday = response
+            calculator.last_payday = last_payday
+            raise SmartAnswer::InvalidResponse if last_payday > to_saturday
+            last_payday
           end
           next_node do
             question :payday_eight_weeks_adoption?
           end
         end
 
-        # QA8
         date_question :payday_eight_weeks_adoption? do
           from { 2.year.ago(Date.today) }
           to { 2.years.since(Date.today) }
@@ -197,7 +224,6 @@ module SmartAnswer
           end
         end
 
-        # QA9
         multiple_choice :pay_frequency_adoption? do
           option :weekly
           option :every_2_weeks
@@ -218,7 +244,6 @@ module SmartAnswer
           end
         end
 
-        ## QA10
         money_question :earnings_for_pay_period_adoption? do
           on_response do |response|
             calculator.earnings_for_pay_period = response
@@ -228,24 +253,23 @@ module SmartAnswer
             sprintf("%.2f", calculator.lower_earning_limit)
           end
 
-          calculate :average_weekly_earnings do
-            sprintf("%.2f", calculator.average_weekly_earnings)
-          end
-
-          calculate :above_lower_earning_limit do
-            calculator.average_weekly_earnings > calculator.lower_earning_limit
-          end
-
           next_node do
             if calculator.average_weekly_earnings_under_lower_earning_limit?
               outcome :adoption_leave_and_pay
+            elsif calculator.weekly?
+              question :how_many_payments_weekly? # See SharedAdoptionMaternityPaternityFlow for definition
+            elsif calculator.every_2_weeks?
+              question :how_many_payments_every_2_weeks? # See SharedAdoptionMaternityPaternityFlow for definition
+            elsif calculator.every_4_weeks?
+              question :how_many_payments_every_4_weeks? # See SharedAdoptionMaternityPaternityFlow for definition
+            elsif calculator.monthly?
+              question :how_many_payments_monthly? # See SharedAdoptionMaternityPaternityFlow for definition
             else
               question :how_do_you_want_the_sap_calculated?
             end
           end
         end
 
-        ## QA11
         multiple_choice :how_do_you_want_the_sap_calculated? do
           option :weekly_starting
           option :usual_paydates
@@ -264,6 +288,10 @@ module SmartAnswer
         end
 
         outcome :adoption_leave_and_pay do
+          precalculate :above_lower_earning_limit do
+            calculator.average_weekly_earnings > calculator.lower_earning_limit
+          end
+
           precalculate :pay_method do
             calculator.pay_method = (
               if monthly_pay_method
@@ -293,6 +321,10 @@ module SmartAnswer
             if above_lower_earning_limit
               sprintf("%.2f", calculator.total_statutory_pay)
             end
+          end
+
+          precalculate :average_weekly_earnings do
+            sprintf("%.2f", calculator.average_weekly_earnings)
           end
         end
 

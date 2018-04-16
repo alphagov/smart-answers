@@ -12,7 +12,7 @@ module SmartAnswer::Calculators
       @basic_pay = params[:basic_pay].to_f
       @is_apprentice = params[:is_apprentice]
       @pay_frequency = params[:pay_frequency] || 7
-      @overtime_hours = params[:overtime_hours].to_i || 0
+      @overtime_hours = params[:overtime_hours].to_i
       @overtime_hourly_rate = 0
       @accommodation_cost = 0
       @minimum_wage_data = rates_for_date(@date)
@@ -52,12 +52,7 @@ module SmartAnswer::Calculators
     end
 
     def basic_rate
-      rate = @basic_pay / @basic_hours
-      if overtime_hours > 0 && overtime_hourly_rate > 0 && rate > overtime_hourly_rate
-        overtime_hourly_rate
-      else
-        rate
-      end
+      @basic_pay / @basic_hours
     end
 
     def basic_total
@@ -162,10 +157,6 @@ module SmartAnswer::Calculators
 
     def national_living_wage_rate
       minimum_hourly_rate
-    end
-
-    def apprentice_eligible_for_minimum_wage?
-      date >= Date.parse('2010-10-01')
     end
 
     def eligible_for_living_wage?

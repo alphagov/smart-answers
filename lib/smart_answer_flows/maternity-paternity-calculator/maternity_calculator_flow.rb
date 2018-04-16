@@ -13,23 +13,11 @@ module SmartAnswer
             Calculators::MaternityPaternityCalculator.new(response)
           end
           next_node do
-            question :employment_contract?
-          end
-        end
-
-        ## QM2
-        multiple_choice :employment_contract? do
-          option :yes
-          option :no
-
-          save_input_as :has_employment_contract
-
-          next_node do
             question :date_leave_starts?
           end
         end
 
-        ## QM3
+        ## QM2
         date_question :date_leave_starts? do
           from { 2.years.ago(Date.today) }
           to { 2.years.since(Date.today) }
@@ -71,37 +59,17 @@ module SmartAnswer
             calculator.ssp_stop
           end
           next_node do
-            question :did_the_employee_work_for_you?
+            question :did_the_employee_work_for_you_between?
           end
         end
 
-        ## QM4
-        multiple_choice :did_the_employee_work_for_you? do
+        # QM3
+        multiple_choice :did_the_employee_work_for_you_between? do
           option :yes
           option :no
           calculate :not_entitled_to_pay_reason do |response|
-            response == 'no' ? :not_worked_long_enough : nil
+            response == 'no' ? :not_worked_long_enough_and_not_on_payroll : nil
           end
-
-          next_node do |response|
-            case response
-            when 'yes'
-              question :is_the_employee_on_your_payroll?
-            when 'no'
-              outcome :maternity_leave_and_pay_result
-            end
-          end
-        end
-
-        ## QM5
-        multiple_choice :is_the_employee_on_your_payroll? do
-          option :yes
-          option :no
-
-          calculate :not_entitled_to_pay_reason do |response|
-            response == 'no' ? :must_be_on_payroll : nil
-          end
-
           calculate :to_saturday do
             calculator.qualifying_week.last
           end
@@ -110,17 +78,19 @@ module SmartAnswer
             calculator.format_date_day to_saturday
           end
 
+          save_input_as :has_employment_contract
+
           next_node do |response|
             case response
             when 'yes'
-              question :last_normal_payday? # NOTE: goes to shared questions
+              question :last_normal_payday?
             when 'no'
               outcome :maternity_leave_and_pay_result
             end
           end
         end
 
-        ## QM6
+        ## QM4
         date_question :last_normal_payday? do
           from { 2.years.ago(Date.today) }
           to { 2.years.since(Date.today) }
@@ -135,7 +105,7 @@ module SmartAnswer
           end
         end
 
-        ## QM7
+        ## QM5
         date_question :payday_eight_weeks? do
           from { 2.year.ago(Date.today) }
           to { 2.years.since(Date.today) }
@@ -164,7 +134,7 @@ module SmartAnswer
           end
         end
 
-        ## QM8
+        ## QM6
         multiple_choice :pay_frequency? do
           option :weekly
           option :every_2_weeks
@@ -180,21 +150,28 @@ module SmartAnswer
           end
         end
 
-        ## QM9 Maternity only onwards
+        ## QM7
         money_question :earnings_for_pay_period? do
           on_response do |response|
             calculator.earnings_for_pay_period = response
           end
 
-          calculate :average_weekly_earnings do
-            calculator.average_weekly_earnings
-          end
           next_node do
-            question :how_do_you_want_the_smp_calculated?
+            if calculator.weekly?
+              question :how_many_payments_weekly? # See SharedAdoptionMaternityPaternityFlow for definition
+            elsif calculator.every_2_weeks?
+              question :how_many_payments_every_2_weeks? # See SharedAdoptionMaternityPaternityFlow for definition
+            elsif calculator.every_4_weeks?
+              question :how_many_payments_every_4_weeks? # See SharedAdoptionMaternityPaternityFlow for definition
+            elsif calculator.monthly?
+              question :how_many_payments_monthly? # See SharedAdoptionMaternityPaternityFlow for definition
+            else
+              question :how_do_you_want_the_smp_calculated?
+            end
           end
         end
 
-        ## QM10
+        ## QM8
         multiple_choice :how_do_you_want_the_smp_calculated? do
           option :weekly_starting
           option :usual_paydates
@@ -214,7 +191,7 @@ module SmartAnswer
           end
         end
 
-        ## QM11
+        ## QM9
         date_question :when_is_your_employees_next_pay_day? do
           calculate :next_pay_day do |response|
             calculator.pay_date = response
@@ -226,7 +203,7 @@ module SmartAnswer
           end
         end
 
-        ## QM12
+        ## QM10
         multiple_choice :when_in_the_month_is_the_employee_paid? do
           option :first_day_of_the_month
           option :last_day_of_the_month
@@ -250,7 +227,7 @@ module SmartAnswer
           end
         end
 
-        ## QM13
+        ## QM11
         value_question :what_specific_date_each_month_is_the_employee_paid?, parse: :to_i do
           calculate :pay_day_in_month do |response|
             day = response
@@ -263,7 +240,7 @@ module SmartAnswer
           end
         end
 
-        ## QM14
+        ## QM12
         checkbox_question :what_days_does_the_employee_work? do
           (0...days_of_the_week.size).each { |i| option i.to_s.to_sym }
 
@@ -276,7 +253,7 @@ module SmartAnswer
           end
         end
 
-        ## QM15
+        ## QM13
         multiple_choice :what_particular_day_of_the_month_is_the_employee_paid? do
           days_of_the_week.each { |d| option d.to_sym }
 
@@ -289,7 +266,7 @@ module SmartAnswer
           end
         end
 
-        ## QM16
+        ## QM14
         multiple_choice :which_week_in_month_is_the_employee_paid? do
           option :first
           option :second
@@ -362,6 +339,10 @@ module SmartAnswer
               end
               lines.join("\n")
             end
+          end
+
+          precalculate :average_weekly_earnings do
+            calculator.average_weekly_earnings
           end
         end
       end

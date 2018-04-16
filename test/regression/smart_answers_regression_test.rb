@@ -6,6 +6,7 @@ FLOW_REGISTRY_OPTIONS[:preload_flows] = false
 require 'rails/test_help'
 
 require 'webmock'
+WebMock.enable!
 WebMock.disable_net_connect!(allow_localhost: true)
 
 require_relative '../support/fixture_methods'
@@ -73,7 +74,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
 
         stub_shared_component_locales
         WebMock.stub_request(:get, WorkingDays::BANK_HOLIDAYS_URL).to_return(body: File.open(fixture_file('bank_holidays.json')))
-        Services.content_store.stubs(:content_item!).returns({})
+        Services.content_store.stubs(:content_item).returns({})
 
         setup_worldwide_locations
 
@@ -87,7 +88,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
       should "have up to date checksum data" do
         message = []
         message << "Expected #{smart_answer_helper.files_checksum_path} to exist and to contain up to date data"
-        message << "Use the generate-checksums-for-smart-answer script to update it"
+        message << "Use the checksums:add_files[#{flow_name}] rake task to update it"
         assert_equal false, smart_answer_helper.files_checksum_data_needs_updating?, message.join('. ')
       end
 
@@ -107,7 +108,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
       end
 
       should "render and save the landing page" do
-        get :show, id: flow_name, format: 'txt'
+        get :show, params: { id: flow_name, format: 'txt' }
         assert_response :success
 
         artefact_path = smart_answer_helper.save_output([flow_name], response)
@@ -115,7 +116,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
       end
 
       should "render and save the first question page" do
-        get :show, id: flow_name, started: 'y', format: 'txt'
+        get :show, params: { id: flow_name, started: 'y', format: 'txt' }
         assert_response :success
 
         artefact_path = smart_answer_helper.save_output(['y'], response)
@@ -132,7 +133,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
         visited_nodes << next_node
 
         should "render and save output for responses: #{responses.join(', ')}" do
-          get :show, id: flow_name, started: 'y', responses: responses.join('/'), format: 'txt'
+          get :show, params: { id: flow_name, started: 'y', responses: responses.join('/'), format: 'txt' }
           assert_response :success
 
           artefact_path = smart_answer_helper.save_output(responses, response)
@@ -144,7 +145,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
 
       should "#{RUN_ME_LAST} and generate the same set of output files" do
         diff_output = `git status --short -- #{smart_answer_helper.path_to_outputs_for_flow}`
-        assert diff_output.blank?, "Changes in outcome page artefacts have been detected:\n#{diff_output}\nIf these changes are expected then re-generate the checksums, re-run the regression test, and commit all the changes."
+        assert diff_output.blank?, "Changes in outcome page artefacts have been detected:\n#{diff_output}\nIf these changes are expected then re-generate the checksums, commit all the changes, and re-run the regression test."
       end
     end
   end

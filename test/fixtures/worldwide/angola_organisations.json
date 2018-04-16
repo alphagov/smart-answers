@@ -5,7 +5,7 @@
       "title": "British Embassy Luanda",
       "format": "Worldwide Organisation",
       "updated_at": "2013-06-12T12:53:54.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-luanda",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-luanda",
       "details": {
         "slug": "british-embassy-luanda"
       },
@@ -15,12 +15,12 @@
           "title": "British Embassy Luanda",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:53.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-luanda/office/british-embassy-luanda",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-luanda/office/british-embassy-luanda",
           "details": {
             "email": "postmaster.luand@fco.gov.uk",
             "description": "",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>Monday to Thursday: 8 am to 12:30 pm and 1:30 pm to 4:30; Friday: 8 am to 1 pm</p>\n\n<h3 id=\"visa-application\">Visa application</h3>\n<p>Monday to Thursday: 8:30 am to 11:30 am </p>\n\n<h3 id=\"visa-collection\">Visa collection</h3>\n<p>Monday to Thursday: 3 pm to 4 pm</p>\n\n<h3 id=\"consular\">Consular</h3>\n<p>Monday to Friday: 8 am to 12 pm </p>\n\n<h2 id=\"public-holiday\">Public Holiday</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 1 January</td>\n      <td>New Year’s Day (Angola/UK</td>\n    </tr>\n    <tr>\n      <td>Thursday 4 February</td>\n      <td>National Armed Forces Day (Angola)</td>\n    </tr>\n    <tr>\n      <td>Tuesday 9 February</td>\n      <td>Carnival (Angola)</td>\n    </tr>\n    <tr>\n      <td>Tuesday 8 March</td>\n      <td>International Women’s Day (Angola)</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday (UK)</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday (UK)</td>\n    </tr>\n    <tr>\n      <td>Monday 2 May</td>\n      <td>Early May Bank Holiday / Labour Day (UK/Angola</td>\n    </tr>\n    <tr>\n      <td>Monday 30 May</td>\n      <td>Spring Bank Holiday (UK)</td>\n    </tr>\n    <tr>\n      <td>Monday 29 August</td>\n      <td>Summer Bank Holiday(UK)</td>\n    </tr>\n    <tr>\n      <td>Monday 19 September</td>\n      <td>National Heroes’ Day (Angola</td>\n    </tr>\n    <tr>\n      <td>Wednesday 2 November</td>\n      <td>Dia de finados (Day of the Dead) (Angola)</td>\n    </tr>\n    <tr>\n      <td>Friday 11 November</td>\n      <td>Independence Day (Angola)</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day (UK)</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 December</td>\n      <td>Christmas Day (substitute day) (UK)</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>Monday to Thursday: 8:00 am to 12:30 pm and 1:30 pm to 4:30 pm ; Friday: 8:00 am to 1:00 pm</p>\n\n<h3 id=\"consular\">Consular</h3>\n<p>Monday to Thursday: 8:30 am to 12:00 pm</p>\n\n<h2 id=\"public-holidays\">Public Holidays</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Monday 02                               January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 28                              February</td>\n      <td>Carnival</td>\n    </tr>\n    <tr>\n      <td>Wednesday 08                         March</td>\n      <td>International Women’s Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 4 April</td>\n      <td>Peace Day</td>\n    </tr>\n    <tr>\n      <td>Friday 14 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 17 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 01 May</td>\n      <td>Early May bank holiday/Labour Day</td>\n    </tr>\n    <tr>\n      <td>Monday 29 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Wednesday 23                          August</td>\n      <td>Angolan General Elections</td>\n    </tr>\n    <tr>\n      <td>Monday 28 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Thursday 2 November</td>\n      <td>All Souls’ Day</td>\n    </tr>\n    <tr>\n      <td>Friday 22 December</td>\n      <td>Closed for Christmas</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -97,22 +97,22 @@
     },
     {
       "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-angola",
-      "title": "UK Trade & Investment Angola",
+      "title": "Department for International Trade Angola",
       "format": "Worldwide Organisation",
-      "updated_at": "2014-04-24T16:42:25.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-angola",
+      "updated_at": "2016-08-08T12:25:17.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-angola",
       "details": {
         "slug": "uk-trade-investment-angola"
       },
       "analytics_identifier": "WO203",
       "offices": {
         "main": {
-          "title": "UK Trade & Investment Angola",
+          "title": "Department for International Trade Angola",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:53.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-angola/office/uk-trade-investment-angola",
+          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-angola/office/uk-trade-investment-angola",
           "details": {
-            "email": "John.woodruffe@fco.gov.uk",
+            "email": "simon.kelly@fco.gsi.gov.uk",
             "description": "",
             "contact_form_url": "",
             "access_and_opening_times": "",
@@ -147,10 +147,10 @@
       },
       "sponsors": [
         {
-          "title": "UK Trade & Investment",
-          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "title": "Department for International Trade",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-trade",
           "details": {
-            "acronym": "UKTI"
+            "acronym": "DIT"
           }
         }
       ]

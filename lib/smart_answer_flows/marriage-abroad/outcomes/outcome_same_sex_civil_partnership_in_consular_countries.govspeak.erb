@@ -3,9 +3,9 @@
 <% end %>
 
 <% content_for :body do %>
-  You may be able to register a civil partnership at the <%= calculator.civil_partnership_institution_name %> in <%= calculator.country_name_lowercase_prefix %>.
+  You may be able to register a civil partnership at the British embassy or consulate in <%= calculator.country_name_lowercase_prefix %>.
 
-  <% if %w(croatia bulgaria).include?(calculator.ceremony_country) && calculator.partner_is_national_of_ceremony_country? %>
+  <% if %w(bulgaria).include?(calculator.ceremony_country) && calculator.partner_is_national_of_ceremony_country? %>
     %However, they can’t register a civil partnership between a British national and a national of <%= calculator.country_name_lowercase_prefix %>.%
 
   <% else %>
@@ -16,7 +16,7 @@
 
   ##What documents you’ll need
 
-  You’ll need proof that you’ve been resident in the area covered by the <%= calculator.civil_partnership_institution_name %> for at least 7 days, like an employer’s letter or a bank statement.
+  You’ll need proof that you’ve been resident in the area covered by the British embassy or consulate for at least 7 days, like an employer’s letter or a bank statement.
 
 
   You’ll both need your original passports. If either of you have been divorced, widowed or in a civil partnership before, you’ll also need:
@@ -36,12 +36,12 @@
 
   ###What you need to do
 
-  Once you’ve made your appointment, the <%= calculator.civil_partnership_institution_name %> will give you:
+  Once you’ve made your appointment, the British embassy or consulate will give you:
 
   - a notice of registration
   - a declaration that you and your partner will need to swear, stating that you’re legally entitled to enter into a civil partnership
 
-  Once you’ve submitted these and paid the registration fee (see below), the <%= calculator.civil_partnership_institution_name %> will display your notice publicly for 14 days.
+  Once you’ve submitted these and paid the registration fee (see below), the British embassy or consulate will display your notice publicly for 14 days.
 
   As long as nobody has registered an objection after this time, the registration officer can then register your partnership any time until 3 months after the date you gave notice.
 

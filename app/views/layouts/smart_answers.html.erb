@@ -1,0 +1,19 @@
+<% content_for :title do %>
+  <%= @title %>
+<% end %>
+
+<% content_for :head do %>
+  <%= javascript_include_tag "application", defer: true %>
+<% end %>
+
+<div class="grid-row">
+  <%= render partial: "smart_answers/heroku_alert" if heroku? %>
+
+  <main id="content" role="main">
+    <%= yield %>
+
+    <%= render 'smartanswer_metadata' %>
+  </main>
+</div>
+
+<% parent_layout 'application' %>

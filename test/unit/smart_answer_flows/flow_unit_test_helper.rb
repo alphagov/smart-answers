@@ -13,5 +13,10 @@ module SmartAnswer
     def assert_node_exists(key)
       assert @flow.node_exists?(key), "Node #{key} does not exist."
     end
+
+    def assert_node_has_name(name, node, belongs_to_another_flow: false)
+      assert_equal(name, node.current_node)
+      assert_node_exists(name) unless belongs_to_another_flow
+    end
   end
 end

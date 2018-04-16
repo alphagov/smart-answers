@@ -2,8 +2,6 @@ require "data/state_pension_date_query"
 
 module SmartAnswer::Calculators
   class StatePensionAgeCalculator
-    include FriendlyTimeDiff
-
     attr_reader :dob
     attr_accessor :gender
 
@@ -20,11 +18,21 @@ module SmartAnswer::Calculators
       Date.today >= earliest_application_date
     end
 
+    def pension_on_feb_29?
+      state_pension_date.month == 2 && state_pension_date.day == 29
+    end
+
     def state_pension_age
-      if birthday_on_feb_29?
-        friendly_time_diff(dob, state_pension_date - 1.day)
+      if birthday_on_feb_29? && !pension_on_feb_29?
+        SmartAnswer::DateRange.new(
+          begins_on: dob,
+          ends_on: state_pension_date - 1.day
+        ).friendly_time_diff
       else
-        friendly_time_diff(dob, state_pension_date)
+        SmartAnswer::DateRange.new(
+          begins_on: dob,
+          ends_on: state_pension_date
+        ).friendly_time_diff
       end
     end
 
@@ -60,10 +68,14 @@ module SmartAnswer::Calculators
       old_state_pension? ? '/state-pension/how-to-claim' : '/new-state-pension/how-to-claim'
     end
 
+    def rolling_increase_period?
+      dob.between?(Date.parse("6 April 1970"), Date.parse("5 April 1978"))
+    end
+
   private
 
     def earliest_application_date
-      state_pension_date - 4.months
+      state_pension_date - 2.months
     end
   end
 end

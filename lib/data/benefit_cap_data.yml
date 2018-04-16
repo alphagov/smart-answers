@@ -21,17 +21,17 @@ weekly_benefit_caps:
       amount: 442.31
       description: "A lone parent with one or more dependent children"
 exempt_benefits:
-  - Attendance Allowance
-  - Carer's Allowance
-  - Disability Living Allowance
-  - Guardian's Allowance
-  - Industrial Injuries Benefit
-  - Personal Independence Payment
-  - Employment and Support Allowance (support component)
-  - War Widow’s or War Widower’s Pension
-  - Armed Forces Compensation Scheme
-  - Armed Forces Independence Payment
-  - War pensions
+  attendance_allowance: Attendance Allowance
+  carers_allowance: Carer's Allowance
+  disability_living_allowance: Disability Living Allowance
+  guardians_allowance: Guardian's Allowance
+  industrial_injuries_benefit: Industrial Injuries Benefit
+  personal_independence_payment: Personal Independence Payment
+  employment_support_allowance: Employment and Support Allowance (support component)
+  war_partner_pension: War Widow’s or War Widower’s Pension
+  armed_forces_compensation_scheme: Armed Forces Compensation Scheme
+  armed_forces_independence_payment: Armed Forces Independence Payment
+  war_pensions: War pensions
 benefits:
   bereavement:
     question: :bereavement_amount?

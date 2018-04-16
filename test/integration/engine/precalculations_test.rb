@@ -2,6 +2,10 @@ require_relative 'engine_test_helper'
 
 class PrecalculationsTest < EngineIntegrationTest
   with_and_without_javascript do
+    setup do
+      stub_smart_answer_in_content_store("precalculation-sample")
+    end
+
     should "handle precalculations" do
       visit "/precalculation-sample"
 
@@ -17,8 +21,8 @@ class PrecalculationsTest < EngineIntegrationTest
 
       # This is asserting that the form URL doesn't get created with a trailing /
       # If this happens, the cache servers strip off the / and redirect.  This breaks things.
-      form = page.find(:xpath, "id('js-replaceable')//form")
-      assert_equal "/precalculation-sample/y", form[:action]
+      form = page.find(:xpath, "id('content')//form")
+      assert_same_url "/precalculation-sample/y", form[:action]
 
       within '.current-question' do
         within '[data-test=question]' do

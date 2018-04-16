@@ -236,16 +236,6 @@ $is-ie: false !default;
     position: relative;
   }
 
-  @include ie(6) {
-    .smart-answer-questions .current {
-      background-color: #fff;
-      margin-right: 15em;
-      padding: 0 2em 1em 5em;
-      position: relative;
-      zoom: 1;
-    }
-  }
-
   .question-body + p input.button {
     margin-top: 0.5em;
   }
@@ -385,4 +375,19 @@ $is-ie: false !default;
     vertical-align: top;
   }
 
+}
+
+//Heroku alert
+.heroku-alert {
+    margin: 0 15px 15px 15px;
+    border: 1px solid #B01117;
+    background-color: #B01117;
+    color: #FFF;
+    padding: 1em;
+    font-weight: bold;
+
+    a {
+      cursor: pointer;
+      color: #FFF3CF;
+    }
 }

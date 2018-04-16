@@ -2,19 +2,9 @@
   Does the following apply to you?
 <% end %>
 
-<% options(
-  "yes": "Yes",
-  "no": "No"
-) %>
-
-<% content_for :body do %>
-  You're currently receiving at least one of the following UK benefits:
-
-  - Bereavement benefits
-  - Severe Disablement Allowance
-  - Employment and Support Allowance
-  - Incapacity Benefit
-  - Industrial Injuries Disablement Benefit
-  - State Pension
+<% content_for :hint do %>
+  If you do not receive any of these click 'Next step'.
 
 <% end %>
+
+<% options(calculator.state_benefits) %>

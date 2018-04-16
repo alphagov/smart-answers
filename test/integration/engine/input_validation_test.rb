@@ -3,6 +3,8 @@ require_relative 'engine_test_helper'
 class InputValidationTest < EngineIntegrationTest
   with_and_without_javascript do
     should "validate input and display errors" do
+      stub_smart_answer_in_content_store("money-and-salary-sample")
+
       visit "/money-and-salary-sample/y"
 
       fill_in "response[amount]", with: "-123"
@@ -25,7 +27,7 @@ class InputValidationTest < EngineIntegrationTest
 
       within '.current-question' do
         assert_page_has_content "What size bonus do you want?"
-        within('.error') { assert_page_has_content "Sorry, I couldn't understand that number. Please try again." }
+        within('.error') { assert_page_has_content "Sorry, that number is not valid. Please try again." }
         assert page.has_field?("response", type: "text", with: "asdfasdf")
       end
 
@@ -36,6 +38,8 @@ class InputValidationTest < EngineIntegrationTest
     end
 
     should "allow custom validation in calculations" do
+      stub_smart_answer_in_content_store("money-and-salary-sample")
+
       visit "/money-and-salary-sample/y/4000.0-month"
 
       fill_in "response", with: "3000"
@@ -61,6 +65,8 @@ class InputValidationTest < EngineIntegrationTest
     end
 
     should "allow custom error messages with interpolation" do
+      stub_smart_answer_in_content_store("custom-errors-sample")
+
       visit "/custom-errors-sample/y"
 
       fill_in "response", with: "asdfasdf"
@@ -75,6 +81,8 @@ class InputValidationTest < EngineIntegrationTest
   end # with_and_without_javascript
 
   should "400 when given invalid UTF-8 in responses" do
+    stub_smart_answer_in_content_store("custom-errors-sample")
+
     assert_raises(ActionController::BadRequest) do
       get "/custom-errors-sample/y/age/female/%bf'%bf%22-01-02"
     end

@@ -19,7 +19,7 @@ $A
 British Embassy Stockholm Consular Section
 Address: Skarpögatan 6-8
 Box 27819
-115 27 Stockholm 
+115 27 Stockholm
 Sweden
 $A
 
@@ -29,7 +29,7 @@ Fax: +46 (0) 8 661 97 66
 
 Email: <Britsinsweden@fco.gov.uk>
 
-[British Embassy Stockholm Consular Section - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-stockholm/office/british-embassy-stockholm-consular-office)
+[British Embassy Stockholm Consular Section - opening hours](https://www.gov.uk/world/organisations/british-embassy-stockholm/office/british-embassy-stockholm-consular-office)
 $C
 
 ##Naturalisation of your partner if they move to the UK

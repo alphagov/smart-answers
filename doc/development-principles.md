@@ -4,7 +4,7 @@
 
 * Make small improvements to the code before making even business-as-usual changes. See [refactoring existing Smart Answers](refactoring.md) for some common improvements.
 
-* Make use of the higher-level abstractions available in the project, for example the `DateRange`, `YearRange` and `TaxYear` classes.
+* Make use of the higher-level abstractions available in the project, for example the `DateRange`, `YearRange` and `YearRangeWithFixedStartDate` classes.
 
 * Extract more higher-level abstractions where the same behaviour is being duplicated across multiple flows.
 

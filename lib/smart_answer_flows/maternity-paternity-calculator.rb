@@ -1,11 +1,13 @@
 require 'smart_answer_flows/maternity-paternity-calculator/adoption_calculator_flow'
 require 'smart_answer_flows/maternity-paternity-calculator/paternity_calculator_flow'
 require 'smart_answer_flows/maternity-paternity-calculator/maternity_calculator_flow'
+require 'smart_answer_flows/maternity-paternity-calculator/shared_adoption_maternity_paternity_flow'
 
 module SmartAnswer
   class MaternityPaternityCalculatorFlow < Flow
     def define
-      content_id "05d5412d-455b-485e-a570-020c9176a46e"
+      start_page_content_id "05d5412d-455b-485e-a570-020c9176a46e"
+      flow_content_id "38c0b111-e9be-40f3-915b-ad1d9bbf3b2b"
       name 'maternity-paternity-calculator'
       status :published
       satisfies_need "100990"
@@ -55,7 +57,7 @@ module SmartAnswer
           when 'paternity'
             question :leave_or_pay_for_adoption?
           when 'adoption'
-            question :taking_paternity_leave_for_adoption?
+            question :taking_paternity_or_maternity_leave_for_adoption?
           end
         end
       end
@@ -63,6 +65,7 @@ module SmartAnswer
       append(AdoptionCalculatorFlow.build)
       append(PaternityCalculatorFlow.build)
       append(MaternityCalculatorFlow.build)
+      append(SharedAdoptionMaternityPaternityFlow.build)
     end
   end
 end

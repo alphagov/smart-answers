@@ -1,20 +1,13 @@
 <% content_for :title do %>
-  Are you travelling abroad with a partner who is getting Income Support with one of the following:
-<% end %>
-
-<% options(
-  "yes": "Yes",
-  "no": "No"
-) %>
-
-<% content_for :hint do %>
-  Your partner must be getting the premium, not you.
+  Are you travelling abroad with a partner who is getting Income Support with one of the following premiums ?
 <% end %>
 
 <% content_for :body do %>
-  - [Pensioner premium](/income-support/what-youll-get)
-  - [Higher Pensioner premium](/income-support/what-youll-get)
-  - [Disability premium](/disability-premiums-income-support/eligibility)
-  - [Severe Disability premium](/disability-premiums-income-support/eligibility)
-
+  Your partner must be getting the <a href='/income-support/what-youll-get'>premium</a>, not you.
 <% end %>
+
+<% content_for :hint do %>
+  If no, click ‘Next Step’.
+<% end %>
+
+<% options(calculator.premiums) %>

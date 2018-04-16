@@ -40,7 +40,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
   context "Getting additional statutory paternity pay" do
     setup do
-      add_response "additional_statutory_paternity_pay"
+      add_response "shared_parental_leave_and_pay"
     end
 
     should "set adoption warning state variable" do
@@ -469,7 +469,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "show formatted weekly payment amounts with adjusted 3 days start amount for additional SPP" do
-      add_response :additional_statutory_paternity_pay
+      add_response :shared_parental_leave_and_pay
       add_response :yes
       add_response :no
       add_response "2013-01-07"
@@ -506,7 +506,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
   context "first_sick_day? date validation" do
     setup do
-      add_response :additional_statutory_paternity_pay
+      add_response :shared_parental_leave_and_pay
       add_response :no
       add_response :no
       assert_current_node :first_sick_day?
@@ -518,14 +518,16 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "not allow dates next year" do
-      add_response(Date.today.end_of_year + 1.day).to_s
-      assert_current_node_is_error
+      Timecop.freeze("2017-01-01") do
+        add_response(Date.today.end_of_year + 1.day).to_s
+        assert_current_node_is_error
+      end
     end
   end
 
   context "last_sick_day? date validation" do
     setup do
-      add_response :additional_statutory_paternity_pay
+      add_response :shared_parental_leave_and_pay
       add_response :yes
       add_response :no
       add_response "02/04/2013"
@@ -538,8 +540,10 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
 
     should "not allow dates next year" do
-      add_response(Date.today.end_of_year + 1.day).to_s
-      assert_current_node_is_error
+      Timecop.freeze("2017-01-01") do
+        add_response(Date.today.end_of_year + 1.day).to_s
+        assert_current_node_is_error
+      end
     end
 
     should "not allow dates before start_date" do
@@ -550,7 +554,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
   context "linked_sickness_start_date? date validation" do
     setup do
-      add_response :additional_statutory_paternity_pay
+      add_response :shared_parental_leave_and_pay
       add_response :yes
       add_response :no
       add_response "2015-03-19"
@@ -577,7 +581,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
   context "linked_sickness_end_date? date validation" do
     setup do
-      add_response :additional_statutory_paternity_pay
+      add_response :shared_parental_leave_and_pay
       add_response :yes
       add_response :no
       add_response "2015-05-21"
@@ -616,7 +620,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
   context "last_payday_before_sickness? date validation" do
     setup do
-      add_response :additional_statutory_paternity_pay
+      add_response :shared_parental_leave_and_pay
       add_response :yes
       add_response :no
       add_response "02/04/2013"
@@ -640,7 +644,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
   context "last_payday_before_offset? date validation" do
     setup do
-      add_response :additional_statutory_paternity_pay
+      add_response :shared_parental_leave_and_pay
       add_response :yes
       add_response :no
       add_response "02/04/2013"

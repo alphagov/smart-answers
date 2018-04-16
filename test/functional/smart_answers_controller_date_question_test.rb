@@ -11,6 +11,9 @@ class SmartAnswersControllerDateQuestionTest < ActionController::TestCase
 
   def setup
     setup_fixture_flows
+    stub_shared_component_locales
+
+    stub_smart_answer_in_content_store("smart-answers-controller-sample-with-date-question")
   end
 
   def teardown
@@ -20,7 +23,7 @@ class SmartAnswersControllerDateQuestionTest < ActionController::TestCase
   context "GET /<slug>" do
     context "date question" do
       should "display question" do
-        get :show, id: 'smart-answers-controller-sample-with-date-question', started: 'y'
+        get :show, params: { id: 'smart-answers-controller-sample-with-date-question', started: 'y' }
         assert_select ".step.current [data-test=question]", /When\?/
         assert_select "select[name='response[day]']"
         assert_select "select[name='response[month]']"
@@ -42,22 +45,6 @@ class SmartAnswersControllerDateQuestionTest < ActionController::TestCase
         assert_response :success
       end
 
-      context "valid response given" do
-        context "format=json" do
-          should "give correct canonical url" do
-            submit_json_response(day: "01", month: "01", year: "2013")
-            assert_redirected_to '/smart-answers-controller-sample-with-date-question/y/2013-01-01.json'
-          end
-
-          should "set correct cache control headers" do
-            with_cache_control_expiry do
-              submit_json_response(day: "01", month: "01", year: "2013")
-              assert_equal "max-age=1800, public", @response.header["Cache-Control"]
-            end
-          end
-        end
-      end
-
       context "no response given" do
         should "redisplay question" do
           submit_response(day: "", month: "", year: "")
@@ -68,36 +55,16 @@ class SmartAnswersControllerDateQuestionTest < ActionController::TestCase
           submit_response(day: "", month: "", year: "")
           assert_select ".step.current .error"
         end
-
-        context "format=json" do
-          should "give correct canonical url" do
-            submit_json_response(day: "", month: "", year: "")
-            data = JSON.parse(response.body)
-            assert_equal '/smart-answers-controller-sample-with-date-question/y', data['url']
-          end
-
-          should "show an error message" do
-            submit_json_response(day: "", month: "", year: "")
-            data = JSON.parse(response.body)
-            doc = Nokogiri::HTML(data['html_fragment'])
-            current_step = doc.css('.step.current')
-            assert current_step.css('.error').size > 0, "#{current_step} should contain .error"
-          end
-        end
       end
 
       should "display collapsed question, and format number" do
-        get :show, id: 'smart-answers-controller-sample-with-date-question', started: 'y', responses: "2011-01-01"
+        get :show, params: { id: 'smart-answers-controller-sample-with-date-question', started: 'y', responses: "2011-01-01" }
         assert_select ".done-questions", /When\?\s+1 January 2011/
       end
     end
   end
 
   def submit_response(response = nil, other_params = {})
-    super(response, other_params.merge(id: 'smart-answers-controller-sample-with-date-question'))
-  end
-
-  def submit_json_response(response = nil, other_params = {})
     super(response, other_params.merge(id: 'smart-answers-controller-sample-with-date-question'))
   end
 end

@@ -9,6 +9,7 @@ class FlowContentItem
     {
       base_path: base_path,
       title: flow_presenter.title,
+      update_type: 'minor',
       details: {
           external_related_links: external_related_links
       },
@@ -23,20 +24,19 @@ class FlowContentItem
   end
 
   def content_id
-    flow_presenter.content_id
+    flow_presenter.flow_content_id
   end
 
 private
 
   def routes
     [
-      { type: 'prefix', path: base_path },
-      { type: 'exact', path: json_path }
+      { type: 'prefix', path: base_path }
     ]
   end
 
   def base_path
-    '/' + flow_presenter.slug
+    '/' + flow_presenter.slug + '/y'
   end
 
   def json_path

@@ -4,25 +4,16 @@ Child maintenance calculator
 You can use this calculator to estimate your child maintenance. It can help you to:
 
 * agree an amount with the other parent if [you’re arranging it yourselves](/arranging-child-maintenance-yourself)
-* get an idea of the amount the government would work out for you (including collection and application fees)
-
-The calculator is based on the rules used by the Child Maintenance Service. 
-
-Don't use the calculator if you have a ['1993 scheme' or '2003 scheme' case](/how-child-maintenance-is-worked-out/child-maintenance-before-march-2003). These are managed by the [Child Support Agency](/child-maintenance/contact) (CSA).
+* get an idea of the amount the government would work out for you
 
 ^The calculator gives an estimate. The exact amount the Child Maintenance Service calculates may be different.^
 
-##Before you start
 
 You need information about the income of the parent who'll be paying.
 
-Check the [child maintenance rates](/how-child-maintenance-is-worked-out/how-the-child-maintenance-service-works-out-child-maintenance) before you use the calculator.
+##If you already have a case and your circumstances have changed
 
-##If your circumstances have changed
+If you have a child maintenance case and your circumstances have changed, [contact the office managing your case](/child-maintenance/contact). They’ll tell you if your child maintenance payments will change.
 
-If you already have a case with the Child Support Agency (CSA) or the Child Maintenance Service and your circumstances have changed, [contact the office managing your case](/child-maintenance/contact). They’ll tell you if your child maintenance payments will change.
-
-*[CSA]: Child Support Agency
-
-
+Don't use the calculator if you have a ['1993 scheme' or '2003 scheme' case](/how-child-maintenance-is-worked-out/child-maintenance-before-march-2003). These are managed by the [Child Support Agency](/child-maintenance/contact) (CSA).
 

@@ -2,13 +2,8 @@
   Do you or someone in your household get any of the following benefits?
 <% end %>
 
-<% options(
-  "yes": "Yes",
-  "no": "No"
-) %>
-
-<% content_for :body do %>
-  <% exempt_benefits.each do |exempt_benefit| %>
-     - <%= exempt_benefit %>
-  <% end %>
+<% content_for :hint do %>
+  If you do not receive any of these click 'Next step'.
 <% end %>
+
+<% options(exempt_benefits) %>

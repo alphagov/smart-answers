@@ -1,0 +1,17 @@
+<% content_for :title do %>
+  You’ll need a visa to come to the UK
+<% end %>
+
+<% content_for :body do %>
+  <%= render partial: 'stateless_or_refugee.govspeak.erb', locals: {calculator: calculator} %>
+
+  <%= render partial: 'estonia_or_latvia.govspeak.erb', locals: {calculator: calculator} %>
+
+  Apply for a [Marriage Visitor visa](/marriage-visa) if you and your partner want to get married or enter into a civil partnership in the UK.
+
+  If you want to live in the UK permanently, you must apply for a [family of a settled person visa](/join-family-in-uk) if your partner is any of the following:
+
+  - a British citizen
+  - settled in the UK
+  - someone with humanitarian protection, for example if they have refugee status
+<% end %>

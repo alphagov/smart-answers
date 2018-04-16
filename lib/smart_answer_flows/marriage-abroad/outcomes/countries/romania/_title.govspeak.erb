@@ -1,0 +1,10 @@
+<% content_for :title do %>
+  <% if calculator.partner_is_same_sex? &&
+      calculator.partner_is_national_of_ceremony_country? %>
+    Same-sex marriage and civil partnership in Romania
+  <% elsif calculator.partner_is_same_sex? %>
+    Same-sex marriage in Romania
+  <% else %>
+    Marriage in Romania
+  <% end %>
+<% end %>

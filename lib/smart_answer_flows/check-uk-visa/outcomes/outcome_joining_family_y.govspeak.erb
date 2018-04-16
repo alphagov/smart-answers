@@ -3,11 +3,13 @@
 <% end %>
 
 <% content_for :body do %>
-  ^If you’re visiting family or partner for 6 months or less, you’ll need a [family visit visa](/family-visit-visa).^
+  ^If you’re visiting family or partner for 6 months or less, you’ll need a [Standard Visitor visa](/standard-visitor-visa).^
 
   The visa you apply for depends on your family member’s situation.
 
   <%= render partial: 'stateless_or_refugee.govspeak.erb', locals: {calculator: calculator} %>
+
+  <%= render partial: 'estonia_or_latvia.govspeak.erb', locals: {calculator: calculator} %>
 
   ##They’re settled in the UK
 

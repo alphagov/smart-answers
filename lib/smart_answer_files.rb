@@ -27,12 +27,14 @@ private
   end
 
   def all_paths
-    [
-      flow_path,
-      locale_path,
-      questions_and_responses_test_data_path,
-      responses_and_expected_results_test_data_path
-    ] + erb_template_paths + additional_files_absolute_paths
+    (
+      [
+        flow_path,
+        locale_path,
+        questions_and_responses_test_data_path,
+        responses_and_expected_results_test_data_path
+      ] + erb_template_paths + additional_files_absolute_paths
+    ).sort
   end
 
   def erb_template_directory

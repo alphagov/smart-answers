@@ -6,9 +6,9 @@ Contact them to make an appointment:
 
 $A
 British Embassy
-Edificio Torre Internacional, 
-Nivel 11, 16 Calle 0-55, 
-Zona 10 Guatemala City 
+Edificio Torre Internacional,
+Nivel 11, 16 Calle 0-55,
+Zona 10 Guatemala City
 Guatemala City
 Guatemala
 $A
@@ -16,9 +16,7 @@ $A
 $C
 Switchboard: +502-2380-7300
 
-Email: <embassy@intelnett.com>
-
-[British Embassy - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-guatemala/office/british-embassy)
+[British Embassy - opening hours](https://www.gov.uk/world/organisations/british-embassy-guatemala/office/british-embassy)
 $C
 
 ##What documents you’ll need

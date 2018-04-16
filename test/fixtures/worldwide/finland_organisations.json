@@ -5,7 +5,7 @@
       "title": "British Embassy Helsinki",
       "format": "Worldwide Organisation",
       "updated_at": "2016-03-21T12:21:41.000+00:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-helsinki",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-helsinki",
       "details": {
         "slug": "british-embassy-helsinki"
       },
@@ -15,12 +15,12 @@
           "title": "British Embassy Helsinki",
           "format": "World Office",
           "updated_at": "2013-06-27T20:45:15.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-helsinki/office/british-embassy",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-helsinki/office/british-embassy",
           "details": {
             "email": "info.helsinki@fco.gov.uk ",
             "description": "",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<p>Monday to Friday, 9am to 4.30pm</p>\n\n<h2 id=\"consular-section\">Consular Section</h2>\n\n<h3 id=\"telephone-enquiries\">Telephone enquiries</h3>\n\n<ul>\n  <li>Telephone: +358 (0) 9 2286 5100</li>\n</ul>\n\n<h3 id=\"visits\">Visits</h3>\n\n<p>By appointment only.</p>\n\n<h2 id=\"visas\">Visas</h2>\n\n<p>The British Embassy  Helsinki does not process visa applications. For enquiries and the application procedure, please refer to the Finland page on the <a rel=\"external\" href=\"http://www.ukba.homeoffice.gov.uk/countries/finland/?langname=UK%20English\">UK Border Agency website</a>.</p>\n\n<h2 id=\"public-holidays\">2016 public holidays</h2>\n\n<ul>\n  <li>1 January </li>\n  <li>6 January</li>\n  <li>24 March</li>\n  <li>25 March</li>\n  <li>28 March</li>\n  <li>5 May </li>\n  <li>24 June </li>\n  <li>29 August </li>\n  <li>6 December </li>\n  <li>22 December </li>\n  <li>23 December </li>\n  <li>6 December</li>\n</ul>\n\n<h2 id=\"getting-to-the-embassy\">Getting to the embassy</h2>\n\n<p>Our office is located at Itäinen Puistotie 17 in the Kaivopuisto area of southern Helsinki. Find us on the <a rel=\"external\" href=\"http://goo.gl/maps/RLr7V\">map.</a></p>\n\n<h3 id=\"taxis\">Taxis</h3>\n\n<p>Taxis in Helsinki are easy to use and often accept debit and credit cards as well as cash. Call +358 (0) 100 0700 to book a taxi.</p>\n\n<h3 id=\"public-transport\">Public transport</h3>\n\n<p>The Kaivopuisto tram stop is serviced by trams 1 and 3. The nearest bus stop is Meritori, serviced by bus 24.</p>\n\n<p>For more information, visit the <a rel=\"external\" href=\"http://www.reittiopas.fi/en/\">journey planner</a> of the Helsinki Regional Transport Authority (HSL).</p>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<p>Monday to Friday, 9am to 4.30pm</p>\n\n<h2 id=\"consular-section\">Consular Section</h2>\n\n<h3 id=\"telephone-enquiries\">Telephone enquiries</h3>\n\n<ul>\n  <li>Telephone: +358 (0) 9 2286 5100</li>\n</ul>\n\n<h3 id=\"visits\">Visits</h3>\n\n<p>By appointment only.</p>\n\n<h2 id=\"visas\">Visas</h2>\n\n<p>The British Embassy  Helsinki does not process visa applications. For enquiries and the application procedure, please refer to the Finland page on the <a rel=\"external\" href=\"http://www.ukba.homeoffice.gov.uk/countries/finland/?langname=UK%20English\">UK Border Agency website</a>.</p>\n\n<h2 id=\"public-holidays\">2017 public holidays</h2>\n\n<ul>\n  <li>Monday 2 January</li>\n  <li>Friday 6 January</li>\n  <li>Thursday 13 April</li>\n  <li>Friday 14 April</li>\n  <li>Monday 17 April</li>\n  <li>Monday 1 May</li>\n  <li>Friday 25 May</li>\n  <li>Friday 23 June</li>\n  <li>Monday 28 August</li>\n  <li>Wednesday 6 December</li>\n  <li>Monday 25 December</li>\n  <li>Tuesday 26 December</li>\n  <li>Wednesday 27 December</li>\n</ul>\n\n<h2 id=\"getting-to-the-embassy\">Getting to the embassy</h2>\n\n<p>Our office is located at Itäinen Puistotie 17 in the Kaivopuisto area of southern Helsinki. Find us on the <a rel=\"external\" href=\"http://goo.gl/maps/RLr7V\">map.</a></p>\n\n<h3 id=\"taxis\">Taxis</h3>\n\n<p>Taxis in Helsinki are easy to use and often accept debit and credit cards as well as cash. Call +358 (0) 100 0700 to book a taxi.</p>\n\n<h3 id=\"public-transport\">Public transport</h3>\n\n<p>The Kaivopuisto tram stop is serviced by trams 1 and 3. The nearest bus stop is Meritori, serviced by bus 24.</p>\n\n<p>For more information, visit the <a rel=\"external\" href=\"http://www.reittiopas.fi/en/\">journey planner</a> of the Helsinki Regional Transport Authority (HSL).</p>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -97,20 +97,20 @@
     },
     {
       "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-finland",
-      "title": "UK Trade & Investment Finland",
+      "title": "Department for International Trade Finland",
       "format": "Worldwide Organisation",
-      "updated_at": "2013-04-11T12:22:08.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-finland",
+      "updated_at": "2016-08-10T09:24:37.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-finland",
       "details": {
         "slug": "uk-trade-investment-finland"
       },
       "analytics_identifier": "WO175",
       "offices": {
         "main": {
-          "title": "UK Trade & Investment Finland",
+          "title": "Department for International Trade Finland",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:53.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-finland/office/uk-trade-investment-finland",
+          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-finland/office/uk-trade-investment-finland",
           "details": {
             "email": "commercial.helsinki@fco.gov.uk  ",
             "description": "",
@@ -147,10 +147,10 @@
       },
       "sponsors": [
         {
-          "title": "UK Trade & Investment",
-          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "title": "Department for International Trade",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-trade",
           "details": {
-            "acronym": "UKTI"
+            "acronym": "DIT"
           }
         }
       ]
@@ -160,7 +160,7 @@
       "title": "UK Science & Innovation Network in Finland",
       "format": "Worldwide Organisation",
       "updated_at": "2015-09-18T13:05:36.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/uk-science-innovation-network-in-finland",
+      "web_url": "https://www.gov.uk/world/organisations/uk-science-innovation-network-in-finland",
       "details": {
         "slug": "uk-science-innovation-network-in-finland"
       },
@@ -172,17 +172,17 @@
       },
       "sponsors": [
         {
-          "title": "Department for Business, Innovation & Skills",
-          "web_url": "https://www.gov.uk/government/organisations/department-for-business-innovation-skills",
-          "details": {
-            "acronym": "BIS"
-          }
-        },
-        {
           "title": "Foreign & Commonwealth Office",
           "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
           "details": {
             "acronym": "FCO"
+          }
+        },
+        {
+          "title": "Department for Business, Energy & Industrial Strategy",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy",
+          "details": {
+            "acronym": "BEIS"
           }
         }
       ]

@@ -5,7 +5,7 @@ module SmartAnswer
   class SalaryTest < ActiveSupport::TestCase
     test "Can convert monthly to weekly salary" do
       monthly = Salary.new("520", "month")
-      expected_weekly = Money.new("120")
+      expected_weekly = SmartAnswer::Money.new("120")
       assert_equal expected_weekly, monthly.per_week
     end
 

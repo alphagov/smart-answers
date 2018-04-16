@@ -6,17 +6,18 @@ Contact the British Embassy in Berlin to make an appointment.
 
 $A
 British Embassy Berlin
+Consular Section
 Wilhelmstraße 70/71
-10117  Berlin
+10117 Berlin
 Germany
 $A
 
 $C
-Telephone : +49 (0) 30 204 570
+Telephone: +49 (0) 30 204 570
 
-Email: <ukingermany@fco.gov.uk>
+Email: <germany.consulate@fco.gov.uk>
 
-[British Embassy Berlin - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-berlin/office/british-embassy)
+[British Embassy Berlin - opening hours](https://www.gov.uk/world/organisations/british-embassy-berlin/office/british-embassy-berlin)
 $C
 
 ##What documents you’ll need

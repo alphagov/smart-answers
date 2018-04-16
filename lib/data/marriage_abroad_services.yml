@@ -56,6 +56,13 @@ finland:
       default:
       - :issuing_cni_or_nulla_osta
   payment_partial_name: pay_in_euros_or_visa_electron
+iran:
+  opposite_sex:
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_by_iranian_cash_only
 lebanon:
   opposite_sex:
     default:
@@ -311,11 +318,7 @@ chile:
       - :issuing_cni_or_nulla_osta
   same_sex:
     default:
-      partner_british:
-      - :receiving_notice_of_registration
-      - :registering_marriage
-      - :issuing_marriage_certificate
-      partner_other:
+      default:
       - :receiving_notice_of_registration
       - :registering_marriage
       - :issuing_marriage_certificate
@@ -344,7 +347,6 @@ denmark:
   opposite_sex:
     ceremony_country:
       default:
-      - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
     default:
       default:
@@ -352,7 +354,6 @@ denmark:
   same_sex:
     ceremony_country:
       default:
-      - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
     default:
       default:
@@ -447,8 +448,12 @@ jordan:
   opposite_sex:
     ceremony_country:
       default:
-      - :receiving_notice_of_marriage
-      - :issuing_cni_or_nulla_osta
+      - :affidavit_or_affirmation_for_marriage
+    third_country:
+      default:
+      - :affidavit_or_affirmation_for_marriage
+    uk:
+      default:
       - :affidavit_or_affirmation_for_marriage
   payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 kazakhstan:
@@ -562,6 +567,14 @@ nicaragua:
       - :receiving_notice_of_registration
       - :registering_marriage
       - :issuing_marriage_certificate
+      partner_local:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
+      partner_other:
+      - :receiving_notice_of_registration
+      - :registering_marriage
+      - :issuing_marriage_certificate
   payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 panama:
   opposite_sex:
@@ -645,6 +658,9 @@ tajikistan:
   payment_partial_name: pay_in_local_currency_ceremony_country_name
 tunisia:
   opposite_sex:
+    default:
+      default:
+      - :issuing_cni_or_nulla_osta
     ceremony_country:
       default:
       - :receiving_notice_of_marriage
@@ -798,9 +814,7 @@ colombia:
   same_sex:
     default:
       default:
-      - :receiving_notice_of_registration
-      - :registering_marriage
-      - :issuing_marriage_certificate
+      - :affidavit_or_affirmation_for_marriage
   opposite_sex:
     default:
       default:

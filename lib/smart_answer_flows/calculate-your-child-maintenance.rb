@@ -1,7 +1,8 @@
 module SmartAnswer
   class CalculateYourChildMaintenanceFlow < Flow
     def define
-      content_id "42c2e944-7977-4297-b142-aa9406756dd2"
+      start_page_content_id "42c2e944-7977-4297-b142-aa9406756dd2"
+      flow_content_id "064f2c7e-e838-4e45-8ab0-95613eb9d409"
       name 'calculate-your-child-maintenance'
       status :published
       satisfies_need "100147"
@@ -15,14 +16,14 @@ module SmartAnswer
           url: "http://www.cmoptions.org/en/maintenance/ways-to-pay.asp"
         },
       ]
-
+      child_maintenance_calculator = Calculators::ChildMaintenanceCalculator.new
       ## Q0
       multiple_choice :are_you_paying_or_receiving? do
         option :pay
         option :receive
 
         on_response do |response|
-          self.calculator = Calculators::ChildMaintenanceCalculator.new
+          self.calculator = child_maintenance_calculator
           calculator.paying_or_receiving = response
         end
 
@@ -48,19 +49,19 @@ module SmartAnswer
       end
 
       ## Q2
-      multiple_choice :gets_benefits? do
-        option "yes"
-        option "no"
+      checkbox_question :gets_benefits? do
+        child_maintenance_calculator.state_benefits.keys.each do |benefit|
+          option benefit
+        end
 
         on_response do |response|
-          calculator.benefits = response
+          calculator.benefits = response.split(",")
         end
 
         next_node do |response|
-          case response
-          when 'yes'
+          if calculator.state_benefits?
             question :how_many_nights_children_stay_with_payee?
-          when 'no'
+          else
             question :gross_income_of_payee?
           end
         end

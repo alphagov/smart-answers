@@ -1,7 +1,8 @@
 module SmartAnswer
   class HelpIfYouAreArrestedAbroadFlow < Flow
     def define
-      content_id "cb62c931-a0fa-4363-b33d-12ac06d6232a"
+      start_page_content_id "cb62c931-a0fa-4363-b33d-12ac06d6232a"
+      flow_content_id "d5074786-f3cc-410e-bc3d-d52008f0a692"
       name 'help-if-you-are-arrested-abroad'
       status :published
       satisfies_need "100220"
@@ -86,6 +87,10 @@ module SmartAnswer
       end
 
       outcome :answer_one_generic do
+        precalculate :iran do
+          country_name == "Iran" ? true : false
+        end
+
         precalculate :transfers_back_to_uk_treaty_change_countries do
           %w(austria belgium croatia denmark finland hungary italy latvia luxembourg malta netherlands slovakia)
         end

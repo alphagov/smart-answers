@@ -1,0 +1,15 @@
+<%= @presenter.current_node.title %>
+
+<%= @presenter.current_node.body(html: false) %>
+
+<%= @presenter.current_node.hint %>
+
+<% @presenter.current_node.options.each do |option| %>
+  * <%= option.value %>: <%= option.label %>
+<% end -%>
+
+<%= @presenter.current_node.label %>
+
+<%= @presenter.current_node.suffix_label %>
+
+<%= @presenter.current_node.post_body(html: false) %>

@@ -9,9 +9,12 @@ class SmartAnswersControllerDebugTemplatePathTest < ActionController::TestCase
 
   def setup
     setup_fixture_flows
+    stub_shared_component_locales
     registry = SmartAnswer::FlowRegistry.instance
     flow_name = 'smart-answers-controller-sample'
     @template_directory = registry.load_path.join(flow_name)
+
+    stub_smart_answer_in_content_store("smart-answers-controller-sample")
   end
 
   def teardown
@@ -20,7 +23,7 @@ class SmartAnswersControllerDebugTemplatePathTest < ActionController::TestCase
 
   context 'rendering landing page' do
     setup do
-      get :show, id: 'smart-answers-controller-sample'
+      get :show, params: { id: 'smart-answers-controller-sample' }
     end
 
     should 'include element with debug-template-path data attribute' do
@@ -32,7 +35,7 @@ class SmartAnswersControllerDebugTemplatePathTest < ActionController::TestCase
 
   context 'rendering question page' do
     setup do
-      get :show, id: 'smart-answers-controller-sample', started: 'y'
+      get :show, params: { id: 'smart-answers-controller-sample', started: 'y' }
     end
 
     should 'include element with debug-template-path data attribute' do
@@ -44,7 +47,7 @@ class SmartAnswersControllerDebugTemplatePathTest < ActionController::TestCase
 
   context 'rendering outcome page' do
     setup do
-      get :show, id: 'smart-answers-controller-sample', started: 'y', responses: 'yes'
+      get :show, params: { id: 'smart-answers-controller-sample', started: 'y', responses: 'yes' }
     end
 
     should 'include element with debug-template-path data attribute' do

@@ -1,4 +1,4 @@
-require File.expand_path('../boot', __FILE__)
+require_relative 'boot'
 
 # Don't include all of rails, we don't need activerecord or action_mailer
 require "action_controller/railtie"
@@ -6,14 +6,16 @@ require "active_model/railtie"
 require "sprockets/railtie"
 require "rails/test_unit/railtie"
 
-Bundler.require(:default, Rails.env)
+# Require the gems listed in Gemfile, including any gems
+# you've limited to :test, :development, or :production.
+Bundler.require(*Rails.groups)
 
 module SmartAnswers
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-
+    Rails.application.config.action_view.form_with_generates_remote_forms = false
     # Custom directories with classes and modules you want to be autoloadable.
     config.autoload_paths += %W(#{config.root}/lib #{config.root}/app/presenters)
     config.allow_forgery_protection = false
@@ -60,5 +62,7 @@ module SmartAnswers
     config.action_dispatch.rack_cache = nil
 
     config.action_dispatch.ignore_accept_header = true
+
+    config.eager_load_paths << Rails.root.join('lib')
   end
 end

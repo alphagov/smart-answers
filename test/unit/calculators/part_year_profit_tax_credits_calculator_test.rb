@@ -77,9 +77,8 @@ module SmartAnswer
         end
 
         should 'calculate tax year in which tax credits award ends' do
-          tax_year = stub('tax-year')
-          TaxYear.stubs(:on).with(@tax_credits_award_ends_on).returns(tax_year)
-          assert_equal tax_year, @calculator.tax_year
+          expected_tax_year = YearRange.tax_year.starting_in(2015)
+          assert_equal expected_tax_year, @calculator.tax_year
         end
       end
 
@@ -209,7 +208,7 @@ module SmartAnswer
       context 'profit per day' do
         setup do
           @number_of_days_in_basis_period = 366
-          @taxable_profit = Money.new(15000)
+          @taxable_profit = SmartAnswer::Money.new(15000)
           basis_period = stub('basis_period', number_of_days: @number_of_days_in_basis_period)
           @calculator = PartYearProfitTaxCreditsCalculator.new(taxable_profit: @taxable_profit)
           @calculator.stubs(:basis_period).returns(basis_period)

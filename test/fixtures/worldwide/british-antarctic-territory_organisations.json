@@ -5,7 +5,7 @@
       "title": "British Antarctic Territory",
       "format": "Worldwide Organisation",
       "updated_at": "2014-05-12T15:24:07.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-antarctic-territory",
+      "web_url": "https://www.gov.uk/world/organisations/british-antarctic-territory",
       "details": {
         "slug": "british-antarctic-territory"
       },
@@ -15,7 +15,7 @@
           "title": "Polar Regions Department",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:52.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-antarctic-territory/office/polar-regions-unit",
+          "web_url": "https://www.gov.uk/world/organisations/british-antarctic-territory/office/polar-regions-unit",
           "details": {
             "email": "polarregions@fco.gov.uk",
             "description": "",
@@ -26,20 +26,20 @@
           "address": {
             "adr": {
               "fn": "Overseas Territories Directorate",
-              "street-address": "Polar Regions Department\r\nForeign and Commonwealth Office\r\nRoom K2.55\r\nKing Charles Street\r\n",
+              "street-address": "Polar Regions Department\r\nForeign and Commonwealth Office\r\nRoom K2.55\r\nKing Charles Street",
               "postal-code": "SW1A 2AH",
               "locality": "London",
               "region": "",
               "country-name": ""
             },
             "label": {
-              "value": "Overseas Territories Directorate\nPolar Regions Department\r\nForeign and Commonwealth Office\r\nRoom K2.55\r\nKing Charles Street\r\nLondon\nSW1A 2AH"
+              "value": "Overseas Territories Directorate\nPolar Regions Department\r\nForeign and Commonwealth Office\r\nRoom K2.55\r\nKing Charles Street\nLondon\nSW1A 2AH"
             }
           },
           "contact_numbers": [
             {
               "label": "Telephone",
-              "number": "0207 008 1639"
+              "number": "0207 008 1500"
             }
           ],
           "services": [

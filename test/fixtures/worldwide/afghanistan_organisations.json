@@ -5,7 +5,7 @@
       "title": "British Embassy Kabul",
       "format": "Worldwide Organisation",
       "updated_at": "2014-04-11T09:58:21.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-kabul",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-kabul",
       "details": {
         "slug": "british-embassy-kabul"
       },
@@ -15,12 +15,12 @@
           "title": "British Embassy Kabul",
           "format": "World Office",
           "updated_at": "2014-09-23T11:12:12.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-kabul/office/british-embassy-kabul",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-kabul/office/british-embassy-kabul",
           "details": {
             "email": "britishembassy.kabul@fco.gov.uk",
-            "description": "8.30 am to 4.30 pm ( Sunday to Thursday) \r\nPassport applications are only accepted on Mondays and Tuesdays (8.30 am  to 11.30 am)\r\nConsular Email: Cons.Kabul@fco.gov.uk ",
+            "description": "8.30 am to 4.30 pm (Sunday to Thursday) \r\nConsular counter is open from 09:00 AM to 12:00 PM\r\nConsular Email: Cons.Kabul@fco.gov.uk ",
             "contact_form_url": "",
-            "access_and_opening_times": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"british-embassy-kabul\">British Embassy Kabul</h2>\n\n<p>15th Street, Roundabout Wazir Akbar Khan  <br>\nPO Box 334, Kabul, Afghanistan</p>\n\n<p>Emailbritishembassy.kabul@fco.gov.uk\nGeneral telephone +93 (0) 700 102 000 \nManagement fax +93 (0) 700 102 250 \nPolitical section fax +93 (0) 700 102 274</p>\n\n<p>Local Time: 8.30 am to 4.30 pm (Sunday to Thursday) \nConsular counter is open from 09:00 AM to 12:00 PM\nConsular Email: Cons.Kabul@fco.gov.uk</p>\n\n<h3 id=\"embassy-holidays\">Embassy holidays</h3>\n\n<p>List of holidays in the year 2017 at the British Embassy Kabul</p>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Date</td>\n      <td>Week Day</td>\n      <td>Holiday Name</td>\n    </tr>\n    <tr>\n      <td>January 01</td>\n      <td>Sunday</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>April 16</td>\n      <td>Sunday</td>\n      <td>Easter (in lieue of Friday April 14)</td>\n    </tr>\n    <tr>\n      <td>April 17</td>\n      <td>Monday</td>\n      <td>Easter</td>\n    </tr>\n    <tr>\n      <td>May 28</td>\n      <td>Sunday</td>\n      <td>Ramadan Day 1* (Holiday to mark the start of Ramadan, the Islamic holy month of fasting)</td>\n    </tr>\n    <tr>\n      <td>June 25</td>\n      <td>Sunday</td>\n      <td>Eid Ul Fitr Day 1* (Religious holiday celebrated by Muslims worldwide that marks the end of Ramadan, the Islamic holy month of fasting)</td>\n    </tr>\n    <tr>\n      <td>June 26</td>\n      <td>Monday</td>\n      <td>Eid Ul Fitr Day 2*</td>\n    </tr>\n    <tr>\n      <td>June 27</td>\n      <td>Tuesday</td>\n      <td>Eid Ul Fitr Day 3*</td>\n    </tr>\n    <tr>\n      <td>August 31</td>\n      <td>Thursday</td>\n      <td>Eid ul Adha Day 1* (Second of two religious holidays celebrated by Muslims. It honours the willingness of Prophet Ibrahim to sacrifice his son Ismail in obedience of a command from God. Marks the end of the annual Hajj (pilgrimage) to Makkah )</td>\n    </tr>\n    <tr>\n      <td>September 03</td>\n      <td>Sunday</td>\n      <td>Eid ul Adha Day 2*</td>\n    </tr>\n    <tr>\n      <td>September 04</td>\n      <td>Monday</td>\n      <td>Eid ul Adha Day 3*</td>\n    </tr>\n    <tr>\n      <td>October 01</td>\n      <td>Sunday</td>\n      <td>Tenth of Moharram (Ashoura) *</td>\n    </tr>\n    <tr>\n      <td>November 30</td>\n      <td>Thursday</td>\n      <td>Mawloud-e-Sharif (Birthday of Holy Prophet PBUH)</td>\n    </tr>\n    <tr>\n      <td>December 25</td>\n      <td>Monday</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>26 December</td>\n      <td>Tuesday</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n<ul>\n  <li>Actual dates subject to the sighting of the moon.</li>\n</ul>\n\n<h3 id=\"disabled-access\">Disabled Access</h3>\n\n<p>There is no public access to the British Embassy Kabul without a prior appointment. If you have an appointment for a meeting at the embassy and require assistance for a disability, please contact the person you are meeting.</p>\n\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -84,20 +84,20 @@
     },
     {
       "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-afghanistan",
-      "title": "UK Trade & Investment Afghanistan",
+      "title": "Department for International Trade Afghanistan",
       "format": "Worldwide Organisation",
-      "updated_at": "2015-09-02T08:49:58.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-afghanistan",
+      "updated_at": "2016-08-08T12:24:46.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-afghanistan",
       "details": {
         "slug": "uk-trade-investment-afghanistan"
       },
       "analytics_identifier": "WO397",
       "offices": {
         "main": {
-          "title": "UK Trade & Investment Afghanistan",
+          "title": "Department for International Trade Afghanistan",
           "format": "World Office",
           "updated_at": "2015-09-02T09:05:22.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-afghanistan/office/uk-trade-investment-afghanistan",
+          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-afghanistan/office/uk-trade-investment-afghanistan",
           "details": {
             "email": "Paul.Grey@fco.gov.uk",
             "description": "",
@@ -134,10 +134,10 @@
       },
       "sponsors": [
         {
-          "title": "UK Trade & Investment",
-          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "title": "Department for International Trade",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-trade",
           "details": {
-            "acronym": "UKTI"
+            "acronym": "DIT"
           }
         }
       ]

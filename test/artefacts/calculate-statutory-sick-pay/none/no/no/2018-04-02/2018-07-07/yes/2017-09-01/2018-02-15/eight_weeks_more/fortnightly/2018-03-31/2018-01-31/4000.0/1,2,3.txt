@@ -9,11 +9,11 @@ You don’t have to pay until your employee tells you that they’re ill. You’
 Week ending | SSP amount
 -|-
 7 April 2018|£89.35
-14 April 2018|£89.35
-21 April 2018|£89.35
-28 April 2018|£89.35
-5 May 2018|£89.35
-| **Total SSP: £446.75**
+14 April 2018|£92.05
+21 April 2018|£92.05
+28 April 2018|£92.05
+5 May 2018|£92.05
+| **Total SSP: £457.55**
 
 ##What you need to know
 

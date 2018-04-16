@@ -127,22 +127,6 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "#apprentice_eligible_for_minimum_wage?" do
-      setup do
-        @calculator = MinimumWageCalculator.new
-      end
-
-      should 'return true if date is equal to or later than 1st October 2010' do
-        @calculator.date = Date.parse('2010-10-01')
-        assert @calculator.apprentice_eligible_for_minimum_wage?
-      end
-
-      should 'return false if date is earlier than 1st October 2010' do
-        @calculator.date = Date.parse('2010-09-30')
-        refute @calculator.apprentice_eligible_for_minimum_wage?
-      end
-    end
-
     context '#national_living_wage' do
       setup do
         @calculator = MinimumWageCalculator.new
@@ -298,6 +282,14 @@ module SmartAnswer::Calculators
       context "above minimum wage?" do
         should "indicate if the minimum hourly rate is less than the total hourly rate" do
           assert !@calculator.minimum_wage_or_above?
+        end
+
+        should "be above if the average hourly rate is above the minimum hourly rate" do
+          @calculator.basic_pay = 400
+          @calculator.basic_hours = 39
+          @calculator.overtime_hours = 11
+          @calculator.overtime_hourly_rate = 2 #below the minimum wage
+          assert @calculator.minimum_wage_or_above?
         end
       end
 
@@ -506,7 +498,8 @@ module SmartAnswer::Calculators
           @calculator.overtime_hourly_rate = 2
           assert_equal 6.08, @calculator.minimum_hourly_rate
           assert_equal 20, @calculator.total_overtime_pay
-          assert_equal 2.0, @calculator.total_hourly_rate
+          #assert_equal 2.0, @calculator.total_hourly_rate
+          assert_equal 2.4, @calculator.total_hourly_rate
           assert !@calculator.minimum_wage_or_above?, "should be below the minimum wage"
         end
 
@@ -574,8 +567,8 @@ module SmartAnswer::Calculators
             @calculator.accommodation_adjustment(0, 5)
             assert_equal 313.95, @calculator.historical_entitlement
             assert_equal 352.80, @calculator.total_pay
-            assert_equal 5.42, @calculator.total_hourly_rate
-            # assert_equal 5.43, @calculator.total_hourly_rate
+            #assert_equal 5.42, @calculator.total_hourly_rate
+            assert_equal 5.43, @calculator.total_hourly_rate
           end
 
           should "adjust for charged accommodation above the threshold" do
@@ -1005,10 +998,11 @@ module SmartAnswer::Calculators
         )
       end
 
-      should "return overtime (5) as the lower rate" do
+      should "return basic rate (6.5) with lower overtime_hourly_rate" do
         @calculator.overtime_hours = 10
         @calculator.overtime_hourly_rate = 5
-        assert_equal 5, @calculator.basic_rate
+        #assert_equal 5, @calculator.basic_rate
+        assert_equal 6.5, @calculator.basic_rate
       end
 
       should "return basic (6.5) as the lower rate" do
@@ -1017,10 +1011,11 @@ module SmartAnswer::Calculators
         assert_equal 6.5, @calculator.basic_rate
       end
 
-      should "return lower rate total (250.0) based on overtime_hourly_rate" do
+      should "return rate total (310.0) based on average hourly rate" do
         @calculator.overtime_hours = 10
         @calculator.overtime_hourly_rate = 5
-        assert_equal 250.0, @calculator.total_pay
+        #assert_equal 250.0, @calculator.total_pay
+        assert_equal 310.0, @calculator.total_pay
       end
 
       should "return lower rate total (325.0) based on basic_rate" do
@@ -1041,11 +1036,12 @@ module SmartAnswer::Calculators
           )
         end
 
-        should "[with accommodation_adjustment] return lower rate total (206.39) based on overtime_hourly_rate" do
+        should "[with accommodation_adjustment] return rate total (266.39)" do
           @calculator.overtime_hours = 10
           @calculator.overtime_hourly_rate = 5
           @calculator.accommodation_adjustment(20, 4)
-          assert_equal 206.39, @calculator.total_pay
+          #assert_equal 206.39, @calculator.total_pay
+          assert_equal 266.39, @calculator.total_pay
         end
 
         should "return lower rate total (281.39) based on basic_rate" do
@@ -1069,11 +1065,13 @@ module SmartAnswer::Calculators
       should "basic_rate = 8" do
         assert_equal 8, @calculator.basic_hourly_rate
       end
-      should "basic_rate = 7 with overtime_hourly_rate set to 7" do
+      should "basic_rate = 8 with overtime_hourly_rate set to 7" do
         @calculator.overtime_hours = 10
         @calculator.overtime_hourly_rate = 7
-        assert_equal 7, @calculator.basic_hourly_rate
-        assert_equal 343, @calculator.total_pay
+        #assert_equal 7, @calculator.basic_hourly_rate
+        assert_equal 8.0, @calculator.basic_hourly_rate
+        #assert_equal 343, @calculator.total_pay
+        assert_equal 382.0, @calculator.total_pay
       end
       should "basic_rate = 0 with overtime_hourly_rate set to 7" do
         @calculator = MinimumWageCalculator.new(
@@ -1087,10 +1085,11 @@ module SmartAnswer::Calculators
         assert_equal 0, @calculator.basic_hourly_rate
       end
 
-      should "total_pay = 343" do
+      should "total_pay = 382" do
         @calculator.overtime_hours = 10
         @calculator.overtime_hourly_rate = 7
-        assert_equal 343, @calculator.total_pay
+        #assert_equal 343, @calculator.total_pay
+        assert_equal 382.0, @calculator.total_pay
       end
     end
 
@@ -1152,7 +1151,8 @@ module SmartAnswer::Calculators
         @calculator.overtime_hours = 20
         @calculator.overtime_hourly_rate = 10
         assert_equal 151.2, @calculator.total_pay
-        assert_equal 207.68, @calculator.total_underpayment
+        #assert_equal 207.68, @calculator.total_underpayment
+        assert_equal 207.52, @calculator.total_underpayment
       end
       should "return total_underpayment as 0.0" do
         @calculator = MinimumWageCalculator.new(

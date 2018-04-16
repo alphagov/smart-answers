@@ -1,4 +1,4 @@
-Will you care for the child with a partner?
+Will the mother care for the child with a partner?
 
 
 
@@ -11,9 +11,9 @@ Will you care for the child with a partner?
 
 
 
-The partner must be one of the following:
+The partner is one of the following:
 
-- your husband, wife, civil partner or joint adopter
-- the child’s other parent
-- your partner (if they live with you and the child)
+- the mother's husband, wife or civil partner
+- the child's other parent
+- the mother's partner (if they live with the mother and the child)
 

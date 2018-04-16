@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  Does the person have a current or expired UK or Republic of Ireland passport or are they a named person in their parent’s UK or Republic of Ireland passport?
+  Does the person have any of the following:
 <% end %>
 
 <% options(
@@ -8,5 +8,7 @@
 ) %>
 
 <% content_for :body do %>
-  A named person is someone who appears on someone else’s passport.
+  - a British or Irish passport (current or expired)
+  - a certificate of naturalisation or registration as a British citizen
+  - a UK ‘certificate of entitlement to the right of abode’ (in their current or expired foreign passport)
 <% end %>

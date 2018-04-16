@@ -5,7 +5,7 @@
       "title": "British Embassy Warsaw ",
       "format": "Worldwide Organisation",
       "updated_at": "2013-12-06T15:14:56.000+00:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-warsaw",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-warsaw",
       "details": {
         "slug": "british-embassy-warsaw"
       },
@@ -15,12 +15,12 @@
           "title": "British Embassy Warsaw",
           "format": "World Office",
           "updated_at": "2013-06-28T18:39:11.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-warsaw/office/british-embassy",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-warsaw/office/british-embassy",
           "details": {
             "email": "",
             "description": "",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<p>Monday to Friday, 8:30am to 4:30pm. Public holidays (see below) CLOSED.</p>\n\n<h3 id=\"consular-section-opening-hours\">Consular Section opening hours:</h3>\n<p>Monday, Tuesday, Thursday, Friday - 9:00am to 12:30pm. Wednesday and public holidays (see below) CLOSED.</p>\n\n<h2 id=\"public-holidays-in-2016\">Public holidays in 2016</h2>\n\n<ul>\n  <li>Friday 1 January</li>\n  <li>Wednesday 6 January</li>\n  <li>Friday 25 March</li>\n  <li>Monday 28 March</li>\n  <li>Monday 2 May</li>\n  <li>Tuesday 3 May</li>\n  <li>Thursday 26 May</li>\n  <li>Friday 27 May</li>\n  <li>Monday 15 August</li>\n  <li>Monday 29 August</li>\n  <li>Tuesday 1 November</li>\n  <li>Friday 11 November</li>\n  <li>Monday 26 December</li>\n  <li>Tuesday 27 December</li>\n</ul>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<p>Monday to Friday, 8:30am to 4:30pm. Public holidays (see below) CLOSED.</p>\n\n<h3 id=\"consular-section-opening-hours\">Consular Section opening hours:</h3>\n<p>Monday, Tuesday, Thursday, Friday - 9:00am to 12:30pm. Wednesday and public holidays (see below) CLOSED.</p>\n\n<h2 id=\"public-holidays-in-2017-embassy-closed\">Public holidays in 2017 (Embassy closed)</h2>\n\n<ul>\n  <li>Monday 2 January</li>\n  <li>Friday 6 January</li>\n  <li>Friday 14 April</li>\n  <li>Monday 17 April</li>\n  <li>Monday 1 May</li>\n  <li>Wednesday 3 May</li>\n  <li>Monday 29 May</li>\n  <li>Thursday 15 June</li>\n  <li>Tuesday 15 August</li>\n  <li>Monday 28 August</li>\n  <li>Wednesday 1 November</li>\n  <li>Monday 13 November</li>\n  <li>Monday 25 December</li>\n  <li>Tuesday 26 December</li>\n</ul>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -90,12 +90,12 @@
             "title": "Visa Services",
             "format": "World Office",
             "updated_at": "2014-07-15T08:35:22.000+01:00",
-            "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-warsaw/office/visa-services",
+            "web_url": "https://www.gov.uk/world/organisations/british-embassy-warsaw/office/visa-services",
             "details": {
               "email": "",
               "description": "",
               "contact_form_url": "https://www.gov.uk/contact-ukvi-outside-uk",
-              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"visa-services-in-poland\">Visa Services in Poland</h2>\n<p>More information about the visa application centre in Warsaw and visa services is available on the <a href=\"https://www.gov.uk/government/organisations/uk-visas-and-immigration\">UK Visas and Immigration</a> (UKVI) pages of <a href=\"www.gov.uk\">GOV.UK</a>. </p>\n\n<p>If you need to contact us about applying for a visa to visit, work, study or settle in the UK from outside the UK please visit <a href=\"https://www.gov.uk/contact-ukvi-outside-uk\">this page</a>.</p>\n\n</div>",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"visa-services-in-poland\">Visa Services in Poland</h2>\n<p>More information about the visa application centre in Warsaw and visa services is available on the <a href=\"https://www.gov.uk/government/organisations/uk-visas-and-immigration\">UK Visas and Immigration</a> (UKVI) pages of <a href=\"www.gov.uk\">GOV.UK</a>.</p>\n\n<p>If you need to contact us about applying for a visa to visit, work, study or settle in the UK from outside the UK please visit <a href=\"https://www.gov.uk/contact-ukvi-outside-uk\">this page</a>.</p>\n\n<h2 id=\"public-holidays-in-2017-embassy-closed\">Public holidays in 2017 (Embassy closed)</h2>\n\n<ul>\n  <li>Monday 2 January</li>\n  <li>Friday 6 January</li>\n  <li>Friday 14 April</li>\n  <li>Monday 17 April</li>\n  <li>Monday 1 May</li>\n  <li>Wednesday 3 May</li>\n  <li>Monday 29 May</li>\n  <li>Thursday 15 June</li>\n  <li>Tuesday 15 August</li>\n  <li>Monday 28 August</li>\n  <li>Wednesday 1 November</li>\n  <li>Monday 13 November</li>\n  <li>Monday 25 December</li>\n  <li>Tuesday 26 December</li>\n</ul>\n\n</div>",
               "type": "Other"
             },
             "address": {
@@ -131,21 +131,21 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-poland",
-      "title": "UK Trade & Investment Poland",
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-poland",
+      "title": "Department for International Trade Poland",
       "format": "Worldwide Organisation",
-      "updated_at": "2013-04-16T14:08:44.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-poland",
+      "updated_at": "2016-11-11T16:13:05.000+00:00",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-poland",
       "details": {
-        "slug": "uk-trade-investment-poland"
+        "slug": "department-for-international-trade-poland"
       },
       "analytics_identifier": "WO180",
       "offices": {
         "main": {
-          "title": "UK Trade & Investment Poland",
+          "title": "Department for International Trade Poland",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:53.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-poland/office/uk-trade-investment-poland",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-poland/office/uk-trade-investment-poland",
           "details": {
             "email": "warsaw.commercialsection@fco.gov.uk",
             "description": "",
@@ -182,42 +182,10 @@
       },
       "sponsors": [
         {
-          "title": "UK Trade & Investment",
-          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "title": "Department for International Trade",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-trade",
           "details": {
-            "acronym": "UKTI"
-          }
-        }
-      ]
-    },
-    {
-      "id": "https://www.gov.uk/api/worldwide-organisations/uk-science-and-innovation-network",
-      "title": "UK Science and Innovation Network",
-      "format": "Worldwide Organisation",
-      "updated_at": "2014-11-14T06:13:09.000+00:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/uk-science-and-innovation-network",
-      "details": {
-        "slug": "uk-science-and-innovation-network"
-      },
-      "analytics_identifier": "WO363",
-      "offices": {
-        "other": [
-
-        ]
-      },
-      "sponsors": [
-        {
-          "title": "Department for Business, Innovation & Skills",
-          "web_url": "https://www.gov.uk/government/organisations/department-for-business-innovation-skills",
-          "details": {
-            "acronym": "BIS"
-          }
-        },
-        {
-          "title": "Foreign & Commonwealth Office",
-          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
-          "details": {
-            "acronym": "FCO"
+            "acronym": "DIT"
           }
         }
       ]
@@ -227,7 +195,7 @@
       "title": "UK Science & Innovation Network in Poland",
       "format": "Worldwide Organisation",
       "updated_at": "2016-03-02T14:53:59.000+00:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/uk-science-innovation-network-in-poland",
+      "web_url": "https://www.gov.uk/world/organisations/uk-science-innovation-network-in-poland",
       "details": {
         "slug": "uk-science-innovation-network-in-poland"
       },
@@ -239,24 +207,24 @@
       },
       "sponsors": [
         {
-          "title": "Department for Business, Innovation & Skills",
-          "web_url": "https://www.gov.uk/government/organisations/department-for-business-innovation-skills",
-          "details": {
-            "acronym": "BIS"
-          }
-        },
-        {
           "title": "Foreign & Commonwealth Office",
           "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
           "details": {
             "acronym": "FCO"
+          }
+        },
+        {
+          "title": "Department for Business, Energy & Industrial Strategy",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy",
+          "details": {
+            "acronym": "BEIS"
           }
         }
       ]
     }
   ],
   "current_page": 1,
-  "total": 4,
+  "total": 3,
   "pages": 1,
   "page_size": 20,
   "start_index": 1,

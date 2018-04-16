@@ -243,14 +243,6 @@ module SmartAnswer::Calculators
       @data_query.ss_alt_fees_table_country?(ceremony_country, self)
     end
 
-    def civil_partnership_institution_name
-      if ceremony_country == 'cyprus'
-        'High Commission'
-      else
-        'British embassy or consulate'
-      end
-    end
-
     def outcome_path_when_resident_in_uk
       outcome_path_when_resident_in('uk')
     end
@@ -315,37 +307,28 @@ module SmartAnswer::Calculators
 
     def path_to_outcome
       if two_questions_country?
-        return [ceremony_country, marriage_type_path_name]
+        [ceremony_country, marriage_type_path_name]
+      elsif three_questions_country?
+        [ceremony_country, ceremony_location_path_name, marriage_type_path_name]
+      elsif four_questions_country?
+        [ceremony_country, ceremony_location_path_name, partner_nationality_path_name, marriage_type_path_name]
       end
-
-      [ceremony_country, ceremony_location_path_name, partner_nationality_path_name, marriage_type_path_name]
     end
 
     def has_outcome_per_path?
-      %w(
-         china
-         denmark
-         france
-         hungary
-         italy
-         ireland
-         jordan
-         latvia
-         mozambique
-         philippines
-         portugal
-         sweden
-         vietnam
-        ).include?(ceremony_country)
+      @data_query.outcome_per_path_countries.include?(ceremony_country)
+    end
+
+    def four_questions_country?
+      @data_query.countries_with_18_outcomes.include?(ceremony_country)
+    end
+
+    def three_questions_country?
+      @data_query.countries_with_6_outcomes.include?(ceremony_country)
     end
 
     def two_questions_country?
-      %w(
-         france
-         ireland
-         philippines
-         italy
-        ).include?(ceremony_country)
+      @data_query.countries_with_2_outcomes.include?(ceremony_country)
     end
 
   private

@@ -2,7 +2,7 @@
 :is_your_employee_getting?:
 - statutory_maternity_pay,maternity_allowance
 - statutory_paternity_pay,statutory_adoption_pay
-- statutory_paternity_pay,additional_statutory_paternity_pay
+- statutory_paternity_pay,shared_parental_leave_and_pay
 - none
 :employee_tell_within_limit?:
 - 'yes'

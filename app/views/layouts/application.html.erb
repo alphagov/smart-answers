@@ -7,7 +7,7 @@
     <%= yield :head %>
 
     <% if @content_item %>
-      <%= render partial: 'govuk_component/analytics_meta_tags', locals: { content_item: @content_item } %>
+      <%= render partial: 'govuk_component/analytics_meta_tags', locals: { content_item: @content_item, strip_postcode_pii: true } %>
     <% end %>
   </head>
 <body class="mainstream">
@@ -15,6 +15,7 @@
 
   <div id="wrapper" class="answer smart_answer">
     <%= yield %>
+    <%= render "govuk_publishing_components/components/feedback" %>
   </div>
 </body>
 </html>

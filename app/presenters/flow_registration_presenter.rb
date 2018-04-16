@@ -11,8 +11,12 @@ class FlowRegistrationPresenter
     @flow.need_id
   end
 
-  def content_id
-    @flow.content_id
+  def start_page_content_id
+    @flow.start_page_content_id
+  end
+
+  def flow_content_id
+    @flow.flow_content_id
   end
 
   def title
@@ -27,11 +31,23 @@ class FlowRegistrationPresenter
     @flow.external_related_links || []
   end
 
+  def start_page_body
+    start_node.body
+  end
+
+  def start_page_post_body
+    start_node.post_body
+  end
+
+  def start_page_button_text
+    start_node.start_button_text
+  end
+
   module MethodMissingHelper
     OVERRIDES = {
       'calculator.services_payment_partial_name' => 'pay_by_cash_only',
       'calculator.holiday_entitlement_days' => 10,
-      'calculator.path_to_outcome' => %w(italy opposite_sex),
+      'calculator.path_to_outcome' => %w(italy ceremony_country opposite_sex),
       'calculator.ceremony_country' => 'italy'
     }
 
@@ -41,23 +57,27 @@ class FlowRegistrationPresenter
     end
   end
 
-  def indexable_content
-    HTMLEntities.new.decode(
-      @flow.nodes.inject([start_node.body]) { |acc, node|
-        case node
-        when SmartAnswer::Question::Base
-          pres = QuestionPresenter.new(node, nil, helpers: [MethodMissingHelper])
-          acc.concat([:title, :body, :hint].map { |method|
-            pres.send(method)
-          })
-        when SmartAnswer::Outcome
-          pres = OutcomePresenter.new(node, nil, helpers: [MethodMissingHelper])
-          acc.concat([:title, :body].map { |method|
-            pres.send(method)
-          })
-        end
-      }.compact.join(" ").gsub(/(?:<[^>]+>|\s)+/, " ")
-    )
+  def flows_content
+    content = @flow.nodes.flat_map do |node|
+      case node
+      when SmartAnswer::Question::Base
+        pres = QuestionPresenter.new(node, nil, helpers: [MethodMissingHelper])
+        [pres.title, pres.body, pres.hint]
+      when SmartAnswer::Outcome
+        pres = OutcomePresenter.new(node, nil, helpers: [MethodMissingHelper])
+        [pres.title, pres.body]
+      end
+    end
+
+    content
+      .compact
+      .reject(&:blank?)
+      .map do |html|
+        HTMLEntities.new
+          .decode(html)
+          .gsub(/(?:<[^>]+>|\s)+/, " ")
+          .strip
+      end
   end
 
   def state

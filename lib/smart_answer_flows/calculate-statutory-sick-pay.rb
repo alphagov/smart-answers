@@ -1,7 +1,8 @@
 module SmartAnswer
   class CalculateStatutorySickPayFlow < Flow
     def define
-      content_id "1c676a9e-0424-4ebb-bab8-d8cb8d2fc6f8"
+      start_page_content_id "1c676a9e-0424-4ebb-bab8-d8cb8d2fc6f8"
+      flow_content_id "c3ecdaf0-5d37-45d0-bded-d9f1095b60d1"
       name 'calculate-statutory-sick-pay'
 
       status :published
@@ -13,7 +14,7 @@ module SmartAnswer
         option :maternity_allowance
         option :statutory_paternity_pay
         option :statutory_adoption_pay
-        option :additional_statutory_paternity_pay
+        option :shared_parental_leave_and_pay
 
         on_response do |response|
           self.calculator = Calculators::StatutorySickPayCalculator.new

@@ -23,9 +23,14 @@ module SmartAnswer
       end
     end
 
-    def content_id(cid = nil)
-      @content_id = cid unless cid.nil?
-      @content_id
+    def start_page_content_id(cid = nil)
+      @start_page_content_id = cid unless cid.nil?
+      @start_page_content_id
+    end
+
+    def flow_content_id(cid = nil)
+      @flow_content_id = cid unless cid.nil?
+      @flow_content_id
     end
 
     def name(name = nil)
@@ -117,7 +122,11 @@ module SmartAnswer
         begin
           state = node(state.current_node).transition(state, response)
           node(state.current_node).evaluate_precalculations(state)
-        rescue InvalidResponse => e
+        rescue BaseStateTransitionError => e
+          if e.is_a?(LoggedError)
+            GovukError.notify e
+          end
+
           state.dup.tap do |new_state|
             new_state.error = e.message
             new_state.freeze

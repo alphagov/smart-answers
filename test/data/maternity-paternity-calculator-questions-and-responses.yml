@@ -3,9 +3,9 @@
 - maternity
 - paternity
 - adoption
-:taking_paternity_leave_for_adoption?:
-- 'yes'
-- 'no'
+:taking_paternity_or_maternity_leave_for_adoption?:
+- 'paternity'
+- 'maternity'
 :date_of_adoption_match?:
 - '2018-04-05' # @match_date >= Date.parse('5 April 2018') # => true
 :date_of_adoption_placement?:
@@ -33,6 +33,23 @@
 :earnings_for_pay_period_adoption?:
 - '100' # calculator.average_weekly_earnings < calculator.lower_earning_limit # => true
 - '3000' # calculator.average_weekly_earnings < calculator.lower_earning_limit # => false
+:how_many_payments_weekly?:
+- '8'
+- '9'
+- '10'
+:how_many_payments_every_2_weeks?:
+- '4'
+- '5'
+:how_many_payments_every_4_weeks?:
+- '1'
+- '2'
+:how_many_payments_weekly?:
+- '8'
+- '9'
+- '10'
+:how_many_payments_monthly?:
+- '2'
+- '3'
 :how_do_you_want_the_sap_calculated?:
 - weekly_starting
 - usual_paydates
@@ -125,10 +142,7 @@
 - 'no'
 :date_leave_starts?:
 - '2018-01-01'
-:did_the_employee_work_for_you?:
-- 'yes'
-- 'no'
-:is_the_employee_on_your_payroll?:
+:did_the_employee_work_for_you_between?:
 - 'yes'
 - 'no'
 :last_normal_payday?:
@@ -179,3 +193,6 @@
 - third
 - fourth
 - last
+:adoption_is_from_overseas?:
+- 'no'
+- 'yes'

@@ -1,7 +1,8 @@
 module SmartAnswer
   class BenefitCapCalculatorFlow < Flow
     def define
-      content_id "ffe22070-123b-4390-8cc4-51f9d5b5cc74"
+      start_page_content_id "ffe22070-123b-4390-8cc4-51f9d5b5cc74"
+      flow_content_id "d2593a1a-441b-4751-8bf7-ed04a8fd8689"
       name 'benefit-cap-calculator'
       status :published
       satisfies_need "100696"
@@ -29,6 +30,10 @@ module SmartAnswer
         option :yes
         option :no
 
+        calculate :exempt_benefits_descriptions do
+          config.exempt_benefits.values
+        end
+
         calculate :exempt_benefits do
           config.exempt_benefits
         end
@@ -43,9 +48,14 @@ module SmartAnswer
       end
 
       #Q3
-      multiple_choice :receiving_exemption_benefits? do
-        option :yes
-        option :no
+      checkbox_question :receiving_exemption_benefits? do
+        config.exempt_benefits.keys.each do |exempt_benefit|
+          option exempt_benefit
+        end
+
+        on_response do |response|
+          config.exempted_benefits = response.split(",")
+        end
 
         calculate :benefit_options do
           config.descriptions.merge(none_above: "None of the above")
@@ -59,8 +69,8 @@ module SmartAnswer
           0
         end
 
-        next_node do |response|
-          if response == 'yes'
+        next_node do
+          if config.exempted_benefits?
             outcome :outcome_not_affected_exemptions
           else
             question :receiving_non_exemption_benefits?

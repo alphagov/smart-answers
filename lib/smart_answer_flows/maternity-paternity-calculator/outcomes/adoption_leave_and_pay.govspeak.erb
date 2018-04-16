@@ -44,12 +44,12 @@
 
     The employee is entitled to up to 39 weeks Statutory Adoption Pay (SAP) if they [claim SAP in time](/employers-adoption-pay-leave/notice-period) and give you [proof of the adoption](/employers-adoption-pay-leave/proof-of-adoption).
 
-    The employee’s average weekly earnings are: £<%= average_weekly_earnings %>.
+    The employee’s average weekly earnings are: <%= format_money(average_weekly_earnings) %>.
 
     Date | SAP amount
     -|-
     <%= pay_dates_and_pay %>
-     | **Total SAP: £<%= total_sap %>**
+     | **Total SAP: <%= format_money(total_sap) %>**
 
     %This calculator doesn’t check eligibility for [Shared Parental Leave and Pay](/shared-parental-leave-and-pay-employer-guide).%
   <% end %>

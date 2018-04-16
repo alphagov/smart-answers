@@ -1,3 +1,3 @@
 module SmartAnswer
-  class InvalidResponse < StandardError; end
+  class InvalidResponse < BaseStateTransitionError; end
 end

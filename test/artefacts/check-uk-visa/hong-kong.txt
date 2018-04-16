@@ -1,0 +1,14 @@
+What sort of travel document do you have?
+
+
+
+
+
+  * passport: Hong Kong passport
+  * travel_document: Hong Kong travel document
+
+
+
+
+
+

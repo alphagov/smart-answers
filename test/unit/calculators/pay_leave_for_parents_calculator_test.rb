@@ -70,10 +70,6 @@ module SmartAnswer
           @calculator.due_date = @date
         end
 
-        should "be in 2013-2014 range" do
-          assert_equal true, @calculator.in_2013_2014_fin_year?(@date)
-        end
-
         should "return £ 109 for lower_earnings_amount" do
           assert_equal 109, @calculator.lower_earnings_amount
         end
@@ -84,10 +80,6 @@ module SmartAnswer
           @date = Date.parse("2015-1-1")
           @calculator = PayLeaveForParentsCalculator.new
           @calculator.due_date = @date
-        end
-
-        should "be in 2013-2014 range" do
-          assert_equal true, @calculator.in_2014_2015_fin_year?(@date)
         end
 
         should "return £ 111 for lower_earnings_amount" do
@@ -102,24 +94,44 @@ module SmartAnswer
           @calculator.due_date = @date
         end
 
-        should "be in 2015-2016 range" do
-          assert_equal true, @calculator.in_2015_2016_fin_year?(@date)
-        end
-
         should "return £ 112 for lower_earnings_amount" do
           assert_equal 112, @calculator.lower_earnings_amount
         end
       end
 
-      context "due date outside all ranges" do
+      context "due date in 2016-2017 range" do
         setup do
-          @date = Date.parse("2022-1-1")
+          @date = Date.parse("2017-01-01")
           @calculator = PayLeaveForParentsCalculator.new
           @calculator.due_date = @date
         end
 
-        should "return the latest_pat_leave known lower_earnings_amount" do
+        should "return £112 for lower_earnings_amount" do
           assert_equal 112, @calculator.lower_earnings_amount
+        end
+      end
+
+      context "due date in 2017-2018 range" do
+        setup do
+          @date = Date.parse("2018-01-01")
+          @calculator = PayLeaveForParentsCalculator.new
+          @calculator.due_date = @date
+        end
+
+        should "return £113 for lower_earnings_amount" do
+          assert_equal 113, @calculator.lower_earnings_amount
+        end
+      end
+
+      context "due date outside all ranges" do
+        setup do
+          @date = Date.parse("2022-01-01")
+          @calculator = PayLeaveForParentsCalculator.new
+          @calculator.due_date = @date
+        end
+
+        should "return the latest_pay_leave known lower_earnings_amount" do
+          assert_equal 113, @calculator.lower_earnings_amount
         end
       end
     end

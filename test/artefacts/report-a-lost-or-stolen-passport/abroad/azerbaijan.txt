@@ -10,7 +10,7 @@ $A
 British Embassy Baku
 45 Khagani Street
 AZ1010
-Baku 
+Baku
 Azerbaijan
 $A
 
@@ -20,7 +20,7 @@ Fax: + 994 (12) 4977434
 
 Email: <generalenquiries.baku@fco.gov.uk>
 
-[British Embassy Baku - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-baku/office/british-embassy-baku)
+[British Embassy Baku - opening hours](https://www.gov.uk/world/organisations/british-embassy-baku/office/british-embassy-baku)
 $C
 
 ##Get a replacement passport

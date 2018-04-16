@@ -5,7 +5,7 @@
       "title": "British Embassy Asmara",
       "format": "Worldwide Organisation",
       "updated_at": "2013-05-30T07:45:00.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-asmara",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-asmara",
       "details": {
         "slug": "british-embassy-asmara"
       },
@@ -15,31 +15,31 @@
           "title": "British Embassy Asmara",
           "format": "World Office",
           "updated_at": "2014-09-23T11:12:12.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-asmara/office/british-embassy-asmara",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-asmara/office/british-embassy-asmara",
           "details": {
-            "email": "Asmara.Enquiries@fco.gov.uk ",
-            "description": "Office Hours: \r\nMonday to Thursday  (GMT)\r\n5am - 1:30pm\r\nFriday\r\n5am - 9:30pm\r\nMonday to Thursday (Local Time)\r\n8am - 4:30pm\r\nFriday\r\n8am - 12:30pm",
+            "email": "asmara.enquiries@fco.gov.uk ",
+            "description": "Office Hours: \r\n\r\nMonday to Thursday 09.00-12.30 and 14.00-16.30 and Friday 9.00-12.30",
             "contact_form_url": "",
-            "access_and_opening_times": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>The consulate is open to visitors Monday to Thursday 09.00-12.30 and 14.00-16.30 and Friday 9.00-12.30, excluding public holidays.</p>\n\n<p>The embassy is a two storey building standing in its own grounds; the reception area is on the ground floor and accessible by wheelchair as there is a side entrance with a ramp.</p>\n\n<h2 id=\"public-holidays\">2016 public holidays</h2>\n\n<p>Our offices will be closed for the following public holidays in 2016:</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Public holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 1 January</td>\n      <td>New Year´s Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 7 January</td>\n      <td>Geez Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 20 January</td>\n      <td>Geez Ephiphany</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Western Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Western Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Friday 29 April</td>\n      <td>Geez Good Friday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 24 May</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Monday 13 June</td>\n      <td>Queen’s birthday</td>\n    </tr>\n    <tr>\n      <td>Monday 20 June</td>\n      <td>Martyrs Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 1 September</td>\n      <td>Launching of armed struggle day</td>\n    </tr>\n    <tr>\n      <td>Monday 12 September</td>\n      <td>Geez New Year</td>\n    </tr>\n    <tr>\n      <td>Wednesday 28 September</td>\n      <td>Holy Cross</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 December</td>\n      <td>Substitute holiday for Christmas Day</td>\n    </tr>\n  </tbody>\n</table>\n\n</div>",
             "type": "Embassy"
           },
           "address": {
             "adr": {
               "fn": "",
-              "street-address": "66-68 Mariam Ghimbi Street\r\nZip Code 174\r\nPO Box 5584\r\nAsmara",
+              "street-address": "66-68 Mariam Ghimbi Street\r\nZip Code 174\r\nPO Box 5584",
               "postal-code": "",
               "locality": "Asmara",
               "region": "",
               "country-name": "Eritrea"
             },
             "label": {
-              "value": "66-68 Mariam Ghimbi Street\r\nZip Code 174\r\nPO Box 5584\r\nAsmara\nAsmara\nEritrea"
+              "value": "66-68 Mariam Ghimbi Street\r\nZip Code 174\r\nPO Box 5584\nAsmara\nEritrea"
             }
           },
           "contact_numbers": [
             {
               "label": "Telephone",
-              "number": "+ 291 1 20 28 39"
+              "number": "+44 1908 516666"
             },
             {
               "label": "Fax",

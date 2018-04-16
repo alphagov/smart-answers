@@ -6,27 +6,39 @@ The mother can get up to 39 weeks of [maternity pay](/maternity-pay-leave/pay).
 
 First 6 weeks | 90% of her average weekly earnings (before tax)
 
-<% if calculator.range_in_2013_2014_fin_year? %>
+<% if calculator.paid_leave_is_in_tax_year?(2013) %>
 
 Remaining weeks (between 6 April 2013 and 5 April 2014) | £136.78 per week or 90% of her average weekly earnings (before tax), whichever is lower
 
 <% end %>
 
-<% if calculator.range_in_2014_2015_fin_year? %>
+<% if calculator.paid_leave_is_in_tax_year?(2014) %>
 
 Remaining weeks (between 6 April 2014 and 5 April 2015) | £138.18 per week or 90% of her average weekly earnings (before tax), whichever is lower
 
 <% end %>
 
-<% if calculator.range_in_2015_2016_fin_year? %>
+<% if calculator.paid_leave_is_in_tax_year?(2015) %>
 
 Remaining weeks (between 6 April 2015 and 5 April 2016) | £139.58 per week or 90% of her average weekly earnings (before tax), whichever is lower
 
 <% end %>
 
-<% if !calculator.range_in_2013_2014_fin_year? && !calculator.range_in_2014_2015_fin_year? && !calculator.range_in_2015_2016_fin_year? %>
+<% if calculator.paid_leave_is_in_tax_year?(2016) %>
 
-Remaining weeks | £139.58 per week or 90% of her average weekly earnings (before tax) - whichever is lower (this figure is for the current tax year - it may change next April)
+Remaining weeks (between 6 April 2016 and 5 April 2017) | £139.58 per week or 90% of her average weekly earnings (before tax), whichever is lower
+
+<% end %>
+
+<% if calculator.paid_leave_is_in_tax_year?(2017) %>
+
+Remaining weeks (between 6 April 2017 and 5 April 2018) | £140.98 per week or 90% of her average weekly earnings (before tax), whichever is lower
+
+<% end %>
+
+<% if calculator.paid_leave_is_in_tax_year?(2018) %>
+
+Remaining weeks (between 6 April 2018 and 5 April 2019) | £145.18 per week or 90% of her average weekly earnings (before tax), whichever is lower
 
 <% end %>
 

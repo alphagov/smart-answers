@@ -1,7 +1,7 @@
 ---
 :when_does_your_course_start?:
-- 2016-2017
 - 2017-2018
+- 2018-2019
 :what_type_of_student_are_you?:
 - uk-full-time
 - uk-part-time
@@ -18,6 +18,10 @@
 - 43875
 - 35000
 - 24500
+:how_many_credits_will_you_study?:
+- 80
+:how_many_credits_does_a_full_time_student_study?:
+- 120
 :do_any_of_the_following_apply_uk_full_time_students_only?:
 - children-under-17,dependant-adult,has-disability,low-income
 - 'no'
@@ -34,5 +38,8 @@
 - dental-hygiene-or-dental-therapy
 - none-of-the-above
 :are_you_studying_dental_hygiene_or_dental_therapy?:
+- 'yes'
+- 'no'
+:are_you_a_doctor_or_dentist?:
 - 'yes'
 - 'no'

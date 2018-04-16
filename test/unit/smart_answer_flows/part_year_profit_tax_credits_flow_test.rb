@@ -219,7 +219,7 @@ module SmartAnswer
 
     context 'when answering when_did_you_stop_trading? question' do
       setup do
-        tax_year = TaxYear.new(begins_in: 2015)
+        tax_year = YearRange.tax_year.starting_in(2015)
         @calculator.stubs(tax_year: tax_year)
         setup_states_for_question(:when_did_you_stop_trading?,
           responding_with: '2015-06-01',
@@ -319,7 +319,7 @@ module SmartAnswer
       end
 
       should 'store parsed response on calculator as taxable_profit' do
-        assert_equal Money.new(15000), @calculator.taxable_profit
+        assert_equal SmartAnswer::Money.new(15000), @calculator.taxable_profit
       end
 
       should 'go to result outcome' do

@@ -4,26 +4,38 @@ The mother’s partner can get [additional paternity pay](/paternity-pay-leave/p
 
 ###Dates and amounts
 
-<% if calculator.range_in_2013_2014_fin_year? %>
+<% if calculator.paid_leave_is_in_tax_year?(2013) %>
 
 Weekly rate (between 6 April 2013 and 5 April 2014) | £136.78, or 90% of their average weekly earnings (whichever is lower).
 
 <% end %>
 
-<% if calculator.range_in_2014_2015_fin_year? %>
+<% if calculator.paid_leave_is_in_tax_year?(2014) %>
 
 Weekly rate (between 6 April 2014 and 5 April 2015) | £138.18, or 90% of their average weekly earnings (whichever is lower).
 
 <% end %>
 
-<% if calculator.range_in_2015_2016_fin_year? %>
+<% if calculator.paid_leave_is_in_tax_year?(2015) %>
 
 Weekly rate (between 6 April 2015 and 5 April 2016) | £139.58, or 90% of their average weekly earnings (whichever is lower).
 
 <% end %>
 
-<% if !calculator.range_in_2013_2014_fin_year? && !calculator.range_in_2014_2015_fin_year? && !calculator.range_in_2015_2016_fin_year? %>
+<% if calculator.paid_leave_is_in_tax_year?(2016) %>
 
-Weekly rate (between 6 April 2015 and 5 April 2016) | £139.58, or 90% of their average weekly earnings (whichever is lower).
+Weekly rate (between 6 April 2016 and 5 April 2017) | £139.58, or 90% of their average weekly earnings (whichever is lower).
+
+<% end %>
+
+<% if calculator.paid_leave_is_in_tax_year?(2017) %>
+
+Weekly rate (between 6 April 2017 and 5 April 2018) | £140.98, or 90% of their average weekly earnings (whichever is lower).
+
+<% end %>
+
+<% if calculator.paid_leave_is_in_tax_year?(2018) %>
+
+Weekly rate (between 6 April 2018 and 5 April 2019) | £145.18, or 90% of their average weekly earnings (whichever is lower).
 
 <% end %>

@@ -1,9 +1,0 @@
----
-lib/smart_answer_flows/legalisation-document-checker.rb: 222aad7d4d6213e1ba2333a9af63edd7
-test/data/legalisation-document-checker-questions-and-responses.yml: 37c99c68ba04e459447622b01938ce0b
-test/data/legalisation-document-checker-responses-and-expected-results.yml: d55ccccc64cc1f58b648e810e5fa07e5
-lib/smart_answer_flows/legalisation-document-checker/legalisation_document_checker.govspeak.erb: 4be67b8e3aeebe4f3b99a5153b92ccdf
-lib/smart_answer_flows/legalisation-document-checker/outcomes/outcome_results.govspeak.erb: a7f47d29deffe1263b3e46b1b4110884
-lib/smart_answer_flows/legalisation-document-checker/questions/which_documents_do_you_want_legalised.govspeak.erb: 807d6bee48fd47731d066aab6ad50544
-lib/smart_answer/calculators/legalisation_documents_data_query.rb: 1506239dc7b75049361f98fcb29dde85
-lib/data/legalisation_documents_data.yml: 7b32249d4358d433be1dd57886555c34

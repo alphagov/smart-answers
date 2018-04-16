@@ -12,12 +12,32 @@ module SmartAnswer::Calculators
       :a_notice_leave, :last_payday, :pre_offset_payday, :pay_date, :paternity_leave_duration,
       :pay_day_in_month, :pay_day_in_week, :pay_method, :pay_week_in_month, :work_days, :date_of_birth, :awe
 
-    attr_accessor :pay_pattern
+    attr_accessor :pay_pattern, :payment_option
     attr_accessor :earnings_for_pay_period
     attr_accessor :employee_has_contract_adoption
     attr_accessor :on_payroll
 
     DAYS_OF_THE_WEEK = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
+    PAYMENT_OPTIONS = {
+      weekly: {
+        "8": "8 payments or fewer",
+        "9": "9 payments",
+        "10": "10 payments"
+      },
+      every_2_weeks: {
+        "4": "4 payments or fewer",
+        "5": "5 payments"
+      },
+      every_4_weeks: {
+        "1": "1 payment",
+        "2": "2 payments"
+      },
+      monthly: {
+        "2": "1 or 2 payments",
+        "3": "3 payments"
+      }
+    }.with_indifferent_access.freeze
+    private_constant :PAYMENT_OPTIONS
 
     def initialize(match_or_due_date, leave_type = "maternity")
       expected_start = match_or_due_date - match_or_due_date.wday
@@ -25,16 +45,69 @@ module SmartAnswer::Calculators
 
       @due_date = @match_date = match_or_due_date
       @leave_type = leave_type
-      @expected_week = @matched_week = expected_start..expected_start + 6.days
+      @expected_week = @matched_week = SmartAnswer::DateRange.new(
+        begins_on: expected_start,
+        ends_on: expected_start + 6.days
+      )
       @notice_of_leave_deadline = next_saturday(qualifying_start)
-      @qualifying_week = qualifying_start..qualifying_start + 6.days
-      @employment_start = 25.weeks.ago(@qualifying_week.last)
-      @a_employment_start = 25.weeks.ago(@matched_week.last)
-      @leave_earliest_start_date = 11.weeks.ago(@expected_week.first)
-      @ssp_stop = 4.weeks.ago(@expected_week.first)
+      @qualifying_week = SmartAnswer::DateRange.new(
+        begins_on: qualifying_start,
+        ends_on: qualifying_start + 6.days
+      )
+      @employment_start = @qualifying_week.weeks_after(-25).ends_on
+      @a_employment_start = @matched_week.weeks_after(-25).ends_on
+      @leave_earliest_start_date = @expected_week.weeks_after(-11).begins_on
+      @ssp_stop = @expected_week.weeks_after(-4).begins_on
 
       # Adoption instance vars
       @a_notice_leave = @match_date + 7
+    end
+
+    def self.payment_options(period)
+      PAYMENT_OPTIONS.fetch(period, {})
+    end
+
+    def number_of_payments
+      if valid_payment_option?
+        if weekly? || monthly?
+          payment_option.to_f
+        elsif every_2_weeks?
+          payment_option.to_f * 2
+        elsif every_4_weeks?
+          payment_option.to_f * 4
+        end
+      elsif monthly?
+        2.0
+      else
+        8.0
+      end
+    end
+
+    #monthly? every_2_weeks? every_4_weeks? weekly?
+    PAYMENT_OPTIONS.keys.each do |frequence|
+      define_method "#{frequence}?" do
+        pay_pattern == frequence
+      end
+    end
+
+    def valid_pay_pattern?
+      PAYMENT_OPTIONS.keys.map(&:to_s).include?(pay_pattern)
+    end
+
+    def adoption?
+      @leave_type == "adoption"
+    end
+
+    def maternity?
+      @leave_type == "maternity"
+    end
+
+    def paternity?
+      @leave_type == "paternity"
+    end
+
+    def paternity_adoption?
+      @leave_type == "paternity_adoption"
     end
 
     def format_date(date)
@@ -75,6 +148,19 @@ module SmartAnswer::Calculators
         paternity_leave_duration == 'one_week' ? 1 : 2
       else
         39
+      end
+    end
+
+    def adoption_matching_week_start
+      @match_date.sunday? ? @match_date : @match_date.beginning_of_week(:sunday)
+    end
+
+    def adoption_qualifying_start
+      case leave_type
+      when "adoption", "paternity_adoption"
+        adoption_matching_week_start
+      else
+        qualifying_week.first
       end
     end
 
@@ -126,9 +212,9 @@ module SmartAnswer::Calculators
       sprintf("%.5f", (
         case pay_pattern
         when "monthly"
-          earnings_for_pay_period.to_f / 2 * 12 / 52
+          earnings_for_pay_period.to_f / number_of_payments * 12 / 52
         else
-          earnings_for_pay_period.to_f / 8
+          earnings_for_pay_period.to_f / number_of_payments
         end
       )).to_f # HMRC truncation at 5 places.
     end
@@ -144,7 +230,7 @@ module SmartAnswer::Calculators
           # Pay period includes the date of payment hence the range starts the day after.
           last_paydate = index == 0 ? pay_start_date : paydates[index - 1] + 1
           pay = pay_for_period(last_paydate, paydate)
-          ary << { date: paydate, pay: pay } if pay > 0
+          ary << { date: paydate, pay: pay.round(2) } if pay.positive?
         end
       end
     end
@@ -179,13 +265,18 @@ module SmartAnswer::Calculators
     end
 
     def paydates_last_working_day_of_the_month
-      end_date = Date.civil(pay_end_date.year, pay_end_date.month, -1)
+      first_pay_day = last_working_day_of_the_month(pay_start_date)
 
-      [].tap do |ary|
-        pay_start_date.step(end_date) do |d|
-          ary << d if d.day == Date.new(d.year, d.month, last_working_day_of_the_month_offset(d)).day
+      [first_pay_day].tap do |dates|
+        while dates.last < pay_end_date
+          date = dates.last + 1.month
+          dates << Date.new(date.year, date.month, last_working_day_of_the_month_offset(date))
         end
       end
+    end
+
+    def last_working_day_of_the_month(date)
+      Date.new(date.year, date.month, last_working_day_of_the_month_offset(date))
     end
 
     def paydates_monthly
@@ -235,7 +326,8 @@ module SmartAnswer::Calculators
         { min: uprating_date(2013), max: uprating_date(2014), amount: 136.78 },
         { min: uprating_date(2014), max: uprating_date(2015), amount: 138.18 },
         { min: uprating_date(2014), max: uprating_date(2017), amount: 139.58 },
-        { min: uprating_date(2017), max: uprating_date(2100), amount: 140.98 } ### Change year in future
+        { min: uprating_date(2017), max: uprating_date(2018), amount: 140.98 },
+        { min: uprating_date(2018), max: uprating_date(2100), amount: 145.18 } ### Change year in future
       ]
       rate = rates.find { |r| r[:min] <= date && date < r[:max] } || rates.last
       rate[:amount]
@@ -258,6 +350,14 @@ module SmartAnswer::Calculators
     end
 
   private
+
+    def valid_payment_option?
+      valid_pay_pattern? && possible_payment_options.include?(payment_option)
+    end
+
+    def possible_payment_options
+      @possible_payment_options ||= PAYMENT_OPTIONS.values.flat_map(&:keys)
+    end
 
     def paydates_every_n_days(days)
       [].tap do |ary|
@@ -290,16 +390,14 @@ module SmartAnswer::Calculators
           # for each day of the partial week
           week.each do |day|
             if within_pay_date_range?(day)
-              pay += sprintf("%.5f", (rate_for(day) / 7)).to_f
+              pay += rate_for(day) / 7
             end
           end
         else
-          # When calculating a full SMP pay week round up the weekly rate at the second decimal place
-          pay += BigDecimal.new(rate_for(week.first).to_s).round(2, BigDecimal::ROUND_UP).to_f
+          pay += rate_for(week.first)
         end
       end
-      # HMRC rules stipulate rounding up at 2 decimal places.
-      BigDecimal.new(pay.to_s).round(2, BigDecimal::ROUND_UP).to_f
+      pay
     end
 
     # Gives the weekly rate for a date.

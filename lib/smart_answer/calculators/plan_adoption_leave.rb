@@ -1,6 +1,7 @@
 module SmartAnswer::Calculators
   class PlanAdoptionLeave
     include ActionView::Helpers::DateHelper
+    include SmartAnswer::DateHelper
 
     attr_reader :formatted_match_date, :formatted_arrival_date, :formatted_start_date
 
@@ -11,16 +12,6 @@ module SmartAnswer::Calculators
       @formatted_arrival_date = formatted_date(@arrival_date)
       @start_date = options[:start_date]
       @formatted_start_date = formatted_date(@start_date)
-    end
-
-    def formatted_date(dt)
-      dt.strftime("%d %B %Y")
-    end
-
-    def format_date_range(range)
-      first = formatted_date(range.first)
-      last = formatted_date(range.last)
-      (first + " to " + last)
     end
 
     def distance_start
@@ -40,29 +31,23 @@ module SmartAnswer::Calculators
     def expected_week
       sunday = @match_date - @match_date.wday
       saturday = sunday + 6
-      sunday..saturday
+      SmartAnswer::DateRange.new begins_on: sunday, ends_on: saturday
     end
 
     def qualifying_week
-      expected_week && weeks_later(expected_week, -1)
+      expected_week && expected_week.weeks_after(-1)
     end
 
     def last_qualifying_week_formatted
-      formatted_date(qualifying_week.last)
+      formatted_date(qualifying_week.ends_on)
     end
 
     def period_of_ordinary_leave
-      @start_date..@start_date + 26 * 7
+      SmartAnswer::DateRange.new begins_on: @start_date, ends_on: @start_date + 26 * 7
     end
 
     def period_of_additional_leave
-      period_of_ordinary_leave && weeks_later(period_of_ordinary_leave, 26)
-    end
-
-  private
-
-    def weeks_later(range, weeks)
-      (range.first + weeks * 7)..(range.last + weeks * 7)
+      period_of_ordinary_leave && period_of_ordinary_leave.weeks_after(26)
     end
   end
 end

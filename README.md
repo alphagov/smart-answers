@@ -41,6 +41,9 @@ This is a Ruby on Rails application that contains:
 ### Dependencies
 
 * [alphagov/static](https://github.com/alphagov/static): provides static assets (JS/CSS) and the GOV.UK templates.
+* [alphagov/imminence](https://github.com/alphagov/imminence): provides post code lookup
+* [alphagov/whitehall](https://github.com/alphagov/whitehall): provides country
+  lookup; and information about high commisions and embassies
 * [nodejs/node](https://github.com/nodejs/node): provides JS runtime for precompiling assets for deployment
 
 ### Running the application
@@ -66,7 +69,7 @@ See:
   * [Question templates](doc/question-templates.md)
   * [Outcome templates](doc/outcome-templates.md)
 
-### Smart Answer flow development
+### Smart Answer flow development
 
 * [Development principles](doc/development-principles.md)
 * [Deploying changes for Factcheck](doc/factcheck.md)
@@ -104,7 +107,7 @@ See:
 
 ### Search indexing
 
-- `bundle exec rake rummager:index` will send the data to Rummager for indexing in search.
+Content is now indexed automatically via the publishing API
 
 ## Licence
 

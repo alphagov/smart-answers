@@ -22,14 +22,14 @@ Mocha::Configuration.prevent(:stubbing_non_existent_method)
 require 'webmock/minitest'
 WebMock.disable_net_connect!(allow_localhost: true)
 
-class Minitest::Test
-  def teardown_with_customisations
-    teardown_without_customisations
+module MinitestWithTeardownCustomisations
+  def teardown
+    super
     Timecop.return
     WorldLocation.reset_cache
   end
-  alias_method_chain :teardown, :customisations
 end
+Minitest::Test.send(:prepend, MinitestWithTeardownCustomisations)
 
 require 'gds_api/test_helpers/json_client_helper'
 require_relative 'support/fixture_methods'

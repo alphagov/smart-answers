@@ -5,6 +5,10 @@
       ^It’s illegal in Afghanistan to have a child outside of marriage. You can’t get a local birth certificate.^
 
       A local birth certificate is normally needed to register an overseas birth. Contact the FCO at birthregistrationenquiries@fco.gov.uk for advice.
+    <% when 'iran' %>
+      ^It’s illegal in Iran to register the birth of a child if the parents aren't married. You can’t get a local birth certificate.^
+
+      The parents can register the birth if they get married, even if it’s after the birth.
     <% when 'iraq' %>
       ^It’s illegal in Iraq to register the birth of a child if the parents aren't married. You can’t get a local birth certificate.^
 
@@ -42,6 +46,8 @@
   <% else %>
     <% case calculator.country_of_birth %>
     <% when 'afghanistan' %>
+      You can’t get a local birth certificate if you weren’t married when you had your child.
+    <% when 'iran' %>
       You can’t get a local birth certificate if you weren’t married when you had your child.
     <% when 'iraq' %>
       You can’t get a local birth certificate if you weren’t married when you had your child.

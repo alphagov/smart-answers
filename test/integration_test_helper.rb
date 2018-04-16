@@ -33,12 +33,16 @@ class ActionDispatch::IntegrationTest
   end
 
   def assert_current_url(path_with_query, options = {})
-    expected = URI.parse(path_with_query)
-    wait_until { expected.path == URI.parse(current_url).path }
-    current = URI.parse(current_url)
-    assert_equal expected.path, current.path
+    assert_same_url(current_url, path_with_query, options.merge(wait_until: true))
+  end
+
+  def assert_same_url(expected_url, actual_url, options = {})
+    expected = URI.parse(expected_url)
+    wait_until { expected.path == URI.parse(current_url).path } if options[:wait_until]
+    actual = URI.parse(actual_url)
+    assert_equal expected.path, actual.path
     unless options[:ignore_query]
-      assert_equal Rack::Utils.parse_query(expected.query), Rack::Utils.parse_query(current.query)
+      assert_equal Rack::Utils.parse_query(expected.query), Rack::Utils.parse_query(actual.query)
     end
   end
 
@@ -46,10 +50,10 @@ class ActionDispatch::IntegrationTest
   def wait_until
     if Capybara.current_driver == Capybara.javascript_driver
       begin
-        Timeout.timeout(Capybara.default_wait_time) do
+        Timeout.timeout(Capybara.default_max_wait_time) do
           sleep(0.1) until yield
         end
-      rescue TimeoutError => e
+      rescue Timeout::Error => e
         p e
       end
     end
@@ -78,24 +82,6 @@ class ActionDispatch::IntegrationTest
 
     with_javascript do
       yield
-    end
-  end
-end
-
-module Slimmer
-  class Skin
-    # Monkeypatch slimmer's mocked template so that we can test the behaviour of
-    # showing/hiding report a problem in smart answers.
-    alias :unpatched_load_template :load_template
-    def load_template name
-      # only override the report a problem that we need to test with specific
-      # markup
-      if name == "report_a_problem.raw"
-        logger.debug "Monkeypatching Slimmer: TEST MODE - Loading fixture template from #{__FILE__}"
-        File.read(File.join(File.dirname(__FILE__), 'fixtures', "report-a-problem.html.erb"))
-      else
-        unpatched_load_template name
-      end
     end
   end
 end

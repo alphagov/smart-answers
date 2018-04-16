@@ -99,6 +99,35 @@ class WorldLocationTest < ActiveSupport::TestCase
         end
       end
     end
+
+    context "the Worldwide API returns no locations" do
+      setup do
+        stub_request(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations")
+          .to_return(
+            status: 200,
+            body: {
+              "results" => [],
+            }.to_json,
+            headers: {},
+          )
+      end
+
+      should "raise an error" do
+        assert_raises WorldLocation::NoLocationsFromWorldwideApiError do
+          WorldLocation.all
+        end
+      end
+
+      should "raise an error regardless of caching" do
+        assert_raises WorldLocation::NoLocationsFromWorldwideApiError do
+          WorldLocation.all
+        end
+
+        assert_raises WorldLocation::NoLocationsFromWorldwideApiError do
+          WorldLocation.all
+        end
+      end
+    end
   end
 
   context "finding a location by slug" do
@@ -251,7 +280,7 @@ class WorldLocationTest < ActiveSupport::TestCase
 
       should "return nil if there are no fco orgs" do
         WorldwideOrganisation.stubs(:for_location).once.returns([@org1, @org3])
-        assert_equal nil, @location.fco_organisation
+        assert_nil @location.fco_organisation
       end
 
       should "return the first if multiple match" do

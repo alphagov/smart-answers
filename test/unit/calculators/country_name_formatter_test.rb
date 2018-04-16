@@ -43,7 +43,7 @@ module SmartAnswer::Calculators
       end
 
       should 'return true if the country slug has a friendly name' do
-        assert @formatter.has_friendly_name?('democratic-republic-of-the-congo')
+        assert @formatter.has_friendly_name?('cote-d-ivoire')
       end
 
       should 'return false if the country slug does not have a friendly name' do
@@ -57,7 +57,7 @@ module SmartAnswer::Calculators
       end
 
       should 'return the friendly name for the country' do
-        assert_equal 'Democratic Republic of the Congo', @formatter.friendly_name('democratic-republic-of-the-congo')
+        assert_equal 'Cote d\'Ivoire', @formatter.friendly_name('cote-d-ivoire')
       end
     end
   end

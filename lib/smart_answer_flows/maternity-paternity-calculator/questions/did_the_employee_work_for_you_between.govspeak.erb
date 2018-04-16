@@ -1,0 +1,10 @@
+<% content_for :title do %>
+  Did the employee have a contract with you covering
+  <%= format_date(employment_start) %> to
+  <%= format_date(qualifying_week_start) %>?
+<% end %>
+
+<% options(
+       "no": "No",
+       "yes": "Yes"
+   ) %>

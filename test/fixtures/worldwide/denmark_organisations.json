@@ -5,7 +5,7 @@
       "title": "British Embassy Copenhagen",
       "format": "Worldwide Organisation",
       "updated_at": "2013-03-18T11:01:22.000+00:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-copenhagen",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-copenhagen",
       "details": {
         "slug": "british-embassy-copenhagen"
       },
@@ -15,12 +15,12 @@
           "title": "British Embassy Copenhagen",
           "format": "World Office",
           "updated_at": "2014-09-23T11:12:12.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-copenhagen/office/british-embassy",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-copenhagen/office/british-embassy",
           "details": {
             "email": "Enquiry.Copenhagen@fco.gov.uk",
             "description": "",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<p>Monday to Friday, 9am to 5pm</p>\n\n<h2 id=\"consular\">Consular</h2>\n<ul>\n  <li>Email <a href=\"mailto:Consular.copenhagen@fco.gov.uk\">Consular.copenhagen@fco.gov.uk</a> </li>\n  <li>Telephone +45 35 44 52 00, Monday to Friday between 9:30am and 5:00pm</li>\n</ul>\n\n<h2 id=\"public-holidays\">2016 public holidays</h2>\n\n<ul>\n  <li>Friday 1 January </li>\n  <li>Thursday 24 March </li>\n  <li>Friday 25 March </li>\n  <li>Monday 28 March</li>\n  <li>Friday 22 April </li>\n  <li>Monday 02 May</li>\n  <li>Thursday 05 May</li>\n  <li>Monday 16 May</li>\n  <li>Monday 30 May</li>\n  <li>Monday 29 August</li>\n  <li>Monday 26 December </li>\n  <li>Tuesday 27 December </li>\n  <li>Friday 30 December </li>\n</ul>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<p>Monday to Friday, 9am to 5pm</p>\n\n<h2 id=\"consular\">Consular</h2>\n<ul>\n  <li>Email <a href=\"mailto:Consular.copenhagen@fco.gov.uk\">Consular.copenhagen@fco.gov.uk</a>\n</li>\n  <li>Telephone +45 35 44 52 00, Monday to Friday between 9:30am and 5:00pm</li>\n</ul>\n\n<h2 id=\"visitor-security-and-health--safety-notice\">Visitor security and Health &amp; Safety notice</h2>\n\n<ul>\n  <li>parking is not allowed inside the Embassy compound at any time</li>\n  <li>visitors will be searched by security staff as a condition of entry. Use of mobile phones and cameras and other electronic devices is strictly prohibited in the main Embassy building, and these must be left with security</li>\n  <li>large bags are not permitted inside the Embassy compound</li>\n  <li>visitor passes must be displayed and visitors will be escorted at all times in the main Embassy building</li>\n  <li>in the event of a fire, please raise the alarm via the red call points located at all exit points, and then leave the building via the nearest safe exit.  Proceed to the designated assembly point and await further instruction. Do not attempt to tackle the fire, do not stop to collect personal belongings, do not re-enter the building unless the all clear has been given. For any other type of emergency please listen carefully to any announcements over the PA system and/or instructions from the fire wardens/security</li>\n  <li>visitors with disabilities requiring assistance must inform their host to ensure a suitable and safe evacuation plan can be put in place</li>\n  <li>if you have or are witness to an accident, injury or incident, please report this immediately to your host or the security staff</li>\n  <li>the FCO operate a no smoking policy in all of its buildings.  Smoking is only permitted in designated areas outside the buildings</li>\n</ul>\n\n<h2 id=\"public-holidays\">2017 public holidays</h2>\n\n<ul>\n  <li>Monday 2 January</li>\n  <li>Thursday 13 April</li>\n  <li>Friday 14 April</li>\n  <li>Monday 17 April</li>\n  <li>Monday 1 May</li>\n  <li>Friday 12 May</li>\n  <li>Thursday 25 May</li>\n  <li>Monday 29 May</li>\n  <li>Monday 5 June</li>\n  <li>Monday 28 August</li>\n  <li>Monday 25 December</li>\n  <li>Tuesday 26 December</li>\n  <li>Friday 29 December</li>\n</ul>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -66,20 +66,20 @@
     },
     {
       "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-denmark",
-      "title": "UK Trade & Investment Denmark",
+      "title": "Department for International Trade Denmark",
       "format": "Worldwide Organisation",
-      "updated_at": "2014-04-24T16:48:07.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-denmark",
+      "updated_at": "2016-08-09T13:52:26.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-denmark",
       "details": {
         "slug": "uk-trade-investment-denmark"
       },
       "analytics_identifier": "WO295",
       "offices": {
         "main": {
-          "title": "UK Trade & Investment Denmark",
+          "title": "Department for International Trade Denmark",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:54.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-denmark/office/uk-trade-investment-denmark",
+          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-denmark/office/uk-trade-investment-denmark",
           "details": {
             "email": "commenq.copenhagen@fco.gov.uk ",
             "description": "",
@@ -116,10 +116,10 @@
       },
       "sponsors": [
         {
-          "title": "UK Trade & Investment",
-          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "title": "Department for International Trade",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-trade",
           "details": {
-            "acronym": "UKTI"
+            "acronym": "DIT"
           }
         }
       ]
@@ -129,7 +129,7 @@
       "title": "UK Science & Innovation Network in Denmark",
       "format": "Worldwide Organisation",
       "updated_at": "2015-09-18T12:53:26.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/uk-science-innovation-network-in-denmark",
+      "web_url": "https://www.gov.uk/world/organisations/uk-science-innovation-network-in-denmark",
       "details": {
         "slug": "uk-science-innovation-network-in-denmark"
       },
@@ -141,17 +141,17 @@
       },
       "sponsors": [
         {
-          "title": "Department for Business, Innovation & Skills",
-          "web_url": "https://www.gov.uk/government/organisations/department-for-business-innovation-skills",
-          "details": {
-            "acronym": "BIS"
-          }
-        },
-        {
           "title": "Foreign & Commonwealth Office",
           "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
           "details": {
             "acronym": "FCO"
+          }
+        },
+        {
+          "title": "Department for Business, Energy & Industrial Strategy",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy",
+          "details": {
+            "acronym": "BEIS"
           }
         }
       ]

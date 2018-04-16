@@ -1,0 +1,11 @@
+<% content_for :title do %>
+  <% if calculator.partner_is_same_sex? %>
+    <% if calculator.partner_is_national_of_ceremony_country? %>
+      Civil partnership in Germany
+    <% else %>
+      Same-sex marriage in Germany
+    <% end %>
+  <% else %>
+    Marriage in Germany
+  <% end %>
+<% end %>

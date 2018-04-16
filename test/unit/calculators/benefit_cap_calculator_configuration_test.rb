@@ -36,8 +36,18 @@ module SmartAnswer::Calculators
       end
 
       context "exempt_benefits" do
-        should "contain an entry for Disability Living Allowance" do
-          assert_includes @config.exempt_benefits, "Disability Living Allowance"
+        should "return a Hash with indifferent access" do
+          assert_kind_of HashWithIndifferentAccess, @config.exempt_benefits
+        end
+
+        should "return matching description of exempt benefits" do
+          descriptions = ["Attendance Allowance", "Carer's Allowance", "Disability Living Allowance", "Guardian's Allowance", "Industrial Injuries Benefit", "Personal Independence Payment", "Employment and Support Allowance (support component)", "War Widow’s or War Widower’s Pension", "Armed Forces Compensation Scheme", "Armed Forces Independence Payment", "War pensions"]
+          assert_equal @config.exempt_benefits.values, descriptions
+        end
+
+        should "return keys matching exempt benefits" do
+          benefits = %w(attendance_allowance carers_allowance disability_living_allowance guardians_allowance industrial_injuries_benefit personal_independence_payment employment_support_allowance war_partner_pension armed_forces_compensation_scheme armed_forces_independence_payment war_pensions)
+          assert_equal benefits, @config.exempt_benefits.keys
         end
       end
 
@@ -56,7 +66,10 @@ module SmartAnswer::Calculators
                 }
               }
             },
-            exempt_benefits: ["first exempt benefit", "second exempt benefit"],
+            exempt_benefits: {
+              first_exempt_benefit: "first exempt benefit",
+              second_exempt_benefit: "second exempt benefit"
+            },
             benefits: {
               first_benefit: {
                 question: "first_question",
@@ -77,7 +90,7 @@ module SmartAnswer::Calculators
           assert_equal 100, @config.weekly_benefit_cap_amount(:first)
         end
         should "get exempt benefits" do
-          assert_includes @config.exempt_benefits, "first exempt benefit"
+          assert_includes @config.exempt_benefits.values, "first exempt benefit"
         end
         should "get benefits data" do
           assert_equal "first_question", @config.benefits.fetch(:first_benefit)[:question]

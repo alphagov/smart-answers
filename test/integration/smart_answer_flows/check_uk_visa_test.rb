@@ -7,9 +7,49 @@ class CheckUkVisaTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    @location_slugs = %w(andorra anguilla armenia bolivia canada china colombia croatia mexico south-africa stateless-or-refugee syria turkey democratic-republic-of-the-congo oman united-arab-emirates qatar taiwan venezuela afghanistan yemen)
+    @location_slugs = %w(andorra anguilla armenia bolivia canada china colombia croatia estonia hong-kong latvia macao mexico south-africa stateless-or-refugee syria turkey democratic-republic-of-the-congo oman united-arab-emirates qatar taiwan venezuela afghanistan yemen)
     stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::CheckUkVisaFlow
+  end
+
+  context "hong-kong" do
+    setup do
+      add_response 'hong-kong'
+    end
+
+    should "direct user to what sort of travel document do you have? (Q1e)" do
+      assert_current_node :what_sort_of_travel_document?
+    end
+
+    should "direct user to purpose_of_visit (Q2) for passport" do
+      add_response 'passport'
+      assert_current_node :purpose_of_visit?
+    end
+
+    should "direct user to purpose_of_visit (Q2) for travel document" do
+      add_response 'travel_document'
+      assert_current_node :purpose_of_visit?
+    end
+  end
+
+  context "macao" do
+    setup do
+      add_response 'macao'
+    end
+
+    should "direct user to what sort of travel document do you have? (Q1f)" do
+      assert_current_node :what_sort_of_travel_document?
+    end
+
+    should "direct user to purpose_of_visit (Q2) for passport" do
+      add_response 'passport'
+      assert_current_node :purpose_of_visit?
+    end
+
+    should "direct user to purpose_of_visit (Q2) for travel document" do
+      add_response 'travel_document'
+      assert_current_node :purpose_of_visit?
+    end
   end
 
   context "transit" do
@@ -62,52 +102,60 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       add_response "stateless-or-refugee"
     end
 
-    should "suggest to apply in country of originallity or residence for outcome_marriage" do
-      add_response 'marriage'
+    context "marriage" do
+      should "suggest to apply in country of originallity or residence for outcome_marriage" do
+        add_response 'marriage'
 
-      assert_current_node :outcome_marriage
+        assert_current_node :outcome_marriage_visa_nat_datv
+      end
     end
 
-    should "suggest to apply in country of originallity or residence for outcome_study_m" do
-      add_response 'study'
-      add_response 'six_months_or_less'
+    context "study" do
+      should "suggest to apply in country of originallity or residence for outcome_study_m" do
+        add_response 'study'
+        add_response 'six_months_or_less'
 
-      assert_current_node :outcome_study_m
+        assert_current_node :outcome_study_m
+      end
+
+      should "suggest to apply in country of originallity or residence for outcome_study_y" do
+        add_response 'study'
+        add_response 'longer_than_six_months'
+
+        assert_current_node :outcome_study_y
+      end
     end
 
-    should "suggest to apply in country of originallity or residence for outcome_study_y" do
-      add_response 'study'
-      add_response 'longer_than_six_months'
+    context "work" do
+      should "suggest to apply in country of originallity or residence for outcome_work_m" do
+        add_response 'work'
+        add_response 'six_months_or_less'
+        assert_current_node :outcome_work_m
+      end
 
-      assert_current_node :outcome_study_y
+      should "suggest to apply in country of originallity or residence for outcome_work_y" do
+        add_response 'work'
+        add_response 'longer_than_six_months'
+        assert_current_node :outcome_work_y
+      end
     end
 
-    should "suggest to apply in country of originallity or residence for outcome_work_m" do
-      add_response 'work'
-      add_response 'six_months_or_less'
-      assert_current_node :outcome_work_m
-    end
+    context "transit" do
+      should "suggest to apply in country of originallity or residence for outcome_transit_leaving_airport" do
+        add_response 'transit'
+        add_response 'somewhere_else'
+        add_response 'yes'
 
-    should "suggest to apply in country of originallity or residence for outcome_work_y" do
-      add_response 'work'
-      add_response 'longer_than_six_months'
-      assert_current_node :outcome_work_y
-    end
+        assert_current_node :outcome_transit_leaving_airport
+      end
 
-    should "suggest to apply in country of originallity or residence for outcome_transit_leaving_airport" do
-      add_response 'transit'
-      add_response 'somewhere_else'
-      add_response 'yes'
+      should "suggests to get a Direct Airside Transit visa if not leaving the airport" do
+        add_response 'transit'
+        add_response 'somewhere_else'
+        add_response 'no'
 
-      assert_current_node :outcome_transit_leaving_airport
-    end
-
-    should "suggests to get a Direct Airside Transit visa if not leaving the airport" do
-      add_response 'transit'
-      add_response 'somewhere_else'
-      add_response 'no'
-
-      assert_current_node :outcome_transit_refugee_not_leaving_airport
+        assert_current_node :outcome_transit_refugee_not_leaving_airport
+      end
     end
 
     should "suggest to apply in country of originallity or residence for outcome_standard_visit" do
@@ -178,7 +226,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         add_response 'marriage'
       end
       should "take you to the marriage outcome" do
-        assert_current_node :outcome_marriage
+        assert_current_node :outcome_marriage_nvn_ukot
       end
     end
     context "get private medical treatment" do
@@ -253,7 +301,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         add_response 'marriage'
       end
       should "take you to marriage outcome" do
-        assert_current_node :outcome_marriage
+        assert_current_node :outcome_marriage_nvn_ukot
       end
     end
     context "get private medical treatment" do
@@ -446,6 +494,16 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         assert_current_node :outcome_school_waiver
       end
     end
+
+    context 'coming to the UK to get married' do
+      setup do
+        add_response 'marriage'
+      end
+
+      should 'take you to the marriage outcome' do
+        assert_current_node :outcome_marriage_electronic_visa_waiver
+      end
+    end
   end
 
   context "choose a DATV country" do
@@ -504,7 +562,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         add_response 'marriage'
       end
       should "take you to  marriage outcome" do
-        assert_current_node :outcome_marriage
+        assert_current_node :outcome_marriage_visa_nat_datv
       end
     end
     context "get private medical treatment" do
@@ -576,6 +634,344 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
     end
   end
+
+  context "choose Hong Kong" do
+    setup do
+      add_response "hong-kong"
+    end
+
+    context "with travel document" do
+      setup do
+        add_response "travel_document"
+      end
+
+      context "get private medical treatment" do
+        should "take you to the medical_y outcome" do
+          add_response 'medical'
+          assert_current_node :outcome_medical_y
+        end
+      end
+
+      context "tourism, visiting friends or family" do
+        should "take you to the outcome 6y - standard visit" do
+          add_response 'tourism'
+          assert_current_node :outcome_standard_visit
+        end
+      end
+
+      context "in transit" do
+        setup do
+          add_response "transit"
+        end
+
+        context "travelling to the Republic of Ireland" do
+          should "take you to the outcome 14a" do
+            add_response "republic_of_ireland"
+            assert_current_node :outcome_transit_to_the_republic_of_ireland
+          end
+        end
+
+        context "travelling elsewhere" do
+          setup do
+            add_response "somewhere_else"
+          end
+
+          should "not require a visa if not passing through border control" do
+            add_response "no"
+
+            assert_current_node :outcome_no_visa_needed
+          end
+
+          should "take you to outcome_transit_leaving_airport if passing through border control" do
+            add_response "yes"
+            assert_current_node :outcome_transit_leaving_airport
+          end
+        end
+      end
+
+      context 'studying in the UK' do
+        setup do
+          add_response 'study'
+        end
+        context '6 months or less' do
+          should "takes you to outcome_study_m" do
+            add_response "six_months_or_less"
+            assert_current_node :outcome_study_m
+          end
+        end
+        context 'more than 6 months' do
+          should "takes you to outcome_study_y" do
+            add_response "longer_than_six_months"
+            assert_current_node :outcome_study_y
+          end
+        end
+      end
+
+      context 'working in the UK' do
+        setup do
+          add_response 'work'
+        end
+        context '6 months or less' do
+          should "takes you to outcome_work_m" do
+            add_response "six_months_or_less"
+            assert_current_node :outcome_work_m
+          end
+        end
+        context 'more than 6 months' do
+          should "takes you to outcome_work_y" do
+            add_response "longer_than_six_months"
+            assert_current_node :outcome_work_y
+          end
+        end
+      end
+    end
+
+    context "with passport" do
+      setup do
+        add_response "passport"
+      end
+
+      context "get private medical treatment" do
+        should "take you to the medical_n outcome" do
+          add_response 'medical'
+          assert_current_node :outcome_medical_n
+        end
+      end
+
+      context "tourism, visiting friends or family" do
+        should "take you to the school_n" do
+          add_response 'tourism'
+          # The school outcome does not contain school-specific content
+          assert_current_node :outcome_school_n
+        end
+      end
+
+      context "in transit" do
+        setup do
+          add_response "transit"
+        end
+
+        context "travelling to the Republic of Ireland" do
+          should "not require a visa" do
+            add_response "somewhere_else"
+            assert_current_node :outcome_no_visa_needed
+          end
+        end
+
+        context "travelling elsewhere" do
+          should "not require a visa" do
+            add_response "republic_of_ireland"
+            assert_current_node :outcome_no_visa_needed
+          end
+        end
+      end
+
+      context 'studying in the UK' do
+        setup do
+          add_response 'study'
+        end
+        context '6 months or less' do
+          should "take you to no visa needed outcome" do
+            add_response "six_months_or_less"
+            assert_current_node :outcome_no_visa_needed
+          end
+        end
+        context 'more than 6 months' do
+          should "takes you to outcome_study_y" do
+            add_response "longer_than_six_months"
+            assert_current_node :outcome_study_y
+          end
+        end
+      end
+
+      context 'working in the UK' do
+        setup do
+          add_response 'work'
+        end
+        context '6 months or less' do
+          should "take you to no outcome_work_n" do
+            add_response "six_months_or_less"
+            assert_current_node :outcome_work_n
+          end
+        end
+        context 'more than 6 months' do
+          should "takes you to outcome_work_y" do
+            add_response "longer_than_six_months"
+            assert_current_node :outcome_work_y
+          end
+        end
+      end
+    end
+  end
+
+  context "choose Macao (travel document)" do
+    setup do
+      add_response "macao"
+    end
+
+    context "with travel document" do
+      setup do
+        add_response "travel_document"
+      end
+
+      context "get private medical treatment" do
+        should "take you to the medical_y outcome" do
+          add_response 'medical'
+          assert_current_node :outcome_medical_y
+        end
+      end
+
+      context "tourism, visiting friends or family" do
+        should "take you to the outcome 6y - standard visit" do
+          add_response 'tourism'
+          assert_current_node :outcome_standard_visit
+        end
+      end
+
+      context "in transit" do
+        setup do
+          add_response "transit"
+        end
+
+        context "travelling to the Republic of Ireland" do
+          should "take you to the outcome 14a" do
+            add_response "republic_of_ireland"
+            assert_current_node :outcome_transit_to_the_republic_of_ireland
+          end
+        end
+
+        context "travelling elsewhere" do
+          setup do
+            add_response "somewhere_else"
+          end
+
+          should "not require a visa if not passing through border control" do
+            add_response "no"
+            assert_current_node :outcome_no_visa_needed
+          end
+
+          should "take you to outcome_transit_leaving_airport if passing through border control" do
+            add_response "yes"
+            assert_current_node :outcome_transit_leaving_airport
+          end
+        end
+      end
+
+      context 'studying in the UK' do
+        setup do
+          add_response 'study'
+        end
+        context '6 months or less' do
+          should "takes you to outcome_study_m" do
+            add_response "six_months_or_less"
+            assert_current_node :outcome_study_m
+          end
+        end
+        context 'more than 6 months' do
+          should "takes you to outcome_study_y" do
+            add_response "longer_than_six_months"
+            assert_current_node :outcome_study_y
+          end
+        end
+      end
+
+      context 'working in the UK' do
+        setup do
+          add_response 'work'
+        end
+        context '6 months or less' do
+          should "takes you to outcome_work_m" do
+            add_response "six_months_or_less"
+            assert_current_node :outcome_work_m
+          end
+        end
+        context 'more than 6 months' do
+          should "takes you to outcome_work_y" do
+            add_response "longer_than_six_months"
+            assert_current_node :outcome_work_y
+          end
+        end
+      end
+    end
+
+    context "with passport" do
+      setup do
+        add_response "passport"
+      end
+
+      context "get private medical treatment" do
+        should "take you to the medical_n outcome" do
+          add_response 'medical'
+          assert_current_node :outcome_medical_n
+        end
+      end
+
+      context "tourism, visiting friends or family" do
+        should "take you to the school_n" do
+          add_response 'tourism'
+          # The school outcome does not contain school-specific content
+          assert_current_node :outcome_school_n
+        end
+      end
+
+      context "in transit" do
+        setup do
+          add_response "transit"
+        end
+
+        context "travelling to the Republic of Ireland" do
+          should "not require a visa" do
+            add_response "somewhere_else"
+            assert_current_node :outcome_no_visa_needed
+          end
+        end
+
+        context "travelling elsewhere" do
+          should "not require a visa" do
+            add_response "republic_of_ireland"
+            assert_current_node :outcome_no_visa_needed
+          end
+        end
+      end
+
+      context 'studying in the UK' do
+        setup do
+          add_response 'study'
+        end
+        context '6 months or less' do
+          should "take you to no visa needed outcome" do
+            add_response "six_months_or_less"
+            assert_current_node :outcome_no_visa_needed
+          end
+        end
+        context 'more than 6 months' do
+          should "takes you to outcome_study_y" do
+            add_response "longer_than_six_months"
+            assert_current_node :outcome_study_y
+          end
+        end
+      end
+
+      context 'working in the UK' do
+        setup do
+          add_response 'work'
+        end
+        context '6 months or less' do
+          should "take you to outcome_work_n outcome" do
+            add_response "six_months_or_less"
+            assert_current_node :outcome_work_n
+          end
+        end
+        context 'more than 6 months' do
+          should "takes you to outcome_work_y" do
+            add_response "longer_than_six_months"
+            assert_current_node :outcome_work_y
+          end
+        end
+      end
+    end
+  end
+
   context "testing turkey phrase list" do
     setup do
       add_response "turkey"
@@ -719,82 +1115,102 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     end
   end
 
-  context "outcome taiwan exception study and six_months_or_less" do
+  context "taiwan" do
     setup do
       add_response 'taiwan'
-      add_response 'study'
-      add_response 'six_months_or_less'
     end
-    should "take you to outcome taiwan exception" do
-      assert_current_node :outcome_taiwan_exception
-    end
-  end
 
-  context "outcome taiwan exception tourism" do
-    setup do
-      add_response 'taiwan'
-      add_response 'tourism'
-    end
-    should "take you to outcome taiwan exception" do
-      assert_current_node :outcome_taiwan_exception
-    end
-  end
-
-  context "outcome taiwan exception school" do
-    setup do
-      add_response 'taiwan'
-      add_response 'school'
-    end
-    should "take you to outcome taiwan exception" do
-      assert_current_node :outcome_taiwan_exception
-    end
-  end
-
-  context "outcome taiwan exception medical" do
-    setup do
-      add_response 'taiwan'
-      add_response 'medical'
-    end
-    should "take you to outcome taiwan exception" do
-      assert_current_node :outcome_taiwan_exception
-    end
-  end
-  context "outcome taiwan exception transit" do
-    setup do
-      add_response 'taiwan'
-      add_response 'transit'
-      add_response 'somewhere_else'
-    end
-    should "take you to outcome taiwan exception" do
-      assert_current_node :passing_through_uk_border_control?
-    end
-    context "leaving airport" do
+    context "outcome taiwan exception study and six_months_or_less" do
       setup do
-        add_response "yes"
+        add_response 'study'
+        add_response 'six_months_or_less'
       end
-      should "take you to the transit taiwan outcome" do
-        assert_current_node :outcome_transit_taiwan
+      should "take you to outcome taiwan exception" do
+        assert_current_node :outcome_study_waiver_taiwan
       end
     end
-    context "leaving airport" do
+
+    context "outcome taiwan exception tourism" do
       setup do
-        add_response "no"
+        add_response 'tourism'
       end
-      should "take you to the transit taiwan outcome" do
-        assert_current_node :outcome_transit_taiwan
+      should "take you to outcome taiwan exception" do
+        assert_current_node :outcome_visit_waiver_taiwan
+      end
+    end
+
+    context "outcome taiwan exception school" do
+      setup do
+        add_response 'school'
+      end
+
+      should "take you to outcome taiwan exception" do
+        assert_current_node :outcome_study_waiver_taiwan
+      end
+    end
+
+    context "outcome taiwan exception medical" do
+      setup do
+        add_response 'medical'
+      end
+
+      should "take you to outcome taiwan exception" do
+        assert_current_node :outcome_visit_waiver_taiwan
+      end
+    end
+
+    context "getting married" do
+      setup do
+        add_response 'marriage'
+      end
+
+      should 'take you to the marriage outcome' do
+        assert_current_node :outcome_marriage_taiwan
+      end
+    end
+
+    context "outcome taiwan exception transit" do
+      setup do
+        add_response 'transit'
+        add_response 'somewhere_else'
+      end
+
+      should "take you to outcome taiwan exception" do
+        assert_current_node :passing_through_uk_border_control?
+      end
+
+      context "leaving airport" do
+        setup do
+          add_response "yes"
+        end
+
+        should "take you to the transit taiwan outcome" do
+          assert_current_node :outcome_transit_taiwan
+        end
+      end
+
+      context "leaving airport" do
+        setup do
+          add_response "no"
+        end
+        should "take you to the transit taiwan outcome" do
+          assert_current_node :outcome_transit_taiwan
+        end
+      end
+    end
+
+    context "check taiwan goes to outcome work n" do
+      setup do
+        add_response 'work'
+        add_response 'six_months_or_less'
+      end
+
+      should "go to ouctome work n" do
+        assert_current_node :outcome_work_n
       end
     end
   end
-  context "check taiwan goes to outcome work n" do
-    setup do
-      add_response 'taiwan'
-      add_response 'work'
-      add_response 'six_months_or_less'
-    end
-    should "go to ouctome work n" do
-      assert_current_node :outcome_work_n
-    end
-  end
+
   context "outcome venezuela exception transit" do
     setup do
       add_response 'venezuela'
@@ -859,6 +1275,80 @@ class CheckUkVisaTest < ActiveSupport::TestCase
     end
     should "go to diplomatic and government outcome" do
       assert_current_node :outcome_diplomatic_business
+    end
+  end
+
+  context "Estonia" do
+    setup do
+      add_response 'estonia'
+    end
+
+    should 'go ask what sort of passport' do
+      assert_current_node :what_sort_of_passport?
+    end
+
+    should 'go to outcome_no_visa_needed if user has an Estonian passport' do
+      add_response "citizen" # Q1c
+      assert_current_node :outcome_no_visa_needed
+    end
+
+    should 'go to question 2 if user has an Alien passport' do
+      add_response "alien" # Q1c
+      assert_current_node :purpose_of_visit?
+    end
+
+    context "transit, travelling_to_elsewhere" do
+      setup do
+        add_response "alien" # Q1c
+        add_response 'transit'
+        add_response 'somewhere_else'
+      end
+
+      should 'go to question passing_through_uk_border_control?' do
+        assert_current_node :passing_through_uk_border_control?
+      end
+
+      should 'go to outcome if not passing through uk border control' do
+        add_response 'no'
+        assert_current_node :outcome_transit_datv_exception
+      end
+    end
+  end
+
+  context "Latvia" do
+    setup do
+      add_response 'latvia'
+    end
+
+    should 'ask what sort of passport' do
+      assert_current_node :what_sort_of_passport?
+    end
+
+    should 'go to outcome_no_visa_needed if user has an Latvian passport' do
+      add_response "citizen" # Q1d
+      assert_current_node :outcome_no_visa_needed
+    end
+
+    should 'go to question 2 if user has an Alien passport' do
+      add_response "alien" # Q1d
+      assert_current_node :purpose_of_visit?
+    end
+
+    context "transit, travelling_to_elsewhere" do
+      setup do
+        add_response "alien" # Q1d
+        add_response 'transit'
+        add_response 'somewhere_else'
+      end
+
+      should 'go to question passing_through_uk_border_control?' do
+        assert_current_node :passing_through_uk_border_control?
+      end
+
+      should 'go to outcome if not passing through uk border control' do
+        add_response 'no'
+        assert_current_node :outcome_transit_datv_exception
+      end
     end
   end
 end

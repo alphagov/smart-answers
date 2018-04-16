@@ -5,7 +5,11 @@
 
   You could get per year:
 
-  - <%= number_to_currency(tuition_fee_amount, precision: 0) %> [Tuition Fee Loan](/student-finance/parttime-students)
+  - <%= format_money(tuition_fee_amount, pounds_only: true) %> [Tuition Fee Loan](/student-finance/parttime-students)
+
+  <% if calculator.maintenance_loan_amount > 0 %>
+    - <%= format_money(calculator.maintenance_loan_amount, pounds_only: true) %> [Maintenance Loan](/student-finance/parttime-students)
+  <% end %>
 
   ###Extra student funding
 

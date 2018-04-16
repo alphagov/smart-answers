@@ -5,7 +5,7 @@
       "title": "British Embassy Skopje",
       "format": "Worldwide Organisation",
       "updated_at": "2013-11-01T10:23:15.000+00:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-skopje",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-skopje",
       "details": {
         "slug": "british-embassy-skopje"
       },
@@ -15,12 +15,12 @@
           "title": "British Embassy Skopje",
           "format": "World Office",
           "updated_at": "2013-06-28T09:24:02.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-skopje/office/british-embassy",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-skopje/office/british-embassy",
           "details": {
             "email": "britishembassyskopje@fco.gov.uk",
             "description": "",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<ul>\n  <li>Monday to Thursday, 8am to 4:30pm </li>\n  <li>Friday, 8am to 1pm </li>\n</ul>\n\n<h2 id=\"public-holidays-in-2016\">Public holidays in 2016</h2>\n\n<ul>\n  <li>Friday 01 January</li>\n  <li>Wednesday 06 January</li>\n  <li>Thursday 07 January</li>\n  <li>Friday 25 March</li>\n  <li>Monday 28 March</li>\n  <li>Friday 29 April </li>\n  <li>Monday 02 May</li>\n  <li>Monday 27 June </li>\n  <li>Tuesday 28 June </li>\n  <li>Tuesday 05 July </li>\n  <li>Tuesday 02 August</li>\n  <li>Monday 12 September</li>\n  <li>Monday 26 December</li>\n  <li>Tuesday 27 December </li>\n</ul>\n\n<h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>The embassy is accessible for disabled visitors. If you need special assistance, please contact the embassy before your visit.</p>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<ul>\n  <li>Monday to Thursday, 8am to 4:30pm</li>\n  <li>Friday, 8am to 1pm</li>\n</ul>\n\n<p>Consular section works by appointments only. For enquiries and appointment requests please contact <a href=\"mailto:consular.skopje@fco.gov.uk\">consular.skopje@fco.gov.uk</a>.</p>\n\n<h2 id=\"public-holidays-in-2017\">Public holidays in 2017</h2>\n\n<ul>\n  <li>Monday 2 January</li>\n  <li>Friday 6 January</li>\n  <li>Friday 14 April</li>\n  <li>Monday 17 April</li>\n  <li>Monday 1 May</li>\n  <li>Monday 29 May</li>\n  <li>Tuesday 30 May</li>\n  <li>Monday 26 June</li>\n  <li>Wednesday 2 August</li>\n  <li>Monday 28 August</li>\n  <li>Friday 1 September</li>\n  <li>Friday 8 September</li>\n  <li>Monday 25 December</li>\n  <li>Tuesday 26 December</li>\n</ul>\n\n<h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>The embassy is accessible for disabled visitors. If you need special assistance, please contact the embassy before your visit.</p>\n</div>",
             "type": "Embassy"
           },
           "address": {

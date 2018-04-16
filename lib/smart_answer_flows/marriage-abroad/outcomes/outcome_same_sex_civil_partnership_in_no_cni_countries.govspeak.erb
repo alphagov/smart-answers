@@ -3,9 +3,7 @@
 <% end %>
 
 <% content_for :body do %>
-  <% if calculator.ceremony_country == 'usa' %>
-    You can get a same-sex relationship legally recognised in the USA.
-  <% elsif calculator.civil_partnership_cni_not_required_country? %>
+  <% if calculator.civil_partnership_cni_not_required_country? %>
     <%= render partial: 'synonyms_of_cp.govspeak.erb',
                locals: { calculator: calculator } %>
 
@@ -30,11 +28,6 @@
       <%= render partial: 'contact_local_authorities_in_country_cp.govspeak.erb',
                  locals: { calculator: calculator } %>
     <% end %>
-  <% elsif calculator.ceremony_country == 'usa' %>
-      <%= render partial: 'contact_local_authorities_in_country_cp.govspeak.erb',
-                 locals: { calculator: calculator } %>
-
-     ^You should [get legal advice](/government/collections/list-of-lawyers) before making any plans.^
   <% else %>
     <% if calculator.resident_of_uk? %>
       Contact your [nearest embassy or consulate](/government/publications/foreign-embassies-in-the-uk) representing <%= calculator.country_name_lowercase_prefix %> before making any plans to find out about local laws, including what documents you’ll need.

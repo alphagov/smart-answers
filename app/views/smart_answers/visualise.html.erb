@@ -8,11 +8,6 @@
 <%= javascript_include_tag 'visualise' %>
 <%= stylesheet_link_tag 'joint' %>
 <%= stylesheet_link_tag 'visualise' %>
-<%= education_navigation_variant.analytics_meta_tag.html_safe %>
-<% end %>
-
-<% content_for :before_wrapper do %>
-  <div id="global-breadcrumb" class="header-context"></div>
 <% end %>
 
 <script defer="false">
@@ -21,7 +16,7 @@
 
 <main id="content" role="main" class="visualisation-">
   <div class="container">
-    <%= render partial: 'govuk_component/alpha_label' %>
+    <%= render 'govuk_component/alpha_label' %>
     <header class="page-header group">
       <div>
         <h1>

@@ -1,29 +1,29 @@
 <% content_for :title do %>
-  Based on your answers, you'll be affected by the benefit cap as you get £<%= total_benefits_amount %> in benefits and your benefit cap is £<%= benefit_cap %>.
+  Based on your answers, you'll be affected by the benefit cap as you get <%= format_money(total_benefits_amount) %> in benefits and your benefit cap is <%= format_money(benefit_cap) %>.
 <% end %>
 
 <% content_for :body do %>
-  Your Housing Benefit will be: £<%= new_housing_benefit %>.
+  Your Housing Benefit will be: <%= format_money(new_housing_benefit) %>.
 
   ##How this is worked out
 
   The benefits you get are added together. The total amount of benefits over your benefit cap is subtracted from your Housing Benefit:
 
-  Total amount of benefits affected by cap: £<%= total_benefits_amount %>
+  Total amount of benefits affected by cap: <%= format_money(total_benefits_amount) %>
 
-  Your Housing Benefit is reduced by the amount you are over your benefit cap of £<%= benefit_cap %>:
+  Your Housing Benefit is reduced by the amount you are over your benefit cap of <%= format_money(benefit_cap) %>:
 
-  Total benefits affected: £<%= total_benefits_amount %>
+  Total benefits affected: <%= format_money(total_benefits_amount) %>
 
-  Minus benefit cap: £<%= benefit_cap %>
+  Minus benefit cap: <%= format_money(benefit_cap) %>
 
-  Total over cap: £<%= total_over_cap %>
+  Total over cap: <%= format_money(total_over_cap) %>
 
-  Housing benefit: £<%= housing_benefit_amount %>
+  Housing benefit: <%= format_money(housing_benefit_amount) %>
 
-  Minus total over cap: £<%= total_over_cap %>
+  Minus total over cap: <%= format_money(total_over_cap) %>
 
-  New Housing Benefit amount: £<%= new_housing_benefit %>
+  New Housing Benefit amount: <%= format_money(new_housing_benefit) %>
 
   <% if new_housing_benefit_amount < 0.5 %>
     Your Housing Benefit won’t be reduced to 0. You need to be getting some Housing Benefit to be eligible for other services.

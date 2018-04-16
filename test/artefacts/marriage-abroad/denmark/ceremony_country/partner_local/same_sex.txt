@@ -12,27 +12,30 @@ Contact the relevant local authorities in Denmark to find out about local marria
 
 ##What you need to do
 
-You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
+You should apply for a document showing that you’re free to marry from the General Register Office, National Records of Scotland or nidirect.
+
+If you can’t apply for one of these documents you can get a certificate of no impediment (CNI) from the British Embassy or UK registrar.
+
+###Document showing that you’re free to marry
+
+If you are from England or Wales, you can get a ‘no trace letter’ from the General Register Office. ‘No trace letters’ cost £50 for each 10 year period from age 16 or when you entered the country. Specify how many years you need the search to cover and quote reference ‘SEARCH 123’. It can take up to 3 weeks for a ‘no trace letter’ to be issued. 
+
+$C
+**General Register Office**\\
+Telephone: +44 (0)300 123 1837 (8am to 8pm Monday to Friday and 9am to 4pm Saturday)
+$C
+
+If you are from Scotland, you can get a ’to whom it may concern’ letter from the [National Records of Scotland](https://www.nrscotland.gov.uk/registration/getting-married-abroad/what-documents-will-i-need-to-provide).
+
+If you are from Northern Ireland, you can get a ‘certificate of legal capacity to marry' or a ‘marriage index search’ from [nidirect](https://www.nidirect.gov.uk/articles/marriage-outside-uk).
+
+###Certificate of no impediment (CNI)
 
 To get a CNI, you must post notice of your intended marriage in Denmark. You can do this at the British embassy or in front of a notary public.
 
 You’ll need to have been living in Denmark for at least 3 full days before you can post notice, for example if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.
 
-$A
-British Embassy Copenhagen
-Kastelsvej 36-40
-DK-2100  Copenhagen
-Denmark
-$A
-
-$C
-Consular / passport enquiries: consular.copenhagen@fco.gov.uk
-Telephone : +45 35 44 52 00
-
-Email: <Enquiry.Copenhagen@fco.gov.uk>
-
-[British Embassy Copenhagen - opening hours](https://www.gov.uk/government/world/organisations/british-embassy-copenhagen/office/british-embassy)
-$C
+[Make an appointment at the embassy in Copenhagen.](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-copenhagen/notice-of-marriage-or-civil-partnership/slot_picker)
 
 You’ll need to provide supporting documents, including:
 
@@ -48,6 +51,8 @@ You must take the forms with you to your appointment.
 
 %The names on all documents you provide must appear exactly as they do on your passports - if not, the authorities may refuse to allow the marriage to go ahead. You may need to provide evidence if the name on your passport is different to your birth certificate (for example marriage certificate or deed poll).%
 
+^Your partner will need to follow the same process and pay the fees to get their own CNI.^
+
 If you or your partner have been divorced, widowed or previously in a civil partnership, you’ll also need whichever of the following documents is appropriate:
 
 - a [decree absolute or final order](/copy-decree-absolute-final-order)
@@ -55,17 +60,6 @@ If you or your partner have been divorced, widowed or previously in a civil part
 - your (or your partner’s) former spouse or civil partner’s [death certificate](/order-copy-birth-death-marriage-certificate/)
 
 ^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/list-of-lawyers) if it’s not in English.^
-
-###No trace letters
-
-The Danish authorities will sometimes accept a ‘no trace letter’ instead of a CNI. Check with the Danish authorities to find out if they’ll accept a ‘no trace letter’.
-
-You can get a ‘no trace letter’ from the General Register Office. Ask them to make a search and quote reference ‘SEARCH 123’.
-
-$C
-**General Register Office**\\
-Telephone: +44 (0)300 123 1837 (8am to 8pm Monday to Friday and 9am to 4pm Saturday)
-$C
 
 ###What happens next
 
@@ -79,11 +73,10 @@ You should check if your CNI needs to be legalised (certified as genuine) by the
 
 Your partner can apply to [become a British citizen](/becoming-a-british-citizen/if-your-spouse-is-a-british-citizen) once they’ve lived in the UK for 3 years.
 
-## Fees
+##Fees
 
 Service | Fee
 -|-
-Receiving a notice of marriage | £50
 Issuing a CNI, Nulla Osta or equivalent | £50
 
 You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Denmark](/government/publications/denmark-consular-fees).

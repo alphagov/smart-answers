@@ -5,7 +5,7 @@
       "title": "British Embassy Riga",
       "format": "Worldwide Organisation",
       "updated_at": "2014-04-02T11:08:10.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-riga",
+      "web_url": "https://www.gov.uk/world/organisations/british-embassy-riga",
       "details": {
         "slug": "british-embassy-riga"
       },
@@ -15,12 +15,12 @@
           "title": "British Embassy Riga",
           "format": "World Office",
           "updated_at": "2014-09-23T11:12:12.000+01:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-embassy-riga/office/british-embassy",
+          "web_url": "https://www.gov.uk/world/organisations/british-embassy-riga/office/british-embassy",
           "details": {
             "email": "britishembassy.riga@fco.gov.uk",
             "description": "",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<ul>\n  <li>Monday to Friday, 9:00am to 5:00pm (lunch 1pm to 2 pm)</li>\n</ul>\n\n<h2 id=\"public-holidays\">2016 public holidays</h2>\n\n<ul>\n  <li>Friday 1 January</li>\n  <li>Friday 25 March</li>\n  <li>Monday 28 March</li>\n  <li>Monday 2 May </li>\n  <li>Tuesday 3 May</li>\n  <li>Wednesday 4 May</li>\n  <li>Friday 27 May</li>\n  <li>Monday 30 May</li>\n  <li>Thursday 23 June</li>\n  <li>Friday 24 June</li>\n  <li>Monday 29 August</li>\n  <li>Friday 18 November</li>\n  <li>Monday 26 December</li>\n  <li>Tuesday 27 December </li>\n</ul>\n\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<ul>\n  <li>Monday to Friday, 9:00am to 5:00pm (lunch 1pm to 2 pm)</li>\n</ul>\n\n<p>Starting from 5 June to 1 September we are working according to summer hours:</p>\n\n<ul>\n  <li>Monday to Thursday, 8:30am to 5:00pm (lunch 1pm to 1.30 pm)</li>\n  <li>Friday, 8:30m to 14:00pm (no lunch break)</li>\n</ul>\n\n<h2 id=\"public-holidays\">2017 public holidays</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 2 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 14 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 17 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 1 May</td>\n      <td>Constitution Day and Labour Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 4 May</td>\n      <td>Independence Declaration</td>\n    </tr>\n    <tr>\n      <td>Friday 5 May</td>\n      <td>Holiday in Latvia</td>\n    </tr>\n    <tr>\n      <td>Friday 26 or Tuesday 30 May</td>\n      <td>Privilege Holiday for Queens Birthday</td>\n    </tr>\n    <tr>\n      <td>Monday 29 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 23 June</td>\n      <td>Summer solstice, Ligo Day</td>\n    </tr>\n    <tr>\n      <td>Monday 26 June</td>\n      <td>in lieu for Summer solstice, Janis Day</td>\n    </tr>\n    <tr>\n      <td>Monday 28 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 20 November</td>\n      <td>in lieu for Independence Day</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -93,20 +93,20 @@
     },
     {
       "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-latvia",
-      "title": "UK Trade & Investment Latvia",
+      "title": "Department for International Trade Latvia",
       "format": "Worldwide Organisation",
-      "updated_at": "2013-04-11T15:46:50.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-latvia",
+      "updated_at": "2016-08-10T12:49:47.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-latvia",
       "details": {
         "slug": "uk-trade-investment-latvia"
       },
       "analytics_identifier": "WO136",
       "offices": {
         "main": {
-          "title": "UK Trade & Investment Riga",
+          "title": "Department for International Trade Riga",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:53.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-latvia/office/uk-trade-investment-riga",
+          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-latvia/office/uk-trade-investment-riga",
           "details": {
             "email": "UKTI.Baltics@fco.gov.uk   ",
             "description": "",
@@ -139,10 +139,10 @@
         },
         "other": [
           {
-            "title": "UK Trade & Investment Tallinn",
+            "title": "Department for International Trade Tallinn",
             "format": "World Office",
             "updated_at": "2013-03-25T10:37:53.000+00:00",
-            "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-latvia/office/uk-trade-investment-tallinn",
+            "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-latvia/office/uk-trade-investment-tallinn",
             "details": {
               "email": "UKTI.Tallinn@fco.gov.uk ",
               "description": "",
@@ -174,10 +174,10 @@
             ]
           },
           {
-            "title": "UK Trade & Investment Vilnius",
+            "title": "Department for International Trade Vilnius",
             "format": "World Office",
             "updated_at": "2013-03-25T10:37:53.000+00:00",
-            "web_url": "https://www.gov.uk/government/world/organisations/uk-trade-investment-latvia/office/uk-trade-investment-vilnius",
+            "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-latvia/office/uk-trade-investment-vilnius",
             "details": {
               "email": "be-commercial@britain.lt ",
               "description": "",
@@ -212,10 +212,10 @@
       },
       "sponsors": [
         {
-          "title": "UK Trade & Investment",
-          "web_url": "https://www.gov.uk/government/organisations/uk-trade-investment",
+          "title": "Department for International Trade",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-trade",
           "details": {
-            "acronym": "UKTI"
+            "acronym": "DIT"
           }
         }
       ]

@@ -1,13 +1,9 @@
-How often do you pay the employee?
+When does the employee want to start their leave?
 
 
 
-If they’re paid irregularly choose ‘weekly’.
+Based on the baby's due date, leave usually can’t start before 15 October 2017.
 
-  * weekly: Weekly
-  * every_2_weeks: Every 2 weeks
-  * every_4_weeks: Every 4 weeks
-  * monthly: Monthly
 
 
 

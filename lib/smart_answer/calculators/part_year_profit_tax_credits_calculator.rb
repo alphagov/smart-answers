@@ -25,7 +25,7 @@ module SmartAnswer
       end
 
       def tax_year
-        TaxYear.on(tax_credits_award_ends_on)
+        YearRange.tax_year.including(tax_credits_award_ends_on)
       end
 
       def basis_period

@@ -2,7 +2,7 @@ What were the employee's total earnings between Thursday, 02 November 2017 and M
 
 
 
-This is the earnings before deductions like PAYE, pendion or National Insurance contributions.
+This is the earnings before deductions like PAYE, pension or National Insurance contributions.
 
 
 

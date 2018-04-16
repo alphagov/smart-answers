@@ -22,9 +22,9 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
     end
   end
 
-  context "content_id" do
-    should "use the flow content_id" do
-      assert_equal "f26e566e-2557-4921-b944-9373c32255f1", @presenter.content_id
+  context "start_page_content_id" do
+    should "use the flow start_page_content_id" do
+      assert_equal "f26e566e-2557-4921-b944-9373c32255f1", @presenter.start_page_content_id
     end
   end
 
@@ -58,61 +58,23 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
     end
   end
 
-  context "indexable_content" do
-    should "include all question node titles" do
-      @content = @presenter.indexable_content
-      assert_match %r{QUESTION_1_TITLE}, @content
-      assert_match %r{QUESTION_2_TITLE}, @content
-    end
-
-    should "include all outcome node titles" do
-      @content = @presenter.indexable_content
-      assert_match %r{OUTCOME_1_TITLE}, @content
-      assert_match %r{OUTCOME_2_TITLE}, @content
-      assert_match %r{OUTCOME_3_TITLE}, @content
-    end
-
-    should "include the flow body and question node bodies" do
-      @content = @presenter.indexable_content
-      assert_match %r{FLOW_BODY}, @content
-      assert_match %r{QUESTION_1_BODY}, @content
-      assert_match %r{QUESTION_2_BODY}, @content
-    end
-
-    should "include outcome node bodies" do
-      @content = @presenter.indexable_content
-      assert_match %r{OUTCOME_1_BODY}, @content
-      assert_match %r{OUTCOME_2_BODY}, @content
-      assert_match %r{OUTCOME_3_BODY}, @content
-    end
-
-    should "include all question hints" do
-      @content = @presenter.indexable_content
-      assert_match %r{QUESTION_1_HINT}, @content
-      assert_match %r{QUESTION_2_HINT}, @content
-    end
-
-    should "omit HTML" do
-      @content = @presenter.indexable_content
-      assert_no_match %r{<}, @content
-      assert_match %r{LINK TEXT}, @content
-    end
-
-    should "decode HTML entities" do
-      @content = @presenter.indexable_content
-      assert_no_match %r{&rarr;}, @content
-      assert_match %r{→}, @content
-    end
-
-    should "ignore any interpolation errors" do
-      @flow.multiple_choice(:question_with_interpolation)
-      @flow.outcome(:outcome_with_interpolation)
-      @content = @presenter.indexable_content
-      assert_match %r{FLOW_BODY}, @content
-      assert_match %r{QUESTION_1_BODY}, @content
-      assert_match %r{QUESTION_2_BODY}, @content
-      assert_match %r{QUESTION_WITH_INTERPOLATION_BODY}, @content
-      assert_match %r{OUTCOME_WITH_INTERPOLATION_BODY}, @content
+  context "flows_content" do
+    should "include all flow content" do
+      expected_content = [
+        "QUESTION_1_TITLE",
+        "QUESTION_1_BODY",
+        "QUESTION_1_HINT",
+        "QUESTION_2_TITLE",
+        "QUESTION_2_BODY LINK TEXT →",
+        "QUESTION_2_HINT",
+        "OUTCOME_1_TITLE",
+        "OUTCOME_1_BODY",
+        "OUTCOME_2_TITLE",
+        "OUTCOME_2_BODY",
+        "OUTCOME_3_TITLE",
+        "OUTCOME_3_BODY"
+      ]
+      assert_equal expected_content, @presenter.flows_content
     end
   end
 

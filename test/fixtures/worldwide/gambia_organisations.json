@@ -5,7 +5,7 @@
       "title": "British Embassy Banjul",
       "format": "Worldwide Organisation",
       "updated_at": "2014-05-05T12:21:34.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-banjul",
+      "web_url": "https://www.gov.uk/world/organisations/british-high-commission-banjul",
       "details": {
         "slug": "british-high-commission-banjul"
       },
@@ -15,7 +15,7 @@
           "title": "British Embassy Banjul",
           "format": "World Office",
           "updated_at": "2013-11-15T10:03:14.000+00:00",
-          "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-banjul/office/british-high-commission-banjul",
+          "web_url": "https://www.gov.uk/world/organisations/british-high-commission-banjul/office/british-high-commission-banjul",
           "details": {
             "email": "UKinTheGambia@fco.gov.uk ",
             "description": "",
@@ -39,11 +39,7 @@
           "contact_numbers": [
             {
               "label": "Telephone",
-              "number": "+220  4494508/4495134/4495133"
-            },
-            {
-              "label": "Consular assistance (24 hour)",
-              "number": "+220  4494508/4495134/4495133"
+              "number": "+220  4495134"
             }
           ],
           "services": [
@@ -70,12 +66,12 @@
             "title": "Visa Section",
             "format": "World Office",
             "updated_at": "2014-02-19T15:26:55.000+00:00",
-            "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-banjul/office/visa-section",
+            "web_url": "https://www.gov.uk/world/organisations/british-high-commission-banjul/office/visa-section",
             "details": {
               "email": "Enquiries",
               "description": "",
               "contact_form_url": "https://ukvi-international.faq-help.com/",
-              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening Hours</h2>\n\n<h3 id=\"submission-of-applications\">Submission of Applications</h3>\n\n<p>Open from 8 am to 10:30 am</p>\n\n<h3 id=\"passport-collection\">Passport Collection</h3>\n\n<p>From 2:30 pm to 3:30 pm</p>\n\n<h3 id=\"for-enquiries-on-application\">For enquiries on application</h3>\n\n<p>Please ensure you put the correct name, date of birth/or the application reference number on all correspondence and email to visasheffield@homeoffice.gsi.gov.uk </p>\n</div>",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening Hours</h2>\n\n<h3 id=\"submission-of-applications\">Submission of Applications</h3>\n\n<p>Open from 8 am to 10:30 am</p>\n\n<h3 id=\"passport-collection\">Passport Collection</h3>\n\n<p>From 2:30 pm to 3:30 pm</p>\n\n<h3 id=\"for-enquiries-on-application\">For enquiries on application</h3>\n\n<p>Please ensure you put the correct name, date of birth/or the application reference number on all correspondence and email to visasheffield@homeoffice.gsi.gov.uk</p>\n</div>",
               "type": "Other"
             },
             "address": {
@@ -108,12 +104,12 @@
             "title": "Consular Section",
             "format": "World Office",
             "updated_at": "2016-02-24T11:09:58.000+00:00",
-            "web_url": "https://www.gov.uk/government/world/organisations/british-high-commission-banjul/office/consular-section",
+            "web_url": "https://www.gov.uk/world/organisations/british-high-commission-banjul/office/consular-section",
             "details": {
               "email": "UKinTheGambia@fco.gov.uk",
               "description": "",
               "contact_form_url": "",
-              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours-for-british-nationals\">Opening Hours for British Nationals</h2>\n\n<p>8 am to 12 pm</p>\n</div>",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours-for-british-nationals\">Opening Hours for British Nationals</h2>\n\n<p>9 am to 12 pm</p>\n</div>",
               "type": "Other"
             },
             "address": {
@@ -132,7 +128,7 @@
             "contact_numbers": [
               {
                 "label": "Consular assistance (24 hours)",
-                "number": "+220 4494508/4495134/4495133"
+                "number": "+220 4495134"
               }
             ],
             "services": [
@@ -156,7 +152,7 @@
       "title": "DFID Gambia",
       "format": "Worldwide Organisation",
       "updated_at": "2013-04-29T12:25:01.000+01:00",
-      "web_url": "https://www.gov.uk/government/world/organisations/dfid-gambia",
+      "web_url": "https://www.gov.uk/world/organisations/dfid-gambia",
       "details": {
         "slug": "dfid-gambia"
       },

@@ -6,7 +6,7 @@ module SmartAnswersControllerTestHelper
       next: "Next Question"
     }
     params[:response] = response if response
-    get :show, params.merge(other_params)
+    get :show, params: params.merge(other_params)
   end
 
   def submit_json_response(response = nil, other_params = {})
@@ -17,7 +17,7 @@ module SmartAnswersControllerTestHelper
       next: "1"
     }
     params[:response] = response if response
-    get :show, params.merge(other_params)
+    get :show, params: params.merge(other_params)
   end
 
   def with_cache_control_expiry(&block)

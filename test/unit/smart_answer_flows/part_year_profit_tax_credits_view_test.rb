@@ -169,8 +169,8 @@ module SmartAnswer
         calculator_options = {
           tax_credits_award_ends_on: Date.parse('2016-02-20'),
           basis_period: YearRange.new(begins_on: Date.parse('2015-04-06')),
-          taxable_profit: Money.new(15000),
-          award_period_taxable_profit: Money.new(13154),
+          taxable_profit: SmartAnswer::Money.new(15000),
+          award_period_taxable_profit: SmartAnswer::Money.new(13154),
           stopped_trading_on: nil
         }
         @calculator = stub('calculator', calculator_options)

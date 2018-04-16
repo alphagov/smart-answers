@@ -20,12 +20,7 @@
   <%= render partial: 'what_you_need_to_do.govspeak.erb',
       locals: { calculator: calculator } %>
 
-  <% if calculator.ceremony_country == 'croatia' %>
-    You'll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry.
-
-    The local registrar may also need a certificate of custom and law, which confirms the marriage is valid - the Embassy in Zagreb can provide this.
-
-  <% elsif %w(montenegro kuwait).include?(calculator.ceremony_country) %>
+  <% if %w(montenegro kuwait).include?(calculator.ceremony_country) %>
     You’ll be asked to provide a certificate of no impediment (CNI) to prove you’re allowed to marry. Contact the local notary public to check if you need a CNI.
 
   <% elsif calculator.opposite_sex_21_days_residency_required? %>
@@ -38,18 +33,7 @@
 
   <% end %>
 
-  <% if calculator.ceremony_country == 'croatia' %>
-
-    ###Applying for a CNI from the <%= calculator.embassy_or_consulate_ceremony_country %>
-
-    <%= render partial: "three_day_residency_requirement.govspeak.erb",
-               locals: {
-                 country_name_lowercase_prefix: calculator.country_name_lowercase_prefix
-               } %>
-
-    You can then book an appointment at the embassy to give notice of your marriage. There’s a fee for this service (read the table on this page).
-
-  <% elsif calculator.ceremony_country == 'nicaragua' %>
+  <% if calculator.ceremony_country == 'nicaragua' %>
     If you need a CNI, you must arrange this through the British Embassy in Costa Rica because there aren’t any British consular facilities in Nicaragua.
 
 
@@ -59,24 +43,13 @@
 
   <% end %>
 
-  <% if %w(croatia russia).exclude?(calculator.ceremony_country) && calculator.three_day_residency_requirement_applies? %>
+  <% if %w(russia).exclude?(calculator.ceremony_country) && calculator.three_day_residency_requirement_applies? %>
     <%= render partial: "three_day_residency_requirement.govspeak.erb",
                locals: {
                  country_name_lowercase_prefix: calculator.country_name_lowercase_prefix
                } %>
   <% end %>
 
-  <% if calculator.ceremony_country == 'greece' %>
-    ### Posting notice in front of a notary public
-    If you choose to post notice before a local notary public, you must email the embassy in advance to get the forms you need.
-
-    <consular.athens@fco.gov.uk>
-
-    ^Some notaries public might not let you post notice. If a local notary public doesn’t sign your forms you’ll have to post notice at the British Embassy in Athens.^
-
-    ### Posting notice at the embassy
-
-  <% end %>
   <% if calculator.ceremony_country == 'estonia' %>
     ^You may be able to get married without a CNI if you have a permanent address in Estonia and have a 6 month residence permit - contact the local authorities to find out.^
 
@@ -156,21 +129,10 @@
                locals: { calculator: calculator } %>
   <% end %>
 
-  <% if calculator.ceremony_country == 'egypt' %>
-    <%= render partial: 'required_supporting_documents_egypt.govspeak.erb' %>
-  <% elsif calculator.ceremony_country == 'greece' %>
-    You’ll need to provide supporting documents, including:
-
-    - your passport
-    - Greek ID card (if available)
-    - proof of residence, such as a residence permit - check with the embassy or notary public to find out what you need
-    - equivalent documents for your partner
-
-
-  <% elsif calculator.ceremony_country == 'macao' %>
+  <% if calculator.ceremony_country == 'macao' %>
     <%= render partial: 'required_supporting_documents_macao.govspeak.erb' %>
   <% else %>
-    <% if calculator.birth_certificate_required_as_supporting_document? && (calculator.notary_public_ceremony_country? || %w(japan macedonia).include?(calculator.ceremony_country)) %>
+    <% if calculator.birth_certificate_required_as_supporting_document? && (calculator.notary_public_ceremony_country? || %w(macedonia).include?(calculator.ceremony_country)) %>
       You’ll need to provide supporting documents, including:
 
       - your passport
@@ -188,7 +150,7 @@
       - equivalent documents for your partner
 
 
-    <% elsif (calculator.notary_public_ceremony_country? || %w(japan macedonia).include?(calculator.ceremony_country)) %>
+    <% elsif (calculator.notary_public_ceremony_country? || %w(macedonia).include?(calculator.ceremony_country)) %>
       You’ll need to provide supporting documents, including:
 
       - your passport
@@ -203,23 +165,7 @@
     <% end %>
   <% end %>
 
-  <% if calculator.ceremony_country == 'greece' %>
-    You’ll need to fill in forms for your notice of marriage, and complete an affirmation (non-religious) or affidavit (religious) stating that you’re free to marry.
-
-    You can download and fill in (but not sign) the forms in advance. You’ll need to take the forms with you to your appointment.
-
-
-    $D
-    [Download ‘Notice of marriage’](/government/publications/notice-of-marriage-form--2)
-
-    [Download ‘Affidavit and affirmation for marriage’](/government/publications/affirmationaffidavit-of-marital-status-form)
-    $D
-
-
-  <% else %>
-    <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
-
-  <% end %>
+  <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
 
   <%= render partial: 'names_on_documents_must_match.govspeak.erb' %>
 
@@ -237,22 +183,7 @@
 
   ^You’ll also need to provide evidence of nationality or residence if the divorce or dissolution took place outside the UK. You’ll need to get it [legalised](/get-document-legalised) and [translated](/government/collections/lists-of-translators-and-interpreters) if it’s not in English.^
 
-  <% if calculator.ceremony_country == 'greece' %>
-    ###What happens next
-
-    The embassy or notary public can take your oath or affirmation and witness your notice of marriage. The notary public may charge 2 separate fees for this.
-
-    If you give notice at a notary public, you must post the signed forms and any supporting documents to the British Embassy in Athens afterwards.
-
-    The embassy will display your notice of marriage publicly for 7 days (from the day after they receive your payment). They’ll then issue the CNI on the 8th day (as long as nobody has registered an objection).
-
-    There’s an additional fee for this - the embassy or consulate will contact you to arrange payment.
-
-    You can then collect your CNI at the British embassy in Athens or ask for it to be sent to you by post. You must provide the registrar’s original Notice of Marriage if you posted notice in the UK.
-
-    [Make an appointment to collect your CNI at the embassy in Athens](https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-athens/certificate-of-no-impediment/slot_picker).
-
-  <% elsif calculator.notary_public_ceremony_country? %>
+  <% if calculator.notary_public_ceremony_country? %>
     ###What happens next
 
     The embassy or notary public will charge a fee for taking the oath.
@@ -283,13 +214,6 @@
 
     <%= render partial: 'partner_naturalisation_in_uk.govspeak.erb' %>
 
-  <% end %>
-
-  <% if calculator.ceremony_country == 'poland' %>
-
-    If you’re getting married in a registry office, you must give them your CNI at least 2 months before your wedding. If you’re getting married in a church, you can do this 2 days before the wedding.
-
-    You may be asked to provide a copy of your birth certificate. Make sure you send a [certified copy](/order-copy-birth-death-marriage-certificate) as you won’t get it back.
   <% end %>
 
   <%= render partial: 'services_and_fees.govspeak.erb',

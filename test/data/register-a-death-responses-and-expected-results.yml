@@ -52,92 +52,12 @@
 - :current_node: :where_did_the_death_happen?
   :responses:
   - scotland
-  :next_node: :did_the_person_die_at_home_hospital?
-  :outcome_node: false
-- :current_node: :did_the_person_die_at_home_hospital?
-  :responses:
-  - scotland
-  - at_home_hospital
-  :next_node: :was_death_expected?
-  :outcome_node: false
-- :current_node: :was_death_expected?
-  :responses:
-  - scotland
-  - at_home_hospital
-  - 'yes'
-  :next_node: :uk_result
-  :outcome_node: true
-- :current_node: :was_death_expected?
-  :responses:
-  - scotland
-  - at_home_hospital
-  - 'no'
-  :next_node: :uk_result
-  :outcome_node: true
-- :current_node: :did_the_person_die_at_home_hospital?
-  :responses:
-  - scotland
-  - elsewhere
-  :next_node: :was_death_expected?
-  :outcome_node: false
-- :current_node: :was_death_expected?
-  :responses:
-  - scotland
-  - elsewhere
-  - 'yes'
-  :next_node: :uk_result
-  :outcome_node: true
-- :current_node: :was_death_expected?
-  :responses:
-  - scotland
-  - elsewhere
-  - 'no'
-  :next_node: :uk_result
+  :next_node: :scotland_result
   :outcome_node: true
 - :current_node: :where_did_the_death_happen?
   :responses:
   - northern_ireland
-  :next_node: :did_the_person_die_at_home_hospital?
-  :outcome_node: false
-- :current_node: :did_the_person_die_at_home_hospital?
-  :responses:
-  - northern_ireland
-  - at_home_hospital
-  :next_node: :was_death_expected?
-  :outcome_node: false
-- :current_node: :was_death_expected?
-  :responses:
-  - northern_ireland
-  - at_home_hospital
-  - 'yes'
-  :next_node: :uk_result
-  :outcome_node: true
-- :current_node: :was_death_expected?
-  :responses:
-  - northern_ireland
-  - at_home_hospital
-  - 'no'
-  :next_node: :uk_result
-  :outcome_node: true
-- :current_node: :did_the_person_die_at_home_hospital?
-  :responses:
-  - northern_ireland
-  - elsewhere
-  :next_node: :was_death_expected?
-  :outcome_node: false
-- :current_node: :was_death_expected?
-  :responses:
-  - northern_ireland
-  - elsewhere
-  - 'yes'
-  :next_node: :uk_result
-  :outcome_node: true
-- :current_node: :was_death_expected?
-  :responses:
-  - northern_ireland
-  - elsewhere
-  - 'no'
-  :next_node: :uk_result
+  :next_node: :northern_ireland_result
   :outcome_node: true
 - :current_node: :where_did_the_death_happen?
   :responses:
@@ -432,7 +352,140 @@
   :responses:
   - overseas
   - iran
-  :next_node: :no_embassy_result
+  :next_node: :where_are_you_now?
+  :outcome_node: false
+- :current_node: :where_are_you_now?
+  :responses:
+  - overseas
+  - iran
+  - same_country
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses:
+  - overseas
+  - iran
+  - another_country
+  :next_node: :which_country_are_you_in_now?
+  :outcome_node: false
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - iran
+  - another_country
+  - algeria
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - iran
+  - another_country
+  - brazil
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - iran
+  - another_country
+  - china
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - iran
+  - another_country
+  - czech-republic
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - iran
+  - another_country
+  - estonia
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - iran
+  - another_country
+  - hong-kong
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - iran
+  - another_country
+  - italy
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - iran
+  - another_country
+  - libya
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - iran
+  - another_country
+  - north-korea
+  :next_node: :north_korea_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - iran
+  - another_country
+  - papua-new-guinea
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - iran
+  - another_country
+  - philippines
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - iran
+  - another_country
+  - somalia
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - iran
+  - another_country
+  - south-georgia-and-south-sandwich-islands
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :which_country_are_you_in_now?
+  :responses:
+  - overseas
+  - iran
+  - another_country
+  - taiwan
+  :next_node: :oru_result
+  :outcome_node: true
+- :current_node: :where_are_you_now?
+  :responses:
+  - overseas
+  - iran
+  - in_the_uk
+  :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country?
   :responses:

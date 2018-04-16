@@ -1,7 +1,8 @@
 module SmartAnswer
   class ChildcareCostsForTaxCreditsFlow < Flow
     def define
-      content_id "f8c575b7-d7a2-41a4-9911-069a06f1a2cc"
+      start_page_content_id "f8c575b7-d7a2-41a4-9911-069a06f1a2cc"
+      flow_content_id "5f606f33-a3e9-47ff-bc1d-2a6444e7b54c"
       name 'childcare-costs-for-tax-credits'
       status :published
       satisfies_need "100422"
@@ -129,7 +130,7 @@ module SmartAnswer
         end
 
         next_node do |response|
-          amount = Money.new(response)
+          amount = SmartAnswer::Money.new(response)
           amount == 0 ? outcome(:no_longer_paying) : question(:old_weekly_amount_1?)
         end
       end
@@ -141,7 +142,7 @@ module SmartAnswer
         end
 
         next_node do |response|
-          amount = Money.new(response)
+          amount = SmartAnswer::Money.new(response)
           amount == 0 ? outcome(:no_longer_paying) : question(:old_weekly_amount_1?)
         end
       end
@@ -247,7 +248,7 @@ module SmartAnswer
         end
 
         next_node do |response|
-          amount = Money.new(response)
+          amount = SmartAnswer::Money.new(response)
           amount == 0 ? outcome(:no_longer_paying) : question(:old_weekly_amount_2?)
         end
       end
@@ -280,7 +281,7 @@ module SmartAnswer
         end
 
         next_node do |response|
-          amount = Money.new(response)
+          amount = SmartAnswer::Money.new(response)
           amount == 0 ? outcome(:no_longer_paying) : question(:old_weekly_amount_3?)
         end
       end
@@ -357,7 +358,7 @@ module SmartAnswer
         end
 
         precalculate :difference_money do
-          Money.new(weekly_difference.abs)
+          SmartAnswer::Money.new(weekly_difference.abs)
         end
       end
 

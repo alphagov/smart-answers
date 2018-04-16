@@ -1,7 +1,8 @@
 module SmartAnswer
   class PlanAdoptionLeaveFlow < Flow
     def define
-      content_id "b0e80c8b-d19f-4a50-82f4-71ab08f88207"
+      start_page_content_id "b0e80c8b-d19f-4a50-82f4-71ab08f88207"
+      flow_content_id "a2ae6c66-ce83-4da1-b758-f7f12acc4c39"
       name 'plan-adoption-leave'
       status :published
       satisfies_need "101018"
@@ -64,10 +65,10 @@ module SmartAnswer
           calculator.earliest_start_formatted
         end
         precalculate :period_of_ordinary_leave do
-          calculator.format_date_range calculator.period_of_ordinary_leave
+          calculator.period_of_ordinary_leave.to_s
         end
         precalculate :period_of_additional_leave do
-          calculator.format_date_range calculator.period_of_additional_leave
+          calculator.period_of_additional_leave.to_s
         end
       end
     end
