@@ -10,7 +10,7 @@ If you make a content change, you will need to update the regression test checks
 
 3. Review the changes to the [artefacts](regression-tests.md#artefact-files) and check they are as you expect.
 
-4. If artefact changes are as expected, [regenerate the checksums](regression-tests.md#checksum-file).
+4. If artefact changes are as expected, [regenerate the checksums](checksums.md).
 
 5. Commit all the changes with a suitable explanation in the commit note.
 

@@ -94,42 +94,7 @@ If there's a difference in the artefacts, you should carefully review the change
 
 ### Checksum file
 
-This file is used to determine whether or not the regression tests for a given flow should be run as part of the `default` Rake task. It is another optimisation in that running all the regression tests takes too long for them to be incorporated into the default Rake task. The filenames are of the form: `test/data/<smart-answer-flow-name>-files.yml`.
-
-The idea of the checksums is to detect changes to files which might affect the outward behaviour of the flow and thus cause the regression tests to fail.
-
-You will need to update it if you:
-
-  * change any of the checksummed files
-  * add a checksummed file
-  * remove a checksummed file
-
-Note that both the "questions & responses" file and the "responses & expected results" file are checksummed by default.
-
-The `checksums:update` rake task should be used to update the checksums. As an example, for the Marriage Abroad flow:
-
-```bash
-rake checksums:update[marriage-abroad]
-```
-
-For more details, see the [checksums:update documentation](checksums.md#updating-checksum-values-for-specific-smart-answers).
-
-You can supply paths to any new files as command line arguments to this script. This can be a file, or a glob.
-
-```bash
-rake checksums:add_files[marriage-abroad,lib/smart_answer_flows/marriage-abroad/questions]
-```
-
-```bash
-rake checksums:add_files[marriage-abroad,lib/smart_answer_flows/marriage-abroad/questions/country_of_ceremony.govspeak.erb]
-```
-For more details, see the [checksums:add_files documentation](checksums.md#adding-files-for-an-existing-smart-answer).
-
-### When to update checksums
-
-You should *only* update the checksums if you have run the regression tests for the flow and they have all passed. By updating them you are telling the [main CI build](continuous-integration.md#main) that it doesn't need to run the regression tests for this flow.
-
-If you update the checksums when the regression tests are failing, the main CI build will pass (because it's not running the regression tests), but sometime later the [regression test CI build](continuous-integration.md#regression) will fail. The latter CI build is intended to be a safety net - it's not good if the `master` branch contains failing tests.
+This file is used to determine whether or not the regression tests for a given flow should be run as part of the `default` Rake task. It is another optimisation in that running all the regression tests takes too long for them to be incorporated into the default Rake task. See the [checksums](checksums.md) documentation for how to update these.
 
 ## Running regression tests
 
