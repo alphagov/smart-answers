@@ -34,6 +34,19 @@ update, in which case only those will be updated.
 rake checksums:update[marriage-abroad,check-uk-visa]
 ```
 
+### When to update checksums
+
+You should *only* update the checksums if you have run the regression
+tests for the flow and they have all passed. By updating them you are
+telling the [main CI build](continuous-integration.md#main) that it
+doesn't need to run the regression tests for this flow.
+
+If you update the checksums when the regression tests are failing, the
+main CI build will pass (because it's not running the regression
+tests), but sometime later the [regression test CI build](continuous-integration.md#regression)
+will fail. The latter CI build is intended to be a safety net - it's
+not good if the `master` branch contains failing tests.
+
 ## Generating and altering checksum files
 
 ### For a new smart answer

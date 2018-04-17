@@ -91,7 +91,6 @@ See:
 * [Handling exceptions with Errbit](doc/errbit.md)
 * [Rubocop](doc/rubocop.md)
 * [Testing](doc/testing.md)
-* [New-style Testing](doc/new-style-testing.md)
 * [Issues and Todo](https://trello.com/b/7HgyU4hy/smart-answers-tasks)
 
 ### Debugging

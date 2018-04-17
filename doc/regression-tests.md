@@ -15,7 +15,7 @@ Go to this [Jenkins Job](https://ci.integration.publishing.service.gov.uk/job/sm
 
 These tests were introduced by @chrisroos & @floehopper in 2015 to reduce the risk of doing large-scale refactoring within the application. In particular, they wanted to make a substantial change to the way that landing, question & outcome pages were rendered. The vast majority of the integration tests did not (and still don't) render these pages and in general test coverage was very patchy. The regression tests were created to fulfil this requirement.
 
-The plan is to [refactor all the existing flows](refactoring.md) to separate the "model", "view" & "controller" concerns and use a [new testing approach](new-style-testing.md) which would render the regression tests obsolete.
+The plan is to [refactor all the existing flows](refactoring.md) to separate the "model", "view" & "controller" concerns and use a [new testing approach](testing.md) which would render the regression tests obsolete.
 
 The regression tests are quite brittle and some of them take a long time to run which can make development a bit painful. However, they are serving an important purpose and we hope to remove them as soon as possible.
 
@@ -94,42 +94,7 @@ If there's a difference in the artefacts, you should carefully review the change
 
 ### Checksum file
 
-This file is used to determine whether or not the regression tests for a given flow should be run as part of the `default` Rake task. It is another optimisation in that running all the regression tests takes too long for them to be incorporated into the default Rake task. The filenames are of the form: `test/data/<smart-answer-flow-name>-files.yml`.
-
-The idea of the checksums is to detect changes to files which might affect the outward behaviour of the flow and thus cause the regression tests to fail.
-
-You will need to update it if you:
-
-  * change any of the checksummed files
-  * add a checksummed file
-  * remove a checksummed file
-
-Note that both the "questions & responses" file and the "responses & expected results" file are checksummed by default.
-
-The `checksums:update` rake task should be used to update the checksums. As an example, for the Marriage Abroad flow:
-
-```bash
-rake checksums:update[marriage-abroad]
-```
-
-For more details, see the [checksums:update documentation](checksums.md#updating-checksum-values-for-specific-smart-answers).
-
-You can supply paths to any new files as command line arguments to this script. This can be a file, or a glob.
-
-```bash
-rake checksums:add_files[marriage-abroad,lib/smart_answer_flows/marriage-abroad/questions]
-```
-
-```bash
-rake checksums:add_files[marriage-abroad,lib/smart_answer_flows/marriage-abroad/questions/country_of_ceremony.govspeak.erb]
-```
-For more details, see the [checksums:add_files documentation](checksums.md#adding-files-for-an-existing-smart-answer).
-
-### When to update checksums
-
-You should *only* update the checksums if you have run the regression tests for the flow and they have all passed. By updating them you are telling the [main CI build](continuous-integration.md#main) that it doesn't need to run the regression tests for this flow.
-
-If you update the checksums when the regression tests are failing, the main CI build will pass (because it's not running the regression tests), but sometime later the [regression test CI build](continuous-integration.md#regression) will fail. The latter CI build is intended to be a safety net - it's not good if the `master` branch contains failing tests.
+This file is used to determine whether or not the regression tests for a given flow should be run as part of the `default` Rake task. It is another optimisation in that running all the regression tests takes too long for them to be incorporated into the default Rake task. See the [checksums](checksums.md) documentation for how to update these.
 
 ## Running regression tests
 
@@ -215,17 +180,6 @@ The idea is to use Unix command line tools (e.g. `grep`, `find`, `diff`, etc) to
 The Unix `tree` command can be used to generate an ASCII-art view of the relevant artefacts directory or sub-directory. You can generate this view before and after a change and include them in the commit note with annotations explaining what has changed and why. Here is an example:
 
 * [PR #2529](https://github.com/alphagov/smart-answers/pull/2529) e.g. [Update regression test responses, expected results & artefacts](https://github.com/alphagov/smart-answers/commit/b225746fd044c5699075778fc1b507662c881df5)
-
-## Developer workflow
-
-It should be obvious from the [Structuring commits](#structuring-commits) & [Artefact changes](#artefact-changes) sections above that there isn't one "correct" way to organise your commits in a pull request. However, as a starting point, here are the steps you might use to implement a simple content change:
-
-1. Make the change to the relevant template file
-2. [Run the regression tests](#running-regression-tests) thus regenerating the artefacts
-3. Review the changes to the [artefacts](#artefact-files) and check they are as you expect
-4. If artefact changes are as expected, [regenerate the checksums](#checksum-file)
-5. Commit all the changes with a suitable explanation in the commit note
-6. Run the regression tests and check they all pass
 
 [1]: http://www.annashipman.co.uk/jfdi/good-pull-requests.html
 [2]: https://github.com/alphagov/styleguides/blob/master/pull-requests.md

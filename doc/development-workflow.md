@@ -1,5 +1,21 @@
 # Development workflow
 
+## Making a content change
+
+If you make a content change, you will need to update the regression test checksum file, and possibly the artefact files as well. There isn't one "correct" way to organise your commits in a pull request. However, as a starting point, here are the steps you might use to implement a simple content change:
+
+1. Make the change to the relevant template file.
+
+2. [Run the regression tests](regression-tests.md#running-regression-tests) thus regenerating the artefacts.
+
+3. Review the changes to the [artefacts](regression-tests.md#artefact-files) and check they are as you expect.
+
+4. If artefact changes are as expected, [regenerate the checksums](checksums.md).
+
+5. Commit all the changes with a suitable explanation in the commit note.
+
+6. Run the regression tests and check they all pass.
+
 ## Creating a Pull Request
 
 As the Pull Request author:
