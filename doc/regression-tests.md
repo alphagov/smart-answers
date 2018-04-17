@@ -216,16 +216,5 @@ The Unix `tree` command can be used to generate an ASCII-art view of the relevan
 
 * [PR #2529](https://github.com/alphagov/smart-answers/pull/2529) e.g. [Update regression test responses, expected results & artefacts](https://github.com/alphagov/smart-answers/commit/b225746fd044c5699075778fc1b507662c881df5)
 
-## Developer workflow
-
-It should be obvious from the [Structuring commits](#structuring-commits) & [Artefact changes](#artefact-changes) sections above that there isn't one "correct" way to organise your commits in a pull request. However, as a starting point, here are the steps you might use to implement a simple content change:
-
-1. Make the change to the relevant template file
-2. [Run the regression tests](#running-regression-tests) thus regenerating the artefacts
-3. Review the changes to the [artefacts](#artefact-files) and check they are as you expect
-4. If artefact changes are as expected, [regenerate the checksums](#checksum-file)
-5. Commit all the changes with a suitable explanation in the commit note
-6. Run the regression tests and check they all pass
-
 [1]: http://www.annashipman.co.uk/jfdi/good-pull-requests.html
 [2]: https://github.com/alphagov/styleguides/blob/master/pull-requests.md
