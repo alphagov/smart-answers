@@ -15,7 +15,7 @@ Go to this [Jenkins Job](https://ci.integration.publishing.service.gov.uk/job/sm
 
 These tests were introduced by @chrisroos & @floehopper in 2015 to reduce the risk of doing large-scale refactoring within the application. In particular, they wanted to make a substantial change to the way that landing, question & outcome pages were rendered. The vast majority of the integration tests did not (and still don't) render these pages and in general test coverage was very patchy. The regression tests were created to fulfil this requirement.
 
-The plan is to [refactor all the existing flows](refactoring.md) to separate the "model", "view" & "controller" concerns and use a [new testing approach](new-style-testing.md) which would render the regression tests obsolete.
+The plan is to [refactor all the existing flows](refactoring.md) to separate the "model", "view" & "controller" concerns and use a [new testing approach](testing.md) which would render the regression tests obsolete.
 
 The regression tests are quite brittle and some of them take a long time to run which can make development a bit painful. However, they are serving an important purpose and we hope to remove them as soon as possible.
 
