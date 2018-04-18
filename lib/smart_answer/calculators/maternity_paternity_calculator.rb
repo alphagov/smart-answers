@@ -226,11 +226,14 @@ module SmartAnswer::Calculators
     def paydates_and_pay
       paydates = send(:"paydates_#{pay_method}")
       [].tap do |ary|
-        paydates.each_with_index do |paydate, index|
+        last_paydate = pay_start_date
+        paydates.each do |paydate|
           # Pay period includes the date of payment hence the range starts the day after.
-          last_paydate = index == 0 ? pay_start_date : paydates[index - 1] + 1
           pay = pay_for_period(last_paydate, paydate)
-          ary << { date: paydate, pay: pay.round(2) } if pay.positive?
+          if pay.positive?
+            ary << { date: paydate, pay: pay.round(2) }
+            last_paydate = paydate + 1
+          end
         end
       end
     end
