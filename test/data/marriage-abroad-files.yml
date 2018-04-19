@@ -1,5 +1,5 @@
 ---
-lib/data/marriage_abroad_data.yml: 31d9d41d3d96e38a9c6ab5a22769f33a
+lib/data/marriage_abroad_data.yml: 7408633cded427a6f620427fb3db75a6
 lib/data/marriage_abroad_services.yml: 6a4a5b0168d8426b98382e69c92ea57d
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/smart_answer/calculators/country_name_formatter.rb: 6e9aab3c79a59e54e056b473b9cc4151
@@ -272,6 +272,25 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_loc
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_local/_same_sex.govspeak.erb: 243a134ee7f41dac54c95dce1d57f865
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_other/_opposite_sex.govspeak.erb: 665cddbb828e17861e30b587e20bfb3e
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/denmark/uk/partner_other/_same_sex.govspeak.erb: 243a134ee7f41dac54c95dce1d57f865
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/ecuador/_title.govspeak.erb: ce7002237a5b3f13a2637561f9877962
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/ecuador/ceremony_country/partner_british/_opposite_sex.erb: 2edb6f532f6041fba2a0a16150cee252
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/ecuador/ceremony_country/partner_british/_same_sex.erb: 8110afdc29f215d6c8209282f5d408f0
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/ecuador/ceremony_country/partner_local/_opposite_sex.erb: ea841541cb89774d268ccd7d11a18359
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/ecuador/ceremony_country/partner_local/_same_sex.erb: 262d2b52b7d303b591a6610155dbe0b8
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/ecuador/ceremony_country/partner_other/_opposite_sex.erb: ea841541cb89774d268ccd7d11a18359
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/ecuador/ceremony_country/partner_other/_same_sex.erb: 262d2b52b7d303b591a6610155dbe0b8
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/ecuador/third_country/partner_british/_opposite_sex.erb: 2edb6f532f6041fba2a0a16150cee252
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/ecuador/third_country/partner_british/_same_sex.erb: e12f1c78325ea68e7959c187a73783bf
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/ecuador/third_country/partner_local/_opposite_sex.erb: ea841541cb89774d268ccd7d11a18359
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/ecuador/third_country/partner_local/_same_sex.erb: 9e1099844313936ee3cd3b0128ba4909
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/ecuador/third_country/partner_other/_opposite_sex.erb: ea841541cb89774d268ccd7d11a18359
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/ecuador/third_country/partner_other/_same_sex.erb: 9e1099844313936ee3cd3b0128ba4909
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/ecuador/uk/partner_british/_opposite_sex.erb: 3bf7e6c453d0fc1c7eb6f6a955ee5f9f
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/ecuador/uk/partner_british/_same_sex.erb: cde1efc31c37845b202e01c1c6caf08c
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/ecuador/uk/partner_local/_opposite_sex.erb: 1bba8b54ca9f6469edc4a037841c9f51
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/ecuador/uk/partner_local/_same_sex.erb: 299bf4f29205187c9e7d51886950906b
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/ecuador/uk/partner_other/_opposite_sex.erb: 1bba8b54ca9f6469edc4a037841c9f51
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/ecuador/uk/partner_other/_same_sex.erb: 299bf4f29205187c9e7d51886950906b
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/egypt/_opposite_sex.govspeak.erb: 162493b92b698d4e6de96974ca87648c
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/egypt/_same_sex.govspeak.erb: 6cd2d3e2fdc4c164ddc7cfbf34dea6b9
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/egypt/_title.govspeak.erb: 634e6af91bcf937249a01aa66ad32da8
@@ -822,7 +841,7 @@ lib/smart_answer_flows/marriage-abroad/questions/legal_residency.govspeak.erb: 7
 lib/smart_answer_flows/marriage-abroad/questions/marriage_or_pacs.govspeak.erb: a51aecfac697188f90ca9efefcb2e0ea
 lib/smart_answer_flows/marriage-abroad/questions/partner_opposite_or_same_sex.govspeak.erb: 40d0c99a5be50f0625c6562f06fe4afd
 lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationality.govspeak.erb: 80e04f36c75c232bede1a244d621471e
-lib/smart_answer_flows/marriage-abroad.rb: 8b5a2e2abeee8d3735fcc507dab65e71
+lib/smart_answer_flows/marriage-abroad.rb: 4bf393eb83cb73513174603c314e8921
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1dc349abcd6b21e1bf8c397d96fd02b8
 test/data/marriage-abroad-questions-and-responses.yml: 0f079512ee2f1fd27145bf9db84ef5eb
 test/data/marriage-abroad-responses-and-expected-results.yml: ab0405ffe0851ac14842de89d9cd3c0b
