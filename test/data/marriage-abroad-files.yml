@@ -1,5 +1,5 @@
 ---
-lib/data/marriage_abroad_data.yml: 6b82f776d720c6afc8a9b2389a1b19be
+lib/data/marriage_abroad_data.yml: c912483d6e7f8564b23d556794963927
 lib/data/marriage_abroad_services.yml: 6a4a5b0168d8426b98382e69c92ea57d
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/smart_answer/calculators/country_name_formatter.rb: 6e9aab3c79a59e54e056b473b9cc4151
@@ -681,6 +681,9 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/uk/partne
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/uk/partner_local/_same_sex.govspeak.erb: 72d40d32cac4771cd96f3e5667211d77
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/uk/partner_other/_opposite_sex.govspeak.erb: 54480804bdd7eb5e8ca52f6ec8d9ae87
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/uk/partner_other/_same_sex.govspeak.erb: 54480804bdd7eb5e8ca52f6ec8d9ae87
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-korea/_opposite_sex.erb: f60c41b17c2be78bdcfbaf603ee49292
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-korea/_same_sex.erb: d419bb1b0d9de201e79b92d46799c4ec
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-korea/_title.govspeak.erb: 46f843dd4a7d38085219c7091eed9d3c
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/spain/_title.govspeak.erb: 276c524a92c0591d53fc92c86250be6c
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/spain/ceremony_country/_opposite_sex.govspeak.erb: 536e7ccd69daa0c9a7daee83e6b73368
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/spain/ceremony_country/_same_sex.govspeak.erb: 32e384406c152d1b6fde2414e11ab1e4
@@ -825,7 +828,6 @@ lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_slovakia.govspeak.erb: 5407c55cf210c0231b3062257f05fcd3
 ? lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_slovenia_when_residing_in_uk_or_slovenia.govspeak.erb
 : 6064346c5d9f318cbd262fd269eb230b
-lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_south_korea.govspeak.erb: 7ce2f2a06aa2a86d4c216e850e9bd542
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_united_arab_emirates.govspeak.erb: 84b110f1d6b9ea9a840487a8691a00f2
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_opposite_sex_marriage_in_yemen.govspeak.erb: 75931823b0856f97977823a467d25ec9
 lib/smart_answer_flows/marriage-abroad/outcomes/outcome_same_sex_civil_partnership.govspeak.erb: 31a915f97181eaa513876e1e9a8cc28a
@@ -863,7 +865,14 @@ lib/smart_answer_flows/marriage-abroad/questions/legal_residency.govspeak.erb: 7
 lib/smart_answer_flows/marriage-abroad/questions/marriage_or_pacs.govspeak.erb: a51aecfac697188f90ca9efefcb2e0ea
 lib/smart_answer_flows/marriage-abroad/questions/partner_opposite_or_same_sex.govspeak.erb: 40d0c99a5be50f0625c6562f06fe4afd
 lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationality.govspeak.erb: 80e04f36c75c232bede1a244d621471e
+<<<<<<< HEAD
 lib/smart_answer_flows/marriage-abroad.rb: 2068a923210129f0b8659e52e7812bf0
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1dc349abcd6b21e1bf8c397d96fd02b8
 test/data/marriage-abroad-questions-and-responses.yml: 0f079512ee2f1fd27145bf9db84ef5eb
 test/data/marriage-abroad-responses-and-expected-results.yml: 640a7af8ca322175964557f4e8f591dc
+=======
+lib/smart_answer_flows/marriage-abroad.rb: 7a9d1d2692af620e5ac06268427cc8f1
+lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1dc349abcd6b21e1bf8c397d96fd02b8
+test/data/marriage-abroad-questions-and-responses.yml: 0f079512ee2f1fd27145bf9db84ef5eb
+test/data/marriage-abroad-responses-and-expected-results.yml: fc21ffa01ef5348301ed4fc0f0c592aa
+>>>>>>> Flatten marriage abroad in South Korea

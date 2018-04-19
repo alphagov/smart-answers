@@ -6,7 +6,7 @@ require 'smart_answer_flows/marriage-abroad'
 class MarriageAbroadTest < ActiveSupport::TestCase
   include FlowTestHelper
 
-  FLATTEN_COUNTRIES_2_OUTCOMES = %w(australia china croatia cyprus egypt france ireland luxembourg japan philippines thailand turkey usa zimbabwe).freeze
+  FLATTEN_COUNTRIES_2_OUTCOMES = %w(australia china croatia cyprus egypt france ireland luxembourg japan philippines south-korea thailand turkey usa).freeze
   FLATTEN_COUNTRIES_6_OUTCOMES = %w(greece italy spain poland).freeze
   FLATTEN_COUNTRIES_18_OUTCOMES = %w(algeria azerbaijan brazil british-indian-ocean-territory burma cambodia chile colombia denmark el-salvador gambia germany hungary indonesia iran jordan kenya kuwait latvia maldives moldova mozambique nicaragua portugal romania south-africa sweden tanzania tunisia vietnam).freeze
   FLATTEN_COUNTRIES = FLATTEN_COUNTRIES_2_OUTCOMES + FLATTEN_COUNTRIES_6_OUTCOMES + FLATTEN_COUNTRIES_18_OUTCOMES
