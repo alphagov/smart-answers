@@ -6,5 +6,16 @@
         <%= option.label %>
       </label>
     </li>
- <% end %>
+  <% end %>
+  <% if question.none_option_label.present? %>
+    <li class="none-option">
+      <% if question.none_option_prefix.present? %>
+        <p><%= question.none_option_prefix %></p>
+      <% end %>
+      <label for="response_<%= question.options.size %>" class="selectable">
+        <%= check_box_tag "response[]", "none", prefill_value_is?("none"), id: "response_#{question.options.size}" %>
+        <%= question.none_option_label %>
+      </label>
+    </li>
+  <% end %>
 </ul>

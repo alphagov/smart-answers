@@ -67,6 +67,26 @@ class CheckboxQuestionsTest < EngineIntegrationTest
         end
       end
 
+      # This question is configured with a 'none' option so it requires
+      # an explicit answer, clicking 'next step' without choosing an
+      # option fails validation.
+      within('.question') do
+        assert_page_has_content "Are you sure you don't want any toppings?"
+      end
+
+      click_on "Next step"
+
+      assert_equal current_path, "/checkbox-sample/y/none"
+
+      within(".error-message") do
+        assert_page_has_content "Please answer this question"
+      end
+
+      check "Definitely no toppings"
+      click_on "Next step"
+
+      assert_current_url "/checkbox-sample/y/none/none"
+
       within '.outcome:nth-child(1)' do
         assert_page_has_content "Ok, your margherita pizza is on its way"
       end

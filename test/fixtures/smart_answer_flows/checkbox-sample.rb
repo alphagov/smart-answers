@@ -14,7 +14,7 @@ module SmartAnswer
 
         next_node do |response|
           if response == 'none'
-            outcome :margherita
+            question :confirm_no_toppings?
           else
             toppings = response.split(',')
             if toppings.include?('ice_cream')
@@ -22,6 +22,20 @@ module SmartAnswer
             else
               outcome :on_its_way
             end
+          end
+        end
+      end
+
+      checkbox_question :confirm_no_toppings? do
+        option :ask_me_again
+
+        set_none_option(label: "Definitely no toppings")
+
+        next_node do |response|
+          if response == 'none'
+            outcome :margherita
+          else
+            question :what_do_you_want_on_your_pizza?
           end
         end
       end
