@@ -193,8 +193,7 @@ module SmartAnswer
               outcome :outcome_opposite_sex_marriage_in_peru
             elsif calculator.opposite_sex_affirmation_country?
               outcome :outcome_opposite_sex_marriage_in_affirmation_countries
-            elsif calculator.ceremony_country_in_the_commonwealth? ||
-                calculator.ceremony_country == 'zimbabwe'
+            elsif calculator.ceremony_country_in_the_commonwealth?
               outcome :outcome_opposite_sex_marriage_in_commonwealth_countries
             elsif calculator.ceremony_country == 'british-virgin-islands'
               outcome :outcome_opposite_sex_marriage_in_british_virgin_islands
