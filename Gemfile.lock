@@ -78,7 +78,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.7.1)
     execjs (2.7.0)
-    faraday (0.14.0)
+    faraday (0.15.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.23)
     gds-api-adapters (52.5.1)
@@ -115,7 +115,7 @@ GEM
     govuk_frontend_toolkit (7.4.2)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-    govuk_publishing_components (6.5.0)
+    govuk_publishing_components (6.7.0)
       govspeak (>= 5.0.3)
       govuk_app_config
       govuk_frontend_toolkit
@@ -187,7 +187,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     public_suffix (3.0.2)
-    rack (2.0.4)
+    rack (2.0.5)
     rack-cache (1.7.1)
       rack (>= 0.4)
     rack-test (1.0.0)
@@ -340,7 +340,7 @@ DEPENDENCIES
   govuk-lint
   govuk_app_config
   govuk_frontend_toolkit (>= 6.0.4)
-  govuk_publishing_components (= 6.5.0)
+  govuk_publishing_components (= 6.7.0)
   htmlentities (~> 4)
   json
   lrucache (= 0.1.4)
