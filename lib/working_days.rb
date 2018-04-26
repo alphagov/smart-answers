@@ -37,15 +37,39 @@ private
     self.class.workday?(date)
   end
 
-  def self.bank_holidays
-    @bank_holidays ||= load_bank_holidays
-  end
+  class << self
+    def bank_holidays
+      @bank_holidays ||= load_bank_holidays
+    end
 
-  def self.load_bank_holidays
-    response = GdsApi::JsonClient.new(disable_cache: true).get_json(BANK_HOLIDAYS_URL)
+  private
 
-    response['england-and-wales']['events'].map do |event|
-      Date.parse(event["date"])
+    def load_bank_holidays
+      return get_bank_holidays unless Rails.env.development? || Rails.env.test?
+      load_from_cache || write_to_cache(get_bank_holidays)
+    end
+
+    def load_from_cache
+      File.exists?(cache_path) && Marshal.load(Base64.decode64(File.read(cache_path)))
+    end
+
+    def write_to_cache(data)
+      File.open(cache_path, 'w') do |f|
+        f.puts Base64.encode64(Marshal.dump(data))
+      end
+      data
+    end
+
+    def cache_path
+      Rails.root.join("tmp/bank-holidays-cache-#{Date.today.strftime('%Y-%m-%d')}.dump")
+    end
+
+    def get_bank_holidays
+      response = GdsApi::JsonClient.new(disable_cache: true).get_json(BANK_HOLIDAYS_URL)
+
+      response['england-and-wales']['events'].map do |event|
+        Date.parse(event["date"])
+      end
     end
   end
 end
