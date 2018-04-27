@@ -1,6 +1,6 @@
 Student finance calculator
 
-This calculator is for students from England or the European Union (EU) starting a new course in academic years:
+This calculator is for students from England or the European Union (EU) starting a new undergraduate course in academic years:
 
 + 2017 to 2018
 + 2018 to 2019
