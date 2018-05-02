@@ -178,8 +178,8 @@ GEM
     parser (2.5.1.0)
       ast (~> 2.4.0)
     plek (2.1.1)
-    poltergeist (1.17.0)
-      capybara (~> 2.1)
+    poltergeist (1.18.0)
+      capybara (>= 2.1, < 4)
       cliver (~> 0.3.1)
       websocket-driver (>= 0.2.0)
     powerpack (0.1.1)
@@ -351,7 +351,7 @@ DEPENDENCIES
   nokogiri
   parser
   plek (= 2.1.1)
-  poltergeist (= 1.17.0)
+  poltergeist (= 1.18.0)
   pry
   rack_strip_client_ip
   rails (= 5.2.0)
