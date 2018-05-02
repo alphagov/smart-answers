@@ -7,7 +7,7 @@
     <%= yield :head %>
 
     <% if @content_item %>
-      <%= render partial: 'govuk_component/analytics_meta_tags', locals: { content_item: @content_item, strip_date_pii: true, strip_postcode_pii: true } %>
+      <%= render "govuk_publishing_components/components/meta_tags", content_item: @content_item %>
     <% end %>
   </head>
 <body class="mainstream">
