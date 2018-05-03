@@ -1,6 +1,7 @@
 require_relative 'test_helper'
 require 'capybara/rails'
 
+Capybara.server = :webrick
 Capybara.default_driver = :rack_test
 
 require 'capybara/poltergeist'
