@@ -27,7 +27,7 @@ module SmartAnswer
           end
 
           should "only contain pre-defined data keys" do
-            keys = %w(countries_with_18_outcomes countries_with_2_outcomes countries_with_6_outcomes)
+            keys = %w(countries_with_18_outcomes countries_with_2_outcomes countries_with_6_outcomes countries_with_ceremony_location_outcomes)
             data = @data_query.marriage_data
 
             assert_equal keys, data.keys
@@ -166,16 +166,61 @@ module SmartAnswer
           end
         end
 
+        context "#countries_with_ceremony_location_outcomes" do
+          should "returns countries that are listed to have ceremony location outcomes" do
+            YAML.stubs(:load_file).returns(countries_with_ceremony_location_outcomes: %w(finland))
+
+            assert_equal %w(finland), @data_query.countries_with_ceremony_location_outcomes
+          end
+
+          should "return empty array if no country is found" do
+            YAML.stubs(:load_file).returns(countries_with_ceremony_location_outcomes: nil)
+
+            assert_equal [], @data_query.countries_with_ceremony_location_outcomes
+          end
+
+          should "throw RuntimeError if data structure isn't an array of strings" do
+            YAML.stubs(:load_file).returns(countries_with_ceremony_location_outcomes: [{ sample: "value" }])
+
+            exception = assert_raises RuntimeError do
+              @data_query.countries_with_ceremony_location_outcomes
+            end
+
+            assert_equal exception.message, "Country list must be an array of strings"
+          end
+
+          should "throw RuntimeError if data structure is a Hash" do
+            YAML.stubs(:load_file).returns(countries_with_ceremony_location_outcomes: Hash.new)
+
+            exception = assert_raises RuntimeError do
+              @data_query.countries_with_ceremony_location_outcomes
+            end
+
+            assert_equal exception.message, "Country list must be an array of strings"
+          end
+
+          should "throw KeyError if countries_with_ceremony_location_outcomes is missing" do
+            YAML.stubs(:load_file).returns({})
+
+            exception = assert_raises KeyError do
+              @data_query.countries_with_ceremony_location_outcomes
+            end
+
+            assert_equal exception.message, "key not found: \"countries_with_ceremony_location_outcomes\""
+          end
+        end
+
         context "#outcome_per_path_countries" do
-          should "return an alphabetical list of countries under 2, 6, and 18 outcome groups" do
+          should "return an alphabetical list of countries under all outcome groups" do
             YAML.stubs(:load_file).returns(
               countries_with_18_outcomes: %w(anguilla),
               countries_with_6_outcomes: %w(bermuda),
-              countries_with_2_outcomes: %w(cayman-islands)
+              countries_with_2_outcomes: %w(cayman-islands),
+              countries_with_ceremony_location_outcomes: %w(finland),
             )
 
             assert_equal @data_query.outcome_per_path_countries,
-              %w(anguilla bermuda cayman-islands)
+              %w(anguilla bermuda cayman-islands finland)
           end
         end
       end

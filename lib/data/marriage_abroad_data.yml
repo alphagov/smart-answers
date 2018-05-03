@@ -55,3 +55,5 @@ countries_with_6_outcomes:
   - italy
   - spain
   - poland
+countries_with_ceremony_location_outcomes:
+  - iceland

@@ -53,7 +53,9 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.three_questions_country?
+          if calculator.outcome_ceremony_location_country?
+            outcome :outcome_marriage_abroad_in_country
+          elsif calculator.three_questions_country?
             question :partner_opposite_or_same_sex?
           elsif calculator.ceremony_country == 'switzerland'
             question :partner_opposite_or_same_sex?
