@@ -59,8 +59,6 @@ module SmartAnswer
             question :partner_opposite_or_same_sex?
           elsif calculator.ceremony_country == 'switzerland'
             question :partner_opposite_or_same_sex?
-          elsif calculator.ceremony_country == 'finland'
-            outcome :outcome_marriage_abroad_in_finland
           else
             question :what_is_your_partners_nationality?
           end
