@@ -263,22 +263,22 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     end
   end
 
-  context "average weekly earnings is less than the LEL on sick start date" do
+  context "average weekly earnings is less than the current LEL on sick start date" do
     setup do
       add_response 'none' # Q1
       add_response 'yes' # Q2
       add_response 'no' # Q3
-      add_response '2013-06-10' # Q4
-      add_response '2013-06-20' # Q5
+      add_response '2018-06-10' # Q4
+      add_response '2018-06-20' # Q5
       add_response 'no' # Q11
       add_response 'before_payday' # Q5.1
       add_response 'weekly' # Q5.2
-      add_response '100' # Q7
+      add_response '115' # Q7
       add_response '7' # Q7.1
       add_response '1,2,3,4,5' # Q13
     end
-    should "take you to result A5 as awe < LEL (as of 2013-06-10)" do
-      assert_equal current_state.calculator.employee_average_weekly_earnings, 100
+    should "take you to result A5 as awe < LEL (as of 2018-06-10)" do
+      assert_equal current_state.calculator.employee_average_weekly_earnings, 115
       assert_current_node :not_earned_enough
     end
   end
