@@ -123,6 +123,18 @@ module SmartAnswer
         end
       end
 
+      context "due date in 2018-2019 range" do
+        setup do
+          @date = Date.parse("2019-01-01")
+          @calculator = PayLeaveForParentsCalculator.new
+          @calculator.due_date = @date
+        end
+
+        should "return £116 for lower_earnings_amount" do
+          assert_equal 116, @calculator.lower_earnings_amount
+        end
+      end
+
       context "due date outside all ranges" do
         setup do
           @date = Date.parse("2022-01-01")
@@ -131,7 +143,7 @@ module SmartAnswer
         end
 
         should "return the latest_pay_leave known lower_earnings_amount" do
-          assert_equal 113, @calculator.lower_earnings_amount
+          assert_equal 116, @calculator.lower_earnings_amount
         end
       end
     end
