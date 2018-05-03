@@ -21,5 +21,8 @@
   end_date: 2017-04-05
   lower_earning_limit_rate: 112
 - start_date: 2017-04-06
-  end_date: 2100-04-05
+  end_date: 2018-04-05
   lower_earning_limit_rate: 113
+- start_date: 2018-04-06
+  end_date: 2100-04-05
+  lower_earning_limit_rate: 116
