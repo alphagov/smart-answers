@@ -12,5 +12,11 @@
     "ERRBIT_ENV": "integration"
   },
   "image": "heroku/ruby",
-  "buildpacks": [ { "url": "heroku/ruby" } ]
+  "buildpacks": [ { "url": "heroku/ruby" } ],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "hobby"
+    }
+  }
 }
