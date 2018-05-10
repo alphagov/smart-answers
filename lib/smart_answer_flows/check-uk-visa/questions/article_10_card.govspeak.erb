@@ -1,0 +1,16 @@
+<% content_for :title do %>
+  Do you have a valid Article 10 residence card?
+<% end %>
+
+<% content_for :body do %>
+  <% if calculator.family_visit? %>
+    The person you’re staying with must be your sponsor.
+  <% else %>
+    The person you’re visiting or travelling with must be your sponsor.
+  <% end %>
+<% end %>
+
+<% options(
+  "yes": "Yes",
+  "no": "No"
+) %>
