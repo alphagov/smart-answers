@@ -158,10 +158,10 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
     end
 
-    should "suggest to apply in country of originallity or residence for outcome_standard_visit" do
+    should "check whether they are going to be visiting a family member/partner" do
       add_response 'tourism'
 
-      assert_current_node :outcome_standard_visit
+      assert_current_node :travelling_visiting_partner_family_member?
     end
 
     should "suggest to apply in country of originallity or residence for outcome_school_y" do
@@ -174,9 +174,15 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       assert_current_node :outcome_medical_y
     end
 
-    should "suggest to apply in country of originallity or residence for outcome_joining_family_y" do
-      add_response 'family'
-      assert_current_node :outcome_joining_family_y
+    context "choose to visit partner or family who have an article 10 card" do
+      setup do
+        add_response 'family'
+        add_response "yes"
+      end
+
+      should "show outcome no visa needed" do
+        assert_current_node :outcome_no_visa_needed
+      end
     end
   end
 
@@ -535,17 +541,13 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       setup do
         add_response 'tourism'
       end
-      should "take you to general_y outcome" do
-        assert_current_node :outcome_standard_visit
-      end
-      context "Chinese passport" do
+      context "travelling/visting with partner/family member" do
         setup do
-          reset_responses
-          add_response "china"
-          add_response "tourism"
+          add_response "no"
         end
-        should "take insert an additional phrase" do
-          assert_current_node :outcome_standard_visit
+
+        should "take you to outcome standard visitor visa" do
+          assert_current_node :outcome_standard_visitor_visa
         end
       end
     end
@@ -625,12 +627,15 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         end
       end
     end
-    context "coming to join family" do
+    context "coming to join family member, without an article 10 card, and they're a British citizen" do
       setup do
         add_response 'family'
+        add_response "no"
+        add_response "yes"
       end
-      should "take you to outcome Family Y" do
-        assert_current_node :outcome_joining_family_y
+
+      should "take to partner_family_british_citizen_y outcome" do
+        assert_current_node :outcome_partner_family_british_citizen_y
       end
     end
   end
@@ -652,10 +657,20 @@ class CheckUkVisaTest < ActiveSupport::TestCase
         end
       end
 
-      context "tourism, visiting friends or family" do
-        should "take you to the outcome 6y - standard visit" do
-          add_response 'tourism'
-          assert_current_node :outcome_standard_visit
+      context "tourism" do
+        setup do
+          add_response "tourism"
+        end
+
+        context "travelling with a a UK family member with an article 10 card" do
+          setup do
+            add_response "yes"
+            add_response "yes"
+          end
+
+          should "take you to no visa needed outcome" do
+            assert_current_node :outcome_no_visa_needed
+          end
         end
       end
 
@@ -822,9 +837,15 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       end
 
       context "tourism, visiting friends or family" do
-        should "take you to the outcome 6y - standard visit" do
-          add_response 'tourism'
-          assert_current_node :outcome_standard_visit
+        setup do
+          add_response "tourism"
+        end
+
+        context "travelling with a a UK family member" do
+          should "take you to standard visitor visa" do
+            add_response "no"
+            assert_current_node :outcome_standard_visitor_visa
+          end
         end
       end
 
@@ -1227,8 +1248,8 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       setup do
         add_response 'tourism'
       end
-      should "take you to :outcome_standard_visit outcome" do
-        assert_current_node :outcome_standard_visit
+      should "take you to :travelling_visiting_partner_family_member?" do
+        assert_current_node :travelling_visiting_partner_family_member?
       end
     end
     context "coming to the UK for study" do
