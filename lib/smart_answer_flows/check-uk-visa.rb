@@ -297,7 +297,6 @@ module SmartAnswer
       end
 
       outcome :outcome_diplomatic_business
-      outcome :outcome_transit_to_the_republic_of_ireland
       outcome :outcome_joining_family_m
       outcome :outcome_joining_family_nvn
       outcome :outcome_marriage_nvn_ukot
@@ -318,7 +317,6 @@ module SmartAnswer
       outcome :outcome_study_waiver
       outcome :outcome_study_waiver_taiwan
       outcome :outcome_study_y
-      outcome :outcome_visit_waiver_taiwan
       outcome :outcome_transit_datv_exception
       outcome :outcome_transit_leaving_airport
       outcome :outcome_transit_leaving_airport_datv
@@ -326,9 +324,11 @@ module SmartAnswer
       outcome :outcome_transit_refugee_not_leaving_airport
       outcome :outcome_transit_taiwan
       outcome :outcome_transit_taiwan_through_border_control
+      outcome :outcome_transit_to_the_republic_of_ireland
       outcome :outcome_transit_venezuela
       outcome :outcome_tourism_visa_partner
       outcome :outcome_visit_waiver
+      outcome :outcome_visit_waiver_taiwan
       outcome :outcome_work_m
       outcome :outcome_work_n
       outcome :outcome_work_waiver
