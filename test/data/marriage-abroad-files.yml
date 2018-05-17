@@ -1,5 +1,5 @@
 ---
-lib/data/marriage_abroad_data.yml: fa04205f8eae619a048b6046df680a8c
+lib/data/marriage_abroad_data.yml: 4ec95ed9ca3117da97d523f7619964fb
 lib/data/marriage_abroad_services.yml: 6a4a5b0168d8426b98382e69c92ea57d
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/smart_answer/calculators/country_name_formatter.rb: 6e9aab3c79a59e54e056b473b9cc4151
@@ -666,26 +666,9 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/romania/uk/partner_loc
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/romania/uk/partner_local/_same_sex.govspeak.erb: cc1befc599796465583b0f9c5acec757
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/romania/uk/partner_other/_opposite_sex.govspeak.erb: c2b0b813db1d468d538d1c9c762270c0
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/romania/uk/partner_other/_same_sex.govspeak.erb: 6bbc3f9c56a3b27ead1c4ef9591c4976
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/_title.govspeak.erb: c8e789a1f94b45efe48e6b8e2f60f5f8
-? lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/ceremony_country/partner_british/_opposite_sex.govspeak.erb
-: 1bfb822d8c42ba74ec3c13bd8e381702
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/ceremony_country/partner_british/_same_sex.govspeak.erb: 1bfb822d8c42ba74ec3c13bd8e381702
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/ceremony_country/partner_local/_opposite_sex.govspeak.erb: 72d40d32cac4771cd96f3e5667211d77
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/ceremony_country/partner_local/_same_sex.govspeak.erb: 72d40d32cac4771cd96f3e5667211d77
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/ceremony_country/partner_other/_opposite_sex.govspeak.erb: 54480804bdd7eb5e8ca52f6ec8d9ae87
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/ceremony_country/partner_other/_same_sex.govspeak.erb: 54480804bdd7eb5e8ca52f6ec8d9ae87
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/third_country/partner_british/_opposite_sex.govspeak.erb: 1bfb822d8c42ba74ec3c13bd8e381702
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/third_country/partner_british/_same_sex.govspeak.erb: 1bfb822d8c42ba74ec3c13bd8e381702
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/third_country/partner_local/_opposite_sex.govspeak.erb: 72d40d32cac4771cd96f3e5667211d77
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/third_country/partner_local/_same_sex.govspeak.erb: 72d40d32cac4771cd96f3e5667211d77
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/third_country/partner_other/_opposite_sex.govspeak.erb: 54480804bdd7eb5e8ca52f6ec8d9ae87
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/third_country/partner_other/_same_sex.govspeak.erb: 54480804bdd7eb5e8ca52f6ec8d9ae87
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/uk/partner_british/_opposite_sex.govspeak.erb: 1bfb822d8c42ba74ec3c13bd8e381702
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/uk/partner_british/_same_sex.govspeak.erb: 1bfb822d8c42ba74ec3c13bd8e381702
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/uk/partner_local/_opposite_sex.govspeak.erb: 72d40d32cac4771cd96f3e5667211d77
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/uk/partner_local/_same_sex.govspeak.erb: 72d40d32cac4771cd96f3e5667211d77
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/uk/partner_other/_opposite_sex.govspeak.erb: 54480804bdd7eb5e8ca52f6ec8d9ae87
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/uk/partner_other/_same_sex.govspeak.erb: 54480804bdd7eb5e8ca52f6ec8d9ae87
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/_opposite_sex.erb: d0a069c48f491c8c76e976634b536f32
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/_same_sex.erb: d0a069c48f491c8c76e976634b536f32
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/_title.govspeak.erb: c18cfb74728f95e947ab034407a3e94e
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-korea/_opposite_sex.erb: 43dd13a3f2122d15f9f66f9509ad4b6c
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-korea/_same_sex.erb: 515d4df619bc126383c8d1dfa4a0072e
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-korea/_title.govspeak.erb: 46f843dd4a7d38085219c7091eed9d3c
@@ -872,4 +855,4 @@ lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationali
 lib/smart_answer_flows/marriage-abroad.rb: 3511890e6ccdd4d337187efdd91b27bf
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1dc349abcd6b21e1bf8c397d96fd02b8
 test/data/marriage-abroad-questions-and-responses.yml: 0f079512ee2f1fd27145bf9db84ef5eb
-test/data/marriage-abroad-responses-and-expected-results.yml: 98a97639d5e40e5e8573a58e4378c75f
+test/data/marriage-abroad-responses-and-expected-results.yml: 0c49bc5d9955d3bef66715de7681b3f4
