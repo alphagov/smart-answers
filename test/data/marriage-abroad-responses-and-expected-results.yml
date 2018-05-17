@@ -20479,6 +20479,7 @@
   - same_sex
   :next_node: :outcome_marriage_abroad_in_country
   :outcome_node: true
+
 - :current_node: :country_of_ceremony?
   :responses:
   - south-korea
