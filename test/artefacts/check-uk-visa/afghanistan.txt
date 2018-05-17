@@ -4,7 +4,7 @@ What are you coming to the UK to do?
 
 
 
-  * tourism: Tourism, including visiting friends or family
+  * tourism: Tourism
   * work: Work, academic visit or business
   * study: Study
   * transit: Transit (on your way to somewhere else)
