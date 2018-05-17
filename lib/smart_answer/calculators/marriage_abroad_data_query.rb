@@ -155,7 +155,8 @@ module SmartAnswer::Calculators
     def outcome_per_path_countries
       (countries_with_18_outcomes +
       countries_with_6_outcomes +
-      countries_with_2_outcomes).sort
+      countries_with_2_outcomes +
+      countries_with_ceremony_location_outcomes).sort
     end
 
     def countries_with_18_outcomes
@@ -164,6 +165,10 @@ module SmartAnswer::Calculators
 
     def countries_with_2_outcomes
       country_outcomes(:countries_with_2_outcomes)
+    end
+
+    def countries_with_ceremony_location_outcomes
+      country_outcomes(:countries_with_ceremony_location_outcomes)
     end
 
     def countries_with_6_outcomes

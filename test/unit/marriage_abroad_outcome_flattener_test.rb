@@ -23,16 +23,20 @@ class MarriageAbroadOutcomeFlattenerTest < ActiveSupport::TestCase
     # The end.
   CONTENT
 
-  MiniTest::Unit.after_tests do
-    FileUtils.rm_rf(TEST_ARTEFACTS_PATH)
-    FileUtils.rm_rf(OUTCOMES_PATH)
-  end
-
+  # we create and destroy the artefacts around every test because if
+  # tests from this suite are interleaved with regression tests, the
+  # regression tests may fail because of the unexpected artefact
+  # files.
   setup do
     logger = Logger.new(STDOUT)
     logger.stubs(:info)
-    create_test_artefacts unless File.exist?(TEST_ARTEFACTS_PATH)
-    described_class.new("narnia", logger).flatten unless File.exist?(OUTCOMES_PATH)
+    create_test_artefacts
+    described_class.new("narnia", logger).flatten
+  end
+
+  teardown do
+    FileUtils.rm_rf(TEST_ARTEFACTS_PATH)
+    FileUtils.rm_rf(OUTCOMES_PATH)
   end
 
   def described_class

@@ -6,11 +6,12 @@ require 'smart_answer_flows/marriage-abroad'
 class MarriageAbroadTest < ActiveSupport::TestCase
   include FlowTestHelper
 
+  FLATTEN_COUNTRIES_CEREMONY_LOCATION_OUTCOMES = %w(finland iceland).freeze
   FLATTEN_COUNTRIES_2_OUTCOMES = %w(australia china croatia cyprus egypt france ireland luxembourg japan philippines south-korea thailand turkey usa).freeze
   FLATTEN_COUNTRIES_6_OUTCOMES = %w(greece italy spain poland).freeze
   FLATTEN_COUNTRIES_18_OUTCOMES = %w(algeria azerbaijan brazil british-indian-ocean-territory burma cambodia chile colombia denmark el-salvador gambia germany hungary indonesia iran jordan kenya kuwait latvia maldives moldova mozambique nicaragua portugal romania south-africa sweden tanzania tunisia vietnam).freeze
-  FLATTEN_COUNTRIES = FLATTEN_COUNTRIES_2_OUTCOMES + FLATTEN_COUNTRIES_6_OUTCOMES + FLATTEN_COUNTRIES_18_OUTCOMES
-  NOT_FLATTEN_COUNTRIES = %w(albania american-samoa anguilla argentina armenia aruba austria bahamas belarus belgium bonaire-st-eustatius-saba burundi canada costa-rica cote-d-ivoire czech-republic democratic-republic-of-the-congo estonia finland hong-kong kazakhstan kosovo kyrgyzstan laos lebanon lithuania macao macedonia malta mayotte mexico monaco montenegro morocco netherlands north-korea norway oman guatemala paraguay peru qatar russia rwanda saint-barthelemy san-marino saudi-arabia serbia seychelles slovakia slovenia somalia st-maarten st-martin south-korea spain switzerland turkmenistan ukraine united-arab-emirates uzbekistan wallis-and-futuna yemen).freeze
+  FLATTEN_COUNTRIES = FLATTEN_COUNTRIES_CEREMONY_LOCATION_OUTCOMES + FLATTEN_COUNTRIES_2_OUTCOMES + FLATTEN_COUNTRIES_6_OUTCOMES + FLATTEN_COUNTRIES_18_OUTCOMES
+  NOT_FLATTEN_COUNTRIES = %w(albania american-samoa anguilla argentina armenia aruba austria bahamas belarus belgium bonaire-st-eustatius-saba burundi canada costa-rica cote-d-ivoire czech-republic democratic-republic-of-the-congo estonia hong-kong kazakhstan kosovo kyrgyzstan laos lebanon lithuania macao macedonia malta mayotte mexico monaco montenegro morocco netherlands north-korea norway oman guatemala paraguay peru qatar russia rwanda saint-barthelemy san-marino saudi-arabia serbia seychelles slovakia slovenia somalia st-maarten st-martin south-korea spain switzerland turkmenistan ukraine united-arab-emirates uzbekistan wallis-and-futuna yemen).freeze
 
   def self.translations
     @translations ||= YAML.load_file("lib/smart_answer_flows/locales/en/marriage-abroad.yml")
@@ -742,31 +743,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'opposite_sex'
       assert_current_node :outcome_opposite_sex_marriage_in_peru
-    end
-  end
-
-  context "ceremony in Finland," do
-    setup do
-      add_response "finland"
-    end
-
-    context "uk" do
-      setup { add_response "uk" }
-      should "go to outcome marriage abroad in finland" do
-        assert_current_node :outcome_marriage_abroad_in_finland
-      end
-    end
-    context "ceremony country" do
-      setup { add_response "ceremony_country" }
-      should "go to outcome marriage abroad in finland" do
-        assert_current_node :outcome_marriage_abroad_in_finland
-      end
-    end
-    context "third country" do
-      setup { add_response "third_country" }
-      should "go to outcome marriage abroad in finland" do
-        assert_current_node :outcome_marriage_abroad_in_finland
-      end
     end
   end
 
@@ -1635,6 +1611,35 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
       context "same sex" do
         setup { add_response "same_sex" }
+        should "go to generic country outcome" do
+          assert_current_node :outcome_marriage_abroad_in_country
+        end
+      end
+    end
+  end
+
+  FLATTEN_COUNTRIES_CEREMONY_LOCATION_OUTCOMES.each do |country|
+    context "ceremony in #{country}," do
+      setup do
+        add_response country
+      end
+
+      context "uk" do
+        setup { add_response "uk" }
+        should "go to generic country outcome" do
+          assert_current_node :outcome_marriage_abroad_in_country
+        end
+      end
+
+      context "ceremony country" do
+        setup { add_response "ceremony_country" }
+        should "go to generic country outcome" do
+          assert_current_node :outcome_marriage_abroad_in_country
+        end
+      end
+
+      context "third country" do
+        setup { add_response "third_country" }
         should "go to generic country outcome" do
           assert_current_node :outcome_marriage_abroad_in_country
         end

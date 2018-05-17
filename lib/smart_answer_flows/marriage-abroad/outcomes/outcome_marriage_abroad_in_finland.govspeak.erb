@@ -1,8 +1,0 @@
-<% content_for :title do %>
-  <%= render partial: 'countries/finland/title' %>
-<% end %>
-
-<% content_for :body do %>
-  <% partial_name = calculator.resident_of_uk? ? 'uk' : 'ceremony_or_third_country' %>
-  <%= render partial: 'countries/finland/' + partial_name, locals: {calculator: calculator} %>
-<% end %>
