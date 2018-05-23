@@ -106,7 +106,7 @@ See:
 
 ### Search indexing
 
-Content is now indexed automatically via the publishing API
+Content is now indexed automatically via the publishing API.
 
 ## Licence
 
