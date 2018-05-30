@@ -301,7 +301,6 @@ module SmartAnswer
       outcome :outcome_same_sex_marriage_and_civil_partnership_not_possible
       outcome :outcome_same_sex_marriage_in_dominican_republic
       outcome :outcome_marriage_abroad_in_country
-      outcome :outcome_marriage_abroad_in_finland
     end
   end
 end
