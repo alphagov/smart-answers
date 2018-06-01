@@ -57,6 +57,6 @@ lib/smart_answer_flows/check-uk-visa/questions/travelling_visiting_partner_famil
 lib/smart_answer_flows/check-uk-visa/questions/what_passport_do_you_have.govspeak.erb: 45a59c18a7b570142f32d3b93f8f7db4
 lib/smart_answer_flows/check-uk-visa/questions/what_sort_of_passport.govspeak.erb: c412fbb6a09cf262680432be71135113
 lib/smart_answer_flows/check-uk-visa/questions/what_sort_of_travel_document.govspeak.erb: 053bebd591d0a1ba002f70150723d24b
-lib/smart_answer_flows/check-uk-visa.rb: a847430d84acc8d6b91bf66d4f3560d0
+lib/smart_answer_flows/check-uk-visa.rb: 643c7fa38e7644137bacfe9d4f4ef7b7
 test/data/check-uk-visa-questions-and-responses.yml: 0d62e8a399c5e9c851266ac5832e3f5a
-test/data/check-uk-visa-responses-and-expected-results.yml: 78aa1f2c527956fe792084d842fc19a9
+test/data/check-uk-visa-responses-and-expected-results.yml: 183f959e59603f53a80e5442cf012062
