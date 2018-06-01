@@ -4,10 +4,6 @@ module SmartAnswer
   class FormattingHelperTest < ActiveSupport::TestCase
     include FormattingHelper
 
-    setup do
-      stub_shared_component_locales
-    end
-
     test "#format_money accepts large formatted values" do
       assert_equal '£1,234.56', format_money('1,234.56')
       assert_equal '-£1,234.56', format_money('-1,234.56')

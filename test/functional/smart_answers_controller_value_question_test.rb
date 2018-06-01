@@ -10,7 +10,6 @@ class SmartAnswersControllerValueQuestionTest < ActionController::TestCase
   include SmartAnswersControllerTestHelper
 
   def setup
-    stub_shared_component_locales
     setup_fixture_flows
 
     stub_smart_answer_in_content_store("smart-answers-controller-sample-with-value-question")
@@ -40,7 +39,7 @@ class SmartAnswersControllerValueQuestionTest < ActionController::TestCase
 
       context "label in erb template" do
         setup do
-          get :show, params: { id: 'smart-answers-controller-sample-with-value-question', started: 'y', responses: "12345" } 
+          get :show, params: { id: 'smart-answers-controller-sample-with-value-question', started: 'y', responses: "12345" }
         end
         should "show the label text before the question input" do
           assert_match(/value-question-label.*?input.*?name="response".*?/m, response.body)

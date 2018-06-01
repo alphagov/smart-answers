@@ -2,10 +2,6 @@ require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class RedundancyCalculatorTest < ActiveSupport::TestCase
-    setup do
-      stub_shared_component_locales
-    end
-
     context "Money formatting conforms to styleguide" do
       should "lop off trailing 00s" do
         assert_equal RedundancyCalculator.format_money(12.00), "12"

@@ -18,7 +18,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   end
 
   setup do
-    stub_shared_component_locales
     @location_slugs = NOT_FLATTEN_COUNTRIES + FLATTEN_COUNTRIES
     stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::MarriageAbroadFlow

@@ -8,7 +8,6 @@ class CalculateYourRedundancyPayTest < ActiveSupport::TestCase
 
   setup do
     Timecop.freeze("2018-08-31")
-    stub_shared_component_locales
     setup_for_testing_flow SmartAnswer::CalculateYourRedundancyPayFlow
   end
 
