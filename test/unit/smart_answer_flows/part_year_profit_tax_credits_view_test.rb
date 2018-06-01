@@ -5,7 +5,6 @@ require 'smart_answer_flows/part-year-profit-tax-credits'
 module SmartAnswer
   class PartYearProfitTaxCreditsViewTest < ActiveSupport::TestCase
     setup do
-      stub_shared_component_locales
       @flow = PartYearProfitTaxCreditsFlow.build
     end
 

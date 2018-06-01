@@ -2,10 +2,6 @@ require_relative '../test_helper'
 
 module SmartAnswer
   class ErbRendererTest < ActiveSupport::TestCase
-    setup do
-      stub_shared_component_locales
-    end
-
     test '#erb_template_path returns the combination of the template directory and name' do
       erb_template = ''
       with_erb_template_file('template-name', erb_template) do |erb_template_directory|

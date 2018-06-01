@@ -7,7 +7,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    stub_shared_component_locales
     Timecop.freeze(Date.parse('2015-01-01'))
     setup_for_testing_flow SmartAnswer::AmIGettingMinimumWageFlow
   end

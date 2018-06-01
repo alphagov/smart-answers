@@ -9,7 +9,6 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
   def setup
     setup_fixture_flows
-    stub_shared_component_locales
   end
 
   def teardown
