@@ -402,8 +402,12 @@ module SmartAnswer
         end
 
         if calculator.transit_visit?
-          if calculator.passport_country_in_datv_list? ||
-              calculator.passport_country_in_visa_national_list? || calculator.passport_country_is_taiwan? || calculator.passport_country_is_venezuela? ||
+          if calculator.passport_country_is_estonia? || calculator.passport_country_is_latvia?
+            next outcome(:outcome_no_visa_needed)
+          elsif calculator.passport_country_in_datv_list? ||
+              calculator.passport_country_in_visa_national_list? ||
+              calculator.passport_country_is_taiwan? ||
+              calculator.passport_country_is_venezuela? ||
               calculator.passport_country_in_non_visa_national_list? ||
               calculator.passport_country_in_ukot_list? ||
               calculator.travel_document?
