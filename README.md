@@ -4,7 +4,7 @@
 
 Read more in [Lisa Scott's GDS blog post](https://gds.blog.gov.uk/2012/02/16/smart-answers-are-smart/).
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[Guide to editing smart answers as a content designer](https://docs.publishing.service.gov.uk/manual/content-design/editing-smart-answers.html)
 
 ## Screenshots
 
