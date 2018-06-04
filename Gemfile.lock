@@ -282,7 +282,7 @@ GEM
     simplecov-html (0.10.2)
     simplecov-rcov (0.2.3)
       simplecov (>= 0.4.1)
-    slimmer (12.1.0)
+    slimmer (13.0.0)
       activesupport
       json
       nokogiri (~> 1.7)
@@ -363,7 +363,7 @@ DEPENDENCIES
   shoulda (~> 3.5.0)
   simplecov (~> 0.16.1)
   simplecov-rcov (~> 0.2.3)
-  slimmer (~> 12.1.0)
+  slimmer (~> 13.0.0)
   sprockets-rails
   tilt (= 2.0.8)
   timecop
