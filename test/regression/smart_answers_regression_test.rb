@@ -100,7 +100,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
         end
 
         unexercised_nodes = flow.nodes.map(&:name).map(&:to_sym) - nodes_exercised_in_test
-        assert_equal true, unexercised_nodes.empty?, "Not all nodes are being exercised: #{unexercised_nodes.sort}"
+        assert_equal true, unexercised_nodes.empty?, "Not all nodes are being exercised: #{unexercised_nodes}"
       end
 
       should "render and save the landing page" do

@@ -1,0 +1,14 @@
+Is your partner or family member a British citizen, or settled in the UK?
+
+
+
+
+
+  * yes: Yes
+  * no: No
+
+
+
+
+
+
