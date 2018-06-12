@@ -215,13 +215,20 @@
 
   <% if calculator.country_of_birth == 'venezuela' && calculator.same_country? %>
 
-    ##4. Go to the British embassy
+    ##4. Send your registration
 
-    Book an appointment at the British embassy. Take your documents, registration form and the reference number for your online payment.
+    Post the registration form and documents by secure post to:
 
-    Staff at the embassy will check your application and send it to the Overseas Registration Unit in the UK.
+    $A
+    Overseas Registration Unit
+    Foreign & Commonwealth Office
+    Hanslope Park
+    Hanslope
+    Milton Keynes
+    MK19 7BH
+    United Kingdom
+    $A
 
-    <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: calculator.overseas_passports_embassies } %>
   <% else %>
 
     ##4. Send your registration
