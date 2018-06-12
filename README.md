@@ -4,8 +4,6 @@
 
 Read more in [Lisa Scott's GDS blog post](https://gds.blog.gov.uk/2012/02/16/smart-answers-are-smart/).
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
 ## Screenshots
 
 ![Student Finance Forms screenshot](./doc/assets/govuk-student-finance-forms.png)
