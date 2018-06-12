@@ -59,28 +59,19 @@ Rest of world | £22
 
 <a rel="nofollow" href= "https://pay-register-birth-abroad.service.gov.uk/start" class="big button">Pay now</a>
 
-##4. Go to the British embassy
+##4. Send your registration
 
-Book an appointment at the British embassy. Take your documents, registration form and the reference number for your online payment.
-
-Staff at the embassy will check your application and send it to the Overseas Registration Unit in the UK.
+Post the registration form and documents by secure post to:
 
 $A
-Consular Section
-Torre La Castellana, Piso 11
-Avenida Principal de la Castellana (Av. Eugenio Mendoza),
-Urbanización La Castellana
-Caracas
-Venezuela
+Overseas Registration Unit
+Foreign & Commonwealth Office
+Hanslope Park
+Hanslope
+Milton Keynes
+MK19 7BH
+United Kingdom
 $A
-
-$C
-Emergency: +58 (0) 212 319-5800
-
-Email: <venezuela.consulate@fco.gov.uk>
-
-[Consular Section - opening hours](https://www.gov.uk/world/organisations/british-embassy-venezuela/office/consular-section)
-$C
 
 ##Return of your documents
 
