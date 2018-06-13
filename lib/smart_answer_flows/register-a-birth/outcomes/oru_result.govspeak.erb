@@ -213,42 +213,30 @@
 
   <%= render partial: 'shared/births_and_deaths_registration/button.govspeak.erb', locals: { button_data: { text: "Pay now", url: "https://pay-register-birth-abroad.service.gov.uk/start" } } %>
 
-  <% if calculator.country_of_birth == 'venezuela' && calculator.same_country? %>
+  ##4. Send your registration
 
-    ##4. Go to the British embassy
+  Post the registration form and documents by secure post to:
 
-    Book an appointment at the British embassy. Take your documents, registration form and the reference number for your online payment.
+  <% if calculator.in_the_uk? %>
 
-    Staff at the embassy will check your application and send it to the Overseas Registration Unit in the UK.
-
-    <%= render partial: 'shared/overseas_passports_embassies.govspeak.erb', locals: { overseas_passports_embassies: calculator.overseas_passports_embassies } %>
+    $A
+    Overseas Registration Unit
+    Foreign and Commonwealth Office
+    PO Box 6255
+    Milton Keynes
+    MK10 1XX
+    $A
   <% else %>
 
-    ##4. Send your registration
-
-    Post the registration form and documents by secure post to:
-
-    <% if calculator.in_the_uk? %>
-
-      $A
-      Overseas Registration Unit
-      Foreign and Commonwealth Office
-      PO Box 6255
-      Milton Keynes
-      MK10 1XX
-      $A
-    <% else %>
-
-      $A
-      Overseas Registration Unit
-      Foreign & Commonwealth Office
-      Hanslope Park
-      Hanslope
-      Milton Keynes
-      MK19 7BH
-      United Kingdom
-      $A
-    <% end %>
+    $A
+    Overseas Registration Unit
+    Foreign & Commonwealth Office
+    Hanslope Park
+    Hanslope
+    Milton Keynes
+    MK19 7BH
+    United Kingdom
+    $A
   <% end %>
 
   ##Return of your documents
