@@ -4,7 +4,7 @@
   lawyer: /government/publications/afghanistan-list-of-lawyers
 - slug: albania
   doc: /government/publications/albania-prisoner-pack
-  lawyer: /government/publications/albania-list-of-lawyers
+  lawyer: /government/publications/albania-list-of-lawyers--2
 - slug: algeria
   pdf: /government/publications/algeria-prisoner-pack
   lawyer: /government/publications/algeria-list-of-lawyers
@@ -246,10 +246,10 @@
   lawyer: /government/publications/ireland-list-of-lawyers
 - slug: israel
   pdf: /government/publications/israel-prisoner-pack
-  lawyer: /government/world/israel/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer/
+  lawyer: /government/publications/israel-list-of-lawyers
 - slug: italy
   pdf: /government/publications/italy-prisoner-pack
-  lawyer: /government/world/italy/help-for-british-nationals/when-things-go-wrong/if-you-need-lawyer/
+  lawyer: /government/publications/italy-list-of-lawyers
 - slug: jamaica
   pdf: /government/publications/jamaica-prisoner-pack
   lawyer: /government/publications/jamaica-list-of-lawyers
