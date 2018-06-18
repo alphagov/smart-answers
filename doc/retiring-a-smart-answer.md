@@ -202,7 +202,7 @@ In this document is prescribed the steps that need to be taken:
     RAKE_TASK = <rake task name only (no bundle exec rake) …. > 
     ```
     ```
-    (bundle exec rake) retire:unpublish[67764435-e8ed-4700-a657-2e0432cb1f5b]
+    (bundle exec rake) retire:unpublish_with_vanish[67764435-e8ed-4700-a657-2e0432cb1f5b]
     (bundle exec rake) retire:change_owning_application[/student-finance-forms,publisher]
     ```
   Verify success on Publishing API with:

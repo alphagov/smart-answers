@@ -21,6 +21,12 @@ class ContentItemPublisher
     )
   end
 
+  def unpublish_with_vanish(content_id)
+    raise "Content id has not been supplied" unless content_id.present?
+
+    Services.publishing_api.unpublish(content_id, type: "vanish")
+  end
+
   def publish_redirect(path, destination)
     raise "The destination or path isn't defined" unless path.present? && destination.present?
 
