@@ -304,11 +304,11 @@ class CalculateEmployeeRedundancyPayTest < ActiveSupport::TestCase
       add_response '700'
       assert_current_node :done
       assert_state_variable :rate, 508
-      assert_state_variable :ni_rate, 500
+      assert_state_variable :ni_rate, 530
       assert_state_variable :max_amount, "15,240"
       assert_state_variable :ni_max_amount, "15,000"
       assert_state_variable :statutory_redundancy_pay, "1,778"
-      assert_state_variable :statutory_redundancy_pay_ni, "1,750"
+      assert_state_variable :statutory_redundancy_pay_ni, "1,855"
     end
   end
 
