@@ -4,7 +4,7 @@ require "test_helper"
     setup do
       @slug = "example-smart-answer"
       @content_store_response = {
-        base_path: "/#{@slug}",
+        base_path: "/#{@slug}/y",
         content_id: "c22fa786-6c0d-4e38-a82f-c8ca341f9260",
         title: "Example Smart Answer",
         links: {
@@ -17,7 +17,7 @@ require "test_helper"
           ]
         }
       }.with_indifferent_access
-      @request_url = "https://content-store.test.gov.uk/content/#{@slug}"
+      @request_url = "https://content-store.test.gov.uk/content/#{@slug}/y"
     end
 
     context "fetch" do
