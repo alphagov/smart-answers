@@ -9,6 +9,14 @@ class CheckboxQuestionPresenter < QuestionWithOptionsPresenter
     end
   end
 
+  def none_option_label
+    @node.none_option_label
+  end
+
+  def none_option_prefix
+    @node.none_option_prefix
+  end
+
   def multiple_responses?
     true
   end

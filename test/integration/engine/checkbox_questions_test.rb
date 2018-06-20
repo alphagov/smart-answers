@@ -1,11 +1,11 @@
 require_relative 'engine_test_helper'
 
 class CheckboxQuestionsTest < EngineIntegrationTest
-  with_and_without_javascript do
-    setup do
-      stub_smart_answer_in_content_store("checkbox-sample")
-    end
+  setup do
+    stub_smart_answer_in_content_store("checkbox-sample")
+  end
 
+  with_and_without_javascript do
     should "handle checkbox questions" do
       visit "/checkbox-sample/y"
 
@@ -67,11 +67,53 @@ class CheckboxQuestionsTest < EngineIntegrationTest
         end
       end
 
+      within('.question') do
+        assert_page_has_content "Are you sure you don't want any toppings?"
+      end
+
+      check "Definitely no toppings"
+
+      click_on "Next step"
+
+      assert_current_url "/checkbox-sample/y/none/none"
+
       within '.outcome:nth-child(1)' do
         assert_page_has_content "Ok, your margherita pizza is on its way"
       end
     end
+
+    should "expect explicit selection of 'none' option when present" do
+      visit "/checkbox-sample/y/none"
+
+      within('.question') do
+        assert_page_has_content "Are you sure you don't want any toppings?"
+      end
+
+      click_on "Next step"
+
+      assert_equal current_path, "/checkbox-sample/y/none"
+
+      within(".error-message") do
+        assert_page_has_content "Please answer this question"
+      end
+    end
   end # with_and_without_javascript
+
+  with_javascript do
+    should "toggle options when none option is present" do
+      visit "/checkbox-sample/y/none"
+
+      check "Definitely no toppings"
+      check "Hmm I'm not sure, ask me again please"
+      refute page.has_checked_field?("Definitely no toppings")
+
+      check "Definitely no toppings"
+      refute page.has_checked_field?("Hmm I'm not sure, ask me again please")
+      click_on "Next step"
+
+      assert_current_url "/checkbox-sample/y/none/none"
+    end
+  end
 
   should "calculate next_node correctly" do
     visit "/checkbox-sample/y"

@@ -240,6 +240,18 @@ $is-ie: false !default;
     margin-top: 0.5em;
   }
 
+  .question-body {
+    .none-option {
+      p {
+        clear: left;
+        display: block;
+        float: left;
+        margin-left: 5px;
+        margin-top: 20px;
+      }
+    }
+  }
+
   .current-question {
     padding: 1.5em 0 1em 0;
     margin: 1.5em 0 0 0;

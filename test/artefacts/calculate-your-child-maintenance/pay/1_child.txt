@@ -1,8 +1,8 @@
-Do you get any of these benefits?
+Do you get any benefits or state pensions?
 
 
 
-If you do not receive any of these click 'Next step'.
+If you do not receive any of these select 'None'.
 
   * income_support: Income Support
   * ib_jobseekers_allowance: income-based Jobseeker’s Allowance

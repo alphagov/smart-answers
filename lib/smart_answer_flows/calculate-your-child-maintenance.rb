@@ -54,6 +54,8 @@ module SmartAnswer
           option benefit
         end
 
+        set_none_option(label: "None", prefix: "or")
+
         on_response do |response|
           calculator.benefits = response.split(",")
         end

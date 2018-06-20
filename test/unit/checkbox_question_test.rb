@@ -74,6 +74,26 @@ module SmartAnswer
           assert_equal 'none', @question.parse_input('none')
         end
       end
+
+      context "with an explicitly set 'none' option" do
+        setup do
+          @question.set_none_option(label: 'None', prefix: 'or')
+        end
+
+        should "set the none option label" do
+          assert_equal('None', @question.none_option_label)
+        end
+
+        should "set the none option prefix" do
+          assert_equal('or', @question.none_option_prefix)
+        end
+
+        should "raise if the response is blank" do
+          assert_raise InvalidResponse do
+            @question.parse_input(nil)
+          end
+        end
+      end
     end
 
     context "converting to a response" do
