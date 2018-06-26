@@ -50,7 +50,7 @@ private
   end
 end
 
-Fixnum.class_eval do
+Integer.class_eval do
   def working_days
     WorkingDays.new(self)
   end
