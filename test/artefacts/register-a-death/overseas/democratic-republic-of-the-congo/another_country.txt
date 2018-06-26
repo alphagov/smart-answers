@@ -198,7 +198,7 @@ Which country are you in now?
   * st-vincent-and-the-grenadines: St Vincent And The Grenadines
   * sudan: Sudan
   * suriname: Suriname
-  * swaziland: Swaziland
+  * eswatini: Eswatini
   * sweden: Sweden
   * switzerland: Switzerland
   * syria: Syria

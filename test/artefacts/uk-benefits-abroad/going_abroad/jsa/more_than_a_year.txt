@@ -70,6 +70,7 @@ Which country are you moving to?
   * equatorial-guinea: Equatorial Guinea
   * eritrea: Eritrea
   * estonia: Estonia
+  * eswatini: Eswatini
   * ethiopia: Ethiopia
   * falkland-islands: Falkland Islands
   * fiji: Fiji
@@ -194,7 +195,6 @@ Which country are you moving to?
   * st-vincent-and-the-grenadines: St Vincent And The Grenadines
   * sudan: Sudan
   * suriname: Suriname
-  * swaziland: Swaziland
   * sweden: Sweden
   * switzerland: Switzerland
   * syria: Syria
