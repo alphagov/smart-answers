@@ -73,6 +73,7 @@ If you’re a refugee or don’t have a passport or travel document, select ‘S
   * equatorial-guinea: Equatorial Guinea
   * eritrea: Eritrea
   * estonia: Estonia
+  * eswatini: Eswatini
   * ethiopia: Ethiopia
   * falkland-islands: Falkland Islands
   * fiji: Fiji
@@ -195,7 +196,6 @@ If you’re a refugee or don’t have a passport or travel document, select ‘S
   * stateless-or-refugee: Stateless or Refugee
   * sudan: Sudan
   * suriname: Suriname
-  * swaziland: Swaziland
   * sweden: Sweden
   * switzerland: Switzerland
   * syria: Syria
