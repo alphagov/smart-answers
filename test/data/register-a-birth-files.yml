@@ -1,7 +1,7 @@
 ---
 lib/data/rates/births_and_deaths_document_return_fees.yml: 4ac203e9fd076c12f62b57f8d1b64ffc
 lib/data/rates/register_a_birth.yml: 8d678c61d06f614a67e8faa1933b0ff5
-lib/data/registrations.yml: ffb11e760ce3aa07cf342caaedb3e6f5
+lib/data/registrations.yml: e37a86cc3bcd59c111f1b1696442f242
 lib/data/translators.yml: 79abd2e0c2570130f7d832e4242c153a
 lib/smart_answer/calculators/country_name_formatter.rb: 6e9aab3c79a59e54e056b473b9cc4151
 lib/smart_answer/calculators/register_a_birth_calculator.rb: bcd9df47986f493efd07b37b866a1487

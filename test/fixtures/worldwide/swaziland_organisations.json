@@ -93,7 +93,7 @@
     "status": "ok",
     "links": [
       {
-        "href": "https://www.gov.uk/api/world-locations/swaziland/organisations?page=1",
+        "href": "https://www.gov.uk/api/world-locations/eswatini/organisations?page=1",
         "rel": "self"
       }
     ]
