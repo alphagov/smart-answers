@@ -1,7 +1,7 @@
 ---
 app/models/ukba_country.rb: 56879bb5efb4225cbf56850269385d44
 lib/data/ukba_additional_countries.yml: 5e84d01caf6b2841d0ea9f03f0f4974c
-lib/smart_answer/calculators/uk_visa_calculator.rb: d89d7e190ddd12517bc0a7a31f2de805
+lib/smart_answer/calculators/uk_visa_calculator.rb: 02572bb6ddfa00964b0bde1a182d5247
 lib/smart_answer_flows/check-uk-visa/check_uk_visa.govspeak.erb: a442b4ddd169b26a401c70d145e5b44e
 lib/smart_answer_flows/check-uk-visa/outcomes/_b1_b2_visa_exception.govspeak.erb: 410e39d565d0a5caed2d1b8c20c1ca77
 lib/smart_answer_flows/check-uk-visa/outcomes/_estonia_or_latvia.govspeak.erb: 248b438c79c81dcd120a0d0fa5d3f0b3
@@ -32,7 +32,7 @@ lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_datv_exception.gov
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_leaving_airport.govspeak.erb: 66ed2a517e30265f3e5e06b5f9aa50f1
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_leaving_airport_datv.govspeak.erb: 0fdcad0992b5fa152aca2ab4b4dc6ba1
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_not_leaving_airport.govspeak.erb: 9c06b075d0ec0a91579c8cdd876af8aa
-lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_refugee_not_leaving_airport.govspeak.erb: a344b0c62367eac3e00d048563b636dd
+lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_refugee_not_leaving_airport.govspeak.erb: bc87ac07bcc65fc2c6ef4a5ad2a16569
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_taiwan.govspeak.erb: 29e973e921633f8035f76c34a9b504d9
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_taiwan_through_border_control.govspeak.erb: 0bd6d5a68c31ceea4e2f91a3c6436d23
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_transit_to_the_republic_of_ireland.govspeak.erb: 6dd46594af4a1aa984ca5c96b5ce2edb
