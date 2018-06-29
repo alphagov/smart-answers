@@ -1,32 +1,16 @@
 class MarriageAbroadOutcomeFlattener
   COUNTRIES_DIR = "lib/smart_answer_flows/marriage-abroad/outcomes/countries".freeze
 
-  FEE_TABLE_PARTIAL = <<~FEE_TABLE.freeze
-    <%= render partial: 'consular_fees_table_items.govspeak.erb',
-        collection: calculator.services,
-        as: :service,
-        locals: { calculator: calculator } %>
-  FEE_TABLE
-
-  HOW_TO_PAY_PARTIAL = <<~HOW_TO_PAY.freeze
-    <%= render partial: 'how_to_pay.govspeak.erb', locals: {calculator: calculator} %>
-  HOW_TO_PAY
-
-  TITLE_PARTIAL_CONTENT = <<~TITLE.freeze
-    <% if calculator.partner_is_same_sex? %>
-      Civil partnership in COUNTRY
-    <% else %>
-      Marriage in COUNTRY
-    <% end %>
-  TITLE
-
-  PAYMENT_RE = /^\^?You can( only)? pay by.*?\n.*?^$/mi
-  SERVICE_FEE_RE = /^Service \| Fee\n.*?^$/mi
-
-  attr_reader :country, :logger
-
-  def initialize(country, logger = Logger.new(STDOUT))
+  def initialize(country, same_sex_wording:, logger: Logger.new(STDOUT))
     @country = country
+
+    @same_sex_wording = case same_sex_wording
+                        when :civil_partnership
+                          "Civil partnership"
+                        when :same_sex_marriage
+                          "Same-sex marriage"
+                        end
+
     @logger = logger
   end
 
@@ -39,6 +23,8 @@ class MarriageAbroadOutcomeFlattener
   end
 
 private
+
+  attr_reader :country, :logger, :same_sex_wording
 
   def rename_and_add_partials_to_country_files
     Dir["#{country_partials_dir}/**/{opposite_sex,same_sex}.txt"].each do |src_filename|
@@ -54,8 +40,9 @@ private
   def insert_payment_partials(filename)
     lines = IO.readlines(filename)
     text = lines[2..-1].join
-    text = text.gsub(PAYMENT_RE, HOW_TO_PAY_PARTIAL)
-    text = text.gsub(SERVICE_FEE_RE, FEE_TABLE_PARTIAL)
+
+    text = replace_how_to_pay(text)
+    text = replace_fee_table(text)
 
     File.write(filename, text)
     logger.info "Created outcome '#{filename}'"
@@ -76,8 +63,7 @@ private
   end
 
   def create_title_partial
-    contents = TITLE_PARTIAL_CONTENT.gsub("COUNTRY", country.titleize)
-    File.open("#{country_partials_dir}/_title.govspeak.erb", "w") { |f| f.write(contents) }
+    File.open("#{country_partials_dir}/_title.govspeak.erb", "w") { |f| f.write(title_contents) }
   end
 
   def country_partials_dir
@@ -86,5 +72,36 @@ private
 
   def test_artefacts_dir
     "test/artefacts/marriage-abroad/#{country}"
+  end
+
+  def replace_how_to_pay(text)
+    text.gsub(
+      /^\^?You can( only)? pay by.*?\n.*?^$/mi,
+      <<~HOW_TO_PAY.freeze
+        <%= render partial: 'how_to_pay.govspeak.erb', locals: {calculator: calculator} %>
+      HOW_TO_PAY
+    )
+  end
+
+  def replace_fee_table(text)
+    text.gsub(
+      /^Service \| Fee\n.*?^$/mi,
+      <<~FEE_TABLE.freeze
+        <%= render partial: 'consular_fees_table_items.govspeak.erb',
+            collection: calculator.services,
+            as: :service,
+            locals: { calculator: calculator } %>
+      FEE_TABLE
+    )
+  end
+
+  def title_contents
+    <<~TITLE.freeze
+      <% if calculator.partner_is_same_sex? %>
+        #{same_sex_wording} in #{country.titleize}
+      <% else %>
+        Marriage in #{country.titleize}
+      <% end %>
+    TITLE
   end
 end

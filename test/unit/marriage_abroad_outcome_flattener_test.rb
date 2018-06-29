@@ -28,19 +28,19 @@ class MarriageAbroadOutcomeFlattenerTest < ActiveSupport::TestCase
   # regression tests may fail because of the unexpected artefact
   # files.
   setup do
-    logger = Logger.new(STDOUT)
-    logger.stubs(:info)
+    @logger = Logger.new(STDOUT)
+    @logger.stubs(:info)
     create_test_artefacts
-    described_class.new("narnia", logger).flatten
+    @flattener = MarriageAbroadOutcomeFlattener.new(
+      "narnia",
+      same_sex_wording: :civil_partnership,
+      logger: @logger
+    )
   end
 
   teardown do
     FileUtils.rm_rf(TEST_ARTEFACTS_PATH)
     FileUtils.rm_rf(OUTCOMES_PATH)
-  end
-
-  def described_class
-    MarriageAbroadOutcomeFlattener
   end
 
   def create_test_artefacts
@@ -51,15 +51,19 @@ class MarriageAbroadOutcomeFlattenerTest < ActiveSupport::TestCase
   end
 
   test "creates outcomes from test artefacts" do
+    @flattener.flatten
     assert File.exist?("#{OUTCOMES_PATH}/1/1/_same_sex.erb"), "Same sex outcome was not created"
     assert File.exist?("#{OUTCOMES_PATH}/1/1/_opposite_sex.erb"), "Opposite sex outcome was not created"
   end
 
   test "creates a title partial" do
+    @flattener.flatten
     assert File.exist?("#{OUTCOMES_PATH}/_title.govspeak.erb"), "Title partial was not created"
   end
 
   test "substitutes fees and payment info" do
+    @flattener.flatten
+
     same_sex_outcome_content = IO.read("#{OUTCOMES_PATH}/1/1/_same_sex.erb")
     opposite_sex_outcome_content = IO.read("#{OUTCOMES_PATH}/1/1/_opposite_sex.erb")
 
@@ -67,5 +71,25 @@ class MarriageAbroadOutcomeFlattenerTest < ActiveSupport::TestCase
     assert_match "render partial: 'how_to_pay.govspeak.erb'", same_sex_outcome_content
     assert_match "render partial: 'consular_fees_table_items.govspeak.erb'", opposite_sex_outcome_content
     assert_match "render partial: 'how_to_pay.govspeak.erb'", opposite_sex_outcome_content
+  end
+
+  test "allows different same-sex wording" do
+    @same_sex_marriage_flattener = MarriageAbroadOutcomeFlattener.new(
+      "narnia",
+      same_sex_wording: :same_sex_marriage,
+      logger: @logger,
+    )
+
+    @same_sex_marriage_flattener.flatten
+    assert_match "Same-sex marriage in Narnia", IO.read("#{OUTCOMES_PATH}/_title.govspeak.erb")
+
+    @civil_partnership_flattener = MarriageAbroadOutcomeFlattener.new(
+      "narnia",
+      same_sex_wording: :civil_partnership,
+      logger: @logger,
+    )
+
+    @civil_partnership_flattener.flatten
+    assert_match "Civil partnership in Narnia", IO.read("#{OUTCOMES_PATH}/_title.govspeak.erb")
   end
 end
