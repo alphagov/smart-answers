@@ -5,11 +5,11 @@ class MarriageAbroadOutcomeFlattener
     @country = country
 
     @same_sex_wording = case same_sex_wording
-    when :civil_partnership
-      "Civil partnership"
-    when :same_sex_marriage
-      "Same-sex marriage"
-    end
+                        when :civil_partnership
+                          "Civil partnership"
+                        when :same_sex_marriage
+                          "Same-sex marriage"
+                        end
 
     @logger = logger
   end
