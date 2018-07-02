@@ -15,7 +15,7 @@ lib/smart_answer_flows/check-uk-visa/outcomes/outcome_marriage_taiwan.govspeak.e
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_marriage_visa_nat_datv.govspeak.erb: 8f0cf0b2587c71b4f1447f74eea9f9ef
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_medical_n.govspeak.erb: 25d9fdd14a1710ddc14b269028b1ff26
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_medical_y.govspeak.erb: fdaf1c367c5a3a77220b64cb9745d075
-lib/smart_answer_flows/check-uk-visa/outcomes/outcome_no_visa_needed.govspeak.erb: 365cbbd8b378b4623c518f567e9424bb
+lib/smart_answer_flows/check-uk-visa/outcomes/outcome_no_visa_needed.govspeak.erb: 64b98e4e530bef0e9922efdf18ebf936
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_partner_family_british_citizen_y.govspeak.erb: c72be205d12c6528e6f80ebb4f853ce6
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_partner_family_eea_n.govspeak.erb: 5d5ad2749f459ba01893183e3de7d56b
 lib/smart_answer_flows/check-uk-visa/outcomes/outcome_partner_family_eea_y.govspeak.erb: 98c6dfd209f08d4ae0579287e0adc3b0
