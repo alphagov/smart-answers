@@ -25,7 +25,7 @@ lib/smart_answer_flows/student-finance-calculator/questions/what_type_of_student
 lib/smart_answer_flows/student-finance-calculator/questions/whats_your_household_income.govspeak.erb: d48e8259ecfdbcda7fa77fccce3ed6b7
 lib/smart_answer_flows/student-finance-calculator/questions/when_does_your_course_start.govspeak.erb: d356c6ea6d1f736b2277b160040e40a7
 lib/smart_answer_flows/student-finance-calculator/questions/where_will_you_live_while_studying.govspeak.erb: 6971a090166992ed6c3a86865fbbf546
-lib/smart_answer_flows/student-finance-calculator/student_finance_calculator.govspeak.erb: 7964256ea31916b7248875a822f1d091
+lib/smart_answer_flows/student-finance-calculator/student_finance_calculator.govspeak.erb: fe0973afaf50594a387e4033d279c1f5
 lib/smart_answer_flows/student-finance-calculator.rb: 0d7830cd6b03aee4e108f7446990bd69
 test/data/student-finance-calculator-questions-and-responses.yml: 7994cc61fc3dbdf17a9e276192242675
 test/data/student-finance-calculator-responses-and-expected-results.yml: 2409392852311da0a139cd0b13f76543
