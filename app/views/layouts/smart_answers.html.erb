@@ -15,7 +15,7 @@
     <%= render 'smartanswer_metadata' %>
   </main>
 
-  <% if @presenter.finished? %>
+  <% if defined?(@presenter.finished?) and @presenter.finished? %>
     <div class="related-container">
       <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: @content_item %>
     </div>
