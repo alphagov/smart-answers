@@ -1,5 +1,5 @@
 ---
-lib/data/marriage_abroad_data.yml: 948cea5318af82f0e0a0a54de43c9739
+lib/data/marriage_abroad_data.yml: b28049b01f8391a2cdc72649d08995c5
 lib/data/marriage_abroad_services.yml: 6a4a5b0168d8426b98382e69c92ea57d
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/smart_answer/calculators/country_name_formatter.rb: 6e9aab3c79a59e54e056b473b9cc4151
@@ -761,6 +761,25 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/tunisia/uk/partner_oth
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/turkey/_opposite_sex.govspeak.erb: f44efa7ada0c8fc47ceaa4458ea2b31a
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/turkey/_same_sex.govspeak.erb: 4ac2c9180a2c2d3e783a266d61fdfd70
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/turkey/_title.govspeak.erb: 323cdb9e9165cdc8804dff528da5432f
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/uganda/_title.govspeak.erb: 75bf316f06ba857c7f01f684cfda9fb7
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/uganda/ceremony_country/partner_british/_opposite_sex.erb: 4a7b720693f623d5cb8702fcf81b3801
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/uganda/ceremony_country/partner_british/_same_sex.erb: f439931c3d0a7589d6526a9f7d81fb96
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/uganda/ceremony_country/partner_local/_opposite_sex.erb: 45555c836ce4658447c613d1fb4829d6
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/uganda/ceremony_country/partner_local/_same_sex.erb: f439931c3d0a7589d6526a9f7d81fb96
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/uganda/ceremony_country/partner_other/_opposite_sex.erb: 45555c836ce4658447c613d1fb4829d6
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/uganda/ceremony_country/partner_other/_same_sex.erb: f439931c3d0a7589d6526a9f7d81fb96
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/uganda/third_country/partner_british/_opposite_sex.erb: 1219d1f105ed4e8eb2e9abd8de91aa6e
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/uganda/third_country/partner_british/_same_sex.erb: f439931c3d0a7589d6526a9f7d81fb96
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/uganda/third_country/partner_local/_opposite_sex.erb: 03562eb2e28b1ec741677ffc707b4c01
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/uganda/third_country/partner_local/_same_sex.erb: f439931c3d0a7589d6526a9f7d81fb96
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/uganda/third_country/partner_other/_opposite_sex.erb: 03562eb2e28b1ec741677ffc707b4c01
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/uganda/third_country/partner_other/_same_sex.erb: f439931c3d0a7589d6526a9f7d81fb96
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/uganda/uk/partner_british/_opposite_sex.erb: '068f358ce08d20886e27909d2a4464f0'
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/uganda/uk/partner_british/_same_sex.erb: f439931c3d0a7589d6526a9f7d81fb96
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/uganda/uk/partner_local/_opposite_sex.erb: 044df72231477b8728a23713291c88db
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/uganda/uk/partner_local/_same_sex.erb: f439931c3d0a7589d6526a9f7d81fb96
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/uganda/uk/partner_other/_opposite_sex.erb: 044df72231477b8728a23713291c88db
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/uganda/uk/partner_other/_same_sex.erb: f439931c3d0a7589d6526a9f7d81fb96
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/usa/_opposite_sex.govspeak.erb: f4e5c834c8c564ab5a15bb67ba14af7b
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/usa/_same_sex.govspeak.erb: 123183317f1b265038c190754184a695
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/usa/_title.govspeak.erb: 30d2ec8e10cf40897dbdafc7fb6bac54
@@ -873,5 +892,5 @@ lib/smart_answer_flows/marriage-abroad/questions/partner_opposite_or_same_sex.go
 lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationality.govspeak.erb: 80e04f36c75c232bede1a244d621471e
 lib/smart_answer_flows/marriage-abroad.rb: dc879ed7fae5084ccd29149686f25372
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1dc349abcd6b21e1bf8c397d96fd02b8
-test/data/marriage-abroad-questions-and-responses.yml: 5323b51dfcfc39cdf4ea926f94a19f70
-test/data/marriage-abroad-responses-and-expected-results.yml: faa0b202fc50ac5d8aa1630ed8b41a10
+test/data/marriage-abroad-questions-and-responses.yml: f6dc834433a7b3d09921f55f66f0bb9a
+test/data/marriage-abroad-responses-and-expected-results.yml: 94c14462cff4293d864627ed4616c8d3
