@@ -9,7 +9,7 @@ lib/smart_answer_flows/state-pension-age/outcomes/not_yet_reached_sp_age.govspea
 lib/smart_answer_flows/state-pension-age/questions/dob_age.govspeak.erb: 336a91fc32e8fc66011a9ae504111ae0
 lib/smart_answer_flows/state-pension-age/questions/gender.govspeak.erb: 4624dfdac5be156a8573cbc21245e36d
 lib/smart_answer_flows/state-pension-age/questions/which_calculation.govspeak.erb: 047d48d2d752d7b53c0b78f0eaedac3f
-lib/smart_answer_flows/state-pension-age/state_pension_age.govspeak.erb: 2300d80c8762e3830b0d6b9d60ebf58b
+lib/smart_answer_flows/state-pension-age/state_pension_age.govspeak.erb: c95f25d3e1e00540cf41bc2b0e0c72ad
 lib/smart_answer_flows/state-pension-age.rb: 1bf275c47d8dc0bd49ee4d2fb3a863af
 test/data/state-pension-age-questions-and-responses.yml: '08343519227d88f31201fe6c3d4862fe'
 test/data/state-pension-age-responses-and-expected-results.yml: df54f7e17e9ef6d5167cb359d16ede05
