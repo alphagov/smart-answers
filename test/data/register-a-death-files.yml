@@ -2,7 +2,7 @@
 lib/data/rates/births_and_deaths_document_return_fees.yml: 4ac203e9fd076c12f62b57f8d1b64ffc
 lib/data/rates/register_a_death.yml: f24583d68edd4b06242b5a92e08e25c3
 lib/data/translators.yml: 79abd2e0c2570130f7d832e4242c153a
-lib/smart_answer/calculators/country_name_formatter.rb: 6e9aab3c79a59e54e056b473b9cc4151
+lib/smart_answer/calculators/country_name_formatter.rb: 14f0b175f9e084eb3278364e96719029
 lib/smart_answer/calculators/register_a_death_calculator.rb: 18f8a996d537df9056ba149239cf487e
 lib/smart_answer/calculators/registrations_data_query.rb: 80250f09bc28d55a86148de2e7a76429
 lib/smart_answer/calculators/translator_links.rb: '079592f6c5ede06d7c6ae4e8c5553127'

@@ -735,7 +735,7 @@ gabon:
   applying: 12 weeks
   replacing: 8 weeks
   optimistic_processing_time?: false
-gambia:
+the-gambia:
   type: ips_application_1
   group: ips_documents_group_3
   app_form: hmpo_1_application_form
