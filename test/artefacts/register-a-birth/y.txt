@@ -78,7 +78,7 @@ Which country was the child born in?
   * french-guiana: French Guiana
   * french-polynesia: French Polynesia
   * gabon: Gabon
-  * gambia: Gambia
+  * the-gambia: The Gambia
   * georgia: Georgia
   * germany: Germany
   * ghana: Ghana
