@@ -1,6 +1,6 @@
 module SmartAnswer::Calculators
   class CountryNameFormatter
-    COUNTRIES_WITH_DEFINITIVE_ARTICLES = %w(bahamas british-virgin-islands cayman-islands czech-republic democratic-republic-of-the-congo dominican-republic falkland-islands maldives marshall-islands netherlands philippines seychelles solomon-islands south-georgia-and-south-sandwich-islands turks-and-caicos-islands united-arab-emirates)
+    COUNTRIES_WITH_DEFINITIVE_ARTICLES = %w(bahamas british-virgin-islands cayman-islands czech-republic democratic-republic-of-the-congo dominican-republic falkland-islands maldives marshall-islands netherlands philippines seychelles solomon-islands south-georgia-and-south-sandwich-islands turks-and-caicos-islands united-arab-emirates).freeze
 
     FRIENDLY_COUNTRY_NAME = {
       "cote-d-ivoire" => "Cote d'Ivoire",
