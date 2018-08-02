@@ -1,0 +1,25 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "2da8c474373d6bc0973ca2304a53299c03b917c5908cacfbb0e25093817a6595",
+      "check_name": "CrossSiteScripting",
+      "message": "Unescaped parameter value",
+      "file": "app/views/smart_answers/visualise.html.erb",
+      "line": 14,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "JSON.pretty_generate(GraphPresenter.new(flow_registry.find(params[:id].to_sym.to_s)).to_hash)",
+      "render_path": [{"type":"controller","class":"SmartAnswersController","method":"visualise","line":45,"file":"app/controllers/smart_answers_controller.rb"}],
+      "location": {
+        "type": "template",
+        "template": "smart_answers/visualise"
+      },
+      "user_input": "params[:id].to_sym.to_s",
+      "confidence": "Weak",
+      "note": "This is fine because we check that the smart answer exists in the registry, if we were given something else, it would fail to find the smart answer."
+    }
+  ],
+  "updated": "2018-08-02 14:49:23 +0100",
+  "brakeman_version": "4.3.1"
+}
