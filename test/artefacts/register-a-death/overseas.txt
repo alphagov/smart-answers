@@ -78,7 +78,7 @@ Which country did the death happen in?
   * french-guiana: French Guiana
   * french-polynesia: French Polynesia
   * gabon: Gabon
-  * gambia: Gambia
+  * the-gambia: The Gambia
   * georgia: Georgia
   * germany: Germany
   * ghana: Ghana

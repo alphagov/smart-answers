@@ -80,7 +80,6 @@ If you’re a refugee or don’t have a passport or travel document, select ‘S
   * finland: Finland
   * france: France
   * gabon: Gabon
-  * gambia: Gambia
   * georgia: Georgia
   * germany: Germany
   * ghana: Ghana
@@ -203,6 +202,7 @@ If you’re a refugee or don’t have a passport or travel document, select ‘S
   * tajikistan: Tajikistan
   * tanzania: Tanzania
   * thailand: Thailand
+  * the-gambia: The Gambia
   * timor-leste: Timor Leste
   * togo: Togo
   * tonga: Tonga

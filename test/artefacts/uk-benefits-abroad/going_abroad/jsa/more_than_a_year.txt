@@ -78,7 +78,6 @@ Which country are you moving to?
   * france: France
   * french-polynesia: French Polynesia
   * gabon: Gabon
-  * gambia: Gambia
   * georgia: Georgia
   * germany: Germany
   * ghana: Ghana
@@ -202,6 +201,7 @@ Which country are you moving to?
   * tajikistan: Tajikistan
   * tanzania: Tanzania
   * thailand: Thailand
+  * the-gambia: The Gambia
   * the-occupied-palestinian-territories: The Occupied Palestinian Territories
   * timor-leste: Timor Leste
   * togo: Togo
