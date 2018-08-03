@@ -30,6 +30,7 @@ node {
         }
       }
     },
+    brakeman: true,
     extraParameters: [
       [$class: 'BooleanParameterDefinition',
         name: 'RUN_REGRESSION_TESTS',
