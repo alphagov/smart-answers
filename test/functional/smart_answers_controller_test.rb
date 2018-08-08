@@ -71,7 +71,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
             base_path: "/smart-answers-controller-sample",
           }.with_indifferent_access
 
-        ContentItemRetriever.stubs(:fetch)
+        FlowContentItemRetriever.stubs(:fetch)
           .returns(@content_item)
 
         get :show, params: { id: "smart-answers-controller-sample" }
@@ -84,7 +84,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
     context "when a smart answer does not exist on the content store" do
       setup do
-        ContentItemRetriever.stubs(:fetch).returns({})
+        FlowContentItemRetriever.stubs(:fetch).returns({})
         get :show, params: { id: "smart-answers-controller-sample" }
       end
 

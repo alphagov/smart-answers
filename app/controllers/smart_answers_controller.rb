@@ -109,6 +109,6 @@ private
   end
 
   def setup_content_item
-    @content_item = ContentItemRetriever.fetch(params[:id])
+    @content_item = FlowContentItemRetriever.fetch(params[:id])
   end
 end

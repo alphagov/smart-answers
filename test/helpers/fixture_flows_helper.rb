@@ -18,7 +18,7 @@ module FixtureFlowsHelper
 
   def stub_smart_answer_in_content_store(smart_answer_id)
     Services.content_store.stubs(:content_item)
-      .with("/#{smart_answer_id}")
+      .with("/#{smart_answer_id}/y")
       .returns({})
   end
 end
