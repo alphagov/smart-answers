@@ -142,7 +142,7 @@ module SmartAnswer
           @calculator.due_date = @date
         end
 
-        should "return the latest_pay_leave known lower_earnings_amount" do
+        should "return the latest known lower_earnings_amount" do
           assert_equal 116, @calculator.lower_earnings_amount
         end
       end
