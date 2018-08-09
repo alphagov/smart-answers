@@ -12,9 +12,7 @@ module SmartAnswer
         option :yes
         option :no
 
-        calculate :cost_change_4_weeks do
-          nil
-        end
+        calculate :cost_change_4_weeks
 
         next_node do |response|
           case response

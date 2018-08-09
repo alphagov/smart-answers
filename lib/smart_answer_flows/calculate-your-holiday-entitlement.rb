@@ -17,15 +17,9 @@ module SmartAnswer
         option "shift-worker"
         save_input_as :calculation_basis
 
-        calculate :leaving_date do
-          nil
-        end
-        calculate :leave_year_start_date do
-          nil
-        end
-        calculate :start_date do
-          nil
-        end
+        calculate :leaving_date
+        calculate :leave_year_start_date
+        calculate :start_date
 
         next_node do |response|
           case response

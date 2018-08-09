@@ -2,7 +2,7 @@ module SmartAnswer
   class Calculation
     def initialize(variable_name, &block)
       @variable_name = variable_name
-      @calculation = block
+      @calculation = block || ->(_) {}
     end
 
     def evaluate(previous_state, response = nil)
