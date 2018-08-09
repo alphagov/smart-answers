@@ -146,6 +146,18 @@ module SmartAnswer
           assert_equal 116, @calculator.lower_earnings_amount
         end
       end
+
+      context "an LEL period which straddles an LEL uprating" do
+        setup do
+          @date = Date.parse("2018-09-08")
+          @calculator = PayLeaveForParentsCalculator.new
+          @calculator.due_date = @date
+        end
+
+        should "return the more recent lower_earnings_amount" do
+          assert_equal 116, @calculator.lower_earnings_amount
+        end
+      end
     end
   end
 end

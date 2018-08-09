@@ -31,7 +31,7 @@ module SmartAnswer::Calculators
 
     def lower_earnings_amount
       tax_year_start = SmartAnswer::YearRange.tax_year
-        .including(lower_earnings_start_date)
+        .including(lower_earnings_end_date)
         .begins_on
 
       case tax_year_start.year
