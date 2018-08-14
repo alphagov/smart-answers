@@ -8,6 +8,10 @@ This happens automatically as a post build action when the [govuk_smart_answers 
 
 You can use the [Integration Deploy App](https://deploy.integration.publishing.service.gov.uk/job/Deploy_App/). Click the "Build with Parameters" link and enter "release" as the "TAG".
 
+### Changes to the landing page
+
+As well as following the [development workflow](https://github.com/alphagov/smart-answers/blob/master/doc/development-workflow.md) to make changes, they also need to be sent to the `content store` for them to be rendered on the page. The [rake task `publishing_api:publish`](https://github.com/alphagov/smart-answers/blob/master/lib/tasks/publishing_api.rake) needs to be run once you have deployed your changes in each environment and can be done in [Jenkins](https://deploy.integration.publishing.service.gov.uk/job/run-rake-task/).
+
 ## Production
 
 These are usually done with a Smart Answers developer sitting with someone from 2nd-line Support. You need to prepare a production deployment as follows:
