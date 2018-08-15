@@ -43,7 +43,7 @@ end
 
 group :test do
   gem 'rails-controller-testing'
-  gem 'capybara', '3.5.1'
+  gem 'capybara', '3.6.0'
   gem 'ci_reporter'
   gem 'minitest', '~> 5.11'
   gem 'minitest-focus', '~> 1.1', '>= 1.1.2'
