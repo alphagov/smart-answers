@@ -3,6 +3,7 @@ require_relative "../date_helper"
 module SmartAnswer::Calculators
   class MaternityPaternityCalculator
     include SmartAnswer::DateHelper
+    include SmartAnswer::RoundingHelper
 
     attr_reader :due_date, :expected_week, :qualifying_week, :employment_start, :notice_of_leave_deadline,
       :leave_earliest_start_date, :adoption_placement_date, :ssp_stop,
@@ -231,7 +232,7 @@ module SmartAnswer::Calculators
           # Pay period includes the date of payment hence the range starts the day after.
           pay = pay_for_period(last_paydate, paydate)
           if pay.positive?
-            ary << { date: paydate, pay: pay.round(2) }
+            ary << { date: paydate, pay: round_up_to_the_next_pence(pay) } # This must always be rounded up to the next pence.
             last_paydate = paydate + 1
           end
         end
