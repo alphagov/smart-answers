@@ -496,7 +496,7 @@ module SmartAnswer::Calculators
         should "pay on the leave start date" do
           assert_equal '2013-03-01', @calculator.paydates_first_day_of_the_month.first.to_s
           assert_equal '2013-03-01', @calculator.paydates_and_pay.first[:date].to_s
-          assert_equal 38.57, @calculator.paydates_and_pay.first[:pay]
+          assert_equal 38.58, @calculator.paydates_and_pay.first[:pay]
           assert @calculator.paydates_and_pay.last[:date] > @calculator.pay_end_date, "Last paydate should be after SMP end date"
           assert @calculator.paydates_and_pay.last[:pay] > 0
         end
@@ -592,7 +592,7 @@ module SmartAnswer::Calculators
             "2013-10-10"
           ]
           assert_equal expected_pay_dates, paydates_and_pay.map { |p| p[:date].to_s }
-          assert_equal 32.14, paydates_and_pay.first[:pay]
+          assert_equal 32.15, paydates_and_pay.first[:pay]
           assert_equal 450, paydates_and_pay.second[:pay]
           assert_equal 270.9, paydates_and_pay[4][:pay]
           assert_equal 117.24, paydates_and_pay.last[:pay]
@@ -628,7 +628,7 @@ module SmartAnswer::Calculators
 
           assert_equal 10, paydates_and_pay.size
           assert_equal '2013-01-31', paydates_and_pay.first[:date].to_s
-          assert_equal 932.14, paydates_and_pay.first[:pay]
+          assert_equal 932.15, paydates_and_pay.first[:pay]
           assert_equal '2013-10-31', paydates_and_pay.last[:date].to_s
           assert_equal 39.08, paydates_and_pay.last[:pay]
         end
@@ -679,7 +679,7 @@ module SmartAnswer::Calculators
         should "calculate pay on paydates with April 2013 uprating" do
           paydates_and_pay =  @calculator.paydates_and_pay
 
-          assert_equal 25.71, paydates_and_pay.first[:pay]
+          assert_equal 25.72, paydates_and_pay.first[:pay]
           assert_equal 180.0, paydates_and_pay.second[:pay]
           assert_equal 173.64, paydates_and_pay[6][:pay]
           assert_equal 173.64, paydates_and_pay.find { |p| p[:date].to_s == '2013-03-08' }[:pay]
@@ -866,12 +866,13 @@ module SmartAnswer::Calculators
         should "calculate 39 weeks of dates and pay, first 6 weeks is 90% of avg weekly pay, \
                 the remaining weeks is the minimum of 90% of avg weekly pay or 139.58" do
           expected_pay_dates = %w(2015-04-07 2015-04-14 2015-04-21 2015-04-28 2015-05-05 2015-05-12 2015-05-19 2015-05-26 2015-06-02 2015-06-09 2015-06-16 2015-06-23 2015-06-30 2015-07-07 2015-07-14 2015-07-21 2015-07-28 2015-08-04 2015-08-11 2015-08-18 2015-08-25 2015-09-01 2015-09-08 2015-09-15 2015-09-22 2015-09-29 2015-10-06 2015-10-13 2015-10-20 2015-10-27 2015-11-03 2015-11-10 2015-11-17 2015-11-24 2015-12-01 2015-12-08 2015-12-15 2015-12-22 2015-12-29)
+          expected_pay = (346.15385 * 90).truncate(1).ceil / 100.0 #this applies the "round_up_to_the_next_pence" calculation
           @calculator.pay_pattern = 'monthly'
           @calculator.earnings_for_pay_period = 3000
           assert_equal 346.15, @calculator.average_weekly_earnings.round(2)
           assert_equal expected_pay_dates, @calculator.paydates_and_pay.map { |p| p[:date].to_s }
 
-          assert_equal [(346.15385 * 0.9).round(2)], @calculator.paydates_and_pay.first(6).map { |p| p[:pay] }.uniq
+          assert_equal [expected_pay], @calculator.paydates_and_pay.first(6).map { |p| p[:pay] }.uniq
           assert_equal [139.58], @calculator.paydates_and_pay[6..-1].map { |p| p[:pay] }.uniq
         end
       end
