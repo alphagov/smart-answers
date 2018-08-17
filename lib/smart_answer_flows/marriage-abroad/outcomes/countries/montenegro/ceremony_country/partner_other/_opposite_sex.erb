@@ -8,7 +8,7 @@ You need to prove you're legally allowed to get married by getting a certificate
 
 ###Get a CNI and make an affirmation
 
-To get a CNI, you must post notice of your intended marriage in Montenegro. You can do this at the British embassy. It costs <% when :affidavit_or_affirmation_for_marriage %> to give notice and make your affirmation at the embassy and <% when :issuing_cni_or_nulla_osta %> for your CNI.
+To get a CNI, you must post notice of your intended marriage in Montenegro. You can do this at the British embassy. It costs <%= format_money calculator.consular_fee(:affidavit_or_affirmation_for_marriage) %> to give notice and make your affirmation at the embassy and <% format_money calculator.consular_fee(:issuing_cni_or_nulla_osta) %> for your CNI.
 
 You’ll need to have been living in Montenegro for at least 3 full days before you can post notice, for example if you arrive in the country on Thursday, the earliest you can post notice is the following Monday.
 
