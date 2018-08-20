@@ -23,7 +23,7 @@ node {
         govuk.runTests()
       }
 
-      if (env.BRANCH_NAME == 'master' || params.RUN_REGRESSION_TESTS) {
+      if (env.BRANCH_NAME == 'master' || env.BRANCH_NAME.startsWith('dependabot/') || params.RUN_REGRESSION_TESTS) {
         stage('Regression tests') {
           govuk.setEnvar("RUN_REGRESSION_TESTS", "true")
           sh("bundle exec ruby test/regression/smart_answers_regression_test.rb")
