@@ -1,7 +1,7 @@
 ---
 lib/data/commodity_codes_data.yml: e18434a8a7b02f644e69ebe45f518772
 lib/smart_answer/calculators/commodity_code_calculator.rb: 712cf498c65631b3c9b506d0217e039b
-lib/smart_answer_flows/additional-commodity-code/additional_commodity_code.govspeak.erb: 4d11f8bf0bcd29764893c4a12349de17
+lib/smart_answer_flows/additional-commodity-code/additional_commodity_code.govspeak.erb: 9ffd3b8d91434c41869bf58a48898b39
 lib/smart_answer_flows/additional-commodity-code/outcomes/commodity_code_result.govspeak.erb: d9bc1dfba18bbe32ec054769373b5f6e
 lib/smart_answer_flows/additional-commodity-code/questions/how_much_milk_fat.govspeak.erb: d5a2e72371d3415a561bfe9b9a036880
 lib/smart_answer_flows/additional-commodity-code/questions/how_much_milk_protein_ab.govspeak.erb: a39befa86f200c8467dc9be362f95667
