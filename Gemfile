@@ -45,10 +45,10 @@ group :test do
   gem 'rails-controller-testing'
   gem 'capybara', '3.6.0'
   gem 'ci_reporter'
+  gem 'govuk_test'
   gem 'minitest', '~> 5.11'
   gem 'minitest-focus', '~> 1.1', '>= 1.1.2'
   gem 'mocha', '1.7.0', require: false
-  gem 'poltergeist', '1.18.1'
   gem 'shoulda', '~> 3.6.0'
   gem 'simplecov', '~> 0.16.1', require: false
   gem 'simplecov-rcov', '~> 0.2.3', require: false

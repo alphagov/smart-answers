@@ -4,18 +4,7 @@ require 'capybara/rails'
 Capybara.server = :webrick
 Capybara.default_driver = :rack_test
 
-require 'capybara/poltergeist'
-
-# This additional configuration is a protective measure while
-# we have invalid ssl certs in the test environment, it
-# will ignore ssl errors when requesting scripts from
-# assets-origin.*
-#
-Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, phantomjs_options: ['--ssl-protocol=TLSv1', '--ignore-ssl-errors=yes'])
-end
-
-Capybara.javascript_driver = :poltergeist
+GovukTest.configure
 
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
