@@ -13,7 +13,7 @@
 
   ###Extra student funding
 
-  <% if all_uk_students_circumstances.include?('no') and course_studied == 'none-of-the-above' %>
+  <% if all_uk_students_circumstances.include?('no') and course_studied != 'teacher-training' and course_studied != 'social-work' %>
     You don’t qualify for extra grants and allowances.
   <% else %>
     You could get:
