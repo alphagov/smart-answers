@@ -168,10 +168,26 @@ module SmartAnswer::Calculators
       28.days.ago(pay_start_date)
     end
 
-    # Rounds up at 2 decimal places.
-    #
     def statutory_maternity_rate
-      average_weekly_earnings.to_f * 0.9
+      truncate((average_weekly_earnings / 100) * 90)
+    end
+
+    def round_up_to_nearest_penny(float)
+      if truncate(float, decimal_places: 2) == truncate(float)
+        float
+      else
+        truncate(truncate(float), decimal_places: 2, round_up: true)
+      end
+    end
+
+    def truncate(float, decimal_places: 7, round_up: false)
+      offset = ("1" + ("0" * decimal_places)).to_f # decimal_places: 7 -> 10_000_000.0
+
+      if round_up
+        (float * offset).ceil / offset
+      else
+        (float * offset).floor / offset
+      end
     end
 
     def statutory_maternity_rate_a
@@ -181,7 +197,6 @@ module SmartAnswer::Calculators
     def statutory_maternity_rate_b
       [current_statutory_rate, statutory_maternity_rate].min
     end
-
 
     def lower_earning_limit_birth
       RatesQuery.from_file('maternity_paternity_birth').rates(@qualifying_week.last).lower_earning_limit_rate
@@ -209,14 +224,14 @@ module SmartAnswer::Calculators
     end
 
     def average_weekly_earnings
-      sprintf("%.5f", (
+      truncate(
         case pay_pattern
         when "monthly"
           earnings_for_pay_period.to_f / number_of_payments * 12 / 52
         else
           earnings_for_pay_period.to_f / number_of_payments
         end
-      )).to_f # HMRC truncation at 5 places.
+      ) # HMRC-agreed truncation at 7 decimal places.
     end
 
     def total_statutory_pay
@@ -389,7 +404,7 @@ module SmartAnswer::Calculators
       (start_date..end_date).each_slice(7) do |week|
         if week.size < 7 || !within_pay_date_range?(week.last) || rate_changes?(week)
           # When calculating a partial SMP pay week divide the weekly rate by 7
-          # truncating the result at 5 decimal places and increment the total pay
+          # truncating the result at 7 decimal places and increment the total pay
           # for each day of the partial week
           week.each do |day|
             if within_pay_date_range?(day)
@@ -400,7 +415,8 @@ module SmartAnswer::Calculators
           pay += rate_for(week.first)
         end
       end
-      pay
+
+      round_up_to_nearest_penny(pay)
     end
 
     # Gives the weekly rate for a date.

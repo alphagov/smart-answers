@@ -1,5 +1,6 @@
 require_relative '../../test_helper'
 require_relative 'flow_test_helper'
+require_relative 'maternity_calculator_helper'
 require_relative '../../../lib/smart_answer/date_helper'
 
 require "smart_answer_flows/maternity-paternity-calculator"
@@ -7,6 +8,7 @@ require "smart_answer_flows/maternity-paternity-calculator"
 class MaternityCalculatorTest < ActiveSupport::TestCase
   include SmartAnswer::DateHelper
   include FlowTestHelper
+  include MaternityCalculatorHelper
 
   setup do
     setup_for_testing_flow SmartAnswer::MaternityPaternityCalculatorFlow
@@ -231,7 +233,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                             assert_state_variable "average_weekly_earnings", 135.4
                             assert_state_variable "smp_a", "121.86"
                             assert_state_variable "smp_b", "121.86"
-                            assert_state_variable "total_smp", "4752.54"
+                            assert_state_variable "total_smp", "4752.55"
                           end
                         end
                       end
@@ -292,7 +294,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                       add_response "last_day_of_the_month"
                       leave_start = Date.parse("21 November 2012")
                       start_of_week = leave_start - leave_start.wday
-                      assert_state_variable "average_weekly_earnings", 124.98462
+                      assert_state_variable "average_weekly_earnings", 124.9846153
                       assert_state_variable "leave_start_date", leave_start
                       assert_state_variable "leave_end_date", 52.weeks.since(leave_start) - 1
                       assert_state_variable "notice_of_leave_deadline", next_saturday(15.weeks.ago(start_of_week))
@@ -300,7 +302,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                       assert_state_variable "pay_end_date", 39.weeks.since(leave_start) - 1
                       assert_state_variable "smp_a", "112.49"
                       assert_state_variable "smp_b", "112.49"
-                      assert_state_variable "total_smp", "4386.93"
+                      assert_state_variable "total_smp", "4387.02"
                     end
 
                     context "specific date each month" do
@@ -357,7 +359,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                           end
 
                           should "calculate the dates and payment amounts" do
-                            assert_state_variable "average_weekly_earnings", 124.98462
+                            assert_state_variable "average_weekly_earnings", 124.9846153
                             assert_state_variable "smp_a", "112.49"
                             assert_state_variable "smp_b", "112.49" # Uses the statutory maternity rate
                           end
@@ -589,6 +591,127 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
         assert_state_variable "lower_earning_limit", sprintf("%.2f", 107)
         assert_current_node :maternity_leave_and_pay_result
       end
+    end
+  end
+
+  # Examples provided by Sandie Andrews at HRMC:
+  # https://govuk.zendesk.com/agent/tickets/2700341
+  context "Example 1" do
+    setup do
+      Timecop.freeze("2018-09-06")
+
+      add_response :maternity
+      add_response Date.parse("2018-10-01")
+      add_response Date.parse("2018-07-15")
+      add_response :yes
+      add_response Date.parse("2018-05-31")
+      add_response Date.parse("2018-03-31")
+      add_response :monthly
+      add_response "1257.0"
+      add_response "2"
+      add_response "usual_paydates"
+      add_response "last_day_of_the_month"
+    end
+
+    teardown do
+      Timecop.return
+    end
+
+    should "match the results provided by HMRC" do
+      check_smp_calculation(
+        "31 July 2018" => "£317.02",
+        "31 August 2018" => "£578.09",
+        "30 September 2018" => "£559.44",
+        "31 October 2018" => "£578.09",
+        "30 November 2018" => "£559.44",
+        "31 December 2018" => "£578.09",
+        "31 January 2019" => "£578.09",
+        "28 February 2019" => "£522.14",
+        "31 March 2019" => "£578.09",
+        "30 April 2019" => "£242.43",
+      )
+
+      assert_state_variable :total_smp, "5090.92"
+    end
+  end
+
+  context "Example 2" do
+    setup do
+      Timecop.freeze("2018-09-06")
+
+      add_response :maternity
+      add_response Date.parse("2018-10-14")
+      add_response Date.parse("2018-09-16")
+      add_response :yes
+      add_response Date.parse("2018-06-29")
+      add_response Date.parse("2018-04-30")
+      add_response :monthly
+      add_response "2300.0"
+      add_response "2"
+      add_response "usual_paydates"
+      add_response "last_working_day_of_the_month"
+      add_response "1,2,3,5"
+    end
+
+    teardown do
+      Timecop.return
+    end
+
+    should "match the results provided by HMRC" do
+      check_smp_calculation(
+        "28 September 2018" => "£443.58",
+        "31 October 2018" => "£1072.47",
+        "30 November 2018" => "£622.20",
+        "31 December 2018" => "£642.94",
+        "30 January 2019" => "£622.20",
+        "27 February 2019" => "£580.72",
+        "29 March 2019" => "£622.20",
+        "30 April 2019" => "£663.68",
+        "31 May 2019" => "£642.94",
+        "28 June 2019" => "£311.10",
+      )
+
+      assert_state_variable :total_smp, "6224.03"
+    end
+  end
+
+  context "Example 3" do
+    setup do
+      Timecop.freeze("2018-09-06")
+
+      add_response :maternity
+      add_response Date.parse("2018-08-18")
+      add_response Date.parse("2018-06-21")
+      add_response :yes
+      add_response Date.parse("2018-04-27")
+      add_response Date.parse("2018-03-02")
+      add_response :every_4_weeks
+      add_response "2695.86"
+      add_response "2"
+      add_response "usual_paydates"
+      add_response Date.parse("2018-06-22")
+    end
+
+    teardown do
+      Timecop.return
+    end
+
+    should "match the results provided by HMRC" do
+      check_smp_calculation(
+        "22 June 2018" => "£86.66",
+        "20 July 2018" => "£1213.14",
+        "17 August 2018" => "£851.76",
+        "14 September 2018" => "£580.72",
+        "12 October 2018" => "£580.72",
+        " 9 November 2018" => "£580.72",
+        " 7 December 2018" => "£580.72",
+        " 4 January 2019" => "£580.72",
+        " 1 February 2019" => "£580.72",
+        " 1 March 2019" => "£580.72",
+        "29 March 2019" => "£394.06",
+      )
+
+      assert_state_variable :total_smp, "6610.66"
     end
   end
 end
