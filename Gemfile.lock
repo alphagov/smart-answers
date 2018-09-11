@@ -129,7 +129,7 @@ GEM
       rouge
       sass-rails (>= 5.0.4)
       slimmer (>= 11.1.0)
-    govuk_test (0.1.0)
+    govuk_test (0.2.0)
       capybara
       chromedriver-helper
       puma
