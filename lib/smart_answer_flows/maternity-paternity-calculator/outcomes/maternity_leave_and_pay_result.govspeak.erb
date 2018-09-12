@@ -61,7 +61,7 @@
 
     Pay | Key facts
     -|-
-    Average weekly earnings | <%= format_money(average_weekly_earnings) %> (don't round this up or down)
+    Average weekly earnings | £<%= number_with_precision(average_weekly_earnings, precision: 7) %> (don't round this up or down)
     Latest date to claim SMP | <%= format_date(notice_request_pay) %>
     SMP start date due to pregnancy related illness| <%= format_date(ssp_stop) %>
     Proof of pregnancy | Usually within 21 days of the SMP start date (or as soon as possible if baby born early)
