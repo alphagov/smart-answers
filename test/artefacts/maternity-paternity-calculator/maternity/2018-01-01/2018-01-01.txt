@@ -1,0 +1,16 @@
+Did the employee have a contract with you covering
+1 April 2017 to
+17 September 2017?
+
+
+
+
+
+  * yes: Yes
+  * no: No
+
+
+
+
+
+
