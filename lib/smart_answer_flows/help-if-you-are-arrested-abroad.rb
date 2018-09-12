@@ -9,6 +9,7 @@ module SmartAnswer
 
       arrested_calc = Calculators::ArrestedAbroad.new
       exclude_countries = %w(holy-see british-antarctic-territory)
+      british_overseas_territories = %w(anguilla bermuda british-indian-ocean-territory british-virgin-islands cayman-islands falkland-islands gibraltar montserrat pitcairn-island st-helena-ascension-and-tristan-da-cunha south-georgia-and-south-sandwich-islands turks-and-caicos-islands)
 
       #Q1
       country_select :which_country?, exclude_countries: exclude_countries do
@@ -80,6 +81,8 @@ module SmartAnswer
         next_node do |response|
           if response == "syria"
             outcome :answer_three_syria
+          elsif british_overseas_territories.include?(response)
+            outcome :answer_three_british_overseas_territories
           else
             outcome :answer_one_generic
           end
@@ -101,6 +104,8 @@ module SmartAnswer
       end
 
       outcome :answer_three_syria
+
+      outcome :answer_three_british_overseas_territories
     end
   end
 end
