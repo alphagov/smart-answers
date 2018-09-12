@@ -666,8 +666,8 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/russia/uk/partner_loca
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/russia/uk/partner_local/_same_sex.erb: 2dfa783ca3af3d9010f18c798fa7f406
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/russia/uk/partner_other/_opposite_sex.erb: 2d951b98bcb9d47e214f9a7ca2240c01
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/russia/uk/partner_other/_same_sex.erb: 2dfa783ca3af3d9010f18c798fa7f406
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/_opposite_sex.erb: d0a069c48f491c8c76e976634b536f32
-lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/_same_sex.erb: d0a069c48f491c8c76e976634b536f32
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/_opposite_sex.erb: '0484ace282c1c6994d4f9131c367e98d'
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/_same_sex.erb: '0484ace282c1c6994d4f9131c367e98d'
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-africa/_title.govspeak.erb: c18cfb74728f95e947ab034407a3e94e
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-korea/_opposite_sex.erb: 43dd13a3f2122d15f9f66f9509ad4b6c
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/south-korea/_same_sex.erb: 515d4df619bc126383c8d1dfa4a0072e
