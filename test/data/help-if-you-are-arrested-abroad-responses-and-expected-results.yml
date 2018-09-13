@@ -11,9 +11,29 @@
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
+  - anguilla
+  :next_node: :answer_three_british_overseas_territories
+- :current_node: :which_country?
+  :responses:
   - austria
   :next_node: :answer_one_generic
   :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - bermuda
+  :next_node: :answer_three_british_overseas_territories
+- :current_node: :which_country?
+  :responses:
+  - british-indian-ocean-territory
+  :next_node: :answer_three_british_overseas_territories
+- :current_node: :which_country?
+  :responses:
+  - british-virgin-islands
+  :next_node: :answer_three_british_overseas_territories
+- :current_node: :which_country?
+  :responses:
+  - cayman-islands
+  :next_node: :answer_three_british_overseas_territories
 - :current_node: :which_country?
   :responses:
   - cyprus
@@ -26,6 +46,14 @@
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
+  - falkland-islands
+  :next_node: :answer_three_british_overseas_territories
+- :current_node: :which_country?
+  :responses:
+  - gibraltar
+  :next_node: :answer_three_british_overseas_territories
+- :current_node: :which_country?
+  :responses:
   - greece
   :next_node: :answer_one_generic
   :outcome_node: true
@@ -36,6 +64,22 @@
   :outcome_node: true
 - :current_node: :which_country?
   :responses:
+  - montserrat
+  :next_node: :answer_three_british_overseas_territories
+- :current_node: :which_country?
+  :responses:
+  - pitcairn-island
+  :next_node: :answer_three_british_overseas_territories
+- :current_node: :which_country?
+  :responses:
+  - st-helena-ascension-and-tristan-da-cunha
+  :next_node: :answer_three_british_overseas_territories
+- :current_node: :which_country?
+  :responses:
+  - south-georgia-and-south-sandwich-islands
+  :next_node: :answer_three_british_overseas_territories
+- :current_node: :which_country?
+  :responses:
   - spain
   :next_node: :answer_one_generic
   :outcome_node: true
@@ -44,3 +88,7 @@
   - syria
   :next_node: :answer_three_syria
   :outcome_node: true
+- :current_node: :which_country?
+  :responses:
+  - turks-and-caicos-islands
+  :next_node: :answer_three_british_overseas_territories
