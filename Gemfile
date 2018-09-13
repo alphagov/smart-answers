@@ -43,7 +43,7 @@ end
 
 group :test do
   gem 'rails-controller-testing'
-  gem 'capybara', '3.7.1'
+  gem 'capybara', '3.7.2'
   gem 'ci_reporter'
   gem 'govuk_test'
   gem 'minitest', '~> 5.11'
