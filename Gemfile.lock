@@ -66,7 +66,7 @@ GEM
       xpath (~> 3.1)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
-    chromedriver-helper (1.2.0)
+    chromedriver-helper (2.0.1)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
     ci_reporter (2.0.0)
@@ -129,7 +129,7 @@ GEM
       rouge
       sass-rails (>= 5.0.4)
       slimmer (>= 11.1.0)
-    govuk_test (0.2.0)
+    govuk_test (0.2.1)
       capybara
       chromedriver-helper
       puma
