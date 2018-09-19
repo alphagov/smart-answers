@@ -1,5 +1,5 @@
 ---
-lib/data/marriage_abroad_data.yml: dca2cd9e5ea1e51b50963183bd7b3b0a
+lib/data/marriage_abroad_data.yml: 43cbb31e7230a7cd35709beddae43afb
 lib/data/marriage_abroad_services.yml: 6a4a5b0168d8426b98382e69c92ea57d
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/smart_answer/calculators/country_name_formatter.rb: 14f0b175f9e084eb3278364e96719029
@@ -523,6 +523,25 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/latvia/uk/partner_othe
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/_opposite_sex.erb: 6e04f052c6c9fb61301260a530344784
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/_same_sex.erb: 6e04f052c6c9fb61301260a530344784
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/luxembourg/_title.govspeak.erb: 92dcede7d7b6f5b0f7f6972b18d72e28
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/malaysia/_title.govspeak.erb: 0a0e7995fdbc828e5efeedaa7953cbbb
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/malaysia/ceremony_country/partner_british/_opposite_sex.erb: 530e5615bca8eedc4151af8d849f5875
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/malaysia/ceremony_country/partner_british/_same_sex.erb: 361e49c253a80a731cde3317a6a7a33f
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/malaysia/ceremony_country/partner_local/_opposite_sex.erb: 689d040d09e33c2d058b8b1bceedb945
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/malaysia/ceremony_country/partner_local/_same_sex.erb: 361e49c253a80a731cde3317a6a7a33f
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/malaysia/ceremony_country/partner_other/_opposite_sex.erb: 689d040d09e33c2d058b8b1bceedb945
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/malaysia/ceremony_country/partner_other/_same_sex.erb: 361e49c253a80a731cde3317a6a7a33f
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/malaysia/third_country/partner_british/_opposite_sex.erb: 312b505a7a5c1ef595d9237977086f35
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/malaysia/third_country/partner_british/_same_sex.erb: 361e49c253a80a731cde3317a6a7a33f
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/malaysia/third_country/partner_local/_opposite_sex.erb: 4e5b974b675427f21624aef44e3e95c7
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/malaysia/third_country/partner_local/_same_sex.erb: 361e49c253a80a731cde3317a6a7a33f
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/malaysia/third_country/partner_other/_opposite_sex.erb: 4e5b974b675427f21624aef44e3e95c7
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/malaysia/third_country/partner_other/_same_sex.erb: 361e49c253a80a731cde3317a6a7a33f
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/malaysia/uk/partner_british/_opposite_sex.erb: 82418e6ce7bc9e543dac406e9ccbd153
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/malaysia/uk/partner_british/_same_sex.erb: 361e49c253a80a731cde3317a6a7a33f
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/malaysia/uk/partner_local/_opposite_sex.erb: 35dae3fc03345b75ec61568509c0dcf8
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/malaysia/uk/partner_local/_same_sex.erb: 361e49c253a80a731cde3317a6a7a33f
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/malaysia/uk/partner_other/_opposite_sex.erb: 35dae3fc03345b75ec61568509c0dcf8
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/malaysia/uk/partner_other/_same_sex.erb: 361e49c253a80a731cde3317a6a7a33f
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/maldives/_title.govspeak.erb: 00274dd1f2ee56ab2baacc0d9eef0372
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/maldives/ceremony_country/partner_british/_opposite_sex.govspeak.erb: e4948813eb14668253d434c341f621f1
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/maldives/ceremony_country/partner_british/_same_sex.govspeak.erb: e5a8b1a60f0b52a030451162acafd64a
@@ -893,4 +912,4 @@ lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationali
 lib/smart_answer_flows/marriage-abroad.rb: dc879ed7fae5084ccd29149686f25372
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1dc349abcd6b21e1bf8c397d96fd02b8
 test/data/marriage-abroad-questions-and-responses.yml: c573eee38aba4f0e2dd45fab6127372e
-test/data/marriage-abroad-responses-and-expected-results.yml: f6576a36cc26106b4304c6365a7b72a7
+test/data/marriage-abroad-responses-and-expected-results.yml: 8f2a0a3a4f0785eb2ac11cd41031f722
