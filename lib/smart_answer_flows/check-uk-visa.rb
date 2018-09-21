@@ -17,9 +17,7 @@ module SmartAnswer
           calculator.passport_country = response
         end
 
-        calculate :purpose_of_visit_answer do
-          nil
-        end
+        calculate :purpose_of_visit_answer
 
         next_node do
           if calculator.passport_country_is_israel?

@@ -19,36 +19,16 @@ module SmartAnswer
         option :paternity
         option :adoption
 
-        calculate :leave_spp_claim_link do
-          nil
-        end
-        calculate :notice_of_leave_deadline do
-          nil
-        end
-        calculate :monthly_pay_method do
-          nil
-        end
-        calculate :smp_calculation_method do
-          nil
-        end
-        calculate :sap_calculation_method do
-          nil
-        end
-        calculate :above_lower_earning_limit do
-          nil
-        end
-        calculate :paternity_adoption do
-          nil
-        end
-        calculate :spp_calculation_method do
-          nil
-        end
-        calculate :has_contract do
-          nil
-        end
-        calculate :paternity_employment_start do
-          nil
-        end
+        calculate :leave_spp_claim_link
+        calculate :notice_of_leave_deadline
+        calculate :monthly_pay_method
+        calculate :smp_calculation_method
+        calculate :sap_calculation_method
+        calculate :above_lower_earning_limit
+        calculate :paternity_adoption
+        calculate :spp_calculation_method
+        calculate :has_contract
+        calculate :paternity_employment_start
 
         next_node do |response|
           case response

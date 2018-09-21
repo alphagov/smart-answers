@@ -18,9 +18,7 @@ module SmartAnswer
           Calculators::MinimumWageCalculator.new
         end
 
-        calculate :accommodation_charge do
-          nil
-        end
+        calculate :accommodation_charge
 
         next_node do |response|
           case response
