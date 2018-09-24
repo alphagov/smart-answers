@@ -16,7 +16,7 @@
 
 * Ensure the Smart Answer flows only contain routing (`next_node`) logic.
 
-* Iteratively develop new Smart Answers. Get a simply happy-path version deployed and build upon that in collaboration with the department and content team.
+* Iteratively develop new Smart Answers. Get a simple happy-path version deployed and build upon that in collaboration with the department and content team.
 
 ## Dont's
 
