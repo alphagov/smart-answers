@@ -502,51 +502,22 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "variable statutory pay rate" do
-        setup do
-          @calculator = MaternityPaternityCalculator.new(Date.parse('21 April 2013'))
-          @calculator.leave_start_date = Date.parse('29 March 2013')
-        end
+      context "statutory pay rate for given year" do
+        {
+          2018 => 145.18,
+          2017 => 140.98,
+          2016 => 139.58,
+          2015 => 139.58,
+          2014 => 138.18,
+          2013 => 136.78,
+          2012 => 135.45,
+        }.each do |year, rate|
 
-        context "for 2012 and before" do
-          should "return 135.45 rate" do
-            assert_equal 135.45, @calculator.statutory_rate(Date.parse('6 April 2012'))
-          end
-        end
-
-        context "correct rates for 2013/2014" do
-          setup do
-            Timecop.travel('1 Feb 2014')
-          end
-
-          should "give the correct rate for the period" do
-            assert_equal 136.78, @calculator.statutory_rate(Date.parse('12 April 2013'))
-          end
-        end
-
-        context "correct rates for 2017/2018" do
-          setup do
-            Timecop.travel('1 Feb 2018')
-          end
-
-          should "give the correct rate for the period" do
-            assert_equal 140.98, @calculator.statutory_rate(Date.parse('12 April 2017'))
-          end
-        end
-
-        context "correct rates for 2018/2019" do
-          setup do
-            Timecop.travel('1 Feb 2019')
-          end
-
-          should "give the correct rate for the period" do
-            assert_equal 145.18, @calculator.statutory_rate(Date.parse('12 April 2018'))
-          end
-        end
-
-        context "for 2043 rates" do
-          should "give a default rate for a date in the future" do
-            assert_equal 145.18, @calculator.statutory_rate(Date.parse('6 April 2043'))
+          should "be £#{rate} for #{year}/#{year + 1}" do
+            date = Date.parse("21 April #{year}")
+            calculator = MaternityPaternityCalculator.new(date)
+            calculator.leave_start_date = date
+            assert_equal rate, calculator.statutory_rate(date)
           end
         end
       end
@@ -584,13 +555,13 @@ module SmartAnswer::Calculators
 
           paydates_and_pay = @calculator.paydates_and_pay
 
-          expected_pay_dates = [
-            "2013-01-03", "2013-01-17", "2013-01-31", "2013-02-14", "2013-02-28",
-            "2013-03-14", "2013-03-28", "2013-04-11", "2013-04-25", "2013-05-09",
-            "2013-05-23", "2013-06-06", "2013-06-20", "2013-07-04", "2013-07-18",
-            "2013-08-01", "2013-08-15", "2013-08-29", "2013-09-12", "2013-09-26",
-            "2013-10-10"
-          ]
+          expected_pay_dates = %w(
+            2013-01-03 2013-01-17 2013-01-31 2013-02-14 2013-02-28
+            2013-03-14 2013-03-28 2013-04-11 2013-04-25 2013-05-09
+            2013-05-23 2013-06-06 2013-06-20 2013-07-04 2013-07-18
+            2013-08-01 2013-08-15 2013-08-29 2013-09-12 2013-09-26
+            2013-10-10
+          )
           assert_equal expected_pay_dates, paydates_and_pay.map { |p| p[:date].to_s }
           assert_equal 32.15, paydates_and_pay.first[:pay]
           assert_equal 450, paydates_and_pay.second[:pay]
@@ -717,25 +688,19 @@ module SmartAnswer::Calculators
         end
 
         should "produce a list of the paydates adjust one month forward" do
-          assert_equal [Date.parse("Wed, 01 Jan 2014"),
-                        Date.parse("Sat, 01 Feb 2014"),
-                        Date.parse("Sat, 01 Mar 2014"),
-                        Date.parse("Tue, 01 Apr 2014"),
-                        Date.parse("Thu, 01 May 2014"),
-                        Date.parse("Sun, 01 Jun 2014"),
-                        Date.parse("Tue, 01 Jul 2014"),
-                        Date.parse("Fri, 01 Aug 2014"),
-                        Date.parse("Mon, 01 Sep 2014"),
-                        Date.parse("Wed, 01 Oct 2014")],
+          assert_equal ["Wed, 01 Jan 2014", "Sat, 01 Feb 2014", "Sat, 01 Mar 2014",
+                        "Tue, 01 Apr 2014", "Thu, 01 May 2014", "Sun, 01 Jun 2014",
+                        "Tue, 01 Jul 2014", "Fri, 01 Aug 2014", "Mon, 01 Sep 2014",
+                        "Wed, 01 Oct 2014"].map { |s| Date.parse(s) },
                        @calculator.paydates_first_day_of_the_month
         end
       end
 
       context "test for paternity pay weekly dates and pay" do
         setup do
-          @due_date = Date.parse("1 May 2014")
-          @calculator = MaternityPaternityCalculator.new(@due_date, "paternity")
-          @calculator.leave_start_date = Date.parse('1 May 2014')
+          due_date = Date.parse("1 May 2014")
+          @calculator = MaternityPaternityCalculator.new(due_date, "paternity")
+          @calculator.leave_start_date = due_date
           @calculator.pay_method = "weekly_starting"
           @calculator.stubs(:average_weekly_earnings).returns('125.00')
         end
@@ -746,56 +711,6 @@ module SmartAnswer::Calculators
           assert_equal 112.5, paydates_and_pay.first[:pay]
           assert_equal '2014-05-14', paydates_and_pay.last[:date].to_s
           assert_equal 112.5, paydates_and_pay.last[:pay]
-        end
-      end
-
-      context "test for paternity pay monthly dates and pay prior to uprating for 2014" do
-        setup do
-          Timecop.travel('9 April 2014')
-          @due_date = Date.parse("1 May 2014")
-          @calculator = MaternityPaternityCalculator.new(@due_date, "paternity")
-          @calculator.leave_start_date = Date.parse('1 May 2014')
-          @calculator.pay_method = "last_day_of_the_month"
-          @calculator.stubs(:average_weekly_earnings).returns('500.00')
-        end
-
-        should "produce 1 week of pay dates and pay at maximum amount" do
-          paydates_and_pay = @calculator.paydates_and_pay
-          assert_equal '2014-05-31', paydates_and_pay.first[:date].to_s
-          assert_equal 276.36, paydates_and_pay.first[:pay]
-        end
-      end
-      context "test for paternity pay monthly dates and pay uprated for 2014" do
-        setup do
-          Timecop.travel('10 April 2014')
-          @due_date = Date.parse("1 May 2014")
-          @calculator = MaternityPaternityCalculator.new(@due_date, "paternity")
-          @calculator.leave_start_date = Date.parse('1 May 2014')
-          @calculator.pay_method = "last_day_of_the_month"
-          @calculator.stubs(:average_weekly_earnings).returns('500.00')
-        end
-
-        should "produce 1 week of pay dates and pay at maximum amount" do
-          paydates_and_pay = @calculator.paydates_and_pay
-          assert_equal '2014-05-31', paydates_and_pay.first[:date].to_s
-          assert_equal 276.36, paydates_and_pay.first[:pay]
-        end
-      end
-
-      context "test for paternity pay monthly dates and pay uprated for 2015" do
-        setup do
-          Timecop.travel('10 April 2015')
-          @due_date = Date.parse("1 May 2015")
-          @calculator = MaternityPaternityCalculator.new(@due_date, "paternity")
-          @calculator.leave_start_date = Date.parse('1 May 2015')
-          @calculator.pay_method = "last_day_of_the_month"
-          @calculator.stubs(:average_weekly_earnings).returns('500.00')
-        end
-
-        should "produce 1 week of pay dates and pay at maximum amount" do
-          paydates_and_pay = @calculator.paydates_and_pay
-          assert_equal '2015-05-31', paydates_and_pay.first[:date].to_s
-          assert_equal((139.58 * 2), paydates_and_pay.first[:pay])
         end
       end
 
@@ -818,6 +733,17 @@ module SmartAnswer::Calculators
           @calculator.paternity_leave_duration = 'two_weeks'
           assert_equal Date.parse("14 October 2015"), @calculator.pay_end_date
           assert_equal [Date.parse("7 October 2015"), Date.parse("14 October 2015")], @calculator.paydates_and_pay.map { |pay| pay[:date] }
+        end
+      end
+
+      context "for paternity pay monthly dates" do
+        should "produce 1 week of pay dates and pay at maximum amount" do
+          date = Date.parse("10 April #{Time.zone.now.year}")
+          calculator = MaternityPaternityCalculator.new(date, "paternity")
+          calculator.leave_start_date = date
+          calculator.pay_method = "last_day_of_the_month"
+          calculator.stubs(:average_weekly_earnings).returns(500.00)
+          assert_equal (calculator.statutory_rate(date) * 2), calculator.paydates_and_pay.first[:pay]
         end
       end
 
@@ -890,11 +816,10 @@ module SmartAnswer::Calculators
           @calculator.earnings_for_pay_period = 3000
           paydates_and_pay = @calculator.paydates_and_pay
 
-          expected_pay_dates = [
-            "2014-01-31", "2014-02-28", "2014-03-28",
-            "2014-04-25", "2014-05-30", "2014-06-27", "2014-07-25",
-            "2014-08-29", "2014-09-26", "2014-10-31"
-          ]
+          expected_pay_dates = %w(
+            2014-01-31 2014-02-28 2014-03-28 2014-04-25 2014-05-30
+            2014-06-27 2014-07-25 2014-08-29 2014-09-26 2014-10-31
+          )
           assert_equal expected_pay_dates, paydates_and_pay.map { |p| p[:date].to_s }
           assert_equal 234.48, paydates_and_pay.first[:pay]
           assert_equal 550.92, paydates_and_pay[3][:pay]
