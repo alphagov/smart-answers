@@ -169,7 +169,7 @@ module SmartAnswer::Calculators
     end
 
     def statutory_maternity_rate
-      truncate((average_weekly_earnings / 100) * 90)
+      truncate((average_weekly_earnings.to_f / 100) * 90)
     end
 
     def round_up_to_nearest_penny(float)
