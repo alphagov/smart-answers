@@ -44,59 +44,50 @@ This is a Ruby on Rails application that contains:
   lookup; and information about high commisions and embassies
 * [nodejs/node](https://github.com/nodejs/node): provides JS runtime for precompiling assets for deployment
 
-### Running the application
-
-See:
-
-* [Developing with the GDS development VM](doc/developing-using-vm.md)
-* [Developing without the GDS development VM](doc/developing-without-vm.md)
-
-### Running the test suite
-
-    $ bundle exec rake
-
 ### Smart Answers
 
-* [File structure](doc/file-structure.md)
-* [Flow definition](doc/flow-definition.md)
-* [Question types](doc/question-types.md)
-* [Next node rules](doc/next-node-rules.md)
-* [Storing data](doc/storing-data.md)
-* [ERB templates](doc/erb-templates.md)
-  * [Landing page template](doc/landing-page-template.md)
-  * [Question templates](doc/question-templates.md)
-  * [Outcome templates](doc/outcome-templates.md)
+* [File structure](doc/smart-answers/file-structure.md)
+* [Flow definition](doc/smart-answers/flow-definition.md)
+* [Question types](doc/smart-answers/question-types.md)
+* [Next node rules](doc/smart-answers/next-node-rules.md)
+* [Storing data](doc/smart-answers/storing-data.md)
+* [ERB templates](doc/smart-answers/erb-templates.md)
+  * [Landing page template](doc/smart-answers/landing-page-template.md)
+  * [Question templates](doc/smart-answers/question-templates.md)
+  * [Outcome templates](doc/smart-answers/outcome-templates.md)
 
 ### Smart Answer flow development
 
-* [Development principles](doc/development-principles.md)
-* [Deploying changes for Factcheck](doc/factcheck.md)
-* [Merging pull requests from the content team](doc/merging-content-prs.md)
-* [Refactoring existing Smart Answers](doc/refactoring.md)
-* Adding [content-ids](doc/content-ids.md) to Smart Answers
-* [Creating a new Smart Answer](doc/creating-a-new-smart-answer.md)
-* [Archiving a Smart Answer](doc/archiving.md)
-* [Updating worldwide fixture data](doc/updating-worldwide-fixture-data.md)
+* [Development principles](doc/smart-answer-flow-development/development-principles.md)
+* [Deploying changes for Factcheck](doc/smart-answer-flow-development/factcheck.md)
+* [Merging pull requests from the content team](doc/smart-answer-flow-development/merging-content-prs.md)
+* [Flattening outcomes](doc/smart-answer-flow-development/flattening-outcomes.md)
+* [Refactoring existing Smart Answers](doc/smart-answer-flow-development/refactoring.md)
+* Adding [content-ids](doc/smart-answer-flow-development/content-ids.md) to Smart Answers
+* [Creating a new Smart Answer](doc/smart-answer-flow-development/creating-a-new-smart-answer.md)
+* [Archiving a Smart Answer](doc/smart-answer-flow-development/archiving.md)
+* [Retiring a Smart Answer](doc/smart-answer-flow-development/retiring-a-smart-answer.md)
+* [Updating worldwide fixture data](doc/smart-answer-flow-development/updating-worldwide-fixture-data.md)
 
 ### Smart Answers app development
 
 * [Development workflow](doc/development-workflow.md)
-* [Common errors you might run into during development](doc/common-errors.md)
-* [Environments](doc/environments.md)
-* [Continuous integration](doc/continuous-integration.md)
-* [Describing pull requests](doc/pull-requests.md)
-* [Deploying](doc/deploying.md)
-* [Handling exceptions with Errbit](doc/errbit.md)
-* [Rubocop](doc/rubocop.md)
-* [Testing](doc/testing.md)
+* [Common errors you might run into during development](doc/smart-answers-app-development/common-errors.md)
+* [Continuous integration](doc/smart-answers-app-development/continuous-integration.md)
+* [Testing](doc/smart-answers-app-development/testing.md)
+* [Regression tests](doc/smart-answers-app-development/regression-tests.md)
 * [Issues and Todo](https://trello.com/b/7HgyU4hy/smart-answers-tasks)
+
+### Changes to the landing page
+
+As well as following the [development workflow](https://github.com/alphagov/smart-answers/blob/master/doc/development-workflow.md) to make changes, they also need to be sent to the `content store` for them to be rendered on the page. The [rake task `publishing_api:publish`](https://github.com/alphagov/smart-answers/blob/master/lib/tasks/publishing_api.rake) needs to be run once you have deployed your changes in each environment and can be done in [Jenkins](https://deploy.integration.publishing.service.gov.uk/job/run-rake-task/).
 
 ### Debugging
 
-* [Custom Google Analytics accounts and Tracking IDs](doc/custom-google-analytics-tracking-id.md)
-* [Viewing landing pages and outcomes as Govspeak](doc/viewing-templates-as-govspeak.md)
-* [Viewing state of a Smart Answer](doc/viewing-state.md)
-* [Visualising flows](doc/visualising-flows.md)
+* [Custom Google Analytics accounts and Tracking IDs](doc/debugging/custom-google-analytics-tracking-id.md)
+* [Viewing landing pages and outcomes as Govspeak](doc/debugging/viewing-templates-as-govspeak.md)
+* [Viewing state of a Smart Answer](doc/debugging/viewing-state.md)
+* [Visualising flows](doc/debugging/visualising-flows.md)
 
 ### Registering on GOV.UK
 
