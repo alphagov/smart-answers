@@ -8,17 +8,6 @@ node {
     sassLint: false,
     repoName: 'smart-answers',
     overrideTestTask: {
-      stage("Check responses and expected results file for changes") {
-        sh("bundle exec rails runner script/generate-responses-and-expected-results-for-smart-answer.rb marriage-abroad")
-        def output = sh(script: "git status --short -- test/data/marriage-abroad-responses-and-expected-results.yml", returnStdout: true)
-
-        if (output?.trim()) {
-          def message = "'Expected results' file not generated for marriage abroad, please see docs/flattening-outcomes.md"
-          echo message
-          setBuildStatus(jobName, govuk.getFullCommitHash(), message, "FAILURE", repoName)
-        }
-      }
-
       stage("Run tests") {
         govuk.runTests()
       }
