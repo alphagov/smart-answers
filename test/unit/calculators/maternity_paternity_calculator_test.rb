@@ -255,41 +255,15 @@ module SmartAnswer::Calculators
 
       context "adoption matching week start" do
         should "return Sunday date before the adoption matching week start date" do
-          calculator = MaternityPayCalculator.new(Date.parse("2017-03-25"))
+          calculator = AdoptionPayCalculator.new(Date.parse("2017-03-25"))
 
-          assert_equal Date.parse("Sun, 19 Mar 2017"), calculator.adoption_matching_week_start
+          assert_equal Date.parse("Sun, 19 Mar 2017"), calculator.adoption_qualifying_start
         end
 
         should "return the same adoption matching week start if match date is a Sunday" do
-          calculator = MaternityPayCalculator.new(Date.parse("2017-03-26"))
-
-          assert_equal Date.parse("Sun, 26 Mar 2017"), calculator.adoption_matching_week_start
-        end
-      end
-
-      context "adoption or qualifying start" do
-        should "send message to #adoption_matching_week_start if leave_type is adoption" do
           calculator = AdoptionPayCalculator.new(Date.parse("2017-03-26"))
 
-          calculator.expects(:adoption_matching_week_start).once
-
-          calculator.adoption_qualifying_start
-        end
-
-        should "send message to #adoption_matching_week_start if leave_type is paternity_adoption" do
-          calculator = MaternityPayCalculator.new(Date.parse("2017-03-26"), "paternity_adoption")
-
-          calculator.expects(:adoption_matching_week_start).once
-
-          calculator.adoption_qualifying_start
-        end
-
-        should "send message to #qualifying_week if leave_type isn't adoption or paternity_adoption" do
-          calculator = PaternityPayCalculator.new(Date.parse("2017-03-26"))
-
-          calculator.expects(:qualifying_week).once.returns([])
-
-          calculator.adoption_qualifying_start
+          assert_equal Date.parse("Sun, 26 Mar 2017"), calculator.adoption_qualifying_start
         end
       end
 
