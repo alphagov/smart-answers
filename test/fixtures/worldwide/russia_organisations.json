@@ -18,9 +18,9 @@
           "web_url": "https://www.gov.uk/world/organisations/british-embassy-moscow/office/british-embassy-moscow-main-contact",
           "details": {
             "email": "",
-            "description": "\r\n\r\n",
+            "description": "If you cannot reach us on our usual number, please call +44 1908 516666.\r\n\r\n",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<h4 id=\"local-time-gmt-3-hours\">Local time (GMT +3 hours)</h4>\n\n<p>Monday to Friday, 9am to 1pm and 2pm to 5pm</p>\n\n<h3 id=\"public-holidays-2017\">Public Holidays 2017</h3>\n\n<ul>\n  <li>Monday 2 and Tuesday 3 Jan - New Year’s Day</li>\n  <li>Monday 9 Jan - Orthodox Christmas</li>\n  <li>Wednesday 8 Mar - International Women’s Day</li>\n  <li>Friday 14 Apr - Good Friday</li>\n  <li>Monday 17 Apr - Easter Monday</li>\n  <li>Monday 1 May - Labour Day</li>\n  <li>Tuesday 9 May - Victory Day</li>\n  <li>Monday 29 May - Spring Bank Holiday</li>\n  <li>Monday 12 June - Russia Day</li>\n  <li>Monday 28 Aug - Summer Bank Holiday</li>\n  <li>Monday 6 Nov - Day of National Unity</li>\n  <li>Monday 25 Dec - Christmas Day</li>\n  <li>Tuesday 26 Dec - Boxing Day</li>\n</ul>\n\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<h4 id=\"local-time-gmt-3-hours\">Local time (GMT +3 hours)</h4>\n\n<p>Monday to Friday, 9am to 1pm and 2pm to 5pm</p>\n\n<h2 id=\"public-holidays-2018\">Public Holidays 2018</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 1 and Tuesday 2 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Monday 8 January</td>\n      <td>Orthodox Christmas</td>\n    </tr>\n    <tr>\n      <td>Thursday 8 March</td>\n      <td>International Women’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 30 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 9 May</td>\n      <td>Victory Day</td>\n    </tr>\n    <tr>\n      <td>Monday 28 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 12 June</td>\n      <td>Russia Day</td>\n    </tr>\n    <tr>\n      <td>Monday 27 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 5 November</td>\n      <td>Day of National Unity</td>\n    </tr>\n    <tr>\n      <td>Tuesday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -62,10 +62,6 @@
               "number": "Media.Moscow@fco.gov.uk"
             },
             {
-              "label": "British Council",
-              "number": "moscow@britishcouncil.ru"
-            },
-            {
               "label": "The British Embassy is open Monday to Friday",
               "number": "9am to 1pm and 2pm to 5pm"
             },
@@ -98,94 +94,7 @@
           ]
         },
         "other": [
-          {
-            "title": "British Consulate-General St Petersburg",
-            "format": "World Office",
-            "updated_at": "2013-07-19T12:41:32.000+01:00",
-            "web_url": "https://www.gov.uk/world/organisations/british-embassy-moscow/office/british-consulate-general-st-petersburg",
-            "details": {
-              "email": "information.stpetersburg@fco.gov.uk",
-              "description": "We represent the British government in its relations with the Russian government and support the range of British interests in North-West Russia through broadly based cooperation which is of benefit to both countries.\r\nSt Petersburg's Consular district covers:\r\n\r\nSt Petersburg and Leningrad Region\r\nPskov and Pskov Region\r\nNovgorod and Novgorod Region\r\nVologda and Vologda Region\r\nMurmansk and Murmansk Region \r\nArkhangelsk and Arkhangelsk Region\r\nKaliningrad and Kaliningrad Region \r\nRepublic of Karelia\r\nRepublic of Komi\r\nNenetskiy Autonomous District",
-              "contact_form_url": "",
-              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>Monday to Friday, 9am to 5pm</p>\n\n<h4 id=\"consular-section-assistance-to-british-nationals\">Consular Section (Assistance to British Nationals):</h4>\n<p>Monday to Friday,  9am to 12 noon (except public holidays)</p>\n\n<p>Consular Services for British Nationals</p>\n\n<p><a href=\"mailto:RussiaConsular@fco.gov.uk\">RussiaConsular@fco.gov.uk</a></p>\n\n<p>(please note we can not answer questions about visas for the UK)</p>\n\n<p>All consular services by appointment only. \n Please book your appointment. For instruction please follow the <a href=\"https://www.gov.uk/government/world/organisations/british-embassy-moscow/about/access-and-opening#booking-an-online-appointment-with-consular-section-in-russia\">link</a>.</p>\n\n</div>",
-              "type": "Consulate"
-            },
-            "address": {
-              "adr": {
-                "fn": "",
-                "street-address": "Pl. Proletarskoy Diktatury, 5",
-                "postal-code": "191124 ",
-                "locality": "St Petersburg",
-                "region": "",
-                "country-name": "Russia"
-              },
-              "label": {
-                "value": "191124  St Petersburg\nPl. Proletarskoy Diktatury, 5\nRussia"
-              }
-            },
-            "contact_numbers": [
-              {
-                "label": "Switchboard",
-                "number": "007 812 320 3200"
-              },
-              {
-                "label": "Fax",
-                "number": "007 812 320 3211"
-              }
-            ],
-            "services": [
-              {
-                "title": "Emergency Travel Documents service",
-                "type": "Assistance Services"
-              },
-              {
-                "title": "Transferring funds for prisoners / for financial assistance service",
-                "type": "Assistance Services"
-              },
-              {
-                "title": "Issue certificate of no impediment",
-                "type": "Documentary Services"
-              }
-            ]
-          },
-          {
-            "title": "British Consulate-General Ekaterinburg",
-            "format": "World Office",
-            "updated_at": "2013-07-19T12:39:34.000+01:00",
-            "web_url": "https://www.gov.uk/world/organisations/british-embassy-moscow/office/ekaterinburg-consulate-general",
-            "details": {
-              "email": "BritishConsulate.Ekaterinburg@ukinrussia.info",
-              "description": "We represent the British government in its relations with the Russian government and support the range of British interests in the Urals region of Russia through broadly based cooperation which is of benefit to both countries.\r\nEkaterinburg's Consular district covers:\r\nSverdlovsk Region\r\nChelyabinsk Region\r\nPerm Region\r\nKurgan Region\r\nRepublic of Bashkiria\r\nRepublic of Udmurtia\r\nOrenburg Region\r\nTyumen Region\r\nKomi-Permyatskiy Autonomous District\r\nKhanty-Mansiyskiy Autonomous District – Yugra \r\nYamalo-Nenetskiy Autonomous District",
-              "contact_form_url": "",
-              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>Monday to Friday, 9am to 5pm</p>\n\n<h4 id=\"consular-section-assistance-to-british-nationals\">Consular Section (Assistance to British Nationals):</h4>\n<p>Monday to Friday,  9am to 12 noon (except public holidays)</p>\n\n<p>Consular Services for British Nationals</p>\n\n<p><a href=\"mailto:RussiaConsular@fco.gov.uk\">RussiaConsular@fco.gov.uk</a></p>\n\n<p>(please note we can not answer questions about visas for the UK)</p>\n\n<p>All consular services by appointment only.</p>\n</div>",
-              "type": "Consulate"
-            },
-            "address": {
-              "adr": {
-                "fn": "",
-                "street-address": "15A, Gogol Street\r\n",
-                "postal-code": "",
-                "locality": "",
-                "region": "Ekaterinburg",
-                "country-name": "Russia"
-              },
-              "label": {
-                "value": " \n15A, Gogol Street\r\nRussia"
-              }
-            },
-            "contact_numbers": [
-              {
-                "label": "Telephone",
-                "number": "+7 (343) 253 56 00"
-              }
-            ],
-            "services": [
-              {
-                "title": "Issue certificate of no impediment",
-                "type": "Documentary Services"
-              }
-            ]
-          }
+
         ]
       },
       "sponsors": [
@@ -218,7 +127,7 @@
             "email": "BritishConsulate.Ekaterinburg@ukinrussia.info",
             "description": "Monday to Friday, 9am to 5pm\r\n\r\nConsular Section (Assistance to British Nationals): Monday to Friday, 9am to 12 noon (except public holidays)",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"consular-services-for-british-nationals\">Consular Services for British Nationals</h2>\n\n<p><a href=\"mailto:RussiaConsular@fco.gov.uk\">RussiaConsular@fco.gov.uk</a></p>\n\n<p>(please note we can not answer questions about visas for the UK)</p>\n\n<p>All consular services by appointment only.</p>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"consular-services-for-british-nationals\">Consular Services for British Nationals</h2>\n\n<p><a href=\"mailto:RussiaConsular@fco.gov.uk\">RussiaConsular@fco.gov.uk</a></p>\n\n<p>(please note we can not answer questions about visas for the UK)</p>\n\n<p>All consular services by appointment only.</p>\n\n<h2 id=\"public-holidays-2018\">Public Holidays 2018</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 1 and Tuesday 2 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Monday 8 January</td>\n      <td>Orthodox Christmas</td>\n    </tr>\n    <tr>\n      <td>Thursday 8 March</td>\n      <td>International Women’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 30 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 9 May</td>\n      <td>Victory Day</td>\n    </tr>\n    <tr>\n      <td>Monday 28 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 12 June</td>\n      <td>Russia Day</td>\n    </tr>\n    <tr>\n      <td>Monday 27 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 5 November</td>\n      <td>Day of National Unity</td>\n    </tr>\n    <tr>\n      <td>Tuesday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
             "type": "Consulate"
           },
           "address": {
@@ -269,45 +178,6 @@
       },
       "analytics_identifier": "WO440",
       "offices": {
-        "main": {
-          "title": "British Consulate General St. Petersburg",
-          "format": "World Office",
-          "updated_at": "2015-10-08T18:28:17.000+01:00",
-          "web_url": "https://www.gov.uk/world/organisations/british-consulate-general-st-petersburg/office/british-consulate-general-st-petersburg",
-          "details": {
-            "email": "information.stpetersburg@fco.gov.uk",
-            "description": "Opening hours: Monday to Friday, 9am to 5pm\r\nConsular Section (Assistance to British Nationals):\r\nMonday to Friday, 9am to 12 noon (except public holidays)\r\nConsular services for British nationals e-mail: RussiaConsular@fco.gov.uk",
-            "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>Monday to Friday, 9am to 5pm</p>\n\n<h2 id=\"consular-services-for-british-nationals\">Consular Services for British Nationals</h2>\n\n<p><a href=\"mailto:RussiaConsular@fco.gov.uk\">RussiaConsular@fco.gov.uk</a></p>\n\n<p>(Please note we cannot answer questions about visas for the UK.)</p>\n\n<p>All consular services by appointment only. Please book your appointment <a rel=\"external\" href=\"https://www.consular-appointments.service.gov.uk/fco/#!/british-consulate-general-st-petersburg/issuing-an-emergency-travel-document/slot_picker\">here</a>.</p>\n\n<h3 id=\"public-holidays-2017\">Public Holidays 2017</h3>\n\n<ul>\n  <li>Monday 2 and Tuesday 3 Jan - New Year’s Day</li>\n  <li>Monday 9 Jan - Orthodox Christmas</li>\n  <li>Wednesday 8 Mar - International Women’s Day</li>\n  <li>Friday 14 Apr - Good Friday</li>\n  <li>Monday 17 Apr - Easter Monday</li>\n  <li>Monday 1 May - Labour Day</li>\n  <li>Tuesday 9 May - Victory Day</li>\n  <li>Monday 29 May - Spring Bank Holiday</li>\n  <li>Monday 12 June - Russia Day</li>\n  <li>Monday 28 Aug - Summer Bank Holiday</li>\n  <li>Monday 6 Nov - Day of National Unity</li>\n  <li>Monday 25 Dec - Christmas Day</li>\n  <li>Tuesday 26 Dec - Boxing Day</li>\n</ul>\n</div>",
-            "type": "Consulate"
-          },
-          "address": {
-            "adr": {
-              "fn": "",
-              "street-address": "Pl. Proletarskoy Diktatury, 5",
-              "postal-code": "191124",
-              "locality": "St Petersburg",
-              "region": "",
-              "country-name": "Russia"
-            },
-            "label": {
-              "value": "191124 St Petersburg\nPl. Proletarskoy Diktatury, 5\nRussia"
-            }
-          },
-          "contact_numbers": [
-            {
-              "label": "Switchboard",
-              "number": "007 812 320 3200"
-            },
-            {
-              "label": "Fax",
-              "number": "007 812 320 3211"
-            }
-          ],
-          "services": [
-
-          ]
-        },
         "other": [
 
         ]
@@ -326,7 +196,7 @@
       "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-russia",
       "title": "Department for International Trade Russia",
       "format": "Worldwide Organisation",
-      "updated_at": "2016-11-11T16:13:05.000+00:00",
+      "updated_at": "2018-05-29T13:46:17.000+01:00",
       "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-russia",
       "details": {
         "slug": "department-for-international-trade-russia"

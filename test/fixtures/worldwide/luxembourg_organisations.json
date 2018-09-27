@@ -17,10 +17,10 @@
           "updated_at": "2013-04-30T11:38:34.000+01:00",
           "web_url": "https://www.gov.uk/world/organisations/british-embassy-in-luxembourg/office/british-embassy",
           "details": {
-            "email": "britemb@internet.lu / consularsection.luxembourg@fco.gov.uk",
-            "description": "",
-            "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>Consular services are provided at the British Embassy by appointment only. To make an appointment for a consular service use our <a rel=\"external\" href=\"https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-luxembourg/-/service_list\">online appointment booking service</a></p>\n\n<p>We only have slots available on Mondays for appointments. All other days of the week are restricted to urgent cases only.</p>\n\n<p>If your case is urgent, please call us on +352 22 98 64 and we will try to accommodate where appropriate and possible.</p>\n\n<h2 id=\"public-holidays\">2017 public holidays</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 2 January 2017</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 14 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 17 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 25 May</td>\n      <td>Ascension Day</td>\n    </tr>\n    <tr>\n      <td>Friday 26 May</td>\n      <td>Bridge Day</td>\n    </tr>\n    <tr>\n      <td>Monday 5 June</td>\n      <td>Whit Monday</td>\n    </tr>\n    <tr>\n      <td>Friday 23 June</td>\n      <td>National Day Luxembourg</td>\n    </tr>\n    <tr>\n      <td>Tuesday 15 August</td>\n      <td>Assumption Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 1 November</td>\n      <td>All Saints Days</td>\n    </tr>\n    <tr>\n      <td>Friday 22 December (from 1pm)</td>\n      <td>Christmas Eve</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+            "email": "",
+            "description": "For enquiries that are not about consular issues, email enquirieslux@fco.gov.uk",
+            "contact_form_url": "https://www.contact-embassy.service.gov.uk/?country=Luxembourg&post=British%20Embassy%20Luxembourg%20",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>Monday to Friday, 9am – 5pm</p>\n\n<h2 id=\"consular-services\">Consular services</h2>\n\n<p>We provide the following consular services at the British Embassy Luxembourg</p>\n\n<h3 id=\"marriage-certificates\">Marriage certificates</h3>\n<p>We can issue certificates of no impediment for British nationals. For information on getting married in Luxembourg, see <a href=\"https://www.gov.uk/marriage-abroad\">getting married abroad</a></p>\n\n<h3 id=\"notarial-and-documentary-services\">Notarial and documentary services</h3>\n<p>We may be able to offer notarial services, including administer an oath, affirmation or affidavit; witness a signature and make a certified copy of a document. See the <a href=\"https://www.gov.uk/guidance/notarial-and-documentary-services-guide-for-luxembourg\">full list of notarial and documentary services we provide</a>.</p>\n\n<h3 id=\"legalisation-services\">Legalisation services</h3>\n<p>Luxembourg provides legalisation services. Read our <a href=\"https://www.gov.uk/guidance/notarial-and-documentary-services-guide-for-luxembourg\">notarial and documentary services page</a> for more information on legalisation.</p>\n\n<p>Further services can be found on the <a href=\"https://www.gov.uk/world/luxembourg\">Luxembourg and the UK help and services page</a></p>\n\n<div class=\"call-to-action\">\n<p>Consular services are provided at the British Embassy by appointment on Mondays only.</p>\n</div>\n\n<h2 id=\"public-holidays\">2018 public holidays</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 1 January 2018</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 30 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 10 May</td>\n      <td>Ascension Day</td>\n    </tr>\n    <tr>\n      <td>Friday 11 May</td>\n      <td>Bridge Day</td>\n    </tr>\n    <tr>\n      <td>Monday 21 May</td>\n      <td>Whit Monday</td>\n    </tr>\n    <tr>\n      <td>Friday 22 June (half)</td>\n      <td>National Day Luxembourg (in lieu)</td>\n    </tr>\n    <tr>\n      <td>Wednesday 15 August</td>\n      <td>Assumption Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 1 November</td>\n      <td>All Saints Day</td>\n    </tr>\n    <tr>\n      <td>Monday 24 December</td>\n      <td>Bridge Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -51,72 +51,7 @@
           ]
         },
         "other": [
-          {
-            "title": "Consular Services",
-            "format": "World Office",
-            "updated_at": "2013-06-27T12:14:36.000+01:00",
-            "web_url": "https://www.gov.uk/world/organisations/british-embassy-in-luxembourg/office/british-consulate-luxembourg",
-            "details": {
-              "email": "consularsection.luxembourg@fco.gov.uk",
-              "description": "",
-              "contact_form_url": "",
-              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"by-appointment-only\">By appointment only</h2>\n\n<ul>\n  <li>to make an appointment for a consular service use our <a rel=\"external\" href=\"https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-brussels/-/service_list\">online appointment booking service</a>. We only have slots available on Mondays for appointments. All other days of the week are restricted to urgent cases only.</li>\n  <li>if your case is urgent, please call us on +352 22 98 64 and we will try to accommodate where appropriate and possible.</li>\n</ul>\n\n<h2 id=\"public-holidays\">2017 public holidays</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 2 January 2017</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 14 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 17 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 25 May</td>\n      <td>Ascension Day</td>\n    </tr>\n    <tr>\n      <td>Friday 26 May</td>\n      <td>Bridge Day</td>\n    </tr>\n    <tr>\n      <td>Monday 5 June</td>\n      <td>Whit Monday</td>\n    </tr>\n    <tr>\n      <td>Friday 23 June</td>\n      <td>National Day Luxembourg</td>\n    </tr>\n    <tr>\n      <td>Tuesday 15 August</td>\n      <td>Assumption Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 1 November</td>\n      <td>All Saints Days</td>\n    </tr>\n    <tr>\n      <td>Friday 22 December (from 1pm)</td>\n      <td>Christmas Eve</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
-              "type": "Consulate"
-            },
-            "address": {
-              "adr": {
-                "fn": "British Embassy Luxembourg",
-                "street-address": "5, Boulevard Joseph II",
-                "postal-code": "L-1840",
-                "locality": "Luxembourg",
-                "region": "",
-                "country-name": "Luxembourg"
-              },
-              "label": {
-                "value": "British Embassy Luxembourg\n5, Boulevard Joseph II\nL-1840 Luxembourg\nLuxembourg"
-              }
-            },
-            "contact_numbers": [
-              {
-                "label": "Telephone:",
-                "number": "(+352) 22 98 64 - choose the option for 'consular services' when prompted."
-              }
-            ],
-            "services": [
-              {
-                "title": "Emergency Travel Documents service",
-                "type": "Assistance Services"
-              },
-              {
-                "title": "Births and Deaths registration service",
-                "type": "Documentary Services"
-              },
-              {
-                "title": "Notarial services",
-                "type": "Documentary Services"
-              },
-              {
-                "title": "Citizenship Ceremony service",
-                "type": "Documentary Services"
-              },
-              {
-                "title": "Transferring funds for prisoners / for financial assistance service",
-                "type": "Assistance Services"
-              },
-              {
-                "title": "Legalisation Service",
-                "type": "Other Services"
-              },
-              {
-                "title": "Lost or Stolen Passports",
-                "type": "Assistance Services"
-              },
-              {
-                "title": "Registrations of Marriage and Civil Partnerships",
-                "type": "Documentary Services"
-              }
-            ]
-          }
+
         ]
       },
       "sponsors": [
@@ -130,13 +65,13 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-luxembourg",
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-luxembourg",
       "title": "Department for International Trade Luxembourg",
       "format": "Worldwide Organisation",
-      "updated_at": "2016-08-10T14:16:34.000+01:00",
-      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-luxembourg",
+      "updated_at": "2018-05-29T13:39:48.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-luxembourg",
       "details": {
-        "slug": "uk-trade-investment-luxembourg"
+        "slug": "department-for-international-trade-luxembourg"
       },
       "analytics_identifier": "WO325",
       "offices": {
@@ -144,7 +79,7 @@
           "title": "Department for International Trade Luxembourg",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:55.000+00:00",
-          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-luxembourg/office/uk-trade-investment-luxembourg",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-luxembourg/office/uk-trade-investment-luxembourg",
           "details": {
             "email": "",
             "description": "",
@@ -180,7 +115,7 @@
             "title": "Trade and Investment Adviser",
             "format": "World Office",
             "updated_at": "2013-03-25T10:37:55.000+00:00",
-            "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-luxembourg/office/trade-investment-adviser",
+            "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-luxembourg/office/trade-investment-adviser",
             "details": {
               "email": "Thomas.flammant@fco.gov.uk",
               "description": "",

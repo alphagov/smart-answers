@@ -18,9 +18,9 @@
           "web_url": "https://www.gov.uk/world/organisations/british-embassy-warsaw/office/british-embassy",
           "details": {
             "email": "",
-            "description": "",
-            "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<p>Monday to Friday, 8:30am to 4:30pm. Public holidays (see below) CLOSED.</p>\n\n<h3 id=\"consular-section-opening-hours\">Consular Section opening hours:</h3>\n<p>Monday, Tuesday, Thursday, Friday - 9:00am to 12:30pm. Wednesday and public holidays (see below) CLOSED.</p>\n\n<h2 id=\"public-holidays-in-2017-embassy-closed\">Public holidays in 2017 (Embassy closed)</h2>\n\n<ul>\n  <li>Monday 2 January</li>\n  <li>Friday 6 January</li>\n  <li>Friday 14 April</li>\n  <li>Monday 17 April</li>\n  <li>Monday 1 May</li>\n  <li>Wednesday 3 May</li>\n  <li>Monday 29 May</li>\n  <li>Thursday 15 June</li>\n  <li>Tuesday 15 August</li>\n  <li>Monday 28 August</li>\n  <li>Wednesday 1 November</li>\n  <li>Monday 13 November</li>\n  <li>Monday 25 December</li>\n  <li>Tuesday 26 December</li>\n</ul>\n</div>",
+            "description": "For enquiries that are not about consular issues, email info@britishembassy.pl",
+            "contact_form_url": "https://www.contact-embassy.service.gov.uk/?country=Poland&post=British%20Embassy%20Warsaw%20",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<p>Monday to Friday, 8:30am to 4:30pm. Public holidays (see below) CLOSED.</p>\n\n<h3 id=\"consular-section-opening-hours\">Consular Section opening hours:</h3>\n<p>Monday, Tuesday, Thursday, Friday - 9:00am to 12:30pm. Wednesday and public holidays (see below) CLOSED.</p>\n\n<h2 id=\"public-holidays-in-2018-embassy-closed\">Public holidays in 2018 (Embassy closed)</h2>\n\n<ul>\n  <li>Monday 1 January</li>\n  <li>Monday 29 January</li>\n  <li>Friday 30 March</li>\n  <li>Monday 2 April</li>\n  <li>Tuesday 1 May</li>\n  <li>Thursday 3 May</li>\n  <li>Monday 28 May</li>\n  <li>Thursday 31 June</li>\n  <li>Wednesday 15 August</li>\n  <li>Monday 27 August</li>\n  <li>Thursday 1 November</li>\n  <li>Monday 24 December</li>\n  <li>Tuesday 25 December</li>\n  <li>Tuesday 26 December</li>\n</ul>\n\n<h2 id=\"visa-services\">Visa services</h2>\n\n<p>All visa enquiries are now provided by an external commercial partner.</p>\n\n<p>Visa applications to travel to the UK must be made in advance online through the <a rel=\"external\" href=\"https://uk.tlscontact.com/\">TLS Contact website</a></p>\n\n<p>Should you need to contact UK Visas &amp; Immigration (including status updates, supporting documents and guidance) please visit the <a href=\"https://www.gov.uk/contact-ukvi-inside-outside-uk\">UKVI website</a></p>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -44,14 +44,6 @@
             {
               "label": "Fax",
               "number": "+48 22 311 03 13"
-            },
-            {
-              "label": "Consular enquiries:",
-              "number": "warsaw_consularmail@fco.gov.uk"
-            },
-            {
-              "label": "General enquiries:",
-              "number": "info@britishembassy.pl"
             }
           ],
           "services": [
@@ -95,7 +87,7 @@
               "email": "",
               "description": "",
               "contact_form_url": "https://www.gov.uk/contact-ukvi-outside-uk",
-              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"visa-services-in-poland\">Visa Services in Poland</h2>\n<p>More information about the visa application centre in Warsaw and visa services is available on the <a href=\"https://www.gov.uk/government/organisations/uk-visas-and-immigration\">UK Visas and Immigration</a> (UKVI) pages of <a href=\"www.gov.uk\">GOV.UK</a>.</p>\n\n<p>If you need to contact us about applying for a visa to visit, work, study or settle in the UK from outside the UK please visit <a href=\"https://www.gov.uk/contact-ukvi-outside-uk\">this page</a>.</p>\n\n<h2 id=\"public-holidays-in-2017-embassy-closed\">Public holidays in 2017 (Embassy closed)</h2>\n\n<ul>\n  <li>Monday 2 January</li>\n  <li>Friday 6 January</li>\n  <li>Friday 14 April</li>\n  <li>Monday 17 April</li>\n  <li>Monday 1 May</li>\n  <li>Wednesday 3 May</li>\n  <li>Monday 29 May</li>\n  <li>Thursday 15 June</li>\n  <li>Tuesday 15 August</li>\n  <li>Monday 28 August</li>\n  <li>Wednesday 1 November</li>\n  <li>Monday 13 November</li>\n  <li>Monday 25 December</li>\n  <li>Tuesday 26 December</li>\n</ul>\n\n</div>",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"visa-services-in-poland\">Visa Services in Poland</h2>\n\n<p>The British Embassy in Warsaw does not deal with visa enquiries anymore as this service is now provided by our commercial partners. All applications for visas to travel to the UK must be made in advance online through the <a rel=\"external\" href=\"https://uk.tlscontact.com/\">TLS Contact website</a>.</p>\n\n<p>Comprehensive information about UK immigration rules and visa categories and requirements can be found on the <a href=\"https://www.gov.uk/government/organisations/uk-visas-and-immigration\">UK Visas and Immigration page</a></p>\n\n<h2 id=\"contacting-uk-visas-and-immigration\">Contacting UK Visas and Immigration</h2>\n\n<p>You can contact UK Visas &amp; Immigration (including status updates, supporting documents and guidance) <a href=\"https://www.gov.uk/contact-ukvi-inside-outside-uk\">here</a>.</p>\n\n<h3 id=\"by-phone\">By phone</h3>\n\n<p>Telephone: 00 44 203 481 1736\nMonday to Friday, 24 hours\nCalls cost £1.37 per minute on top of your standard network charges.</p>\n\n<h3 id=\"by-email\">By email</h3>\n\n<p>You can email UK Visas and Immigration <a rel=\"external\" href=\"https://contact-ukvi.homeoffice.gov.uk/app/international/payment/language/English\">here</a>.\nEmail enquiries cost £5.48. You won’t be charged for any follow-up emails about the same enquiry. You’ll get a reply to your email within 2 days, except on Saturdays, Sundays and <a href=\"https://www.gov.uk/bank-holidays\">UK bank holidays</a>.</p>\n\n</div>",
               "type": "Other"
             },
             "address": {
@@ -134,7 +126,7 @@
       "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-poland",
       "title": "Department for International Trade Poland",
       "format": "Worldwide Organisation",
-      "updated_at": "2016-11-11T16:13:05.000+00:00",
+      "updated_at": "2018-05-29T13:45:04.000+01:00",
       "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-poland",
       "details": {
         "slug": "department-for-international-trade-poland"

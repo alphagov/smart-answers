@@ -20,7 +20,7 @@
             "email": "",
             "description": "* Emails: \r\n- Press and Public Affairs: cairo.press@fco.gov.uk\r\n- Political & Economic: economic.cairo@fco.gov.uk\r\n- Consular: consular.cairo@fco.gov.uk\r\n- Visa enquiries: https://ukvi-international.faq-help.com\r\n- Trade & Investment: commercial.cairo@fco.gov.uk",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"office-hours\">Office hours:</h2>\n\n<p>Sunday to Wednesday, GMT: 6am to 13:30pm (Local time: 8am to 3:30pm) \nThursday, GMT: 5am to 11am (Local time: 8am to 2pm)</p>\n\n<h3 id=\"consular\">Consular:</h3>\n\n<p>Sundays to Wednesday, 10am to 1pm</p>\n\n<h2 id=\"embassy-public-holidays-2017\">Embassy Public Holidays 2017</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Sunday</td>\n      <td>1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Thursday</td>\n      <td>8 January</td>\n      <td>in Lieu of Coptic Christmas</td>\n    </tr>\n    <tr>\n      <td>Sunday</td>\n      <td>9 April</td>\n      <td>Palm Sunday</td>\n    </tr>\n    <tr>\n      <td>Sunday</td>\n      <td>16 April</td>\n      <td>Coptic &amp; Western Easter</td>\n    </tr>\n    <tr>\n      <td>Monday</td>\n      <td>17 April</td>\n      <td>Sham El Nessim</td>\n    </tr>\n    <tr>\n      <td>Sunday - Tuesday</td>\n      <td>25-27 June (2 out of 3 days)</td>\n      <td>Eid El Fitr</td>\n    </tr>\n    <tr>\n      <td>Sunday</td>\n      <td>23 July</td>\n      <td>Egyptian National Day (23rd of July Revolution)</td>\n    </tr>\n    <tr>\n      <td>Thursday - Monday</td>\n      <td>31 August - 04 September (3 out of 5 days)</td>\n      <td>Waqfet Arafa and Eid El Adha</td>\n    </tr>\n    <tr>\n      <td>Thursday</td>\n      <td>30 November</td>\n      <td>The Birth of Prophet Mohammed (PBUH)</td>\n    </tr>\n    <tr>\n      <td>Sunday</td>\n      <td>25 December</td>\n      <td>Christmas</td>\n    </tr>\n    <tr>\n      <td>Monday</td>\n      <td>26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"office-hours\">Office hours:</h2>\n\n<p>Sunday to Wednesday, GMT: 6am to 13:30pm (Local time: 8am to 3:30pm) \nThursday, GMT: 5am to 11am (Local time: 8am to 2pm)</p>\n\n<h3 id=\"consular\">Consular:</h3>\n\n<p>Sundays to Wednesday, 10am to 1pm</p>\n\n<h2 id=\"embassy-public-holidays-2018\">Embassy Public Holidays 2018</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday</td>\n      <td>1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Sunday</td>\n      <td>7 January</td>\n      <td>Coptic Christmas</td>\n    </tr>\n    <tr>\n      <td>Sunday</td>\n      <td>1 April</td>\n      <td>Western Easter</td>\n    </tr>\n    <tr>\n      <td>Monday</td>\n      <td>2 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Sunday</td>\n      <td>8 April</td>\n      <td>Coptic Easter</td>\n    </tr>\n    <tr>\n      <td>Monday</td>\n      <td>9 April</td>\n      <td>Sham El Nessim</td>\n    </tr>\n    <tr>\n      <td>Sunday &amp; possibly Monday</td>\n      <td>17- 18 June</td>\n      <td>Eid El Fitr</td>\n    </tr>\n    <tr>\n      <td>Monday</td>\n      <td>23 July</td>\n      <td>Egyptian National Day (23rd of July Revolution)</td>\n    </tr>\n    <tr>\n      <td>Wednesday - Thursday</td>\n      <td>22-23 August</td>\n      <td>Eid El Adha</td>\n    </tr>\n    <tr>\n      <td>Tuesday</td>\n      <td>11 September</td>\n      <td>Islamic New Year</td>\n    </tr>\n    <tr>\n      <td>Monday</td>\n      <td>25 December</td>\n      <td>Christmas</td>\n    </tr>\n    <tr>\n      <td>Tuesday</td>\n      <td>26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -79,7 +79,7 @@
         },
         "other": [
           {
-            "title": "UKTI Office in Cairo",
+            "title": "DIT Office in Cairo",
             "format": "World Office",
             "updated_at": "2013-03-25T10:37:52.000+00:00",
             "web_url": "https://www.gov.uk/world/organisations/british-embassy-cairo/office/ukti-office-in-cairo",
@@ -87,12 +87,12 @@
               "email": "commercial.cairo@fco.gov.uk",
               "description": "",
               "contact_form_url": "",
-              "access_and_opening_times": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"embassy-public-holidays-2018\">Embassy Public Holidays 2018</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday</td>\n      <td>1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Sunday</td>\n      <td>7 January</td>\n      <td>Coptic Christmas</td>\n    </tr>\n    <tr>\n      <td>Sunday</td>\n      <td>1 April</td>\n      <td>Western Easter</td>\n    </tr>\n    <tr>\n      <td>Monday</td>\n      <td>2 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Sunday</td>\n      <td>8 April</td>\n      <td>Coptic Easter</td>\n    </tr>\n    <tr>\n      <td>Monday</td>\n      <td>9 April</td>\n      <td>Sham El Nessim</td>\n    </tr>\n    <tr>\n      <td>Sunday &amp; possibly Monday</td>\n      <td>17- 18 June</td>\n      <td>Eid El Fitr</td>\n    </tr>\n    <tr>\n      <td>Monday</td>\n      <td>23 July</td>\n      <td>Egyptian National Day (23rd of July Revolution)</td>\n    </tr>\n    <tr>\n      <td>Wednesday - Thursday</td>\n      <td>22-23 August</td>\n      <td>Eid El Adha</td>\n    </tr>\n    <tr>\n      <td>Tuesday</td>\n      <td>11 September</td>\n      <td>Islamic New Year</td>\n    </tr>\n    <tr>\n      <td>Monday</td>\n      <td>25 December</td>\n      <td>Christmas</td>\n    </tr>\n    <tr>\n      <td>Tuesday</td>\n      <td>26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
               "type": "Other"
             },
             "address": {
               "adr": {
-                "fn": "UKTI Office",
+                "fn": "DIT Office",
                 "street-address": "7 Ahmed Rageb Street",
                 "postal-code": "",
                 "locality": "Garden City",
@@ -100,7 +100,7 @@
                 "country-name": "Egypt"
               },
               "label": {
-                "value": "UKTI Office\n7 Ahmed Rageb Street\n Garden City\nEgypt"
+                "value": "DIT Office\n7 Ahmed Rageb Street\n Garden City\nEgypt"
               }
             },
             "contact_numbers": [
@@ -118,34 +118,34 @@
             ]
           },
           {
-            "title": "Honorary consuls Sharm El Sheikh",
+            "title": "Consular Support for British Nationals, 24/7 service",
             "format": "World Office",
             "updated_at": "2013-03-25T10:37:52.000+00:00",
             "web_url": "https://www.gov.uk/world/organisations/british-embassy-cairo/office/honorary-consuls-sharm-el-sheikh",
             "details": {
               "email": "",
-              "description": "",
+              "description": "If you are British and need the embassy’s assistance please dial +2 02 2791 6000 and select ‘Help for British nationals’. A team of consular officers is dedicated for your help 24 hours, 7 days a week.",
               "contact_form_url": "",
               "access_and_opening_times": "",
               "type": "Other"
             },
             "address": {
               "adr": {
-                "fn": "Honorary consuls Sharm El Sheikh",
-                "street-address": ".",
+                "fn": "",
+                "street-address": "-",
                 "postal-code": "",
                 "locality": "",
                 "region": "Sharm El Sheikh",
                 "country-name": "Egypt"
               },
               "label": {
-                "value": "Honorary consuls Sharm El Sheikh\n.\n \nEgypt"
+                "value": "-\n \nEgypt"
               }
             },
             "contact_numbers": [
               {
-                "label": "Telephone",
-                "number": "For Consular emergencies, we also have Honorary Consuls in Sharm el Sheikh and Hurghada. These can be contacted via the British Embassy in Cairo on the following telephone number: +2 02 2791 6000"
+                "label": "Telephone ",
+                "number": "+2 02 2791 6000"
               }
             ],
             "services": [
@@ -165,13 +165,13 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-egypt",
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-egypt",
       "title": "Department for International Trade Egypt",
       "format": "Worldwide Organisation",
-      "updated_at": "2016-08-09T15:51:45.000+01:00",
-      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-egypt",
+      "updated_at": "2018-05-29T13:26:15.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-egypt",
       "details": {
-        "slug": "uk-trade-investment-egypt"
+        "slug": "department-for-international-trade-egypt"
       },
       "analytics_identifier": "WO267",
       "offices": {
@@ -179,7 +179,7 @@
           "title": "Department for International Trade Alexandria",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:54.000+00:00",
-          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-egypt/office/uk-trade-investment-alexandria",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-egypt/office/uk-trade-investment-alexandria",
           "details": {
             "email": "",
             "description": "",
@@ -215,9 +215,9 @@
             "title": "Department for International Trade Cairo",
             "format": "World Office",
             "updated_at": "2013-03-25T10:37:54.000+00:00",
-            "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-egypt/office/uk-trade-investment-cairo",
+            "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-egypt/office/uk-trade-investment-cairo",
             "details": {
-              "email": "commercial.cairo@fco.gov.uk",
+              "email": "DITAfricaTrade@mobile.trade.gov.uk",
               "description": "",
               "contact_form_url": "",
               "access_and_opening_times": "",

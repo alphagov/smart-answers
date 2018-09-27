@@ -63,10 +63,70 @@
           }
         }
       ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-namibia",
+      "title": "Department for International Trade Namibia",
+      "format": "Worldwide Organisation",
+      "updated_at": "2018-06-12T10:57:55.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-namibia",
+      "details": {
+        "slug": "department-for-international-trade-namibia"
+      },
+      "analytics_identifier": "WO489",
+      "offices": {
+        "main": {
+          "title": "Department for International Trade Namibia",
+          "format": "World Office",
+          "updated_at": "2018-06-07T14:09:33.000+01:00",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-namibia/office/department-for-international-trade-namibia",
+          "details": {
+            "email": "DITAfricaTrade@mobile.trade.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "116 Robert Mugabe Avenue\r\nP.O. Box 22202",
+              "postal-code": "",
+              "locality": "Windhoek",
+              "region": "",
+              "country-name": "Namibia"
+            },
+            "label": {
+              "value": "116 Robert Mugabe Avenue\r\nP.O. Box 22202\nWindhoek\nNamibia"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Tel:",
+              "number": "+264 61 274800 "
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Department for International Trade",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-trade",
+          "details": {
+            "acronym": "DIT"
+          }
+        }
+      ]
     }
   ],
   "current_page": 1,
-  "total": 1,
+  "total": 2,
   "pages": 1,
   "page_size": 20,
   "start_index": 1,

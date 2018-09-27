@@ -92,13 +92,13 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-libya",
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-libya",
       "title": "Department for International Trade Libya",
       "format": "Worldwide Organisation",
-      "updated_at": "2016-08-10T13:05:12.000+01:00",
-      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-libya",
+      "updated_at": "2018-05-29T13:38:38.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-libya",
       "details": {
-        "slug": "uk-trade-investment-libya"
+        "slug": "department-for-international-trade-libya"
       },
       "analytics_identifier": "WO271",
       "offices": {
@@ -106,9 +106,9 @@
           "title": "Department for International Trade Libya",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:54.000+00:00",
-          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-libya/office/uk-trade-investment-libya",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-libya/office/uk-trade-investment-libya",
           "details": {
-            "email": "trade.libya@fco.gov.uk",
+            "email": "DITAfricaTrade@mobile.trade.gov.uk",
             "description": "",
             "contact_form_url": "",
             "access_and_opening_times": "",

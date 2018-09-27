@@ -1811,7 +1811,7 @@ south-africa:
   applying: 6 weeks
   replacing: 6 weeks
   optimistic_processing_time?: true
-south-georgia-and-south-sandwich-islands:
+south-georgia-and-the-south-sandwich-islands:
   type: ips_application_1
   group: ips_documents_group_1
   app_form: hmpo_1_application_form

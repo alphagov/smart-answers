@@ -18,7 +18,7 @@
           "web_url": "https://www.gov.uk/world/organisations/british-embassy-conakry/office/british-embassy-conakry",
           "details": {
             "email": "BritishEmbassy.Conakry@fco.gov.uk",
-            "description": "Emergency consular assistance (24 hours)\r\nFor emergency assistance, such as in the event of the death, assault, arrest or hospitalisation of a British national in Guinea, call +44 (0)1908 516 666 and follow the instructions to be connected with consular officers.\r\nIf you are calling from the UK about a British national in Guinea, call our Consular Assistance Team in London on + 44 (0) 207 008 1500.",
+            "description": "Emergency consular assistance (24 hours)\r\nFor emergency assistance, such as in the event of the death, assault, arrest or hospitalisation of a British national in Guinea, call +224 626 26 4040 or +44 (0)1908 516 666 and follow the instructions to be connected with consular officers.\r\nIf you are calling from the UK about a British national in Guinea, call our Consular Assistance Team in London on + 44 (0) 207 008 1500.",
             "contact_form_url": "",
             "access_and_opening_times": "<div class=\"govspeak\"><h4 id=\"consular-opening-hours\">Consular opening hours</h4>\n\n<p>10 am to 12 noon Monday - Thursday</p>\n</div>",
             "type": "Embassy"
@@ -39,7 +39,7 @@
           "contact_numbers": [
             {
               "label": "Telephone",
-              "number": "00 224 631 355 329 (Monday to Thursday 8am to 4.30pm, Friday 8am to 1pm)"
+              "number": "+224 626 26 4040 or 00 +224 626 26 7979 (Monday to Thursday 8am to 4.30pm, Friday 8am to 1pm)"
             },
             {
               "label": "Consular assistance (24 hour)",
@@ -47,7 +47,18 @@
             }
           ],
           "services": [
-
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Lost or Stolen Passports",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Overseas Passports Service",
+              "type": "Other Services"
+            }
           ]
         },
         "other": [

@@ -18,9 +18,9 @@
           "web_url": "https://www.gov.uk/world/organisations/british-embassy-amman/office/british-embassy-amman-main-locality",
           "details": {
             "email": "Amman.enquiries@fco.gov.uk  ",
-            "description": "Office hours:\r\nSunday to Wednesday, 6am to 1pm GMT (8am to 3:30pm local time)\r\nThursday, 6am to 1pm GMT (8am to 3pm local time)\r\n\r\nConsular appointment hours:\r\nSundays to Wednesdays from 08:30 - 12:00 (local time)\r\nEmail: cons.amman@fco.gov.uk",
+            "description": "Office hours:\r\nSunday to Wednesday, 6am to 1pm GMT (8am to 3:30pm local time)\r\nThursday, 6am to 1pm GMT (8am to 3pm local time)\r\n\r\nConsular appointment hours:\r\nSunday - Thursday from 8:00-15:30 by appointment only. \r\nEmail: cons.amman@fco.gov.uk\r\n\r\nShould you require assistance entering the British Embassy, please indicate ahead of your appointment so we can facilitate your entry. ",
             "contact_form_url": "",
-            "access_and_opening_times": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays\">Public Holidays</h2>\n\n<p>The Embassy will be closed on the following days to observe Jordanian and British holidays in 2018.</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Monday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Sunday 1 April</td>\n      <td>Easter Sunday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 24 May</td>\n      <td>Jordanian Independence Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 14 June</td>\n      <td>Eid al-Fitr</td>\n    </tr>\n    <tr>\n      <td>Sunday 17 June</td>\n      <td>Eid al-Fitr</td>\n    </tr>\n    <tr>\n      <td>Tuesday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 26 December</td>\n      <td>Christmas Holidays</td>\n    </tr>\n    <tr>\n      <td>Thursday 27 December</td>\n      <td>Christmas Holidays</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -62,7 +62,7 @@
             "web_url": "https://www.gov.uk/world/organisations/british-embassy-amman/office/consular-section",
             "details": {
               "email": "cons.amman@fco.gov.uk",
-              "description": "Appointment hours:\r\nSundays - Wednesdays from 08:30 - 12:00 (local time)",
+              "description": "Opening hours:\r\nSunday – Thursday from 08:00 – 15:30 by appointment only. \r\n",
               "contact_form_url": "",
               "access_and_opening_times": "",
               "type": "Other"
@@ -83,7 +83,7 @@
             "contact_numbers": [
               {
                 "label": "Telephone",
-                "number": "+962 (6) 5909200"
+                "number": "For Consular assistance or emergencies call +962 (6) 5909200 then follow the dialling instructions to speak to a consular officer"
               }
             ],
             "services": [
@@ -103,13 +103,13 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-jordan",
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-jordan",
       "title": "Department for International Trade Jordan",
       "format": "Worldwide Organisation",
-      "updated_at": "2016-08-10T12:08:03.000+01:00",
-      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-jordan",
+      "updated_at": "2018-05-29T13:36:01.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-jordan",
       "details": {
-        "slug": "uk-trade-investment-jordan"
+        "slug": "department-for-international-trade-jordan"
       },
       "analytics_identifier": "WO221",
       "offices": {
@@ -117,9 +117,9 @@
           "title": "Department for International Trade Jordan",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:54.000+00:00",
-          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-jordan/office/uk-trade-investment-jordan",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-jordan/office/uk-trade-investment-jordan",
           "details": {
-            "email": "uktiamman@fco.gov.uk",
+            "email": "DITjordan@fco.gov.uk",
             "description": "",
             "contact_form_url": "",
             "access_and_opening_times": "",
@@ -183,10 +183,35 @@
           }
         }
       ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/dfid-jordan",
+      "title": "DFID Jordan",
+      "format": "Worldwide Organisation",
+      "updated_at": "2018-05-11T13:37:14.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/dfid-jordan",
+      "details": {
+        "slug": "dfid-jordan"
+      },
+      "analytics_identifier": "WO486",
+      "offices": {
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Department for International Development",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-development",
+          "details": {
+            "acronym": "DFID"
+          }
+        }
+      ]
     }
   ],
   "current_page": 1,
-  "total": 3,
+  "total": 4,
   "pages": 1,
   "page_size": 20,
   "start_index": 1,

@@ -20,7 +20,7 @@
             "email": "freetown.general.enquiries@fco.gov.uk",
             "description": "General consular enquiries email: freetown.consular.enquiries@fco.gov.uk",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>Monday to Thursday\n8 am to 4:30 pm</p>\n\n<p>Friday\n8 am to 1 pm</p>\n\n<h3 id=\"consular-section\">Consular Section:</h3>\n<p>Monday to Thursday\n8:30 am to 11:30am</p>\n\n<p>Friday\n8:30am to 11:00am</p>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>Monday to Thursday\n8 am to 4:30 pm</p>\n\n<p>Friday\n8 am to 1 pm</p>\n\n<h3 id=\"consular-section\">Consular Section:</h3>\n<p>Monday to Thursday\n8:30 am to 11:30am</p>\n\n<p>Friday\n8:30am to 11:00am</p>\n\n<h2 id=\"holidays-2018\">Holidays 2018</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Date</td>\n      <td>Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday, 20 February</td>\n      <td>Armed Forces Day</td>\n    </tr>\n    <tr>\n      <td>Friday, 30 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday, 2 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Thursday, 27 April</td>\n      <td>Sierra Leone Independence Day</td>\n    </tr>\n    <tr>\n      <td>Monday, 28  May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Tuesday, 29  May</td>\n      <td>Privilege Holiday for HM The Queen’s Birthday</td>\n    </tr>\n    <tr>\n      <td>Monday,  18 June</td>\n      <td>Eid Ul Fitr ( End of Ramadan fasting)</td>\n    </tr>\n    <tr>\n      <td>Friday, 24 August*</td>\n      <td>Eid Ul Adha  (Festival of sacrifice)</td>\n    </tr>\n    <tr>\n      <td>Monday, 27  August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Wednesday, 21 November*</td>\n      <td>Moulid Ul Nabi (Birthday of the Holy Prophet)</td>\n    </tr>\n    <tr>\n      <td>Monday, 24 December</td>\n      <td>Privilege holiday</td>\n    </tr>\n    <tr>\n      <td>Tuesday, 25 December</td>\n      <td>Christmas day</td>\n    </tr>\n    <tr>\n      <td>Wednesday,  26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>*Dates to be confirmed</p>\n</div>",
             "type": "High Commission"
           },
           "address": {
@@ -39,11 +39,11 @@
           "contact_numbers": [
             {
               "label": "General enquiries",
-              "number": "+232 (0) 76541386 / +232 (0) 78200190"
+              "number": "+232 (0) 78200190"
             },
             {
               "label": "Consular enquiries",
-              "number": "+44 (0)1908 516 666  or  +232 (0) 76780713"
+              "number": "+232 (0) 99 801 493 or +44 (0) 1908 516 666"
             }
           ],
           "services": [
@@ -100,7 +100,7 @@
           "updated_at": "2013-03-25T10:37:54.000+00:00",
           "web_url": "https://www.gov.uk/world/organisations/dfid-sierra-leone/office/dfid-sierra-leone",
           "details": {
-            "email": "sl-enquiries@dfid.gov.uk   ",
+            "email": "enquiry@dfid.gov.uk",
             "description": "",
             "contact_form_url": "",
             "access_and_opening_times": "",

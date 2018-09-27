@@ -20,7 +20,7 @@
             "email": "uk.inpng@fco.gov.uk",
             "description": "Public hours:\r\nMonday to Friday - 9.00am to 12.00pm\r\n            \r\nOffice hours: \r\nMonday to Thursday - 8.00am to 4.00pm \r\nFriday - 8.00am to 12.00pm\r\nPassports collection Monday - Friday 9.00am to 12.00pm\r\n",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>We aim to make ourselves as accessible to everyone as possible. The High Commission staff are more than happy to assist with wheel-chair access for persons with wheel-chairs. On arrival, speak with the guards at the guard house and they will contact the Main Reception who will arrange for the wheel-chair access to be opened and assistance given.</p>\n\n<p>We also welcome guide dogs and provide assistance upon request to visually impaired visitors.</p>\n\n<h2 id=\"public-holidays\">2016 Public holidays</h2>\n\n<p>The British High Commission will be closed on the following local and UK public holidays:</p>\n\n<ul>\n  <li>\n    <p>Friday 01 January - New Year’s Day</p>\n  </li>\n  <li>\n    <p>Friday 25 March - Good Friday</p>\n  </li>\n  <li>\n    <p>Monday  28 March - Easter Monday</p>\n  </li>\n  <li>\n    <p>Monday  02 May - May Bank Holiday</p>\n  </li>\n  <li>\n    <p>Monday 30 May - Spring Bank Holiday</p>\n  </li>\n  <li>\n    <p>Tuesday 31 May - Privilege Holiday for HM The Queen’s birthday (UK)</p>\n  </li>\n  <li>\n    <p>Monday 13 June - PNG Queen’s Birthday</p>\n  </li>\n  <li>\n    <p>Friday 26 August - PNG National Repentance  Day</p>\n  </li>\n  <li>\n    <p>Monday 29 August - Summer Bank Holiday</p>\n  </li>\n  <li>\n    <p>Friday 16 September - PNG Independence Day</p>\n  </li>\n  <li>\n    <p>Monday  26 December - Boxing Day</p>\n  </li>\n  <li>\n    <p>Tuesday  27 December - In lieu of 25 December</p>\n  </li>\n  <li>\n    <p>Wednesday 28 December</p>\n  </li>\n  <li>\n    <p>Thursday 29 December</p>\n  </li>\n  <li>\n    <p>Friday 30 December</p>\n  </li>\n</ul>\n\n<p>Port Moresby British High Commission will be closed for Christmas from 26-30 December 2016.</p>\n\n<p>Holiday’s marked* are UK Public &amp; Privilege Holidays</p>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>We aim to make ourselves as accessible to everyone as possible. The High Commission staff are more than happy to assist with wheel-chair access for persons with wheel-chairs. On arrival, speak with the guards at the guard house and they will contact the Main Reception who will arrange for the wheel-chair access to be opened and assistance given.</p>\n\n<p>We also welcome guide dogs and provide assistance upon request to visually impaired visitors.</p>\n\n<h2 id=\"public-holidays\">2018 Public holidays</h2>\n\n<p>The British High Commission will be closed on the following local and UK public holidays:</p>\n\n<ul>\n  <li>Monday, 1st January, 2018\tNew Year’s Day</li>\n  <li>Friday, 30th March, 2018\tGood Friday</li>\n  <li>Monday, 2nd April, 2018\tEaster Monday</li>\n  <li>Monday, 7th May, 2018*\tMay Bank Holiday</li>\n  <li>Monday, 28th May, 2018*\tSpring Bank Holiday</li>\n  <li>Monday, 29th May, 2018*\tPrivilege Holiday for Queens Birthday (UK) – (In Lieu of Privilege Holiday for * Queens birthday that falls on Saturday, 26th May 2018)</li>\n  <li>Monday, 11th June, 2018\tQueen’s birthday</li>\n  <li>Monday, 23rd July, 2018\tNational Remembrance Day</li>\n  <li>Monday, 27th August, 2018\tSummer Bank Holiday</li>\n  <li>Tuesday, 28th August, 2018*  The National Repentance Day (In Lieu of Repentance Day that falls on Sunday, 26th August, 2018)</li>\n  <li>Monday, 17th September, 2018\tIndependence day (In lieu of Independence day that falls on Sunday, 16th September, 2018)</li>\n  <li>Tuesday, 25th December, 2018\tChristmas Day</li>\n  <li>Wednesday, 26th December, 2018\tBoxing Day</li>\n</ul>\n\n<p>Holiday’s marked* are UK Public &amp; Privilege Holidays</p>\n</div>",
             "type": "High Commission"
           },
           "address": {
@@ -80,13 +80,13 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-png-and-south-pacific",
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-papua-new-guinea-and-south-pacific",
       "title": "Department for International Trade Papua New Guinea and South Pacific",
       "format": "Worldwide Organisation",
-      "updated_at": "2016-08-16T10:23:34.000+01:00",
-      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-png-and-south-pacific",
+      "updated_at": "2018-05-29T13:44:02.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-papua-new-guinea-and-south-pacific",
       "details": {
-        "slug": "uk-trade-investment-png-and-south-pacific"
+        "slug": "department-for-international-trade-papua-new-guinea-and-south-pacific"
       },
       "analytics_identifier": "WO372",
       "offices": {
@@ -94,7 +94,7 @@
           "title": "Department for International Trade Papua New Guinea and South Pacific",
           "format": "World Office",
           "updated_at": "2014-12-22T01:51:33.000+00:00",
-          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-png-and-south-pacific/office/uk-trade-investment-papua-new-guinea-south-pacific",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-papua-new-guinea-and-south-pacific/office/uk-trade-investment-papua-new-guinea-south-pacific",
           "details": {
             "email": "hera.tonge@mobile.trade.gov.uk",
             "description": "",

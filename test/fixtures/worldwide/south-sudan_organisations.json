@@ -20,7 +20,7 @@
             "email": "ukin.southsudan@fco.gov.uk",
             "description": "",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h3 id=\"office-hours\">Office Hours:</h3>\n\n<p>Monday to Thursday: 8.30 am - 5.15 pm\nFriday: 8.30 am - 1.30 pm</p>\n\n<h3 id=\"consular-enquiries\">Consular Enquiries:</h3>\n\n<p>Monday to Thursday: 9.30 am - 12.30 pm\nFriday closed</p>\n\n<p>We will additionally respond to consular emergencies outside of these times.</p>\n\n<p>The Embassy is closed for the following holidays in the second part of 2017:</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>26 June</td>\n      <td>Eid Al Fitr</td>\n    </tr>\n    <tr>\n      <td>10 July</td>\n      <td>in lieu of Independence Day</td>\n    </tr>\n    <tr>\n      <td>31 July</td>\n      <td>in lieu of Martyrs Day</td>\n    </tr>\n    <tr>\n      <td>28 August</td>\n      <td>Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>31 August</td>\n      <td>Eid Al Adha</td>\n    </tr>\n    <tr>\n      <td>22 December</td>\n      <td>in lieu of Christmas Eve</td>\n    </tr>\n    <tr>\n      <td>25 December</td>\n      <td>Christmas</td>\n    </tr>\n    <tr>\n      <td>26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h3 id=\"office-hours\">Office Hours:</h3>\n\n<p>Monday to Thursday: 8.30 am - 5.15 pm\nFriday: 8.30 am - 1.30 pm</p>\n\n<h3 id=\"consular-enquiries\">Consular Enquiries:</h3>\n\n<p>Monday to Thursday: 9.30 am - 12.30 pm\nFriday closed</p>\n\n<p>We will additionally respond to consular emergencies outside of these times.</p>\n\n<p>The Embassy is closed for the following holidays in 2018:</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>1 January</td>\n      <td>New Year</td>\n    </tr>\n    <tr>\n      <td>29 March</td>\n      <td>Holy Thursday</td>\n    </tr>\n    <tr>\n      <td>30 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>2 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>16 May</td>\n      <td>SPLA Day</td>\n    </tr>\n    <tr>\n      <td>15 June</td>\n      <td>Eid al Fitri</td>\n    </tr>\n    <tr>\n      <td>9 July</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>30 July</td>\n      <td>Martyrs Day</td>\n    </tr>\n    <tr>\n      <td>22 August</td>\n      <td>Eid Al Adha</td>\n    </tr>\n    <tr>\n      <td>24 December</td>\n      <td>Christmas Eve</td>\n    </tr>\n    <tr>\n      <td>25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -42,12 +42,8 @@
               "number": "+211 (0) 912323712/+211 (0) 959200010"
             },
             {
-              "label": "Consular enquiries [emergency calls only out of office hours]: ",
-              "number": "+211 (0) 912327315/ +211 (0) 0959100135"
-            },
-            {
               "label": "Consular assistance (24 hour)",
-              "number": "+44 1908 51 6666 or +211 (0) 912327315 or +211 (0) 0959100135"
+              "number": "+44 1908 516 666 "
             }
           ],
           "services": [

@@ -116,13 +116,13 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-oman",
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-oman",
       "title": "Department for International Trade Oman",
       "format": "Worldwide Organisation",
-      "updated_at": "2016-08-11T10:43:08.000+01:00",
-      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-oman",
+      "updated_at": "2018-05-29T13:43:17.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-oman",
       "details": {
-        "slug": "uk-trade-investment-oman"
+        "slug": "department-for-international-trade-oman"
       },
       "analytics_identifier": "WO152",
       "offices": {
@@ -130,7 +130,7 @@
           "title": "Department for International Trade Oman",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:53.000+00:00",
-          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-oman/office/uk-trade-investment-oman",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-oman/office/uk-trade-investment-oman",
           "details": {
             "email": "DIT.Muscat@fco.gov.uk",
             "description": "",

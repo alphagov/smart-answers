@@ -17,10 +17,10 @@
           "updated_at": "2013-08-02T12:39:05.000+01:00",
           "web_url": "https://www.gov.uk/world/organisations/british-embassy-bratislava/office/british-embassy",
           "details": {
-            "email": "britishembassybratislava@fco.gov.uk",
-            "description": "",
-            "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<ul>\n  <li>Monday to Thursday, 8:30am to 5pm</li>\n  <li>Friday, 8:30am to 2pm</li>\n</ul>\n\n<h3 id=\"consular-section\">Consular section</h3>\n<p>Open on Monday to Friday, between 9am to midday, except public holidays.</p>\n\n<p>In a consular emergency, such as hospitalisation, death or imprisonment of a British national, outside of office hours, please call +421 2 5998 2000.</p>\n\n<h3 id=\"embassy-contacts\">Embassy contacts</h3>\n<ul>\n  <li>Consular Section - tel.: +421 2 5998 2000; email: bratislava.consularenquiries@fco.gov.uk</li>\n  <li>Political/Press and Public Affairs Section - tel.: +421 2 5998 2216; email: britishembassybratislava@fco.gov.uk</li>\n  <li>Defence Section - tel.: +421 2 5998 2261</li>\n  <li>Department for International Trade Section - tel.: +421 2 5998 2000</li>\n</ul>\n\n<h2 id=\"public-holidays\">2017 Public holidays</h2>\n<ul>\n  <li>Friday 6 January</li>\n  <li>Friday 14 April</li>\n  <li>Monday 17 April</li>\n  <li>Monday 1 May</li>\n  <li>Monday 8 May</li>\n  <li>Friday 26 May</li>\n  <li>Wednesday 5 July</li>\n  <li>Tuesday 29 August</li>\n  <li>Friday 1 September</li>\n  <li>Friday 15 September</li>\n  <li>Wednesday 1 November</li>\n  <li>Friday 17 November</li>\n  <li>Monday 25 December</li>\n  <li>Tuesday 26 December</li>\n</ul>\n</div>",
+            "email": "",
+            "description": "For enquiries that are not about consular issues, email britishembassybratislava@fco.gov.uk",
+            "contact_form_url": "https://www.contact-embassy.service.gov.uk/?country=Slovakia&post=British%20Embassy%20Bratislava%20",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<ul>\n  <li>Monday to Thursday: open from 8:30am to 5pm</li>\n  <li>Wednesday: closed to the public</li>\n  <li>Friday: open from 8:30am to 2pm</li>\n</ul>\n\n<h3 id=\"consular-section\">Consular section</h3>\n<p>Open on Monday to Friday, between 9am to midday, except public holidays.</p>\n\n<p>In a consular emergency, such as hospitalisation, death or imprisonment of a British national, outside of office hours, please call +421 2 5998 2000.</p>\n\n<h3 id=\"embassy-contacts\">Embassy contacts</h3>\n<ul>\n  <li>Consular Section - tel.: +421 2 5998 2000; email: bratislava.consularenquiries@fco.gov.uk</li>\n  <li>Political/Press and Public Affairs Section - tel.: +421 2 5998 2216; email: britishembassybratislava@fco.gov.uk</li>\n  <li>Defence Section - tel.: +421 2 5998 2261</li>\n  <li>Department for International Trade Section - tel.: +421 2 5998 2000</li>\n</ul>\n\n<h2 id=\"public-holidays-2018\">Public Holidays 2018</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 30 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Monday 7 May</td>\n      <td>Early May Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 8 May</td>\n      <td>Victory over Fascism Day</td>\n    </tr>\n    <tr>\n      <td>Monday 28 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 29 May</td>\n      <td>Queen’s Birthday</td>\n    </tr>\n    <tr>\n      <td>Thursday 5 July</td>\n      <td>St Cyril and Methodius</td>\n    </tr>\n    <tr>\n      <td>Wednesday 29 August</td>\n      <td>Slovak National Uprising</td>\n    </tr>\n    <tr>\n      <td>Thursday 1 November</td>\n      <td>All Saints Day</td>\n    </tr>\n    <tr>\n      <td>Monday 24 December</td>\n      <td>Christmas Eve</td>\n    </tr>\n    <tr>\n      <td>Tuesday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -92,13 +92,13 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-slovakia",
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-slovakia",
       "title": "Department for International Trade Slovakia",
       "format": "Worldwide Organisation",
-      "updated_at": "2016-08-11T14:07:46.000+01:00",
-      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-slovakia",
+      "updated_at": "2018-05-29T13:47:15.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-slovakia",
       "details": {
-        "slug": "uk-trade-investment-slovakia"
+        "slug": "department-for-international-trade-slovakia"
       },
       "analytics_identifier": "WO202",
       "offices": {
@@ -106,7 +106,7 @@
           "title": "Department for International Trade Slovakia",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:53.000+00:00",
-          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-slovakia/office/uk-trade-investment-slovakia",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-slovakia/office/uk-trade-investment-slovakia",
           "details": {
             "email": "commercial2@fco.gov.uk",
             "description": "",

@@ -20,7 +20,7 @@
             "email": "ukinfo.harare@fco.gov.uk and consular.harare@fco.gov.uk",
             "description": "To speak to a visa adviser calls cost £1.37 per minute in addition to the standard network charges. Payment is accepted by credit or debit card.  You are not charged until you are connected to an adviser.\r\nCards accepted:\r\nVisa Credit, Visa Debit, MasterCard Credit, MasterCard Debit, Maestro\r\n",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<h3 id=\"local-time-gmt--2-hours\">Local Time: GMT + 2 Hours</h3>\n<p>Monday to Thursday: 8 am to 4:30 pm and Friday: 8am to 1 pm</p>\n\n<h3 id=\"consular-section\">Consular Section</h3>\n<p>Monday to Thursday: 8:00 am to 12 pm</p>\n\n<p>Friday: Closed</p>\n\n<h3 id=\"passport-collection\">Passport Collection</h3>\n<p>Strictly by appointment</p>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<h3 id=\"local-time-gmt--2-hours\">Local Time: GMT + 2 Hours</h3>\n\n<p>Monday – Friday  08:00 – 16:30</p>\n\n<p>If you’re in Zimbabwe and you need consular assistance please call 024 2 85855200 or +44 207 008 1500. If you’re in the UK and worried about a British national in Zimbabwe, call + 44 (0)207 008 1500.</p>\n\n<h3 id=\"consular-section\">Consular Section</h3>\n\n<p>Monday – Thursday 08:00 – 12:00</p>\n\n<h2 id=\"public-holidays\">Public holidays</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Date</td>\n      <td>Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 21 February</td>\n      <td>Robert Mugabe Youth Day</td>\n    </tr>\n    <tr>\n      <td>Friday 30 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Wednesday 18 April</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 1 May</td>\n      <td>Workers’ Day/May Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 25 May</td>\n      <td>Africa Day</td>\n    </tr>\n    <tr>\n      <td>Monday 28 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 29 May</td>\n      <td>Privilege Holiday for Queen’s Birthday</td>\n    </tr>\n    <tr>\n      <td>Monday 13 August</td>\n      <td>Heroes Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 14 August</td>\n      <td>Defence Forces Day</td>\n    </tr>\n    <tr>\n      <td>Monday 24 December</td>\n      <td>Privilege Holiday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -39,11 +39,11 @@
           "contact_numbers": [
             {
               "label": "Switchboard",
-              "number": "Telephone +263 4 85855200"
+              "number": "Telephone +263 242 8585 5200 "
             },
             {
               "label": "Emergency - Outside Office Hours",
-              "number": "Telephone +263 4 85855200"
+              "number": "Telephone +263 242 8585 5200"
             },
             {
               "label": "General fax",
@@ -59,7 +59,7 @@
             },
             {
               "label": "Consular assistance (24 hour)",
-              "number": "+263 4 85855200 or  +44 1908 516666"
+              "number": "+263 242 8585 5200  or +44 1908 516666"
             }
           ],
           "services": [

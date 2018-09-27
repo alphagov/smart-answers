@@ -1,0 +1,152 @@
+{
+  "results": [
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/british-high-commission-banjul",
+      "title": "British High Commission Banjul",
+      "format": "Worldwide Organisation",
+      "updated_at": "2018-02-08T12:21:44.000+00:00",
+      "web_url": "https://www.gov.uk/world/organisations/british-high-commission-banjul",
+      "details": {
+        "slug": "british-high-commission-banjul"
+      },
+      "analytics_identifier": "WO115",
+      "offices": {
+        "main": {
+          "title": "British High Commission Banjul",
+          "format": "World Office",
+          "updated_at": "2018-02-20T11:59:51.000+00:00",
+          "web_url": "https://www.gov.uk/world/organisations/british-high-commission-banjul/office/british-high-commission-banjul",
+          "details": {
+            "email": "UKinTheGambia@fco.gov.uk ",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Our offices will be closed for the following public holidays in 2018:</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Event</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Monday 01 January</td>\n      <td>New Year’s day</td>\n    </tr>\n    <tr>\n      <td>Monday 19 February 2018</td>\n      <td>Independence Day  in lieu</td>\n    </tr>\n    <tr>\n      <td>Friday 30 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 01 May</td>\n      <td>Workers Day</td>\n    </tr>\n    <tr>\n      <td>Friday 25 May</td>\n      <td>African Liberation Day</td>\n    </tr>\n    <tr>\n      <td>Friday 15 June</td>\n      <td>Eid-Ul-Fitr</td>\n    </tr>\n    <tr>\n      <td>Monday 18 June</td>\n      <td>Eid-Ul-Fitr in lieu</td>\n    </tr>\n    <tr>\n      <td>Wednesday 15 August</td>\n      <td>Assumption of Mary</td>\n    </tr>\n    <tr>\n      <td>Wednesday 22 August</td>\n      <td>Eid-Ul-Adha (Tobaski)</td>\n    </tr>\n    <tr>\n      <td>Wednesday 21 November</td>\n      <td>Prophet’s Birthday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n</div>",
+            "type": "High Commission"
+          },
+          "address": {
+            "adr": {
+              "fn": "",
+              "street-address": "48 Atlantic Road\r\nFajara\r\nPO Box 507\r\nBanjul",
+              "postal-code": "",
+              "locality": "Banjul",
+              "region": "",
+              "country-name": "The Gambia"
+            },
+            "label": {
+              "value": "48 Atlantic Road\r\nFajara\r\nPO Box 507\r\nBanjul\nBanjul\nThe Gambia"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Telephone",
+              "number": "+220  4495134"
+            }
+          ],
+          "services": [
+            {
+              "title": "Emergency Travel Documents service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Transferring funds for prisoners / for financial assistance service",
+              "type": "Assistance Services"
+            },
+            {
+              "title": "Births and Deaths registration service",
+              "type": "Documentary Services"
+            },
+            {
+              "title": "Overseas Passports Service",
+              "type": "Other Services"
+            }
+          ]
+        },
+        "other": [
+          {
+            "title": "Consular Section",
+            "format": "World Office",
+            "updated_at": "2016-02-24T11:09:58.000+00:00",
+            "web_url": "https://www.gov.uk/world/organisations/british-high-commission-banjul/office/consular-section",
+            "details": {
+              "email": "UKinTheGambia@fco.gov.uk",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours-for-british-nationals\">Opening Hours for British Nationals</h2>\n\n<p>9 am to 12 pm</p>\n</div>",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "48 Atlantic Road\r\nFajara\r\nPO Box 507",
+                "postal-code": "",
+                "locality": "Banjul",
+                "region": "",
+                "country-name": "The Gambia"
+              },
+              "label": {
+                "value": "48 Atlantic Road\r\nFajara\r\nPO Box 507\nBanjul\nThe Gambia"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Consular assistance (24 hours)",
+                "number": "+220 4495134"
+              }
+            ],
+            "services": [
+
+            ]
+          }
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Foreign & Commonwealth Office",
+          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+          "details": {
+            "acronym": "FCO"
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/dfid-gambia",
+      "title": "DFID Gambia",
+      "format": "Worldwide Organisation",
+      "updated_at": "2013-04-29T12:25:01.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/dfid-gambia",
+      "details": {
+        "slug": "dfid-gambia"
+      },
+      "analytics_identifier": "WO339",
+      "offices": {
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Department for International Development",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-development",
+          "details": {
+            "acronym": "DFID"
+          }
+        }
+      ]
+    }
+  ],
+  "current_page": 1,
+  "total": 2,
+  "pages": 1,
+  "page_size": 20,
+  "start_index": 1,
+  "_response_info": {
+    "status": "ok",
+    "links": [
+      {
+        "href": "https://www.gov.uk/api/world-locations/the-gambia/organisations?page=1",
+        "rel": "self"
+      }
+    ]
+  }
+}

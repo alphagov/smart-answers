@@ -20,7 +20,7 @@
             "email": "",
             "description": "Office hours:\r\n\r\nJanuary\r\nMonday – Friday: \r\n08:30 – 14:30\r\n\r\nFebruary - December\r\nMonday to Thursday: \r\n09:00 - 13:00 and 14:00 - 17:30\r\nFridays: \r\n09:00 - 14:00\r\nGeneral enquiries\r\nukinuruguay@adinet.com.uy\r\nConsular enquiries\r\nUruguay.consulate@fco.gov.uk",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><p>The Embassy will be closed on the following days in 2017*:</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Monday 2 January</td>\n      <td>In lieu New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 6 January</td>\n      <td>Epiphany</td>\n    </tr>\n    <tr>\n      <td>Monday 27 &amp; Tuesday 28 February</td>\n      <td>Carnival</td>\n    </tr>\n    <tr>\n      <td>Thursday 13 &amp; Friday 14 April</td>\n      <td>Easter</td>\n    </tr>\n    <tr>\n      <td>Monday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 18 July</td>\n      <td>Constitution Day</td>\n    </tr>\n    <tr>\n      <td>Friday 25 August</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Monday 16 October</td>\n      <td>12 October – in lieu Día de la Raza</td>\n    </tr>\n    <tr>\n      <td>Thursday 2 November</td>\n      <td>All Souls Day</td>\n    </tr>\n    <tr>\n      <td>Monday 25 &amp; Tuesday 26 December</td>\n      <td>Christmas Holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 29 December</td>\n      <td>In lieu of New Year’s Eve</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>*The above may be subject to change.</p>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><p>The Embassy will be closed on the following days in 2017:</p>\n\n<p>Date | Holiday\n-|-</p>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 25 &amp; Tuesday 26 December</td>\n      <td>Christmas Holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 29 December</td>\n      <td>In lieu of New Year’s Eve</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>And the following days in 2018*:</p>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 1 January</td>\n      <td>New Year</td>\n    </tr>\n    <tr>\n      <td>Monday 12 &amp; Tuesday 13 February</td>\n      <td>Carnival</td>\n    </tr>\n    <tr>\n      <td>Thursday 29 &amp; Friday 30 March</td>\n      <td>Easter</td>\n    </tr>\n    <tr>\n      <td>Tuesday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 19 June</td>\n      <td>Artigas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 18 July</td>\n      <td>Constitution Day</td>\n    </tr>\n    <tr>\n      <td>Monday 15 October</td>\n      <td>Día de la Raza</td>\n    </tr>\n    <tr>\n      <td>Friday  2 November</td>\n      <td>All Souls Day</td>\n    </tr>\n    <tr>\n      <td>Monday 24 &amp; Tuesday 25 December</td>\n      <td>Christmas Holiday</td>\n    </tr>\n    <tr>\n      <td>Wednesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Monday 31 December</td>\n      <td>New Year’s Eve</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>*The above may be subject to change.</p>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -79,7 +79,7 @@
               "email": "uruguay.consulate@fco.gov.uk",
               "description": "Monday to Friday: 9:00am to 1:00pm\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
               "contact_form_url": "",
-              "access_and_opening_times": "<div class=\"govspeak\"><p>The Embassy will be closed on the following days in 2017*:</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Monday 2 January</td>\n      <td>In lieu New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 6 January</td>\n      <td>Epiphany</td>\n    </tr>\n    <tr>\n      <td>Monday 27 &amp; Tuesday 28 February</td>\n      <td>Carnival</td>\n    </tr>\n    <tr>\n      <td>Thursday 13 &amp; Friday 14 April</td>\n      <td>Easter</td>\n    </tr>\n    <tr>\n      <td>Monday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 18 July</td>\n      <td>Constitution Day</td>\n    </tr>\n    <tr>\n      <td>Friday 25 August</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Monday 16 October</td>\n      <td>12 October – in lieu Día de la Raza</td>\n    </tr>\n    <tr>\n      <td>Thursday 2 November</td>\n      <td>All Souls Day</td>\n    </tr>\n    <tr>\n      <td>Monday 25 &amp; Tuesday 26 December</td>\n      <td>Christmas Holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 29 December</td>\n      <td>In lieu of New Year’s Eve</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>*The above may be subject to change.</p>\n</div>",
+              "access_and_opening_times": "<div class=\"govspeak\"><p>The Embassy will be closed on the following days in 2017:</p>\n\n<p>Date | Holiday\n-|-</p>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 25 &amp; Tuesday 26 December</td>\n      <td>Christmas Holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 29 December</td>\n      <td>In lieu of New Year’s Eve</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>And the following days in 2018*:</p>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 1 January</td>\n      <td>New Year</td>\n    </tr>\n    <tr>\n      <td>Monday 12 &amp; Tuesday 13 February</td>\n      <td>Carnival</td>\n    </tr>\n    <tr>\n      <td>Thursday 29 &amp; Friday 30 March</td>\n      <td>Easter</td>\n    </tr>\n    <tr>\n      <td>Tuesday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 19 June</td>\n      <td>Artigas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 18 July</td>\n      <td>Constitution Day</td>\n    </tr>\n    <tr>\n      <td>Monday 15 October</td>\n      <td>Día de la Raza</td>\n    </tr>\n    <tr>\n      <td>Friday  2 November</td>\n      <td>All Souls Day</td>\n    </tr>\n    <tr>\n      <td>Monday 24 &amp; Tuesday 25 December</td>\n      <td>Christmas Holiday</td>\n    </tr>\n    <tr>\n      <td>Wednesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Monday 31 December</td>\n      <td>New Year’s Eve</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>*The above may be subject to change.</p>\n</div>",
               "type": "Consulate"
             },
             "address": {
@@ -179,10 +179,70 @@
           }
         }
       ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-uruguay",
+      "title": "Department for International Trade Uruguay",
+      "format": "Worldwide Organisation",
+      "updated_at": "2018-05-29T13:53:22.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-uruguay",
+      "details": {
+        "slug": "department-for-international-trade-uruguay"
+      },
+      "analytics_identifier": "WO481",
+      "offices": {
+        "main": {
+          "title": "Department for International Trade Uruguay",
+          "format": "World Office",
+          "updated_at": "2017-12-27T12:27:08.000+00:00",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-uruguay/office/department-for-international-trade-uruguay",
+          "details": {
+            "email": "silvina.lindner@fco.gov.uk",
+            "description": "",
+            "contact_form_url": "",
+            "access_and_opening_times": "",
+            "type": "Other"
+          },
+          "address": {
+            "adr": {
+              "fn": "Silvina Lindner",
+              "street-address": "British Embassy \r\nMarco Bruto 1073\r\n",
+              "postal-code": "11300",
+              "locality": "Montevideo",
+              "region": "",
+              "country-name": "Uruguay"
+            },
+            "label": {
+              "value": "Silvina Lindner\nBritish Embassy \r\nMarco Bruto 1073\r\nMontevideo\n11300\nUruguay"
+            }
+          },
+          "contact_numbers": [
+            {
+              "label": "Tel:",
+              "number": "+598 26223630 x2238"
+            }
+          ],
+          "services": [
+
+          ]
+        },
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Department for International Trade",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-trade",
+          "details": {
+            "acronym": "DIT"
+          }
+        }
+      ]
     }
   ],
   "current_page": 1,
-  "total": 1,
+  "total": 2,
   "pages": 1,
   "page_size": 20,
   "start_index": 1,

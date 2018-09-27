@@ -20,7 +20,7 @@
             "email": "",
             "description": "General enquiries\r\nbelima@fco.gov.uk\r\nConsular enquiries\r\nperu.consulate@fco.gov.uk",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><p><a href=\"https://www.gov.uk/government/organisations/foreign-commonwealth-office/about/complaints-procedure#consular-services-complaints-and-compliments\">Consular services complaints and compliments</a></p>\n\n<h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Our offices will be closed for the following public holidays in 2017:</p>\n\n<ul>\n  <li>Monday 02 January</li>\n  <li>Thursday 13 April</li>\n  <li>Friday 14 April</li>\n  <li>Monday 01 May</li>\n  <li>Monday 29 May</li>\n  <li>Tuesday 30 May</li>\n  <li>Thursday 29 June</li>\n  <li>Friday 28 July</li>\n  <li>Monday 28 August</li>\n  <li>Wednesday 30 August</li>\n  <li>Wednesday 1 November</li>\n  <li>Friday 8 December</li>\n  <li>Monday 25 December</li>\n  <li>Tuesday 26 December</li>\n</ul>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><p><a href=\"https://www.gov.uk/government/organisations/foreign-commonwealth-office/about/complaints-procedure#consular-services-complaints-and-compliments\">Consular services complaints and compliments</a></p>\n\n<h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Our offices will be closed for the following public holidays in 2018:</p>\n\n<ul>\n  <li>Monday 1 January</li>\n  <li>Thursday 29 March</li>\n  <li>Friday 30 March</li>\n  <li>Monday 2 April</li>\n  <li>Tuesday 1 May</li>\n  <li>Monday 28 May</li>\n  <li>Friday 29 June</li>\n  <li>Monday 30 July</li>\n  <li>Thursday 30 August</li>\n  <li>Monday 8 October</li>\n  <li>Thursday 1 November</li>\n  <li>Monday 24 December</li>\n  <li>Tuesday 25 December</li>\n  <li>Wednesday 26 December</li>\n</ul>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -99,7 +99,7 @@
               "email": "",
               "description": "Consular Section opening hours: \r\n8:00 - 12:00 (Monday to Friday)",
               "contact_form_url": "",
-              "access_and_opening_times": "<div class=\"govspeak\"><p><a href=\"https://www.gov.uk/government/organisations/foreign-commonwealth-office/about/complaints-procedure#consular-services-complaints-and-compliments\">Consular services complaints and compliments</a></p>\n\n<h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Our offices will be closed for the following public holidays in 2017:</p>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Date</td>\n    </tr>\n    <tr>\n      <td>Monday 02 January</td>\n    </tr>\n    <tr>\n      <td>Thursday 13 April</td>\n    </tr>\n    <tr>\n      <td>Friday 14 April</td>\n    </tr>\n    <tr>\n      <td>Monday 01 May</td>\n    </tr>\n    <tr>\n      <td>Monday 29 May</td>\n    </tr>\n    <tr>\n      <td>Tuesday 30 May</td>\n    </tr>\n    <tr>\n      <td>Thursday 29 June</td>\n    </tr>\n    <tr>\n      <td>Friday 28 July</td>\n    </tr>\n    <tr>\n      <td>Monday 28 August</td>\n    </tr>\n    <tr>\n      <td>Wednesday 30 August</td>\n    </tr>\n    <tr>\n      <td>Wednesday 1 November</td>\n    </tr>\n    <tr>\n      <td>Friday 8 December</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+              "access_and_opening_times": "<div class=\"govspeak\"><p><a href=\"https://www.gov.uk/government/organisations/foreign-commonwealth-office/about/complaints-procedure#consular-services-complaints-and-compliments\">Consular services complaints and compliments</a></p>\n\n<h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Our offices will be closed for the following public holidays in 2018:</p>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Date</td>\n    </tr>\n    <tr>\n      <td>Monday 1 January</td>\n    </tr>\n    <tr>\n      <td>Thursday 29 March</td>\n    </tr>\n    <tr>\n      <td>Friday 30 March</td>\n    </tr>\n    <tr>\n      <td>Monday 2 April</td>\n    </tr>\n    <tr>\n      <td>Tuesday 1 May</td>\n    </tr>\n    <tr>\n      <td>Monday 28 May</td>\n    </tr>\n    <tr>\n      <td>Friday 29 June</td>\n    </tr>\n    <tr>\n      <td>Monday 30 July</td>\n    </tr>\n    <tr>\n      <td>Thursday 30 August</td>\n    </tr>\n    <tr>\n      <td>Monday 8 October</td>\n    </tr>\n    <tr>\n      <td>Thursday 1 November</td>\n    </tr>\n    <tr>\n      <td>Monday 24 December</td>\n    </tr>\n    <tr>\n      <td>Tuesday 25 December</td>\n    </tr>\n    <tr>\n      <td>Wednesday 26 December</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
               "type": "Other"
             },
             "address": {
@@ -135,13 +135,13 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-peru",
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-peru",
       "title": "Department for International Trade Peru",
       "format": "Worldwide Organisation",
-      "updated_at": "2016-08-11T11:16:34.000+01:00",
-      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-peru",
+      "updated_at": "2018-05-29T13:44:36.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-peru",
       "details": {
-        "slug": "uk-trade-investment-peru"
+        "slug": "department-for-international-trade-peru"
       },
       "analytics_identifier": "WO168",
       "offices": {
@@ -149,7 +149,7 @@
           "title": "Department for International Trade Peru",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:53.000+00:00",
-          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-peru/office/uk-trade-investment-peru",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-peru/office/uk-trade-investment-peru",
           "details": {
             "email": "DIT.lima@fco.gov.uk",
             "description": "",

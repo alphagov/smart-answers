@@ -17,9 +17,9 @@
           "updated_at": "2014-09-23T11:12:12.000+01:00",
           "web_url": "https://www.gov.uk/world/organisations/british-embassy-liechtenstein/office/british-embassy",
           "details": {
-            "email": "info.berne@fco.gsi.gov.uk",
-            "description": "Office hours:\r\nMonday to Friday, \r\n9.00 to 12.30 and 13.30 to 16.30\r\n\r\nConsular hours:\r\nMonday to Friday, 9.30 to 12.00\r\n\r\nNotarial services:\r\nNotarial services are by appointment only. To reserve an appointment, please use the Contact form link.",
-            "contact_form_url": "",
+            "email": "",
+            "description": "For enquiries that are not about consular issues, email info.berne@fco.gov.uk\r\n\r\nOffice hours:\r\nMonday to Friday, \r\n9.00 to 12.30 and 13.30 to 16.30\r\n\r\nConsular hours:\r\nMonday to Friday, 9.30 to 12.00\r\n\r\n",
+            "contact_form_url": "https://www.contact-embassy.service.gov.uk/?country=Liechtenstein&post=British%20Embassy%20Liechtenstein%20",
             "access_and_opening_times": "",
             "type": "Embassy"
           },
@@ -89,10 +89,10 @@
           "updated_at": "2014-09-23T11:12:12.000+01:00",
           "web_url": "https://www.gov.uk/world/organisations/british-embassy-berne/office/british-embassy",
           "details": {
-            "email": "info.berne@fco.gov.uk",
-            "description": "",
-            "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<p>Monday to Friday, 9:00 to 12:30  and 13:30 to 16:30</p>\n\n<h3 id=\"consular-hours\">Consular hours</h3>\n<p>Monday to Friday, 9:00am to 12:00pm</p>\n\n<h2 id=\"notarial-services\">Notarial services</h2>\n<p>Notarial services are by appointment only. Please follow <a href=\"https://www.gov.uk/notarial-and-documentary-services-guide-for-switzerland\">this link</a> for information on the notarial &amp; documentary services we provide at the British Embassy in Berne, and how to make an appointment for these services.</p>\n\n<h2 id=\"public-holidays\">2017 Public holidays</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>2 January</td>\n      <td>Monday</td>\n      <td>New Year’s Day (substitute day)</td>\n    </tr>\n    <tr>\n      <td>3 January</td>\n      <td>Tuesday</td>\n      <td>Saint Berchtold Day (substitute day)</td>\n    </tr>\n    <tr>\n      <td>13 April</td>\n      <td>Thursday</td>\n      <td>Maundy Thursday</td>\n    </tr>\n    <tr>\n      <td>14 April</td>\n      <td>Friday</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>17 April</td>\n      <td>Monday</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>1 May</td>\n      <td>Monday</td>\n      <td>Early May Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>25 May</td>\n      <td>Thursday</td>\n      <td>Ascension Day</td>\n    </tr>\n    <tr>\n      <td>29 May</td>\n      <td>Monday</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>5 June</td>\n      <td>Monday</td>\n      <td>Whit Monday</td>\n    </tr>\n    <tr>\n      <td>1 August</td>\n      <td>Tuesday</td>\n      <td>Swiss National Day</td>\n    </tr>\n    <tr>\n      <td>28 August</td>\n      <td>Monday</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>27 November</td>\n      <td>Monday</td>\n      <td>Zibelemärit</td>\n    </tr>\n    <tr>\n      <td>25 December</td>\n      <td>Monday</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>26 December</td>\n      <td>Tuesday</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+            "email": "",
+            "description": "For enquiries that are not about consular issues, email info.berne@fco.gov.uk",
+            "contact_form_url": "https://www.contact-embassy.service.gov.uk/?country=Switzerland&post=British%20Embassy%20Berne%20",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<p>Monday to Friday, 9:00 to 12:30  and 13:30 to 16:30</p>\n\n<h3 id=\"consular-hours\">Consular hours</h3>\n<p>Monday to Friday, 9:00am to 12:00pm</p>\n\n<h2 id=\"notarial-services\">Notarial services</h2>\n<p>Notarial services are by appointment only. Please follow <a href=\"https://www.gov.uk/notarial-and-documentary-services-guide-for-switzerland\">this link</a> for information on the notarial &amp; documentary services we provide at the British Embassy in Berne, and how to make an appointment for these services.</p>\n\n<h2 id=\"public-holidays\">2018 Public holidays</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>1 January</td>\n      <td>Monday</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>2 January</td>\n      <td>Tuesday</td>\n      <td>Saint Berchtold’s Day</td>\n    </tr>\n    <tr>\n      <td>29 March</td>\n      <td>Thursday</td>\n      <td>Maundy Thursday</td>\n    </tr>\n    <tr>\n      <td>30 March</td>\n      <td>Friday</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>2 April</td>\n      <td>Monday</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>7 May</td>\n      <td>Monday</td>\n      <td>Early May Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>10 May</td>\n      <td>Thursday</td>\n      <td>Ascension Day</td>\n    </tr>\n    <tr>\n      <td>21 May</td>\n      <td>Monday</td>\n      <td>Whit Monday</td>\n    </tr>\n    <tr>\n      <td>1 August</td>\n      <td>Tuesday</td>\n      <td>Swiss National Day</td>\n    </tr>\n    <tr>\n      <td>27 August</td>\n      <td>Monday</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>26 November</td>\n      <td>Monday</td>\n      <td>Onion Market (Zibelemärit)</td>\n    </tr>\n    <tr>\n      <td>24 December</td>\n      <td>Monday</td>\n      <td>Christmas Eve</td>\n    </tr>\n    <tr>\n      <td>25 December</td>\n      <td>Tuesday</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>26 December</td>\n      <td>Wednesday</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -145,13 +145,13 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-liechtenstein",
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-liechtenstein",
       "title": "Department for International Trade Liechtenstein",
       "format": "Worldwide Organisation",
-      "updated_at": "2016-08-10T13:10:47.000+01:00",
-      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-liechtenstein",
+      "updated_at": "2018-05-29T13:38:53.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-liechtenstein",
       "details": {
-        "slug": "uk-trade-investment-liechtenstein"
+        "slug": "department-for-international-trade-liechtenstein"
       },
       "analytics_identifier": "WO138",
       "offices": {
@@ -159,7 +159,7 @@
           "title": "Department for International Trade Liechtenstein",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:53.000+00:00",
-          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-liechtenstein/office/uk-trade-investment-liechtenstein",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-liechtenstein/office/uk-trade-investment-liechtenstein",
           "details": {
             "email": "",
             "description": "",

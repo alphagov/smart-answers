@@ -20,7 +20,7 @@
             "email": "High.Commission.Accra@fco.gov.uk",
             "description": "",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\">\n<h2 id=\"opening-hours\">Opening Hours:</h2>\n\n<h2 id=\"main-office-staff-working-hours\">Main Office (staff working hours):</h2>\n\n<p>Monday to Thursday 7:30am to 3:30 pm\nFriday 7:30am to 1:30pm</p>\n\n<h2 id=\"hm-passports\">HM Passports</h2>\n<p>The British High Commission in Accra no longer processes British passport applications. All applications must be sent direct to Her Majesty’s Passport Office in Durham, UK.  Full details can be found at our <a href=\"https://www.gov.uk/overseas-passports\">overseas passports page</a></p>\n\n<h2 id=\"consular-assistance-public-opening-hours\">Consular assistance; Public opening hours</h2>\n<p>Monday to Thursday    9:30am to 11:30am\nFriday    8:30am to 10:30am</p>\n\n<h2 id=\"british-passports-collection-only-public-opening-hours\">British passports collection only; Public opening hours</h2>\n<p>Monday to Thursday     9:30am to 11:30am</p>\n\n<h2 id=\"bank-holidays\">Bank holidays</h2>\n<p>The British High Commission Accra will observe the following holidays in 2017 :</p>\n\n<ul>\n  <li>Monday 2 January - New Year’s Day - in lieu of 1 January</li>\n  <li>Monday 6 March - Independence Day</li>\n  <li>Friday 14 April - Good Friday</li>\n  <li>Monday 17 April Easter Monday</li>\n  <li>Monday 1 May - Labour Day</li>\n  <li>Thursday 25 May - Africa Unity Day</li>\n  <li>Monday 26 June - Eid al Fitr (End of Ramadan) - To be confirmed</li>\n  <li>Monday 3 July - Republic Day</li>\n  <li>Monday 28 August - UK Summer Bank Holiday</li>\n  <li>Friday 1 September - Eid al Adha (Sacrifice) - Date to be confirmed</li>\n  <li>Friday 1 December - National Founders Day</li>\n  <li>Monday 25 December - Christmas Day</li>\n  <li>Tuesday 26 December - Boxing Day</li>\n</ul>\n\n<p>Note: Usually when a holiday falls on the weekend, the following Monday will be the day to take off as the public holiday.</p>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\">\n<h2 id=\"opening-hours\">Opening Hours:</h2>\n\n<h2 id=\"main-office-staff-working-hours\">Main Office (staff working hours):</h2>\n\n<p>Monday to Thursday 7:30am to 3:30 pm\nFriday 7:30am to 1:30pm</p>\n\n<h2 id=\"hm-passports\">HM Passports</h2>\n<p>The British High Commission in Accra no longer processes British passport applications. All applications must be sent direct to Her Majesty’s Passport Office in Durham, UK.  Full details can be found at our <a href=\"https://www.gov.uk/overseas-passports\">overseas passports page</a></p>\n\n<h2 id=\"consular-assistance-public-opening-hours\">Consular assistance; Public opening hours</h2>\n<p>Monday to Thursday    9:30am to 11:30am\nFriday    8:30am to 10:30am</p>\n\n<h2 id=\"british-passports-collection-only-public-opening-hours\">British passports collection only; Public opening hours</h2>\n<p>Monday to Thursday     9:30am to 11:30am</p>\n\n<h2 id=\"bank-holidays\">Bank holidays</h2>\n<p>The British High Commission Accra will observe the following holidays in 2018 :</p>\n\n<ul>\n  <li>Monday 1 January - New Year’s Day</li>\n  <li>Tuesday 6 March - Independence Day</li>\n  <li>Friday 30 March - Good Friday</li>\n  <li>Monday 2 April - Easter Monday</li>\n  <li>Tuesday 1 May - Labour Day</li>\n  <li>Friday 25 May\t - Africa Unity Day</li>\n  <li>Friday 15 June - Eid al Fitr (End of Ramadan). To be confirmed.</li>\n  <li>Monday 2 July\t - Republic Day (In lieu of Sunday 1 July)</li>\n  <li>Wednesday 22 August - Eid al Adha  (Sacrifice). To be confirmed.</li>\n  <li>Monday 27 August - UK Summer Bank Holiday</li>\n  <li>Friday 21 September - Founders Day</li>\n  <li>Friday 7 December - National Farmer’s Day</li>\n  <li>Tuesday 25 December - Christmas Day</li>\n  <li>Wednesday 26 December - Boxing Day</li>\n</ul>\n\n<p>Note: Usually when a holiday falls on the weekend, the following Monday will be the day to take off as the public holiday.</p>\n</div>",
             "type": "High Commission"
           },
           "address": {
@@ -102,10 +102,35 @@
           }
         }
       ]
+    },
+    {
+      "id": "https://www.gov.uk/api/worldwide-organisations/dfid-sahel",
+      "title": "DFID Sahel",
+      "format": "Worldwide Organisation",
+      "updated_at": "2018-02-02T09:01:43.000+00:00",
+      "web_url": "https://www.gov.uk/world/organisations/dfid-sahel",
+      "details": {
+        "slug": "dfid-sahel"
+      },
+      "analytics_identifier": "WO483",
+      "offices": {
+        "other": [
+
+        ]
+      },
+      "sponsors": [
+        {
+          "title": "Department for International Development",
+          "web_url": "https://www.gov.uk/government/organisations/department-for-international-development",
+          "details": {
+            "acronym": "DFID"
+          }
+        }
+      ]
     }
   ],
   "current_page": 1,
-  "total": 1,
+  "total": 2,
   "pages": 1,
   "page_size": 20,
   "start_index": 1,

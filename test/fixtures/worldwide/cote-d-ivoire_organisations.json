@@ -20,7 +20,7 @@
             "email": "British.Embassy.Abidjan@fco.gov.uk",
             "description": "Opening Hours\r\nMonday to Thursday: 8:30 am to 4:30 pm\r\nFriday: 8:30 am to 2:30 pm\r\n\r\nFor consular information and emergency assistance call +44 (0)1908 516 666 or +225 2244 2669",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays\">Public Holidays</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Friday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 25 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 March</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Thursday 21 April</td>\n      <td>The Queen’s Birthday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 May</td>\n      <td>Early May Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Thursday 5 May</td>\n      <td>Ascension Day</td>\n    </tr>\n    <tr>\n      <td>Monday 30 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 5 July</td>\n      <td>Eid al Fitr (End of Ramadan)</td>\n    </tr>\n    <tr>\n      <td>Monday 8 August</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Monday 29 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 12 September</td>\n      <td>Eid al Adha (Feast of the Sacrifice)</td>\n    </tr>\n    <tr>\n      <td>Monday 31 October</td>\n      <td>In lieu of All Saint’s Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 24 December</td>\n      <td>Christmas Eve</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 27 December</td>\n      <td>In lieu of Christmas Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays\">Public Holidays</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Monday 1 January</td>\n      <td>New Year</td>\n    </tr>\n    <tr>\n      <td>Friday 30 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 10 May</td>\n      <td>Ascension*</td>\n    </tr>\n    <tr>\n      <td>Monday, 21st May</td>\n      <td>Pentecost Monday *</td>\n    </tr>\n    <tr>\n      <td>Monday, 18 June</td>\n      <td>Eid al Fitr * to be confirmed</td>\n    </tr>\n    <tr>\n      <td>Tuesday, 7 August</td>\n      <td>Independence Day *</td>\n    </tr>\n    <tr>\n      <td>Friday, 24 August</td>\n      <td>Eid al Adha * to be confirmed</td>\n    </tr>\n    <tr>\n      <td>Thursday, 1st November</td>\n      <td>All Saints *</td>\n    </tr>\n    <tr>\n      <td>Thursday, 15 November</td>\n      <td>Peace Day of RCI *</td>\n    </tr>\n    <tr>\n      <td>Wednesday, 21 November</td>\n      <td>Maoulid * to be confirmed</td>\n    </tr>\n    <tr>\n      <td>Tuesday, 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday, 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -69,13 +69,13 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-cote-divoire",
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-cote-divoire",
       "title": "Department for International Trade Cote d'Ivoire ",
       "format": "Worldwide Organisation",
-      "updated_at": "2016-08-09T12:52:42.000+01:00",
-      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-cote-divoire",
+      "updated_at": "2018-05-29T13:23:56.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-cote-divoire",
       "details": {
-        "slug": "uk-trade-investment-cote-divoire"
+        "slug": "department-for-international-trade-cote-divoire"
       },
       "analytics_identifier": "WO370",
       "offices": {
@@ -83,9 +83,9 @@
           "title": "Department for International Trade Cote d'Ivoire",
           "format": "World Office",
           "updated_at": "2014-08-06T11:48:25.000+01:00",
-          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-cote-divoire/office/uk-trade-investment-cote-divoire",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-cote-divoire/office/uk-trade-investment-cote-divoire",
           "details": {
-            "email": "Marcel.Ngosso@fconet.fco.gov.uk ",
+            "email": "DITAfricaTrade@mobile.trade.gov.uk",
             "description": "",
             "contact_form_url": "",
             "access_and_opening_times": "<div class=\"govspeak\"><p>Opening Hours\nMonday to Thursday: 9 am to 4:30 pm\nConsular Opening hours\nMonday to Thursday: 9 am to 11 am\nFriday: 9 am to 2:30 pm</p>\n</div>",
