@@ -1,7 +1,7 @@
 ---
 app/models/ukba_country.rb: 56879bb5efb4225cbf56850269385d44
 lib/data/ukba_additional_countries.yml: 5e84d01caf6b2841d0ea9f03f0f4974c
-lib/smart_answer/calculators/uk_visa_calculator.rb: aad55087dbe08dc45de7cbe3aa735c53
+lib/smart_answer/calculators/uk_visa_calculator.rb: f5aef72d5d6cbcf7bc03c41e47967561
 lib/smart_answer_flows/check-uk-visa/check_uk_visa.govspeak.erb: a442b4ddd169b26a401c70d145e5b44e
 lib/smart_answer_flows/check-uk-visa/outcomes/_b1_b2_visa_exception.govspeak.erb: 410e39d565d0a5caed2d1b8c20c1ca77
 lib/smart_answer_flows/check-uk-visa/outcomes/_estonia_or_latvia.govspeak.erb: 248b438c79c81dcd120a0d0fa5d3f0b3
