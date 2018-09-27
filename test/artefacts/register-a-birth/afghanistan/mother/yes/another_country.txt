@@ -70,6 +70,7 @@ Which country?
   * equatorial-guinea: Equatorial Guinea
   * eritrea: Eritrea
   * estonia: Estonia
+  * eswatini: Eswatini
   * ethiopia: Ethiopia
   * falkland-islands: Falkland Islands
   * fiji: Fiji
@@ -78,7 +79,6 @@ Which country?
   * french-guiana: French Guiana
   * french-polynesia: French Polynesia
   * gabon: Gabon
-  * the-gambia: The Gambia
   * georgia: Georgia
   * germany: Germany
   * ghana: Ghana
@@ -184,7 +184,7 @@ Which country?
   * solomon-islands: Solomon Islands
   * somalia: Somalia
   * south-africa: South Africa
-  * south-georgia-and-the-south-sandwich-islands: South Georgia And South Sandwich Islands
+  * south-georgia-and-the-south-sandwich-islands: South Georgia And The South Sandwich Islands
   * south-korea: South Korea
   * south-sudan: South Sudan
   * spain: Spain
@@ -198,7 +198,6 @@ Which country?
   * st-vincent-and-the-grenadines: St Vincent And The Grenadines
   * sudan: Sudan
   * suriname: Suriname
-  * eswatini: Eswatini
   * sweden: Sweden
   * switzerland: Switzerland
   * syria: Syria
@@ -206,6 +205,7 @@ Which country?
   * tajikistan: Tajikistan
   * tanzania: Tanzania
   * thailand: Thailand
+  * the-gambia: The Gambia
   * the-occupied-palestinian-territories: The Occupied Palestinian Territories
   * timor-leste: Timor Leste
   * togo: Togo
