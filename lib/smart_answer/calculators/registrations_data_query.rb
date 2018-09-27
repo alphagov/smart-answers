@@ -1,24 +1,133 @@
 module SmartAnswer::Calculators
   class RegistrationsDataQuery
-    COMMONWEALTH_COUNTRIES = %w(anguilla australia bermuda british-indian-ocean-territory british-virgin-islands cayman-islands canada falkland-islands gibraltar ireland montserrat new-zealand pitcairn south-africa south-georgia-and-the-south-sandwich-islands st-helena-ascension-and-tristan-da-cunha turks-and-caicos-islands)
+    COMMONWEALTH_COUNTRIES = %w(
+      anguilla
+      australia
+      bermuda
+      british-indian-ocean-territory
+      british-virgin-islands
+      canada
+      cayman-islands
+      falkland-islands
+      gibraltar
+      ireland
+      montserrat
+      new-zealand
+      pitcairn
+      south-africa
+      south-georgia-and-the-south-sandwich-islands
+      st-helena-ascension-and-tristan-da-cunha
+      turks-and-caicos-islands
+    ).freeze
 
-    COUNTRIES_WITH_CONSULATES = %w(china colombia israel russia turkey)
+    COUNTRIES_WITH_CONSULATES = %w(
+      china
+      colombia
+      israel
+      russia
+      turkey
+    ).freeze
 
-    COUNTRIES_WITH_CONSULATE_GENERALS = %w(brazil hong-kong turkey)
+    COUNTRIES_WITH_CONSULATE_GENERALS = %w(
+      brazil
+      hong-kong
+      turkey
+    ).freeze
 
-    COUNTRIES_WITH_BIRTH_REGISTRATION_EXCEPTION = %w(afghanistan iran iraq jordan kuwait oman pakistan qatar saudi-arabia united-arab-emirates).freeze
+    COUNTRIES_WITH_BIRTH_REGISTRATION_EXCEPTION = %w(
+      afghanistan
+      iran
+      iraq
+      jordan
+      kuwait
+      oman
+      pakistan
+      qatar
+      saudi-arabia
+      united-arab-emirates
+    ).freeze
 
-    ORU_DOCUMENTS_VARIANT_COUNTRIES_BIRTH = %w(andorra belgium denmark finland france india israel italy japan monaco morocco nepal netherlands nigeria poland portugal russia sierra-leone south-korea spain sri-lanka sweden taiwan the-occupied-palestinian-territories turkey united-arab-emirates usa)
+    ORU_DOCUMENTS_VARIANT_COUNTRIES_BIRTH = %w(
+      andorra
+      belgium
+      denmark
+      finland
+      france
+      india
+      israel
+      italy
+      japan
+      monaco
+      morocco
+      nepal
+      netherlands
+      nigeria
+      poland
+      portugal
+      russia
+      sierra-leone
+      south-korea
+      spain
+      sri-lanka
+      sweden
+      taiwan
+      the-occupied-palestinian-territories
+      turkey
+      united-arab-emirates
+      usa
+    ).freeze
 
-    ORU_DOCUMENTS_VARIANT_COUNTRIES_DEATH = %w(papua-new-guinea poland)
+    ORU_DOCUMENTS_VARIANT_COUNTRIES_DEATH = %w(
+      papua-new-guinea
+      poland
+    ).freeze
 
-    ORU_COURIER_VARIANTS = %w(cambodia cameroon kenya nigeria north-korea papua-new-guinea uganda)
+    ORU_COURIER_VARIANTS = %w(
+      cambodia
+      cameroon
+      kenya
+      nigeria
+      north-korea
+      papua-new-guinea
+      uganda
+    ).freeze
 
-    ORU_COURIER_BY_HIGH_COMISSION = %w(cameroon kenya nigeria)
+    ORU_COURIER_BY_HIGH_COMISSION = %w(
+      cameroon
+      kenya
+      nigeria
+    ).freeze
 
-    HIGHER_RISK_COUNTRIES = %w(afghanistan algeria azerbaijan bangladesh bhutan colombia india iraq kenya lebanon libya nepal new-caledonia nigeria pakistan philippines russia sierra-leone somalia south-sudan sri-lanka sudan uganda)
+    HIGHER_RISK_COUNTRIES = %w(
+      afghanistan
+      algeria
+      azerbaijan
+      bangladesh
+      bhutan
+      colombia
+      india
+      iraq
+      kenya
+      lebanon
+      libya
+      nepal
+      new-caledonia
+      nigeria
+      pakistan
+      philippines
+      russia
+      sierra-leone
+      somalia
+      south-sudan
+      sri-lanka
+      sudan
+      uganda
+    ).freeze
 
-    MAY_REQUIRE_DNA_TESTS = %w(libya somalia)
+    MAY_REQUIRE_DNA_TESTS = %w(
+      libya
+      somalia
+    ).freeze
 
     ORU_REGISTRATION_DURATION = {
       "afghanistan" => "6 months",
@@ -43,7 +152,7 @@ module SmartAnswer::Calculators
       "sudan" => "12 weeks",
       "philippines" => "16 weeks",
       "uganda" => "12 weeks",
-    }
+    }.freeze
 
     attr_reader :data
 
