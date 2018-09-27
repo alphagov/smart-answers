@@ -18,9 +18,9 @@
           "web_url": "https://www.gov.uk/world/organisations/british-embassy-colombia/office/british-embassy",
           "details": {
             "email": "embajadabritanica.bogota@fco.gov.uk",
-            "description": "",
+            "description": "Consulate opening hours: Monday - Thursday: 9:00am – 12:00pm and 14:00pm - 16:00pm. Friday: 9:00am – 12:00pm \r\nAll customers must book an appointment in advance. Please email colombia.consulate@fco.gov.uk",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>Monday to Thursday: 8:30am – 12:30pm and 13:30pm – 17:00pm\nFriday: 8:30am – 13:30pm</p>\n\n<h2 id=\"public-holidays\">2017 public holidays</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 9 January</td>\n      <td>Día de los Reyes</td>\n      <td>Epiphany</td>\n    </tr>\n    <tr>\n      <td>Monday 20 March</td>\n      <td>Dia de San José</td>\n      <td>St Joseph’s Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 13 April</td>\n      <td>Jueves Santo</td>\n      <td>Maundy Thursday</td>\n    </tr>\n    <tr>\n      <td>Friday 14 April</td>\n      <td>Viernes Santo</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 1 May</td>\n      <td>Día del Trabajo</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Monday 29 May</td>\n      <td>Día de la Ascension</td>\n      <td>Ascension Day</td>\n    </tr>\n    <tr>\n      <td>Monday 19 June</td>\n      <td>Corpus Christi</td>\n      <td>Corpus Christi</td>\n    </tr>\n    <tr>\n      <td>Monday 26 June</td>\n      <td>Sagrado Corazón</td>\n      <td>Sacred Heart</td>\n    </tr>\n    <tr>\n      <td>Monday 3 July</td>\n      <td>San Pedro y San Pablo</td>\n      <td>St Peter and St Paul</td>\n    </tr>\n    <tr>\n      <td>Thursday 20 July</td>\n      <td>Día de la Independencia</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Monday  7 August</td>\n      <td>Batalla de Boyacá</td>\n      <td>Battle of Boyacá</td>\n    </tr>\n    <tr>\n      <td>Monday 21 August</td>\n      <td>La Asunción de la Virgen</td>\n      <td>Assumption Day</td>\n    </tr>\n    <tr>\n      <td>Monday 16 October</td>\n      <td>Día de la Raza</td>\n      <td>Columbus Day</td>\n    </tr>\n    <tr>\n      <td>Monday 6 November</td>\n      <td>Todos los Santos</td>\n      <td>All Saints Day</td>\n    </tr>\n    <tr>\n      <td>Monday 13 November</td>\n      <td>Independencia de Cartagena</td>\n      <td>Independence of Cartagena</td>\n    </tr>\n    <tr>\n      <td>Friday 8 December</td>\n      <td>Día de la Inmaculada Concepción</td>\n      <td>Immaculate Conception</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December</td>\n      <td>Día de Navidad</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December</td>\n      <td>Día de San Esteban</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>Monday to Thursday: 8:30am – 12:30pm and 13:30pm – 17:00pm\nFriday: 8:30am – 13:30pm</p>\n\n<h2 id=\"public-holidays\">2018 public holidays</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 1 January</td>\n      <td>Año Nuevo</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Monday 8 January</td>\n      <td>Día de los Reyes</td>\n      <td>Epiphany</td>\n    </tr>\n    <tr>\n      <td>Monday 19 March</td>\n      <td>Dia de San José</td>\n      <td>St Joseph’s Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 29 March</td>\n      <td>Jueves Santo</td>\n      <td>Maundy Thursday</td>\n    </tr>\n    <tr>\n      <td>Friday 30 March</td>\n      <td>Viernes Santo</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 1 May</td>\n      <td>Día del Trabajo</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Monday 4 June</td>\n      <td>Corpus Christi</td>\n      <td>Corpus Christi</td>\n    </tr>\n    <tr>\n      <td>Monday 2 July</td>\n      <td>San Pedro y San Pablo</td>\n      <td>St Peter and St Paul</td>\n    </tr>\n    <tr>\n      <td>Friday 20 July</td>\n      <td>Día de la Independencia</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Monday 15 October</td>\n      <td>Día de la Raza</td>\n      <td>Columbus Day</td>\n    </tr>\n    <tr>\n      <td>Monday 5 November</td>\n      <td>Todos los Santos</td>\n      <td>All Saints Day</td>\n    </tr>\n    <tr>\n      <td>Monday 12 November</td>\n      <td>Independencia de Cartagena</td>\n      <td>Independence of Cartagena</td>\n    </tr>\n    <tr>\n      <td>Tuesday 25 December</td>\n      <td>Día de Navidad</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 26 December</td>\n      <td>Día de San Esteban</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -61,92 +61,13 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/british-consulate-bogota",
-      "title": "British Consulate Bogota",
-      "format": "Worldwide Organisation",
-      "updated_at": "2017-04-12T10:02:29.000+01:00",
-      "web_url": "https://www.gov.uk/world/organisations/british-consulate-bogota",
-      "details": {
-        "slug": "british-consulate-bogota"
-      },
-      "analytics_identifier": "WO474",
-      "offices": {
-        "main": {
-          "title": "British Consulate, Bogota",
-          "format": "World Office",
-          "updated_at": "2017-04-12T09:53:01.000+01:00",
-          "web_url": "https://www.gov.uk/world/organisations/british-consulate-bogota/office/british-consulate-bogota",
-          "details": {
-            "email": "colombia.consulate@fco.gov.uk",
-            "description": "Opening hours: Monday, Tuesday, Wednesday and Thursday: 9:00am – 12:00pm & 14:00pm - 16:00pm\r\nFriday: 9:00am – 12:00pm \r\nAll customers must book an appointment in advance.\r\n\r\n(Outside of normal Embassy operating hours our switchboard will direct you to the appropriate out-of-hours number).\r\n",
-            "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>Opening hours: Monday, Tuesday, Thursday, Friday 9:00am – 12:30pm \nClosed on Wednesdays.</p>\n\n<h2 id=\"public-holidays\">2017 public holidays</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 9 January</td>\n      <td>Día de los Reyes</td>\n      <td>Epiphany</td>\n    </tr>\n    <tr>\n      <td>Monday 20 March</td>\n      <td>Dia de San José</td>\n      <td>St Joseph’s Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 13 April</td>\n      <td>Jueves Santo</td>\n      <td>Maundy Thursday</td>\n    </tr>\n    <tr>\n      <td>Friday 14 April</td>\n      <td>Viernes Santo</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 1 May</td>\n      <td>Día del Trabajo</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Monday 29 May</td>\n      <td>Día de la Ascension</td>\n      <td>Ascension Day</td>\n    </tr>\n    <tr>\n      <td>Monday 19 June</td>\n      <td>Corpus Christi</td>\n      <td>Corpus Christi</td>\n    </tr>\n    <tr>\n      <td>Monday 26 June</td>\n      <td>Sagrado Corazón</td>\n      <td>Sacred Heart</td>\n    </tr>\n    <tr>\n      <td>Monday 3 July</td>\n      <td>San Pedro y San Pablo</td>\n      <td>St Peter and St Paul</td>\n    </tr>\n    <tr>\n      <td>Thursday 20 July</td>\n      <td>Día de la Independencia</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Monday  7 August</td>\n      <td>Batalla de Boyacá</td>\n      <td>Battle of Boyacá</td>\n    </tr>\n    <tr>\n      <td>Monday 21 August</td>\n      <td>La Asunción de la Virgen</td>\n      <td>Assumption Day</td>\n    </tr>\n    <tr>\n      <td>Monday 16 October</td>\n      <td>Día de la Raza</td>\n      <td>Columbus Day</td>\n    </tr>\n    <tr>\n      <td>Monday 6 November</td>\n      <td>Todos los Santos</td>\n      <td>All Saints Day</td>\n    </tr>\n    <tr>\n      <td>Monday 13 November</td>\n      <td>Independencia de Cartagena</td>\n      <td>Independence of Cartagena</td>\n    </tr>\n    <tr>\n      <td>Friday 8 December</td>\n      <td>Día de la Inmaculada Concepción</td>\n      <td>Immaculate Conception</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December</td>\n      <td>Día de Navidad</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December</td>\n      <td>Día de San Esteban</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
-            "type": "Consulate"
-          },
-          "address": {
-            "adr": {
-              "fn": "",
-              "street-address": "Cra 9 No. 76 - 49 piso 9",
-              "postal-code": "",
-              "locality": "",
-              "region": "Bogota",
-              "country-name": "Colombia"
-            },
-            "label": {
-              "value": "Cra 9 No. 76 - 49 piso 9\nBogota\nColombia"
-            }
-          },
-          "contact_numbers": [
-            {
-              "label": "Switchboard",
-              "number": "(+571)  3268300"
-            }
-          ],
-          "services": [
-            {
-              "title": "Emergency Travel Documents service",
-              "type": "Assistance Services"
-            },
-            {
-              "title": "Transferring funds for prisoners / for financial assistance service",
-              "type": "Assistance Services"
-            },
-            {
-              "title": "Notarial services",
-              "type": "Documentary Services"
-            },
-            {
-              "title": "Citizenship Ceremony service",
-              "type": "Documentary Services"
-            },
-            {
-              "title": "Lost or Stolen Passports",
-              "type": "Assistance Services"
-            }
-          ]
-        },
-        "other": [
-
-        ]
-      },
-      "sponsors": [
-        {
-          "title": "Foreign & Commonwealth Office",
-          "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
-          "details": {
-            "acronym": "FCO"
-          }
-        }
-      ]
-    },
-    {
-      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-colombia",
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-colombia",
       "title": "Department for International Trade Colombia",
       "format": "Worldwide Organisation",
-      "updated_at": "2016-08-09T11:54:48.000+01:00",
-      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-colombia",
+      "updated_at": "2018-05-29T13:23:04.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-colombia",
       "details": {
-        "slug": "uk-trade-investment-colombia"
+        "slug": "department-for-international-trade-colombia"
       },
       "analytics_identifier": "WO277",
       "offices": {
@@ -154,7 +75,7 @@
           "title": "Department for International Trade Colombia",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:54.000+00:00",
-          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-colombia/office/uk-trade-investment-colombia",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-colombia/office/uk-trade-investment-colombia",
           "details": {
             "email": "Bogota.UKTIMail@fco.gov.uk",
             "description": "",
@@ -201,7 +122,7 @@
     }
   ],
   "current_page": 1,
-  "total": 3,
+  "total": 2,
   "pages": 1,
   "page_size": 20,
   "start_index": 1,

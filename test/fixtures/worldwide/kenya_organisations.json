@@ -18,9 +18,9 @@
           "web_url": "https://www.gov.uk/world/organisations/british-high-commission-nairobi/office/british-high-commission-nairobi",
           "details": {
             "email": "Nairobi.Enquiries@fco.gov.uk",
-            "description": "Opening Hours : Monday to Thursday: 7am to 4pm and Friday 7am to 1pm \r\n\r\nGeneral Enquiries\r\nEmail: Nairobi.Enquiries@fco.gov.uk\r\n\r\nConsular \r\nEmail: consular.enquiries@fco.gov.uk\r\nOpening hours:\r\nLocal time: Monday to Thursday: 7:45am to 2pm\r\nClosed on Friday (except for emergencies)\r\n\r\nFor Visa Enquiries\r\nContact: https://ukvi-international.faq-help.com/\r\n\r\nFor Passport enquiries\r\nEmail correspondence should be submitted via the online enquiry form at the following web address: www.gov.uk/passport-advice-line \r\n\r\nPassport collection Opening hours: 10am to 11am Tuesday and Thursday",
+            "description": "Opening Hours : Monday to Thursday: 7am to 4pm and Friday 7am to 1pm \r\n\r\nGeneral Enquiries\r\nEmail: Nairobi.Enquiries@fco.gov.uk\r\n\r\nConsular \r\nEmail: consular.enquiries@fco.gov.uk\r\nAppointment hours:\r\nMonday to Thursday: 8:00am to 12noon (local time)\r\n\r\nFor Visa Enquiries\r\nContact: https://ukvi-international.faq-help.com/\r\n\r\nFor Passport enquiries\r\nEmail correspondence should be submitted via the online enquiry form at the following web address: www.gov.uk/passport-advice-line \r\n\r\n",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays-2017\">Public Holidays 2017</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Monday 2 January</td>\n      <td>New Year’s Day (in lieu)</td>\n    </tr>\n    <tr>\n      <td>Friday 14 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 17 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 1 May</td>\n      <td>Labour Day (May Bank Holiday)</td>\n    </tr>\n    <tr>\n      <td>Monday 29 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Thursday 1 June</td>\n      <td>Madaraka Day (Privilege)</td>\n    </tr>\n    <tr>\n      <td>Monday June 26</td>\n      <td>Eid al-Fitr (End of Ramadhan) in lieu</td>\n    </tr>\n    <tr>\n      <td>Monday 28 August</td>\n      <td>Summer Bank Holiday*</td>\n    </tr>\n    <tr>\n      <td>Friday 1 September</td>\n      <td>Eid Ul Adha*</td>\n    </tr>\n    <tr>\n      <td>Friday 20 October</td>\n      <td>Mashujaa Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 12 December</td>\n      <td>Jamhuri Day Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n<ul>\n  <li>Staff will have to choose to either take the Summer Bank Holiday or Eid Ul Adha but not both.</li>\n</ul>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays-2018\">Public Holidays 2018</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Monday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 30 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 1 May</td>\n      <td>Labour Day (May Bank Holiday)</td>\n    </tr>\n    <tr>\n      <td>Monday 28 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 1 June</td>\n      <td>Madaraka Day</td>\n    </tr>\n    <tr>\n      <td>Friday 15 or Saturday 16 June</td>\n      <td>Eid al-Fitr (End of Ramadhan)</td>\n    </tr>\n    <tr>\n      <td>Wednesday 22 August</td>\n      <td>Eid Ul Adha</td>\n    </tr>\n    <tr>\n      <td>Monday 27 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Wednesday 10 October</td>\n      <td>Moi Day Holiday</td>\n    </tr>\n    <tr>\n      <td>Saturday 20 October</td>\n      <td>Mashujaa Day Holiday</td>\n    </tr>\n    <tr>\n      <td>Wednesday 12 December</td>\n      <td>Jamhuri Day Holiday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
             "type": "High Commission"
           },
           "address": {
@@ -100,13 +100,13 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-kenya",
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-kenya",
       "title": "Department for International Trade Kenya",
       "format": "Worldwide Organisation",
-      "updated_at": "2016-08-10T12:35:29.000+01:00",
-      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-kenya",
+      "updated_at": "2018-05-29T13:37:18.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-kenya",
       "details": {
-        "slug": "uk-trade-investment-kenya"
+        "slug": "department-for-international-trade-kenya"
       },
       "analytics_identifier": "WO167",
       "offices": {
@@ -114,9 +114,9 @@
           "title": "Department for International Trade Kenya",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:53.000+00:00",
-          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-kenya/office/uk-trade-investment-kenya",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-kenya/office/uk-trade-investment-kenya",
           "details": {
-            "email": "Ukti.Nairobi@fco.gov.uk",
+            "email": "DITAfricaTrade@mobile.trade.gov.uk",
             "description": "",
             "contact_form_url": "",
             "access_and_opening_times": "",

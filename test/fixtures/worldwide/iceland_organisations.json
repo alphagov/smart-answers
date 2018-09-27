@@ -17,10 +17,10 @@
           "updated_at": "2014-09-23T11:12:12.000+01:00",
           "web_url": "https://www.gov.uk/world/organisations/british-embassy-reykjavik/office/british-embassy",
           "details": {
-            "email": "info@britishembassy.is ",
-            "description": "",
-            "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<ul>\n  <li>Monday to Friday, 9:00am to 12:00pm</li>\n</ul>\n\n<h2 id=\"public-holidays\">2017 public holidays</h2>\n\n<ul>\n  <li>Monday 2 January (in lieu of 1 January)</li>\n  <li>Thursday 13 April (Maundy Thursday)</li>\n  <li>Friday 14 April (Good Friday)</li>\n  <li>Monday 17 April (Easter Monday)</li>\n  <li>Thursday 20 April (first day of Summer)</li>\n  <li>Monday 1 May (Labour Day)</li>\n  <li>Thursday 25 May (Ascension Day)</li>\n  <li>Monday 5 June (Whitsun Monday)</li>\n  <li>Friday 9 June (in lieu of the Queens Birthday)</li>\n  <li>Monday 19 June (in lieu of the National Day of Iceland)</li>\n  <li>Monday 7 August (Tradesmen´s Day)</li>\n  <li>Monday 25 December (Christmas Day)</li>\n  <li>Tuesday 26 December (Boxing Day)</li>\n  <li>Wednesday 27 December (in lieu of Christmas Eve)</li>\n</ul>\n</div>",
+            "email": "",
+            "description": "For enquiries that are not about consular issues, email info@britishembassy.is",
+            "contact_form_url": "https://www.contact-embassy.service.gov.uk/?country=Iceland&post=British%20Embassy%20Reykjavik%20",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<ul>\n  <li>Monday to Friday, 9:00am to 12:00pm</li>\n</ul>\n\n<h2 id=\"public-holidays\">2018 public holidays</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 29 March</td>\n      <td>Maundy Thursday</td>\n    </tr>\n    <tr>\n      <td>Friday 30 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Thursday 19 April</td>\n      <td>first day of Summer</td>\n    </tr>\n    <tr>\n      <td>Monday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 10 May</td>\n      <td>Ascension Day</td>\n    </tr>\n    <tr>\n      <td>Monday 21 May</td>\n      <td>Whitsun Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 6 August</td>\n      <td>Tradesmen’s Day</td>\n    </tr>\n    <tr>\n      <td>Monday 24 December</td>\n      <td>Christmas Eve</td>\n    </tr>\n    <tr>\n      <td>Tuesday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Monday 31 December</td>\n      <td>New Year’s Eve</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -51,45 +51,7 @@
           ]
         },
         "other": [
-          {
-            "title": "Visa section",
-            "format": "World Office",
-            "updated_at": "2014-02-19T16:35:03.000+00:00",
-            "web_url": "https://www.gov.uk/world/organisations/british-embassy-reykjavik/office/visa-section",
-            "details": {
-              "email": "",
-              "description": "",
-              "contact_form_url": "https://ukvi-international.faq-help.com/",
-              "access_and_opening_times": "<div class=\"govspeak\">\n<p>Visas and Immigration: \nhttps://www.gov.uk/visas-immigration</p>\n\n</div>",
-              "type": "Other"
-            },
-            "address": {
-              "adr": {
-                "fn": "",
-                "street-address": "UK Visa Application Centre\r\nTeleperformance\r\nHotel Radisson Blu Saga\r\nHagatorg \r\n107 Reykjavík ",
-                "postal-code": "",
-                "locality": "",
-                "region": "",
-                "country-name": "Iceland"
-              },
-              "label": {
-                "value": "UK Visa Application Centre\r\nTeleperformance\r\nHotel Radisson Blu Saga\r\nHagatorg \r\n107 Reykjavík \n \nIceland"
-              }
-            },
-            "contact_numbers": [
-              {
-                "label": "Telephone",
-                "number": "+354 497 1220 (Charges will apply. For more information visit: https://ukvi-international.faq-help.com/)"
-              },
-              {
-                "label": "Telephone",
-                "number": "+44 1243 213 318 (Charges will apply. For more information visit: https://ukvi-international.faq-help.com/)"
-              }
-            ],
-            "services": [
 
-            ]
-          }
         ]
       },
       "sponsors": [
@@ -103,13 +65,13 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/ukti-iceland",
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-iceland",
       "title": "Department for International Trade Iceland",
       "format": "Worldwide Organisation",
-      "updated_at": "2016-08-12T11:05:23.000+01:00",
-      "web_url": "https://www.gov.uk/world/organisations/ukti-iceland",
+      "updated_at": "2018-05-29T13:31:54.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-iceland",
       "details": {
-        "slug": "ukti-iceland"
+        "slug": "department-for-international-trade-iceland"
       },
       "analytics_identifier": "WO331",
       "offices": {
@@ -117,12 +79,12 @@
           "title": "Department for International Trade Iceland",
           "format": "World Office",
           "updated_at": "2014-07-29T13:20:08.000+01:00",
-          "web_url": "https://www.gov.uk/world/organisations/ukti-iceland/office/uk-trade-investment-iceland",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-iceland/office/uk-trade-investment-iceland",
           "details": {
             "email": "info@britishembassy.is",
-            "description": "Monday to Friday: 8:30am to 12:00pm",
+            "description": "",
             "contact_form_url": "",
-            "access_and_opening_times": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><p>Get information on <a href=\"https://www.gov.uk/world/organisations/british-embassy-reykjavik/office/british-embassy\">embassy access, opening times and public holidays</a>.</p>\n</div>",
             "type": "Other"
           },
           "address": {
@@ -140,8 +102,8 @@
           },
           "contact_numbers": [
             {
-              "label": "(+354)",
-              "number": "550 5100"
+              "label": "Tel:",
+              "number": "(+354) 550 5100"
             }
           ],
           "services": [

@@ -4,7 +4,7 @@
       "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-luanda",
       "title": "British Embassy Luanda",
       "format": "Worldwide Organisation",
-      "updated_at": "2013-06-12T12:53:54.000+01:00",
+      "updated_at": "2017-09-29T08:54:23.000+01:00",
       "web_url": "https://www.gov.uk/world/organisations/british-embassy-luanda",
       "details": {
         "slug": "british-embassy-luanda"
@@ -17,33 +17,29 @@
           "updated_at": "2013-03-25T10:37:53.000+00:00",
           "web_url": "https://www.gov.uk/world/organisations/british-embassy-luanda/office/british-embassy-luanda",
           "details": {
-            "email": "postmaster.luand@fco.gov.uk",
+            "email": "postmaster.luand@fco.gov.uk ",
             "description": "",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>Monday to Thursday: 8:00 am to 12:30 pm and 1:30 pm to 4:30 pm ; Friday: 8:00 am to 1:00 pm</p>\n\n<h3 id=\"consular\">Consular</h3>\n<p>Monday to Thursday: 8:30 am to 12:00 pm</p>\n\n<h2 id=\"public-holidays\">Public Holidays</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Monday 02                               January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 28                              February</td>\n      <td>Carnival</td>\n    </tr>\n    <tr>\n      <td>Wednesday 08                         March</td>\n      <td>International Women’s Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 4 April</td>\n      <td>Peace Day</td>\n    </tr>\n    <tr>\n      <td>Friday 14 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 17 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 01 May</td>\n      <td>Early May bank holiday/Labour Day</td>\n    </tr>\n    <tr>\n      <td>Monday 29 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Wednesday 23                          August</td>\n      <td>Angolan General Elections</td>\n    </tr>\n    <tr>\n      <td>Monday 28 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Thursday 2 November</td>\n      <td>All Souls’ Day</td>\n    </tr>\n    <tr>\n      <td>Friday 22 December</td>\n      <td>Closed for Christmas</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<h3 id=\"embassy\">Embassy</h3>\n\n<p>Monday to Thursday: 8:00 am to 12:30 pm and 1:30 pm to 4:30 pm ; Friday: 8:00 am to 1:00 pm</p>\n\n<h3 id=\"consular\">Consular</h3>\n\n<p>Tuesday and Thursday: 9:00 am to 11:00 pm</p>\n\n<h2 id=\"consular-queries-e-mail\">Consular queries e-mail</h2>\n\n<p>Luanda.consular@fco.gov.uk</p>\n\n<h2 id=\"public-holidays---2018\">Public Holidays - 2018</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Date</td>\n      <td>Day</td>\n      <td>Holiday</td>\n    </tr>\n    <tr>\n      <td>January 1</td>\n      <td>Monday</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>February 13</td>\n      <td>Tuesday</td>\n      <td>Carnival</td>\n    </tr>\n    <tr>\n      <td>March 8</td>\n      <td>Thursday</td>\n      <td>International Women’s day</td>\n    </tr>\n    <tr>\n      <td>March 30</td>\n      <td>Friday</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>April 02</td>\n      <td>Monday</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>April 04</td>\n      <td>Wednesday</td>\n      <td>Peace day</td>\n    </tr>\n    <tr>\n      <td>May 7</td>\n      <td>Monday</td>\n      <td>Early  May Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>May 28</td>\n      <td>Monday</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>August 27</td>\n      <td>Monday</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>September 17</td>\n      <td>Monday</td>\n      <td>National Heroes day</td>\n    </tr>\n    <tr>\n      <td>November 2</td>\n      <td>Friday</td>\n      <td>All Souls’ Day</td>\n    </tr>\n    <tr>\n      <td>December 25</td>\n      <td>Tuesday</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>December 26</td>\n      <td>Wednesday</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
             "type": "Embassy"
           },
           "address": {
             "adr": {
               "fn": "",
-              "street-address": "Rua 17 de Setembro, Nº 4\r\nCaixa ",
-              "postal-code": "1244",
-              "locality": "Luanda",
+              "street-address": "Rua 17 de Setembro, Nº 4\r\nCaixa Postal 1244",
+              "postal-code": "",
+              "locality": "Ingombotas",
               "region": "Luanda",
               "country-name": "Angola"
             },
             "label": {
-              "value": "Rua 17 de Setembro, Nº 4\r\nCaixa \nLuanda\nLuanda\n1244\nAngola"
+              "value": "Rua 17 de Setembro, Nº 4\r\nCaixa Postal 1244\nIngombotas\nLuanda\nAngola"
             }
           },
           "contact_numbers": [
             {
               "label": "Enquiries",
-              "number": "Telephone +244 222 334 582/83; 222 372 917; 222 330 275; 222 396 910"
-            },
-            {
-              "label": "Enquiries ",
-              "number": "Fax +244 222 333 331"
+              "number": "Telephone +244  222 330 275; 244 222 334 583 press option 9 and extension 2258 "
             }
           ],
           "services": [
@@ -96,13 +92,13 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-angola",
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-angola",
       "title": "Department for International Trade Angola",
       "format": "Worldwide Organisation",
-      "updated_at": "2016-08-08T12:25:17.000+01:00",
-      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-angola",
+      "updated_at": "2018-05-29T13:16:40.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-angola",
       "details": {
-        "slug": "uk-trade-investment-angola"
+        "slug": "department-for-international-trade-angola"
       },
       "analytics_identifier": "WO203",
       "offices": {
@@ -110,9 +106,9 @@
           "title": "Department for International Trade Angola",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:53.000+00:00",
-          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-angola/office/uk-trade-investment-angola",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-angola/office/uk-trade-investment-angola",
           "details": {
-            "email": "simon.kelly@fco.gsi.gov.uk",
+            "email": "DITAfricaTrade@mobile.trade.gov.uk",
             "description": "",
             "contact_form_url": "",
             "access_and_opening_times": "",

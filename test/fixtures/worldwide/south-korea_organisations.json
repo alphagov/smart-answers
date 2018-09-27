@@ -20,7 +20,7 @@
             "email": "Enquiry.Seoul@fco.gov.uk ",
             "description": "Office hours (Local time):\r\n* Monday-Thursday: 09:00-12:30 / 13:30-17:15\r\n* Friday: 09:00-12:30 / 13:30-17:00",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>The Foreign and Commonwealth Office and this embassy are keen to ensure that their buildings and services are fully accessible to disabled members of the public. Wherever possible, we have made our buildings and services accessible. Where this is not possible due to security or other restrictions, we will endeavour to provide a service or access to a building in an alternative way to ensure equality of access for disabled people. To assist disabled visitors, we have set out below details of disabled access at this embassy.</p>\n\n<h3 id=\"general-physical-access\">General physical access</h3>\n<p>Our Security Guards will give every assistance to wheelchair users and those with limited physical mobility. Those with limited physical mobility may be unable to access the embassy compound via the security office. On such occasions, the guards will arrange for a staff member from the embassy to accompany the visitor.</p>\n\n<p>The main entrance to the embassy is unsuitable for those with limited physical mobility. However, the rear entrance allows easy access for wheelchair users and others with limited physical mobility. Once in the embassy building, visitors, accompanied by a staff member, can use the lift to access all floors and the disabled toilet in the sub-ground area near Aston Hall. All our offices have level flooring with either carpet or other smooth surfaces. Lighting, during office hours, is good in all areas.</p>\n\n<p>Parking facilities and full transfer space for wheelchairs are available with prior notice.</p>\n\n<h3 id=\"access-for-visually-impaired-or-deafhard-of-hearing-visitors\">Access for visually-impaired or deaf/hard of hearing visitors</h3>\n<p>Guide dogs and Hearing dogs are welcome to accompany visitors to the embassy.</p>\n\n<h3 id=\"contact-us\">Contact us</h3>\n<p>If you need to visit us or use our services and feel that they may be inaccessible to you, please contact Jae Whang, Head of Corporate Services, Tel: 02-3210-5500, who will find an alternative way of providing access for you.</p>\n\n<h3 id=\"public-holidays\">2017 Public holidays</h3>\n\n<ul>\n  <li>\n    <p>Monday 2 January: New Year’s Day</p>\n  </li>\n  <li>\n    <p>Friday 27 January – Monday 30 January: Lunar New Year</p>\n  </li>\n  <li>\n    <p>Friday 14 April: Good Friday</p>\n  </li>\n  <li>\n    <p>Monday 17 April: Easter Monday</p>\n  </li>\n  <li>\n    <p>Wednesday 3 May: Buddha’s Birthday</p>\n  </li>\n  <li>\n    <p>Friday 5 May: Children’s Day</p>\n  </li>\n  <li>\n    <p>Wednesday 4 October – Friday 6 October: Chuseok</p>\n  </li>\n  <li>\n    <p>Monday 9 October: Hangul Day</p>\n  </li>\n  <li>\n    <p>Monday 25 December – Tuesday 26 December: Christmas</p>\n  </li>\n</ul>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>The Foreign and Commonwealth Office and this embassy are keen to ensure that their buildings and services are fully accessible to disabled members of the public. Wherever possible, we have made our buildings and services accessible. Where this is not possible due to security or other restrictions, we will endeavour to provide a service or access to a building in an alternative way to ensure equality of access for disabled people. To assist disabled visitors, we have set out below details of disabled access at this embassy.</p>\n\n<h3 id=\"general-physical-access\">General physical access</h3>\n<p>Our Security Guards will give every assistance to wheelchair users and those with limited physical mobility. Those with limited physical mobility may be unable to access the embassy compound via the security office. On such occasions, the guards will arrange for a staff member from the embassy to accompany the visitor.</p>\n\n<p>The main entrance to the embassy is unsuitable for those with limited physical mobility. However, the rear entrance allows easy access for wheelchair users and others with limited physical mobility. Once in the embassy building, visitors, accompanied by a staff member, can use the lift to access all floors and the disabled toilet in the sub-ground area near Aston Hall. All our offices have level flooring with either carpet or other smooth surfaces. Lighting, during office hours, is good in all areas.</p>\n\n<p>Parking facilities and full transfer space for wheelchairs are available with prior notice.</p>\n\n<h3 id=\"access-for-visually-impaired-or-deafhard-of-hearing-visitors\">Access for visually-impaired or deaf/hard of hearing visitors</h3>\n<p>Guide dogs and Hearing dogs are welcome to accompany visitors to the embassy.</p>\n\n<h3 id=\"contact-us\">Contact us</h3>\n<p>If you need to visit us or use our services and feel that they may be inaccessible to you, please contact Jae Whang, Head of Corporate Services, Tel: 02-3210-5500, who will find an alternative way of providing access for you.</p>\n\n<h3 id=\"public-holidays\">2018 Public holidays</h3>\n\n<ul>\n  <li>\n    <p>Monday 1 January: New Year’s Day</p>\n  </li>\n  <li>\n    <p>Thursday 15 – Friday 16 January: Lunar New Year</p>\n  </li>\n  <li>\n    <p>Friday 30 March: Good Friday</p>\n  </li>\n  <li>\n    <p>Monday 2 April: Easter Monday</p>\n  </li>\n  <li>\n    <p>Monday 7 May: Children’s Day</p>\n  </li>\n  <li>\n    <p>Tuesday 22 May: Buddha’s Birthday</p>\n  </li>\n  <li>\n    <p>Friday 25 May: Queen’s Birthday</p>\n  </li>\n  <li>\n    <p>Monday 24 – Wednesday 26 September: Chuseok</p>\n  </li>\n  <li>\n    <p>9 October: Hangul Day</p>\n  </li>\n  <li>\n    <p>Tuesday 25 – Wednesday 26 December: Christmas</p>\n  </li>\n</ul>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -28,12 +28,12 @@
               "fn": "British Embassy Seoul",
               "street-address": "Sejong-daero 19-gil 24",
               "postal-code": "04519",
-              "locality": "Jung-gu",
-              "region": "Seoul",
+              "locality": "Seoul",
+              "region": "Jung-gu",
               "country-name": "South Korea"
             },
             "label": {
-              "value": "British Embassy Seoul\nSejong-daero 19-gil 24\nJung-gu Seoul\n04519\nSouth Korea"
+              "value": "British Embassy Seoul\nSejong-daero 19-gil 24\nSeoul Jung-gu\n04519\nSouth Korea"
             }
           },
           "contact_numbers": [
@@ -58,9 +58,9 @@
             "web_url": "https://www.gov.uk/world/organisations/british-embassy-seoul/office/consular-information",
             "details": {
               "email": "Consular.Seoul@fco.gov.uk ",
-              "description": "Opening hours:\r\nMonday to Friday: 09:30 to 12:00 and 14:00 to 16:30\r\nConsular section is closed on Wednesdays.\r\n\r\n* Fee-paying services\r\nMonday-Friday, 09:30-12:00\r\nPlease note: appointments required for all documentary and notarial services\r\n\r\nFor fee paying services including the acceptance of:\r\n\r\n- notarial applications\r\n- and for pre-booked appointments (marriage, notarial, citizenship ceremonies)\r\n\r\n* General enquiries\r\nMonday-Friday, 14:00-16:30 \r\nAt these times we are open for general enquires and non fee paying services only. Please note, we only accept non-emergency enquiry phone calls in the afternoon.\r\n\r\nIf you would like to report an Emergency involving a British National, please call (+82) (2) 3210 5500 at any time.\r\n",
+              "description": "Opening hours:\r\nMonday to Friday: 09:30 to 12:00 and 14:00 to 16:30\r\nConsular section is closed on Tuesdays and Wednesdays\r\n\r\n* Fee-paying services\r\nMonday-Friday, 09:30-12:00\r\nPlease note: appointments required for all documentary and notarial services\r\n\r\nFor fee paying services including the acceptance of:\r\n\r\n- notarial applications\r\n- and for pre-booked appointments (marriage, notarial, citizenship ceremonies)\r\n\r\n* General enquiries\r\nMonday-Friday, 14:00-16:30 \r\nAt these times we are open for general enquires and non fee paying services only. Please note, we only accept non-emergency enquiry phone calls in the afternoon.\r\n\r\nIf you would like to report an Emergency involving a British National, please call (+82) (2) 3210 5500 at any time.\r\n",
               "contact_form_url": "",
-              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>The Foreign and Commonwealth Office and this embassy are keen to ensure that their buildings and services are fully accessible to disabled members of the public. Wherever possible, we have made our buildings and services accessible. Where this is not possible due to security or other restrictions, we will endeavour to provide a service or access to a building in an alternative way to ensure equality of access for disabled people. To assist disabled visitors, we have set out below details of disabled access at this embassy.</p>\n\n<h3 id=\"general-physical-access\">General physical access</h3>\n<p>Our Security Guards will give every assistance to wheelchair users and those with limited physical mobility. Those with limited physical mobility may be unable to access the embassy compound via the security office. On such occasions, the guards will arrange for a staff member from the embassy to accompany the visitor.</p>\n\n<p>The main entrance to the embassy is unsuitable for those with limited physical mobility. However, the rear entrance allows easy access for wheelchair users and others with limited physical mobility. Once in the embassy building, visitors, accompanied by a staff member, can use the lift to access all floors and the disabled toilet in the sub-ground area near Aston Hall. All our offices have level flooring with either carpet or other smooth surfaces. Lighting, during office hours, is good in all areas.</p>\n\n<p>Parking facilities and full transfer space for wheelchairs are available with prior notice.</p>\n\n<h3 id=\"access-for-visually-impaired-or-deafhard-of-hearing-visitors\">Access for visually-impaired or deaf/hard of hearing visitors</h3>\n<p>Guide dogs and Hearing dogs are welcome to accompany visitors to the embassy.</p>\n\n<h3 id=\"contact-us\">Contact us</h3>\n<p>If you need to visit us or use our services and feel that they may be inaccessible to you, please contact Jae Whang, Head of Corporate Services, Tel: 02-3210-5500, who will find an alternative way of providing access for you.</p>\n\n<h3 id=\"public-holidays\">2017 Public holidays</h3>\n\n<ul>\n  <li>\n    <p>Monday 2 January: New Year’s Day</p>\n  </li>\n  <li>\n    <p>Friday 27 January – Monday 30 January: Lunar New Year</p>\n  </li>\n  <li>\n    <p>Friday 14 April: Good Friday</p>\n  </li>\n  <li>\n    <p>Monday 17 April: Easter Monday</p>\n  </li>\n  <li>\n    <p>Wednesday 3 May: Buddha’s Birthday</p>\n  </li>\n  <li>\n    <p>Friday 5 May: Children’s Day</p>\n  </li>\n  <li>\n    <p>Wednesday 4 October – Friday 6 October: Chuseok</p>\n  </li>\n  <li>\n    <p>Monday 9 October: Hangul Day</p>\n  </li>\n  <li>\n    <p>Monday 25 December – Tuesday 26 December: Christmas</p>\n  </li>\n</ul>\n</div>",
+              "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"disabled-access\">Disabled access</h2>\n\n<p>The Foreign and Commonwealth Office and this embassy are keen to ensure that their buildings and services are fully accessible to disabled members of the public. Wherever possible, we have made our buildings and services accessible. Where this is not possible due to security or other restrictions, we will endeavour to provide a service or access to a building in an alternative way to ensure equality of access for disabled people. To assist disabled visitors, we have set out below details of disabled access at this embassy.</p>\n\n<h3 id=\"general-physical-access\">General physical access</h3>\n<p>Our Security Guards will give every assistance to wheelchair users and those with limited physical mobility. Those with limited physical mobility may be unable to access the embassy compound via the security office. On such occasions, the guards will arrange for a staff member from the embassy to accompany the visitor.</p>\n\n<p>The main entrance to the embassy is unsuitable for those with limited physical mobility. However, the rear entrance allows easy access for wheelchair users and others with limited physical mobility. Once in the embassy building, visitors, accompanied by a staff member, can use the lift to access all floors and the disabled toilet in the sub-ground area near Aston Hall. All our offices have level flooring with either carpet or other smooth surfaces. Lighting, during office hours, is good in all areas.</p>\n\n<p>Parking facilities and full transfer space for wheelchairs are available with prior notice.</p>\n\n<h3 id=\"access-for-visually-impaired-or-deafhard-of-hearing-visitors\">Access for visually-impaired or deaf/hard of hearing visitors</h3>\n<p>Guide dogs and Hearing dogs are welcome to accompany visitors to the embassy.</p>\n\n<h3 id=\"contact-us\">Contact us</h3>\n<p>If you need to visit us or use our services and feel that they may be inaccessible to you, please contact Jae Whang, Head of Corporate Services, Tel: 02-3210-5500, who will find an alternative way of providing access for you.</p>\n\n<h3 id=\"public-holidays\">2018 Public holidays</h3>\n\n<ul>\n  <li>\n    <p>Monday 1 January: New Year’s Day</p>\n  </li>\n  <li>\n    <p>Thursday 15 – Friday 16 January: Lunar New Year</p>\n  </li>\n  <li>\n    <p>Friday 30 March: Good Friday</p>\n  </li>\n  <li>\n    <p>Monday 2 April: Easter Monday</p>\n  </li>\n  <li>\n    <p>Monday 7 May: Children’s Day</p>\n  </li>\n  <li>\n    <p>Tuesday 22 May: Buddha’s Birthday</p>\n  </li>\n  <li>\n    <p>Friday 25 May: Queen’s Birthday</p>\n  </li>\n  <li>\n    <p>Monday 24 – Wednesday 26 September: Chuseok</p>\n  </li>\n  <li>\n    <p>9 October: Hangul Day</p>\n  </li>\n  <li>\n    <p>Tuesday 25 – Wednesday 26 December: Christmas</p>\n  </li>\n</ul>\n</div>",
               "type": "Embassy"
             },
             "address": {
@@ -106,7 +106,7 @@
       "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-south-korea",
       "title": "Department for International Trade South Korea",
       "format": "Worldwide Organisation",
-      "updated_at": "2016-12-09T03:15:46.000+00:00",
+      "updated_at": "2018-05-29T13:48:12.000+01:00",
       "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-south-korea",
       "details": {
         "slug": "department-for-international-trade-south-korea"
@@ -194,7 +194,7 @@
             "updated_at": "2014-07-28T01:44:28.000+01:00",
             "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-south-korea/office/investment-infrastructure-regeneration",
             "details": {
-              "email": "Semi.Kim@fco.gov.uk ",
+              "email": "jungyoon.kim@fco.gov.uk ",
               "description": "",
               "contact_form_url": "",
               "access_and_opening_times": "",
@@ -202,7 +202,7 @@
             },
             "address": {
               "adr": {
-                "fn": "Semi Kim, Investment Officer",
+                "fn": "Jungyoon Kim, Investment Officer",
                 "street-address": "British Embassy Seoul",
                 "postal-code": "",
                 "locality": "",
@@ -210,7 +210,7 @@
                 "country-name": "South Korea"
               },
               "label": {
-                "value": "Semi Kim, Investment Officer\nBritish Embassy Seoul\n \nSouth Korea"
+                "value": "Jungyoon Kim, Investment Officer\nBritish Embassy Seoul\n \nSouth Korea"
               }
             },
             "contact_numbers": [
@@ -229,7 +229,7 @@
             "updated_at": "2014-07-28T01:48:30.000+01:00",
             "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-south-korea/office/investment-life-sciences-finance-business-services",
             "details": {
-              "email": "Julianna.Chung@fco.gov.uk ",
+              "email": "Heejung.Son@fco.gov.uk",
               "description": "",
               "contact_form_url": "",
               "access_and_opening_times": "",
@@ -237,7 +237,7 @@
             },
             "address": {
               "adr": {
-                "fn": "Julianna Chung, Investment Manager",
+                "fn": "Heejung Son, Investment Officer",
                 "street-address": "British Embassy Seoul",
                 "postal-code": "",
                 "locality": "",
@@ -245,7 +245,7 @@
                 "country-name": "South Korea"
               },
               "label": {
-                "value": "Julianna Chung, Investment Manager\nBritish Embassy Seoul\n \nSouth Korea"
+                "value": "Heejung Son, Investment Officer\nBritish Embassy Seoul\n \nSouth Korea"
               }
             },
             "contact_numbers": [
@@ -294,7 +294,7 @@
             ]
           },
           {
-            "title": "Trade: Consumer Goods, Design, Music, Film, Animation",
+            "title": "Trade: Consumer Goods, Design",
             "format": "World Office",
             "updated_at": "2014-07-28T01:53:27.000+01:00",
             "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-south-korea/office/trade-consumer-goods-design-music-film-animation",
@@ -364,7 +364,7 @@
             ]
           },
           {
-            "title": "Trade: Electronics, ICT, Digital, Gaming, Technology",
+            "title": "Trade: Technology, Digital Economy",
             "format": "World Office",
             "updated_at": "2014-07-28T01:55:37.000+01:00",
             "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-south-korea/office/trade-electronics-ict-digital-gaming-technology",
@@ -377,7 +377,7 @@
             },
             "address": {
               "adr": {
-                "fn": "Cindy Kim, Senior Trade Manager",
+                "fn": "Cindy Kim, Head of Trade Strategy ",
                 "street-address": "British Embassy Seoul",
                 "postal-code": "",
                 "locality": "",
@@ -385,7 +385,7 @@
                 "country-name": "South Korea"
               },
               "label": {
-                "value": "Cindy Kim, Senior Trade Manager\nBritish Embassy Seoul\n \nSouth Korea"
+                "value": "Cindy Kim, Head of Trade Strategy \nBritish Embassy Seoul\n \nSouth Korea"
               }
             },
             "contact_numbers": [
@@ -434,12 +434,12 @@
             ]
           },
           {
-            "title": "Trade: Food & Drink, Agriculture, Market Access",
+            "title": "Trade: Market Access, Food & Drink, Agriculture",
             "format": "World Office",
             "updated_at": "2014-07-28T01:57:31.000+01:00",
             "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-south-korea/office/trade-food-drink-agriculture",
             "details": {
-              "email": "Yoonah.Lee@fco.gov.uk ",
+              "email": "Yejin.Yoo@fco.gov.uk ",
               "description": "",
               "contact_form_url": "",
               "access_and_opening_times": "",
@@ -447,7 +447,7 @@
             },
             "address": {
               "adr": {
-                "fn": "Yoonah Lee, Trade Officer",
+                "fn": "Yejin Yoo, Trade Manager ",
                 "street-address": "British Embassy Seoul",
                 "postal-code": "",
                 "locality": "",
@@ -455,7 +455,7 @@
                 "country-name": "South Korea"
               },
               "label": {
-                "value": "Yoonah Lee, Trade Officer\nBritish Embassy Seoul\n \nSouth Korea"
+                "value": "Yejin Yoo, Trade Manager \nBritish Embassy Seoul\n \nSouth Korea"
               }
             },
             "contact_numbers": [
@@ -469,7 +469,7 @@
             ]
           },
           {
-            "title": "Trade: Healthcare, Bio, Pharmacy, Cosmetics",
+            "title": "Trade: Digital Economy, Life Sciences",
             "format": "World Office",
             "updated_at": "2014-07-28T01:58:24.000+01:00",
             "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-south-korea/office/trade-healthcare-bio-pharmacy-cosmetics",
@@ -482,7 +482,7 @@
             },
             "address": {
               "adr": {
-                "fn": "Jimin Kim, Trade Officer",
+                "fn": "Jimin Kim, Trade Manager",
                 "street-address": "British Embassy Seoul",
                 "postal-code": "",
                 "locality": "",
@@ -490,48 +490,13 @@
                 "country-name": "South Korea"
               },
               "label": {
-                "value": "Jimin Kim, Trade Officer\nBritish Embassy Seoul\n \nSouth Korea"
+                "value": "Jimin Kim, Trade Manager\nBritish Embassy Seoul\n \nSouth Korea"
               }
             },
             "contact_numbers": [
               {
                 "label": "Direct Line",
                 "number": "+82 (0)2 3210 5596"
-              }
-            ],
-            "services": [
-
-            ]
-          },
-          {
-            "title": "Trade: Global Nuclear, Global Sports & HVO",
-            "format": "World Office",
-            "updated_at": "2014-07-28T01:59:18.000+01:00",
-            "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-south-korea/office/trade-global-nuclear-global-sports-hvo",
-            "details": {
-              "email": "Yunjin.Lee@fco.gov.uk ",
-              "description": "",
-              "contact_form_url": "",
-              "access_and_opening_times": "",
-              "type": "Other"
-            },
-            "address": {
-              "adr": {
-                "fn": "Yunjin Lee, Senior Trade Manager",
-                "street-address": "British Embassy Seoul",
-                "postal-code": "",
-                "locality": "",
-                "region": "",
-                "country-name": "South Korea"
-              },
-              "label": {
-                "value": "Yunjin Lee, Senior Trade Manager\nBritish Embassy Seoul\n \nSouth Korea"
-              }
-            },
-            "contact_numbers": [
-              {
-                "label": "Direct Line",
-                "number": "+82 (0)2 3210 5626"
               }
             ],
             "services": [
@@ -571,12 +536,12 @@
             ]
           },
           {
-            "title": "Investment: ICT, Creative Industries, Technology",
+            "title": "Trade: Life Sciences",
             "format": "World Office",
             "updated_at": "2015-03-24T02:02:40.000+00:00",
             "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-south-korea/office/investment-ict-creative-telecoms-broadcasting-gaming--2",
             "details": {
-              "email": "Yejin.Yoo@fco.gov.uk ",
+              "email": "Eunjung.lee@fco.gov.uk",
               "description": "",
               "contact_form_url": "",
               "access_and_opening_times": "",
@@ -584,7 +549,7 @@
             },
             "address": {
               "adr": {
-                "fn": "Yejin Yoo, Investment Officer",
+                "fn": "Eunjung Lee, Trade Officer",
                 "street-address": "British Embassy Seoul",
                 "postal-code": "",
                 "locality": "",
@@ -592,13 +557,258 @@
                 "country-name": "South Korea"
               },
               "label": {
-                "value": "Yejin Yoo, Investment Officer\nBritish Embassy Seoul\n \nSouth Korea"
+                "value": "Eunjung Lee, Trade Officer\nBritish Embassy Seoul\n \nSouth Korea"
               }
             },
             "contact_numbers": [
               {
                 "label": "Direct Line",
-                "number": "+82 (0)2 3210 5584"
+                "number": "+82 (0)2 3210 5603"
+              }
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "Trade: Legal, Financial and Professional Services",
+            "format": "World Office",
+            "updated_at": "2018-04-17T04:05:03.000+01:00",
+            "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-south-korea/office/trade-legal-financial-and-professional-services",
+            "details": {
+              "email": "paul.sharkie@fco.gov.uk ",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "Paul B. Sharkie , Head of Trade Operations",
+                "street-address": "British Embassy Seoul",
+                "postal-code": "",
+                "locality": "",
+                "region": "",
+                "country-name": "South Korea"
+              },
+              "label": {
+                "value": "Paul B. Sharkie , Head of Trade Operations\nBritish Embassy Seoul\n \nSouth Korea"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Direct Line",
+                "number": "+82 (0)2 3210 5621 "
+              }
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "Investment: ICT, Creative Industries, Technology",
+            "format": "World Office",
+            "updated_at": "2018-04-17T04:06:29.000+01:00",
+            "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-south-korea/office/investment-ict-creative-industries-technology",
+            "details": {
+              "email": "",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "",
+                "postal-code": "",
+                "locality": "",
+                "region": "",
+                "country-name": ""
+              },
+              "label": {
+                "value": ""
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Vacant",
+                "number": "-"
+              }
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "Marketing: Marketing & Comms",
+            "format": "World Office",
+            "updated_at": "2018-04-17T04:07:49.000+01:00",
+            "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-south-korea/office/marketing-marketing-comms",
+            "details": {
+              "email": "Yujin.Jung@fco.gov.uk ",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "Yujin Jung, Marketing Manager ",
+                "street-address": "British Embassy Seoul",
+                "postal-code": "",
+                "locality": "",
+                "region": "",
+                "country-name": "South Korea"
+              },
+              "label": {
+                "value": "Yujin Jung, Marketing Manager \nBritish Embassy Seoul\n \nSouth Korea"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Direct Line",
+                "number": "+82 (0)2 3210 5647 "
+              }
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "Marketing: Marketing GREAT Campaigns ",
+            "format": "World Office",
+            "updated_at": "2018-04-17T04:09:08.000+01:00",
+            "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-south-korea/office/marketing-marketing-great-campaigns",
+            "details": {
+              "email": "ara.koh@fco.gov.uk ",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "Ara Koh, Marketing Officer",
+                "street-address": "British Embassy Seoul",
+                "postal-code": "",
+                "locality": "",
+                "region": "",
+                "country-name": "South Korea"
+              },
+              "label": {
+                "value": "Ara Koh, Marketing Officer\nBritish Embassy Seoul\n \nSouth Korea"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Direct Line",
+                "number": "+82 (0)2 3210 5648"
+              }
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "Defence: Defence & Security ",
+            "format": "World Office",
+            "updated_at": "2018-04-17T04:09:59.000+01:00",
+            "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-south-korea/office/defence-defence-security",
+            "details": {
+              "email": "sun.yoon@fco.gov.uk ",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "Sun Yoon, Senior Manager ",
+                "street-address": "British Embassy Seoul",
+                "postal-code": "",
+                "locality": "",
+                "region": "",
+                "country-name": "South Korea"
+              },
+              "label": {
+                "value": "Sun Yoon, Senior Manager \nBritish Embassy Seoul\n \nSouth Korea"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Direct Line",
+                "number": "+82 (0)2 3210 5521"
+              }
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "Defence : Defence ",
+            "format": "World Office",
+            "updated_at": "2018-04-17T04:10:58.000+01:00",
+            "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-south-korea/office/defence-defence",
+            "details": {
+              "email": "mihyun.lee@fco.gov.uk ",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "Mihyun Lee, Senior Manager ",
+                "street-address": "British Embassy Seoul",
+                "postal-code": "",
+                "locality": "",
+                "region": "",
+                "country-name": "South Korea"
+              },
+              "label": {
+                "value": "Mihyun Lee, Senior Manager \nBritish Embassy Seoul\n \nSouth Korea"
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Direct Line",
+                "number": "+82 (0)2 3210 5681"
+              }
+            ],
+            "services": [
+
+            ]
+          },
+          {
+            "title": "Defence : Security ",
+            "format": "World Office",
+            "updated_at": "2018-04-17T04:11:38.000+01:00",
+            "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-south-korea/office/defence-security",
+            "details": {
+              "email": "",
+              "description": "",
+              "contact_form_url": "",
+              "access_and_opening_times": "",
+              "type": "Other"
+            },
+            "address": {
+              "adr": {
+                "fn": "",
+                "street-address": "",
+                "postal-code": "",
+                "locality": "",
+                "region": "",
+                "country-name": ""
+              },
+              "label": {
+                "value": ""
+              }
+            },
+            "contact_numbers": [
+              {
+                "label": "Vacant",
+                "number": "-"
               }
             ],
             "services": [

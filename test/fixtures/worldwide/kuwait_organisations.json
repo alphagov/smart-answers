@@ -18,9 +18,9 @@
           "web_url": "https://www.gov.uk/world/organisations/british-embassy-kuwait/office/british-embassy-kuwait-main-contact",
           "details": {
             "email": "",
-            "description": "Our working hours are now Sunday to Wednesday 07:30 - 15:30, Thursday 07:30-13:30.\r\n\r\nThe weekend in Kuwait is Friday and Saturday.\r\n\r\nFor information about:\r\nConsular (NOT VISA OR PASSPORT) services to British nationals:\r\nconsularenquirieskuwait@fco.gov.uk\r\n\r\nUK Trade & Investment enquiries:\r\nUKTI.Kuwait@fco.gov.uk\r\n\r\nUK Visas and Immigration Enquiries:\r\nhttps://ukvi-international.faq-help.com/\r\n\r\n\r\n\r\n\r\n ",
+            "description": "Our working hours are now Sunday to Wednesday 07:30 - 15:30, Thursday 07:30-13:30.\r\n\r\nThe weekend in Kuwait is Friday and Saturday.\r\n\r\nFor information about:\r\nConsular (NOT VISA OR PASSPORT) services to British nationals:\r\nconsularenquirieskuwait@fco.gov.uk\r\n\r\nUK Trade & Investment enquiries:\r\nUKTI.Kuwait@fco.gov.uk\r\n\r\nUK Visas and Immigration Enquiries:\r\nHow to apply for a UK visa\r\nhttps://www.gov.uk/apply-uk-visa\r\n\r\nContact UK Visas and Immigration about your application\r\nhttps://www.gov.uk/contact-ukvi-inside-outside-uk\r\n\r\n\r\n\r\n\r\n ",
             "contact_form_url": "",
-            "access_and_opening_times": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>Our offices will be closed for the following public holidays in 2018:</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Monday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Sunday &amp; Monday 25/26 Feb</td>\n      <td>Kuwait National &amp; Liberation Day</td>\n    </tr>\n    <tr>\n      <td>Sunday &amp; Monday 1–2 April</td>\n      <td>Easter Holiday</td>\n    </tr>\n    <tr>\n      <td>Sunday - Monday 17 – 18 Jun</td>\n      <td>Eid al Fitr* (End of Ramadan)</td>\n    </tr>\n    <tr>\n      <td>Tuesday - Thursday 21- 23 Aug</td>\n      <td>Eid al Adha* (Haj Eid)</td>\n    </tr>\n    <tr>\n      <td>Tuesday  11 September</td>\n      <td>Islamic New Year*</td>\n    </tr>\n    <tr>\n      <td>Tuesday - Thursday  25-27 Dec</td>\n      <td>Christmas &amp; Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>Note: dates for the Religious holidays marked with an * are subject to change, depending on the sighting of the noon)</p>\n\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -138,7 +138,7 @@
       "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-kuwait",
       "title": "Department for International Trade Kuwait",
       "format": "Worldwide Organisation",
-      "updated_at": "2016-11-11T16:13:05.000+00:00",
+      "updated_at": "2018-05-29T13:37:32.000+01:00",
       "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-kuwait",
       "details": {
         "slug": "department-for-international-trade-kuwait"

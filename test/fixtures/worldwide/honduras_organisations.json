@@ -12,7 +12,7 @@
       "analytics_identifier": "WO9",
       "offices": {
         "main": {
-          "title": "British Embassy",
+          "title": "British Embassy Guatemala City (for Honduras)",
           "format": "World Office",
           "updated_at": "2014-09-23T11:12:12.000+01:00",
           "web_url": "https://www.gov.uk/world/organisations/british-embassy-honduras/office/british-embassy",
@@ -20,7 +20,7 @@
             "email": "guatemala.consulate@fco.gov.uk",
             "description": "",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"e-mail-embajadabritanicagtgmailcom\">E-mail: embajadabritanicagt@gmail.com</h2>\n\n<h2 id=\"opening-times\">Opening Times</h2>\n<p>The British Embassy Guatemala City is open from Mondays to Thursdays from 07:30 to 12:30 and 13:30 to 16:30 and Fridays from 07:30 to 11:30.</p>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"email\">Email</h2>\n\n<p><a href=\"mailto:embajadabritanicagt@gmail.com\">embajadabritanicagt@gmail.com</a></p>\n\n<h2 id=\"opening-times\">Opening times</h2>\n<p>The British Embassy Guatemala City is open from Mondays to Thursdays from 7:30am to 12:30pm and 1:30pm to 4:30pm and Fridays from 7:30am to 11:30am</p>\n\n<h2 id=\"public-holidays-2018\">Public holidays 2018</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 28 March</td>\n      <td>Easter</td>\n    </tr>\n    <tr>\n      <td>Thursday 29 March</td>\n      <td>Maundy Thursday</td>\n    </tr>\n    <tr>\n      <td>Friday 30 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Monday 28 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 July</td>\n      <td>Army Day (substitute of the 30 June)</td>\n    </tr>\n    <tr>\n      <td>Wednesday 15 August</td>\n      <td>Asuncion Day</td>\n    </tr>\n    <tr>\n      <td>Monday 17 September</td>\n      <td>Independence Day (substitute day of the 15 September)</td>\n    </tr>\n    <tr>\n      <td>Thursday 1 November</td>\n      <td>All Saints Day</td>\n    </tr>\n    <tr>\n      <td>Monday 24 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Monday 31 December</td>\n      <td>New Year’s Eve</td>\n    </tr>\n  </tbody>\n</table>\n\n</div>",
             "type": "Embassy"
           },
           "address": {

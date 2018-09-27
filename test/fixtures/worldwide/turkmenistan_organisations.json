@@ -20,7 +20,7 @@
             "email": "ukembassy.ashgabat@fco.gov.uk  ",
             "description": "\r\n\r\n\r\n\r\n\r\n\r\n\r\nConsular enquiries: consular.ashgabat@fco.gov.uk\r\nVisa enquiries: https://ukvi-international.faq-help.com/\r\n\r\nIf you are having difficulty with the main telephone number for the Embassy, please try any of the following: +993 12 363463, 363464, 363466, 363498 or 363474; or call the FCO Switchboard in London on +44 (0)20 7008 1500 for assistance.\r\n\r\n",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"our-opening-hours\">Our Opening Hours</h2>\n<p>Monday to Thursday 08.30-17.00\nFriday 08.30-15.30\nLunch 12.30-13.30</p>\n\n<h2 id=\"local-holidays\">2017 local holidays</h2>\n\n<ul>\n  <li>Monday 2 January - New Year’s Day</li>\n  <li>Wednesday 8 March - International Women’s Day</li>\n  <li>Tuesday 21 March - Novruz Bayram</li>\n  <li>Friday 14 April - Good Friday</li>\n  <li>Monday 17 April - Easter Monday</li>\n  <li>Monday 1 May - May Bank holiday</li>\n  <li>Monday 29 May - Spring Bank Holiday</li>\n  <li>Tuesday 30 May - Privilege Holiday for Queen’sBirthday</li>\n  <li>Monday 28 August - Summer Bank Holiday</li>\n  <li>TBC, Monday 4 September - Kurban Bayram</li>\n  <li>TBC, Tuesday 5 September - Kurban Bayram</li>\n  <li>Friday 27 October - Independence Day</li>\n  <li>Monday 25 December - Christmas Day</li>\n  <li>Tuesday, 26 December - Boxing Day</li>\n</ul>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"our-opening-hours\">Our Opening Hours</h2>\n<p>Monday to Thursday 08.30-17.00\nFriday 08.30-15.30\nLunch 12.30-13.30</p>\n\n<h2 id=\"local-holidays\">2018 local holidays</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 8 March</td>\n      <td>International Women’s Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 21 March</td>\n      <td>Novruz Bayram</td>\n    </tr>\n    <tr>\n      <td>Friday 30 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 7 May</td>\n      <td>May Bank holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 15 June</td>\n      <td>Oraza Bayram (Eid al-Fitr)</td>\n    </tr>\n    <tr>\n      <td>Thursday 23 August</td>\n      <td>Kurban Bayram (Eid al-Adha)</td>\n    </tr>\n    <tr>\n      <td>Friday 24 August</td>\n      <td>Kurban Bayram (Eid al-Adha)</td>\n    </tr>\n    <tr>\n      <td>Monday 27 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Thursday 27 September</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday, 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -88,13 +88,13 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/ukti-turkmenistan",
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-turkmenistan",
       "title": "Department for International Trade Turkmenistan",
       "format": "Worldwide Organisation",
-      "updated_at": "2016-08-11T12:30:54.000+01:00",
-      "web_url": "https://www.gov.uk/world/organisations/ukti-turkmenistan",
+      "updated_at": "2018-06-22T12:39:02.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-turkmenistan",
       "details": {
-        "slug": "ukti-turkmenistan"
+        "slug": "department-for-international-trade-turkmenistan"
       },
       "analytics_identifier": "WO359",
       "offices": {
@@ -102,9 +102,9 @@
           "title": "Department for International Trade Turkmenistan",
           "format": "World Office",
           "updated_at": "2013-07-26T12:00:26.000+01:00",
-          "web_url": "https://www.gov.uk/world/organisations/ukti-turkmenistan/office/uk-trade-investment-turkmenistan",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-turkmenistan/office/uk-trade-investment-turkmenistan",
           "details": {
-            "email": "",
+            "email": "Arslan.Garryyev@fco.gov.uk",
             "description": "",
             "contact_form_url": "",
             "access_and_opening_times": "",

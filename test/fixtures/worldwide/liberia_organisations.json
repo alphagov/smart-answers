@@ -20,7 +20,7 @@
             "email": "Monrovia.GeneralEnquiries@fco.gov.uk",
             "description": "",
             "contact_form_url": "",
-            "access_and_opening_times": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h3 id=\"british-embassy-monrovia-public-holidays-2018\">British Embassy Monrovia Public Holidays 2018</h3>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Date</td>\n      <td>Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 1st January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Monday 12th February</td>\n      <td>Armed Forces Day (New)</td>\n    </tr>\n    <tr>\n      <td>Wednesday 14th March</td>\n      <td>National Decoration Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 15th March</td>\n      <td>JJ Roberts’ Birthday</td>\n    </tr>\n    <tr>\n      <td>Friday 30th March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 2nd April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Friday 15th June</td>\n      <td>Eid Ul Fitr (End of Ramadan)**</td>\n    </tr>\n    <tr>\n      <td>Thursday 26th July</td>\n      <td>Liberia Independence Day</td>\n    </tr>\n    <tr>\n      <td>Monday 27th August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Thursday 1st November</td>\n      <td>Thanks Giving Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 29th November</td>\n      <td>William V.S. Tubman Birthday</td>\n    </tr>\n    <tr>\n      <td>Monday 24th December</td>\n      <td>Christmas Eve</td>\n    </tr>\n    <tr>\n      <td>Tuesday 25th December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 26th December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>**tbc: Staff will be informed of confirmed dates nearer the time.</p>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -65,23 +65,23 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/dfid-sierra-leone",
-      "title": "DFID Sierra Leone",
+      "id": "https://www.gov.uk/api/worldwide-organisations/dfid-ghana",
+      "title": "DFID Ghana (including Liberia)",
       "format": "Worldwide Organisation",
-      "updated_at": "2013-10-25T13:39:18.000+01:00",
-      "web_url": "https://www.gov.uk/world/organisations/dfid-sierra-leone",
+      "updated_at": "2018-08-08T15:05:22.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/dfid-ghana",
       "details": {
-        "slug": "dfid-sierra-leone"
+        "slug": "dfid-ghana"
       },
-      "analytics_identifier": "WO242",
+      "analytics_identifier": "WO261",
       "offices": {
         "main": {
-          "title": "DFID Sierra Leone",
+          "title": "DFID Ghana",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:54.000+00:00",
-          "web_url": "https://www.gov.uk/world/organisations/dfid-sierra-leone/office/dfid-sierra-leone",
+          "web_url": "https://www.gov.uk/world/organisations/dfid-ghana/office/dfid-ghana",
           "details": {
-            "email": "sl-enquiries@dfid.gov.uk   ",
+            "email": "ghana-enquiries@dfid.gov.uk ",
             "description": "",
             "contact_form_url": "",
             "access_and_opening_times": "",
@@ -90,24 +90,24 @@
           "address": {
             "adr": {
               "fn": "",
-              "street-address": "5 Off Spur Road\r\nWilberforce",
+              "street-address": "British High Commission \r\nOff Gamel Abdul Nasser Avenue \r\nPO Box GP 296\r\n",
               "postal-code": "",
-              "locality": "Freetown",
+              "locality": "Accra",
               "region": "",
-              "country-name": "Sierra Leone"
+              "country-name": "Ghana"
             },
             "label": {
-              "value": "5 Off Spur Road\r\nWilberforce\nFreetown\nSierra Leone"
+              "value": "British High Commission \r\nOff Gamel Abdul Nasser Avenue \r\nPO Box GP 296\r\nAccra\nGhana"
             }
           },
           "contact_numbers": [
             {
-              "label": "Tel",
-              "number": "+232 22 233 620"
+              "label": "Tel: ",
+              "number": "+233 (0) 302 211490 or +233 (0) 302 253243"
             },
             {
-              "label": "Fax",
-              "number": "+232 22 235 769"
+              "label": "Fax:\t",
+              "number": "+233 (0) 302 211491 or +233 (0) 302 253244"
             }
           ],
           "services": [

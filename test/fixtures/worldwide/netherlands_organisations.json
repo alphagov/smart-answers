@@ -17,10 +17,10 @@
           "updated_at": "2013-03-25T10:37:52.000+00:00",
           "web_url": "https://www.gov.uk/world/organisations/british-embassy-the-hague/office/british-embassy",
           "details": {
-            "email": "ukinnl@fco.gov.uk",
-            "description": "",
-            "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<p>The British Embassy in The Hague is currently not open to the public.</p>\n\n<h2 id=\"public-holidays\">2017 public holidays</h2>\n\n<p>The Embassy and the Consulate General will observe the following official holidays in 2017:</p>\n\n<ul>\n  <li>Monday 2 January</li>\n  <li>Friday 14 April</li>\n  <li>Monday 17 April</li>\n  <li>Thursday 27 April</li>\n  <li>Monday 1 May</li>\n  <li>Thursday 25 May</li>\n  <li>Monday 29 May</li>\n  <li>Monday 5 June</li>\n  <li>Monday 28 August</li>\n  <li>Monday 25 December</li>\n  <li>Tuesday 26 December</li>\n</ul>\n\n<p>For consular emergencies only on these dates, call +31 70 4270 262</p>\n\n<h2 id=\"disabled-access\">Disabled access</h2>\n<p>The Foreign and  Commonwealth Office, the British Embassy The Hague and the British Consulate General Amsterdam are keen to ensure that their buildings and services are fully accessible to disabled members of the public. Wherever possible, we have made our buildings and services accessible. Sometimes however, this is not possible due to security or other restrictions. In these situations we will endeavour to provide a service or access to a building in an alternative way to ensure equality of access for disabled people. To assist disabled visitors, we have set out below details of disabled access at the British Embassy The Hague. We hope this information is helpful.</p>\n\n<h3 id=\"british-embassy-the-hague\">British Embassy The Hague</h3>\n<ul>\n  <li>entrances: all entrances are on the ground floor and are unobstructed</li>\n  <li>ramps: mobile ramps are available</li>\n  <li>lifts: there is lift accessibility to all floors apart from mezzanines</li>\n  <li>toilets: there is a disabled toilet on the first floor</li>\n  <li>parking: there are no parking facilities at the embassy, although payable public parking spaces can be found nearby</li>\n  <li>floor coverings: all floor coverings are safe and even</li>\n  <li>lighting: lighting in the building is good</li>\n  <li>emergency/evacuation: emergency alarms are loud and there is also a visual alarm; there is an evacuation chair for wheelchair users</li>\n  <li>phones: phones are available at wheelchair height</li>\n</ul>\n\n<h3 id=\"access-for-visually-impaired-visitors-or-deafhard-of-hearing-visitors\">Access for visually impaired visitors or deaf/hard of hearing visitors</h3>\n<p>Guide and hearing dogs are welcome.</p>\n\n<h3 id=\"contact-us\">Contact us</h3>\n<p>If you need to visit us or use our services and feel that we are inaccessible to you, please contact corporate services, who will try to find an alternative way of providing access for you:</p>\n\n<ul>\n  <li>email: <a href=\"mailto:ukinnl@fco.gov.uk\">ukinnl@fco.gov.uk</a>\n</li>\n  <li>telephone: +31 (0)70 4270 427</li>\n</ul>\n</div>",
+            "email": "",
+            "description": "For enquiries that are not about consular issues, email ukinnl@fco.gov.uk",
+            "contact_form_url": "https://www.contact-embassy.service.gov.uk/?country=Netherlands&post=British%20Embassy%20The%20Hague%20",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>The British Embassy is open from 9:00 to 17:00 for those who have appointments with Embassy staff.</p>\n\n<h2 id=\"public-holidays\">2018 public holidays</h2>\n\n<p>The Embassy and the Consulate General will observe the following official holidays in 2018:</p>\n\n<ul>\n  <li>Monday 1 January</li>\n  <li>Friday 30 March</li>\n  <li>Monday 2 April</li>\n  <li>Friday 27 April</li>\n  <li>Monday 7 May</li>\n  <li>Thursday 10 May</li>\n  <li>Monday 21 May</li>\n  <li>Monday 28 May</li>\n  <li>Monday 27 August</li>\n  <li>Tuesday 25 December</li>\n  <li>Wednesday 26 December</li>\n</ul>\n\n<p>For consular emergencies only on these dates, call +31 70 4270 262</p>\n\n<h2 id=\"disabled-access\">Disabled access</h2>\n<p>The Foreign and  Commonwealth Office, the British Embassy The Hague and the British Consulate General Amsterdam are keen to ensure that their buildings and services are fully accessible to disabled members of the public. Wherever possible, we have made our buildings and services accessible. Sometimes however, this is not possible due to security or other restrictions. In these situations we will endeavour to provide a service or access to a building in an alternative way to ensure equality of access for disabled people. To assist disabled visitors, we have set out below details of disabled access at the British Embassy The Hague. We hope this information is helpful.</p>\n\n<h3 id=\"british-embassy-the-hague\">British Embassy The Hague</h3>\n<ul>\n  <li>entrances: all entrances are on the ground floor and are unobstructed</li>\n  <li>ramps: mobile ramps are available</li>\n  <li>lifts: there is lift accessibility to all floors apart from mezzanines</li>\n  <li>toilets: there is a disabled toilet on the first floor</li>\n  <li>parking: there are no parking facilities at the embassy, although payable public parking spaces can be found nearby</li>\n  <li>floor coverings: all floor coverings are safe and even</li>\n  <li>lighting: lighting in the building is good</li>\n  <li>emergency/evacuation: emergency alarms are loud and there is also a visual alarm; there is an evacuation chair for wheelchair users</li>\n  <li>phones: phones are available at wheelchair height</li>\n</ul>\n\n<h3 id=\"access-for-visually-impaired-visitors-or-deafhard-of-hearing-visitors\">Access for visually impaired visitors or deaf/hard of hearing visitors</h3>\n<p>Guide and hearing dogs are welcome.</p>\n\n<h3 id=\"contact-us\">Contact us</h3>\n<p>If you need to visit us or use our services and feel that we are inaccessible to you, please contact corporate services, who will try to find an alternative way of providing access for you:</p>\n\n<ul>\n  <li>email: <a href=\"mailto:ukinnl@fco.gov.uk\">ukinnl@fco.gov.uk</a>\n</li>\n  <li>telephone: +31 (0)70 4270 427</li>\n</ul>\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -54,8 +54,8 @@
             "web_url": "https://www.gov.uk/world/organisations/british-embassy-the-hague/office/british-consulate-general",
             "details": {
               "email": "",
-              "description": "",
-              "contact_form_url": "",
+              "description": "For enquiries that are not about consular issues, email ukinnl@fco.gov.uk",
+              "contact_form_url": "https://www.contact-embassy.service.gov.uk/?country=Netherlands&post=British%20Consulate%20General%20Amsterdam%20",
               "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<p>Documentary and notarial services by appointment only. Please use the contact form to book an appointment. Consular staff will not be able to book an appointment for you.</p>\n\n<h3 id=\"open-to-the-public\">Open to the public:</h3>\n<p>Monday, Tuesday, Thursday and Friday, 9am to 12:30pm</p>\n\n<h3 id=\"consular-telephone-enquiries\">Consular telephone enquiries</h3>\n<p>Monday to Friday, 9am to 1pm and 2pm to 4:30pm</p>\n\n<h2 id=\"public-holidays\">2017 public holidays</h2>\n\n<p>The embassy and the consulate will observe the following official holidays in 2017:</p>\n\n<ul>\n  <li>Monday 2 January</li>\n  <li>Friday 14 April</li>\n  <li>Monday 17 April</li>\n  <li>Thursday 27 April</li>\n  <li>Monday 1 May</li>\n  <li>Thursday 25 May</li>\n  <li>Monday 29 May</li>\n  <li>Monday 5 June</li>\n  <li>Monday 28 August</li>\n  <li>Monday 25 December</li>\n  <li>Tuesday 26 December</li>\n</ul>\n\n<h2 id=\"disabled-access\">Disabled access</h2>\n<p>The Foreign and  Commonwealth Office, the British Embassy The Hague and the British Consulate-General Amsterdam are keen to ensure that their buildings and services are fully accessible to disabled members of the public. Wherever possible, we have made our buildings and services accessible. Sometimes however, this is not possible due to security or other restrictions. In these situations we will endeavour to provide a service or access to a building in an alternative way to ensure equality of access for disabled people. To assist disabled visitors, we have set out below details of disabled access at the British Consulate-General Amsterdam. We hope this information is helpful.</p>\n\n<h3 id=\"general-physical-access\">General physical access</h3>\n<p>Access to the Consulate for wheelchairs is through the side entrance a few meters along the driveway into the rear carpark. Although there are no ramps, the ground surface is safe and secure. Inside the entrance to the former Consular waiting room, doors are wide enough for wheelchair access to the interview room. Please contact us on +31 (0)20 676 4343 if you are arriving by car and would like assistance on arrival. Our security guards and staff will be happy to help.</p>\n\n<h3 id=\"access-for-visually-impaired-visitors-or-deafhard-of-hearing-visitors\">Access for visually impaired visitors or deaf/hard of hearing visitors</h3>\n<p>Guide and hearing dogs are welcome.</p>\n\n</div>",
               "type": "Consulate"
             },
@@ -119,9 +119,9 @@
           "web_url": "https://www.gov.uk/world/organisations/british-consulate-general-amsterdam/office/british-consulate-general-amsterdam",
           "details": {
             "email": "",
-            "description": "Notarial and documentary services by appointment only. ",
-            "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<p>Monday, Tuesday, Thursday and Friday, 09:00 to 12:30.</p>\n\n<p>To contact one of our Consular colleagues please call +31 (0)70 4270427 and follow the options for Consular Services.</p>\n\n<p>We operate a 24/7 service for the most urgent cases.</p>\n\n<h2 id=\"public-holidays\">2017 public holidays</h2>\n\n<p>The embassy and consulate will observe the following official holidays in 2017:</p>\n\n<ul>\n  <li>Monday 2 January</li>\n  <li>Friday 14 April</li>\n  <li>Monday 17 April</li>\n  <li>Thursday 27 April</li>\n  <li>Monday 1 May</li>\n  <li>Thursday 25 May</li>\n  <li>Monday 29 May</li>\n  <li>Monday 5 June</li>\n  <li>Monday 28 August</li>\n  <li>Monday 25 December</li>\n  <li>Tuesday 26 December</li>\n</ul>\n\n<h2 id=\"disabled-access\">Disabled access</h2>\n<p>The Foreign and Commonwealth Office and our Embassy are keen to ensure that their buildings and services are fully accessible to disabled members of the public. Wherever possible, we have made our buildings and services accessible. Sometimes however, this is not possible due to security or other restrictions. In these situations we will endeavour to provide a service or access to a building in an alternative way to ensure equality of access for disabled people. To assist disabled visitors, we have set out below details of disabled access at this Consulate General. We hope this information is helpful.</p>\n\n<h3 id=\"general-physical-access\">General physical access</h3>\n<p>Access to the Consulate for wheelchairs is through the side entrance a few meters along the driveway into the rear carpark. Although there are no ramps, the ground surface is safe and secure.</p>\n\n<p>Inside the entrance to the former Consular waiting room,  doors are wide enough for wheelchair access to the interview room. Please contact us on the number above if you are arriving by car and would like assistance on arrival. Our security guards and staff will be happy to help.</p>\n\n<h3 id=\"access-for-visually-impaired-visitors\">Access for visually impaired visitors</h3>\n<p>Guide dogs are welcome.</p>\n\n<h3 id=\"access-for-deaf-and-hard-of-hearing-visitors\">Access for deaf and hard of hearing visitors</h3>\n<p>Hearing dogs are welcome.</p>\n</div>",
+            "description": "Notarial and documentary services by appointment only. \r\n\r\nThe consulate does not process visas. Please visit https://uk.tlscontact.com/nl/ams/index.php for further information.",
+            "contact_form_url": "https://www.contact-embassy.service.gov.uk/?country=Netherlands&post=British%20Consulate%20General%20Amsterdam%20",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<p>Monday, Tuesday, Thursday and Friday, 09:00 to 12:30.</p>\n\n<p>To contact one of our Consular colleagues please call +31 (0)70 4270427 and follow the options for Consular Services.</p>\n\n<p>We operate a 24/7 service for the most urgent cases.</p>\n\n<h2 id=\"public-holidays\">2018 public holidays</h2>\n\n<p>The embassy and consulate will observe the following official holidays in 2018:</p>\n\n<ul>\n  <li>Monday 1 January</li>\n  <li>Friday 30 March</li>\n  <li>Monday 2 April</li>\n  <li>Friday 27 April</li>\n  <li>Monday 7 May</li>\n  <li>Thursday 10 May</li>\n  <li>Monday 21 May</li>\n  <li>Monday 28 May</li>\n  <li>Monday 27 August</li>\n  <li>Tuesday 25 December</li>\n  <li>Wednesday 26 December</li>\n</ul>\n\n<h2 id=\"disabled-access\">Disabled access</h2>\n<p>The Foreign and Commonwealth Office and our Embassy are keen to ensure that their buildings and services are fully accessible to disabled members of the public. Wherever possible, we have made our buildings and services accessible. Sometimes however, this is not possible due to security or other restrictions. In these situations we will endeavour to provide a service or access to a building in an alternative way to ensure equality of access for disabled people. To assist disabled visitors, we have set out below details of disabled access at this Consulate General. We hope this information is helpful.</p>\n\n<h3 id=\"general-physical-access\">General physical access</h3>\n<p>Access to the Consulate for wheelchairs is through the side entrance a few meters along the driveway into the rear carpark. Although there are no ramps, the ground surface is safe and secure.</p>\n\n<p>Inside the entrance to the former Consular waiting room,  doors are wide enough for wheelchair access to the interview room. Please contact us on the number above if you are arriving by car and would like assistance on arrival. Our security guards and staff will be happy to help.</p>\n\n<h3 id=\"access-for-visually-impaired-visitors\">Access for visually impaired visitors</h3>\n<p>Guide dogs are welcome.</p>\n\n<h3 id=\"access-for-deaf-and-hard-of-hearing-visitors\">Access for deaf and hard of hearing visitors</h3>\n<p>Hearing dogs are welcome.</p>\n</div>",
             "type": "Consulate"
           },
           "address": {
@@ -169,13 +169,13 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-netherlands",
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-netherlands",
       "title": "Department for International Trade Netherlands",
       "format": "Worldwide Organisation",
-      "updated_at": "2016-08-11T09:18:32.000+01:00",
-      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-netherlands",
+      "updated_at": "2018-05-29T13:41:59.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-netherlands",
       "details": {
-        "slug": "uk-trade-investment-netherlands"
+        "slug": "department-for-international-trade-netherlands"
       },
       "analytics_identifier": "WO297",
       "offices": {
@@ -183,9 +183,9 @@
           "title": "Department for International Trade Netherlands",
           "format": "World Office",
           "updated_at": "2016-08-11T09:18:19.000+01:00",
-          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-netherlands/office/department-for-international-trade-netherlands",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-netherlands/office/department-for-international-trade-netherlands",
           "details": {
-            "email": "",
+            "email": "enquiries.nl@mobile.trade.gov.uk",
             "description": "",
             "contact_form_url": "",
             "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>The British Embassy in The Hague will observe the following official holidays in 2016:</p>\n\n<ul>\n  <li>Friday 01 January</li>\n  <li>Friday 25 March</li>\n  <li>Monday 28 March</li>\n  <li>Wednesday 27 April</li>\n  <li>Monday 2 May</li>\n  <li>Thursday 5 May</li>\n  <li>Monday 16 May</li>\n  <li>Friday 27 May</li>\n  <li>Monday 30 May</li>\n  <li>Tuesday 31 May</li>\n  <li>Monday 29 August</li>\n  <li>Monday 26 December</li>\n  <li>Tuesday 27 December</li>\n</ul>\n\n</div>",
@@ -216,7 +216,7 @@
             "title": "Simon Banham – Head of Investment, Department for International Trade Netherlands",
             "format": "World Office",
             "updated_at": "2014-12-30T14:16:06.000+00:00",
-            "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-netherlands/office/mr-simon-banham-head-of-investment",
+            "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-netherlands/office/mr-simon-banham-head-of-investment",
             "details": {
               "email": "simon.banham@mobile.trade.gov.uk ",
               "description": "Investment: Advanced Manufacturing, financial and professional services, \r\nlife Sciences",
@@ -251,7 +251,7 @@
             "title": "Michiel Veldhuizen - Director, Department for International Trade Netherlands",
             "format": "World Office",
             "updated_at": "2015-06-08T14:23:07.000+01:00",
-            "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-netherlands/office/michiel-veldhuizen-director-ukti-netherlands",
+            "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-netherlands/office/michiel-veldhuizen-director-ukti-netherlands",
             "details": {
               "email": "michiel.veldhuizen@mobile.trade.gov.uk",
               "description": "",
@@ -286,10 +286,10 @@
             "title": "Martijn Poen - Senior Trade Adviser, Department for International Trade Netherlands",
             "format": "World Office",
             "updated_at": "2015-06-08T14:35:53.000+01:00",
-            "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-netherlands/office/martijn-poen-trade-advisor-ukti-netherlands",
+            "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-netherlands/office/martijn-poen-trade-advisor-ukti-netherlands",
             "details": {
               "email": "martijn.poen@mobile.trade.gov.uk",
-              "description": "Trade: advanced manufacturing, defence and security, mass transport, global sports",
+              "description": "Trade: Defence and Security",
               "contact_form_url": "",
               "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>The British Embassy in The Hague will observe the following official holidays in 2016:</p>\n\n<ul>\n  <li>Friday 01 January</li>\n  <li>Friday 25 March</li>\n  <li>Monday 28 March</li>\n  <li>Wednesday 27 April</li>\n  <li>Monday 2 May</li>\n  <li>Thursday 5 May</li>\n  <li>Monday 16 May</li>\n  <li>Friday 27 May</li>\n  <li>Monday 30 May</li>\n  <li>Tuesday 31 May</li>\n  <li>Monday 29 August</li>\n  <li>Monday 26 December</li>\n  <li>Tuesday 27 December</li>\n</ul>\n\n</div>",
               "type": "Other"
@@ -314,20 +314,17 @@
               }
             ],
             "services": [
-              {
-                "title": "Registrations of Marriage and Civil Partnerships",
-                "type": "Documentary Services"
-              }
+
             ]
           },
           {
             "title": "Michiel Hendrickx - Senior Trade Adviser, Department for International Trade Netherlands",
             "format": "World Office",
             "updated_at": "2015-06-08T14:40:06.000+01:00",
-            "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-netherlands/office/michiel-hendrickx-trade-advisor-ukti-netherlands",
+            "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-netherlands/office/michiel-hendrickx-trade-advisor-ukti-netherlands",
             "details": {
               "email": "michiel.hendrickx@mobile.trade.gov.uk",
-              "description": "Trade: energy, financial and professional services, business and consumer services and environment and water",
+              "description": "Trade: Offshore Wind",
               "contact_form_url": "",
               "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>The British Embassy in The Hague will observe the following official holidays in 2016:</p>\n\n<ul>\n  <li>Friday 01 January</li>\n  <li>Friday 25 March</li>\n  <li>Monday 28 March</li>\n  <li>Wednesday 27 April</li>\n  <li>Monday 2 May</li>\n  <li>Thursday 5 May</li>\n  <li>Monday 16 May</li>\n  <li>Friday 27 May</li>\n  <li>Monday 30 May</li>\n  <li>Tuesday 31 May</li>\n  <li>Monday 29 August</li>\n  <li>Monday 26 December</li>\n  <li>Tuesday 27 December</li>\n</ul>\n\n</div>",
               "type": "Other"
@@ -359,10 +356,10 @@
             "title": "Nick Breukelman, Senior Trade Adviser, Department for International Trade Netherlands",
             "format": "World Office",
             "updated_at": "2015-07-10T10:37:16.000+01:00",
-            "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-netherlands/office/nick-breukelman-trade-adviser",
+            "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-netherlands/office/nick-breukelman-trade-adviser",
             "details": {
               "email": "nick.breukelman@mobile.trade.gov.uk",
-              "description": "Trade: ICT, creative and media, healthcare and life sciences, consumer goods and retail (non-food)",
+              "description": "Trade: Technology, Financial and Professional Services",
               "contact_form_url": "",
               "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>The British Embassy in The Hague will observe the following official holidays in 2016:</p>\n\n<ul>\n  <li>Friday 01 January</li>\n  <li>Friday 25 March</li>\n  <li>Monday 28 March</li>\n  <li>Wednesday 27 April</li>\n  <li>Monday 2 May</li>\n  <li>Thursday 5 May</li>\n  <li>Monday 16 May</li>\n  <li>Friday 27 May</li>\n  <li>Monday 30 May</li>\n  <li>Tuesday 31 May</li>\n  <li>Monday 29 August</li>\n  <li>Monday 26 December</li>\n  <li>Tuesday 27 December</li>\n</ul>\n\n</div>",
               "type": "Other"
@@ -394,7 +391,7 @@
             "title": "Alistair Ward, Senior Investment Adviser, Department for International Trade Netherlands",
             "format": "World Office",
             "updated_at": "2015-07-22T09:18:06.000+01:00",
-            "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-netherlands/office/alistair-ward-investment-advisor",
+            "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-netherlands/office/alistair-ward-investment-advisor",
             "details": {
               "email": "alistair.ward@mobile.trade.gov.uk",
               "description": "Investment: energy, environment and infrastructure, electronics and ICT",
@@ -429,10 +426,10 @@
             "title": "Juliette Kuiken - Senior Trade Adviser, Department for International Trade Netherlands",
             "format": "World Office",
             "updated_at": "2017-05-04T13:50:35.000+01:00",
-            "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-netherlands/office/juliette-kuiken-senior-trade-adviser-department-for-international-trade-netherlands",
+            "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-netherlands/office/juliette-kuiken-senior-trade-adviser-department-for-international-trade-netherlands",
             "details": {
               "email": "juliette.kuiken@mobile.trade.gov.uk",
-              "description": "Trade: food & drink, agriculture, education & training, marine",
+              "description": "Trade: Food & Drink, Financial & Professional Services ",
               "contact_form_url": "",
               "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays\">Public holidays</h2>\n\n<p>The British Embassy in The Hague will observe the following official holidays in 2016:</p>\n\n<ul>\n  <li>Friday 01 January</li>\n  <li>Friday 25 March</li>\n  <li>Monday 28 March</li>\n  <li>Wednesday 27 April</li>\n  <li>Monday 2 May</li>\n  <li>Thursday 5 May</li>\n  <li>Monday 16 May</li>\n  <li>Friday 27 May</li>\n  <li>Monday 30 May</li>\n  <li>Tuesday 31 May</li>\n  <li>Monday 29 August</li>\n  <li>Monday 26 December</li>\n  <li>Tuesday 27 December</li>\n</ul>\n\n</div>",
               "type": "Other"
@@ -464,7 +461,7 @@
             "title": "Nadia Tammes Buirs - Senior Investment Adviser, Department for International Trade Netherlands ",
             "format": "World Office",
             "updated_at": "2017-05-04T14:00:40.000+01:00",
-            "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-netherlands/office/nadia-tammes-buirs",
+            "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-netherlands/office/nadia-tammes-buirs",
             "details": {
               "email": "nadia.tammesbuirs@mobile.trade.gov.uk",
               "description": "Investment: agritech, retail, creative, construction and logistics ",

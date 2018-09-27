@@ -20,20 +20,20 @@
             "email": "ambassade.britannique@fco.gov.uk",
             "description": "",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><pre><code>                                 Email\n                                 Kinshasa.consular@fco.gov.uk\n</code></pre>\n\n<h2 id=\"opening-hours\">Opening hours</h2>\n\n<h3 id=\"gmt\">GMT</h3>\n<p>Monday to Thursday: 7:00 am to 3 pm and Friday: 7:00 am to 1 pm\nConsular opening hours - Monday to Friday: 7:00 am to 11 am</p>\n\n<h3 id=\"local-time\">Local Time</h3>\n<p>Monday to Thursday: 8:00 am to 4 pm and Friday: 8:00 am to 2 pm\nConsular opening hours - Monday to Friday: 8:00 am to 12:00</p>\n\n<h3 id=\"out-of-hours-embassy-answer-machine-gives-a-contact-number\">Out of hours: Embassy answer machine gives a contact number.</h3>\n\n<h2 id=\"public-holidays-2017\">Public Holidays 2017</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Monday 2 January</td>\n      <td>Substitute day for New Year’s Day (as the 1st January falls on Sunday)</td>\n    </tr>\n    <tr>\n      <td>Wednesday 4 January</td>\n      <td>Martyrs’ Day</td>\n    </tr>\n    <tr>\n      <td>Monday 16 January</td>\n      <td>Hero’s Day (LD Kabila)</td>\n    </tr>\n    <tr>\n      <td>Tuesday 17 January</td>\n      <td>Hero’s Day (Lumumba)</td>\n    </tr>\n    <tr>\n      <td>Friday 14 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 17 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 17 May</td>\n      <td>Armed Forces Revolution Day</td>\n    </tr>\n    <tr>\n      <td>Monday 29 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 30 June</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 1 August</td>\n      <td>Parents Day</td>\n    </tr>\n    <tr>\n      <td>Monday 28 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><pre><code>                                 Email\n                                 Kinshasa.consular@fco.gov.uk\n</code></pre>\n\n<h2 id=\"opening-hours\">Opening hours</h2>\n\n<h3 id=\"gmt\">GMT</h3>\n<p>Monday to Thursday: 7:00 am to 3 pm and Friday: 7:00 am to 1 pm\nConsular opening hours - Monday to Friday: 7:00 am to 11 am</p>\n\n<h3 id=\"local-time\">Local Time</h3>\n<p>Monday to Thursday: 8:00 am to 4 pm and Friday: 8:00 am to 2 pm\nConsular opening hours - Monday to Friday: 8:00 am to 12:00</p>\n\n<h3 id=\"out-of-hours-embassy-answer-machine-gives-a-contact-number\">Out of hours: Embassy answer machine gives a contact number.</h3>\n\n<h2 id=\"public-holidays-2018\">Public Holidays 2018</h2>\n\n<h2 id=\"public-holidays\">Public Holidays</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Monday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 4 January</td>\n      <td>Martyr’s Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 16 January</td>\n      <td>Hero’s Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 17 January</td>\n      <td>Heroes’ Day</td>\n    </tr>\n    <tr>\n      <td>Friday 30 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Tuesday  1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 17 May</td>\n      <td>Armed Forces Revolution Day</td>\n    </tr>\n    <tr>\n      <td>Monday 28 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 29 June</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 1 August</td>\n      <td>Parents Day</td>\n    </tr>\n    <tr>\n      <td>Monday 27 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
             "type": "Embassy"
           },
           "address": {
             "adr": {
               "fn": "",
-              "street-address": "83, Avenue Roi Baudoin\r\nGombe",
+              "street-address": "83, Avenue Roi Baudouin\r\nGombe",
               "postal-code": "",
               "locality": "Kinshasa",
               "region": "",
               "country-name": "Democratic Republic of the Congo"
             },
             "label": {
-              "value": "83, Avenue Roi Baudoin\r\nGombe\nKinshasa\nDemocratic Republic of the Congo"
+              "value": "83, Avenue Roi Baudouin\r\nGombe\nKinshasa\nDemocratic Republic of the Congo"
             }
           },
           "contact_numbers": [
@@ -60,7 +60,7 @@
         },
         "other": [
           {
-            "title": "Visas Section",
+            "title": "UK VISA APPLICATION CENTRE",
             "format": "World Office",
             "updated_at": "2015-02-18T08:37:08.000+00:00",
             "web_url": "https://www.gov.uk/world/organisations/british-embassy-kinshasa/office/visas-section",
@@ -73,15 +73,15 @@
             },
             "address": {
               "adr": {
-                "fn": "Malabar Group ( Fedex)",
-                "street-address": "491, Avenue Colonel Mondjiba\r\nOpposite ( English School CALI)",
+                "fn": "Malabar Group ",
+                "street-address": "3, Avenue Mongala\r\n",
                 "postal-code": "",
                 "locality": "Gombe",
                 "region": "Kinshasa",
                 "country-name": "Democratic Republic of the Congo"
               },
               "label": {
-                "value": "Malabar Group ( Fedex)\n491, Avenue Colonel Mondjiba\r\nOpposite ( English School CALI)\nGombe\nKinshasa\nDemocratic Republic of the Congo"
+                "value": "Malabar Group \n3, Avenue Mongala\r\nGombe\nKinshasa\nDemocratic Republic of the Congo"
               }
             },
             "contact_numbers": [

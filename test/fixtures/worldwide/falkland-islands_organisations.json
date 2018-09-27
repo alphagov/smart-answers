@@ -20,7 +20,7 @@
             "email": "gov.house@horizon.co.fk",
             "description": "Opening hours \r\n8:00am to 12:00pm and 1:15pm to 4:30pm.\r\n(excluding weekends and public holidays)  ",
             "contact_form_url": "",
-            "access_and_opening_times": "",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"public-holidays-2018\">Public holidays 2018</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 30 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 23 April</td>\n      <td>HM The Queen’s Birthday (in lieu of 21 April)</td>\n    </tr>\n    <tr>\n      <td>Thursday 14 June</td>\n      <td>Liberation Day</td>\n    </tr>\n    <tr>\n      <td>Monday 1 October</td>\n      <td>Peat Cutting Monday (first Monday in October)</td>\n    </tr>\n    <tr>\n      <td>Monday 10 December</td>\n      <td>Battle Day (in lieu of 8 December)</td>\n    </tr>\n    <tr>\n      <td>Tuesday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 27 December</td>\n      <td>Christmas Holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 28 December *</td>\n      <td>Government Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 31 December *</td>\n      <td>Government Holiday</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
             "type": "HM Governor’s Office"
           },
           "address": {

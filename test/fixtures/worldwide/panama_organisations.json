@@ -18,22 +18,22 @@
           "web_url": "https://www.gov.uk/world/organisations/british-embassy-panama-city/office/british-embassy-panama-city",
           "details": {
             "email": "panama.consulate@fco.gov.uk",
-            "description": "Office hours:\r\nMonday to Thursday 7:30am to 4:30pm\r\nFriday 7:30am to 12:30pm",
+            "description": "Office hours:\r\nMonday to Thursday 7:30am to 4:30pm\r\nFriday 7:30am to 12:30pm\r\n\r\nConsular working hours: \r\nMonday, Tuesday and Thursday 9:00am to 11:00am ",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\">\n<h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>Monday to Thursday 7:30am to 4:30pm\nFriday 7:30am to 12:30pm</p>\n\n<h1 id=\"public-holidays\">2017 public holidays</h1>\n\n<p>Our office will be closed on the following dates in 2017:</p>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 2 January</td>\n      <td>New Year’s Day (in lieu of 1 January)</td>\n    </tr>\n    <tr>\n      <td>Monday 9 January</td>\n      <td>Martyr´s Day</td>\n    </tr>\n    <tr>\n      <td>Monday 27 February</td>\n      <td>Carnival Monday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 28 February</td>\n      <td>Carnival Tuesday</td>\n    </tr>\n    <tr>\n      <td>Friday 14 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Friday 26 May</td>\n      <td>Privilege Queens Birthday</td>\n    </tr>\n    <tr>\n      <td>Friday 3 November</td>\n      <td>Independence Day from Colombia</td>\n    </tr>\n    <tr>\n      <td>Monday 6 November</td>\n      <td>Colon´s Day (in lieu of 5 November)</td>\n    </tr>\n    <tr>\n      <td>Friday 10 November</td>\n      <td>Exclamation of Independence in Villa de Los Santos</td>\n    </tr>\n    <tr>\n      <td>Monday 27 November ^</td>\n      <td>Independence Day from Spain (in lieu of 28 November)</td>\n    </tr>\n    <tr>\n      <td>Friday 8 December</td>\n      <td>Mother’s Day</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n<div role=\"note\" aria-label=\"Information\" class=\"application-notice info-notice\">\n<p>Subject to change by local government</p>\n</div>\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\">\n<h2 id=\"opening-hours\">Opening hours</h2>\n\n<p>Monday to Thursday 7:30am to 4:30pm\nFriday 7:30am to 12:30pm</p>\n\n<p>Consular working hours: Monday, Tuesday and Thursday 9:00am to 11:00am \n<a rel=\"external\" href=\"https://www.consular-appointments.service.gov.uk/fco/#!/british-embassy-panama-city/-/service_list\">(appointments only)</a></p>\n\n<h2 id=\"public-holidays\">2018 public holidays</h2>\n\n<p>Our office will be closed on the following dates in 2018:</p>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 9 January</td>\n      <td>Martyr´s Day</td>\n    </tr>\n    <tr>\n      <td>Monday 12 February</td>\n      <td>Carnival Monday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 13 February</td>\n      <td>Carnival Tuesday</td>\n    </tr>\n    <tr>\n      <td>Friday 30 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 1 May</td>\n      <td>Labour Day</td>\n    </tr>\n    <tr>\n      <td>Friday 25 May</td>\n      <td>Privilege Queen’s Birthday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 27 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 5 November</td>\n      <td>Colon’s Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 28 November</td>\n      <td>Independence Day from Spain</td>\n    </tr>\n    <tr>\n      <td>Tuesday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>Subject to change by local government</p>\n</div>",
             "type": "Embassy"
           },
           "address": {
             "adr": {
               "fn": "British Embassy",
-              "street-address": "Humboldt Tower, 4th Floor\r\nCalle 53, Marbella\r\n(PO Box 0816-07946)",
+              "street-address": "Humboldt Tower, 4th Floor\r\nCalle 53, Marbella",
               "postal-code": "",
               "locality": "Panama City",
               "region": "",
               "country-name": "Panama"
             },
             "label": {
-              "value": "British Embassy\nHumboldt Tower, 4th Floor\r\nCalle 53, Marbella\r\n(PO Box 0816-07946)\nPanama City\nPanama"
+              "value": "British Embassy\nHumboldt Tower, 4th Floor\r\nCalle 53, Marbella\nPanama City\nPanama"
             }
           },
           "contact_numbers": [
@@ -65,13 +65,13 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-panama",
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-panama",
       "title": "Department for International Trade Panama",
       "format": "Worldwide Organisation",
-      "updated_at": "2016-08-11T10:47:46.000+01:00",
-      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-panama",
+      "updated_at": "2018-05-29T13:43:48.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-panama",
       "details": {
-        "slug": "uk-trade-investment-panama"
+        "slug": "department-for-international-trade-panama"
       },
       "analytics_identifier": "WO280",
       "offices": {
@@ -79,7 +79,7 @@
           "title": "Department for International Trade Panama",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:54.000+00:00",
-          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-panama/office/uk-trade-investment-panama",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-panama/office/uk-trade-investment-panama",
           "details": {
             "email": "ariel.perez@fco.gov.uk",
             "description": "",

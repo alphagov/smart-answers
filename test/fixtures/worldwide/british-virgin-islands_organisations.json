@@ -20,7 +20,7 @@
             "email": "govoffice.tortola@fco.gov.uk",
             "description": "Opening hours: \r\nMonday to Friday 8:30am to 4:30pm",
             "contact_form_url": "",
-            "access_and_opening_times": "",
+            "access_and_opening_times": "<div class=\"govspeak\">\n<h2 id=\"public-holidays-2018\">Public Holidays 2018</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 2 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Monday 5 March</td>\n      <td>Anniversary of the Birth of Hamilton Lavity Stoutt (in lieu of Wednesday 7 March)</td>\n    </tr>\n    <tr>\n      <td>Monday 12 March</td>\n      <td>Commonwealth Day</td>\n    </tr>\n    <tr>\n      <td>Friday 30 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 21 May</td>\n      <td>Whit Monday</td>\n    </tr>\n    <tr>\n      <td>Saturday 9 June</td>\n      <td>Sovereign’s Birthday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 July</td>\n      <td>Territory Day (in lieu of Sunday 1 July)</td>\n    </tr>\n    <tr>\n      <td>Monday 6 August</td>\n      <td>Festival Monday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 7 August</td>\n      <td>Festival Tuesday</td>\n    </tr>\n    <tr>\n      <td>Wednesday 8 August</td>\n      <td>Festival Wednesday</td>\n    </tr>\n    <tr>\n      <td>Friday 22 October</td>\n      <td>St. Ursula’s Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n</div>",
             "type": "HM Governor’s Office"
           },
           "address": {

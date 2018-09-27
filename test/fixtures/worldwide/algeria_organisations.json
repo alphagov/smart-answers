@@ -18,9 +18,9 @@
           "web_url": "https://www.gov.uk/world/organisations/british-embassy-algiers/office/british-embassy-algiers-main-contact",
           "details": {
             "email": "BritishEmbassy.Algiers@fco.gov.uk",
-            "description": "For consular support please contact us on algiers.consular@fco.gov.uk",
+            "description": "For consular support please contact us on algiers.consular@fco.gov.uk.",
             "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"office-hours\">Office hours:</h2>\n\n<p>The Service is open to the public on Mondays and Thursdays from 9.00am To 12.30pm (local time). Please book an appointment by visiting <a href=\"https://www.gov.uk/government/world/organisations/british-embassy-algiers#services-for-British-nationals\">our services for British nationals</a> and our <a href=\"https://www.gov.uk/guidance/notarial-and-documentary-services-guide-for-algeria--2\">notarial and documentary services guide</a>.</p>\n\n<p>For any consular enquiry please call 00213 770 085 000 or send an email to <a href=\"algiers.consular@fco.gov.uk\">algiers.consular@fco.gov.uk</a>.</p>\n\n<h2 id=\"embassy-public-holidays-2017\">Embassy public holidays 2017</h2>\n\n<p>Some holidays are subject to the appearance of the moon (indicated with *), and may be subject to change. Precise dates will be confirmed nearer the time.</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Sunday 1 January</td>\n      <td>New year’s Day</td>\n    </tr>\n    <tr>\n      <td>Sunday 16 April</td>\n      <td>Easter Sunday</td>\n    </tr>\n    <tr>\n      <td>Monday 17 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday, 1 May</td>\n      <td>International Workers’ day</td>\n    </tr>\n    <tr>\n      <td>Sunday, 28 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>* Monday 26 June</td>\n      <td>* Eid El-Fitr</td>\n    </tr>\n    <tr>\n      <td>*Tuesday 27 June</td>\n      <td>* Eid El-Fitr</td>\n    </tr>\n    <tr>\n      <td>Wednesday 5 July</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>Sunday 27 August</td>\n      <td>Late Summer Holiday</td>\n    </tr>\n    <tr>\n      <td>*Friday 1 September</td>\n      <td>* Eid El-Adha</td>\n    </tr>\n    <tr>\n      <td>*Saturday 2 September</td>\n      <td>* Eid El-Adha</td>\n    </tr>\n    <tr>\n      <td>*Thursday 21 September</td>\n      <td>*Muharram (Islamic New Year)</td>\n    </tr>\n    <tr>\n      <td>*Saturday 30 September</td>\n      <td>*Achoura</td>\n    </tr>\n    <tr>\n      <td>Sunday 1 November</td>\n      <td>All Saints Day/ Anniversary of the Revolution</td>\n    </tr>\n    <tr>\n      <td>Friday 1 December</td>\n      <td>Mawlid (Prophet’s Birthday)</td>\n    </tr>\n    <tr>\n      <td>Sunday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Monday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n</div>",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"office-hours\">Office hours:</h2>\n\n<p>The Service is open to the public on Mondays and Thursdays from 9.00am To 12.30pm (local time). Please book an appointment by visiting <a href=\"https://www.gov.uk/government/world/organisations/british-embassy-algiers#services-for-British-nationals\">our services for British nationals</a> and our <a href=\"https://www.gov.uk/guidance/notarial-and-documentary-services-guide-for-algeria--2\">notarial and documentary services guide</a>.</p>\n\n<p>For any consular enquiry please call 00213 770 085 000 or send an email to <a href=\"algiers.consular@fco.gov.uk\">algiers.consular@fco.gov.uk</a>.</p>\n\n<h2 id=\"embassy-public-holidays-2018\">Embassy public holidays 2018</h2>\n<p>Some holidays are subject to the appearance of the moon (indicated with *), and may be subject to change. Precise dates will be confirmed nearer the time.</p>\n\n<table>\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Holiday</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Sunday 1 January</td>\n      <td>New year’s Day</td>\n    </tr>\n    <tr>\n      <td>Sunday 1 April</td>\n      <td>Easter Sunday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday, 1 May</td>\n      <td>International Workers’ day</td>\n    </tr>\n    <tr>\n      <td>Monday, 28 May</td>\n      <td>Late May Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>* Friday 15 June</td>\n      <td>* Eid El-Fitr</td>\n    </tr>\n    <tr>\n      <td>Thursday 5 July</td>\n      <td>Independence Day</td>\n    </tr>\n    <tr>\n      <td>*Tuesday 21 August</td>\n      <td>* Eid El-Adha</td>\n    </tr>\n    <tr>\n      <td>*Tuesday 11 September</td>\n      <td>*Muharram (Islamic New Year)</td>\n    </tr>\n    <tr>\n      <td>*Thursday 20 September</td>\n      <td>*Achoura</td>\n    </tr>\n    <tr>\n      <td>Thursday 1 November</td>\n      <td>Revolution Day</td>\n    </tr>\n    <tr>\n      <td>Monday 24 December</td>\n      <td>Christmas Eve</td>\n    </tr>\n    <tr>\n      <td>Tuesday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -65,13 +65,13 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-algeria",
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-algeria",
       "title": "Department for International Trade Algeria",
       "format": "Worldwide Organisation",
-      "updated_at": "2016-08-08T12:27:13.000+01:00",
-      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-algeria",
+      "updated_at": "2018-05-29T13:15:45.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-algeria",
       "details": {
-        "slug": "uk-trade-investment-algeria"
+        "slug": "department-for-international-trade-algeria"
       },
       "analytics_identifier": "WO270",
       "offices": {
@@ -79,9 +79,9 @@
           "title": "Department for International Trade Algeria",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:54.000+00:00",
-          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-algeria/office/uk-trade-investment-algeria",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-algeria/office/uk-trade-investment-algeria",
           "details": {
-            "email": "UKTI.Algeria@fco.gov.uk",
+            "email": "DITAfricaTrade@mobile.trade.gov.uk",
             "description": "",
             "contact_form_url": "",
             "access_and_opening_times": "",

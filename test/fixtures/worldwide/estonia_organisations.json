@@ -4,7 +4,7 @@
       "id": "https://www.gov.uk/api/worldwide-organisations/british-embassy-tallinn",
       "title": "British Embassy Tallinn",
       "format": "Worldwide Organisation",
-      "updated_at": "2014-11-09T15:30:55.000+00:00",
+      "updated_at": "2018-01-19T08:46:53.000+00:00",
       "web_url": "https://www.gov.uk/world/organisations/british-embassy-tallinn",
       "details": {
         "slug": "british-embassy-tallinn"
@@ -17,30 +17,26 @@
           "updated_at": "2013-06-27T20:43:55.000+01:00",
           "web_url": "https://www.gov.uk/world/organisations/british-embassy-tallinn/office/british-embassy",
           "details": {
-            "email": "infotallinn@fco.gov.uk",
-            "description": "",
-            "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<p>Monday to Friday, 9am to 5pm</p>\n\n<h2 id=\"consular-section\">Consular section</h2>\n\n<h3 id=\"telephone-enquiries\">Telephone enquiries</h3>\n<ul>\n  <li>Monday to Friday, 10am to midday</li>\n  <li>Telephone: (+372) 667 4700</li>\n</ul>\n\n<h3 id=\"visits\">Visits</h3>\n<p>By appointment only during the following times:</p>\n\n<ul>\n  <li>Monday to Thursday, 10am to midday and 1:30pm to 3pm</li>\n</ul>\n\n<p>Appointments should be made at least 24 hours in advance, preferably by email to <a href=\"mailto:TallinnConsular.Enquiries@fco.gov.uk\">TallinnConsular.Enquiries@fco.gov.uk</a> or by telephone during the enquiries time.</p>\n\n<p>Consular section will be closed on Friday, 26 May for public holiday.</p>\n\n<p>Closed Saturday and Sunday</p>\n\n<h2 id=\"visa-section\">Visa section</h2>\n<p>This Embassy does not deal with visa matters. For information on whether you need a visa to travel to the United Kingdom and how to apply, please see the <a href=\"https://www.gov.uk/browse/visas-immigration\">UK Visas &amp; Immigration page</a>.</p>\n\n<h2 id=\"public-holidays\">2017 Public holidays</h2>\n\n<ul>\n  <li>Monday 2 January</li>\n  <li>Friday 24 February</li>\n  <li>Friday 14 April</li>\n  <li>Monday 17 April</li>\n  <li>Monday 1 May</li>\n  <li>Monday 29 May</li>\n  <li>Thursday 22 June</li>\n  <li>Friday 23 June</li>\n  <li>Monday 21 August</li>\n  <li>Monday 28 August</li>\n  <li>Monday 25 December</li>\n  <li>Tuesday 26 December</li>\n  <li>Wednesday 27 December</li>\n</ul>\n\n<h2 id=\"getting-to-the-embassy\">Getting to the embassy</h2>\n\n<p>Our office is located on Wismari 6, not far from the National Library (Rahvusraamatukogu)  and Kaarli church (Kaarli kirik).\nFind us on the <a rel=\"external\" href=\"https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=ru&amp;geocode=&amp;q=Wismari+6,+Tallinn,+Tallinna+linn,+Eesti+Vabariik&amp;aq=&amp;sll=59.430247,24.739787&amp;sspn=0.024925,0.090895&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear=Wismari+6,+10136+Tallinn,+%D0%AD%D1%81%D1%82%D0%BE%D0%BD%D0%B8%D1%8F&amp;ll=59.434863,24.731641&amp;spn=0.012461,0.045447&amp;t=m&amp;z=15&amp;iwloc=A\">map</a></p>\n\n<h3 id=\"by-taxi\">By Taxi</h3>\n\n<p>Tallinn has thousands of taxis. Taxis can be ordered by the phone or hailed on the street. The average starting fee is from 2 to 3 EUR, and price for 1 km is from  0,50 to 1 EUR.</p>\n\n<h3 id=\"by-public-transport\">By Public transport</h3>\n\n<h4 id=\"bus-number-40\">Bus number 40</h4>\n\n<ul>\n  <li>exit on Tõnismägi bus stop, if coming from city centre</li>\n  <li>exit on A. Adamsoni bus stop, if coming from Mustamäe</li>\n</ul>\n\n<h4 id=\"trolley-number-1\">Trolley number 1</h4>\n\n<ul>\n  <li>exit on Tõnismägi bus stop, if coming from city centre</li>\n  <li>exit on A. Adamsoni bus stop, if coming from Mustamäe</li>\n</ul>\n\n<p>Tallinn public transportation planner is available <a rel=\"external\" href=\"http://kaart.tallinn.ee/Tallinn/Show?REQUEST=Main\">here</a></p>\n\n<p>Bus, trolley and tram tickets can be purchased at newsstands for 1 EUR (single ticket) or from the driver for 1,60 EUR. You can also buy a 10 ticket package for 8 EUR.</p>\n\n<p>There are also hourly and daily tickets available (can only be purchased from the newsstand and not from the driver). There are special electronic devices (located at the first and second door of the vehicle) available in each bus, to validate such tickets, which will print the time and the date.</p>\n\n<p>Ticket must be validated right after entering the bus, trolley or tram and kept till the end of journey.</p>\n\n<h2 id=\"parking\">Parking</h2>\n\n<p>We are sorry but there is no public parking space at the embassy. The nearest available parking is on the corner of Wismari and Toompuiestee - please note, that this is a paid parking area.</p>\n\n<h2 id=\"security\">Security</h2>\n\n<p>Due to the global threat currently posed by terrorism, and the targeting of embassies, we do our utmost to ensure a safe and secure environment for your visit.</p>\n\n<p>Please co-operate with the security team as they conduct their checks and controls, each of which should take only a few minutes.  The security measures in place are for the benefit of all visitors and staff.</p>\n\n<p>Visitors to our office will have to go through the security checkpoint at the entrance. Mobile phones and electronic devices are not allowed into the building.</p>\n</div>",
+            "email": "",
+            "description": "For enquiries that are not about consular issues, email infotallinn@fco.gov.uk",
+            "contact_form_url": "https://www.contact-embassy.service.gov.uk/?country=Estonia&post=British%20Embassy%20Tallinn%20",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n<p>Monday to Friday, 9am to 5pm</p>\n\n<h2 id=\"consular-section\">Consular section</h2>\n\n<h3 id=\"telephone-enquiries\">Telephone enquiries</h3>\n\n<ul>\n  <li>Monday to Thursday, 10am to16 pm</li>\n  <li>Telephone: (+372) 667 4700</li>\n</ul>\n\n<h2 id=\"visits\">Visits</h2>\n<p>By appointment only during the following times:\n* Monday to Thursday, 10am to midday and 1:30pm to 4pm</p>\n\n<p>The consular section is closed Saturday and Sunday. \nConsular service is available 24/7 by calling +372 6674700 and choosing the consular option from the phone tree.</p>\n\n<h2 id=\"visa-section\">Visa section</h2>\n<p>This Embassy does not deal with visa matters. For information on whether you need a visa to travel to the United Kingdom and how to apply, please see the <a href=\"https://www.gov.uk/browse/visas-immigration\">UK Visas &amp; Immigration page</a>.</p>\n\n<h2 id=\"public-holidays\">2018 Public holidays</h2>\n\n<ul>\n  <li>Monday 1 January</li>\n  <li>Monday 26 February</li>\n  <li>Friday 30 March</li>\n  <li>Monday 2 April</li>\n  <li>Tuesday 1 May</li>\n  <li>Monday 7 May</li>\n  <li>Monday 28 May</li>\n  <li>Monday 25 June</li>\n  <li>Tuesday 26 June</li>\n  <li>Monday 20 August</li>\n  <li>Monday 27 August</li>\n  <li>Monday 24 December</li>\n  <li>Tuesday 25 December</li>\n  <li>Wednesday 26 December</li>\n</ul>\n\n<h2 id=\"getting-to-the-embassy\">Getting to the embassy</h2>\n\n<p>Our office is located on Wismari 6, not far from the National Library (Rahvusraamatukogu) and Kaarli church (Kaarli kirik). Find us on the <a rel=\"external\" href=\"https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=ru&amp;geocode=&amp;q=Wismari+6,+Tallinn,+Tallinna+linn,+Eesti+Vabariik&amp;aq=&amp;sll=59.430247,24.739787&amp;sspn=0.024925,0.090895&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear=Wismari+6,+10136+Tallinn,+%D0%AD%D1%81%D1%82%D0%BE%D0%BD%D0%B8%D1%8F&amp;ll=59.434863,24.731641&amp;spn=0.012461,0.045447&amp;t=m&amp;z=15&amp;iwloc=A\">map</a></p>\n\n<h3 id=\"by-taxi\">By Taxi</h3>\n<p>Tallinn has thousands of taxis. Taxis can be ordered by the phone or hailed on the street. The average starting fee is from 2 to 3 EUR, and price for 1 km is from 0,50 to 1 EUR.</p>\n\n<h3 id=\"by-public-transport\">By Public transport</h3>\n\n<h4 id=\"bus-number-40\">Bus number 40</h4>\n<ul>\n  <li>exit on Tõnismägi bus stop, if coming from city centre</li>\n  <li>exit on A. Adamsoni bus stop, if coming from Mustamäe</li>\n</ul>\n\n<h4 id=\"trolley-number-1\">Trolley number 1</h4>\n\n<ul>\n  <li>exit on Tõnismägi bus stop, if coming from city centre</li>\n  <li>exit on A. Adamsoni bus stop, if coming from Mustamäe</li>\n</ul>\n\n<p>Tallinn public transportation planner is available <a rel=\"external\" href=\"http://kaart.tallinn.ee/Tallinn/Show?REQUEST=Main\">here</a></p>\n\n<p>Bus, trolley and tram tickets can be purchased at R-Kiosk or supermarket newsstands (green card where to upload money for purchasing tickets) or paper tickets from the driver.</p>\n\n<p>There are also hourly and daily tickets available (can only be purchased when having a green card and uploading money to it, the instructions are available in the public transportation).  There are special electronic devices (located at the first and second door of the vehicle) available in each bus, to validate such tickets.</p>\n\n<p>Ticket must be validated right after entering the bus, trolley or tram and kept till the end of journey.</p>\n\n<h3 id=\"parking\">Parking</h3>\n<p>We are sorry but there is no public parking space at the embassy. \nThe nearest available <a rel=\"external\" href=\"https://www.tallinn.ee/eng/otsing?sona=11979\">parking</a> is on the corner of Wismari and Toompuiestee - please note, that this is a paid parking area.</p>\n\n<h2 id=\"security\">Security</h2>\n<p>Due to the global threat currently posed by terrorism, and the targeting of embassies, we do our utmost to ensure a safe and secure environment for your visit.</p>\n\n<p>Please co-operate with the security team as they conduct their checks and controls, each of which should take only a few minutes. The security measures in place are for the benefit of all visitors and staff.</p>\n\n<p>Visitors to our office will have to go through the security checkpoint at the entrance. Mobile phones and electronic devices are not allowed into the building.</p>\n\n</div>",
             "type": "Embassy"
           },
           "address": {
             "adr": {
               "fn": "",
               "street-address": "Wismari 6",
-              "postal-code": "10136",
+              "postal-code": "15098",
               "locality": "Tallinn ",
               "region": "",
               "country-name": "Estonia"
             },
             "label": {
-              "value": "Wismari 6\nTallinn \n10136\nEstonia"
+              "value": "Wismari 6\nTallinn \n15098\nEstonia"
             }
           },
           "contact_numbers": [
-            {
-              "label": "Email",
-              "number": "TallinnConsular.Enquiries@fco.gov.uk "
-            },
             {
               "label": "Telephone ",
               "number": "+372 667 4700"
@@ -73,13 +69,13 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-estonia",
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-estonia",
       "title": "Department for International Trade Estonia",
       "format": "Worldwide Organisation",
-      "updated_at": "2016-08-09T15:47:52.000+01:00",
-      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-estonia",
+      "updated_at": "2018-05-29T13:26:57.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-estonia",
       "details": {
-        "slug": "uk-trade-investment-estonia"
+        "slug": "department-for-international-trade-estonia"
       },
       "analytics_identifier": "WO227",
       "offices": {
@@ -87,7 +83,7 @@
           "title": "Department for International Trade Estonia",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:54.000+00:00",
-          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-estonia/office/uk-trade-investment-estonia",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-estonia/office/uk-trade-investment-estonia",
           "details": {
             "email": "DIT.Tallinn@fco.gov.uk",
             "description": "",

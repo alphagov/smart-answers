@@ -18,9 +18,9 @@
           "web_url": "https://www.gov.uk/world/organisations/the-governors-office-cayman-islands/office/the-governor-s-office-grand-cayman-main-contact",
           "details": {
             "email": "staffoff@candw.ky",
-            "description": "Opening hours: \r\nMonday - Friday 8:30am - 5:00pm\r\n(except for national holidays).\r\n\r\nEmergency telephone number out of normal working hours: Please note that as the Cayman Islands are an Overseas Territory of the United Kingdom we do not provide consular services as are provided in foreign countries. The first port of call for British Nationals in distress should be to the local Cayman authorities, such as the police and hospital. The Governor's Office will only assist British nationals in case of genuine emergency and where the local authorities are unable to assist.",
+            "description": "Opening hours: \r\nMonday - Thursday 8:00am - 4:30pm\r\nFriday 8:00am - 12:30pm\r\n(except for national holidays).\r\n\r\nEmergency telephone number out of normal working hours: Please note that as the Cayman Islands are an Overseas Territory of the United Kingdom we do not provide consular services as are provided in foreign countries. The first port of call for British Nationals in distress should be to the local Cayman authorities, such as the police and hospital. The Governor's Office will only assist British nationals in case of genuine emergency and where the local authorities are unable to assist.",
             "contact_form_url": "",
-            "access_and_opening_times": "",
+            "access_and_opening_times": "<div class=\"govspeak\">\n<h2 id=\"public-holidays\">2018 Public Holidays</h2>\n\n<p>The Governor’s Office will be closed on the following days in 2018:</p>\n\n<ul>\n  <li>Monday 1 January</li>\n  <li>Monday 22 January</li>\n  <li>Wednesday 14 February</li>\n  <li>Friday 30 March</li>\n  <li>Monday 2 April</li>\n  <li>Monday 21 May</li>\n  <li>Monday 11 June</li>\n  <li>Monday 2 July</li>\n  <li>Monday 12 November</li>\n  <li>Monday 24 December</li>\n  <li>Tuesday 25 December</li>\n  <li>Wednesday 26 December</li>\n</ul>\n</div>",
             "type": "HM Governor’s Office"
           },
           "address": {
@@ -39,7 +39,7 @@
           "contact_numbers": [
             {
               "label": "Governor's Office",
-              "number": "(+1 345) 244 2434"
+              "number": "(+1 345) 244 2431"
             },
             {
               "label": "Fax",

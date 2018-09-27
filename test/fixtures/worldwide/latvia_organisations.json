@@ -17,10 +17,10 @@
           "updated_at": "2014-09-23T11:12:12.000+01:00",
           "web_url": "https://www.gov.uk/world/organisations/british-embassy-riga/office/british-embassy",
           "details": {
-            "email": "britishembassy.riga@fco.gov.uk",
-            "description": "",
-            "contact_form_url": "",
-            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<ul>\n  <li>Monday to Friday, 9:00am to 5:00pm (lunch 1pm to 2 pm)</li>\n</ul>\n\n<p>Starting from 5 June to 1 September we are working according to summer hours:</p>\n\n<ul>\n  <li>Monday to Thursday, 8:30am to 5:00pm (lunch 1pm to 1.30 pm)</li>\n  <li>Friday, 8:30m to 14:00pm (no lunch break)</li>\n</ul>\n\n<h2 id=\"public-holidays\">2017 public holidays</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 2 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 14 April</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 17 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Monday 1 May</td>\n      <td>Constitution Day and Labour Day</td>\n    </tr>\n    <tr>\n      <td>Thursday 4 May</td>\n      <td>Independence Declaration</td>\n    </tr>\n    <tr>\n      <td>Friday 5 May</td>\n      <td>Holiday in Latvia</td>\n    </tr>\n    <tr>\n      <td>Friday 26 or Tuesday 30 May</td>\n      <td>Privilege Holiday for Queens Birthday</td>\n    </tr>\n    <tr>\n      <td>Monday 29 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 23 June</td>\n      <td>Summer solstice, Ligo Day</td>\n    </tr>\n    <tr>\n      <td>Monday 26 June</td>\n      <td>in lieu for Summer solstice, Janis Day</td>\n    </tr>\n    <tr>\n      <td>Monday 28 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 20 November</td>\n      <td>in lieu for Independence Day</td>\n    </tr>\n    <tr>\n      <td>Monday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Tuesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n  </tbody>\n</table>\n\n</div>",
+            "email": "",
+            "description": "For enquiries that are not about consular issues, email britishembassy.riga@fco.gov.uk",
+            "contact_form_url": "https://www.contact-embassy.service.gov.uk/?country=Latvia&post=British%20Embassy%20Riga%20",
+            "access_and_opening_times": "<div class=\"govspeak\"><h2 id=\"opening-hours\">Opening hours</h2>\n\n<ul>\n  <li>Monday to Friday, 9:00am to 5:00pm (lunch 1pm to 2 pm)</li>\n</ul>\n\n<h2 id=\"public-holidays\">2018 public holidays</h2>\n\n<table>\n  <tbody>\n    <tr>\n      <td>Monday 1 January</td>\n      <td>New Year’s Day</td>\n    </tr>\n    <tr>\n      <td>Friday 30 March</td>\n      <td>Good Friday</td>\n    </tr>\n    <tr>\n      <td>Monday 2 April</td>\n      <td>Easter Monday</td>\n    </tr>\n    <tr>\n      <td>Tuesday 1 May</td>\n      <td>Latvia’s Constitution Day and Labour Day/ May Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Friday 4 May</td>\n      <td>Independence Declaration</td>\n    </tr>\n    <tr>\n      <td>Friday 25 May OR Tuesday 29 May</td>\n      <td>Privilege Holiday for HM The Queen’s Birthday</td>\n    </tr>\n    <tr>\n      <td>Monday 28 May</td>\n      <td>Spring Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 9 July</td>\n      <td>Latvian Song and Dance Festival Finale</td>\n    </tr>\n    <tr>\n      <td>Monday 27 August</td>\n      <td>Summer Bank Holiday</td>\n    </tr>\n    <tr>\n      <td>Monday 19 November</td>\n      <td>in lieu of Independence Day (from Sunday 18 November)</td>\n    </tr>\n    <tr>\n      <td>Monday 24 December</td>\n      <td>Christmas Eve</td>\n    </tr>\n    <tr>\n      <td>Tuesday 25 December</td>\n      <td>Christmas Day</td>\n    </tr>\n    <tr>\n      <td>Wednesday 26 December</td>\n      <td>Boxing Day</td>\n    </tr>\n    <tr>\n      <td>Monday 31 December</td>\n      <td>New Year’s Eve</td>\n    </tr>\n  </tbody>\n</table>\n\n<h2 id=\"visa-services\">Visa services</h2>\n\n<p>All visa enquiries are now provided by an external commercial partner.</p>\n\n<p>Visa applications to travel to the UK must be made in advance online through the <a rel=\"external\" href=\"https://uk.tlscontact.com/\">TLS Contact website</a></p>\n\n<p>Should you need to contact UK Visas &amp; Immigration (including status updates, supporting documents and guidance) please visit the <a href=\"https://www.gov.uk/contact-ukvi-inside-outside-uk\">UKVI website</a></p>\n\n</div>",
             "type": "Embassy"
           },
           "address": {
@@ -92,13 +92,13 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/uk-trade-investment-latvia",
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-latvia",
       "title": "Department for International Trade Latvia",
       "format": "Worldwide Organisation",
-      "updated_at": "2016-08-10T12:49:47.000+01:00",
-      "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-latvia",
+      "updated_at": "2018-05-29T13:37:45.000+01:00",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-latvia",
       "details": {
-        "slug": "uk-trade-investment-latvia"
+        "slug": "department-for-international-trade-latvia"
       },
       "analytics_identifier": "WO136",
       "offices": {
@@ -106,7 +106,7 @@
           "title": "Department for International Trade Riga",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:53.000+00:00",
-          "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-latvia/office/uk-trade-investment-riga",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-latvia/office/uk-trade-investment-riga",
           "details": {
             "email": "UKTI.Baltics@fco.gov.uk   ",
             "description": "",
@@ -142,7 +142,7 @@
             "title": "Department for International Trade Tallinn",
             "format": "World Office",
             "updated_at": "2013-03-25T10:37:53.000+00:00",
-            "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-latvia/office/uk-trade-investment-tallinn",
+            "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-latvia/office/uk-trade-investment-tallinn",
             "details": {
               "email": "UKTI.Tallinn@fco.gov.uk ",
               "description": "",
@@ -177,7 +177,7 @@
             "title": "Department for International Trade Vilnius",
             "format": "World Office",
             "updated_at": "2013-03-25T10:37:53.000+00:00",
-            "web_url": "https://www.gov.uk/world/organisations/uk-trade-investment-latvia/office/uk-trade-investment-vilnius",
+            "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-latvia/office/uk-trade-investment-vilnius",
             "details": {
               "email": "be-commercial@britain.lt ",
               "description": "",
