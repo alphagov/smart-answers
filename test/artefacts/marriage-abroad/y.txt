@@ -184,7 +184,7 @@ Where do you want to get married?
   * solomon-islands: Solomon Islands
   * somalia: Somalia
   * south-africa: South Africa
-  * south-georgia-and-south-sandwich-islands: South Georgia And South Sandwich Islands
+  * south-georgia-and-the-south-sandwich-islands: South Georgia And South Sandwich Islands
   * south-korea: South Korea
   * south-sudan: South Sudan
   * spain: Spain

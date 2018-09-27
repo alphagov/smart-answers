@@ -76,7 +76,7 @@
   :next_node: :answer_three_british_overseas_territories
 - :current_node: :which_country?
   :responses:
-  - south-georgia-and-south-sandwich-islands
+  - south-georgia-and-the-south-sandwich-islands
   :next_node: :answer_three_british_overseas_territories
 - :current_node: :which_country?
   :responses:

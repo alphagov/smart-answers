@@ -185,7 +185,7 @@
   - overseas
   - democratic-republic-of-the-congo
   - another_country
-  - south-georgia-and-south-sandwich-islands
+  - south-georgia-and-the-south-sandwich-islands
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
@@ -330,7 +330,7 @@
   - overseas
   - austria
   - another_country
-  - south-georgia-and-south-sandwich-islands
+  - south-georgia-and-the-south-sandwich-islands
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
@@ -469,7 +469,7 @@
   - overseas
   - iran
   - another_country
-  - south-georgia-and-south-sandwich-islands
+  - south-georgia-and-the-south-sandwich-islands
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
@@ -614,7 +614,7 @@
   - overseas
   - north-korea
   - another_country
-  - south-georgia-and-south-sandwich-islands
+  - south-georgia-and-the-south-sandwich-islands
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?
@@ -753,7 +753,7 @@
   - overseas
   - papua-new-guinea
   - another_country
-  - south-georgia-and-south-sandwich-islands
+  - south-georgia-and-the-south-sandwich-islands
   :next_node: :oru_result
   :outcome_node: true
 - :current_node: :which_country_are_you_in_now?

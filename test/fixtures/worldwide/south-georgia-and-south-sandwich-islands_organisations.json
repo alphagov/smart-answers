@@ -2,7 +2,7 @@
   "results": [
 
   ],
-  "next_page_url": "https://www.gov.uk/api/world-locations/south-georgia-and-south-sandwich-islands/organisations?page=2",
+  "next_page_url": "https://www.gov.uk/api/world-locations/south-georgia-and-the-south-sandwich-islands/organisations?page=2",
   "current_page": 1,
   "total": 0,
   "pages": 0,
@@ -12,11 +12,11 @@
     "status": "ok",
     "links": [
       {
-        "href": "https://www.gov.uk/api/world-locations/south-georgia-and-south-sandwich-islands/organisations?page=2",
+        "href": "https://www.gov.uk/api/world-locations/south-georgia-and-the-south-sandwich-islands/organisations?page=2",
         "rel": "next"
       },
       {
-        "href": "https://www.gov.uk/api/world-locations/south-georgia-and-south-sandwich-islands/organisations?page=1",
+        "href": "https://www.gov.uk/api/world-locations/south-georgia-and-the-south-sandwich-islands/organisations?page=1",
         "rel": "self"
       }
     ]
