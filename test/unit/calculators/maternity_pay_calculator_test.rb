@@ -105,74 +105,24 @@ module SmartAnswer::Calculators
         end
       end
 
-      context "specific date tests (for lower_earning_limits) for birth" do
-        should "return 112 for due dates after 6/04/2015" do
-          due_date = Date.parse("16 December 2015")
-          calculator = MaternityPayCalculator.new(due_date)
-          assert_equal 112, calculator.lower_earning_limit
-        end
-
-        should "return 111 for due dates after 14/07/2014" do
-          due_date = Date.parse("24 July 2014")
-          calculator = MaternityPayCalculator.new(due_date)
-          assert_equal 111, calculator.lower_earning_limit
-        end
-
-        should "return lower_earning_limit 109" do
-          due_date = Date.parse("15 July 2014")
-          calculator = MaternityPayCalculator.new(due_date)
-          assert_equal 109, calculator.lower_earning_limit
-        end
-
-        should "return 109 when due is in 2013/2014 tax year" do
-          due_date = Date.parse("14 November 2013")
-          calculator = MaternityPayCalculator.new(due_date)
-          assert_equal 109, calculator.lower_earning_limit
-        end
-
-        should "return lower_earning_limit 107 on 1 January 2013" do
-          due_date = Date.parse("1 January 2013")
-          calculator = MaternityPayCalculator.new(due_date)
-          assert_equal 107, calculator.lower_earning_limit
-        end
-
-        should "return lower_earning_limit 107 on 15 July 2013" do
-          due_date = Date.parse("15 July 2013")
-          calculator = MaternityPayCalculator.new(due_date)
-          assert_equal 107, calculator.lower_earning_limit
-        end
-
-        should "return lower_earning_limit 102 base on due date 15 July 2012" do
-          due_date = Date.parse("15 July 2012")
-          calculator = MaternityPayCalculator.new(due_date)
-          assert_equal 102, calculator.lower_earning_limit
-        end
-
-        should "return lower_earning_limit 102 base on due date 14 July 2012" do
-          due_date = Date.parse("14 July 2012")
-          calculator = MaternityPayCalculator.new(due_date)
-          assert_equal 102, calculator.lower_earning_limit
-        end
-
-        should "return lower_earning_limit 102 base on due date 1 January 2012" do
-          due_date = Date.parse("1 January 2012")
-          calculator = MaternityPayCalculator.new(due_date)
-          assert_equal 102, calculator.lower_earning_limit
-        end
-
-        should "return lower_earning_limit 97" do
-          due_date = Date.parse("1 January 2011")
-          calculator = MaternityPayCalculator.new(due_date)
-          assert_equal 97, calculator.lower_earning_limit
-        end
-
-        should "return lower_earning_limit 95" do
-          due_date = Date.parse("1 January 2010")
-          calculator = MaternityPayCalculator.new(due_date)
-          assert_equal 95, calculator.lower_earning_limit
+      context "#lower_earning_limit" do
+        {
+          2009 => 95,
+          2010 => 97,
+          2011 => 102,
+          2012 => 107,
+          2013 => 109,
+          2014 => 111,
+          2015 => 112,
+          2016 => 112,
+          2017 => 113,
+          2018 => 116,
+        }.each do |year, rate|
+          should "be £#{rate} for due date December 21st, #{year}" do
+            assert_equal rate, MaternityPayCalculator.new(Date.parse("#{year}-12-21")).lower_earning_limit
+          end
         end
       end
-
 
       context "qualifying_week tests" do
         # due, qualifying_week, latest employment start, start of 11th week before due, start of 4th week
@@ -319,6 +269,7 @@ module SmartAnswer::Calculators
           assert_equal '2012-07-19', paydates.second.to_s
           assert_equal '2013-04-11', paydates.last.to_s
         end
+
         should "calculate bi-weekly pay dates" do
           @calculator.pay_method = 'every_2_weeks'
           @calculator.pay_date = Date.parse('11 July 2012')
@@ -327,6 +278,7 @@ module SmartAnswer::Calculators
           assert_equal '2012-07-25', paydates.second.to_s
           assert_equal '2012-08-08', paydates.third.to_s
         end
+
         should "calculate bi-fortnightly pay dates" do
           @calculator.pay_method = 'every_4_weeks'
           @calculator.pay_date = Date.parse('11 July 2012')
@@ -335,6 +287,7 @@ module SmartAnswer::Calculators
           assert_equal '2012-08-08', paydates.second.to_s
           assert_equal '2012-09-05', paydates.third.to_s
         end
+
         should "calculate monthly pay dates" do
           @calculator.pay_method = 'monthly'
           @calculator.pay_day_in_month = 9
@@ -342,6 +295,7 @@ module SmartAnswer::Calculators
           assert_equal '2012-08-09', paydates.first.to_s
           assert_equal '2013-05-09', paydates.last.to_s
         end
+
         should "calculate first day of the month pay dates" do
           @calculator.pay_method = 'first_day_of_the_month'
           paydates = @calculator.paydates_first_day_of_the_month
@@ -350,6 +304,7 @@ module SmartAnswer::Calculators
           assert_equal '2012-09-01', paydates.second.to_s
           assert_equal '2013-05-01', paydates.last.to_s
         end
+
         should "calculate last day of the month pay dates" do
           @calculator.pay_method = 'last_day_of_the_month'
           paydates = @calculator.paydates_last_day_of_the_month
@@ -358,6 +313,7 @@ module SmartAnswer::Calculators
           assert_equal '2012-08-31', paydates.second.to_s
           assert_equal '2013-04-30', paydates.last.to_s
         end
+
         should "calculate specific monthly pay dates" do
           @calculator.pay_method = 'specific_date_each_month'
           @calculator.pay_day_in_month = 5
@@ -365,6 +321,7 @@ module SmartAnswer::Calculators
           assert_equal '2012-08-05', paydates.first.to_s
           assert_equal '2013-05-05', paydates.last.to_s
         end
+
         should "calculate last working day of the month pay dates" do
           @calculator.pay_method = 'last_working_day_of_the_month'
           @calculator.pay_day_in_week = 3 # Paid last Wednesday in the month
