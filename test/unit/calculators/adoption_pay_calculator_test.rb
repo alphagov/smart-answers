@@ -73,6 +73,7 @@ module SmartAnswer::Calculators
             2014-01-31 2014-02-28 2014-03-28 2014-04-25 2014-05-30
             2014-06-27 2014-07-25 2014-08-29 2014-09-26 2014-10-31
           )
+
           actual_pay_dates = paydates_and_pay.map { |p| p[:date].to_s }
 
           assert_equal expected_pay_dates, actual_pay_dates
