@@ -1,6 +1,6 @@
 # Smart Answer flows - Development principles
 
-## Do's
+## Do
 
 * Make small improvements to the code before making even business-as-usual changes. See [refactoring existing Smart Answers](refactoring.md) for some common improvements.
 
@@ -18,10 +18,10 @@
 
 * Iteratively develop new Smart Answers. Get a simply happy-path version deployed and build upon that in collaboration with the department and content team.
 
-## Dont's
+## Don't
 
 * Don't copy the style of existing "legacy" Smart Answers (e.g. [calculate-agricultural-holiday-entitlement](https://github.com/alphagov/smart-answers/blob/829837f1f738c711985bf3a7a5d1655605637edd/lib/smart_answer_flows/calculate-agricultural-holiday-entitlement.rb)).
 
 * Don't blindly follow the logic documents when creating/amending Smart Answers. This has lead to some of the problems we see in the "legacy" Smart Answers, e.g. policy logic being mixed up with flow/routing logic resulting in hard to maintain code.
 
-* Don't do big-bang development of new Smart Answers. See the point about iteratively developing them in the "Do's" section above.
+* Don't do big-bang development of new Smart Answers. See the point about iteratively developing them in the "Do" section above.

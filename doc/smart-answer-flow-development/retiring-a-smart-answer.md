@@ -199,7 +199,7 @@ In this document is prescribed the steps that need to be taken:
     ```
     TARGET_APPLICATION = smartanswers
     MACHINE_CLASS = calculators_frontend
-    RAKE_TASK = <rake task name only (no bundle exec rake) …. > 
+    RAKE_TASK = <rake task name only (no bundle exec rake) …. >
     ```
     ```
     (bundle exec rake) retire:unpublish_with_vanish[67764435-e8ed-4700-a657-2e0432cb1f5b]
@@ -214,7 +214,7 @@ In this document is prescribed the steps that need to be taken:
     - Manually archive existing Artefact on publisher storage.
       - SSH to backend: ```ssh backend-1.backend.(integration|staging|production)```
       - rails console: ```govuk_app_console publisher```
-      ``` 
+      ```
       artefact = Artefact.find_by(slug: "student-finance-forms")
       artefact.state = "archived"
       artefact.save!
@@ -266,11 +266,3 @@ In this document is prescribed the steps that need to be taken:
       RouterReloader.reload
       y route # to confirm the segments_mode flag has been updated
     ```
-
-  - ### Reseting cache (optional):
-
-    After rake tasks have been run, it may be important to clear the cache for the smart answer in question.
-
-    These fabricator tasks are required:
-    - `production cache.purge:"/smart-answer-base-path"`
-    - `production cdn.purge_all:"/smart-answer-base-path"`

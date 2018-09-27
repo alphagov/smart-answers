@@ -3,5 +3,5 @@
 Smart answers need content-ids. You can generate one by running:
 
 ```bash
-$ be rails r "puts SecureRandom.uuid"
+$ ruby -rsecurerandom -e "puts SecureRandom.uuid"
 ```
