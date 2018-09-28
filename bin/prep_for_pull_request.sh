@@ -19,13 +19,6 @@ if [[ -n "$(git status --porcelain)" ]]; then
   git commit -m "Update expected results for $1"
 fi
 
-bundle exec rake checksums:update
-
-if [[ -n "$(git status --porcelain)" ]]; then
-  git add test/data/$1-files.yml
-  git commit -m "Update checksums for $1"
-fi
-
 RUN_REGRESSION_TESTS=$1 ruby test/regression/smart_answers_regression_test.rb
 
 if [[ -n "$(git status --porcelain)" ]]; then
