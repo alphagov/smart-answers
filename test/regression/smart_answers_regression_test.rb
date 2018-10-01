@@ -83,13 +83,6 @@ class SmartAnswersRegressionTest < ActionController::TestCase
         self.class.setup_has_run!
       end
 
-      should "have up to date checksum data" do
-        message = []
-        message << "Expected #{smart_answer_helper.files_checksum_path} to exist and to contain up to date data"
-        message << "Use the checksums:add_files[#{flow_name}] rake task to update it"
-        assert_equal false, smart_answer_helper.files_checksum_data_needs_updating?, message.join('. ')
-      end
-
       should "ensure all nodes are being exercised" do
         flow = SmartAnswer::FlowRegistry.instance.find(flow_name)
 
@@ -143,7 +136,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
 
       should "#{RUN_ME_LAST} and generate the same set of output files" do
         diff_output = `git status --short -- #{smart_answer_helper.path_to_outputs_for_flow}`
-        assert diff_output.blank?, "Changes in outcome page artefacts have been detected:\n#{diff_output}\nIf these changes are expected then re-generate the checksums, commit all the changes, and re-run the regression test."
+        assert diff_output.blank?, "Changes in outcome page artefacts have been detected:\n#{diff_output}\nIf these changes are expected then commit all the changes and re-run the regression test."
       end
     end
   end
