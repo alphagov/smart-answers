@@ -106,19 +106,19 @@ module SmartAnswer::Calculators
       #More than 6 months, same for paper and online return
       if (overdue_filing_days > 181) && (overdue_filing_days <= 365)
         #if 5% of tax due is higher than 300£ then charge 5% of tax due otherwise charge 300£
-        if estimated_bill.value > 6002
-          result = 1000 + (estimated_bill.value * 0.05)
-        else
-          result = 1000 + 300
-        end
+        result = if estimated_bill.value > 6002
+                   1000 + (estimated_bill.value * 0.05)
+                 else
+                   1000 + 300
+                 end
         #if more than 1 year
       elsif overdue_filing_days > 365
         # if 5% of tax due is higher than 300£ then charge 5% of tax due otherwise charge 300£ + all other fines
-        if estimated_bill.value > 6002
-          result = 1000 + (estimated_bill.value * 0.05) + (estimated_bill.value * 0.05)
-        else
-          result = 1000 + 600
-        end
+        result = if estimated_bill.value > 6002
+                   1000 + (estimated_bill.value * 0.05) + (estimated_bill.value * 0.05)
+                 else
+                   1000 + 600
+                 end
       end
       SmartAnswer::Money.new(result)
     end

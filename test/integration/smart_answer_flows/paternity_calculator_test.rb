@@ -239,15 +239,15 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                                     end #QP14 end usual pay dates (monthly) for SPP
 
                                     context "answer standard weekly" do
-                                    setup { add_response "weekly_starting" }
+                                      setup { add_response "weekly_starting" }
 
                                     #QP14 weekly outcome
-                                    should "go to outcome" do
-                                      assert_current_node :paternity_leave_and_pay
-                                      assert_state_variable "has_contract", "yes"
-                                      assert_state_variable :pay_dates_and_pay, "18 June 2013|£103.85"
-                                    end
-                                  end #QP14 end SPP calculated weekly
+                                      should "go to outcome" do
+                                        assert_current_node :paternity_leave_and_pay
+                                        assert_state_variable "has_contract", "yes"
+                                        assert_state_variable :pay_dates_and_pay, "18 June 2013|£103.85"
+                                      end
+                                    end #QP14 end SPP calculated weekly
                                   end
                                 end #QP13 end earings above 109 between relevant period
 

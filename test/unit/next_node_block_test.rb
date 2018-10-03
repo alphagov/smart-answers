@@ -81,7 +81,7 @@ module SmartAnswer
 
         possible_next_nodes = @parser.possible_next_nodes(next_node_block)
 
-        assert_equal [:question_one, :outcome_one], possible_next_nodes
+        assert_equal %i[question_one outcome_one], possible_next_nodes
       end
 
       should 'ignore invocations with too few arguments' do

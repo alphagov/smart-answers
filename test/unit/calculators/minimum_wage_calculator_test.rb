@@ -984,7 +984,7 @@ module SmartAnswer::Calculators
         free_adjustment = (4.73 * number_of_nights).round(2)
         charged_adjustment = @calculator.accommodation_adjustment(charge, number_of_nights)
         assert_equal((free_adjustment - (charge * number_of_nights)).round(2), charged_adjustment)
-        assert 0 > charged_adjustment # this should always be less than zero
+        assert charged_adjustment < 0 # this should always be less than zero
       end
     end
 

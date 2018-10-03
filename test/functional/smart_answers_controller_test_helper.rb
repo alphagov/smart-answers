@@ -20,10 +20,10 @@ module SmartAnswersControllerTestHelper
     get :show, params: params.merge(other_params)
   end
 
-  def with_cache_control_expiry(&block)
+  def with_cache_control_expiry
     original_value = Rails.configuration.set_http_cache_control_expiry_time
     Rails.configuration.set_http_cache_control_expiry_time = true
-    block.call
+    yield
     Rails.configuration.set_http_cache_control_expiry_time = original_value
   end
 end

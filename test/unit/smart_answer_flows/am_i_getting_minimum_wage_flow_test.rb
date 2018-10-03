@@ -9,9 +9,9 @@ module SmartAnswer
     end
 
     context 'validation' do
-      [
-        :how_old_are_you?,
-        :how_old_were_you?
+      %i[
+        how_old_are_you?
+        how_old_were_you?
       ].each do |age_question_name|
         context "for #{age_question_name}" do
           setup do
@@ -43,9 +43,9 @@ module SmartAnswer
         end
       end
 
-      [
-        :how_often_do_you_get_paid?,
-        :how_often_did_you_get_paid?
+      %i[
+        how_often_do_you_get_paid?
+        how_often_did_you_get_paid?
       ].each do |pay_frequency_question_name|
         context "for #{pay_frequency_question_name}" do
           setup do
@@ -73,9 +73,9 @@ module SmartAnswer
         end
       end
 
-      [
-        :how_many_hours_do_you_work?,
-        :how_many_hours_did_you_work?
+      %i[
+        how_many_hours_do_you_work?
+        how_many_hours_did_you_work?
       ].each do |hours_question_name|
         context "for #{hours_question_name}" do
           setup do
@@ -117,9 +117,9 @@ module SmartAnswer
         end
       end
 
-      [
-        :how_many_hours_overtime_do_you_work?,
-        :how_many_hours_overtime_did_you_work?
+      %i[
+        how_many_hours_overtime_do_you_work?
+        how_many_hours_overtime_did_you_work?
       ].each do |overtime_hours_question_name|
         context "for #{overtime_hours_question_name}" do
           setup do
@@ -153,9 +153,9 @@ module SmartAnswer
         end
       end
 
-      [
-        :current_accommodation_charge?,
-        :past_accommodation_charge?
+      %i[
+        current_accommodation_charge?
+        past_accommodation_charge?
       ].each do |accommodation_charge_question_name|
         context "for #{accommodation_charge_question_name}" do
           setup do
@@ -185,9 +185,9 @@ module SmartAnswer
         end
       end
 
-      [
-        :current_accommodation_usage?,
-        :past_accommodation_usage?
+      %i[
+        current_accommodation_usage?
+        past_accommodation_usage?
       ].each do |accommodation_usage_question_name|
         context "for #{accommodation_usage_question_name}" do
           setup do

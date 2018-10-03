@@ -1,4 +1,3 @@
-
 require_relative '../test_helper'
 
 class FlowTest < ActiveSupport::TestCase
@@ -296,9 +295,9 @@ class FlowTest < ActiveSupport::TestCase
     should "calculate the path traversed by a series of responses" do
       assert_equal [], @flow.path([])
       assert_equal [:do_you_like_chocolate?], @flow.path(%w{no})
-      assert_equal [:do_you_like_chocolate?, :do_you_like_jam?], @flow.path(%w{no yes})
+      assert_equal %i[do_you_like_chocolate? do_you_like_jam?], @flow.path(%w{no yes})
       assert_equal [:do_you_like_chocolate?], @flow.path(%w{yes})
-      assert_equal [:do_you_like_chocolate?, :do_you_like_jam?], @flow.path(%w{no no})
+      assert_equal %i[do_you_like_chocolate? do_you_like_jam?], @flow.path(%w{no no})
     end
   end
 
@@ -322,7 +321,7 @@ class FlowTest < ActiveSupport::TestCase
     end
 
     assert_equal [], flow.process([]).responses
-    assert_equal ['red'], flow.process(['red']).responses
+    assert_equal %w[red], flow.process(%w[red]).responses
     assert_equal ['red', Date.parse('2011-02-01')], flow.process(['red', { year: 2011, month: 2, day: 1 }]).responses
   end
 
@@ -337,7 +336,7 @@ class FlowTest < ActiveSupport::TestCase
       outcome :done
     end
 
-    state = flow.process(["1"])
+    state = flow.process(%w[1])
     assert_equal SmartAnswer::Money.new('1'), state.price
   end
 
@@ -353,7 +352,7 @@ class FlowTest < ActiveSupport::TestCase
       outcome :done
     end
 
-    state = flow.process(["1"])
+    state = flow.process(%w[1])
     assert_equal SmartAnswer::Money.new('1'), state.price
     assert_equal 2.0, state.double
   end
@@ -371,7 +370,7 @@ class FlowTest < ActiveSupport::TestCase
       end
     end
 
-    state = flow.process(["1"])
+    state = flow.process(%w[1])
     assert_equal SmartAnswer::Money.new('1'), state.price
     assert_equal 2.0, state.double
   end

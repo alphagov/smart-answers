@@ -5,11 +5,11 @@ module SmartAnswer::Calculators
     ALT_EMBASSIES = {
       'benin' =>  'nigeria',
       'guinea' => 'ghana'
-    }
+    }.freeze
 
-    CASH_ONLY_COUNTRIES = %w(cuba sudan)
+    CASH_ONLY_COUNTRIES = %w(cuba sudan).freeze
 
-    RENEWING_COUNTRIES = %w(belarus burma cuba lebanon libya russia sudan tajikistan tunisia turkmenistan uzbekistan zimbabwe)
+    RENEWING_COUNTRIES = %w(belarus burma cuba lebanon libya russia sudan tajikistan tunisia turkmenistan uzbekistan zimbabwe).freeze
 
     attr_reader :passport_data
     attr_reader :passport_fees

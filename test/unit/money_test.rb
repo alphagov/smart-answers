@@ -25,7 +25,7 @@ module SmartAnswer
     end
 
     test "should be possible to initialize with a BigDecimal" do
-      v = BigDecimal.new("1234.5678")
+      v = BigDecimal("1234.5678")
       money = SmartAnswer::Money.new(v)
       assert_equal "1234.5678", money.to_s
     end

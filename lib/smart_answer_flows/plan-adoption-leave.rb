@@ -29,7 +29,7 @@ module SmartAnswer
       date_question :leave_start? do
         calculate :start_date do |response|
           dist = (arrival_date - response).to_i
-          raise InvalidResponse unless (1..14).include? dist
+          raise InvalidResponse unless (1..14).cover? dist
           response
         end
 
@@ -37,7 +37,8 @@ module SmartAnswer
           Calculators::PlanAdoptionLeave.new(
             match_date: match_date,
             arrival_date: arrival_date,
-            start_date: start_date)
+            start_date: start_date
+)
         end
 
         next_node do

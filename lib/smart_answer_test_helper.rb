@@ -134,10 +134,10 @@ private
 
   def source_files_have_changed?
     checksum_data = read_files_checksums
-    changed_files = checksum_data.select do |path, expected_checksum|
+    changed_files = checksum_data.reject do |path, expected_checksum|
       content = File.read(path)
       actual_checksum = Digest::MD5.hexdigest(content)
-      expected_checksum != actual_checksum
+      expected_checksum == actual_checksum
     end
     changed_files.any?
   end

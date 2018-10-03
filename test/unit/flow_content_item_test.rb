@@ -13,8 +13,7 @@ module SmartAnswer
       stub('flow-registration-presenter',
         slug: 'flow-slug',
         title: 'flow-title',
-        external_related_links: []
-      )
+        external_related_links: [])
     end
 
     test '#content_id is the flow_content_id of the presenter' do
@@ -113,7 +112,7 @@ module SmartAnswer
       presenter = stub_flow_registration_presenter
       content_item = FlowContentItem.new(presenter)
 
-      expected_route = {type: 'prefix', path: '/flow-slug/y'}
+      expected_route = { type: 'prefix', path: '/flow-slug/y' }
       assert content_item.payload[:routes].include?(expected_route)
     end
   end

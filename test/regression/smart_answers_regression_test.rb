@@ -1,5 +1,5 @@
 ENV["RAILS_ENV"] = "test"
-require File.expand_path('../../../config/environment', __FILE__)
+require File.expand_path('../../config/environment', __dir__)
 
 FLOW_REGISTRY_OPTIONS[:preload_flows] = false
 
@@ -20,7 +20,7 @@ require 'slimmer/test'
 
 class SmartAnswersRegressionTest < ActionController::TestCase
   i_suck_and_my_tests_are_order_dependent!
-  RUN_ME_LAST = 'zzzzzzzzzzz run me last'
+  RUN_ME_LAST = 'zzzzzzzzzzz run me last'.freeze
 
   class << self
     def setup_has_run!
@@ -117,7 +117,7 @@ class SmartAnswersRegressionTest < ActionController::TestCase
         get :show, params: { id: flow_name, started: 'y', format: 'txt' }
         assert_response :success
 
-        artefact_path = smart_answer_helper.save_output(['y'], response)
+        artefact_path = smart_answer_helper.save_output(%w[y], response)
         assert_no_output_diff artefact_path if ENV['ASSERT_EACH_ARTEFACT'].present?
       end
 
@@ -156,7 +156,7 @@ private
   end
 
   def setup_worldwide_locations
-    location_slugs = YAML.load(read_fixture_file("worldwide_locations.yml"))
+    location_slugs = YAML.safe_load(read_fixture_file("worldwide_locations.yml"))
     stub_world_locations(location_slugs, load_fco_organisation_data: true)
   end
 end

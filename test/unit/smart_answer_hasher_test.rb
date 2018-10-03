@@ -23,7 +23,7 @@ class SmartAnswerHasherTest < ActiveSupport::TestCase
       hasher.write_checksum_data(buffer)
       buffer.rewind
 
-      checksum_data = YAML.load(buffer.read)
+      checksum_data = YAML.safe_load(buffer.read)
 
       flow_files_paths_and_contents.each do |(path, content)|
         assert_equal Digest::MD5.hexdigest(content), checksum_data[path]

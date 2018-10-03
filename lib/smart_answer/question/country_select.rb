@@ -40,7 +40,7 @@ module SmartAnswer
           countries = countries.reject { |c| @exclude_countries.include?(c.slug) }
         end
         if @additional_countries
-          countries = (countries + @additional_countries).sort { |a, b| a.name <=> b.name }
+          countries = (countries + @additional_countries).sort_by(&:name)
         end
         countries
       end

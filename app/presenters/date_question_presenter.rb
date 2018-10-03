@@ -1,5 +1,5 @@
 class DateQuestionPresenter < QuestionPresenter
-  delegate [:default_day, :default_month, :default_year] => :@node
+  delegate %i[default_day default_month default_year] => :@node
 
   def response_label(value)
     if only_display_day_and_month?(value)

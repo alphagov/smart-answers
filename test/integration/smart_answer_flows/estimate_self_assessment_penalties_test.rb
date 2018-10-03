@@ -19,7 +19,7 @@ TEST_CALCULATOR_DATES = {
     "2013-14": Date.new(2015, 1, 31),
     "2014-15": Date.new(2016, 1, 31),
   },
-}
+}.freeze
 class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
   include FlowTestHelper
 

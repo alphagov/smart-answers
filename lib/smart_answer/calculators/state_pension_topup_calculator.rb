@@ -23,7 +23,7 @@ module SmartAnswer::Calculators
     end
 
     def valid_weekly_amount_in_range?
-      (1..25).include?(weekly_amount.to_f)
+      (1..25).cover?(weekly_amount.to_f)
     end
 
     def lump_sum_and_age
@@ -71,11 +71,11 @@ module SmartAnswer::Calculators
 
     def lump_sum_amount(age, weekly_amount)
       data_query = StatePensionTopupDataQuery.new
-      if data_query.age_and_rates(age)
-        total = data_query.age_and_rates(age) * weekly_amount.to_f
-      else
-        total = 0
-      end
+      total = if data_query.age_and_rates(age)
+                data_query.age_and_rates(age) * weekly_amount.to_f
+              else
+                0
+              end
       SmartAnswer::Money.new(total)
     end
 

@@ -92,7 +92,7 @@ private
         id:        @name,
         started:   "y",
         responses: @presenter.current_state.responses,
-        protocol:  (request.ssl? || Rails.env.production?) ? 'https' : 'http',
+        protocol:  request.ssl? || Rails.env.production? ? 'https' : 'http',
       }
       redirect_to redirect_params
     end

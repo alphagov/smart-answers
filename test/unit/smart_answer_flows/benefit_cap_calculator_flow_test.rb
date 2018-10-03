@@ -12,7 +12,7 @@ module SmartAnswer
           fourth_benefit: :fourth_benefit_amount?
         }
 
-        @selected_benefits = [:second_benefit, :fourth_benefit]
+        @selected_benefits = %i[second_benefit fourth_benefit]
       end
 
       context "order of questions asked" do

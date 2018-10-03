@@ -1,7 +1,7 @@
 module SmartAnswer
   module Question
     class Checkbox < Base
-      NONE_OPTION = 'none'
+      NONE_OPTION = 'none'.freeze
 
       attr_reader :options, :none_option_label, :none_option_prefix
 

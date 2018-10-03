@@ -36,11 +36,7 @@ module SmartAnswer
         option :no
 
         on_response do |response|
-          if response == 'yes'
-            calculator.enough_notice_of_absence = true
-          else
-            calculator.enough_notice_of_absence = false
-          end
+          calculator.enough_notice_of_absence = response == 'yes'
         end
 
         next_node do

@@ -3,11 +3,11 @@ namespace :checksums do
   task update: :environment do |_, args|
     available_flows = SmartAnswer::FlowRegistry.new.available_flows
 
-    if args.extras.empty?
-      flow_names = available_flows
-    else
-      flow_names = args.extras
-    end
+    flow_names = if args.extras.empty?
+                   available_flows
+                 else
+                   args.extras
+                 end
 
     unknown_flows = flow_names - available_flows
     if unknown_flows.any?

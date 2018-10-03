@@ -11,7 +11,7 @@ module SmartAnswer
           amount: salary.amount,
           period: salary.period
         }
-      rescue
+      rescue StandardError
         nil
       end
     end

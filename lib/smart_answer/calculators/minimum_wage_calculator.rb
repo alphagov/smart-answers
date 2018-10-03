@@ -98,7 +98,7 @@ module SmartAnswer::Calculators
 
     def total_underpayment
       underpayment = total_entitlement - total_pay
-      underpayment > 0 ? (underpayment).round(2) : 0.0
+      underpayment > 0 ? underpayment.round(2) : 0.0
     end
 
     def historical_entitlement
@@ -121,16 +121,15 @@ module SmartAnswer::Calculators
       minimum_hourly_rate <= total_hourly_rate
     end
 
-
     def accommodation_adjustment(charge, number_of_nights)
       charge = charge.to_f
       number_of_nights = number_of_nights.to_i
 
-      if charge > 0
-        accommodation_cost = charged_accomodation_adjustment(charge, number_of_nights)
-      else
-        accommodation_cost = free_accommodation_adjustment(number_of_nights)
-      end
+      accommodation_cost = if charge > 0
+                             charged_accomodation_adjustment(charge, number_of_nights)
+                           else
+                             free_accommodation_adjustment(number_of_nights)
+                           end
       @accommodation_cost = (accommodation_cost * weekly_multiplier).round(2)
     end
 

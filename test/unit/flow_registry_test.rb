@@ -1,10 +1,9 @@
-
 require_relative '../test_helper'
 
 module SmartAnswer
   class FlowRegistryTest < ActiveSupport::TestCase
     def registry(options = {})
-      FlowRegistry.new(options.merge(smart_answer_load_path: File.expand_path('../../fixtures/smart_answer_flows/', __FILE__)))
+      FlowRegistry.new(options.merge(smart_answer_load_path: File.expand_path('../fixtures/smart_answer_flows', __dir__)))
     end
 
     test "Can load a flow from a file" do
@@ -12,7 +11,7 @@ module SmartAnswer
       assert_equal 2, flow.questions.size
       assert_equal :hotter_or_colder?, flow.questions.first.name
       assert_equal %w{hotter colder}, flow.questions.first.options
-      assert_equal [:hot, :cold, :frozen], flow.outcomes.map(&:name)
+      assert_equal %i[hot cold frozen], flow.outcomes.map(&:name)
     end
 
     test "Raises NotFound error if file not found" do

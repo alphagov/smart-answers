@@ -1,7 +1,7 @@
 require_relative "../test_helper"
 require_relative "../helpers/fixture_flows_helper"
 
-require File.expand_path('../../fixtures/smart_answer_flows/flow-sample', __FILE__)
+require File.expand_path('../fixtures/smart_answer_flows/flow-sample', __dir__)
 
 class FlowRegistrationPresenterTest < ActiveSupport::TestCase
   include FixtureFlowsHelper

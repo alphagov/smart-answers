@@ -8,7 +8,7 @@ module SmartAnswer
       if amount_or_options.is_a?(Hash)
         amount = amount_or_options[:amount]
         period = amount_or_options[:period]
-      elsif amount_or_options.to_s.match(/^[0-9\.]+-[a-z]+$/)
+      elsif /^[0-9\.]+-[a-z]+$/.match?(amount_or_options.to_s)
         amount, period = amount_or_options.to_s.split('-')
       else
         amount = amount_or_options

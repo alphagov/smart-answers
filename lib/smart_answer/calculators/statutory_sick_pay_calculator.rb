@@ -213,7 +213,7 @@ module SmartAnswer
         # we need to calculate the daily rate by truncating to four decimal places to match unrounded daily rates used by HMRC
         # doing .round(6) after multiplication to avoid float precision issues
         # Simply using .round(4) on ssp_weekly_rate/@pattern_days will be off by 0.0001 for 3 and 7 pattern days and lead to 1p difference in some statutory amount calculations
-        pattern_days > 0 ? ((((weekly_rate / pattern_days) * 10000).round(6).floor) / 10000.0) : 0.0000
+        pattern_days > 0 ? (((weekly_rate / pattern_days) * 10000).round(6).floor / 10000.0) : 0.0000
       end
 
       def days_paid
@@ -225,7 +225,7 @@ module SmartAnswer
       end
 
       def ssp_payment
-        amount = BigDecimal.new(weekly_payments.map(&:last).sum.round(10).to_s).round(2, BigDecimal::ROUND_UP).to_f
+        amount = BigDecimal(weekly_payments.map(&:last).sum.round(10).to_s).round(2, BigDecimal::ROUND_UP).to_f
         SmartAnswer::Money.new(amount)
       end
 
@@ -246,14 +246,14 @@ module SmartAnswer
       end
 
       def self.contractual_earnings_awe(pay, days_worked)
-        (pay / BigDecimal.new(days_worked.to_s) * 7).round(2)
+        (pay / BigDecimal(days_worked.to_s) * 7).round(2)
       end
 
       def self.total_earnings_awe(pay, days_worked)
         if days_worked % 7 == 0
           (pay / (days_worked / 7)).round(2)
         else
-          (pay / BigDecimal.new(days_worked.to_s) * 7).round(2)
+          (pay / BigDecimal(days_worked.to_s) * 7).round(2)
         end
       end
 
@@ -287,11 +287,11 @@ module SmartAnswer
       end
 
       def sick_pay_weekly_dates
-        if sick_end_date.sunday?
-          ssp_week_end = sick_end_date + 6
-        else
-          ssp_week_end = sick_end_date.end_of_week - 1
-        end
+        ssp_week_end = if sick_end_date.sunday?
+                         sick_end_date + 6
+                       else
+                         sick_end_date.end_of_week - 1
+                       end
         (sick_start_date..ssp_week_end).select { |day| day.wday == 6 }
       end
 
@@ -300,7 +300,7 @@ module SmartAnswer
         ((week_start_date - 6)..week_start_date).each do |date|
           pay += daily_rate_from_weekly(weekly_rate_on(date), pattern_days) if payable_days.include?(date)
         end
-        BigDecimal.new(pay.round(10).to_s).round(2, BigDecimal::ROUND_UP).to_f
+        BigDecimal(pay.round(10).to_s).round(2, BigDecimal::ROUND_UP).to_f
       end
 
       def days_paid_in_linked_period

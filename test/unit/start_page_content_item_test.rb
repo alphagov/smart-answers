@@ -18,8 +18,7 @@ module SmartAnswer
         start_page_body: '',
         start_page_post_body: '',
         start_page_button_text: '',
-        external_related_links: []
-      )
+        external_related_links: [])
     end
 
     test '#content_id is the content_id of the presenter' do
@@ -159,7 +158,7 @@ module SmartAnswer
       presenter = stub_flow_registration_presenter
       content_item = StartPageContentItem.new(presenter)
 
-      expected_route = {type: 'exact', path: '/flow-slug'}
+      expected_route = { type: 'exact', path: '/flow-slug' }
       assert content_item.payload[:routes].include?(expected_route)
     end
 
@@ -167,7 +166,7 @@ module SmartAnswer
       presenter = stub_flow_registration_presenter
       content_item = StartPageContentItem.new(presenter)
 
-      expected_route = {type: 'exact', path: '/flow-slug.json'}
+      expected_route = { type: 'exact', path: '/flow-slug.json' }
       assert content_item.payload[:routes].include?(expected_route)
     end
   end

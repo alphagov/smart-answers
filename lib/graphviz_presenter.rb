@@ -22,15 +22,11 @@ class GraphvizPresenter < GraphPresenter
         shape: "box"
       }
       if is_first?(name)
-        attrs.merge!(
-          color: "gold1",
-          style: "filled"
-        )
+        attrs[:color] = "gold1"
+        attrs[:style] = "filled"
       elsif is_outcome?(name)
-        attrs.merge!(
-          color: "aquamarine",
-          style: "filled"
-        )
+        attrs[:color] = "aquamarine"
+        attrs[:style] = "filled"
       end
       attribute_clause = attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(' ')
       %{#{normalize_name(name)} [#{attribute_clause}]}

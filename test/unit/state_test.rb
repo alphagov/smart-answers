@@ -1,4 +1,3 @@
-
 require_relative '../test_helper'
 
 module SmartAnswer
@@ -12,7 +11,7 @@ module SmartAnswer
 
         old_state.transition_to(:state3, 'fooey')
 
-        assert_equal ['yes'], old_state.responses
+        assert_equal %w[yes], old_state.responses
         assert_equal [:state1], old_state.path
       end
     end
@@ -36,7 +35,7 @@ module SmartAnswer
       assert_equal [:node1], state.path
 
       state.responses << 'no'
-      assert_equal ['no'], state.responses
+      assert_equal %w[no], state.responses
 
       state.response = 'no'
       assert_equal 'no', state.response

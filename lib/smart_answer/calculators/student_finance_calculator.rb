@@ -28,7 +28,7 @@ module SmartAnswer
         "at-home" => 1744,
         "away-in-london" => 3263,
         "away-outside-london" => 2324
-      }
+      }.freeze
       CHILD_CARE_GRANTS = {
         "2017-2018" => {
           "one-child" => 159.59,
@@ -38,19 +38,19 @@ module SmartAnswer
           "one-child" => 164.70,
           "more-than-one-child" => 282.36
         },
-      }
+      }.freeze
       PARENTS_LEARNING_ALLOWANCE = {
         "2017-2018" => 1_617,
         "2018-2019" => 1_669,
-      }
+      }.freeze
       ADULT_DEPENDANT_ALLOWANCE = {
         "2017-2018" => 2_834,
         "2018-2019" => 2_925,
-      }
+      }.freeze
       TUITION_FEE_MAXIMUM = {
         "full-time" => 9_250,
         "part-time" => 6_935,
-      }
+      }.freeze
       LOAN_MINIMUMS = {
         "2017-2018" => {
           "at-home" => 3_124,

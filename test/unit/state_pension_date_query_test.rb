@@ -42,7 +42,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
 
   context 'when female or male, born between 6 October 1954 and 5 April 1960' do
     should 'return state pension date 66 years from date of birth' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 October 1954'), gender), Date.parse('6 October 1954') + 66.years
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 April 1960'), gender), Date.parse('5 April 1960') + 66.years
       end
@@ -61,7 +61,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
 
   context 'when female or male, born between 6 April 1960 and 5 May 1960' do
     should 'return state pension date 66 years and 1 month from date of birth' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 April 1960'), gender), Date.parse('6 April 1960') + 66.years + 1.month
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 May 1960'), gender), Date.parse('5 May 1960') + 66.years + 1.month
       end
@@ -80,7 +80,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
 
   context 'when female or male, born between 6 May 1960 and 5 June 1960' do
     should 'return state pension date 66 years and 2 months from date of birth' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 May 1960'), gender), Date.parse('6 May 1960') + 66.years + 2.months
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 June 1960'), gender), Date.parse('5 June 1960') + 66.years + 2.months
       end
@@ -99,7 +99,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
 
   context 'when female or male, born between 6 June 1960 and 5 July 1960' do
     should 'return state pension date 66 years and 3 months from date of birth' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 June 1960'), gender), Date.parse('6 June 1960') + 66.years + 3.months
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 July 1960'), gender), Date.parse('5 July 1960') + 66.years + 3.months
       end
@@ -118,7 +118,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
 
   context 'when female or male, born between 6 July 1960 and 5 August 1960' do
     should 'return state pension date 66 years and 4 months from date of birth' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 July 1960'), gender), Date.parse('6 July 1960') + 66.years + 4.months
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 August 1960'), gender), Date.parse('5 August 1960') + 66.years + 4.months
       end
@@ -137,7 +137,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
 
   context 'when female or male, born between 6 August 1960 and 5 September 1960' do
     should 'return state pension date 66 years and 5 months from date of birth' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 August 1960'), gender), Date.parse('6 August 1960') + 66.years + 5.months
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 September 1960'), gender), Date.parse('5 September 1960') + 66.years + 5.months
       end
@@ -156,7 +156,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
 
   context 'when female or male, born between 6 September 1960 and 5 October 1960' do
     should 'return state pension date 66 years and 6 months from date of birth' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 September 1960'), gender), Date.parse('6 September 1960') + 66.years + 6.months
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 October 1960'), gender), Date.parse('5 October 1960') + 66.years + 6.months
       end
@@ -175,7 +175,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
 
   context 'when female or male, born between 6 October 1960 and 5 November 1960' do
     should 'return state pension date 66 years and 7 months from date of birth' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 October 1960'), gender), Date.parse('6 October 1960') + 66.years + 7.months
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 November 1960'), gender), Date.parse('5 November 1960') + 66.years + 7.months
       end
@@ -194,7 +194,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
 
   context 'when female or male, born between 6 November 1960 and 5 December 1960' do
     should 'return state pension date 66 years and 8 months from date of birth' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 November 1960'), gender), Date.parse('6 November 1960') + 66.years + 8.months
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 December 1960'), gender), Date.parse('5 December 1960') + 66.years + 8.months
       end
@@ -213,7 +213,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
 
   context 'when female or male, born between 6 December 1960 and 5 January 1961' do
     should 'return state pension date 66 years and 9 months from date of birth' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 December 1960'), gender), Date.parse('6 December 1960') + 66.years + 9.months
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 January 1961'), gender), Date.parse('5 January 1961') + 66.years + 9.months
       end
@@ -232,7 +232,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
 
   context 'when female or male, born between 6 January 1961 and 5 February 1961' do
     should 'return state pension date 66 years and 10 months from date of birth' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 January 1961'), gender), Date.parse('6 January 1961') + 66.years + 10.months
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 February 1961'), gender), Date.parse('5 February 1961') + 66.years + 10.months
       end
@@ -251,7 +251,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
 
   context 'when female or male, born between 6 February 1961 and 5 March 1961' do
     should 'return state pension date 66 years and 11 months from date of birth' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 February 1961'), gender), Date.parse('6 February 1961') + 66.years + 11.months
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 March 1961'), gender), Date.parse('5 March 1961') + 66.years + 11.months
       end
@@ -270,7 +270,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
 
   context 'when female or male, born between 6 March 1961 and 5 April 1977' do
     should 'return state pension date 67 years from date of birth' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 March 1961'), gender), Date.parse('6 March 1961') + 67.years
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 April 1977'), gender), Date.parse('5 April 1977') + 67.years
       end
@@ -289,7 +289,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
 
   context 'when female or male, born between 6 April 1978 and tomorrow' do
     should 'return state pension date 68 years from date of birth' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 April 1978'), gender), Date.parse('6 April 1978') + 68.years
         assert_equal StatePensionDateQuery.state_pension_date(Date.tomorrow, gender), Date.tomorrow + 68.years
       end
@@ -1257,7 +1257,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
     end
 
     should 'return state pension date of 6 March 2019' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 December 1953'), gender), @state_pension_date
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 January 1954'), gender), @state_pension_date
       end
@@ -1280,7 +1280,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
     end
 
     should 'return state pension date of 6 May 2019' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 January 1954'), gender), @state_pension_date
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 February 1954'), gender), @state_pension_date
       end
@@ -1303,7 +1303,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
     end
 
     should 'return state pension date of 6 July 2019' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 February 1954'), gender), @state_pension_date
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 March 1954'), gender), @state_pension_date
       end
@@ -1326,7 +1326,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
     end
 
     should 'return state pension date of 6 September 2019' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 March 1954'), gender), @state_pension_date
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 April 1954'), gender), @state_pension_date
       end
@@ -1349,7 +1349,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
     end
 
     should 'return state pension date of 6 November 2019' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 April 1954'), gender), @state_pension_date
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 May 1954'), gender), @state_pension_date
       end
@@ -1372,7 +1372,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
     end
 
     should 'return state pension date of 6 January 2020' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 May 1954'), gender), @state_pension_date
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 June 1954'), gender), @state_pension_date
       end
@@ -1395,7 +1395,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
     end
 
     should 'return state pension date of 6 March 2020' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 June 1954'), gender), @state_pension_date
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 July 1954'), gender), @state_pension_date
       end
@@ -1418,7 +1418,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
     end
 
     should 'return state pension date of 6 May 2020' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 July 1954'), gender), @state_pension_date
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 August 1954'), gender), @state_pension_date
       end
@@ -1441,7 +1441,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
     end
 
     should 'return state pension date of 6 July 2020' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 August 1954'), gender), @state_pension_date
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 September 1954'), gender), @state_pension_date
       end
@@ -1464,7 +1464,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
     end
 
     should 'return state pension date of 6 September 2020' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 September 1954'), gender), @state_pension_date
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 October 1954'), gender), @state_pension_date
       end
@@ -1487,7 +1487,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
     end
 
     should 'return state pension date of 6 May 2044' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 April 1977'), gender), @state_pension_date
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 May 1977'), gender), @state_pension_date
       end
@@ -1510,7 +1510,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
     end
 
     should 'return state pension date of 6 July 2044' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 May 1977'), gender), @state_pension_date
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 June 1977'), gender), @state_pension_date
       end
@@ -1533,7 +1533,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
     end
 
     should 'return state pension date of 6 September 2044' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 June 1977'), gender), @state_pension_date
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 July 1977'), gender), @state_pension_date
       end
@@ -1556,7 +1556,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
     end
 
     should 'return state pension date of 6 November 2044' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 July 1977'), gender), @state_pension_date
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 August 1977'), gender), @state_pension_date
       end
@@ -1579,7 +1579,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
     end
 
     should 'return state pension date of 6 January 2045' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 August 1977'), gender), @state_pension_date
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 September 1977'), gender), @state_pension_date
       end
@@ -1602,7 +1602,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
     end
 
     should 'return state pension date of 6 March 2045' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 September 1977'), gender), @state_pension_date
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 October 1977'), gender), @state_pension_date
       end
@@ -1625,7 +1625,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
     end
 
     should 'return state pension date of 6 May 2045' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 October 1977'), gender), @state_pension_date
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 November 1977'), gender), @state_pension_date
       end
@@ -1648,7 +1648,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
     end
 
     should 'return state pension date of 6 July 2045' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 November 1977'), gender), @state_pension_date
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 December 1977'), gender), @state_pension_date
       end
@@ -1671,7 +1671,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
     end
 
     should 'return state pension date of 6 September 2045' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 December 1977'), gender), @state_pension_date
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 January 1978'), gender), @state_pension_date
       end
@@ -1694,7 +1694,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
     end
 
     should 'return state pension date of 6 November 2045' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 January 1978'), gender), @state_pension_date
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 February 1978'), gender), @state_pension_date
       end
@@ -1717,7 +1717,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
     end
 
     should 'return state pension date of 6 January 2046' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 February 1978'), gender), @state_pension_date
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 March 1978'), gender), @state_pension_date
       end
@@ -1740,7 +1740,7 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
     end
 
     should 'return state pension date of 6 March 2046' do
-      [:female, :male].each do |gender|
+      %i[female male].each do |gender|
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('6 March 1978'), gender), @state_pension_date
         assert_equal StatePensionDateQuery.state_pension_date(Date.parse('5 April 1978'), gender), @state_pension_date
       end

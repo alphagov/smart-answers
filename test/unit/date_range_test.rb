@@ -102,8 +102,8 @@ module SmartAnswer
         assert_equal new_range.ends_on, @date_range.ends_on + 7
 
         new_range = @date_range.weeks_after 2
-        assert_equal new_range.begins_on, @date_range.begins_on + 7*2
-        assert_equal new_range.ends_on, @date_range.ends_on + 7*2
+        assert_equal new_range.begins_on, @date_range.begins_on + 7 * 2
+        assert_equal new_range.ends_on, @date_range.ends_on + 7 * 2
       end
 
       should 'return a formatted string' do

@@ -31,7 +31,7 @@ module SmartAnswer::Calculators
     end
 
     def countries_with_regions
-      %w{ cyprus }
+      %w{cyprus}
     end
 
     def get_country_regions(slug)

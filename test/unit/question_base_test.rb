@@ -31,7 +31,7 @@ class QuestionBaseTest < ActiveSupport::TestCase
           question :another_question
         end
       end
-      assert_equal [:done, :another_question], @question.permitted_next_nodes
+      assert_equal %i[done another_question], @question.permitted_next_nodes
     end
 
     should 'not return nodes not returned via syntactic sugar methods' do
@@ -214,7 +214,7 @@ class QuestionBaseTest < ActiveSupport::TestCase
     end
 
     should "raise an exception if next_node does not return a node key" do
-      responses = [:blue, :red]
+      responses = %i[blue red]
       @question.next_node do
         skip = false
         outcome :skipped if skip

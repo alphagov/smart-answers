@@ -461,7 +461,7 @@ module SmartAnswer
 
           calculate :last_day_in_week_worked do |response|
             calculator.work_days = response.split(",").map(&:to_i)
-            calculator.pay_day_in_week = response.split(",").sort.last.to_i
+            calculator.pay_day_in_week = response.split(",").max.to_i
           end
 
           next_node do

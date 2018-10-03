@@ -8,7 +8,7 @@ module SmartAnswer::Calculators
 
     def sunday_before_eleven_weeks(due_date)
       result = Date.parse(due_date) - 11.weeks
-      result -= 1 while (result.cwday != 7)
+      result -= 1 while result.cwday != 7
       result
     end
 

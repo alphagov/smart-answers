@@ -60,7 +60,7 @@ module SmartAnswer
           calculator.benefits = response.split(",")
         end
 
-        next_node do |response|
+        next_node do |_response|
           if calculator.state_benefits?
             question :how_many_nights_children_stay_with_payee?
           else

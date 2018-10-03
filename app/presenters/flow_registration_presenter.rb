@@ -49,7 +49,7 @@ class FlowRegistrationPresenter
       'calculator.holiday_entitlement_days' => 10,
       'calculator.path_to_outcome' => %w(italy ceremony_country opposite_sex),
       'calculator.ceremony_country' => 'italy'
-    }
+    }.freeze
 
     def method_missing(method, *_args, &_block)
       object = MethodMissingObject.new(method, nil, true, OVERRIDES)

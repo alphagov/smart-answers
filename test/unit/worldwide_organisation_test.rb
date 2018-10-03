@@ -23,10 +23,8 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
   context "fco_sponsored?" do
     should "return true for an organisation sponsored by the FCO" do
       organisation_data = { sponsors: [
-            { details: { acronym: 'FCO' }
-          }
-        ]
-      }
+            { details: { acronym: 'FCO' } }
+        ] }
       worldwide_organisation = WorldwideOrganisation.new(organisation_data)
 
       assert_equal true, worldwide_organisation.fco_sponsored?
@@ -45,8 +43,7 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
       organisation_data = { offices:
           { main:
             { title: 'main-office',
-            services: []
-          },
+            services: [] },
           other: [
             {
               title: 'other-office-1',
@@ -56,9 +53,7 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
               title: 'other-office-2',
               services: [{ title: 'service-offered' }]
             }
-          ]
-        }
-      }
+          ] } }
       organisation = WorldwideOrganisation.new(organisation_data)
 
       matches = organisation.offices_with_service('service-offered')
@@ -76,8 +71,7 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
             services: []
           },
           other: []
-        }
-      }
+        } }
       organisation = WorldwideOrganisation.new(organisation_data)
 
       matches = organisation.offices_with_service('obscure-service')
@@ -90,8 +84,7 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
         {
           main: nil,
           other: []
-        }
-      }
+        } }
       organisation = WorldwideOrganisation.new(organisation_data)
 
       matches = organisation.offices_with_service('service-name')

@@ -29,7 +29,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
   context "newly added country that has no logic to handle opposite sex marriages" do
     setup do
-      stub_world_locations(['narnia'])
+      stub_world_locations(%w[narnia])
       add_response 'ceremony_country'
       add_response 'partner_local'
       assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do
@@ -1369,7 +1369,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   FLATTEN_COUNTRIES_18_OUTCOMES.each do |country|
     context "ceremony in #{country}," do
       setup do
-        add_response "#{country}"
+        add_response country.to_s
       end
       context "resident in uk," do
         setup { add_response "uk" }
@@ -1521,7 +1521,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   FLATTEN_COUNTRIES_6_OUTCOMES.each do |country|
     context "ceremony in #{country}," do
       setup do
-        add_response "#{country}"
+        add_response country.to_s
       end
       context "resident in uk," do
         setup { add_response "uk" }
@@ -1574,7 +1574,7 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   FLATTEN_COUNTRIES_2_OUTCOMES.each do |country|
     context "ceremony in #{country}," do
       setup do
-        add_response "#{country}"
+        add_response country.to_s
       end
 
       context "opposite sex" do

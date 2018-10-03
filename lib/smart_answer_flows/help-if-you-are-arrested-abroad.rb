@@ -91,7 +91,7 @@ module SmartAnswer
 
       outcome :answer_one_generic do
         precalculate :iran do
-          country_name == "Iran" ? true : false
+          country_name == "Iran"
         end
 
         precalculate :transfers_back_to_uk_treaty_change_countries do

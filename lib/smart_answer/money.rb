@@ -4,14 +4,14 @@ module SmartAnswer
     include Comparable
     extend Forwardable
 
-    delegate [:to_f, :to_s, :*, :+, :-, :/] => :value
+    delegate %i[to_f to_s * + - /] => :value
 
     attr_reader :value
 
     def initialize(raw_input)
       input = self.class.parse(raw_input)
       self.class.validate!(input)
-      @value = BigDecimal.new(input.to_s)
+      @value = BigDecimal(input.to_s)
     end
 
     def to_s
