@@ -259,7 +259,7 @@ module SmartAnswer
 
       def weekly_payments
         payments = sick_pay_weekly_dates.map { |date| [date, weekly_payment(date)] }
-        payments.pop while payments.any? && (payments.last.last.zero?)
+        payments.pop while payments.any? && payments.last.last.zero?
         payments
       end
 
