@@ -475,7 +475,7 @@ module SmartAnswer::Calculators
       ldm_index = ldm.wday
       offset = -1
       while !work_days.include?(ldm_index)
-        ldm_index > 0 ? ldm_index -= 1 : ldm_index = 6
+        ldm_index.positive? ? ldm_index -= 1 : ldm_index = 6
         offset -= 1
       end
       offset

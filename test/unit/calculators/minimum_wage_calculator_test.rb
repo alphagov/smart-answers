@@ -326,7 +326,7 @@ module SmartAnswer::Calculators
 
           context "historical_adjustment" do
             setup do
-              @underpayment = (@underpayment * -1) if @underpayment < 0
+              @underpayment = (@underpayment * -1) if @underpayment.negative?
               @historical_adjustment = ((@underpayment / 4.92) * @calculator.per_hour_minimum_wage(Date.today)).round(2)
             end
 
@@ -985,7 +985,7 @@ module SmartAnswer::Calculators
         free_adjustment = (4.73 * number_of_nights).round(2)
         charged_adjustment = @calculator.accommodation_adjustment(charge, number_of_nights)
         assert_equal((free_adjustment - (charge * number_of_nights)).round(2), charged_adjustment)
-        assert charged_adjustment < 0 # this should always be less than zero
+        assert charged_adjustment.negative? # this should always be less than zero
       end
     end
 

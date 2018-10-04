@@ -498,7 +498,7 @@ module SmartAnswer::Calculators
           assert_equal '2013-03-01', @calculator.paydates_and_pay.first[:date].to_s
           assert_equal 38.58, @calculator.paydates_and_pay.first[:pay]
           assert @calculator.paydates_and_pay.last[:date] > @calculator.pay_end_date, "Last paydate should be after SMP end date"
-          assert @calculator.paydates_and_pay.last[:pay] > 0
+          assert @calculator.paydates_and_pay.last[:pay].positive?
         end
       end
 

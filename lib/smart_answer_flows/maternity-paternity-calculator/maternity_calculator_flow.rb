@@ -231,7 +231,7 @@ module SmartAnswer
         value_question :what_specific_date_each_month_is_the_employee_paid?, parse: :to_i do
           calculate :pay_day_in_month do |response|
             day = response
-            raise InvalidResponse unless day > 0 && day < 32
+            raise InvalidResponse unless day.positive? && day < 32
             calculator.pay_day_in_month = day
           end
 

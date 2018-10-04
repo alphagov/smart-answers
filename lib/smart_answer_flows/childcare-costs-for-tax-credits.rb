@@ -129,7 +129,7 @@ module SmartAnswer
 
         next_node do |response|
           amount = SmartAnswer::Money.new(response)
-          amount == 0 ? outcome(:no_longer_paying) : question(:old_weekly_amount_1?)
+          amount.zero? ? outcome(:no_longer_paying) : question(:old_weekly_amount_1?)
         end
       end
 
@@ -141,7 +141,7 @@ module SmartAnswer
 
         next_node do |response|
           amount = SmartAnswer::Money.new(response)
-          amount == 0 ? outcome(:no_longer_paying) : question(:old_weekly_amount_1?)
+          amount.zero? ? outcome(:no_longer_paying) : question(:old_weekly_amount_1?)
         end
       end
 
@@ -247,7 +247,7 @@ module SmartAnswer
 
         next_node do |response|
           amount = SmartAnswer::Money.new(response)
-          amount == 0 ? outcome(:no_longer_paying) : question(:old_weekly_amount_2?)
+          amount.zero? ? outcome(:no_longer_paying) : question(:old_weekly_amount_2?)
         end
       end
 
@@ -280,7 +280,7 @@ module SmartAnswer
 
         next_node do |response|
           amount = SmartAnswer::Money.new(response)
-          amount == 0 ? outcome(:no_longer_paying) : question(:old_weekly_amount_3?)
+          amount.zero? ? outcome(:no_longer_paying) : question(:old_weekly_amount_3?)
         end
       end
 

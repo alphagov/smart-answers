@@ -47,7 +47,7 @@ module SmartAnswer::Calculators
     # called after we enter income (we know benefits == no)
     def rate_type
       if state_benefits?
-        if @number_of_shared_care_nights > 0
+        if @number_of_shared_care_nights.positive?
           :nil
         else
           :flat
