@@ -402,7 +402,7 @@ class FlowTest < ActiveSupport::TestCase
     end
 
     should 'set flow on all nodes from other flow' do
-      assert @flow.nodes.all? { |node| node.flow == @flow }
+      assert(@flow.nodes.all? { |node| node.flow == @flow })
     end
   end
 end

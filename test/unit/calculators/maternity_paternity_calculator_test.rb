@@ -562,7 +562,7 @@ module SmartAnswer::Calculators
             2013-08-01 2013-08-15 2013-08-29 2013-09-12 2013-09-26
             2013-10-10
           )
-          assert_equal expected_pay_dates, paydates_and_pay.map { |p| p[:date].to_s }
+          assert_equal(expected_pay_dates, paydates_and_pay.map { |p| p[:date].to_s })
           assert_equal 32.15, paydates_and_pay.first[:pay]
           assert_equal 450, paydates_and_pay.second[:pay]
           assert_equal 270.9, paydates_and_pay[4][:pay]
@@ -726,13 +726,13 @@ module SmartAnswer::Calculators
         should "suggest a single payment when requesting a one week leave" do
           @calculator.paternity_leave_duration = 'one_week'
           assert_equal Date.parse("7 October 2015"), @calculator.pay_end_date
-          assert_equal [Date.parse("7 October 2015")], @calculator.paydates_and_pay.map { |pay| pay[:date] }
+          assert_equal([Date.parse("7 October 2015")], @calculator.paydates_and_pay.map { |pay| pay[:date] })
         end
 
         should "suggest two payments when requesting a two week leave" do
           @calculator.paternity_leave_duration = 'two_weeks'
           assert_equal Date.parse("14 October 2015"), @calculator.pay_end_date
-          assert_equal [Date.parse("7 October 2015"), Date.parse("14 October 2015")], @calculator.paydates_and_pay.map { |pay| pay[:date] }
+          assert_equal([Date.parse("7 October 2015"), Date.parse("14 October 2015")], @calculator.paydates_and_pay.map { |pay| pay[:date] })
         end
       end
 
@@ -769,7 +769,7 @@ module SmartAnswer::Calculators
             "2014-08-24", "2014-08-31", "2014-09-07", "2014-09-14", "2014-09-21",
             "2014-09-28", "2014-10-05", "2014-10-12", "2014-10-19"
           ]
-          assert_equal expected_pay_dates, paydates_and_pay.map { |p| p[:date].to_s }
+          assert_equal(expected_pay_dates, paydates_and_pay.map { |p| p[:date].to_s })
           assert_equal 136.78, paydates_and_pay.first[:pay]
           assert_equal 136.78, paydates_and_pay[9][:pay]
           assert_equal 138.18, paydates_and_pay[11][:pay]
@@ -795,7 +795,7 @@ module SmartAnswer::Calculators
           @calculator.pay_pattern = 'monthly'
           @calculator.earnings_for_pay_period = 3000
           assert_equal 346.15, @calculator.average_weekly_earnings.round(2)
-          assert_equal expected_pay_dates, @calculator.paydates_and_pay.map { |p| p[:date].to_s }
+          assert_equal(expected_pay_dates, @calculator.paydates_and_pay.map { |p| p[:date].to_s })
 
           assert_equal [(346.15385 * 0.9).round(2)], @calculator.paydates_and_pay.first(6).map { |p| p[:pay] }.uniq
           assert_equal [139.58], @calculator.paydates_and_pay[6..-1].map { |p| p[:pay] }.uniq
@@ -820,7 +820,7 @@ module SmartAnswer::Calculators
             2014-01-31 2014-02-28 2014-03-28 2014-04-25 2014-05-30
             2014-06-27 2014-07-25 2014-08-29 2014-09-26 2014-10-31
           )
-          assert_equal expected_pay_dates, paydates_and_pay.map { |p| p[:date].to_s }
+          assert_equal(expected_pay_dates, paydates_and_pay.map { |p| p[:date].to_s })
           assert_equal 234.48, paydates_and_pay.first[:pay]
           assert_equal 550.92, paydates_and_pay[3][:pay]
           assert_equal 454.02, paydates_and_pay.last[:pay]
