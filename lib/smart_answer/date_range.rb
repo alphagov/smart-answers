@@ -58,9 +58,11 @@ module SmartAnswer
       (self.class == other.class) && ([begins_on, ends_on] == [other.begins_on, other.ends_on])
     end
 
+    # rubocop:disable Naming/BinaryOperatorParameterName
     def +(days)
       DateRange.new begins_on: begins_on + days, ends_on: ends_on + days
     end
+    # rubocop:enable Naming/BinaryOperatorParameterName
 
     def hash
       self.class.hash ^ [begins_on, ends_on].hash
