@@ -13,7 +13,7 @@ module SmartAnswer
       end
 
       def country_list
-        @countries ||= load_countries
+        @country_list ||= load_countries
       end
 
       def country_in(countries)
