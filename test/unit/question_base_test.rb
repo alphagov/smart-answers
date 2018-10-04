@@ -48,11 +48,7 @@ class QuestionBaseTest < ActiveSupport::TestCase
 
     should 'not return duplicate permitted next nodes' do
       @question.next_node do |response|
-        if response == 'yes'
-          outcome :done
-        else
-          outcome :done
-        end
+        outcome :done
       end
       assert_equal [:done], @question.permitted_next_nodes
     end
