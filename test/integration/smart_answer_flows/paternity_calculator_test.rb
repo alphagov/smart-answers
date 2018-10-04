@@ -5,6 +5,7 @@ require_relative '../../../lib/smart_answer/date_helper'
 require "smart_answer_flows/maternity-paternity-calculator"
 
 class PaternityCalculatorTest < ActiveSupport::TestCase
+  #  rubocop:disable Style/CommentedKeyword
   include SmartAnswer::DateHelper
   include FlowTestHelper
 
@@ -524,3 +525,4 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
     end
   end
 end
+#  rubocop:enable Style/CommentedKeyword

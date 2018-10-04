@@ -3,6 +3,7 @@ require_relative 'flow_test_helper'
 
 require "smart_answer_flows/calculate-married-couples-allowance"
 
+#  rubocop:disable Style/CommentedKeyword
 class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
   include FlowTestHelper
 
@@ -362,3 +363,4 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
     end # after 2005
   end
 end
+#  rubocop:enable Style/CommentedKeyword

@@ -2,7 +2,7 @@ require_relative "../../test_helper"
 require_relative "flow_test_helper"
 
 require "smart_answer_flows/am-i-getting-minimum-wage"
-
+#  rubocop:disable Style/CommentedKeyword
 class AmIGettingMinimumWageTest < ActiveSupport::TestCase
   include FlowTestHelper
 
@@ -922,3 +922,4 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
     end
   end
 end
+#  rubocop:enable Style/CommentedKeyword

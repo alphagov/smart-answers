@@ -150,7 +150,7 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
         end
       end
     end
-  end # with_and_without_javascript
+  end
 
   should "calculate alternate path correctly" do
     visit "/bridge-of-death/y"

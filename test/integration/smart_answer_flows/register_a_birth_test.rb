@@ -2,7 +2,7 @@ require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
 require "smart_answer_flows/register-a-birth"
-
+#  rubocop:disable Style/CommentedKeyword
 class RegisterABirthTest < ActiveSupport::TestCase
   include FlowTestHelper
 
@@ -603,3 +603,4 @@ class RegisterABirthTest < ActiveSupport::TestCase
     end
   end
 end
+#  rubocop:enable Style/CommentedKeyword

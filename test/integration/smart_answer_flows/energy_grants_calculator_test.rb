@@ -2,7 +2,7 @@ require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
 require "smart_answer_flows/energy-grants-calculator"
-
+# rubocop:disable Style/CommentedKeyword
 class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
   include FlowTestHelper
 
@@ -809,3 +809,4 @@ class EnergyGrantsCalculatorTest < ActiveSupport::TestCase
     end
   end
 end
+# rubocop:enable Style/CommentedKeyword

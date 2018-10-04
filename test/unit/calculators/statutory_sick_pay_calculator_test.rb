@@ -185,7 +185,8 @@ module SmartAnswer
           months = StatutorySickPayCalculator.months_between(Date.parse("13/02/2012"), Date.parse("14/05/2012"))
           assert_equal 3, months
         end
-      end # end .months_between
+      end
+      # end .months_between
 
       context ".average_weekly_earnings" do
         should "calculate AWE for weekly pay patterns" do
@@ -203,7 +204,8 @@ module SmartAnswer
             pay: 1000, pay_pattern: 'irregularly', relevant_period_to: Date.parse("31 December 2013"), relevant_period_from: Date.parse("21 December 2013")
 )
         end
-      end # end .average_weekly_earnings
+      end
+      # end .average_weekly_earnings
 
       context "0 days per week worked" do
         setup do
@@ -969,6 +971,6 @@ module SmartAnswer
           assert_equal StatutorySickPayCalculator.year_of_sickness, Date.parse("31 Dec 2018")
         end
       end
-    end # SSP calculator
+    end
   end
 end

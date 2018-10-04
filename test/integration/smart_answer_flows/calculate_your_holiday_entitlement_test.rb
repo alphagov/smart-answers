@@ -2,7 +2,7 @@ require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
 require "smart_answer_flows/calculate-your-holiday-entitlement"
-
+#  rubocop:disable Style/CommentedKeyword
 class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
   include FlowTestHelper
 
@@ -781,3 +781,4 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
     end # leaving this year
   end # shift worker
 end
+#  rubocop:enable Style/CommentedKeyword

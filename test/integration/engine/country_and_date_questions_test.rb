@@ -137,5 +137,5 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         end
       end
     end
-  end # with_and_without_javascript
+  end
 end

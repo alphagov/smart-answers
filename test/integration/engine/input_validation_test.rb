@@ -1,5 +1,6 @@
 require_relative 'engine_test_helper'
 
+#  rubocop:disable Style/CommentedKeyword
 class InputValidationTest < EngineIntegrationTest
   with_and_without_javascript do
     should "validate input and display errors" do
@@ -88,3 +89,4 @@ class InputValidationTest < EngineIntegrationTest
     end
   end
 end
+#  rubocop:enable Style/CommentedKeyword

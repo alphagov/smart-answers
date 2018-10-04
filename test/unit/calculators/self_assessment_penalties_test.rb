@@ -1,6 +1,7 @@
 require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
+  # rubocop:disable Style/CommentedKeyword
   class SelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     def setup
       test_calculator_dates = {
@@ -286,4 +287,5 @@ module SmartAnswer::Calculators
       end
     end
   end
+  # rubocop:enable Style/CommentedKeyword
 end

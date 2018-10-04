@@ -3,7 +3,7 @@ require_relative 'flow_test_helper'
 require 'gds_api/test_helpers/imminence'
 
 require "smart_answer_flows/benefit-cap-calculator"
-
+#  rubocop:disable Style/CommentedKeyword
 class BenefitCapCalculatorTest < ActiveSupport::TestCase
   include FlowTestHelper
   include GdsApi::TestHelpers::Imminence
@@ -266,3 +266,4 @@ class BenefitCapCalculatorTest < ActiveSupport::TestCase
     end
   end
 end # BenefitCapCalculatorTest
+#  rubocop:enable Style/CommentedKeyword

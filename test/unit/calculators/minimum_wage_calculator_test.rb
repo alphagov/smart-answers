@@ -1,6 +1,7 @@
 require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
+  # rubocop:disable Style/CommentedKeyword
   class MinimumWageCalculatorTest < ActiveSupport::TestCase
     context "Validation" do
       setup do
@@ -1305,4 +1306,5 @@ module SmartAnswer::Calculators
       end
     end
   end
+  # rubocop:enable Style/CommentedKeyword
 end

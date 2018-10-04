@@ -2,7 +2,7 @@ require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
 require "smart_answer_flows/uk-benefits-abroad"
-
+#  rubocop:disable Style/CommentedKeyword
 class UKBenefitsAbroadTest < ActiveSupport::TestCase
   include FlowTestHelper
 
@@ -1651,3 +1651,4 @@ class UKBenefitsAbroadTest < ActiveSupport::TestCase
     end
   end # end Already Abroad
 end
+#  rubocop:enable Style/CommentedKeyword

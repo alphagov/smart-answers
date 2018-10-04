@@ -3,7 +3,7 @@ require_relative 'flow_test_helper'
 require 'gds_api/test_helpers/worldwide'
 
 require "smart_answer_flows/state-pension-through-partner"
-
+#  rubocop:disable Style/CommentedKeyword
 class StatePensionThroughPartnerTest < ActiveSupport::TestCase
   include FlowTestHelper
 
@@ -142,3 +142,4 @@ class StatePensionThroughPartnerTest < ActiveSupport::TestCase
     end
   end
 end
+#  rubocop:enable Style/CommentedKeyword

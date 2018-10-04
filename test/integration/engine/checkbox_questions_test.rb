@@ -97,7 +97,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
         assert_page_has_content "Please answer this question"
       end
     end
-  end # with_and_without_javascript
+  end
 
   with_javascript do
     should "toggle options when none option is present" do

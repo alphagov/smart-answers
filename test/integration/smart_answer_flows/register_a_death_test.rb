@@ -2,7 +2,7 @@ require_relative '../../test_helper'
 require_relative 'flow_test_helper'
 
 require "smart_answer_flows/register-a-death"
-
+#  rubocop:disable Style/CommentedKeyword
 class RegisterADeathTest < ActiveSupport::TestCase
   include FlowTestHelper
 
@@ -415,3 +415,4 @@ class RegisterADeathTest < ActiveSupport::TestCase
     end
   end # Overseas
 end
+#  rubocop:enable Style/CommentedKeyword

@@ -1,6 +1,6 @@
 require_relative '../../test_helper'
-
 module SmartAnswer::Calculators
+  # rubocop:disable Style/CommentedKeyword
   class HolidayEntitlementTest < ActiveSupport::TestCase
     context "calculating fraction of year" do
       should "return 1 with no start date or leaving date" do
@@ -389,4 +389,5 @@ module SmartAnswer::Calculators
       end
     end
   end
+  # rubocop:enable Style/CommentedKeyword
 end

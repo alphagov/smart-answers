@@ -20,6 +20,7 @@ TEST_CALCULATOR_DATES = {
     "2014-15": Date.new(2016, 1, 31),
   },
 }.freeze
+#  rubocop:disable Style/CommentedKeyword
 class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
   include FlowTestHelper
 
@@ -231,3 +232,4 @@ class EstimateSelfAssessmentPenaltiesTest < ActiveSupport::TestCase
     end
   end
 end
+#  rubocop:enable Style/CommentedKeyword

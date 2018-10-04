@@ -3,6 +3,7 @@ require_relative "flow_test_helper"
 
 require "smart_answer_flows/simplified-expenses-checker"
 
+#  rubocop:disable Style/CommentedKeyword
 class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
   include FlowTestHelper
 
@@ -348,3 +349,4 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
     end
   end # main result, existing business, motorcycle, living on premises
 end
+#  rubocop:enable Style/CommentedKeyword

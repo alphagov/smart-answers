@@ -2,7 +2,7 @@ require_relative "../../test_helper"
 require_relative "flow_test_helper"
 
 require "smart_answer_flows/help-if-you-are-arrested-abroad"
-
+#  rubocop:disable Style/CommentedKeyword
 class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
   include FlowTestHelper
 
@@ -79,3 +79,4 @@ class HelpIfYouAreArrestedAbroadTest < ActiveSupport::TestCase
     end
   end
 end
+#  rubocop:enable Style/CommentedKeyword
