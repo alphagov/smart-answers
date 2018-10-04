@@ -75,8 +75,12 @@ private
   end
 
   module MethodMissingHelper
+    def respond_to_missing?(*_args)
+      true
+    end
+
     def method_missing(method, *_args, &_block)
-      MethodMissingObject.new(method)
+      MethodMissingObject.new(method) || super
     end
   end
 

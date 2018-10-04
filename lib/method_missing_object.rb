@@ -6,9 +6,13 @@ class MethodMissingObject
     @overrides = overrides
   end
 
+  def respond_to_missing?(*_args)
+    true
+  end
+
   def method_missing(method, *_args, &_block)
     object = MethodMissingObject.new(method, self, @blank_to_s, @overrides)
-    @overrides.fetch(object.description) { object }
+    @overrides.fetch(object.description) { object } || super
   end
 
   def description

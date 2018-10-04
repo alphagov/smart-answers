@@ -68,6 +68,10 @@ module SmartAnswer::Calculators
       number.to_s.sub(/\.0+$/, '')
     end
 
+    def respond_to_missing?(*_args)
+      true
+    end
+
     def method_missing(symbol, *args)
       # formatted_foo calls format_number on foo
       formatting_method = formatting_method(symbol)

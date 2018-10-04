@@ -51,9 +51,13 @@ class FlowRegistrationPresenter
       'calculator.ceremony_country' => 'italy'
     }.freeze
 
+    def respond_to_missing?(*_args)
+      true
+    end
+
     def method_missing(method, *_args, &_block)
       object = MethodMissingObject.new(method, nil, true, OVERRIDES)
-      OVERRIDES.fetch(object.description) { object }
+      OVERRIDES.fetch(object.description) { object } || super
     end
   end
 
