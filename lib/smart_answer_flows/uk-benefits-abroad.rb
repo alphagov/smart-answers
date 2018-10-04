@@ -77,12 +77,10 @@ module SmartAnswer
         calculate :how_long_question_titles do
           if benefit == "disability_benefits"
             "How long will you be abroad for?"
+          elsif going_or_already_abroad == "going_abroad"
+            "How long are you going abroad for?"
           else
-            if going_or_already_abroad == "going_abroad"
-              "How long are you going abroad for?"
-            else
-              "How long will you be living abroad for?"
-            end
+            "How long will you be living abroad for?"
           end
         end
 
@@ -306,19 +304,17 @@ module SmartAnswer
                 outcome :ssp_already_abroad_not_entitled_outcome # A18 already_abroad
               end
             end
-          else
-            #not SSP benefits
-            if response == 'yes'
-              question :eligible_for_smp? # Q9 going_abroad and Q8 already_abroad
-            elsif (countries_of_former_yugoslavia + %w(barbados guernsey jersey israel turkey)).include?(calculator.country)
-              if already_abroad
-                outcome :maternity_benefits_social_security_already_abroad_outcome # A10 already_abroad
-              else
-                outcome :maternity_benefits_social_security_going_abroad_outcome # A12 going_abroad
-              end
+          #not SSP benefits
+          elsif response == 'yes'
+            question :eligible_for_smp? # Q9 going_abroad and Q8 already_abroad
+          elsif (countries_of_former_yugoslavia + %w(barbados guernsey jersey israel turkey)).include?(calculator.country)
+            if already_abroad
+              outcome :maternity_benefits_social_security_already_abroad_outcome # A10 already_abroad
             else
-              outcome :maternity_benefits_not_entitled_outcome # A13 going_abroad and A11 already_abroad
+              outcome :maternity_benefits_social_security_going_abroad_outcome # A12 going_abroad
             end
+          else
+            outcome :maternity_benefits_not_entitled_outcome # A13 going_abroad and A11 already_abroad
           end
         end
       end

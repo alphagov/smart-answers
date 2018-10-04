@@ -82,12 +82,10 @@ module SmartAnswer
             else
               outcome :outcome_marriage_in_france_or_french_overseas_territory
             end
+          elsif calculator.ceremony_country == 'monaco'
+            outcome :outcome_civil_partnership_in_monaco
           else
-            if calculator.ceremony_country == 'monaco'
-              outcome :outcome_civil_partnership_in_monaco
-            else
-              outcome :outcome_civil_partnership_in_france_or_french_overseas_territory
-            end
+            outcome :outcome_civil_partnership_in_france_or_french_overseas_territory
           end
         end
       end

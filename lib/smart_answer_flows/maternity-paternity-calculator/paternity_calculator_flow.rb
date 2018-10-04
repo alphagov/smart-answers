@@ -255,8 +255,8 @@ module SmartAnswer
             calculator.leave_start_date = response
             if paternity_adoption
               raise SmartAnswer::InvalidResponse if calculator.leave_start_date < ap_adoption_date
-            else
-              raise SmartAnswer::InvalidResponse if calculator.leave_start_date < date_of_birth
+            elsif calculator.leave_start_date < date_of_birth
+              raise SmartAnswer::InvalidResponse
             end
             calculator.leave_start_date
           end

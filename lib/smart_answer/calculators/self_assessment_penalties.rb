@@ -91,15 +91,13 @@ module SmartAnswer::Calculators
             result = 1000
           end
         end
-      else
-        if overdue_filing_days <= 92
-          result = 100
-        elsif overdue_filing_days <= 181
-          result = (overdue_filing_days - 92) * 10 + 100
-          #this fine can't be more than 1000£
-          if result > 1000
-            result = 1000
-          end
+      elsif overdue_filing_days <= 92
+        result = 100
+      elsif overdue_filing_days <= 181
+        result = (overdue_filing_days - 92) * 10 + 100
+        #this fine can't be more than 1000£
+        if result > 1000
+          result = 1000
         end
       end
 
