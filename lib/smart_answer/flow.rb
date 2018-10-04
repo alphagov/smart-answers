@@ -3,7 +3,8 @@ require 'ostruct'
 module SmartAnswer
   class Flow
     attr_reader :nodes
-    attr_accessor :status, :need_id
+    attr_accessor :need_id
+    attr_writer :status
 
     def self.build
       flow = new
