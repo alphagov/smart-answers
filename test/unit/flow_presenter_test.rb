@@ -74,9 +74,9 @@ class FlowPresenterTest < ActiveSupport::TestCase
 
   test '#presenter_for always returns same presenter for a given question' do
     question = @flow.multiple_choice(:question_key).last
-    node_presenter_1 = @flow_presenter.presenter_for(question)
-    node_presenter_2 = @flow_presenter.presenter_for(question)
-    assert_same node_presenter_1, node_presenter_2
+    node_presenter1 = @flow_presenter.presenter_for(question)
+    node_presenter2 = @flow_presenter.presenter_for(question)
+    assert_same node_presenter1, node_presenter2
   end
 
   test '#start_node returns presenter for landing page node' do
@@ -85,9 +85,9 @@ class FlowPresenterTest < ActiveSupport::TestCase
   end
 
   test '#start_node always returns same presenter for landing page node' do
-    start_node_1 = @flow_presenter.start_node
-    start_node_2 = @flow_presenter.start_node
-    assert_same start_node_1, start_node_2
+    start_node1 = @flow_presenter.start_node
+    start_node2 = @flow_presenter.start_node
+    assert_same start_node1, start_node2
   end
 
   test '#name returns Flow name' do

@@ -177,10 +177,10 @@ module SmartAnswer::Calculators
     end
 
     def under_green_deal?
-      part_1 = !measure_help_and_property_permission_circumstance? && no_benefits?
-      part_2 = !part_1 && property_permission_circumstance_and_benefits?
-      part_3 = !part_2
-      (part_1 && under_green_deal_part_1?) || (part_2 && under_green_deal_part_2?) || (part_3 && under_green_deal_part_3?)
+      part1 = !measure_help_and_property_permission_circumstance? && no_benefits?
+      part2 = !part1 && property_permission_circumstance_and_benefits?
+      part3 = !part2
+      (part1 && under_green_deal_part1?) || (part2 && under_green_deal_part2?) || (part3 && under_green_deal_part3?)
     end
 
     def under_green_deal_part_1?
