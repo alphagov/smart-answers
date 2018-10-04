@@ -326,7 +326,7 @@ module SmartAnswer::Calculators
         @calc = HolidayEntitlement.new
       end
 
-      should "strip trailing zeroes after the dp from numbers" do
+      should "strip trailing zeroes after the day period from numbers" do
         assert_equal "123", @calc.strip_zeros(123.0)
       end
 
@@ -344,12 +344,12 @@ module SmartAnswer::Calculators
         end
       end
 
-      should "return foo to 1 dp by default" do
+      should "return foo to 1 day period by default" do
         @calc.stubs(:foo).returns(123.6593)
         assert_equal '123.7', @calc.formatted_foo
       end
 
-      should "allow overriding the dp" do
+      should "allow overriding the day period" do
         @calc.stubs(:foo).returns(123.6593)
         assert_equal '123.66', @calc.formatted_foo(2)
       end

@@ -10,7 +10,7 @@ protected
 
   def error_404; error(404); end
 
-  def error_503(e = nil); error(503, e); end
+  def error_503(err = nil); error(503, err); end
 
   def error(status_code, exception = nil)
     if exception

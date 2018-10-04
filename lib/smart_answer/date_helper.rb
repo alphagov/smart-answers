@@ -6,8 +6,8 @@ module SmartAnswer
       end
     end
 
-    def formatted_date(dt)
-      dt.strftime("%d %B %Y")
+    def formatted_date(date_time)
+      date_time.strftime("%d %B %Y")
     end
 
     def self.current_day

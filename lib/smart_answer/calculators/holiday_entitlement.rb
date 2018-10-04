@@ -60,8 +60,8 @@ module SmartAnswer::Calculators
       end
     end
 
-    def formatted_fraction_of_year(dp = 2)
-      format_number(fraction_of_year, dp)
+    def formatted_fraction_of_year(day_period = 2)
+      format_number(fraction_of_year, day_period)
     end
 
     def strip_zeros(number)
@@ -106,8 +106,8 @@ module SmartAnswer::Calculators
       end
     end
 
-    def format_number(number, dp = 1)
-      str = sprintf("%.#{dp}f", number)
+    def format_number(number, day_period = 1)
+      str = sprintf("%.#{day_period}f", number)
       strip_zeros(str)
     end
 
