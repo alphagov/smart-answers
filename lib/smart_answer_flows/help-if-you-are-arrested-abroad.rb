@@ -65,7 +65,7 @@ module SmartAnswer
         calculate :has_extra_downloads do
           [police, judicial, consul, prison, lawyer, benefits, doc, pdf].count { |x|
             x != ""
-          } > 0 || arrested_calc.countries_with_regions.include?(country)
+          }.positive? || arrested_calc.countries_with_regions.include?(country)
         end
 
         calculate :region_links do
