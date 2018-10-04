@@ -48,6 +48,11 @@ private
       Date.parse(event["date"])
     end
   end
+
+  # `private` does not make singleton methods private, this
+  # explicitly makes the methods above private.
+  private_class_method :load_bank_holidays
+  private_class_method :bank_holidays
 end
 
 Integer.class_eval do

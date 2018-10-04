@@ -73,7 +73,7 @@ class WorkingDaysTest < ActiveSupport::TestCase
     end
 
     should "load the bank holidays for england and wales from www.gov.uk" do
-      holidays = WorkingDays.bank_holidays
+      holidays = WorkingDays.send(:bank_holidays)
       expected = [
         Date.parse("2013-01-01"),
         Date.parse("2013-03-29"),
@@ -86,8 +86,8 @@ class WorkingDaysTest < ActiveSupport::TestCase
     end
 
     should "memoize the loaded holidays" do
-      WorkingDays.bank_holidays
-      WorkingDays.bank_holidays
+      WorkingDays.send(:bank_holidays)
+      WorkingDays.send(:bank_holidays)
 
       WebMock.assert_requested(:get, "https://www.gov.uk/bank-holidays.json", times: 1)
     end

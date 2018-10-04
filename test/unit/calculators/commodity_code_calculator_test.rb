@@ -14,12 +14,13 @@ module SmartAnswer::Calculators
 
       context "populate_commodity_code_matrix method" do
         should "build a 2D (32x19) array of commodity code suffixes" do
-          assert_equal 32, @calculator.commodity_code_matrix.size
-          assert_equal 19, @calculator.commodity_code_matrix.first.size
-          assert_equal "180", @calculator.commodity_code_matrix[10][0]
-          assert_equal "030", @calculator.commodity_code_matrix[1][10]
-          assert_equal "X", @calculator.commodity_code_matrix[4][9]
-          assert_equal "090", @calculator.commodity_code_matrix[4][10]
+          commodity_code_matrix = @calculator.send(:commodity_code_matrix)
+          assert_equal 32, commodity_code_matrix.size
+          assert_equal 19, commodity_code_matrix.first.size
+          assert_equal "180", commodity_code_matrix[10][0]
+          assert_equal "030", commodity_code_matrix[1][10]
+          assert_equal "X", commodity_code_matrix[4][9]
+          assert_equal "090", commodity_code_matrix[4][10]
         end
       end
 

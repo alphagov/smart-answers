@@ -11,8 +11,8 @@ module SmartAnswer::Calculators
 
     def initialize(attributes = {})
       super
-      @matrix_data = self.class.commodity_codes_data
-      @commodity_code_matrix = self.class.commodity_code_matrix
+      @matrix_data = self.class.send(:commodity_codes_data)
+      @commodity_code_matrix = self.class.send(:commodity_code_matrix)
       @starch_glucose_weight ||= 0
       @sucrose_weight ||= 0
       @milk_fat_weight ||= 0
@@ -56,5 +56,10 @@ module SmartAnswer::Calculators
     def self.commodity_codes_data
       @commodity_codes_data ||= YAML.load(File.open("lib/data/commodity_codes_data.yml").read)
     end
+
+    # `private` does not make singleton methods private, this
+    # explicitly makes the methods above private.
+    private_class_method :commodity_code_matrix
+    private_class_method :commodity_codes_data
   end
 end
