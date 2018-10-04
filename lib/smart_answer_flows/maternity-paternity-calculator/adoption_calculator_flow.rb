@@ -1,4 +1,5 @@
 module SmartAnswer
+  #  rubocop:disable Metrics/BlockLength
   class MaternityPaternityCalculatorFlow < Flow
     class AdoptionCalculatorFlow < Flow
       def define
@@ -332,4 +333,5 @@ module SmartAnswer
       end
     end
   end
+  #  rubocop:enable Metrics/BlockLength
 end

@@ -1,4 +1,5 @@
 module SmartAnswer
+  #  rubocop:disable Metrics/BlockLength
   class StudentFinanceCalculatorFlow < Flow
     def define
       start_page_content_id "434b6eb5-33c8-4300-aba3-f5ead58600b8"
@@ -259,4 +260,5 @@ module SmartAnswer
       outcome :outcome_uk_part_time_dental_medical_students
     end
   end
+  #  rubocop:enable Metrics/BlockLength
 end

@@ -1,4 +1,5 @@
 module SmartAnswer
+  #  rubocop:disable Metrics/BlockLength
   class LandlordImmigrationCheckFlow < Flow
     def define
       start_page_content_id "a6c2dbbb-a26e-4cc5-a244-48ef45523269"
@@ -275,4 +276,5 @@ module SmartAnswer
       outcome :outcome_check_not_needed_when_under_18
     end
   end
+  #  rubocop:enable Metrics/BlockLength
 end

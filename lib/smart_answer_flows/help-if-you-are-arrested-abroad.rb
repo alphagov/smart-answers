@@ -1,4 +1,5 @@
 module SmartAnswer
+  #  rubocop:disable Metrics/BlockLength
   class HelpIfYouAreArrestedAbroadFlow < Flow
     def define
       start_page_content_id "cb62c931-a0fa-4363-b33d-12ac06d6232a"
@@ -108,4 +109,5 @@ module SmartAnswer
       outcome :answer_three_british_overseas_territories
     end
   end
+  #  rubocop:enable Metrics/BlockLength
 end

@@ -58,6 +58,7 @@ end
 
 namespace :links do
   desc 'Checks all URLs within Smart Answers for errors.'
+  #  rubocop:disable Metrics/BlockLength
   task :check, :file do |_, args|
     broken = []
     pwd = Dir.pwd
@@ -114,4 +115,5 @@ namespace :links do
       puts "No 5XX links found"
     end
   end
+  #  rubocop:enable Metrics/BlockLength
 end

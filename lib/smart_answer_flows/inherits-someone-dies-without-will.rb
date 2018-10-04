@@ -1,4 +1,5 @@
 module SmartAnswer
+  #  rubocop:disable Metrics/BlockLength
   class InheritsSomeoneDiesWithoutWillFlow < Flow
     def define
       start_page_content_id "1f75de31-1f07-4c68-b1ab-8330b1ee8670"
@@ -449,4 +450,5 @@ module SmartAnswer
       end
     end
   end
+  #  rubocop:enable Metrics/BlockLength
 end

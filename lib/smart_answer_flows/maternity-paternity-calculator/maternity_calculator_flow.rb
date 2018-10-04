@@ -1,5 +1,6 @@
 module SmartAnswer
   class MaternityPaternityCalculatorFlow < Flow
+    #  rubocop:disable Metrics/BlockLength
     class MaternityCalculatorFlow < Flow
       def define
         days_of_the_week = Calculators::MaternityPaternityCalculator::DAYS_OF_THE_WEEK
@@ -347,5 +348,6 @@ module SmartAnswer
         end
       end
     end
+    #  rubocop:enable Metrics/BlockLength
   end
 end

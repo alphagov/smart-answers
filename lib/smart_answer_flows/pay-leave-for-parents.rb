@@ -1,4 +1,5 @@
 module SmartAnswer
+  #  rubocop:disable Metrics/BlockLength
   class PayLeaveForParentsFlow < Flow
     def define
       start_page_content_id "1f6b4ecc-ce2c-488a-b9c7-b78b3bba5598"
@@ -817,4 +818,5 @@ module SmartAnswer
       outcome :outcome_single_birth_nothing
     end
   end
+  #  rubocop:enable Metrics/BlockLength
 end

@@ -1,4 +1,5 @@
 module SmartAnswer
+  #  rubocop:disable Metrics/BlockLength
   class UkBenefitsAbroadFlow < Flow
     def define
       start_page_content_id "e1eaf183-1211-4fd7-b439-5c94498814ef"
@@ -720,4 +721,5 @@ module SmartAnswer
       outcome :is_already_abroad_outcome # A40 already_abroad
     end
   end
+  #  rubocop:enable Metrics/BlockLength
 end

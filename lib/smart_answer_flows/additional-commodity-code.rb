@@ -1,4 +1,5 @@
 module SmartAnswer
+  #  rubocop:disable Metrics/BlockLength
   class AdditionalCommodityCodeFlow < Flow
     def define
       start_page_content_id "bfda3b4f-166b-48e7-9aaf-21bfbd606207"
@@ -214,4 +215,5 @@ module SmartAnswer
       outcome :commodity_code_result
     end
   end
+  #  rubocop:enable Metrics/BlockLength
 end

@@ -8,6 +8,7 @@
 # SS - Same Sex
 
 module SmartAnswer
+  #  rubocop:disable Metrics/BlockLength
   class MarriageAbroadFlow < Flow
     def define
       start_page_content_id "d0a95767-f6ab-432a-aebc-096e37fb3039"
@@ -303,4 +304,5 @@ module SmartAnswer
       outcome :outcome_marriage_abroad_in_country
     end
   end
+  #  rubocop:enable Metrics/BlockLength
 end

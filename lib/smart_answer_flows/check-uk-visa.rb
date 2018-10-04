@@ -1,4 +1,5 @@
 module SmartAnswer
+  #  rubocop:disable Metrics/BlockLength
   class CheckUkVisaFlow < Flow
     def define
       flow = self
@@ -424,4 +425,5 @@ module SmartAnswer
       end
     end
   end
+  #  rubocop:enable Metrics/BlockLength
 end

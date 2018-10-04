@@ -1,4 +1,5 @@
 module SmartAnswer
+  #  rubocop:disable Metrics/BlockLength
   class SimplifiedExpensesCheckerFlow < Flow
     def define
       start_page_content_id "8ad76560-8a27-42ee-9a99-8aaa8f0109a5"
@@ -293,4 +294,5 @@ module SmartAnswer
       outcome :you_cant_claim_capital_allowance
     end
   end
+  #  rubocop:enable Metrics/BlockLength
 end

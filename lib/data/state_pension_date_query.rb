@@ -1,5 +1,6 @@
 require_relative 'state_pension_date'
 
+#  rubocop:disable Metrics/BlockLength
 StatePensionDateQuery = Struct.new(:dob, :gender) do
   def self.state_pension_date(dob, gender)
     new(dob, gender).find_date
@@ -70,3 +71,4 @@ StatePensionDateQuery = Struct.new(:dob, :gender) do
     YAML.load_file(Rails.root.join("lib", "data", "state_pension_dates.yml"))
   end
 end
+#  rubocop:enable Metrics/BlockLength
