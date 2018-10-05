@@ -1,5 +1,5 @@
 ---
-lib/smart_answer/calculators/self_assessment_penalties.rb: 1f49d08d7c526a37f1c360acadcd1879
+lib/smart_answer/calculators/self_assessment_penalties.rb: 60b5b363253d5fe3b6f0fc79524acf3e
 lib/smart_answer_flows/estimate-self-assessment-penalties/estimate_self_assessment_penalties.govspeak.erb: d35eaf0334a9e871fa14294682fb7322
 lib/smart_answer_flows/estimate-self-assessment-penalties/outcomes/filed_and_paid_on_time.govspeak.erb: c7c2b164d05b3f757bc9ee9439aa560a
 lib/smart_answer_flows/estimate-self-assessment-penalties/outcomes/late.govspeak.erb: b88d8257149cb0af87681e03493ace43

@@ -1,7 +1,7 @@
 ---
 lib/data/rates/married_couples_allowance.yml: 193df55ccf40427cdf7266fdf73212a1
 lib/data/rates/personal_allowance.yml: 55e9f501e86bf70402b83675f78ffa7a
-lib/smart_answer/calculators/married_couples_allowance_calculator.rb: 6e3a825124b3e11dffc5c5ab08e31c93
+lib/smart_answer/calculators/married_couples_allowance_calculator.rb: 252cffb2f4e064661b92734eb0a45272
 lib/smart_answer_flows/calculate-married-couples-allowance/calculate_married_couples_allowance.govspeak.erb: 2a107c5f5eccf492a1bbb055fb87ee2c
 lib/smart_answer_flows/calculate-married-couples-allowance/outcomes/_done_body.govspeak.erb: cb025369e07d6cdbedbfe7d54df39eee
 lib/smart_answer_flows/calculate-married-couples-allowance/outcomes/_done_next_steps.govspeak.erb: bd570369ab0b5cf668541917daa5ef9b

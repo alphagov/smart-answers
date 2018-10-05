@@ -1,6 +1,6 @@
 ---
 lib/data/rates/state_pension.yml: a7a4417fe5aaa83a31d8b91fc906b5bf
-lib/data/state_pension_date_query.rb: 6a5bc3072ae8b986f7ee6d47ecd5da41
+lib/data/state_pension_date_query.rb: 495f187ee529cac5dfb3b0c54d9410d5
 lib/data/state_pension_dates.yml: da1bdee8a5b42c489b3966c43b625113
 lib/smart_answer/calculators/state_pension_age_calculator.rb: f1bb153b2a04c6339ec76b07a42d81e4
 lib/smart_answer_flows/state-pension-age/outcomes/bus_pass_result.govspeak.erb: dcd8e4132b25e8dd46b82f096837b974

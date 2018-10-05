@@ -1,5 +1,5 @@
 ---
-lib/smart_answer/calculators/energy_grants_calculator.rb: 4820fb70341020fd26e68b6491de506d
+lib/smart_answer/calculators/energy_grants_calculator.rb: a67d1a2885d903ef871fcaae66c9ba53
 lib/smart_answer_flows/energy-grants-calculator/energy_grants_calculator.govspeak.erb: 7df3ca7bdc65c932d84c51b4bd742bc2
 lib/smart_answer_flows/energy-grants-calculator/outcomes/_callout_under_green_deal.govspeak.erb: 81e4cc5ea99917a97826748ce796175a
 lib/smart_answer_flows/energy-grants-calculator/outcomes/_cold_weather_payment.govspeak.erb: 83a375ad3f26ebdf47d005095c1036b7

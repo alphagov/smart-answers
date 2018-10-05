@@ -3,9 +3,9 @@ lib/data/rates/births_and_deaths_document_return_fees.yml: 4ac203e9fd076c12f62b5
 lib/data/rates/register_a_birth.yml: 8d678c61d06f614a67e8faa1933b0ff5
 lib/data/registrations.yml: e37a86cc3bcd59c111f1b1696442f242
 lib/data/translators.yml: 79abd2e0c2570130f7d832e4242c153a
-lib/smart_answer/calculators/country_name_formatter.rb: 2cacac40b0590ec745a83d3133187945
-lib/smart_answer/calculators/register_a_birth_calculator.rb: bcd9df47986f493efd07b37b866a1487
-lib/smart_answer/calculators/registrations_data_query.rb: 6eb4b750c403f3d10b4f5123558eddcd
+lib/smart_answer/calculators/country_name_formatter.rb: 427ecc7342062611cc909fa2abe5259a
+lib/smart_answer/calculators/register_a_birth_calculator.rb: e294b6a230b059497e7562b0d7f9bc08
+lib/smart_answer/calculators/registrations_data_query.rb: d25b398eae1d19b14f7afc86969b5f85
 lib/smart_answer/calculators/translator_links.rb: '079592f6c5ede06d7c6ae4e8c5553127'
 lib/smart_answer_flows/register-a-birth/outcomes/_fees.govspeak.erb: 8c7e4d35431cb9a708504fec00558b02
 lib/smart_answer_flows/register-a-birth/outcomes/commonwealth_result.govspeak.erb: f259f0c518f6b418a683d6482874a451
