@@ -45,7 +45,7 @@ module SmartAnswer::Calculators
     end
 
     def self.load_calculator_data
-      @load_calculator_data ||= YAML.load(File.open("lib/data/workplace_pension_data.yml").read)[:enrollment_data]
+      @load_calculator_data ||= YAML.safe_load(File.open("lib/data/workplace_pension_data.yml").read, [Symbol, Date])[:enrollment_data]
     end
   end
 end

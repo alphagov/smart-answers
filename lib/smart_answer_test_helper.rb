@@ -13,7 +13,7 @@ class SmartAnswerTestHelper
 
   def self.configurations
     yaml = File.read(data_path.join('configurations.yml'))
-    YAML.load(yaml)
+    YAML.safe_load(yaml, [Symbol, Date])
   end
 
   def self.default_configuration
@@ -45,7 +45,7 @@ class SmartAnswerTestHelper
 
   def read_files_checksums
     files_checksums_yaml = File.read(files_checksum_path)
-    YAML.load(files_checksums_yaml)
+    YAML.safe_load(files_checksums_yaml, [Symbol, Date])
   end
 
   def files_checksum_data_exists?
@@ -87,7 +87,7 @@ class SmartAnswerTestHelper
 
   def read_responses_and_expected_results
     responses_and_expected_results_yaml = File.read(responses_and_expected_results_path)
-    YAML.load(responses_and_expected_results_yaml)
+    YAML.safe_load(responses_and_expected_results_yaml, [Symbol, Date])
   end
 
   def path_to_outputs_for_flow
