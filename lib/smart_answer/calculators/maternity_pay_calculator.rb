@@ -5,17 +5,11 @@ module SmartAnswer::Calculators
     include SmartAnswer::DateHelper
 
     attr_reader :due_date, :expected_week, :qualifying_week, :employment_start, :notice_of_leave_deadline,
-      :leave_earliest_start_date, :ssp_stop,
-      :matched_week, :a_employment_start, :leave_type
+      :leave_earliest_start_date, :ssp_stop, :a_employment_start, :leave_type
 
-    attr_accessor :employment_contract, :leave_start_date,
-      :a_notice_leave, :last_payday, :pre_offset_payday, :pay_date,
-      :pay_day_in_month, :pay_day_in_week, :pay_method, :pay_week_in_month, :work_days, :date_of_birth, :awe
-
-    attr_accessor :pay_pattern, :payment_option
-    attr_accessor :earnings_for_pay_period
-    attr_accessor :employee_has_contract_adoption
-    attr_accessor :on_payroll
+    attr_accessor :employment_contract, :leave_start_date, :last_payday, :pre_offset_payday, :pay_date,
+      :pay_day_in_month, :pay_day_in_week, :pay_method, :pay_week_in_month, :work_days, :date_of_birth, :awe,
+      :pay_pattern, :payment_option, :earnings_for_pay_period, :on_payroll
 
     DAYS_OF_THE_WEEK = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday).freeze
     PAYMENT_OPTIONS = {
@@ -39,13 +33,13 @@ module SmartAnswer::Calculators
     }.with_indifferent_access.freeze
     private_constant :PAYMENT_OPTIONS
 
-    def initialize(match_or_due_date, leave_type = "maternity")
-      expected_start = match_or_due_date - match_or_due_date.wday
+    def initialize(due_date, leave_type = "maternity")
+      expected_start = due_date - due_date.wday
       qualifying_start = 15.weeks.ago(expected_start)
 
-      @due_date = @match_date = match_or_due_date
+      @due_date = due_date
       @leave_type = leave_type
-      @expected_week = @matched_week = SmartAnswer::DateRange.new(
+      @expected_week = SmartAnswer::DateRange.new(
         begins_on: expected_start,
         ends_on: expected_start + 6.days
       )
@@ -55,12 +49,8 @@ module SmartAnswer::Calculators
         ends_on: qualifying_start + 6.days
       )
       @employment_start = @qualifying_week.weeks_after(-25).ends_on
-      @a_employment_start = @matched_week.weeks_after(-25).ends_on
       @leave_earliest_start_date = @expected_week.weeks_after(-11).begins_on
       @ssp_stop = @expected_week.weeks_after(-4).begins_on
-
-      # Adoption instance vars
-      @a_notice_leave = @match_date + 7
     end
 
     def self.payment_options(period)
@@ -302,14 +292,6 @@ module SmartAnswer::Calculators
 
     def current_statutory_rate
       statutory_rate(Date.today)
-    end
-
-    def no_contract_not_on_payroll?
-      employee_has_contract_adoption == 'no' && on_payroll == 'no'
-    end
-
-    def has_contract_not_on_payroll?
-      employee_has_contract_adoption == 'yes' && on_payroll == 'no'
     end
 
     def average_weekly_earnings_under_lower_earning_limit?
