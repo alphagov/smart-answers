@@ -24,11 +24,12 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.is_a?(Calculators::AdoptionPayCalculator)
+          case calculator.leave_type
+          when 'adoption'
             question :how_do_you_want_the_sap_calculated?
-          elsif calculator.is_a?(Calculators::MaternityPayCalculator)
+          when 'maternity'
             question :how_do_you_want_the_smp_calculated?
-          elsif calculator.is_a?(Calculators::PaternityPayCalculator)
+          else
             question :how_do_you_want_the_spp_calculated?
           end
         end
@@ -52,11 +53,12 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.is_a?(Calculators::AdoptionPayCalculator)
+          case calculator.leave_type
+          when 'adoption'
             question :how_do_you_want_the_sap_calculated?
-          elsif calculator.is_a?(Calculators::MaternityPayCalculator)
+          when 'maternity'
             question :how_do_you_want_the_smp_calculated?
-          elsif calculator.is_a?(Calculators::PaternityPayCalculator)
+          else
             question :how_do_you_want_the_spp_calculated?
           end
         end
@@ -80,11 +82,12 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.is_a?(Calculators::AdoptionPayCalculator)
+          case calculator.leave_type
+          when 'adoption'
             question :how_do_you_want_the_sap_calculated?
-          elsif calculator.is_a?(Calculators::MaternityPayCalculator)
+          when 'maternity'
             question :how_do_you_want_the_smp_calculated?
-          elsif calculator.is_a?(Calculators::PaternityPayCalculator)
+          else
             question :how_do_you_want_the_spp_calculated?
           end
         end
@@ -108,11 +111,12 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.is_a?(Calculators::AdoptionPayCalculator)
+          case calculator.leave_type
+          when 'adoption'
             question :how_do_you_want_the_sap_calculated?
-          elsif calculator.is_a?(Calculators::MaternityPayCalculator)
+          when 'maternity'
             question :how_do_you_want_the_smp_calculated?
-          elsif calculator.is_a?(Calculators::PaternityPayCalculator)
+          else
             question :how_do_you_want_the_spp_calculated?
           end
         end

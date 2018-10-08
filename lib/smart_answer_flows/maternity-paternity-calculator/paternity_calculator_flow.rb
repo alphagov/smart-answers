@@ -26,7 +26,7 @@ module SmartAnswer
           end
 
           calculate :calculator do
-            Calculators::PaternityPayCalculator.new(due_date, 'paternity')
+            Calculators::PaternityPayCalculator.new(due_date)
           end
 
           next_node do
@@ -41,7 +41,7 @@ module SmartAnswer
           end
 
           calculate :calculator do
-            Calculators::PaternityPayCalculator.new(matched_date, 'paternity_adoption')
+            Calculators::PaternityAdoptionPayCalculator.new(matched_date)
           end
 
           calculate :leave_type do
