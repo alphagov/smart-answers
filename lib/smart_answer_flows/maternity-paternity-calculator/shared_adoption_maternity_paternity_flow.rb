@@ -1,10 +1,10 @@
 module SmartAnswer
   class SharedAdoptionMaternityPaternityFlow < Flow
     def define
-      payment_options_weekly = Calculators::MaternityPaternityCalculator.payment_options("weekly")
-      payment_options_every_2_weeks = Calculators::MaternityPaternityCalculator.payment_options("every_2_weeks")
-      payment_options_every_4_weeks = Calculators::MaternityPaternityCalculator.payment_options("every_4_weeks")
-      payment_options_monthly = Calculators::MaternityPaternityCalculator.payment_options("monthly")
+      payment_options_weekly = Calculators::MaternityPayCalculator.payment_options("weekly")
+      payment_options_every_2_weeks = Calculators::MaternityPayCalculator.payment_options("every_2_weeks")
+      payment_options_every_4_weeks = Calculators::MaternityPayCalculator.payment_options("every_4_weeks")
+      payment_options_monthly = Calculators::MaternityPayCalculator.payment_options("monthly")
 
       # This question is being used in:
       # QM9 in MaternityCalculatorFlow
@@ -24,11 +24,11 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.adoption?
+          if calculator.is_a?(Calculators::AdoptionPayCalculator)
             question :how_do_you_want_the_sap_calculated?
-          elsif calculator.maternity?
+          elsif calculator.is_a?(Calculators::MaternityPayCalculator)
             question :how_do_you_want_the_smp_calculated?
-          elsif calculator.paternity? || calculator.paternity_adoption?
+          elsif calculator.is_a?(Calculators::PaternityPayCalculator)
             question :how_do_you_want_the_spp_calculated?
           end
         end
@@ -52,11 +52,11 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.adoption?
+          if calculator.is_a?(Calculators::AdoptionPayCalculator)
             question :how_do_you_want_the_sap_calculated?
-          elsif calculator.maternity?
+          elsif calculator.is_a?(Calculators::MaternityPayCalculator)
             question :how_do_you_want_the_smp_calculated?
-          elsif calculator.paternity? || calculator.paternity_adoption?
+          elsif calculator.is_a?(Calculators::PaternityPayCalculator)
             question :how_do_you_want_the_spp_calculated?
           end
         end
@@ -80,11 +80,11 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.adoption?
+          if calculator.is_a?(Calculators::AdoptionPayCalculator)
             question :how_do_you_want_the_sap_calculated?
-          elsif calculator.maternity?
+          elsif calculator.is_a?(Calculators::MaternityPayCalculator)
             question :how_do_you_want_the_smp_calculated?
-          elsif calculator.paternity? || calculator.paternity_adoption?
+          elsif calculator.is_a?(Calculators::PaternityPayCalculator)
             question :how_do_you_want_the_spp_calculated?
           end
         end
@@ -108,11 +108,11 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.adoption?
+          if calculator.is_a?(Calculators::AdoptionPayCalculator)
             question :how_do_you_want_the_sap_calculated?
-          elsif calculator.maternity?
+          elsif calculator.is_a?(Calculators::MaternityPayCalculator)
             question :how_do_you_want_the_smp_calculated?
-          elsif calculator.paternity? || calculator.paternity_adoption?
+          elsif calculator.is_a?(Calculators::PaternityPayCalculator)
             question :how_do_you_want_the_spp_calculated?
           end
         end

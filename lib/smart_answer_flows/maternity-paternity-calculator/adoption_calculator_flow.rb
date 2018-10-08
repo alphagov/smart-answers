@@ -34,7 +34,7 @@ module SmartAnswer
             response
           end
           calculate :calculator do
-            Calculators::MaternityPaternityCalculator.new(match_date, "adoption")
+            Calculators::AdoptionPayCalculator.new(match_date)
           end
 
           next_node do
