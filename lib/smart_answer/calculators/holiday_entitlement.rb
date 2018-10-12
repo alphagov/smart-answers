@@ -4,6 +4,7 @@ require 'ostruct'
 module SmartAnswer::Calculators
   class HolidayEntitlement < OpenStruct
     # created for the holiday entitlement calculator
+    MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT = 28.0
 
     def full_time_part_time_days
       days = (5.6 * fraction_of_year * days_per_week).round(10)
@@ -11,16 +12,16 @@ module SmartAnswer::Calculators
     end
 
     def full_time_part_time_hours
-      (5.6 * fraction_of_year * hours_per_week).round(10)
+      (hours_per_week / days_per_week * MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT * fraction_of_year).round(10)
     end
 
     def full_time_part_time_hours_and_minutes
-      (full_time_part_time_hours * 60).floor.divmod(60).map(&:floor)
+      (full_time_part_time_hours * 60).ceil.divmod(60).map(&:ceil)
     end
 
     def casual_irregular_entitlement
-      minutes = (5.6 / 46.4 * total_hours * 60).round(10)
-      minutes.floor.divmod(60).map(&:floor)
+      minutes = 5.6 / 46.4 * total_hours * 60
+      minutes.ceil.divmod(60).map(&:ceil)
     end
 
     def annualised_hours_per_week
@@ -33,13 +34,13 @@ module SmartAnswer::Calculators
     end
 
     def compressed_hours_entitlement
-      minutes = (5.6 * hours_per_week * 60).round(10)
-      minutes.floor.divmod(60).map(&:floor)
+      minutes = 5.6 * hours_per_week * 60
+      minutes.ceil.divmod(60).map(&:ceil)
     end
 
     def compressed_hours_daily_average
-      minutes = (hours_per_week / days_per_week * 60).round(10)
-      minutes.floor.divmod(60).map(&:floor)
+      minutes = hours_per_week / days_per_week * 60
+      minutes.ceil.divmod(60).map(&:ceil)
     end
 
     def shift_entitlement
@@ -106,13 +107,14 @@ module SmartAnswer::Calculators
       end
     end
 
-    def format_number(number, dp = 1)
-      str = sprintf("%.#{dp}f", number)
+    def format_number(number, decimal_places = 1)
+      rounded = (number * 10**decimal_places).ceil.to_f / 10**decimal_places
+      str = sprintf("%.#{decimal_places}f", rounded)
       strip_zeros(str)
     end
 
     def days_cap
-      (28 * fraction_of_year).round(10)
+      (MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT * fraction_of_year).round(10)
     end
   end
 end
