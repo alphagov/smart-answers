@@ -350,6 +350,11 @@ module SmartAnswer::Calculators
         assert_equal '123.7', @calc.formatted_foo
       end
 
+      should "round up in all cases" do
+        @calc.stubs(:foo).returns(123.00001)
+        assert_equal '123.1', @calc.formatted_foo
+      end
+
       should "allow overriding the dp" do
         @calc.stubs(:foo).returns(123.6593)
         assert_equal '123.66', @calc.formatted_foo(2)
