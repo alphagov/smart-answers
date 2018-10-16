@@ -12,7 +12,7 @@ module SmartAnswer::Calculators
     end
 
     def full_time_part_time_hours
-      (hours_per_week / days_per_week * MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT * fraction_of_year).round(10)
+      (hours_per_week.to_f / days_per_week * MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT * fraction_of_year).round(10)
     end
 
     def full_time_part_time_hours_and_minutes
@@ -39,7 +39,7 @@ module SmartAnswer::Calculators
     end
 
     def compressed_hours_daily_average
-      minutes = hours_per_week / days_per_week * 60
+      minutes = hours_per_week.to_f / days_per_week * 60
       minutes.ceil.divmod(60).map(&:ceil)
     end
 
@@ -53,11 +53,11 @@ module SmartAnswer::Calculators
       days_divide = leave_year_range.leap? ? 366 : 365
 
       if start_date && leaving_date
-        (leaving_date - start_date + 1) / days_divide
+        (leaving_date - start_date + 1.0) / days_divide
       elsif leaving_date
-        (leaving_date - leave_year_range.begins_on + 1) / days_divide
+        (leaving_date - leave_year_range.begins_on + 1.0) / days_divide
       else
-        (leave_year_range.ends_on - start_date + 1) / days_divide
+        (leave_year_range.ends_on - start_date + 1.0) / days_divide
       end
     end
 
