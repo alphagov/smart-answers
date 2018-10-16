@@ -2,7 +2,7 @@ module SmartAnswer
   class MaternityPaternityCalculatorFlow < Flow
     class PaternityCalculatorFlow < Flow
       def define
-        days_of_the_week = Calculators::MaternityPaternityCalculator::DAYS_OF_THE_WEEK
+        days_of_the_week = Calculators::MaternityPayCalculator::DAYS_OF_THE_WEEK
 
         ## QP0
         multiple_choice :leave_or_pay_for_adoption? do
@@ -26,7 +26,7 @@ module SmartAnswer
           end
 
           calculate :calculator do
-            Calculators::MaternityPaternityCalculator.new(due_date, 'paternity')
+            Calculators::PaternityPayCalculator.new(due_date)
           end
 
           next_node do
@@ -41,7 +41,7 @@ module SmartAnswer
           end
 
           calculate :calculator do
-            Calculators::MaternityPaternityCalculator.new(matched_date, 'paternity_adoption')
+            Calculators::PaternityAdoptionPayCalculator.new(matched_date)
           end
 
           calculate :leave_type do

@@ -1,23 +1,17 @@
 require_relative "../date_helper"
 
 module SmartAnswer::Calculators
-  class MaternityPaternityCalculator
+  class MaternityPayCalculator
     include SmartAnswer::DateHelper
 
     attr_reader :due_date, :expected_week, :qualifying_week, :employment_start, :notice_of_leave_deadline,
-      :leave_earliest_start_date, :adoption_placement_date, :ssp_stop,
-      :matched_week, :a_employment_start, :leave_type
+      :leave_earliest_start_date, :ssp_stop, :a_employment_start, :leave_type
 
-    attr_accessor :employment_contract, :leave_start_date,
-      :a_notice_leave, :last_payday, :pre_offset_payday, :pay_date, :paternity_leave_duration,
-      :pay_day_in_month, :pay_day_in_week, :pay_method, :pay_week_in_month, :work_days, :date_of_birth, :awe
+    attr_accessor :employment_contract, :leave_start_date, :last_payday, :pre_offset_payday, :pay_date,
+      :pay_day_in_month, :pay_day_in_week, :pay_method, :pay_week_in_month, :work_days, :date_of_birth, :awe,
+      :pay_pattern, :payment_option, :earnings_for_pay_period, :on_payroll
 
-    attr_accessor :pay_pattern, :payment_option
-    attr_accessor :earnings_for_pay_period
-    attr_accessor :employee_has_contract_adoption
-    attr_accessor :on_payroll
-
-    DAYS_OF_THE_WEEK = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
+    DAYS_OF_THE_WEEK = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday).freeze
     PAYMENT_OPTIONS = {
       weekly: {
         "8": "8 payments or fewer",
@@ -39,13 +33,13 @@ module SmartAnswer::Calculators
     }.with_indifferent_access.freeze
     private_constant :PAYMENT_OPTIONS
 
-    def initialize(match_or_due_date, leave_type = "maternity")
-      expected_start = match_or_due_date - match_or_due_date.wday
+    def initialize(due_date, leave_type = "maternity")
+      expected_start = due_date - due_date.wday
       qualifying_start = 15.weeks.ago(expected_start)
 
-      @due_date = @match_date = match_or_due_date
+      @due_date = due_date
       @leave_type = leave_type
-      @expected_week = @matched_week = SmartAnswer::DateRange.new(
+      @expected_week = SmartAnswer::DateRange.new(
         begins_on: expected_start,
         ends_on: expected_start + 6.days
       )
@@ -55,12 +49,8 @@ module SmartAnswer::Calculators
         ends_on: qualifying_start + 6.days
       )
       @employment_start = @qualifying_week.weeks_after(-25).ends_on
-      @a_employment_start = @matched_week.weeks_after(-25).ends_on
       @leave_earliest_start_date = @expected_week.weeks_after(-11).begins_on
       @ssp_stop = @expected_week.weeks_after(-4).begins_on
-
-      # Adoption instance vars
-      @a_notice_leave = @match_date + 7
     end
 
     def self.payment_options(period)
@@ -92,22 +82,6 @@ module SmartAnswer::Calculators
 
     def valid_pay_pattern?
       PAYMENT_OPTIONS.keys.map(&:to_s).include?(pay_pattern)
-    end
-
-    def adoption?
-      @leave_type == "adoption"
-    end
-
-    def maternity?
-      @leave_type == "maternity"
-    end
-
-    def paternity?
-      @leave_type == "paternity"
-    end
-
-    def paternity_adoption?
-      @leave_type == "paternity_adoption"
     end
 
     def format_date(date)
@@ -143,25 +117,7 @@ module SmartAnswer::Calculators
     end
 
     def pay_duration
-      case leave_type
-      when 'paternity', 'paternity_adoption'
-        paternity_leave_duration == 'one_week' ? 1 : 2
-      else
-        39
-      end
-    end
-
-    def adoption_matching_week_start
-      @match_date.sunday? ? @match_date : @match_date.beginning_of_week(:sunday)
-    end
-
-    def adoption_qualifying_start
-      case leave_type
-      when "adoption", "paternity_adoption"
-        adoption_matching_week_start
-      else
-        qualifying_week.first
-      end
+      39
     end
 
     def notice_request_pay
@@ -198,29 +154,12 @@ module SmartAnswer::Calculators
       [current_statutory_rate, statutory_maternity_rate].min
     end
 
-    def lower_earning_limit_birth
-      RatesQuery.from_file('maternity_paternity_birth').rates(@qualifying_week.last).lower_earning_limit_rate
-    end
-
-    def lower_earning_limit_adoption
-      RatesQuery.from_file('maternity_paternity_adoption').rates(@qualifying_week.last).lower_earning_limit_rate
-    end
-
     def lower_earning_limit
-      if @leave_type =~ /maternity|paternity/
-        lower_earning_limit_birth
-      else
-        lower_earning_limit_adoption
-      end
+      RatesQuery.from_file('maternity_paternity_birth').rates(@qualifying_week.last).lower_earning_limit_rate
     end
 
     def employment_end
       @due_date
-    end
-
-    def adoption_placement_date=(date)
-      @adoption_placement_date = date
-      @leave_earliest_start_date = 14.days.ago(date)
     end
 
     def average_weekly_earnings
@@ -355,14 +294,6 @@ module SmartAnswer::Calculators
       statutory_rate(Date.today)
     end
 
-    def no_contract_not_on_payroll?
-      employee_has_contract_adoption == 'no' && on_payroll == 'no'
-    end
-
-    def has_contract_not_on_payroll?
-      employee_has_contract_adoption == 'yes' && on_payroll == 'no'
-    end
-
     def average_weekly_earnings_under_lower_earning_limit?
       average_weekly_earnings < lower_earning_limit
     end
@@ -421,35 +352,11 @@ module SmartAnswer::Calculators
 
     # Gives the weekly rate for a date.
     def rate_for(date)
-      if leave_type == 'maternity'
-        maternity_rate_for(date)
-      elsif leave_type == 'adoption'
-        adoption_rate_for(date)
-      else
-        paternity_rate_for(date)
-      end
-    end
-
-    def adoption_rate_for(date)
-      awe = (average_weekly_earnings.to_f * 0.9).round(2)
-      if date < 6.weeks.since(leave_start_date) && @match_date >= Date.parse('5 April 2015')
-        awe
-      else
-        [statutory_rate(date), awe].min
-      end
-    end
-
-    def maternity_rate_for(date)
       if date < 6.weeks.since(leave_start_date)
         statutory_maternity_rate_a
       else
         [statutory_rate(date), statutory_maternity_rate_a].min
       end
-    end
-
-    def paternity_rate_for(date)
-      awe = (average_weekly_earnings.to_f * 0.9).round(2)
-      [statutory_rate(date), awe].min
     end
 
     def first_sunday_in_month(month, year)
@@ -475,7 +382,7 @@ module SmartAnswer::Calculators
       ldm_index = ldm.wday
       offset = -1
       while !work_days.include?(ldm_index)
-        ldm_index > 0 ? ldm_index -= 1 : ldm_index = 6
+        ldm_index.positive? ? ldm_index -= 1 : ldm_index = 6
         offset -= 1
       end
       offset

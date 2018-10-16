@@ -2,7 +2,7 @@ module SmartAnswer
   class MaternityPaternityCalculatorFlow < Flow
     class MaternityCalculatorFlow < Flow
       def define
-        days_of_the_week = Calculators::MaternityPaternityCalculator::DAYS_OF_THE_WEEK
+        days_of_the_week = Calculators::MaternityPayCalculator::DAYS_OF_THE_WEEK
 
         ## QM1
         date_question :baby_due_date_maternity? do
@@ -10,7 +10,7 @@ module SmartAnswer
           to { 2.years.since(Date.today) }
 
           calculate :calculator do |response|
-            Calculators::MaternityPaternityCalculator.new(response)
+            Calculators::MaternityPayCalculator.new(response)
           end
           next_node do
             question :date_leave_starts?
