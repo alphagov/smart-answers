@@ -1,5 +1,5 @@
 ---
-lib/data/marriage_abroad_data.yml: 43cbb31e7230a7cd35709beddae43afb
+lib/data/marriage_abroad_data.yml: ec861320104ec23365ec7e9093b80eab
 lib/data/marriage_abroad_services.yml: 6a4a5b0168d8426b98382e69c92ea57d
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/smart_answer/calculators/country_name_formatter.rb: 2cacac40b0590ec745a83d3133187945
@@ -580,6 +580,25 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/moldova/uk/partner_loc
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/moldova/uk/partner_local/_same_sex.erb: 24c6e20a852e37da0cc92ae131d304ca
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/moldova/uk/partner_other/_opposite_sex.erb: 60876c5e5cb1ddb8d037857dcb3b0981
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/moldova/uk/partner_other/_same_sex.erb: 24c6e20a852e37da0cc92ae131d304ca
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/montenegro/_title.govspeak.erb: 2b3e28f54bc3a69dd1ba8014676085a3
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/montenegro/ceremony_country/partner_british/_opposite_sex.erb: 17beb026c580852778a5e17721d789e8
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/montenegro/ceremony_country/partner_british/_same_sex.erb: b257de4ba2f83dc28378a93936b75564
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/montenegro/ceremony_country/partner_local/_opposite_sex.erb: fb325526e88d070b03fa27ab12498403
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/montenegro/ceremony_country/partner_local/_same_sex.erb: cf4ed11ea1d035df0bb8c865654a64df
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/montenegro/ceremony_country/partner_other/_opposite_sex.erb: dba6628b6e8f5accd161a26011d1247b
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/montenegro/ceremony_country/partner_other/_same_sex.erb: cf4ed11ea1d035df0bb8c865654a64df
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/montenegro/third_country/partner_british/_opposite_sex.erb: d4f2b62128fea948b471f93decc99c62
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/montenegro/third_country/partner_british/_same_sex.erb: b257de4ba2f83dc28378a93936b75564
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/montenegro/third_country/partner_local/_opposite_sex.erb: 25b84224aaa2d8a93eda9ff3f750e761
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/montenegro/third_country/partner_local/_same_sex.erb: cf4ed11ea1d035df0bb8c865654a64df
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/montenegro/third_country/partner_other/_opposite_sex.erb: 61149415f9fa10302ee1c12fbf590e90
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/montenegro/third_country/partner_other/_same_sex.erb: cf4ed11ea1d035df0bb8c865654a64df
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/montenegro/uk/partner_british/_opposite_sex.erb: 6766dfc800a1860a7d691247cdc4bb3d
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/montenegro/uk/partner_british/_same_sex.erb: b257de4ba2f83dc28378a93936b75564
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/montenegro/uk/partner_local/_opposite_sex.erb: ec06492b64d209fc65e97fbc3d38c4e5
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/montenegro/uk/partner_local/_same_sex.erb: cf4ed11ea1d035df0bb8c865654a64df
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/montenegro/uk/partner_other/_opposite_sex.erb: eb9a3544c530f7643c1348ee13f00955
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/montenegro/uk/partner_other/_same_sex.erb: cf4ed11ea1d035df0bb8c865654a64df
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/mozambique/_title.govspeak.erb: 02dfe62310d38985f5b8c0330cee5b29
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/mozambique/ceremony_country/partner_british/_opposite_sex.govspeak.erb: 394c92edfaacdac9a6220322cc21eec9
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/mozambique/ceremony_country/partner_british/_same_sex.govspeak.erb: aee27299ffc25ae3d29a71bb8f07bb01
@@ -912,4 +931,4 @@ lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationali
 lib/smart_answer_flows/marriage-abroad.rb: dc879ed7fae5084ccd29149686f25372
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1dc349abcd6b21e1bf8c397d96fd02b8
 test/data/marriage-abroad-questions-and-responses.yml: c573eee38aba4f0e2dd45fab6127372e
-test/data/marriage-abroad-responses-and-expected-results.yml: 8f2a0a3a4f0785eb2ac11cd41031f722
+test/data/marriage-abroad-responses-and-expected-results.yml: fb317377b2729f770dc11398f2fe1b7f
