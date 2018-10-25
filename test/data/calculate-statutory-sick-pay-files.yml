@@ -1,7 +1,7 @@
 ---
 lib/data/rates/statutory_sick_pay.yml: 457c2ff565737cb61c5ae291ffdabbfd
 lib/smart_answer/calculators/statutory_sick_pay_calculator.rb: dfadf2018ab0f7fb07548df87ecb0a93
-lib/smart_answer_flows/calculate-statutory-sick-pay/calculate_statutory_sick_pay.govspeak.erb: f91dc1d321c164a06271889100875600
+lib/smart_answer_flows/calculate-statutory-sick-pay/calculate_statutory_sick_pay.govspeak.erb: 790ec25f190669066ae8066481ca2ddd
 lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/already_getting_maternity.govspeak.erb: 258fd4422c4ae665c83d5ee1e061bbff
 lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/entitled_to_sick_pay.govspeak.erb: 948d6c5966a30455942bc41f364f12cf
 lib/smart_answer_flows/calculate-statutory-sick-pay/outcomes/maximum_entitlement_reached.govspeak.erb: eb12d5290c873df20fd23ff9eb06c273
