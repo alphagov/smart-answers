@@ -4,7 +4,7 @@ require 'ostruct'
 module SmartAnswer::Calculators
   class HolidayEntitlement < OpenStruct
     # created for the holiday entitlement calculator
-    MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT = 28.0
+    MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT_IN_DAYS = 28.0
 
     def full_time_part_time_days
       days = (5.6 * fraction_of_year * days_per_week).round(10)
@@ -12,7 +12,7 @@ module SmartAnswer::Calculators
     end
 
     def full_time_part_time_hours
-      (hours_per_week.to_f / days_per_week * MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT * fraction_of_year).round(10)
+      (hours_per_week.to_f / days_per_week * MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT_IN_DAYS * fraction_of_year).round(10)
     end
 
     def full_time_part_time_hours_and_minutes
@@ -114,7 +114,7 @@ module SmartAnswer::Calculators
     end
 
     def days_cap
-      (MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT * fraction_of_year).round(10)
+      (MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT_IN_DAYS * fraction_of_year).round(10)
     end
   end
 end
