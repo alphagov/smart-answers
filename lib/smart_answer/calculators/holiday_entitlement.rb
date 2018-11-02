@@ -8,8 +8,10 @@ module SmartAnswer::Calculators
     MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT_IN_DAYS = 28.0
 
     def full_time_part_time_days
-      days = (STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS * fraction_of_year * days_per_week).round(10)
-      days > days_cap ? days_cap : days
+      days = STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS * days_per_week
+      days_cap = MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT_IN_DAYS
+      actual_days = days > days_cap ? days_cap : days
+      (actual_days * fraction_of_year).round(10)
     end
 
     def full_time_part_time_hours
@@ -112,10 +114,6 @@ module SmartAnswer::Calculators
       rounded = (number * 10**decimal_places).ceil.to_f / 10**decimal_places
       str = sprintf("%.#{decimal_places}f", rounded)
       strip_zeros(str)
-    end
-
-    def days_cap
-      (MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT_IN_DAYS * fraction_of_year).round(10)
     end
   end
 end
