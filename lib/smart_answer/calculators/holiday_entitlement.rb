@@ -4,10 +4,11 @@ require 'ostruct'
 module SmartAnswer::Calculators
   class HolidayEntitlement < OpenStruct
     # created for the holiday entitlement calculator
+    STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS = 5.6
     MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT_IN_DAYS = 28.0
 
     def full_time_part_time_days
-      days = (5.6 * fraction_of_year * days_per_week).round(10)
+      days = (STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS * fraction_of_year * days_per_week).round(10)
       days > days_cap ? days_cap : days
     end
 
@@ -20,7 +21,7 @@ module SmartAnswer::Calculators
     end
 
     def casual_irregular_entitlement
-      minutes = 5.6 / 46.4 * total_hours * 60
+      minutes = STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS / 46.4 * total_hours * 60
       minutes.ceil.divmod(60).map(&:ceil)
     end
 
@@ -34,7 +35,7 @@ module SmartAnswer::Calculators
     end
 
     def compressed_hours_entitlement
-      minutes = 5.6 * hours_per_week * 60
+      minutes = STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS * hours_per_week * 60
       minutes.ceil.divmod(60).map(&:ceil)
     end
 
@@ -44,7 +45,7 @@ module SmartAnswer::Calculators
     end
 
     def shift_entitlement
-      (5.6 * fraction_of_year * shifts_per_week).round(10)
+      (STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS * fraction_of_year * shifts_per_week).round(10)
     end
 
     def fraction_of_year
