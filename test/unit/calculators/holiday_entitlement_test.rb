@@ -230,14 +230,13 @@ module SmartAnswer::Calculators
     end
 
     context "calculating full time or part time holiday entitlement by hour" do
-      should "return the hours of entitlement" do
-        calc = HolidayEntitlement.new(
-          hours_per_week: 32.5,
-          days_per_week: 5,
-          start_date: Date.parse('2012-03-01'),
-          leave_year_start_date: Date.parse('2011-04-01')
-        )
-        assert_equal '15.5', calc.formatted_full_time_part_time_hours
+      [{ hours_per_week: 32.5, days_per_week: 5, start_date: Date.parse('2012-03-01'), leave_year_start_date: Date.parse('2011-04-01'), expected: '15.5' },
+       { hours_per_week: 15, days_per_week: 3, expected: '84' },
+       { hours_per_week: 30, days_per_week: 6, expected: '140' }].each do |example|
+        should example.to_s do
+          calc = HolidayEntitlement.new(example.except(:expected))
+          assert_equal example[:expected], calc.formatted_full_time_part_time_hours
+        end
       end
     end
 

@@ -15,7 +15,11 @@ module SmartAnswer::Calculators
     end
 
     def full_time_part_time_hours
-      (hours_per_week.to_f / days_per_week * MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT_IN_DAYS * fraction_of_year).round(10)
+      hours = STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS * hours_per_week
+      hours_in_day = hours_per_week.to_f / days_per_week
+      hours_cap = MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT_IN_DAYS * hours_in_day
+      actual_hours = hours > hours_cap ? hours_cap : hours
+      (actual_hours * fraction_of_year).round(10)
     end
 
     def full_time_part_time_hours_and_minutes
