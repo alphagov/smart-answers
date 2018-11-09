@@ -133,6 +133,17 @@ module SmartAnswer
         save_input_as :hours_per_week
 
         next_node do
+          question :how_many_days_per_week_for_hours?
+        end
+      end
+
+      value_question :how_many_days_per_week_for_hours?, parse: Float do
+        calculate :days_per_week do |response|
+          days_per_week = response
+          raise InvalidResponse if days_per_week <= 0 || days_per_week > 7
+          days_per_week
+        end
+        next_node do
           outcome :hours_per_week_done
         end
       end
@@ -277,6 +288,7 @@ module SmartAnswer
         precalculate :calculator do
           Calculators::HolidayEntitlement.new(
             hours_per_week: hours_per_week,
+            days_per_week: days_per_week,
             start_date: start_date,
             leaving_date: leaving_date,
             leave_year_start_date: leave_year_start_date

@@ -119,7 +119,7 @@ module SmartAnswer::Calculators
 
       should "format the result" do
         calc = HolidayEntitlement.new(start_date: Date.parse('2012-02-21'))
-        assert_equal '0.86', calc.formatted_fraction_of_year
+        assert_equal '0.87', calc.formatted_fraction_of_year
       end
     end # context - calculating fraction of year
 
@@ -225,25 +225,25 @@ module SmartAnswer::Calculators
         calc = HolidayEntitlement.new
         calc.expects(:full_time_part_time_days).returns(18.342452)
 
-        assert_equal '18.3', calc.formatted_full_time_part_time_days
+        assert_equal '18.4', calc.formatted_full_time_part_time_days
       end
     end
 
     context "calculating full time or part time holiday entitlement by hour" do
-      should "return the hours of entitlement" do
-        calc = HolidayEntitlement.new(
-          hours_per_week: 32.5,
-          start_date: Date.parse('2012-03-01'),
-          leave_year_start_date: Date.parse('2011-04-01')
-        )
-        assert_equal '15.4', calc.formatted_full_time_part_time_hours
+      [{ hours_per_week: 32.5, days_per_week: 5, start_date: Date.parse('2012-03-01'), leave_year_start_date: Date.parse('2011-04-01'), expected: '15.5' },
+       { hours_per_week: 15, days_per_week: 3, expected: '84' },
+       { hours_per_week: 30, days_per_week: 6, expected: '140' }].each do |example|
+        should example.to_s do
+          calc = HolidayEntitlement.new(example.except(:expected))
+          assert_equal example[:expected], calc.formatted_full_time_part_time_hours
+        end
       end
     end
 
     context "calculating casual or irregular hours entitlement" do
       should "return the hours and minutes of entitlement" do
         calc = HolidayEntitlement.new(total_hours: 1314.4)
-        assert_equal [158, 38], calc.casual_irregular_entitlement
+        assert_equal [158, 39], calc.casual_irregular_entitlement
       end
     end # casual or irregular
 
@@ -255,7 +255,7 @@ module SmartAnswer::Calculators
 
       should "return the hours and minutes of entitlement" do
         calc = HolidayEntitlement.new(total_hours: 1314.4)
-        assert_equal [158, 38], calc.annualised_entitlement
+        assert_equal [158, 39], calc.annualised_entitlement
       end
     end # annualised
 
@@ -349,14 +349,19 @@ module SmartAnswer::Calculators
         assert_equal '123.7', @calc.formatted_foo
       end
 
+      should "round up in all cases" do
+        @calc.stubs(:foo).returns(123.00001)
+        assert_equal '123.1', @calc.formatted_foo
+      end
+
       should "allow overriding the dp" do
         @calc.stubs(:foo).returns(123.6593)
         assert_equal '123.66', @calc.formatted_foo(2)
       end
 
       should "strip .0 from foo" do
-        @calc.stubs(:foo).returns(23.0493)
-        assert_equal '23', @calc.formatted_foo
+        @calc.stubs(:foo).returns(0.0)
+        assert_equal '0', @calc.formatted_foo
       end
 
       should "respond to foo" do
@@ -368,6 +373,7 @@ module SmartAnswer::Calculators
       setup do
         @calc = HolidayEntitlement.new(
           hours_per_week: 28,
+          days_per_week: 5,
           start_date: nil,
           leave_year_start_date: nil
         )

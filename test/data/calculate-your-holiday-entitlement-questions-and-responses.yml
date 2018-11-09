@@ -24,6 +24,8 @@
 - 2014-01-01
 :how_many_hours_per_week?:
 - 8
+:how_many_days_per_week_for_hours?:
+- 5
 :casual_or_irregular_hours?:
 - 35
 :annualised_hours?:

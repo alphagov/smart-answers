@@ -4,23 +4,31 @@ require 'ostruct'
 module SmartAnswer::Calculators
   class HolidayEntitlement < OpenStruct
     # created for the holiday entitlement calculator
+    STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS = 5.6
+    MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT_IN_DAYS = 28.0
 
     def full_time_part_time_days
-      days = (5.6 * fraction_of_year * days_per_week).round(10)
-      days > days_cap ? days_cap : days
+      days = STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS * days_per_week
+      days_cap = MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT_IN_DAYS
+      actual_days = days > days_cap ? days_cap : days
+      (actual_days * fraction_of_year).round(10)
     end
 
     def full_time_part_time_hours
-      (5.6 * fraction_of_year * hours_per_week).round(10)
+      hours = STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS * hours_per_week
+      hours_in_day = hours_per_week.to_f / days_per_week
+      hours_cap = MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT_IN_DAYS * hours_in_day
+      actual_hours = hours > hours_cap ? hours_cap : hours
+      (actual_hours * fraction_of_year).round(10)
     end
 
     def full_time_part_time_hours_and_minutes
-      (full_time_part_time_hours * 60).floor.divmod(60).map(&:floor)
+      (full_time_part_time_hours * 60).ceil.divmod(60).map(&:ceil)
     end
 
     def casual_irregular_entitlement
-      minutes = (5.6 / 46.4 * total_hours * 60).round(10)
-      minutes.floor.divmod(60).map(&:floor)
+      minutes = STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS / 46.4 * total_hours * 60
+      minutes.ceil.divmod(60).map(&:ceil)
     end
 
     def annualised_hours_per_week
@@ -33,17 +41,17 @@ module SmartAnswer::Calculators
     end
 
     def compressed_hours_entitlement
-      minutes = (5.6 * hours_per_week * 60).round(10)
-      minutes.floor.divmod(60).map(&:floor)
+      minutes = STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS * hours_per_week * 60
+      minutes.ceil.divmod(60).map(&:ceil)
     end
 
     def compressed_hours_daily_average
-      minutes = (hours_per_week / days_per_week * 60).round(10)
-      minutes.floor.divmod(60).map(&:floor)
+      minutes = hours_per_week.to_f / days_per_week * 60
+      minutes.ceil.divmod(60).map(&:ceil)
     end
 
     def shift_entitlement
-      (5.6 * fraction_of_year * shifts_per_week).round(10)
+      (STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS * fraction_of_year * shifts_per_week).round(10)
     end
 
     def fraction_of_year
@@ -52,11 +60,11 @@ module SmartAnswer::Calculators
       days_divide = leave_year_range.leap? ? 366 : 365
 
       if start_date && leaving_date
-        (leaving_date - start_date + 1) / days_divide
+        (leaving_date - start_date + 1.0) / days_divide
       elsif leaving_date
-        (leaving_date - leave_year_range.begins_on + 1) / days_divide
+        (leaving_date - leave_year_range.begins_on + 1.0) / days_divide
       else
-        (leave_year_range.ends_on - start_date + 1) / days_divide
+        (leave_year_range.ends_on - start_date + 1.0) / days_divide
       end
     end
 
@@ -106,13 +114,10 @@ module SmartAnswer::Calculators
       end
     end
 
-    def format_number(number, dp = 1)
-      str = sprintf("%.#{dp}f", number)
+    def format_number(number, decimal_places = 1)
+      rounded = (number * 10**decimal_places).ceil.to_f / 10**decimal_places
+      str = sprintf("%.#{decimal_places}f", rounded)
       strip_zeros(str)
-    end
-
-    def days_cap
-      (28 * fraction_of_year).round(10)
     end
   end
 end
