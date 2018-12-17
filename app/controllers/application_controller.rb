@@ -15,6 +15,8 @@ protected
   def error(status_code, exception = nil)
     if exception
       GovukError.notify(exception)
+
+      Rails.logger.error exception.backtrace
     end
 
     error_message = "#{status_code} error"
