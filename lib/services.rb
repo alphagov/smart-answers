@@ -22,7 +22,8 @@ module Services
 
   def self.content_store
     @content_store ||= GdsApi::ContentStore.new(
-      Plek.new.find('content-store')
+      Plek.new.find('content-store'),
+      timeout: 8
     )
   end
 
