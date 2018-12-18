@@ -6,23 +6,23 @@ module SmartAnswer
       context 'validation of stopped trading date' do
         setup do
           @calculator = PartYearProfitTaxCreditsCalculator.new
-          @calculator.tax_credits_award_ends_on = Date.parse('2015-08-01')
+          @calculator.tax_credits_award_ends_on = Date.parse('2018-08-01')
         end
 
         should 'be valid if the stopped trading date is in the tax year that the tax credits award ended' do
-          @calculator.stopped_trading_on = Date.parse('2015-04-06')
+          @calculator.stopped_trading_on = Date.parse('2018-04-06')
           assert @calculator.valid_stopped_trading_date?
-          @calculator.stopped_trading_on = Date.parse('2016-04-05')
+          @calculator.stopped_trading_on = Date.parse('2019-04-05')
           assert @calculator.valid_stopped_trading_date?
         end
 
         should 'be invalid if the stopped trading date is before the tax year that the tax credits award ended' do
-          @calculator.stopped_trading_on = Date.parse('2015-04-05')
+          @calculator.stopped_trading_on = Date.parse('2018-04-05')
           refute @calculator.valid_stopped_trading_date?
         end
 
         should 'be invalid if the stopped trading date is after the tax year that the tax credits award ended' do
-          @calculator.stopped_trading_on = Date.parse('2016-04-06')
+          @calculator.stopped_trading_on = Date.parse('2019-04-06')
           refute @calculator.valid_stopped_trading_date?
         end
       end
@@ -34,37 +34,37 @@ module SmartAnswer
 
         context 'when the business is still trading' do
           setup do
-            @calculator.tax_credits_award_ends_on = Date.parse('2015-08-01')
+            @calculator.tax_credits_award_ends_on = Date.parse('2018-08-01')
           end
 
           should 'be valid if the date is before the date the tax credits award ends' do
-            @calculator.started_trading_on = Date.parse('2015-07-31')
+            @calculator.started_trading_on = Date.parse('2018-07-31')
             assert @calculator.valid_start_trading_date?
           end
 
           should 'be invalid if the date is on or after the date the tax credits award ends' do
-            @calculator.started_trading_on = Date.parse('2015-08-01')
+            @calculator.started_trading_on = Date.parse('2018-08-01')
             refute @calculator.valid_start_trading_date?
-            @calculator.started_trading_on = Date.parse('2016-01-01')
+            @calculator.started_trading_on = Date.parse('2019-01-01')
             refute @calculator.valid_start_trading_date?
           end
         end
 
         context 'when the business stops trading before the tax credits award ends' do
           setup do
-            @calculator.tax_credits_award_ends_on = Date.parse('2015-08-01')
-            @calculator.stopped_trading_on        = Date.parse('2015-07-01')
+            @calculator.tax_credits_award_ends_on = Date.parse('2018-08-01')
+            @calculator.stopped_trading_on        = Date.parse('2018-07-01')
           end
 
           should 'be valid if the date is before the date the business stopped trading' do
-            @calculator.started_trading_on = Date.parse('2015-06-30')
+            @calculator.started_trading_on = Date.parse('2018-06-30')
             assert @calculator.valid_start_trading_date?
           end
 
           should 'be invalid if the date is on or after the date the business stopped trading' do
-            @calculator.started_trading_on = Date.parse('2015-07-01')
+            @calculator.started_trading_on = Date.parse('2018-07-01')
             refute @calculator.valid_start_trading_date?
-            @calculator.started_trading_on = Date.parse('2016-01-01')
+            @calculator.started_trading_on = Date.parse('2019-01-01')
             refute @calculator.valid_start_trading_date?
           end
         end
@@ -72,12 +72,12 @@ module SmartAnswer
 
       context 'tax year' do
         setup do
-          @tax_credits_award_ends_on = Date.parse('2016-02-20')
+          @tax_credits_award_ends_on = Date.parse('2019-02-20')
           @calculator = PartYearProfitTaxCreditsCalculator.new(tax_credits_award_ends_on: @tax_credits_award_ends_on)
         end
 
         should 'calculate tax year in which tax credits award ends' do
-          expected_tax_year = YearRange.tax_year.starting_in(2015)
+          expected_tax_year = YearRange.tax_year.starting_in(2018)
           assert_equal expected_tax_year, @calculator.tax_year
         end
       end
@@ -106,11 +106,31 @@ module SmartAnswer
             assert_equal Date.parse('2016-06-30'), @calculator.accounting_year.ends_on
           end
         end
+
+        context 'when tax credits award ends in 2017-18 tax year' do
+          setup do
+            @calculator.tax_credits_award_ends_on = Date.parse('2017-04-06')
+          end
+
+          should 'be date within 2017-18 tax year with specified month and day' do
+            assert_equal Date.parse('2017-06-30'), @calculator.accounting_year.ends_on
+          end
+        end
+
+        context 'when tax credits award ends in 2018-19 tax year' do
+          setup do
+            @calculator.tax_credits_award_ends_on = Date.parse('2018-04-06')
+          end
+
+          should 'be date within 2018-19 tax year with specified month and day' do
+            assert_equal Date.parse('2018-06-30'), @calculator.accounting_year.ends_on
+          end
+        end
       end
 
       context 'basis period' do
         setup do
-          @accounting_year = YearRange.new(begins_on: Date.parse('2015-01-01'))
+          @accounting_year = YearRange.new(begins_on: Date.parse('2018-01-01'))
           @calculator = PartYearProfitTaxCreditsCalculator.new
           @calculator.stubs(accounting_year: @accounting_year)
         end
@@ -121,24 +141,24 @@ module SmartAnswer
         end
 
         should 'return the period between the start of the accounting year and the stopped trading date' do
-          @calculator.stopped_trading_on = Date.parse('2015-02-01')
-          expected_range = DateRange.new(begins_on: Date.parse('2015-01-01'), ends_on: Date.parse('2015-02-01'))
+          @calculator.stopped_trading_on = Date.parse('2018-02-01')
+          expected_range = DateRange.new(begins_on: Date.parse('2018-01-01'), ends_on: Date.parse('2018-02-01'))
           assert_equal expected_range, @calculator.basis_period
         end
 
         context 'when the business commenced trading in the accounting year that ends in the tax year within which tax credits award ends' do
           setup do
             @calculator = PartYearProfitTaxCreditsCalculator.new
-            @calculator.tax_credits_award_ends_on  = Date.parse('2016-02-01')
+            @calculator.tax_credits_award_ends_on  = Date.parse('2019-02-01')
             @calculator.accounts_end_month_and_day = Date.parse('0000-04-05')
-            @calculator.started_trading_on         = Date.parse('2015-05-01')
+            @calculator.started_trading_on         = Date.parse('2018-05-01')
           end
 
           context 'and the business is still trading' do
             should 'return the period between the commenced trading date and the accounting date that falls in the tax year within which tax credits award ends' do
               expected_basis_period = DateRange.new(
-                begins_on: Date.parse('2015-05-01'),
-                ends_on:   Date.parse('2016-04-05')
+                begins_on: Date.parse('2018-05-01'),
+                ends_on:   Date.parse('2019-04-05')
               )
 
               assert_equal expected_basis_period, @calculator.basis_period
@@ -147,13 +167,13 @@ module SmartAnswer
 
           context 'and the business stops trading' do
             setup do
-              @calculator.stopped_trading_on = Date.parse('2016-03-01')
+              @calculator.stopped_trading_on = Date.parse('2019-03-01')
             end
 
             should 'return the period between the commenced trading date and the stopped trading date' do
               expected_basis_period = DateRange.new(
-                begins_on: Date.parse('2015-05-01'),
-                ends_on:   Date.parse('2016-03-01')
+                begins_on: Date.parse('2018-05-01'),
+                ends_on:   Date.parse('2019-03-01')
               )
 
               assert_equal expected_basis_period, @calculator.basis_period
@@ -164,13 +184,13 @@ module SmartAnswer
 
       context 'accounting year' do
         setup do
-          @accounts_end_on = Date.parse('2015-12-31')
+          @accounts_end_on = Date.parse('2018-12-31')
           @calculator = PartYearProfitTaxCreditsCalculator.new
           @calculator.stubs(:accounting_year_end_date).returns(@accounts_end_on)
         end
 
         should 'begin a year before the accounts end' do
-          assert_equal Date.parse('2015-01-01'), @calculator.accounting_year.begins_on
+          assert_equal Date.parse('2018-01-01'), @calculator.accounting_year.begins_on
         end
 
         should 'end on the date the accounts end' do
@@ -180,16 +200,16 @@ module SmartAnswer
 
       context 'award period' do
         setup do
-          @tax_credits_award_ends_on = Date.parse('2016-02-20')
+          @tax_credits_award_ends_on = Date.parse('2019-02-20')
           @calculator = PartYearProfitTaxCreditsCalculator.new(tax_credits_award_ends_on: @tax_credits_award_ends_on)
         end
 
         should 'begin at the beginning of the tax year in which the tax credits award ends' do
-          assert_equal Date.parse('2015-04-06'), @calculator.award_period.begins_on
+          assert_equal Date.parse('2018-04-06'), @calculator.award_period.begins_on
         end
 
         should 'begin on the start trading date if that is later than the start of the tax year in which the tax credits award ends' do
-          started_trading_on = Date.parse('2015-05-01')
+          started_trading_on = Date.parse('2018-05-01')
           @calculator.started_trading_on = started_trading_on
           assert_equal started_trading_on, @calculator.award_period.begins_on
         end
@@ -199,7 +219,7 @@ module SmartAnswer
         end
 
         should 'end on the date the business stops trading if that date is before the date the tax credits award ends' do
-          stopped_trading_on = Date.parse('2016-02-19')
+          stopped_trading_on = Date.parse('2019-02-19')
           @calculator.stopped_trading_on = stopped_trading_on
           assert_equal stopped_trading_on, @calculator.award_period.ends_on
         end
@@ -239,8 +259,8 @@ module SmartAnswer
 
       context 'award period taxable profit' do
         setup do
-          @tax_year_begins_on = Date.parse('2015-04-06')
-          @tax_credit_award_ends_on = Date.parse('2015-08-01')
+          @tax_year_begins_on = Date.parse('2018-04-06')
+          @tax_credit_award_ends_on = Date.parse('2018-08-01')
           @award_period = DateRange.new(begins_on: @tax_year_begins_on, ends_on: @tax_credit_award_ends_on)
           @calculator = PartYearProfitTaxCreditsCalculator.new
           @calculator.stubs(award_period: @award_period)

@@ -55,12 +55,12 @@ module SmartAnswer
       setup do
         question = @flow.node(:do_your_accounts_cover_a_12_month_period?)
         @state = SmartAnswer::State.new(question)
-        @state.accounting_year_ends_on = Date.parse('2016-04-05')
+        @state.accounting_year_ends_on = Date.parse('2019-04-05')
         @presenter = MultipleChoiceQuestionPresenter.new(question, @state)
       end
 
       should 'display title with interpolated basis_period_ends_on' do
-        expected = "Do your accounts cover the 12 month period up to  5 April 2016?"
+        expected = "Do your accounts cover the 12 month period up to  5 April 2019?"
         assert_equal expected, @presenter.title
       end
 
@@ -78,13 +78,13 @@ module SmartAnswer
       setup do
         question = @flow.node(:what_is_your_taxable_profit?)
         @state = SmartAnswer::State.new(question)
-        @state.basis_period_begins_on = Date.parse('2015-04-06')
-        @state.basis_period_ends_on = Date.parse('2016-04-05')
+        @state.basis_period_begins_on = Date.parse('2018-04-06')
+        @state.basis_period_ends_on = Date.parse('2019-04-05')
         @presenter = QuestionPresenter.new(question, @state)
       end
 
       should 'display title with interpolated basis_period_begins_on and basis_period_ends_on' do
-        expected = "What is your actual or estimated taxable profit between  6 April 2015 and  5 April 2016?"
+        expected = "What is your actual or estimated taxable profit between  6 April 2018 and  5 April 2019?"
         assert_equal expected, @presenter.title
       end
 
@@ -98,7 +98,7 @@ module SmartAnswer
       setup do
         question = @flow.node(:did_you_start_trading_before_the_relevant_accounting_year?)
         @state = SmartAnswer::State.new(question)
-        @state.accounting_year_begins_on = Date.parse('2015-04-06')
+        @state.accounting_year_begins_on = Date.parse('2018-04-06')
         @presenter = MultipleChoiceQuestionPresenter.new(question, @state)
       end
 
@@ -112,7 +112,7 @@ module SmartAnswer
       end
 
       should 'display title with interpolated accounting_year_begins_on' do
-        expected = "Did you start trading before  6 April 2015?"
+        expected = "Did you start trading before  6 April 2018?"
         assert_equal expected, @presenter.title
       end
     end
@@ -121,13 +121,13 @@ module SmartAnswer
       setup do
         question = @flow.node(:when_did_you_stop_trading?)
         @state = SmartAnswer::State.new(question)
-        @state.tax_year_begins_on = Date.parse('2015-04-06')
-        @state.tax_year_ends_on = Date.parse('2016-04-05')
+        @state.tax_year_begins_on = Date.parse('2018-04-06')
+        @state.tax_year_ends_on = Date.parse('2019-04-05')
         @presenter = QuestionPresenter.new(question, @state)
       end
 
       should 'display hint with interpolated tax_year_begins_on and tax_year_ends_on' do
-        expected = "This date must be between  6 April 2015 and  5 April 2016"
+        expected = "This date must be between  6 April 2018 and  5 April 2019"
         assert_match expected, @presenter.hint
       end
 
@@ -138,7 +138,7 @@ module SmartAnswer
 
       should 'display a useful error message when an invalid date is entered' do
         @state.error = 'not_in_tax_year_error'
-        expected = "The date must be between  6 April 2015 and  5 April 2016."
+        expected = "The date must be between  6 April 2018 and  5 April 2019."
         assert_equal expected, @presenter.error
       end
     end
@@ -166,8 +166,8 @@ module SmartAnswer
       setup do
         @outcome = @flow.node(:result)
         calculator_options = {
-          tax_credits_award_ends_on: Date.parse('2016-02-20'),
-          basis_period: YearRange.new(begins_on: Date.parse('2015-04-06')),
+          tax_credits_award_ends_on: Date.parse('2019-02-20'),
+          basis_period: YearRange.new(begins_on: Date.parse('2018-04-06')),
           taxable_profit: SmartAnswer::Money.new(15000),
           award_period_taxable_profit: SmartAnswer::Money.new(13154),
           stopped_trading_on: nil
@@ -189,11 +189,11 @@ module SmartAnswer
         end
 
         should 'display tax_credits_award_ends_on' do
-          assert_match 'Your tax credits award ended on: 20 February 2016', @body
+          assert_match 'Your tax credits award ended on: 20 February 2019', @body
         end
 
         should 'display taxable_profit' do
-          assert_match 'Your estimated taxable profit between  6 April 2015 and  5 April 2016 was: £15,000', @body
+          assert_match 'Your estimated taxable profit between  6 April 2018 and  5 April 2019 was: £15,000', @body
         end
       end
 
@@ -205,19 +205,19 @@ module SmartAnswer
         end
 
         should 'display basis_period ends_on' do
-          assert_match 'Your business accounts end on:  5 April 2016', @body
+          assert_match 'Your business accounts end on:  5 April 2019', @body
         end
       end
 
       context 'and the stopped_trading_on date is set' do
         setup do
-          @calculator.stubs(stopped_trading_on: Date.parse('2016-04-05'))
+          @calculator.stubs(stopped_trading_on: Date.parse('2019-04-05'))
           presenter = OutcomePresenter.new(@outcome, @state)
           @body = presenter.body(html: false)
         end
 
         should 'display the date the business stopped trading' do
-          assert_match 'Your business stopped trading on:  5 April 2016', @body
+          assert_match 'Your business stopped trading on:  5 April 2019', @body
         end
       end
     end

@@ -20,7 +20,7 @@ module SmartAnswer
       setup do
         Calculators::PartYearProfitTaxCreditsCalculator.stubs(:new).returns(@calculator)
         setup_states_for_question(:when_did_your_tax_credits_award_end?,
-          responding_with: '2016-02-20')
+          responding_with: '2019-02-20')
       end
 
       should 'instantiate and store calculator' do
@@ -38,7 +38,7 @@ module SmartAnswer
       end
 
       should 'store parsed response on calculator as tax_credits_award_ends_on' do
-        assert_equal Date.parse('2016-02-20'), @calculator.tax_credits_award_ends_on
+        assert_equal Date.parse('2019-02-20'), @calculator.tax_credits_award_ends_on
       end
 
       should 'go to what_date_do_your_accounts_go_up_to? question' do
@@ -102,7 +102,7 @@ module SmartAnswer
 
     context 'when answering did_you_start_trading_before_the_relevant_accounting_year? question' do
       setup do
-        accounting_year = YearRange.new(begins_on: Date.parse('2015-04-06'))
+        accounting_year = YearRange.new(begins_on: Date.parse('2018-04-06'))
         @calculator.stubs(accounting_year: accounting_year)
         question = :did_you_start_trading_before_the_relevant_accounting_year?
         setup_states_for_question(question,
@@ -111,7 +111,7 @@ module SmartAnswer
       end
 
       should 'make accounting_year_begins_on available for interpolation in question title' do
-        assert_equal Date.parse('2015-04-06'), @precalculated_state.accounting_year_begins_on
+        assert_equal Date.parse('2018-04-06'), @precalculated_state.accounting_year_begins_on
       end
 
       context 'responding with yes' do
@@ -146,12 +146,12 @@ module SmartAnswer
     context 'when answering when_did_you_start_trading? question' do
       setup do
         award_period = DateRange.new(
-          begins_on: Date.parse('2015-04-06'),
-          ends_on:   Date.parse('2015-08-01')
+          begins_on: Date.parse('2018-04-06'),
+          ends_on:   Date.parse('2018-08-01')
         )
         @calculator.stubs(:award_period).returns(award_period)
         setup_states_for_question(:when_did_you_start_trading?,
-          responding_with: '2015-02-01',
+          responding_with: '2018-02-01',
           initial_state: { calculator: @calculator })
       end
 
@@ -166,11 +166,11 @@ module SmartAnswer
       end
 
       should 'make award_period_ends_on available' do
-        assert_equal Date.parse('2015-08-01'), @new_state.award_period_ends_on
+        assert_equal Date.parse('2018-08-01'), @new_state.award_period_ends_on
       end
 
       should 'store parsed response on calculator as started_trading_on' do
-        assert_equal Date.parse('2015-02-01'), @calculator.started_trading_on
+        assert_equal Date.parse('2018-02-01'), @calculator.started_trading_on
       end
 
       context 'responding with an invalid start trading date' do
@@ -219,10 +219,10 @@ module SmartAnswer
 
     context 'when answering when_did_you_stop_trading? question' do
       setup do
-        tax_year = YearRange.tax_year.starting_in(2015)
+        tax_year = YearRange.tax_year.starting_in(2018)
         @calculator.stubs(tax_year: tax_year)
         setup_states_for_question(:when_did_you_stop_trading?,
-          responding_with: '2015-06-01',
+          responding_with: '2018-06-01',
           initial_state: { calculator: @calculator })
       end
 
@@ -237,15 +237,15 @@ module SmartAnswer
       end
 
       should 'make tax_year_begins_on available for interpolation in question title' do
-        assert_equal Date.parse('2015-04-06'), @precalculated_state.tax_year_begins_on
+        assert_equal Date.parse('2018-04-06'), @precalculated_state.tax_year_begins_on
       end
 
       should 'make tax_year_ends_on available for interpolation in question title' do
-        assert_equal Date.parse('2016-04-05'), @precalculated_state.tax_year_ends_on
+        assert_equal Date.parse('2019-04-05'), @precalculated_state.tax_year_ends_on
       end
 
       should 'store parsed response on calculator as stopped_trading_on' do
-        assert_equal Date.parse('2015-06-01'), @calculator.stopped_trading_on
+        assert_equal Date.parse('2018-06-01'), @calculator.stopped_trading_on
       end
 
       should 'go to what_is_your_taxable_profit? question' do
@@ -272,7 +272,7 @@ module SmartAnswer
     context 'when answering do_your_accounts_cover_a_12_month_period? question' do
       context 'responding with yes' do
         setup do
-          accounting_year = YearRange.new(begins_on: Date.parse('2015-01-01'))
+          accounting_year = YearRange.new(begins_on: Date.parse('2018-01-01'))
           @calculator.stubs(:accounting_year).returns(accounting_year)
           setup_states_for_question(:do_your_accounts_cover_a_12_month_period?,
             responding_with: 'yes',
@@ -287,7 +287,7 @@ module SmartAnswer
 
       context 'responding with no' do
         setup do
-          accounting_year = YearRange.new(begins_on: Date.parse('2015-01-01'))
+          accounting_year = YearRange.new(begins_on: Date.parse('2018-01-01'))
           @calculator.stubs(:accounting_year).returns(accounting_year)
           setup_states_for_question(:do_your_accounts_cover_a_12_month_period?,
             responding_with: 'no',
@@ -303,7 +303,7 @@ module SmartAnswer
 
     context 'when answering what_is_your_taxable_profit? question' do
       setup do
-        basis_period = YearRange.new(begins_on: Date.parse('2015-04-06'))
+        basis_period = YearRange.new(begins_on: Date.parse('2018-04-06'))
         @calculator.stubs(basis_period: basis_period)
         setup_states_for_question(:what_is_your_taxable_profit?,
           responding_with: '15000',
@@ -311,11 +311,11 @@ module SmartAnswer
       end
 
       should 'make basis_period_begins_on available for interpolation in question title' do
-        assert_equal Date.parse('2015-04-06'), @precalculated_state.basis_period_begins_on
+        assert_equal Date.parse('2018-04-06'), @precalculated_state.basis_period_begins_on
       end
 
       should 'make basis_period_ends_on available for interpolation in question title' do
-        assert_equal Date.parse('2016-04-05'), @precalculated_state.basis_period_ends_on
+        assert_equal Date.parse('2019-04-05'), @precalculated_state.basis_period_ends_on
       end
 
       should 'store parsed response on calculator as taxable_profit' do
