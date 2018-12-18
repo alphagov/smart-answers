@@ -1,5 +1,5 @@
 ---
-lib/data/marriage_abroad_data.yml: ec861320104ec23365ec7e9093b80eab
+lib/data/marriage_abroad_data.yml: 9e3875cd2798f607a6506af3fef8ca7c
 lib/data/marriage_abroad_services.yml: 6a4a5b0168d8426b98382e69c92ea57d
 lib/data/rates/marriage_abroad_consular_fees.yml: 20afc9d15de06e0a199761433b055d9f
 lib/smart_answer/calculators/country_name_formatter.rb: 2cacac40b0590ec745a83d3133187945
@@ -637,6 +637,25 @@ lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/uk/partner_l
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/uk/partner_local/_same_sex.erb: 827ae302f6d822515ff1a1cacac0a745
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/uk/partner_other/_opposite_sex.erb: 234e0802f5b9a15b65749746d2870f76
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/nicaragua/uk/partner_other/_same_sex.erb: 42357f1a7b08df49d6637d6168e98d78
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/panama/_title.govspeak.erb: 72f6a1cfd52749e5318833108c6659b0
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/panama/ceremony_country/partner_british/_opposite_sex.erb: be14598ef4bb6b0f99fe26619f4a510e
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/panama/ceremony_country/partner_british/_same_sex.erb: 054f75c380fef8e456e0219506bce5bc
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/panama/ceremony_country/partner_local/_opposite_sex.erb: 93b31260db5459c81b45e051e3031a01
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/panama/ceremony_country/partner_local/_same_sex.erb: 1d0b599d9dd8bbaf7a177f2db3f15885
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/panama/ceremony_country/partner_other/_opposite_sex.erb: 93b31260db5459c81b45e051e3031a01
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/panama/ceremony_country/partner_other/_same_sex.erb: 1d0b599d9dd8bbaf7a177f2db3f15885
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/panama/third_country/partner_british/_opposite_sex.erb: 77520c3b891c826629826eaa02527540
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/panama/third_country/partner_british/_same_sex.erb: 054f75c380fef8e456e0219506bce5bc
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/panama/third_country/partner_local/_opposite_sex.erb: 154ff28f7a7892cd6494661a6250fe26
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/panama/third_country/partner_local/_same_sex.erb: 1d0b599d9dd8bbaf7a177f2db3f15885
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/panama/third_country/partner_other/_opposite_sex.erb: 138a778bc9ec9a2c97597203307c29b8
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/panama/third_country/partner_other/_same_sex.erb: 1d0b599d9dd8bbaf7a177f2db3f15885
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/panama/uk/partner_british/_opposite_sex.erb: 85e92c109d59d90221039b3411547ce2
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/panama/uk/partner_british/_same_sex.erb: 054f75c380fef8e456e0219506bce5bc
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/panama/uk/partner_local/_opposite_sex.erb: 5cd1cc388363bdde9329679ba5dd5f81
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/panama/uk/partner_local/_same_sex.erb: 1d0b599d9dd8bbaf7a177f2db3f15885
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/panama/uk/partner_other/_opposite_sex.erb: 5cd1cc388363bdde9329679ba5dd5f81
+lib/smart_answer_flows/marriage-abroad/outcomes/countries/panama/uk/partner_other/_same_sex.erb: 1d0b599d9dd8bbaf7a177f2db3f15885
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/philippines/_opposite_sex.govspeak.erb: 4fba49406d101b2b2fc9a45c1f666e60
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/philippines/_same_sex.govspeak.erb: 1f365652aeeaee04a5fc6959fac34439
 lib/smart_answer_flows/marriage-abroad/outcomes/countries/philippines/_title.govspeak.erb: '0854b3acba978d232a8983b9438d7342'
@@ -931,4 +950,4 @@ lib/smart_answer_flows/marriage-abroad/questions/what_is_your_partners_nationali
 lib/smart_answer_flows/marriage-abroad.rb: dc879ed7fae5084ccd29149686f25372
 lib/smart_answer_flows/shared/_overseas_passports_embassies.govspeak.erb: 1dc349abcd6b21e1bf8c397d96fd02b8
 test/data/marriage-abroad-questions-and-responses.yml: 9ed84966da8d1f325fa3a3599144c7f6
-test/data/marriage-abroad-responses-and-expected-results.yml: 248e5084e7641fa55459bbbe1c7119e4
+test/data/marriage-abroad-responses-and-expected-results.yml: 3c8142803bbe108cb89da1fef759d1aa
