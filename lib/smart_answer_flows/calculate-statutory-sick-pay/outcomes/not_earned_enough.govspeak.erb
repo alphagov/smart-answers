@@ -1,5 +1,10 @@
 <% content_for :body do %>
   Your employee isn’t entitled to Statutory Sick Pay because their average weekly earnings must be at least <%= format_money(lower_earning_limit) %>. Their average weekly earnings are <%= format_money(employee_average_weekly_earnings) %>.
 
-  You must send them [form SSP1](/employers-sick-pay/eligibility-and-form-ssp1) no more than 7 days after they’ve told you they’re sick. They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance).
+You must send them [form SSP1](/government/publications/statutory-sick-pay-employee-not-entitled-form-for-employers) either:
+
+- within 7 days of them going off sick
+- on the 1st payday after they return to work
+
+   They may be able to get [Employment Support Allowance (ESA)](/employment-support-allowance).
 <% end %>
