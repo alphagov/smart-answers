@@ -21,7 +21,7 @@ module SmartAnswer
           begins_on: Date.parse('2018-04-06')
         )
         assert_equal expected_accounting_year, @calculator.accounting_year
-        assert_equal 366, @calculator.accounting_year.number_of_days
+        assert_equal 365, @calculator.accounting_year.number_of_days
       end
 
       should "have an award period from the start of the tax year to the date the tax credits award end" do
@@ -34,14 +34,14 @@ module SmartAnswer
       end
 
       should "calculate the profit per day" do
-        expected_profit_per_day = (SmartAnswer::Money.new(10_000) / 366).floor(2)
-        assert_equal 27.32, expected_profit_per_day
+        expected_profit_per_day = (SmartAnswer::Money.new(10_000) / 365).floor(2)
+        assert_equal 27.39, expected_profit_per_day
         assert_equal expected_profit_per_day, @calculator.profit_per_day
       end
 
       should "calculate taxable profit for the award period" do
-        expected_taxable_profit = (27.32 * 118).floor
-        assert_equal 3223, expected_taxable_profit
+        expected_taxable_profit = (27.39 * 118).floor
+        assert_equal 3232, expected_taxable_profit
         assert_equal expected_taxable_profit, @calculator.award_period_taxable_profit
       end
     end
