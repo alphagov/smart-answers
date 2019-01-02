@@ -1,8 +1,10 @@
 class ContentItemRetriever
   def self.fetch(slug)
-    Services.content_store.content_item("/#{slug}")
-      .to_hash.with_indifferent_access
+    item_hash = Rails.cache.fetch("ContentItemRetriever/#{slug}", expires_in: 5.minutes) do
+      Services.content_store.content_item("/#{slug}").to_hash
+    end
 
+    item_hash.with_indifferent_access
   rescue GdsApi::HTTPNotFound, GdsApi::HTTPGone
     {}
   end

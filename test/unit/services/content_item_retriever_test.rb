@@ -18,6 +18,7 @@ require "test_helper"
         }
       }.with_indifferent_access
       @request_url = "https://content-store.test.gov.uk/content/#{@slug}"
+      Rails.cache.clear
     end
 
     context "fetch" do
