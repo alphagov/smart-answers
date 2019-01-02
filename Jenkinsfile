@@ -9,6 +9,7 @@ node {
     repoName: 'smart-answers',
     overrideTestTask: {
       stage("Run tests") {
+        govuk.setEnvar("RUN_REGRESSION_TESTS", "")
         govuk.runTests()
       }
 
