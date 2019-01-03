@@ -4,8 +4,6 @@
 
 Unusually this project includes a set of regression tests. These tests are not *normally* run as part of the `default` Rake task, because they take a long time to run. Thus they do not normally run as part of the [main CI build](continuous-integration#main). However, they *always* run as part of the [regression CI build](continuous-integration#regression) on the master branch only.
 
-Having said all that, there is a [primitive mechanism](#checksum-file) which detects changes to the files associated with a given flow since the last time the regression tests ran successfully for that flow.
-
 ### Running regression tests on CI
 
 Go to this [Jenkins Job](https://ci.integration.publishing.service.gov.uk/job/smartanswers/job/master/), and choose `Build with parameters`. You can select the option `RUN_REGRESSION_TESTS` to include running the regression tests in the build.
@@ -83,7 +81,7 @@ Landing pages and outcome pages are stored in their Govspeak form, i.e. before t
 
 When you run the regression tests, it deletes all the existing artefacts, regenerates them using the responses & expected results file, and then compares the newly generated artefacts with the *version stored in the git repository*. If they differ at all the test will fail. Note that this means you must *commit* any expected changes to the artefacts before running the tests.
 
-The regression tests will also fail if not all nodes are exercised by the test data, or if the checksum data is out-of-date (see below).
+The regression tests will also fail if not all nodes are exercised by the test data.
 
 You will need to update the artefacts if you:
 
@@ -91,10 +89,6 @@ You will need to update the artefacts if you:
   * change anything that will affect the content displayed in landing, question, or outcome pages
 
 If there's a difference in the artefacts, you should carefully review the changes to the newly generated artefacts to make sure they all relate to the changes you have made before you commit them.
-
-### Checksum file
-
-This file is used to determine whether or not the regression tests for a given flow should be run as part of the `default` Rake task. It is another optimisation in that running all the regression tests takes too long for them to be incorporated into the default Rake task. See the [checksums](checksums.md) documentation for how to update these.
 
 ## Running regression tests
 
@@ -120,12 +114,12 @@ Running the test regenerates a set of HTML/Govspeak files in `test/artefacts` ba
 
 When making changes to a Smart Answer you will probably need to make changes to the regression test files for that flow. The following table aims to give some examples of which files are likely to need updating in a number of scenarios:
 
-| Scope of changes | Questions & responses | Responses & expected results | Artefacts | Checksums |
-|------------------|-----------------------|------------------------------|-----------|----------|
-| Internal refactoring | No | No | No | Yes |
-| Content change | No | No | Yes | Yes |
-| Routing logic change | No | Yes | Yes | Yes |
-| Question added/removed | Yes | Yes | Yes | Yes |
+| Scope of changes | Questions & responses | Responses & expected results | Artefacts |
+|------------------|-----------------------|------------------------------|-----------|
+| Internal refactoring | No | No | No |
+| Content change | No | No | Yes |
+| Routing logic change | No | Yes | Yes |
+| Question added/removed | Yes | Yes | Yes |
 
 ## Structuring commits
 
@@ -150,10 +144,6 @@ The regression tests for some flows (e.g. Marriage Abroad) are very slow and it 
 We are investigating ways to speed up running the regression tests, so this problem may go away.
 
 You should only use this approach if the regression tests for the relevant flow really do take a long time. You should *not* adopt this as your default approach.
-
-### Refactoring
-
-If you are making changes which do not affect the outward behaviour of the Smart Answer (i.e. none of the artefacts need to change), then it is acceptable to only update the checksums in a single commit at the end of your pull request. In this case, there's not much to be gained by updating the checksums after every commit.
 
 ## Artefact changes
 
