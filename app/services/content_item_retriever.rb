@@ -1,6 +1,6 @@
 class ContentItemRetriever
   def self.fetch(slug)
-    item_hash = Rails.cache.fetch("ContentItemRetriever/#{slug}", expires_in: 5.minutes) do
+    item_hash = Rails.cache.fetch("ContentItemRetriever/#{slug}", expires_in: 30.minutes) do
       Services.content_store.content_item("/#{slug}").to_hash
     end
 
