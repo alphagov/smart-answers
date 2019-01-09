@@ -13,7 +13,7 @@ gem "gds-api-adapters", "~> 57.0.0"
 gem 'govspeak', '~> 5.9.0'
 gem 'govuk-content-schema-test-helpers', '~> 1.6.1'
 gem 'govuk_frontend_toolkit', '>= 7.5.0'
-gem 'govuk_publishing_components', '13.5.3'
+gem 'govuk_publishing_components', '13.5.4'
 gem 'htmlentities', '~> 4'
 gem 'json'
 gem 'lrucache', '0.1.4'
