@@ -40,7 +40,7 @@
       - [Social Work Bursary](/social-work-bursaries) (NHS funding towards your fees and living costs)
     <% end %>
 
-    <%= render partial: 'uk_extra_help.govspeak.erb' %>
+    <%= render partial: 'uk_extra_help.govspeak.erb', locals: { course_type: course_type } %>
 
     <%= render partial: 'next_steps.govspeak.erb' %>
   <% end %>
