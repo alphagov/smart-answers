@@ -346,18 +346,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "ceremony in Oman, resident in Oman, partner local" do
-    setup do
-      add_response 'oman'
-      add_response 'ceremony_country'
-      add_response 'partner_local'
-      add_response 'opposite_sex'
-    end
-    should "go to os oman outcome" do
-      assert_current_node :outcome_opposite_sex_marriage_in_oman
-    end
-  end
-
   #tests for no cni or consular services
   context "ceremony in aruba, resident in the UK, partner other" do
     setup do
