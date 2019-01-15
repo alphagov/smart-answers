@@ -9,9 +9,9 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   FLATTEN_COUNTRIES_CEREMONY_LOCATION_OUTCOMES = %w(finland iceland).freeze
   FLATTEN_COUNTRIES_2_OUTCOMES = %w(australia china croatia cyprus egypt france ireland luxembourg japan philippines south-africa south-korea thailand turkey usa).freeze
   FLATTEN_COUNTRIES_6_OUTCOMES = %w(greece italy spain poland).freeze
-  FLATTEN_COUNTRIES_18_OUTCOMES = %w(algeria azerbaijan brazil british-indian-ocean-territory burma cambodia chile colombia denmark el-salvador ethiopia the-gambia germany hungary indonesia iran jordan kenya kuwait latvia malaysia maldives moldova montenegro mozambique nicaragua portugal romania russia sweden tanzania tunisia uganda vietnam).freeze
+  FLATTEN_COUNTRIES_18_OUTCOMES = %w(algeria azerbaijan brazil british-indian-ocean-territory burma cambodia chile colombia denmark el-salvador ethiopia the-gambia germany hungary indonesia iran jordan kenya kuwait latvia malaysia maldives moldova montenegro morocco mozambique nicaragua portugal romania russia sweden tanzania tunisia uganda vietnam).freeze
   FLATTEN_COUNTRIES = FLATTEN_COUNTRIES_CEREMONY_LOCATION_OUTCOMES + FLATTEN_COUNTRIES_2_OUTCOMES + FLATTEN_COUNTRIES_6_OUTCOMES + FLATTEN_COUNTRIES_18_OUTCOMES
-  NOT_FLATTEN_COUNTRIES = %w(albania american-samoa anguilla argentina armenia aruba austria bahamas belarus belgium bonaire-st-eustatius-saba burundi canada costa-rica cote-d-ivoire czech-republic democratic-republic-of-the-congo estonia hong-kong kazakhstan kosovo kyrgyzstan laos lebanon lithuania macao macedonia malta mayotte mexico monaco morocco netherlands north-korea norway oman guatemala paraguay peru qatar rwanda saint-barthelemy san-marino saudi-arabia serbia seychelles slovakia slovenia somalia st-maarten st-martin south-korea spain switzerland turkmenistan ukraine united-arab-emirates uzbekistan wallis-and-futuna yemen).freeze
+  NOT_FLATTEN_COUNTRIES = %w(albania american-samoa anguilla argentina armenia aruba austria bahamas belarus belgium bonaire-st-eustatius-saba burundi canada costa-rica cote-d-ivoire czech-republic democratic-republic-of-the-congo estonia hong-kong kazakhstan kosovo kyrgyzstan laos lebanon lithuania macao macedonia malta mayotte mexico monaco netherlands north-korea norway oman guatemala paraguay peru qatar rwanda saint-barthelemy san-marino saudi-arabia serbia seychelles slovakia slovenia somalia st-maarten st-martin south-korea spain switzerland turkmenistan ukraine united-arab-emirates uzbekistan wallis-and-futuna yemen).freeze
 
   def self.translations
     @translations ||= YAML.load_file("lib/smart_answer_flows/locales/en/marriage-abroad.yml")
@@ -857,30 +857,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'partner_british'
       add_response 'opposite_sex'
       assert_current_node :outcome_opposite_sex_marriage_in_belarus
-    end
-  end
-
-  context "test morocco specific, living in the UK" do
-    setup do
-      add_response 'morocco'
-      add_response 'uk'
-      add_response 'partner_british'
-      add_response 'opposite_sex'
-    end
-    should "go to os affirmation outcome" do
-      assert_current_node :outcome_opposite_sex_marriage_in_morocco
-    end
-  end
-
-  context "test morocco specific, living elsewhere" do
-    setup do
-      add_response 'morocco'
-      add_response 'third_country'
-      add_response 'partner_british'
-      add_response 'opposite_sex'
-    end
-    should "go to os affirmation outcome" do
-      assert_current_node :outcome_opposite_sex_marriage_in_morocco
     end
   end
 
