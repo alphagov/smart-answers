@@ -665,7 +665,7 @@ tunisia:
       default:
       - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
-  payment_partial_name: pay_in_local_currency_ceremony_country_name
+  payment_partial_name: pay_by_cash_or_debit_or_credit_card
 turkmenistan:
   opposite_sex:
     ceremony_country:
