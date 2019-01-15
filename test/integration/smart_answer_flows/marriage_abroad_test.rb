@@ -860,30 +860,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
   end
 
-  context "test morocco specific, living in the UK" do
-    setup do
-      add_response 'morocco'
-      add_response 'uk'
-      add_response 'partner_british'
-      add_response 'opposite_sex'
-    end
-    should "go to os affirmation outcome" do
-      assert_current_node :outcome_opposite_sex_marriage_in_morocco
-    end
-  end
-
-  context "test morocco specific, living elsewhere" do
-    setup do
-      add_response 'morocco'
-      add_response 'third_country'
-      add_response 'partner_british'
-      add_response 'opposite_sex'
-    end
-    should "go to os affirmation outcome" do
-      assert_current_node :outcome_opposite_sex_marriage_in_morocco
-    end
-  end
-
   context "Mexico" do
     setup do
       add_response 'mexico'
