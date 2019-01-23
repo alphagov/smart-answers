@@ -261,8 +261,9 @@ austria:
   same_sex:
     default:
       default:
+      - :receiving_notice_of_marriage
       - :issuing_cni_or_nulla_osta
-  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
+  payment_partial_name: pay_by_visa_masterdcard_sometimes_cash_or_friends_card
 azerbaijan:
   opposite_sex:
     ceremony_country:
