@@ -5,15 +5,15 @@ module SmartAnswer
     class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       test "StudentFinanceCalculator is valid and setup properly" do
         calculator = StudentFinanceCalculator.new(
-          course_start: '2017-2018',
-          household_income: 15_000,
+          course_start: '2018-2019',
+          household_income: 25_000,
           residence: 'at-home',
           course_type: 'uk-full-time'
         )
         assert_instance_of StudentFinanceCalculator, calculator
 
-        assert_equal '2017-2018', calculator.course_start
-        assert_equal 15000, calculator.household_income
+        assert_equal '2018-2019', calculator.course_start
+        assert_equal 25000, calculator.household_income
         assert_equal 'at-home', calculator.residence
         assert_equal 'uk-full-time', calculator.course_type
       end
@@ -28,30 +28,19 @@ module SmartAnswer
         assert_nil calculator.residence
         assert_nil calculator.course_type
 
-        calculator.course_start = '2017-2018'
-        calculator.household_income = 15_000
+        calculator.course_start = '2018-2019'
+        calculator.household_income = 25_000
         calculator.residence = 'at-home'
         calculator.course_type = 'uk-full-time'
 
-        assert_equal '2017-2018', calculator.course_start
-        assert_equal 15000, calculator.household_income
+        assert_equal '2018-2019', calculator.course_start
+        assert_equal 25000, calculator.household_income
         assert_equal 'at-home', calculator.residence
         assert_equal 'uk-full-time', calculator.course_type
       end
 
       context "childcare_grant" do
         context "for one child" do
-          context "in 2017-2018" do
-            should "be 159.59" do
-              calculator = StudentFinanceCalculator.new(
-                course_start: "2017-2018",
-                household_income: 25_000,
-                residence: :unused_variable
-              )
-              assert_equal 159.59, calculator.childcare_grant_one_child
-            end
-          end
-
           context "in 2018-2019" do
             should "be 164.70" do
               calculator = StudentFinanceCalculator.new(
@@ -64,17 +53,6 @@ module SmartAnswer
           end
         end
         context "for more than one child" do
-          context "in 2017-2018" do
-            should "be 273.60" do
-              calculator = StudentFinanceCalculator.new(
-                course_start: "2017-2018",
-                household_income: 25_000,
-                residence: :unused_variable
-              )
-              assert_equal 273.60, calculator.childcare_grant_more_than_one_child
-            end
-          end
-
           context "in 2018-2019" do
             should "be 282.36" do
               calculator = StudentFinanceCalculator.new(
@@ -89,15 +67,6 @@ module SmartAnswer
       end
 
       context "#parent_learning_allowance" do
-        should "be 1617 in 2017-2018" do
-          calculator = StudentFinanceCalculator.new(
-            course_start: "2017-2018",
-            household_income: 25_000,
-            residence: :unused_variable
-          )
-          assert_equal 1617, calculator.parent_learning_allowance
-        end
-
         should "be 1669 in 2018-2019" do
           calculator = StudentFinanceCalculator.new(
             course_start: "2018-2019",
@@ -109,15 +78,6 @@ module SmartAnswer
       end
 
       context "#adult_dependant_allowance" do
-        should "be 2834 in 2017-2018" do
-          calculator = StudentFinanceCalculator.new(
-            course_start: "2017-2018",
-            household_income: 25_000,
-            residence: :unused_variable
-          )
-          assert_equal 2834, calculator.adult_dependant_allowance
-        end
-
         should "be 2925 in 2018-2019" do
           calculator = StudentFinanceCalculator.new(
             course_start: "2018-2019",
@@ -179,27 +139,6 @@ module SmartAnswer
           )
         end
 
-        context "2017-2018" do
-          setup do
-            @calculator.course_start = "2017-2018"
-          end
-
-          should "return true if course is doctor-or-dentist" do
-            @calculator.dental_or_medical_course = "doctor-or-dentist"
-            assert_equal true, @calculator.doctor_or_dentist?
-          end
-
-          should "return false if course is dental-hygiene-or-dental-therapy" do
-            @calculator.dental_or_medical_course = "dental-hygiene-or-dental-therapy"
-            assert_equal false, @calculator.doctor_or_dentist?
-          end
-
-          should "return false if course is none-of-the-above" do
-            @calculator.dental_or_medical_course = "none-of-the-above"
-            assert_equal false, @calculator.doctor_or_dentist?
-          end
-        end
-
         context "2018-2019" do
           setup do
             @calculator.course_start = "2018-2019"
@@ -218,57 +157,6 @@ module SmartAnswer
       end
 
       context "#maintenance_loan_amount" do
-        context "for students who started 2017-2018 living at home with parents" do
-          setup do
-            @course_start = '2017-2018'
-            @residence = 'at-home'
-          end
-
-          should "give the maximum amount of £7,097 if household income is £25k or below" do
-            calculator = StudentFinanceCalculator.new(
-              course_start: @course_start,
-              household_income: 25_000,
-              residence: @residence,
-              course_type: "uk-full-time",
-            )
-            assert_equal SmartAnswer::Money.new(7_097).to_s, calculator.maintenance_loan_amount.to_s
-          end
-
-          should "reduce the maximum amount (£7,097) by £1 for every complete £8.36 of income above £25k" do
-            # Samples taken from the document provided
-            {
-              30_000 => 6_499,
-              35_000 => 5_901,
-              40_000 => 5_303,
-              42_875 => 4_959,
-              45_000 => 4_705,
-              50_000 => 4_107,
-              55_000 => 3_509,
-              58_215 => 3_124,
-              60_000 => 3_124,
-              65_000 => 3_124
-            }.each do |household_income, loan_amount|
-              calculator = StudentFinanceCalculator.new(
-                course_start: @course_start,
-                household_income: household_income,
-                residence: @residence,
-                course_type: "uk-full-time",
-              )
-              assert_equal SmartAnswer::Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
-            end
-          end
-
-          should "cap the reductions and give the minimum loan of £3,124 for high household income students" do
-            calculator = StudentFinanceCalculator.new(
-              course_start: @course_start,
-              household_income: 500_000,
-              residence: @residence,
-              course_type: "uk-full-time",
-            )
-            assert_equal SmartAnswer::Money.new(3_124).to_s, calculator.maintenance_loan_amount.to_s
-          end
-        end
-
         context "for students who started 2018-2019 living at home with parents" do
           setup do
             @course_start = '2018-2019'
@@ -317,58 +205,6 @@ module SmartAnswer
               course_type: "uk-full-time",
             )
             assert_equal SmartAnswer::Money.new(3_224).to_s, calculator.maintenance_loan_amount.to_s
-          end
-        end
-
-        context "for students who started 2017-2018 living away not in london" do
-          setup do
-            @course_start = '2017-2018'
-            @residence = 'away-outside-london'
-          end
-
-          should "give the maximum amount of £8,430 if household income is £25k or below" do
-            calculator = StudentFinanceCalculator.new(
-              course_start: @course_start,
-              household_income: 25_000,
-              residence: @residence,
-              course_type: "uk-full-time",
-            )
-            assert_equal SmartAnswer::Money.new(8_430).to_s, calculator.maintenance_loan_amount.to_s
-          end
-
-          should "reduce the maximum amount (£8,430) by £1 for every complete £8.26 of income above £25k" do
-            # Samples taken from the document provided
-            {
-              30_000 => 7_825,
-              35_000 => 7_220,
-              40_000 => 6_615,
-              42_875 => 6_266,
-              45_000 => 6_009,
-              50_000 => 5_404,
-              55_000 => 4_799,
-              60_000 => 4_193,
-              62_187 => 3_928,
-              65_000 => 3_928,
-              70_000 => 3_928,
-            }.each do |household_income, loan_amount|
-              calculator = StudentFinanceCalculator.new(
-                course_start: @course_start,
-                household_income: household_income,
-                residence: @residence,
-                course_type: "uk-full-time",
-              )
-              assert_equal SmartAnswer::Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
-            end
-          end
-
-          should "cap the reductions and give the minimum loan of £3,928 for high household income students" do
-            calculator = StudentFinanceCalculator.new(
-              course_start: @course_start,
-              household_income: 500_000,
-              residence: @residence,
-              course_type: "uk-full-time",
-            )
-            assert_equal SmartAnswer::Money.new(3_928).to_s, calculator.maintenance_loan_amount.to_s
           end
         end
 
@@ -424,58 +260,6 @@ module SmartAnswer
           end
         end
 
-        context "for students who started 2017-2018 living away in london" do
-          setup do
-            @course_start = '2017-2018'
-            @residence = 'away-in-london'
-          end
-
-          should "give the maximum amount of £11,002 if household income is £25k or below" do
-            calculator = StudentFinanceCalculator.new(
-              course_start: @course_start,
-              household_income: 25_000,
-              residence: @residence,
-              course_type: "uk-full-time",
-            )
-            assert_equal SmartAnswer::Money.new(11_002).to_s, calculator.maintenance_loan_amount.to_s
-          end
-
-          should "reduce the maximum amount (£11,002) by £1 for every complete £8.12 of income above £25k" do
-            # Samples taken from the document provided
-            {
-               30_000 => 10_387,
-               35_000 => 9_771,
-               40_000 => 9_155,
-               42_875 => 8_801,
-               45_000 => 8_539,
-               50_000 => 7_924,
-               55_000 => 7_308,
-               60_000 => 6_692,
-               65_000 => 6_076,
-               69_847 => 5_479,
-               70_000 => 5_479
-            }.each do |household_income, loan_amount|
-              calculator = StudentFinanceCalculator.new(
-                course_start: @course_start,
-                household_income: household_income,
-                residence: @residence,
-                course_type: "uk-full-time",
-              )
-              assert_equal SmartAnswer::Money.new(loan_amount).to_s, calculator.maintenance_loan_amount.to_s
-            end
-          end
-
-          should "cap the reductions and give the minimum loan of £5,479 for high household income students" do
-            calculator = StudentFinanceCalculator.new(
-              course_start: @course_start,
-              household_income: 500_000,
-              residence: @residence,
-              course_type: "uk-full-time",
-            )
-            assert_equal SmartAnswer::Money.new(5_479).to_s, calculator.maintenance_loan_amount.to_s
-          end
-        end
-
         context "for students who started 2018-2019 living away in london" do
           setup do
             @course_start = '2018-2019'
@@ -525,16 +309,6 @@ module SmartAnswer
               course_type: "uk-full-time",
             )
             assert_equal SmartAnswer::Money.new(5_654).to_s, calculator.maintenance_loan_amount.to_s
-          end
-        end
-
-        context "for 2017-2018 part-time students" do
-          should "be zero" do
-            calculator = StudentFinanceCalculator.new(
-              course_start: '2017-2018',
-              course_type: 'uk-part-time',
-            )
-            assert_equal SmartAnswer::Money.new(0).to_s, calculator.maintenance_loan_amount.to_s
           end
         end
 
@@ -615,17 +389,7 @@ module SmartAnswer
       end
 
       context "#course_start_years" do
-        context "for 2016-2017 students" do
-          should "be 2016 and 2017" do
-            calculator = StudentFinanceCalculator.new(
-              course_start: "2016-2017"
-            )
-
-            assert_equal [2016, 2017], calculator.course_start_years
-          end
-        end
-
-        context "for 2017-2018 students" do
+        context "for  students" do
           should "be 2017 and 2018" do
             calculator = StudentFinanceCalculator.new(
               course_start: "2017-2018"

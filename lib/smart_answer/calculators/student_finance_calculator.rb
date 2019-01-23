@@ -13,11 +13,6 @@ module SmartAnswer
       )
 
       LOAN_MAXIMUMS = {
-        "2017-2018" => {
-          "at-home" => 7_097,
-          "away-outside-london" => 8_430,
-          "away-in-london" => 11_002
-        },
         "2018-2019" => {
           "at-home" => 7_324,
           "away-outside-london" => 8_700,
@@ -30,21 +25,15 @@ module SmartAnswer
         "away-outside-london" => 2324
       }
       CHILD_CARE_GRANTS = {
-        "2017-2018" => {
-          "one-child" => 159.59,
-          "more-than-one-child" => 273.60
-        },
         "2018-2019" => {
           "one-child" => 164.70,
           "more-than-one-child" => 282.36
         },
       }
       PARENTS_LEARNING_ALLOWANCE = {
-        "2017-2018" => 1_617,
         "2018-2019" => 1_669,
       }
       ADULT_DEPENDANT_ALLOWANCE = {
-        "2017-2018" => 2_834,
         "2018-2019" => 2_925,
       }
       TUITION_FEE_MAXIMUM = {
@@ -52,11 +41,6 @@ module SmartAnswer
         "part-time" => 6_935,
       }
       LOAN_MINIMUMS = {
-        "2017-2018" => {
-          "at-home" => 3_124,
-          "away-outside-london" => 3_928,
-          "away-in-london" => 5_479
-        },
         "2018-2019" => {
           "at-home" => 3_224,
           "away-outside-london" => 4_054,
@@ -64,11 +48,6 @@ module SmartAnswer
         },
       }.freeze
       INCOME_PENALTY_RATIO = {
-        "2017-2018" => {
-          "at-home" => 8.36,
-          "away-outside-london" => 8.26,
-          "away-in-london" => 8.12
-        },
         "2018-2019" => {
           "at-home" => 8.10,
           "away-outside-london" => 8.01,
@@ -124,8 +103,7 @@ module SmartAnswer
       end
 
       def doctor_or_dentist?
-        (@course_start == '2017-2018' && @dental_or_medical_course == "doctor-or-dentist") ||
-          (@course_start == '2018-2019' && @doctor_or_dentist)
+        @course_start == '2018-2019' && @doctor_or_dentist
       end
 
       def maintenance_grant_amount
@@ -133,8 +111,6 @@ module SmartAnswer
       end
 
       def maintenance_loan_amount
-        return SmartAnswer::Money.new(0) if @course_start == '2017-2018' && @course_type == "uk-part-time"
-
         reduced_amount = max_loan_amount - reduction_based_on_income
         SmartAnswer::Money.new([reduced_amount, min_loan_amount].max * loan_proportion)
       end

@@ -11,7 +11,6 @@ module SmartAnswer
 
       #Q1
       multiple_choice :when_does_your_course_start? do
-        option :"2017-2018"
         option :"2018-2019"
 
         on_response do |response|
@@ -184,11 +183,7 @@ module SmartAnswer
               outcome :outcome_uk_full_time_students
             end
           when 'uk-part-time'
-            if response == 'dental-medical-healthcare' && start_date == '2017-2018'
-              question :are_you_studying_dental_hygiene_or_dental_therapy?
-            else
-              outcome :outcome_uk_all_students
-            end
+            outcome :outcome_uk_all_students
           else
             outcome :outcome_eu_students
           end
