@@ -14,6 +14,7 @@ module SmartAnswer::Calculators
         "2014-15": ONLINE_FILING_DEADLINE_YEAR.starting_in(2016).begins_on,
         "2015-16": ONLINE_FILING_DEADLINE_YEAR.starting_in(2017).begins_on,
         "2016-17": ONLINE_FILING_DEADLINE_YEAR.starting_in(2018).begins_on,
+        "2017-18": ONLINE_FILING_DEADLINE_YEAR.starting_in(2019).begins_on,
       },
       offline_filing_deadline: {
         "2012-13": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2013).begins_on,
@@ -21,6 +22,7 @@ module SmartAnswer::Calculators
         "2014-15": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2015).begins_on,
         "2015-16": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2016).begins_on,
         "2016-17": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2017).begins_on,
+        "2017-18": OFFLINE_FILING_DEADLINE_YEAR.starting_in(2018).begins_on,
       },
       payment_deadline: {
         "2012-13": PAYMENT_DEADLINE_YEAR.starting_in(2014).begins_on,
@@ -28,6 +30,7 @@ module SmartAnswer::Calculators
         "2014-15": PAYMENT_DEADLINE_YEAR.starting_in(2016).begins_on,
         "2015-16": PAYMENT_DEADLINE_YEAR.starting_in(2017).begins_on,
         "2016-17": PAYMENT_DEADLINE_YEAR.starting_in(2018).begins_on,
+        "2017-18": PAYMENT_DEADLINE_YEAR.starting_in(2019).begins_on,
       },
     }.freeze
 
@@ -43,6 +46,8 @@ module SmartAnswer::Calculators
         SmartAnswer::YearRange.tax_year.starting_in(2015)
       when '2016-17'
         SmartAnswer::YearRange.tax_year.starting_in(2016)
+      when '2017-18'
+        SmartAnswer::YearRange.tax_year.starting_in(2017)
       end
     end
 
@@ -62,6 +67,8 @@ module SmartAnswer::Calculators
         PENALTY_YEAR.starting_in(2018).begins_on
       when '2016-17'
         PENALTY_YEAR.starting_in(2019).begins_on
+      when '2017-18'
+        PENALTY_YEAR.starting_in(2020).begins_on
       end
     end
 

@@ -10,6 +10,7 @@ module SmartAnswer::Calculators
           "2014-15": Date.new(2016, 1, 31),
           "2015-16": Date.new(2017, 1, 31),
           "2016-17": Date.new(2018, 1, 31),
+          "2017-18": Date.new(2019, 1, 31),
         },
         offline_filing_deadline: {
           "2012-13": Date.new(2013, 10, 31),
@@ -17,6 +18,7 @@ module SmartAnswer::Calculators
           "2014-15": Date.new(2015, 10, 31),
           "2015-16": Date.new(2016, 10, 31),
           "2016-17": Date.new(2017, 10, 31),
+          "2017-18": Date.new(2018, 10, 31),
         },
         payment_deadline: {
           "2012-13": Date.new(2014, 1, 31),
@@ -24,6 +26,7 @@ module SmartAnswer::Calculators
           "2014-15": Date.new(2016, 1, 31),
           "2015-16": Date.new(2017, 1, 31),
           "2016-17": Date.new(2018, 1, 31),
+          "2017-18": Date.new(2019, 1, 31),
         },
       }
 
@@ -56,10 +59,15 @@ module SmartAnswer::Calculators
 
         assert_equal Date.new(2016, 4, 6), @calculator.start_of_next_tax_year
       end
-      should 'return 2017-04-06 if tax-year is 2017-16' do
+      should 'return 2017-04-06 if tax-year is 2017-17' do
         @calculator.tax_year = '2016-17'
 
         assert_equal Date.new(2017, 4, 6), @calculator.start_of_next_tax_year
+      end
+      should 'return 2018-04-06 if tax-year is 2017-18' do
+        @calculator.tax_year = '2017-18'
+
+        assert_equal Date.new(2018, 4, 6), @calculator.start_of_next_tax_year
       end
     end
 
@@ -88,6 +96,11 @@ module SmartAnswer::Calculators
         @calculator.tax_year = '2016-17'
 
         assert_equal Date.new(2019, 2, 1), @calculator.one_year_after_start_date_for_penalties
+      end
+      should 'return 2020-02-01 if tax-year is 2017-18' do
+        @calculator.tax_year = '2017-18'
+
+        assert_equal Date.new(2020, 2, 1), @calculator.one_year_after_start_date_for_penalties
       end
     end
 
