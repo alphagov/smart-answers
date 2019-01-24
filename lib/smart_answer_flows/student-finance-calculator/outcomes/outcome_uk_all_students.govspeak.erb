@@ -7,7 +7,7 @@
     To qualify for a Maintenance Loan you must be studying an Initial Teacher Training course (if it's degree level or above).
   <% elsif course_studied == 'none-of-the-above' %>
     To qualify for a Maintenance Loan, you must be studying one of the following courses:
-    
+
     - a first degree, for example BA, BSc or BEd
     - a Foundation Degree in dental hygiene and dental therapy
     - DipHe in dental hygiene and dental therapy or operating department practice
@@ -48,7 +48,7 @@
 
   <% end %>
 
-  <%= render partial: 'uk_extra_help.govspeak.erb' %>
+  <%= render partial: 'uk_extra_help.govspeak.erb', locals: { course_type: course_type } %>
 
   <%= render partial: 'next_steps.govspeak.erb' %>
 
