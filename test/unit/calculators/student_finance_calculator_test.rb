@@ -357,45 +357,105 @@ module SmartAnswer
       end
 
       context "#reduced_maintenance_loan_for_healthcare" do
-        should "be £3263 for students living away from home in London" do
-          calculator = StudentFinanceCalculator.new(
-            course_start: @course_start,
-            household_income: @household_income,
-            residence: 'away-in-london'
-          )
+        context "for 2018-2019" do
+          setup do
+            @course_start = '2018-2019'
+            @household_income = 25_000
+            @course_type = 'uk-full-time'
+          end
 
-          assert_equal 3263, calculator.reduced_maintenance_loan_for_healthcare
+          should "be £3263 for students living away from home in London" do
+            calculator = StudentFinanceCalculator.new(
+              course_start: @course_start,
+              household_income: @household_income,
+              course_type: @course_type,
+              residence: 'away-in-london',
+            )
+
+            assert_equal 3263, calculator.reduced_maintenance_loan_for_healthcare
+          end
+
+          should "be £2324 for students living away from home outside London" do
+            calculator = StudentFinanceCalculator.new(
+              course_start: @course_start,
+              household_income: @household_income,
+              course_type: @course_type,
+              residence: 'away-outside-london'
+            )
+
+            assert_equal 2324, calculator.reduced_maintenance_loan_for_healthcare
+          end
+
+          should "be £1744 for students living away from home outside London" do
+            calculator = StudentFinanceCalculator.new(
+              course_start: @course_start,
+              household_income: @household_income,
+              course_type: @course_type,
+              residence: 'at-home'
+            )
+
+            assert_equal 1744, calculator.reduced_maintenance_loan_for_healthcare
+          end
         end
 
-        should "be £2324 for students living away from home outside London" do
-          calculator = StudentFinanceCalculator.new(
-            course_start: @course_start,
-            household_income: @household_income,
-            residence: 'away-outside-london'
-          )
+        context "for 2019-2020" do
+          setup do
+            @course_start = '2019-2020'
+            @household_income = 25_000
+            @course_type = "uk-full-time"
+            @dental_or_medical_course = true
+            @doctor_or_dentist = true
+          end
 
-          assert_equal 2324, calculator.reduced_maintenance_loan_for_healthcare
-        end
+          should "be £3354 for students living away from home in London" do
+            calculator = StudentFinanceCalculator.new(
+              course_start: @course_start,
+              household_income: @household_income,
+              course_type: @course_type,
+              residence: 'away-in-london',
+              dental_or_medical_course: @dental_or_medical_course,
+              doctor_or_dentist: @doctor_or_dentist,
+            )
 
-        should "be £1744 for students living away from home outside London" do
-          calculator = StudentFinanceCalculator.new(
-            course_start: @course_start,
-            household_income: @household_income,
-            residence: 'at-home'
-          )
+            assert_equal 3354, calculator.reduced_maintenance_loan_for_healthcare
+          end
 
-          assert_equal 1744, calculator.reduced_maintenance_loan_for_healthcare
+          should "be £2389 for students living away from home outside London" do
+            calculator = StudentFinanceCalculator.new(
+              course_start: @course_start,
+              household_income: @household_income,
+              course_type: @course_type,
+              residence: 'away-outside-london',
+              dental_or_medical_course: @dental_or_medical_course,
+              doctor_or_dentist: @doctor_or_dentist,
+            )
+
+            assert_equal 2389, calculator.reduced_maintenance_loan_for_healthcare
+          end
+
+          should "be £1793 for students living away from home outside London" do
+            calculator = StudentFinanceCalculator.new(
+              course_start: @course_start,
+              household_income: @household_income,
+              course_type: @course_type,
+              residence: 'at-home',
+              dental_or_medical_course: @dental_or_medical_course,
+              doctor_or_dentist: @doctor_or_dentist,
+            )
+
+            assert_equal 1793, calculator.reduced_maintenance_loan_for_healthcare
+          end
         end
       end
 
       context "#course_start_years" do
-        context "for  students" do
-          should "be 2017 and 2018" do
+        context "for students" do
+          should "be 2018 and 2019" do
             calculator = StudentFinanceCalculator.new(
-              course_start: "2017-2018"
+              course_start: "2018-2019"
             )
 
-            assert_equal [2017, 2018], calculator.course_start_years
+            assert_equal [2018, 2019], calculator.course_start_years
           end
         end
       end

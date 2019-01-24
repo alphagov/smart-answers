@@ -12,6 +12,7 @@ module SmartAnswer
       #Q1
       multiple_choice :when_does_your_course_start? do
         option :"2018-2019"
+        option :"2019-2020"
 
         on_response do |response|
           self.calculator = sf_calculator
@@ -56,11 +57,7 @@ module SmartAnswer
           when 'uk-full-time'
             question :where_will_you_live_while_studying?
           when 'uk-part-time'
-            if start_date == '2018-2019'
-              question :where_will_you_live_while_studying?
-            else
-              question :do_any_of_the_following_apply_all_uk_students?
-            end
+            question :where_will_you_live_while_studying?
           when 'eu-full-time', 'eu-part-time'
             outcome :outcome_eu_students
           end
@@ -174,11 +171,7 @@ module SmartAnswer
           case course_type
           when 'uk-full-time'
             if response == 'dental-medical-healthcare'
-              if start_date == '2018-2019'
-                question :are_you_a_doctor_or_dentist?
-              else
-                question :are_you_studying_one_of_these_dental_or_medical_courses?
-              end
+              question :are_you_a_doctor_or_dentist?
             else
               outcome :outcome_uk_full_time_students
             end
@@ -186,27 +179,6 @@ module SmartAnswer
             outcome :outcome_uk_all_students
           else
             outcome :outcome_eu_students
-          end
-        end
-      end
-
-      #Q8b
-      multiple_choice :are_you_studying_one_of_these_dental_or_medical_courses? do
-        option :"doctor-or-dentist"
-        option :"dental-hygiene-or-dental-therapy"
-        option :"none-of-the-above"
-
-        save_input_as :dental_or_medical_course
-
-        on_response do |response|
-          calculator.dental_or_medical_course = response
-        end
-
-        next_node do |response|
-          if response == "none-of-the-above"
-            outcome :outcome_uk_full_time_students
-          else
-            outcome :outcome_uk_full_time_dental_medical_students
           end
         end
       end
