@@ -130,32 +130,6 @@ module SmartAnswer
         end
       end
 
-      context "#doctor_or_dentist?" do
-        setup do
-          @calculator = StudentFinanceCalculator.new(
-            household_income: 15_000,
-            residence: :unused_variable,
-            course_type: "uk-full-time",
-          )
-        end
-
-        context "2018-2019" do
-          setup do
-            @calculator.course_start = "2018-2019"
-          end
-
-          should "return true if course is doctor-or-dentist" do
-            @calculator.doctor_or_dentist = true
-            assert_equal true, @calculator.doctor_or_dentist?
-          end
-
-          should "return false if course is not doctor-or-dentist" do
-            @calculator.doctor_or_dentist = false
-            assert_equal false, @calculator.doctor_or_dentist?
-          end
-        end
-      end
-
       context "#maintenance_loan_amount" do
         context "for students who started 2018-2019 living at home with parents" do
           setup do
@@ -362,6 +336,7 @@ module SmartAnswer
             @course_start = '2018-2019'
             @household_income = 25_000
             @course_type = 'uk-full-time'
+            @doctor_or_dentist = true
           end
 
           should "be £3263 for students living away from home in London" do
@@ -370,6 +345,7 @@ module SmartAnswer
               household_income: @household_income,
               course_type: @course_type,
               residence: 'away-in-london',
+              doctor_or_dentist: @doctor_or_dentist,
             )
 
             assert_equal 3263, calculator.reduced_maintenance_loan_for_healthcare
@@ -380,7 +356,8 @@ module SmartAnswer
               course_start: @course_start,
               household_income: @household_income,
               course_type: @course_type,
-              residence: 'away-outside-london'
+              residence: 'away-outside-london',
+              doctor_or_dentist: @doctor_or_dentist,
             )
 
             assert_equal 2324, calculator.reduced_maintenance_loan_for_healthcare
@@ -391,7 +368,8 @@ module SmartAnswer
               course_start: @course_start,
               household_income: @household_income,
               course_type: @course_type,
-              residence: 'at-home'
+              residence: 'at-home',
+              doctor_or_dentist: @doctor_or_dentist,
             )
 
             assert_equal 1744, calculator.reduced_maintenance_loan_for_healthcare
@@ -403,7 +381,6 @@ module SmartAnswer
             @course_start = '2019-2020'
             @household_income = 25_000
             @course_type = "uk-full-time"
-            @dental_or_medical_course = true
             @doctor_or_dentist = true
           end
 
@@ -413,7 +390,6 @@ module SmartAnswer
               household_income: @household_income,
               course_type: @course_type,
               residence: 'away-in-london',
-              dental_or_medical_course: @dental_or_medical_course,
               doctor_or_dentist: @doctor_or_dentist,
             )
 
@@ -426,7 +402,6 @@ module SmartAnswer
               household_income: @household_income,
               course_type: @course_type,
               residence: 'away-outside-london',
-              dental_or_medical_course: @dental_or_medical_course,
               doctor_or_dentist: @doctor_or_dentist,
             )
 
@@ -439,7 +414,6 @@ module SmartAnswer
               household_income: @household_income,
               course_type: @course_type,
               residence: 'at-home',
-              dental_or_medical_course: @dental_or_medical_course,
               doctor_or_dentist: @doctor_or_dentist,
             )
 

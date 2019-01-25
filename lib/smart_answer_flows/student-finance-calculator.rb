@@ -183,21 +183,7 @@ module SmartAnswer
         end
       end
 
-      #Q8c
-      multiple_choice :are_you_studying_dental_hygiene_or_dental_therapy? do
-        option :yes
-        option :no
-
-        next_node do |response|
-          if response == "no"
-            outcome :outcome_uk_all_students
-          else
-            outcome :outcome_uk_part_time_dental_medical_students
-          end
-        end
-      end
-
-      #Q8d
+      #Q8b
       multiple_choice :are_you_a_doctor_or_dentist? do
         option :yes
         option :no
@@ -222,8 +208,6 @@ module SmartAnswer
       outcome :outcome_eu_students
 
       outcome :outcome_uk_full_time_dental_medical_students
-
-      outcome :outcome_uk_part_time_dental_medical_students
     end
   end
 end

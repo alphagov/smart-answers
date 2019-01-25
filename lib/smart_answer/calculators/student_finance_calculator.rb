@@ -8,7 +8,6 @@ module SmartAnswer
         :course_type,
         :part_time_credits,
         :full_time_credits,
-        :dental_or_medical_course,
         :doctor_or_dentist,
       )
 
@@ -90,7 +89,6 @@ module SmartAnswer
         @course_type = params[:course_type]
         @part_time_credits = params[:part_time_credits]
         @full_time_credits = params[:full_time_credits]
-        @dental_or_medical_course = params[:dental_or_medical_course]
         @doctor_or_dentist = params[:doctor_or_dentist]
       end
 
@@ -128,10 +126,6 @@ module SmartAnswer
 
       def tuition_fee_maximum_part_time
         TUITION_FEE_MAXIMUM.fetch("part-time")
-      end
-
-      def doctor_or_dentist?
-        @course_start == '2018-2019' && @doctor_or_dentist
       end
 
       def maintenance_grant_amount
