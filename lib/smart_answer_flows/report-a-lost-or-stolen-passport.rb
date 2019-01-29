@@ -20,7 +20,7 @@ module SmartAnswer
           when 'in_the_uk'
             outcome :report_lost_or_stolen_passport
           when 'abroad'
-            question :which_country?
+        outcome :contact_the_embassy
           end
         end
       end
