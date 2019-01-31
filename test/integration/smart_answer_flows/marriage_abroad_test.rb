@@ -793,14 +793,14 @@ class MarriageAbroadTest < ActiveSupport::TestCase
       add_response 'ceremony_country'
       add_response 'partner_other'
       add_response 'opposite_sex'
-      assert_current_node :outcome_opposite_sex_marriage_in_qatar
+      assert_current_node :outcome_marriage_abroad_in_country
     end
 
     should "go to outcome_opposite_sex_marriage_in_affirmation_countries outcome" do
       add_response 'third_country'
       add_response 'partner_other'
       add_response 'opposite_sex'
-      assert_current_node :outcome_opposite_sex_marriage_in_qatar
+      assert_current_node :outcome_marriage_abroad_in_country
     end
   end
 
