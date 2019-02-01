@@ -175,8 +175,6 @@ module SmartAnswer
               outcome :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_uk
             elsif calculator.ceremony_country == 'macao'
               outcome :outcome_opposite_sex_marriage_in_macao
-            elsif calculator.ceremony_country == 'qatar'
-              outcome :outcome_opposite_sex_marriage_in_qatar
             elsif calculator.ceremony_country == 'united-arab-emirates'
               outcome :outcome_opposite_sex_marriage_in_united_arab_emirates
             elsif calculator.ceremony_country == 'norway'
@@ -277,7 +275,6 @@ module SmartAnswer
       outcome :outcome_opposite_sex_marriage_in_norway
       outcome :outcome_opposite_sex_marriage_in_other_countries
       outcome :outcome_opposite_sex_marriage_in_peru
-      outcome :outcome_opposite_sex_marriage_in_qatar
       outcome :outcome_opposite_sex_marriage_in_saudi_arabia_when_residing_in_uk_or_third_country
       outcome :outcome_opposite_sex_marriage_in_saudi_arabia_when_residing_in_saudi_arabia
       outcome :outcome_opposite_sex_marriage_in_slovenia_when_residing_in_uk_or_slovenia
