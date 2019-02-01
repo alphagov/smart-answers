@@ -19,11 +19,11 @@ if [[ -n "$(git status --porcelain)" ]]; then
   git commit -m "Update expected results for $1"
 fi
 
-RUN_REGRESSION_TESTS=$1 ruby test/regression/smart_answers_regression_test.rb
+RUN_REGRESSION_TESTS=$1 bundle exec ruby test/regression/smart_answers_regression_test.rb
 
 if [[ -n "$(git status --porcelain)" ]]; then
   git add test/artefacts/$1
   git commit -m "Update test artefacts for $1"
 fi
 
-RUN_REGRESSION_TESTS=$1 ruby test/regression/smart_answers_regression_test.rb
+RUN_REGRESSION_TESTS=$1 bundle exec ruby test/regression/smart_answers_regression_test.rb
