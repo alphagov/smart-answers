@@ -1,6 +1,6 @@
-Same-sex marriage in Panama
+Civil partnership and same sex marriage in Panama
 
-You may be able to register a civil partnership at the British embassy or consulate in Panama.
+You may be able to register a civil partnership or same sex marriage at the British embassy or consulate in Panama.
 
 Contact them to make an appointment:
 
@@ -15,7 +15,7 @@ $A
 
 $C
 Switchboard: (507) 297 6550
-Facsmile: (507) 297 6588
+Facsimile: (507) 297 6588
 
 Email: <panama.consulate@fco.gov.uk>
 
@@ -36,13 +36,24 @@ You’ll both need your original passports. If either of you have been divorced,
 Once you’ve made your appointment, the British embassy or consulate will give you:
 
 - a notice of registration
-- a declaration that you and your partner will need to swear, stating that you’re legally entitled to enter into a civil partnership
+- a declaration that you and your partner will need to swear, stating that you’re legally entitled to enter into a civil partnership or marriage
 
-Once you’ve submitted these and paid the registration fee (see below), the British embassy or consulate will display your notice publicly for 14 days.
+Once you’ve submitted these and paid the registration fee, the British embassy or consulate will display your notice publicly for 14 days.
 
-As long as nobody has registered an objection after this time, the registration officer can then register your partnership any time until 3 months after the date you gave notice.
+As long as nobody has registered an objection after this time, the registration officer can then register your partnership or marriageany time until 3 months after the date you gave notice.
 
-You’ll need to provide two witnesses and pay a fee to register your civil partnership. You’ll need to pay an additional fee for your civil partnership certificate (see below).
+You’ll need to provide two witnesses and pay a fee to register your civil partnership or marriage. You’ll need to pay an additional fee for your civil partnership certificate or marriage certificate.
+
+##Fees
+
+Service | Fee
+-|-
+Receiving a notice of marriage | £50
+Issuing a CNI, Nulla Osta or equivalent | £50
+Registering a marriage | £150
+
+You normally have to pay fees for consular services in the local currency - these are shown in the list of [consular fees for Panama](/government/publications/panama-consular-fees).
+You can pay by cash or credit card, but not by personal cheque.
 
 *[CNI]:certificate of no impediment
 
