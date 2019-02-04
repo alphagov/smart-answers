@@ -9,6 +9,8 @@ class MarriageAbroadOutcomeFlattener
                           "Civil partnership"
                         when :same_sex_marriage
                           "Same-sex marriage"
+                        when :both
+                          "Same-sex marriage and civil partnership"
                         end
 
     @logger = logger
