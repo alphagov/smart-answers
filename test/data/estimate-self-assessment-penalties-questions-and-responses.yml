@@ -5,6 +5,7 @@
 - 2014-15
 - 2015-16
 - 2016-17
+- 2017-18
 :how_submitted?:
 - online
 - paper
@@ -18,6 +19,7 @@
 - 2015-04-07 # 2014-15 - After start of next tax year (2015-04-06)
 - 2016-04-07 # 2015-16 - After start of next tax year (2016-04-06)
 - 2017-04-07 # 2016-17 - After start of next tax year (2017-04-06)
+- 2018-04-07 # 2017-18 - After start of next tax year (2018-04-06)
 :when_paid?:
 - 2013-04-06 # 2012-13 - Paid before submitted (2013-04-07)
 - 2013-04-08 # 2012-13 - Paid after submitted (2013-04-07)
@@ -28,6 +30,7 @@
 - 2015-04-08 # 2014-15 - Paid after submitted
 - 2016-04-08 # 2015-16 - Paid after submitted
 - 2017-04-08 # 2016-17 - Paid after submitted
+- 2018-04-08 # 2017-18 - Paid after submitted
 :how_much_tax?:
 - 500
 - 6003 # Estimated bill value greater than £6002
