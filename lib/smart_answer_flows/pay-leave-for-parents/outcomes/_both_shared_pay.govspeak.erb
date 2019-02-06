@@ -34,6 +34,12 @@ Mother’s shared parental pay (between 6 April 2018 and 5 April 2019) | £145.1
 
 <% end %>
 
+<% if calculator.paid_leave_is_in_tax_year?(2019) %>
+
+Mother’s shared parental pay (between 6 April 2019 and 5 April 2020) | £148.68 per week or 90% of their average weekly earnings (before tax), whichever is lower
+
+<% end %>
+
 <% if calculator.paid_leave_is_in_tax_year?(2014) %>
 
 Partner's shared parental pay (between 6 April 2014 and 5 April 2015) | £138.18 per week or 90% of their average weekly earnings (before tax), whichever is lower
@@ -61,5 +67,11 @@ Partner's shared parental pay (between 6 April 2017 and 5 April 2018) | £140.98
 <% if calculator.paid_leave_is_in_tax_year?(2018) %>
 
 Partner's shared parental pay (between 6 April 2018 and 5 April 2019) | £145.18 per week or 90% of their average weekly earnings (before tax), whichever is lower
+
+<% end %>
+
+<% if calculator.paid_leave_is_in_tax_year?(2019) %>
+
+Partner's shared parental pay (between 6 April 2019 and 5 April 2020) | £148.68 per week or 90% of their average weekly earnings (before tax), whichever is lower
 
 <% end %>
