@@ -116,7 +116,8 @@ module SmartAnswer::Calculators
           2015 => 112,
           2016 => 112,
           2017 => 113,
-          2018 => 116
+          2018 => 116,
+          2019 => 118
         }.each do |year, rate|
           should "be £#{rate} for due date December 21st, #{year}" do
             assert_equal rate, MaternityPayCalculator.new(Date.parse("#{year}-12-21")).lower_earning_limit
