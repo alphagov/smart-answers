@@ -77,7 +77,7 @@ module SmartAnswer
         },
         "2019-2020" => {
           "at-home" => 7.88,
-          "away-outside-london" => 7.72,
+          "away-outside-london" => 7.79,
           "away-in-london" => 7.66
         }
       }.freeze
