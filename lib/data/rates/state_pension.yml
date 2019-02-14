@@ -30,6 +30,11 @@
   lower_weekly_rate: 73.30
 
 - start_date: 2018-04-09
-  end_date: 2019-04-10
+  end_date: 2019-02-10
   weekly_rate: 125.95
   lower_weekly_rate: 75.50
+
+- start_date: 2019-02-11
+  end_date: 2020-04-10
+  weekly_rate: 129.20
+  lower_weekly_rate: 77.45
