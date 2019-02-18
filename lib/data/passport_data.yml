@@ -1182,7 +1182,7 @@ macao:
   applying: 6 weeks
   replacing: 6 weeks
   optimistic_processing_time?: true
-macedonia:
+north-macedonia:
   type: ips_application_1
   group: ips_documents_group_2
   app_form: hmpo_1_application_form

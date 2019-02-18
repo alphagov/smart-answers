@@ -69,7 +69,7 @@
   <% if calculator.partner_is_same_sex? ||
     (
       calculator.document_download_link_if_opposite_sex_resident_of_uk_countries? &&
-      (calculator.notary_public_ceremony_country? || %w(macedonia).include?(calculator.ceremony_country))
+      (calculator.notary_public_ceremony_country? || %w(north-macedonia).include?(calculator.ceremony_country))
     ) %>
     <%= render partial: 'download_and_fill_notice_and_affidavit_but_not_sign.govspeak.erb' %>
 

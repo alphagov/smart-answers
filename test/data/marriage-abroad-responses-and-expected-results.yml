@@ -12782,25 +12782,25 @@
   :outcome_node: true
 - :current_node: :country_of_ceremony?
   :responses:
-  - macedonia
+  - north-macedonia
   :next_node: :legal_residency?
   :outcome_node: false
 - :current_node: :legal_residency?
   :responses:
-  - macedonia
+  - north-macedonia
   - uk
   :next_node: :what_is_your_partners_nationality?
   :outcome_node: false
 - :current_node: :what_is_your_partners_nationality?
   :responses:
-  - macedonia
+  - north-macedonia
   - uk
   - partner_british
   :next_node: :partner_opposite_or_same_sex?
   :outcome_node: false
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
-  - macedonia
+  - north-macedonia
   - uk
   - partner_british
   - opposite_sex
@@ -12808,7 +12808,7 @@
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
-  - macedonia
+  - north-macedonia
   - uk
   - partner_british
   - same_sex
@@ -12816,14 +12816,14 @@
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
-  - macedonia
+  - north-macedonia
   - uk
   - partner_local
   :next_node: :partner_opposite_or_same_sex?
   :outcome_node: false
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
-  - macedonia
+  - north-macedonia
   - uk
   - partner_local
   - opposite_sex
@@ -12831,7 +12831,7 @@
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
-  - macedonia
+  - north-macedonia
   - uk
   - partner_local
   - same_sex
@@ -12839,14 +12839,14 @@
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
-  - macedonia
+  - north-macedonia
   - uk
   - partner_other
   :next_node: :partner_opposite_or_same_sex?
   :outcome_node: false
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
-  - macedonia
+  - north-macedonia
   - uk
   - partner_other
   - opposite_sex
@@ -12854,7 +12854,7 @@
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
-  - macedonia
+  - north-macedonia
   - uk
   - partner_other
   - same_sex
@@ -12862,20 +12862,20 @@
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
-  - macedonia
+  - north-macedonia
   - ceremony_country
   :next_node: :what_is_your_partners_nationality?
   :outcome_node: false
 - :current_node: :what_is_your_partners_nationality?
   :responses:
-  - macedonia
+  - north-macedonia
   - ceremony_country
   - partner_british
   :next_node: :partner_opposite_or_same_sex?
   :outcome_node: false
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
-  - macedonia
+  - north-macedonia
   - ceremony_country
   - partner_british
   - opposite_sex
@@ -12883,7 +12883,7 @@
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
-  - macedonia
+  - north-macedonia
   - ceremony_country
   - partner_british
   - same_sex
@@ -12891,14 +12891,14 @@
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
-  - macedonia
+  - north-macedonia
   - ceremony_country
   - partner_local
   :next_node: :partner_opposite_or_same_sex?
   :outcome_node: false
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
-  - macedonia
+  - north-macedonia
   - ceremony_country
   - partner_local
   - opposite_sex
@@ -12906,7 +12906,7 @@
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
-  - macedonia
+  - north-macedonia
   - ceremony_country
   - partner_local
   - same_sex
@@ -12914,14 +12914,14 @@
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
-  - macedonia
+  - north-macedonia
   - ceremony_country
   - partner_other
   :next_node: :partner_opposite_or_same_sex?
   :outcome_node: false
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
-  - macedonia
+  - north-macedonia
   - ceremony_country
   - partner_other
   - opposite_sex
@@ -12929,7 +12929,7 @@
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
-  - macedonia
+  - north-macedonia
   - ceremony_country
   - partner_other
   - same_sex
@@ -12937,20 +12937,20 @@
   :outcome_node: true
 - :current_node: :legal_residency?
   :responses:
-  - macedonia
+  - north-macedonia
   - third_country
   :next_node: :what_is_your_partners_nationality?
   :outcome_node: false
 - :current_node: :what_is_your_partners_nationality?
   :responses:
-  - macedonia
+  - north-macedonia
   - third_country
   - partner_british
   :next_node: :partner_opposite_or_same_sex?
   :outcome_node: false
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
-  - macedonia
+  - north-macedonia
   - third_country
   - partner_british
   - opposite_sex
@@ -12958,7 +12958,7 @@
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
-  - macedonia
+  - north-macedonia
   - third_country
   - partner_british
   - same_sex
@@ -12966,14 +12966,14 @@
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
-  - macedonia
+  - north-macedonia
   - third_country
   - partner_local
   :next_node: :partner_opposite_or_same_sex?
   :outcome_node: false
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
-  - macedonia
+  - north-macedonia
   - third_country
   - partner_local
   - opposite_sex
@@ -12981,7 +12981,7 @@
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
-  - macedonia
+  - north-macedonia
   - third_country
   - partner_local
   - same_sex
@@ -12989,14 +12989,14 @@
   :outcome_node: true
 - :current_node: :what_is_your_partners_nationality?
   :responses:
-  - macedonia
+  - north-macedonia
   - third_country
   - partner_other
   :next_node: :partner_opposite_or_same_sex?
   :outcome_node: false
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
-  - macedonia
+  - north-macedonia
   - third_country
   - partner_other
   - opposite_sex
@@ -13004,7 +13004,7 @@
   :outcome_node: true
 - :current_node: :partner_opposite_or_same_sex?
   :responses:
-  - macedonia
+  - north-macedonia
   - third_country
   - partner_other
   - same_sex

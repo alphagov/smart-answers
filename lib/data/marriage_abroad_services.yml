@@ -514,7 +514,7 @@ luxembourg:
       default:
       - :issuing_cni_or_nulla_osta
   payment_partial_name: pay_in_cash_visa_or_mastercard
-macedonia:
+north-macedonia:
   opposite_sex:
     ceremony_country:
       default:

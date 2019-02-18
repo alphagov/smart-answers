@@ -339,7 +339,7 @@ module SmartAnswer::Calculators
       lesotho
       liberia
       libya
-      macedonia
+      north-macedonia
       malawi
       moldova
       mongolia
