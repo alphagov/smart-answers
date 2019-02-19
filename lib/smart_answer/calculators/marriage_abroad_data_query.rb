@@ -123,11 +123,11 @@ module SmartAnswer::Calculators
       libya
       lithuania
       luxembourg
-      north-macedonia
       mexico
       montenegro
       nepal
       netherlands
+      north-macedonia
       oman
       panama
       russia
@@ -358,9 +358,9 @@ module SmartAnswer::Calculators
       kyrgyzstan
       lithuania
       luxembourg
-      north-macedonia
       mexico
       montenegro
+      north-macedonia
       nepal
       panama
       russia
@@ -424,9 +424,9 @@ module SmartAnswer::Calculators
       libya
       lithuania
       luxembourg
-      north-macedonia
       mexico
       montenegro
+      north-macedonia
       russia
       serbia
       tajikistan

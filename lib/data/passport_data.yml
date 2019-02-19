@@ -1182,16 +1182,6 @@ macao:
   applying: 6 weeks
   replacing: 6 weeks
   optimistic_processing_time?: true
-north-macedonia:
-  type: ips_application_1
-  group: ips_documents_group_2
-  app_form: hmpo_1_application_form
-  online_application: true
-  renewing_new: 4 weeks
-  renewing_old: 6 weeks
-  applying: 6 weeks
-  replacing: 6 weeks
-  optimistic_processing_time?: true
 madagascar:
   type: ips_application_1
   group: ips_documents_group_3
@@ -1491,6 +1481,16 @@ north-korea:
   applying: 6 weeks
   replacing: 6 weeks
   optimistic_processing_time?: false
+north-macedonia:
+  type: ips_application_1
+  group: ips_documents_group_2
+  app_form: hmpo_1_application_form
+  online_application: true
+  renewing_new: 4 weeks
+  renewing_old: 6 weeks
+  applying: 6 weeks
+  replacing: 6 weeks
+  optimistic_processing_time?: true
 norway:
   type: ips_application_1
   group: ips_documents_group_1

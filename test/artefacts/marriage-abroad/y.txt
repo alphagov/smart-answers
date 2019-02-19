@@ -121,7 +121,6 @@ Where do you want to get married?
   * lithuania: Lithuania
   * luxembourg: Luxembourg
   * macao: Macao
-  * macedonia: Macedonia
   * madagascar: Madagascar
   * malawi: Malawi
   * malaysia: Malaysia
@@ -152,6 +151,7 @@ Where do you want to get married?
   * niger: Niger
   * nigeria: Nigeria
   * north-korea: North Korea
+  * north-macedonia: North Macedonia
   * norway: Norway
   * oman: Oman
   * pakistan: Pakistan
@@ -229,9 +229,3 @@ Where do you want to get married?
   * yemen: Yemen
   * zambia: Zambia
   * zimbabwe: Zimbabwe
-
-
-
-
-
-

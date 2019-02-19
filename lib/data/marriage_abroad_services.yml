@@ -93,6 +93,13 @@ morocco:
       default:
       - :affidavit_or_affirmation_for_marriage
   payment_partial_name: pay_by_cash_or_credit_card_no_cheque
+north-macedonia:
+  opposite_sex:
+    ceremony_country:
+      default:
+      - :receiving_notice_of_marriage
+      - :issuing_cni_or_nulla_osta
+  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 norway:
   opposite_sex:
     ceremony_country:
@@ -514,13 +521,6 @@ luxembourg:
       default:
       - :issuing_cni_or_nulla_osta
   payment_partial_name: pay_in_cash_visa_or_mastercard
-north-macedonia:
-  opposite_sex:
-    ceremony_country:
-      default:
-      - :receiving_notice_of_marriage
-      - :issuing_cni_or_nulla_osta
-  payment_partial_name: pay_by_cash_or_credit_card_no_cheque
 mexico:
   opposite_sex:
     ceremony_country:

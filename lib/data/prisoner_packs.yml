@@ -303,8 +303,6 @@
   translators: /government/publications/british-embassy-luxembourg-translators
   prison: /government/publications/british-embassy-luxembourg-prisoner-pack
 - slug: macao
-- slug: north-macedonia
-  pdf: /government/publications/macedonia-prisoner-pack
 - slug: madagascar
   lawyer: /government/publications/madagascar-list-of-lawyers
 - slug: malawi
@@ -368,6 +366,8 @@
   pdf: /government/publications/nigeria-prisoner-pack
   lawyer: /government/publications/nigeria-list-of-lawyers
 - slug: north-korea
+- slug: north-macedonia
+  pdf: /government/publications/macedonia-prisoner-pack
 - slug: norway
   pdf: /government/publications/norway-prisoner-pack
   lawyer: /government/publications/norway-list-of-lawyers

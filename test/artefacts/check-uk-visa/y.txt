@@ -121,7 +121,6 @@ If you’re a refugee or don’t have a passport or travel document, select ‘S
   * lithuania: Lithuania
   * luxembourg: Luxembourg
   * macao: Macao
-  * macedonia: Macedonia
   * madagascar: Madagascar
   * malawi: Malawi
   * malaysia: Malaysia
@@ -149,6 +148,7 @@ If you’re a refugee or don’t have a passport or travel document, select ‘S
   * niger: Niger
   * nigeria: Nigeria
   * north-korea: North Korea
+  * north-macedonia: North Macedonia
   * norway: Norway
   * oman: Oman
   * pakistan: Pakistan
@@ -225,9 +225,3 @@ If you’re a refugee or don’t have a passport or travel document, select ‘S
   * yemen: Yemen
   * zambia: Zambia
   * zimbabwe: Zimbabwe
-
-
-
-
-
-
