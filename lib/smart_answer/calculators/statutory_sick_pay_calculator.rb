@@ -225,7 +225,7 @@ module SmartAnswer
       end
 
       def ssp_payment
-        amount = BigDecimal.new(weekly_payments.map(&:last).sum.round(10).to_s).round(2, BigDecimal::ROUND_UP).to_f
+        amount = BigDecimal(weekly_payments.map(&:last).sum.round(10).to_s).round(2, BigDecimal::ROUND_UP).to_f
         SmartAnswer::Money.new(amount)
       end
 
@@ -246,14 +246,14 @@ module SmartAnswer
       end
 
       def self.contractual_earnings_awe(pay, days_worked)
-        (pay / BigDecimal.new(days_worked.to_s) * 7).round(2)
+        (pay / BigDecimal(days_worked.to_s) * 7).round(2)
       end
 
       def self.total_earnings_awe(pay, days_worked)
         if days_worked % 7 == 0
           (pay / (days_worked / 7)).round(2)
         else
-          (pay / BigDecimal.new(days_worked.to_s) * 7).round(2)
+          (pay / BigDecimal(days_worked.to_s) * 7).round(2)
         end
       end
 
@@ -300,7 +300,7 @@ module SmartAnswer
         ((week_start_date - 6)..week_start_date).each do |date|
           pay += daily_rate_from_weekly(weekly_rate_on(date), pattern_days) if payable_days.include?(date)
         end
-        BigDecimal.new(pay.round(10).to_s).round(2, BigDecimal::ROUND_UP).to_f
+        BigDecimal(pay.round(10).to_s).round(2, BigDecimal::ROUND_UP).to_f
       end
 
       def days_paid_in_linked_period
