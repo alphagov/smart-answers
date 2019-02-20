@@ -1,5 +1,9 @@
 <% content_for :body do %>
   $!The statutory entitlement is <%= "#{holiday_entitlement_hours} #{'hour'.pluralize(holiday_entitlement_hours)}" %> and <%= "#{holiday_entitlement_minutes} #{'minute'.pluralize(holiday_entitlement_minutes)}" %> holiday.$!
 
+<% if days_per_week > 5 %>
+  Even though more than 5 days a week are worked the maximum statutory holiday entitlement is 28 days.
+<% end %>
+
   <%= render partial: 'your_employer_with_rounding.govspeak.erb' %>
 <% end %>
