@@ -19,13 +19,8 @@ In this document is prescribed the steps that need to be taken:
     - ERB templates directory
       - lib/smart_answer_flows/<\smart-answer-name>
     - YAML files
-      - test/data/<\smart-answer-name>-files.yml
-      - test/data/<\smart-answer-name>-questions-and-responses.yml
-      - test/data/<\smart-answer-name>-responses-and-expected-results.yml
       - lib/data/rates/<\smart-answer-name>.yml
       - lib/data/<\smart-answer-name>.yml
-    - Regression test artefacts directory
-      - test/artefacts/<\smart-answer-name>
     - Tests for Calculators, rates, data query and other ruby files
       - test/integration/calculators/<\smart-answer-name>_(calculator|rates_query|data_query)_test.rb
       - test/integration/smart_answer_flows/<\smart-answer-name>_test.rb
@@ -35,8 +30,8 @@ In this document is prescribed the steps that need to be taken:
       - lib/smart_answer/calculators/<\smart-answer-name>_calculator.rb
       - lib/smart_answer/calculators/<\smart-answer-name>_data_query.rb
 
-  After this is done, it is very necessary to run the unit, integration and
-  regression tests. It is important that you run these tests on local and in
+  After this is done, it is very necessary to run the unit and integration tests.
+  It is important that you run these tests on local and in
   integration environments. If these tests pass, then proceed to the next steps.
 
 - ## Retire and redirect the identified smart answer:

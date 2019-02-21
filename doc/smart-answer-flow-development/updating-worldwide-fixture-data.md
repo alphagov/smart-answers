@@ -2,7 +2,7 @@
 
 Ideally, we'll keep both the location and organisation data up to date but there's nothing prompting us to do that at the moment.
 
-You should ensure you run all the tests, including all the regression tests, after updating this data.
+You should ensure you run all the tests after updating this data.
 
 ## Worldwide locations
 

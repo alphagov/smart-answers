@@ -15,8 +15,8 @@ class SmartAnswerFilesTest < ActiveSupport::TestCase
       @files = SmartAnswerFiles.new(@flow_name)
     end
 
-    should 'return an array of paths to the flow file, template file and two test data files' do
-      assert_equal 4, @files.paths.length
+    should 'return an array of paths to the flow file and template file' do
+      assert_equal 2, @files.paths.length
     end
 
     should 'include the relative path to the smart answer flow ruby file' do
@@ -26,16 +26,6 @@ class SmartAnswerFilesTest < ActiveSupport::TestCase
 
     should 'include the relative path to the smart answer yaml template file' do
       expected_path = File.join('lib', 'smart_answer_flows', 'locales', 'en', "#{@flow_name}.yml")
-      assert_equal true, @files.paths.include?(expected_path)
-    end
-
-    should 'include the relative path to the question and responses test data path' do
-      expected_path = File.join('test', 'data', "#{@flow_name}-questions-and-responses.yml")
-      assert_equal true, @files.paths.include?(expected_path)
-    end
-
-    should 'include the relative path to the responses and expected outcomes test data path' do
-      expected_path = File.join('test', 'data', "#{@flow_name}-responses-and-expected-results.yml")
       assert_equal true, @files.paths.include?(expected_path)
     end
   end

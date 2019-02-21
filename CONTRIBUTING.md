@@ -20,5 +20,3 @@
 ## Testing ##
 
 Write tests.
-
-Make sure the [regression tests](doc/regression-tests.md) are passing.
