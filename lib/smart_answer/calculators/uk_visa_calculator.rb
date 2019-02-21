@@ -339,12 +339,12 @@ module SmartAnswer::Calculators
       lesotho
       liberia
       libya
-      macedonia
       malawi
       moldova
       mongolia
       nepal
       nigeria
+      north-macedonia
       pakistan
       palestinian-territories
       rwanda

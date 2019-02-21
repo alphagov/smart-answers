@@ -5,7 +5,7 @@ module SmartAnswer::Calculators
     attr_accessor :country, :benefits, :dispute_criteria, :partner_premiums
     attr_accessor :possible_impairments, :impairment_periods, :tax_credits
 
-    COUNTRIES_OF_FORMER_YUGOSLAVIA = %w(bosnia-and-herzegovina kosovo macedonia montenegro serbia).freeze
+    COUNTRIES_OF_FORMER_YUGOSLAVIA = %w(bosnia-and-herzegovina kosovo montenegro north-macedonia serbia).freeze
     STATE_BENEFITS = {
       bereavement_benefits: "Bereavement benefits",
       severe_disablement_allowance: "Severe Disablement Allowance",
