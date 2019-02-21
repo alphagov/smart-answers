@@ -37,7 +37,7 @@
     If you need a CNI, you must arrange this through the British Embassy in Costa Rica because there aren’t any British consular facilities in Nicaragua.
 
 
-  <% elsif %w(kazakhstan macedonia russia).exclude?(calculator.ceremony_country) %>
+  <% elsif %w(kazakhstan north-macedonia russia).exclude?(calculator.ceremony_country) %>
     To get a CNI, you must post notice of your intended marriage in <%= calculator.country_name_lowercase_prefix %>. You can do this at the British embassy or in front of a notary public.
 
 
@@ -73,11 +73,11 @@
 
 
   <% end %>
-  <% if calculator.ceremony_country == 'macedonia' %>
-    Contact a notary public or British Embassy in Macedonia to get advice:
+  <% if calculator.ceremony_country == 'north-macedonia' %>
+    Contact a notary public or British Embassy in North Macedonia to get advice:
 
     $C
-    British Embassy Macedonia
+    British Embassy North Macedonia
     Telephone: + 389 (2) 3299 299
     <consular.skopje@fco.gov.uk>
     $C
@@ -132,7 +132,7 @@
   <% if calculator.ceremony_country == 'macao' %>
     <%= render partial: 'required_supporting_documents_macao.govspeak.erb' %>
   <% else %>
-    <% if calculator.birth_certificate_required_as_supporting_document? && (calculator.notary_public_ceremony_country? || %w(macedonia).include?(calculator.ceremony_country)) %>
+    <% if calculator.birth_certificate_required_as_supporting_document? && (calculator.notary_public_ceremony_country? || %w(north-macedonia).include?(calculator.ceremony_country)) %>
       You’ll need to provide supporting documents, including:
 
       - your passport
@@ -150,7 +150,7 @@
       - equivalent documents for your partner
 
 
-    <% elsif (calculator.notary_public_ceremony_country? || %w(macedonia).include?(calculator.ceremony_country)) %>
+    <% elsif (calculator.notary_public_ceremony_country? || %w(north-macedonia).include?(calculator.ceremony_country)) %>
       You’ll need to provide supporting documents, including:
 
       - your passport
