@@ -75,7 +75,6 @@ This is a Ruby on Rails application that contains:
 * [Common errors you might run into during development](doc/smart-answers-app-development/common-errors.md)
 * [Continuous integration](doc/smart-answers-app-development/continuous-integration.md)
 * [Testing](doc/smart-answers-app-development/testing.md)
-* [Regression tests](doc/smart-answers-app-development/regression-tests.md)
 * [Issues and Todo](https://trello.com/b/7HgyU4hy/smart-answers-tasks)
 
 ### Changes to the landing page

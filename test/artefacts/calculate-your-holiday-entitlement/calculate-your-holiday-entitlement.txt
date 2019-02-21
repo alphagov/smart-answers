@@ -1,9 +1,0 @@
-Calculate holiday entitlement
-
-Use this tool to calculate holiday entitlement for:
-
-- a full leave year
-- part of a leave year, if the job started or finished part way through the year
-
-
-
