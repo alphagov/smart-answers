@@ -1,7 +1,5 @@
 <% content_for :body do %>
   <%= render partial: 'disclaimer.govspeak.erb' %>
-
-  <% if calculator.doctor_or_dentist? %>
     ##If you’re studying to become a doctor or dentist
 
     The amount you get will change during your course.
@@ -28,13 +26,6 @@
     <%= render partial: 'nhs_full_time_funding.govspeak.erb', locals: { uk_ft_circumstances: uk_ft_circumstances, calculator: calculator } %>
 
     ^ If you're on a 4 year accelerated graduate course, you'll have to apply for an NHS bursary from your second year.
-  <% else %>
-    ##If you're studying dental hygiene or dental therapy
-
-    Each year you could get <%= format_money(calculator.reduced_maintenance_loan_for_healthcare, pounds_only: true) %> reduced Maintenance Loan. You can also apply for [NHS funding](/nhs-bursaries) and get the following depending on your circumstances:
-
-    <%= render partial: 'nhs_full_time_funding.govspeak.erb', locals: { uk_ft_circumstances: uk_ft_circumstances, calculator: calculator } %>
-  <% end %>
 
   <%= render partial: 'uk_extra_help.govspeak.erb', locals: { course_type: course_type } %>
 
