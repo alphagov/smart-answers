@@ -42,12 +42,6 @@ When we built the [part-year-profit-tax-credits][3], we adopted the following st
   * This checks that the flow and its component parts are wired up correctly.
   * It doesn't aim for 100% coverage, but just enough to exercise each node at least once.
 
-### Regression tests
-
-* None - we felt that the other tests gave sufficient coverage.
-
-Note: The `part-year-profit-tax-credits` flow was relatively content-light. It remains to be seen how we would go about testing a more content-heavy flow e.g. `marriage-abroad`. However, I still doubt we'll want any tests as brittle or comprehensive as the current regression tests.
-
 ## Old style
 
 We previously had to use nested contexts to write integration tests around Smart Answers. This lead to deeply nested, hard to follow tests. We've removed the code that required this style and should no longer be writing these deeply nested tests.
@@ -55,8 +49,8 @@ We previously had to use nested contexts to write integration tests around Smart
 * Flows that have a calculator also tend to have a unit test for that calculator.
 * When we started doing significant refactoring of the app, we weren't happy that we had sufficient test coverage to support this work.
 * Notably none of the tests actually *rendered* the question or outcome pages.
-* So at this point we introduced the [regression tests](regression-tests.md) as a relatively quick way to improve the test coverage.
-* However, the intention has always been that these regression tests are only a temporary measure.
+* We introduced the regression tests as a relatively quick way to improve the test coverage.
+* The regression tests are only a temporary measure to help with the refactoring and have now been removed.
 
 Here's an example Smart Answer flow and how the two approaches to testing differ:
 
@@ -155,20 +149,6 @@ context "when answering question 1" do
   end
 end
 ```
-
-## Regression tests
-
-See [regression tests documentation](regression-tests.md).
-
-### Adding regression tests to Smart Answers
-
-We're not imagining introducing new regression tests but I think [these instructions](adding-new-regression-tests.md) are still useful while we still have them in the project.
-
-### Removing regression tests
-
-The regression tests were never thought of as a long term part of the project. We added them to give us confidence to make larger changes to the system.
-
-The plan has always been to refactor the existing Smart Answers so that they're easier to test using more traditional techniques. You can hopefully see a good example of this in the way we're testing the `part-year-profit-tax-credits` Smart Answer, where we didn't add any regression tests because we were confident in the unit and integration tests that we created.
 
 [Test Pyramid]: http://martinfowler.com/bliki/TestPyramid.html
 [0]: https://github.com/alphagov/smart-answers/blob/master/lib/smart_answer_flows/calculate-your-child-maintenance.rb
