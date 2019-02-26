@@ -23,6 +23,7 @@
   issuing_marriage_certificate: 50
   receiving_notice_of_marriage: 50
   receiving_notice_of_civil_partnership: 50
+  receiving_notice_of_marriage_or_civil_partnership: 50
   receiving_notice_of_registration: 50
   registering_civil_partnership: 150
   registering_civil_partnership_or_marriage: 150

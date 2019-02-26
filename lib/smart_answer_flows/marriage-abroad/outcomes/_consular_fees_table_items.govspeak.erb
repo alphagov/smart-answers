@@ -9,6 +9,8 @@ Service | Fee
   Receiving a notice of civil partnership | <%= format_money calculator.consular_fee(:receiving_notice_of_civil_partnership) %>
 <% when :receiving_notice_of_marriage %>
   Receiving a notice of marriage | <%= format_money calculator.consular_fee(:receiving_notice_of_marriage) %>
+<% when :receiving_notice_of_marriage_or_civil_partnership %>
+  Receiving a notice of marriage or civil partnership | <%= format_money calculator.consular_fee(:receiving_notice_of_marriage_or_civil_partnership) %>
 <% when :issuing_custom_and_law_certificate %>
   Issuing a certificate of custom and law | <%= format_money calculator.consular_fee(:issuing_custom_and_law_certificate) %>
 <% when :issuing_cni_or_nulla_osta %>
