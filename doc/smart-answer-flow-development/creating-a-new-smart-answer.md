@@ -92,7 +92,7 @@ Open the new question page template in your editor and copy/paste the following 
 
 Refresh the Smart Answer in your browser to see this new content.
 
-Read more about [question page templates](question-templates.md).
+Read more about [question page templates](/doc/smart-answers/erb-templates/question-templates.md).
 
 Enter any value in the text field and click "Next step". You should see an error message indicating that we're now missing an ERB template for the outcome.
 

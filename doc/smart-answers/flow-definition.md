@@ -278,7 +278,7 @@ Each of these block types and the point at which they are executed is explained 
   1. A `SmartAnswer::InvalidResponse` exception is raised with the `message_key` set as the exception message.
   2. This exception is handled within the app and prevents the transition to the next node.
   3. The `message_key` from the exception message is set on the built-in state variable, `error`.
-  4. When the question template is re-rendered, the `error` state variable is used to lookup the appropriate validation error message in the [question template](question-templates.md#error_messagemessage).
+  4. When the question template is re-rendered, the `error` state variable is used to lookup the appropriate validation error message in the [question template](/doc/smart-answers/erb-templates/question-templates.md#error_messagemessage).
 
 > The use of these blocks is encouraged. However, they should call `valid_xxx?` methods on the `calculator` state variable and not rely on the `response` argument passed into the block.
 
@@ -328,7 +328,7 @@ See the [documentation on storing data](storing-data.md).
 
 #### Templates
 
-See the [documentation for question templates](question-templates.md).
+See the [documentation for question templates](/doc/smart-answers/erb-templates/question-templates.md).
 
 ### Outcome nodes
 
