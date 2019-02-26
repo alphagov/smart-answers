@@ -61,7 +61,7 @@ Open the new landing page template your editor and copy/paste the following cont
 
 Refresh the Smart Answer in your browser to see this new content.
 
-Read more about [landing page templates](landing-page-template.md).
+Read more about [landing page templates](/doc/smart-answers/erb-templates/landing-page-template.md).
 
 Click "Start now" to visit the first question. You should see an error message indicating that we're now missing an ERB template for our question.
 

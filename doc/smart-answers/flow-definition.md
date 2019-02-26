@@ -81,7 +81,7 @@ Some flows (e.g. [register-a-birth][local-variable-in-flow-definition]) define l
 
 Every flow has an implicit start node which represents the "landing page" i.e. the page which displays the "Start" button. There is no representation of this start node in the flow definition. Clicking the "Start" button on the "landing page" takes you to the page for the first question node (see below).
 
-Also see the documentation for [landing page templates](landing-page-template.md).
+Also see the documentation for [landing page templates](/doc/smart-answers/erb-templates/landing-page-template.md).
 
 ### Question nodes
 

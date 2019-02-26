@@ -52,7 +52,7 @@ This is a Ruby on Rails application that contains:
 * [Next node rules](doc/smart-answers/next-node-rules.md)
 * [Storing data](doc/smart-answers/storing-data.md)
 * [ERB templates](doc/smart-answers/erb-templates.md)
-  * [Landing page template](doc/smart-answers/landing-page-template.md)
+  * [Landing page template](doc/smart-answers/erb-templates/landing-page-template.md)
   * [Question templates](doc/smart-answers/question-templates.md)
   * [Outcome templates](doc/smart-answers/outcome-templates.md)
 
