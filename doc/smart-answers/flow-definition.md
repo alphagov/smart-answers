@@ -344,7 +344,7 @@ If any attempt is made to process a response when the current node is an outcome
 
 #### Templates
 
-See the [documentation for outcome templates](outcome-templates.md).
+See the [documentation for outcome templates](/doc/smart-answers/erb-templates/outcome-templates.md).
 
 [instance-eval]: http://ruby-doc.org/core-2.3.0/BasicObject.html#method-i-instance_eval
 [instance-exec]: http://ruby-doc.org/core-2.3.0/BasicObject.html#method-i-instance_exec

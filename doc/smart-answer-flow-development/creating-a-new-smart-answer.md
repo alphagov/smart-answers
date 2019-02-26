@@ -123,7 +123,7 @@ Open the new outcome page template in your editor and copy/paste the following c
 
 Refresh the Smart Answer in your browser to see this new content.
 
-Read more about [outcome page templates](outcome-templates.md).
+Read more about [outcome page templates](/doc/smart-answers/erb-templates/outcome-templates.md).
 
 And that's all there is to an incredibly simple Smart Answer.
 
