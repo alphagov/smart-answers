@@ -16,12 +16,12 @@ class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
     assert_current_node :where_was_the_passport_lost_or_stolen?
   end
 
-  context "in the UK " do
+  context "in the UK" do
     setup do
       add_response :in_the_uk
     end
 
-    should "tell you to fill out the LS01 form" do
+    should "tell you to report it" do
       assert_current_node :report_lost_or_stolen_passport
     end
   end
@@ -31,39 +31,8 @@ class ReportALostOrStolenPassportTest < ActiveSupport::TestCase
       add_response :abroad
     end
 
-    should "ask in which country has been lost/stolen" do
-      assert_current_node :which_country?
-    end
-
-    context "in Azerbaijan" do
-      setup do
-        add_response "azerbaijan"
-      end
-
-      should "tell you to report it to the embassy" do
-        assert_current_node :contact_the_embassy
-      end
-    end
-  end
-
-  context "abroad" do
-    setup do
-      add_response :abroad
-    end
-
-    should "ask in which country has been lost/stolen" do
-      assert_current_node :which_country?
-    end
-
-    context "in Canada" do
-      setup do
-        add_response "canada"
-      end
-
-      should "tell you to fill in a form and visit the embassy" do
-        assert_current_node :contact_the_embassy_canada
-        assert_match(/Fill in form LS01 and post it to your nearest British embassy, high commission or consulate./, outcome_body)
-      end
+    should "tell you to report it to the embassy" do
+      assert_current_node :contact_the_embassy
     end
   end
 end
