@@ -70,7 +70,6 @@ This is a Ruby on Rails application that contains:
 
 ### Smart Answers app development
 
-* [Development workflow](doc/development-workflow.md)
 * [Common errors you might run into during development](doc/smart-answers-app-development/common-errors.md)
 * [Continuous integration](doc/smart-answers-app-development/continuous-integration.md)
 * [Testing](doc/smart-answers-app-development/testing.md)
