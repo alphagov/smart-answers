@@ -346,10 +346,10 @@ If any attempt is made to process a response when the current node is an outcome
 
 See the [documentation for outcome templates](/doc/smart-answers/erb-templates/outcome-templates.md).
 
-[instance-eval]: http://ruby-doc.org/core-2.3.0/BasicObject.html#method-i-instance_eval
-[instance-exec]: http://ruby-doc.org/core-2.3.0/BasicObject.html#method-i-instance_exec
-[method-missing]: http://ruby-doc.org/core-2.3.0/BasicObject.html#method-i-method_missing
-[object-dup]: http://ruby-doc.org/core-2.3.0/Object.html#method-i-dup
+[instance-eval]: http://ruby-doc.org/core-2.6.1/BasicObject.html#method-i-instance_eval
+[instance-exec]: http://ruby-doc.org/core-2.6.1/BasicObject.html#method-i-instance_exec
+[method-missing]: http://ruby-doc.org/core-2.6.1/BasicObject.html#method-i-method_missing
+[object-dup]: http://ruby-doc.org/core-2.6.0/Object.html#method-i-dup
 [local-variable-in-flow-definition]: https://github.com/alphagov/smart-answers/blob/20d2d9f524e912a3edcb9256ce2d790059538641/lib/smart_answer_flows/register-a-birth.rb#L9-L12
 [introduction-of-on-response-blocks]: https://github.com/alphagov/smart-answers/pull/2408
 [flow-registry]: https://github.com/alphagov/smart-answers/blob/cc6c5050bb78d0085cffe0a40630784724aa062a/lib/smart_answer/flow_registry.rb
