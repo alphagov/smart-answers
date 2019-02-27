@@ -52,15 +52,14 @@ This is a Ruby on Rails application that contains:
 * [Next node rules](doc/smart-answers/next-node-rules.md)
 * [Storing data](doc/smart-answers/storing-data.md)
 * [ERB templates](doc/smart-answers/erb-templates.md)
-  * [Landing page template](doc/smart-answers/landing-page-template.md)
-  * [Question templates](doc/smart-answers/question-templates.md)
-  * [Outcome templates](doc/smart-answers/outcome-templates.md)
+  * [Landing page template](doc/smart-answers/erb-templates/landing-page-template.md)
+  * [Question templates](doc/smart-answers/erb-templates/question-templates.md)
+  * [Outcome templates](doc/smart-answers/erb-templates/outcome-templates.md)
 
 ### Smart Answer flow development
 
 * [Development principles](doc/smart-answer-flow-development/development-principles.md)
 * [Deploying changes for Factcheck](doc/smart-answer-flow-development/factcheck.md)
-* [Merging pull requests from the content team](doc/smart-answer-flow-development/merging-content-prs.md)
 * [Flattening outcomes](doc/smart-answer-flow-development/flattening-outcomes.md)
 * [Refactoring existing Smart Answers](doc/smart-answer-flow-development/refactoring.md)
 * Adding [content-ids](doc/smart-answer-flow-development/content-ids.md) to Smart Answers
@@ -71,15 +70,13 @@ This is a Ruby on Rails application that contains:
 
 ### Smart Answers app development
 
-* [Development workflow](doc/development-workflow.md)
 * [Common errors you might run into during development](doc/smart-answers-app-development/common-errors.md)
 * [Continuous integration](doc/smart-answers-app-development/continuous-integration.md)
 * [Testing](doc/smart-answers-app-development/testing.md)
-* [Issues and Todo](https://trello.com/b/7HgyU4hy/smart-answers-tasks)
 
 ### Changes to the landing page
 
-As well as following the [development workflow](https://github.com/alphagov/smart-answers/blob/master/doc/development-workflow.md) to make changes, they also need to be sent to the `content store` for them to be rendered on the page. The [rake task `publishing_api:publish`](https://github.com/alphagov/smart-answers/blob/master/lib/tasks/publishing_api.rake) needs to be run once you have deployed your changes in each environment and can be done in [Jenkins](https://deploy.integration.publishing.service.gov.uk/job/run-rake-task/).
+Changes to landing pages need to be sent to be sent to the `content store` for them to be rendered on the page. The [rake task `publishing_api:publish`](https://github.com/alphagov/smart-answers/blob/master/lib/tasks/publishing_api.rake) needs to be run once you have deployed your changes in each environment and can be done in [Jenkins](https://deploy.integration.publishing.service.gov.uk/job/run-rake-task/parambuild/?TARGET_APPLICATION=smartanswers&amp;MACHINE_CLASS=calculators_frontends&amp;RAKE_TASK=publishing_api:publish).
 
 ### Debugging
 
