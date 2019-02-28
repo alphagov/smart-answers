@@ -26,6 +26,10 @@ module Services
     )
   end
 
+  def self.content_store=(new_content_store)
+    @content_store = new_content_store
+  end
+
   def self.statsd
     @statsd ||= begin
       statsd_client = Statsd.new("localhost")
