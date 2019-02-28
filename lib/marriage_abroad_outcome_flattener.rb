@@ -6,18 +6,8 @@ class MarriageAbroadOutcomeFlattener
 
   include Rails::ConsoleMethods
 
-  def initialize(country, same_sex_wording:, logger: Logger.new(STDOUT))
+  def initialize(country, logger: Logger.new(STDOUT))
     @country = country
-
-    @same_sex_wording = case same_sex_wording
-                        when :civil_partnership
-                          "Civil partnership"
-                        when :same_sex_marriage
-                          "Same-sex marriage"
-                        when :both
-                          "Same-sex marriage and civil partnership"
-                        end
-
     @logger = logger
 
     stubs_etc
@@ -30,7 +20,7 @@ class MarriageAbroadOutcomeFlattener
 
 private
 
-  attr_reader :country, :logger, :same_sex_wording
+  attr_reader :country, :logger
 
   def stubs_etc
     Timecop.freeze(current_time)
@@ -40,6 +30,7 @@ private
 
   def generate_and_add_partials_to_country_files
     visited_nodes = Set.new
+    titles = {}
     responses_and_expected_results.each do |responses_and_expected_node|
       next_node     = responses_and_expected_node[:next_node]
       responses     = responses_and_expected_node[:responses]
@@ -61,23 +52,21 @@ private
       responses_directory = File.dirname(template_path)
       FileUtils.mkdir_p(responses_directory) unless File.directory?(responses_directory)
 
-      File.write(template_path, insert_payment_partials(body) + "\n")
+      lines = body.split("\n")
+      titles[responses.last] = lines.shift
+      lines.shift
+
+      File.write(template_path, insert_payment_partials(lines.join("\n")) + "\n")
     end
 
-    File.write("#{country_partials_dir}/_title.govspeak.erb", title_contents)
+    File.write("#{country_partials_dir}/_title.govspeak.erb", title_contents(titles))
   end
 
   # Strips the first two lines of the file (the title).
   # Replaces payment instructions with a shared partial erb snippet.
   # Replaces service fee with a fees table shared partial erb snippet.
   def insert_payment_partials(body)
-    lines = body.split("\n")
-    text = lines[2..-1].join("\n")
-
-    text = replace_how_to_pay(text)
-    text = replace_fee_table(text)
-
-    text
+    replace_fee_table(replace_how_to_pay(body))
   end
 
   def country_outcome_path(responses_path)
@@ -111,12 +100,12 @@ private
     )
   end
 
-  def title_contents
+  def title_contents(titles)
     <<~TITLE.freeze
       <% if calculator.partner_is_same_sex? %>
-        #{same_sex_wording} in #{country.titleize}
+        #{titles['same_sex']}
       <% else %>
-        Marriage in #{country.titleize}
+        #{titles['opposite_sex']}
       <% end %>
     TITLE
   end

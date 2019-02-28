@@ -12,5 +12,5 @@
   - `lib/smart_answer_flows/marriage-abroad/outcomes`
 
 **4. Run the rake task to flatten the outcomes:**
-  - `bundle exec rake marriage_abroad:flatten_outcomes[<your country>,<civil_partnership, same_sex_marriage, or both>]`
-  - `# e.g. bundle exec rake "marriage_abroad:flatten_outcomes[qatar,both]"`
+  - `bundle exec rake marriage_abroad:flatten_outcomes[<your country>]`
+  - `# e.g. bundle exec rake "marriage_abroad:flatten_outcomes[qatar]"`
