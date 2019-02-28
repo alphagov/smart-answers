@@ -36,9 +36,10 @@ group :development do
 end
 
 group :development, :test do
+  gem 'byebug'
   gem 'govuk-lint'
   gem 'pry'
-  gem 'byebug'
+  gem 'timecop'
 end
 
 group :test do
@@ -51,6 +52,5 @@ group :test do
   gem 'shoulda', '~> 3.6.0'
   gem 'simplecov', '~> 0.16.1', require: false
   gem 'simplecov-rcov', '~> 0.2.3', require: false
-  gem 'timecop'
   gem 'webmock', '~> 3.5.1', require: false
 end
