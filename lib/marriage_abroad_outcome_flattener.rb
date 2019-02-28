@@ -46,8 +46,8 @@ private
       question_node = !responses_and_expected_node[:outcome_node]
 
       next unless %w[opposite_sex same_sex].include?(responses.last)
-
       next if question_node && visited_nodes.include?(next_node)
+
       visited_nodes << next_node
 
       responses_path = responses.join("/")
@@ -192,11 +192,15 @@ private
     @configuration ||= configurations.fetch(flow_name, default_configuration)
   end
 
+  # Disabling the linter here because this is already quite bad current_node
+  # but it was copied from elsewhere and I'm not messing with it now.
+  # rubocop:disable Style/MethodMissingSuper, Style/MissingRespondToMissing
   module MethodMissingHelper
     def method_missing(method, *_args, &_block)
       MethodMissingObject.new(method)
     end
   end
+  # rubocop:enable Style/MethodMissingSuper, Style/MissingRespondToMissing
 
   class UnknownResponse < StandardError; end
 
