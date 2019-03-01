@@ -9,9 +9,9 @@ class MarriageAbroadTest < ActiveSupport::TestCase
   FLATTEN_COUNTRIES_CEREMONY_LOCATION_OUTCOMES = %w(finland iceland).freeze
   FLATTEN_COUNTRIES_2_OUTCOMES = %w(australia china croatia cyprus egypt france ireland luxembourg japan philippines south-africa south-korea thailand turkey usa).freeze
   FLATTEN_COUNTRIES_6_OUTCOMES = %w(greece italy spain poland).freeze
-  FLATTEN_COUNTRIES_18_OUTCOMES = %w(algeria austria azerbaijan brazil british-indian-ocean-territory burma cambodia chile colombia denmark el-salvador ethiopia the-gambia germany hungary indonesia iran jordan kenya kuwait latvia malaysia maldives moldova montenegro morocco mozambique nicaragua panama portugal oman qatar romania russia sweden tanzania tunisia uganda vietnam).freeze
+  FLATTEN_COUNTRIES_18_OUTCOMES = %w(algeria austria azerbaijan brazil british-indian-ocean-territory burma cambodia chile colombia denmark el-salvador ethiopia the-gambia germany hungary indonesia iran jordan kenya kuwait latvia malaysia maldives moldova montenegro morocco mozambique nicaragua north-macedonia panama portugal oman qatar romania russia sweden tanzania tunisia uganda vietnam).freeze
   FLATTEN_COUNTRIES = FLATTEN_COUNTRIES_CEREMONY_LOCATION_OUTCOMES + FLATTEN_COUNTRIES_2_OUTCOMES + FLATTEN_COUNTRIES_6_OUTCOMES + FLATTEN_COUNTRIES_18_OUTCOMES
-  NOT_FLATTEN_COUNTRIES = %w(albania american-samoa anguilla argentina armenia aruba bahamas belarus belgium bonaire-st-eustatius-saba burundi canada costa-rica cote-d-ivoire czech-republic democratic-republic-of-the-congo estonia hong-kong kazakhstan kosovo kyrgyzstan laos lebanon lithuania macao madagascar malawi malta mayotte mexico monaco netherlands north-korea north-macedonia norway guatemala paraguay peru rwanda saint-barthelemy san-marino saudi-arabia serbia seychelles slovakia slovenia somalia st-maarten st-martin south-korea spain switzerland turkmenistan ukraine united-arab-emirates uzbekistan wallis-and-futuna yemen).freeze
+  NOT_FLATTEN_COUNTRIES = %w(albania american-samoa anguilla argentina armenia aruba bahamas belarus belgium bonaire-st-eustatius-saba burundi canada costa-rica cote-d-ivoire czech-republic democratic-republic-of-the-congo estonia hong-kong kazakhstan kosovo kyrgyzstan laos lebanon lithuania macao madagascar malawi malta mayotte mexico monaco netherlands north-korea norway guatemala paraguay peru rwanda saint-barthelemy san-marino saudi-arabia serbia seychelles slovakia slovenia somalia st-maarten st-martin south-korea spain switzerland turkmenistan ukraine united-arab-emirates uzbekistan wallis-and-futuna yemen).freeze
 
   def self.translations
     @translations ||= YAML.load_file("lib/smart_answer_flows/locales/en/marriage-abroad.yml")
@@ -420,30 +420,6 @@ class MarriageAbroadTest < ActiveSupport::TestCase
     end
     should "go to outcome_civil_partnership_in_monaco" do
       assert_current_node :outcome_civil_partnership_in_monaco
-    end
-  end
-
-  context "user lives in 3rd country, ceremony in north-macedonia, partner os (any nationality)" do
-    setup do
-      add_response 'north-macedonia'
-      add_response 'third_country'
-      add_response 'partner_other'
-      add_response 'opposite_sex'
-    end
-    should "go to outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country" do
-      assert_current_node :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_third_country
-    end
-  end
-
-  context "user lives in north-macedonia, ceremony in north-macedonia" do
-    setup do
-      add_response 'north-macedonia'
-      add_response 'ceremony_country'
-      add_response 'partner_other'
-      add_response 'opposite_sex'
-    end
-    should "go to consular cni os outcome" do
-      assert_current_node :outcome_opposite_sex_marriage_in_consular_cni_countries_when_residing_in_ceremony_country
     end
   end
 
