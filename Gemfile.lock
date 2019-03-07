@@ -99,7 +99,7 @@ GEM
       rest-client (~> 2.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    govspeak (5.9.0)
+    govspeak (5.9.1)
       actionview (~> 5.0)
       addressable (>= 2.3.8, < 3)
       commander (~> 4.4)
@@ -355,7 +355,7 @@ DEPENDENCIES
   byebug
   ci_reporter
   gds-api-adapters (~> 57.4.2)
-  govspeak (~> 5.9.0)
+  govspeak (~> 5.9.1)
   govuk-content-schema-test-helpers (~> 1.6.1)
   govuk-lint
   govuk_app_config
