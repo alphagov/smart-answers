@@ -166,5 +166,27 @@ module SmartAnswer::Calculators
         assert_equal 3260, calculator.minimum_mca
       end
     end
+
+    test "rate values for 2018/19" do
+      Timecop.freeze(Date.parse("2018-06-01")) do
+        calculator = MarriedCouplesAllowanceCalculator.new
+
+        assert_equal 11850, calculator.personal_allowance
+        assert_equal 28900.0, calculator.income_limit_for_personal_allowances
+        assert_equal 8695, calculator.maximum_mca
+        assert_equal 3360, calculator.minimum_mca
+      end
+    end
+
+    test "rate values for 2019/20" do
+      Timecop.freeze(Date.parse("2019-06-01")) do
+        calculator = MarriedCouplesAllowanceCalculator.new
+
+        assert_equal 12500, calculator.personal_allowance
+        assert_equal 29600.0, calculator.income_limit_for_personal_allowances
+        assert_equal 8915, calculator.maximum_mca
+        assert_equal 3450, calculator.minimum_mca
+      end
+    end
   end
 end
