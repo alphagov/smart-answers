@@ -77,7 +77,7 @@ GEM
     coderay (1.1.2)
     commander (4.4.7)
       highline (~> 2.0.0)
-    concurrent-ruby (1.1.4)
+    concurrent-ruby (1.1.5)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.4)
@@ -125,7 +125,7 @@ GEM
     govuk_frontend_toolkit (8.1.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-    govuk_publishing_components (16.3.0)
+    govuk_publishing_components (16.4.0)
       govspeak (>= 5.0.3)
       govuk_app_config
       govuk_frontend_toolkit
@@ -360,7 +360,7 @@ DEPENDENCIES
   govuk-lint
   govuk_app_config
   govuk_frontend_toolkit (>= 7.5.0)
-  govuk_publishing_components (= 16.3.0)
+  govuk_publishing_components (= 16.4.0)
   govuk_test
   htmlentities (~> 4)
   json
