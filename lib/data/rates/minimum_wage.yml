@@ -191,7 +191,7 @@
   :apprentice_rate: 3.50
   :accommodation_rate: 6.40
 - :start_date: 2018-04-01
-  :end_date: 3000-01-01
+  :end_date: 2019-03-31
   :minimum_rates:
   - :min_age: 0
     :max_age: 18
@@ -207,3 +207,20 @@
     :rate: 7.83
   :apprentice_rate: 3.70
   :accommodation_rate: 7.00
+- :start_date: 2019-04-01
+  :end_date: 3000-01-01
+  :minimum_rates:
+  - :min_age: 0
+    :max_age: 18
+    :rate: 4.35
+  - :min_age: 18
+    :max_age: 21
+    :rate: 6.15
+  - :min_age: 21
+    :max_age: 25
+    :rate: 7.70
+  - :min_age: 25
+    :max_age: 1000
+    :rate: 8.21
+  :apprentice_rate: 3.90
+  :accommodation_rate: 7.55
