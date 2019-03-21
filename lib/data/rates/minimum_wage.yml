@@ -207,7 +207,7 @@
     :rate: 7.83
   :apprentice_rate: 3.70
   :accommodation_rate: 7.00
-- :start_date: 2019-03-20
+- :start_date: 2019-04-01
   :end_date: 3000-01-01
   :minimum_rates:
   - :min_age: 0
