@@ -122,7 +122,7 @@ GEM
     govuk_frontend_toolkit (8.1.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-    govuk_publishing_components (16.5.0)
+    govuk_publishing_components (16.8.0)
       govspeak (>= 5.0.3)
       govuk_app_config
       govuk_frontend_toolkit
@@ -187,7 +187,7 @@ GEM
     nokogumbo (2.0.1)
       nokogiri (~> 1.8, >= 1.8.4)
     null_logger (0.0.1)
-    oj (3.7.10)
+    oj (3.7.11)
     parallel (1.13.0)
     parser (2.6.0.0)
       ast (~> 2.4.0)
@@ -358,7 +358,7 @@ DEPENDENCIES
   govuk-lint
   govuk_app_config
   govuk_frontend_toolkit (>= 7.5.0)
-  govuk_publishing_components (= 16.5.0)
+  govuk_publishing_components (= 16.8.0)
   govuk_test
   htmlentities (~> 4)
   json
