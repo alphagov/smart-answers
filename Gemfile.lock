@@ -189,7 +189,7 @@ GEM
     null_logger (0.0.1)
     oj (3.7.11)
     parallel (1.13.0)
-    parser (2.6.0.0)
+    parser (2.6.2.0)
       ast (~> 2.4.0)
     plek (2.1.1)
     powerpack (0.1.2)
