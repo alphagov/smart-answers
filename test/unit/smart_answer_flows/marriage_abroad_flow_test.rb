@@ -53,7 +53,6 @@ module SmartAnswer
 
     context 'when answering legal_residency? question' do
       setup do
-        Calculators::MarriageAbroadCalculator.stubs(:new).returns(@calculator)
         setup_states_for_question(:legal_residency?,
           responding_with: 'uk', initial_state: {
             calculator: @calculator })
@@ -66,7 +65,6 @@ module SmartAnswer
 
     context 'when answering what_is_your_partners_nationality? question' do
       setup do
-        Calculators::MarriageAbroadCalculator.stubs(:new).returns(@calculator)
         setup_states_for_question(:what_is_your_partners_nationality?,
           responding_with: 'partner_british', initial_state: {
             calculator: @calculator })
@@ -79,7 +77,6 @@ module SmartAnswer
 
     context 'when answering partner_opposite_or_same_sex? question' do
       setup do
-        Calculators::MarriageAbroadCalculator.stubs(:new).returns(@calculator)
         @calculator.ceremony_country = "france"
         setup_states_for_question(:partner_opposite_or_same_sex?,
           responding_with: 'same_sex', initial_state: {
@@ -93,7 +90,6 @@ module SmartAnswer
 
     context 'when answering marriage_or_pacs? question' do
       setup do
-        Calculators::MarriageAbroadCalculator.stubs(:new).returns(@calculator)
         setup_states_for_question(:marriage_or_pacs?,
           responding_with: 'marriage', initial_state: {
             calculator: @calculator })
