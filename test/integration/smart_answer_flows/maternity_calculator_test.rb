@@ -471,6 +471,27 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
       end
     end
 
+    context "check for correct LEL Saturday, 13th 2019 monthly" do
+      setup do
+        add_response Date.parse("2019-07-26")
+        add_response Date.parse("2019-06-29")
+        add_response :yes
+        add_response Date.parse("2019-04-06")
+        add_response Date.parse("2019-02-07")
+        add_response :monthly
+        add_response 956
+        add_response "2"
+        add_response "weekly_starting"
+      end
+
+      should "have LEL of 118" do
+        assert_state_variable :to_saturday_formatted, "Saturday, 13 April 2019"
+        assert_state_variable "lower_earning_limit", sprintf("%.2f", 118)
+        assert_current_node :maternity_leave_and_pay_result
+      end
+    end
+
+
     context "check for correct LEL Saturday, 12 April 2014 monthly" do
       setup do
         add_response Date.parse("2014-07-26")
@@ -666,12 +687,12 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
         "30 January 2019" => "£622.20",
         "27 February 2019" => "£580.72",
         "29 March 2019" => "£622.20",
-        "30 April 2019" => "£663.68",
-        "31 May 2019" => "£642.94",
-        "28 June 2019" => "£311.10",
+        "30 April 2019" => "£675.68",
+        "31 May 2019" => "£658.44",
+        "28 June 2019" => "£318.60",
       )
 
-      assert_state_variable :total_smp, "6224.03"
+      assert_state_variable :total_smp, "6259.03"
     end
   end
 

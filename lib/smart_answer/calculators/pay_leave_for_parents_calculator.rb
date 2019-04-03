@@ -47,8 +47,10 @@ module SmartAnswer::Calculators
         SmartAnswer::Money.new(113)
       when 2018
         SmartAnswer::Money.new(116)
+      when 2019
+        SmartAnswer::Money.new(118)
       else
-        SmartAnswer::Money.new(116)
+        SmartAnswer::Money.new(118)
       end
     end
 
