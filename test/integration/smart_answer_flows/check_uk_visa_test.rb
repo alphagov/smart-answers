@@ -7,7 +7,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    @location_slugs = %w(
+    @location_slugs = SmartAnswer::Calculators::UkVisaCalculator::COUNTRY_GROUP_EEA + %w[
       afghanistan
       andorra
       anguilla
@@ -20,6 +20,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       democratic-republic-of-the-congo
       estonia
       hong-kong
+      ireland
       latvia
       macao
       mexico
@@ -33,7 +34,7 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       united-arab-emirates
       venezuela
       yemen
-    )
+    ]
 
     stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::CheckUkVisaFlow
@@ -1049,14 +1050,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       assert_current_node :outcome_visit_waiver
     end
   end
-  context "testing croatia phrase list" do
-    setup do
-      add_response "croatia"
-    end
-    should "takes you to outcome_no_visa_needed" do
-      assert_current_node :outcome_no_visa_needed
-    end
-  end
 
   #testing canada - all groupings AND NON visa national outcome - study AND work - less AND more than 6 months
   context "testing canada" do
@@ -1335,11 +1328,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       assert_current_node :what_sort_of_passport?
     end
 
-    should "go to outcome_no_visa_needed if user has an Estonian passport" do
-      add_response "citizen" # Q1c
-      assert_current_node :outcome_no_visa_needed
-    end
-
     should "go to question 2 if user has an Alien passport" do
       add_response "alien" # Q1c
       assert_current_node :purpose_of_visit?
@@ -1366,11 +1354,6 @@ class CheckUkVisaTest < ActiveSupport::TestCase
       assert_current_node :what_sort_of_passport?
     end
 
-    should "go to outcome_no_visa_needed if user has an Latvian passport" do
-      add_response "citizen" # Q1d
-      assert_current_node :outcome_no_visa_needed
-    end
-
     should "go to question 2 if user has an Alien passport" do
       add_response "alien" # Q1d
       assert_current_node :purpose_of_visit?
@@ -1384,6 +1367,49 @@ class CheckUkVisaTest < ActiveSupport::TestCase
 
       should "go to outcome no visa needed" do
         assert_current_node :outcome_no_visa_needed
+      end
+    end
+  end
+
+  SmartAnswer::Calculators::UkVisaCalculator::COUNTRY_GROUP_EEA.each do |location|
+    context location do
+      setup do
+        add_response location
+
+        case location
+        when "latvia", "estonia"
+          assert_current_node :what_sort_of_passport?
+          add_response "citizen"
+        end
+      end
+
+      if location == "ireland"
+        should("go straight to the 'no visa needed' outcome") { assert_current_node :outcome_no_visa_needed }
+        next
+      end
+
+      should "ask how long they're planning to stay" do
+        assert_current_node :length_of_planned_stay?
+      end
+
+      context "3 months or less" do
+        setup do
+          add_response "three_months_or_less"
+        end
+
+        should "clarify no visa needed" do
+          assert_current_node :outcome_no_visa_needed_for_eea_citizens
+        end
+      end
+
+      context "longer than 3 months" do
+        setup do
+          add_response "longer_than_three_months"
+        end
+
+        should "instruct them to apply for a temporary leave to remain" do
+          assert_current_node :outcome_apply_for_european_temporary_leave_to_remain
+        end
       end
     end
   end

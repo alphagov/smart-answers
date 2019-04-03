@@ -31,7 +31,11 @@ module SmartAnswer
           elsif calculator.passport_country_is_macao?
             question :what_sort_of_travel_document?
           elsif calculator.passport_country_in_eea?
-            outcome :outcome_no_visa_needed
+            if calculator.passport_country_is_ireland?
+              outcome :outcome_no_visa_needed
+            else
+              question :length_of_planned_stay?
+            end
           else
             question :purpose_of_visit?
           end
@@ -60,7 +64,7 @@ module SmartAnswer
         next_node do |response|
           case response
           when 'citizen'
-            outcome :outcome_no_visa_needed
+            question :length_of_planned_stay?
           when 'alien'
             if calculator.passport_country_is_estonia?
               calculator.passport_country = 'estonia-alien-passport'
@@ -83,6 +87,20 @@ module SmartAnswer
 
         next_node do |_|
           question :purpose_of_visit?
+        end
+      end
+
+      multiple_choice :length_of_planned_stay? do
+        option :three_months_or_less
+        option :longer_than_three_months
+
+        next_node do |response|
+          case response
+          when "three_months_or_less"
+            outcome :outcome_no_visa_needed_for_eea_citizens
+          when "longer_than_three_months"
+            outcome :outcome_apply_for_european_temporary_leave_to_remain
+          end
         end
       end
 
@@ -303,6 +321,7 @@ module SmartAnswer
       outcome :outcome_medical_n
       outcome :outcome_medical_y
       outcome :outcome_no_visa_needed
+      outcome :outcome_no_visa_needed_for_eea_citizens
       outcome :outcome_partner_family_british_citizen_y
       outcome :outcome_partner_family_eea_n
       outcome :outcome_partner_family_eea_y
