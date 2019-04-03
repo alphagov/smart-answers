@@ -292,19 +292,20 @@ module SmartAnswer
         end
       end
 
+      outcome :outcome_apply_for_european_temporary_leave_to_remain
       outcome :outcome_diplomatic_business
       outcome :outcome_joining_family_m
       outcome :outcome_joining_family_nvn
+      outcome :outcome_marriage_electronic_visa_waiver
       outcome :outcome_marriage_nvn_ukot
       outcome :outcome_marriage_taiwan
       outcome :outcome_marriage_visa_nat_datv
-      outcome :outcome_marriage_electronic_visa_waiver
       outcome :outcome_medical_n
       outcome :outcome_medical_y
       outcome :outcome_no_visa_needed
       outcome :outcome_partner_family_british_citizen_y
-      outcome :outcome_partner_family_eea_y
       outcome :outcome_partner_family_eea_n
+      outcome :outcome_partner_family_eea_y
       outcome :outcome_school_n
       outcome :outcome_school_waiver
       outcome :outcome_school_y
@@ -313,6 +314,7 @@ module SmartAnswer
       outcome :outcome_study_waiver
       outcome :outcome_study_waiver_taiwan
       outcome :outcome_study_y
+      outcome :outcome_tourism_visa_partner
       outcome :outcome_transit_leaving_airport
       outcome :outcome_transit_leaving_airport_datv
       outcome :outcome_transit_not_leaving_airport
@@ -321,7 +323,6 @@ module SmartAnswer
       outcome :outcome_transit_taiwan_through_border_control
       outcome :outcome_transit_to_the_republic_of_ireland
       outcome :outcome_transit_venezuela
-      outcome :outcome_tourism_visa_partner
       outcome :outcome_visit_waiver
       outcome :outcome_visit_waiver_taiwan
       outcome :outcome_work_m
