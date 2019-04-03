@@ -7,7 +7,34 @@ class CheckUkVisaTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    @location_slugs = %w(andorra anguilla armenia bolivia canada china colombia croatia estonia hong-kong latvia macao mexico south-africa stateless-or-refugee syria turkey democratic-republic-of-the-congo oman united-arab-emirates qatar taiwan venezuela afghanistan yemen)
+    @location_slugs = %w(
+      afghanistan
+      andorra
+      anguilla
+      armenia
+      bolivia
+      canada
+      china
+      colombia
+      croatia
+      democratic-republic-of-the-congo
+      estonia
+      hong-kong
+      latvia
+      macao
+      mexico
+      oman
+      qatar
+      south-africa
+      stateless-or-refugee
+      syria
+      taiwan
+      turkey
+      united-arab-emirates
+      venezuela
+      yemen
+    )
+
     stub_world_locations(@location_slugs)
     setup_for_testing_flow SmartAnswer::CheckUkVisaFlow
   end
