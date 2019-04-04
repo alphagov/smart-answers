@@ -1,47 +1,194 @@
 ---
 countries_with_18_outcomes:
+  - afghanistan
+  - albania
   - algeria
+  - american-samoa
+  - andorra
+  - angola
+  - anguilla
+  - antigua-and-barbuda
+  - argentina
+  - armenia
+  - aruba
   - austria
   - azerbaijan
+  - bahamas
+  - bahrain
+  - bangladesh
+  - barbados
+  - belarus
+  - belgium
+  - belize
+  - benin
+  - bermuda
+  - bhutan
+  - bolivia
+  - bonaire-st-eustatius-saba
+  - bosnia-and-herzegovina
+  - botswana
   - brazil
   - british-indian-ocean-territory
+  - british-virgin-islands
+  - brunei
+  - bulgaria
+  - burkina-faso
   - burma
+  - burundi
   - cambodia
+  - cameroon
+  - canada
+  - cape-verde
+  - cayman-islands
+  - central-african-republic
+  - chad
   - chile
   - colombia
+  - comoros
+  - costa-rica
+  - cote-d-ivoire
+  - cuba
+  - curacao
+  - czech-republic
+  - democratic-republic-of-the-congo
   - denmark
+  - djibouti
+  - dominica
+  - dominican-republic
   - ecuador
   - el-salvador
+  - equatorial-guinea
+  - eritrea
+  - estonia
+  - eswatini
   - ethiopia
-  - the-gambia
+  - falkland-islands
+  - fiji
+  - gabon
+  - georgia
   - germany
-  - greece
+  - ghana
+  - gibraltar
+  - grenada
+  - guatemala
+  - guinea
+  - guinea-bissau
+  - guyana
+  - haiti
+  - honduras
+  - hong-kong
   - hungary
   - indonesia
   - iran
+  - iraq
+  - israel
+  - jamaica
   - jordan
+  - kazakhstan
   - kenya
+  - kiribati
+  - kosovo
   - kuwait
+  - kyrgyzstan
+  - laos
   - latvia
+  - lebanon
+  - lesotho
+  - liberia
+  - libya
+  - liechtenstein
+  - lithuania
+  - macao
+  - madagascar
+  - malawi
   - malaysia
   - maldives
+  - malta
+  - marshall-islands
+  - mauritania
+  - mauritius
+  - mexico
+  - micronesia
   - moldova
+  - mongolia
   - montenegro
+  - montserrat
   - morocco
   - mozambique
+  - namibia
+  - nauru
+  - nepal
+  - netherlands
+  - new-caledonia
+  - new-zealand
   - nicaragua
+  - niger
+  - nigeria
+  - north-korea
   - north-macedonia
+  - norway
   - oman
+  - pakistan
+  - palau
   - panama
+  - papua-new-guinea
+  - paraguay
+  - peru
+  - pitcairn-island
   - portugal
   - qatar
   - romania
   - russia
+  - rwanda
+  - saint-barthelemy
+  - san-marino
+  - sao-tome-and-principe
+  - saudi-arabia
+  - senegal
+  - serbia
+  - seychelles
+  - sierra-leone
+  - singapore
+  - slovakia
+  - slovenia
+  - solomon-islands
+  - somalia
+  - south-georgia-and-the-south-sandwich-islands
+  - south-sudan
+  - sri-lanka
+  - st-helena-ascension-and-tristan-da-cunha
+  - st-kitts-and-nevis
+  - st-lucia
+  - st-maarten
+  - st-martin
+  - st-vincent-and-the-grenadines
+  - sudan
+  - suriname
   - sweden
+  - syria
+  - taiwan
+  - tajikistan
   - tanzania
+  - the-gambia
+  - timor-leste
+  - togo
+  - tonga
+  - trinidad-and-tobago
   - tunisia
+  - turkmenistan
+  - turks-and-caicos-islands
+  - tuvalu
   - uganda
+  - ukraine
+  - united-arab-emirates
+  - uruguay
+  - uzbekistan
+  - vanuatu
+  - venezuela
   - vietnam
+  - western-sahara
+  - yemen
+  - zambia
 countries_with_2_outcomes:
   - australia
   - china
@@ -51,20 +198,34 @@ countries_with_2_outcomes:
   - france
   - india
   - ireland
-  - luxembourg
   - japan
+  - luxembourg
   - philippines
   - south-africa
+  - south-korea
   - south-korea
   - thailand
   - turkey
   - usa
   - zimbabwe
+countries_with_2_outcomes_marriage_or_pacs:
+  - monaco
+  - new-caledonia
+  - wallis-and-futuna
 countries_with_6_outcomes:
   - greece
   - italy
-  - spain
   - poland
+  - spain
+  - switzerland
 countries_with_ceremony_location_outcomes:
   - finland
   - iceland
+countries_with_1_outcome:
+  - french-guiana
+  - french-polynesia
+  - guadeloupe
+  - martinique
+  - mayotte
+  - reunion
+  - st-pierre-and-miquelon

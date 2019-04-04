@@ -27,7 +27,7 @@ module SmartAnswer
           end
 
           should "only contain pre-defined data keys" do
-            keys = %w(countries_with_18_outcomes countries_with_2_outcomes countries_with_6_outcomes countries_with_ceremony_location_outcomes)
+            keys = %w(countries_with_18_outcomes countries_with_2_outcomes countries_with_2_outcomes_marriage_or_pacs countries_with_6_outcomes countries_with_ceremony_location_outcomes countries_with_1_outcome)
             data = @data_query.marriage_data
 
             assert_equal keys, data.keys
@@ -122,6 +122,50 @@ module SmartAnswer
           end
         end
 
+        context "#countries_with_2_outcomes_marriage_or_pacs" do
+          should "returns countries that are listed to have 2 marriage or pacs outcomes" do
+            YAML.stubs(:load_file).returns(countries_with_2_outcomes_marriage_or_pacs: %w(monaco wallis-and-futuna new-caledonia))
+
+            assert_equal %w(monaco wallis-and-futuna new-caledonia), @data_query.countries_with_2_outcomes_marriage_or_pacs
+          end
+
+          should "return empty array if no country is found" do
+            YAML.stubs(:load_file).returns(countries_with_2_outcomes_marriage_or_pacs: nil)
+
+            assert_equal [], @data_query.countries_with_2_outcomes_marriage_or_pacs
+          end
+
+          should "throw RuntimeError if data structure isn't an array of strings" do
+            YAML.stubs(:load_file).returns(countries_with_2_outcomes_marriage_or_pacs: [{ sample: "value" }])
+
+            exception = assert_raises RuntimeError do
+              @data_query.countries_with_2_outcomes_marriage_or_pacs
+            end
+
+            assert_equal exception.message, "Country list must be an array of strings"
+          end
+
+          should "throw RuntimeError if data structure is a Hash" do
+            YAML.stubs(:load_file).returns(countries_with_2_outcomes_marriage_or_pacs: Hash.new)
+
+            exception = assert_raises RuntimeError do
+              @data_query.countries_with_2_outcomes_marriage_or_pacs
+            end
+
+            assert_equal exception.message, "Country list must be an array of strings"
+          end
+
+          should "throw KeyError if countries_with_2_outcomes_marriage_or_pacs is missing" do
+            YAML.stubs(:load_file).returns({})
+
+            exception = assert_raises KeyError do
+              @data_query.countries_with_2_outcomes_marriage_or_pacs
+            end
+
+            assert_equal exception.message, "key not found: \"countries_with_2_outcomes_marriage_or_pacs\""
+          end
+        end
+
         context "#countries_with_6_outcomes" do
           should "returns countries that are listed to have 6 outcomes" do
             YAML.stubs(:load_file).returns(countries_with_6_outcomes: %w(argentina brazil))
@@ -210,17 +254,63 @@ module SmartAnswer
           end
         end
 
+        context "#countries_with_1_outcome" do
+          should "returns countries that are listed to have 1 outcomes" do
+            YAML.stubs(:load_file).returns(countries_with_1_outcome: %w(monaco new-caledonia))
+
+            assert_equal %w(monaco new-caledonia), @data_query.countries_with_1_outcome
+          end
+
+          should "return empty array if no country is found" do
+            YAML.stubs(:load_file).returns(countries_with_1_outcome: nil)
+
+            assert_equal [], @data_query.countries_with_1_outcome
+          end
+
+          should "throw RuntimeError if data structure isn't an array of strings" do
+            YAML.stubs(:load_file).returns(countries_with_1_outcome: [{ sample: "value" }])
+
+            exception = assert_raises RuntimeError do
+              @data_query.countries_with_1_outcome
+            end
+
+            assert_equal exception.message, "Country list must be an array of strings"
+          end
+
+          should "throw RuntimeError if data structure is a Hash" do
+            YAML.stubs(:load_file).returns(countries_with_1_outcome: Hash.new)
+
+            exception = assert_raises RuntimeError do
+              @data_query.countries_with_1_outcome
+            end
+
+            assert_equal exception.message, "Country list must be an array of strings"
+          end
+
+          should "throw KeyError if countries_with_1_outcome is missing" do
+            YAML.stubs(:load_file).returns({})
+
+            exception = assert_raises KeyError do
+              @data_query.countries_with_1_outcome
+            end
+
+            assert_equal exception.message, "key not found: \"countries_with_1_outcome\""
+          end
+        end
+
         context "#outcome_per_path_countries" do
           should "return an alphabetical list of countries under all outcome groups" do
             YAML.stubs(:load_file).returns(
               countries_with_18_outcomes: %w(anguilla),
               countries_with_6_outcomes: %w(bermuda),
               countries_with_2_outcomes: %w(cayman-islands),
+              countries_with_2_outcomes_marriage_or_pacs: %w(monaco),
               countries_with_ceremony_location_outcomes: %w(finland),
+              countries_with_1_outcome: %w(french-guiana)
             )
 
             assert_equal @data_query.outcome_per_path_countries,
-              %w(anguilla bermuda cayman-islands finland)
+              %w(anguilla bermuda cayman-islands finland french-guiana monaco)
           end
         end
       end
