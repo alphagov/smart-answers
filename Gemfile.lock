@@ -88,7 +88,7 @@ GEM
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     ffi (1.10.0)
-    gds-api-adapters (57.5.0)
+    gds-api-adapters (59.0.0)
       addressable
       link_header
       null_logger
@@ -168,7 +168,7 @@ GEM
     method_source (0.9.2)
     mime-types (3.2.2)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2018.0812)
+    mime-types-data (3.2019.0331)
     mimemagic (0.3.3)
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
@@ -352,7 +352,7 @@ DEPENDENCIES
   binding_of_caller
   byebug
   ci_reporter
-  gds-api-adapters (~> 57.5.0)
+  gds-api-adapters (~> 59.0.0)
   govspeak (~> 6.0.0)
   govuk-content-schema-test-helpers (~> 1.6.1)
   govuk-lint
