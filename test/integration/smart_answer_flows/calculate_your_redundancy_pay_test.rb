@@ -7,7 +7,7 @@ class CalculateYourRedundancyPayTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    Timecop.freeze("2018-08-31")
+    Timecop.freeze("2019-08-31")
     setup_for_testing_flow SmartAnswer::CalculateYourRedundancyPayFlow
   end
 
@@ -309,6 +309,22 @@ class CalculateYourRedundancyPayTest < ActiveSupport::TestCase
       assert_state_variable :ni_max_amount, "15,000"
       assert_state_variable :statutory_redundancy_pay, "1,778"
       assert_state_variable :statutory_redundancy_pay_ni, "1,855"
+    end
+  end
+
+  context "2019/2020" do
+    should "Use the correct rates" do
+      add_response '2019-05-01'
+      add_response '22'
+      add_response '7'
+      add_response '700'
+      assert_current_node :done
+      assert_state_variable :rate, 525
+      assert_state_variable :ni_rate, 547
+      assert_state_variable :max_amount, "15,750"
+      assert_state_variable :ni_max_amount, "16,410"
+      assert_state_variable :statutory_redundancy_pay, "1,837.50"
+      assert_state_variable :statutory_redundancy_pay_ni, "1,914.50"
     end
   end
 end
