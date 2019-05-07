@@ -308,6 +308,8 @@ module SmartAnswer::Calculators
     def path_to_outcome
       if outcome_ceremony_location_country?
         [ceremony_country, ceremony_location_path_name]
+      elsif one_question_country?
+        [ceremony_country, ceremony_country]
       elsif two_questions_country?
         [ceremony_country, marriage_type_path_name]
       elsif three_questions_country?
@@ -325,7 +327,7 @@ module SmartAnswer::Calculators
       @data_query.countries_with_ceremony_location_outcomes.include?(ceremony_country)
     end
 
-    def one_questions_country?
+    def one_question_country?
       @data_query.countries_with_1_outcome.include?(ceremony_country)
     end
 
