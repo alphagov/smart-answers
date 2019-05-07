@@ -321,20 +321,24 @@ module SmartAnswer::Calculators
       @data_query.outcome_per_path_countries.include?(ceremony_country)
     end
 
-    def four_questions_country?
-      @data_query.countries_with_18_outcomes.include?(ceremony_country)
+    def outcome_ceremony_location_country?
+      @data_query.countries_with_ceremony_location_outcomes.include?(ceremony_country)
     end
 
-    def three_questions_country?
-      @data_query.countries_with_6_outcomes.include?(ceremony_country)
+    def one_questions_country?
+      @data_query.countries_with_1_outcome.include?(ceremony_country)
     end
 
     def two_questions_country?
       @data_query.countries_with_2_outcomes.include?(ceremony_country)
     end
 
-    def outcome_ceremony_location_country?
-      @data_query.countries_with_ceremony_location_outcomes.include?(ceremony_country)
+    def three_questions_country?
+      @data_query.countries_with_6_outcomes.include?(ceremony_country)
+    end
+
+    def four_questions_country?
+      @data_query.countries_with_18_outcomes.include?(ceremony_country)
     end
 
   private
