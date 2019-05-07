@@ -312,6 +312,8 @@ module SmartAnswer::Calculators
         [ceremony_country, ceremony_country]
       elsif two_questions_country?
         [ceremony_country, marriage_type_path_name]
+      elsif two_questions_country_marriage_or_pacs?
+        [ceremony_country, @marriage_or_pacs]
       elsif three_questions_country?
         [ceremony_country, ceremony_location_path_name, marriage_type_path_name]
       elsif four_questions_country?
@@ -333,6 +335,10 @@ module SmartAnswer::Calculators
 
     def two_questions_country?
       @data_query.countries_with_2_outcomes.include?(ceremony_country)
+    end
+
+    def two_questions_country_marriage_or_pacs?
+      @data_query.countries_with_2_outcomes_marriage_or_pacs.include?(ceremony_country)
     end
 
     def three_questions_country?
