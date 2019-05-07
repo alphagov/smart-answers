@@ -308,8 +308,12 @@ module SmartAnswer::Calculators
     def path_to_outcome
       if outcome_ceremony_location_country?
         [ceremony_country, ceremony_location_path_name]
+      elsif one_question_country?
+        [ceremony_country, ceremony_country]
       elsif two_questions_country?
         [ceremony_country, marriage_type_path_name]
+      elsif two_questions_country_marriage_or_pacs?
+        [ceremony_country, @marriage_or_pacs]
       elsif three_questions_country?
         [ceremony_country, ceremony_location_path_name, marriage_type_path_name]
       elsif four_questions_country?
@@ -321,20 +325,28 @@ module SmartAnswer::Calculators
       @data_query.outcome_per_path_countries.include?(ceremony_country)
     end
 
-    def four_questions_country?
-      @data_query.countries_with_18_outcomes.include?(ceremony_country)
+    def outcome_ceremony_location_country?
+      @data_query.countries_with_ceremony_location_outcomes.include?(ceremony_country)
     end
 
-    def three_questions_country?
-      @data_query.countries_with_6_outcomes.include?(ceremony_country)
+    def one_question_country?
+      @data_query.countries_with_1_outcome.include?(ceremony_country)
     end
 
     def two_questions_country?
       @data_query.countries_with_2_outcomes.include?(ceremony_country)
     end
 
-    def outcome_ceremony_location_country?
-      @data_query.countries_with_ceremony_location_outcomes.include?(ceremony_country)
+    def two_questions_country_marriage_or_pacs?
+      @data_query.countries_with_2_outcomes_marriage_or_pacs.include?(ceremony_country)
+    end
+
+    def three_questions_country?
+      @data_query.countries_with_6_outcomes.include?(ceremony_country)
+    end
+
+    def four_questions_country?
+      @data_query.countries_with_18_outcomes.include?(ceremony_country)
     end
 
   private

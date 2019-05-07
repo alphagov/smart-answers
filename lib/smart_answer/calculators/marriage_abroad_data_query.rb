@@ -544,8 +544,8 @@ module SmartAnswer::Calculators
       countries_with_1_outcome).sort
     end
 
-    def countries_with_18_outcomes
-      country_outcomes(:countries_with_18_outcomes)
+    def countries_with_1_outcome
+      country_outcomes(:countries_with_1_outcome)
     end
 
     def countries_with_2_outcomes
@@ -556,16 +556,16 @@ module SmartAnswer::Calculators
       country_outcomes(:countries_with_2_outcomes_marriage_or_pacs)
     end
 
-    def countries_with_ceremony_location_outcomes
-      country_outcomes(:countries_with_ceremony_location_outcomes)
-    end
-
     def countries_with_6_outcomes
       country_outcomes(:countries_with_6_outcomes)
     end
 
-    def countries_with_1_outcome
-      country_outcomes(:countries_with_1_outcome)
+    def countries_with_18_outcomes
+      country_outcomes(:countries_with_18_outcomes)
+    end
+
+    def countries_with_ceremony_location_outcomes
+      country_outcomes(:countries_with_ceremony_location_outcomes)
     end
 
     def marriage_data
