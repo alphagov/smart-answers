@@ -13,7 +13,11 @@ module SmartAnswer::Calculators
     end
 
     def lower_earning_limit
-      RatesQuery.from_file('maternity_paternity_adoption').rates(@qualifying_week.last).lower_earning_limit_rate
+      RatesQuery.from_file('maternity_paternity_adoption').rates(relevant_week.last).lower_earning_limit_rate
+    end
+
+    def relevant_week
+      @matched_week
     end
 
     def adoption_placement_date=(date)

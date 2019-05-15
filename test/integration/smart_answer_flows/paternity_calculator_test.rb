@@ -486,6 +486,26 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
           end
         end
 
+        should "show provide the correct lower earnings limit" do
+          # Based on an example provided by HMRC
+          add_response "2019-04-27"
+          add_response "2019-05-12"
+          add_response "yes"
+          add_response "yes"
+          add_response "yes"
+          add_response "yes"
+          add_response "yes"
+          add_response "2019-05-12"
+          add_response "two_weeks"
+          add_response "2019-04-04"
+          add_response "2019-02-07"
+          add_response "every_4_weeks"
+          add_response "925.0"
+
+          assert_current_node :paternity_leave_and_pay
+          assert_state_variable "lower_earning_limit", sprintf("%.2f", 118)
+        end
+
         context "answer no to contract" do
           should "flow through to paternity_leave_and_pay outcome" do
             add_response "2014-01-01"
