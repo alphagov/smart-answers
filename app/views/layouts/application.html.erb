@@ -9,7 +9,7 @@
     <% if @content_item %>
       <%= render "govuk_publishing_components/components/meta_tags",
         content_item: @content_item,
-        strip_date_pii: true,
+        strip_dates_pii: true,
         strip_postcode_pii: true %>
     <% end %>
   </head>
