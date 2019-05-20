@@ -519,24 +519,4 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
       end
     end
   end
-
-  should "show provide the correct lower earnings limit" do
-    # Based on an example provided by HMRC
-    add_response "adoption"
-    add_response "maternity"
-    add_response "no"
-    add_response "2019-04-27"
-    add_response "2019-05-12"
-    add_response "yes"
-    add_response "yes"
-    add_response "yes"
-    add_response "2019-05-12"
-    add_response "2019-04-04"
-    add_response "2019-02-07"
-    add_response "every_4_weeks"
-    add_response "925.0"
-
-    assert_current_node :adoption_leave_and_pay
-    assert_state_variable "lower_earning_limit", sprintf("%.2f", 118)
-  end
 end
