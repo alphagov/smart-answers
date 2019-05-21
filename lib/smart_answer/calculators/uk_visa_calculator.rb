@@ -37,6 +37,10 @@ module SmartAnswer::Calculators
       COUNTRY_GROUP_ELECTRONIC_VISA_WAIVER.include?(@passport_country)
     end
 
+    def passport_country_in_epassport_gate_list?
+      COUNTRY_GROUP_EPASSPORT_GATES.include?(@passport_country)
+    end
+
     def passport_country_in_b1_b2_visa_exception_list?
       @passport_country == 'syria'
     end
@@ -419,6 +423,16 @@ module SmartAnswer::Calculators
       oman
       qatar
       united-arab-emirates
+    ).freeze
+
+    COUNTRY_GROUP_EPASSPORT_GATES = %w(
+      australia
+      canada
+      japan
+      new-zealand
+      singapore
+      south-korea
+      usa
     ).freeze
   end
 end
