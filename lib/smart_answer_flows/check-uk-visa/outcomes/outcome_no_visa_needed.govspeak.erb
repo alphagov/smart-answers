@@ -7,10 +7,15 @@
   ^When the UK leaves the EU, the rules for how long you can stay without a visa may change. [Check if you need to act now](/guidance/visiting-the-uk-after-brexit) so you can travel as planned.
 
   <% if calculator.study_visit? %>
+    <% if calculator.passport_country_in_epassport_gate_list? %>
+      You must go to a border control officer when you arrive in the UK to get a stamp in your passport. This will allow you to study in the UK.
 
-    However, you should bring documents with you to show at the border that you:
+      ^You cannot get a stamp if you use the ePassport gates.
+    <% end %>
 
-      - have been accepted on a course by an [accredited institution](/eligibility) or by a UK Higher Education Institution, for example, a letter of acceptance from the institution
+    You should bring documents with you that show you:
+
+      - have been accepted on a course by an [accredited institution](/study-visit-visa/eligibility) or by a UK Higher Education Institution, for example, a letter of acceptance from the institution
       - are able to fund your stay in the UK and return journey
       - intend to leave the UK at the end of your course
 
