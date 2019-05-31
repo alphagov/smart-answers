@@ -26,7 +26,7 @@ gem 'sass-rails', '~> 5.0.7'
 gem 'slimmer', '~> 13.1.0'
 gem 'tilt', '2.0.9'
 gem 'uglifier'
-gem 'uk_postcode', '~> 2.1.3'
+gem 'uk_postcode', '~> 2.1.4'
 gem 'rails_stdout_logging'
 
 group :development do
