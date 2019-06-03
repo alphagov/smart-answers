@@ -92,13 +92,13 @@ GEM
       rest-client (~> 2.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    govspeak (6.0.0)
+    govspeak (6.1.1)
       actionview (~> 5.0)
       addressable (>= 2.3.8, < 3)
+      govuk_publishing_components (>= 16.16)
       htmlentities (~> 4)
       i18n (~> 0.7)
       kramdown (~> 1.15.0)
-      money (~> 6.7)
       nokogiri (~> 1.5)
       rinku (~> 2.0)
       sanitize (~> 5)
@@ -172,8 +172,6 @@ GEM
       minitest (>= 4, < 6)
     mocha (1.8.0)
       metaclass (~> 0.0.1)
-    money (6.13.3)
-      i18n (>= 0.6.4, <= 2)
     multipart-post (2.1.1)
     netrc (0.11.0)
     nio4r (2.3.1)
@@ -190,7 +188,7 @@ GEM
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-    public_suffix (3.0.3)
+    public_suffix (3.1.0)
     puma (3.12.1)
     rack (2.0.7)
     rack-cache (1.9.0)
@@ -358,7 +356,7 @@ DEPENDENCIES
   byebug
   ci_reporter
   gds-api-adapters (~> 59.4.0)
-  govspeak (~> 6.0.0)
+  govspeak (~> 6.1.1)
   govuk-content-schema-test-helpers (~> 1.6.1)
   govuk-lint
   govuk_app_config
