@@ -82,6 +82,46 @@ module SmartAnswer::Calculators
           assert_equal 454.02, paydates_and_pay.last[:pay]
         end
       end
+
+      context "test adoption table rate returned for test data from HMRC" do
+        # based on /maternity-paternity-calculator/y/adoption/maternity/yes/2019-01-01/2019-02-03/yes/yes/yes/2019-02-03/2018-12-28/2018-10-28/monthly/2000.0/2/weekly_starting
+        should "calculate the pay correctly for a monthly example" do
+          match_date = Date.parse("1 January 2019")
+          calculator = AdoptionPayCalculator.new(match_date)
+          calculator.pay_method = 'weekly_starting'
+          calculator.leave_start_date = Date.parse('3 February 2019	')
+          calculator.pre_offset_payday = Date.parse('28 October 2018')
+          calculator.last_payday = Date.parse('28 December 2018')
+          calculator.adoption_placement_date = Date.parse('3 February 2019')
+          calculator.pay_pattern = 'monthly'
+          calculator.earnings_for_pay_period = 2000
+
+          assert_equal 207.70, calculator.paydates_and_pay.first[:pay]
+          assert_equal 207.70, calculator.paydates_and_pay[5][:pay]
+          assert_equal 145.18, calculator.paydates_and_pay[6][:pay]
+          assert_equal 145.18, calculator.paydates_and_pay[8][:pay]
+          assert_equal 148.68, calculator.paydates_and_pay[9][:pay]
+          assert_equal 148.68, calculator.paydates_and_pay.last[:pay]
+        end
+
+        # based on /maternity-paternity-calculator/y/adoption/maternity/no/2018-11-16/2018-12-01/yes/yes/yes/2018-12-01/2018-10-30/2018-08-30/monthly/2000.0/2/usual_paydates/last_working_day_of_the_month/1,2,3,4,5
+        should "calculate the pay correctly for a last working day of month example" do
+          match_date = Date.parse("16 November 2018")
+          calculator = AdoptionPayCalculator.new(match_date)
+          calculator.leave_start_date = Date.parse('1 December 2018')
+          calculator.pre_offset_payday = Date.parse('30 August 2018')
+          calculator.last_payday = Date.parse('30 October 2018')
+          calculator.adoption_placement_date = Date.parse('1 December 2018')
+          calculator.pay_pattern = 'monthly'
+          calculator.earnings_for_pay_period = 2000
+          calculator.pay_method = 'last_working_day_of_the_month'
+          calculator.work_days = [1, 2, 3, 4, 5]
+
+          assert_equal 919.79, calculator.paydates_and_pay.first[:pay]
+          assert_equal 741.18, calculator.paydates_and_pay.second[:pay]
+          assert_equal 580.72, calculator.paydates_and_pay.third[:pay]
+        end
+      end
     end
 
     context "with an adoption placement date of a week ago" do
