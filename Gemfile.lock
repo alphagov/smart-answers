@@ -132,7 +132,7 @@ GEM
       puma
       selenium-webdriver
       webdrivers
-    hashdiff (0.3.7)
+    hashdiff (0.4.0)
     htmlentities (4.3.4)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -254,7 +254,7 @@ GEM
       rubocop (>= 0.60.0)
     ruby-progressbar (1.10.0)
     rubyzip (1.2.2)
-    safe_yaml (1.0.4)
+    safe_yaml (1.0.5)
     sanitize (5.0.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.8.0)
@@ -336,10 +336,10 @@ GEM
       nokogiri (~> 1.6)
       rubyzip (~> 1.0)
       selenium-webdriver (~> 3.0)
-    webmock (3.5.1)
+    webmock (3.6.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
-      hashdiff
+      hashdiff (>= 0.4.0, < 2.0.0)
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -390,7 +390,7 @@ DEPENDENCIES
   timecop
   uglifier
   uk_postcode (~> 2.1.4)
-  webmock (~> 3.5.1)
+  webmock (~> 3.6.0)
 
 RUBY VERSION
    ruby 2.6.3p62
