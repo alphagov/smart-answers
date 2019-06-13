@@ -315,7 +315,6 @@ module SmartAnswer::Calculators
       angola
       bangladesh
       belarus
-      burma
       burundi
       cameroon
       china
@@ -346,6 +345,7 @@ module SmartAnswer::Calculators
       malawi
       moldova
       mongolia
+      myanmar
       nepal
       nigeria
       north-macedonia
