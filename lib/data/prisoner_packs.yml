@@ -89,9 +89,9 @@
   pdf: /government/publications/bulgaria-prisoner-pack
   lawyer: /government/publications/bulgaria-list-of-lawyers
 - slug: burkina-faso
-- slug: burma
-  pdf: /government/publications/burma-prisoner-pack
-  lawyer: /government/publications/burma-list-of-lawyers
+- slug: myanmar
+  pdf: /government/publications/myanmar-prisoner-pack
+  lawyer: /government/publications/myanmar-list-of-lawyers
 - slug: burundi
 - slug: cambodia
   pdf: /government/publications/cambodia-prisoner-pack

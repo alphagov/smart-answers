@@ -30,10 +30,10 @@
               "postal-code": "",
               "locality": "Rangoon",
               "region": "Rangoon",
-              "country-name": "Burma"
+              "country-name": "Myanmar"
             },
             "label": {
-              "value": "80 Strand Road\r\n(Box No 638)\nRangoon\nRangoon\nBurma"
+              "value": "80 Strand Road\r\n(Box No 638)\nRangoon\nRangoon\nMyanmar"
             }
           },
           "contact_numbers": [
@@ -69,21 +69,21 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-burma",
-      "title": "Department for International Trade Burma",
+      "id": "https://www.gov.uk/api/worldwide-organisations/department-for-international-trade-myanmar",
+      "title": "Department for International Trade Myanmar",
       "format": "Worldwide Organisation",
       "updated_at": "2018-05-29T13:21:13.000+01:00",
-      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-burma",
+      "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-myanmar",
       "details": {
-        "slug": "department-for-international-trade-burma"
+        "slug": "department-for-international-trade-myanmar"
       },
       "analytics_identifier": "WO352",
       "offices": {
         "main": {
-          "title": "Department for International Trade Burma",
+          "title": "Department for International Trade Myanmar",
           "format": "World Office",
           "updated_at": "2013-05-20T10:44:50.000+01:00",
-          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-burma/office/uk-trade-investment-burma",
+          "web_url": "https://www.gov.uk/world/organisations/department-for-international-trade-myanmar/office/uk-trade-investment-myanmar",
           "details": {
             "email": "UKTI.Rangoon@fco.gov.uk",
             "description": "",
@@ -98,10 +98,10 @@
               "postal-code": "(Box No 638)",
               "locality": "Rangoon",
               "region": "",
-              "country-name": "Burma"
+              "country-name": "Myanmar"
             },
             "label": {
-              "value": "British Embassy Rangoon\n80 Strand Road \nRangoon\n(Box No 638)\nBurma"
+              "value": "British Embassy Rangoon\n80 Strand Road \nRangoon\n(Box No 638)\nMyanmar"
             }
           },
           "contact_numbers": [
@@ -129,21 +129,21 @@
       ]
     },
     {
-      "id": "https://www.gov.uk/api/worldwide-organisations/dfid-burma",
-      "title": "DFID Burma",
+      "id": "https://www.gov.uk/api/worldwide-organisations/dfid-myanmar",
+      "title": "DFID Myanmar",
       "format": "Worldwide Organisation",
       "updated_at": "2014-03-25T14:24:31.000+00:00",
-      "web_url": "https://www.gov.uk/world/organisations/dfid-burma",
+      "web_url": "https://www.gov.uk/world/organisations/dfid-myanmar",
       "details": {
-        "slug": "dfid-burma"
+        "slug": "dfid-myanmar"
       },
       "analytics_identifier": "WO234",
       "offices": {
         "main": {
-          "title": "DFID Burma",
+          "title": "DFID Myanmar",
           "format": "World Office",
           "updated_at": "2013-03-25T10:37:54.000+00:00",
-          "web_url": "https://www.gov.uk/world/organisations/dfid-burma/office/dfid-burma",
+          "web_url": "https://www.gov.uk/world/organisations/dfid-myanmar/office/dfid-myanmar",
           "details": {
             "email": "enquiry@dfid.gov.uk",
             "description": "",
@@ -158,10 +158,10 @@
               "postal-code": "",
               "locality": "Yangon",
               "region": "",
-              "country-name": "Burma"
+              "country-name": "myanmar"
             },
             "label": {
-              "value": "British Embassy\r\n80 Strand Road\nYangon\nBurma"
+              "value": "British Embassy\r\n80 Strand Road\nYangon\Myanmar"
             }
           },
           "contact_numbers": [
@@ -202,7 +202,7 @@
     "status": "ok",
     "links": [
       {
-        "href": "https://www.gov.uk/api/world-locations/burma/organisations?page=1",
+        "href": "https://www.gov.uk/api/world-locations/myanmar/organisations?page=1",
         "rel": "self"
       }
     ]
