@@ -11,6 +11,8 @@ module SmartAnswer
           option "2015-10-01"
           option "2014-10-01"
           option "2013-10-01"
+          option "2013-10-01"
+          option "2012-10-01"
 
           next_node do |response|
             calculator.date = Date.parse(response)
