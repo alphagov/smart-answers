@@ -170,7 +170,7 @@ GEM
     minitest (5.11.3)
     minitest-focus (1.1.2)
       minitest (>= 4, < 6)
-    mocha (1.8.0)
+    mocha (1.9.0)
       metaclass (~> 0.0.1)
     multipart-post (2.1.1)
     netrc (0.11.0)
@@ -369,7 +369,7 @@ DEPENDENCIES
   method_source
   minitest (~> 5.11)
   minitest-focus (~> 1.1, >= 1.1.2)
-  mocha (= 1.8.0)
+  mocha (= 1.9.0)
   nokogiri
   parser
   plek (= 3.0.0)
