@@ -117,7 +117,7 @@ GEM
     govuk_frontend_toolkit (8.2.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-    govuk_publishing_components (17.1.1)
+    govuk_publishing_components (17.3.0)
       gds-api-adapters
       govuk_app_config
       govuk_frontend_toolkit
@@ -273,7 +273,7 @@ GEM
     sassc (2.0.1)
       ffi (~> 1.9)
       rake
-    sassc-rails (2.1.1)
+    sassc-rails (2.1.2)
       railties (>= 4.0.0)
       sassc (>= 2.0)
       sprockets (> 3.0)
@@ -361,7 +361,7 @@ DEPENDENCIES
   govuk-lint
   govuk_app_config
   govuk_frontend_toolkit (>= 7.5.0)
-  govuk_publishing_components (= 17.1.1)
+  govuk_publishing_components (= 17.3.0)
   govuk_test
   htmlentities (~> 4)
   json
