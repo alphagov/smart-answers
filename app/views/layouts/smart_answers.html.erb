@@ -6,6 +6,12 @@
   <%= javascript_include_tag "application", defer: true %>
 <% end %>
 
+<% if defined?(@presenter.finished?) and @presenter.finished? %>
+  <div class="govuk-width-container">
+    <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: @content_item %>
+  </div>
+<% end %>
+
 <div class="grid-row">
   <%= render partial: "smart_answers/heroku_alert" if heroku? %>
 
