@@ -83,59 +83,7 @@ module SmartAnswer
           end
 
           next_node do
-            question :adoption_did_the_employee_work_for_you?
-          end
-        end
-
-        multiple_choice :adoption_did_the_employee_work_for_you? do
-          option :yes
-          option :no
-
-          next_node do |response|
-            case response
-            when 'yes'
-              question :adoption_employment_contract?
-            when 'no'
-              outcome :adoption_not_entitled_to_leave_or_pay
-            end
-          end
-        end
-
-        multiple_choice :adoption_employment_contract? do
-          option :yes
-          option :no
-
-          on_response do |response|
-            calculator.employee_has_contract_adoption = response
-          end
-
-          next_node do
-            question :adoption_is_the_employee_on_your_payroll?
-          end
-        end
-
-        multiple_choice :adoption_is_the_employee_on_your_payroll? do
-          option :yes
-          option :no
-
-          on_response do |response|
-            calculator.on_payroll = response
-          end
-
-          calculate :to_saturday do
-            calculator.matched_week.last
-          end
-
-          calculate :to_saturday_formatted do
-            calculator.format_date_day to_saturday
-          end
-
-          next_node do
-            if calculator.no_contract_not_on_payroll?
-              outcome :adoption_not_entitled_to_leave_or_pay
-            else
-              question :adoption_date_leave_starts?
-            end
+            question :adoption_date_leave_starts?
           end
         end
 
@@ -176,7 +124,59 @@ module SmartAnswer
             if calculator.has_contract_not_on_payroll?
               outcome :adoption_leave_and_pay
             else
-              question :last_normal_payday_adoption?
+              question :adoption_employment_contract?
+            end
+          end
+        end
+
+        multiple_choice :adoption_employment_contract? do
+          option :yes
+          option :no
+
+          on_response do |response|
+            calculator.employee_has_contract_adoption = response
+          end
+
+          next_node do
+            question :adoption_did_the_employee_work_for_you?
+          end
+        end
+
+        multiple_choice :adoption_did_the_employee_work_for_you? do
+          option :yes
+          option :no
+
+          next_node do |response|
+            case response
+            when 'yes'
+              question :adoption_is_the_employee_on_your_payroll?
+            when 'no'
+              outcome :adoption_not_entitled_to_leave_or_pay
+            end
+          end
+        end
+
+        multiple_choice :adoption_is_the_employee_on_your_payroll? do
+          option :yes
+          option :no
+
+          on_response do |response|
+            calculator.on_payroll = response
+          end
+
+          calculate :to_saturday do
+            calculator.matched_week.last
+          end
+
+          calculate :to_saturday_formatted do
+            calculator.format_date_day to_saturday
+          end
+
+          next_node do
+            if calculator.no_contract_not_on_payroll?
+              outcome :adoption_not_entitled_to_leave_or_pay
+            else
+              question :adoption_date_leave_starts?
             end
           end
         end
