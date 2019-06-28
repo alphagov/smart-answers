@@ -37,6 +37,10 @@ module SmartAnswer::Calculators
       employee_has_contract_adoption == 'yes' && on_payroll == 'no'
     end
 
+    def a_leave_employment_threshold
+      26.weeks.ago(leave_start_date)
+    end
+
   private
 
     def rate_for(date)

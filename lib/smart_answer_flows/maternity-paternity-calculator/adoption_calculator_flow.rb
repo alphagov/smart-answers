@@ -83,7 +83,11 @@ module SmartAnswer
           end
 
           next_node do
-            question :adoption_did_the_employee_work_for_you?
+            if adoption_is_from_overseas
+              question :adoption_date_leave_starts?
+            else
+              question :adoption_did_the_employee_work_for_you?
+            end
           end
         end
 
@@ -94,7 +98,11 @@ module SmartAnswer
           next_node do |response|
             case response
             when 'yes'
-              question :adoption_employment_contract?
+              if adoption_is_from_overseas
+                question :adoption_is_the_employee_on_your_payroll?
+              else
+                question :adoption_employment_contract?
+              end
             when 'no'
               outcome :adoption_not_entitled_to_leave_or_pay
             end
@@ -110,7 +118,11 @@ module SmartAnswer
           end
 
           next_node do
-            question :adoption_is_the_employee_on_your_payroll?
+            if adoption_is_from_overseas
+              question :adoption_did_the_employee_work_for_you?
+            else
+              question :adoption_is_the_employee_on_your_payroll?
+            end
           end
         end
 
@@ -133,6 +145,8 @@ module SmartAnswer
           next_node do
             if calculator.no_contract_not_on_payroll?
               outcome :adoption_not_entitled_to_leave_or_pay
+            elsif adoption_is_from_overseas
+              question :last_normal_payday_adoption?
             else
               question :adoption_date_leave_starts?
             end
@@ -172,8 +186,14 @@ module SmartAnswer
             calculator.format_date calculator.a_notice_leave
           end
 
+          calculate :a_leave_employment_threshold do
+            calculator.a_leave_employment_threshold
+          end
+
           next_node do
-            if calculator.has_contract_not_on_payroll?
+            if adoption_is_from_overseas
+              question :adoption_employment_contract?
+            elsif calculator.has_contract_not_on_payroll?
               outcome :adoption_leave_and_pay
             else
               question :last_normal_payday_adoption?
