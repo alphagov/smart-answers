@@ -186,8 +186,8 @@ module SmartAnswer
             calculator.format_date calculator.a_notice_leave
           end
 
-          calculate :a_leave_employment_threshold do
-            calculator.a_leave_employment_threshold
+          calculate :overseas_adoption_leave_employment_threshold do
+            calculator.overseas_adoption_leave_employment_threshold
           end
 
           next_node do
