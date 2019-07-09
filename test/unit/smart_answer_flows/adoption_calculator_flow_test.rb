@@ -104,6 +104,10 @@ module SmartAnswer
             .answer_with(Date.parse("1 November 2017"))
         end
 
+        should "ask adoption_date_leave_starts next" do
+          assert_node_has_name(:adoption_date_leave_starts?, @question.next_node)
+        end
+
         should "have an earliest start date of 1 November 2017" do
           assert_equal(Date.parse("1 November 2017"), @question.next_node.a_leave_earliest_start)
         end
@@ -115,86 +119,165 @@ module SmartAnswer
     end
 
     context "when answering adoption_did_the_employee_work_for_you?" do
-      setup do
-        @question = TestNode.new(@flow, :adoption_did_the_employee_work_for_you?)
+      context "with an adoption from the uk" do
+        setup do
+          @question = TestNode.new(@flow, :adoption_did_the_employee_work_for_you?)
+          @question.with(adoption_is_from_overseas: false)
+        end
+
+        should "respond to 'yes' with adoption_employment_contract?" do
+          @question.answer_with("yes")
+          assert_node_has_name(:adoption_employment_contract?, @question.next_node)
+        end
+
+        should "respond to 'no' with adoption_not_entitled_to_leave_or_pay" do
+          @question.answer_with("no")
+          assert_node_has_name(:adoption_not_entitled_to_leave_or_pay, @question.next_node)
+        end
       end
 
-      should "respond to 'yes' with adoption_employment_contract?" do
-        @question.answer_with("yes")
-        assert_node_has_name(:adoption_employment_contract?, @question.next_node)
-      end
+      context "with an adoption from overseas" do
+        setup do
+          @question = TestNode.new(@flow, :adoption_did_the_employee_work_for_you?)
+          @question.with(adoption_is_from_overseas: true)
+        end
 
-      should "respond to 'no' with adoption_not_entitled_to_leave_or_pay" do
-        @question.answer_with("no")
-        assert_node_has_name(:adoption_not_entitled_to_leave_or_pay, @question.next_node)
+        should "respond to 'yes' with adoption_is_the_employee_on_your_payroll?" do
+          @question.answer_with("yes")
+          assert_node_has_name(:adoption_is_the_employee_on_your_payroll?, @question.next_node)
+        end
+
+        should "respond to 'no' with adoption_not_entitled_to_leave_or_pay" do
+          @question.answer_with("no")
+          assert_node_has_name(:adoption_not_entitled_to_leave_or_pay, @question.next_node)
+        end
       end
     end
 
     context "when answering adoption_employment_contract?" do
-      setup do
-        @question = TestNode.new(@flow, :adoption_employment_contract?)
-          .with_stubbed_calculator
+      context "with an adoption from the UK" do
+        setup do
+          @question = TestNode.new(@flow, :adoption_employment_contract?)
+            .with_stubbed_calculator
+          @question.with(adoption_is_from_overseas: false)
+        end
+
+        should "respond with adoption_is_the_employee_on_your_payroll?" do
+          @question.answer_with("yes")
+          assert_node_has_name(:adoption_is_the_employee_on_your_payroll?, @question.next_node)
+        end
       end
 
-      should "respond with adoption_is_the_employee_on_your_payroll?" do
-        @question.answer_with("yes")
-        assert_node_has_name(:adoption_is_the_employee_on_your_payroll?, @question.next_node)
+      context "with an adoption from overseas" do
+        setup do
+          @question = TestNode.new(@flow, :adoption_employment_contract?)
+            .with_stubbed_calculator
+          @question.with(adoption_is_from_overseas: true)
+        end
+
+        should "respond with adoption_did_the_employee_work_for_you?" do
+          @question.answer_with("yes")
+          assert_node_has_name(:adoption_did_the_employee_work_for_you?, @question.next_node)
+        end
       end
     end
 
     context "when answering adoption_is_the_employee_on_your_payroll?" do
-      setup do
-        @question = TestNode.new(@flow, :adoption_is_the_employee_on_your_payroll?)
-          .with_stubbed_calculator(matched_week: [])
+      context "with an adoption from the UK" do
+        setup do
+          @question = TestNode.new(@flow, :adoption_is_the_employee_on_your_payroll?)
+            .with_stubbed_calculator(matched_week: [])
+          @question.with(adoption_is_from_overseas: false)
+        end
+
+        should "respond to no contract and not on the payroll with 'adoption_not_entitled_to_leave_or_pay'" do
+          @question
+            .with_stubbed_calculator(no_contract_not_on_payroll?: true)
+            .answer_with("no")
+
+          assert_node_has_name(:adoption_not_entitled_to_leave_or_pay, @question.next_node)
+        end
+
+        should "respond to no contract and is on the payroll with adoption_date_leave_starts?" do
+          @question
+            .with_stubbed_calculator(no_contract_not_on_payroll?: false)
+            .answer_with("yes")
+
+          assert_node_has_name(:adoption_date_leave_starts?, @question.next_node)
+        end
       end
 
-      should "respond to no contract and not on the payroll with 'adoption_not_entitled_to_leave_or_pay'" do
-        @question
-          .with_stubbed_calculator(no_contract_not_on_payroll?: true)
-          .answer_with("no")
+      context "with an adoption from overseas" do
+        setup do
+          @question = TestNode.new(@flow, :adoption_is_the_employee_on_your_payroll?)
+            .with_stubbed_calculator(matched_week: [])
+          @question.with(adoption_is_from_overseas: true)
+        end
 
-        assert_node_has_name(:adoption_not_entitled_to_leave_or_pay, @question.next_node)
-      end
+        should "respond to no contract and not on the payroll with 'adoption_not_entitled_to_leave_or_pay'" do
+          @question
+            .with_stubbed_calculator(no_contract_not_on_payroll?: true)
+            .answer_with("no")
 
-      should "respond to no contract and is on the payroll with adoption_date_leave_starts?" do
-        @question
-          .with_stubbed_calculator(no_contract_not_on_payroll?: false)
-          .answer_with("yes")
+          assert_node_has_name(:adoption_not_entitled_to_leave_or_pay, @question.next_node)
+        end
 
-        assert_node_has_name(:adoption_date_leave_starts?, @question.next_node)
+        should "respond to no contract and is on the payroll with last_normal_payday_adoption?" do
+          @question
+            .with_stubbed_calculator(no_contract_not_on_payroll?: false)
+            .answer_with("yes")
+
+          assert_node_has_name(:last_normal_payday_adoption?, @question.next_node)
+        end
       end
     end
 
     context "when answering adoption_date_leave_starts?" do
-      setup do
-        @question = TestNode.new(@flow, :adoption_date_leave_starts?)
-      end
-
-      context "with a valid start date" do
+      context "with valid dates" do
         setup do
+          @question = TestNode.new(@flow, :adoption_date_leave_starts?)
           @question
-            .with(a_leave_earliest_start: Date.parse("1 November 2017"))
-            .with(a_leave_latest_start: Date.parse("16 November 2017"))
-            .answer_with(Date.parse("15 November 2017"))
+              .with(a_leave_earliest_start: Date.parse("1 November 2017"))
+              .with(a_leave_latest_start: Date.parse("16 November 2017"))
+              .answer_with(Date.parse("15 November 2017"))
         end
 
-        should "respond to having a contract and not being on the payroll with adoption_leave_and_pay" do
-          @question.with_stubbed_calculator(has_contract_not_on_payroll?: true)
-          assert_node_has_name(:adoption_leave_and_pay, @question.next_node)
+        context "with an adoption from the UK" do
+          setup do
+            @question.with(adoption_is_from_overseas: false)
+          end
+
+          should "respond to having a contract and not being on the payroll with adoption_leave_and_pay" do
+            @question.with_stubbed_calculator(has_contract_not_on_payroll?: true)
+            assert_node_has_name(:adoption_leave_and_pay, @question.next_node)
+          end
+
+          should "respond to having no contract and not being on the payroll with last_normal_payday_adoption?" do
+            @question.with_stubbed_calculator(has_contract_not_on_payroll?: false)
+            assert_node_has_name(:last_normal_payday_adoption?, @question.next_node)
+          end
         end
 
-        should "respond to having no contract and not being on the payroll with last_normal_payday_adoption?" do
-          @question.with_stubbed_calculator(has_contract_not_on_payroll?: false)
-          assert_node_has_name(:last_normal_payday_adoption?, @question.next_node)
+        context "with an adoption from overseas" do
+          setup do
+            @question.with(adoption_is_from_overseas: true)
+          end
+
+          should "respond with adoption_employment_contract" do
+            @question.with_stubbed_calculator(has_contract_not_on_payroll?: true)
+            assert_node_has_name(:adoption_employment_contract?, @question.next_node)
+          end
         end
       end
 
       context "with invalid dates" do
         setup do
+          @question = TestNode.new(@flow, :adoption_date_leave_starts?)
           @question
             .with_stubbed_calculator
             .with(a_leave_earliest_start: Date.parse("2 November 2017"))
             .with(a_leave_latest_start: Date.parse("29 November 2017"))
+          @question.with(adoption_is_from_overseas: true)
         end
 
         should "raise an InvalidResponse when leave starts before the earliest date" do
