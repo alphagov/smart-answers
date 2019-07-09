@@ -191,5 +191,16 @@ module SmartAnswer::Calculators
         assert_equal 25, (Date.parse("2012 Jul 21").julian - Date.parse("2012 Jan 28").julian).to_i / 7
       end
     end
+
+    context "with an overseas adoption" do
+      should "make the latest date of employment 26 weeks before the requested leave start date" do
+        matched_date = Date.parse("2012 Jul 18")
+        calculator = AdoptionPayCalculator.new(matched_date)
+        calculator.adoption_placement_date = Date.parse("2013 Jan 01")
+        calculator.leave_start_date = Date.parse("2013 Jan 01")
+
+        assert_equal Date.parse("2012 Jul 03"), calculator.overseas_adoption_leave_employment_threshold
+      end
+    end
   end
 end
