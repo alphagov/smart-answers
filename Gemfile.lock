@@ -118,7 +118,7 @@ GEM
     govuk_frontend_toolkit (8.2.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-    govuk_publishing_components (17.12.1)
+    govuk_publishing_components (17.12.2)
       gds-api-adapters
       govuk_app_config
       govuk_frontend_toolkit
@@ -243,7 +243,7 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rinku (2.0.6)
-    rouge (3.5.1)
+    rouge (3.6.0)
     rubocop (0.72.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
@@ -365,7 +365,7 @@ DEPENDENCIES
   govuk-lint
   govuk_app_config
   govuk_frontend_toolkit (>= 7.5.0)
-  govuk_publishing_components (= 17.12.1)
+  govuk_publishing_components (= 17.12.2)
   govuk_test
   htmlentities (~> 4)
   json
