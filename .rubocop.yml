@@ -1,3 +1,6 @@
 AllCops:
   Exclude:
     - 'tmp/**/*'
+Style/NumericPredicate:
+  Exclude:
+    - 'lib/smart_answer_flows/childcare-costs-for-tax-credits.rb'
