@@ -280,7 +280,7 @@ module SmartAnswer
 
         next_node do |response|
           amount = SmartAnswer::Money.new(response)
-          amount == 0 ? outcome(:no_longer_paying) : question(:old_weekly_amount_3?)
+          amount == 0 ? outcome(:no_longer_paying) : question(:old_monthly_amount?)
         end
       end
 
@@ -306,9 +306,9 @@ module SmartAnswer
       end
 
       #Q21
-      money_question :old_weekly_amount_3? do
+      money_question :old_monthly_amount? do
         calculate :old_weekly_costs do |response|
-          Float(response).ceil
+          Calculators::ChildcareCostCalculator.weekly_cost_from_monthly(response)
         end
 
         calculate :weekly_difference do
