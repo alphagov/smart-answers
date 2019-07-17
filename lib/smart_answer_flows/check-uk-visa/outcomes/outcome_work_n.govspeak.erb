@@ -22,6 +22,12 @@
   ### Documents you need
   You must show officers at the UK border that you’re eligible for a Permitted Paid Engagement visa, even if you don’t need one.
 
+  <% if calculator.passport_country_in_epassport_gate_list? %>
+    ^You must see a Border Force officer to get a stamp in your passport - do not use the automatic ePassport gates.^
+
+    Without a stamp you will not be able to carry out the activities you came to the UK to do.
+  <% end %>
+
   Check which [documents you must bring](/permitted-paid-engagement-visa/documents-you-must-provide).
 
   ## If you come for other business or academic activities
@@ -55,7 +61,15 @@
   - in [work covered by international law](/tier-5-international-agreement), eg for a foreign government or as a private servant in a diplomatic household
 
   ### If your stay is less than 3 months
-  You don't need a visa for [qualifying work](/tier-5-temporary-worker-creative-and-sporting-visa/overview) in sports, arts or entertainment if you're coming to the UK for less than 3 months.
+  <% if calculator.passport_country_in_epassport_gate_list? %>
+    You do not need a visa for [qualifying work](/tier-5-temporary-worker-creative-and-sporting-visa/tier-5-creative-and-sporting-concession) in sports, arts, or entertainment if you’re coming to the UK for 3 months or less using the Tier 5 (Temporary Worker - Creative and Sporting) concession.
 
-  You must bring a [certificate of sponsorship](/tier-5-temporary-worker-creative-and-sporting-visa/eligibility) and [evidence of savings](/tier-5-temporary-worker-creative-and-sporting-visa/documents-you-must-provide) to show officers at the UK border.
+    You must bring a [certificate of sponsorship](/tier-5-temporary-worker-creative-and-sporting-visa/eligibility) and [evidence of savings](/tier-5-temporary-worker-creative-and-sporting-visa/documents-you-must-provide) to show officers at the UK border.
+
+    ^You must see a Border Force officer - do not use the automatic ePassport gates.^
+  <% else %>
+    You don't need a visa for [qualifying work](/tier-5-temporary-worker-creative-and-sporting-visa/overview) in sports, arts or entertainment if you're coming to the UK for less than 3 months.
+
+    You must bring a [certificate of sponsorship](/tier-5-temporary-worker-creative-and-sporting-visa/eligibility) and [evidence of savings](/tier-5-temporary-worker-creative-and-sporting-visa/documents-you-must-provide) to show officers at the UK border.
+  <% end %>
 <% end %>
