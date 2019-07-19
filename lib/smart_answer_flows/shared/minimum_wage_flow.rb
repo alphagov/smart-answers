@@ -2,23 +2,6 @@ module SmartAnswer
   module Shared
     class MinimumWageFlow < Flow
       def define
-        # Q1A
-        multiple_choice :past_payment_date? do
-          option "2018-04-01"
-          option "2017-04-01"
-          option "2016-10-01"
-          option "2016-04-01"
-          option "2015-10-01"
-          option "2014-10-01"
-          option "2013-10-01"
-          option "2012-10-01"
-
-          next_node do |response|
-            calculator.date = Date.parse(response)
-            question :were_you_an_apprentice?
-          end
-        end
-
         # Q2
         multiple_choice :are_you_an_apprentice? do
           option "not_an_apprentice"
@@ -124,7 +107,7 @@ module SmartAnswer
         money_question :how_much_are_you_paid_during_pay_period? do
           next_node do |response|
             calculator.basic_pay = Float(response)
-            question :how_many_hours_overtime_do_you_work?
+            question :is_provided_with_accommodation?
           end
         end
 
@@ -132,54 +115,6 @@ module SmartAnswer
         money_question :how_much_were_you_paid_during_pay_period? do
           next_node do |response|
             calculator.basic_pay = Float(response)
-            question :how_many_hours_overtime_did_you_work?
-          end
-        end
-
-        # Q7
-        value_question :how_many_hours_overtime_do_you_work?, parse: Float do
-          validate do |response|
-            calculator.valid_overtime_hours_worked?(response)
-          end
-
-          next_node do |response|
-            calculator.overtime_hours = response
-            if calculator.any_overtime_hours_worked?
-              question :what_is_overtime_pay_per_hour?
-            else
-              question :is_provided_with_accommodation?
-            end
-          end
-        end
-
-        # Q7 Past
-        value_question :how_many_hours_overtime_did_you_work?, parse: Float do
-          validate do |response|
-            calculator.valid_overtime_hours_worked?(response)
-          end
-
-          next_node do |response|
-            calculator.overtime_hours = response
-            if calculator.any_overtime_hours_worked?
-              question :what_was_overtime_pay_per_hour?
-            else
-              question :was_provided_with_accommodation?
-            end
-          end
-        end
-
-        # Q8
-        money_question :what_is_overtime_pay_per_hour? do
-          next_node do |response|
-            calculator.overtime_hourly_rate = Float(response)
-            question :is_provided_with_accommodation?
-          end
-        end
-
-        # Q8 Past
-        money_question :what_was_overtime_pay_per_hour? do
-          next_node do |response|
-            calculator.overtime_hourly_rate = Float(response)
             question :was_provided_with_accommodation?
           end
         end

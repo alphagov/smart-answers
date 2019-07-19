@@ -25,7 +25,7 @@ module SmartAnswer
           when 'current_payment'
             question :are_you_an_apprentice?
           when 'past_payment'
-            question :past_payment_date?
+            question :were_you_an_apprentice?
           end
         end
       end
