@@ -1,7 +1,7 @@
 module SmartAnswer::Calculators
   class MinimumWageCalculator
     attr_accessor :age, :pay_frequency, :basic_hours, :basic_pay, :is_apprentice,
-    :accommodation_cost, :job_requirements_charge, :paid_time_outside_shift
+    :accommodation_cost, :job_requirements_charge
     attr_reader :date
 
     def initialize(params = {})
@@ -14,7 +14,6 @@ module SmartAnswer::Calculators
       @accommodation_cost = 0
       @minimum_wage_data = rates_for_date(@date)
       @job_requirements_charge = false
-      @paid_time_outside_shift = false
     end
 
     def date=(date)
