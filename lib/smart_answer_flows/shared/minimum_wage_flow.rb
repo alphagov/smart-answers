@@ -237,7 +237,11 @@ module SmartAnswer
             when 'yes'
               question :current_paid_for_work_outside_shift?
             when 'no'
-              outcome :current_payment_below
+              if !calculator.job_requirements_charge && calculator.minimum_wage_or_above?
+                outcome :current_payment_above
+              else
+                outcome :current_payment_below
+              end
             end
           end
         end
@@ -252,7 +256,11 @@ module SmartAnswer
             when 'yes'
               question :past_paid_for_work_outside_shift?
             when 'no'
-              outcome :current_payment_below
+              if !calculator.job_requirements_charge && calculator.minimum_wage_or_above?
+                outcome :past_payment_above
+              else
+                outcome :past_payment_below
+              end
             end
           end
         end
@@ -265,8 +273,11 @@ module SmartAnswer
           next_node do |response|
             case response
             when 'yes'
-              calculator.paid_time_outside_shift = true
-              outcome :current_payment_above
+              if !calculator.job_requirements_charge && calculator.minimum_wage_or_above?
+                outcome :current_payment_above
+              else
+                outcome :current_payment_below
+              end
             when 'no'
               outcome :current_payment_below
             end
@@ -280,10 +291,13 @@ module SmartAnswer
           next_node do |response|
             case response
             when 'yes'
-              calculator.paid_time_outside_shift = true
-              outcome :current_payment_above
+              if !calculator.job_requirements_charge && calculator.minimum_wage_or_above?
+                outcome :past_payment_above
+              else
+                outcome :past_payment_below
+              end
             when 'no'
-              outcome :current_payment_below
+              outcome :past_payment_below
             end
           end
         end
