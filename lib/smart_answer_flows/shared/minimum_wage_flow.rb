@@ -221,6 +221,18 @@ module SmartAnswer
           end
         end
 
+        # Q12
+        multiple_choice :does_your_employer_take_money_from_your_pay_for_things_you_need_for_your_job? do
+          option "yes"
+          option "no"
+
+          next_node do
+            question :do_you_work_additional_time_outside_your_shift?
+          end
+
+          save_input_as :job_charge
+        end
+
         outcome :current_payment_above
         outcome :current_payment_below
 
