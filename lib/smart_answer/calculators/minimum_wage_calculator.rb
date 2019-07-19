@@ -1,9 +1,7 @@
 module SmartAnswer::Calculators
   class MinimumWageCalculator
     attr_accessor :age, :pay_frequency, :basic_hours, :basic_pay, :is_apprentice,
-      :overtime_hours, :overtime_hourly_rate, :accommodation_cost, :job_requirements_charge,
-      :paid_time_outside_shift
-
+    :accommodation_cost, :job_requirements_charge, :paid_time_outside_shift
     attr_reader :date
 
     def initialize(params = {})
@@ -13,8 +11,6 @@ module SmartAnswer::Calculators
       @basic_pay = params[:basic_pay].to_f
       @is_apprentice = params[:is_apprentice]
       @pay_frequency = params[:pay_frequency] || 7
-      @overtime_hours = params[:overtime_hours].to_i
-      @overtime_hourly_rate = 0
       @accommodation_cost = 0
       @minimum_wage_data = rates_for_date(@date)
       @job_requirements_charge = false
@@ -36,10 +32,6 @@ module SmartAnswer::Calculators
 
     def valid_hours_worked?(hours_worked)
       hours_worked > 0 && hours_worked <= (@pay_frequency * 16)
-    end
-
-    def valid_overtime_hours_worked?(overtime_hours_worked)
-      overtime_hours_worked >= 0
     end
 
     def valid_accommodation_charge?(accommodation_charge)
@@ -75,16 +67,11 @@ module SmartAnswer::Calculators
     end
 
     def total_hours
-      (@basic_hours + overtime_hours).round(2)
-    end
-
-    def total_overtime_pay
-      @overtime_hourly_rate = basic_hourly_rate if overtime_hourly_rate > basic_hourly_rate
-      (@overtime_hours * overtime_hourly_rate).round(2)
+      @basic_hours.round(2)
     end
 
     def total_pay
-      (basic_total + total_overtime_pay + @accommodation_cost).round(2)
+      (basic_total + @accommodation_cost).round(2)
     end
 
     def total_hourly_rate
@@ -172,10 +159,6 @@ module SmartAnswer::Calculators
 
     def historically_receiving_minimum_wage?
       historical_adjustment <= 0
-    end
-
-    def any_overtime_hours_worked?
-      overtime_hours > 0
     end
 
   protected
