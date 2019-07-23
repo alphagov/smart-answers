@@ -92,7 +92,7 @@ GEM
       rest-client (~> 2.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    govspeak (6.3.0)
+    govspeak (6.4.0)
       actionview (~> 5.0)
       addressable (>= 2.3.8, < 3)
       govuk_publishing_components (>= 16.16)
@@ -182,7 +182,7 @@ GEM
     nokogumbo (2.0.1)
       nokogiri (~> 1.8, >= 1.8.4)
     null_logger (0.0.1)
-    oj (3.8.0)
+    oj (3.8.1)
     parallel (1.17.0)
     parser (2.6.3.0)
       ast (~> 2.4.0)
@@ -361,7 +361,7 @@ DEPENDENCIES
   byebug
   ci_reporter
   gds-api-adapters (~> 59.6.0)
-  govspeak (~> 6.3.0)
+  govspeak (~> 6.4.0)
   govuk-content-schema-test-helpers (~> 1.6.1)
   govuk-lint
   govuk_app_config
