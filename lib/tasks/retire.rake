@@ -7,8 +7,9 @@ namespace :retire do
 
     content_item_publisher = ContentItemPublisher.new
 
-    content_item_publisher.unpublish(args.content_id)
-    content_item_publisher.publish_redirect(args.base_path, args.destination)
+    content_item_publisher.unpublish_with_redirect(
+      args.content_id, args.base_path, args.destination
+    )
   end
 
   desc "Unpublish a smart answer from publishing-api"

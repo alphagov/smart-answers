@@ -21,6 +21,25 @@ class ContentItemPublisher
     )
   end
 
+  def unpublish_with_redirect(content_id, path, destination)
+    raise "Content id has not been supplied" unless content_id.present?
+    raise "Path has not been supplied" unless path.present?
+    raise "Destination has not been supplied" unless destination.present?
+
+    Services.publishing_api.unpublish(
+      content_id,
+      type: "redirect",
+      redirects: [
+        {
+          path: path,
+          type: :prefix,
+          destination: destination,
+          segments_mode: :ignore
+        }
+      ]
+    )
+  end
+
   def unpublish_with_vanish(content_id)
     raise "Content id has not been supplied" unless content_id.present?
 
