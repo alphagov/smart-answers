@@ -240,7 +240,7 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
                 end
               end
 
-              context "answer no to contract" do
+              context "answer no to contract but on payroll" do
                 setup do
                   add_response :no
                   add_response :yes # on payroll
@@ -287,40 +287,63 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
           context "answer 2 February 2014" do
             setup { add_response Date.parse("2 February 2014") }
 
-            should "ask if the employee worked for you" do
-              assert_current_node :adoption_did_the_employee_work_for_you?
+            should "ask when does leave start" do
+              assert_current_node :adoption_date_leave_starts?
             end
 
-            context "answer yes - worked long enough" do
-              setup { add_response :yes }
+            context "give leave start date of 3 February 2014" do
+              setup { add_response Date.parse("3 February 2014") }
 
               should "ask if the employee has a contract" do
                 assert_current_node :adoption_employment_contract?
               end
 
+              context "answer no to contract" do
+                setup { add_response :no }
+
+                should "go to adoption_did_the_employee_work_for_you" do
+                  assert_current_node :adoption_did_the_employee_work_for_you?
+                end
+
+                context "answer no - not worked long enough" do
+                  setup { add_response :no }
+
+                  should "go to outcome not entitled to leave or pay" do
+                    assert_current_node :adoption_not_entitled_to_leave_or_pay
+                  end
+                end
+
+                context "answer yes - has worked long enough" do
+                  setup { add_response :yes }
+
+                  should "ask if the employee is on your payroll" do
+                    assert_current_node :adoption_is_the_employee_on_your_payroll?
+                  end
+                end
+              end
+
               context "answer yes to contract" do
                 setup { add_response :yes }
 
-                should "ask if the employee is on your payroll" do
-                  assert_equal 'yes', current_state.calculator.employee_has_contract_adoption
-                  assert_current_node :adoption_is_the_employee_on_your_payroll?
+                should "ask if the employee worked for you" do
+                  assert_current_node :adoption_did_the_employee_work_for_you?
                 end
 
-                should 'render the question title with an interpolated date' do
-                  nodes = Capybara.string(current_question.to_s)
-                  assert nodes.has_content?('Was the employee (or will they be) on your payroll on')
-                end
-
-                context "answer yes" do
+                context "answer yes - worked long enough" do
                   setup { add_response :yes }
 
-                  should "ask when does leave start" do
-                    assert_current_node :adoption_date_leave_starts?
+                  should "ask if the employee is on your payroll" do
+                    assert_equal 'yes', current_state.calculator.employee_has_contract_adoption
+                    assert_current_node :adoption_is_the_employee_on_your_payroll?
                   end
 
-                  context "give leave start date of 3 February 2014" do
-                    setup { add_response Date.parse("3 February 2014") }
+                  should 'render the question title with an interpolated date' do
+                    nodes = Capybara.string(current_question.to_s)
+                    assert nodes.has_content?('Was the employee (or will they be) on your payroll on')
+                  end
 
+                  context "answer yes" do
+                    setup { add_response :yes }
                     should "ask for last normal payday" do
                       assert_current_node :last_normal_payday_adoption?
                     end
@@ -455,63 +478,23 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
                       end
                     end
                   end
-                end
 
-                context "answer not on payroll but has contract" do
-                  setup do
-                    add_response :no
-                    add_response Date.parse("3 February 2014") # leave start date
-                  end
+                  context "answer no" do
+                    setup { add_response :no }
 
-                  should "go to adoption_leave_and_pay outcome" do
-                    assert_current_node :adoption_leave_and_pay
+                    should "ask for last normal payday" do
+                      assert_current_node :last_normal_payday_adoption?
+                    end
                   end
                 end
-              end
 
-              context "answer no to contract" do
-                setup do
-                  add_response :no # no contract
-                  assert_current_node :adoption_is_the_employee_on_your_payroll?
-                  add_response :no # not on payroll
+                context "answer no - not worked long enough" do
+                  setup { add_response :no }
+
+                  should "go to outcome not entitled to leave or pay" do
+                    assert_current_node :adoption_not_entitled_to_leave_or_pay
+                  end
                 end
-
-                should "go to adoption_not_entitled_to_leave_or_pay outcome" do
-                  assert_current_node :adoption_not_entitled_to_leave_or_pay
-                end
-              end
-
-              context "answer no to contract" do
-                setup do
-                  add_response :no
-                  assert_current_node :adoption_is_the_employee_on_your_payroll?
-                  add_response :yes # on payroll
-                  assert_current_node :adoption_date_leave_starts?
-                  add_response Date.parse("3 February 2014")
-                  assert_current_node :last_normal_payday_adoption?
-                  add_response Date.parse("3 January 2014")
-                  assert_current_node :payday_eight_weeks_adoption?
-                  add_response Date.parse("8 November 2013")
-                  assert_current_node :pay_frequency_adoption?
-                  add_response "monthly"
-                  assert_current_node :earnings_for_pay_period_adoption?
-                  add_response 3000
-                  assert_current_node :how_many_payments_monthly?
-                  add_response "2"
-                  add_response "weekly_starting"
-                end
-
-                should "go through to outcome show pay table but not entitled to leave" do
-                  assert_current_node :adoption_leave_and_pay
-                end
-              end
-            end
-
-            context "answer no - not worked long enough" do
-              setup { add_response :no }
-
-              should "go to outcome not entitled to leave or pay" do
-                assert_current_node :adoption_not_entitled_to_leave_or_pay
               end
             end
           end
