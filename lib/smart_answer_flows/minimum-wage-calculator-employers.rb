@@ -14,8 +14,12 @@ module SmartAnswer
         option "current_payment"
         option "past_payment"
 
-        calculate :calculator do
-          Calculators::MinimumWageCalculator.new
+        calculate :calculator do |response|
+          if response == 'past_payment'
+            Calculators::MinimumWageCalculator.new(date: Date.parse('2018-04-01'))
+          else
+            Calculators::MinimumWageCalculator.new
+          end
         end
 
         calculate :accommodation_charge
@@ -25,7 +29,7 @@ module SmartAnswer
           when 'current_payment'
             question :are_you_an_apprentice?
           when 'past_payment'
-            question :past_payment_date?
+            question :were_you_an_apprentice?
           end
         end
       end
