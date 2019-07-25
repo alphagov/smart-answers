@@ -34,7 +34,7 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
       assert_equal "Missing destination parameter", exception.message
     end
 
-    should "invoke the unpublish and publish_redirect methods from ContentItemPublisher" do
+    should "invoke the unpublish_with_redirect method from ContentItemPublisher" do
       content_item_publisher_mock = ContentItemPublisher.any_instance
 
       content_item_publisher_mock.stubs(:unpublish).returns(nil)
