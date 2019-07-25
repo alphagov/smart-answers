@@ -38,7 +38,6 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
       content_item_publisher_mock = ContentItemPublisher.any_instance
 
       content_item_publisher_mock.stubs(:unpublish).returns(nil)
-      content_item_publisher_mock.stubs(:publish_redirect).returns(nil)
 
       content_item_publisher_mock
         .expects(:unpublish_with_redirect)
@@ -71,35 +70,6 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
       ContentItemPublisher.any_instance.expects(:unpublish).with("content-id").once
 
       Rake::Task["retire:unpublish"].invoke("content-id")
-    end
-  end
-
-  context "retire:redirect rake task" do
-    setup do
-      Rake::Task["retire:publish_redirect"].reenable
-      ContentItemPublisher.any_instance.stubs(:publish_redirect).returns(nil)
-    end
-
-    should "raise exception when path isn't defined" do
-      exception = assert_raises RuntimeError do
-        Rake::Task["retire:publish_redirect"].invoke(nil, "/destination-path")
-      end
-
-      assert_equal "Missing path parameter", exception.message
-    end
-
-    should "raise exception when destination isn't defined" do
-      exception = assert_raises RuntimeError do
-        Rake::Task["retire:publish_redirect"].invoke("base-path", nil)
-      end
-
-      assert_equal "Missing destination parameter", exception.message
-    end
-
-    should "invoke the publish_redirect method on ContentItemPublisher" do
-      ContentItemPublisher.any_instance.expects(:publish_redirect).with("/base-path", "/destination-path").once
-
-      Rake::Task["retire:publish_redirect"].invoke("/base-path", "/destination-path")
     end
   end
 

@@ -41,50 +41,6 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
     end
   end
 
-  context "#publish_redirect" do
-    setup do
-      SecureRandom.stubs(:uuid).returns('content-id')
-      create_url = 'https://publishing-api.test.gov.uk/v2/content/content-id'
-      @create_request = stub_request(:put, create_url)
-      publish_url = 'https://publishing-api.test.gov.uk/v2/content/content-id/publish'
-      @publish_request = stub_request(:post, publish_url)
-    end
-
-    should 'send a redirect and publish request to publishing-api' do
-      ContentItemPublisher.new.publish_redirect('/path', '/destination-path')
-
-      assert_requested @create_request
-      assert_requested @publish_request
-    end
-
-    should 'raise exception and not attempt publishing and router requests, when create request fails' do
-      GdsApi::Response.any_instance.stubs(:code).returns(500)
-      exception = assert_raises(RuntimeError) do
-        ContentItemPublisher.new.publish_redirect('/path', '/destination-path')
-      end
-
-      assert_equal "This content item has not been created", exception.message
-      assert_requested @create_request
-      assert_not_requested @publish_request
-    end
-
-    should 'raises exception if destination is not defined' do
-      exception = assert_raises(RuntimeError) do
-        ContentItemPublisher.new.publish_redirect('/path', nil)
-      end
-
-      assert_equal "The destination or path isn't defined", exception.message
-    end
-
-    should 'raises exception if path is not defined' do
-      exception = assert_raises(RuntimeError) do
-        ContentItemPublisher.new.publish_redirect(nil, '/destination-path')
-      end
-
-      assert_equal "The destination or path isn't defined", exception.message
-    end
-  end
-
   context "#reserve_path_for_publishing_app" do
     should 'raise exception if base_path is not supplied' do
       exception = assert_raises(RuntimeError) do

@@ -26,14 +26,6 @@ namespace :retire do
     ContentItemPublisher.new.unpublish_with_vanish(args.content_id)
   end
 
-  desc "Create redirect for a smart answer's paths on the publishing-api"
-  task :publish_redirect, [:path, :destination] => :environment do |_, args|
-    raise "Missing path parameter" unless args.path
-    raise "Missing destination parameter" unless args.destination
-
-    ContentItemPublisher.new.publish_redirect(args.path, args.destination)
-  end
-
   desc "Change publishing application"
   task :change_owning_application, [:base_path, :publishing_app] => :environment do |_, args|
     raise "Missing base-path parameter" unless args.base_path
