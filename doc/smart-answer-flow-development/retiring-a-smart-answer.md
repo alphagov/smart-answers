@@ -63,8 +63,8 @@ In this document is prescribed the steps that need to be taken:
 
   - ### Redirect smart answer paths to new destination:
 
-    This creates a new redirect content item edition with the new destination
-    and segments_mode set to ignore.
+    This unpublishes the Smart Answer, using a redirect to the
+    destination specified and segments_mode set to ignore.
 
   - ### Remove smart answer content from search index:
 
