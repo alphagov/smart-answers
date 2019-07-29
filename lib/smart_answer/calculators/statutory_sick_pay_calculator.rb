@@ -120,6 +120,14 @@ module SmartAnswer
         relevant_period_from <= pay_day_offset + 1.day
       end
 
+      def valid_contractual_days_covered_by_earnings?
+        BigDecimal(contractual_days_covered_by_earnings)
+
+        true
+      rescue ArgumentError
+        false
+      end
+
       def sick_start_date_for_awe
         linked_sickness_start_date || sick_start_date
       end
