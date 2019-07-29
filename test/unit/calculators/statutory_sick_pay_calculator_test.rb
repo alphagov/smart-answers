@@ -170,6 +170,23 @@ module SmartAnswer
         end
       end
 
+      context "valid_contractual_days_covered_by_earnings?" do
+        setup do
+          @date = Date.parse("2015-01-01")
+          @calculator = StatutorySickPayCalculator.new(sick_start_date: @date)
+        end
+
+        should "be valid if a number" do
+          @calculator.contractual_days_covered_by_earnings = '4'
+          assert @calculator.valid_contractual_days_covered_by_earnings?
+        end
+
+        should "not be valid if it includes letters" do
+          @calculator.contractual_days_covered_by_earnings = '4 weeks'
+          refute @calculator.valid_contractual_days_covered_by_earnings?
+        end
+      end
+
       context ".months_between" do
         should "calculate number of months between dates" do
           months = StatutorySickPayCalculator.months_between(Date.parse("04/02/2012"), Date.parse("17/05/2012"))

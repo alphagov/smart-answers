@@ -306,6 +306,10 @@ module SmartAnswer
           calculator.contractual_days_covered_by_earnings = response
         end
 
+        validate :must_be_a_number_of_days do
+          calculator.valid_contractual_days_covered_by_earnings?
+        end
+
         next_node do
           question :usual_work_days?
         end
