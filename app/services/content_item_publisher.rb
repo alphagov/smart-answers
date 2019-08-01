@@ -46,12 +46,6 @@ class ContentItemPublisher
     Services.publishing_api.unpublish(content_id, type: "vanish")
   end
 
-  def publish_redirect(path, destination)
-    raise "The destination or path isn't defined" unless path.present? && destination.present?
-
-    add_redirect_to_publishing_api(path, destination)
-  end
-
   def reserve_path_for_publishing_app(base_path, publishing_app)
     raise "The destination or path isn't supplied" unless base_path.present? && publishing_app.present?
 
@@ -96,21 +90,6 @@ private
 
   def reserve_path_url(base_path)
     "#{Plek.new.find('publishing-api')}/paths/#{base_path}"
-  end
-
-  def add_redirect_to_publishing_api(path, destination)
-    payload = {
-      base_path: path,
-      document_type: :redirect,
-      publishing_app: :smartanswers,
-      schema_name: :redirect,
-      update_type: :major,
-      redirects: [
-        { path: path, type: :prefix, destination: destination, segments_mode: :ignore }
-      ]
-    }
-
-    create_and_publish_via_publishing_api(payload)
   end
 
   def publish_answer_via_publishing_api(base_path, publishing_app:, title:, content:)
