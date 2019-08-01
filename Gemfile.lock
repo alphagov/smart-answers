@@ -134,7 +134,7 @@ GEM
       puma
       selenium-webdriver (>= 3.142)
       webdrivers
-    hashdiff (0.4.0)
+    hashdiff (1.0.0)
     htmlentities (4.3.4)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -341,7 +341,7 @@ GEM
       nokogiri (~> 1.6)
       rubyzip (~> 1.0)
       selenium-webdriver (>= 3.0, < 4.0)
-    webmock (3.6.0)
+    webmock (3.6.2)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -395,7 +395,7 @@ DEPENDENCIES
   timecop
   uglifier
   uk_postcode (~> 2.1.4)
-  webmock (~> 3.6.0)
+  webmock (~> 3.6.2)
 
 RUBY VERSION
    ruby 2.6.3p62
