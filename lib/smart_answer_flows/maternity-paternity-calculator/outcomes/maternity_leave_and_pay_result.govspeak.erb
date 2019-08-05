@@ -22,15 +22,15 @@
 
   <% if not_entitled_to_pay_reason.present? %>
     <% if calculator.earnings_for_pay_period %>
-      ##Statutory maternity pay
+      ##Statutory Maternity Pay
 
-      The employee is not entitled to statutory maternity pay.
+      The employee is not entitled to Statutory Maternity Pay.
       Their average weekly earnings are <%= format_money(average_weekly_earnings) %> (you can’t round this figure up or down). To qualify:
 
     <% else %>
-      ##Statutory maternity pay
+      ##Statutory Maternity Pay
 
-      The employee is not entitled to statutory maternity pay. To qualify:
+      The employee is not entitled to Statutory Maternity Pay. To qualify:
 
     <% end %>
     <% case not_entitled_to_pay_reason %>
