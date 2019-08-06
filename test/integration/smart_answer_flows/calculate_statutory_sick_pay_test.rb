@@ -10,7 +10,7 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
     setup_for_testing_flow SmartAnswer::CalculateStatutorySickPayFlow
   end
 
-  context "Getting Statutory Maternity Pay" do
+  context "Getting statutory maternity pay" do
     should "go to result A1" do
       add_response "statutory_maternity_pay"
       assert_current_node :already_getting_maternity # A1
