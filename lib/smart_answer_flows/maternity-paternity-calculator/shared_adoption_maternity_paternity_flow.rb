@@ -7,7 +7,7 @@ module SmartAnswer
       payment_options_monthly = Calculators::MaternityPayCalculator.payment_options("monthly")
 
       # This question is being used in:
-      # QM9 in MaternityCalculatorFlow
+      # QM8 in MaternityCalculatorFlow
       # QP13 in PaternityCalculatorFlow
       # QA10 in AdoptionCalculatorFlow
       multiple_choice :how_many_payments_weekly? do
@@ -36,7 +36,7 @@ module SmartAnswer
       end
 
       # This question is being used in:
-      # QM9 in MaternityCalculatorFlow
+      # QM8 in MaternityCalculatorFlow
       # QP13 in PaternityCalculatorFlow
       # QA10 in AdoptionCalculatorFlow
       multiple_choice :how_many_payments_every_2_weeks? do
@@ -65,7 +65,7 @@ module SmartAnswer
       end
 
       # This question is being used in:
-      # QM9 in MaternityCalculatorFlow
+      # QM8 in MaternityCalculatorFlow
       # QP13 in PaternityCalculatorFlow
       # QA10 in AdoptionCalculatorFlow
       multiple_choice :how_many_payments_every_4_weeks? do
@@ -94,7 +94,7 @@ module SmartAnswer
       end
 
       # This question is being used in:
-      # QM9 in MaternityCalculatorFlow
+      # QM8 in MaternityCalculatorFlow
       # QP13 in PaternityCalculatorFlow
       # QA10 in AdoptionCalculatorFlow
       multiple_choice :how_many_payments_monthly? do

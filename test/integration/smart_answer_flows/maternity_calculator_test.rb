@@ -146,7 +146,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
               add_response :yes
             end
 
-            ## QM4
+            ## QM5
             should "ask when the last normal payday" do
               assert_current_node :last_normal_payday?
             end
@@ -158,7 +158,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
               setup do
                 add_response @qw.last - 2
               end
-              ## QM5
+              ## QM6
               should "ask when before lastpayday I was paid" do
                 assert_current_node :payday_eight_weeks?
               end
@@ -168,7 +168,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                   add_response 8.weeks.ago(@qw.last - 2)
                 end
 
-                ## QM6
+                ## QM7
                 should "ask how often you pay the employee" do
                   assert_current_node :pay_frequency?
                 end
@@ -177,7 +177,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                   setup do
                     add_response 'weekly'
                   end
-                  ## QM7
+                  ## QM8
                   should "ask what the employees earnings are for the period" do
                     assert_current_node :earnings_for_pay_period?
                     ##TODO relevant period calculation
@@ -372,10 +372,35 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
             end
           end #answer yes to QM3
           context "answer no" do
-            should "state that you they are not entitled to pay" do
+            setup do
               add_response :no
-              assert_state_variable "not_entitled_to_pay_reason", :not_worked_long_enough_and_not_on_payroll
-              assert_current_node :maternity_leave_and_pay_result
+            end
+
+            ## QM4
+            should "ask if the employee works for you now" do
+              assert_current_node :does_the_employee_work_for_you_now?
+            end
+
+            context "answer yes" do
+              setup do
+                add_response :yes
+              end
+
+              should "state that you are not entitled to pay" do
+                assert_state_variable "not_entitled_to_pay_reason", :not_worked_long_enough_and_not_on_payroll
+                assert_current_node :maternity_leave_and_pay_result
+              end
+            end
+
+            context "answer no" do
+              setup do
+                add_response :no
+              end
+
+              should "state that you are not entitled to pay" do
+                assert_state_variable "not_entitled_to_pay_reason", :not_worked_long_enough_and_not_on_payroll
+                assert_current_node :maternity_leave_and_pay_result
+              end
             end
           end
         end # QM2 ask when the employee wants to start their leave?
