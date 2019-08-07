@@ -17,28 +17,28 @@ Smart Answers also require the `govuk-content-schemas` repository which can be [
 
 ## New style
 
-When we built the [part-year-profit-tax-credits][3], we adopted the following strategy:
+When we built the [part-year-profit-tax-credits][1], we adopted the following strategy:
 
 ### Unit tests
 
-* [PartYearProfitTaxCreditsFlowTest][4]
+* [PartYearProfitTaxCreditsFlowTest][2]
   * This unit-tests the flow one node at a time
   * Tests the question routing logic
   * c.f. RSpec controller unit spec
-* [PartYearProfitTaxCreditsViewTest][5]
+* [PartYearProfitTaxCreditsViewTest][3]
   * This unit-tests the rendering of question and outcome pages one node at a time
   * Tests presentational logic
   * c.f. RSpec view unit spec
-* [PartYearProfitTaxCreditsCalculatorTest][6]
+* [PartYearProfitTaxCreditsCalculatorTest][4]
   * This unit tests the policy logic
   * It sometimes stubs out methods in order to isolate specific parts of the logic
   * c.f. RSpec model unit spec
 
 ### Integration tests
 
-* [PartYearProfitTaxCreditsCalculatorTest][7]
+* [PartYearProfitTaxCreditsCalculatorTest][5]
   * This tests the calculator as a whole and doesn't stub out any of its methods.
-* [PartYearProfitTaxCreditsTest][8]
+* [PartYearProfitTaxCreditsTest][6]
   * This checks that the flow and its component parts are wired up correctly.
   * It doesn't aim for 100% coverage, but just enough to exercise each node at least once.
 
@@ -151,12 +151,9 @@ end
 ```
 
 [Test Pyramid]: http://martinfowler.com/bliki/TestPyramid.html
-[0]: https://github.com/alphagov/smart-answers/blob/master/lib/smart_answer_flows/calculate-your-child-maintenance.rb
-[1]: https://github.com/alphagov/smart-answers/blob/master/test/unit/calculators/child_maintenance_calculator_test.rb
-[2]: https://github.com/alphagov/smart-answers/blob/master/test/integration/smart_answer_flows/calculate_your_child_maintenance_test.rb
-[3]: https://github.com/alphagov/smart-answers/blob/master/lib/smart_answer_flows/part-year-profit-tax-credits.rb
-[4]: https://github.com/alphagov/smart-answers/blob/master/test/unit/smart_answer_flows/part_year_profit_tax_credits_flow_test.rb
-[5]: https://github.com/alphagov/smart-answers/blob/master/test/unit/smart_answer_flows/part_year_profit_tax_credits_view_test.rb
-[6]: https://github.com/alphagov/smart-answers/blob/master/test/unit/calculators/part_year_profit_calculator_test.rb
-[7]: https://github.com/alphagov/smart-answers/blob/master/test/integration/calculators/part_year_profit_calculator_test.rb
-[8]: https://github.com/alphagov/smart-answers/blob/master/test/integration/smart_answer_flows/part_year_profit_tax_credits_test.rb
+[1]: https://github.com/alphagov/smart-answers/blob/master/lib/smart_answer_flows/part-year-profit-tax-credits.rb
+[2]: https://github.com/alphagov/smart-answers/blob/master/test/unit/smart_answer_flows/part_year_profit_tax_credits_flow_test.rb
+[3]: https://github.com/alphagov/smart-answers/blob/master/test/unit/smart_answer_flows/part_year_profit_tax_credits_view_test.rb
+[4]: https://github.com/alphagov/smart-answers/blob/master/test/unit/calculators/part_year_profit_calculator_test.rb
+[5]: https://github.com/alphagov/smart-answers/blob/master/test/integration/calculators/part_year_profit_calculator_test.rb
+[6]: https://github.com/alphagov/smart-answers/blob/master/test/integration/smart_answer_flows/part_year_profit_tax_credits_test.rb
