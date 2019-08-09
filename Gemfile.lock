@@ -119,7 +119,7 @@ GEM
     govuk_frontend_toolkit (8.2.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-    govuk_publishing_components (17.21.0)
+    govuk_publishing_components (18.0.0)
       gds-api-adapters
       govuk_app_config
       govuk_frontend_toolkit
@@ -218,7 +218,7 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.1.0)
+    rails-html-sanitizer (1.2.0)
       loofah (~> 2.2, >= 2.2.2)
     rails-i18n (5.1.3)
       i18n (>= 0.7, < 2)
@@ -244,7 +244,7 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rinku (2.0.6)
-    rouge (3.7.0)
+    rouge (3.8.0)
     rubocop (0.72.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
@@ -366,7 +366,7 @@ DEPENDENCIES
   govuk-lint
   govuk_app_config
   govuk_frontend_toolkit (>= 7.5.0)
-  govuk_publishing_components (= 17.21.0)
+  govuk_publishing_components (= 18.0.0)
   govuk_test
   htmlentities (~> 4)
   json
