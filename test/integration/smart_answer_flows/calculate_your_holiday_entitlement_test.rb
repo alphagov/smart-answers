@@ -437,66 +437,6 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
     end
   end # hours-worked-per-week
 
-  context "casual or irregular" do
-    setup do
-      add_response 'casual-or-irregular-hours'
-    end
-
-    should "ask how many hours you've worked" do
-      assert_current_node :casual_or_irregular_hours?
-    end
-
-    should "be invalid if <= 0 entered" do
-      add_response '0.0'
-      assert_current_node :casual_or_irregular_hours?, error: true
-    end
-
-    should "calculate and be done with a response" do
-      SmartAnswer::Calculators::HolidayEntitlement
-        .expects(:new)
-        .with(total_hours: 1500)
-        .returns(@stubbed_calculator)
-      @stubbed_calculator.expects(:casual_irregular_entitlement).at_least_once.returns(['formatted hours', 'formatted minutes'])
-
-      add_response '1500'
-      assert_current_node :casual_or_irregular_hours_done
-      assert_state_variable :total_hours, 1500.0
-      assert_state_variable :holiday_entitlement_hours, 'formatted hours'
-      assert_state_variable :holiday_entitlement_minutes, 'formatted minutes'
-    end
-  end # casual or irregular
-
-  context "annualised hours" do
-    setup do
-      add_response 'annualised-hours'
-    end
-
-    should "ask how many hours you work a year" do
-      assert_current_node :annualised_hours?
-    end
-
-    should "be invalid if <= 0 entered" do
-      add_response '0.0'
-      assert_current_node :annualised_hours?, error: true
-    end
-
-    should "calculate and be done with a response" do
-      SmartAnswer::Calculators::HolidayEntitlement
-        .expects(:new)
-        .with(total_hours: 1400.5)
-        .returns(@stubbed_calculator)
-      @stubbed_calculator.expects(:annualised_entitlement).at_least_once.returns(['formatted hours', 'formatted minutes'])
-      @stubbed_calculator.expects(:formatted_annualised_hours_per_week).returns('average hours per week')
-
-      add_response '1400.5'
-      assert_current_node :annualised_hours_done
-      assert_state_variable :total_hours, 1400.5
-      assert_state_variable :holiday_entitlement_hours, 'formatted hours'
-      assert_state_variable :holiday_entitlement_minutes, 'formatted minutes'
-      assert_state_variable :average_hours_per_week, 'average hours per week'
-    end
-  end # annualised hours
-
   context "compressed hours" do
     setup do
       add_response 'compressed-hours'
