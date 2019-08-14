@@ -26,20 +26,6 @@ module SmartAnswer::Calculators
       (full_time_part_time_hours * 60).ceil.divmod(60).map(&:ceil)
     end
 
-    def casual_irregular_entitlement
-      minutes = STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS / 46.4 * total_hours * 60
-      minutes.ceil.divmod(60).map(&:ceil)
-    end
-
-    def annualised_hours_per_week
-      (total_hours / 46.4).round(10)
-    end
-
-    def annualised_entitlement
-      # These are the same at the moment
-      casual_irregular_entitlement
-    end
-
     def compressed_hours_entitlement
       minutes = STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS * hours_per_week * 60
       minutes.ceil.divmod(60).map(&:ceil)

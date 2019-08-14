@@ -240,25 +240,6 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "calculating casual or irregular hours entitlement" do
-      should "return the hours and minutes of entitlement" do
-        calc = HolidayEntitlement.new(total_hours: 1314.4)
-        assert_equal [158, 39], calc.casual_irregular_entitlement
-      end
-    end # casual or irregular
-
-    context "calculating annualised entitlement" do
-      should "return the average hours per woeking week" do
-        calc = HolidayEntitlement.new(total_hours: 1314.4)
-        assert_equal '28.33', sprintf('%.2f', calc.annualised_hours_per_week)
-      end
-
-      should "return the hours and minutes of entitlement" do
-        calc = HolidayEntitlement.new(total_hours: 1314.4)
-        assert_equal [158, 39], calc.annualised_entitlement
-      end
-    end # annualised
-
     context "calculating compressed hours entitlement" do
       should "return the hours and minutes of entitlement" do
         calc = HolidayEntitlement.new(hours_per_week: 20.5, days_per_week: 3)

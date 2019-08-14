@@ -11,8 +11,6 @@ module SmartAnswer
       multiple_choice :basis_of_calculation? do
         option "days-worked-per-week"
         option "hours-worked-per-week"
-        option "casual-or-irregular-hours"
-        option "annualised-hours"
         option "compressed-hours"
         option "shift-worker"
         save_input_as :calculation_basis
@@ -25,10 +23,6 @@ module SmartAnswer
           case response
           when 'days-worked-per-week', 'hours-worked-per-week'
             question :calculation_period?
-          when 'casual-or-irregular-hours'
-            question :casual_or_irregular_hours?
-          when 'annualised-hours'
-            question :annualised_hours?
           when 'compressed-hours'
             question :compressed_hours_how_many_hours_per_week?
           when 'shift-worker'
@@ -145,30 +139,6 @@ module SmartAnswer
         end
         next_node do
           outcome :hours_per_week_done
-        end
-      end
-
-      value_question :casual_or_irregular_hours?, parse: Float do
-        calculate :total_hours do |response|
-          hours = response
-          raise InvalidResponse if hours <= 0
-          hours
-        end
-
-        next_node do
-          outcome :casual_or_irregular_hours_done
-        end
-      end
-
-      value_question :annualised_hours?, parse: Float do
-        calculate :total_hours do |response|
-          hours = response
-          raise InvalidResponse if hours <= 0
-          hours
-        end
-
-        next_node do
-          outcome :annualised_hours_done
         end
       end
 
@@ -305,18 +275,6 @@ module SmartAnswer
         end
       end
 
-      outcome :casual_or_irregular_hours_done do
-        precalculate :calculator do
-          Calculators::HolidayEntitlement.new(total_hours: total_hours)
-        end
-        precalculate :holiday_entitlement_hours do
-          calculator.casual_irregular_entitlement.first
-        end
-        precalculate :holiday_entitlement_minutes do
-          calculator.casual_irregular_entitlement.last
-        end
-      end
-
       outcome :compressed_hours_done do
         precalculate :calculator do
           Calculators::HolidayEntitlement.new(
@@ -335,21 +293,6 @@ module SmartAnswer
         end
         precalculate :minutes_daily do
           calculator.compressed_hours_daily_average.last
-        end
-      end
-
-      outcome :annualised_hours_done do
-        precalculate :calculator do
-          Calculators::HolidayEntitlement.new(total_hours: total_hours)
-        end
-        precalculate :average_hours_per_week do
-          calculator.formatted_annualised_hours_per_week
-        end
-        precalculate :holiday_entitlement_hours do
-          calculator.annualised_entitlement.first
-        end
-        precalculate :holiday_entitlement_minutes do
-          calculator.annualised_entitlement.last
         end
       end
     end
