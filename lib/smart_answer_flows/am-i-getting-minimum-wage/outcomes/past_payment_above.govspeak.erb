@@ -2,10 +2,18 @@
   $C
   Based on your answers, you appear to have been getting the National Minimum Wage.
 
-  Your employer does not owe you any past payments.
+  <% if calculator.potential_underpayment? %>
+    If you had money taken from your pay for things you need for your job or not been paid for any additional time you work outside of your shift you can contact Acas or make a complaint to HMRC.
+  <% else %>
+    Your employer does not owe you any past payments.
   $C
 
-  If anything has been deducted from your pay or if your [employer provides you with accommodation](/national-minimum-wage-accommodation), this has been included in the calculation.
+    Read the guidance on the [National Minimum Wage](/national-minimum-wage) and [how the National Minimum Wage is calculated](/minimum-wage-different-types-work).
+  <% end%>
 
   <%= render partial: 'shared/minimum_wage/acas_information.govspeak.erb' %>
+
+  <% if calculator.potential_underpayment? %>
+    You can also [make a complaint to HM Revenue and Customs (HMRC)](/government/publications/pay-and-work-rights-complaints) about your employer or employment agency or complain on behalf of someone else.
+  <% end%>
 <% end %>

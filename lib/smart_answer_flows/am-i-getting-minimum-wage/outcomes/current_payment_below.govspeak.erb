@@ -7,7 +7,14 @@
   <% end %>
   $C
 
-  If anything has been deducted from your pay or if your [employer provides you with accommodation](/national-minimum-wage-accommodation), this has been included in the calculation.
+  This is because you are not being paid the [minimum rate](/national-minimum-wage-rates) you are entitled to for your age.
+
+  <% if calculator.potential_underpayment? %>
+    You could have also:
+
+    * had money taken from your pay for things you need for your job
+    * not been paid for any additional time you work outside of your shift
+  <% end %>
 
   <%= render partial: 'shared/minimum_wage/acas_information.govspeak.erb' %>
 
