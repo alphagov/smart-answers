@@ -2,10 +2,12 @@
   $C
   Based on your answers, you appear to have been paying National Minimum Wage.
 
-  You do not owe the worker any past payments.
+  <% if calculator.potential_underpayment? %>
+    If you have taken money from the worker’s pay for things they needed for their job or not paid the worker for any additional time they worked outside of their shift this might mean you have underpaid them.
+  <% else %>
+    You do not owe the worker any past payments.
+  <%end %>
   $C
-
-  If anything has been deducted from the worker’s pay or if you [provide them with accommodation](/national-minimum-wage-accommodation), this has been included in the calculation.
 
   <%= render partial: 'shared/minimum_wage/acas_information.govspeak.erb' %>
 <% end %>

@@ -7,7 +7,11 @@
   <% end %>
   $C
 
-  If anything has been deducted from the worker’s pay or if you [provide them with accommodation](/national-minimum-wage-accommodation), this has been included in the calculation.
+  <% if calculator.potential_underpayment? %>
+    If you have taken money from the worker’s pay for things they need for their job or not been paying the worker for any additional time they worked outside of their shift this might mean you have underpaid them.
+  <% end%>
+
+  Read the guidance on the [National Minimum Wage](/national-minimum-wage) and [how the National Minimum Wage is calculated](/minimum-wage-different-types-work).
 
   <%= render partial: 'shared/minimum_wage/acas_information.govspeak.erb' %>
 <% end %>
