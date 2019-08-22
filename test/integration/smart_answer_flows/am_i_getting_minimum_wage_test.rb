@@ -175,7 +175,87 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                     end
 
                     should "show the results" do
+                      assert_equal false, current_state.calculator.potential_underpayment?
                       assert_current_node :current_payment_below
+                    end
+                  end
+                  context "answer 'yes'" do
+                    setup do
+                      add_response :yes
+                    end
+
+                    should "ask 'are you paid for additional work outside shift'" do
+                      assert_current_node :current_paid_for_work_outside_shift?
+                    end
+                    context "answer yes" do
+                      setup do
+                        add_response :yes
+                      end
+                      should "show the results" do
+                        assert_equal false, current_state.calculator.potential_underpayment?
+                        assert_current_node :current_payment_below
+                      end
+                    end
+                    context "answer no" do
+                      setup do
+                        add_response :no
+                      end
+                      should "show the results" do
+                        #not paid for additional work = potential underpayment
+                        assert_equal true, current_state.calculator.potential_underpayment?
+                        assert_current_node :current_payment_below
+                      end
+                    end
+                  end
+                end
+
+                context "answer yes to 'charge for things you need to do your job'" do
+                  setup do
+                    add_response :yes
+                  end
+                  # Q9
+                  should "ask 'do you do additional work outside your shift'" do
+                    assert_current_node :current_additional_work_outside_shift?
+                  end
+
+                  context "answer 'no'" do
+                    setup do
+                      add_response :no
+                    end
+
+                    should "show the results" do
+                      #charged for things needed to do job = potential underpayment
+                      assert_equal true, current_state.calculator.potential_underpayment?
+                      assert_current_node :current_payment_below
+                    end
+                  end
+                  context "answer 'yes'" do
+                    setup do
+                      add_response :yes
+                    end
+
+                    should "ask 'are you paid for additional work outside shift'" do
+                      assert_current_node :current_paid_for_work_outside_shift?
+                    end
+                    context "answer yes" do
+                      setup do
+                        add_response :yes
+                      end
+                      should "show the results" do
+                        #charged for things needed to do job = potential underpayment
+                        assert_equal true, current_state.calculator.potential_underpayment?
+                        assert_current_node :current_payment_below
+                      end
+                    end
+                    context "answer no" do
+                      setup do
+                        add_response :no
+                      end
+                      should "show the results" do
+                        #charged for things needed to do job = potential underpayment
+                        assert_equal true, current_state.calculator.potential_underpayment?
+                        assert_current_node :current_payment_below
+                      end
                     end
                   end
                 end
@@ -304,15 +384,233 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       add_response :past_payment
     end
       # Q2
-      should "ask 'were you an apprentice?'" do
-        assert_current_node :were_you_an_apprentice?
+    should "ask 'were you an apprentice?'" do
+      assert_current_node :were_you_an_apprentice?
+    end
+
+    context "answered 'apprentice under 19' to 'are you an apprentice?'" do
+      setup do
+        add_response :apprentice_over_19
       end
 
-      context "answered 'apprentice under 19' to 'are you an apprentice?'" do
+      should "ask 'how often did you get paid?'" do
+        assert_current_node :how_often_did_you_get_paid?
+      end
+
+      context "answered weekly to 'how often did you get paid?'" do
         setup do
-          add_response :apprentice_over_19
+          add_response "7"
         end
 
+        should "ask 'how many hours did you work?'" do
+          assert_current_node :how_many_hours_did_you_work?
+        end
+
+        context "test hours entry for hours worked" do
+          should "succeed on 37.5 entered" do
+            add_response "37.5"
+            assert_current_node :how_much_were_you_paid_during_pay_period?
+          end
+          should "fail on text entered" do
+            add_response "no numbers"
+            assert_current_node_is_error
+          end
+          should "succeed on 0.01 entered" do
+            add_response "0.01"
+          end
+        end
+
+        context "answered 'how many hours did you work?'" do
+          setup do
+            add_response 42
+          end
+
+          should "ask 'how much did you get paid?'" do
+            assert_current_node :how_much_were_you_paid_during_pay_period?
+          end
+
+          context "answered 158.39 to 'how much did you get paid?'" do
+            setup do
+              add_response 158.39
+            end
+
+            should "ask 'were you provided with accommodation?'" do
+              assert_current_node :was_provided_with_accommodation?
+            end
+
+            context "answer 'no' to 'were you provided with accommodation?'" do
+              setup do
+                add_response :no
+              end
+
+              should "ask 'did the employer charge for job requirements'" do
+                assert_current_node :did_employer_charge_for_job_requirements?
+              end
+            end
+
+            # Where accommodation is charged under the £4.73 threshold.
+            # No adjustment is made to basic pay.
+            #
+            context "answer 'yes charged accommodation' to 'were you provided with accommodation?'" do
+              setup do
+                add_response :yes_charged
+              end
+
+              should "ask 'how much did you pay for the accommodation?'" do
+                assert_current_node :past_accommodation_charge?
+              end
+
+              context "answer 4.72 to 'how much did you pay for accommodation?'" do
+                setup do
+                  add_response 4.72
+                end
+
+                should "ask 'how often did you use the accommodation?'" do
+                  assert_current_node :past_accommodation_usage?
+                end
+
+                context "answer 4 to 'how often did you use the accommodation?'" do
+                  setup do
+                    add_response 4
+                  end
+
+                  should "ask 'did the employer charge for job requirements'" do
+                    assert_current_node :did_employer_charge_for_job_requirements?
+                  end
+
+                  context "answer no to 'did the employer charge for job requirements?'" do
+                    setup do
+                      add_response :no
+                    end
+
+                    should "ask 'did you work hours outside your shift'" do
+                      assert_current_node :past_additional_work_outside_shift?
+                    end
+
+                    context "answer no to 'did you work hours outside your shift?'" do
+                      setup do
+                        add_response :no
+                      end
+
+                      should "show results'" do
+                        assert_current_node :past_payment_above
+                      end
+                      should "make outcome calculations" do
+                        assert_equal 42, current_state.calculator.total_hours
+                        assert_equal 3.7, current_state.calculator.minimum_hourly_rate
+                        assert_equal 3.77, current_state.calculator.total_hourly_rate
+                        assert_equal true, current_state.calculator.minimum_wage_or_above?
+                      end
+                    end
+                  end
+                end
+              end
+            end
+          end
+
+          # Again with a better basic pay to achieve < min. wage.
+          #
+          context "answer '20' to 'how much did you get paid?'" do
+            setup do
+              add_response 20
+              add_response :no # no accommodation
+              add_response :no # no job requirement charge
+              add_response :no # no additional work
+            end
+
+            should "show below min. wage results" do
+              assert_current_node :past_payment_below
+            end
+          end
+        end
+      end
+    end
+
+    context "answered 'apprentice over 19' to 'were you an apprentice?'" do
+      setup do
+        add_response :apprentice_over_19
+      end
+
+      should "ask 'how often did you get paid?'" do
+        assert_current_node :how_often_did_you_get_paid?
+      end
+
+      context "answered weekly to 'how often did you get paid?'" do
+        setup do
+          add_response "7"
+        end
+
+        should "ask 'how many hours did you work?'" do
+          assert_current_node :how_many_hours_did_you_work?
+        end
+
+        context "test hours entry for hours worked" do
+          should "succeed on 37.5 entered" do
+            add_response "37.5"
+            assert_current_node :how_much_were_you_paid_during_pay_period?
+          end
+          should "fail on text entered" do
+            add_response "no numbers"
+            assert_current_node_is_error
+          end
+          should "succeed on 0.01 entered" do
+            add_response "0.01"
+          end
+        end
+
+        context "answered 'how many hours did you work?'" do
+          setup do
+            add_response 42
+          end
+
+          should "ask 'how much did you get paid?'" do
+            assert_current_node :how_much_were_you_paid_during_pay_period?
+          end
+
+          context "answered 158.39 to 'how much did you get paid?'" do
+            setup do
+              add_response 158.39
+            end
+
+            should "ask 'were you provided with accommodation?'" do
+              assert_current_node :was_provided_with_accommodation?
+            end
+          end
+
+          # Again with a better basic pay to achieve < min. wage.
+          #
+          context "answer '20' to 'how much did you get paid?'" do
+            setup do
+              add_response 20
+              add_response :no # no accommodation
+              add_response :no # no job requirement charge
+              add_response :no # no additional work
+            end
+            should "show below min. wage results" do
+              assert_current_node :past_payment_below
+            end
+          end
+        end
+      end
+    end
+
+    context "answered 'no' to 'were you an apprentice?'" do
+      # Q3
+
+      setup do
+        add_response :no
+      end
+
+      should "ask 'how old were you?'" do
+        assert_current_node :how_old_were_you?
+      end
+
+      context "answered 19 to 'how old were you?'" do
+        setup do
+          add_response 19
+        end
+
+        # Q4
         should "ask 'how often did you get paid?'" do
           assert_current_node :how_often_did_you_get_paid?
         end
@@ -322,6 +620,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
             add_response "7"
           end
 
+          # Q5
           should "ask 'how many hours did you work?'" do
             assert_current_node :how_many_hours_did_you_work?
           end
@@ -345,6 +644,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
               add_response 42
             end
 
+            # Q6
             should "ask 'how much did you get paid?'" do
               assert_current_node :how_much_were_you_paid_during_pay_period?
             end
@@ -353,7 +653,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
               setup do
                 add_response 158.39
               end
-
+            # Q7
               should "ask 'were you provided with accommodation?'" do
                 assert_current_node :was_provided_with_accommodation?
               end
@@ -362,20 +662,77 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                 setup do
                   add_response :no
                 end
-
-                should "ask 'did the employer charge for job requirements'" do
+                # Q8
+                should "ask 'does your employer charge for things you need to do your job?'" do
                   assert_current_node :did_employer_charge_for_job_requirements?
+                end
+
+                context "answer no to 'charge for things you need to do your job'" do
+                  setup do
+                    add_response :no
+                  end
+                  # Q9
+                  should "ask 'do you do additional work outside your shift'" do
+                    assert_current_node :past_additional_work_outside_shift?
+                  end
+
+                  context "answer 'no'" do
+                    setup do
+                      add_response :no
+                    end
+
+                    should "show the results" do
+                      #no additional work or charge for job requitements = no potential underpayment
+                      assert_equal false, current_state.calculator.potential_underpayment?
+                      assert_current_node :past_payment_below
+                    end
+                  end
+
+                  context "answer 'yes'" do
+                    setup do
+                      add_response :yes
+                    end
+
+                    should "ask 'were you paid for additional work" do
+                      assert_current_node :past_paid_for_work_outside_shift?
+                    end
+
+                    context "answer 'no'" do
+                      setup do
+                        add_response :no
+                      end
+
+                      should "show the results" do
+                        #unpaid work outside shift = potential underpayment
+                        assert_equal true, current_state.calculator.potential_underpayment?
+                        assert_current_node :past_payment_below
+                      end
+                    end
+
+                    context "answer 'yes'" do
+                      setup do
+                        add_response :yes
+                      end
+
+                      should "show the results" do
+                        #paid for work outside shift = no potential underpayment
+                        assert_equal false, current_state.calculator.potential_underpayment?
+                        assert_current_node :past_payment_below
+                      end
+                    end
+                  end
                 end
               end
 
-              # Where accommodation is charged under the £4.73 threshold.
-              # No adjustment is made to basic pay.
-              #
+                # Where accommodation is charged under the £4.73 threshold.
+                # No adjustment is made to basic pay.
+                #
               context "answer 'yes charged accommodation' to 'were you provided with accommodation?'" do
                 setup do
                   add_response :yes_charged
                 end
 
+                # Q10
                 should "ask 'how much did you pay for the accommodation?'" do
                   assert_current_node :past_accommodation_charge?
                 end
@@ -394,196 +751,6 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                       add_response 4
                     end
 
-                    should "ask 'did the employer charge for job requirements'" do
-                      assert_current_node :did_employer_charge_for_job_requirements?
-                    end
-
-                    context "answer no to 'did the employer charge for job requirements?'" do
-                      setup do
-                        add_response :no
-                      end
-
-                      should "ask 'did you work hours outside your shift'" do
-                        assert_current_node :past_additional_work_outside_shift?
-                      end
-
-                      context "answer no to 'id you work hours outside your shift?'" do
-                        setup do
-                          add_response :no
-                        end
-
-                        should "show results'" do
-                          assert_current_node :past_payment_above
-                        end
-
-                        should "make outcome calculations" do
-                          assert_equal 42, current_state.calculator.total_hours
-                          assert_equal 3.7, current_state.calculator.minimum_hourly_rate
-                          assert_equal 3.77, current_state.calculator.total_hourly_rate
-                          assert_equal true, current_state.calculator.minimum_wage_or_above?
-                        end
-                      end
-                    end
-                  end
-                end
-              end
-            end
-
-            # Again with a better basic pay to achieve < min. wage.
-            #
-            context "answer '20' to 'how much did you get paid?'" do
-              setup do
-                add_response 20
-                add_response :no # no accommodation
-                add_response :no # no job requirement charge
-                add_response :no # no additional work
-              end
-
-              should "show below min. wage results" do
-                assert_current_node :past_payment_below
-              end
-            end
-          end
-        end
-      end
-
-      context "answered 'apprentice over 19' to 'were you an apprentice?'" do
-        setup do
-          add_response :apprentice_over_19
-        end
-
-        should "ask 'how often did you get paid?'" do
-          assert_current_node :how_often_did_you_get_paid?
-        end
-
-        context "answered weekly to 'how often did you get paid?'" do
-          setup do
-            add_response "7"
-          end
-
-          should "ask 'how many hours did you work?'" do
-            assert_current_node :how_many_hours_did_you_work?
-          end
-
-          context "test hours entry for hours worked" do
-            should "succeed on 37.5 entered" do
-              add_response "37.5"
-              assert_current_node :how_much_were_you_paid_during_pay_period?
-            end
-            should "fail on text entered" do
-              add_response "no numbers"
-              assert_current_node_is_error
-            end
-            should "succeed on 0.01 entered" do
-              add_response "0.01"
-            end
-          end
-
-          context "answered 'how many hours did you work?'" do
-            setup do
-              add_response 42
-            end
-
-            should "ask 'how much did you get paid?'" do
-              assert_current_node :how_much_were_you_paid_during_pay_period?
-            end
-
-            context "answered 158.39 to 'how much did you get paid?'" do
-              setup do
-                add_response 158.39
-              end
-
-              should "ask 'were you provided with accommodation?'" do
-                assert_current_node :was_provided_with_accommodation?
-              end
-            end
-
-            # Again with a better basic pay to achieve < min. wage.
-            #
-            context "answer '20' to 'how much did you get paid?'" do
-              setup do
-                add_response 20
-                add_response :no # no accommodation
-                add_response :no # no job requirement charge
-                add_response :no # no additional work
-              end
-              should "show below min. wage results" do
-                assert_current_node :past_payment_below
-              end
-            end
-          end
-        end
-      end
-
-      context "answered 'no' to 'were you an apprentice?'" do
-        # Q3
-
-        setup do
-          add_response :no
-        end
-
-        should "ask 'how old were you?'" do
-          assert_current_node :how_old_were_you?
-        end
-
-        context "answered 19 to 'how old were you?'" do
-          setup do
-            add_response 19
-          end
-
-          # Q4
-          should "ask 'how often did you get paid?'" do
-            assert_current_node :how_often_did_you_get_paid?
-          end
-
-          context "answered weekly to 'how often did you get paid?'" do
-            setup do
-              add_response "7"
-            end
-
-            # Q5
-            should "ask 'how many hours did you work?'" do
-              assert_current_node :how_many_hours_did_you_work?
-            end
-
-            context "test hours entry for hours worked" do
-              should "succeed on 37.5 entered" do
-                add_response "37.5"
-                assert_current_node :how_much_were_you_paid_during_pay_period?
-              end
-              should "fail on text entered" do
-                add_response "no numbers"
-                assert_current_node_is_error
-              end
-              should "succeed on 0.01 entered" do
-                add_response "0.01"
-              end
-            end
-
-            context "answered 'how many hours did you work?'" do
-              setup do
-                add_response 42
-              end
-
-              # Q6
-              should "ask 'how much did you get paid?'" do
-                assert_current_node :how_much_were_you_paid_during_pay_period?
-              end
-
-              context "answered 158.39 to 'how much did you get paid?'" do
-                setup do
-                  add_response 158.39
-                end
-              # Q7
-                should "ask 'were you provided with accommodation?'" do
-                  assert_current_node :was_provided_with_accommodation?
-                end
-
-                  context "answer 'no' to 'were you provided with accommodation?'" do
-                    setup do
-                      add_response :no
-                    end
-                    # Q8
                     should "ask 'does your employer charge for things you need to do your job?'" do
                       assert_current_node :did_employer_charge_for_job_requirements?
                     end
@@ -605,90 +772,38 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
                         should "show the results" do
                           assert_current_node :past_payment_below
                         end
-                      end
-                    end
-                  end
 
-                  # Where accommodation is charged under the £4.73 threshold.
-                  # No adjustment is made to basic pay.
-                  #
-                  context "answer 'yes charged accommodation' to 'were you provided with accommodation?'" do
-                    setup do
-                      add_response :yes_charged
-                    end
-
-                    # Q10
-                    should "ask 'how much did you pay for the accommodation?'" do
-                      assert_current_node :past_accommodation_charge?
-                    end
-
-                    context "answer 4.72 to 'how much did you pay for accommodation?'" do
-                      setup do
-                        add_response 4.72
-                      end
-
-                      should "ask 'how often did you use the accommodation?'" do
-                        assert_current_node :past_accommodation_usage?
-                      end
-
-                      context "answer 4 to 'how often did you use the accommodation?'" do
-                        setup do
-                          add_response 4
-                        end
-
-                        should "ask 'does your employer charge for things you need to do your job?'" do
-                          assert_current_node :did_employer_charge_for_job_requirements?
-                        end
-
-                        context "answer no to 'charge for things you need to do your job'" do
-                          setup do
-                            add_response :no
-                          end
-                          # Q9
-                          should "ask 'do you do additional work outside your shift'" do
-                            assert_current_node :past_additional_work_outside_shift?
-                          end
-
-                          context "answer 'no'" do
-                            setup do
-                              add_response :no
-                            end
-
-                            should "show the results" do
-                              assert_current_node :past_payment_below
-                            end
-
-                            should "make outcome calculations" do
-                              assert_equal 42, current_state.calculator.total_hours
-                              assert_equal 5.9, current_state.calculator.minimum_hourly_rate
-                              assert_equal 3.77, current_state.calculator.total_hourly_rate
-                              assert_equal false, current_state.calculator.minimum_wage_or_above?
-                            end
-                          end
+                        should "make outcome calculations" do
+                          assert_equal 42, current_state.calculator.total_hours
+                          assert_equal 5.9, current_state.calculator.minimum_hourly_rate
+                          assert_equal 3.77, current_state.calculator.total_hourly_rate
+                          assert_equal false, current_state.calculator.minimum_wage_or_above?
                         end
                       end
                     end
                   end
+                end
               end
+            end
 
-              # Again with a better basic pay to achieve < min. wage.
-              #
-              context "answer '200' to 'how much did you get paid?'" do
-                setup do
-                  add_response 200
-                  add_response :no # no accommodation
-                  add_response :no # no job requirement charge
-                  add_response :no # no additional work
-                end
-                should "show above min. wage results" do
-                  # assert_current_node :past_payment_above
-                  assert_current_node :past_payment_below
-                end
-              end # Basic pay
-            end # Basic hours
-          end # Pay frequency
-        end # Age
-      end # Apprentice
+            # Again with a better basic pay to achieve < min. wage.
+            #
+            context "answer '200' to 'how much did you get paid?'" do
+              setup do
+                add_response 200
+                add_response :no # no accommodation
+                add_response :no # no job requirement charge
+                add_response :no # no additional work
+              end
+              should "show above min. wage results" do
+                # assert_current_node :past_payment_above
+                assert_current_node :past_payment_below
+              end
+            end # Basic pay
+          end # Basic hours
+        end # Pay frequency
+      end # Age
+    end # Apprentice
 
     context 'answer 2015-10-01, not an apprentice, 25 years old, paid daily for 8 hour days' do
       setup do
