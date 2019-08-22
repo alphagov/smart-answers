@@ -1,7 +1,7 @@
 module SmartAnswer::Calculators
   class MinimumWageCalculator
     attr_accessor :age, :pay_frequency, :basic_hours, :basic_pay, :is_apprentice,
-                  :accommodation_cost, :job_requirements_charge
+                  :accommodation_cost, :job_requirements_charge, :unpaid_additional_hours
     attr_reader :date
 
     def initialize(params = {})
@@ -14,6 +14,7 @@ module SmartAnswer::Calculators
       @accommodation_cost = 0
       @minimum_wage_data = rates_for_date(@date)
       @job_requirements_charge = false
+      @unpaid_additional_hours = false
     end
 
     def date=(date)
@@ -157,6 +158,10 @@ module SmartAnswer::Calculators
 
     def historically_receiving_minimum_wage?
       historical_adjustment <= 0
+    end
+
+    def potential_underpayment?
+      @job_requirements_charge || @unpaid_additional_hours
     end
 
   protected

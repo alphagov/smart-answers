@@ -237,7 +237,7 @@ module SmartAnswer
             when 'yes'
               question :current_paid_for_work_outside_shift?
             when 'no'
-              if !calculator.job_requirements_charge && calculator.minimum_wage_or_above?
+              if calculator.minimum_wage_or_above?
                 outcome :current_payment_above
               else
                 outcome :current_payment_below
@@ -256,7 +256,7 @@ module SmartAnswer
             when 'yes'
               question :past_paid_for_work_outside_shift?
             when 'no'
-              if !calculator.job_requirements_charge && calculator.minimum_wage_or_above?
+              if calculator.minimum_wage_or_above?
                 outcome :past_payment_above
               else
                 outcome :past_payment_below
@@ -272,13 +272,13 @@ module SmartAnswer
 
           next_node do |response|
             case response
-            when 'yes'
-              if !calculator.job_requirements_charge && calculator.minimum_wage_or_above?
-                outcome :current_payment_above
-              else
-                outcome :current_payment_below
-              end
             when 'no'
+              calculator.unpaid_additional_hours = true
+            end
+
+            if calculator.minimum_wage_or_above?
+              outcome :current_payment_above
+            else
               outcome :current_payment_below
             end
           end
@@ -288,15 +288,16 @@ module SmartAnswer
         multiple_choice :past_paid_for_work_outside_shift? do
           option "yes"
           option "no"
+
           next_node do |response|
             case response
-            when 'yes'
-              if !calculator.job_requirements_charge && calculator.minimum_wage_or_above?
-                outcome :past_payment_above
-              else
-                outcome :past_payment_below
-              end
             when 'no'
+              calculator.unpaid_additional_hours = true
+            end
+
+            if calculator.minimum_wage_or_above?
+              outcome :past_payment_above
+            else
               outcome :past_payment_below
             end
           end
