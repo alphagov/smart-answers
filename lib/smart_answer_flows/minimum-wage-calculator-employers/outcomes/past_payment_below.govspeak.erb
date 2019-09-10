@@ -1,16 +1,18 @@
 <% content_for :body do %>
   $C
-  You weren't paying the National Minimum Wage.
+  Based on your answers, you appear not to have been paying the National Minimum Wage.
   $C
 
+  This is because you were not paying the [minimum rate](/national-minimum-wage-rates) the worker was entitled to.
 
-  The National Minimum Wage per hour at the time | The worker’s actual pay | For each pay period you owe the worker
-  - | -
-  <%= format_money(calculator.minimum_hourly_rate) %> | <%= format_money(calculator.total_hourly_rate) %> * | <%= format_money(calculator.historical_adjustment) %>
+  <% if calculator.potential_underpayment? %>
+    You could also have further underpaid the worker if you:
 
-  \* This figure has been rounded to the nearest penny.
+    * took money from their pay for things they needed for their job
+    * did not pay them for any additional time they worked outside their shift
+  <% end%>
 
-  This calculation includes an additional amount the worker is entitled to by law for past payments. If the worker worked overtime or you provided [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
+  Read the guidance on [how to calculate the National Minimum Wage](/national-minimum-wage/employers-and-the-minimum-wage).
 
   <%= render partial: 'shared/minimum_wage/acas_information.govspeak.erb' %>
 <% end %>

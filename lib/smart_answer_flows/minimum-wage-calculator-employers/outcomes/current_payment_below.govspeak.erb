@@ -1,26 +1,22 @@
 <% content_for :body do %>
   $C
   <% if calculator.eligible_for_living_wage? %>
-    You aren't paying the National Living Wage.
+    Based on your answers, you appear to be not paying the National Living Wage.
   <% else %>
-    You aren't paying the National Minimum Wage.
+    Based on your answers, you appear to be not paying the National Minimum Wage.
   <% end %>
   $C
 
-  <% if calculator.eligible_for_living_wage? %>
-    The National Living Wage per hour for the worker’s age | The worker’s actual pay | For each pay period you owe the worker
-    - | - | -
-    <%= format_money(calculator.national_living_wage_rate) %> | <%= format_money(calculator.total_hourly_rate) %> * | <%= format_money(calculator.total_underpayment) %>
-  <% else %>
-    The National Minimum Wage per hour for the worker’s age | The worker’s actual pay | For each pay period you owe the worker
-    - | - | -
-    <%= format_money(calculator.minimum_hourly_rate) %> | <%= format_money(calculator.total_hourly_rate) %> * | <%= format_money(calculator.total_underpayment) %>
+  This is because you are not paying the [minimum rate](/national-minimum-wage-rates) the worker is entitled to.
+
+  <% if calculator.potential_underpayment? %>
+    You could have also:
+
+    * taken money from the worker’s pay for things they needed for their job
+    * not paid the worker for any additional time they worked outside their shift
   <% end %>
 
-
-  \* This figure has been rounded to the nearest penny.
-
-  If the worker works overtime or you provide [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
+  Read the guidance on [how to calculate the National Minimum Wage](/national-minimum-wage/employers-and-the-minimum-wage).
 
   <%= render partial: 'shared/minimum_wage/acas_information.govspeak.erb' %>
 <% end %>

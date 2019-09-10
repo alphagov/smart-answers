@@ -1,15 +1,13 @@
 <% content_for :body do %>
   $C
-  You were paying the National Minimum Wage.
+  Based on your answers, you appear to have been paying National Minimum Wage.
 
-  You don’t owe the worker any past payments.
+  <% if calculator.potential_underpayment? %>
+    As you have taken money from the worker’s pay for things they needed for their job or not paid the worker for any additional time they worked outside of their shift, this might mean you have underpaid them.
+  <%end %>
   $C
 
-  The National Minimum Wage per hour at the time | The worker’s actual pay
-  - | -
-  <%= format_money(calculator.minimum_hourly_rate) %> | <%= format_money(calculator.total_hourly_rate) %>
-
-  If the worker worked overtime or you provided [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
+  Read the guidance on [how to calculate the National Minimum Wage](/national-minimum-wage/employers-and-the-minimum-wage).
 
   <%= render partial: 'shared/minimum_wage/acas_information.govspeak.erb' %>
 <% end %>

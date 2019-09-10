@@ -1,3 +1,5 @@
 AllCops:
   Exclude:
     - 'tmp/**/*'
+Style/CommentedKeyword:
+  Enabled: false

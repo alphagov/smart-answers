@@ -118,42 +118,6 @@ module SmartAnswer
       end
 
       [
-        :how_many_hours_overtime_do_you_work?,
-        :how_many_hours_overtime_did_you_work?
-      ].each do |overtime_hours_question_name|
-        context "for #{overtime_hours_question_name}" do
-          setup do
-            @question = @flow.node(overtime_hours_question_name)
-            @state = SmartAnswer::State.new(@question)
-            @calculator = stub(
-              'calculator',
-              :overtime_hours= => nil,
-              :any_overtime_hours_worked? => nil
-            )
-            @state.calculator = @calculator
-          end
-
-          should 'raise if the calculator says the overtime_hours_worked is invalid' do
-            invalid_overtime_hours_worked = 3
-            @calculator.stubs(:valid_overtime_hours_worked?).with(invalid_overtime_hours_worked).returns(false)
-
-            assert_raise(SmartAnswer::InvalidResponse) do
-              @question.transition(@state, invalid_overtime_hours_worked)
-            end
-          end
-
-          should 'not raise if the calculator says the hours_worked is valid' do
-            valid_overtime_hours_worked = 4
-            @calculator.stubs(:valid_overtime_hours_worked?).with(valid_overtime_hours_worked).returns(true)
-
-            assert_nothing_raised do
-              @question.transition(@state, valid_overtime_hours_worked)
-            end
-          end
-        end
-      end
-
-      [
         :current_accommodation_charge?,
         :past_accommodation_charge?
       ].each do |accommodation_charge_question_name|

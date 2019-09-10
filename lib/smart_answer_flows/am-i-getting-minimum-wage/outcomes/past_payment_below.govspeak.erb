@@ -1,16 +1,18 @@
 <% content_for :body do %>
   $C
-  You weren't getting the National Minimum Wage.
+   Based on your answers, you appear to have not been getting the National Minimum Wage.
   $C
 
+  This is because you were not being paid the [minimum rate](/national-minimum-wage-rates) you are entitled to.
 
-  The National Minimum Wage per hour at the time | Your actual pay | For each pay period your employer owes you
-  - | -
-  <%= format_money(calculator.minimum_hourly_rate) %> | <%= format_money(calculator.total_hourly_rate) %> * | <%= format_money(calculator.historical_adjustment) %>
+  <% if calculator.potential_underpayment? %>
+    You could have also:
 
-  \* This figure has been rounded to the nearest penny.
-
-  This calculation includes an additional amount you’re entitled to by law for past payments. If you worked overtime or your employer provided you with [accommodation](/national-minimum-wage-accommodation), this has been added to the calculation.
+    * had money taken from your pay for things you needed for your job
+    * not been paid for any additional time you worked outside of your shift
+  <% end %>
 
   <%= render partial: 'shared/minimum_wage/acas_information.govspeak.erb' %>
+
+  You can also [make a complaint to HM Revenue and Customs (HMRC)](/government/publications/pay-and-work-rights-complaints) about your employer or employment agency or complain on behalf of someone else.
 <% end %>
