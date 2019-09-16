@@ -43,7 +43,9 @@
 
       <div class="next-question">
         <input type="hidden" name="next" value="1" />
-        <button type="submit" class="medium button">Next step</button>
+        <%= render "govuk_publishing_components/components/button", {
+          text: "Next step"
+        } %>
       </div>
     </div>
   </form>
