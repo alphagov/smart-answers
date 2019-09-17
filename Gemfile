@@ -50,7 +50,7 @@ group :test do
   gem 'minitest-focus', '~> 1.1', '>= 1.1.2'
   gem 'mocha', '1.9.0', require: false
   gem 'shoulda', '~> 3.6.0'
-  gem 'simplecov', '~> 0.17.0', require: false
+  gem 'simplecov', '~> 0.17.1', require: false
   gem 'simplecov-rcov', '~> 0.2.3', require: false
   gem 'webmock', '~> 3.7.4', require: false
 end
