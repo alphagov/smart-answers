@@ -101,12 +101,12 @@ class ChangingAnswerTest < EngineIntegrationTest
       fill_in "response", with: "Lancelot"
       click_on "Next step"
 
-      within(".current-question") { assert_page_has_content "What...is your quest?" }
-      choose "To seek the Holy Grail"
+      within('.current-question') { assert_page_has_content "What...is your quest?" }
+      choose("To seek the Holy Grail", visible: false)
       click_on "Next step"
 
-      within(".current-question") { assert_page_has_content "What...is your favorite colour?" }
-      choose "Blue"
+      within('.current-question') { assert_page_has_content "What...is your favorite colour?" }
+      choose("Blue", visible: false)
       click_on "Next step"
 
       within(".result-info") { assert_page_has_content "Right, off you go." }
@@ -119,41 +119,41 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       assert_current_url "/bridge-of-death/y/Bors"
 
-      within(".current-question") { assert_page_has_content "What...is your quest?" }
-      choose "To seek the Holy Grail"
+      within('.current-question') { assert_page_has_content "What...is your quest?" }
+      choose("To seek the Holy Grail", visible: false)
       click_on "Next step"
 
-      within(".current-question") { assert_page_has_content "What...is your favorite colour?" }
-      choose "Blue"
+      within('.current-question') { assert_page_has_content "What...is your favorite colour?" }
+      choose("Blue", visible: false)
       click_on "Next step"
 
       within(".result-info") { assert_page_has_content "Right, off you go." }
       within("tr.section:nth-child(2)") { click_on "Change" }
 
-      within ".current-question .question-body" do
-        assert page.has_checked_field? "To seek the Holy Grail"
-        assert page.has_unchecked_field? "To rescue the princess"
-        assert page.has_unchecked_field? "I dunno"
+      within '.current-question .question-body' do
+        assert page.has_checked_field?("To seek the Holy Grail", visible: false)
+        assert page.has_unchecked_field?("To rescue the princess", visible: false)
+        assert page.has_unchecked_field?("I dunno", visible: false)
       end
 
-      choose "To rescue the princess"
+      choose("To rescue the princess", visible: false)
       click_on "Next step"
 
       assert_current_url "/bridge-of-death/y/Bors/to_rescue_the_princess"
 
-      choose "Blue"
+      choose("Blue", visible: false)
       click_on "Next step"
 
       within(".result-info") { assert_page_has_content "Right, off you go." }
       within("tr.section:nth-child(3)") { click_on "Change" }
 
-      within ".current-question .question-body" do
-        assert page.has_checked_field? "Blue"
-        assert page.has_unchecked_field? "Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!"
-        assert page.has_unchecked_field? "Red"
+      within '.current-question .question-body' do
+        assert page.has_checked_field?("Blue", visible: false)
+        assert page.has_unchecked_field?("Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", visible: false)
+        assert page.has_unchecked_field?("Red", visible: false)
       end
 
-      choose "Red"
+      choose("Red", visible: false)
       click_on "Next step"
 
       assert_current_url "/bridge-of-death/y/Bors/to_rescue_the_princess/red"

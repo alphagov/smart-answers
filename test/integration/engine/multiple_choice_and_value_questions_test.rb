@@ -62,8 +62,8 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
         end
       end
 
-      within ".current-question" do
-        within "[data-test=question]" do
+      within '.current-question' do
+        within '.govuk-fieldset__legend' do
           assert_page_has_content "What...is your quest?"
         end
         within ".question-body" do
@@ -99,8 +99,8 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
         end
       end
 
-      within ".current-question" do
-        within "[data-test=question]" do
+      within '.current-question' do
+        within '.govuk-fieldset__legend' do
           assert_page_has_content "What...is your favorite colour?"
         end
         within ".question-body" do

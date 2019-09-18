@@ -19,8 +19,8 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
     should "handle country and date questions" do
       visit "/country-and-date-sample/y"
 
-      within ".current-question" do
-        within "[data-test=question]" do
+      within '.current-question' do
+        within '.govuk-fieldset__legend' do
           assert_page_has_content "Which country do you live in?"
         end
       end
@@ -46,8 +46,8 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         end
       end
 
-      within ".current-question" do
-        within "[data-test=question]" do
+      within '.current-question' do
+        within '.govuk-fieldset__legend' do
           assert_page_has_content "What date did you move there?"
         end
       end
@@ -86,8 +86,8 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         end
       end
 
-      within ".current-question" do
-        within "[data-test=question]" do
+      within '.current-question' do
+        within '.govuk-fieldset__legend' do
           assert_page_has_content "Which country were you born in?"
         end
       end

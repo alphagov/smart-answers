@@ -13,18 +13,17 @@
     <div class="current-question" id="current-question">
 
       <div class="question" data-debug-template-path="<%= question.relative_erb_template_path %>">
-        <h2 data-test="question">
-          <%= question.title %>
-        </h2>
+        <% if question.partial_template_name != 'multiple_choice_question' %>
+          <h2 data-test="question">
+            <%= question.title %>
+          </h2>
+        <% end %>
+
         <div class="question-body">
           <% if question.body.present? %>
             <article role="article">
               <%= question.body %>
             </article>
-          <% end %>
-
-          <% if question.hint.present? %>
-            <p class="hint"><%= question.hint %></p>
           <% end %>
 
           <div class="<%= question.error && 'error' %>">
