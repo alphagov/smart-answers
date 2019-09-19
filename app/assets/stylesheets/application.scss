@@ -7,6 +7,6 @@ $govuk-compatibility-govuktemplate: true;
 @import "colours";
 @import "shims";
 
-@import "smart_answers";
-
 @import "govuk_publishing_components/all_components";
+
+@import "smart_answers";

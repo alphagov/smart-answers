@@ -41,6 +41,10 @@ $is-ie: false !default;
     min-height: 0px;
   }
 
+  .descriptive__text a:focus {
+    @include govuk-focused-text;
+  }
+
   .previous-answers-top {
     margin-bottom: 1.5em;
   }
