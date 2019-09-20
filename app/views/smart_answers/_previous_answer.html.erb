@@ -12,7 +12,7 @@
   <% end %>
 
   <td class="link-right">
-    <%= link_to @presenter.change_collapsed_question_link(number_questions_so_far + 1) do %>
+    <%= link_to @presenter.change_collapsed_question_link(number_questions_so_far + 1), class: "govuk-link" do %>
       Change<span class="visuallyhidden"> answer to "<%= question.title %>"</span>
     <% end %>
   </td>

@@ -13,7 +13,9 @@
     <article role="article" class="group" data-debug-template-path="<%= start_node.relative_erb_template_path %>">
       <div class="inner">
         <section class="intro">
-          <%= start_node.body %>
+          <div class="descriptive__text">
+            <%= start_node.body %>
+          </div>
 
           <p class="get-started">
             <a rel="nofollow" href="<%= smart_answer_path(@name.to_s, started: "y") %>" class="big button" role="button"><%= start_node.start_button_text %></a>
@@ -21,7 +23,7 @@
         </section>
         <section class="more">
           <% unless start_node.post_body.blank? %>
-            <div id="before-you-start">
+            <div id="before-you-start" class="descriptive__text">
               <h2>Before you start</h2>
               <%= start_node.post_body %>
             </div>

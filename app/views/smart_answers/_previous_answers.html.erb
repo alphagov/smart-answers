@@ -5,7 +5,7 @@
           <h3 class="previous-answers-title">
             Previous answers
           </h3>
-          <%= link_to "Start again", smart_answer_path(params[:id]), :class => "start-right" %>
+          <%= link_to "Start again", smart_answer_path(params[:id]), :class => "start-right govuk-link" %>
         <table>
           <tbody>
             <% @presenter.collapsed_questions.each_with_index do |question, number_questions_so_far| %>
