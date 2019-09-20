@@ -164,22 +164,22 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       visit "/checkbox-sample/y"
 
-      check "Peppers"
-      check "Pepperoni"
+      check("Peppers", visible: false)
+      check("Pepperoni", visible: false)
       click_on "Next step"
 
       assert_current_url "/checkbox-sample/y/pepperoni,peppers"
 
       within("tr.section:nth-child(1)") { click_on "Change" }
 
-      within ".current-question .question-body" do
-        assert page.has_unchecked_field?("Ham")
-        assert page.has_checked_field?("Peppers")
-        assert page.has_unchecked_field?("Ice Cream!!!")
-        assert page.has_checked_field?("Pepperoni")
+      within '.current-question .question-body' do
+        assert page.has_unchecked_field?("Ham", visible: false)
+        assert page.has_checked_field?("Peppers", visible: false)
+        assert page.has_unchecked_field?("Ice Cream!!!", visible: false)
+        assert page.has_checked_field?("Pepperoni", visible: false)
       end
 
-      check "Ham"
+      check("Ham", visible: false)
       click_on "Next step"
 
       assert_current_url "/checkbox-sample/y/ham,pepperoni,peppers"

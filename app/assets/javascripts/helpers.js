@@ -27,7 +27,7 @@ function linkToTemplatesOnGithub() {
  * is deselected.
  */
 SmartAnswer.toggleCheckboxes = function() {
-  var checkboxSel = ".selectable input[type='checkbox']";
+  var checkboxSel = ".govuk-checkboxes__input[type='checkbox']";
   var noneCheckboxSel = checkboxSel + "[value='none']";
   var $checkboxes = $(checkboxSel).not(noneCheckboxSel);
   var $noneCheckbox = $(noneCheckboxSel);
@@ -35,7 +35,6 @@ SmartAnswer.toggleCheckboxes = function() {
     var $checkbox = this.value === 'none' ? $checkboxes : $noneCheckbox;
     if (this.checked) {
       $checkbox.prop('checked', false);
-      $checkbox.parent().removeClass('selected'); // parent label class.
     }
   };
   $checkboxes.change(deselectOptions);
