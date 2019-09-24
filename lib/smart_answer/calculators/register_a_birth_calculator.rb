@@ -38,7 +38,7 @@ module SmartAnswer::Calculators
     end
 
     def before_july_2006?
-      Date.new(2006, 07, 01) > childs_date_of_birth
+      Date.new(2006, 7, 1) > childs_date_of_birth
     end
 
     def same_country?
