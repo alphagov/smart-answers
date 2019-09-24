@@ -377,7 +377,6 @@ module SmartAnswer::Calculators
           2013 => 136.78,
           2012 => 135.45,
         }.each do |year, rate|
-
           should "be £#{rate} for #{year}/#{year + 1}" do
             date = Date.parse("21 April #{year}")
             calculator = MaternityPayCalculator.new(date)
