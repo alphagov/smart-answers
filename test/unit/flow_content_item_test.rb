@@ -11,9 +11,9 @@ module SmartAnswer
 
     def stub_flow_registration_presenter
       stub("flow-registration-presenter",
-        slug: "flow-slug",
-        title: "flow-title",
-        external_related_links: [],
+           slug: "flow-slug",
+           title: "flow-title",
+           external_related_links: [],
       )
     end
 

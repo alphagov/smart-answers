@@ -10,7 +10,7 @@ module SmartAnswer::Calculators
 
       should "simply delegate to StatePensionDateQuery.state_pension_date" do
         assert_equal @calculator.state_pension_date,
-          StatePensionDateQuery.state_pension_date(@calculator.dob, @calculator.gender)
+                     StatePensionDateQuery.state_pension_date(@calculator.dob, @calculator.gender)
       end
     end
 

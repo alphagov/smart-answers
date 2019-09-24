@@ -310,7 +310,7 @@ module SmartAnswer
             )
 
             assert_equal @data_query.outcome_per_path_countries,
-              %w(anguilla bermuda cayman-islands finland french-guiana monaco)
+                         %w(anguilla bermuda cayman-islands finland french-guiana monaco)
           end
         end
       end

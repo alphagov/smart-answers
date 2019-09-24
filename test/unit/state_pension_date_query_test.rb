@@ -27,16 +27,16 @@ class StatePensionDateQueryTest < ActiveSupport::TestCase
 
     should "return pension credit date equal to the state pension date for a female with the same dob" do
       assert_equal StatePensionDateQuery.pension_credit_date(Date.parse("1 January 1890")),
-        StatePensionDateQuery.state_pension_date(Date.parse("1 January 1890"), :female)
+                   StatePensionDateQuery.state_pension_date(Date.parse("1 January 1890"), :female)
       assert_equal StatePensionDateQuery.pension_credit_date(Date.parse("5 December 1953")),
-        StatePensionDateQuery.state_pension_date(Date.parse("5 December 1953"), :female)
+                   StatePensionDateQuery.state_pension_date(Date.parse("5 December 1953"), :female)
     end
 
     should "return bus pass qualification date equal to the pension credit date" do
       assert_equal StatePensionDateQuery.bus_pass_qualification_date(Date.parse("1 January 1890")),
-        StatePensionDateQuery.pension_credit_date(Date.parse("1 January 1890"))
+                   StatePensionDateQuery.pension_credit_date(Date.parse("1 January 1890"))
       assert_equal StatePensionDateQuery.bus_pass_qualification_date(Date.parse("5 December 1953")),
-        StatePensionDateQuery.pension_credit_date(Date.parse("5 December 1953"))
+                   StatePensionDateQuery.pension_credit_date(Date.parse("5 December 1953"))
     end
   end
 

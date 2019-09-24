@@ -376,23 +376,23 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
       assert_current_node :entitled_to_sick_pay
       assert_equal current_state.calculator.weekly_payments,
-                            [[Date.parse("12 January 2013"), 42.93],
-                             [Date.parse("19 January 2013"), 85.85],
-                             [Date.parse("26 January 2013"), 85.85],
-                             [Date.parse(" 2 February 2013"), 85.85],
-                             [Date.parse(" 9 February 2013"), 85.85],
-                             [Date.parse("16 February 2013"), 85.85],
-                             [Date.parse("23 February 2013"), 85.85],
-                             [Date.parse(" 2 March 2013"), 85.85],
-                             [Date.parse(" 9 March 2013"), 85.85],
-                             [Date.parse("16 March 2013"), 85.85],
-                             [Date.parse("23 March 2013"), 85.85],
-                             [Date.parse("30 March 2013"), 85.85],
-                             [Date.parse(" 6 April 2013"), 86.28],
-                             [Date.parse("13 April 2013"), 86.70],
-                             [Date.parse("20 April 2013"), 86.70],
-                             [Date.parse("27 April 2013"), 86.70],
-                             [Date.parse(" 4 May 2013"), 43.35]]
+                   [[Date.parse("12 January 2013"), 42.93],
+                    [Date.parse("19 January 2013"), 85.85],
+                    [Date.parse("26 January 2013"), 85.85],
+                    [Date.parse(" 2 February 2013"), 85.85],
+                    [Date.parse(" 9 February 2013"), 85.85],
+                    [Date.parse("16 February 2013"), 85.85],
+                    [Date.parse("23 February 2013"), 85.85],
+                    [Date.parse(" 2 March 2013"), 85.85],
+                    [Date.parse(" 9 March 2013"), 85.85],
+                    [Date.parse("16 March 2013"), 85.85],
+                    [Date.parse("23 March 2013"), 85.85],
+                    [Date.parse("30 March 2013"), 85.85],
+                    [Date.parse(" 6 April 2013"), 86.28],
+                    [Date.parse("13 April 2013"), 86.70],
+                    [Date.parse("20 April 2013"), 86.70],
+                    [Date.parse("27 April 2013"), 86.70],
+                    [Date.parse(" 4 May 2013"), 43.35]]
     end
 
     should "have consistent rates for all weekly rates that are produced" do
@@ -413,23 +413,23 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
       assert_current_node :entitled_to_sick_pay
       assert_equal current_state.calculator.weekly_payments,
-                            [[Date.parse("12 January 2013"), 85.85],
-                             [Date.parse("19 January 2013"), 85.85],
-                             [Date.parse("26 January 2013"), 85.85],
-                             [Date.parse(" 2 February 2013"), 85.85],
-                             [Date.parse(" 9 February 2013"), 85.85],
-                             [Date.parse("16 February 2013"), 85.85],
-                             [Date.parse("23 February 2013"), 85.85],
-                             [Date.parse(" 2 March 2013"), 85.85],
-                             [Date.parse(" 9 March 2013"), 85.85],
-                             [Date.parse("16 March 2013"), 85.85],
-                             [Date.parse("23 March 2013"), 85.85],
-                             [Date.parse("30 March 2013"), 85.85],
-                             [Date.parse(" 6 April 2013"), 85.85],
-                             [Date.parse("13 April 2013"), 86.70],
-                             [Date.parse("20 April 2013"), 86.70],
-                             [Date.parse("27 April 2013"), 86.70],
-                             [Date.parse(" 4 May 2013"), 86.70]]
+                   [[Date.parse("12 January 2013"), 85.85],
+                    [Date.parse("19 January 2013"), 85.85],
+                    [Date.parse("26 January 2013"), 85.85],
+                    [Date.parse(" 2 February 2013"), 85.85],
+                    [Date.parse(" 9 February 2013"), 85.85],
+                    [Date.parse("16 February 2013"), 85.85],
+                    [Date.parse("23 February 2013"), 85.85],
+                    [Date.parse(" 2 March 2013"), 85.85],
+                    [Date.parse(" 9 March 2013"), 85.85],
+                    [Date.parse("16 March 2013"), 85.85],
+                    [Date.parse("23 March 2013"), 85.85],
+                    [Date.parse("30 March 2013"), 85.85],
+                    [Date.parse(" 6 April 2013"), 85.85],
+                    [Date.parse("13 April 2013"), 86.70],
+                    [Date.parse("20 April 2013"), 86.70],
+                    [Date.parse("27 April 2013"), 86.70],
+                    [Date.parse(" 4 May 2013"), 86.70]]
     end
 
     should "show formatted weekly payment amounts with adjusted 3 days start amount for ordinary SPP" do
@@ -448,23 +448,23 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
       assert_current_node :entitled_to_sick_pay
       assert_equal current_state.calculator.weekly_payments,
-                            [[Date.parse("12 January 2013"), 21.47],
-                             [Date.parse("19 January 2013"), 85.85],
-                             [Date.parse("26 January 2013"), 85.85],
-                             [Date.parse(" 2 February 2013"), 85.85],
-                             [Date.parse(" 9 February 2013"), 85.85],
-                             [Date.parse("16 February 2013"), 85.85],
-                             [Date.parse("23 February 2013"), 85.85],
-                             [Date.parse(" 2 March 2013"), 85.85],
-                             [Date.parse(" 9 March 2013"), 85.85],
-                             [Date.parse("16 March 2013"), 85.85],
-                             [Date.parse("23 March 2013"), 85.85],
-                             [Date.parse("30 March 2013"), 85.85],
-                             [Date.parse(" 6 April 2013"), 85.85],
-                             [Date.parse("13 April 2013"), 86.70],
-                             [Date.parse("20 April 2013"), 86.70],
-                             [Date.parse("27 April 2013"), 86.70],
-                             [Date.parse(" 4 May 2013"), 86.70]]
+                   [[Date.parse("12 January 2013"), 21.47],
+                    [Date.parse("19 January 2013"), 85.85],
+                    [Date.parse("26 January 2013"), 85.85],
+                    [Date.parse(" 2 February 2013"), 85.85],
+                    [Date.parse(" 9 February 2013"), 85.85],
+                    [Date.parse("16 February 2013"), 85.85],
+                    [Date.parse("23 February 2013"), 85.85],
+                    [Date.parse(" 2 March 2013"), 85.85],
+                    [Date.parse(" 9 March 2013"), 85.85],
+                    [Date.parse("16 March 2013"), 85.85],
+                    [Date.parse("23 March 2013"), 85.85],
+                    [Date.parse("30 March 2013"), 85.85],
+                    [Date.parse(" 6 April 2013"), 85.85],
+                    [Date.parse("13 April 2013"), 86.70],
+                    [Date.parse("20 April 2013"), 86.70],
+                    [Date.parse("27 April 2013"), 86.70],
+                    [Date.parse(" 4 May 2013"), 86.70]]
     end
 
     should "show formatted weekly payment amounts with adjusted 3 days start amount for additional SPP" do
@@ -483,23 +483,23 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
       assert_current_node :entitled_to_sick_pay
       assert_equal current_state.calculator.weekly_payments,
-                            [[Date.parse("12 January 2013"), 21.47],
-                             [Date.parse("19 January 2013"), 85.85],
-                             [Date.parse("26 January 2013"), 85.85],
-                             [Date.parse(" 2 February 2013"), 85.85],
-                             [Date.parse(" 9 February 2013"), 85.85],
-                             [Date.parse("16 February 2013"), 85.85],
-                             [Date.parse("23 February 2013"), 85.85],
-                             [Date.parse(" 2 March 2013"), 85.85],
-                             [Date.parse(" 9 March 2013"), 85.85],
-                             [Date.parse("16 March 2013"), 85.85],
-                             [Date.parse("23 March 2013"), 85.85],
-                             [Date.parse("30 March 2013"), 85.85],
-                             [Date.parse(" 6 April 2013"), 85.85],
-                             [Date.parse("13 April 2013"), 86.70],
-                             [Date.parse("20 April 2013"), 86.70],
-                             [Date.parse("27 April 2013"), 86.70],
-                             [Date.parse(" 4 May 2013"), 86.70]]
+                   [[Date.parse("12 January 2013"), 21.47],
+                    [Date.parse("19 January 2013"), 85.85],
+                    [Date.parse("26 January 2013"), 85.85],
+                    [Date.parse(" 2 February 2013"), 85.85],
+                    [Date.parse(" 9 February 2013"), 85.85],
+                    [Date.parse("16 February 2013"), 85.85],
+                    [Date.parse("23 February 2013"), 85.85],
+                    [Date.parse(" 2 March 2013"), 85.85],
+                    [Date.parse(" 9 March 2013"), 85.85],
+                    [Date.parse("16 March 2013"), 85.85],
+                    [Date.parse("23 March 2013"), 85.85],
+                    [Date.parse("30 March 2013"), 85.85],
+                    [Date.parse(" 6 April 2013"), 85.85],
+                    [Date.parse("13 April 2013"), 86.70],
+                    [Date.parse("20 April 2013"), 86.70],
+                    [Date.parse("27 April 2013"), 86.70],
+                    [Date.parse(" 4 May 2013"), 86.70]]
     end
   end
 

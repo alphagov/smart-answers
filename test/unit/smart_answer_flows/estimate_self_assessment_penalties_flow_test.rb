@@ -16,8 +16,8 @@ module SmartAnswer
       setup do
         @calculator.stubs(:valid_filing_date?).returns(true)
         setup_states_for_question(:when_submitted?,
-          responding_with: "2017-05-01",
-          initial_state: { calculator: @calculator })
+                                  responding_with: "2017-05-01",
+                                  initial_state: { calculator: @calculator })
       end
 
       should "store parsed response on calculator as filing_date" do
@@ -37,8 +37,8 @@ module SmartAnswer
         should "raise an exception" do
           assert_raise(SmartAnswer::InvalidResponse) do
             setup_states_for_question(:when_submitted?,
-              responding_with: "2017-05-01",
-              initial_state: { calculator: @calculator })
+                                      responding_with: "2017-05-01",
+                                      initial_state: { calculator: @calculator })
           end
         end
       end
@@ -49,8 +49,8 @@ module SmartAnswer
         @calculator.stubs(:paid_on_time?).returns(true)
         @calculator.stubs(:valid_payment_date?).returns(true)
         setup_states_for_question(:when_paid?,
-          responding_with: "2017-05-01",
-          initial_state: { calculator: @calculator })
+                                  responding_with: "2017-05-01",
+                                  initial_state: { calculator: @calculator })
       end
 
       should "store parsed response on calculator as payment_date" do
@@ -70,8 +70,8 @@ module SmartAnswer
         should "raise an exception" do
           assert_raise(SmartAnswer::InvalidResponse) do
             setup_states_for_question(:when_paid?,
-              responding_with: "2017-05-01",
-              initial_state: { calculator: @calculator })
+                                      responding_with: "2017-05-01",
+                                      initial_state: { calculator: @calculator })
           end
         end
       end

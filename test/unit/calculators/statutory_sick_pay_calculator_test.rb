@@ -889,7 +889,7 @@ module SmartAnswer
                         [Date.parse("06 Apr 2013"), 85.85],
                         [Date.parse("13 Apr 2013"), 86.7],
                         [Date.parse("20 Apr 2013"), 86.7]],
-                      calculator.send(:weekly_payments)
+                       calculator.send(:weekly_payments)
         end
 
         should "have the same reduced value as the ssp_payment value" do
