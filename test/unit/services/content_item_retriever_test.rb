@@ -13,7 +13,7 @@ require "test_helper"
               base_path: "path/to/an/organisations/content",
               content_id: "3fb96b2b-8c29-43dc-83c9-489866d7cc38",
               document_type: "organisations",
-            }
+            },
           ],
         },
       }.with_indifferent_access

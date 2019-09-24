@@ -72,7 +72,7 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
         "OUTCOME_2_TITLE",
         "OUTCOME_2_BODY",
         "OUTCOME_3_TITLE",
-        "OUTCOME_3_BODY"
+        "OUTCOME_3_BODY",
       ]
       assert_equal expected_content, @presenter.flows_content
     end

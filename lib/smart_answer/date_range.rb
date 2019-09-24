@@ -133,7 +133,7 @@ module SmartAnswer
       [
         date_part("year", whole_years_away),
         date_part("month", whole_months_away),
-        date_part("day", whole_days_away)
+        date_part("day", whole_days_away),
       ]
     end
 

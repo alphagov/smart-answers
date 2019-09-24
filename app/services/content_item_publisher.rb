@@ -35,7 +35,7 @@ class ContentItemPublisher
           type: :prefix,
           destination: destination,
           segments_mode: :ignore,
-        }
+        },
       ],
     )
   end
@@ -107,14 +107,14 @@ private
           {
             content: content,
             content_type: "text/govspeak",
-          }
+          },
         ],
       },
       routes: [
         {
           type: :exact,
           path: base_path,
-        }
+        },
       ],
     }
 
@@ -135,7 +135,7 @@ private
           {
             content: content,
             content_type: "text/govspeak",
-          }
+          },
         ],
         transaction_start_link: link,
       },
@@ -143,7 +143,7 @@ private
         {
           type: :exact,
           path: base_path,
-        }
+        },
       ],
       schema_name: :transaction,
     }

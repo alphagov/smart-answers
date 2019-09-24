@@ -5,7 +5,7 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
     should "instantiates WorldwideOrganisation objects using data from the API" do
       organisations_data = [
         { title: "organisation-1-title" },
-        { title: "organisation-2-title" }
+        { title: "organisation-2-title" },
       ]
       worldwide_api = stub("worldwide-api")
       worldwide_api.stubs(:organisations_for_world_location).with("location-slug").returns(organisations_data)
@@ -24,7 +24,7 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
     should "return true for an organisation sponsored by the FCO" do
       organisation_data = { sponsors: [
             { details: { acronym: "FCO" },
-          }
+          },
         ],
       }
       worldwide_organisation = WorldwideOrganisation.new(organisation_data)
@@ -55,7 +55,7 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
             {
               title: "other-office-2",
               services: [{ title: "service-offered" }],
-            }
+            },
           ],
         },
       }
@@ -112,7 +112,7 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
           other: [
             {
               title: "other-office-title",
-            }
+            },
           ],
         },
       }

@@ -31,7 +31,7 @@ private
 
   def routes
     [
-      { type: "prefix", path: base_path }
+      { type: "prefix", path: base_path },
     ]
   end
 

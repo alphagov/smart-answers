@@ -62,7 +62,7 @@ StatePensionDateQuery = Struct.new(:dob, :gender) do
       StatePensionDate.new(:both, Date.new(1961, 1, 6), Date.new(1961, 2, 5), 66.years.since(dob) + 10.months),
       StatePensionDate.new(:both, Date.new(1961, 2, 6), Date.new(1961, 3, 5), 66.years.since(dob) + 11.months),
       StatePensionDate.new(:both, Date.new(1961, 3, 6), Date.new(1977, 4, 5), 67.years.since(dob)),
-      StatePensionDate.new(:both, Date.new(1978, 4, 6), Date.today + 1, 68.years.since(dob))
+      StatePensionDate.new(:both, Date.new(1978, 4, 6), Date.today + 1, 68.years.since(dob)),
     ]
   end
 

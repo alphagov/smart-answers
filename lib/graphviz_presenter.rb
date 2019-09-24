@@ -11,7 +11,7 @@ class GraphvizPresenter < GraphPresenter
       "",
       edge_lines,
       metadata_lines,
-      "}"
+      "}",
     ].flatten.join("\n")
   end
 
@@ -61,7 +61,7 @@ class GraphvizPresenter < GraphPresenter
       "overlap=false;",
       "splines=true;",
       %{label="#{escape(presenter.title)}";},
-      "fontsize=12;"
+      "fontsize=12;",
     ]
   end
 
