@@ -247,7 +247,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                                       assert_state_variable "has_contract", "yes"
                                       assert_state_variable :pay_dates_and_pay, "18 June 2013|£103.85"
                                     end
-                                  end #QP14 end SPP calculated weekly
+                                    end #QP14 end SPP calculated weekly
                                   end
                                 end #QP13 end earings above 109 between relevant period
 
