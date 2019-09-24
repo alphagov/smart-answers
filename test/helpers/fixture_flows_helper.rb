@@ -3,7 +3,7 @@ module FixtureFlowsHelper
     stub_request(:get, %r{#{Plek.new.find("content-store")}/content/(.*)})
       .to_return(status: 404, body: {}.to_json)
 
-    fixture_flows_path = Rails.root.join(*%w{test fixtures smart_answer_flows})
+    fixture_flows_path = Rails.root.join('test', 'fixtures', 'smart_answer_flows')
     @preload_flows = FLOW_REGISTRY_OPTIONS[:preload_flows]
     FLOW_REGISTRY_OPTIONS[:preload_flows] = false
     FLOW_REGISTRY_OPTIONS[:smart_answer_load_path] = fixture_flows_path
