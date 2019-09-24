@@ -3,8 +3,8 @@ module SmartAnswer::Calculators
     include ActionView::Helpers::NumberHelper
 
     ALT_EMBASSIES = {
-      'benin' =>  'nigeria',
-      'guinea' => 'ghana'
+      "benin" =>  "nigeria",
+      "guinea" => "ghana"
     }
 
     CASH_ONLY_COUNTRIES = %w(cuba sudan).freeze
@@ -24,7 +24,7 @@ module SmartAnswer::Calculators
     end
 
     def find_passport_fee(passport_type)
-      passport_fees['passport_fees'][passport_type]
+      passport_fees["passport_fees"][passport_type]
     end
 
     def cash_only_countries?(country_slug)

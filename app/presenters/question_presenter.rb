@@ -4,7 +4,7 @@ class QuestionPresenter < NodePresenter
     @renderer = options[:renderer]
     helpers = options[:helpers] || []
     @renderer ||= SmartAnswer::ErbRenderer.new(
-      template_directory: @node.template_directory.join('questions'),
+      template_directory: @node.template_directory.join("questions"),
       template_name: @node.filesystem_friendly_name,
       locals: @state.to_hash,
       helpers: [SmartAnswer::FormattingHelper] + helpers
@@ -17,7 +17,7 @@ class QuestionPresenter < NodePresenter
 
   def error
     if @state.error.present?
-      error_message_for(@state.error) || error_message_for('error_message') || default_error_message
+      error_message_for(@state.error) || error_message_for("error_message") || default_error_message
     end
   end
 

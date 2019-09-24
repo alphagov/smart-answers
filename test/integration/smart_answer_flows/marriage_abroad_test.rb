@@ -1,7 +1,7 @@
-require_relative '../../test_helper'
-require_relative 'flow_test_helper'
+require_relative "../../test_helper"
+require_relative "flow_test_helper"
 
-require 'smart_answer_flows/marriage-abroad'
+require "smart_answer_flows/marriage-abroad"
 
 class MarriageAbroadTest < ActiveSupport::TestCase
   include FlowTestHelper
@@ -30,49 +30,49 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
   context "newly added country that has no logic to handle opposite sex marriages" do
     setup do
-      stub_world_locations(['narnia'])
-      add_response 'ceremony_country'
-      add_response 'partner_local'
+      stub_world_locations(["narnia"])
+      add_response "ceremony_country"
+      add_response "partner_local"
       assert_raises(SmartAnswer::Question::Base::NextNodeUndefined) do
-        add_response 'opposite_sex'
+        add_response "opposite_sex"
       end
     end
   end
 
   context "ceremony is outside ireland" do
     setup do
-      add_response 'bahamas'
+      add_response "bahamas"
     end
     should "ask your country of residence" do
       assert_current_node :legal_residency?
-      assert_equal 'Bahamas', current_state.calculator.ceremony_country_name
+      assert_equal "Bahamas", current_state.calculator.ceremony_country_name
       assert_equal "the Bahamas", current_state.calculator.country_name_lowercase_prefix
     end
 
     context "resident in UK" do
       setup do
-        add_response 'uk'
+        add_response "uk"
       end
 
       should "go to partner nationality question" do
         assert_current_node :what_is_your_partners_nationality?
-        assert_equal 'Bahamas', current_state.calculator.ceremony_country_name
+        assert_equal "Bahamas", current_state.calculator.ceremony_country_name
         assert_equal "the Bahamas", current_state.calculator.country_name_lowercase_prefix
       end
 
       context "partner is british" do
         setup do
-          add_response 'partner_british'
+          add_response "partner_british"
         end
         should "ask what sex is your partner" do
           assert_current_node :partner_opposite_or_same_sex?
         end
         context "opposite sex partner" do
           setup do
-            add_response 'opposite_sex'
+            add_response "opposite_sex"
           end
           should "give outcome opposite sex commonwealth" do
-            expected_location = WorldLocation.find('bahamas')
+            expected_location = WorldLocation.find("bahamas")
             assert_equal expected_location, current_state.calculator.world_location
           end
         end
@@ -81,17 +81,17 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
     context "resident in the ceremony country" do
       setup do
-        add_response 'ceremony_country'
+        add_response "ceremony_country"
       end
 
       should "go to partner's nationality question" do
         assert_current_node :what_is_your_partners_nationality?
-        assert_equal 'Bahamas', current_state.calculator.ceremony_country_name
+        assert_equal "Bahamas", current_state.calculator.ceremony_country_name
       end
 
       context "partner is local" do
         setup do
-          add_response 'partner_local'
+          add_response "partner_local"
         end
         should "ask what sex is your partner" do
           assert_current_node :partner_opposite_or_same_sex?
@@ -101,17 +101,17 @@ class MarriageAbroadTest < ActiveSupport::TestCase
 
     context "resident in 3rd country" do
       setup do
-        add_response 'third_country'
+        add_response "third_country"
       end
 
       should "go to partner's nationality question" do
         assert_current_node :what_is_your_partners_nationality?
-        assert_equal 'Bahamas', current_state.calculator.ceremony_country_name
+        assert_equal "Bahamas", current_state.calculator.ceremony_country_name
       end
 
       context "partner is local" do
         setup do
-          add_response 'partner_local'
+          add_response "partner_local"
         end
         should "ask what sex is your partner" do
           assert_current_node :partner_opposite_or_same_sex?

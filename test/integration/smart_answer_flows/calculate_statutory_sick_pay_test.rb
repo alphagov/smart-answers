@@ -1,5 +1,5 @@
-require_relative '../../test_helper'
-require_relative 'flow_test_helper'
+require_relative "../../test_helper"
+require_relative "flow_test_helper"
 
 require "smart_answer_flows/calculate-statutory-sick-pay"
 
@@ -59,21 +59,21 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
         assert_current_node :employee_work_different_days?
         add_response :no
         assert_current_node :first_sick_day?
-        add_response '2014-03-02'
+        add_response "2014-03-02"
         assert_current_node :last_sick_day?
-        add_response '2014-06-02'
+        add_response "2014-06-02"
         assert_current_node :has_linked_sickness?
-        add_response 'no'
+        add_response "no"
         assert_current_node :paid_at_least_8_weeks?
-        add_response 'before_payday'
+        add_response "before_payday"
         assert_current_node :how_often_pay_employee_pay_patterns?
-        add_response 'irregularly'
+        add_response "irregularly"
         assert_current_node :pay_amount_if_not_sick?
-        add_response '3000'
+        add_response "3000"
         assert_current_node :contractual_days_covered_by_earnings?
-        add_response '17'
+        add_response "17"
         assert_current_node :usual_work_days?
-        add_response '1,2,3,4,5'
+        add_response "1,2,3,4,5"
         assert_current_node :entitled_to_sick_pay
       end
     end
@@ -100,162 +100,162 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
         should "require to be sick more than 4 days to get sick pay" do
           add_response :no
           assert_current_node :first_sick_day? # Q4
-          add_response '2013-04-02'
-          assert_equal current_state.calculator.sick_start_date, Date.parse(' 2 April 2013')
+          add_response "2013-04-02"
+          assert_equal current_state.calculator.sick_start_date, Date.parse(" 2 April 2013")
           assert_current_node :last_sick_day? # Q5
 
-          add_response '2013-04-04'
+          add_response "2013-04-04"
           assert_current_node :must_be_sick_for_4_days # A2
         end
 
         should "lead to entitled_to_sick_pay outcome when there is a linked sickness" do
           add_response :no
           assert_current_node :first_sick_day? # Q4
-          add_response '2013-04-02'
-          assert_equal current_state.calculator.sick_start_date, Date.parse(' 2 April 2013')
+          add_response "2013-04-02"
+          assert_equal current_state.calculator.sick_start_date, Date.parse(" 2 April 2013")
           assert_current_node :last_sick_day? # Q5
-          add_response '2013-04-10'
-          assert_equal current_state.calculator.sick_end_date, Date.parse('10 April 2013')
+          add_response "2013-04-10"
+          assert_equal current_state.calculator.sick_end_date, Date.parse("10 April 2013")
           assert_current_node :has_linked_sickness?
-          add_response 'no'
+          add_response "no"
           assert_current_node :paid_at_least_8_weeks?
-          add_response 'eight_weeks_more'
+          add_response "eight_weeks_more"
           assert_current_node :how_often_pay_employee_pay_patterns?
           assert current_state.calculator.paid_at_least_8_weeks_of_earnings?
-          add_response 'weekly'
+          add_response "weekly"
           assert_current_node :last_payday_before_sickness?
-          assert_equal current_state.calculator.pay_pattern, 'weekly'
-          add_response '2013-03-31'
+          assert_equal current_state.calculator.pay_pattern, "weekly"
+          add_response "2013-03-31"
           assert_current_node :last_payday_before_offset?
-          add_response '2013-01-31'
+          add_response "2013-01-31"
           assert_current_node :total_employee_earnings?
-          add_response '4000'
+          add_response "4000"
           assert_current_node :usual_work_days?
-          add_response '1,2,3,4,5'
+          add_response "1,2,3,4,5"
           assert_current_node :entitled_to_sick_pay
         end
 
         should "lead to entitled_to_sick_pay without first days when there is no linked sickness" do
           add_response :no
           assert_current_node :first_sick_day? # Q4
-          add_response '2013-04-02'
-          assert_equal current_state.calculator.sick_start_date, Date.parse(' 2 April 2013')
+          add_response "2013-04-02"
+          assert_equal current_state.calculator.sick_start_date, Date.parse(" 2 April 2013")
           assert_current_node :last_sick_day? # Q5
 
-          add_response '2013-04-10'
-          assert_equal current_state.calculator.sick_end_date, Date.parse('10 April 2013')
+          add_response "2013-04-10"
+          assert_equal current_state.calculator.sick_end_date, Date.parse("10 April 2013")
           assert_current_node :has_linked_sickness?
-          add_response 'no'
+          add_response "no"
           assert_current_node :paid_at_least_8_weeks?
-          add_response 'eight_weeks_more'
+          add_response "eight_weeks_more"
           assert_current_node :how_often_pay_employee_pay_patterns?
           assert current_state.calculator.paid_at_least_8_weeks_of_earnings?
-          add_response 'weekly'
+          add_response "weekly"
           assert_current_node :last_payday_before_sickness?
-          assert_equal current_state.calculator.pay_pattern, 'weekly'
-          add_response '2013-03-31'
+          assert_equal current_state.calculator.pay_pattern, "weekly"
+          add_response "2013-03-31"
           assert_current_node :last_payday_before_offset?
-          add_response '2013-01-31'
+          add_response "2013-01-31"
           assert_current_node :total_employee_earnings?
-          add_response '4000'
+          add_response "4000"
           assert_current_node :usual_work_days?
-          add_response '1,2,3,4,5'
+          add_response "1,2,3,4,5"
           assert_current_node :entitled_to_sick_pay
         end
 
         should "lead to entitled_to_sick_pay if worker got sick before payday and had linked sickness" do
           add_response :no
           assert_current_node :first_sick_day? # Q4
-          add_response '2013-04-02'
-          assert_equal current_state.calculator.sick_start_date, Date.parse(' 2 April 2013')
+          add_response "2013-04-02"
+          assert_equal current_state.calculator.sick_start_date, Date.parse(" 2 April 2013")
           assert_current_node :last_sick_day? # Q5
-          add_response '2013-04-10'
-          assert_equal current_state.calculator.sick_end_date, Date.parse('10 April 2013')
+          add_response "2013-04-10"
+          assert_equal current_state.calculator.sick_end_date, Date.parse("10 April 2013")
           assert_current_node :has_linked_sickness?
-          add_response 'yes'
+          add_response "yes"
           assert_current_node :linked_sickness_start_date?
-          add_response '2013-03-12'
+          add_response "2013-03-12"
           assert_current_node :linked_sickness_end_date?
-          add_response '2013-03-16'
+          add_response "2013-03-16"
           assert_current_node :paid_at_least_8_weeks?
-          add_response 'before_payday'
+          add_response "before_payday"
           assert_current_node :how_often_pay_employee_pay_patterns?
-          add_response 'monthly'
+          add_response "monthly"
           assert_current_node :pay_amount_if_not_sick?
-          add_response '2000'
+          add_response "2000"
           assert_current_node :contractual_days_covered_by_earnings?
-          add_response '30'
+          add_response "30"
           assert_current_node :usual_work_days?
-          add_response '1,2,3'
+          add_response "1,2,3"
           assert_current_node :entitled_to_sick_pay
         end
 
         should "lead to entitled_to_sick_pay if worker got sick before payday and had no linked sickness" do
           add_response :no
           assert_current_node :first_sick_day? # Q4
-          add_response '2013-04-02'
-          assert_equal current_state.calculator.sick_start_date, Date.parse(' 2 April 2013')
+          add_response "2013-04-02"
+          assert_equal current_state.calculator.sick_start_date, Date.parse(" 2 April 2013")
           assert_current_node :last_sick_day? # Q5
-          add_response '2013-04-10'
-          assert_equal current_state.calculator.sick_end_date, Date.parse('10 April 2013')
+          add_response "2013-04-10"
+          assert_equal current_state.calculator.sick_end_date, Date.parse("10 April 2013")
           assert_current_node :has_linked_sickness?
-          add_response 'no'
+          add_response "no"
           assert_current_node :paid_at_least_8_weeks?
-          add_response 'before_payday'
+          add_response "before_payday"
           assert_current_node :how_often_pay_employee_pay_patterns?
-          add_response 'monthly'
+          add_response "monthly"
           assert_current_node :pay_amount_if_not_sick?
-          add_response '2000'
+          add_response "2000"
           assert_current_node :contractual_days_covered_by_earnings?
-          add_response '30'
+          add_response "30"
           assert_current_node :usual_work_days?
-          add_response '1,2,3,4,5'
+          add_response "1,2,3,4,5"
           assert_current_node :entitled_to_sick_pay
         end
 
         should "lead to entitled_to_sick_pay if worker got sick before being employed for 8 weeks and had linked sickness" do
           add_response :no
           assert_current_node :first_sick_day? # Q4
-          add_response '2013-04-02'
-          assert_equal current_state.calculator.sick_start_date, Date.parse(' 2 April 2013')
+          add_response "2013-04-02"
+          assert_equal current_state.calculator.sick_start_date, Date.parse(" 2 April 2013")
           assert_current_node :last_sick_day? # Q5
-          add_response '2013-04-10'
-          assert_equal current_state.calculator.sick_end_date, Date.parse('10 April 2013')
+          add_response "2013-04-10"
+          assert_equal current_state.calculator.sick_end_date, Date.parse("10 April 2013")
           assert_current_node :has_linked_sickness?
-          add_response 'yes'
+          add_response "yes"
           assert_current_node :linked_sickness_start_date?
-          add_response '2013-03-24'
+          add_response "2013-03-24"
           assert_current_node :linked_sickness_end_date?
-          add_response '2013-03-29'
+          add_response "2013-03-29"
           assert_current_node :paid_at_least_8_weeks?
           add_response :eight_weeks_less
           assert_current_node :total_earnings_before_sick_period?
-          add_response '3000'
+          add_response "3000"
           assert_current_node :days_covered_by_earnings?
-          add_response '35'
+          add_response "35"
           assert_current_node :usual_work_days?
-          add_response '1,2,3,4,5'
+          add_response "1,2,3,4,5"
           assert_current_node :entitled_to_sick_pay
         end
 
         should "lead to entitled_to_sick_pay if worker got sick before being employed for 8 weeks and had no linked sickness" do
           add_response :no
           assert_current_node :first_sick_day? # Q4
-          add_response '2013-04-02'
-          assert_equal current_state.calculator.sick_start_date, Date.parse(' 2 April 2013')
+          add_response "2013-04-02"
+          assert_equal current_state.calculator.sick_start_date, Date.parse(" 2 April 2013")
           assert_current_node :last_sick_day? # Q5
-          add_response '2013-04-10'
-          assert_equal current_state.calculator.sick_end_date, Date.parse('10 April 2013')
+          add_response "2013-04-10"
+          assert_equal current_state.calculator.sick_end_date, Date.parse("10 April 2013")
           assert_current_node :has_linked_sickness?
-          add_response 'no'
+          add_response "no"
           assert_current_node :paid_at_least_8_weeks?
           add_response :eight_weeks_less
           assert_current_node :total_earnings_before_sick_period?
-          add_response '3000'
+          add_response "3000"
           assert_current_node :days_covered_by_earnings?
-          add_response '35'
+          add_response "35"
           assert_current_node :usual_work_days?
-          add_response '1,2,3,4,5'
+          add_response "1,2,3,4,5"
           assert_current_node :entitled_to_sick_pay
         end
       end
@@ -264,17 +264,17 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
   context "average weekly earnings is less than the current LEL on sick start date" do
     setup do
-      add_response 'none' # Q1
-      add_response 'yes' # Q2
-      add_response 'no' # Q3
-      add_response '2018-06-10' # Q4
-      add_response '2018-06-20' # Q5
-      add_response 'no' # Q11
-      add_response 'before_payday' # Q5.1
-      add_response 'weekly' # Q5.2
-      add_response '115' # Q7
-      add_response '7' # Q7.1
-      add_response '1,2,3,4,5' # Q13
+      add_response "none" # Q1
+      add_response "yes" # Q2
+      add_response "no" # Q3
+      add_response "2018-06-10" # Q4
+      add_response "2018-06-20" # Q5
+      add_response "no" # Q11
+      add_response "before_payday" # Q5.1
+      add_response "weekly" # Q5.2
+      add_response "115" # Q7
+      add_response "7" # Q7.1
+      add_response "1,2,3,4,5" # Q13
     end
     should "take you to result A5 as awe < LEL (as of 2018-06-10)" do
       assert_equal current_state.calculator.employee_average_weekly_earnings, 115
@@ -284,11 +284,11 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
   context "no SSP payable as sickness period is < 4 days" do
     setup do
-      add_response 'none'
-      add_response 'yes'
-      add_response 'no'
-      add_response '2013-06-10'
-      add_response '2013-06-12'
+      add_response "none"
+      add_response "yes"
+      add_response "no"
+      add_response "2013-06-10"
+      add_response "2013-06-12"
     end
     should "take you to result A7 - must be sick for at least 4 days in a row" do
       assert_current_node :must_be_sick_for_4_days
@@ -297,20 +297,20 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
   context "when only working two days a week" do
     setup do
-      add_response 'none'
-      add_response 'yes'
-      add_response 'no'
-      add_response '2015-03-12'
-      add_response '2015-03-19'
-      add_response 'yes'
-      add_response '2015-03-02'
-      add_response '2015-03-09'
-      add_response 'eight_weeks_more'
-      add_response 'weekly'
-      add_response '2015-02-27'
-      add_response '2015-01-02'
-      add_response '1000.0'
-      add_response '0,5'
+      add_response "none"
+      add_response "yes"
+      add_response "no"
+      add_response "2015-03-12"
+      add_response "2015-03-19"
+      add_response "yes"
+      add_response "2015-03-02"
+      add_response "2015-03-09"
+      add_response "eight_weeks_more"
+      add_response "weekly"
+      add_response "2015-02-27"
+      add_response "2015-01-02"
+      add_response "1000.0"
+      add_response "0,5"
     end
 
     # only 2 working days in linked sickness period of a week
@@ -325,33 +325,33 @@ class CalculateStatutorySickPayTest < ActiveSupport::TestCase
 
   context "no SSP payable as already had maximum" do
     should "take you to result A8 as already claimed > 28 weeks (max amount)" do
-      add_response 'none'
+      add_response "none"
       assert_current_node :employee_tell_within_limit?
-      add_response 'yes'
+      add_response "yes"
       assert_current_node :employee_work_different_days?
-      add_response 'no'
+      add_response "no"
       assert_current_node :first_sick_day?
-      add_response '2014-10-10'
+      add_response "2014-10-10"
       assert_current_node :last_sick_day?
-      add_response '2014-10-20'
+      add_response "2014-10-20"
       assert_current_node :has_linked_sickness?
-      add_response 'yes'
+      add_response "yes"
       assert_current_node :linked_sickness_start_date?
-      add_response '2014-03-01'
+      add_response "2014-03-01"
       assert_current_node :linked_sickness_end_date?
-      add_response '2014-09-17'
+      add_response "2014-09-17"
       assert_current_node :paid_at_least_8_weeks?
-      add_response 'eight_weeks_more'
+      add_response "eight_weeks_more"
       assert_current_node :how_often_pay_employee_pay_patterns?
-      add_response 'monthly'
+      add_response "monthly"
       assert_current_node :last_payday_before_sickness?
-      add_response '2013-04-01'
+      add_response "2013-04-01"
       assert_current_node :last_payday_before_offset?
-      add_response '2013-02-3'
+      add_response "2013-02-3"
       assert_current_node :total_employee_earnings?
-      add_response '4000'
+      add_response "4000"
       assert_current_node :usual_work_days?
-      add_response '1,2,3,4,5'
+      add_response "1,2,3,4,5"
 
       assert_current_node :maximum_entitlement_reached
     end

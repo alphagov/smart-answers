@@ -18,7 +18,7 @@ def check_links(links_to_check, broken, file)
       unless response.class == Net::HTTPOK
         new_hash = { link: link, resp: response.code, file: file }
         if response.code[0] == "3"
-          new_hash[:redirect] = response.header['location']
+          new_hash[:redirect] = response.header["location"]
         end
         broken.push(new_hash)
       end
@@ -41,7 +41,7 @@ end
 def check_locales_file(contents)
   links_to_check = []
   contents.gsub(/\[(.+)\]\((.+)\)/) {
-    link = prefix_link($2.gsub(/ "(.+)"$/, ''))
+    link = prefix_link($2.gsub(/ "(.+)"$/, ""))
     links_to_check << link
   }
   links_to_check
@@ -57,7 +57,7 @@ def check_data_file(contents)
 end
 
 namespace :links do
-  desc 'Checks all URLs within Smart Answers for errors.'
+  desc "Checks all URLs within Smart Answers for errors."
   task :check, :file do |_, args|
     broken = []
     pwd = Dir.pwd

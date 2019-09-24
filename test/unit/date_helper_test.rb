@@ -20,12 +20,12 @@ module SmartAnswer
 
       context "rates query date is set" do
         should "return the rates query date" do
-          ENV['RATES_QUERY_DATE'] = '2016-12-31'
-          assert_equal Date.parse('2016-12-31'), SmartAnswer::DateHelper.current_day
+          ENV["RATES_QUERY_DATE"] = "2016-12-31"
+          assert_equal Date.parse("2016-12-31"), SmartAnswer::DateHelper.current_day
         end
 
         teardown do
-          ENV.delete 'RATES_QUERY_DATE'
+          ENV.delete "RATES_QUERY_DATE"
         end
       end
     end

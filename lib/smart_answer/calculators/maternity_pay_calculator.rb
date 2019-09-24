@@ -155,7 +155,7 @@ module SmartAnswer::Calculators
     end
 
     def lower_earning_limit
-      RatesQuery.from_file('maternity_paternity_birth').rates(relevant_week.last).lower_earning_limit_rate
+      RatesQuery.from_file("maternity_paternity_birth").rates(relevant_week.last).lower_earning_limit_rate
     end
 
     def relevant_week

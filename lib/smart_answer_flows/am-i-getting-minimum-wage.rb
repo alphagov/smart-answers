@@ -1,11 +1,11 @@
-require 'smart_answer_flows/shared/minimum_wage_flow'
+require "smart_answer_flows/shared/minimum_wage_flow"
 
 module SmartAnswer
   class AmIGettingMinimumWageFlow < Flow
     def define
       start_page_content_id "111e006d-2b22-4b1f-989a-56bb61355d68"
       flow_content_id "43cc9c0c-4210-4643-b045-53a388bbc36f"
-      name 'am-i-getting-minimum-wage'
+      name "am-i-getting-minimum-wage"
       status :published
       satisfies_need "100145"
 
@@ -15,8 +15,8 @@ module SmartAnswer
         option "past_payment"
 
         calculate :calculator do |response|
-          if response == 'past_payment'
-            Calculators::MinimumWageCalculator.new(date: Date.parse('2018-04-01'))
+          if response == "past_payment"
+            Calculators::MinimumWageCalculator.new(date: Date.parse("2018-04-01"))
           else
             Calculators::MinimumWageCalculator.new
           end
@@ -26,9 +26,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'current_payment'
+          when "current_payment"
             question :are_you_an_apprentice?
-          when 'past_payment'
+          when "past_payment"
             question :were_you_an_apprentice?
           end
         end

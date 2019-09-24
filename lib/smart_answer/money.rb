@@ -1,4 +1,4 @@
-require 'bigdecimal'
+require "bigdecimal"
 module SmartAnswer
   class Money
     include Comparable
@@ -27,7 +27,7 @@ module SmartAnswer
     end
 
     def self.parse(raw_input)
-      raw_input.is_a?(Numeric) ? raw_input : raw_input.to_s.delete(',').gsub(/\s/, '')
+      raw_input.is_a?(Numeric) ? raw_input : raw_input.to_s.delete(",").gsub(/\s/, "")
     end
 
     def self.validate!(input)

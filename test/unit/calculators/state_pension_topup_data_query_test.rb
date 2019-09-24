@@ -5,7 +5,7 @@ module SmartAnswer::Calculators
     setup do
       StatePensionTopupDataQuery
         .stubs(:age_and_rates_data)
-        .returns('age_and_rates' => { 100 => 127, 99 => 137 })
+        .returns("age_and_rates" => { 100 => 127, 99 => 137 })
       @query = StatePensionTopupDataQuery.new
     end
 

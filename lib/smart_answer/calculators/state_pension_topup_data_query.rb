@@ -7,11 +7,11 @@ module SmartAnswer::Calculators
     end
 
     def age_and_rates(age)
-      upper_age = data['age_and_rates'].keys.max
+      upper_age = data["age_and_rates"].keys.max
       if age > upper_age
-        data['age_and_rates'][upper_age]
+        data["age_and_rates"][upper_age]
       else
-        data['age_and_rates'][age]
+        data["age_and_rates"][age]
       end
     end
 

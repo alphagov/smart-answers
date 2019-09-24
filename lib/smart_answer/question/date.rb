@@ -1,4 +1,4 @@
-require 'date'
+require "date"
 
 module SmartAnswer
   module Question

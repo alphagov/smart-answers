@@ -23,11 +23,11 @@ module SmartAnswer::Calculators
     end
 
     def died_at_home_or_in_hospital?
-      death_location_type == 'at_home_hospital'
+      death_location_type == "at_home_hospital"
     end
 
     def death_expected?
-      death_expected == 'yes'
+      death_expected == "yes"
     end
 
     def registration_country
@@ -51,23 +51,23 @@ module SmartAnswer::Calculators
     end
 
     def in_the_uk?
-      current_location == 'in_the_uk'
+      current_location == "in_the_uk"
     end
 
     def same_country?
-      current_location == 'same_country'
+      current_location == "same_country"
     end
 
     def another_country?
-      current_location == 'another_country'
+      current_location == "another_country"
     end
 
     def died_in_north_korea?
-      country_of_death == 'north-korea'
+      country_of_death == "north-korea"
     end
 
     def currently_in_north_korea?
-      current_country == 'north-korea'
+      current_country == "north-korea"
     end
 
     def translator_link_url
@@ -79,7 +79,7 @@ module SmartAnswer::Calculators
       organisation = location.fco_organisation
 
       if organisation
-        organisation.offices_with_service 'Births and Deaths registration service'
+        organisation.offices_with_service "Births and Deaths registration service"
       else
         []
       end

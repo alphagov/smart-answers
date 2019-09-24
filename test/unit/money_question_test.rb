@@ -1,6 +1,6 @@
 
-require_relative '../test_helper'
-require 'ostruct'
+require_relative "../test_helper"
+require "ostruct"
 
 module SmartAnswer
   class MoneyQuestionTest < ActiveSupport::TestCase

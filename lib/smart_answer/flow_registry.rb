@@ -1,7 +1,7 @@
 module SmartAnswer
   class FlowRegistry
     class NotFound < StandardError; end
-    FLOW_DIR = Rails.root.join('lib', 'smart_answer_flows')
+    FLOW_DIR = Rails.root.join("lib", "smart_answer_flows")
 
     def self.instance
       @instance ||= new(FLOW_REGISTRY_OPTIONS)
@@ -28,7 +28,7 @@ module SmartAnswer
     end
 
     def available_flows
-      Dir[@load_path.join('*.rb')].map do |path|
+      Dir[@load_path.join("*.rb")].map do |path|
         File.basename(path, ".rb")
       end
     end

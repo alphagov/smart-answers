@@ -6,14 +6,14 @@ module SmartAnswer::Calculators
     def initialize(match_date)
       @match_date = match_date
 
-      super(match_date, 'adoption')
+      super(match_date, "adoption")
 
       @matched_week = @expected_week
       @a_employment_start = @matched_week.weeks_after(-25).ends_on
     end
 
     def lower_earning_limit
-      RatesQuery.from_file('maternity_paternity_adoption').rates(relevant_week.last).lower_earning_limit_rate
+      RatesQuery.from_file("maternity_paternity_adoption").rates(relevant_week.last).lower_earning_limit_rate
     end
 
     def relevant_week
@@ -34,11 +34,11 @@ module SmartAnswer::Calculators
     end
 
     def no_contract_not_on_payroll?
-      employee_has_contract_adoption == 'no' && on_payroll == 'no'
+      employee_has_contract_adoption == "no" && on_payroll == "no"
     end
 
     def has_contract_not_on_payroll?
-      employee_has_contract_adoption == 'yes' && on_payroll == 'no'
+      employee_has_contract_adoption == "yes" && on_payroll == "no"
     end
 
     def overseas_adoption_leave_employment_threshold
@@ -49,7 +49,7 @@ module SmartAnswer::Calculators
 
     def rate_for(date)
       awe = truncate((average_weekly_earnings.to_f / 100) * 90)
-      if date < 6.weeks.since(leave_start_date) && @match_date >= Date.parse('5 April 2015')
+      if date < 6.weeks.since(leave_start_date) && @match_date >= Date.parse("5 April 2015")
         awe
       else
         [statutory_rate(date), awe].min

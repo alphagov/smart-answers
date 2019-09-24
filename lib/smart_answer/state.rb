@@ -1,4 +1,4 @@
-require 'ostruct'
+require "ostruct"
 
 module SmartAnswer
   class State < OpenStruct

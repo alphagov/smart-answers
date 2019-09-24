@@ -3,7 +3,7 @@ module SmartAnswer
     def define
       start_page_content_id "7bab842c-a9aa-4369-b162-4e3e2a475245"
       flow_content_id "94eb2af7-beb4-4657-b8b9-885dd86cbe3f"
-      name 'towing-rules'
+      name "towing-rules"
       status :published
       satisfies_need "101014"
 
@@ -19,15 +19,15 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'car-or-light-vehicle'
+          when "car-or-light-vehicle"
             question :existing_towing_entitlements? #Q2
-          when 'medium-sized-vehicle'
+          when "medium-sized-vehicle"
             question :medium_sized_vehicle_licenceholder? #Q8
-          when 'large-vehicle'
+          when "large-vehicle"
             question :existing_large_vehicle_licence? #Q20
-          when 'minibus'
+          when "minibus"
             question :car_licence_before_jan_1997? #Q25
-          when 'bus'
+          when "bus"
             question :bus_licenceholder? #Q36
           end
         end
@@ -40,9 +40,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'yes'
+          when "yes"
             question :how_long_entitlements? #Q2A
-          when 'no'
+          when "no"
             question :date_licence_was_issued? #Q5
           end
         end
@@ -55,9 +55,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'before-19-Jan-2013'
+          when "before-19-Jan-2013"
             outcome :car_light_vehicle_entitlement #A3
-          when 'after-19-Jan-2013'
+          when "after-19-Jan-2013"
             outcome :full_entitlement #A4
           end
         end
@@ -70,9 +70,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'licence-issued-before-19-Jan-2013'
+          when "licence-issued-before-19-Jan-2013"
             outcome :limited_trailer_entitlement #A6
-          when 'licence-issued-after-19-Jan-2013'
+          when "licence-issued-after-19-Jan-2013"
             outcome :limited_trailer_entitlement_2013 #A7
           end
         end
@@ -87,9 +87,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'yes'
+          when "yes"
             question :how_old_are_you_msv? #Q9
-          when 'no'
+          when "no"
             question :existing_large_vehicle_towing_entitlements? #Q12
           end
         end
@@ -102,9 +102,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'under-21'
+          when "under-21"
             outcome :limited_conditional_trailer_entitlement_msv #A10
-          when '21-or-over'
+          when "21-or-over"
             outcome :limited_trailer_entitlement_msv #A11
           end
         end
@@ -117,9 +117,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'yes'
+          when "yes"
             outcome :included_entitlement_msv #A13
-          when 'no'
+          when "no"
             question :date_licence_was_issued_msv? #Q14
           end
         end
@@ -132,9 +132,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'before-jan-1997'
+          when "before-jan-1997"
             outcome :full_entitlement_msv #A15
-          when 'from-jan-1997'
+          when "from-jan-1997"
             question :how_old_are_you_msv_2? #Q16
           end
         end
@@ -148,11 +148,11 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'under-18'
+          when "under-18"
             outcome :too_young_msv #A17
-          when 'under-21'
+          when "under-21"
             outcome :apply_for_provisional_with_exceptions_msv #A18
-          when '21-or-over'
+          when "21-or-over"
             outcome :apply_for_provisional_msv #19
           end
         end
@@ -167,9 +167,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'yes'
+          when "yes"
             outcome :full_cat_c_entitlement #A21
-          when 'no'
+          when "no"
             question :how_old_are_you_lv? #Q22
           end
         end
@@ -182,9 +182,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'under-21'
+          when "under-21"
             outcome :not_old_enough_lv #A23
-          when '21-or-over'
+          when "21-or-over"
             outcome :apply_for_provisional_lv #A24
           end
         end
@@ -199,9 +199,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'yes'
+          when "yes"
             outcome :full_entitlement_minibus #A26
-          when 'no'
+          when "no"
             question :do_you_have_lv_or_bus_towing_entitlement? #Q27
           end
         end
@@ -214,9 +214,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'yes'
+          when "yes"
             outcome :included_entitlement_minibus #A28
-          when 'no'
+          when "no"
             question :full_minibus_licence? #Q29
           end
         end
@@ -229,9 +229,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'yes'
+          when "yes"
             outcome :limited_towing_entitlement_minibus #A30
-          when 'no'
+          when "no"
             question :how_old_are_you_minibus? #Q31
           end
         end
@@ -244,9 +244,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'under-21'
+          when "under-21"
             outcome :not_old_enough_minibus #A32
-          when '21-or-over'
+          when "21-or-over"
             outcome :limited_overall_entitlement_minibus #A34
           end
         end
@@ -261,9 +261,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'yes'
+          when "yes"
             outcome :full_entitlement_bus #A37
-          when 'no'
+          when "no"
             question :how_old_are_you_bus? #Q38
           end
         end
@@ -276,9 +276,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'under-21'
+          when "under-21"
             outcome :not_old_enough_bus #A39
-          when '21-or-over'
+          when "21-or-over"
             outcome :apply_for_provisional_bus #A40
           end
         end

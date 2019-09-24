@@ -189,7 +189,7 @@ module SmartAnswer::Calculators
     end
 
     def registration_country_slug(country_slug)
-      data['registration_country'][country_slug] || country_slug
+      data["registration_country"][country_slug] || country_slug
     end
 
     def custom_registration_duration(country_slug)
@@ -213,15 +213,15 @@ module SmartAnswer::Calculators
     end
 
     def document_return_fees
-      RatesQuery.from_file('births_and_deaths_document_return_fees').rates
+      RatesQuery.from_file("births_and_deaths_document_return_fees").rates
     end
 
     def register_a_birth_fees
-      RatesQuery.from_file('register_a_birth').rates
+      RatesQuery.from_file("register_a_birth").rates
     end
 
     def register_a_death_fees
-      RatesQuery.from_file('register_a_death').rates
+      RatesQuery.from_file("register_a_death").rates
     end
 
     def self.registration_data

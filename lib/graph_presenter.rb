@@ -1,5 +1,5 @@
 class GraphPresenter
-  EXEMPTIONS_LIST = ['benefit-cap-calculator']
+  EXEMPTIONS_LIST = ["benefit-cap-calculator"]
   def initialize(flow)
     @flow = flow
   end
@@ -16,7 +16,7 @@ class GraphPresenter
         node.permitted_next_nodes.each do |permitted_next_node|
           existing_next_nodes = adjacency_list[node.name].map(&:first)
           unless existing_next_nodes.include?(permitted_next_node)
-            adjacency_list[node.name] << [permitted_next_node, '']
+            adjacency_list[node.name] << [permitted_next_node, ""]
           end
         end
       end

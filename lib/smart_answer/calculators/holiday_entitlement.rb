@@ -1,5 +1,5 @@
-require 'date'
-require 'ostruct'
+require "date"
+require "ostruct"
 
 module SmartAnswer::Calculators
   class HolidayEntitlement < OpenStruct
@@ -59,7 +59,7 @@ module SmartAnswer::Calculators
     end
 
     def strip_zeros(number)
-      number.to_s.sub(/\.0+$/, '')
+      number.to_s.sub(/\.0+$/, "")
     end
 
     def method_missing(symbol, *args)

@@ -11,9 +11,9 @@ module SmartAnswer
 
           next_node do |response|
             case response
-            when 'yes'
+            when "yes"
               question :employee_date_matched_paternity_adoption?
-            when 'no'
+            when "no"
               question :baby_due_date_paternity?
             end
           end
@@ -45,11 +45,11 @@ module SmartAnswer
           end
 
           calculate :leave_type do
-            'paternity_adoption'
+            "paternity_adoption"
           end
 
           calculate :paternity_adoption do
-            leave_type == 'paternity_adoption'
+            leave_type == "paternity_adoption"
           end
 
           next_node do
@@ -119,9 +119,9 @@ module SmartAnswer
 
           next_node do |response|
             case response
-            when 'yes'
+            when "yes"
               question :employee_work_before_employment_start?
-            when 'no'
+            when "no"
               outcome :paternity_not_entitled_to_leave_or_pay
             end
           end
@@ -147,9 +147,9 @@ module SmartAnswer
 
           next_node do |response|
             case response
-            when 'yes'
+            when "yes"
               question :employee_work_before_employment_start? # Combined flow
-            when 'no'
+            when "no"
               outcome :paternity_not_entitled_to_leave_or_pay
             end
           end
@@ -163,9 +163,9 @@ module SmartAnswer
 
           next_node do |response|
             case response
-            when 'yes'
+            when "yes"
               question :employee_has_contract_paternity?
-            when 'no'
+            when "no"
               outcome :paternity_not_entitled_to_leave_or_pay
             end
           end
@@ -192,7 +192,7 @@ module SmartAnswer
           end
 
           calculate :leave_spp_claim_link do
-            paternity_adoption ? 'adoption' : 'notice-period'
+            paternity_adoption ? "adoption" : "notice-period"
           end
 
 
@@ -218,9 +218,9 @@ module SmartAnswer
           end
 
           next_node do |response|
-            if response == 'yes'
+            if response == "yes"
               question :employee_still_employed_on_birth_date?
-            elsif has_contract == 'no'
+            elsif has_contract == "no"
               outcome :paternity_not_entitled_to_leave_or_pay
             else
               question :employee_start_paternity?
@@ -235,7 +235,7 @@ module SmartAnswer
           save_input_as :employed_dob
 
           next_node do |response|
-            if has_contract == 'no' && response == 'no'
+            if has_contract == "no" && response == "no"
               outcome :paternity_not_entitled_to_leave_or_pay
             else
               question :employee_start_paternity?
@@ -281,7 +281,7 @@ module SmartAnswer
           end
 
           next_node do
-            if has_contract == 'yes' && (calculator.on_payroll == 'no' || employed_dob == 'no')
+            if has_contract == "yes" && (calculator.on_payroll == "no" || employed_dob == "no")
               outcome :paternity_not_entitled_to_leave_or_pay
             else
               question :last_normal_payday_paternity?
@@ -388,9 +388,9 @@ module SmartAnswer
           save_input_as :spp_calculation_method
 
           next_node do |response|
-            if response == 'weekly_starting'
+            if response == "weekly_starting"
               outcome :paternity_leave_and_pay
-            elsif calculator.pay_pattern == 'monthly'
+            elsif calculator.pay_pattern == "monthly"
               question :monthly_pay_paternity?
             else
               question :next_pay_day_paternity?
@@ -424,13 +424,13 @@ module SmartAnswer
           save_input_as :monthly_pay_method
 
           next_node do |response|
-            if response == 'specific_date_each_month'
+            if response == "specific_date_each_month"
               question :specific_date_each_month_paternity?
-            elsif response == 'last_working_day_of_the_month'
+            elsif response == "last_working_day_of_the_month"
               question :days_of_the_week_paternity?
-            elsif response == 'a_certain_week_day_each_month'
+            elsif response == "a_certain_week_day_each_month"
               question :day_of_the_month_paternity?
-            elsif leave_type == 'adoption'
+            elsif leave_type == "adoption"
               outcome :adoption_leave_and_pay
             else
               outcome :paternity_leave_and_pay
@@ -447,7 +447,7 @@ module SmartAnswer
           end
 
           next_node do
-            if leave_type == 'adoption'
+            if leave_type == "adoption"
               outcome :adoption_leave_and_pay
             else
               outcome :paternity_leave_and_pay
@@ -465,7 +465,7 @@ module SmartAnswer
           end
 
           next_node do
-            if leave_type == 'adoption'
+            if leave_type == "adoption"
               outcome :adoption_leave_and_pay
             else
               outcome :paternity_leave_and_pay
@@ -506,7 +506,7 @@ module SmartAnswer
           end
 
           next_node do
-            if leave_type == 'adoption'
+            if leave_type == "adoption"
               outcome :adoption_leave_and_pay
             else
               outcome :paternity_leave_and_pay
@@ -531,12 +531,12 @@ module SmartAnswer
           precalculate :pay_method do
             calculator.pay_method = (
               if monthly_pay_method
-                if monthly_pay_method == 'specific_date_each_month' && pay_day_in_month > 28
-                  'last_day_of_the_month'
+                if monthly_pay_method == "specific_date_each_month" && pay_day_in_month > 28
+                  "last_day_of_the_month"
                 else
                   monthly_pay_method
                 end
-              elsif spp_calculation_method == 'weekly_starting'
+              elsif spp_calculation_method == "weekly_starting"
                 spp_calculation_method
               else
                 calculator.pay_pattern

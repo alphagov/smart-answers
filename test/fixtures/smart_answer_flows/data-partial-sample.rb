@@ -1,7 +1,7 @@
 module SmartAnswer
   class DataPartialSampleFlow < Flow
     def define
-      name 'data-partial-sample'
+      name "data-partial-sample"
       status :draft
 
       multiple_choice :what_are_you_testing? do
@@ -10,9 +10,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'data_partial_with_scalar'
+          when "data_partial_with_scalar"
             outcome :done_scalar
-          when 'data_partial_with_array'
+          when "data_partial_with_array"
             outcome :done_array
           end
         end

@@ -1,4 +1,4 @@
-require 'active_support/inflector'
+require "active_support/inflector"
 
 module SmartAnswer
   class Node
@@ -23,7 +23,7 @@ module SmartAnswer
     end
 
     def filesystem_friendly_name
-      to_s.sub(/\?$/, '')
+      to_s.sub(/\?$/, "")
     end
 
     def on_response(&block)

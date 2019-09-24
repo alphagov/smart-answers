@@ -1,6 +1,6 @@
-require_relative '../test_helper'
-require_relative '../helpers/fixture_flows_helper'
-require_relative '../fixtures/smart_answer_flows/graph'
+require_relative "../test_helper"
+require_relative "../helpers/fixture_flows_helper"
+require_relative "../fixtures/smart_answer_flows/graph"
 
 module SmartAnswer
   class GraphPresenterTest < ActiveSupport::TestCase
@@ -31,7 +31,7 @@ module SmartAnswer
     test "presents adjacency_list of simple graph" do
       expected_adjacency_list = {
         q1?: [[:q2?, ""]],
-        q2?: [[:done_a, ''], [:q_with_interpolation?, '']],
+        q2?: [[:done_a, ""], [:q_with_interpolation?, ""]],
         q_with_interpolation?: [[:done_b, ""]],
         done_a: [],
         done_b: []

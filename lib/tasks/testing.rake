@@ -1,4 +1,4 @@
-require 'rake/testtask'
+require "rake/testtask"
 
 Rake::TestTask.new("test:integration:engine") do |t|
   t.libs << "test"

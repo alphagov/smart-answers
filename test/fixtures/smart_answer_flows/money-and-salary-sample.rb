@@ -1,7 +1,7 @@
 module SmartAnswer
   class MoneyAndSalarySampleFlow < Flow
     def define
-      name 'money-and-salary-sample'
+      name "money-and-salary-sample"
       status :draft
 
       salary_question :how_much_do_you_earn? do

@@ -2,13 +2,13 @@ class GraphvizPresenter < GraphPresenter
   def to_gv
     [
       "digraph MyFlow {",
-      '',
-      '## LABELS',
-      '',
+      "",
+      "## LABELS",
+      "",
       label_lines,
-      '',
-      '## EDGES',
-      '',
+      "",
+      "## EDGES",
+      "",
       edge_lines,
       metadata_lines,
       "}"
@@ -32,7 +32,7 @@ class GraphvizPresenter < GraphPresenter
           style: "filled"
         )
       end
-      attribute_clause = attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(' ')
+      attribute_clause = attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(" ")
       %{#{normalize_name(name)} [#{attribute_clause}]}
     end
   end
@@ -57,10 +57,10 @@ class GraphvizPresenter < GraphPresenter
 
   def metadata_lines
     [
-      'overlap=false;',
-      'splines=true;',
+      "overlap=false;",
+      "splines=true;",
       %{label="#{escape(presenter.title)}";},
-      'fontsize=12;'
+      "fontsize=12;"
     ]
   end
 
@@ -69,7 +69,7 @@ class GraphvizPresenter < GraphPresenter
       "\n" => '\n',
       "[" => '\[',
       "]" => '\]',
-      '"' => '\''
+      '"' => "'"
     }
     label.to_s.gsub(%r{[\n\[\]"]}, map)
   end

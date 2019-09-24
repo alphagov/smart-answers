@@ -2,10 +2,10 @@ module SmartAnswer::Calculators
   class StatePensionTopupCalculator
     include ActiveModel::Model
 
-    FEMALE_YOUNGEST_DOB = Date.parse('1953-04-05')
-    MALE_YOUNGEST_DOB = Date.parse('1951-04-05')
-    TOPUP_START_DATE = Date.parse('2015-10-12')
-    TOPUP_END_DATE = Date.parse('2017-04-05')
+    FEMALE_YOUNGEST_DOB = Date.parse("1953-04-05")
+    MALE_YOUNGEST_DOB = Date.parse("1951-04-05")
+    TOPUP_START_DATE = Date.parse("2015-10-12")
+    TOPUP_END_DATE = Date.parse("2017-04-05")
     FEMALE_RETIREMENT_AGE = 62
     MALE_RETIREMENT_AGE = 65
 
@@ -15,7 +15,7 @@ module SmartAnswer::Calculators
 
     def initialize(attributes = {})
       super
-      @gender ||= 'female'
+      @gender ||= "female"
     end
 
     def valid_whole_number_weekly_amount?
@@ -52,9 +52,9 @@ module SmartAnswer::Calculators
 
     def too_young?
       case gender
-      when 'female'
+      when "female"
         date_of_birth > FEMALE_YOUNGEST_DOB
-      when 'male'
+      when "male"
         date_of_birth > MALE_YOUNGEST_DOB
       end
     end
@@ -62,9 +62,9 @@ module SmartAnswer::Calculators
   private
 
     def retirement_age(gender)
-      if gender == 'female'
+      if gender == "female"
         FEMALE_RETIREMENT_AGE
-      elsif gender == 'male'
+      elsif gender == "male"
         MALE_RETIREMENT_AGE
       end
     end

@@ -1,7 +1,7 @@
 require_relative "../test_helper"
 require_relative "../helpers/fixture_flows_helper"
 
-require File.expand_path('../../fixtures/smart_answer_flows/flow-sample', __FILE__)
+require File.expand_path("../../fixtures/smart_answer_flows/flow-sample", __FILE__)
 
 class FlowRegistrationPresenterTest < ActiveSupport::TestCase
   include FixtureFlowsHelper
@@ -48,9 +48,9 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
 
   context "#external_related_links" do
     should "return the external_related_links" do
-      @flow.external_related_links([title: 'a-title', url: 'a-description'])
+      @flow.external_related_links([title: "a-title", url: "a-description"])
 
-      assert_equal [title: 'a-title', url: 'a-description'], @presenter.external_related_links
+      assert_equal [title: "a-title", url: "a-description"], @presenter.external_related_links
     end
 
     should "return empty list if no external links" do
@@ -80,7 +80,7 @@ class FlowRegistrationPresenterTest < ActiveSupport::TestCase
 
   context "state" do
     should "always return live, because the FlowRegistry decides what to register" do
-      assert_equal 'live', @presenter.state
+      assert_equal "live", @presenter.state
     end
   end
 end

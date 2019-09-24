@@ -2,14 +2,14 @@ module SmartAnswer::Calculators
   class PaternityPayCalculator < MaternityPayCalculator
     attr_accessor :paternity_leave_duration
 
-    def initialize(due_date, leave_type = 'paternity')
+    def initialize(due_date, leave_type = "paternity")
       super(due_date, leave_type)
     end
 
     # Pay duration is the same for paternity and paternity_adoption
     # leave types.
     def pay_duration
-      paternity_leave_duration == 'one_week' ? 1 : 2
+      paternity_leave_duration == "one_week" ? 1 : 2
     end
 
   private

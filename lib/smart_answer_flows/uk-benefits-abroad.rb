@@ -3,7 +3,7 @@ module SmartAnswer
     def define
       start_page_content_id "e1eaf183-1211-4fd7-b439-5c94498814ef"
       flow_content_id "99f0e249-aaf2-43da-8e5e-7a8de934fc64"
-      name 'uk-benefits-abroad'
+      name "uk-benefits-abroad"
       status :published
       satisfies_need "100490"
 
@@ -40,11 +40,11 @@ module SmartAnswer
         end
 
         calculate :going_abroad do
-          going_or_already_abroad == 'going_abroad'
+          going_or_already_abroad == "going_abroad"
         end
 
         calculate :already_abroad do
-          going_or_already_abroad == 'already_abroad'
+          going_or_already_abroad == "already_abroad"
         end
 
         calculate :already_abroad_text_two do
@@ -88,28 +88,28 @@ module SmartAnswer
         next_node do |response|
           if %w{winter_fuel_payment maternity_benefits child_benefit ssp bereavement_benefits}.include?(response)
             question :which_country?
-          elsif response == 'iidb'
+          elsif response == "iidb"
             question :iidb_already_claiming?
-          elsif response == 'esa'
+          elsif response == "esa"
             question :esa_how_long_abroad?
-          elsif response == 'disability_benefits'
+          elsif response == "disability_benefits"
             question :db_how_long_abroad?
-          elsif response == 'tax_credits'
+          elsif response == "tax_credits"
             question :eligible_for_tax_credits?
           elsif going_abroad
-            if response == 'jsa'
+            if response == "jsa"
               question :jsa_how_long_abroad? # Q3 going_abroad
-            elsif response == 'pension'
+            elsif response == "pension"
               outcome :pension_going_abroad_outcome # A2 going_abroad
-            elsif response == 'income_support'
+            elsif response == "income_support"
               question :is_how_long_abroad? # Q32 going_abroad
             end
           elsif already_abroad
-            if response == 'jsa'
+            if response == "jsa"
               question :which_country?
-            elsif response == 'pension'
+            elsif response == "pension"
               outcome :pension_already_abroad_outcome # A2 already_abroad
-            elsif response == 'income_support'
+            elsif response == "income_support"
               outcome :is_already_abroad_outcome #A40 already_abroad
             end
           end
@@ -128,7 +128,7 @@ module SmartAnswer
 
         next_node do |response|
           case benefit
-          when 'jsa'
+          when "jsa"
             if already_abroad && calculator.eea_country?
               outcome :jsa_eea_already_abroad_outcome # A3 already_abroad
             elsif already_abroad && calculator.social_security_countries_jsa?
@@ -140,13 +140,13 @@ module SmartAnswer
             else
               outcome :jsa_not_entitled_outcome # A7 going_abroad and A5 already_abroad
             end
-          when 'maternity_benefits'
+          when "maternity_benefits"
             if calculator.eea_country?
               question :working_for_a_uk_employer? # Q8 going_abroad and Q7 already_abroad
             else
               question :employer_paying_ni? # Q10, Q11, Q16 going_abroad and Q9, Q10, Q15 already_abroad
             end
-          when 'winter_fuel_payment'
+          when "winter_fuel_payment"
             if calculator.eea_country?
               if going_abroad
                 outcome :wfp_going_abroad_outcome # A9 going_abroad
@@ -156,7 +156,7 @@ module SmartAnswer
             else
               outcome :wfp_not_eligible_outcome # A8 going_abroad and A6 already_abroad
             end
-          when 'child_benefit'
+          when "child_benefit"
             if calculator.eea_country?
               question :do_either_of_the_following_apply? # Q13 going_abroad and Q12 already_abroad
             elsif calculator.former_yugoslavia?
@@ -172,7 +172,7 @@ module SmartAnswer
             else
               outcome :child_benefit_not_entitled_outcome # A18 going_abroad and A16 already_abroad
             end
-          when 'iidb'
+          when "iidb"
             if going_abroad
               if calculator.eea_country?
                 outcome :iidb_going_abroad_eea_outcome # A32 going_abroad
@@ -190,7 +190,7 @@ module SmartAnswer
                 outcome :iidb_already_abroad_other_outcome # A33 already_abroad
               end
             end
-          when 'disability_benefits'
+          when "disability_benefits"
             if calculator.eea_country?
               question :db_claiming_benefits? # Q30 going_abroad and Q29 already_abroad
             elsif going_abroad
@@ -198,19 +198,19 @@ module SmartAnswer
             else
               outcome :db_already_abroad_other_outcome # A35 already_abroad
             end
-          when 'ssp'
+          when "ssp"
             if calculator.eea_country?
               question :working_for_uk_employer_ssp? # Q15 going_abroad and Q14 already_abroad
             else
               question :employer_paying_ni? # Q10, Q11, Q16 going_abroad and Q9, Q10, Q15 already_abroad
             end
-          when 'tax_credits'
+          when "tax_credits"
             if calculator.eea_country?
               question :tax_credits_currently_claiming? # Q20 already_abroad
             else
               outcome :tax_credits_unlikely_outcome # A21 already_abroad and A23 going_abroad
             end
-          when 'esa'
+          when "esa"
             if going_abroad
               if calculator.eea_country?
                 outcome :esa_going_abroad_eea_outcome # A29 going_abroad
@@ -232,7 +232,7 @@ module SmartAnswer
                 outcome :esa_already_abroad_other_outcome # A29 already_abroad
               end
             end
-          when 'bereavement_benefits'
+          when "bereavement_benefits"
             if going_abroad
               if calculator.eea_country?
                 outcome :bb_going_abroad_eea_outcome # A39 going_abroad
@@ -261,9 +261,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'yes'
+          when "yes"
             question :eligible_for_smp? # Q9 going_abroad and Q8 already_abroad
-          when 'no'
+          when "no"
             outcome :maternity_benefits_maternity_allowance_outcome # A10 going_abroad and A8 already_abroad
           end
         end
@@ -276,9 +276,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'yes'
+          when "yes"
             outcome :maternity_benefits_eea_entitled_outcome # A11 going_abroad and A9 already_abroad
-          when 'no'
+          when "no"
             outcome :maternity_benefits_maternity_allowance_outcome # A10 going_abroad and A8 already_abroad
           end
         end
@@ -291,15 +291,15 @@ module SmartAnswer
 
         next_node do |response|
           # SSP benefits
-          if benefit == 'ssp'
+          if benefit == "ssp"
             if going_abroad
-              if response == 'yes'
+              if response == "yes"
                 outcome :ssp_going_abroad_entitled_outcome # A19 going_abroad
               else
                 outcome :ssp_going_abroad_not_entitled_outcome # A20 going_abroad
               end
             elsif already_abroad
-              if response == 'yes'
+              if response == "yes"
                 outcome :ssp_already_abroad_entitled_outcome # A17 already_abroad
               else
                 outcome :ssp_already_abroad_not_entitled_outcome # A18 already_abroad
@@ -307,7 +307,7 @@ module SmartAnswer
             end
           else
             #not SSP benefits
-            if response == 'yes'
+            if response == "yes"
               question :eligible_for_smp? # Q9 going_abroad and Q8 already_abroad
             elsif (countries_of_former_yugoslavia + %w(barbados guernsey jersey israel turkey)).include?(calculator.country)
               if already_abroad
@@ -348,13 +348,13 @@ module SmartAnswer
 
         next_node do |response|
           if going_abroad
-            if response == 'yes'
+            if response == "yes"
               outcome :ssp_going_abroad_entitled_outcome # A19 going_abroad
             else
               outcome :ssp_going_abroad_not_entitled_outcome # A20 going_abroad
             end
           elsif already_abroad
-            if response == 'yes'
+            if response == "yes"
               outcome :ssp_already_abroad_entitled_outcome # A17 already_abroad
             else
               outcome :ssp_already_abroad_not_entitled_outcome # A18 already_abroad
@@ -371,11 +371,11 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'crown_servant'
+          when "crown_servant"
             outcome :tax_credits_crown_servant_outcome # A19 already_abroad
-          when 'cross_border_worker'
+          when "cross_border_worker"
             outcome :tax_credits_cross_border_worker_outcome # A20 already_abroad
-          when 'none_of_the_above'
+          when "none_of_the_above"
             question :tax_credits_how_long_abroad? # Q18 going_abroad and Q17 already_abroad
           end
         end
@@ -388,9 +388,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'yes'
+          when "yes"
             question :which_country? # Q17
-          when 'no'
+          when "no"
             outcome :tax_credits_unlikely_outcome # A21 already_abroad and A23 going_abroad
           end
         end
@@ -423,9 +423,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'tax_credits_holiday'
+          when "tax_credits_holiday"
             outcome :tax_credits_holiday_outcome # A23 already_abroad and A25 going_abroad and A26 going_abroad
-          when 'tax_credits_medical_treatment', 'tax_credits_death'
+          when "tax_credits_medical_treatment", "tax_credits_death"
             outcome :tax_credits_medical_death_outcome #A24 already_abroad
           end
         end
@@ -438,9 +438,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'yes'
+          when "yes"
             question :which_country? # Shared question
-          when 'no'
+          when "no"
             outcome :iidb_maybe_outcome # A30 already_abroad and A31 going_abroad
           end
         end
@@ -453,13 +453,13 @@ module SmartAnswer
 
         next_node do |response|
           if going_abroad
-            if response == 'yes'
+            if response == "yes"
               outcome :db_going_abroad_eea_outcome # A37 going_abroad
             else
               outcome :db_going_abroad_other_outcome # A36 going_abroad
             end
           elsif already_abroad
-            if response == 'yes'
+            if response == "yes"
               outcome :db_already_abroad_eea_outcome # A36 already_abroad
             else
               outcome :db_already_abroad_other_outcome # A35 already_abroad
@@ -513,9 +513,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'yes'
+          when "yes"
             outcome :is_abroad_for_treatment_outcome # A44 going_abroad
-          when 'no'
+          when "no"
             question :is_work_or_sick_pay? # Q36 going_abroad
           end
         end
@@ -570,11 +570,11 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'less_than_a_year_medical'
+          when "less_than_a_year_medical"
             outcome :jsa_less_than_a_year_medical_outcome # A3 going_abroad
-          when 'less_than_a_year_other'
+          when "less_than_a_year_other"
             outcome :jsa_less_than_a_year_other_outcome # A4 going_abroad
-          when 'more_than_a_year'
+          when "more_than_a_year"
             question :which_country?
           end
         end
@@ -586,9 +586,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'tax_credits_up_to_a_year'
+          when "tax_credits_up_to_a_year"
             question :tax_credits_why_going_abroad? #Q23 going_abroad and Q22 already_abroad
-          when 'tax_credits_more_than_a_year'
+          when "tax_credits_more_than_a_year"
             question :tax_credits_children? # Q19 going_abroad and Q18 already_abroad
           end
         end
@@ -601,13 +601,13 @@ module SmartAnswer
         option :esa_more_than_a_year
 
         next_node do |response|
-          if going_abroad && response == 'esa_under_a_year_medical'
+          if going_abroad && response == "esa_under_a_year_medical"
             outcome :esa_going_abroad_under_a_year_medical_outcome # A27 going_abroad
-          elsif going_abroad && response == 'esa_under_a_year_other'
+          elsif going_abroad && response == "esa_under_a_year_other"
             outcome :esa_going_abroad_under_a_year_other_outcome # A28 going_abroad
-          elsif already_abroad && response == 'esa_under_a_year_medical'
+          elsif already_abroad && response == "esa_under_a_year_medical"
             outcome :esa_already_abroad_under_a_year_medical_outcome # A25 already_abroad
-          elsif already_abroad && response == 'esa_under_a_year_other'
+          elsif already_abroad && response == "esa_under_a_year_other"
             outcome :esa_already_abroad_under_a_year_other_outcome # A26 already_abroad
           else
             question :which_country?
@@ -621,7 +621,7 @@ module SmartAnswer
         option :permanent
 
         next_node do |response|
-          if response == 'permanent'
+          if response == "permanent"
             question :which_country? # Q25
           elsif going_abroad
             outcome :db_going_abroad_temporary_outcome # A35 going_abroad
@@ -639,11 +639,11 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'is_under_a_year_medical'
+          when "is_under_a_year_medical"
             outcome :is_under_a_year_medical_outcome # A42 going_abroad
-          when 'is_under_a_year_other'
+          when "is_under_a_year_other"
             question :is_claiming_benefits? # Q33 going_abroad
-          when 'is_more_than_a_year'
+          when "is_more_than_a_year"
             outcome :is_more_than_a_year_outcome # A41 going_abroad
           end
         end

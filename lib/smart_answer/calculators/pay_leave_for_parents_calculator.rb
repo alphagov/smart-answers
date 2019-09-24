@@ -18,7 +18,7 @@ module SmartAnswer::Calculators
     attr_accessor :partner_earned_at_least_390
 
     def two_carers?
-      two_carers == 'yes'
+      two_carers == "yes"
     end
 
     def continuity_start_date

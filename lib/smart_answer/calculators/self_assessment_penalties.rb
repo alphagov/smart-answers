@@ -36,17 +36,17 @@ module SmartAnswer::Calculators
 
     def tax_year_range
       case tax_year
-      when '2012-13'
+      when "2012-13"
         SmartAnswer::YearRange.tax_year.starting_in(2012)
-      when '2013-14'
+      when "2013-14"
         SmartAnswer::YearRange.tax_year.starting_in(2013)
-      when '2014-15'
+      when "2014-15"
         SmartAnswer::YearRange.tax_year.starting_in(2014)
-      when '2015-16'
+      when "2015-16"
         SmartAnswer::YearRange.tax_year.starting_in(2015)
-      when '2016-17'
+      when "2016-17"
         SmartAnswer::YearRange.tax_year.starting_in(2016)
-      when '2017-18'
+      when "2017-18"
         SmartAnswer::YearRange.tax_year.starting_in(2017)
       end
     end
@@ -57,17 +57,17 @@ module SmartAnswer::Calculators
 
     def one_year_after_start_date_for_penalties
       case tax_year
-      when '2012-13'
+      when "2012-13"
         PENALTY_YEAR.starting_in(2015).begins_on
-      when '2013-14'
+      when "2013-14"
         PENALTY_YEAR.starting_in(2016).begins_on
-      when '2014-15'
+      when "2014-15"
         PENALTY_YEAR.starting_in(2017).begins_on
-      when '2015-16'
+      when "2015-16"
         PENALTY_YEAR.starting_in(2018).begins_on
-      when '2016-17'
+      when "2016-17"
         PENALTY_YEAR.starting_in(2019).begins_on
-      when '2017-18'
+      when "2017-18"
         PENALTY_YEAR.starting_in(2020).begins_on
       end
     end

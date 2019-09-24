@@ -145,15 +145,15 @@ module SmartAnswer
       end
 
       def paid_at_least_8_weeks_of_earnings?
-        eight_weeks_earnings == 'eight_weeks_more'
+        eight_weeks_earnings == "eight_weeks_more"
       end
 
       def paid_less_than_8_weeks_of_earnings?
-        eight_weeks_earnings == 'eight_weeks_less'
+        eight_weeks_earnings == "eight_weeks_less"
       end
 
       def fell_sick_before_payday?
-        eight_weeks_earnings == 'before_payday'
+        eight_weeks_earnings == "before_payday"
       end
 
       def employee_average_weekly_earnings
@@ -188,7 +188,7 @@ module SmartAnswer
 
       # define as static so we don't have to instantiate the calculator too early in the flow
       def self.lower_earning_limit_on(date)
-        RatesQuery.from_file('statutory_sick_pay').rates(date).lower_earning_limit_rate
+        RatesQuery.from_file("statutory_sick_pay").rates(date).lower_earning_limit_rate
       end
 
       def self.months_between(start_date, end_date)
@@ -283,7 +283,7 @@ module SmartAnswer
     private
 
       def weekly_rate_on(date)
-        RatesQuery.from_file('statutory_sick_pay').rates(date).ssp_weekly_rate
+        RatesQuery.from_file("statutory_sick_pay").rates(date).ssp_weekly_rate
       end
 
       def max_days_that_can_be_paid

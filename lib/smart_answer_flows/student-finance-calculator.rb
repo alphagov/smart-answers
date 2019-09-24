@@ -3,7 +3,7 @@ module SmartAnswer
     def define
       start_page_content_id "434b6eb5-33c8-4300-aba3-f5ead58600b8"
       flow_content_id "92631e38-206a-4785-82b2-4f544db16040"
-      name 'student-finance-calculator'
+      name "student-finance-calculator"
       status :published
       satisfies_need "100133"
 
@@ -54,11 +54,11 @@ module SmartAnswer
 
         next_node do
           case course_type
-          when 'uk-full-time'
+          when "uk-full-time"
             question :where_will_you_live_while_studying?
-          when 'uk-part-time'
+          when "uk-part-time"
             question :where_will_you_live_while_studying?
-          when 'eu-full-time', 'eu-part-time'
+          when "eu-full-time", "eu-part-time"
             outcome :outcome_eu_students
           end
         end
@@ -88,9 +88,9 @@ module SmartAnswer
 
         next_node do
           case course_type
-          when 'uk-full-time'
+          when "uk-full-time"
             question :do_any_of_the_following_apply_uk_full_time_students_only?
-          when 'uk-part-time'
+          when "uk-part-time"
             question :how_many_credits_will_you_study?
           end
         end
@@ -135,7 +135,7 @@ module SmartAnswer
         option :no
 
         calculate :uk_ft_circumstances do |response|
-          response.split(',')
+          response.split(",")
         end
 
         next_node do
@@ -150,7 +150,7 @@ module SmartAnswer
         option :no
 
         calculate :all_uk_students_circumstances do |response|
-          response.split(',')
+          response.split(",")
         end
 
         next_node do
@@ -169,13 +169,13 @@ module SmartAnswer
 
         next_node do |response|
           case course_type
-          when 'uk-full-time'
-            if response == 'dental-medical-healthcare'
+          when "uk-full-time"
+            if response == "dental-medical-healthcare"
               question :are_you_a_doctor_or_dentist?
             else
               outcome :outcome_uk_full_time_students
             end
-          when 'uk-part-time'
+          when "uk-part-time"
             outcome :outcome_uk_all_students
           else
             outcome :outcome_eu_students
@@ -189,7 +189,7 @@ module SmartAnswer
         option :no
 
         on_response do |response|
-          calculator.doctor_or_dentist = (response == 'yes')
+          calculator.doctor_or_dentist = (response == "yes")
         end
 
         next_node do |response|

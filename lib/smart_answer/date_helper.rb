@@ -11,8 +11,8 @@ module SmartAnswer
     end
 
     def self.current_day
-      if ENV['RATES_QUERY_DATE']
-        Date.parse(ENV['RATES_QUERY_DATE'])
+      if ENV["RATES_QUERY_DATE"]
+        Date.parse(ENV["RATES_QUERY_DATE"])
       else
         Date.today
       end

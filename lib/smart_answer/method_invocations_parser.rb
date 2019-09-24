@@ -1,4 +1,4 @@
-require 'parser/current'
+require "parser/current"
 
 module SmartAnswer
   class MethodInvocationsParser

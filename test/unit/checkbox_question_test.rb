@@ -1,5 +1,5 @@
 
-require_relative '../test_helper'
+require_relative "../test_helper"
 
 module SmartAnswer
   class CheckboxQuestionTest < ActiveSupport::TestCase
@@ -7,9 +7,9 @@ module SmartAnswer
       should "be able to specify options, and retreive them in the order specified" do
         q = Question::Checkbox.new(nil, :something) do
           option :red
-          option 'blue'
+          option "blue"
           option :green
-          option 'blue-green'
+          option "blue-green"
           option :reddy_brown
         end
 
@@ -24,10 +24,10 @@ module SmartAnswer
 
       should "not be able to use options with non URL safe characters" do
         assert_raise InvalidNode do
-          Question::Checkbox.new(nil, :something) { option 'a space' }
+          Question::Checkbox.new(nil, :something) { option "a space" }
         end
         assert_raise InvalidNode do
-          Question::Checkbox.new(nil, :something) { option 'a,comma' }
+          Question::Checkbox.new(nil, :something) { option "a,comma" }
         end
       end
     end
@@ -43,7 +43,7 @@ module SmartAnswer
 
       context "with an array" do
         should "return the responses as a sorted comma-separated string" do
-          assert_equal 'green,red', @question.parse_input(%w(red green))
+          assert_equal "green,red", @question.parse_input(%w(red green))
         end
 
         should "raise an error if given a non-existing response" do
@@ -55,37 +55,37 @@ module SmartAnswer
 
       context "with a comma separated string" do
         should "return the responses as a sorted comma-separated string" do
-          assert_equal 'green,red', @question.parse_input('red,green')
+          assert_equal "green,red", @question.parse_input("red,green")
         end
 
         should "raise an error if given a non-existing response" do
           assert_raise InvalidResponse do
-            @question.parse_input 'blue,orange'
+            @question.parse_input "blue,orange"
           end
         end
       end
 
       context "handling the special none case" do
         should "return none when passed nil" do
-          assert_equal 'none', @question.parse_input(nil)
+          assert_equal "none", @question.parse_input(nil)
         end
 
         should "return none when passed special value 'none'" do
-          assert_equal 'none', @question.parse_input('none')
+          assert_equal "none", @question.parse_input("none")
         end
       end
 
       context "with an explicitly set 'none' option" do
         setup do
-          @question.set_none_option(label: 'None', prefix: 'or')
+          @question.set_none_option(label: "None", prefix: "or")
         end
 
         should "set the none option label" do
-          assert_equal('None', @question.none_option_label)
+          assert_equal("None", @question.none_option_label)
         end
 
         should "set the none option prefix" do
-          assert_equal('or', @question.none_option_prefix)
+          assert_equal("or", @question.none_option_prefix)
         end
 
         should "raise if the response is blank" do
@@ -106,11 +106,11 @@ module SmartAnswer
       end
 
       should "return an array of responses" do
-        assert_equal %w(red green), @question.to_response('red,green')
+        assert_equal %w(red green), @question.to_response("red,green")
       end
 
       should "remove the none option from the results" do
-        assert_equal [], @question.to_response('none')
+        assert_equal [], @question.to_response("none")
       end
     end
   end

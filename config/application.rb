@@ -1,4 +1,4 @@
-require_relative 'boot'
+require_relative "boot"
 
 # Don't include all of rails, we don't need activerecord or action_mailer
 require "action_controller/railtie"
@@ -56,13 +56,13 @@ module SmartAnswers
     )
 
     # Version of your assets, change this if you want to expire all your assets
-    config.assets.version = '1.0'
+    config.assets.version = "1.0"
 
     # Disable Rack::Cache
     config.action_dispatch.rack_cache = nil
 
     config.action_dispatch.ignore_accept_header = true
 
-    config.eager_load_paths << Rails.root.join('lib')
+    config.eager_load_paths << Rails.root.join("lib")
   end
 end

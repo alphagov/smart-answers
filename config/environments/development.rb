@@ -19,8 +19,8 @@ Rails.application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-  if ENV['GOVUK_ASSET_ROOT'].present?
-    config.asset_host = ENV['GOVUK_ASSET_ROOT']
+  if ENV["GOVUK_ASSET_ROOT"].present?
+    config.asset_host = ENV["GOVUK_ASSET_ROOT"]
   end
 
   # Raises error for missing translations

@@ -13,7 +13,7 @@ module SmartAnswer::Calculators
       @match_date = match_date
       @adoption_calculator = AdoptionPayCalculator.new(match_date)
 
-      super(match_date, 'paternity_adoption')
+      super(match_date, "paternity_adoption")
 
       @matched_week = @expected_week
     end

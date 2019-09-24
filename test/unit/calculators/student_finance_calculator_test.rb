@@ -5,17 +5,17 @@ module SmartAnswer
     class StudentFinanceCalculatorTest < ActiveSupport::TestCase
       test "StudentFinanceCalculator is valid and setup properly" do
         calculator = StudentFinanceCalculator.new(
-          course_start: '2018-2019',
+          course_start: "2018-2019",
           household_income: 25_000,
-          residence: 'at-home',
-          course_type: 'uk-full-time'
+          residence: "at-home",
+          course_type: "uk-full-time"
         )
         assert_instance_of StudentFinanceCalculator, calculator
 
-        assert_equal '2018-2019', calculator.course_start
+        assert_equal "2018-2019", calculator.course_start
         assert_equal 25000, calculator.household_income
-        assert_equal 'at-home', calculator.residence
-        assert_equal 'uk-full-time', calculator.course_type
+        assert_equal "at-home", calculator.residence
+        assert_equal "uk-full-time", calculator.course_type
       end
 
       test "StudentFinanceCalculator instance variables can be changed after initialisation" do
@@ -28,15 +28,15 @@ module SmartAnswer
         assert_nil calculator.residence
         assert_nil calculator.course_type
 
-        calculator.course_start = '2018-2019'
+        calculator.course_start = "2018-2019"
         calculator.household_income = 25_000
-        calculator.residence = 'at-home'
-        calculator.course_type = 'uk-full-time'
+        calculator.residence = "at-home"
+        calculator.course_type = "uk-full-time"
 
-        assert_equal '2018-2019', calculator.course_start
+        assert_equal "2018-2019", calculator.course_start
         assert_equal 25000, calculator.household_income
-        assert_equal 'at-home', calculator.residence
-        assert_equal 'uk-full-time', calculator.course_type
+        assert_equal "at-home", calculator.residence
+        assert_equal "uk-full-time", calculator.course_type
       end
 
       context "childcare_grant" do
@@ -133,8 +133,8 @@ module SmartAnswer
       context "#maintenance_loan_amount" do
         context "for students who started 2018-2019 living at home with parents" do
           setup do
-            @course_start = '2018-2019'
-            @residence = 'at-home'
+            @course_start = "2018-2019"
+            @residence = "at-home"
           end
 
           should "give the maximum amount of £7,097 if household income is £25k or below" do
@@ -184,8 +184,8 @@ module SmartAnswer
 
         context "for students who started 2018-2019 living away not in london" do
           setup do
-            @course_start = '2018-2019'
-            @residence = 'away-outside-london'
+            @course_start = "2018-2019"
+            @residence = "away-outside-london"
           end
 
           should "give the maximum amount of £8,700 if household income is £25k or below" do
@@ -236,8 +236,8 @@ module SmartAnswer
 
         context "for students who started 2018-2019 living away in london" do
           setup do
-            @course_start = '2018-2019'
-            @residence = 'away-in-london'
+            @course_start = "2018-2019"
+            @residence = "away-in-london"
           end
 
           should "give the maximum amount of £11,354 if household income is £25k or below" do
@@ -288,15 +288,15 @@ module SmartAnswer
 
         context "for 2018-2019 part-time students" do
           setup do
-            @course_start = '2018-2019'
-            @course_type = 'uk-part-time'
+            @course_start = "2018-2019"
+            @course_type = "uk-part-time"
           end
 
           should "be weighted by course intensity" do
             calculator = StudentFinanceCalculator.new(
               course_start: @course_start,
               household_income: 45_000,
-              residence: 'away-in-london',
+              residence: "away-in-london",
               course_type: @course_type,
               part_time_credits: 12,
               full_time_credits: 20,
@@ -308,7 +308,7 @@ module SmartAnswer
             calculator = StudentFinanceCalculator.new(
               course_start: @course_start,
               household_income: 45_000,
-              residence: 'away-in-london',
+              residence: "away-in-london",
               course_type: @course_type,
               part_time_credits: 2,
               full_time_credits: 10,
@@ -320,7 +320,7 @@ module SmartAnswer
             calculator = StudentFinanceCalculator.new(
               course_start: @course_start,
               household_income: 60_000,
-              residence: 'away-outside-london',
+              residence: "away-outside-london",
               course_type: @course_type,
               part_time_credits: 15,
               full_time_credits: 15,
@@ -333,9 +333,9 @@ module SmartAnswer
       context "#reduced_maintenance_loan_for_healthcare" do
         context "for 2018-2019" do
           setup do
-            @course_start = '2018-2019'
+            @course_start = "2018-2019"
             @household_income = 25_000
-            @course_type = 'uk-full-time'
+            @course_type = "uk-full-time"
             @doctor_or_dentist = true
           end
 
@@ -344,7 +344,7 @@ module SmartAnswer
               course_start: @course_start,
               household_income: @household_income,
               course_type: @course_type,
-              residence: 'away-in-london',
+              residence: "away-in-london",
               doctor_or_dentist: @doctor_or_dentist,
             )
 
@@ -356,7 +356,7 @@ module SmartAnswer
               course_start: @course_start,
               household_income: @household_income,
               course_type: @course_type,
-              residence: 'away-outside-london',
+              residence: "away-outside-london",
               doctor_or_dentist: @doctor_or_dentist,
             )
 
@@ -368,7 +368,7 @@ module SmartAnswer
               course_start: @course_start,
               household_income: @household_income,
               course_type: @course_type,
-              residence: 'at-home',
+              residence: "at-home",
               doctor_or_dentist: @doctor_or_dentist,
             )
 
@@ -378,7 +378,7 @@ module SmartAnswer
 
         context "for 2019-2020" do
           setup do
-            @course_start = '2019-2020'
+            @course_start = "2019-2020"
             @household_income = 25_000
             @course_type = "uk-full-time"
             @doctor_or_dentist = true
@@ -389,7 +389,7 @@ module SmartAnswer
               course_start: @course_start,
               household_income: @household_income,
               course_type: @course_type,
-              residence: 'away-in-london',
+              residence: "away-in-london",
               doctor_or_dentist: @doctor_or_dentist,
             )
 
@@ -401,7 +401,7 @@ module SmartAnswer
               course_start: @course_start,
               household_income: @household_income,
               course_type: @course_type,
-              residence: 'away-outside-london',
+              residence: "away-outside-london",
               doctor_or_dentist: @doctor_or_dentist,
             )
 
@@ -413,7 +413,7 @@ module SmartAnswer
               course_start: @course_start,
               household_income: @household_income,
               course_type: @course_type,
-              residence: 'at-home',
+              residence: "at-home",
               doctor_or_dentist: @doctor_or_dentist,
             )
 

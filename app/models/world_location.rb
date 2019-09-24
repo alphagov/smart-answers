@@ -1,4 +1,4 @@
-require 'lrucache'
+require "lrucache"
 
 class WorldLocation
   attr_reader :title, :details, :slug

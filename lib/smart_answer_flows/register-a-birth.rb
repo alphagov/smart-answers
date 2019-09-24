@@ -3,7 +3,7 @@ module SmartAnswer
     def define
       start_page_content_id "bb68ca88-b56b-4df2-a33d-3aaec66a5098"
       flow_content_id "68e9c4da-2edb-4859-8793-17ebc92fc01b"
-      name 'register-a-birth'
+      name "register-a-birth"
       status :published
       satisfies_need "101003"
 
@@ -38,9 +38,9 @@ module SmartAnswer
 
         next_node do
           case calculator.british_national_parent
-          when 'mother', 'father', 'mother_and_father'
+          when "mother", "father", "mother_and_father"
             question :married_couple_or_civil_partnership?
-          when 'neither'
+          when "neither"
             outcome :no_registration_result
           end
         end

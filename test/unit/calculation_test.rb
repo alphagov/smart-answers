@@ -1,13 +1,13 @@
-require_relative '../test_helper'
+require_relative "../test_helper"
 
 module SmartAnswer
   class CalculationTest < ActiveSupport::TestCase
-    context '#evaluate' do
+    context "#evaluate" do
       setup do
         @state = State.new(:node_key)
       end
 
-      should 'make response available to calculation' do
+      should "make response available to calculation" do
         saved_response = nil
         calculation = Calculation.new(:bar) do |response|
           saved_response = response
@@ -16,7 +16,7 @@ module SmartAnswer
         assert_equal :answer, saved_response
       end
 
-      should 'default response to nil' do
+      should "default response to nil" do
         saved_response = nil
         calculation = Calculation.new(:bar) do |response|
           saved_response = response
@@ -25,7 +25,7 @@ module SmartAnswer
         assert_nil saved_response
       end
 
-      should 'allow calculation to read state variables' do
+      should "allow calculation to read state variables" do
         @state.foo = :initial_value
         saved_value = nil
         calculation = Calculation.new(:bar) do
@@ -35,7 +35,7 @@ module SmartAnswer
         assert_equal :initial_value, saved_value
       end
 
-      should 'allow calculation to make changes to state variables' do
+      should "allow calculation to make changes to state variables" do
         @state.foo = :initial_value
         calculation = Calculation.new(:bar) do
           self.foo = :new_value
@@ -44,7 +44,7 @@ module SmartAnswer
         assert_equal :new_value, new_state.foo
       end
 
-      should 'assign block return value to state variable' do
+      should "assign block return value to state variable" do
         calculation = Calculation.new(:bar) do
           :new_value
         end
@@ -52,19 +52,19 @@ module SmartAnswer
         assert_equal :new_value, new_state.bar
       end
 
-      should 'return a new state instance' do
+      should "return a new state instance" do
         calculation = Calculation.new(:bar) {}
         new_state = calculation.evaluate(@state)
         refute_same @state, new_state
       end
 
-      should 'freeze new state' do
+      should "freeze new state" do
         calculation = Calculation.new(:bar) {}
         new_state = calculation.evaluate(@state)
         assert new_state.frozen?
       end
 
-      should 'copy initial state variables into new state' do
+      should "copy initial state variables into new state" do
         @state.foo = :initial_value
         calculation = Calculation.new(:bar) {}
         calculation.evaluate(@state)

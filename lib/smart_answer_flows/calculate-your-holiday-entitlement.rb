@@ -3,7 +3,7 @@ module SmartAnswer
     def define
       start_page_content_id "deedf6f8-389b-4b34-a5b1-faa9ef909a70"
       flow_content_id "ebc97e28-85be-4f9f-8637-b2d43be9f0a6"
-      name 'calculate-your-holiday-entitlement'
+      name "calculate-your-holiday-entitlement"
       status :published
       satisfies_need "100143"
 
@@ -21,11 +21,11 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'days-worked-per-week', 'hours-worked-per-week'
+          when "days-worked-per-week", "hours-worked-per-week"
             question :calculation_period?
-          when 'compressed-hours'
+          when "compressed-hours"
             question :compressed_hours_how_many_hours_per_week?
-          when 'shift-worker'
+          when "shift-worker"
             question :shift_worker_basis?
           end
         end
@@ -174,11 +174,11 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'full-year'
+          when "full-year"
             question :shift_worker_hours_per_shift?
-          when 'starting', 'starting-and-leaving'
+          when "starting", "starting-and-leaving"
             question :what_is_your_starting_date?
-          when 'leaving'
+          when "leaving"
             question :what_is_your_leaving_date?
           end
         end

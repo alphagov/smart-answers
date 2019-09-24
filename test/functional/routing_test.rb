@@ -1,4 +1,4 @@
-require_relative '../test_helper'
+require_relative "../test_helper"
 
 class RoutingTest < ActionDispatch::IntegrationTest
   include Rack::Test::Methods

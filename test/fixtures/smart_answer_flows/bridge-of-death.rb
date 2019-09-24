@@ -1,7 +1,7 @@
 module SmartAnswer
   class BridgeOfDeathFlow < Flow
     def define
-      name 'bridge-of-death'
+      name "bridge-of-death"
       status :draft
 
       value_question :what_is_your_name? do
@@ -17,7 +17,7 @@ module SmartAnswer
         option :dunno
 
         next_node do |response|
-          if your_name =~ /robin/i && response == 'to_seek_the_holy_grail'
+          if your_name =~ /robin/i && response == "to_seek_the_holy_grail"
             question :what_is_the_capital_of_assyria?
           else
             question :what_is_your_favorite_colour?
@@ -39,9 +39,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'blue', 'red'
+          when "blue", "red"
             outcome :done
-          when 'blue_no_yellow'
+          when "blue_no_yellow"
             outcome :auuuuuuuugh
           end
         end

@@ -1,7 +1,7 @@
 module SmartAnswer
   module Question
     class Checkbox < Base
-      NONE_OPTION = 'none'
+      NONE_OPTION = "none"
 
       attr_reader :options, :none_option_label, :none_option_prefix
 
@@ -29,15 +29,15 @@ module SmartAnswer
         end
         return NONE_OPTION if raw_input == NONE_OPTION
 
-        raw_input = raw_input.split(',') if raw_input.is_a?(String)
+        raw_input = raw_input.split(",") if raw_input.is_a?(String)
         raw_input.each do |option|
           raise SmartAnswer::InvalidResponse, "Illegal option #{option} for #{name}", caller unless valid_option?(option)
         end
-        raw_input.sort.join(',')
+        raw_input.sort.join(",")
       end
 
       def to_response(input)
-        input.split(',').reject { |v| v == NONE_OPTION }
+        input.split(",").reject { |v| v == NONE_OPTION }
       end
 
       def has_none_option?

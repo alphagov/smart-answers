@@ -1,7 +1,7 @@
-require_relative '../test_helper'
-require_relative '../helpers/fixture_flows_helper'
-require_relative '../fixtures/smart_answer_flows/smart-answers-controller-sample-with-salary-question'
-require_relative 'smart_answers_controller_test_helper'
+require_relative "../test_helper"
+require_relative "../helpers/fixture_flows_helper"
+require_relative "../fixtures/smart_answer_flows/smart-answers-controller-sample-with-salary-question"
+require_relative "smart_answers_controller_test_helper"
 
 class SmartAnswersControllerSalaryQuestionTest < ActionController::TestCase
   tests SmartAnswersController
@@ -22,7 +22,7 @@ class SmartAnswersControllerSalaryQuestionTest < ActionController::TestCase
   context "GET /<slug>" do
     context "salary question" do
       should "display question" do
-        get :show, params: { id: 'smart-answers-controller-sample-with-salary-question', started: 'y' }
+        get :show, params: { id: "smart-answers-controller-sample-with-salary-question", started: "y" }
         assert_select ".step.current [data-test=question]", /How much\?/
         assert_select "input[type=text][name='response[amount]']"
         assert_select "select[name='response[period]']"
@@ -30,7 +30,7 @@ class SmartAnswersControllerSalaryQuestionTest < ActionController::TestCase
 
       context "error message set in erb template" do
         setup do
-          submit_response({ amount: "bad_number" }, responses: '1.23')
+          submit_response({ amount: "bad_number" }, responses: "1.23")
         end
 
         should "show a validation error if invalid amount" do
@@ -55,13 +55,13 @@ class SmartAnswersControllerSalaryQuestionTest < ActionController::TestCase
 
       should "accept responses as GET params and redirect to canonical url" do
         submit_response amount: "1", period: "month"
-        assert_redirected_to '/smart-answers-controller-sample-with-salary-question/y/1.0-month'
+        assert_redirected_to "/smart-answers-controller-sample-with-salary-question/y/1.0-month"
       end
 
       context "a response has been accepted" do
         setup do
           with_cache_control_expiry do
-            get :show, params: { id: 'smart-answers-controller-sample-with-salary-question', started: 'y', responses: "1.0-month" }
+            get :show, params: { id: "smart-answers-controller-sample-with-salary-question", started: "y", responses: "1.0-month" }
           end
         end
 
@@ -77,10 +77,10 @@ class SmartAnswersControllerSalaryQuestionTest < ActionController::TestCase
   end
 
   def submit_response(response = nil, other_params = {})
-    super(response, other_params.merge(id: 'smart-answers-controller-sample-with-salary-question'))
+    super(response, other_params.merge(id: "smart-answers-controller-sample-with-salary-question"))
   end
 
   def submit_json_response(response = nil, other_params = {})
-    super(response, other_params.merge(id: 'smart-answers-controller-sample-with-salary-question'))
+    super(response, other_params.merge(id: "smart-answers-controller-sample-with-salary-question"))
   end
 end

@@ -1,5 +1,5 @@
-require 'gds_api/test_helpers/common_responses'
-require 'gds_api/response'
+require "gds_api/test_helpers/common_responses"
+require "gds_api/response"
 
 module WorldLocationStubbingMethods
   include GdsApi::TestHelpers::CommonResponses
@@ -16,11 +16,11 @@ module WorldLocationStubbingMethods
       if File.exist?(path_to_organisations_fixture)
         json = File.read(path_to_organisations_fixture)
         data = JSON.parse(json)
-        organisations_data = data['results']
+        organisations_data = data["results"]
 
         fco_organisation_data = organisations_data.find do |organisation_data|
-          organisation_data['sponsors'].find do |sponsor_data|
-            sponsor_data['details']['acronym'] == 'FCO'
+          organisation_data["sponsors"].find do |sponsor_data|
+            sponsor_data["details"]["acronym"] == "FCO"
           end
         end
 

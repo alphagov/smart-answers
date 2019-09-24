@@ -39,17 +39,17 @@ module SmartAnswer
       end
 
       should "respond with date_of_adoption_match?" do
-        @question.answer_with('no')
+        @question.answer_with("no")
         assert_node_has_name(:date_of_adoption_match?, @question.next_node)
       end
 
       should "set adoption_is_from_overseas to true when answering with 'yes'" do
-        @question.answer_with('yes')
+        @question.answer_with("yes")
         assert(@question.next_node.adoption_is_from_overseas)
       end
 
       should "set adoption_is_from_overseas to false when answering with 'no'" do
-        @question.answer_with('no')
+        @question.answer_with("no")
         refute(@question.next_node.adoption_is_from_overseas)
       end
     end

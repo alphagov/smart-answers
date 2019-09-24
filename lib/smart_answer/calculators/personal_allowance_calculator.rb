@@ -1,10 +1,10 @@
 module SmartAnswer
   module Calculators
     class PersonalAllowanceCalculator
-      AGE_VERSUS_DOB_CHANGEOVER_DATE = Date.parse('2013-04-05')
+      AGE_VERSUS_DOB_CHANGEOVER_DATE = Date.parse("2013-04-05")
 
-      HIGHER_ALLOWANCE_1_DOB = Date.parse('1948-04-05')
-      HIGHER_ALLOWANCE_2_DOB = Date.parse('1938-04-05')
+      HIGHER_ALLOWANCE_1_DOB = Date.parse("1948-04-05")
+      HIGHER_ALLOWANCE_2_DOB = Date.parse("1938-04-05")
 
       HIGHER_ALLOWANCE_1_AGE = 65
       HIGHER_ALLOWANCE_2_AGE = 75
@@ -72,7 +72,7 @@ module SmartAnswer
       end
 
       def rates
-        @rates ||= RatesQuery.from_file('personal_allowance').rates
+        @rates ||= RatesQuery.from_file("personal_allowance").rates
       end
     end
   end

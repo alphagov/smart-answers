@@ -8,9 +8,9 @@ module SmartAnswer
 
           next_node do |response|
             case response
-            when 'paternity'
+            when "paternity"
               question :employee_date_matched_paternity_adoption?
-            when 'maternity'
+            when "maternity"
               question :adoption_is_from_overseas?
             end
           end
@@ -97,13 +97,13 @@ module SmartAnswer
 
           next_node do |response|
             case response
-            when 'yes'
+            when "yes"
               if adoption_is_from_overseas
                 question :adoption_is_the_employee_on_your_payroll?
               else
                 question :adoption_employment_contract?
               end
-            when 'no'
+            when "no"
               outcome :adoption_not_entitled_to_leave_or_pay
             end
           end
@@ -297,9 +297,9 @@ module SmartAnswer
           save_input_as :sap_calculation_method
 
           next_node do |response|
-            if response == 'weekly_starting'
+            if response == "weekly_starting"
               outcome :adoption_leave_and_pay
-            elsif calculator.pay_pattern == 'monthly'
+            elsif calculator.pay_pattern == "monthly"
               question :monthly_pay_paternity?
             else
               question :next_pay_day_paternity?
@@ -315,12 +315,12 @@ module SmartAnswer
           precalculate :pay_method do
             calculator.pay_method = (
               if monthly_pay_method
-                if monthly_pay_method == 'specific_date_each_month' && pay_day_in_month > 28
-                  'last_day_of_the_month'
+                if monthly_pay_method == "specific_date_each_month" && pay_day_in_month > 28
+                  "last_day_of_the_month"
                 else
                   monthly_pay_method
                 end
-              elsif sap_calculation_method == 'weekly_starting'
+              elsif sap_calculation_method == "weekly_starting"
                 sap_calculation_method
               else
                 calculator.pay_pattern

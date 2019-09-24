@@ -25,7 +25,7 @@ private
   def stubs_etc
     Timecop.freeze(current_time)
     Services.content_store = FakeContentStore.new
-    ENV['PLEK_SERVICE_WHITEHALL_ADMIN_URI'] = 'https://www.gov.uk'
+    ENV["PLEK_SERVICE_WHITEHALL_ADMIN_URI"] = "https://www.gov.uk"
   end
 
   def generate_and_add_partials_to_country_files
@@ -174,7 +174,7 @@ private
   end
 
   def default_configuration
-    @default_configuration ||= configurations.fetch('default')
+    @default_configuration ||= configurations.fetch("default")
   end
 
   def configuration

@@ -1,4 +1,4 @@
-require_relative '../../test_helper'
+require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class MarriedCouplesAllowanceCalculatorTest < ActiveSupport::TestCase
@@ -112,8 +112,8 @@ module SmartAnswer::Calculators
       assert_equal SmartAnswer::Money.new("28250"), result
     end
 
-    test 'rate values for year 2013' do
-      Timecop.freeze(Date.parse('2013-06-01')) do
+    test "rate values for year 2013" do
+      Timecop.freeze(Date.parse("2013-06-01")) do
         calculator = MarriedCouplesAllowanceCalculator.new
 
         assert_equal 9440, calculator.personal_allowance
@@ -123,8 +123,8 @@ module SmartAnswer::Calculators
       end
     end
 
-    test 'rate values for year 2014' do
-      Timecop.freeze(Date.parse('2014-06-01')) do
+    test "rate values for year 2014" do
+      Timecop.freeze(Date.parse("2014-06-01")) do
         calculator = MarriedCouplesAllowanceCalculator.new
 
         assert_equal 10000, calculator.personal_allowance
@@ -134,8 +134,8 @@ module SmartAnswer::Calculators
       end
     end
 
-    test 'rate values for year 2015' do
-      Timecop.freeze(Date.parse('2015-06-01')) do
+    test "rate values for year 2015" do
+      Timecop.freeze(Date.parse("2015-06-01")) do
         calculator = MarriedCouplesAllowanceCalculator.new
 
         assert_equal 10600, calculator.personal_allowance
@@ -145,8 +145,8 @@ module SmartAnswer::Calculators
       end
     end
 
-    test 'rate values for year 2016' do
-      Timecop.freeze(Date.parse('2016-06-01')) do
+    test "rate values for year 2016" do
+      Timecop.freeze(Date.parse("2016-06-01")) do
         calculator = MarriedCouplesAllowanceCalculator.new
 
         assert_equal 11000, calculator.personal_allowance
@@ -156,8 +156,8 @@ module SmartAnswer::Calculators
       end
     end
 
-    test 'rate values for year 2017' do
-      Timecop.freeze(Date.parse('2017-06-01')) do
+    test "rate values for year 2017" do
+      Timecop.freeze(Date.parse("2017-06-01")) do
         calculator = MarriedCouplesAllowanceCalculator.new
 
         assert_equal 11000, calculator.personal_allowance

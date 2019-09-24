@@ -1,4 +1,4 @@
-require_relative 'state_pension_date'
+require_relative "state_pension_date"
 
 StatePensionDateQuery = Struct.new(:dob, :gender) do
   def self.state_pension_date(dob, gender)

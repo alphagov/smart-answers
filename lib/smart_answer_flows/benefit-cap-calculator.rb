@@ -3,7 +3,7 @@ module SmartAnswer
     def define
       start_page_content_id "ffe22070-123b-4390-8cc4-51f9d5b5cc74"
       flow_content_id "d2593a1a-441b-4751-8bf7-ed04a8fd8689"
-      name 'benefit-cap-calculator'
+      name "benefit-cap-calculator"
       status :published
       satisfies_need "100696"
 
@@ -17,7 +17,7 @@ module SmartAnswer
         save_input_as :housing_benefit
 
         next_node do |response|
-          if response == 'yes'
+          if response == "yes"
             question :working_tax_credit?
           else
             outcome :outcome_not_affected_no_housing_benefit
@@ -39,7 +39,7 @@ module SmartAnswer
         end
 
         next_node do |response|
-          if response == 'yes'
+          if response == "yes"
             outcome :outcome_not_affected_exemptions
           else
             question :receiving_exemption_benefits?

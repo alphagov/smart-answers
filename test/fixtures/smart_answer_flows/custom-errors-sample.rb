@@ -1,7 +1,7 @@
 module SmartAnswer
   class CustomErrorsSampleFlow < Flow
     def define
-      name 'custom-errors-sample'
+      name "custom-errors-sample"
       status :draft
 
       value_question :how_many_things_do_you_own? do

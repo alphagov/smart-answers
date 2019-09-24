@@ -4,7 +4,7 @@ module SmartAnswer
       flow = self
       start_page_content_id "dc1a1744-4089-43b3-b2e3-4e397b6b15b1"
       flow_content_id "34b852ce-9045-4431-9a16-6609d307cdb7"
-      name 'check-uk-visa'
+      name "check-uk-visa"
       status :published
       satisfies_need "100982"
 
@@ -44,7 +44,7 @@ module SmartAnswer
         option :"provisional-passport"
 
         on_response do |response|
-          calculator.passport_country = 'israel-provisional-passport' if response == 'provisional-passport'
+          calculator.passport_country = "israel-provisional-passport" if response == "provisional-passport"
         end
 
         next_node do
@@ -59,13 +59,13 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'citizen'
+          when "citizen"
             outcome :outcome_no_visa_needed
-          when 'alien'
+          when "alien"
             if calculator.passport_country_is_estonia?
-              calculator.passport_country = 'estonia-alien-passport'
+              calculator.passport_country = "estonia-alien-passport"
             elsif calculator.passport_country_is_latvia?
-              calculator.passport_country = 'latvia-alien-passport'
+              calculator.passport_country = "latvia-alien-passport"
             end
             question :purpose_of_visit?
           end
@@ -189,21 +189,21 @@ module SmartAnswer
 
         precalculate :study_or_work do
           if calculator.study_visit?
-            'study'
+            "study"
           elsif calculator.work_visit?
-            'work'
+            "work"
           end
         end
 
         next_node do |response|
           case response
-          when 'longer_than_six_months'
+          when "longer_than_six_months"
             if calculator.study_visit?
               outcome :outcome_study_y #outcome 2 study y
             elsif calculator.work_visit?
               outcome :outcome_work_y #outcome 4 work y
             end
-          when 'six_months_or_less'
+          when "six_months_or_less"
             if calculator.study_visit?
               if calculator.passport_country_in_electronic_visa_waiver_list?
                 outcome :outcome_study_waiver
@@ -240,7 +240,7 @@ module SmartAnswer
         option :no
 
         next_node do |response|
-          if response == 'yes'
+          if response == "yes"
             question :article_10_card?
           else
             outcome :outcome_standard_visitor_visa
@@ -254,7 +254,7 @@ module SmartAnswer
         option :no
 
         next_node do |response|
-          if response == 'yes'
+          if response == "yes"
             outcome :outcome_no_visa_needed
           elsif calculator.family_visit?
             question :partner_family_british_citizen?
@@ -270,7 +270,7 @@ module SmartAnswer
         option :no
 
         next_node do |response|
-          if response == 'yes'
+          if response == "yes"
             outcome :outcome_partner_family_british_citizen_y
           else
             question :partner_family_eea?
@@ -284,7 +284,7 @@ module SmartAnswer
         option :no
 
         next_node do |response|
-          if response == 'yes'
+          if response == "yes"
             outcome :outcome_partner_family_eea_y
           else
             outcome :outcome_partner_family_eea_n

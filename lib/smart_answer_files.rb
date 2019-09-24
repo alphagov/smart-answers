@@ -36,11 +36,11 @@ private
   end
 
   def erb_template_directory
-    Rails.root.join('lib', 'smart_answer_flows', @flow_name)
+    Rails.root.join("lib", "smart_answer_flows", @flow_name)
   end
 
   def erb_template_paths
-    Dir[erb_template_directory.join('**/*.erb')].collect do |path|
+    Dir[erb_template_directory.join("**/*.erb")].collect do |path|
       Pathname.new(path)
     end
   end
@@ -50,10 +50,10 @@ private
   end
 
   def flow_path
-    Rails.root.join('lib', 'smart_answer_flows', "#{@flow_name}.rb")
+    Rails.root.join("lib", "smart_answer_flows", "#{@flow_name}.rb")
   end
 
   def locale_path
-    Rails.root.join('lib', 'smart_answer_flows', 'locales', 'en', "#{@flow_name}.yml")
+    Rails.root.join("lib", "smart_answer_flows", "locales", "en", "#{@flow_name}.yml")
   end
 end

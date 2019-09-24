@@ -1,4 +1,4 @@
-require_relative '../../test_helper'
+require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class CommodityCodeCalculatorTest < ActiveSupport::TestCase
@@ -58,16 +58,16 @@ module SmartAnswer::Calculators
         end
       end
 
-      context '#has_commodity_code? method' do
-        should 'return true unless the commodity code is X' do
+      context "#has_commodity_code? method" do
+        should "return true unless the commodity code is X" do
           calculator = CommodityCodeCalculator.new({})
-          calculator.stubs(:commodity_code).returns('commodity-code')
+          calculator.stubs(:commodity_code).returns("commodity-code")
           assert_equal true, calculator.has_commodity_code?
         end
 
-        should 'return false if the commodity code is X' do
+        should "return false if the commodity code is X" do
           calculator = CommodityCodeCalculator.new({})
-          calculator.stubs(:commodity_code).returns('X')
+          calculator.stubs(:commodity_code).returns("X")
           assert_equal false, calculator.has_commodity_code?
         end
       end

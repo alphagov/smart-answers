@@ -1,4 +1,4 @@
-require 'method_source'
+require "method_source"
 
 module SmartAnswer
   module Question

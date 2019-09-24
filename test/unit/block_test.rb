@@ -1,13 +1,13 @@
-require_relative '../test_helper'
+require_relative "../test_helper"
 
 module SmartAnswer
   class BlockTest < ActiveSupport::TestCase
-    context '#evaluate' do
+    context "#evaluate" do
       setup do
         @state = State.new(:node_key)
       end
 
-      should 'make response available to block' do
+      should "make response available to block" do
         saved_response = nil
         block = Block.new do |response|
           saved_response = response
@@ -16,7 +16,7 @@ module SmartAnswer
         assert_equal :answer, saved_response
       end
 
-      should 'default response to nil' do
+      should "default response to nil" do
         saved_response = nil
         block = Block.new do |response|
           saved_response = response
@@ -25,7 +25,7 @@ module SmartAnswer
         assert_nil saved_response
       end
 
-      should 'allow block to read state variables' do
+      should "allow block to read state variables" do
         @state.foo = :initial_value
         saved_value = nil
         block = Block.new do
@@ -35,7 +35,7 @@ module SmartAnswer
         assert_equal :initial_value, saved_value
       end
 
-      should 'allow block to make changes to state variables' do
+      should "allow block to make changes to state variables" do
         @state.foo = :initial_value
         block = Block.new do
           self.foo = :new_value
@@ -44,19 +44,19 @@ module SmartAnswer
         assert_equal :new_value, new_state.foo
       end
 
-      should 'return a new state instance' do
+      should "return a new state instance" do
         block = Block.new {}
         new_state = block.evaluate(@state)
         refute_same @state, new_state
       end
 
-      should 'freeze new state' do
+      should "freeze new state" do
         block = Block.new {}
         new_state = block.evaluate(@state)
         assert new_state.frozen?
       end
 
-      should 'copy initial state variables into new state' do
+      should "copy initial state variables into new state" do
         @state.foo = :initial_value
         block = Block.new {}
         block.evaluate(@state)

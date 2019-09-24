@@ -1,5 +1,5 @@
-require_relative '../../test_helper'
-require_relative 'flow_test_helper'
+require_relative "../../test_helper"
+require_relative "flow_test_helper"
 
 require "smart_answer_flows/calculate-married-couples-allowance"
 
@@ -38,28 +38,28 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
       end
 
       should "ask for the husband's income" do
-        add_response '1930-05-25'
+        add_response "1930-05-25"
         assert_current_node :whats_the_husbands_income?
       end
 
       should "reject an invalid income" do
-        add_response '1930-05-25'
+        add_response "1930-05-25"
         add_response "-100.0"
 
         assert_current_node_is_error
       end
 
       should "reject an income of zero" do
-        add_response '1930-05-25'
+        add_response "1930-05-25"
 
-        add_response '0'
+        add_response "0"
         assert_current_node_is_error
       end
 
       context "income > 25400" do
         setup do
-          add_response '1930-05-25'
-          add_response '30000'
+          add_response "1930-05-25"
+          add_response "30000"
         end
 
         should "ask if paying into a pension" do
@@ -194,8 +194,8 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
       context "income < 25400" do
         setup do
-          add_response '1930-05-25'
-          add_response '14500.0'
+          add_response "1930-05-25"
+          add_response "14500.0"
         end
 
         should "end at husband_done" do
@@ -222,14 +222,14 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
       end
 
       should "ask for the highest earner's income" do
-        add_response '1930-05-14'
+        add_response "1930-05-14"
         assert_current_node :whats_the_highest_earners_income?
       end
 
       context "income > 25400" do
         setup do
-          add_response '1930-05-14'
-          add_response '30000'
+          add_response "1930-05-14"
+          add_response "30000"
         end
 
         should "ask if paying into a pension" do
@@ -343,8 +343,8 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
 
       context "income < 25400" do
         should "end at highest_earner_done" do
-          add_response '1930-05-14'
-          add_response '13850.50'
+          add_response "1930-05-14"
+          add_response "13850.50"
 
           assert_current_node :highest_earner_done
         end
@@ -354,8 +354,8 @@ class CalculateMarriedCouplesAllowanceTest < ActiveSupport::TestCase
             expects(:calculate_allowance).
             returns("Calculated allowance")
 
-          add_response '1930-05-14'
-          add_response '13850.50'
+          add_response "1930-05-14"
+          add_response "13850.50"
           assert_state_variable :allowance, "Calculated allowance"
         end
       end # income < 25400

@@ -177,12 +177,12 @@ module SmartAnswer
         end
 
         should "be valid if a number" do
-          @calculator.contractual_days_covered_by_earnings = '4'
+          @calculator.contractual_days_covered_by_earnings = "4"
           assert @calculator.valid_contractual_days_covered_by_earnings?
         end
 
         should "not be valid if it includes letters" do
-          @calculator.contractual_days_covered_by_earnings = '4 weeks'
+          @calculator.contractual_days_covered_by_earnings = "4 weeks"
           refute @calculator.valid_contractual_days_covered_by_earnings?
         end
       end
@@ -206,17 +206,17 @@ module SmartAnswer
 
       context ".average_weekly_earnings" do
         should "calculate AWE for weekly pay patterns" do
-          assert_equal 100, StatutorySickPayCalculator.average_weekly_earnings(pay: 800, pay_pattern: 'weekly')
-          assert_equal 100, StatutorySickPayCalculator.average_weekly_earnings(pay: 800, pay_pattern: 'fortnightly')
-          assert_equal 100, StatutorySickPayCalculator.average_weekly_earnings(pay: 800, pay_pattern: 'every_4_weeks')
+          assert_equal 100, StatutorySickPayCalculator.average_weekly_earnings(pay: 800, pay_pattern: "weekly")
+          assert_equal 100, StatutorySickPayCalculator.average_weekly_earnings(pay: 800, pay_pattern: "fortnightly")
+          assert_equal 100, StatutorySickPayCalculator.average_weekly_earnings(pay: 800, pay_pattern: "every_4_weeks")
         end
         should "calculate AWE for monthly pay patterns" do
           assert_equal 92.31, StatutorySickPayCalculator.average_weekly_earnings(
-            pay: 1200, pay_pattern: 'monthly', monthly_pattern_payments: 3).round(2)
+            pay: 1200, pay_pattern: "monthly", monthly_pattern_payments: 3).round(2)
         end
         should "calculate AWE for irregular pay patterns" do
           assert_equal 700, StatutorySickPayCalculator.average_weekly_earnings(
-            pay: 1000, pay_pattern: 'irregularly', relevant_period_to: Date.parse("31 December 2013"), relevant_period_from: Date.parse("21 December 2013"))
+            pay: 1000, pay_pattern: "irregularly", relevant_period_to: Date.parse("31 December 2013"), relevant_period_from: Date.parse("21 December 2013"))
         end
       end # end .average_weekly_earnings
 
@@ -626,7 +626,7 @@ module SmartAnswer
           @calculator = StatutorySickPayCalculator.new(
             sick_start_date: Date.parse("28 August 2012"),
             sick_end_date: Date.parse("6 October 2012"),
-            days_of_the_week_worked: ['3'],
+            days_of_the_week_worked: ["3"],
             has_linked_sickness: false
           )
           assert_equal @calculator.prev_sick_days, 0

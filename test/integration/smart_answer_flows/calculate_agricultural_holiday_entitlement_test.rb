@@ -1,5 +1,5 @@
-require_relative '../../test_helper'
-require_relative 'flow_test_helper'
+require_relative "../../test_helper"
+require_relative "flow_test_helper"
 
 require "smart_answer_flows/calculate-agricultural-holiday-entitlement"
 
@@ -16,7 +16,7 @@ class CalculateAgriculturalHolidayEntitlementTest < ActiveSupport::TestCase
 
   context "Same number of days each week" do
     setup do
-      add_response 'same-number-of-days'
+      add_response "same-number-of-days"
     end
 
     should "ask how many days per week you work" do
@@ -25,7 +25,7 @@ class CalculateAgriculturalHolidayEntitlementTest < ActiveSupport::TestCase
 
     context "6 or more days" do
       setup do
-        add_response '7-days'
+        add_response "7-days"
       end
 
       should "ask if you worked for the same employer all year" do

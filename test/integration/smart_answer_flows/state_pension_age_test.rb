@@ -1,5 +1,5 @@
-require_relative '../../test_helper'
-require_relative 'flow_test_helper'
+require_relative "../../test_helper"
+require_relative "flow_test_helper"
 
 require "smart_answer_flows/state-pension-age"
 
@@ -36,38 +36,38 @@ class StatePensionAgeTest < ActiveSupport::TestCase
   end
 
   # Calculating State Pension Age
-  context 'gender question' do
+  context "gender question" do
     setup do
       add_response :age
       add_response Date.parse("5th Dec 1975")
     end
 
-    should 'ask for your gender' do
+    should "ask for your gender" do
       assert_current_node :gender?
     end
   end
 
   # Calculating State Pension Age
-  context 'when you have not reach your state pension yet' do
+  context "when you have not reach your state pension yet" do
     setup do
       add_response :age
-      add_response Date.parse('5th December 1975')
+      add_response Date.parse("5th December 1975")
       add_response :male
     end
 
-    should 'show you have not yet reached state pension age' do
+    should "show you have not yet reached state pension age" do
       assert_current_node :not_yet_reached_sp_age
     end
   end
 
-  context 'when you have reached state pension age' do
+  context "when you have reached state pension age" do
     setup do
       add_response :age
-      add_response Date.parse('5th December 1945')
+      add_response Date.parse("5th December 1945")
       add_response :male
     end
 
-    should 'show you have reached state pension age' do
+    should "show you have reached state pension age" do
       assert_current_node :has_reached_sp_age
     end
   end
@@ -92,17 +92,17 @@ class StatePensionAgeTest < ActiveSupport::TestCase
     end
   end
 
-  context 'showing bus page result' do
+  context "showing bus page result" do
     setup do
       add_response :bus_pass
-      add_response Date.parse('5th December 1975')
+      add_response Date.parse("5th December 1975")
     end
 
-    should 'show you a bus pass result' do
+    should "show you a bus pass result" do
       assert_current_node :bus_pass_result
     end
 
-    should 'show you the date you reach your bus pass qualification result' do
+    should "show you the date you reach your bus pass qualification result" do
       assert_match(/5 December 2042/, outcome_body)
     end
   end

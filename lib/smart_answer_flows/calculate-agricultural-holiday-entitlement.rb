@@ -3,7 +3,7 @@ module SmartAnswer
     def define
       start_page_content_id "8834bc7c-7ac7-4d45-8a57-1d5a5dcd70a0"
       flow_content_id "5fc369c1-87fa-4935-a96a-ee0321beeaed"
-      name 'calculate-agricultural-holiday-entitlement'
+      name "calculate-agricultural-holiday-entitlement"
       status :published
       satisfies_need "100143"
 
@@ -17,9 +17,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'same-number-of-days'
+          when "same-number-of-days"
             question :how_many_days_per_week?
-          when 'different-number-of-days'
+          when "different-number-of-days"
             question :what_date_does_holiday_start?
           end
         end
@@ -64,9 +64,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'same-employer'
+          when "same-employer"
             outcome :done
-          when 'multiple-employers'
+          when "multiple-employers"
             question :how_many_weeks_at_current_employer?
           end
         end

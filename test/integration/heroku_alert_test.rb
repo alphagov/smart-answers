@@ -9,7 +9,7 @@ class HerokuAlertTest < ActionDispatch::IntegrationTest
 
   context "on heroku" do
     setup do
-      Capybara.app_host = 'http://example.herokuapp.com'
+      Capybara.app_host = "http://example.herokuapp.com"
     end
 
     should "display the heroku alert" do

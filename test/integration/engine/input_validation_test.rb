@@ -1,4 +1,4 @@
-require_relative 'engine_test_helper'
+require_relative "engine_test_helper"
 
 class InputValidationTest < EngineIntegrationTest
   with_and_without_javascript do
@@ -10,9 +10,9 @@ class InputValidationTest < EngineIntegrationTest
       fill_in "response[amount]", with: "-123"
       click_on "Next step"
 
-      within '.current-question' do
+      within ".current-question" do
         assert_page_has_content "How much do you earn?"
-        within('.error') { assert_page_has_content "Please answer this question" }
+        within(".error") { assert_page_has_content "Please answer this question" }
         assert page.has_field?("response[amount]", type: "text", with: "-123")
       end
 
@@ -25,9 +25,9 @@ class InputValidationTest < EngineIntegrationTest
       fill_in "response", with: "asdfasdf"
       click_on "Next step"
 
-      within '.current-question' do
+      within ".current-question" do
         assert_page_has_content "What size bonus do you want?"
-        within('.error') { assert_page_has_content "Sorry, that number is not valid. Please try again." }
+        within(".error") { assert_page_has_content "Sorry, that number is not valid. Please try again." }
         assert page.has_field?("response", type: "text", with: "asdfasdf")
       end
 
@@ -45,9 +45,9 @@ class InputValidationTest < EngineIntegrationTest
       fill_in "response", with: "3000"
       click_on "Next step"
 
-      within '.current-question' do
+      within ".current-question" do
         assert_page_has_content "What size bonus do you want?"
-        within('.error') { assert_page_has_content "You can't request a bonus less than your annual salary." }
+        within(".error") { assert_page_has_content "You can't request a bonus less than your annual salary." }
         assert page.has_field?("response", type: "text", with: "3000")
       end
 
@@ -56,10 +56,10 @@ class InputValidationTest < EngineIntegrationTest
 
       assert_current_url "/money-and-salary-sample/y/4000.0-month/50000.0"
 
-      within '.outcome:nth-child(1)' do
-        within '.result-info' do
-          within('h2.result-title') { assert_page_has_content "OK, here you go." }
-          within('.info-notice') { assert_page_has_content "This is allowed because £50,000 is more than your annual salary of £48,000" }
+      within ".outcome:nth-child(1)" do
+        within ".result-info" do
+          within("h2.result-title") { assert_page_has_content "OK, here you go." }
+          within(".info-notice") { assert_page_has_content "This is allowed because £50,000 is more than your annual salary of £48,000" }
         end
       end
     end
@@ -72,9 +72,9 @@ class InputValidationTest < EngineIntegrationTest
       fill_in "response", with: "asdfasdf"
       click_on "Next step"
 
-      within '.current-question' do
+      within ".current-question" do
         assert_page_has_content "How many things do you own?"
-        within('.error') { assert_page_has_content "Sorry, but that is not a number. Please try again." }
+        within(".error") { assert_page_has_content "Sorry, but that is not a number. Please try again." }
         assert page.has_field?("response", type: "text", with: "asdfasdf")
       end
     end

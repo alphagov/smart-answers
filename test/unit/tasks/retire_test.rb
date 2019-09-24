@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
   context "retire:unpublish_redirect_remove_from_search rake task" do

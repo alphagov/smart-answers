@@ -1,5 +1,5 @@
-require_relative '../../test_helper'
-require_relative '../../integration/smart_answer_flows/flow_test_helper'
+require_relative "../../test_helper"
+require_relative "../../integration/smart_answer_flows/flow_test_helper"
 
 class FlowTestHelperTest < ActiveSupport::TestCase
   class FlowTestHelperIncluder
@@ -14,7 +14,7 @@ class FlowTestHelperTest < ActiveSupport::TestCase
 
 
   test "caches current_state" do
-    flow = mock('flow')
+    flow = mock("flow")
     flow.expects(:process).once.returns(:state)
     includer = FlowTestHelperIncluder.new(flow, [:yes, :no])
     includer.current_state
@@ -22,7 +22,7 @@ class FlowTestHelperTest < ActiveSupport::TestCase
   end
 
   test "busts current_state cache when responses change" do
-    flow = mock('flow')
+    flow = mock("flow")
     flow.expects(:process).twice.returns(:state)
     responses = [:yes, :no]
     includer = FlowTestHelperIncluder.new(flow, responses)

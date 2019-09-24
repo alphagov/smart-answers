@@ -24,7 +24,7 @@ module SmartAnswer::Calculators
     end
 
     def has_commodity_code?
-      commodity_code != 'X'
+      commodity_code != "X"
     end
 
   private
