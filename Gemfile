@@ -22,12 +22,12 @@ gem "parser"
 gem "plek", "3.0.0"
 gem "rack_strip_client_ip"
 gem "rails-i18n"
+gem "rails_stdout_logging"
 gem "sass-rails", "~> 5.0.7"
 gem "slimmer", "~> 13.1.0"
 gem "tilt", "2.0.10"
 gem "uglifier"
 gem "uk_postcode", "~> 2.1.4"
-gem "rails_stdout_logging"
 
 group :development do
   gem "better_errors"
@@ -43,12 +43,12 @@ group :development, :test do
 end
 
 group :test do
-  gem "rails-controller-testing"
   gem "ci_reporter"
   gem "govuk_test"
   gem "minitest", "~> 5.12"
   gem "minitest-focus", "~> 1.1", ">= 1.1.2"
   gem "mocha", "1.9.0", require: false
+  gem "rails-controller-testing"
   gem "shoulda", "~> 3.6.0"
   gem "simplecov", "~> 0.17.1", require: false
   gem "simplecov-rcov", "~> 0.2.3", require: false
