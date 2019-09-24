@@ -25,7 +25,7 @@ StatePensionDateQuery = Struct.new(:dob, :gender) do
     end
   end
 
-  private
+private
 
   def run(pension_dates)
     pension_dates.find { |p| p.match?(dob, gender) }
