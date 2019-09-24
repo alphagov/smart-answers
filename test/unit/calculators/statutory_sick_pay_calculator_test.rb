@@ -212,11 +212,13 @@ module SmartAnswer
         end
         should "calculate AWE for monthly pay patterns" do
           assert_equal 92.31, StatutorySickPayCalculator.average_weekly_earnings(
-            pay: 1200, pay_pattern: "monthly", monthly_pattern_payments: 3).round(2)
+            pay: 1200, pay_pattern: "monthly", monthly_pattern_payments: 3
+).round(2)
         end
         should "calculate AWE for irregular pay patterns" do
           assert_equal 700, StatutorySickPayCalculator.average_weekly_earnings(
-            pay: 1000, pay_pattern: "irregularly", relevant_period_to: Date.parse("31 December 2013"), relevant_period_from: Date.parse("21 December 2013"))
+            pay: 1000, pay_pattern: "irregularly", relevant_period_to: Date.parse("31 December 2013"), relevant_period_from: Date.parse("21 December 2013")
+)
         end
       end # end .average_weekly_earnings
 

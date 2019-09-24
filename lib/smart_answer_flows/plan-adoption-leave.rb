@@ -39,7 +39,8 @@ module SmartAnswer
           Calculators::PlanAdoptionLeave.new(
             match_date: match_date,
             arrival_date: arrival_date,
-            start_date: start_date)
+            start_date: start_date
+)
         end
 
         next_node do

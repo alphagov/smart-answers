@@ -13,8 +13,7 @@ module SmartAnswer
       stub("flow-registration-presenter",
            slug: "flow-slug",
            title: "flow-title",
-           external_related_links: [],
-      )
+           external_related_links: [],)
     end
 
     test "#content_id is the flow_content_id of the presenter" do
