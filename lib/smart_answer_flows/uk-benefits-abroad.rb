@@ -332,7 +332,7 @@ module SmartAnswer
           calculator.benefits = response.split(",")
         end
 
-        next_node do |response|
+        next_node do |_response|
           if calculator.benefits?
             outcome :child_benefit_entitled_outcome # A17 going_abroad and A15 already_abroad
           else
@@ -406,7 +406,7 @@ module SmartAnswer
           calculator.tax_credits = response.split(",")
         end
 
-        next_node do |response|
+        next_node do |_response|
           if calculator.tax_credits?
             outcome :tax_credits_eea_entitled_outcome # A22 already_abroad and A24 going_abroad
           else
@@ -478,7 +478,7 @@ module SmartAnswer
           calculator.partner_premiums = response.split(",")
         end
 
-        next_node do |response|
+        next_node do |_response|
           if calculator.partner_premiums?
             outcome :is_claiming_benefits_outcome # A43 going_abroad
           else
@@ -497,7 +497,7 @@ module SmartAnswer
           calculator.possible_impairments = response.split(",")
         end
 
-        next_node do |response|
+        next_node do |_response|
           if calculator.getting_income_support?
             question :is_abroad_for_treatment? # Q35 going_abroad
           else
@@ -531,7 +531,7 @@ module SmartAnswer
           calculator.impairment_periods = response.split(",")
         end
 
-        next_node do |response|
+        next_node do |_response|
           if calculator.not_getting_sick_pay?
             outcome :is_abroad_for_treatment_outcome # A44 going_abroad
           else
@@ -550,7 +550,7 @@ module SmartAnswer
           calculator.dispute_criteria = response.split(",")
         end
 
-        next_node do |response|
+        next_node do |_response|
           if calculator.dispute_criteria?
             outcome :is_not_eligible_outcome # A45 going_abroad
           else
