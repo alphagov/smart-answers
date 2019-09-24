@@ -55,11 +55,11 @@ module SmartAnswer::Calculators
 
         if remaining_reduction > 0
           reduced_mca = maximum_mca - remaining_reduction
-          if reduced_mca > minimum_mca
-            mca_entitlement = reduced_mca
+          mca_entitlement = if reduced_mca > minimum_mca
+            reduced_mca
           else
-            mca_entitlement = minimum_mca
-          end
+            minimum_mca
+                            end
         else
           mca_entitlement = maximum_mca
         end
