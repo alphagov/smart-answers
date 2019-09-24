@@ -86,7 +86,7 @@ module SmartAnswer
         {
           day: date.day,
           month: date.month,
-          year: date.year
+          year: date.year,
         }
       rescue InvalidResponse
         nil

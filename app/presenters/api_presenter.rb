@@ -39,7 +39,7 @@ private
         body: strip_tags(current_node.body),
         hint: current_node.hint,
         error: current_node.error,
-        questions: current_node.options.map(&:to_h)
+        questions: current_node.options.map(&:to_h),
       }
     end
   end

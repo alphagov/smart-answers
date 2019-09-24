@@ -4,7 +4,7 @@ module SmartAnswer::Calculators
 
     ALT_EMBASSIES = {
       "benin" =>  "nigeria",
-      "guinea" => "ghana"
+      "guinea" => "ghana",
     }
 
     CASH_ONLY_COUNTRIES = %w(cuba sudan).freeze

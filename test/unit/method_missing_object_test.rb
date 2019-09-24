@@ -67,7 +67,7 @@ class MethodMissingObjectTest < ActiveSupport::TestCase
     setup do
       overrides = {
         "method_one.method_two" => 222,
-        "method_one.method_three" => 333
+        "method_one.method_three" => 333,
       }
       @object = MethodMissingObject.new(:method_one, nil, false, overrides)
     end

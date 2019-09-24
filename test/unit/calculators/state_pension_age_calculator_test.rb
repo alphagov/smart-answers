@@ -66,27 +66,27 @@ module SmartAnswer::Calculators
           {
             birth_date: Date.parse("6 Apr 1960"),
             pension_date: Date.parse("6 May 2026"),
-            expected_age: "66 years, 1 month"
+            expected_age: "66 years, 1 month",
           },
           {
             birth_date: Date.parse("20 May 1960"),
             pension_date: Date.parse("20 Jul 2026"),
-            expected_age: "66 years, 2 months"
+            expected_age: "66 years, 2 months",
           },
           {
             birth_date: Date.parse("1 Jul 1960"),
             pension_date: Date.parse("1 Oct 2026"),
-            expected_age: "66 years, 3 months"
+            expected_age: "66 years, 3 months",
           },
           {
             birth_date: Date.parse("8 Dec 1960"),
             pension_date: Date.parse("8 Sep 2027"),
-            expected_age: "66 years, 9 months"
+            expected_age: "66 years, 9 months",
           },
           {
             birth_date: Date.parse("28 Feb 1961"),
             pension_date: Date.parse("28 Jan 2028"),
-            expected_age: "66 years, 11 months"
+            expected_age: "66 years, 11 months",
           },
         ].each do |test_case|
           should "someone born on #{test_case[:birth_date]} and getting their pension on #{test_case[:pension_date]} should have a pension age of #{test_case[:age]}" do
@@ -102,27 +102,27 @@ module SmartAnswer::Calculators
           {
             birth_date: Date.parse("28 Feb 1980"),
             pension_date: Date.parse("28 Feb 2048"),
-            expected_age: "68 years"
+            expected_age: "68 years",
           },
           {
             birth_date: Date.parse("29 Feb 1980"),
             pension_date: Date.parse("29 Feb 2048"),
-            expected_age: "68 years"
+            expected_age: "68 years",
           },
           {
             birth_date: Date.parse("1 Mar 1980"),
             pension_date: Date.parse("1 Mar 2048"),
-            expected_age: "68 years"
+            expected_age: "68 years",
           },
           {
             birth_date: Date.parse("28 Feb 1981"),
             pension_date: Date.parse("28 Feb 2049"),
-            expected_age: "68 years"
+            expected_age: "68 years",
           },
           {
             birth_date: Date.parse("1 Mar 1981"),
             pension_date: Date.parse("1 Mar 2049"),
-            expected_age: "68 years"
+            expected_age: "68 years",
           },
         ].each do |test_case|
           should "someone born on #{test_case[:birth_date]} and getting their pension on #{test_case[:pension_date]} should have a pension age of #{test_case[:age]}" do

@@ -16,20 +16,20 @@ module SmartAnswer::Calculators
       weekly: {
         "8": "8 payments or fewer",
         "9": "9 payments",
-        "10": "10 payments"
+        "10": "10 payments",
       },
       every_2_weeks: {
         "4": "4 payments or fewer",
-        "5": "5 payments"
+        "5": "5 payments",
       },
       every_4_weeks: {
         "1": "1 payment",
-        "2": "2 payments"
+        "2": "2 payments",
       },
       monthly: {
         "2": "1 or 2 payments",
-        "3": "3 payments"
-      }
+        "3": "3 payments",
+      },
     }.with_indifferent_access.freeze
     private_constant :PAYMENT_OPTIONS
 

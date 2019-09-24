@@ -23,9 +23,9 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
   context "fco_sponsored?" do
     should "return true for an organisation sponsored by the FCO" do
       organisation_data = { sponsors: [
-            { details: { acronym: "FCO" }
+            { details: { acronym: "FCO" },
           }
-        ]
+        ],
       }
       worldwide_organisation = WorldwideOrganisation.new(organisation_data)
 
@@ -45,19 +45,19 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
       organisation_data = { offices:
           { main:
             { title: "main-office",
-            services: []
+            services: [],
           },
           other: [
             {
               title: "other-office-1",
-              services: [{ title: "service-offered" }]
+              services: [{ title: "service-offered" }],
             },
             {
               title: "other-office-2",
-              services: [{ title: "service-offered" }]
+              services: [{ title: "service-offered" }],
             }
-          ]
-        }
+          ],
+        },
       }
       organisation = WorldwideOrganisation.new(organisation_data)
 
@@ -73,10 +73,10 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
           main:
           {
             title: "main-office",
-            services: []
+            services: [],
           },
-          other: []
-        }
+          other: [],
+        },
       }
       organisation = WorldwideOrganisation.new(organisation_data)
 
@@ -89,8 +89,8 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
       organisation_data = { offices:
         {
           main: nil,
-          other: []
-        }
+          other: [],
+        },
       }
       organisation = WorldwideOrganisation.new(organisation_data)
 
@@ -107,14 +107,14 @@ class WorldwideOrganisationTest < ActiveSupport::TestCase
         offices:
           {
             main: {
-              title: "main-office-title"
+              title: "main-office-title",
             },
           other: [
             {
-              title: "other-office-title"
+              title: "other-office-title",
             }
-          ]
-        }
+          ],
+        },
       }
       @organisation = WorldwideOrganisation.new(organisation_data)
     end

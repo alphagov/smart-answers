@@ -994,14 +994,14 @@ module SmartAnswer
               "opposite_sex" => {
                 "default" => {
                   "default" => [:partner_sex_specific_default_service],
-                  "partner_local" => [:partner_sex_and_nationality_specific_service]
+                  "partner_local" => [:partner_sex_and_nationality_specific_service],
                 },
                 "uk" => {
                   "default" => [:residency_specific_default_service],
-                  "partner_local" => [:residency_and_nationality_specific_service]
-                }
-              }
-            }
+                  "partner_local" => [:residency_and_nationality_specific_service],
+                },
+              },
+            },
           }
           @calculator = MarriageAbroadCalculator.new(services_data: services_data)
         end
@@ -1111,8 +1111,8 @@ module SmartAnswer
         should "return the name of the payment information partial" do
           services_data = {
             "ceremony-country" => {
-              "payment_partial_name" => "partial-name"
-            }
+              "payment_partial_name" => "partial-name",
+            },
           }
           calculator = MarriageAbroadCalculator.new(services_data: services_data)
           calculator.ceremony_country = "ceremony-country"

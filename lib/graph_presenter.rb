@@ -40,7 +40,7 @@ class GraphPresenter
   def to_hash
     {
       labels: labels,
-      adjacencyList: adjacency_list
+      adjacencyList: adjacency_list,
     }
   end
 

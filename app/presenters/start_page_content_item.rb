@@ -16,7 +16,7 @@ class StartPageContentItem
         introductory_paragraph: [
           {
             content: flow_presenter.start_page_body,
-            content_type: "text/govspeak"
+            content_type: "text/govspeak",
           }
         ],
         more_information: [
@@ -25,7 +25,7 @@ class StartPageContentItem
         ],
         transaction_start_link: base_path + "/y",
         start_button_text: flow_presenter.start_page_button_text,
-        hidden_search_terms: flow_presenter.flows_content
+        hidden_search_terms: flow_presenter.flows_content,
       },
       schema_name: "transaction",
       document_type: "transaction",
@@ -33,7 +33,7 @@ class StartPageContentItem
       rendering_app: "frontend",
       locale: "en",
       public_updated_at: Time.now.iso8601,
-      routes: routes
+      routes: routes,
     }
   end
 

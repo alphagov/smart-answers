@@ -36,17 +36,17 @@ module SmartAnswer::Calculators
           yesterdays_rates = {
             start_date: @yesterday,
             end_date: @yesterday,
-            rate: 3
+            rate: 3,
           }
           todays_rates = {
             start_date: today,
             end_date: today,
-            rate: 2
+            rate: 2,
           }
           tomorrows_rates = {
             start_date: @tomorrow,
             end_date: @tomorrow,
-            rate: 1
+            rate: 1,
           }
           rates = [yesterdays_rates, todays_rates, tomorrows_rates]
           @rates_query = RatesQuery.new(rates)

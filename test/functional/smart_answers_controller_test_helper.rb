@@ -3,7 +3,7 @@ module SmartAnswersControllerTestHelper
     params = {
       id: "smart-answers-controller-sample",
       started: "y",
-      next: "Next Question"
+      next: "Next Question",
     }
     params[:response] = response if response
     get :show, params: params.merge(other_params)
@@ -14,7 +14,7 @@ module SmartAnswersControllerTestHelper
       id: "smart-answers-controller-sample",
       started: "y",
       format: "json",
-      next: "1"
+      next: "1",
     }
     params[:response] = response if response
     get :show, params: params.merge(other_params)

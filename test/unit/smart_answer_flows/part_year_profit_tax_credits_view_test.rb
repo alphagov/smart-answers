@@ -170,7 +170,7 @@ module SmartAnswer
           basis_period: YearRange.new(begins_on: Date.parse("2015-04-06")),
           taxable_profit: SmartAnswer::Money.new(15000),
           award_period_taxable_profit: SmartAnswer::Money.new(13154),
-          stopped_trading_on: nil
+          stopped_trading_on: nil,
         }
         @calculator = stub("calculator", calculator_options)
         @calculator.responds_like_instance_of(Calculators::PartYearProfitTaxCreditsCalculator)

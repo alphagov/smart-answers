@@ -11,7 +11,7 @@ class FlowContentItem
       title: flow_presenter.title,
       update_type: "minor",
       details: {
-          external_related_links: external_related_links
+          external_related_links: external_related_links,
       },
       schema_name: "generic_with_external_related_links",
       document_type: "smart_answer",
@@ -19,7 +19,7 @@ class FlowContentItem
       rendering_app: "smartanswers",
       locale: "en",
       public_updated_at: Time.now.iso8601,
-      routes: routes
+      routes: routes,
     }
   end
 

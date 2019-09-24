@@ -159,7 +159,7 @@ module SmartAnswer
               55_000 => 3_621,
               58_215 => 3_224,
               60_000 => 3_224,
-              65_000 => 3_224
+              65_000 => 3_224,
             }.each do |household_income, loan_amount|
               calculator = StudentFinanceCalculator.new(
                 course_start: @course_start,

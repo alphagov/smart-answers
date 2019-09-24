@@ -9,7 +9,7 @@ module SmartAnswer
           first_benefit: :first_benefit_amount?,
           second_benefit: :second_benefit_amount?,
           third_benefit: :third_benefit_amount?,
-          fourth_benefit: :fourth_benefit_amount?
+          fourth_benefit: :fourth_benefit_amount?,
         }
 
         @selected_benefits = [:second_benefit, :fourth_benefit]

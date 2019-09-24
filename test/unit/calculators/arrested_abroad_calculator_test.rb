@@ -38,7 +38,7 @@ module SmartAnswer::Calculators
           resp = @calc.get_country_regions("cyprus")["north"]
           expected = {
             "link" => "/government/publications/cyprus-north-prisoner-pack",
-            "url_text" => "Prisoner pack for the north of Cyprus"
+            "url_text" => "Prisoner pack for the north of Cyprus",
           }
           assert_equal expected, resp
         end

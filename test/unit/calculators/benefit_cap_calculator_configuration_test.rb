@@ -58,31 +58,31 @@ module SmartAnswer::Calculators
               national: {
                 first: {
                   amount: 100,
-                  description: "first cap"
+                  description: "first cap",
                 },
                 second: {
                   amount: 200,
-                  description: "second cap"
-                }
-              }
+                  description: "second cap",
+                },
+              },
             },
             exempt_benefits: {
               first_exempt_benefit: "first exempt benefit",
-              second_exempt_benefit: "second exempt benefit"
+              second_exempt_benefit: "second exempt benefit",
             },
             benefits: {
               first_benefit: {
                 question: "first_question",
-                description: "first description"
+                description: "first description",
               },
               second_benefit: {
                 question: "second_question",
-                description: "second description"
+                description: "second description",
               },
               third_benefit: {
                 question: "third_question",
-                description: "third description"
-              }
+                description: "third description",
+              },
             },
           )
         end

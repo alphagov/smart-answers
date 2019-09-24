@@ -34,7 +34,7 @@ class ContentItemPublisher
           path: path,
           type: :prefix,
           destination: destination,
-          segments_mode: :ignore
+          segments_mode: :ignore,
         }
       ],
     )
@@ -106,16 +106,16 @@ private
         body: [
           {
             content: content,
-            content_type: "text/govspeak"
+            content_type: "text/govspeak",
           }
-        ]
+        ],
       },
       routes: [
         {
           type: :exact,
-          path: base_path
+          path: base_path,
         }
-      ]
+      ],
     }
 
     create_and_publish_via_publishing_api(payload)
@@ -134,18 +134,18 @@ private
         introductory_paragraph: [
           {
             content: content,
-            content_type: "text/govspeak"
+            content_type: "text/govspeak",
           }
         ],
-        transaction_start_link: link
+        transaction_start_link: link,
       },
       routes: [
         {
           type: :exact,
-          path: base_path
+          path: base_path,
         }
       ],
-      schema_name: :transaction
+      schema_name: :transaction,
     }
 
     create_and_publish_via_publishing_api(payload)

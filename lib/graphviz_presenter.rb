@@ -19,7 +19,7 @@ class GraphvizPresenter < GraphPresenter
     labels.map do |name, label|
       attrs = {
         label: escape(label),
-        shape: "box"
+        shape: "box",
       }
       if is_first?(name)
         attrs.merge!(
@@ -69,7 +69,7 @@ class GraphvizPresenter < GraphPresenter
       "\n" => '\n',
       "[" => '\[',
       "]" => '\]',
-      '"' => "'"
+      '"' => "'",
     }
     label.to_s.gsub(%r{[\n\[\]"]}, map)
   end

@@ -29,7 +29,7 @@ module SmartAnswer::Calculators
             starch_glucose_weight: 0,
             sucrose_weight: 30,
             milk_fat_weight: 0,
-            milk_protein_weight: 6
+            milk_protein_weight: 6,
           }
           calculator = CommodityCodeCalculator.new(options)
           assert_equal "042", calculator.commodity_code
@@ -40,7 +40,7 @@ module SmartAnswer::Calculators
             starch_glucose_weight: 5,
             sucrose_weight: 30,
             milk_fat_weight: 6,
-            milk_protein_weight: 15
+            milk_protein_weight: 15,
           }
           calculator = CommodityCodeCalculator.new(options)
           assert_equal "367", calculator.commodity_code
@@ -51,7 +51,7 @@ module SmartAnswer::Calculators
             starch_glucose_weight: 5,
             sucrose_weight: 30,
             milk_fat_weight: 70,
-            milk_protein_weight: 0
+            milk_protein_weight: 0,
           }
           calculator = CommodityCodeCalculator.new(options)
           assert_equal "X", calculator.commodity_code

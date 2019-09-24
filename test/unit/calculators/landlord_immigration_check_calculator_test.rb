@@ -77,7 +77,7 @@ module SmartAnswer::Calculators
         ).to_return(
           body: {
             "_response_info" => { "status" => 404, "links" => [] },
-            "results" => []
+            "results" => [],
           }.to_json,
         )
       end
@@ -126,14 +126,14 @@ module SmartAnswer::Calculators
           body: {
             _response_info: {
               status: 400,
-              links: []
+              links: [],
             },
             total: 0,
             start_index: 1,
             page_size: 0,
             current_page: 1,
             pages: 1,
-            results: []
+            results: [],
           }.to_json,
         )
       end

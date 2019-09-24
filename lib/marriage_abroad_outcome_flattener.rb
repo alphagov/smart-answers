@@ -154,7 +154,7 @@ private
         current_node: question_name,
         responses: responses.map(&:to_s),
         next_node: next_node.name,
-        outcome_node: next_node.outcome?
+        outcome_node: next_node.outcome?,
       }
 
       unless next_node.outcome? || state.error
