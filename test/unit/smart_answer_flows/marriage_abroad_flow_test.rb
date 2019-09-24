@@ -55,7 +55,7 @@ module SmartAnswer
       setup do
         setup_states_for_question(:legal_residency?,
                                   responding_with: "uk", initial_state: {
-                                    calculator: @calculator 
+                                    calculator: @calculator,
 })
       end
 
@@ -68,7 +68,7 @@ module SmartAnswer
       setup do
         setup_states_for_question(:what_is_your_partners_nationality?,
                                   responding_with: "partner_british", initial_state: {
-                                    calculator: @calculator 
+                                    calculator: @calculator,
 })
       end
 
@@ -82,7 +82,7 @@ module SmartAnswer
         @calculator.ceremony_country = "france"
         setup_states_for_question(:partner_opposite_or_same_sex?,
                                   responding_with: "same_sex", initial_state: {
-                                    calculator: @calculator 
+                                    calculator: @calculator,
 })
       end
 
@@ -95,7 +95,7 @@ module SmartAnswer
       setup do
         setup_states_for_question(:marriage_or_pacs?,
                                   responding_with: "marriage", initial_state: {
-                                    calculator: @calculator 
+                                    calculator: @calculator,
 })
       end
 

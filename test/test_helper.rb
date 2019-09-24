@@ -1,7 +1,7 @@
 ENV["RAILS_ENV"] = "test"
 ENV["GOVUK_APP_DOMAIN"] = "test.gov.uk"
 
-require File.expand_path('../config/environment', __dir__)
+require File.expand_path("../config/environment", __dir__)
 
 if ENV["TEST_COVERAGE"]
   require "simplecov"

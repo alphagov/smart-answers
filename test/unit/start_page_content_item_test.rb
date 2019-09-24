@@ -18,7 +18,7 @@ module SmartAnswer
            start_page_body: "",
            start_page_post_body: "",
            start_page_button_text: "",
-           external_related_links: [],)
+           external_related_links: [])
     end
 
     test "#content_id is the content_id of the presenter" do

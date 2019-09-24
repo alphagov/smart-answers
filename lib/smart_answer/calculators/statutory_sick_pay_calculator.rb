@@ -297,9 +297,9 @@ module SmartAnswer
 
       def sick_pay_weekly_dates
         ssp_week_end = if sick_end_date.sunday?
-          sick_end_date + 6
-        else
-          sick_end_date.end_of_week - 1
+                         sick_end_date + 6
+                       else
+                         sick_end_date.end_of_week - 1
                        end
         (sick_start_date..ssp_week_end).select { |day| day.wday == 6 }
       end

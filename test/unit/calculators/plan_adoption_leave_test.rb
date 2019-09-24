@@ -10,7 +10,7 @@ module SmartAnswer::Calculators
       context "formatted dates (start date 5 days)" do
         setup do
           @calculator = PlanAdoptionLeave.new(
-            match_date: @match_date, arrival_date: Date.parse("2012-12-25"), start_date: Date.parse("2012-12-20")
+            match_date: @match_date, arrival_date: Date.parse("2012-12-25"), start_date: Date.parse("2012-12-20"),
 )
         end
 
@@ -30,7 +30,7 @@ module SmartAnswer::Calculators
       context "formatted dates (start_date 2 weeks)" do
         setup do
           @calculator = PlanAdoptionLeave.new(
-            match_date: @match_date, arrival_date: Date.parse("2012-12-25"), start_date: Date.parse("2012-12-11")
+            match_date: @match_date, arrival_date: Date.parse("2012-12-25"), start_date: Date.parse("2012-12-11"),
 )
         end
 
