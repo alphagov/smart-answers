@@ -1,5 +1,5 @@
 class GraphPresenter
-  EXEMPTIONS_LIST = ["benefit-cap-calculator"]
+  EXEMPTIONS_LIST = %w[benefit-cap-calculator]
   def initialize(flow)
     @flow = flow
   end

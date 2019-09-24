@@ -9,7 +9,7 @@ module SmartAnswer::Calculators
 
     context "payment dates for direct-debit" do
       should "calculate last_payment_date where end of month is not a work day" do
-        ["direct-debit"].each do |pay_method|
+        %w[direct-debit].each do |pay_method|
           calc = VatPaymentDeadlines.new(Date.parse("2013-10-31"), pay_method)
           assert_equal Date.parse("2013-12-04"), calc.last_payment_date
 
@@ -24,7 +24,7 @@ module SmartAnswer::Calculators
 
     context "bank-giro" do
       should "calculate last_payment_date where end of month is not a work day" do
-        ["bank-giro"].each do |pay_method|
+        %w[bank-giro].each do |pay_method|
           calc = VatPaymentDeadlines.new(Date.parse("2013-10-31"), pay_method)
           assert_equal Date.parse("2013-12-04"), calc.last_payment_date
 
@@ -79,7 +79,7 @@ module SmartAnswer::Calculators
       end
     end
 
-    ["online-debit-credit-card", "bacs-direct-credit", "bank-giro"].each do |method|
+    %w[online-debit-credit-card bacs-direct-credit bank-giro].each do |method|
       context "dates for #{method}" do
         should "calculate last_payment_date as end_of_month_after(end_date) + 7 calendar days - 3 working days" do
           calc = VatPaymentDeadlines.new(Date.parse("2013-04-30"), method)

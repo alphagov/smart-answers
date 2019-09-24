@@ -58,7 +58,7 @@ module SmartAnswer
 
     test "#payload details hash includes external_related_links" do
       presenter = stub_flow_registration_presenter
-      presenter.stubs(:external_related_links).returns(["link-1"])
+      presenter.stubs(:external_related_links).returns(%w[link-1])
       content_item = FlowContentItem.new(presenter)
 
       assert_equal "link-1", content_item.payload[:details][:external_related_links][0]

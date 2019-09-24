@@ -13,7 +13,7 @@ module SmartAnswer
           option :reddy_brown
         end
 
-        assert_equal ["red", "blue", "green", "blue-green", "reddy_brown"], q.options
+        assert_equal %w[red blue green blue-green reddy_brown], q.options
       end
 
       should "not be able to use reserved 'none' option" do
