@@ -14,8 +14,8 @@ module SmartAnswer
       SmartAnswer::ErbRenderer.expects(:new).with(
         has_entries(
           template_directory: "start-node-template-directory",
-          template_name: "start_node_name"
-        )
+          template_name: "start_node_name",
+        ),
       )
 
       StartNodePresenter.new(start_node)

@@ -85,7 +85,7 @@ class FlowPresenter
       id: @params[:id],
       started: "y",
       responses: accepted_responses[0...question_number - 1],
-      previous_response: accepted_responses[question_number - 1]
+      previous_response: accepted_responses[question_number - 1],
     )
   end
 

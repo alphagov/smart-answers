@@ -11,7 +11,7 @@ module SmartAnswer::Calculators
       @calculator.stubs(
         personal_allowance: @personal_allowance,
         higher_allowance_1: @higher_allowance_1,
-        higher_allowance_2: @higher_allowance_2
+        higher_allowance_2: @higher_allowance_2,
       )
     end
 

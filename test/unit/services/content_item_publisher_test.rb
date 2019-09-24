@@ -84,7 +84,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
           publishing_app: "publisher",
           title: "Sample transaction title",
           content: "Sample transaction content",
-          link: "https://smaple.gov.uk/path/to/somewhere"
+          link: "https://smaple.gov.uk/path/to/somewhere",
         )
       end
 
@@ -98,7 +98,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
           publishing_app: nil,
           title: "Sample transaction title",
           content: "Sample transaction content",
-          link: "https://smaple.gov.uk/path/to/somewhere"
+          link: "https://smaple.gov.uk/path/to/somewhere",
         )
       end
 
@@ -112,7 +112,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
           publishing_app: "publisher",
           title: nil,
           content: "Sample transaction content",
-          link: "https://smaple.gov.uk/path/to/somewhere"
+          link: "https://smaple.gov.uk/path/to/somewhere",
         )
       end
 
@@ -126,7 +126,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
           publishing_app: "publisher",
           title: "Sample transaction title",
           content: nil,
-          link: "https://smaple.gov.uk/path/to/somewhere"
+          link: "https://smaple.gov.uk/path/to/somewhere",
         )
       end
 
@@ -140,7 +140,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
           publishing_app: "publisher",
           title: "Sample transaction title",
           content: "Sample transaction content",
-          link: nil
+          link: nil,
         )
       end
 
@@ -153,7 +153,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
         publishing_app: "publisher",
         title: "Sample transaction title",
         content: "Sample transaction content",
-        link: "https://smaple.gov.uk/path/to/somewhere"
+        link: "https://smaple.gov.uk/path/to/somewhere",
       )
 
       assert_requested @create_request
@@ -168,7 +168,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
           publishing_app: "publisher",
           title: "Sample transaction title",
           content: "Sample transaction content",
-          link: "https://smaple.gov.uk/path/to/somewhere"
+          link: "https://smaple.gov.uk/path/to/somewhere",
         )
       end
 
@@ -192,7 +192,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
         "/base-path",
         publishing_app: "publisher",
         title: "Sample answer title",
-        content: "Sample answer content"
+        content: "Sample answer content",
       )
 
       assert_requested @create_request
@@ -206,7 +206,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
           "/base-path",
           publishing_app: "publisher",
           title: "Sample answer title",
-          content: "Sample answer content"
+          content: "Sample answer content",
         )
       end
 
@@ -221,7 +221,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
           nil,
           publishing_app: "publisher",
           title: "Sample answer title",
-          content: "Sample answer content"
+          content: "Sample answer content",
         )
       end
 
@@ -234,7 +234,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
           "/base-path",
           publishing_app: nil,
           title: "Sample answer title",
-          content: "Sample answer content"
+          content: "Sample answer content",
         )
       end
 
@@ -247,7 +247,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
           "/base-path",
           publishing_app: "publisher",
           title: nil,
-          content: "Sample answer content"
+          content: "Sample answer content",
         )
       end
 
@@ -260,7 +260,7 @@ class ContentItemPublisherTest < ActiveSupport::TestCase
           "/base-path",
           publishing_app: "publisher",
           title: "Sample answer title",
-          content: nil
+          content: nil,
         )
       end
 

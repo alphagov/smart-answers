@@ -20,7 +20,7 @@ module SmartAnswer
             @calculator = stub(
               "calculator",
               :age= => nil,
-              :under_school_leaving_age? => nil
+              :under_school_leaving_age? => nil,
             )
             @state.calculator = @calculator
           end
@@ -84,7 +84,7 @@ module SmartAnswer
             @calculator = stub(
               "calculator",
               pay_frequency: 1,
-              :basic_hours= => nil
+              :basic_hours= => nil,
             )
             @state.calculator = @calculator
           end
@@ -162,7 +162,7 @@ module SmartAnswer
               "calculator",
               accommodation_adjustment: nil,
               minimum_wage_or_above?: nil,
-              historically_receiving_minimum_wage?: nil
+              historically_receiving_minimum_wage?: nil,
             )
             @state.calculator = @calculator
           end

@@ -15,8 +15,8 @@ module SmartAnswer
       SmartAnswer::ErbRenderer.expects(:new).with(
         has_entries(
           template_directory: responds_with(:to_s, "outcome-template-directory/outcomes"),
-          template_name: "outcome_name"
-        )
+          template_name: "outcome_name",
+        ),
       )
 
       OutcomePresenter.new(outcome)

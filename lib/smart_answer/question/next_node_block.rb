@@ -28,7 +28,7 @@ module SmartAnswer
       class Parser
         def initialize
           @parser = MethodInvocationsParser.new(
-            *InstanceMethods.methods_of_interest
+            *InstanceMethods.methods_of_interest,
           )
         end
 

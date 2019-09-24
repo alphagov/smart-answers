@@ -147,7 +147,7 @@ module SmartAnswer
       setup do
         award_period = DateRange.new(
           begins_on: Date.parse("2015-04-06"),
-          ends_on:   Date.parse("2015-08-01")
+          ends_on:   Date.parse("2015-08-01"),
         )
         @calculator.stubs(:award_period).returns(award_period)
         setup_states_for_question(:when_did_you_start_trading?,

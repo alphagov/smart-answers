@@ -41,12 +41,12 @@ module SmartAnswer::Calculators
       @leave_type = leave_type
       @expected_week = SmartAnswer::DateRange.new(
         begins_on: expected_start,
-        ends_on: expected_start + 6.days
+        ends_on: expected_start + 6.days,
       )
       @notice_of_leave_deadline = next_saturday(qualifying_start)
       @qualifying_week = SmartAnswer::DateRange.new(
         begins_on: qualifying_start,
-        ends_on: qualifying_start + 6.days
+        ends_on: qualifying_start + 6.days,
       )
       @employment_start = @qualifying_week.weeks_after(-25).ends_on
       @leave_earliest_start_date = @expected_week.weeks_after(-11).begins_on
@@ -173,7 +173,7 @@ module SmartAnswer::Calculators
           earnings_for_pay_period.to_f / number_of_payments * 12 / 52
         else
           earnings_for_pay_period.to_f / number_of_payments
-        end
+        end,
       ) # HMRC-agreed truncation at 7 decimal places.
     end
 

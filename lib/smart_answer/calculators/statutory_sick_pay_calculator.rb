@@ -38,14 +38,14 @@ module SmartAnswer
       def current_piw
         PeriodOfIncapacityForWork.new(
           begins_on: sick_start_date,
-          ends_on: sick_end_date
+          ends_on: sick_end_date,
         )
       end
 
       def linked_piw
         PeriodOfIncapacityForWork.new(
           begins_on: linked_sickness_start_date,
-          ends_on: linked_sickness_end_date
+          ends_on: linked_sickness_end_date,
         )
       end
 
@@ -163,17 +163,17 @@ module SmartAnswer
             pay_pattern: pay_pattern,
             monthly_pattern_payments: monthly_pattern_payments,
             relevant_period_to: relevant_period_to,
-            relevant_period_from: relevant_period_from
+            relevant_period_from: relevant_period_from,
           )
         elsif paid_less_than_8_weeks_of_earnings?
           self.class.total_earnings_awe(
             total_earnings_before_sick_period,
-            days_covered_by_earnings
+            days_covered_by_earnings,
           )
         elsif fell_sick_before_payday?
           self.class.contractual_earnings_awe(
             relevant_contractual_pay,
-            contractual_days_covered_by_earnings
+            contractual_days_covered_by_earnings,
           )
         end
       end

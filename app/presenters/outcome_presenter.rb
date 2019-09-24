@@ -10,7 +10,7 @@ class OutcomePresenter < NodePresenter
         SmartAnswer::FormattingHelper,
         SmartAnswer::OverseasPassportsHelper,
         SmartAnswer::MarriageAbroadHelper
-      ] + helpers
+      ] + helpers,
     )
   end
 

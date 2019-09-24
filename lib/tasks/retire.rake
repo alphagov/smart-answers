@@ -44,7 +44,7 @@ namespace :retire do
 
     ContentItemPublisher.new.reserve_path_for_publishing_app(
       args.base_path,
-      args.publishing_app
+      args.publishing_app,
     )
 
     ContentItemPublisher.new.publish_transaction(
@@ -52,7 +52,7 @@ namespace :retire do
       publishing_app: args.publishing_app,
       title: args.title,
       content: args.content,
-      link: args.link
+      link: args.link,
     )
   end
 
@@ -65,14 +65,14 @@ namespace :retire do
 
     ContentItemPublisher.new.reserve_path_for_publishing_app(
       args.base_path,
-      args.publishing_app
+      args.publishing_app,
     )
 
     ContentItemPublisher.new.publish_answer(
       args.base_path,
       publishing_app: args.publishing_app,
       title: args.title,
-      content: args.content
+      content: args.content,
     )
   end
 end

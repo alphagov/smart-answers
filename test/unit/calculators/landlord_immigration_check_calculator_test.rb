@@ -73,12 +73,12 @@ module SmartAnswer::Calculators
 
         stub_request(
           :get,
-          %r{\A#{GdsApi::TestHelpers::Imminence::IMMINENCE_API_ENDPOINT}/areas/#{@calculator.postcode}\.json}
+          %r{\A#{GdsApi::TestHelpers::Imminence::IMMINENCE_API_ENDPOINT}/areas/#{@calculator.postcode}\.json},
         ).to_return(
           body: {
             "_response_info" => { "status" => 404, "links" => [] },
             "results" => []
-          }.to_json
+          }.to_json,
         )
       end
 
@@ -134,7 +134,7 @@ module SmartAnswer::Calculators
             current_page: 1,
             pages: 1,
             results: []
-          }.to_json
+          }.to_json,
         )
       end
 

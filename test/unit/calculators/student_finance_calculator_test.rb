@@ -8,7 +8,7 @@ module SmartAnswer
           course_start: "2018-2019",
           household_income: 25_000,
           residence: "at-home",
-          course_type: "uk-full-time"
+          course_type: "uk-full-time",
         )
         assert_instance_of StudentFinanceCalculator, calculator
 
@@ -46,7 +46,7 @@ module SmartAnswer
               calculator = StudentFinanceCalculator.new(
                 course_start: "2018-2019",
                 household_income: 25_000,
-                residence: :unused_variable
+                residence: :unused_variable,
               )
               assert_equal 164.70, calculator.childcare_grant_one_child
             end
@@ -58,7 +58,7 @@ module SmartAnswer
               calculator = StudentFinanceCalculator.new(
                 course_start: "2018-2019",
                 household_income: 25_000,
-                residence: :unused_variable
+                residence: :unused_variable,
               )
               assert_equal 282.36, calculator.childcare_grant_more_than_one_child
             end
@@ -71,7 +71,7 @@ module SmartAnswer
           calculator = StudentFinanceCalculator.new(
             course_start: "2018-2019",
             household_income: 25_000,
-            residence: :unused_variable
+            residence: :unused_variable,
           )
           assert_equal 1669, calculator.parent_learning_allowance
         end
@@ -82,7 +82,7 @@ module SmartAnswer
           calculator = StudentFinanceCalculator.new(
             course_start: "2018-2019",
             household_income: 25_000,
-            residence: :unused_variable
+            residence: :unused_variable,
           )
           assert_equal 2925, calculator.adult_dependant_allowance
         end
@@ -94,7 +94,7 @@ module SmartAnswer
             course_start: :unused_variable,
             household_income: 15_000,
             residence: :unused_variable,
-            course_type: "uk-full-time"
+            course_type: "uk-full-time",
           )
         end
 
@@ -123,7 +123,7 @@ module SmartAnswer
           should "be 6935" do
             calculator = StudentFinanceCalculator.new(
               household_income: 25_000,
-              residence: :unused_variable
+              residence: :unused_variable,
             )
             assert_equal 6935, calculator.tuition_fee_maximum_part_time
           end
@@ -426,7 +426,7 @@ module SmartAnswer
         context "for students" do
           should "be 2018 and 2019" do
             calculator = StudentFinanceCalculator.new(
-              course_start: "2018-2019"
+              course_start: "2018-2019",
             )
 
             assert_equal [2018, 2019], calculator.course_start_years

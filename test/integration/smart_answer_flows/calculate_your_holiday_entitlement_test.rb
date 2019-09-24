@@ -40,7 +40,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             days_per_week: 5,
             start_date: nil,
             leaving_date: nil,
-            leave_year_start_date: nil
+            leave_year_start_date: nil,
           ).returns(@stubbed_calculator)
         @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns("formatted days")
 
@@ -56,7 +56,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             days_per_week: 6,
             start_date: nil,
             leaving_date: nil,
-            leave_year_start_date: nil
+            leave_year_start_date: nil,
           ).returns(@stubbed_calculator)
         @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns("formatted days")
 
@@ -100,7 +100,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 days_per_week: 5,
                 start_date: Date.parse("#{Date.today.year}-03-14"),
                 leaving_date: nil,
-                leave_year_start_date: Date.parse("#{Date.today.year}-05-02")
+                leave_year_start_date: Date.parse("#{Date.today.year}-05-02"),
               ).returns(@stubbed_calculator)
             @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns("formatted days")
 
@@ -117,7 +117,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 days_per_week: 5,
                 start_date: Date.parse("#{Date.today.year}-03-14"),
                 leaving_date: nil,
-                leave_year_start_date: Date.parse("#{Date.today.year}-05-02")
+                leave_year_start_date: Date.parse("#{Date.today.year}-05-02"),
               ).returns(@stubbed_calculator)
             @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns("formatted days")
 
@@ -165,7 +165,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 days_per_week: 5,
                 start_date: nil,
                 leaving_date: Date.parse("#{Date.today.year}-07-14"),
-                leave_year_start_date: Date.parse("#{Date.today.year}-01-01")
+                leave_year_start_date: Date.parse("#{Date.today.year}-01-01"),
               ).returns(@stubbed_calculator)
             @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns("formatted days")
 
@@ -182,7 +182,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 days_per_week: 5,
                 start_date: nil,
                 leaving_date: Date.parse("#{Date.today.year}-07-14"),
-                leave_year_start_date: Date.parse("#{Date.today.year}-01-01")
+                leave_year_start_date: Date.parse("#{Date.today.year}-01-01"),
               ).returns(@stubbed_calculator)
             @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns("formatted days")
 
@@ -223,7 +223,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 days_per_week: 5,
                 start_date: Date.parse("#{Date.today.year}-07-14"),
                 leaving_date: Date.parse("#{Date.today.year}-10-14"),
-                leave_year_start_date: nil
+                leave_year_start_date: nil,
               ).returns(@stubbed_calculator)
             @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns("formatted days")
 
@@ -270,7 +270,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 days_per_week: 5.0,
                 start_date: nil,
                 leaving_date: nil,
-                leave_year_start_date: nil
+                leave_year_start_date: nil,
               ).returns(@stubbed_calculator)
             @stubbed_calculator.expects(:full_time_part_time_hours).returns(179.2)
 
@@ -319,7 +319,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                     days_per_week: 5,
                     start_date: Date.parse("#{Date.today.year}-06-15"),
                     leaving_date: nil,
-                    leave_year_start_date: Date.parse("#{Date.today.year}-01-01")
+                    leave_year_start_date: Date.parse("#{Date.today.year}-01-01"),
                   ).
                   returns(@stubbed_calculator)
                 @stubbed_calculator.expects(:full_time_part_time_hours).returns(79.5)
@@ -371,7 +371,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                     days_per_week: 5,
                     start_date: nil,
                     leaving_date: Date.parse("#{Date.today.year}-06-15"),
-                    leave_year_start_date: Date.parse("#{Date.today.year}-01-01")
+                    leave_year_start_date: Date.parse("#{Date.today.year}-01-01"),
                   ).
                   returns(@stubbed_calculator)
                 @stubbed_calculator.expects(:full_time_part_time_hours).returns(19.75)
@@ -422,7 +422,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                   days_per_week: 5,
                   start_date: Date.parse("#{Date.today.year}-07-14"),
                   leaving_date: Date.parse("#{Date.today.year}-10-14"),
-                  leave_year_start_date: nil
+                  leave_year_start_date: nil,
                 ).returns(@stubbed_calculator)
               @stubbed_calculator.expects(:full_time_part_time_hours).returns(79.5)
 
@@ -535,7 +535,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             leave_year_start_date: nil,
             hours_per_shift: 7.25,
             shifts_per_shift_pattern: 4,
-            days_per_shift_pattern: 8
+            days_per_shift_pattern: 8,
           ).returns(@stubbed_calculator)
         @stubbed_calculator.expects(:formatted_shift_entitlement).returns("some shifts")
 
@@ -600,7 +600,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 leave_year_start_date: Date.parse("#{Date.today.year}-07-01"),
                 hours_per_shift: 7.5,
                 shifts_per_shift_pattern: 4,
-                days_per_shift_pattern: 8
+                days_per_shift_pattern: 8,
               ).returns(@stubbed_calculator)
             @stubbed_calculator.expects(:formatted_shift_entitlement).returns("some shifts")
 
@@ -667,7 +667,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 leave_year_start_date: Date.parse("#{Date.today.year}-08-01"),
                 hours_per_shift: 7,
                 shifts_per_shift_pattern: 4,
-                days_per_shift_pattern: 8
+                days_per_shift_pattern: 8,
               ).returns(@stubbed_calculator)
             @stubbed_calculator.expects(:formatted_shift_entitlement).returns("some shifts")
 
@@ -734,7 +734,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 leave_year_start_date: nil,
                 hours_per_shift: 7,
                 shifts_per_shift_pattern: 4,
-                days_per_shift_pattern: 8
+                days_per_shift_pattern: 8,
               ).returns(@stubbed_calculator)
             @stubbed_calculator.expects(:formatted_shift_entitlement).returns("some shifts")
 

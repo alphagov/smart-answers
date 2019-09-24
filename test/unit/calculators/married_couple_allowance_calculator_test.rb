@@ -23,7 +23,7 @@ module SmartAnswer::Calculators
         minimum_mca: 3010,
         income_limit_for_personal_allowances: @income_limit,
         personal_allowance: @personal_allowance,
-        age_related_allowance: @age_related_allowance
+        age_related_allowance: @age_related_allowance,
       )
     end
 
@@ -34,7 +34,7 @@ module SmartAnswer::Calculators
         income_limit_for_personal_allowances: 24000,
         personal_allowance: 7475,
         age_related_allowance: 10090,
-        calculate_adjusted_net_income: 29600
+        calculate_adjusted_net_income: 29600,
       )
 
       result = hmrc_example_calculator.calculate_allowance
@@ -49,7 +49,7 @@ module SmartAnswer::Calculators
         income_limit_for_personal_allowances: 25400,
         personal_allowance: 8105,
         age_related_allowance: 10660,
-        calculate_adjusted_net_income: 31500
+        calculate_adjusted_net_income: 31500,
       )
 
       result = hmrc_example_calculator.calculate_allowance

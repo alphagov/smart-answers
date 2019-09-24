@@ -27,7 +27,7 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
         Rake::Task["retire:unpublish_redirect_remove_from_search"].invoke(
           "content-id",
           "/base-path",
-          nil
+          nil,
         )
       end
 
@@ -47,7 +47,7 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
       Rake::Task["retire:unpublish_redirect_remove_from_search"].invoke(
         "content-id",
         "/base-path",
-        "/new-destination"
+        "/new-destination",
       )
     end
   end
@@ -117,7 +117,7 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
           "publisher",
           "Sample transaction title",
           "Sample transaction content",
-          "https://smaple.gov.uk/path/to/somewhere"
+          "https://smaple.gov.uk/path/to/somewhere",
         )
       end
 
@@ -131,7 +131,7 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
           nil,
           "Sample transaction title",
           "Sample transaction content",
-          "https://smaple.gov.uk/path/to/somewhere"
+          "https://smaple.gov.uk/path/to/somewhere",
         )
       end
 
@@ -145,7 +145,7 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
           "publisher",
           nil,
           "Sample transaction content",
-          "https://smaple.gov.uk/path/to/somewhere"
+          "https://smaple.gov.uk/path/to/somewhere",
         )
       end
 
@@ -159,7 +159,7 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
           "publisher",
           "Sample transaction title",
           nil,
-          "https://smaple.gov.uk/path/to/somewhere"
+          "https://smaple.gov.uk/path/to/somewhere",
         )
       end
 
@@ -173,7 +173,7 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
           "publisher",
           "Sample transaction title",
           "Sample transaction content",
-          nil
+          nil,
         )
       end
 
@@ -187,7 +187,7 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
         publishing_app: "publisher",
         title: "Sample transaction title",
         content: "Sample transaction content",
-        link: "https://smaple.gov.uk/path/to/somewhere"
+        link: "https://smaple.gov.uk/path/to/somewhere",
       ).once
       content_item_publisher_mock.expects(:reserve_path_for_publishing_app)
         .with("/base-path", "publisher").once
@@ -197,7 +197,7 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
         "publisher",
         "Sample transaction title",
         "Sample transaction content",
-        "https://smaple.gov.uk/path/to/somewhere"
+        "https://smaple.gov.uk/path/to/somewhere",
       )
     end
   end
@@ -216,7 +216,7 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
           nil,
           "publisher",
           "Sample answer title",
-          "Sample answer content"
+          "Sample answer content",
         )
       end
 
@@ -229,7 +229,7 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
           "/base-path",
           nil,
           "Sample answer title",
-          "Sample answer content"
+          "Sample answer content",
         )
       end
 
@@ -242,7 +242,7 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
           "/base-path",
           "publisher",
           nil,
-          "Sample answer content"
+          "Sample answer content",
         )
       end
 
@@ -255,7 +255,7 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
           "/base-path",
           "publisher",
           "Sample answer title",
-          nil
+          nil,
         )
       end
 
@@ -268,7 +268,7 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
         "/base-path",
         publishing_app: "publisher",
         title: "Sample answer title",
-        content: "Sample answer content"
+        content: "Sample answer content",
       ).once
       content_item_publisher_mock.expects(:reserve_path_for_publishing_app)
         .with("/base-path", "publisher").once
@@ -277,7 +277,7 @@ class RetireSmartAnswerRakeTest < ActiveSupport::TestCase
         "/base-path",
         "publisher",
         "Sample answer title",
-        "Sample answer content"
+        "Sample answer content",
       )
     end
   end

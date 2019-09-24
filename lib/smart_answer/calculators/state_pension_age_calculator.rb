@@ -26,12 +26,12 @@ module SmartAnswer::Calculators
       if birthday_on_feb_29? && !pension_on_feb_29?
         SmartAnswer::DateRange.new(
           begins_on: dob,
-          ends_on: state_pension_date - 1.day
+          ends_on: state_pension_date - 1.day,
         ).friendly_time_diff
       else
         SmartAnswer::DateRange.new(
           begins_on: dob,
-          ends_on: state_pension_date
+          ends_on: state_pension_date,
         ).friendly_time_diff
       end
     end

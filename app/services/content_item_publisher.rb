@@ -17,7 +17,7 @@ class ContentItemPublisher
     Services.publishing_api.unpublish(
       content_id,
       type: "gone",
-      unpublished_at: Time.now
+      unpublished_at: Time.now,
     )
   end
 
@@ -36,7 +36,7 @@ class ContentItemPublisher
           destination: destination,
           segments_mode: :ignore
         }
-      ]
+      ],
     )
   end
 
@@ -52,7 +52,7 @@ class ContentItemPublisher
     Services.publishing_api.put_json(
       reserve_path_url(base_path),
       publishing_app: publishing_app,
-      override_existing: true
+      override_existing: true,
     )
   end
 
@@ -68,7 +68,7 @@ class ContentItemPublisher
       publishing_app: publishing_app,
       title: title,
       content: content,
-      link: link
+      link: link,
     )
   end
 
@@ -82,7 +82,7 @@ class ContentItemPublisher
       base_path,
       publishing_app: publishing_app,
       title: title,
-      content: content
+      content: content,
     )
   end
 

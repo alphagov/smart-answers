@@ -82,7 +82,7 @@ private
   def replace_how_to_pay(text)
     text.gsub(
       /^\^?You can( only)? pay by.*?\n.*?^$/mi,
-      <<~HOW_TO_PAY.freeze
+      <<~HOW_TO_PAY.freeze,
         <%= render partial: 'how_to_pay.govspeak.erb', locals: {calculator: calculator} %>
       HOW_TO_PAY
     )
@@ -91,7 +91,7 @@ private
   def replace_fee_table(text)
     text.gsub(
       /^Service \| Fee\n.*?^$/mi,
-      <<~FEE_TABLE.freeze
+      <<~FEE_TABLE.freeze,
         <%= render partial: 'consular_fees_table_items.govspeak.erb',
             collection: calculator.services,
             as: :service,

@@ -453,7 +453,7 @@ module SmartAnswer
           @data_query.stubs(
             ss_marriage_countries?: false,
             ss_marriage_countries_when_couple_british?: false,
-            ss_marriage_and_partnership?: false
+            ss_marriage_and_partnership?: false,
           )
           @calculator = MarriageAbroadCalculator.new(data_query: @data_query)
         end
@@ -550,7 +550,7 @@ module SmartAnswer
           @data_query.stubs(
             british_overseas_territories?: false,
             french_overseas_territories?: false,
-            dutch_caribbean_islands?: false
+            dutch_caribbean_islands?: false,
           )
 
           @calculator = MarriageAbroadCalculator.new(data_query: @data_query)
@@ -599,7 +599,7 @@ module SmartAnswer
           @registrations_data_query = stub.quacks_like(RegistrationsDataQuery.new)
           @registrations_data_query.stubs(
             has_consulate?: false,
-            has_consulate_general?: false
+            has_consulate_general?: false,
           )
 
           @calculator = MarriageAbroadCalculator.new(registrations_data_query: @registrations_data_query)

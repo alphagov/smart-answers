@@ -83,7 +83,7 @@ module SmartAnswer::Calculators
                 question: "third_question",
                 description: "third description"
               }
-            }
+            },
           )
         end
         should "get weekly_benefit_caps data" do

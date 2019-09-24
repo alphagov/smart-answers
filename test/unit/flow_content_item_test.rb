@@ -13,7 +13,7 @@ module SmartAnswer
       stub("flow-registration-presenter",
         slug: "flow-slug",
         title: "flow-title",
-        external_related_links: []
+        external_related_links: [],
       )
     end
 
@@ -35,7 +35,7 @@ module SmartAnswer
     test "#payload returns a valid content-item with external related links" do
       presenter = stub_flow_registration_presenter
       presenter.stubs(:external_related_links).returns(
-        [{ title: "hmrc", url: "https://hmrc.gov.uk" }]
+        [{ title: "hmrc", url: "https://hmrc.gov.uk" }],
       )
       content_item = FlowContentItem.new(presenter)
 

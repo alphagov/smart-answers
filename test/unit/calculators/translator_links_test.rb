@@ -8,7 +8,7 @@ module SmartAnswer::Calculators
           "spain" => "/government/publications/spain-list-of-lawyers",
           "switzerland" => "/government/publications/switzerland-list-of-lawyers",
           "andorra" => "/government/publications/spain-list-of-lawyers",
-          "san-marino" => "/government/publications/italy-list-of-lawyers"
+          "san-marino" => "/government/publications/italy-list-of-lawyers",
         )
         @data = TranslatorLinks.new
       end

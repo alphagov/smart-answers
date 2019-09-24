@@ -87,7 +87,7 @@ module SmartAnswer::Calculators
       money(
         vehicle_costs.to_f +
         vehicle_write_off.to_f +
-        home_costs.to_f
+        home_costs.to_f,
       )
     end
 

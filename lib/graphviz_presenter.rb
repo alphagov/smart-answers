@@ -24,12 +24,12 @@ class GraphvizPresenter < GraphPresenter
       if is_first?(name)
         attrs.merge!(
           color: "gold1",
-          style: "filled"
+          style: "filled",
         )
       elsif is_outcome?(name)
         attrs.merge!(
           color: "aquamarine",
-          style: "filled"
+          style: "filled",
         )
       end
       attribute_clause = attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(" ")

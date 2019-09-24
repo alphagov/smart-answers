@@ -226,7 +226,7 @@ module SmartAnswer
             leave_year_start_date: leave_year_start_date,
             hours_per_shift: hours_per_shift,
             shifts_per_shift_pattern: shifts_per_shift_pattern,
-            days_per_shift_pattern: days_per_shift_pattern
+            days_per_shift_pattern: days_per_shift_pattern,
           )
         end
         precalculate :holiday_entitlement_shifts do
@@ -246,7 +246,7 @@ module SmartAnswer
             days_per_week: (leave_year_start_date.nil? ? days_per_week : days_per_week_calculated),
             start_date: start_date,
             leaving_date: leaving_date,
-            leave_year_start_date: leave_year_start_date
+            leave_year_start_date: leave_year_start_date,
           )
         end
         precalculate :holiday_entitlement_days do
@@ -261,7 +261,7 @@ module SmartAnswer
             days_per_week: days_per_week,
             start_date: start_date,
             leaving_date: leaving_date,
-            leave_year_start_date: leave_year_start_date
+            leave_year_start_date: leave_year_start_date,
           )
         end
         precalculate :holiday_entitlement_hours_and_minutes do
@@ -279,7 +279,7 @@ module SmartAnswer
         precalculate :calculator do
           Calculators::HolidayEntitlement.new(
             hours_per_week: hours_per_week,
-            days_per_week: days_per_week
+            days_per_week: days_per_week,
           )
         end
         precalculate :holiday_entitlement_hours do

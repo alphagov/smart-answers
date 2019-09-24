@@ -179,7 +179,7 @@ module SmartAnswer::Calculators
           age: @age,
           date: Date.parse("2010-10-01"),
           basic_pay: @basic_pay,
-          basic_hours: @basic_hours
+          basic_hours: @basic_hours,
         )
       end
 
@@ -298,7 +298,7 @@ module SmartAnswer::Calculators
             pay_frequency: 7,
             basic_pay: 168,
             basic_hours: 40,
-            date: test_date
+            date: test_date,
           )
         end
 
@@ -317,7 +317,7 @@ module SmartAnswer::Calculators
             pay_frequency: 14,
             date: Date.parse("2012-10-01"),
             basic_pay: 420,
-            basic_hours: 70
+            basic_hours: 70,
           )
         end
 
@@ -335,7 +335,7 @@ module SmartAnswer::Calculators
             date: Date.parse("2011-10-01"),
             pay_frequency: 7,
             basic_pay: 100,
-            basic_hours: 40
+            basic_hours: 40,
           )
         end
 
@@ -380,7 +380,7 @@ module SmartAnswer::Calculators
           pay_frequency: 7,
           basic_hours: 35,
           basic_pay: 78,
-          is_apprentice: true
+          is_apprentice: true,
         )
         assert_equal 2.50, @calculator.minimum_hourly_rate
         assert_equal 2.23, @calculator.total_hourly_rate
@@ -627,7 +627,7 @@ module SmartAnswer::Calculators
           age: 25,
           pay_frequency: 5,
           basic_pay: 260,
-          basic_hours: 40
+          basic_hours: 40,
         )
       end
 
@@ -639,7 +639,7 @@ module SmartAnswer::Calculators
             pay_frequency: 5,
             basic_pay: 260,
             basic_hours: 40,
-            date: test_date
+            date: test_date,
           )
         end
 
@@ -656,7 +656,7 @@ module SmartAnswer::Calculators
           age: 25,
           pay_frequency: 5,
           basic_pay: 312,
-          basic_hours: 39
+          basic_hours: 39,
         )
       end
       should "basic_rate = 8" do
@@ -671,7 +671,7 @@ module SmartAnswer::Calculators
           pay_frequency: 7,
           basic_pay: 312,
           basic_hours: 39,
-          date: Date.parse("5 Aug 2012")
+          date: Date.parse("5 Aug 2012"),
         )
         assert_equal 6.08, @calculator.minimum_hourly_rate
       end
@@ -681,7 +681,7 @@ module SmartAnswer::Calculators
           pay_frequency: 7,
           basic_pay: 312,
           basic_hours: 39,
-          date: Date.parse("5 Aug 2012")
+          date: Date.parse("5 Aug 2012"),
         )
         assert_equal 4.98, @calculator.minimum_hourly_rate
       end
@@ -691,7 +691,7 @@ module SmartAnswer::Calculators
           pay_frequency: 7,
           basic_pay: 312,
           basic_hours: 39,
-          date: Date.parse("5 Aug 2012")
+          date: Date.parse("5 Aug 2012"),
         )
         assert_equal 3.68, @calculator.minimum_hourly_rate
       end
@@ -704,7 +704,7 @@ module SmartAnswer::Calculators
           pay_frequency: 7,
           basic_pay: 100,
           basic_hours: 39,
-          date: Date.parse("5 Aug 2012")
+          date: Date.parse("5 Aug 2012"),
         )
       end
       should "return total_entitlement" do
@@ -720,7 +720,7 @@ module SmartAnswer::Calculators
           pay_frequency: 7,
           basic_pay: 300,
           basic_hours: 39,
-          date: Date.parse("5 Aug 2012")
+          date: Date.parse("5 Aug 2012"),
         )
         assert_equal 300.0, @calculator.total_pay
         assert_equal 0.0, @calculator.total_underpayment
@@ -737,7 +737,7 @@ module SmartAnswer::Calculators
           pay_frequency: 7,
           basic_pay: 100,
           basic_hours: 39,
-          date: Date.parse("5 Aug 2010")
+          date: Date.parse("5 Aug 2010"),
         )
         assert !@calculator.minimum_wage_or_above?
       end
@@ -747,7 +747,7 @@ module SmartAnswer::Calculators
           pay_frequency: 7,
           basic_pay: 200,
           basic_hours: 40,
-          date: Date.parse("5 Aug 2010")
+          date: Date.parse("5 Aug 2010"),
         )
         # underpayment
         assert !@calculator.minimum_wage_or_above?
@@ -765,7 +765,7 @@ module SmartAnswer::Calculators
           pay_frequency: 7,
           basic_pay: 100,
           basic_hours: 40,
-          date: Date.parse("5 Aug 2008")
+          date: Date.parse("5 Aug 2008"),
         )
         # underpayment
         assert_equal 5.52, @calculator.minimum_hourly_rate
@@ -780,7 +780,7 @@ module SmartAnswer::Calculators
           pay_frequency: 7,
           basic_pay: 100,
           basic_hours: 40,
-          date: Date.parse("5 Aug 2009")
+          date: Date.parse("5 Aug 2009"),
         )
         # underpayment
         assert_equal 5.73, @calculator.minimum_hourly_rate
@@ -795,7 +795,7 @@ module SmartAnswer::Calculators
           pay_frequency: 7,
           basic_pay: 40,
           basic_hours: 40,
-          date: Date.parse("5 Aug 2009")
+          date: Date.parse("5 Aug 2009"),
         )
         # underpayment
         assert_equal 5.73, @calculator.minimum_hourly_rate
@@ -810,7 +810,7 @@ module SmartAnswer::Calculators
           pay_frequency: 28,
           basic_pay: 741,
           basic_hours: 147,
-          date: Date.parse("5 Aug 2007")
+          date: Date.parse("5 Aug 2007"),
         )
         # underpayment
         assert_equal 5.35, @calculator.minimum_hourly_rate
@@ -825,7 +825,7 @@ module SmartAnswer::Calculators
           pay_frequency: 28,
           basic_pay: 696,
           basic_hours: 147,
-          date: Date.parse("5 Aug 2007")
+          date: Date.parse("5 Aug 2007"),
         )
         # underpayment
         assert_equal 5.35, @calculator.minimum_hourly_rate
@@ -840,7 +840,7 @@ module SmartAnswer::Calculators
           pay_frequency: 28,
           basic_pay: 661,
           basic_hours: 147,
-          date: Date.parse("5 Aug 2007")
+          date: Date.parse("5 Aug 2007"),
         )
         # underpayment
         assert_equal 5.35, @calculator.minimum_hourly_rate
