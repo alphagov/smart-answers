@@ -1,4 +1,3 @@
-
 ENV["RAILS_ENV"] = "test"
 ENV["GOVUK_APP_DOMAIN"] = "test.gov.uk"
 
