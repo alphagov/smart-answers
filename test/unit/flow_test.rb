@@ -296,9 +296,9 @@ class FlowTest < ActiveSupport::TestCase
     should "calculate the path traversed by a series of responses" do
       assert_equal [], @flow.path([])
       assert_equal [:do_you_like_chocolate?], @flow.path(%w{no})
-      assert_equal [:do_you_like_chocolate?, :do_you_like_jam?], @flow.path(%w{no yes})
+      assert_equal %i[do_you_like_chocolate? do_you_like_jam?], @flow.path(%w{no yes})
       assert_equal [:do_you_like_chocolate?], @flow.path(%w{yes})
-      assert_equal [:do_you_like_chocolate?, :do_you_like_jam?], @flow.path(%w{no no})
+      assert_equal %i[do_you_like_chocolate? do_you_like_jam?], @flow.path(%w{no no})
     end
   end
 

@@ -4,7 +4,7 @@ module SmartAnswer
     include Comparable
     extend Forwardable
 
-    delegate [:to_f, :to_s, :*, :+, :-, :/] => :value
+    delegate %i[to_f to_s * + - /] => :value
 
     attr_reader :value
 

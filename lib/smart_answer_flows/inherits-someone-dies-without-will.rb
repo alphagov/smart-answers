@@ -19,7 +19,7 @@ module SmartAnswer
         save_input_as :region
 
         calculate :next_steps do
-          [:wills_link, :inheritance_link]
+          %i[wills_link inheritance_link]
         end
 
         next_node do
