@@ -49,6 +49,7 @@ class GraphvizPresenter < GraphPresenter
     unflattened = adjacency_list.map do |name, exits|
       exits.map do |nextnode, label|
         next unless nextnode
+
         %{#{normalize_name(name)}->#{normalize_name(nextnode)} [label="#{label}"];}
       end
     end

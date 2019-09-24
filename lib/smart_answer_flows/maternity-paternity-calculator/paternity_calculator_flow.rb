@@ -78,6 +78,7 @@ module SmartAnswer
           calculate :ap_adoption_date do |response|
             placement_date = response
             raise SmartAnswer::InvalidResponse if placement_date < matched_date
+
             calculator.adoption_placement_date = placement_date
             placement_date
           end
@@ -297,6 +298,7 @@ module SmartAnswer
           calculate :calculator do |response|
             calculator.last_payday = response
             raise SmartAnswer::InvalidResponse if calculator.last_payday > to_saturday
+
             calculator
           end
 
@@ -321,6 +323,7 @@ module SmartAnswer
           calculate :pre_offset_payday do |response|
             payday = response + 1.day
             raise SmartAnswer::InvalidResponse if payday > calculator.payday_offset
+
             calculator.pre_offset_payday = payday
             payday
           end
@@ -443,6 +446,7 @@ module SmartAnswer
           calculate :pay_day_in_month do |response|
             day = response
             raise InvalidResponse unless day > 0 && day < 32
+
             calculator.pay_day_in_month = day
           end
 

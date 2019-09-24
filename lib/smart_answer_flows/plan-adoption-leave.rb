@@ -18,6 +18,7 @@ module SmartAnswer
       date_question :child_arrival_date? do
         calculate :arrival_date do |response|
           raise InvalidResponse if response <= match_date
+
           response
         end
 
@@ -30,6 +31,7 @@ module SmartAnswer
         calculate :start_date do |response|
           dist = (arrival_date - response).to_i
           raise InvalidResponse unless (1..14).include? dist
+
           response
         end
 

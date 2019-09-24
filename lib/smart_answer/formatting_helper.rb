@@ -18,6 +18,7 @@ module SmartAnswer
 
     def format_date(date)
       return nil unless date
+
       date.strftime("%e %B %Y")
     end
 

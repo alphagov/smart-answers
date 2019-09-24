@@ -51,6 +51,7 @@ module SmartAnswer
 
       def prev_sick_days
         return 0 unless has_linked_sickness
+
         linked_piw.qualifying_days(days_of_the_week_worked).length
       end
 

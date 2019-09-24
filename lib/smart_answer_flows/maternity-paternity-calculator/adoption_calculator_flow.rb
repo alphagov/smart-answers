@@ -46,6 +46,7 @@ module SmartAnswer
           calculate :adoption_placement_date do |response|
             placement_date = response
             raise SmartAnswer::InvalidResponse if placement_date < match_date
+
             calculator.adoption_placement_date = placement_date
             placement_date
           end
@@ -209,6 +210,7 @@ module SmartAnswer
             last_payday = response
             calculator.last_payday = last_payday
             raise SmartAnswer::InvalidResponse if last_payday > to_saturday
+
             last_payday
           end
           next_node do
@@ -231,6 +233,7 @@ module SmartAnswer
           calculate :last_payday_eight_weeks do |response|
             payday = response + 1.day
             raise SmartAnswer::InvalidResponse if payday > payday_offset
+
             calculator.pre_offset_payday = payday
             payday
           end

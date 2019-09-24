@@ -16,6 +16,7 @@ module SmartAnswer
         if @next_node_block.present?
           raise "Multiple calls to next_node are not allowed"
         end
+
         @next_node_block = block
       end
 
@@ -43,6 +44,7 @@ module SmartAnswer
         unless NextNodeBlock.permitted?(next_node)
           raise "Next node (#{next_node}) not returned via question or outcome method"
         end
+
         next_node.to_sym
       end
 

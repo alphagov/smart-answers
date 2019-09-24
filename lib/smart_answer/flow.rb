@@ -54,6 +54,7 @@ module SmartAnswer
     def status(s = nil)
       if s
         raise Flow::InvalidStatus unless %i[published draft].include? s
+
         @status = s
       end
 
@@ -119,6 +120,7 @@ module SmartAnswer
     def process(responses)
       responses.inject(start_state) do |state, response|
         return state if state.error
+
         begin
           state = node(state.current_node).transition(state, response)
           node(state.current_node).evaluate_precalculations(state)
@@ -149,6 +151,7 @@ module SmartAnswer
 
     def add_node(node)
       raise "Node #{node.name} already defined" if node_exists?(node)
+
       @nodes << node
     end
   end

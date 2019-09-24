@@ -26,6 +26,7 @@ module SmartAnswer
 
       def parse_input(raw_input)
         raise SmartAnswer::InvalidResponse, "Illegal option #{raw_input} for #{name}", caller unless valid_option?(raw_input)
+
         super
       end
     end

@@ -155,6 +155,7 @@ private
     content_id = SecureRandom.uuid
     response = Services.publishing_api.put_content(content_id, payload)
     raise "This content item has not been created" unless response.code == 200
+
     Services.publishing_api.publish(content_id)
   end
 end

@@ -20,6 +20,7 @@ module SmartAnswer
           if value < annual_salary
             raise InvalidResponse, "You can't request a bonus less than your annual salary.", caller
           end
+
           value
         end
         next_node do

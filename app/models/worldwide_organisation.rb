@@ -28,6 +28,7 @@ class WorldwideOrganisation
 
   def offices_with_service(service_title)
     return [] unless all_offices.any?
+
     embassies = all_offices.select do |office|
       office["services"].any? do |service|
         service["title"].include?(service_title)

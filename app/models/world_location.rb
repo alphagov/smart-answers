@@ -24,6 +24,7 @@ class WorldLocation
         end
 
       raise NoLocationsFromWorldwideApiError if world_locations.empty?
+
       world_locations
     end
   end

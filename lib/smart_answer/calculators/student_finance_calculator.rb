@@ -170,6 +170,7 @@ module SmartAnswer
         return 0.5 if course_intensity >= 50
         return 0.333 if course_intensity >= 33.3
         return 0.25 if course_intensity >= 25
+
         0
       end
     end

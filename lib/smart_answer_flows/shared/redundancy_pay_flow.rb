@@ -40,6 +40,7 @@ module SmartAnswer
           calculate :employee_age do |response|
             age = response
             raise InvalidResponse if age < 16 || age > 100
+
             age
           end
           calculate :years_available do
@@ -55,6 +56,7 @@ module SmartAnswer
           calculate :years_employed do |response|
             ye = response.floor
             raise InvalidResponse if ye.to_i > years_available
+
             ye
           end
           next_node do |response|

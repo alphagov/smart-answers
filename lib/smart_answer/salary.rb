@@ -21,6 +21,7 @@ module SmartAnswer
     def <=>(other)
       return nil unless other.is_a?(Salary)
       return nil unless other.period == self.period
+
       self.amount <=> other.amount
     end
 

@@ -18,6 +18,7 @@ module SmartAnswer::Calculators
 
     def default_calculator
       return @default_calculator if @default_calculator
+
       @default_calculator = calculator(
         maximum_mca: 8020,
         minimum_mca: 3010,

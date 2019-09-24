@@ -41,6 +41,7 @@ module SmartAnswer
             outcome :you_cant_use_result
           else
             raise InvalidResponse if response =~ /live_on_business_premises.*?using_home_for_business/
+
             if calculator.vehicle?
               question :buying_new_vehicle?
             elsif calculator.working_from_home?

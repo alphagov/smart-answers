@@ -18,6 +18,7 @@ module SmartAnswer
         calculate :location do
           loc = WorldLocation.find(country)
           raise InvalidResponse unless loc
+
           loc
         end
 

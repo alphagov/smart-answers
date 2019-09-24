@@ -14,6 +14,7 @@ module SmartAnswer
       def option(option_slug)
         raise InvalidNode.new("Can't use reserved option name '#{NONE_OPTION}'") if option_slug.to_s == NONE_OPTION
         raise InvalidNode.new("Invalid option specified") unless option_slug.to_s =~ /\A[a-z0-9_-]+\z/
+
         @options << option_slug.to_s
       end
 
@@ -25,6 +26,7 @@ module SmartAnswer
         if raw_input.blank?
           # Raise on for blank input when showing a 'none' option as input is required.
           raise SmartAnswer::InvalidResponse, "No option specified", caller if has_none_option?
+
           return NONE_OPTION
         end
         return NONE_OPTION if raw_input == NONE_OPTION

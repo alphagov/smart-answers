@@ -49,6 +49,7 @@ module SmartAnswer
           if response > calculator.tuition_fee_maximum
             raise SmartAnswer::InvalidResponse
           end
+
           SmartAnswer::Money.new(response)
         end
 

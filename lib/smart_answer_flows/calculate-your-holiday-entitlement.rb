@@ -60,6 +60,7 @@ module SmartAnswer
         calculate :days_per_week do |response|
           days_per_week = response
           raise InvalidResponse if days_per_week <= 0 || days_per_week > 7
+
           days_per_week
         end
         next_node do
@@ -135,6 +136,7 @@ module SmartAnswer
         calculate :days_per_week do |response|
           days_per_week = response
           raise InvalidResponse if days_per_week <= 0 || days_per_week > 7
+
           days_per_week
         end
         next_node do
@@ -146,6 +148,7 @@ module SmartAnswer
         calculate :hours_per_week do |response|
           hours = response
           raise InvalidResponse if hours <= 0 || hours > 168
+
           hours
         end
         next_node do
@@ -157,6 +160,7 @@ module SmartAnswer
         calculate :days_per_week do |response|
           days = response
           raise InvalidResponse if days <= 0 || days > 7
+
           days
         end
 
@@ -188,6 +192,7 @@ module SmartAnswer
         calculate :hours_per_shift do |response|
           hours_per_shift = response
           raise InvalidResponse if hours_per_shift <= 0
+
           hours_per_shift
         end
         next_node do
@@ -199,6 +204,7 @@ module SmartAnswer
         calculate :shifts_per_shift_pattern do |response|
           shifts = response
           raise InvalidResponse if shifts <= 0
+
           shifts
         end
         next_node do
@@ -210,6 +216,7 @@ module SmartAnswer
         calculate :days_per_shift_pattern do |response|
           days = response
           raise InvalidResponse if days < shifts_per_shift_pattern
+
           days
         end
 

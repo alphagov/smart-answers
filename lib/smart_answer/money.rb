@@ -37,6 +37,7 @@ module SmartAnswer
       if input.to_f.infinite?
         raise InvalidResponse, "Sorry, that number is too big. Please try again.", caller
       end
+
       true
     end
   end

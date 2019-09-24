@@ -29,6 +29,7 @@ module SmartAnswer
           calculate :leave_start_date do |response|
             ls_date = response
             raise SmartAnswer::InvalidResponse if ls_date < leave_earliest_start_date
+
             calculator.leave_start_date = ls_date
             calculator.leave_start_date
           end
@@ -110,6 +111,7 @@ module SmartAnswer
           calculate :last_payday do |response|
             calculator.last_payday = response
             raise SmartAnswer::InvalidResponse if calculator.last_payday > to_saturday
+
             calculator.last_payday
           end
           next_node do
@@ -133,6 +135,7 @@ module SmartAnswer
           calculate :last_payday_eight_weeks do |response|
             payday = response + 1.day
             raise SmartAnswer::InvalidResponse if payday > payday_offset
+
             calculator.pre_offset_payday = payday
             payday
           end
@@ -244,6 +247,7 @@ module SmartAnswer
           calculate :pay_day_in_month do |response|
             day = response
             raise InvalidResponse unless day > 0 && day < 32
+
             calculator.pay_day_in_month = day
           end
 

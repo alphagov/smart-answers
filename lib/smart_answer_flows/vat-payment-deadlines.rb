@@ -16,6 +16,7 @@ module SmartAnswer
         calculate :period_end_date do |response|
           date = response
           raise InvalidResponse unless date == date.end_of_month
+
           date
         end
       end
