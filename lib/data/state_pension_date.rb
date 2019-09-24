@@ -4,7 +4,7 @@ StatePensionDate = Struct.new(:gender, :start_date, :end_date, :pension_date) do
   end
 
   def same_gender?(sex)
-    gender == sex || :both == gender
+    gender == sex || gender == :both
   end
 
   def born_in_range?(dob)
