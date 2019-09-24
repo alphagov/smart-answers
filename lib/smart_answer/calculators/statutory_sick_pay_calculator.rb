@@ -222,7 +222,7 @@ module SmartAnswer
         # we need to calculate the daily rate by truncating to four decimal places to match unrounded daily rates used by HMRC
         # doing .round(6) after multiplication to avoid float precision issues
         # Simply using .round(4) on ssp_weekly_rate/@pattern_days will be off by 0.0001 for 3 and 7 pattern days and lead to 1p difference in some statutory amount calculations
-        pattern_days > 0 ? ((((weekly_rate / pattern_days) * 10000).round(6).floor) / 10000.0) : 0.0000
+        pattern_days > 0 ? (((weekly_rate / pattern_days) * 10000).round(6).floor / 10000.0) : 0.0000
       end
 
       def days_paid
