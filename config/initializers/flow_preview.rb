@@ -2,7 +2,7 @@
 # environment
 show_drafts = ENV["SHOW_DRAFT_FLOWS"] ? true : !Rails.env.production?
 
-FLOW_REGISTRY_OPTIONS = { show_drafts: show_drafts }
+FLOW_REGISTRY_OPTIONS = { show_drafts: show_drafts }.freeze
 
 # Uncomment the following to run smartanswers with the test flows instead of the real ones
 #

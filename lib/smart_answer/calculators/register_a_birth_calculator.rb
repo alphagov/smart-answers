@@ -2,7 +2,7 @@ module SmartAnswer::Calculators
   class RegisterABirthCalculator
     include ActiveModel::Model
 
-    EXCLUDE_COUNTRIES = %w(holy-see british-antarctic-territory)
+    EXCLUDE_COUNTRIES = %w(holy-see british-antarctic-territory).freeze
 
     attr_accessor :country_of_birth
     attr_accessor :british_national_parent
