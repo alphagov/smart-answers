@@ -91,7 +91,7 @@ module SmartAnswer::Calculators
     end
 
     def shifts_per_week
-      (shifts_per_shift_pattern.to_f / days_per_shift_pattern.to_f * 7).round(10)
+      (shifts_per_shift_pattern.to_f / days_per_shift_pattern * 7).round(10)
     end
 
     def date_calc

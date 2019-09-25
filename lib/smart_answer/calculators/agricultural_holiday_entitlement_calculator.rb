@@ -16,7 +16,7 @@ module SmartAnswer::Calculators
       if !days_worked_per_week.nil?
         days = holiday_days(days_worked_per_week)
       elsif !weeks_from_october_1.nil?
-        days = holiday_days(total_days_worked.to_f / weeks_from_october_1.to_f).round(10)
+        days = holiday_days(total_days_worked.to_f / weeks_from_october_1).round(10)
       end
       if weeks_at_current_employer.nil?
         days
