@@ -19,7 +19,7 @@ module SmartAnswer::Calculators
     end
 
     def valid_whole_number_weekly_amount?
-      weekly_amount.to_f % 1 == 0
+      (weekly_amount.to_f % 1).zero?
     end
 
     def valid_weekly_amount_in_range?

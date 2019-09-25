@@ -23,7 +23,7 @@ module SmartAnswer::Calculators
     end
 
     def valid_age?(age)
-      age > 0 && age <= 200
+      age.positive? && age <= 200
     end
 
     def valid_pay_frequency?(pay_frequency)
@@ -31,11 +31,11 @@ module SmartAnswer::Calculators
     end
 
     def valid_hours_worked?(hours_worked)
-      hours_worked > 0 && hours_worked <= (@pay_frequency * 16)
+      hours_worked.positive? && hours_worked <= (@pay_frequency * 16)
     end
 
     def valid_accommodation_charge?(accommodation_charge)
-      accommodation_charge > 0
+      accommodation_charge.positive?
     end
 
     def valid_accommodation_usage?(accommodation_usage)
@@ -88,7 +88,7 @@ module SmartAnswer::Calculators
 
     def total_underpayment
       underpayment = total_entitlement - total_pay
-      underpayment > 0 ? underpayment.round(2) : 0.0
+      underpayment.positive? ? underpayment.round(2) : 0.0
     end
 
     def historical_entitlement
@@ -115,7 +115,7 @@ module SmartAnswer::Calculators
       charge = charge.to_f
       number_of_nights = number_of_nights.to_i
 
-      accommodation_cost = if charge > 0
+      accommodation_cost = if charge.positive?
                              charged_accomodation_adjustment(charge, number_of_nights)
                            else
                              free_accommodation_adjustment(number_of_nights)
