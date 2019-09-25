@@ -15,9 +15,9 @@ module FlowTestHelper
   def current_state
     if @cached_responses && @cached_responses != @responses
       @cached_responses = nil
-      @state = nil
+      @current_state = nil
     end
-    @state ||= begin
+    @current_state ||= begin
       @cached_responses = @responses.dup
       @flow.process(@responses)
     end

@@ -189,7 +189,7 @@ module SmartAnswer::Calculators
     end
 
     def data
-      @all_rates ||= RatesQuery.from_file("minimum_wage")
+      @data ||= RatesQuery.from_file("minimum_wage")
     end
   end
 end
