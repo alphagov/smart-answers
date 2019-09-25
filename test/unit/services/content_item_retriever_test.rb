@@ -34,7 +34,7 @@ class ContentItemRetrieverTest < ActiveSupport::TestCase
     context "when content item exist" do
       should "return content item from content store" do
         response = { status: 200, body: @content_store_response.to_json }
-        content_store_request = stub_request(:get, @request_url).to_return(response)
+        stub_request(:get, @request_url).to_return(response)
 
         content_item = ContentItemRetriever.fetch(@slug)
 
@@ -45,7 +45,7 @@ class ContentItemRetrieverTest < ActiveSupport::TestCase
     context "when content item can't be found" do
       should "return empty content item hash" do
         response = { status: 404, body: {}.to_json }
-        content_store_request = stub_request(:get, @request_url).to_return(response)
+        stub_request(:get, @request_url).to_return(response)
 
         assert_equal ContentItemRetriever.fetch(@slug), {}
       end
@@ -54,7 +54,7 @@ class ContentItemRetrieverTest < ActiveSupport::TestCase
     context "when content item can't be found" do
       should "return empty content item hash" do
         response = { status: 410, body: {}.to_json }
-        content_store_request = stub_request(:get, @request_url).to_return(response)
+        stub_request(:get, @request_url).to_return(response)
 
         assert_equal ContentItemRetriever.fetch(@slug), {}
       end
