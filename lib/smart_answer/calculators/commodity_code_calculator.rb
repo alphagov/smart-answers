@@ -27,6 +27,18 @@ module SmartAnswer::Calculators
       commodity_code != "X"
     end
 
+    def self.commodity_code_matrix
+      unless @commodity_code_matrix
+        @commodity_code_matrix = []
+        commodity_codes_data[:commodity_code_matrix].each_line { |l| @commodity_code_matrix << l.split }
+      end
+      @commodity_code_matrix
+    end
+
+    def self.commodity_codes_data
+      @commodity_codes_data ||= YAML.safe_load(File.open("lib/data/commodity_codes_data.yml").read)
+    end
+
   private
 
     def glucose_sucrose_index
@@ -43,18 +55,6 @@ module SmartAnswer::Calculators
 
     def milk_fat_to_milk_protein
       @matrix_data[:milk_fat_to_milk_protein]
-    end
-
-    def self.commodity_code_matrix
-      unless @commodity_code_matrix
-        @commodity_code_matrix = []
-        commodity_codes_data[:commodity_code_matrix].each_line { |l| @commodity_code_matrix << l.split }
-      end
-      @commodity_code_matrix
-    end
-
-    def self.commodity_codes_data
-      @commodity_codes_data ||= YAML.safe_load(File.open("lib/data/commodity_codes_data.yml").read)
     end
   end
 end

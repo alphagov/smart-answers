@@ -31,12 +31,6 @@ class WorkingDays
     WEEKDAYS.include?(date.wday) && !bank_holidays.include?(date)
   end
 
-private
-
-  def workday?(date)
-    self.class.workday?(date)
-  end
-
   def self.bank_holidays
     @bank_holidays ||= load_bank_holidays
   end
@@ -47,6 +41,12 @@ private
     response["england-and-wales"]["events"].map do |event|
       Date.parse(event["date"])
     end
+  end
+
+private
+
+  def workday?(date)
+    self.class.workday?(date)
   end
 end
 
