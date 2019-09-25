@@ -51,10 +51,14 @@ class FlowRegistrationPresenter
       "calculator.ceremony_country" => "italy",
     }.freeze
 
+    # rubocop:disable Style/MethodMissingSuper
+    # rubocop:disable Style/MissingRespondToMissing
     def method_missing(method, *_args, &_block)
       object = MethodMissingObject.new(method, nil, true, OVERRIDES)
       OVERRIDES.fetch(object.description) { object }
     end
+    # rubocop:enable Style/MethodMissingSuper
+    # rubocop:enable Style/MissingRespondToMissing
   end
 
   def flows_content

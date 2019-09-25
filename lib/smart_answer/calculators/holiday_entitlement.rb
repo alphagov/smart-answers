@@ -62,6 +62,7 @@ module SmartAnswer::Calculators
       number.to_s.sub(/\.0+$/, "")
     end
 
+    # rubocop:disable Style/MissingRespondToMissing
     def method_missing(symbol, *args)
       # formatted_foo calls format_number on foo
       formatting_method = formatting_method(symbol)
@@ -71,6 +72,7 @@ module SmartAnswer::Calculators
         super
       end
     end
+    # rubocop:enable Style/MissingRespondToMissing
 
     def respond_to?(symbol, include_all = false)
       formatting_method(symbol).present? || super
