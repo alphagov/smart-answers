@@ -251,7 +251,7 @@ module SmartAnswer
       end
 
       def entitled_to_sick_pay?
-        ssp_payment.positive?
+        ssp_payment > 0 # rubocop:disable Style/NumericPredicate
       end
 
       def self.contractual_earnings_awe(pay, days_worked)

@@ -26,7 +26,7 @@ module SmartAnswer::Calculators
     end
 
     def valid_income?
-      income.positive?
+      income > 0 # rubocop:disable Styles/NumericPredicate
     end
 
     def paying_into_a_pension?
@@ -53,7 +53,7 @@ module SmartAnswer::Calculators
         maximum_reduction_of_allowances = age_related_allowance(birth_date) - personal_allowance
         remaining_reduction = attempted_reduction - maximum_reduction_of_allowances
 
-        if remaining_reduction.positive?
+        if remaining_reduction > 0 # rubocop:disable Styles/NumericPredicate
           reduced_mca = maximum_mca - remaining_reduction
           mca_entitlement = if reduced_mca > minimum_mca
                               reduced_mca
