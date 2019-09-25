@@ -77,7 +77,7 @@ module SmartAnswer
           if benefit == "disability_benefits"
             "How long will you be abroad for?"
           elsif going_or_already_abroad == "going_abroad"
-              "How long are you going abroad for?"
+            "How long are you going abroad for?"
           else
             "How long will you be living abroad for?"
           end
@@ -305,7 +305,7 @@ module SmartAnswer
             end
           #not SSP benefits
           elsif response == "yes"
-              question :eligible_for_smp? # Q9 going_abroad and Q8 already_abroad
+            question :eligible_for_smp? # Q9 going_abroad and Q8 already_abroad
           elsif (countries_of_former_yugoslavia + %w(barbados guernsey jersey israel turkey)).include?(calculator.country)
             if already_abroad
               outcome :maternity_benefits_social_security_already_abroad_outcome # A10 already_abroad

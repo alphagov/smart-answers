@@ -127,7 +127,7 @@ module SmartAnswer
                 end
               end
             elsif calculator.employment_status_of_mother == "employee"
-                outcome :outcome_mat_leave_mat_pay
+              outcome :outcome_mat_leave_mat_pay
             elsif calculator.employment_status_of_mother == "worker"
               outcome :outcome_mat_pay
             end
@@ -411,7 +411,7 @@ module SmartAnswer
                     if calculator.mother_continuity?
                       question :partner_worked_at_least_26_weeks
                     elsif calculator.mother_earnings_employment?
-                        outcome :outcome_mat_allowance_mat_leave
+                      outcome :outcome_mat_allowance_mat_leave
                     elsif !calculator.mother_earnings_employment?
                       outcome :outcome_mat_leave
                     end

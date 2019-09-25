@@ -99,7 +99,7 @@ module SmartAnswer::Calculators
           end
         end
       elsif overdue_filing_days <= 92
-          result = 100
+        result = 100
       elsif overdue_filing_days <= 181
         result = (overdue_filing_days - 92) * 10 + 100
         #this fine can't be more than 1000£
