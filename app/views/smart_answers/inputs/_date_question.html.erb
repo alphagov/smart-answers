@@ -1,17 +1,45 @@
-<fieldset>
-  <% unless question.default_day %>
-    <label for="response_day">Day
-      <%= select_day default_for_date(prefill_value_for(question, :day)), prefix: "response", :prompt => '' %>
-    </label>
-  <% end %>
-  <% unless question.default_month %>
-    <label for="response_month">Month
-      <%= select_month default_for_date(prefill_value_for(question, :month)), prefix: "response", prompt: '' %>
-    </label>
-  <% end %>
-  <% unless question.default_year %>
-    <label for="response_year">Year
-      <%= select_year default_for_date(prefill_value_for(question, :year)), prefix: "response", prompt: '', :start_year => question.start_date.year, :end_year => question.end_date.year %>
-    </label>
-  <% end %>
-</fieldset>
+<% form_contents = capture do %>
+  <div class="govuk-grid-row date-wrapper">
+    <% unless question.default_day %>
+      <div class="govuk-grid-column-one-third date-wrapper__col">
+        <%= render "govuk_publishing_components/components/select", {
+          id: "response_day",
+          name: "response[day]",
+          label: "Day",
+          error_id: question.error_id,
+          options: question.days_options
+        } %>
+      </div>
+    <% end %>
+    <% unless question.default_month %>
+      <div class="govuk-grid-column-one-third date-wrapper__col">
+        <%= render "govuk_publishing_components/components/select", {
+          id: "response_month",
+          name: "response[month]",
+          label: "Month",
+          error_id: question.error_id,
+          options: question.months_options
+        } %>
+      </div>
+    <% end %>
+    <% unless question.default_year %>
+      <div class="govuk-grid-column-one-third date-wrapper__col">
+        <%= render "govuk_publishing_components/components/select", {
+          id: "response_year",
+          name: "response[year]",
+          label: "Year",
+          error_id: question.error_id,
+          options: question.years_options
+        } %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<%= render "govuk_publishing_components/components/fieldset", {
+  legend_text: question.title,
+  heading_size: 'm',
+  error_message: question.error,
+  error_id: question.error_id,
+  text: form_contents
+} %>

@@ -14,7 +14,7 @@
 
       <div class="question" data-debug-template-path="<%= question.relative_erb_template_path %>">
         <% t = question.partial_template_name %>
-        <% if t != 'multiple_choice_question' && t != 'checkbox_question' && t != 'country_select_question' %>
+        <% if t != 'multiple_choice_question' && t != 'checkbox_question' && t != 'country_select_question' && t != 'date_question' %>
           <h2 data-test="question">
             <%= question.title %>
           </h2>

@@ -407,3 +407,10 @@ $is-ie: false !default;
       color: #FFF3CF;
     }
 }
+
+.date-wrapper {
+  .date-wrapper__col {
+    width: auto;
+    margin-bottom: govuk-spacing(3);
+  }
+}
