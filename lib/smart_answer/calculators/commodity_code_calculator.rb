@@ -36,7 +36,7 @@ module SmartAnswer::Calculators
     end
 
     def self.commodity_codes_data
-      @commodity_codes_data ||= YAML.safe_load(File.open("lib/data/commodity_codes_data.yml").read)
+      @commodity_codes_data ||= YAML.load(File.open("lib/data/commodity_codes_data.yml").read) # rubocop:disable Security/YAMLLoad
     end
 
   private
