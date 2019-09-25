@@ -51,11 +51,11 @@ module SmartAnswer
       status == :draft
     end
 
-    def status(s = nil)
-      if s
-        raise Flow::InvalidStatus unless %i[published draft].include? s
+    def status(potential_status = nil)
+      if potential_status
+        raise Flow::InvalidStatus unless %i[published draft].include? potential_status
 
-        @status = s
+        @status = potential_status
       end
 
       @status

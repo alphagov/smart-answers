@@ -54,8 +54,8 @@ module SmartAnswer::Calculators
       end
     end
 
-    def formatted_fraction_of_year(dp = 2)
-      format_number(fraction_of_year, dp)
+    def formatted_fraction_of_year(decimals = 2)
+      format_number(fraction_of_year, decimals)
     end
 
     def strip_zeros(number)
