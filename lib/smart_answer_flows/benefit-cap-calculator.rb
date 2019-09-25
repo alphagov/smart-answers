@@ -166,12 +166,10 @@ module SmartAnswer
             else
               outcome :outcome_affected_greater_than_cap_national
             end
-          else
-            if region == :london
+          elsif region == :london
               outcome :outcome_not_affected_less_than_cap_london
-            else
-              outcome :outcome_not_affected_less_than_cap_national
-            end
+          else
+            outcome :outcome_not_affected_less_than_cap_national
           end
         end
       end
