@@ -58,8 +58,8 @@ module SmartAnswer
       (self.class == other.class) && ([begins_on, ends_on] == [other.begins_on, other.ends_on])
     end
 
-    def +(days)
-      DateRange.new begins_on: begins_on + days, ends_on: ends_on + days
+    def +(other)
+      DateRange.new begins_on: begins_on + other, ends_on: ends_on + other
     end
 
     def hash
