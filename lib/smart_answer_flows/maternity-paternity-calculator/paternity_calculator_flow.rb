@@ -256,7 +256,7 @@ module SmartAnswer
             if paternity_adoption
               raise SmartAnswer::InvalidResponse if calculator.leave_start_date < ap_adoption_date
             else
-              raise SmartAnswer::InvalidResponse if calculator.leave_start_date < date_of_birth
+              raise SmartAnswer::InvalidResponse if calculator.leave_start_date < date_of_birth # rubocop:disable Style/IfInsideElse
             end
             calculator.leave_start_date
           end
