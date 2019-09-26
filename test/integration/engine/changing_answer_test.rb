@@ -71,7 +71,7 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       within ".current-question .question-body" do
         assert page.has_field? "response[amount]", with: "5000.0"
-        assert page.has_select? "response[period]", selected: "month"
+        assert page.has_select? "response[period]", selected: "per month"
       end
 
       fill_in "response[amount]", with: "2000"
@@ -101,11 +101,11 @@ class ChangingAnswerTest < EngineIntegrationTest
       fill_in "response", with: "Lancelot"
       click_on "Next step"
 
-      within('.current-question') { assert_page_has_content "What...is your quest?" }
+      within(".current-question") { assert_page_has_content "What...is your quest?" }
       choose("To seek the Holy Grail", visible: false)
       click_on "Next step"
 
-      within('.current-question') { assert_page_has_content "What...is your favorite colour?" }
+      within(".current-question") { assert_page_has_content "What...is your favorite colour?" }
       choose("Blue", visible: false)
       click_on "Next step"
 
@@ -119,18 +119,18 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       assert_current_url "/bridge-of-death/y/Bors"
 
-      within('.current-question') { assert_page_has_content "What...is your quest?" }
+      within(".current-question") { assert_page_has_content "What...is your quest?" }
       choose("To seek the Holy Grail", visible: false)
       click_on "Next step"
 
-      within('.current-question') { assert_page_has_content "What...is your favorite colour?" }
+      within(".current-question") { assert_page_has_content "What...is your favorite colour?" }
       choose("Blue", visible: false)
       click_on "Next step"
 
       within(".result-info") { assert_page_has_content "Right, off you go." }
       within("tr.section:nth-child(2)") { click_on "Change" }
 
-      within '.current-question .question-body' do
+      within ".current-question .question-body" do
         assert page.has_checked_field?("To seek the Holy Grail", visible: false)
         assert page.has_unchecked_field?("To rescue the princess", visible: false)
         assert page.has_unchecked_field?("I dunno", visible: false)
@@ -147,7 +147,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       within(".result-info") { assert_page_has_content "Right, off you go." }
       within("tr.section:nth-child(3)") { click_on "Change" }
 
-      within '.current-question .question-body' do
+      within ".current-question .question-body" do
         assert page.has_checked_field?("Blue", visible: false)
         assert page.has_unchecked_field?("Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", visible: false)
         assert page.has_unchecked_field?("Red", visible: false)
@@ -172,7 +172,7 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       within("tr.section:nth-child(1)") { click_on "Change" }
 
-      within '.current-question .question-body' do
+      within ".current-question .question-body" do
         assert page.has_unchecked_field?("Ham", visible: false)
         assert page.has_checked_field?("Peppers", visible: false)
         assert page.has_unchecked_field?("Ice Cream!!!", visible: false)
