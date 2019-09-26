@@ -10,12 +10,12 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
       visit "/money-and-salary-sample/y"
 
       within ".current-question" do
-        within "[data-test=question]" do
+        within '.govuk-label[for="response_amount"]' do
           assert_page_has_content "How much do you earn?"
         end
         within ".question-body" do
           assert page.has_field?("response[amount]", type: "text")
-          assert page.has_select?("response[period]", options: %w(week month year))
+          assert page.has_select?("response[period]", options: ["per week", "per month", "per year"])
         end
       end
 
@@ -37,7 +37,7 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
       end
 
       within ".current-question" do
-        within "[data-test=question]" do
+        within '.govuk-label[for="response"]' do
           assert_page_has_content "What size bonus do you want?"
         end
         within ".question-body" do

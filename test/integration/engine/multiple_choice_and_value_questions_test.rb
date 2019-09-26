@@ -38,7 +38,7 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
       assert page.has_xpath?("//meta[@name = 'robots'][@content = 'noindex']", visible: :all)
 
       within ".current-question" do
-        within "[data-test=question]" do
+        within ".govuk-label" do
           assert_page_has_content "What...is your name?"
         end
         within ".question-body" do
@@ -182,7 +182,7 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
     end
 
     within ".current-question" do
-      within "[data-test=question]" do
+      within ".govuk-label" do
         assert_page_has_content "What...is the capital of Assyria?"
       end
       within ".question-body" do
