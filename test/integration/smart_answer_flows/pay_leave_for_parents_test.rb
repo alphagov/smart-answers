@@ -1,6 +1,6 @@
 require_relative "../../test_helper"
 require_relative "flow_test_helper"
-require 'gds_api/test_helpers/imminence'
+require "gds_api/test_helpers/imminence"
 
 require "smart_answer_flows/pay-leave-for-parents"
 

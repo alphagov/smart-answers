@@ -306,11 +306,11 @@ module SmartAnswer
               countries_with_2_outcomes: %w(cayman-islands),
               countries_with_2_outcomes_marriage_or_pacs: %w(monaco),
               countries_with_ceremony_location_outcomes: %w(finland),
-              countries_with_1_outcome: %w(french-guiana)
+              countries_with_1_outcome: %w(french-guiana),
             )
 
             assert_equal @data_query.outcome_per_path_countries,
-              %w(anguilla bermuda cayman-islands finland french-guiana monaco)
+                         %w(anguilla bermuda cayman-islands finland french-guiana monaco)
           end
         end
       end

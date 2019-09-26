@@ -9,18 +9,19 @@ module SmartAnswer
         amount = amount_or_options[:amount]
         period = amount_or_options[:period]
       elsif amount_or_options.to_s.match(/^[0-9\.]+-[a-z]+$/)
-        amount, period = amount_or_options.to_s.split('-')
+        amount, period = amount_or_options.to_s.split("-")
       else
         amount = amount_or_options
       end
       @amount = SmartAnswer::Money.new(amount)
-      @period = period || 'week'
+      @period = period || "week"
       raise InvalidResponse, "Sorry, I couldn't understand that salary period", caller unless %w{year month week}.include?(@period)
     end
 
     def <=>(other)
       return nil unless other.is_a?(Salary)
       return nil unless other.period == self.period
+
       self.amount <=> other.amount
     end
 

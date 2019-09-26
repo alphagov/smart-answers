@@ -13,7 +13,7 @@ class SmartAnswersController < ApplicationController
 
   def index
     @flows = flow_registry.flows.sort_by(&:name)
-    @title = 'Smart Answers Index'
+    @title = "Smart Answers Index"
     @content_item = {}
   end
 
@@ -42,7 +42,7 @@ class SmartAnswersController < ApplicationController
       format.html {
         @graph_presenter = GraphPresenter.new(@smart_answer)
         @graph_data = @graph_presenter.to_hash
-        render layout: 'application'
+        render layout: "application"
       }
       format.gv {
         render text: GraphvizPresenter.new(@smart_answer).to_gv
@@ -92,14 +92,14 @@ private
         id:        @name,
         started:   "y",
         responses: @presenter.current_state.responses,
-        protocol:  (request.ssl? || Rails.env.production?) ? 'https' : 'http',
+        protocol:  request.ssl? || Rails.env.production? ? "https" : "http",
       }
       redirect_to redirect_params
     end
   end
 
   def set_header_footer_only
-    set_slimmer_headers(template: 'header_footer_only')
+    set_slimmer_headers(template: "header_footer_only")
   end
 
   def set_expiry(duration = 30.minutes)

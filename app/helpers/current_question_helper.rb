@@ -24,7 +24,7 @@ module CurrentQuestionHelper
   def default_for_date(value)
     integer = Integer(value)
     integer.to_s == value.to_s ? integer : nil
-  rescue
+  rescue StandardError
     nil
   end
 

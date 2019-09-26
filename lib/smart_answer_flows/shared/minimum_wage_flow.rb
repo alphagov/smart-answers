@@ -11,10 +11,10 @@ module SmartAnswer
 
           next_node do |response|
             case response
-            when 'not_an_apprentice', 'apprentice_over_19_second_year_onwards'
+            when "not_an_apprentice", "apprentice_over_19_second_year_onwards"
               calculator.is_apprentice = false
               question :how_old_are_you?
-            when 'apprentice_under_19', 'apprentice_over_19_first_year'
+            when "apprentice_under_19", "apprentice_over_19_first_year"
               calculator.is_apprentice = true
               question :how_often_do_you_get_paid?
             end
@@ -211,7 +211,7 @@ module SmartAnswer
           option "no"
 
           next_node do |response|
-            calculator.job_requirements_charge = true if response == 'yes'
+            calculator.job_requirements_charge = true if response == "yes"
             question :current_additional_work_outside_shift?
           end
         end
@@ -222,7 +222,7 @@ module SmartAnswer
           option "no"
 
           next_node do |response|
-            calculator.job_requirements_charge = true if response == 'yes'
+            calculator.job_requirements_charge = true if response == "yes"
             question :past_additional_work_outside_shift?
           end
         end
@@ -234,9 +234,9 @@ module SmartAnswer
 
           next_node do |response|
             case response
-            when 'yes'
+            when "yes"
               question :current_paid_for_work_outside_shift?
-            when 'no'
+            when "no"
               if calculator.minimum_wage_or_above?
                 outcome :current_payment_above
               else
@@ -253,9 +253,9 @@ module SmartAnswer
 
           next_node do |response|
             case response
-            when 'yes'
+            when "yes"
               question :past_paid_for_work_outside_shift?
-            when 'no'
+            when "no"
               if calculator.minimum_wage_or_above?
                 outcome :past_payment_above
               else
@@ -272,7 +272,7 @@ module SmartAnswer
 
           next_node do |response|
             case response
-            when 'no'
+            when "no"
               calculator.unpaid_additional_hours = true
             end
 
@@ -291,7 +291,7 @@ module SmartAnswer
 
           next_node do |response|
             case response
-            when 'no'
+            when "no"
               calculator.unpaid_additional_hours = true
             end
 

@@ -1,9 +1,10 @@
-require 'ostruct'
+require "ostruct"
 
 module SmartAnswer
   class Flow
     attr_reader :nodes
-    attr_accessor :status, :need_id
+    attr_accessor :need_id
+    attr_writer :status
 
     def self.build
       flow = new
@@ -51,10 +52,11 @@ module SmartAnswer
       status == :draft
     end
 
-    def status(s = nil)
-      if s
-        raise Flow::InvalidStatus unless [:published, :draft].include? s
-        @status = s
+    def status(potential_status = nil)
+      if potential_status
+        raise Flow::InvalidStatus unless %i[published draft].include? potential_status
+
+        @status = potential_status
       end
 
       @status
@@ -119,6 +121,7 @@ module SmartAnswer
     def process(responses)
       responses.inject(start_state) do |state, response|
         return state if state.error
+
         begin
           state = node(state.current_node).transition(state, response)
           node(state.current_node).evaluate_precalculations(state)
@@ -149,6 +152,7 @@ module SmartAnswer
 
     def add_node(node)
       raise "Node #{node.name} already defined" if node_exists?(node)
+
       @nodes << node
     end
   end

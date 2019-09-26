@@ -1,4 +1,4 @@
-require 'date'
+require "date"
 
 module SmartAnswer
   module Question
@@ -62,6 +62,7 @@ module SmartAnswer
               default_day || input[:day],
             ]
             raise InvalidResponse unless year_month_and_day.all?(&:present?)
+
             ::Date.new(*year_month_and_day.map(&:to_i))
           when String
             ::Date.parse(input)
@@ -86,7 +87,7 @@ module SmartAnswer
         {
           day: date.day,
           month: date.month,
-          year: date.year
+          year: date.year,
         }
       rescue InvalidResponse
         nil

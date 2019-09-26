@@ -5,29 +5,29 @@ module SmartAnswer::Calculators
     context "#rates" do
       setup do
         load_path = File.join("test", "fixtures", "rates")
-        @test_rate = RatesQuery.from_file('exact_date_rates', load_path: load_path)
+        @test_rate = RatesQuery.from_file("exact_date_rates", load_path: load_path)
       end
 
       should "be 1 for 2013-01-31" do
-        assert_equal 1, @test_rate.rates(Date.parse('2013-01-31')).rate
+        assert_equal 1, @test_rate.rates(Date.parse("2013-01-31")).rate
       end
 
       should "be 2 for 2013-02-01" do
-        assert_equal 2, @test_rate.rates(Date.parse('2013-02-01')).rate
+        assert_equal 2, @test_rate.rates(Date.parse("2013-02-01")).rate
       end
 
       should "be the latest known rate (2) for uncovered future dates" do
-        assert_equal 2, @test_rate.rates(Date.parse('2113-03-12')).rate
+        assert_equal 2, @test_rate.rates(Date.parse("2113-03-12")).rate
       end
 
-      context 'given a rate has been loaded for one date' do
-        should 'return the correct rate for a different date' do
-          assert_equal 1, @test_rate.rates(Date.parse('2013-01-31')).rate
+      context "given a rate has been loaded for one date" do
+        should "return the correct rate for a different date" do
+          assert_equal 1, @test_rate.rates(Date.parse("2013-01-31")).rate
           assert_equal 2, @test_rate.rates(Date.parse("2013-02-01")).rate
         end
       end
 
-      context 'with various dates' do
+      context "with various dates" do
         setup do
           today = Date.today
           @yesterday = today - 1.day
@@ -36,17 +36,17 @@ module SmartAnswer::Calculators
           yesterdays_rates = {
             start_date: @yesterday,
             end_date: @yesterday,
-            rate: 3
+            rate: 3,
           }
           todays_rates = {
             start_date: today,
             end_date: today,
-            rate: 2
+            rate: 2,
           }
           tomorrows_rates = {
             start_date: @tomorrow,
             end_date: @tomorrow,
-            rate: 1
+            rate: 1,
           }
           rates = [yesterdays_rates, todays_rates, tomorrows_rates]
           @rates_query = RatesQuery.new(rates)
@@ -58,11 +58,11 @@ module SmartAnswer::Calculators
 
         should "return rate for date specified in RATES_QUERY_DATE environment variable if set" do
           begin
-            ENV['RATES_QUERY_DATE'] = @tomorrow.to_s
+            ENV["RATES_QUERY_DATE"] = @tomorrow.to_s
 
             assert_equal 1, @rates_query.rates.rate
           ensure
-            ENV['RATES_QUERY_DATE'] = nil
+            ENV["RATES_QUERY_DATE"] = nil
           end
         end
 

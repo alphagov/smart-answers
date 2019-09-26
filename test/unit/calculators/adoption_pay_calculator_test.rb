@@ -10,21 +10,21 @@ module SmartAnswer::Calculators
         end
 
         should "calculate 39 weeks of dates and pay" do
-          @calculator.pay_method = 'weekly_starting'
-          @calculator.leave_start_date = Date.parse('20 January 2014')
-          @calculator.pay_pattern = 'monthly'
+          @calculator.pay_method = "weekly_starting"
+          @calculator.leave_start_date = Date.parse("20 January 2014")
+          @calculator.pay_pattern = "monthly"
           @calculator.earnings_for_pay_period = 3000
           paydates_and_pay = @calculator.paydates_and_pay
 
-          expected_pay_dates = [
-            "2014-01-26", "2014-02-02", "2014-02-09", "2014-02-16", "2014-02-23",
-            "2014-03-02", "2014-03-09", "2014-03-16", "2014-03-23", "2014-03-30",
-            "2014-04-06", "2014-04-13", "2014-04-20", "2014-04-27", "2014-05-04",
-            "2014-05-11", "2014-05-18", "2014-05-25", "2014-06-01", "2014-06-08",
-            "2014-06-15", "2014-06-22", "2014-06-29", "2014-07-06", "2014-07-13",
-            "2014-07-20", "2014-07-27", "2014-08-03", "2014-08-10", "2014-08-17",
-            "2014-08-24", "2014-08-31", "2014-09-07", "2014-09-14", "2014-09-21",
-            "2014-09-28", "2014-10-05", "2014-10-12", "2014-10-19"
+          expected_pay_dates = %w[
+            2014-01-26 2014-02-02 2014-02-09 2014-02-16 2014-02-23
+            2014-03-02 2014-03-09 2014-03-16 2014-03-23 2014-03-30
+            2014-04-06 2014-04-13 2014-04-20 2014-04-27 2014-05-04
+            2014-05-11 2014-05-18 2014-05-25 2014-06-01 2014-06-08
+            2014-06-15 2014-06-22 2014-06-29 2014-07-06 2014-07-13
+            2014-07-20 2014-07-27 2014-08-03 2014-08-10 2014-08-17
+            2014-08-24 2014-08-31 2014-09-07 2014-09-14 2014-09-21
+            2014-09-28 2014-10-05 2014-10-12 2014-10-19
           ]
           actual_pay_dates = paydates_and_pay.map { |p| p[:date].to_s }
           assert_equal expected_pay_dates, actual_pay_dates
@@ -41,13 +41,13 @@ module SmartAnswer::Calculators
                 the remaining weeks is the minimum of 90% of avg weekly pay or 139.58" do
           match_date = Date.parse("10 Apr 2015")
           calculator = AdoptionPayCalculator.new(match_date)
-          calculator.pay_method = 'weekly_starting'
-          calculator.leave_start_date = Date.parse('01 Apr 2015')
-          calculator.pre_offset_payday = Date.parse('31 Jan 2015')
-          calculator.last_payday = Date.parse('31 Mar 2015')
-          calculator.adoption_placement_date = Date.parse('10 Apr 2015')
+          calculator.pay_method = "weekly_starting"
+          calculator.leave_start_date = Date.parse("01 Apr 2015")
+          calculator.pre_offset_payday = Date.parse("31 Jan 2015")
+          calculator.last_payday = Date.parse("31 Mar 2015")
+          calculator.adoption_placement_date = Date.parse("10 Apr 2015")
           expected_pay_dates = %w(2015-04-07 2015-04-14 2015-04-21 2015-04-28 2015-05-05 2015-05-12 2015-05-19 2015-05-26 2015-06-02 2015-06-09 2015-06-16 2015-06-23 2015-06-30 2015-07-07 2015-07-14 2015-07-21 2015-07-28 2015-08-04 2015-08-11 2015-08-18 2015-08-25 2015-09-01 2015-09-08 2015-09-15 2015-09-22 2015-09-29 2015-10-06 2015-10-13 2015-10-20 2015-10-27 2015-11-03 2015-11-10 2015-11-17 2015-11-24 2015-12-01 2015-12-08 2015-12-15 2015-12-22 2015-12-29)
-          calculator.pay_pattern = 'monthly'
+          calculator.pay_pattern = "monthly"
           calculator.earnings_for_pay_period = 3000
           actual_pay_dates = calculator.paydates_and_pay.map { |p| p[:date].to_s }
 
@@ -62,11 +62,11 @@ module SmartAnswer::Calculators
         should "calculate 10 months of dates and pay" do
           match_date = Date.parse("2 January 2014")
           calculator = AdoptionPayCalculator.new(match_date)
-          calculator.leave_start_date = Date.parse('20 January 2014')
-          calculator.pay_method = 'a_certain_week_day_each_month'
+          calculator.leave_start_date = Date.parse("20 January 2014")
+          calculator.pay_method = "a_certain_week_day_each_month"
           calculator.pay_day_in_week = 5
-          calculator.pay_week_in_month = 'last'
-          calculator.pay_pattern = 'monthly'
+          calculator.pay_week_in_month = "last"
+          calculator.pay_pattern = "monthly"
           calculator.earnings_for_pay_period = 3000
           paydates_and_pay = calculator.paydates_and_pay
           expected_pay_dates = %w(
@@ -88,12 +88,12 @@ module SmartAnswer::Calculators
         should "calculate the pay correctly for a monthly example" do
           match_date = Date.parse("1 January 2019")
           calculator = AdoptionPayCalculator.new(match_date)
-          calculator.pay_method = 'weekly_starting'
-          calculator.leave_start_date = Date.parse('3 February 2019	')
-          calculator.pre_offset_payday = Date.parse('28 October 2018')
-          calculator.last_payday = Date.parse('28 December 2018')
-          calculator.adoption_placement_date = Date.parse('3 February 2019')
-          calculator.pay_pattern = 'monthly'
+          calculator.pay_method = "weekly_starting"
+          calculator.leave_start_date = Date.parse("3 February 2019\t")
+          calculator.pre_offset_payday = Date.parse("28 October 2018")
+          calculator.last_payday = Date.parse("28 December 2018")
+          calculator.adoption_placement_date = Date.parse("3 February 2019")
+          calculator.pay_pattern = "monthly"
           calculator.earnings_for_pay_period = 2000
 
           assert_equal 207.70, calculator.paydates_and_pay.first[:pay]
@@ -108,13 +108,13 @@ module SmartAnswer::Calculators
         should "calculate the pay correctly for a last working day of month example" do
           match_date = Date.parse("16 November 2018")
           calculator = AdoptionPayCalculator.new(match_date)
-          calculator.leave_start_date = Date.parse('1 December 2018')
-          calculator.pre_offset_payday = Date.parse('30 August 2018')
-          calculator.last_payday = Date.parse('30 October 2018')
-          calculator.adoption_placement_date = Date.parse('1 December 2018')
-          calculator.pay_pattern = 'monthly'
+          calculator.leave_start_date = Date.parse("1 December 2018")
+          calculator.pre_offset_payday = Date.parse("30 August 2018")
+          calculator.last_payday = Date.parse("30 October 2018")
+          calculator.adoption_placement_date = Date.parse("1 December 2018")
+          calculator.pay_pattern = "monthly"
           calculator.earnings_for_pay_period = 2000
-          calculator.pay_method = 'last_working_day_of_the_month'
+          calculator.pay_method = "last_working_day_of_the_month"
           calculator.work_days = [1, 2, 3, 4, 5]
 
           assert_equal 919.79, calculator.paydates_and_pay.first[:pay]

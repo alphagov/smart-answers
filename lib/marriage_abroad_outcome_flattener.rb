@@ -25,7 +25,7 @@ private
   def stubs_etc
     Timecop.freeze(current_time)
     Services.content_store = FakeContentStore.new
-    ENV['PLEK_SERVICE_WHITEHALL_ADMIN_URI'] = 'https://www.gov.uk'
+    ENV["PLEK_SERVICE_WHITEHALL_ADMIN_URI"] = "https://www.gov.uk"
   end
 
   def generate_and_add_partials_to_country_files
@@ -82,7 +82,7 @@ private
   def replace_how_to_pay(text)
     text.gsub(
       /^\^?You can( only)? pay by.*?\n.*?^$/mi,
-      <<~HOW_TO_PAY.freeze
+      <<~HOW_TO_PAY.freeze,
         <%= render partial: 'how_to_pay.govspeak.erb', locals: {calculator: calculator} %>
       HOW_TO_PAY
     )
@@ -91,7 +91,7 @@ private
   def replace_fee_table(text)
     text.gsub(
       /^Service \| Fee\n.*?^$/mi,
-      <<~FEE_TABLE.freeze
+      <<~FEE_TABLE.freeze,
         <%= render partial: 'consular_fees_table_items.govspeak.erb',
             collection: calculator.services,
             as: :service,
@@ -154,7 +154,7 @@ private
         current_node: question_name,
         responses: responses.map(&:to_s),
         next_node: next_node.name,
-        outcome_node: next_node.outcome?
+        outcome_node: next_node.outcome?,
       }
 
       unless next_node.outcome? || state.error
@@ -174,7 +174,7 @@ private
   end
 
   def default_configuration
-    @default_configuration ||= configurations.fetch('default')
+    @default_configuration ||= configurations.fetch("default")
   end
 
   def configuration

@@ -7,7 +7,7 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
   include FlowTestHelper
 
   setup do
-    Timecop.freeze(Date.parse('2015-01-01'))
+    Timecop.freeze(Date.parse("2015-01-01"))
     setup_for_testing_flow SmartAnswer::AmIGettingMinimumWageFlow
   end
 
@@ -805,34 +805,34 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       end # Age
     end # Apprentice
 
-    context 'answer 2015-10-01, not an apprentice, 25 years old, paid daily for 8 hour days' do
+    context "answer 2015-10-01, not an apprentice, 25 years old, paid daily for 8 hour days" do
       setup do
         add_response :no
         add_response 25
         add_response 1 # paid on a daily basis
         add_response 8 # hour of work per period
-        Timecop.travel('07 January 2016')
+        Timecop.travel("07 January 2016")
       end
-      context 'when they are paid over the minimum/living wage' do
+      context "when they are paid over the minimum/living wage" do
         setup do
           add_response 350 # how much it is paid per period
           add_response :no # accommodation
           add_response :no # no job requirement charge
           add_response :no # no additional work
         end
-        should 'reach the above national minimum wage result outcome' do
+        should "reach the above national minimum wage result outcome" do
           assert_current_node :past_payment_above
           assert_match(/you appear to have been getting the National Minimum Wage/, outcome_body)
         end
       end
-      context 'when they are paid below the minimum/living wage' do
+      context "when they are paid below the minimum/living wage" do
         setup do
           add_response 40 # how much it is paid per period
           add_response :no # accommodation
           add_response :no # no job requirement charge
           add_response :no # no additional work
         end
-        should 'reach the below national minimum wage result outcome' do
+        should "reach the below national minimum wage result outcome" do
           assert_current_node :past_payment_below
           assert_match(/you appear to have not been getting the National Minimum Wage/, outcome_body)
         end
@@ -842,36 +842,36 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
 
   context "when underpayed by employer" do
     setup do
-      Timecop.travel('2018-07-01')
+      Timecop.travel("2018-07-01")
     end
 
     should "adjust underpayment based on the current rate" do
       assert_current_node :what_would_you_like_to_check?
-      add_response 'past_payment'
+      add_response "past_payment"
 
       assert_current_node :were_you_an_apprentice?
-      add_response 'no'
+      add_response "no"
 
       assert_current_node :how_old_were_you?
-      add_response '24'
+      add_response "24"
 
       assert_current_node :how_often_did_you_get_paid?
-      add_response '7'
+      add_response "7"
 
       assert_current_node :how_many_hours_did_you_work?
-      add_response '40'
+      add_response "40"
 
       assert_current_node :how_much_were_you_paid_during_pay_period?
-      add_response '200'
+      add_response "200"
 
       assert_current_node :was_provided_with_accommodation?
-      add_response 'no'
+      add_response "no"
 
       assert_current_node :did_employer_charge_for_job_requirements?
-      add_response 'no'
+      add_response "no"
 
       assert_current_node :past_additional_work_outside_shift?
-      add_response 'no'
+      add_response "no"
 
       assert_current_node :past_payment_below
       assert_equal 7.38, current_state.calculator.minimum_hourly_rate # rate on '2018-07-01'
@@ -885,37 +885,37 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
 
   context "2019 scenarios" do
     setup do
-      Timecop.freeze(Date.parse('2019-04-01'))
+      Timecop.freeze(Date.parse("2019-04-01"))
       setup_for_testing_flow SmartAnswer::AmIGettingMinimumWageFlow
     end
-    context '27 year old, not apprentice, no additional charges' do
+    context "27 year old, not apprentice, no additional charges" do
       should "earn above minimum wage" do
         assert_current_node :what_would_you_like_to_check?
-        add_response 'past_payment'
+        add_response "past_payment"
 
         assert_current_node :were_you_an_apprentice?
-        add_response 'no'
+        add_response "no"
 
         assert_current_node :how_old_were_you?
-        add_response '27'
+        add_response "27"
 
         assert_current_node :how_often_did_you_get_paid?
-        add_response '7'
+        add_response "7"
 
         assert_current_node :how_many_hours_did_you_work?
-        add_response '37'
+        add_response "37"
 
         assert_current_node :how_much_were_you_paid_during_pay_period?
-        add_response '305'
+        add_response "305"
 
         assert_current_node :was_provided_with_accommodation?
-        add_response 'no'
+        add_response "no"
 
         assert_current_node :did_employer_charge_for_job_requirements?
-        add_response 'no'
+        add_response "no"
 
         assert_current_node :past_additional_work_outside_shift?
-        add_response 'no'
+        add_response "no"
 
         assert_equal 8.24, current_state.calculator.total_hourly_rate
         assert_equal 7.83, current_state.calculator.minimum_hourly_rate
@@ -923,37 +923,37 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       end
     end
 
-    context '23 year old, 2nd year apprentice, paid additional work' do
+    context "23 year old, 2nd year apprentice, paid additional work" do
       should "earn below minimum wage" do
         assert_current_node :what_would_you_like_to_check?
-        add_response 'current_payment'
+        add_response "current_payment"
 
         assert_current_node :are_you_an_apprentice?
-        add_response 'apprentice_over_19_second_year_onwards'
+        add_response "apprentice_over_19_second_year_onwards"
 
         assert_current_node :how_old_are_you?
-        add_response '23'
+        add_response "23"
 
         assert_current_node :how_often_do_you_get_paid?
-        add_response '7'
+        add_response "7"
 
         assert_current_node :how_many_hours_do_you_work?
-        add_response '40'
+        add_response "40"
 
         assert_current_node :how_much_are_you_paid_during_pay_period?
-        add_response '156'
+        add_response "156"
 
         assert_current_node :is_provided_with_accommodation?
-        add_response 'no'
+        add_response "no"
 
         assert_current_node :does_employer_charge_for_job_requirements?
-        add_response 'no'
+        add_response "no"
 
         assert_current_node :current_additional_work_outside_shift?
-        add_response 'yes'
+        add_response "yes"
 
         assert_current_node :current_paid_for_work_outside_shift?
-        add_response 'yes'
+        add_response "yes"
 
         assert_current_node :current_payment_below
         assert_equal 3.90, current_state.calculator.total_hourly_rate
@@ -961,34 +961,34 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       end
     end
 
-    context '20 year old, second year apprentice, charged for job requirements' do
+    context "20 year old, second year apprentice, charged for job requirements" do
       should "earn below minmum wage" do
         assert_current_node :what_would_you_like_to_check?
-        add_response 'current_payment'
+        add_response "current_payment"
 
         assert_current_node :are_you_an_apprentice?
-        add_response 'apprentice_over_19_second_year_onwards'
+        add_response "apprentice_over_19_second_year_onwards"
 
         assert_current_node :how_old_are_you?
-        add_response '20'
+        add_response "20"
 
         assert_current_node :how_often_do_you_get_paid?
-        add_response '7'
+        add_response "7"
 
         assert_current_node :how_many_hours_do_you_work?
-        add_response '38'
+        add_response "38"
 
         assert_current_node :how_much_are_you_paid_during_pay_period?
-        add_response '200'
+        add_response "200"
 
         assert_current_node :is_provided_with_accommodation?
-        add_response 'no'
+        add_response "no"
 
         assert_current_node :does_employer_charge_for_job_requirements?
-        add_response 'yes'
+        add_response "yes"
 
         assert_current_node :current_additional_work_outside_shift?
-        add_response 'no'
+        add_response "no"
 
         assert_current_node :current_payment_below
         assert_equal 5.26, current_state.calculator.total_hourly_rate
@@ -996,28 +996,28 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       end
     end
 
-    context 'when user is earning below minimum wage, with accomodation' do
+    context "when user is earning below minimum wage, with accomodation" do
       should "adjust underpayment based on the current rate" do
         assert_current_node :what_would_you_like_to_check?
-        add_response 'current_payment'
+        add_response "current_payment"
 
         assert_current_node :are_you_an_apprentice?
-        add_response 'not_an_apprentice'
+        add_response "not_an_apprentice"
 
         assert_current_node :how_old_are_you?
-        add_response '30'
+        add_response "30"
 
         assert_current_node :how_often_do_you_get_paid?
-        add_response '21'
+        add_response "21"
 
         assert_current_node :how_many_hours_do_you_work?
-        add_response '120'
+        add_response "120"
 
         assert_current_node :how_much_are_you_paid_during_pay_period?
-        add_response '988.80'
+        add_response "988.80"
 
         assert_current_node :is_provided_with_accommodation?
-        add_response 'yes_charged'
+        add_response "yes_charged"
 
         assert_current_node :current_accommodation_charge?
         add_response 7.80
@@ -1026,10 +1026,10 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         add_response 7
 
         assert_current_node :does_employer_charge_for_job_requirements?
-        add_response 'no'
+        add_response "no"
 
         assert_current_node :current_additional_work_outside_shift?
-        add_response 'no'
+        add_response "no"
 
         assert_current_node :current_payment_below
         assert_equal 8.20, current_state.calculator.total_hourly_rate
@@ -1041,40 +1041,40 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       end
     end
 
-    context 'Over 25 years old, not an apprentice, free accomodation' do
+    context "Over 25 years old, not an apprentice, free accomodation" do
       should "earn above minmum wage" do
         assert_current_node :what_would_you_like_to_check?
-        add_response 'current_payment'
+        add_response "current_payment"
 
         assert_current_node :are_you_an_apprentice?
-        add_response 'not_an_apprentice'
+        add_response "not_an_apprentice"
 
         assert_current_node :how_old_are_you?
-        add_response '30'
+        add_response "30"
 
         assert_current_node :how_often_do_you_get_paid?
-        add_response '7'
+        add_response "7"
 
         assert_current_node :how_many_hours_do_you_work?
-        add_response '30'
+        add_response "30"
 
         assert_current_node :how_much_are_you_paid_during_pay_period?
-        add_response '210'
+        add_response "210"
 
         assert_current_node :is_provided_with_accommodation?
-        add_response 'yes_free'
+        add_response "yes_free"
 
         assert_current_node :current_accommodation_usage?
         add_response 7
 
         assert_current_node :does_employer_charge_for_job_requirements?
-        add_response 'no'
+        add_response "no"
 
         assert_current_node :current_additional_work_outside_shift?
-        add_response 'yes'
+        add_response "yes"
 
         assert_current_node :current_paid_for_work_outside_shift?
-        add_response 'yes'
+        add_response "yes"
 
         assert_current_node :current_payment_above
         assert_equal 8.76, current_state.calculator.total_hourly_rate
@@ -1086,28 +1086,28 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       end
     end
 
-    context '22 years old, not an apprentice, charged accomodation but below offset' do
+    context "22 years old, not an apprentice, charged accomodation but below offset" do
       should "earn above minmum wage" do
         assert_current_node :what_would_you_like_to_check?
-        add_response 'current_payment'
+        add_response "current_payment"
 
         assert_current_node :are_you_an_apprentice?
-        add_response 'not_an_apprentice'
+        add_response "not_an_apprentice"
 
         assert_current_node :how_old_are_you?
-        add_response '22'
+        add_response "22"
 
         assert_current_node :how_often_do_you_get_paid?
-        add_response '7'
+        add_response "7"
 
         assert_current_node :how_many_hours_do_you_work?
-        add_response '41'
+        add_response "41"
 
         assert_current_node :how_much_are_you_paid_during_pay_period?
-        add_response '320'
+        add_response "320"
 
         assert_current_node :is_provided_with_accommodation?
-        add_response 'yes_charged'
+        add_response "yes_charged"
 
         assert_current_node :current_accommodation_charge?
         add_response 3.50
@@ -1116,10 +1116,10 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
         add_response 7
 
         assert_current_node :does_employer_charge_for_job_requirements?
-        add_response 'no'
+        add_response "no"
 
         assert_current_node :current_additional_work_outside_shift?
-        add_response 'no'
+        add_response "no"
 
         assert_current_node :current_payment_above
         assert_equal 7.80, current_state.calculator.total_hourly_rate
@@ -1129,34 +1129,34 @@ class AmIGettingMinimumWageTest < ActiveSupport::TestCase
       end
     end
 
-    context '18 years old, first year apprentice, unpaid working time' do
+    context "18 years old, first year apprentice, unpaid working time" do
       should "earn above minmum wage" do
         assert_current_node :what_would_you_like_to_check?
-        add_response 'current_payment'
+        add_response "current_payment"
 
         assert_current_node :are_you_an_apprentice?
-        add_response 'apprentice_under_19'
+        add_response "apprentice_under_19"
 
         assert_current_node :how_often_do_you_get_paid?
-        add_response '14'
+        add_response "14"
 
         assert_current_node :how_many_hours_do_you_work?
-        add_response '70'
+        add_response "70"
 
         assert_current_node :how_much_are_you_paid_during_pay_period?
-        add_response '273'
+        add_response "273"
 
         assert_current_node :is_provided_with_accommodation?
-        add_response 'no'
+        add_response "no"
 
         assert_current_node :does_employer_charge_for_job_requirements?
-        add_response 'no'
+        add_response "no"
 
         assert_current_node :current_additional_work_outside_shift?
-        add_response 'yes'
+        add_response "yes"
 
         assert_current_node :current_paid_for_work_outside_shift?
-        add_response 'yes'
+        add_response "yes"
 
         assert_current_node :current_payment_above
         assert_equal 3.90, current_state.calculator.total_hourly_rate

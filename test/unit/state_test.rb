@@ -1,5 +1,4 @@
-
-require_relative '../test_helper'
+require_relative "../test_helper"
 
 module SmartAnswer
   class StateTest < ActiveSupport::TestCase
@@ -7,12 +6,12 @@ module SmartAnswer
       should "not modify the existing state" do
         old_state = State.new(:state2)
         old_state.path << :state1
-        old_state.responses << 'yes'
+        old_state.responses << "yes"
         old_state.freeze
 
-        old_state.transition_to(:state3, 'fooey')
+        old_state.transition_to(:state3, "fooey")
 
-        assert_equal ['yes'], old_state.responses
+        assert_equal %w[yes], old_state.responses
         assert_equal [:state1], old_state.path
       end
     end
@@ -35,11 +34,11 @@ module SmartAnswer
       state.path << :node1
       assert_equal [:node1], state.path
 
-      state.responses << 'no'
-      assert_equal ['no'], state.responses
+      state.responses << "no"
+      assert_equal %w[no], state.responses
 
-      state.response = 'no'
-      assert_equal 'no', state.response
+      state.response = "no"
+      assert_equal "no", state.response
 
       state.error = :error1
       assert_equal :error1, state.error
@@ -54,8 +53,8 @@ module SmartAnswer
 
     should "return the value of an attribute that's previously been set" do
       state = State.new(:start_node)
-      state.new_attribute = 'new-attribute-value'
-      assert_equal 'new-attribute-value', state.new_attribute
+      state.new_attribute = "new-attribute-value"
+      assert_equal "new-attribute-value", state.new_attribute
     end
 
     should "respond_to reader method for attribute set in constructor" do
@@ -65,7 +64,7 @@ module SmartAnswer
 
     should "respond_to reader method for attribute that has previously been set" do
       state = State.new(:start_node)
-      state.new_attribute = 'new-attribute-value'
+      state.new_attribute = "new-attribute-value"
       assert state.respond_to?(:new_attribute)
     end
 
@@ -81,7 +80,7 @@ module SmartAnswer
 
     should "respond_to writer method for attribute that has previously been set" do
       state = State.new(:start_node)
-      state.new_attribute = 'new-attribute-value'
+      state.new_attribute = "new-attribute-value"
       assert state.respond_to?(:new_attribute=)
     end
 

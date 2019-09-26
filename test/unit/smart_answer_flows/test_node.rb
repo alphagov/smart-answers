@@ -1,4 +1,4 @@
-require 'mocha/api'
+require "mocha/api"
 
 module SmartAnswer
   module FlowUnitTestHelper

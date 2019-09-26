@@ -38,19 +38,20 @@ module SmartAnswer
       def current_piw
         PeriodOfIncapacityForWork.new(
           begins_on: sick_start_date,
-          ends_on: sick_end_date
+          ends_on: sick_end_date,
         )
       end
 
       def linked_piw
         PeriodOfIncapacityForWork.new(
           begins_on: linked_sickness_start_date,
-          ends_on: linked_sickness_end_date
+          ends_on: linked_sickness_end_date,
         )
       end
 
       def prev_sick_days
         return 0 unless has_linked_sickness
+
         linked_piw.qualifying_days(days_of_the_week_worked).length
       end
 
@@ -145,15 +146,15 @@ module SmartAnswer
       end
 
       def paid_at_least_8_weeks_of_earnings?
-        eight_weeks_earnings == 'eight_weeks_more'
+        eight_weeks_earnings == "eight_weeks_more"
       end
 
       def paid_less_than_8_weeks_of_earnings?
-        eight_weeks_earnings == 'eight_weeks_less'
+        eight_weeks_earnings == "eight_weeks_less"
       end
 
       def fell_sick_before_payday?
-        eight_weeks_earnings == 'before_payday'
+        eight_weeks_earnings == "before_payday"
       end
 
       def employee_average_weekly_earnings
@@ -163,17 +164,17 @@ module SmartAnswer
             pay_pattern: pay_pattern,
             monthly_pattern_payments: monthly_pattern_payments,
             relevant_period_to: relevant_period_to,
-            relevant_period_from: relevant_period_from
+            relevant_period_from: relevant_period_from,
           )
         elsif paid_less_than_8_weeks_of_earnings?
           self.class.total_earnings_awe(
             total_earnings_before_sick_period,
-            days_covered_by_earnings
+            days_covered_by_earnings,
           )
         elsif fell_sick_before_payday?
           self.class.contractual_earnings_awe(
             relevant_contractual_pay,
-            contractual_days_covered_by_earnings
+            contractual_days_covered_by_earnings,
           )
         end
       end
@@ -188,7 +189,7 @@ module SmartAnswer
 
       # define as static so we don't have to instantiate the calculator too early in the flow
       def self.lower_earning_limit_on(date)
-        RatesQuery.from_file('statutory_sick_pay').rates(date).lower_earning_limit_rate
+        RatesQuery.from_file("statutory_sick_pay").rates(date).lower_earning_limit_rate
       end
 
       def self.months_between(start_date, end_date)
@@ -221,7 +222,7 @@ module SmartAnswer
         # we need to calculate the daily rate by truncating to four decimal places to match unrounded daily rates used by HMRC
         # doing .round(6) after multiplication to avoid float precision issues
         # Simply using .round(4) on ssp_weekly_rate/@pattern_days will be off by 0.0001 for 3 and 7 pattern days and lead to 1p difference in some statutory amount calculations
-        pattern_days > 0 ? ((((weekly_rate / pattern_days) * 10000).round(6).floor) / 10000.0) : 0.0000
+        pattern_days.positive? ? (((weekly_rate / pattern_days) * 10000).round(6).floor / 10000.0) : 0.0000
       end
 
       def days_paid
@@ -246,11 +247,11 @@ module SmartAnswer
       end
 
       def maximum_entitlement_reached_v2?
-        days_that_can_be_paid_for_this_period == 0
+        days_that_can_be_paid_for_this_period.zero?
       end
 
       def entitled_to_sick_pay?
-        ssp_payment > 0
+        ssp_payment > 0 # rubocop:disable Style/NumericPredicate
       end
 
       def self.contractual_earnings_awe(pay, days_worked)
@@ -258,7 +259,7 @@ module SmartAnswer
       end
 
       def self.total_earnings_awe(pay, days_worked)
-        if days_worked % 7 == 0
+        if (days_worked % 7).zero?
           (pay / (days_worked / 7)).round(2)
         else
           (pay / BigDecimal(days_worked.to_s) * 7).round(2)
@@ -267,7 +268,7 @@ module SmartAnswer
 
       def weekly_payments
         payments = sick_pay_weekly_dates.map { |date| [date, weekly_payment(date)] }
-        payments.pop while payments.any? && (payments.last.last == 0)
+        payments.pop while payments.any? && payments.last.last.zero?
         payments
       end
 
@@ -283,7 +284,7 @@ module SmartAnswer
     private
 
       def weekly_rate_on(date)
-        RatesQuery.from_file('statutory_sick_pay').rates(date).ssp_weekly_rate
+        RatesQuery.from_file("statutory_sick_pay").rates(date).ssp_weekly_rate
       end
 
       def max_days_that_can_be_paid
@@ -295,11 +296,11 @@ module SmartAnswer
       end
 
       def sick_pay_weekly_dates
-        if sick_end_date.sunday?
-          ssp_week_end = sick_end_date + 6
-        else
-          ssp_week_end = sick_end_date.end_of_week - 1
-        end
+        ssp_week_end = if sick_end_date.sunday?
+                         sick_end_date + 6
+                       else
+                         sick_end_date.end_of_week - 1
+                       end
         (sick_start_date..ssp_week_end).select { |day| day.wday == 6 }
       end
 

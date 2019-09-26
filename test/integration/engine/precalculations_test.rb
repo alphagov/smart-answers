@@ -1,4 +1,4 @@
-require_relative 'engine_test_helper'
+require_relative "engine_test_helper"
 
 class PrecalculationsTest < EngineIntegrationTest
   with_and_without_javascript do
@@ -11,7 +11,7 @@ class PrecalculationsTest < EngineIntegrationTest
 
       assert_current_url "/precalculation-sample"
 
-      within '.intro' do
+      within ".intro" do
         assert page.has_link?("Start now", href: "/precalculation-sample/y")
       end
 
@@ -24,11 +24,11 @@ class PrecalculationsTest < EngineIntegrationTest
       form = page.find(:xpath, "id('content')//form")
       assert_same_url "/precalculation-sample/y", form[:action]
 
-      within '.current-question' do
-        within '[data-test=question]' do
+      within ".current-question" do
+        within "[data-test=question]" do
           assert_page_has_content "How much wood would a woodchuck chuck if a woodchuck could chuck wood?"
         end
-        within '.question-body' do
+        within ".question-body" do
           assert page.has_field?("response", type: "text")
         end
       end
@@ -38,11 +38,11 @@ class PrecalculationsTest < EngineIntegrationTest
 
       assert_current_url "/precalculation-sample/y/10"
 
-      within '.current-question' do
-        within '[data-test=question]' do
+      within ".current-question" do
+        within "[data-test=question]" do
           assert_page_has_content "How many woodchucks do you have?"
         end
-        within '.question-body' do
+        within ".question-body" do
           assert page.has_field?("response", type: "text")
         end
       end
@@ -52,10 +52,10 @@ class PrecalculationsTest < EngineIntegrationTest
 
       assert_current_url "/precalculation-sample/y/10/42"
 
-      within '.outcome:nth-child(1)' do
-        within '.result-info' do
-          within('h2.result-title') { assert_page_has_content "420 pieces of wood would be chucked." }
-          within('.info-notice') { assert_page_has_content "42 woodchucks, each chucking 10 pieces of wood = 420 pieces of wood being chucked." }
+      within ".outcome:nth-child(1)" do
+        within ".result-info" do
+          within("h2.result-title") { assert_page_has_content "420 pieces of wood would be chucked." }
+          within(".info-notice") { assert_page_has_content "42 woodchucks, each chucking 10 pieces of wood = 420 pieces of wood being chucked." }
         end
       end
     end

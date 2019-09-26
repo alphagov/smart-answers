@@ -3,7 +3,7 @@ module SmartAnswer
     def define
       start_page_content_id "e04dc5fe-9a31-4229-9de9-884dd0c0a8ce"
       flow_content_id "cb4649de-e0b7-42e3-a43a-b98e4415555a"
-      name 'calculate-married-couples-allowance'
+      name "calculate-married-couples-allowance"
       status :published
       satisfies_need "101007"
 
@@ -44,7 +44,7 @@ module SmartAnswer
 
       date_question :whats_the_husbands_date_of_birth? do
         from { Date.today.end_of_year }
-        to { Date.parse('1 Jan 1896') }
+        to { Date.parse("1 Jan 1896") }
 
         on_response do |response|
           calculator.birth_date = response
@@ -56,7 +56,7 @@ module SmartAnswer
       end
 
       date_question :whats_the_highest_earners_date_of_birth? do
-        to { Date.parse('1 Jan 1896') }
+        to { Date.parse("1 Jan 1896") }
         from { Date.today.end_of_year }
 
         on_response do |response|

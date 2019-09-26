@@ -12,7 +12,7 @@ module SmartAnswer::Calculators
       expected_start = @due_date - @due_date.wday
       SmartAnswer::DateRange.new(
         begins_on: expected_start,
-        ends_on: expected_start + 6.days
+        ends_on: expected_start + 6.days,
       )
     end
 
@@ -20,7 +20,7 @@ module SmartAnswer::Calculators
       qualifying_start = 15.weeks.ago(expected_week.begins_on)
       SmartAnswer::DateRange.new(
         begins_on: qualifying_start,
-        ends_on: qualifying_start + 6.days
+        ends_on: qualifying_start + 6.days,
       )
     end
 

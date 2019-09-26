@@ -13,7 +13,7 @@ module SmartAnswer
       end
 
       def country_list
-        @countries ||= load_countries
+        @country_list ||= load_countries
       end
 
       def country_in(countries)
@@ -26,6 +26,7 @@ module SmartAnswer
 
       def parse_input(raw_input)
         raise SmartAnswer::InvalidResponse, "Illegal option #{raw_input} for #{name}", caller unless valid_option?(raw_input)
+
         super
       end
 
@@ -34,13 +35,13 @@ module SmartAnswer
       def load_countries
         countries = WorldLocation.all
         unless @include_uk
-          countries = countries.reject { |c| c.slug == 'united-kingdom' }
+          countries = countries.reject { |c| c.slug == "united-kingdom" }
         end
         if @exclude_countries
           countries = countries.reject { |c| @exclude_countries.include?(c.slug) }
         end
         if @additional_countries
-          countries = (countries + @additional_countries).sort { |a, b| a.name.sub(/^The /i, '') <=> b.name }
+          countries = (countries + @additional_countries).sort { |a, b| a.name.sub(/^The /i, "") <=> b.name }
         end
         countries
       end

@@ -3,7 +3,7 @@ module SmartAnswer
     def define
       start_page_content_id "b0e80c8b-d19f-4a50-82f4-71ab08f88207"
       flow_content_id "a2ae6c66-ce83-4da1-b758-f7f12acc4c39"
-      name 'plan-adoption-leave'
+      name "plan-adoption-leave"
       status :published
       satisfies_need "101018"
 
@@ -18,6 +18,7 @@ module SmartAnswer
       date_question :child_arrival_date? do
         calculate :arrival_date do |response|
           raise InvalidResponse if response <= match_date
+
           response
         end
 
@@ -30,6 +31,7 @@ module SmartAnswer
         calculate :start_date do |response|
           dist = (arrival_date - response).to_i
           raise InvalidResponse unless (1..14).include? dist
+
           response
         end
 
@@ -37,7 +39,8 @@ module SmartAnswer
           Calculators::PlanAdoptionLeave.new(
             match_date: match_date,
             arrival_date: arrival_date,
-            start_date: start_date)
+            start_date: start_date,
+)
         end
 
         next_node do

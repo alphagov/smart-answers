@@ -3,7 +3,7 @@ module SmartAnswer
     def define
       start_page_content_id "dfa9a5c3-d52e-479c-8505-855f475dc338"
       flow_content_id "f0868a94-5b24-4141-a1c2-73b53b842b44"
-      name 'vat-payment-deadlines'
+      name "vat-payment-deadlines"
       status :published
       satisfies_need "100624"
 
@@ -16,18 +16,19 @@ module SmartAnswer
         calculate :period_end_date do |response|
           date = response
           raise InvalidResponse unless date == date.end_of_month
+
           date
         end
       end
 
       multiple_choice :how_do_you_want_to_pay? do
-        option 'direct-debit'
-        option 'online-telephone-banking'
-        option 'online-debit-credit-card'
-        option 'bacs-direct-credit'
-        option 'bank-giro'
-        option 'chaps'
-        option 'cheque'
+        option "direct-debit"
+        option "online-telephone-banking"
+        option "online-debit-credit-card"
+        option "bacs-direct-credit"
+        option "bank-giro"
+        option "chaps"
+        option "cheque"
 
         calculate :calculator do |response|
           Calculators::VatPaymentDeadlines.new(period_end_date, response)
@@ -42,19 +43,19 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'direct-debit'
+          when "direct-debit"
             outcome :result_direct_debit
-          when 'online-telephone-banking'
+          when "online-telephone-banking"
             outcome :result_online_telephone_banking
-          when 'online-debit-credit-card'
+          when "online-debit-credit-card"
             outcome :result_online_debit_credit_card
-          when 'bacs-direct-credit'
+          when "bacs-direct-credit"
             outcome :result_bacs_direct_credit
-          when 'bank-giro'
+          when "bank-giro"
             outcome :result_bank_giro
-          when 'chaps'
+          when "chaps"
             outcome :result_chaps
-          when 'cheque'
+          when "cheque"
             outcome :result_cheque
           end
         end

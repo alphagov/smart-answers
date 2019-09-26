@@ -7,8 +7,8 @@ module SmartAnswer::Calculators
       "pitcairn" => "Pitcairn Island",
       "south-korea" => "South Korea",
       "st-helena-ascension-and-tristan-da-cunha" => "St Helena, Ascension and Tristan da Cunha",
-      "usa" => "the USA"
-    }
+      "usa" => "the USA",
+    }.freeze
 
     def definitive_article(country, capitalized = false)
       result = country_name(country)

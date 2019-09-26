@@ -25,9 +25,9 @@ module SmartAnswer
 
         next_node do
           case calculator.leave_type
-          when 'adoption'
+          when "adoption"
             question :how_do_you_want_the_sap_calculated?
-          when 'maternity'
+          when "maternity"
             question :how_do_you_want_the_smp_calculated?
           else
             question :how_do_you_want_the_spp_calculated?
@@ -54,9 +54,9 @@ module SmartAnswer
 
         next_node do
           case calculator.leave_type
-          when 'adoption'
+          when "adoption"
             question :how_do_you_want_the_sap_calculated?
-          when 'maternity'
+          when "maternity"
             question :how_do_you_want_the_smp_calculated?
           else
             question :how_do_you_want_the_spp_calculated?
@@ -83,9 +83,9 @@ module SmartAnswer
 
         next_node do
           case calculator.leave_type
-          when 'adoption'
+          when "adoption"
             question :how_do_you_want_the_sap_calculated?
-          when 'maternity'
+          when "maternity"
             question :how_do_you_want_the_smp_calculated?
           else
             question :how_do_you_want_the_spp_calculated?
@@ -112,9 +112,9 @@ module SmartAnswer
 
         next_node do
           case calculator.leave_type
-          when 'adoption'
+          when "adoption"
             question :how_do_you_want_the_sap_calculated?
-          when 'maternity'
+          when "maternity"
             question :how_do_you_want_the_smp_calculated?
           else
             question :how_do_you_want_the_spp_calculated?

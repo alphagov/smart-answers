@@ -3,7 +3,7 @@ module SmartAnswer
     def define
       start_page_content_id "9e3af3d4-f044-4ac5-830e-d604d701695b"
       flow_content_id "16230cbd-9c81-44ae-9d24-7d8bbabddf88"
-      name 'register-a-death'
+      name "register-a-death"
       status :published
       satisfies_need "101006"
 
@@ -21,9 +21,9 @@ module SmartAnswer
 
         next_node do
           if calculator.died_in_uk?
-            if calculator.location_of_death == 'scotland'
+            if calculator.location_of_death == "scotland"
               outcome :scotland_result
-            elsif calculator.location_of_death == 'northern_ireland'
+            elsif calculator.location_of_death == "northern_ireland"
               outcome :northern_ireland_result
             else
               question :did_the_person_die_at_home_hospital?

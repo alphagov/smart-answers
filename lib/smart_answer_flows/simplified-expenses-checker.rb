@@ -3,7 +3,7 @@ module SmartAnswer
     def define
       start_page_content_id "8ad76560-8a27-42ee-9a99-8aaa8f0109a5"
       flow_content_id "09f5f2b6-dc09-4594-8c2a-d907fed427d5"
-      name 'simplified-expenses-checker'
+      name "simplified-expenses-checker"
       status :published
       satisfies_need "100119"
 
@@ -41,6 +41,7 @@ module SmartAnswer
             outcome :you_cant_use_result
           else
             raise InvalidResponse if response =~ /live_on_business_premises.*?using_home_for_business/
+
             if calculator.vehicle?
               question :buying_new_vehicle?
             elsif calculator.working_from_home?

@@ -42,51 +42,51 @@ module SmartAnswer::Calculators
     end
 
     def passport_country_in_b1_b2_visa_exception_list?
-      @passport_country == 'syria'
+      @passport_country == "syria"
     end
 
     def passport_country_is_israel?
-      @passport_country == 'israel'
+      @passport_country == "israel"
     end
 
     def passport_country_is_taiwan?
-      @passport_country == 'taiwan'
+      @passport_country == "taiwan"
     end
 
     def passport_country_is_venezuela?
-      @passport_country == 'venezuela'
+      @passport_country == "venezuela"
     end
 
     def passport_country_is_croatia?
-      @passport_country == 'croatia'
+      @passport_country == "croatia"
     end
 
     def passport_country_is_china?
-      @passport_country == 'china'
+      @passport_country == "china"
     end
 
     def passport_country_is_estonia?
-      @passport_country == 'estonia' || @passport_country == 'estonia-alien-passport'
+      @passport_country == "estonia" || @passport_country == "estonia-alien-passport"
     end
 
     def passport_country_is_hong_kong?
-      @passport_country == 'hong-kong'
+      @passport_country == "hong-kong"
     end
 
     def passport_country_is_latvia?
-      @passport_country == 'latvia' || @passport_country == 'latvia-alien-passport'
+      @passport_country == "latvia" || @passport_country == "latvia-alien-passport"
     end
 
     def passport_country_is_macao?
-      @passport_country == 'macao'
+      @passport_country == "macao"
     end
 
     def passport_country_is_turkey?
-      @passport_country == 'turkey'
+      @passport_country == "turkey"
     end
 
     def applicant_is_stateless_or_a_refugee?
-      @passport_country == 'stateless-or-refugee'
+      @passport_country == "stateless-or-refugee"
     end
 
     def travel_document?
@@ -94,59 +94,59 @@ module SmartAnswer::Calculators
     end
 
     def tourism_visit?
-      @purpose_of_visit_answer == 'tourism'
+      @purpose_of_visit_answer == "tourism"
     end
 
     def work_visit?
-      @purpose_of_visit_answer == 'work'
+      @purpose_of_visit_answer == "work"
     end
 
     def study_visit?
-      @purpose_of_visit_answer == 'study'
+      @purpose_of_visit_answer == "study"
     end
 
     def transit_visit?
-      @purpose_of_visit_answer == 'transit'
+      @purpose_of_visit_answer == "transit"
     end
 
     def family_visit?
-      @purpose_of_visit_answer == 'family'
+      @purpose_of_visit_answer == "family"
     end
 
     def marriage_visit?
-      @purpose_of_visit_answer == 'marriage'
+      @purpose_of_visit_answer == "marriage"
     end
 
     def school_visit?
-      @purpose_of_visit_answer == 'school'
+      @purpose_of_visit_answer == "school"
     end
 
     def medical_visit?
-      @purpose_of_visit_answer == 'medical'
+      @purpose_of_visit_answer == "medical"
     end
 
     def diplomatic_visit?
-      @purpose_of_visit_answer == 'diplomatic'
+      @purpose_of_visit_answer == "diplomatic"
     end
 
     def passing_through_uk_border_control?
-      @passing_through_uk_border_control_answer == 'yes'
+      @passing_through_uk_border_control_answer == "yes"
     end
 
     def travelling_to_channel_islands_or_isle_of_man?
-      @travelling_to_cta_answer == 'channel_islands_or_isle_of_man'
+      @travelling_to_cta_answer == "channel_islands_or_isle_of_man"
     end
 
     def travelling_to_ireland?
-      @travelling_to_cta_answer == 'republic_of_ireland'
+      @travelling_to_cta_answer == "republic_of_ireland"
     end
 
     def travelling_to_elsewhere?
-      @travelling_to_cta_answer == 'somewhere_else'
+      @travelling_to_cta_answer == "somewhere_else"
     end
 
     def travelling_visiting_partner_family_member?
-      @travelling_visiting_partner_family_member_answer == 'yes'
+      @travelling_visiting_partner_family_member_answer == "yes"
     end
 
     EXCLUDE_COUNTRIES = %w(

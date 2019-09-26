@@ -3,7 +3,7 @@ module SmartAnswer
     def define
       start_page_content_id "cb62c931-a0fa-4363-b33d-12ac06d6232a"
       flow_content_id "d5074786-f3cc-410e-bc3d-d52008f0a692"
-      name 'help-if-you-are-arrested-abroad'
+      name "help-if-you-are-arrested-abroad"
       status :published
       satisfies_need "100220"
 
@@ -18,6 +18,7 @@ module SmartAnswer
         calculate :location do
           loc = WorldLocation.find(country)
           raise InvalidResponse unless loc
+
           loc
         end
 
@@ -64,7 +65,7 @@ module SmartAnswer
         calculate :has_extra_downloads do
           [police, judicial, consul, prison, lawyer, benefits, doc, pdf].count { |x|
             x != ""
-          } > 0 || arrested_calc.countries_with_regions.include?(country)
+          }.positive? || arrested_calc.countries_with_regions.include?(country)
         end
 
         calculate :region_links do
@@ -91,7 +92,7 @@ module SmartAnswer
 
       outcome :answer_one_generic do
         precalculate :iran do
-          country_name == "Iran" ? true : false
+          country_name == "Iran"
         end
 
         precalculate :transfers_back_to_uk_treaty_change_countries do

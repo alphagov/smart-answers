@@ -12,26 +12,26 @@ module SmartAnswer::Calculators
       employment_and_support_allowance: "Employment and Support Allowance",
       incapacity_benefit: "Incapacity Benefit",
       industrial_injuries_disablement_benefit: "Industrial Injuries Disablement Benefit",
-      state_pension: "State Pension"
+      state_pension: "State Pension",
     }.freeze
     DISPUTE_CRITERIA = {
       trades_dispute: "I'm affected by a trades dispute (eg on strike)",
       full_time_secondary_education: "I'm age 16 to 19 and in full-time secondary education",
-      appealing_against_decision: "I'm appealing against a decision about my ability to work"
+      appealing_against_decision: "I'm appealing against a decision about my ability to work",
     }.freeze
     PREMIUMS = {
       pension_premium: "Pensioner premium",
       higher_pensioner: "Higher Pensioner premium",
       disability_premium: "Disability premium",
-      severe_disability_premium: "Severe Disability premium"
+      severe_disability_premium: "Severe Disability premium",
     }.freeze
     IMPAIRMENTS = {
       too_ill_to_work: "I’m getting Statutory Sick Pay",
-      temporarily_incapable_of_work: "I’m incapable of work, but being treated as capable of work because I’m temporarily disqualified from receiving Income Support"
+      temporarily_incapable_of_work: "I’m incapable of work, but being treated as capable of work because I’m temporarily disqualified from receiving Income Support",
     }.freeze
     PERIODS_OF_IMPAIRMENT = {
       "364_days": "364 days",
-      "196_days": "196 days if you're terminally ill, or getting the highest rate of Disability Living Allowance (care component) or the enhanced rate of Personal Independence Payment (daily living component)"
+      "196_days": "196 days if you're terminally ill, or getting the highest rate of Disability Living Allowance (care component) or the enhanced rate of Personal Independence Payment (daily living component)",
     }.freeze
     TAX_CREDITS_BENEFITS = {
       state_pension: "State Pension",
@@ -40,7 +40,7 @@ module SmartAnswer::Calculators
       bereavement_benefit: "Bereavement Benefit",
       severe_disablement_allowance: "Severe Disablement Allowance",
       industrial_injuries_disablement_benefit: "Industrial Injuries Disablement Benefit",
-      contribution_based_employment_support_allowance: "contribution-based Employment and Support Allowance"
+      contribution_based_employment_support_allowance: "contribution-based Employment and Support Allowance",
     }.freeze
     private_constant :STATE_BENEFITS, :DISPUTE_CRITERIA, :PREMIUMS, :IMPAIRMENTS
     private_constant :PERIODS_OF_IMPAIRMENT, :TAX_CREDITS_BENEFITS

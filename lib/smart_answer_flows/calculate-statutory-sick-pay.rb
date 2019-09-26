@@ -3,7 +3,7 @@ module SmartAnswer
     def define
       start_page_content_id "1c676a9e-0424-4ebb-bab8-d8cb8d2fc6f8"
       flow_content_id "c3ecdaf0-5d37-45d0-bded-d9f1095b60d1"
-      name 'calculate-statutory-sick-pay'
+      name "calculate-statutory-sick-pay"
 
       status :published
       satisfies_need "100262"
@@ -36,11 +36,7 @@ module SmartAnswer
         option :no
 
         on_response do |response|
-          if response == 'yes'
-            calculator.enough_notice_of_absence = true
-          else
-            calculator.enough_notice_of_absence = false
-          end
+          calculator.enough_notice_of_absence = response == "yes"
         end
 
         next_node do
@@ -55,9 +51,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'yes'
+          when "yes"
             outcome :not_regular_schedule # Answer 4
-          when 'no'
+          when "no"
             question :first_sick_day? # Question 4
           end
         end
@@ -110,9 +106,9 @@ module SmartAnswer
 
         on_response do |response|
           case response
-          when 'yes'
+          when "yes"
             calculator.has_linked_sickness = true
-          when 'no'
+          when "no"
             calculator.has_linked_sickness = false
           end
         end

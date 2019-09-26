@@ -1,10 +1,10 @@
-require 'bigdecimal'
+require "bigdecimal"
 module SmartAnswer
   class Money
     include Comparable
     extend Forwardable
 
-    delegate [:to_f, :to_s, :*, :+, :-, :/] => :value
+    delegate %i[to_f to_s * + - /] => :value
 
     attr_reader :value
 
@@ -27,7 +27,7 @@ module SmartAnswer
     end
 
     def self.parse(raw_input)
-      raw_input.is_a?(Numeric) ? raw_input : raw_input.to_s.delete(',').gsub(/\s/, '')
+      raw_input.is_a?(Numeric) ? raw_input : raw_input.to_s.delete(",").gsub(/\s/, "")
     end
 
     def self.validate!(input)
@@ -37,6 +37,7 @@ module SmartAnswer
       if input.to_f.infinite?
         raise InvalidResponse, "Sorry, that number is too big. Please try again.", caller
       end
+
       true
     end
   end

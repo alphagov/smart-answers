@@ -1,7 +1,7 @@
 module SmartAnswer
   class PrecalculationSampleFlow < Flow
     def define
-      name 'precalculation-sample'
+      name "precalculation-sample"
       status :draft
 
       value_question :how_much_wood_would_a_woodchuck_chuck_if_a_woodchuck_could_chuck_wood? do

@@ -9,14 +9,14 @@ module SmartAnswer::Calculators
           @calculator = PaternityPayCalculator.new(due_date)
           @calculator.leave_start_date = due_date
           @calculator.pay_method = "weekly_starting"
-          @calculator.stubs(:average_weekly_earnings).returns('125.00')
+          @calculator.stubs(:average_weekly_earnings).returns("125.00")
         end
 
         should "produce 2 weeks of pay dates and pay at 90% of wage" do
           paydates_and_pay = @calculator.paydates_and_pay
-          assert_equal '2014-05-07', paydates_and_pay.first[:date].to_s
+          assert_equal "2014-05-07", paydates_and_pay.first[:date].to_s
           assert_equal 112.5, paydates_and_pay.first[:pay]
-          assert_equal '2014-05-14', paydates_and_pay.last[:date].to_s
+          assert_equal "2014-05-14", paydates_and_pay.last[:date].to_s
           assert_equal 112.5, paydates_and_pay.last[:pay]
         end
       end
@@ -27,11 +27,11 @@ module SmartAnswer::Calculators
           @calculator = PaternityPayCalculator.new(due_date)
           @calculator.leave_start_date = due_date
           @calculator.pay_method = "weekly_starting"
-          @calculator.stubs(:average_weekly_earnings).returns('500.00')
+          @calculator.stubs(:average_weekly_earnings).returns("500.00")
         end
 
         should "suggest a single payment when requesting a one week leave" do
-          @calculator.paternity_leave_duration = 'one_week'
+          @calculator.paternity_leave_duration = "one_week"
           actual_pay_dates = @calculator.paydates_and_pay.map { |pay| pay[:date] }
 
           assert_equal Date.parse("7 October 2015"), @calculator.pay_end_date
@@ -39,7 +39,7 @@ module SmartAnswer::Calculators
         end
 
         should "suggest two payments when requesting a two week leave" do
-          @calculator.paternity_leave_duration = 'two_weeks'
+          @calculator.paternity_leave_duration = "two_weeks"
           actual_pay_dates = @calculator.paydates_and_pay.map { |pay| pay[:date] }
           assert_equal Date.parse("14 October 2015"), @calculator.pay_end_date
           assert_equal [Date.parse("7 October 2015"), Date.parse("14 October 2015")], actual_pay_dates

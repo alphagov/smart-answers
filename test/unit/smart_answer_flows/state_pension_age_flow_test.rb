@@ -1,6 +1,6 @@
-require_relative '../../test_helper'
+require_relative "../../test_helper"
 
-require 'smart_answer_flows/state-pension-age'
+require "smart_answer_flows/state-pension-age"
 
 module SmartAnswer
   class StatePensionAgeFlowTest < ActiveSupport::TestCase
@@ -8,12 +8,12 @@ module SmartAnswer
       @flow = StatePensionAgeFlow.build
     end
 
-    context 'validation' do
+    context "validation" do
       context "for :dob_age?" do
         setup do
           @question = @flow.node(:dob_age?)
           @state = SmartAnswer::State.new(@question)
-          @state.gender = 'male'
+          @state.gender = "male"
         end
 
         should "raise if the date of birth is later than today's date" do

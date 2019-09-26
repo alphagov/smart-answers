@@ -1,6 +1,6 @@
-require_relative '../test_helper'
+require_relative "../test_helper"
 
-require 'ostruct'
+require "ostruct"
 
 module SmartAnswer
   class GovspeakPresenterTest < ActiveSupport::TestCase

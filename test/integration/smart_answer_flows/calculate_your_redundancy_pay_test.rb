@@ -1,5 +1,5 @@
-require_relative '../../test_helper'
-require_relative 'flow_test_helper'
+require_relative "../../test_helper"
+require_relative "flow_test_helper"
 
 require "smart_answer_flows/calculate-your-redundancy-pay"
 
@@ -19,7 +19,7 @@ class CalculateYourRedundancyPayTest < ActiveSupport::TestCase
     setup do
       # Freeze to 2017 so that 2013 is still an allowed date
       Timecop.freeze("2017-08-31")
-      add_response '2013-01-31'
+      add_response "2013-01-31"
     end
 
     should "be in employee flow for age" do
@@ -241,10 +241,10 @@ class CalculateYourRedundancyPayTest < ActiveSupport::TestCase
   context "2012/2013 (rate ends on 1st Feb)" do
     should "use the correct rates" do
       Timecop.freeze("2017-08-31")
-      add_response '2013-01-31'
-      add_response '42'
-      add_response '4.5'
-      add_response '700'
+      add_response "2013-01-31"
+      add_response "42"
+      add_response "4.5"
+      add_response "700"
       assert_current_node :done
       assert_state_variable :rate, 430
       assert_state_variable :ni_rate, 430
@@ -254,10 +254,10 @@ class CalculateYourRedundancyPayTest < ActiveSupport::TestCase
   context "2013/2014 (rate starts on 1st Feb)" do
     should "use the correct rates" do
       Timecop.freeze("2017-08-31")
-      add_response '2013-02-01'
-      add_response '42'
-      add_response '4.5'
-      add_response '700'
+      add_response "2013-02-01"
+      add_response "42"
+      add_response "4.5"
+      add_response "700"
       assert_current_node :done
       assert_state_variable :rate, 450
       assert_state_variable :ni_rate, 450
@@ -266,10 +266,10 @@ class CalculateYourRedundancyPayTest < ActiveSupport::TestCase
 
   context "2015/2016" do
     should "Use the correct rates" do
-      add_response '2015-05-01'
-      add_response '22'
-      add_response '7'
-      add_response '700'
+      add_response "2015-05-01"
+      add_response "22"
+      add_response "7"
+      add_response "700"
       assert_current_node :done
       assert_state_variable :rate, 475
       assert_state_variable :ni_rate, 490
@@ -282,10 +282,10 @@ class CalculateYourRedundancyPayTest < ActiveSupport::TestCase
 
   context "2017/2018" do
     should "Use the correct rates" do
-      add_response '2017-05-01'
-      add_response '22'
-      add_response '7'
-      add_response '700'
+      add_response "2017-05-01"
+      add_response "22"
+      add_response "7"
+      add_response "700"
       assert_current_node :done
       assert_state_variable :rate, 489
       assert_state_variable :ni_rate, 500
@@ -298,10 +298,10 @@ class CalculateYourRedundancyPayTest < ActiveSupport::TestCase
 
   context "2018/2019" do
     should "Use the correct rates" do
-      add_response '2018-05-01'
-      add_response '22'
-      add_response '7'
-      add_response '700'
+      add_response "2018-05-01"
+      add_response "22"
+      add_response "7"
+      add_response "700"
       assert_current_node :done
       assert_state_variable :rate, 508
       assert_state_variable :ni_rate, 530
@@ -314,10 +314,10 @@ class CalculateYourRedundancyPayTest < ActiveSupport::TestCase
 
   context "2019/2020" do
     should "Use the correct rates" do
-      add_response '2019-05-01'
-      add_response '22'
-      add_response '7'
-      add_response '700'
+      add_response "2019-05-01"
+      add_response "22"
+      add_response "7"
+      add_response "700"
       assert_current_node :done
       assert_state_variable :rate, 525
       assert_state_variable :ni_rate, 547

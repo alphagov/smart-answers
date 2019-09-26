@@ -26,12 +26,12 @@ module SmartAnswer::Calculators
       if birthday_on_feb_29? && !pension_on_feb_29?
         SmartAnswer::DateRange.new(
           begins_on: dob,
-          ends_on: state_pension_date - 1.day
+          ends_on: state_pension_date - 1.day,
         ).friendly_time_diff
       else
         SmartAnswer::DateRange.new(
           begins_on: dob,
-          ends_on: state_pension_date
+          ends_on: state_pension_date,
         ).friendly_time_diff
       end
     end
@@ -57,7 +57,7 @@ module SmartAnswer::Calculators
     end
 
     def old_state_pension?
-      state_pension_date < Date.parse('6 April 2016')
+      state_pension_date < Date.parse("6 April 2016")
     end
 
     def over_16_years_old?
@@ -65,7 +65,7 @@ module SmartAnswer::Calculators
     end
 
     def how_to_claim_url
-      old_state_pension? ? '/state-pension/how-to-claim' : '/new-state-pension/how-to-claim'
+      old_state_pension? ? "/state-pension/how-to-claim" : "/new-state-pension/how-to-claim"
     end
 
     def rolling_increase_period?

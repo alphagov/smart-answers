@@ -1,6 +1,6 @@
 require_relative "../../test_helper"
 require_relative "flow_test_helper"
-require 'gds_api/test_helpers/imminence'
+require "gds_api/test_helpers/imminence"
 
 require "smart_answer_flows/landlord-immigration-check"
 
@@ -11,8 +11,8 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
   setup do
     setup_for_testing_flow SmartAnswer::LandlordImmigrationCheckFlow
 
-    imminence_has_areas_for_postcode("PA3%202SW", [{ type: 'EUR', name: 'Scotland', country_name: 'Scotland' }])
-    imminence_has_areas_for_postcode("B1%201PW", [{ type: 'EUR', name: 'West Midlands', country_name: 'England' }])
+    imminence_has_areas_for_postcode("PA3%202SW", [{ type: "EUR", name: "Scotland", country_name: "Scotland" }])
+    imminence_has_areas_for_postcode("B1%201PW", [{ type: "EUR", name: "West Midlands", country_name: "England" }])
   end
 
   should "start by asking first question" do
@@ -193,7 +193,7 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
       end
 
       should "go to outcome_can_rent if tenant answers yes to has_documents?" do
-        add_response "no"  # family_permit?
+        add_response "no" # family_permit?
         add_response "no" # has_residence_card_or_eu_eea_swiss_family_member?
         add_response "yes" # has_documents?
         assert_current_node :outcome_can_rent
@@ -207,7 +207,7 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
       end
 
       should "go to outcome_can_rent_but_check_will_be_needed_again if tenant has time limited leave to remain" do
-        add_response "no"  # family_permit?
+        add_response "no" # family_permit?
         add_response "no" # has_residence_card_or_eu_eea_swiss_family_member?
         add_response "no" # has_documents?
         add_response "yes" # time_limited_to_remain?
@@ -223,7 +223,7 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
       end
 
       should "go to outcome_can_rent if tenant answers yes to has_other_documents?" do
-        add_response "no"  # family_permit?
+        add_response "no" # family_permit?
         add_response "no" # has_residence_card_or_eu_eea_swiss_family_member?
         add_response "no" # has_documents?
         add_response "no" # time_limited_to_remain?
@@ -241,7 +241,7 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
       end
 
       should "go to outcome_landlords_checking_service if tenant answers yes to waiting_for_documents?" do
-        add_response "no"  # family_permit?
+        add_response "no" # family_permit?
         add_response "no" # has_residence_card_or_eu_eea_swiss_family_member?
         add_response "no" # has_documents?
         add_response "no" # time_limited_to_remain?
@@ -261,7 +261,7 @@ class LandlordImmigrationCheckFlowTest < ActiveSupport::TestCase
       end
 
       should "go to outcome_landlords_checking_service if tenant has special permission to rent" do
-        add_response "no"  # family_permit?
+        add_response "no" # family_permit?
         add_response "no" # has_residence_card_or_eu_eea_swiss_family_member?
         add_response "no" # has_documents?
         add_response "no" # time_limited_to_remain?

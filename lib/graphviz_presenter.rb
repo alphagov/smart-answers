@@ -2,16 +2,16 @@ class GraphvizPresenter < GraphPresenter
   def to_gv
     [
       "digraph MyFlow {",
-      '',
-      '## LABELS',
-      '',
+      "",
+      "## LABELS",
+      "",
       label_lines,
-      '',
-      '## EDGES',
-      '',
+      "",
+      "## EDGES",
+      "",
       edge_lines,
       metadata_lines,
-      "}"
+      "}",
     ].flatten.join("\n")
   end
 
@@ -19,20 +19,20 @@ class GraphvizPresenter < GraphPresenter
     labels.map do |name, label|
       attrs = {
         label: escape(label),
-        shape: "box"
+        shape: "box",
       }
       if is_first?(name)
         attrs.merge!(
           color: "gold1",
-          style: "filled"
+          style: "filled",
         )
       elsif is_outcome?(name)
         attrs.merge!(
           color: "aquamarine",
-          style: "filled"
+          style: "filled",
         )
       end
-      attribute_clause = attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(' ')
+      attribute_clause = attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(" ")
       %{#{normalize_name(name)} [#{attribute_clause}]}
     end
   end
@@ -49,6 +49,7 @@ class GraphvizPresenter < GraphPresenter
     unflattened = adjacency_list.map do |name, exits|
       exits.map do |nextnode, label|
         next unless nextnode
+
         %{#{normalize_name(name)}->#{normalize_name(nextnode)} [label="#{label}"];}
       end
     end
@@ -57,10 +58,10 @@ class GraphvizPresenter < GraphPresenter
 
   def metadata_lines
     [
-      'overlap=false;',
-      'splines=true;',
+      "overlap=false;",
+      "splines=true;",
       %{label="#{escape(presenter.title)}";},
-      'fontsize=12;'
+      "fontsize=12;",
     ]
   end
 
@@ -69,7 +70,7 @@ class GraphvizPresenter < GraphPresenter
       "\n" => '\n',
       "[" => '\[',
       "]" => '\]',
-      '"' => '\''
+      '"' => "'",
     }
     label.to_s.gsub(%r{[\n\[\]"]}, map)
   end

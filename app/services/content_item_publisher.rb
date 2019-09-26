@@ -17,7 +17,7 @@ class ContentItemPublisher
     Services.publishing_api.unpublish(
       content_id,
       type: "gone",
-      unpublished_at: Time.now
+      unpublished_at: Time.now,
     )
   end
 
@@ -34,9 +34,9 @@ class ContentItemPublisher
           path: path,
           type: :prefix,
           destination: destination,
-          segments_mode: :ignore
-        }
-      ]
+          segments_mode: :ignore,
+        },
+      ],
     )
   end
 
@@ -52,7 +52,7 @@ class ContentItemPublisher
     Services.publishing_api.put_json(
       reserve_path_url(base_path),
       publishing_app: publishing_app,
-      override_existing: true
+      override_existing: true,
     )
   end
 
@@ -68,7 +68,7 @@ class ContentItemPublisher
       publishing_app: publishing_app,
       title: title,
       content: content,
-      link: link
+      link: link,
     )
   end
 
@@ -82,7 +82,7 @@ class ContentItemPublisher
       base_path,
       publishing_app: publishing_app,
       title: title,
-      content: content
+      content: content,
     )
   end
 
@@ -106,16 +106,16 @@ private
         body: [
           {
             content: content,
-            content_type: "text/govspeak"
-          }
-        ]
+            content_type: "text/govspeak",
+          },
+        ],
       },
       routes: [
         {
           type: :exact,
-          path: base_path
-        }
-      ]
+          path: base_path,
+        },
+      ],
     }
 
     create_and_publish_via_publishing_api(payload)
@@ -134,18 +134,18 @@ private
         introductory_paragraph: [
           {
             content: content,
-            content_type: "text/govspeak"
-          }
+            content_type: "text/govspeak",
+          },
         ],
-        transaction_start_link: link
+        transaction_start_link: link,
       },
       routes: [
         {
           type: :exact,
-          path: base_path
-        }
+          path: base_path,
+        },
       ],
-      schema_name: :transaction
+      schema_name: :transaction,
     }
 
     create_and_publish_via_publishing_api(payload)
@@ -155,6 +155,7 @@ private
     content_id = SecureRandom.uuid
     response = Services.publishing_api.put_content(content_id, payload)
     raise "This content item has not been created" unless response.code == 200
+
     Services.publishing_api.publish(content_id)
   end
 end

@@ -1,7 +1,7 @@
 module SmartAnswer
   class CheckboxSampleFlow < Flow
     def define
-      name 'checkbox-sample'
+      name "checkbox-sample"
       status :draft
 
       checkbox_question :what_do_you_want_on_your_pizza? do
@@ -13,11 +13,11 @@ module SmartAnswer
         save_input_as :toppings
 
         next_node do |response|
-          if response == 'none'
+          if response == "none"
             question :confirm_no_toppings?
           else
-            toppings = response.split(',')
-            if toppings.include?('ice_cream')
+            toppings = response.split(",")
+            if toppings.include?("ice_cream")
               outcome :no_way
             else
               outcome :on_its_way
@@ -32,7 +32,7 @@ module SmartAnswer
         set_none_option(label: "Definitely no toppings")
 
         next_node do |response|
-          if response == 'none'
+          if response == "none"
             outcome :margherita
           else
             question :what_do_you_want_on_your_pizza?

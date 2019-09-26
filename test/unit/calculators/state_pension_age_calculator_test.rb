@@ -2,91 +2,93 @@ require_relative "../../test_helper"
 
 module SmartAnswer::Calculators
   class StatePensionAgeCalculatorTest < ActiveSupport::TestCase
-    context '#state_pension_date' do
+    context "#state_pension_date" do
       setup do
         @calculator = StatePensionAgeCalculator.new(
-          gender: "male", dob: Date.parse("28 February 1961"))
+          gender: "male", dob: Date.parse("28 February 1961"),
+)
       end
 
-      should 'simply delegate to StatePensionDateQuery.state_pension_date' do
+      should "simply delegate to StatePensionDateQuery.state_pension_date" do
         assert_equal @calculator.state_pension_date,
-          StatePensionDateQuery.state_pension_date(@calculator.dob, @calculator.gender)
+                     StatePensionDateQuery.state_pension_date(@calculator.dob, @calculator.gender)
       end
     end
 
     context "#state_pension_age" do
       setup do
         @calculator = StatePensionAgeCalculator.new(
-          gender: "male", dob: Date.parse("28 February 1961"))
+          gender: "male", dob: Date.parse("28 February 1961"),
+)
       end
 
-      context 'given a state_pension_date on a different year to the date of birth' do
+      context "given a state_pension_date on a different year to the date of birth" do
         setup do
-          @calculator.stubs(:state_pension_date).returns(Date.parse('28 Feb 2022'))
+          @calculator.stubs(:state_pension_date).returns(Date.parse("28 Feb 2022"))
         end
 
-        should 'return the number of years to your state pension' do
-          assert_equal @calculator.state_pension_age, '61 years'
+        should "return the number of years to your state pension" do
+          assert_equal @calculator.state_pension_age, "61 years"
         end
       end
 
-      context 'given a state_pension_date on a different year and month to the date of birth' do
+      context "given a state_pension_date on a different year and month to the date of birth" do
         setup do
-          @calculator.stubs(:state_pension_date).returns(Date.parse('28 March 2022'))
+          @calculator.stubs(:state_pension_date).returns(Date.parse("28 March 2022"))
         end
 
-        should 'return the number of years to your state pension' do
-          assert_equal @calculator.state_pension_age, '61 years, 1 month'
+        should "return the number of years to your state pension" do
+          assert_equal @calculator.state_pension_age, "61 years, 1 month"
         end
       end
 
-      context 'given a state_pension_date on a different year, month and day to the date of birth' do
+      context "given a state_pension_date on a different year, month and day to the date of birth" do
         setup do
-          @calculator.stubs(:state_pension_date).returns(Date.parse('30 March 2022'))
+          @calculator.stubs(:state_pension_date).returns(Date.parse("30 March 2022"))
         end
 
-        should 'return the number of years to your state pension' do
-          assert_equal @calculator.state_pension_age, '61 years, 1 month, 2 days'
+        should "return the number of years to your state pension" do
+          assert_equal @calculator.state_pension_age, "61 years, 1 month, 2 days"
         end
       end
 
-      context 'given a state_pension_date on the 29th of Feb' do
+      context "given a state_pension_date on the 29th of Feb" do
         setup do
           @calculator.stubs(:dob).returns(Date.parse("29 Feb 1980"))
-          @calculator.stubs(:state_pension_date).returns(Date.parse('1 March 2040'))
+          @calculator.stubs(:state_pension_date).returns(Date.parse("1 March 2040"))
         end
 
-        should 'subtract one day from your state_pension age, and return number of years, months and days to your state pension' do
-          assert_equal @calculator.state_pension_age, '60 years'
+        should "subtract one day from your state_pension age, and return number of years, months and days to your state pension" do
+          assert_equal @calculator.state_pension_age, "60 years"
         end
       end
 
-      context 'given variable changes to state pension age between 66 - 67 years for births between 6 Apr 1960 - 5 Mar 1961' do
+      context "given variable changes to state pension age between 66 - 67 years for births between 6 Apr 1960 - 5 Mar 1961" do
         [
           {
-            birth_date: Date.parse('6 Apr 1960'),
-            pension_date: Date.parse('6 May 2026'),
-            expected_age: '66 years, 1 month'
+            birth_date: Date.parse("6 Apr 1960"),
+            pension_date: Date.parse("6 May 2026"),
+            expected_age: "66 years, 1 month",
           },
           {
-            birth_date: Date.parse('20 May 1960'),
-            pension_date: Date.parse('20 Jul 2026'),
-            expected_age: '66 years, 2 months'
+            birth_date: Date.parse("20 May 1960"),
+            pension_date: Date.parse("20 Jul 2026"),
+            expected_age: "66 years, 2 months",
           },
           {
-            birth_date: Date.parse('1 Jul 1960'),
-            pension_date: Date.parse('1 Oct 2026'),
-            expected_age: '66 years, 3 months'
+            birth_date: Date.parse("1 Jul 1960"),
+            pension_date: Date.parse("1 Oct 2026"),
+            expected_age: "66 years, 3 months",
           },
           {
-            birth_date: Date.parse('8 Dec 1960'),
-            pension_date: Date.parse('8 Sep 2027'),
-            expected_age: '66 years, 9 months'
+            birth_date: Date.parse("8 Dec 1960"),
+            pension_date: Date.parse("8 Sep 2027"),
+            expected_age: "66 years, 9 months",
           },
           {
-            birth_date: Date.parse('28 Feb 1961'),
-            pension_date: Date.parse('28 Jan 2028'),
-            expected_age: '66 years, 11 months'
+            birth_date: Date.parse("28 Feb 1961"),
+            pension_date: Date.parse("28 Jan 2028"),
+            expected_age: "66 years, 11 months",
           },
         ].each do |test_case|
           should "someone born on #{test_case[:birth_date]} and getting their pension on #{test_case[:pension_date]} should have a pension age of #{test_case[:age]}" do
@@ -97,32 +99,32 @@ module SmartAnswer::Calculators
         end
       end
 
-      context 'given a series of dates around 28 Feb test the calculated state_pension_age' do
+      context "given a series of dates around 28 Feb test the calculated state_pension_age" do
         [
           {
-            birth_date: Date.parse('28 Feb 1980'),
-            pension_date: Date.parse('28 Feb 2048'),
-            expected_age: '68 years'
+            birth_date: Date.parse("28 Feb 1980"),
+            pension_date: Date.parse("28 Feb 2048"),
+            expected_age: "68 years",
           },
           {
-            birth_date: Date.parse('29 Feb 1980'),
-            pension_date: Date.parse('29 Feb 2048'),
-            expected_age: '68 years'
+            birth_date: Date.parse("29 Feb 1980"),
+            pension_date: Date.parse("29 Feb 2048"),
+            expected_age: "68 years",
           },
           {
-            birth_date: Date.parse('1 Mar 1980'),
-            pension_date: Date.parse('1 Mar 2048'),
-            expected_age: '68 years'
+            birth_date: Date.parse("1 Mar 1980"),
+            pension_date: Date.parse("1 Mar 2048"),
+            expected_age: "68 years",
           },
           {
-            birth_date: Date.parse('28 Feb 1981'),
-            pension_date: Date.parse('28 Feb 2049'),
-            expected_age: '68 years'
+            birth_date: Date.parse("28 Feb 1981"),
+            pension_date: Date.parse("28 Feb 2049"),
+            expected_age: "68 years",
           },
           {
-            birth_date: Date.parse('1 Mar 1981'),
-            pension_date: Date.parse('1 Mar 2049'),
-            expected_age: '68 years'
+            birth_date: Date.parse("1 Mar 1981"),
+            pension_date: Date.parse("1 Mar 2049"),
+            expected_age: "68 years",
           },
         ].each do |test_case|
           should "someone born on #{test_case[:birth_date]} and getting their pension on #{test_case[:pension_date]} should have a pension age of #{test_case[:age]}" do
@@ -137,23 +139,26 @@ module SmartAnswer::Calculators
     context "#birthday_on_feb_29??" do
       should "be true for a date that is a the 29th of feb" do
         @calculator = StatePensionAgeCalculator.new(
-          gender: "male", dob: Date.parse("29 February 1976"))
+          gender: "male", dob: Date.parse("29 February 1976"),
+)
         assert_equal true, @calculator.birthday_on_feb_29?
       end
 
       should "be false for a date that is not the 29th of feb" do
         @calculator = StatePensionAgeCalculator.new(
-          gender: "male", dob: Date.parse("7 June 1960"))
+          gender: "male", dob: Date.parse("7 June 1960"),
+)
         assert_equal false, @calculator.birthday_on_feb_29?
       end
     end
 
-    context '#pension_on_feb_29??' do
-      context 'pension due on 29th of Feb' do
+    context "#pension_on_feb_29??" do
+      context "pension due on 29th of Feb" do
         setup do
           @calculator = StatePensionAgeCalculator.new(
-            gender: "male", dob: Date.parse("29 Feb 1980"))
-          @calculator.stubs(:state_pension_date).returns(Date.parse('29 Feb 2048'))
+            gender: "male", dob: Date.parse("29 Feb 1980"),
+)
+          @calculator.stubs(:state_pension_date).returns(Date.parse("29 Feb 2048"))
         end
 
         should "be true for a date that is the 29th of Feb" do
@@ -161,11 +166,12 @@ module SmartAnswer::Calculators
         end
       end
 
-      context 'pension not due on 29th of Feb' do
+      context "pension not due on 29th of Feb" do
         setup do
           @calculator = StatePensionAgeCalculator.new(
-            gender: "male", dob: Date.parse("28 Aug 1974"))
-          @calculator.stubs(:state_pension_date).returns(Date.parse('28 Aug 2041'))
+            gender: "male", dob: Date.parse("28 Aug 1974"),
+)
+          @calculator.stubs(:state_pension_date).returns(Date.parse("28 Aug 2041"))
         end
 
         should "be false for a date that is not the 29th of Feb" do
@@ -174,26 +180,26 @@ module SmartAnswer::Calculators
       end
     end
 
-    context '#before_state_pension_date?' do
+    context "#before_state_pension_date?" do
       setup do
         @calculator = StatePensionAgeCalculator.new({})
       end
 
-      should 'return true for someone yet to reach their state pension date' do
+      should "return true for someone yet to reach their state pension date" do
         Timecop.freeze do
           @calculator.stubs(:state_pension_date).returns(Date.today + 1.minute)
           assert @calculator.before_state_pension_date?
         end
       end
 
-      should 'return false for someone who has reached their state pension date' do
+      should "return false for someone who has reached their state pension date" do
         Timecop.freeze do
           @calculator.stubs(:state_pension_date).returns(Date.today)
           assert_not @calculator.before_state_pension_date?
         end
       end
 
-      should 'return false for someone who has just passed their state pension date' do
+      should "return false for someone who has just passed their state pension date" do
         Timecop.freeze do
           @calculator.stubs(:state_pension_date).returns(Date.today - 1.minute)
           assert_not @calculator.before_state_pension_date?
@@ -201,26 +207,26 @@ module SmartAnswer::Calculators
       end
     end
 
-    context '#before_state_pension_date?(days: 30)' do
+    context "#before_state_pension_date?(days: 30)" do
       setup do
         @calculator = StatePensionAgeCalculator.new({})
       end
 
-      should 'return true for someone just over 30 days away from their pension_credit_date' do
+      should "return true for someone just over 30 days away from their pension_credit_date" do
         Timecop.freeze do
           @calculator.stubs(:state_pension_date).returns(Date.today + 31.days)
           assert @calculator.before_state_pension_date?(days: 2)
         end
       end
 
-      should 'return false for someone exactly 30 days away' do
+      should "return false for someone exactly 30 days away" do
         Timecop.freeze do
           @calculator.stubs(:state_pension_date).returns(Date.today + 30.days)
           assert_not @calculator.before_state_pension_date?(days: 30)
         end
       end
 
-      should 'return false for someone less than 30 days to their pension credit date' do
+      should "return false for someone less than 30 days to their pension credit date" do
         Timecop.freeze do
           @calculator.stubs(:state_pension_date).returns(Date.today + 29.days)
           assert_not @calculator.before_state_pension_date?(days: 30)
@@ -228,26 +234,26 @@ module SmartAnswer::Calculators
       end
     end
 
-    context '#before_pension_credit_date?' do
+    context "#before_pension_credit_date?" do
       setup do
         @calculator = StatePensionAgeCalculator.new({})
       end
 
-      should 'return true for someone yet to reach their pension credit date' do
+      should "return true for someone yet to reach their pension credit date" do
         Timecop.freeze do
           @calculator.stubs(:pension_credit_date).returns(Date.today + 1.minute)
           assert @calculator.before_pension_credit_date?
         end
       end
 
-      should 'return false for someone has just reached their pension credit date' do
+      should "return false for someone has just reached their pension credit date" do
         Timecop.freeze do
           @calculator.stubs(:pension_credit_date).returns(Date.today)
           assert_not @calculator.before_pension_credit_date?
         end
       end
 
-      should 'return false for someone who has just passed their pension credit date' do
+      should "return false for someone who has just passed their pension credit date" do
         Timecop.freeze do
           @calculator.stubs(:pension_credit_date).returns(Date.today - 1.minute)
           assert_not @calculator.before_pension_credit_date?
@@ -255,23 +261,23 @@ module SmartAnswer::Calculators
       end
     end
 
-    context '#old_state_pension?' do
+    context "#old_state_pension?" do
       setup do
         @calculator = StatePensionAgeCalculator.new({})
       end
 
-      should 'return true when the state_pension_date falls before 6 April 2016' do
-        @calculator.stubs(:state_pension_date).returns(Date.parse('5 April 2016'))
+      should "return true when the state_pension_date falls before 6 April 2016" do
+        @calculator.stubs(:state_pension_date).returns(Date.parse("5 April 2016"))
         assert @calculator.old_state_pension?
       end
 
-      should 'return false when the state_pension_date falls on 6 April 2016' do
-        @calculator.stubs(:state_pension_date).returns(Date.parse('6 April 2016'))
+      should "return false when the state_pension_date falls on 6 April 2016" do
+        @calculator.stubs(:state_pension_date).returns(Date.parse("6 April 2016"))
         assert_not @calculator.old_state_pension?
       end
 
-      should 'return false when the state_pension_date falls after 6 April 2016' do
-        @calculator.stubs(:state_pension_date).returns(Date.parse('7 April 2016'))
+      should "return false when the state_pension_date falls after 6 April 2016" do
+        @calculator.stubs(:state_pension_date).returns(Date.parse("7 April 2016"))
         assert_not @calculator.old_state_pension?
       end
     end
@@ -286,7 +292,7 @@ module SmartAnswer::Calculators
         end
       end
 
-      should 'return false for someone exactly 16 years old' do
+      should "return false for someone exactly 16 years old" do
         Timecop.freeze do
           date_of_birth = 16.years.ago
 
@@ -295,7 +301,7 @@ module SmartAnswer::Calculators
         end
       end
 
-      should 'return false for someone just under 16 years old' do
+      should "return false for someone just under 16 years old" do
         Timecop.freeze do
           date_of_birth = (16.years - 1.minute).ago
 

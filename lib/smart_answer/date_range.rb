@@ -58,8 +58,8 @@ module SmartAnswer
       (self.class == other.class) && ([begins_on, ends_on] == [other.begins_on, other.ends_on])
     end
 
-    def +(days)
-      DateRange.new begins_on: begins_on + days, ends_on: ends_on + days
+    def +(other)
+      DateRange.new begins_on: begins_on + other, ends_on: ends_on + other
     end
 
     def hash
@@ -81,7 +81,7 @@ module SmartAnswer
     def gap_between(other)
       self.class.new(
         begins_on: [ComparableDate.new(ends_on), ComparableDate.new(other.ends_on)].min.date + 1,
-        ends_on: [ComparableDate.new(begins_on), ComparableDate.new(other.begins_on)].max.date - 1
+        ends_on: [ComparableDate.new(begins_on), ComparableDate.new(other.begins_on)].max.date - 1,
       )
     end
 
@@ -131,9 +131,9 @@ module SmartAnswer
 
     def date_parts
       [
-        date_part('year', whole_years_away),
-        date_part('month', whole_months_away),
-        date_part('day', whole_days_away)
+        date_part("year", whole_years_away),
+        date_part("month", whole_months_away),
+        date_part("day", whole_days_away),
       ]
     end
 

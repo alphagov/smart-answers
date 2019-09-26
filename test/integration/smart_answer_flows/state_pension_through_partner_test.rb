@@ -1,7 +1,6 @@
-
-require_relative '../../test_helper'
-require_relative 'flow_test_helper'
-require 'gds_api/test_helpers/worldwide'
+require_relative "../../test_helper"
+require_relative "flow_test_helper"
+require "gds_api/test_helpers/worldwide"
 
 require "smart_answer_flows/state-pension-through-partner"
 

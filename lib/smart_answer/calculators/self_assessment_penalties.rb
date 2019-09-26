@@ -36,17 +36,17 @@ module SmartAnswer::Calculators
 
     def tax_year_range
       case tax_year
-      when '2012-13'
+      when "2012-13"
         SmartAnswer::YearRange.tax_year.starting_in(2012)
-      when '2013-14'
+      when "2013-14"
         SmartAnswer::YearRange.tax_year.starting_in(2013)
-      when '2014-15'
+      when "2014-15"
         SmartAnswer::YearRange.tax_year.starting_in(2014)
-      when '2015-16'
+      when "2015-16"
         SmartAnswer::YearRange.tax_year.starting_in(2015)
-      when '2016-17'
+      when "2016-17"
         SmartAnswer::YearRange.tax_year.starting_in(2016)
-      when '2017-18'
+      when "2017-18"
         SmartAnswer::YearRange.tax_year.starting_in(2017)
       end
     end
@@ -57,17 +57,17 @@ module SmartAnswer::Calculators
 
     def one_year_after_start_date_for_penalties
       case tax_year
-      when '2012-13'
+      when "2012-13"
         PENALTY_YEAR.starting_in(2015).begins_on
-      when '2013-14'
+      when "2013-14"
         PENALTY_YEAR.starting_in(2016).begins_on
-      when '2014-15'
+      when "2014-15"
         PENALTY_YEAR.starting_in(2017).begins_on
-      when '2015-16'
+      when "2015-16"
         PENALTY_YEAR.starting_in(2018).begins_on
-      when '2016-17'
+      when "2016-17"
         PENALTY_YEAR.starting_in(2019).begins_on
-      when '2017-18'
+      when "2017-18"
         PENALTY_YEAR.starting_in(2020).begins_on
       end
     end
@@ -98,34 +98,32 @@ module SmartAnswer::Calculators
             result = 1000
           end
         end
-      else
-        if overdue_filing_days <= 92
-          result = 100
-        elsif overdue_filing_days <= 181
-          result = (overdue_filing_days - 92) * 10 + 100
-          #this fine can't be more than 1000£
-          if result > 1000
-            result = 1000
-          end
+      elsif overdue_filing_days <= 92
+        result = 100
+      elsif overdue_filing_days <= 181
+        result = (overdue_filing_days - 92) * 10 + 100
+        #this fine can't be more than 1000£
+        if result > 1000
+          result = 1000
         end
       end
 
       #More than 6 months, same for paper and online return
       if (overdue_filing_days > 181) && (overdue_filing_days <= 365)
         #if 5% of tax due is higher than 300£ then charge 5% of tax due otherwise charge 300£
-        if estimated_bill.value > 6002
-          result = 1000 + (estimated_bill.value * 0.05)
-        else
-          result = 1000 + 300
-        end
+        result = if estimated_bill.value > 6002
+                   1000 + (estimated_bill.value * 0.05)
+                 else
+                   1000 + 300
+                 end
         #if more than 1 year
       elsif overdue_filing_days > 365
         # if 5% of tax due is higher than 300£ then charge 5% of tax due otherwise charge 300£ + all other fines
-        if estimated_bill.value > 6002
-          result = 1000 + (estimated_bill.value * 0.05) + (estimated_bill.value * 0.05)
-        else
-          result = 1000 + 600
-        end
+        result = if estimated_bill.value > 6002
+                   1000 + (estimated_bill.value * 0.05) + (estimated_bill.value * 0.05)
+                 else
+                   1000 + 600
+                 end
       end
       SmartAnswer::Money.new(result)
     end

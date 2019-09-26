@@ -1,7 +1,7 @@
-require_relative '../../test_helper'
-require_relative 'flow_test_helper'
-require_relative 'maternity_calculator_helper'
-require_relative '../../../lib/smart_answer/date_helper'
+require_relative "../../test_helper"
+require_relative "flow_test_helper"
+require_relative "maternity_calculator_helper"
+require_relative "../../../lib/smart_answer/date_helper"
 
 require "smart_answer_flows/maternity-paternity-calculator"
 
@@ -175,13 +175,13 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
 
                 context "answer weekly" do
                   setup do
-                    add_response 'weekly'
+                    add_response "weekly"
                   end
                   ## QM8
                   should "ask what the employees earnings are for the period" do
                     assert_current_node :earnings_for_pay_period?
                     ##TODO relevant period calculation
-                    assert_equal 'weekly', current_state.calculator.pay_pattern
+                    assert_equal "weekly", current_state.calculator.pay_pattern
                   end
 
                   context "answer 1083.20" do
@@ -281,7 +281,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                     should "calculate the SMP for first day of the month" do
                       add_response "first_day_of_the_month"
                       assert_current_node :maternity_leave_and_pay_result
-                      assert_state_variable :monthly_pay_method, 'first_day_of_the_month'
+                      assert_state_variable :monthly_pay_method, "first_day_of_the_month"
                     end
 
                     should "calculate the SMP for last day of the month" do
@@ -321,7 +321,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
                       end
 
                       should "store this as pay_day_in_month" do
-                        assert_state_variable :monthly_pay_method, 'last_working_day_of_the_month'
+                        assert_state_variable :monthly_pay_method, "last_working_day_of_the_month"
                       end
 
                       should "ask what days the employee works" do
@@ -441,7 +441,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
           add_response "29"
         end
         should "assume values over 28 as the last day of the month" do
-          assert_state_variable :pay_method, 'last_day_of_the_month'
+          assert_state_variable :pay_method, "last_day_of_the_month"
         end
       end
       context "calculate maternity with £4000 earnings" do
@@ -588,7 +588,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
         add_response 880
         add_response "8"
         add_response "usual_paydates"
-        add_response Date.parse('2014-06-27')
+        add_response Date.parse("2014-06-27")
       end
 
       should "have LEL of 109" do
@@ -609,7 +609,7 @@ class MaternityCalculatorTest < ActiveSupport::TestCase
         add_response 880
         add_response "4"
         add_response "usual_paydates"
-        add_response Date.parse('2014-01-17')
+        add_response Date.parse("2014-01-17")
       end
 
       should "have LEL of 109" do

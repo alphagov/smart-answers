@@ -1,7 +1,7 @@
 module SmartAnswer
   class FlowSampleFlow < Flow
     def define
-      name 'flow-sample'
+      name "flow-sample"
       satisfies_need 4242
       start_page_content_id "f26e566e-2557-4921-b944-9373c32255f1"
 
@@ -11,9 +11,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'hotter'
+          when "hotter"
             outcome :hot
-          when 'colder'
+          when "colder"
             question :frozen?
           end
         end
@@ -25,9 +25,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'yes'
+          when "yes"
             outcome :frozen
-          when 'no'
+          when "no"
             outcome :cold
           end
         end

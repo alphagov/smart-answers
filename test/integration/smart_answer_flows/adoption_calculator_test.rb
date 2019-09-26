@@ -1,6 +1,6 @@
-require_relative '../../test_helper'
-require_relative 'flow_test_helper'
-require_relative '../../../lib/smart_answer/date_helper'
+require_relative "../../test_helper"
+require_relative "flow_test_helper"
+require_relative "../../../lib/smart_answer/date_helper"
 
 require "smart_answer_flows/maternity-paternity-calculator"
 
@@ -63,13 +63,13 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
                 setup { add_response :yes }
 
                 should "ask if the employee is on your payroll" do
-                  assert_equal 'yes', current_state.calculator.employee_has_contract_adoption
+                  assert_equal "yes", current_state.calculator.employee_has_contract_adoption
                   assert_current_node :adoption_is_the_employee_on_your_payroll?
                 end
 
-                should 'render the question title with an interpolated date' do
+                should "render the question title with an interpolated date" do
                   nodes = Capybara.string(current_question.to_s)
-                  assert nodes.has_content?('Was the employee (or will they be) on your payroll on')
+                  assert nodes.has_content?("Was the employee (or will they be) on your payroll on")
                 end
 
                 context "answer yes" do
@@ -333,13 +333,13 @@ class AdoptionCalculatorTest < ActiveSupport::TestCase
                   setup { add_response :yes }
 
                   should "ask if the employee is on your payroll" do
-                    assert_equal 'yes', current_state.calculator.employee_has_contract_adoption
+                    assert_equal "yes", current_state.calculator.employee_has_contract_adoption
                     assert_current_node :adoption_is_the_employee_on_your_payroll?
                   end
 
-                  should 'render the question title with an interpolated date' do
+                  should "render the question title with an interpolated date" do
                     nodes = Capybara.string(current_question.to_s)
-                    assert nodes.has_content?('Was the employee (or will they be) on your payroll on')
+                    assert nodes.has_content?("Was the employee (or will they be) on your payroll on")
                   end
 
                   context "answer yes" do

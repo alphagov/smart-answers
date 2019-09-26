@@ -1,5 +1,5 @@
-require_relative '../../integration_test_helper'
-require_relative '../../helpers/fixture_flows_helper'
+require_relative "../../integration_test_helper"
+require_relative "../../helpers/fixture_flows_helper"
 
 class EngineIntegrationTest < ActionDispatch::IntegrationTest
   include FixtureFlowsHelper

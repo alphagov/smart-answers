@@ -1,5 +1,5 @@
-if Rails.env.production?
-  SmartAnswers::Application.config.expose_govspeak = ENV['EXPOSE_GOVSPEAK'].present?
-else
-  SmartAnswers::Application.config.expose_govspeak = true
-end
+SmartAnswers::Application.config.expose_govspeak = if Rails.env.production?
+                                                     ENV["EXPOSE_GOVSPEAK"].present?
+                                                   else
+                                                     true
+                                                   end

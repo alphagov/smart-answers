@@ -1,5 +1,5 @@
-require_relative '../test_helper'
-require 'ostruct'
+require_relative "../test_helper"
+require "ostruct"
 
 module SmartAnswer
   class ValueQuestionTest < ActiveSupport::TestCase
@@ -14,7 +14,7 @@ module SmartAnswer
       end
 
       new_state = q.transition(@initial_state, "123")
-      assert_equal '123', new_state.myval
+      assert_equal "123", new_state.myval
     end
 
     context "when parse option is Integer" do
@@ -124,7 +124,7 @@ module SmartAnswer
       end
 
       new_state = q.transition(@initial_state, "123")
-      assert_equal '123', new_state.myval
+      assert_equal "123", new_state.myval
     end
   end
 end

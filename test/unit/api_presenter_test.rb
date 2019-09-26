@@ -11,13 +11,11 @@ class ApiPresenterTest < ActiveSupport::TestCase
 
     assert_equal(
       api_prsenter_for(current_node),
-      {
-        _warning: "This is an unsupported API that will probably be removed!",
-        state: "finished",
-        title: "Title",
-        body: "Flow body",
-        outcome: "Title",
-      }
+      _warning: "This is an unsupported API that will probably be removed!",
+      state: "finished",
+      title: "Title",
+      body: "Flow body",
+      outcome: "Title",
     )
   end
 
@@ -26,16 +24,14 @@ class ApiPresenterTest < ActiveSupport::TestCase
 
     assert_equal(
       api_prsenter_for(current_node),
-      {
-        _warning: "This is an unsupported API that will probably be removed!",
-        state: "asking",
-        question_type: "mocha/mock",
-        title: "Title",
-        body: "Flow body",
-        hint: "hint",
-        error: nil,
-        questions: [],
-      }
+      _warning: "This is an unsupported API that will probably be removed!",
+      state: "asking",
+      question_type: "mocha/mock",
+      title: "Title",
+      body: "Flow body",
+      hint: "hint",
+      error: nil,
+      questions: [],
     )
   end
 end

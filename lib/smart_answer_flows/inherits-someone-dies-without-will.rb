@@ -3,7 +3,7 @@ module SmartAnswer
     def define
       start_page_content_id "1f75de31-1f07-4c68-b1ab-8330b1ee8670"
       flow_content_id "c1e50aff-67b7-4841-b0d8-33a66bec9807"
-      name 'inherits-someone-dies-without-will'
+      name "inherits-someone-dies-without-will"
       status :published
       satisfies_need "100988"
 
@@ -19,7 +19,7 @@ module SmartAnswer
         save_input_as :region
 
         calculate :next_steps do
-          [:wills_link, :inheritance_link]
+          %i[wills_link inheritance_link]
         end
 
         next_node do
@@ -36,14 +36,14 @@ module SmartAnswer
 
         next_node do |response|
           case region
-          when 'england-and-wales', 'northern-ireland'
+          when "england-and-wales", "northern-ireland"
             case response
-            when 'yes'
+            when "yes"
               question :estate_over_250000?
-            when 'no'
+            when "no"
               question :children?
             end
-          when 'scotland'
+          when "scotland"
             question :children?
           end
         end
@@ -66,18 +66,18 @@ module SmartAnswer
 
         next_node do |response|
           case region
-          when 'england-and-wales'
+          when "england-and-wales"
             case response
-            when 'yes'
+            when "yes"
               question :children?
-            when 'no'
+            when "no"
               outcome :outcome_1
             end
-          when 'northern-ireland'
+          when "northern-ireland"
             case response
-            when 'yes'
+            when "yes"
               question :children?
-            when 'no'
+            when "no"
               outcome :outcome_60
             end
           end
@@ -93,54 +93,54 @@ module SmartAnswer
 
         next_node do |response|
           case region
-          when 'england-and-wales'
+          when "england-and-wales"
             case partner
-            when 'yes'
+            when "yes"
               case response
-              when 'yes'
+              when "yes"
                 outcome :outcome_20
-              when 'no'
+              when "no"
                 outcome :outcome_1
               end
-            when 'no'
+            when "no"
               case response
-              when 'yes'
+              when "yes"
                 outcome :outcome_2
-              when 'no'
+              when "no"
                 question :parents?
               end
             end
-          when 'scotland'
+          when "scotland"
             case partner
-            when 'yes'
+            when "yes"
               case response
-              when 'yes'
+              when "yes"
                 outcome :outcome_40
-              when 'no'
+              when "no"
                 question :parents?
               end
-            when 'no'
+            when "no"
               case response
-              when 'yes'
+              when "yes"
                 outcome :outcome_2
-              when 'no'
+              when "no"
                 question :parents?
               end
             end
-          when 'northern-ireland'
+          when "northern-ireland"
             case partner
-            when 'yes'
+            when "yes"
               case response
-              when 'yes'
+              when "yes"
                 question :more_than_one_child?
-              when 'no'
+              when "no"
                 question :parents?
               end
-            when 'no'
+            when "no"
               case response
-              when 'yes'
+              when "yes"
                 outcome :outcome_66
-              when 'no'
+              when "no"
                 question :parents?
               end
             end
@@ -157,29 +157,29 @@ module SmartAnswer
 
         next_node do |response|
           case region
-          when 'england-and-wales'
+          when "england-and-wales"
             case response
-            when 'yes'
+            when "yes"
               outcome :outcome_3
-            when 'no'
+            when "no"
               question :siblings?
             end
-          when 'scotland'
+          when "scotland"
             question :siblings?
-          when 'northern-ireland'
+          when "northern-ireland"
             case partner
-            when 'yes'
+            when "yes"
               case response
-              when 'yes'
+              when "yes"
                 outcome :outcome_63
-              when 'no'
+              when "no"
                 question :siblings_including_mixed_parents?
               end
-            when 'no'
+            when "no"
               case response
-              when 'yes'
+              when "yes"
                 outcome :outcome_3
-              when 'no'
+              when "no"
                 question :siblings?
               end
             end
@@ -196,55 +196,55 @@ module SmartAnswer
 
         next_node do |response|
           case region
-          when 'england-and-wales'
+          when "england-and-wales"
             case response
-            when 'yes'
+            when "yes"
               outcome :outcome_4
-            when 'no'
+            when "no"
               question :half_siblings?
             end
-          when 'scotland'
+          when "scotland"
             case partner
-            when 'yes'
+            when "yes"
               case parents
-              when 'yes'
+              when "yes"
                 case response
-                when 'yes'
+                when "yes"
                   outcome :outcome_43
-                when 'no'
+                when "no"
                   outcome :outcome_42
                 end
-              when 'no'
+              when "no"
                 case response
-                when 'yes'
+                when "yes"
                   outcome :outcome_41
-                when 'no'
+                when "no"
                   outcome :outcome_1
                 end
               end
-            when 'no'
+            when "no"
               case parents
-              when 'yes'
+              when "yes"
                 case response
-                when 'yes'
+                when "yes"
                   outcome :outcome_44
-                when 'no'
+                when "no"
                   outcome :outcome_3
                 end
-              when 'no'
+              when "no"
                 case response
-                when 'yes'
+                when "yes"
                   outcome :outcome_4
-                when 'no'
+                when "no"
                   question :aunts_or_uncles?
                 end
               end
             end
-          when 'northern-ireland'
+          when "northern-ireland"
             case response
-            when 'yes'
+            when "yes"
               outcome :outcome_4
-            when 'no'
+            when "no"
               question :grandparents?
             end
           end
@@ -260,9 +260,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'yes'
+          when "yes"
             outcome :outcome_64
-          when 'no'
+          when "no"
             outcome :outcome_65
           end
         end
@@ -277,25 +277,25 @@ module SmartAnswer
 
         next_node do |response|
           case region
-          when 'england-and-wales'
+          when "england-and-wales"
             case response
-            when 'yes'
+            when "yes"
               outcome :outcome_5
-            when 'no'
+            when "no"
               question :aunts_or_uncles?
             end
-          when 'scotland'
+          when "scotland"
             case response
-            when 'yes'
+            when "yes"
               outcome :outcome_5
-            when 'no'
+            when "no"
               question :great_aunts_or_uncles?
             end
-          when 'northern-ireland'
+          when "northern-ireland"
             case response
-            when 'yes'
+            when "yes"
               outcome :outcome_5
-            when 'no'
+            when "no"
               question :aunts_or_uncles?
             end
           end
@@ -311,25 +311,25 @@ module SmartAnswer
 
         next_node do |response|
           case region
-          when 'england-and-wales'
+          when "england-and-wales"
             case response
-            when 'yes'
+            when "yes"
               outcome :outcome_6
-            when 'no'
+            when "no"
               question :half_aunts_or_uncles?
             end
-          when 'scotland'
+          when "scotland"
             case response
-            when 'yes'
+            when "yes"
               outcome :outcome_6
-            when 'no'
+            when "no"
               question :grandparents?
             end
-          when 'northern-ireland'
+          when "northern-ireland"
             case response
-            when 'yes'
+            when "yes"
               outcome :outcome_6
-            when 'no'
+            when "no"
               outcome :outcome_67
             end
           end
@@ -345,9 +345,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'yes'
+          when "yes"
             outcome :outcome_23
-          when 'no'
+          when "no"
             question :grandparents?
           end
         end
@@ -362,9 +362,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'yes'
+          when "yes"
             outcome :outcome_24
-          when 'no'
+          when "no"
             outcome :outcome_25
           end
         end
@@ -379,9 +379,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'yes'
+          when "yes"
             outcome :outcome_45
-          when 'no'
+          when "no"
             outcome :outcome_46
           end
         end
@@ -396,9 +396,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'yes'
+          when "yes"
             outcome :outcome_61
-          when 'no'
+          when "no"
             outcome :outcome_62
           end
         end

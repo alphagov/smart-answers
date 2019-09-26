@@ -1,7 +1,7 @@
-require_relative '../test_helper'
-require_relative '../helpers/fixture_flows_helper'
-require_relative '../fixtures/smart_answer_flows/smart-answers-controller-sample'
-require_relative 'smart_answers_controller_test_helper'
+require_relative "../test_helper"
+require_relative "../helpers/fixture_flows_helper"
+require_relative "../fixtures/smart_answer_flows/smart-answers-controller-sample"
+require_relative "smart_answers_controller_test_helper"
 
 class SmartAnswersControllerTest < ActionController::TestCase
   include FixtureFlowsHelper
@@ -56,12 +56,12 @@ class SmartAnswersControllerTest < ActionController::TestCase
       @registry = stub("Flow registry")
       @registry.stubs(:find).raises(SmartAnswer::FlowRegistry::NotFound)
       @controller.stubs(:flow_registry).returns(@registry)
-      get :show, params: { id: 'smart-answers-controller-sample' }
+      get :show, params: { id: "smart-answers-controller-sample" }
       assert_response :missing
     end
 
     should "display landing page in html if no questions answered yet" do
-      get :show, params: { id: 'smart-answers-controller-sample' }
+      get :show, params: { id: "smart-answers-controller-sample" }
       assert_select "h1", /Smart answers controller sample/
     end
 
@@ -94,7 +94,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
     end
 
     should "not have noindex tag on landing page" do
-      get :show, params: { id: 'smart-answers-controller-sample' }
+      get :show, params: { id: "smart-answers-controller-sample" }
       assert_select "meta[name=robots][content=noindex]", count: 0
     end
 
@@ -107,38 +107,38 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
     context "meta description in erb template" do
       should "be shown" do
-        get :show, params: { id: 'smart-answers-controller-sample' }
+        get :show, params: { id: "smart-answers-controller-sample" }
         assert_select "head meta[name=description]" do |meta_tags|
-          assert_equal 'This is a test description', meta_tags.first['content']
+          assert_equal "This is a test description", meta_tags.first["content"]
         end
       end
     end
 
     should "display first question after starting" do
-      get :show, params: { id: 'smart-answers-controller-sample', started: 'y' }
+      get :show, params: { id: "smart-answers-controller-sample", started: "y" }
       assert_select ".step.current [data-test=question]", /Do you like chocolate\?/
       assert_select "input[name=response][value=yes]"
       assert_select "input[name=response][value=no]"
     end
 
     should "show outcome when smart answer is complete so that 'smartanswerOutcome' JS event is fired" do
-      get :show, params: { id: 'smart-answers-controller-sample', started: 'y', responses: 'yes' }
+      get :show, params: { id: "smart-answers-controller-sample", started: "y", responses: "yes" }
       assert_select ".outcome"
     end
 
     should "have meta robots noindex on question pages" do
-      get :show, params: { id: 'smart-answers-controller-sample', started: 'y' }
+      get :show, params: { id: "smart-answers-controller-sample", started: "y" }
       assert_select "head meta[name=robots][content=noindex]"
     end
 
     should "accept responses as GET params and redirect to canonical url" do
       submit_response "yes"
-      assert_redirected_to '/smart-answers-controller-sample/y/yes'
+      assert_redirected_to "/smart-answers-controller-sample/y/yes"
     end
 
     context "a response has been accepted" do
       setup do
-        get :show, params: { id: 'smart-answers-controller-sample', started: 'y', responses: "no" }
+        get :show, params: { id: "smart-answers-controller-sample", started: "y", responses: "no" }
       end
 
       should "show response summary" do
@@ -151,17 +151,17 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
       should "link back to change the response" do
         assert_select ".done-questions a", /Change/ do |link_nodes|
-          assert_equal '/smart-answers-controller-sample/y?previous_response=no', link_nodes.first['href']
+          assert_equal "/smart-answers-controller-sample/y?previous_response=no", link_nodes.first["href"]
         end
       end
     end
 
     context "format=txt" do
       should "render govspeak text for outcome node" do
-        document = stub('Govspeak::Document', to_html: 'html-output')
+        document = stub("Govspeak::Document", to_html: "html-output")
         Govspeak::Document.stubs(:new).returns(document)
 
-        get :show, params: { id: 'smart-answers-controller-sample', started: 'y', responses: "yes", format: "txt" }
+        get :show, params: { id: "smart-answers-controller-sample", started: "y", responses: "yes", format: "txt" }
 
         assert_match(/sweet-tooth-outcome-title/, response.body)
         assert_match(/sweet-tooth-outcome-govspeak-body/, response.body)
@@ -169,15 +169,15 @@ class SmartAnswersControllerTest < ActionController::TestCase
       end
 
       should "render govspeak text for the landing page" do
-        get :show, params: { id: 'smart-answers-controller-sample', format: 'txt' }
+        get :show, params: { id: "smart-answers-controller-sample", format: "txt" }
         assert response.body.start_with?("Smart answers controller sample")
       end
 
       should "render govspeak text for a question node" do
-        document = stub('Govspeak::Document', to_html: 'html-output')
+        document = stub("Govspeak::Document", to_html: "html-output")
         Govspeak::Document.stubs(:new).returns(document)
 
-        get :show, params: { id: 'smart-answers-controller-sample', started: 'y', format: "txt" }
+        get :show, params: { id: "smart-answers-controller-sample", started: "y", format: "txt" }
         assert_match(/Do you like chocolate\?/, response.body)
         assert_match(/yes\: Yes/, response.body)
         assert_match(/no\: No/, response.body)
@@ -189,7 +189,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
         end
 
         should "render not found" do
-          get :show, params: { id: 'smart-answers-controller-sample', started: 'y', responses: "yes", format: "txt" }
+          get :show, params: { id: "smart-answers-controller-sample", started: "y", responses: "yes", format: "txt" }
 
           assert_response :missing
         end
@@ -199,14 +199,14 @@ class SmartAnswersControllerTest < ActionController::TestCase
     context "debugging" do
       should "render debug information on the page when enabled" do
         @controller.stubs(:debug?).returns(true)
-        get :show, params: { id: 'smart-answers-controller-sample', started: 'y', responses: "no", debug: "1" }
+        get :show, params: { id: "smart-answers-controller-sample", started: "y", responses: "no", debug: "1" }
 
         assert_select "pre.debug"
       end
 
       should "not render debug information on the page when not enabled" do
         @controller.stubs(:debug?).returns(false)
-        get :show, params: { id: 'smart-answers-controller-sample', started: 'y', responses: "no", debug: nil }
+        get :show, params: { id: "smart-answers-controller-sample", started: "y", responses: "no", debug: nil }
 
         assert_select "pre.debug", false, "The page should not render debug information"
       end
@@ -217,7 +217,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
     should "display the visualisation" do
       stub_smart_answer_in_content_store("smart-answers-controller-sample")
 
-      get :visualise, params: { id: 'smart-answers-controller-sample' }
+      get :visualise, params: { id: "smart-answers-controller-sample" }
 
       assert_select "h1", /Smart answers controller sample/
     end

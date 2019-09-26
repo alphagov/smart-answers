@@ -1,5 +1,5 @@
-require_relative '../test_helper'
-require 'gds_api/test_helpers/worldwide'
+require_relative "../test_helper"
+require "gds_api/test_helpers/worldwide"
 
 class WorldLocationTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Worldwide
@@ -31,12 +31,12 @@ class WorldLocationTest < ActiveSupport::TestCase
     end
 
     should "filter out any results that don't have a slug" do
-      loc1 = world_location_details_for_slug('location-1')
-      loc2 = world_location_details_for_slug('location-2')
+      loc1 = world_location_details_for_slug("location-1")
+      loc2 = world_location_details_for_slug("location-2")
       loc2["details"]["slug"] = nil
-      loc3 = world_location_details_for_slug('location-3')
+      loc3 = world_location_details_for_slug("location-3")
       loc3["details"]["slug"] = ""
-      loc4 = world_location_details_for_slug('location-4')
+      loc4 = world_location_details_for_slug("location-4")
       details = { "results" => [loc1, loc2, loc3, loc4] }
       response = GdsApi::ListResponse.new(stub(body: details.to_json, headers: {}), nil)
 
@@ -132,72 +132,72 @@ class WorldLocationTest < ActiveSupport::TestCase
 
   context "finding a location by slug" do
     should "return a corresponding instance if found" do
-      worldwide_api_has_location('rohan')
-      result = WorldLocation.find('rohan')
+      worldwide_api_has_location("rohan")
+      result = WorldLocation.find("rohan")
       assert result.is_a?(WorldLocation)
-      assert_equal 'rohan', result.slug
-      assert_equal 'Rohan', result.title
+      assert_equal "rohan", result.slug
+      assert_equal "Rohan", result.title
     end
 
     should "return nil if not found" do
       Services.worldwide_api.stubs(:world_location).returns(nil)
-      assert_nil WorldLocation.find('non-existent')
+      assert_nil WorldLocation.find("non-existent")
     end
 
     context "caching the result" do
       setup do
-        worldwide_api_has_location('rohan')
-        worldwide_api_has_location('gondor')
+        worldwide_api_has_location("rohan")
+        worldwide_api_has_location("gondor")
       end
 
       should "cache the loaded location" do
-        first = WorldLocation.find('rohan')
-        second = WorldLocation.find('rohan')
+        first = WorldLocation.find("rohan")
+        second = WorldLocation.find("rohan")
 
         assert_requested(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan", times: 1)
         assert_equal first, second
       end
 
       should "not allow cached items to conflict" do
-        WorldLocation.find('rohan')
-        assert_equal 'gondor', WorldLocation.find('gondor').slug
+        WorldLocation.find("rohan")
+        assert_equal "gondor", WorldLocation.find("gondor").slug
       end
 
       should "cache the loaded location for a day" do
-        first = WorldLocation.find('rohan')
-        second = WorldLocation.find('rohan')
+        first = WorldLocation.find("rohan")
+        second = WorldLocation.find("rohan")
 
         assert_requested(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan", times: 1)
         assert_equal first, second
 
         Timecop.travel(Time.now + 23.hours) do
-          third = WorldLocation.find('rohan')
+          third = WorldLocation.find("rohan")
           assert_requested(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan", times: 1)
           assert_equal first, third
         end
 
         Timecop.travel(Time.now + 25.hours) do
-          fourth = WorldLocation.find('rohan')
+          fourth = WorldLocation.find("rohan")
           assert_requested(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan", times: 2)
           assert_equal first, fourth
         end
       end
 
       should "use the stale value from the cache on error for a week" do
-        first = WorldLocation.find('rohan')
+        first = WorldLocation.find("rohan")
 
         stub_request(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan").to_timeout
 
         Timecop.travel(Time.now + 25.hours) do
           assert_nothing_raised do
-            second = WorldLocation.find('rohan')
+            second = WorldLocation.find("rohan")
             assert_equal first, second
           end
         end
 
         Timecop.travel(Time.now + 1.week + 1.hour) do
           assert_raises GdsApi::TimedOutException do
-            WorldLocation.find('rohan')
+            WorldLocation.find("rohan")
           end
         end
       end
@@ -206,52 +206,52 @@ class WorldLocationTest < ActiveSupport::TestCase
 
   context "equality" do
     setup do
-      worldwide_api_has_location('rohan')
-      worldwide_api_has_location('gondor')
+      worldwide_api_has_location("rohan")
+      worldwide_api_has_location("gondor")
     end
 
     should "consider 2 location instances with the same slug as ==" do
-      loc1 = WorldLocation.find('rohan')
+      loc1 = WorldLocation.find("rohan")
       WorldLocation.reset_cache
-      loc2 = WorldLocation.find('rohan')
+      loc2 = WorldLocation.find("rohan")
       assert_not_equal loc1.object_id, loc2.object_id # Ensure we've got different instances
       assert loc1 == loc2
     end
 
     should "not consider instances with different slugs as ==" do
-      loc1 = WorldLocation.find('rohan')
-      loc2 = WorldLocation.find('gondor')
+      loc1 = WorldLocation.find("rohan")
+      loc2 = WorldLocation.find("gondor")
       refute loc1 == loc2
     end
 
     should "not consider instance of a different class as ==" do
-      loc1 = WorldLocation.find('rohan')
-      loc2 = OpenStruct.new(slug: 'rohan')
+      loc1 = WorldLocation.find("rohan")
+      loc2 = OpenStruct.new(slug: "rohan")
       refute loc1 == loc2
     end
   end
 
   context "accessing attributes" do
     setup do
-      worldwide_api_has_location('rohan')
-      @location = WorldLocation.find('rohan')
+      worldwide_api_has_location("rohan")
+      @location = WorldLocation.find("rohan")
     end
 
     should "allow accessing required top-level attributes" do
       assert_equal "Rohan", @location.title
       assert_equal "Rohan", @location.name # alias for title
-      assert_equal 'rohan', @location.slug
+      assert_equal "rohan", @location.slug
     end
 
     should "allow accessing required details attributes" do
-      assert_equal 'rohan', @location.slug
+      assert_equal "rohan", @location.slug
     end
   end
 
   context "organisations" do
     setup do
-      worldwide_api_has_location('rohan')
-      @location = WorldLocation.find('rohan')
+      worldwide_api_has_location("rohan")
+      @location = WorldLocation.find("rohan")
     end
 
     should "return the WorldwideOrganisations for the location slug" do

@@ -10,9 +10,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'yes'
+          when "yes"
             outcome :you_have_a_sweet_tooth
-          when 'no'
+          when "no"
             question :do_you_like_jam?
           end
         end
@@ -24,9 +24,9 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'yes'
+          when "yes"
             outcome :you_have_a_sweet_tooth
-          when 'no'
+          when "no"
             outcome :you_have_a_savoury_tooth
           end
         end

@@ -274,7 +274,7 @@ class SimplifiedExpensesCheckerTest < ActiveSupport::TestCase
       setup do
         add_response "new"
         add_response "1000" #how_much_expect_to_claim
-        add_response '10000' #dirty_vehicle_price
+        add_response "10000" #dirty_vehicle_price
         add_response "80" #dirty_vehicle_write_off
         add_response "2000" #simple_motorcycle_costs
       end

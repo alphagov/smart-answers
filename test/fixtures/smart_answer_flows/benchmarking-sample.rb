@@ -1,7 +1,7 @@
 module SmartAnswer
   class BenchmarkingSampleFlow < Flow
     def define
-      name 'benchmarking-sample'
+      name "benchmarking-sample"
     end
   end
 end

@@ -1,4 +1,4 @@
-require 'working_days'
+require "working_days"
 
 # Don't preload the bank_holidays in test, so that we can stub out the calls in test setup methods.
 unless Rails.env.test?

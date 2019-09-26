@@ -23,7 +23,7 @@ module SmartAnswer::Calculators
     end
 
     def valid_age?(age)
-      age > 0 && age <= 200
+      age.positive? && age <= 200
     end
 
     def valid_pay_frequency?(pay_frequency)
@@ -31,11 +31,11 @@ module SmartAnswer::Calculators
     end
 
     def valid_hours_worked?(hours_worked)
-      hours_worked > 0 && hours_worked <= (@pay_frequency * 16)
+      hours_worked > 0 && hours_worked <= (@pay_frequency * 16) # rubocop:disable Style/NumericPredicate
     end
 
     def valid_accommodation_charge?(accommodation_charge)
-      accommodation_charge > 0
+      accommodation_charge > 0 # rubocop:disable Style/NumericPredicate
     end
 
     def valid_accommodation_usage?(accommodation_usage)
@@ -88,7 +88,7 @@ module SmartAnswer::Calculators
 
     def total_underpayment
       underpayment = total_entitlement - total_pay
-      underpayment > 0 ? (underpayment).round(2) : 0.0
+      underpayment > 0 ? underpayment.round(2) : 0.0 # rubocop:disable Style/NumericPredicate
     end
 
     def historical_entitlement
@@ -115,11 +115,11 @@ module SmartAnswer::Calculators
       charge = charge.to_f
       number_of_nights = number_of_nights.to_i
 
-      if charge > 0
-        accommodation_cost = charged_accomodation_adjustment(charge, number_of_nights)
-      else
-        accommodation_cost = free_accommodation_adjustment(number_of_nights)
-      end
+      accommodation_cost = if charge > 0 # rubocop:disable Style/NumericPredicate
+                             charged_accomodation_adjustment(charge, number_of_nights)
+                           else
+                             free_accommodation_adjustment(number_of_nights)
+                           end
       @accommodation_cost = (accommodation_cost * weekly_multiplier).round(2)
     end
 
@@ -149,7 +149,7 @@ module SmartAnswer::Calculators
     end
 
     def eligible_for_living_wage?
-      valid_age_for_living_wage?(age) && date >= Date.parse('2016-04-01')
+      valid_age_for_living_wage?(age) && date >= Date.parse("2016-04-01")
     end
 
     def under_school_leaving_age?
@@ -189,7 +189,7 @@ module SmartAnswer::Calculators
     end
 
     def data
-      @all_rates ||= RatesQuery.from_file('minimum_wage')
+      @data ||= RatesQuery.from_file("minimum_wage")
     end
   end
 end

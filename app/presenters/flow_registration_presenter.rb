@@ -45,16 +45,20 @@ class FlowRegistrationPresenter
 
   module MethodMissingHelper
     OVERRIDES = {
-      'calculator.services_payment_partial_name' => 'pay_by_cash_only',
-      'calculator.holiday_entitlement_days' => 10,
-      'calculator.path_to_outcome' => %w(italy ceremony_country opposite_sex),
-      'calculator.ceremony_country' => 'italy'
-    }
+      "calculator.services_payment_partial_name" => "pay_by_cash_only",
+      "calculator.holiday_entitlement_days" => 10,
+      "calculator.path_to_outcome" => %w(italy ceremony_country opposite_sex),
+      "calculator.ceremony_country" => "italy",
+    }.freeze
 
+    # rubocop:disable Style/MethodMissingSuper
+    # rubocop:disable Style/MissingRespondToMissing
     def method_missing(method, *_args, &_block)
       object = MethodMissingObject.new(method, nil, true, OVERRIDES)
       OVERRIDES.fetch(object.description) { object }
     end
+    # rubocop:enable Style/MethodMissingSuper
+    # rubocop:enable Style/MissingRespondToMissing
   end
 
   def flows_content
@@ -81,7 +85,7 @@ class FlowRegistrationPresenter
   end
 
   def state
-    'live'
+    "live"
   end
 
 private

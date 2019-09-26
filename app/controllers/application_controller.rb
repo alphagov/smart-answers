@@ -4,13 +4,13 @@ class ApplicationController < ActionController::Base
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from ActionController::UnknownFormat, with: :error_404
 
-  slimmer_template 'wrapper'
+  slimmer_template "wrapper"
 
 protected
 
   def error_404; error(404); end
 
-  def error_503(e = nil); error(503, e); end
+  def error_503(exception = nil); error(503, exception); end
 
   def error(status_code, exception = nil)
     if exception

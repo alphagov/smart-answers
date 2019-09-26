@@ -1,7 +1,7 @@
 module SmartAnswer
   class PartYearProfitTaxCreditsFlow < Flow
     def define
-      name 'part-year-profit-tax-credits'
+      name "part-year-profit-tax-credits"
 
       status :published
       satisfies_need "103438"
@@ -39,9 +39,9 @@ module SmartAnswer
         option "no"
 
         on_response do |response|
-          if response == 'yes'
+          if response == "yes"
             calculator.stopped_trading = true
-          elsif response == 'no'
+          elsif response == "no"
             calculator.stopped_trading = false
           end
         end

@@ -1,4 +1,4 @@
-require_relative '../integration_test_helper'
+require_relative "../integration_test_helper"
 
 class FlowVisualisationTest < ActionDispatch::IntegrationTest
   SmartAnswer::FlowRegistry.instance.flows.each do |flow|

@@ -13,7 +13,7 @@ module SmartAnswer
           rescue TypeError, ArgumentError
             raise InvalidResponse
           end
-        elsif :to_i == @parse
+        elsif @parse == :to_i
           raw_input.to_i
         elsif Float == @parse
           begin
@@ -21,7 +21,7 @@ module SmartAnswer
           rescue TypeError, ArgumentError
             raise InvalidResponse
           end
-        elsif :to_f == @parse
+        elsif @parse == :to_f
           raw_input.to_f
         else
           super

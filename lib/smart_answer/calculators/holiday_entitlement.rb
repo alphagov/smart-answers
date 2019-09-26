@@ -1,5 +1,5 @@
-require 'date'
-require 'ostruct'
+require "date"
+require "ostruct"
 
 module SmartAnswer::Calculators
   class HolidayEntitlement < OpenStruct
@@ -54,14 +54,15 @@ module SmartAnswer::Calculators
       end
     end
 
-    def formatted_fraction_of_year(dp = 2)
-      format_number(fraction_of_year, dp)
+    def formatted_fraction_of_year(decimals = 2)
+      format_number(fraction_of_year, decimals)
     end
 
     def strip_zeros(number)
-      number.to_s.sub(/\.0+$/, '')
+      number.to_s.sub(/\.0+$/, "")
     end
 
+    # rubocop:disable Style/MissingRespondToMissing
     def method_missing(symbol, *args)
       # formatted_foo calls format_number on foo
       formatting_method = formatting_method(symbol)
@@ -71,6 +72,7 @@ module SmartAnswer::Calculators
         super
       end
     end
+    # rubocop:enable Style/MissingRespondToMissing
 
     def respond_to?(symbol, include_all = false)
       formatting_method(symbol).present? || super
@@ -89,7 +91,7 @@ module SmartAnswer::Calculators
     end
 
     def shifts_per_week
-      (shifts_per_shift_pattern.to_f / days_per_shift_pattern.to_f * 7).round(10)
+      (shifts_per_shift_pattern.to_f / days_per_shift_pattern * 7).round(10)
     end
 
     def date_calc

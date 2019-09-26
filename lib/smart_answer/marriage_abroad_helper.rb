@@ -2,9 +2,9 @@ module SmartAnswer
   module MarriageAbroadHelper
     def ceremony_type(calculator)
       if calculator.partner_is_opposite_sex?
-        'Marriage'
+        "Marriage"
       else
-        'Civil partnership'
+        "Civil partnership"
       end
     end
 
@@ -17,7 +17,7 @@ module SmartAnswer
         "germany"  => " (registry office ‘standesamt’ or church) ",
         "greece"   => " (the town hall or the local priest)",
         "oman"     => " (the local church, mosque or temple) ",
-        "poland"   => " (the local registry office or church)"
+        "poland"   => " (the local registry office or church)",
       }[country_slug].to_s
     end
   end

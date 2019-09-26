@@ -12,7 +12,7 @@ Rails.application.configure do
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
   # unless running on Heroku
-  config.public_file_server.enabled = ENV['RUNNING_ON_HEROKU'].present?
+  config.public_file_server.enabled = ENV["RUNNING_ON_HEROKU"].present?
 
   # Compress JavaScripts and CSS
   config.assets.js_compress = :uglifier
@@ -58,14 +58,14 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_controller.asset_host = ENV['GOVUK_ASSET_HOST']
+  config.action_controller.asset_host = ENV["GOVUK_ASSET_HOST"]
 
-  if ENV['RUNNING_ON_HEROKU']
+  if ENV["RUNNING_ON_HEROKU"]
     # flush output to the underlying OS without buffering
     STDOUT.sync = true
 
     # enable STDOUT logging for Heroku
     config.logger = Logger.new(STDOUT)
-    config.logger.level = Logger.const_get(ENV['LOG_LEVEL'] ? ENV['LOG_LEVEL'].upcase : 'INFO')
+    config.logger.level = Logger.const_get(ENV["LOG_LEVEL"] ? ENV["LOG_LEVEL"].upcase : "INFO")
   end
 end

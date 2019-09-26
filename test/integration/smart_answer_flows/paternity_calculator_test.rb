@@ -1,6 +1,6 @@
-require_relative '../../test_helper'
-require_relative 'flow_test_helper'
-require_relative '../../../lib/smart_answer/date_helper'
+require_relative "../../test_helper"
+require_relative "flow_test_helper"
+require_relative "../../../lib/smart_answer/date_helper"
 
 require "smart_answer_flows/maternity-paternity-calculator"
 
@@ -84,9 +84,9 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                     assert_current_node :employee_on_payroll_paternity?
                   end
 
-                  should 'render the question title with an interpolated date' do
+                  should "render the question title with an interpolated date" do
                     nodes = Capybara.string(current_question.to_s)
-                    assert nodes.has_content?('Was the employee (or will they be) on your payroll on')
+                    assert nodes.has_content?("Was the employee (or will they be) on your payroll on")
                   end
                   context "answer yes" do
                     setup { add_response :yes }
@@ -230,7 +230,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                                             setup { add_response "second" }
 
                                             should "give the result" do
-                                              assert_state_variable :pay_method, 'a_certain_week_day_each_month'
+                                              assert_state_variable :pay_method, "a_certain_week_day_each_month"
                                               assert_current_node :paternity_leave_and_pay
                                             end
                                           end #QP20 end
@@ -239,15 +239,15 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                                     end #QP14 end usual pay dates (monthly) for SPP
 
                                     context "answer standard weekly" do
-                                    setup { add_response "weekly_starting" }
+                                      setup { add_response "weekly_starting" }
 
                                     #QP14 weekly outcome
-                                    should "go to outcome" do
-                                      assert_current_node :paternity_leave_and_pay
-                                      assert_state_variable "has_contract", "yes"
-                                      assert_state_variable :pay_dates_and_pay, "18 June 2013|£103.85"
-                                    end
-                                  end #QP14 end SPP calculated weekly
+                                      should "go to outcome" do
+                                        assert_current_node :paternity_leave_and_pay
+                                        assert_state_variable "has_contract", "yes"
+                                        assert_state_variable :pay_dates_and_pay, "18 June 2013|£103.85"
+                                      end
+                                    end #QP14 end SPP calculated weekly
                                   end
                                 end #QP13 end earings above 109 between relevant period
 
@@ -256,7 +256,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
 
                                   should "go to outcome" do
                                     assert_state_variable :has_contract, "yes"
-                                    assert_state_variable :lower_earning_limit, '107.00'
+                                    assert_state_variable :lower_earning_limit, "107.00"
                                     assert_current_node :paternity_leave_and_pay
                                   end
                                 end #QP 13 end earnings less than 109 between relevant period
@@ -269,7 +269,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                                   add_response "8"
                                   add_response "usual_paydates"
                                   add_response "2013-01-01"
-                                  assert_state_variable :average_weekly_earnings, '625.00'
+                                  assert_state_variable :average_weekly_earnings, "625.00"
                                   assert_state_variable :pay_dates_and_pay, "18 June 2013|£136.78"
                                   assert_current_node :paternity_leave_and_pay
                                 end
@@ -289,7 +289,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                       end
 
                       context "answer 1 April 2014 weeks" do
-                        setup { add_response '2014-04-01' }
+                        setup { add_response "2014-04-01" }
 
                         #QP9
                         should "ask length of leave" do
@@ -316,7 +316,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                     end
 
                     context "answer 1 April 2014" do
-                      setup { add_response '2014-04-01' }
+                      setup { add_response "2014-04-01" }
 
                       #QP9
                       should "ask length of leave" do
@@ -324,7 +324,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                       end
 
                       context "answer 2 weeks" do
-                        setup { add_response 'two_weeks' }
+                        setup { add_response "two_weeks" }
 
                         should "go to outcome" do
                           assert_current_node :paternity_not_entitled_to_leave_or_pay
@@ -343,9 +343,9 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
                     assert_current_node :employee_on_payroll_paternity?
                   end
 
-                  should 'render the question title with an interpolated date' do
+                  should "render the question title with an interpolated date" do
                     nodes = Capybara.string(current_question.to_s)
-                    assert nodes.has_content?('Was the employee (or will they be) on your payroll on')
+                    assert nodes.has_content?("Was the employee (or will they be) on your payroll on")
                   end
                   context "answer no" do
                     setup { add_response :no }
@@ -412,9 +412,9 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
           add_response "monthly"
           add_response "500"
           assert_current_node :paternity_leave_and_pay
-          assert_state_variable :relevant_period, 'Saturday, 23 November 2013 and Friday, 17 January 2014'
+          assert_state_variable :relevant_period, "Saturday, 23 November 2013 and Friday, 17 January 2014"
           assert_state_variable :to_saturday_formatted, "Saturday, 18 January 2014"
-          assert_state_variable :lower_earning_limit, '109.00'
+          assert_state_variable :lower_earning_limit, "109.00"
         end
       end #QP0 no with 2013/2014 figures
 
@@ -437,7 +437,7 @@ class PaternityCalculatorTest < ActiveSupport::TestCase
           assert_current_node :paternity_leave_and_pay
           assert_state_variable :relevant_period, "Wednesday, 03 April 2013 and Sunday, 06 April 2014"
           assert_state_variable :to_saturday_formatted, "Saturday, 12 April 2014"
-          assert_state_variable :lower_earning_limit, '111.00'
+          assert_state_variable :lower_earning_limit, "111.00"
         end
       end #QP0 no with 2014/2015 figures
 

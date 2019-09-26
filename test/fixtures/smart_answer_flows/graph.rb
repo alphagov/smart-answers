@@ -1,7 +1,7 @@
 module SmartAnswer
   class GraphFlow < Flow
     def define
-      name 'graph'
+      name "graph"
       status :draft
 
       multiple_choice :q1? do
@@ -18,7 +18,7 @@ module SmartAnswer
         option :b
 
         next_node do |response|
-          if response == 'a'
+          if response == "a"
             outcome :done_a
           else
             question :q_with_interpolation?

@@ -1,7 +1,7 @@
 module SmartAnswer
   class MoneyAndSalarySampleFlow < Flow
     def define
-      name 'money-and-salary-sample'
+      name "money-and-salary-sample"
       status :draft
 
       salary_question :how_much_do_you_earn? do
@@ -20,6 +20,7 @@ module SmartAnswer
           if value < annual_salary
             raise InvalidResponse, "You can't request a bonus less than your annual salary.", caller
           end
+
           value
         end
         next_node do

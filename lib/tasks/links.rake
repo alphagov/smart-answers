@@ -18,11 +18,11 @@ def check_links(links_to_check, broken, file)
       unless response.class == Net::HTTPOK
         new_hash = { link: link, resp: response.code, file: file }
         if response.code[0] == "3"
-          new_hash[:redirect] = response.header['location']
+          new_hash[:redirect] = response.header["location"]
         end
         broken.push(new_hash)
       end
-    rescue => e
+    rescue StandardError => e
       # this is here as sometimes we find wrong links through the Regexes
       # dont need to do anything, just capture it to avoid the script breaking
       p e
@@ -41,7 +41,7 @@ end
 def check_locales_file(contents)
   links_to_check = []
   contents.gsub(/\[(.+)\]\((.+)\)/) {
-    link = prefix_link($2.gsub(/ "(.+)"$/, ''))
+    link = prefix_link($2.gsub(/ "(.+)"$/, ""))
     links_to_check << link
   }
   links_to_check
@@ -57,7 +57,7 @@ def check_data_file(contents)
 end
 
 namespace :links do
-  desc 'Checks all URLs within Smart Answers for errors.'
+  desc "Checks all URLs within Smart Answers for errors."
   task :check, :file do |_, args|
     broken = []
     pwd = Dir.pwd
@@ -96,19 +96,19 @@ namespace :links do
 
     File.open("log/500_links.log", "w") { |f| f.puts fives }
 
-    if three_oh_threes.length > 0
+    if !three_oh_threes.empty?
       puts "Warning: Found links that give a 3XX response. Look in log/300_links.log"
     else
       puts "No 3XX links found"
     end
 
-    if four_oh_fours.length > 0
+    if !four_oh_fours.empty?
       puts "Warning: Found 404s. Look in log/404_links.log"
     else
       puts "No 404s found"
     end
 
-    if fives.length > 0
+    if !fives.empty?
       puts "Warning: Found links that give a 5XX response. Look in log/500_links.log"
     else
       puts "No 5XX links found"

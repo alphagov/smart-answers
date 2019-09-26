@@ -1,42 +1,42 @@
-require_relative '../test_helper'
+require_relative "../test_helper"
 
 class QuestionBaseTest < ActiveSupport::TestCase
   setup do
     @question = SmartAnswer::Question::Base.new(nil, :example_question)
   end
 
-  context '#next_node' do
-    should 'raise exception if next_node is called without a block' do
+  context "#next_node" do
+    should "raise exception if next_node is called without a block" do
       e = assert_raises(ArgumentError) do
         @question.next_node
       end
-      assert_equal 'You must specify a block', e.message
+      assert_equal "You must specify a block", e.message
     end
 
-    should 'raise exception if next_node is invoked multiple times' do
+    should "raise exception if next_node is invoked multiple times" do
       e = assert_raises do
         @question.next_node { outcome :one }
         @question.next_node { outcome :two }
       end
-      assert_equal 'Multiple calls to next_node are not allowed', e.message
+      assert_equal "Multiple calls to next_node are not allowed", e.message
     end
   end
 
-  context '#permitted_next_nodes' do
-    should 'return nodes returned via syntactic sugar methods' do
+  context "#permitted_next_nodes" do
+    should "return nodes returned via syntactic sugar methods" do
       @question.next_node do |response|
-        if response == 'yes'
+        if response == "yes"
           outcome :done
         else
           question :another_question
         end
       end
-      assert_equal [:done, :another_question], @question.permitted_next_nodes
+      assert_equal %i[done another_question], @question.permitted_next_nodes
     end
 
-    should 'not return nodes not returned via syntactic sugar methods' do
+    should "not return nodes not returned via syntactic sugar methods" do
       @question.next_node do |response|
-        if response == 'yes'
+        if response == "yes"
           outcome :done
         else
           :another_question
@@ -46,19 +46,13 @@ class QuestionBaseTest < ActiveSupport::TestCase
       refute @question.permitted_next_nodes.include?(:another_question)
     end
 
-    should 'not return duplicate permitted next nodes' do
-      @question.next_node do |response|
-        if response == 'yes'
-          outcome :done
-        else
-          outcome :done
-        end
-      end
+    should "not return duplicate permitted next nodes" do
+      @question.next_node { outcome :done }
       assert_equal [:done], @question.permitted_next_nodes
     end
   end
 
-  context '#transition' do
+  context "#transition" do
     should "copy values from initial state to new state" do
       @question.next_node { outcome :done }
       initial_state = SmartAnswer::State.new(@question.name)
@@ -84,11 +78,11 @@ class QuestionBaseTest < ActiveSupport::TestCase
 
     should "make state available to code in next_node block" do
       @question.next_node do
-        colour == 'red' ? outcome(:was_red) : outcome(:wasnt_red)
+        colour == "red" ? outcome(:was_red) : outcome(:wasnt_red)
       end
       initial_state = SmartAnswer::State.new(@question.name)
-      initial_state.colour = 'red'
-      new_state = @question.transition(initial_state, 'anything')
+      initial_state.colour = "red"
+      new_state = @question.transition(initial_state, "anything")
       assert_equal :was_red, new_state.current_node
     end
 
@@ -99,7 +93,7 @@ class QuestionBaseTest < ActiveSupport::TestCase
         outcome :done
       end
       initial_state = SmartAnswer::State.new(@question.name)
-      @question.transition(initial_state, 'anything')
+      @question.transition(initial_state, "anything")
       assert state_made_available.frozen?
     end
 
@@ -110,8 +104,8 @@ class QuestionBaseTest < ActiveSupport::TestCase
         outcome :done
       end
       initial_state = SmartAnswer::State.new(@question.name)
-      @question.transition(initial_state, 'something')
-      assert_equal 'something', input_was
+      @question.transition(initial_state, "something")
+      assert_equal "something", input_was
     end
 
     should "make save_input_as method available to code in next_node block" do
@@ -198,7 +192,7 @@ class QuestionBaseTest < ActiveSupport::TestCase
     end
   end
 
-  context '#next_node_for' do
+  context "#next_node_for" do
     should "raise an exception if next_node does not return key via question or outcome method" do
       @question.next_node do
         outcome :another_outcome
@@ -208,13 +202,13 @@ class QuestionBaseTest < ActiveSupport::TestCase
 
       expected_message = "Next node (not_allowed_next_node) not returned via question or outcome method"
       exception = assert_raises do
-        @question.next_node_for(state, 'response')
+        @question.next_node_for(state, "response")
       end
       assert_equal expected_message, exception.message
     end
 
     should "raise an exception if next_node does not return a node key" do
-      responses = [:blue, :red]
+      responses = %i[blue red]
       @question.next_node do
         skip = false
         outcome :skipped if skip
@@ -238,14 +232,14 @@ class QuestionBaseTest < ActiveSupport::TestCase
     should "allow calls to #question syntactic sugar method" do
       @question.next_node { question :another_question }
       state = SmartAnswer::State.new(@question.name)
-      next_node = @question.next_node_for(state, 'response')
+      next_node = @question.next_node_for(state, "response")
       assert_equal :another_question, next_node
     end
 
     should "should allow calls to #outcome syntactic sugar method" do
       @question.next_node { outcome :done }
       state = SmartAnswer::State.new(@question.name)
-      next_node = @question.next_node_for(state, 'response')
+      next_node = @question.next_node_for(state, "response")
       assert_equal :done, next_node
     end
   end

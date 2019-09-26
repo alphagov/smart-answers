@@ -5,31 +5,31 @@ module SmartAnswer::Calculators
     include SmartAnswer::DateHelper
 
     attr_reader :due_date, :expected_week, :qualifying_week, :employment_start, :notice_of_leave_deadline,
-      :leave_earliest_start_date, :ssp_stop, :a_employment_start, :leave_type
+                :leave_earliest_start_date, :ssp_stop, :a_employment_start, :leave_type
 
     attr_accessor :employment_contract, :leave_start_date, :last_payday, :pre_offset_payday, :pay_date,
-      :pay_day_in_month, :pay_day_in_week, :pay_method, :pay_week_in_month, :work_days, :date_of_birth, :awe,
-      :pay_pattern, :payment_option, :earnings_for_pay_period, :on_payroll
+                  :pay_day_in_month, :pay_day_in_week, :pay_method, :pay_week_in_month, :work_days, :date_of_birth, :awe,
+                  :pay_pattern, :payment_option, :earnings_for_pay_period, :on_payroll
 
     DAYS_OF_THE_WEEK = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday).freeze
     PAYMENT_OPTIONS = {
       weekly: {
         "8": "8 payments or fewer",
         "9": "9 payments",
-        "10": "10 payments"
+        "10": "10 payments",
       },
       every_2_weeks: {
         "4": "4 payments or fewer",
-        "5": "5 payments"
+        "5": "5 payments",
       },
       every_4_weeks: {
         "1": "1 payment",
-        "2": "2 payments"
+        "2": "2 payments",
       },
       monthly: {
         "2": "1 or 2 payments",
-        "3": "3 payments"
-      }
+        "3": "3 payments",
+      },
     }.with_indifferent_access.freeze
     private_constant :PAYMENT_OPTIONS
 
@@ -41,12 +41,12 @@ module SmartAnswer::Calculators
       @leave_type = leave_type
       @expected_week = SmartAnswer::DateRange.new(
         begins_on: expected_start,
-        ends_on: expected_start + 6.days
+        ends_on: expected_start + 6.days,
       )
       @notice_of_leave_deadline = next_saturday(qualifying_start)
       @qualifying_week = SmartAnswer::DateRange.new(
         begins_on: qualifying_start,
-        ends_on: qualifying_start + 6.days
+        ends_on: qualifying_start + 6.days,
       )
       @employment_start = @qualifying_week.weeks_after(-25).ends_on
       @leave_earliest_start_date = @expected_week.weeks_after(-11).begins_on
@@ -155,7 +155,7 @@ module SmartAnswer::Calculators
     end
 
     def lower_earning_limit
-      RatesQuery.from_file('maternity_paternity_birth').rates(relevant_week.last).lower_earning_limit_rate
+      RatesQuery.from_file("maternity_paternity_birth").rates(relevant_week.last).lower_earning_limit_rate
     end
 
     def relevant_week
@@ -173,7 +173,7 @@ module SmartAnswer::Calculators
           earnings_for_pay_period.to_f / number_of_payments * 12 / 52
         else
           earnings_for_pay_period.to_f / number_of_payments
-        end
+        end,
       ) # HMRC-agreed truncation at 7 decimal places.
     end
 
@@ -188,7 +188,7 @@ module SmartAnswer::Calculators
         paydates.each do |paydate|
           # Pay period includes the date of payment hence the range starts the day after.
           pay = pay_for_period(last_paydate, paydate)
-          if pay.positive?
+          if pay > 0 # rubocop:disable Styles/NumericPredicate
             ary << { date: paydate, pay: pay.round(2) }
             last_paydate = paydate + 1
           end
@@ -289,7 +289,7 @@ module SmartAnswer::Calculators
         { min: uprating_date(2014), max: uprating_date(2017), amount: 139.58 },
         { min: uprating_date(2017), max: uprating_date(2018), amount: 140.98 },
         { min: uprating_date(2018), max: uprating_date(2019), amount: 145.18 },
-        { min: uprating_date(2019), max: uprating_date(2100), amount: 148.68 }
+        { min: uprating_date(2019), max: uprating_date(2100), amount: 148.68 },
          ### Change year in future
       ]
       rate = rates.find { |r| r[:min] <= date && date < r[:max] } || rates.last

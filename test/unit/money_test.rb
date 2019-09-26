@@ -1,4 +1,4 @@
-require_relative '../test_helper'
+require_relative "../test_helper"
 
 module SmartAnswer
   class MoneyTest < ActiveSupport::TestCase
@@ -30,13 +30,13 @@ module SmartAnswer
       assert_equal "1234.5678", money.to_s
     end
 
-    test 'should not accept negative numbers' do
+    test "should not accept negative numbers" do
       assert_raises(SmartAnswer::InvalidResponse) do
-        SmartAnswer::Money.new('-1')
+        SmartAnswer::Money.new("-1")
       end
     end
 
-    test 'should not accept numbers too big' do
+    test "should not accept numbers too big" do
       assert_raises(SmartAnswer::InvalidResponse) do
         SmartAnswer::Money.new 1111111111111111122222222222222222222222222222222222222222222222222222222222222222222222222222222225555555555555555555555555555555555555555555555555555555555222222222222222222222211111111111111111133333333333333333333555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555444444444444444444444444444448888888888888888888888888888888888888888888888888888888888887777777777777778888888888888889999999999.0 # rubocop:disable Lint/FloatOutOfRange
       end

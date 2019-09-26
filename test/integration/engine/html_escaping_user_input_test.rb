@@ -1,4 +1,4 @@
-require_relative 'engine_test_helper'
+require_relative "engine_test_helper"
 
 class HtmlEscapingUserInputTest < EngineIntegrationTest
   setup do
@@ -16,8 +16,8 @@ class HtmlEscapingUserInputTest < EngineIntegrationTest
     end
 
     should "escape user input interpolated into outcome ERB template" do
-      assert page.has_content?('text-before-user-input'), "Not on outcome page"
-      assert page.has_content?('text-after-user-input'), "Not on outcome page"
+      assert page.has_content?("text-before-user-input"), "Not on outcome page"
+      assert page.has_content?("text-after-user-input"), "Not on outcome page"
       refute page.has_css?("script#naughty", text: @javascript, visible: false), "Includes unsafe HTML"
     end
   end

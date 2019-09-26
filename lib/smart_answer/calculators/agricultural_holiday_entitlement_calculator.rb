@@ -1,4 +1,4 @@
-require 'date'
+require "date"
 
 module SmartAnswer::Calculators
   class AgriculturalHolidayEntitlementCalculator
@@ -16,7 +16,7 @@ module SmartAnswer::Calculators
       if !days_worked_per_week.nil?
         days = holiday_days(days_worked_per_week)
       elsif !weeks_from_october_1.nil?
-        days = holiday_days(total_days_worked.to_f / weeks_from_october_1.to_f).round(10)
+        days = holiday_days(total_days_worked.to_f / weeks_from_october_1).round(10)
       end
       if weeks_at_current_employer.nil?
         days
@@ -44,14 +44,14 @@ module SmartAnswer::Calculators
     def weeks_worked(holiday_start)
       SmartAnswer::DateRange.new(
         begins_on: start_of_holiday_year,
-        ends_on: holiday_start
+        ends_on: holiday_start,
       ).number_of_days / 7
     end
 
     def available_days
       SmartAnswer::DateRange.new(
         begins_on: start_of_holiday_year,
-        ends_on: Date.today
+        ends_on: Date.today,
       ).non_inclusive_days
     end
 

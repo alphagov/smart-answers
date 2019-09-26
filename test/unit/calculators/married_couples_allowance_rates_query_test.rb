@@ -3,7 +3,7 @@ require_relative "../../test_helper"
 module SmartAnswer::Calculators
   class MarriedCouplesAllowanceRatesQueryTest < ActiveSupport::TestCase
     setup do
-      @query = RatesQuery.from_file('married_couples_allowance')
+      @query = RatesQuery.from_file("married_couples_allowance")
     end
 
     should "have all required rates defined for the current fiscal year" do

@@ -3,7 +3,7 @@ module SmartAnswer
     def define
       start_page_content_id "deedf6f8-389b-4b34-a5b1-faa9ef909a70"
       flow_content_id "ebc97e28-85be-4f9f-8637-b2d43be9f0a6"
-      name 'calculate-your-holiday-entitlement'
+      name "calculate-your-holiday-entitlement"
       status :published
       satisfies_need "100143"
 
@@ -21,11 +21,11 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'days-worked-per-week', 'hours-worked-per-week'
+          when "days-worked-per-week", "hours-worked-per-week"
             question :calculation_period?
-          when 'compressed-hours'
+          when "compressed-hours"
             question :compressed_hours_how_many_hours_per_week?
-          when 'shift-worker'
+          when "shift-worker"
             question :shift_worker_basis?
           end
         end
@@ -60,6 +60,7 @@ module SmartAnswer
         calculate :days_per_week do |response|
           days_per_week = response
           raise InvalidResponse if days_per_week <= 0 || days_per_week > 7
+
           days_per_week
         end
         next_node do
@@ -135,6 +136,7 @@ module SmartAnswer
         calculate :days_per_week do |response|
           days_per_week = response
           raise InvalidResponse if days_per_week <= 0 || days_per_week > 7
+
           days_per_week
         end
         next_node do
@@ -146,6 +148,7 @@ module SmartAnswer
         calculate :hours_per_week do |response|
           hours = response
           raise InvalidResponse if hours <= 0 || hours > 168
+
           hours
         end
         next_node do
@@ -157,6 +160,7 @@ module SmartAnswer
         calculate :days_per_week do |response|
           days = response
           raise InvalidResponse if days <= 0 || days > 7
+
           days
         end
 
@@ -174,11 +178,11 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when 'full-year'
+          when "full-year"
             question :shift_worker_hours_per_shift?
-          when 'starting', 'starting-and-leaving'
+          when "starting", "starting-and-leaving"
             question :what_is_your_starting_date?
-          when 'leaving'
+          when "leaving"
             question :what_is_your_leaving_date?
           end
         end
@@ -188,6 +192,7 @@ module SmartAnswer
         calculate :hours_per_shift do |response|
           hours_per_shift = response
           raise InvalidResponse if hours_per_shift <= 0
+
           hours_per_shift
         end
         next_node do
@@ -199,6 +204,7 @@ module SmartAnswer
         calculate :shifts_per_shift_pattern do |response|
           shifts = response
           raise InvalidResponse if shifts <= 0
+
           shifts
         end
         next_node do
@@ -210,6 +216,7 @@ module SmartAnswer
         calculate :days_per_shift_pattern do |response|
           days = response
           raise InvalidResponse if days < shifts_per_shift_pattern
+
           days
         end
 
@@ -226,7 +233,7 @@ module SmartAnswer
             leave_year_start_date: leave_year_start_date,
             hours_per_shift: hours_per_shift,
             shifts_per_shift_pattern: shifts_per_shift_pattern,
-            days_per_shift_pattern: days_per_shift_pattern
+            days_per_shift_pattern: days_per_shift_pattern,
           )
         end
         precalculate :holiday_entitlement_shifts do
@@ -246,7 +253,7 @@ module SmartAnswer
             days_per_week: (leave_year_start_date.nil? ? days_per_week : days_per_week_calculated),
             start_date: start_date,
             leaving_date: leaving_date,
-            leave_year_start_date: leave_year_start_date
+            leave_year_start_date: leave_year_start_date,
           )
         end
         precalculate :holiday_entitlement_days do
@@ -261,7 +268,7 @@ module SmartAnswer
             days_per_week: days_per_week,
             start_date: start_date,
             leaving_date: leaving_date,
-            leave_year_start_date: leave_year_start_date
+            leave_year_start_date: leave_year_start_date,
           )
         end
         precalculate :holiday_entitlement_hours_and_minutes do
@@ -279,7 +286,7 @@ module SmartAnswer
         precalculate :calculator do
           Calculators::HolidayEntitlement.new(
             hours_per_week: hours_per_week,
-            days_per_week: days_per_week
+            days_per_week: days_per_week,
           )
         end
         precalculate :holiday_entitlement_hours do

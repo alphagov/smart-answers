@@ -38,67 +38,67 @@ module SmartAnswer::Calculators
       )
     end
 
-    context '#start_of_next_year' do
-      should 'return 2013-04-06 if tax-year is 2012-13' do
-        @calculator.tax_year = '2012-13'
+    context "#start_of_next_year" do
+      should "return 2013-04-06 if tax-year is 2012-13" do
+        @calculator.tax_year = "2012-13"
 
         assert_equal Date.new(2013, 4, 6), @calculator.start_of_next_tax_year
       end
-      should 'return 2014-04-06 if tax-year is 2013-14' do
-        @calculator.tax_year = '2013-14'
+      should "return 2014-04-06 if tax-year is 2013-14" do
+        @calculator.tax_year = "2013-14"
 
         assert_equal Date.new(2014, 4, 6), @calculator.start_of_next_tax_year
       end
-      should 'return 2015-04-06 if tax-year is 2014-15' do
-        @calculator.tax_year = '2014-15'
+      should "return 2015-04-06 if tax-year is 2014-15" do
+        @calculator.tax_year = "2014-15"
 
         assert_equal Date.new(2015, 4, 6), @calculator.start_of_next_tax_year
       end
-      should 'return 2016-04-06 if tax-year is 2016-15' do
-        @calculator.tax_year = '2015-16'
+      should "return 2016-04-06 if tax-year is 2016-15" do
+        @calculator.tax_year = "2015-16"
 
         assert_equal Date.new(2016, 4, 6), @calculator.start_of_next_tax_year
       end
-      should 'return 2017-04-06 if tax-year is 2017-17' do
-        @calculator.tax_year = '2016-17'
+      should "return 2017-04-06 if tax-year is 2017-17" do
+        @calculator.tax_year = "2016-17"
 
         assert_equal Date.new(2017, 4, 6), @calculator.start_of_next_tax_year
       end
-      should 'return 2018-04-06 if tax-year is 2017-18' do
-        @calculator.tax_year = '2017-18'
+      should "return 2018-04-06 if tax-year is 2017-18" do
+        @calculator.tax_year = "2017-18"
 
         assert_equal Date.new(2018, 4, 6), @calculator.start_of_next_tax_year
       end
     end
 
-    context 'one_year_after_start_date_for_penalties' do
-      should 'return 2015-02-01 if tax-year is 2012-13' do
-        @calculator.tax_year = '2012-13'
+    context "one_year_after_start_date_for_penalties" do
+      should "return 2015-02-01 if tax-year is 2012-13" do
+        @calculator.tax_year = "2012-13"
 
         assert_equal Date.new(2015, 2, 1), @calculator.one_year_after_start_date_for_penalties
       end
-      should 'return 2016-02-01 if tax-year is 2013-14' do
-        @calculator.tax_year = '2013-14'
+      should "return 2016-02-01 if tax-year is 2013-14" do
+        @calculator.tax_year = "2013-14"
 
         assert_equal Date.new(2016, 2, 1), @calculator.one_year_after_start_date_for_penalties
       end
-      should 'return 2017-02-01 if tax-year is 2014-15' do
-        @calculator.tax_year = '2014-15'
+      should "return 2017-02-01 if tax-year is 2014-15" do
+        @calculator.tax_year = "2014-15"
 
         assert_equal Date.new(2017, 2, 1), @calculator.one_year_after_start_date_for_penalties
       end
-      should 'return 2018-02-01 if tax-year is 2015-16' do
-        @calculator.tax_year = '2015-16'
+      should "return 2018-02-01 if tax-year is 2015-16" do
+        @calculator.tax_year = "2015-16"
 
         assert_equal Date.new(2018, 2, 1), @calculator.one_year_after_start_date_for_penalties
       end
-      should 'return 2019-02-01 if tax-year is 2016-17' do
-        @calculator.tax_year = '2016-17'
+      should "return 2019-02-01 if tax-year is 2016-17" do
+        @calculator.tax_year = "2016-17"
 
         assert_equal Date.new(2019, 2, 1), @calculator.one_year_after_start_date_for_penalties
       end
-      should 'return 2020-02-01 if tax-year is 2017-18' do
-        @calculator.tax_year = '2017-18'
+      should "return 2020-02-01 if tax-year is 2017-18" do
+        @calculator.tax_year = "2017-18"
 
         assert_equal Date.new(2020, 2, 1), @calculator.one_year_after_start_date_for_penalties
       end

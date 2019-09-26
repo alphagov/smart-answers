@@ -40,7 +40,7 @@ module SmartAnswer::Calculators
     def period_of_ordinary_leave
       SmartAnswer::DateRange.new(
         begins_on: @start_date,
-        ends_on: @start_date + 26 * 7 - 1
+        ends_on: @start_date + 26 * 7 - 1,
       )
     end
 

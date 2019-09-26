@@ -1,7 +1,7 @@
 module SmartAnswer
   class CountryAndDateSampleFlow < Flow
     def define
-      name 'country-and-date-sample'
+      name "country-and-date-sample"
       status :draft
 
       country_select :which_country_do_you_live_in? do
@@ -12,7 +12,7 @@ module SmartAnswer
       end
 
       date_question :what_date_did_you_move_there? do
-        from { Date.parse('1900-01-01') }
+        from { Date.parse("1900-01-01") }
         to { Date.today }
 
         save_input_as :date_moved

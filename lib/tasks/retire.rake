@@ -1,6 +1,6 @@
 namespace :retire do
   desc "Unpublish, redirect and remove from the search index an identified smart answer"
-  task :unpublish_redirect_remove_from_search, [:content_id, :base_path, :destination] => :environment do |_, args|
+  task :unpublish_redirect_remove_from_search, %i[content_id base_path destination] => :environment do |_, args|
     raise "Missing content_id parameter" unless args.content_id.present?
     raise "Missing base_path parameter" unless args.base_path.present?
     raise "Missing destination parameter" unless args.destination.present?
@@ -27,7 +27,7 @@ namespace :retire do
   end
 
   desc "Change publishing application"
-  task :change_owning_application, [:base_path, :publishing_app] => :environment do |_, args|
+  task :change_owning_application, %i[base_path publishing_app] => :environment do |_, args|
     raise "Missing base-path parameter" unless args.base_path
     raise "Missing publishing_app parameter" unless args.publishing_app
 
@@ -35,7 +35,7 @@ namespace :retire do
   end
 
   desc "Publish transaction via publishing api"
-  task :publish_transaction, [:base_path, :publishing_app, :title, :content, :link] => :environment do |_, args|
+  task :publish_transaction, %i[base_path publishing_app title content link] => :environment do |_, args|
     raise "Missing base path parameter" unless args.base_path
     raise "Missing publishing_app parameter" unless args.publishing_app
     raise "Missing title parameter" unless args.title
@@ -44,7 +44,7 @@ namespace :retire do
 
     ContentItemPublisher.new.reserve_path_for_publishing_app(
       args.base_path,
-      args.publishing_app
+      args.publishing_app,
     )
 
     ContentItemPublisher.new.publish_transaction(
@@ -52,12 +52,12 @@ namespace :retire do
       publishing_app: args.publishing_app,
       title: args.title,
       content: args.content,
-      link: args.link
+      link: args.link,
     )
   end
 
   desc "Publish answer via publishing api"
-  task :publish_answer, [:base_path, :publishing_app, :title, :content] => :environment do |_, args|
+  task :publish_answer, %i[base_path publishing_app title content] => :environment do |_, args|
     raise "Missing base path parameter" unless args.base_path
     raise "Missing publishing_app parameter" unless args.publishing_app
     raise "Missing title parameter" unless args.title
@@ -65,14 +65,14 @@ namespace :retire do
 
     ContentItemPublisher.new.reserve_path_for_publishing_app(
       args.base_path,
-      args.publishing_app
+      args.publishing_app,
     )
 
     ContentItemPublisher.new.publish_answer(
       args.base_path,
       publishing_app: args.publishing_app,
       title: args.title,
-      content: args.content
+      content: args.content,
     )
   end
 end

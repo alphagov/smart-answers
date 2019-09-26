@@ -1,5 +1,4 @@
-
-require_relative '../test_helper'
+require_relative "../test_helper"
 
 class FlowTest < ActiveSupport::TestCase
   test "Can set the name" do
@@ -56,12 +55,12 @@ class FlowTest < ActiveSupport::TestCase
 
   test "Can build outcomes where the whole flow uses ERB templates" do
     flow = SmartAnswer::Flow.new do
-      name 'flow-name'
+      name "flow-name"
       outcome :outcome_name
     end
 
     assert_equal 1, flow.outcomes.size
-    assert flow.outcomes.first.template_directory.to_s.end_with?('flow-name')
+    assert flow.outcomes.first.template_directory.to_s.end_with?("flow-name")
   end
 
   test "Can build multiple choice question nodes" do
@@ -71,8 +70,8 @@ class FlowTest < ActiveSupport::TestCase
         option :no
         next_node do |response|
           case response
-          when 'yes' then outcome :sweet_tooth
-          when 'no' then outcome :savoury_tooth
+          when "yes" then outcome :sweet_tooth
+          when "no" then outcome :savoury_tooth
           end
         end
       end
@@ -101,14 +100,14 @@ class FlowTest < ActiveSupport::TestCase
   test "Can build date question nodes" do
     s = SmartAnswer::Flow.new do
       date_question :when_is_your_birthday? do
-        from { Date.parse('2011-01-01') }
-        to { Date.parse('2014-01-01') }
+        from { Date.parse("2011-01-01") }
+        to { Date.parse("2014-01-01") }
       end
     end
 
     assert_equal 1, s.nodes.size
     assert_equal 1, s.questions.size
-    assert_equal Date.parse('2011-01-01')..Date.parse('2014-01-01'), s.questions.first.range
+    assert_equal Date.parse("2011-01-01")..Date.parse("2014-01-01"), s.questions.first.range
   end
 
   test "Can build value question nodes" do
@@ -220,8 +219,8 @@ class FlowTest < ActiveSupport::TestCase
           option :no
           next_node do |response|
             case response
-            when 'yes' then outcome :sweet
-            when 'no' then question :do_you_like_jam?
+            when "yes" then outcome :sweet
+            when "no" then question :do_you_like_jam?
             end
           end
         end
@@ -231,8 +230,8 @@ class FlowTest < ActiveSupport::TestCase
           option :no
           next_node do |response|
             case response
-            when 'yes' then outcome :sweet
-            when 'no' then outcome :savoury
+            when "yes" then outcome :sweet
+            when "no" then outcome :savoury
             end
           end
         end
@@ -254,7 +253,7 @@ class FlowTest < ActiveSupport::TestCase
         @error_message = "Sorry, that's not valid"
         @flow.node(:do_you_like_jam?)
           .stubs(:parse_input)
-          .with('bad')
+          .with("bad")
           .raises(SmartAnswer::BaseStateTransitionError.new(@error_message))
       end
 
@@ -266,7 +265,7 @@ class FlowTest < ActiveSupport::TestCase
       should "not process any further input after error" do
         @flow.node(:do_you_like_jam?)
           .expects(:parse_input)
-          .with('yes')
+          .with("yes")
           .never
         assert_equal :do_you_like_jam?, @flow.process(%w{no bad yes yes}).current_node
       end
@@ -283,7 +282,7 @@ class FlowTest < ActiveSupport::TestCase
         @error = SmartAnswer::LoggedError.new(@error_message, @log_message)
         @flow.node(:do_you_like_jam?)
           .stubs(:parse_input)
-          .with('bad')
+          .with("bad")
           .raises(@error)
       end
 
@@ -296,9 +295,9 @@ class FlowTest < ActiveSupport::TestCase
     should "calculate the path traversed by a series of responses" do
       assert_equal [], @flow.path([])
       assert_equal [:do_you_like_chocolate?], @flow.path(%w{no})
-      assert_equal [:do_you_like_chocolate?, :do_you_like_jam?], @flow.path(%w{no yes})
+      assert_equal %i[do_you_like_chocolate? do_you_like_jam?], @flow.path(%w{no yes})
       assert_equal [:do_you_like_chocolate?], @flow.path(%w{yes})
-      assert_equal [:do_you_like_chocolate?, :do_you_like_jam?], @flow.path(%w{no no})
+      assert_equal %i[do_you_like_chocolate? do_you_like_jam?], @flow.path(%w{no no})
     end
   end
 
@@ -310,8 +309,8 @@ class FlowTest < ActiveSupport::TestCase
 
         next_node do |response|
           case response
-          when 'red' then question :when?
-          when 'blue' then outcome :blue
+          when "red" then question :when?
+          when "blue" then outcome :blue
           end
         end
       end
@@ -322,8 +321,8 @@ class FlowTest < ActiveSupport::TestCase
     end
 
     assert_equal [], flow.process([]).responses
-    assert_equal ['red'], flow.process(['red']).responses
-    assert_equal ['red', Date.parse('2011-02-01')], flow.process(['red', { year: 2011, month: 2, day: 1 }]).responses
+    assert_equal %w[red], flow.process(%w[red]).responses
+    assert_equal ["red", Date.parse("2011-02-01")], flow.process(["red", { year: 2011, month: 2, day: 1 }]).responses
   end
 
   should "evaluate on_response block" do
@@ -337,8 +336,8 @@ class FlowTest < ActiveSupport::TestCase
       outcome :done
     end
 
-    state = flow.process(["1"])
-    assert_equal SmartAnswer::Money.new('1'), state.price
+    state = flow.process(%w[1])
+    assert_equal SmartAnswer::Money.new("1"), state.price
   end
 
   should "perform calculations on saved inputs" do
@@ -353,8 +352,8 @@ class FlowTest < ActiveSupport::TestCase
       outcome :done
     end
 
-    state = flow.process(["1"])
-    assert_equal SmartAnswer::Money.new('1'), state.price
+    state = flow.process(%w[1])
+    assert_equal SmartAnswer::Money.new("1"), state.price
     assert_equal 2.0, state.double
   end
 
@@ -371,8 +370,8 @@ class FlowTest < ActiveSupport::TestCase
       end
     end
 
-    state = flow.process(["1"])
-    assert_equal SmartAnswer::Money.new('1'), state.price
+    state = flow.process(%w[1])
+    assert_equal SmartAnswer::Money.new("1"), state.price
     assert_equal 2.0, state.double
   end
 
@@ -382,11 +381,11 @@ class FlowTest < ActiveSupport::TestCase
     end
 
     assert_raises SmartAnswer::Question::Base::NextNodeUndefined do
-      flow.process(['2011-01-01'])
+      flow.process(%w[2011-01-01])
     end
   end
 
-  context 'when another flow is appended to this one' do
+  context "when another flow is appended to this one" do
     setup do
       other_flow = SmartAnswer::Flow.new do
         outcome :another_outcome
@@ -398,12 +397,12 @@ class FlowTest < ActiveSupport::TestCase
       end
     end
 
-    should 'have nodes from other flow after nodes in this flow' do
+    should "have nodes from other flow after nodes in this flow" do
       assert_equal %i(question? outcome another_outcome), @flow.nodes.map(&:name)
     end
 
-    should 'set flow on all nodes from other flow' do
-      assert @flow.nodes.all? { |node| node.flow == @flow }
+    should "set flow on all nodes from other flow" do
+      assert(@flow.nodes.all? { |node| node.flow == @flow })
     end
   end
 end

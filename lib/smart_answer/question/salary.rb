@@ -9,9 +9,9 @@ module SmartAnswer
         salary = parse_input(input)
         {
           amount: salary.amount,
-          period: salary.period
+          period: salary.period,
         }
-      rescue
+      rescue StandardError
         nil
       end
     end

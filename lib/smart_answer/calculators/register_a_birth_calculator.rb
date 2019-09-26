@@ -2,7 +2,7 @@ module SmartAnswer::Calculators
   class RegisterABirthCalculator
     include ActiveModel::Model
 
-    EXCLUDE_COUNTRIES = %w(holy-see british-antarctic-territory)
+    EXCLUDE_COUNTRIES = %w(holy-see british-antarctic-territory).freeze
 
     attr_accessor :country_of_birth
     attr_accessor :british_national_parent
@@ -34,23 +34,23 @@ module SmartAnswer::Calculators
     end
 
     def paternity_declaration?
-      married_couple_or_civil_partnership == 'no'
+      married_couple_or_civil_partnership == "no"
     end
 
     def before_july_2006?
-      Date.new(2006, 07, 01) > childs_date_of_birth
+      Date.new(2006, 7, 1) > childs_date_of_birth
     end
 
     def same_country?
-      current_location == 'same_country'
+      current_location == "same_country"
     end
 
     def another_country?
-      current_location == 'another_country'
+      current_location == "another_country"
     end
 
     def in_the_uk?
-      current_location == 'in_the_uk'
+      current_location == "in_the_uk"
     end
 
     def no_birth_certificate_exception?
@@ -58,22 +58,22 @@ module SmartAnswer::Calculators
     end
 
     def born_in_north_korea?
-      country_of_birth == 'north-korea'
+      country_of_birth == "north-korea"
     end
 
     def currently_in_north_korea?
-      current_country == 'north-korea'
+      current_country == "north-korea"
     end
 
     def british_national_father?
-      british_national_parent == 'father'
+      british_national_parent == "father"
     end
 
     def overseas_passports_embassies
       location = WorldLocation.find(registration_country)
       organisations = [location.fco_organisation]
       if organisations && organisations.any?
-        service_title = 'Births and Deaths registration service'
+        service_title = "Births and Deaths registration service"
         organisations.first.offices_with_service(service_title)
       else
         []

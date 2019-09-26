@@ -1,7 +1,7 @@
-require_relative '../test_helper'
-require_relative '../helpers/fixture_flows_helper'
-require_relative '../fixtures/smart_answer_flows/smart-answers-controller-sample-with-money-question'
-require_relative 'smart_answers_controller_test_helper'
+require_relative "../test_helper"
+require_relative "../helpers/fixture_flows_helper"
+require_relative "../fixtures/smart_answer_flows/smart-answers-controller-sample-with-money-question"
+require_relative "smart_answers_controller_test_helper"
 
 class SmartAnswersControllerMoneyQuestionTest < ActionController::TestCase
   tests SmartAnswersController
@@ -22,7 +22,7 @@ class SmartAnswersControllerMoneyQuestionTest < ActionController::TestCase
   context "GET /<slug>" do
     context "money question" do
       should "display question" do
-        get :show, params: { id: 'smart-answers-controller-sample-with-money-question', started: 'y' }
+        get :show, params: { id: "smart-answers-controller-sample-with-money-question", started: "y" }
         assert_select ".step.current [data-test=question]", /How much\?/
         assert_select "input[type=text][name=response]"
       end
@@ -35,7 +35,7 @@ class SmartAnswersControllerMoneyQuestionTest < ActionController::TestCase
 
       context "suffix_label in erb template" do
         setup do
-          get :show, params: { id: 'smart-answers-controller-sample-with-money-question', started: 'y', responses: '1.23' }
+          get :show, params: { id: "smart-answers-controller-sample-with-money-question", started: "y", responses: "1.23" }
         end
 
         should "show the label after the question input" do
@@ -47,10 +47,10 @@ class SmartAnswersControllerMoneyQuestionTest < ActionController::TestCase
   end
 
   def submit_response(response = nil, other_params = {})
-    super(response, other_params.merge(id: 'smart-answers-controller-sample-with-money-question'))
+    super(response, other_params.merge(id: "smart-answers-controller-sample-with-money-question"))
   end
 
   def submit_json_response(response = nil, other_params = {})
-    super(response, other_params.merge(id: 'smart-answers-controller-sample-with-money-question'))
+    super(response, other_params.merge(id: "smart-answers-controller-sample-with-money-question"))
   end
 end

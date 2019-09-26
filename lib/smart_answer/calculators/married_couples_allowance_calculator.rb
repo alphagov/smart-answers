@@ -14,11 +14,11 @@ module SmartAnswer::Calculators
     end
 
     def qualifies?
-      born_on_or_before_6_april_1935 == 'yes'
+      born_on_or_before_6_april_1935 == "yes"
     end
 
     def husband_income_measured?
-      marriage_or_civil_partnership_before_5_december_2005 == 'yes'
+      marriage_or_civil_partnership_before_5_december_2005 == "yes"
     end
 
     def income_within_limit_for_personal_allowance?
@@ -26,11 +26,11 @@ module SmartAnswer::Calculators
     end
 
     def valid_income?
-      income > 0
+      income > 0 # rubocop:disable Styles/NumericPredicate
     end
 
     def paying_into_a_pension?
-      paying_into_a_pension == 'yes'
+      paying_into_a_pension == "yes"
     end
 
     def calculate_adjusted_net_income
@@ -53,13 +53,13 @@ module SmartAnswer::Calculators
         maximum_reduction_of_allowances = age_related_allowance(birth_date) - personal_allowance
         remaining_reduction = attempted_reduction - maximum_reduction_of_allowances
 
-        if remaining_reduction > 0
+        if remaining_reduction > 0 # rubocop:disable Styles/NumericPredicate
           reduced_mca = maximum_mca - remaining_reduction
-          if reduced_mca > minimum_mca
-            mca_entitlement = reduced_mca
-          else
-            mca_entitlement = minimum_mca
-          end
+          mca_entitlement = if reduced_mca > minimum_mca
+                              reduced_mca
+                            else
+                              minimum_mca
+                            end
         else
           mca_entitlement = maximum_mca
         end
@@ -90,7 +90,7 @@ module SmartAnswer::Calculators
     end
 
     def married_couples_allowance_rates
-      @married_couples_allowance_rates ||= RatesQuery.from_file('married_couples_allowance').rates
+      @married_couples_allowance_rates ||= RatesQuery.from_file("married_couples_allowance").rates
     end
   end
 end

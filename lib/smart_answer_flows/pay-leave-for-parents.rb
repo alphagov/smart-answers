@@ -46,9 +46,9 @@ module SmartAnswer
             question :employment_status_of_partner
           else
             case calculator.employment_status_of_mother
-            when 'employee', 'worker'
+            when "employee", "worker"
               question :mother_started_working_before_continuity_start_date
-            when 'self-employed', 'unemployed'
+            when "self-employed", "unemployed"
               question :mother_worked_at_least_26_weeks
             end
           end
@@ -67,9 +67,9 @@ module SmartAnswer
 
         next_node do
           case calculator.employment_status_of_mother
-          when 'employee', 'worker'
+          when "employee", "worker"
             question :mother_started_working_before_continuity_start_date
-          when 'self-employed', 'unemployed'
+          when "self-employed", "unemployed"
             question :mother_worked_at_least_26_weeks
           end
         end
@@ -113,25 +113,23 @@ module SmartAnswer
           if calculator.mother_continuity? && calculator.mother_lower_earnings?
             if calculator.two_carers?
               case calculator.employment_status_of_partner
-              when 'employee', 'worker'
+              when "employee", "worker"
                 question :partner_started_working_before_continuity_start_date
-              when 'self-employed', 'unemployed'
-                if calculator.due_date >= Date.parse('2015-04-05')
+              when "self-employed", "unemployed"
+                if calculator.due_date >= Date.parse("2015-04-05")
                   question :partner_worked_at_least_26_weeks
-                elsif calculator.due_date < Date.parse('2015-04-05')
-                  if calculator.employment_status_of_mother == 'employee'
+                elsif calculator.due_date < Date.parse("2015-04-05")
+                  if calculator.employment_status_of_mother == "employee"
                     outcome :outcome_mat_leave_mat_pay
-                  elsif calculator.employment_status_of_mother == 'worker'
+                  elsif calculator.employment_status_of_mother == "worker"
                     outcome :outcome_mat_pay
                   end
                 end
               end
-            else
-              if calculator.employment_status_of_mother == 'employee'
-                outcome :outcome_mat_leave_mat_pay
-              elsif calculator.employment_status_of_mother == 'worker'
-                outcome :outcome_mat_pay
-              end
+            elsif calculator.employment_status_of_mother == "employee"
+              outcome :outcome_mat_leave_mat_pay
+            elsif calculator.employment_status_of_mother == "worker"
+              outcome :outcome_mat_pay
             end
           else
             question :mother_worked_at_least_26_weeks
@@ -165,16 +163,16 @@ module SmartAnswer
             if %w(employee worker).include?(calculator.employment_status_of_partner)
               question :partner_started_working_before_continuity_start_date
             elsif %w(self-employed unemployed).include?(calculator.employment_status_of_partner)
-              if calculator.employment_status_of_mother == 'employee'
-                if calculator.mother_continuity? && calculator.due_date >= Date.parse('2015-04-05')
+              if calculator.employment_status_of_mother == "employee"
+                if calculator.mother_continuity? && calculator.due_date >= Date.parse("2015-04-05")
                   question :partner_worked_at_least_26_weeks
-                elsif calculator.mother_still_working_on_continuity_end_date == 'yes'
+                elsif calculator.mother_still_working_on_continuity_end_date == "yes"
                   if calculator.mother_earnings_employment?
                     outcome :outcome_mat_allowance_mat_leave
                   else
                     outcome :outcome_mat_leave
                   end
-                elsif calculator.mother_still_working_on_continuity_end_date == 'no'
+                elsif calculator.mother_still_working_on_continuity_end_date == "no"
                   if calculator.mother_earnings_employment?
                     outcome :outcome_mat_allowance
                   else
@@ -184,20 +182,20 @@ module SmartAnswer
               elsif calculator.mother_earnings_employment?
                 outcome :outcome_mat_allowance
               elsif %w(worker self-employed).include?(calculator.employment_status_of_mother) ||
-                  calculator.employment_status_of_partner == 'unemployed'
+                  calculator.employment_status_of_partner == "unemployed"
                 outcome :outcome_birth_nothing
-              elsif calculator.employment_status_of_partner == 'self-employed'
+              elsif calculator.employment_status_of_partner == "self-employed"
                 outcome :outcome_mat_allowance_14_weeks
               end
             end
-          elsif calculator.employment_status_of_mother == 'employee'
-            if calculator.mother_still_working_on_continuity_end_date == 'yes'
+          elsif calculator.employment_status_of_mother == "employee"
+            if calculator.mother_still_working_on_continuity_end_date == "yes"
               if calculator.mother_earnings_employment?
                 outcome :outcome_mat_allowance_mat_leave
               else
                 outcome :outcome_mat_leave
               end
-            elsif calculator.mother_still_working_on_continuity_end_date == 'no'
+            elsif calculator.mother_still_working_on_continuity_end_date == "no"
               if calculator.mother_earnings_employment?
                 outcome :outcome_mat_allowance
               else
@@ -249,51 +247,51 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.employment_status_of_partner == 'employee'
+          if calculator.employment_status_of_partner == "employee"
             if calculator.partner_continuity? && calculator.partner_lower_earnings?
-              if calculator.employment_status_of_mother == 'employee'
+              if calculator.employment_status_of_mother == "employee"
                 if calculator.mother_continuity? && calculator.mother_lower_earnings?
-                  if calculator.due_date >= Date.parse('2015-04-05')
+                  if calculator.due_date >= Date.parse("2015-04-05")
                     outcome :outcome_mat_leave_mat_pay_pat_leave_pat_pay_both_shared_leave_both_shared_pay
-                  elsif calculator.due_date < Date.parse('2015-04-05')
+                  elsif calculator.due_date < Date.parse("2015-04-05")
                     outcome :outcome_mat_leave_mat_pay_pat_leave_pat_pay_additional_pat_leave_additional_pat_pay
                   end
-                elsif calculator.mother_started_working_before_continuity_start_date == 'yes' && calculator.mother_still_working_on_continuity_end_date == 'yes'
-                  if calculator.due_date >= Date.parse('2015-04-05')
+                elsif calculator.mother_started_working_before_continuity_start_date == "yes" && calculator.mother_still_working_on_continuity_end_date == "yes"
+                  if calculator.due_date >= Date.parse("2015-04-05")
                     if calculator.mother_earnings_employment?
                       outcome :outcome_mat_allowance_mat_leave_pat_leave_pat_pay_both_shared_leave_pat_shared_pay
                     elsif !calculator.mother_earnings_employment?
                       outcome :outcome_mat_leave_pat_leave_pat_pay_mat_shared_leave
                     end
-                  elsif calculator.due_date < Date.parse('2015-04-05')
+                  elsif calculator.due_date < Date.parse("2015-04-05")
                     if calculator.mother_earnings_employment?
                       outcome :outcome_mat_allowance_mat_leave_pat_leave_pat_pay_additional_pat_leave_additional_pat_pay
                     elsif !calculator.mother_earnings_employment?
                       outcome :outcome_mat_leave_pat_leave_pat_pay_additional_pat_leave
                     end
                   end
-                elsif calculator.mother_still_working_on_continuity_end_date == 'yes'
-                  if calculator.due_date >= Date.parse('2015-04-05')
+                elsif calculator.mother_still_working_on_continuity_end_date == "yes"
+                  if calculator.due_date >= Date.parse("2015-04-05")
                     if calculator.mother_earnings_employment?
                       outcome :outcome_mat_allowance_mat_leave_pat_leave_pat_pay_pat_shared_leave_pat_shared_pay
                     elsif !calculator.mother_earnings_employment?
                       outcome :outcome_mat_leave_pat_leave_pat_pay
                     end
-                  elsif calculator.due_date < Date.parse('2015-04-05')
+                  elsif calculator.due_date < Date.parse("2015-04-05")
                     if calculator.mother_earnings_employment?
                       outcome :outcome_mat_allowance_mat_leave_pat_leave_pat_pay_additional_pat_leave_additional_pat_pay
                     elsif !calculator.mother_earnings_employment?
                       outcome :outcome_mat_leave_pat_leave_pat_pay_additional_pat_leave
                     end
                   end
-                elsif calculator.mother_still_working_on_continuity_end_date == 'no'
-                  if calculator.due_date >= Date.parse('2015-04-05')
+                elsif calculator.mother_still_working_on_continuity_end_date == "no"
+                  if calculator.due_date >= Date.parse("2015-04-05")
                     if calculator.mother_earnings_employment?
                       outcome :outcome_mat_allowance_pat_leave_pat_pay_pat_shared_leave_pat_shared_pay
                     elsif !calculator.mother_earnings_employment?
                       outcome :outcome_pat_leave_pat_pay
                     end
-                  elsif calculator.due_date < Date.parse('2015-04-05')
+                  elsif calculator.due_date < Date.parse("2015-04-05")
                     if calculator.mother_earnings_employment?
                       outcome :outcome_mat_allowance_pat_leave_pat_pay_additional_pat_leave_additional_pat_pay
                     elsif !calculator.mother_earnings_employment?
@@ -301,21 +299,21 @@ module SmartAnswer
                     end
                   end
                 end
-              elsif calculator.employment_status_of_mother == 'worker'
+              elsif calculator.employment_status_of_mother == "worker"
                 if calculator.mother_continuity? && calculator.mother_lower_earnings?
-                  if calculator.due_date >= Date.parse('2015-04-05')
+                  if calculator.due_date >= Date.parse("2015-04-05")
                     outcome :outcome_mat_pay_pat_leave_pat_pay_pat_shared_leave_both_shared_pay
-                  elsif calculator.due_date < Date.parse('2015-04-05')
+                  elsif calculator.due_date < Date.parse("2015-04-05")
                     outcome :outcome_mat_pay_pat_leave_pat_pay_additional_pat_leave_additional_pat_pay
                   end
                 elsif !calculator.mother_continuity? || !calculator.mother_lower_earnings?
-                  if calculator.due_date >= Date.parse('2015-04-05')
+                  if calculator.due_date >= Date.parse("2015-04-05")
                     if calculator.mother_earnings_employment?
                       outcome :outcome_mat_allowance_pat_leave_pat_pay_pat_shared_leave_pat_shared_pay
                     elsif !calculator.mother_earnings_employment?
                       outcome :outcome_pat_leave_pat_pay
                     end
-                  elsif calculator.due_date < Date.parse('2015-04-05')
+                  elsif calculator.due_date < Date.parse("2015-04-05")
                     if calculator.mother_earnings_employment?
                       outcome :outcome_mat_allowance_pat_leave_pat_pay_additional_pat_leave_additional_pat_pay
                     elsif !calculator.mother_earnings_employment?
@@ -327,68 +325,68 @@ module SmartAnswer
                 if !calculator.mother_earnings_employment?
                   outcome :outcome_pat_leave_pat_pay
                 elsif calculator.mother_earnings_employment?
-                  if calculator.due_date >= Date.parse('2015-04-05')
+                  if calculator.due_date >= Date.parse("2015-04-05")
                     outcome :outcome_mat_allowance_pat_leave_pat_pay_pat_shared_leave_pat_shared_pay
-                  elsif calculator.due_date < Date.parse('2015-04-05')
+                  elsif calculator.due_date < Date.parse("2015-04-05")
                     outcome :outcome_mat_allowance_pat_leave_pat_pay_additional_pat_leave_additional_pat_pay
                   end
                 end
               end
             elsif calculator.partner_continuity?
-              if calculator.employment_status_of_mother == 'employee'
+              if calculator.employment_status_of_mother == "employee"
                 if calculator.mother_continuity? && calculator.mother_lower_earnings?
-                  if calculator.due_date >= Date.parse('2015-04-05')
+                  if calculator.due_date >= Date.parse("2015-04-05")
                     question :partner_worked_at_least_26_weeks
-                  elsif calculator.due_date < Date.parse('2015-04-05')
+                  elsif calculator.due_date < Date.parse("2015-04-05")
                     outcome :outcome_mat_leave_mat_pay_pat_leave_additional_pat_leave
                   end
                 elsif calculator.mother_continuity?
-                  if calculator.due_date >= Date.parse('2015-04-05')
+                  if calculator.due_date >= Date.parse("2015-04-05")
                     question :partner_worked_at_least_26_weeks
-                  elsif calculator.due_date < Date.parse('2015-04-05')
+                  elsif calculator.due_date < Date.parse("2015-04-05")
                     if calculator.mother_earnings_employment?
                       outcome :outcome_mat_allowance_mat_leave_pat_leave_additional_pat_leave
                     elsif !calculator.mother_earnings_employment?
                       outcome :outcome_mat_leave_pat_leave_additional_pat_leave
                     end
                   end
-                elsif calculator.mother_still_working_on_continuity_end_date == 'yes'
-                  if calculator.due_date >= Date.parse('2015-04-05')
+                elsif calculator.mother_still_working_on_continuity_end_date == "yes"
+                  if calculator.due_date >= Date.parse("2015-04-05")
                     if calculator.mother_earnings_employment?
                       outcome :outcome_mat_allowance_mat_leave_pat_leave_pat_shared_leave
                     elsif !calculator.mother_earnings_employment?
                       outcome :outcome_mat_leave_pat_leave
                     end
-                  elsif calculator.due_date < Date.parse('2015-04-05')
+                  elsif calculator.due_date < Date.parse("2015-04-05")
                     if calculator.mother_earnings_employment?
                       outcome :outcome_mat_allowance_mat_leave_pat_leave_additional_pat_leave
                     elsif !calculator.mother_earnings_employment?
                       outcome :outcome_mat_leave_pat_leave_additional_pat_leave
                     end
                   end
-                elsif calculator.mother_still_working_on_continuity_end_date == 'no'
+                elsif calculator.mother_still_working_on_continuity_end_date == "no"
                   if calculator.mother_earnings_employment?
-                    if calculator.due_date >= Date.parse('2015-04-05')
+                    if calculator.due_date >= Date.parse("2015-04-05")
                       outcome :outcome_mat_allowance_pat_leave_pat_shared_leave
-                    elsif calculator.due_date < Date.parse('2015-04-05')
+                    elsif calculator.due_date < Date.parse("2015-04-05")
                       outcome :outcome_mat_allowance_pat_leave_additional_pat_leave
                     end
                   elsif !calculator.mother_earnings_employment?
                     outcome :outcome_pat_leave
                   end
                 end
-              elsif calculator.employment_status_of_mother == 'worker'
+              elsif calculator.employment_status_of_mother == "worker"
                 if calculator.mother_continuity? && calculator.mother_lower_earnings?
-                  if calculator.due_date >= Date.parse('2015-04-05')
+                  if calculator.due_date >= Date.parse("2015-04-05")
                     question :partner_worked_at_least_26_weeks
-                  elsif calculator.due_date < Date.parse('2015-04-05')
+                  elsif calculator.due_date < Date.parse("2015-04-05")
                     outcome :outcome_mat_pay_pat_leave_additional_pat_leave
                   end
                 elsif !calculator.mother_continuity? || !calculator.mother_lower_earnings?
                   if calculator.mother_earnings_employment?
-                    if calculator.due_date >= Date.parse('2015-04-05')
+                    if calculator.due_date >= Date.parse("2015-04-05")
                       outcome :outcome_mat_allowance_pat_leave_pat_shared_leave
-                    elsif calculator.due_date < Date.parse('2015-04-05')
+                    elsif calculator.due_date < Date.parse("2015-04-05")
                       outcome :outcome_mat_allowance_pat_leave_additional_pat_leave
                     end
                   elsif !calculator.mother_earnings_employment?
@@ -397,9 +395,9 @@ module SmartAnswer
                 end
               elsif %w(unemployed self-employed).include?(calculator.employment_status_of_mother)
                 if calculator.mother_earnings_employment?
-                  if calculator.due_date >= Date.parse('2015-04-05')
+                  if calculator.due_date >= Date.parse("2015-04-05")
                     outcome :outcome_mat_allowance_pat_leave_pat_shared_leave
-                  elsif calculator.due_date < Date.parse('2015-04-05')
+                  elsif calculator.due_date < Date.parse("2015-04-05")
                     outcome :outcome_mat_allowance_pat_leave_additional_pat_leave
                   end
                 elsif !calculator.mother_earnings_employment?
@@ -407,19 +405,17 @@ module SmartAnswer
                 end
               end
             elsif !calculator.partner_continuity?
-              if calculator.employment_status_of_mother == 'employee'
-                if calculator.mother_still_working_on_continuity_end_date == 'yes'
-                  if calculator.due_date >= Date.parse('2015-04-05')
+              if calculator.employment_status_of_mother == "employee"
+                if calculator.mother_still_working_on_continuity_end_date == "yes"
+                  if calculator.due_date >= Date.parse("2015-04-05")
                     if calculator.mother_continuity?
                       question :partner_worked_at_least_26_weeks
-                    else
-                      if calculator.mother_earnings_employment?
-                        outcome :outcome_mat_allowance_mat_leave
-                      elsif !calculator.mother_earnings_employment?
-                        outcome :outcome_mat_leave
-                      end
+                    elsif calculator.mother_earnings_employment?
+                      outcome :outcome_mat_allowance_mat_leave
+                    elsif !calculator.mother_earnings_employment?
+                      outcome :outcome_mat_leave
                     end
-                  elsif calculator.due_date < Date.parse('2015-04-05')
+                  elsif calculator.due_date < Date.parse("2015-04-05")
                     if calculator.mother_continuity? && calculator.mother_lower_earnings?
                       outcome :outcome_mat_leave_mat_pay
                     elsif !calculator.mother_continuity? || !calculator.mother_lower_earnings?
@@ -430,18 +426,18 @@ module SmartAnswer
                       end
                     end
                   end
-                elsif calculator.mother_still_working_on_continuity_end_date == 'no'
+                elsif calculator.mother_still_working_on_continuity_end_date == "no"
                   if calculator.mother_earnings_employment?
                     outcome :outcome_mat_allowance
                   elsif !calculator.mother_earnings_employment?
                     outcome :outcome_birth_nothing
                   end
                 end
-              elsif calculator.employment_status_of_mother == 'worker'
+              elsif calculator.employment_status_of_mother == "worker"
                 if calculator.mother_continuity? && calculator.mother_lower_earnings?
-                  if calculator.due_date >= Date.parse('2015-04-05')
+                  if calculator.due_date >= Date.parse("2015-04-05")
                     question :partner_worked_at_least_26_weeks
-                  elsif calculator.due_date < Date.parse('2015-04-05')
+                  elsif calculator.due_date < Date.parse("2015-04-05")
                     outcome :outcome_mat_pay
                   end
                 elsif !calculator.mother_continuity? || !calculator.mother_lower_earnings?
@@ -459,61 +455,61 @@ module SmartAnswer
                 end
               end
             end
-          elsif calculator.employment_status_of_partner == 'worker'
+          elsif calculator.employment_status_of_partner == "worker"
             if calculator.partner_continuity? && calculator.partner_lower_earnings?
-              if calculator.employment_status_of_mother == 'employee'
+              if calculator.employment_status_of_mother == "employee"
                 if calculator.mother_continuity? && calculator.mother_lower_earnings?
-                  if calculator.due_date >= Date.parse('2015-04-05')
+                  if calculator.due_date >= Date.parse("2015-04-05")
                     outcome :outcome_mat_leave_mat_pay_pat_pay_mat_shared_leave_both_shared_pay
-                  elsif calculator.due_date < Date.parse('2015-04-05')
+                  elsif calculator.due_date < Date.parse("2015-04-05")
                     outcome :outcome_mat_leave_mat_pay_pat_pay_additional_pat_pay
                   end
                 elsif calculator.mother_continuity?
-                  if calculator.due_date >= Date.parse('2015-04-05')
+                  if calculator.due_date >= Date.parse("2015-04-05")
                     if calculator.mother_earnings_employment?
                       outcome :outcome_mat_allowance_mat_leave_pat_pay_mat_shared_leave_pat_shared_pay
                     elsif !calculator.mother_earnings_employment?
                       outcome :outcome_mat_leave_pat_pay_mat_shared_leave
                     end
-                  elsif calculator.due_date < Date.parse('2015-04-05')
+                  elsif calculator.due_date < Date.parse("2015-04-05")
                     if calculator.mother_earnings_employment?
                       outcome :outcome_mat_allowance_mat_leave_pat_pay_additional_pat_pay
                     elsif !calculator.mother_earnings_employment?
                       outcome :outcome_mat_leave_pat_pay
                     end
                   end
-                elsif calculator.mother_still_working_on_continuity_end_date == 'yes'
+                elsif calculator.mother_still_working_on_continuity_end_date == "yes"
                   if !calculator.mother_earnings_employment?
                     outcome :outcome_mat_leave_pat_pay
-                  elsif calculator.due_date >= Date.parse('2015-04-05')
+                  elsif calculator.due_date >= Date.parse("2015-04-05")
                     outcome :outcome_mat_allowance_mat_leave_pat_pay_pat_shared_pay
-                  elsif calculator.due_date < Date.parse('2015-04-05')
+                  elsif calculator.due_date < Date.parse("2015-04-05")
                     outcome :outcome_mat_allowance_mat_leave_pat_pay_additional_pat_pay
                   end
-                elsif calculator.mother_still_working_on_continuity_end_date == 'no'
+                elsif calculator.mother_still_working_on_continuity_end_date == "no"
                   if !calculator.mother_earnings_employment?
                     outcome :outcome_pat_pay
-                  elsif calculator.due_date >= Date.parse('2015-04-05')
+                  elsif calculator.due_date >= Date.parse("2015-04-05")
                     outcome :outcome_mat_allowance_pat_pay_pat_shared_pay
-                  elsif calculator.due_date < Date.parse('2015-04-05')
+                  elsif calculator.due_date < Date.parse("2015-04-05")
                     outcome :outcome_mat_allowance_pat_pay_additional_pat_pay
                   end
                 end
-              elsif calculator.employment_status_of_mother == 'worker'
+              elsif calculator.employment_status_of_mother == "worker"
                 if calculator.mother_continuity? && calculator.mother_lower_earnings?
-                  if calculator.due_date >= Date.parse('2015-04-05')
+                  if calculator.due_date >= Date.parse("2015-04-05")
                     outcome :outcome_mat_pay_pat_pay_both_shared_pay
-                  elsif calculator.due_date < Date.parse('2015-04-05')
+                  elsif calculator.due_date < Date.parse("2015-04-05")
                     outcome :outcome_mat_pay_pat_pay_additional_pat_pay
                   end
                 elsif !calculator.mother_continuity? || !calculator.mother_lower_earnings?
-                  if calculator.due_date >= Date.parse('2015-04-05')
+                  if calculator.due_date >= Date.parse("2015-04-05")
                     if calculator.mother_earnings_employment?
                       outcome :outcome_mat_allowance_pat_pay_pat_shared_pay
                     elsif !calculator.mother_earnings_employment?
                       outcome :outcome_pat_pay
                     end
-                  elsif calculator.due_date < Date.parse('2015-04-05')
+                  elsif calculator.due_date < Date.parse("2015-04-05")
                     if calculator.mother_earnings_employment?
                       outcome :outcome_mat_allowance_pat_pay_additional_pat_pay
                     elsif !calculator.mother_earnings_employment?
@@ -522,13 +518,13 @@ module SmartAnswer
                   end
                 end
               elsif %w(unemployed self-employed).include?(calculator.employment_status_of_mother)
-                if calculator.due_date >= Date.parse('2015-04-05')
+                if calculator.due_date >= Date.parse("2015-04-05")
                   if calculator.mother_earnings_employment?
                     outcome :outcome_mat_allowance_pat_pay_pat_shared_pay
                   elsif !calculator.mother_earnings_employment?
                     outcome :outcome_pat_pay
                   end
-                elsif calculator.due_date < Date.parse('2015-04-05')
+                elsif calculator.due_date < Date.parse("2015-04-05")
                   if calculator.mother_earnings_employment?
                     outcome :outcome_mat_allowance_pat_pay_additional_pat_pay
                   elsif !calculator.mother_earnings_employment?
@@ -537,29 +533,29 @@ module SmartAnswer
                 end
               end
             elsif calculator.partner_continuity?
-              if calculator.employment_status_of_mother == 'employee'
+              if calculator.employment_status_of_mother == "employee"
                 if calculator.mother_continuity? && calculator.mother_lower_earnings?
-                  if calculator.due_date >= Date.parse('2015-04-05')
+                  if calculator.due_date >= Date.parse("2015-04-05")
                     question :partner_worked_at_least_26_weeks
-                  elsif calculator.due_date < Date.parse('2015-04-05')
+                  elsif calculator.due_date < Date.parse("2015-04-05")
                     outcome :outcome_mat_leave_mat_pay
                   end
                 elsif !calculator.mother_continuity? || !calculator.mother_lower_earnings?
                   if calculator.mother_continuity?
-                    if calculator.due_date >= Date.parse('2015-04-05')
+                    if calculator.due_date >= Date.parse("2015-04-05")
                       question :partner_worked_at_least_26_weeks
-                    elsif calculator.due_date < Date.parse('2015-04-05') && calculator.mother_earnings_employment?
+                    elsif calculator.due_date < Date.parse("2015-04-05") && calculator.mother_earnings_employment?
                       outcome :outcome_mat_allowance_mat_leave
-                    elsif calculator.due_date < Date.parse('2015-04-05') && !calculator.mother_earnings_employment?
+                    elsif calculator.due_date < Date.parse("2015-04-05") && !calculator.mother_earnings_employment?
                       outcome :outcome_mat_leave
                     end
-                  elsif calculator.mother_still_working_on_continuity_end_date == 'yes'
+                  elsif calculator.mother_still_working_on_continuity_end_date == "yes"
                     if calculator.mother_earnings_employment?
                       outcome :outcome_mat_allowance_mat_leave
                     elsif !calculator.mother_earnings_employment?
                       outcome :outcome_mat_leave
                     end
-                  elsif calculator.mother_still_working_on_continuity_end_date == 'no'
+                  elsif calculator.mother_still_working_on_continuity_end_date == "no"
                     if calculator.mother_earnings_employment?
                       outcome :outcome_mat_allowance
                     elsif !calculator.mother_earnings_employment?
@@ -567,11 +563,11 @@ module SmartAnswer
                     end
                   end
                 end
-              elsif calculator.employment_status_of_mother == 'worker'
+              elsif calculator.employment_status_of_mother == "worker"
                 if calculator.mother_continuity? && calculator.mother_lower_earnings?
-                  if calculator.due_date >= Date.parse('2015-04-05')
+                  if calculator.due_date >= Date.parse("2015-04-05")
                     question :partner_worked_at_least_26_weeks
-                  elsif calculator.due_date < Date.parse('2015-04-05')
+                  elsif calculator.due_date < Date.parse("2015-04-05")
                     outcome :outcome_mat_pay_pat_pay_additional_pat_pay
                   end
                 elsif !calculator.mother_continuity? || !calculator.mother_lower_earnings?
@@ -589,9 +585,9 @@ module SmartAnswer
                 end
               end
             elsif !calculator.partner_continuity?
-              if calculator.employment_status_of_mother == 'employee'
-                if calculator.mother_still_working_on_continuity_end_date == 'yes'
-                  if calculator.due_date >= Date.parse('2015-04-05')
+              if calculator.employment_status_of_mother == "employee"
+                if calculator.mother_still_working_on_continuity_end_date == "yes"
+                  if calculator.due_date >= Date.parse("2015-04-05")
                     if calculator.mother_continuity?
                       question :partner_worked_at_least_26_weeks
                     elsif !calculator.mother_continuity?
@@ -601,7 +597,7 @@ module SmartAnswer
                         outcome :outcome_mat_leave
                       end
                     end
-                  elsif calculator.due_date < Date.parse('2015-04-05')
+                  elsif calculator.due_date < Date.parse("2015-04-05")
                     if calculator.mother_continuity? && calculator.mother_lower_earnings?
                       outcome :outcome_mat_leave_mat_pay
                     elsif !calculator.mother_continuity? || !calculator.mother_lower_earnings?
@@ -612,18 +608,18 @@ module SmartAnswer
                       end
                     end
                   end
-                elsif calculator.mother_still_working_on_continuity_end_date == 'no'
+                elsif calculator.mother_still_working_on_continuity_end_date == "no"
                   if calculator.mother_earnings_employment?
                     outcome :outcome_mat_allowance
                   elsif !calculator.mother_earnings_employment?
                     outcome :outcome_birth_nothing
                   end
                 end
-              elsif calculator.employment_status_of_mother == 'worker'
+              elsif calculator.employment_status_of_mother == "worker"
                 if calculator.mother_continuity? && calculator.mother_lower_earnings?
-                  if calculator.due_date >= Date.parse('2015-04-05')
+                  if calculator.due_date >= Date.parse("2015-04-05")
                     question :partner_worked_at_least_26_weeks
-                  elsif calculator.due_date < Date.parse('2015-04-05')
+                  elsif calculator.due_date < Date.parse("2015-04-05")
                     outcome :outcome_mat_pay
                   end
                 elsif !calculator.mother_continuity? || !calculator.mother_lower_earnings?
@@ -667,9 +663,9 @@ module SmartAnswer
         end
 
         next_node do
-          if calculator.employment_status_of_mother == 'employee'
+          if calculator.employment_status_of_mother == "employee"
             if calculator.mother_continuity? && calculator.mother_lower_earnings?
-              if calculator.employment_status_of_partner == 'employee'
+              if calculator.employment_status_of_partner == "employee"
                 if calculator.partner_continuity?
                   if calculator.earnings_employment(calculator.partner_earned_at_least_390, calculator.partner_worked_at_least_26_weeks)
                     outcome :outcome_mat_leave_mat_pay_pat_leave_both_shared_leave_mat_shared_pay
@@ -692,7 +688,7 @@ module SmartAnswer
               end
             elsif !calculator.mother_continuity? || !calculator.mother_lower_earnings?
               if calculator.earnings_employment(calculator.partner_earned_at_least_390, calculator.partner_worked_at_least_26_weeks)
-                if calculator.employment_status_of_partner == 'employee'
+                if calculator.employment_status_of_partner == "employee"
                   if calculator.partner_continuity?
                     if calculator.mother_earnings_employment?
                       outcome :outcome_mat_allowance_mat_leave_pat_leave_both_shared_leave
@@ -714,7 +710,7 @@ module SmartAnswer
                   end
                 end
               elsif !calculator.earnings_employment(calculator.partner_earned_at_least_390, calculator.partner_worked_at_least_26_weeks)
-                if calculator.employment_status_of_partner == 'employee'
+                if calculator.employment_status_of_partner == "employee"
                   if calculator.partner_continuity?
                     if calculator.mother_earnings_employment?
                       outcome :outcome_mat_allowance_mat_leave_pat_leave_pat_shared_leave
@@ -737,8 +733,8 @@ module SmartAnswer
                 end
               end
             end
-          elsif calculator.employment_status_of_mother == 'worker'
-            if calculator.employment_status_of_partner == 'employee'
+          elsif calculator.employment_status_of_mother == "worker"
+            if calculator.employment_status_of_partner == "employee"
               if calculator.partner_continuity?
                 if calculator.earnings_employment(calculator.partner_earned_at_least_390, calculator.partner_worked_at_least_26_weeks)
                   outcome :outcome_mat_pay_pat_leave_pat_shared_leave_mat_shared_pay

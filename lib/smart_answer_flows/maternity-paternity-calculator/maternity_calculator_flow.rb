@@ -29,6 +29,7 @@ module SmartAnswer
           calculate :leave_start_date do |response|
             ls_date = response
             raise SmartAnswer::InvalidResponse if ls_date < leave_earliest_start_date
+
             calculator.leave_start_date = ls_date
             calculator.leave_start_date
           end
@@ -68,7 +69,7 @@ module SmartAnswer
           option :yes
           option :no
           calculate :not_entitled_to_pay_reason do |response|
-            response == 'no' ? :not_worked_long_enough_and_not_on_payroll : nil
+            response == "no" ? :not_worked_long_enough_and_not_on_payroll : nil
           end
           calculate :to_saturday do
             calculator.qualifying_week.last
@@ -82,9 +83,9 @@ module SmartAnswer
 
           next_node do |response|
             case response
-            when 'yes'
+            when "yes"
               question :last_normal_payday?
-            when 'no'
+            when "no"
               question :does_the_employee_work_for_you_now?
             end
           end
@@ -110,6 +111,7 @@ module SmartAnswer
           calculate :last_payday do |response|
             calculator.last_payday = response
             raise SmartAnswer::InvalidResponse if calculator.last_payday > to_saturday
+
             calculator.last_payday
           end
           next_node do
@@ -133,6 +135,7 @@ module SmartAnswer
           calculate :last_payday_eight_weeks do |response|
             payday = response + 1.day
             raise SmartAnswer::InvalidResponse if payday > payday_offset
+
             calculator.pre_offset_payday = payday
             payday
           end
@@ -191,8 +194,8 @@ module SmartAnswer
           save_input_as :smp_calculation_method
 
           next_node do |response|
-            if response == 'usual_paydates'
-              if calculator.pay_pattern == 'monthly'
+            if response == "usual_paydates"
+              if calculator.pay_pattern == "monthly"
                 question :when_in_the_month_is_the_employee_paid?
               else
                 question :when_is_your_employees_next_pay_day?
@@ -227,13 +230,13 @@ module SmartAnswer
 
           next_node do |response|
             case response
-            when 'first_day_of_the_month', 'last_day_of_the_month'
+            when "first_day_of_the_month", "last_day_of_the_month"
               outcome :maternity_leave_and_pay_result
-            when 'specific_date_each_month'
+            when "specific_date_each_month"
               question :what_specific_date_each_month_is_the_employee_paid?
-            when 'last_working_day_of_the_month'
+            when "last_working_day_of_the_month"
               question :what_days_does_the_employee_work?
-            when 'a_certain_week_day_each_month'
+            when "a_certain_week_day_each_month"
               question :what_particular_day_of_the_month_is_the_employee_paid?
             end
           end
@@ -243,7 +246,8 @@ module SmartAnswer
         value_question :what_specific_date_each_month_is_the_employee_paid?, parse: :to_i do
           calculate :pay_day_in_month do |response|
             day = response
-            raise InvalidResponse unless day > 0 && day < 32
+            raise InvalidResponse unless day.positive? && day < 32
+
             calculator.pay_day_in_month = day
           end
 
@@ -258,7 +262,7 @@ module SmartAnswer
 
           calculate :last_day_in_week_worked do |response|
             calculator.work_days = response.split(",").map(&:to_i)
-            calculator.pay_day_in_week = response.split(",").sort.last.to_i
+            calculator.pay_day_in_week = response.split(",").max.to_i
           end
           next_node do
             outcome :maternity_leave_and_pay_result
@@ -299,12 +303,12 @@ module SmartAnswer
           precalculate :pay_method do
             calculator.pay_method = (
               if monthly_pay_method
-                if monthly_pay_method == 'specific_date_each_month' && pay_day_in_month > 28
-                  'last_day_of_the_month'
+                if monthly_pay_method == "specific_date_each_month" && pay_day_in_month > 28
+                  "last_day_of_the_month"
                 else
                   monthly_pay_method
                 end
-              elsif smp_calculation_method == 'weekly_starting'
+              elsif smp_calculation_method == "weekly_starting"
                 smp_calculation_method
               elsif calculator.pay_pattern
                 calculator.pay_pattern

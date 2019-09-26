@@ -1,5 +1,5 @@
 require_relative "../../test_helper"
-require 'gds_api/test_helpers/imminence'
+require "gds_api/test_helpers/imminence"
 
 module SmartAnswer::Calculators
   class BenefitCapCalculatorConfigurationTest < ActiveSupport::TestCase
@@ -58,32 +58,32 @@ module SmartAnswer::Calculators
               national: {
                 first: {
                   amount: 100,
-                  description: "first cap"
+                  description: "first cap",
                 },
                 second: {
                   amount: 200,
-                  description: "second cap"
-                }
-              }
+                  description: "second cap",
+                },
+              },
             },
             exempt_benefits: {
               first_exempt_benefit: "first exempt benefit",
-              second_exempt_benefit: "second exempt benefit"
+              second_exempt_benefit: "second exempt benefit",
             },
             benefits: {
               first_benefit: {
                 question: "first_question",
-                description: "first description"
+                description: "first description",
               },
               second_benefit: {
                 question: "second_question",
-                description: "second description"
+                description: "second description",
               },
               third_benefit: {
                 question: "third_question",
-                description: "third description"
-              }
-            }
+                description: "third description",
+              },
+            },
           )
         end
         should "get weekly_benefit_caps data" do
@@ -100,7 +100,7 @@ module SmartAnswer::Calculators
       context "location of user" do
         context "lives outside of Greater London" do
           setup do
-            imminence_has_areas_for_postcode("B1%201PW", [{ type: 'EUR', name: 'West Midlands', country_name: 'England' }])
+            imminence_has_areas_for_postcode("B1%201PW", [{ type: "EUR", name: "West Midlands", country_name: "England" }])
           end
           should "return false" do
             assert_equal false, @config.london?("B1%201PW")
@@ -108,7 +108,7 @@ module SmartAnswer::Calculators
         end
         context "lives in Greater London" do
           setup do
-            imminence_has_areas_for_postcode("IG6%202BA", [{ type: 'EUR', name: 'London', country_name: 'England' }])
+            imminence_has_areas_for_postcode("IG6%202BA", [{ type: "EUR", name: "London", country_name: "England" }])
           end
           should "return true" do
             assert_equal true, @config.london?("IG6%202BA")
