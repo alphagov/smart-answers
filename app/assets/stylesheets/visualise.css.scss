@@ -1,3 +1,6 @@
+$govuk-compatibility-govukfrontendtoolkit: true;
+$govuk-compatibility-govuktemplate: true;
+
 @import "govuk_publishing_components/all_components";
 
 #content {

@@ -28,7 +28,12 @@
     <% end %>
 
     <p>Having problems reading the visualisation? Changing the orientation may help.</p>
-    <button id="btn-toggle-rankdir" class="big button">Show in portrait</button>
+    <%= render "govuk_publishing_components/components/button", {
+      text: "Show in portrait",
+      data_attributes: {
+        click_action: "visualise"
+      }
+    } %>
   </div>
 </main>
 

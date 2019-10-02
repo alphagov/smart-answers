@@ -104,7 +104,7 @@
       // Just give the viewport a little padding.
       V(paper.viewport).translate(20, 20);
 
-      var toggleButton = $('#btn-toggle-rankdir');
+      var toggleButton = $('[data-click-action=visualise]');
       toggleButton.on('click', toggleRankdir);
 
       var rankDir = 'TB';
