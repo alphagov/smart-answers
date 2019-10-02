@@ -6,21 +6,18 @@
   <%= javascript_include_tag "application", defer: true %>
 <% end %>
 
-<div class="grid-row">
-  <%= render partial: "smart_answers/heroku_alert" if heroku? %>
+<%= render partial: "smart_answers/heroku_alert" if heroku? %>
 
-  <main id="content" role="main">
-    <%= yield %>
+<main id="content" role="main">
+  <%= yield %>
 
-    <%= render 'smartanswer_metadata' %>
-  </main>
+  <%= render 'smartanswer_metadata' %>
+</main>
 
-  <% if defined?(@presenter.finished?) and @presenter.finished? %>
-    <div class="related-container">
-      <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: @content_item %>
-    </div>
-  <% end %>
-
-</div>
+<% if defined?(@presenter.finished?) and @presenter.finished? %>
+  <div class="related-container">
+    <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: @content_item %>
+  </div>
+<% end %>
 
 <% parent_layout 'application' %>
