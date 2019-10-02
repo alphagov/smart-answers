@@ -10,22 +10,22 @@ class CheckboxQuestionsTest < EngineIntegrationTest
       visit "/checkbox-sample/y"
 
       within ".current-question" do
-        within "[data-test=question]" do
+        within ".govuk-fieldset__legend" do
           assert_page_has_content "What do you want on your pizza?"
         end
         within ".question-body" do
-          assert page.has_field?("Ham", type: "checkbox", with: "ham")
-          assert page.has_field?("Peppers", type: "checkbox", with: "peppers")
-          assert page.has_field?("Ice Cream!!!", type: "checkbox", with: "ice_cream")
-          assert page.has_field?("Pepperoni", type: "checkbox", with: "pepperoni")
+          assert page.has_field?("Ham", type: "checkbox", with: "ham", visible: false)
+          assert page.has_field?("Peppers", type: "checkbox", with: "peppers", visible: false)
+          assert page.has_field?("Ice Cream!!!", type: "checkbox", with: "ice_cream", visible: false)
+          assert page.has_field?("Pepperoni", type: "checkbox", with: "pepperoni", visible: false)
           # Assert they're in the correct order
           options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
           assert_equal ["Ham", "Peppers", "Ice Cream!!!", "Pepperoni"], options
         end
       end
 
-      check "Ham"
-      check "Pepperoni"
+      check("Ham", visible: false)
+      check("Pepperoni", visible: false)
       click_on "Next step"
 
       assert_current_url "/checkbox-sample/y/ham,pepperoni"
@@ -71,7 +71,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
         assert_page_has_content "Are you sure you don't want any toppings?"
       end
 
-      check "Definitely no toppings"
+      check("Definitely no toppings", visible: false)
 
       click_on "Next step"
 
@@ -93,7 +93,7 @@ class CheckboxQuestionsTest < EngineIntegrationTest
 
       assert_equal current_path, "/checkbox-sample/y/none"
 
-      within(".error-message") do
+      within(".govuk-error-message") do
         assert_page_has_content "Please answer this question"
       end
     end
@@ -103,11 +103,11 @@ class CheckboxQuestionsTest < EngineIntegrationTest
     should "toggle options when none option is present" do
       visit "/checkbox-sample/y/none"
 
-      check "Definitely no toppings"
-      check "Hmm I'm not sure, ask me again please"
+      check("Definitely no toppings", visible: false)
+      check("Hmm I'm not sure, ask me again please", visible: false)
       refute page.has_checked_field?("Definitely no toppings")
 
-      check "Definitely no toppings"
+      check("Definitely no toppings", visible: false)
       refute page.has_checked_field?("Hmm I'm not sure, ask me again please")
       click_on "Next step"
 
@@ -118,9 +118,9 @@ class CheckboxQuestionsTest < EngineIntegrationTest
   should "calculate next_node correctly" do
     visit "/checkbox-sample/y"
 
-    check "Ham"
-    check "Ice Cream!!!"
-    click_on "Next step"
+    check("Ham", visible: false)
+    check("Ice Cream!!!", visible: false)
+    click_on("Next step", visible: false)
 
     assert_current_url "/checkbox-sample/y/ham,ice_cream"
     within ".outcome:nth-child(1)" do

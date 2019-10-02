@@ -1,21 +1,8 @@
-<ul class="options">
-  <% question.options.each.with_index do |option, i| %>
-    <li>
-      <label for="response_<%= i %>" class="selectable">
-        <%= check_box_tag "response[]", option.value, prefill_value_includes?(question, option.value), id: "response_#{i}" %>
-        <%= option.label %>
-      </label>
-    </li>
-  <% end %>
-  <% if question.none_option_label.present? %>
-    <li class="none-option">
-      <% if question.none_option_prefix.present? %>
-        <p><%= question.none_option_prefix %></p>
-      <% end %>
-      <label for="response_<%= question.options.size %>" class="selectable">
-        <%= check_box_tag "response[]", "none", prefill_value_is?("none"), id: "response_#{question.options.size}" %>
-        <%= question.none_option_label %>
-      </label>
-    </li>
-  <% end %>
-</ul>
+<%= render "govuk_publishing_components/components/checkboxes", {
+  name: "response[]",
+  heading: question.title,
+  id: "response",
+  error: question.error,
+  hint_text: question.hint_text,
+  items: question.checkboxes
+} %>

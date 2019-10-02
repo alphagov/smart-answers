@@ -1,10 +1,34 @@
-<fieldset>
-  <label for="response_amount">
-    &pound; <%= text_field_tag("response[amount]", nil, size: 5, value: prefill_value_for(question, :amount)) %>
-  </label>
-  <label for="response_period">
-  per <select name="response[period]">
-    <%= options_for_select %w{week month year}, prefill_value_for(question, :period) %>
-  </select>
-  </label>
-</fieldset>
+<%= render "govuk_publishing_components/components/input", {
+  label: {
+    text: question.title
+  },
+  name: "response[amount]",
+  id: "response_amount",
+  heading_size: "m",
+  hint: "in £",
+  error_message: question.error,
+  value: prefill_value_for(question, :amount)
+} %>
+<%= render "govuk_publishing_components/components/select", {
+  id: "response_month",
+  name: "response[period]",
+  heading_size: "m",
+  label: "How often?",
+  options: [
+    {
+      text: "per week",
+      value: "week",
+      selected: prefill_value_for(question, :period) == "week"
+    },
+    {
+      text: "per month",
+      value: "month",
+      selected: prefill_value_for(question, :period) == "month"
+    },
+    {
+      text: "per year",
+      value: "year",
+      selected: prefill_value_for(question, :period) == "year"
+    }
+  ]
+} %>

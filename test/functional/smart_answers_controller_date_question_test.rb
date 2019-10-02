@@ -23,7 +23,7 @@ class SmartAnswersControllerDateQuestionTest < ActionController::TestCase
     context "date question" do
       should "display question" do
         get :show, params: { id: "smart-answers-controller-sample-with-date-question", started: "y" }
-        assert_select ".step.current [data-test=question]", /When\?/
+        assert_select ".step.current .govuk-fieldset__legend", /When\?/
         assert_select "select[name='response[day]']"
         assert_select "select[name='response[month]']"
         assert_select "select[name='response[year]']"
@@ -47,7 +47,7 @@ class SmartAnswersControllerDateQuestionTest < ActionController::TestCase
       context "no response given" do
         should "redisplay question" do
           submit_response(day: "", month: "", year: "")
-          assert_select ".step.current [data-test=question]", /When\?/
+          assert_select ".step.current .govuk-fieldset__legend", /When\?/
         end
 
         should "show an error message" do

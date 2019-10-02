@@ -18,7 +18,12 @@
           </div>
 
           <p class="get-started">
-            <a rel="nofollow" href="<%= smart_answer_path(@name.to_s, started: "y") %>" class="big button" role="button"><%= start_node.start_button_text %></a>
+            <%= render "govuk_publishing_components/components/button", {
+              text: start_node.start_button_text,
+              href: smart_answer_path(@name.to_s, started: "y"),
+              rel: "nofollow",
+              start: true
+            } %>
           </p>
         </section>
         <section class="more">

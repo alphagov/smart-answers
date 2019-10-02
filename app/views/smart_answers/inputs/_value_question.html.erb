@@ -1,4 +1,11 @@
-<% if question.has_labels? %><label for="response"><%
-  unless question.suffix_label.present? %><%= question.label %><% end %><% end
-%><%= text_field_tag('response', prefill_value_for(question)) %><%
-  if question.has_labels? %><%= question.suffix_label %></label><% end %>
+<%= render "govuk_publishing_components/components/input", {
+  label: {
+    text: question.title
+  },
+  name: "response",
+  id: "response",
+  heading_size: "m",
+  hint: question.hint_text,
+  value: prefill_value_for(question),
+  error_message: question.error
+} %>

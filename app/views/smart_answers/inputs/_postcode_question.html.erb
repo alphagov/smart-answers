@@ -1,3 +1,10 @@
-<label for="response">
-  <%= text_field_tag("response", prefill_value_for(question)) %>
-</label>
+<%= render "govuk_publishing_components/components/input", {
+  label: {
+    text: question.title
+  },
+  name: "response",
+  id: "response",
+  heading_size: "m",
+  error_message: question.error,
+  value: prefill_value_for(question)
+} %>

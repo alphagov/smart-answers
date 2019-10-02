@@ -25,7 +25,7 @@ class PrecalculationsTest < EngineIntegrationTest
       assert_same_url "/precalculation-sample/y", form[:action]
 
       within ".current-question" do
-        within "[data-test=question]" do
+        within ".govuk-label" do
           assert_page_has_content "How much wood would a woodchuck chuck if a woodchuck could chuck wood?"
         end
         within ".question-body" do
@@ -39,7 +39,7 @@ class PrecalculationsTest < EngineIntegrationTest
       assert_current_url "/precalculation-sample/y/10"
 
       within ".current-question" do
-        within "[data-test=question]" do
+        within ".govuk-label" do
           assert_page_has_content "How many woodchucks do you have?"
         end
         within ".question-body" do

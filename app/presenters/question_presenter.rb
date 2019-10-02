@@ -1,6 +1,9 @@
 class QuestionPresenter < NodePresenter
-  def initialize(node, state = nil, options = {})
+  attr_reader :params
+
+  def initialize(node, state = nil, options = {}, params = {})
     super(node, state)
+    @params = params
     @renderer = options[:renderer]
     helpers = options[:helpers] || []
     @renderer ||= SmartAnswer::ErbRenderer.new(

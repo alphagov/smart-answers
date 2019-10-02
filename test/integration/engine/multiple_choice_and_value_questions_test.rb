@@ -38,7 +38,7 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
       assert page.has_xpath?("//meta[@name = 'robots'][@content = 'noindex']", visible: :all)
 
       within ".current-question" do
-        within "[data-test=question]" do
+        within ".govuk-label" do
           assert_page_has_content "What...is your name?"
         end
         within ".question-body" do
@@ -63,20 +63,20 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
       end
 
       within ".current-question" do
-        within "[data-test=question]" do
+        within ".govuk-fieldset__legend" do
           assert_page_has_content "What...is your quest?"
         end
         within ".question-body" do
-          assert page.has_field?("To seek the Holy Grail", type: "radio", with: "to_seek_the_holy_grail")
-          assert page.has_field?("To rescue the princess", type: "radio", with: "to_rescue_the_princess")
-          assert page.has_field?("I dunno", type: "radio", with: "dunno")
+          assert page.has_field?("To seek the Holy Grail", type: "radio", with: "to_seek_the_holy_grail", visible: false)
+          assert page.has_field?("To rescue the princess", type: "radio", with: "to_rescue_the_princess", visible: false)
+          assert page.has_field?("I dunno", type: "radio", with: "dunno", visible: false)
           # Assert they're in the correct order
           options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
           assert_equal ["To seek the Holy Grail", "To rescue the princess", "I dunno"], options
         end
       end
 
-      choose "To seek the Holy Grail"
+      choose("To seek the Holy Grail", visible: false)
       click_on "Next step"
 
       assert_current_url "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail"
@@ -100,20 +100,20 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
       end
 
       within ".current-question" do
-        within "[data-test=question]" do
+        within ".govuk-fieldset__legend" do
           assert_page_has_content "What...is your favorite colour?"
         end
         within ".question-body" do
-          assert page.has_field?("Blue", type: "radio", with: "blue")
-          assert page.has_field?("Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", type: "radio", with: "blue_no_yellow")
-          assert page.has_field?("Red", type: "radio", with: "red")
+          assert page.has_field?("Blue", type: "radio", with: "blue", visible: false)
+          assert page.has_field?("Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", type: "radio", with: "blue_no_yellow", visible: false)
+          assert page.has_field?("Red", type: "radio", with: "red", visible: false)
           # Assert they're in the correct order
           options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
           assert_equal ["Blue", "Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", "Red"], options
         end
       end
 
-      choose "Blue"
+      choose("Blue", visible: false)
       click_on "Next step"
 
       assert_current_url "/bridge-of-death/y/Lancelot/to_seek_the_holy_grail/blue"
@@ -158,7 +158,7 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
     fill_in "response", with: "Robin"
     click_on "Next step"
 
-    choose "To seek the Holy Grail"
+    choose("To seek the Holy Grail", visible: false)
     click_on "Next step"
 
     assert_current_url "/bridge-of-death/y/Robin/to_seek_the_holy_grail"
@@ -182,7 +182,7 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
     end
 
     within ".current-question" do
-      within "[data-test=question]" do
+      within ".govuk-label" do
         assert_page_has_content "What...is the capital of Assyria?"
       end
       within ".question-body" do

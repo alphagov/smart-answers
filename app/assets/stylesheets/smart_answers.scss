@@ -367,11 +367,6 @@ $is-ie: false !default;
     }
   }
 
-  .error-message {
-    margin-top: 0;
-    color:#B01117;
-  }
-
   /*
    * calculators
    */
@@ -406,4 +401,11 @@ $is-ie: false !default;
       cursor: pointer;
       color: #FFF3CF;
     }
+}
+
+.date-wrapper {
+  .date-wrapper__col {
+    width: auto;
+    margin-bottom: govuk-spacing(3);
+  }
 }

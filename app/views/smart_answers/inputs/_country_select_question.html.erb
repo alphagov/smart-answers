@@ -1,1 +1,7 @@
-<%= select_tag "response", options_from_collection_for_select(question.options, :value, :label, prefill_value_for(question)) %>
+<%= render "govuk_publishing_components/components/select", {
+  id: "response",
+  label: question.title,
+  heading_size: 'm',
+  error_message: question.error,
+  options: question.select_options
+} %>

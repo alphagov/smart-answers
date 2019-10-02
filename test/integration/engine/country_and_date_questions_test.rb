@@ -20,9 +20,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       visit "/country-and-date-sample/y"
 
       within ".current-question" do
-        within "[data-test=question]" do
-          assert_page_has_content "Which country do you live in?"
-        end
+        assert_page_has_content "Which country do you live in?"
       end
       within ".question-body" do
         assert page.has_select?("response")
@@ -47,9 +45,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       end
 
       within ".current-question" do
-        within "[data-test=question]" do
-          assert_page_has_content "What date did you move there?"
-        end
+        assert_page_has_content "What date did you move there?"
       end
 
       within ".question-body" do
@@ -87,9 +83,7 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
       end
 
       within ".current-question" do
-        within "[data-test=question]" do
-          assert_page_has_content "Which country were you born in?"
-        end
+        assert_page_has_content "Which country were you born in?"
       end
       within ".question-body" do
         assert page.has_select?("response")
