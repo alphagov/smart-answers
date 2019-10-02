@@ -1,25 +1,19 @@
-@import "grid_layout.scss";
-@import "colours.scss";
-@import "typography.scss";
-@import "design-patterns/buttons.scss";
+@import "govuk_publishing_components/all_components";
 
 #content {
-    @include outer-block;
-
     .container {
-        @include inner-block;
     }
 
     header {
         margin: 2em 0;
 
         h1 {
-            @include bold-48;
+            @include govuk-font(48, $weight: bold);
 
             span {
                 display: block;
-                color: $grey-1;
-                @include core-27;
+                color: govuk-colour("dark-grey", $legacy: "grey-1");
+                @include govuk-font(27);
                 font-weight: normal;
             }
 
@@ -30,7 +24,7 @@
     }
 
     #btn-toggle-rankdir {
-        @include button;
+
     }
 
 }
@@ -41,6 +35,6 @@
 }
 
 #paper {
-    // Prevents the 
+    // Prevents the
     min-height: 600px;
 }

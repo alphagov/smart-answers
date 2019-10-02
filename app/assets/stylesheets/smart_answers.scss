@@ -1,20 +1,5 @@
-@import 'grid_layout';
-
 // Short term fix. Needs removing in the future.
 $is-ie: false !default;
-@mixin media-down($size: false, $max-width: false, $min-width: false) {
-  @if $is-ie == false {
-    @if $size == mobile {
-      @media (max-width: 640px){
-        @content;
-      }
-    } @else if $size == tablet {
-      @media (max-width: 800px){
-        @content;
-      }
-    }
-  }
-}
 
 // Styles
 // The more generic SmartAnswer CSS is in Static _multi_step.scss
@@ -25,10 +10,11 @@ $is-ie: false !default;
     // h2 is used for multiple questions on a page
     max-width: 38em;
     h2 {
-      @include core-19;
-      padding-left: 32px;
-      @include media(mobile) {
-        padding-left: 16px;
+      @include govuk-font(19);
+      padding-left: 16px;
+
+      @include govuk-media-query($from: tablet) {
+        padding-left: 32px;
       }
     }
   }
@@ -61,7 +47,7 @@ $is-ie: false !default;
   // Current question
   .page-title {
     margin-top: 0;
-    @include bold-24;
+    @include govuk-font(24, $weight: bold);
   }
 
   .done-questions {
@@ -72,12 +58,12 @@ $is-ie: false !default;
       width: auto;
 
       .previous-answers-title {
-        @include bold-19;
+        @include govuk-font(19, $weight: bold);
       }
 
       thead th {
         border-bottom: none;
-        @include core-19
+        @include govuk-font(19);
       }
 
       .link-right {
@@ -92,7 +78,7 @@ $is-ie: false !default;
           width: 50%;
 
           &.section-title {
-            @include bold-14;
+            @include govuk-font(14, $weight: bold);
             padding-top: 0.5em;
           }
 
@@ -100,14 +86,14 @@ $is-ie: false !default;
             list-style: none;
             padding: 0;
             li {
-              @include core-14;
+              @include govuk-font(14);
               padding: 0;
               margin: 0;
             }
           }
         }
         .section {
-          border-top: 1px solid $border-colour;
+          border-top: 1px solid $govuk-border-colour;
           td {
             padding: 0.5em 1em 0.3em inherit;
             width: 40%;
@@ -122,36 +108,34 @@ $is-ie: false !default;
   }
 
   .hint {
-    @include core-16;
+    @include govuk-font(16);
     display: block;
   }
 
   .start-again {
     background: #fff;
-    position: absolute;
-    right: 0;
-    top: -2.5em;
     height: 2.5em;
-    width: 11em;
+    padding: 0 1em;
+
+    @include govuk-media-query($from: tablet) {
+      position: absolute;
+      right: 0;
+      top: -2.5em;
+      width: 11em;
+
+      a {
+        text-align: center;
+      }
+    }
 
     a {
-      @include core-19($line-height: 40 / 19, $line-height-640: 40 / 13);
+      @include govuk-font(19, $line-height: 40 / 19);
       display: block;
-      text-align: center;
+      text-align: right;
       text-decoration: underline;
 
       &:hover {
         text-decoration: none;
-      }
-    }
-
-    @include media-down(mobile) {
-      position: static;
-      width: auto;
-      padding: 0 1em;
-
-      a {
-        text-align: right;
       }
     }
   }
@@ -171,24 +155,26 @@ $is-ie: false !default;
     li {
       list-style: none;
       position: relative;
-      padding: 0.75em 1.5em 0.75em 1em;
+      padding: 0.5em 1em;
 
-      @include media-down(mobile) {
-        padding: 0.5em 1em;
+      @include govuk-media-query($from: tablet) {
+        padding: 0.75em 1.5em 0.75em 1em;
       }
 
       h3 {
-        @include core-16;
+        @include govuk-font(16);
       }
 
-    &.done {
-      background: #D5ECEA;
-      border-bottom: solid 1px #b6d6d2;
-      overflow: hidden;
-      padding-right: 9.5em;
+      &.done {
+        background: #D5ECEA;
+        border-bottom: solid 1px #b6d6d2;
+        overflow: hidden;
+        padding-right: 9.5em;
+        list-style: none;
+        position: relative;
 
         .answer {
-          @include bold-16;
+          @include govuk-font(16, $weight: bold);
           color: #315843;
           display: block;
           margin: 0 0.5em 0 1em;
@@ -205,12 +191,6 @@ $is-ie: false !default;
               }
             }
           }
-        }
-
-        @include ie-lte(8) {
-          list-style: none;
-          position: relative;
-          overflow: hidden;
         }
       }
     }
@@ -270,17 +250,14 @@ $is-ie: false !default;
 
     h2 {
       border: none;
-      @include bold-19;
+      @include govuk-font(19, $weight: bold);
       margin: 0 0 1em;
       position: relative;
+      line-height: 1.2em;
 
       .question-number {
         padding-right: 0.25em;
         font-weight: 400;
-      }
-
-      @include ie-lte(8) {
-        line-height: 1.2em;
       }
     }
 
@@ -295,7 +272,6 @@ $is-ie: false !default;
 
       /* this is the multiple choice selector */
       &.options {
-        @extend %contain-floats;
         list-style: none;
         padding: 0; /* this aligns optional questions with gutter */
 
@@ -327,9 +303,14 @@ $is-ie: false !default;
     margin-top: 2em;
 
     .inner {
-      padding-top: 0.5em;
-      padding-bottom: 1em;
-      padding-right: 0;
+      padding: 0.25em 1em 0.25em 1em;
+
+      @include govuk-media-query($from: tablet) {
+        margin: 0;
+        padding-top: 0.5em;
+        padding-bottom: 1em;
+        padding-right: 0;
+      }
 
       ul {
         padding: 0;
@@ -342,18 +323,11 @@ $is-ie: false !default;
           margin-left: 0;
         }
       }
-
-      @include media-down(tablet) {
-        margin: 1em -1em 1.5em -1em;
-        padding: 0.25em 1em 0.25em 1em;
-      }
-
     }
   }
 
 
   .article-container {
-    @extend %contain-floats;
   }
 
   /*
@@ -382,7 +356,7 @@ $is-ie: false !default;
    * loading indicators
    */
   .loading .next-step {
-    @include inline-block;
+    display: inline-block;
     line-height: 1.5em;
     height: 32px;
     margin: 0 0 0 1.3em;
