@@ -17,22 +17,18 @@
 <main id="content" role="main" class="visualisation-">
   <div class="container">
     <%= render 'govuk_publishing_components/components/phase_banner', phase: "alpha" %>
-    <header class="page-header group">
-      <div>
-        <h1>
-          <span>Flow visualisation for</span>
-          <%= @presenter.title %>
-        </h1>
-      </div>
-      <p>This is a visualisation of the <%= link_to @presenter.title, smart_answer_path(params[:id]) %> questions and outcomes.</p>
-      <% if ! @graph_presenter.visualisable? %>
-        <div class='warning'><p>This visualisation does not show all transitions correctly. It needs to be updated so that it can be visualised correctly.</p></div>
-      <% end %>
-    </header>
+    <%= render "govuk_publishing_components/components/title", {
+      context: "Flow visualisation for",
+      title: @presenter.title
+    } %>
+
+    <p>This is a visualisation of the <%= link_to @presenter.title, smart_answer_path(params[:id]) %> questions and outcomes.</p>
+    <% if ! @graph_presenter.visualisable? %>
+      <div class='warning'><p>This visualisation does not show all transitions correctly. It needs to be updated so that it can be visualised correctly.</p></div>
+    <% end %>
 
     <p>Having problems reading the visualisation? Changing the orientation may help.</p>
     <button id="btn-toggle-rankdir" class="big button">Show in portrait</button>
-
   </div>
 </main>
 

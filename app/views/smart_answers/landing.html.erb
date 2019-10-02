@@ -7,7 +7,9 @@
 <% end %>
 
 <div class="transaction">
-  <%= render partial: 'page_title', locals: { title: start_node.title } %>
+  <%= render "govuk_publishing_components/components/title", {
+    title: start_node.title
+  } %>
 
   <div class="article-container group">
     <article role="article" class="group" data-debug-template-path="<%= start_node.relative_erb_template_path %>">

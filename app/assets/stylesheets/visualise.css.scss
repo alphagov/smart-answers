@@ -3,30 +3,6 @@
 #content {
     .container {
     }
-
-    header {
-        margin: 2em 0;
-
-        h1 {
-            @include govuk-font(48, $weight: bold);
-
-            span {
-                display: block;
-                color: govuk-colour("dark-grey", $legacy: "grey-1");
-                @include govuk-font(27);
-                font-weight: normal;
-            }
-
-            a {
-                text-decoration: none;
-            }
-        }
-    }
-
-    #btn-toggle-rankdir {
-
-    }
-
 }
 
 .warning {

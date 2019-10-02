@@ -4,7 +4,9 @@
 
 <%= render 'debug' %>
 
-<%= render partial: 'page_title', locals: { title: @presenter.title } %>
+<%= render "govuk_publishing_components/components/title", {
+  title: @presenter.title
+} %>
 
 <% outcome = @presenter.current_node %>
 
