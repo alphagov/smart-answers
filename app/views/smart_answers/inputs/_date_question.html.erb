@@ -3,6 +3,10 @@
     <%= question.body %>
   <% end %>
 
+  <% if question.hint.present? %>
+    <p><%= question.hint %></p>
+  <% end %>
+
   <div class="govuk-grid-row date-wrapper">
     <% unless question.default_day %>
       <div class="govuk-grid-column-one-third date-wrapper__col">
