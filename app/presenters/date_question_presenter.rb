@@ -29,7 +29,10 @@ class DateQuestionPresenter < QuestionPresenter
   end
 
   def years_options
-    years = Array(start_date.year..end_date.year).map { |number|
+    smallest = [start_date.year, end_date.year].min
+    biggest = [start_date.year, end_date.year].max
+
+    years = Array(smallest..biggest).map { |number|
       format_date(number, :year)
     }
     years.unshift(text: "", value: "")
