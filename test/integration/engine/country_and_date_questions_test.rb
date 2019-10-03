@@ -33,14 +33,14 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
 
       assert_current_url "/country-and-date-sample/y/belarus"
 
-      within ".done-questions" do
+      within ".govuk-table" do
         assert page.has_link?("Start again", href: "/country-and-date-sample")
-        within "tr.section:nth-child(1)" do
-          within "td.previous-question-title" do
+        within "tbody tr.govuk-table__row:nth-child(1)" do
+          within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "Which country do you live in?"
           end
-          within("td.previous-question-body") { assert_page_has_content "Belarus" }
-          within(".link-right") { assert page.has_link?("Change", href: "/country-and-date-sample/y?previous_response=belarus") }
+          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "Belarus" }
+          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/country-and-date-sample/y?previous_response=belarus") }
         end
       end
 
@@ -62,23 +62,23 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
 
       assert_current_url "/country-and-date-sample/y/belarus/1975-05-05"
 
-      within ".done-questions" do
+      within ".govuk-table" do
         assert page.has_link?("Start again", href: "/country-and-date-sample")
-        within "tr.section:nth-child(1)" do
-          within "td.previous-question-title" do
+        within "tbody tr.govuk-table__row:nth-child(1)" do
+          within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "Which country do you live in?"
           end
-          within("td.previous-question-body") { assert_page_has_content "Belarus" }
-          within(".link-right") { assert page.has_link?("Change", href: "/country-and-date-sample/y?previous_response=belarus") }
+          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "Belarus" }
+          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/country-and-date-sample/y?previous_response=belarus") }
         end
 
-        within "tr.section:nth-child(2)" do
-          within "td.previous-question-title" do
+        within "tbody tr.govuk-table__row:nth-child(2)" do
+          within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "What date did you move there?"
           end
 
-          within("td.previous-question-body") { assert_page_has_content "5 May 1975" }
-          within(".link-right") { assert page.has_link?("Change", href: "/country-and-date-sample/y/belarus?previous_response=1975-05-05") }
+          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "5 May 1975" }
+          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/country-and-date-sample/y/belarus?previous_response=1975-05-05") }
         end
       end
 
@@ -96,32 +96,32 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
 
       assert_current_url "/country-and-date-sample/y/belarus/1975-05-05/venezuela"
 
-      within ".done-questions" do
+      within ".govuk-table" do
         assert page.has_link?("Start again", href: "/country-and-date-sample")
-        within "tr.section:nth-child(1)" do
-          within "td.previous-question-title" do
+        within "tbody tr.govuk-table__row:nth-child(1)" do
+          within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "Which country do you live in?"
           end
-          within("td.previous-question-body") { assert_page_has_content "Belarus" }
-          within(".link-right") { assert page.has_link?("Change", href: "/country-and-date-sample/y?previous_response=belarus") }
+          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "Belarus" }
+          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/country-and-date-sample/y?previous_response=belarus") }
         end
 
-        within "tr.section:nth-child(2)" do
-          within "td.previous-question-title" do
+        within "tbody tr.govuk-table__row:nth-child(2)" do
+          within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "What date did you move there?"
           end
 
-          within("td.previous-question-body") { assert_page_has_content "5 May 1975" }
-          within(".link-right") { assert page.has_link?("Change", href: "/country-and-date-sample/y/belarus?previous_response=1975-05-05") }
+          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "5 May 1975" }
+          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/country-and-date-sample/y/belarus?previous_response=1975-05-05") }
         end
 
-        within "tr.section:nth-child(3)" do
-          within "td.previous-question-title" do
+        within "tbody tr.govuk-table__row:nth-child(3)" do
+          within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "Which country were you born in?"
           end
 
-          within(".previous-question-body") { assert_page_has_content "Venezuela" }
-          within(".link-right") { assert page.has_link?("Change", href: "/country-and-date-sample/y/belarus/1975-05-05?previous_response=venezuela") }
+          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "Venezuela" }
+          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/country-and-date-sample/y/belarus/1975-05-05?previous_response=venezuela") }
         end
       end
 

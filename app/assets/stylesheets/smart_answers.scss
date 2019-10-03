@@ -5,20 +5,6 @@ $is-ie: false !default;
 // The more generic SmartAnswer CSS is in Static _multi_step.scss
 
 .smart_answer {
-  // Previous answers block
-  .previous-answers {
-    // h2 is used for multiple questions on a page
-    max-width: 38em;
-    h2 {
-      @include govuk-font(19);
-      padding-left: 16px;
-
-      @include govuk-media-query($from: tablet) {
-        padding-left: 32px;
-      }
-    }
-  }
-
   .outcome {
     min-height: 0px;
   }
@@ -39,72 +25,10 @@ $is-ie: false !default;
     width: auto; // this is overidden below in another statement targeting start-again
   }
 
-  .start-right {
-    display: block;
-    text-align: right;
-  }
-
   // Current question
   .page-title {
     margin-top: 0;
     @include govuk-font(24, $weight: bold);
-  }
-
-  .done-questions {
-    margin: 0;
-    padding: 0 0 1em;
-
-    table {
-      width: auto;
-
-      .previous-answers-title {
-        @include govuk-font(19, $weight: bold);
-      }
-
-      thead th {
-        border-bottom: none;
-        @include govuk-font(19);
-      }
-
-      .link-right {
-        text-align: right;
-        padding-right: 0;
-      }
-
-      tbody {
-        td {
-          border: none;
-          padding: 0 1em 0.25em inherit;
-          width: 50%;
-
-          &.section-title {
-            @include govuk-font(14, $weight: bold);
-            padding-top: 0.5em;
-          }
-
-          ul {
-            list-style: none;
-            padding: 0;
-            li {
-              @include govuk-font(14);
-              padding: 0;
-              margin: 0;
-            }
-          }
-        }
-        .section {
-          border-top: 1px solid $govuk-border-colour;
-          td {
-            padding: 0.5em 1em 0.3em inherit;
-            width: 40%;
-            &.link-right {
-              width: 10%;
-              padding-right: 0;
-            }
-          }
-        }
-      }
-    }
   }
 
   .hint {
@@ -144,7 +68,6 @@ $is-ie: false !default;
     padding-right: 0.5em;
   }
 
-  .done-questions ol,
   .upcoming-questions ol {
     background-color: #fff;
     margin: 0;

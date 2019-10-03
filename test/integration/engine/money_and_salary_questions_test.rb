@@ -25,14 +25,14 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
 
       assert_current_url "/money-and-salary-sample/y/5000.0-month"
 
-      within ".done-questions" do
+      within ".govuk-table" do
         assert page.has_link?("Start again", href: "/money-and-salary-sample")
-        within "tr.section" do
-          within "td.previous-question-title" do
+        within "tbody tr.govuk-table__row" do
+          within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "How much do you earn?"
           end
-          within("td.previous-question-body") { assert_page_has_content "£5,000 per month" }
-          within(".link-right") { assert page.has_link?("Change", href: "/money-and-salary-sample/y?previous_response=5000.0-month") }
+          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "£5,000 per month" }
+          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/money-and-salary-sample/y?previous_response=5000.0-month") }
         end
       end
 
@@ -50,21 +50,21 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
 
       assert_current_url "/money-and-salary-sample/y/5000.0-month/1000000.0"
 
-      within ".done-questions" do
+      within ".govuk-table" do
         assert page.has_link?("Start again", href: "/money-and-salary-sample")
-        within "tr.section:nth-child(1)" do
-          within "td.previous-question-title" do
+        within "tbody tr.govuk-table__row:nth-child(1)" do
+          within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "How much do you earn?"
           end
-          within("td.previous-question-body") { assert_page_has_content "£5,000 per month" }
-          within(".link-right") { assert page.has_link?("Change", href: "/money-and-salary-sample/y?previous_response=5000.0-month") }
+          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "£5,000 per month" }
+          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/money-and-salary-sample/y?previous_response=5000.0-month") }
         end
-        within "tr.section:nth-child(2)" do
-          within "td.previous-question-title" do
+        within "tbody tr.govuk-table__row:nth-child(2)" do
+          within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "What size bonus do you want?"
           end
-          within(".previous-question-body") { assert_page_has_content "£1,000,000" }
-          within(".link-right") { assert page.has_link?("Change", href: "/money-and-salary-sample/y/5000.0-month?previous_response=1000000.0") }
+          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "£1,000,000" }
+          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/money-and-salary-sample/y/5000.0-month?previous_response=1000000.0") }
         end
       end
 

@@ -10,30 +10,9 @@ $is-print: true;
 // Hide uneeded elements for print
 .smart_answer {
 
-  .link-right a {
-    display: none;
-  }
-
   .outcome .inner {
     padding-top: 1em;
   }
-
-  .smart_answer .done-questions-spl {
-    padding: 0;
-    margin-right: 0;
-
-    table {
-
-      tbody  td {
-        padding: 0.25em 0.5em;
-      }
-
-      .link-right {
-        width: 20%;
-      }
-    }
-  }
-
 }
 
 @import "govuk_publishing_components/all_components_print";

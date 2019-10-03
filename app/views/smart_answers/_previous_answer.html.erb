@@ -1,17 +1,17 @@
-<tr class="section">
-  <td class="previous-question-title"><%= question.title %></td>
-  <% if question.multiple_responses? %>
-    <td class="previous-question-body"><ul>
-    <% question.response_labels(@presenter.accepted_responses[number_questions_so_far]).each do |label| %>
-      <li><%= label %></li>
+<tr class="govuk-table__row">
+  <td scope="row" class="govuk-table__cell govuk-!-width-one-half"><%= question.title %></td>
+  <td class="govuk-table__cell">
+    <% if question.multiple_responses? %>
+      <ul class="govuk-list">
+        <% question.response_labels(@presenter.accepted_responses[number_questions_so_far]).each do |label| %>
+          <li><%= label %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <%= question.response_label(@presenter.accepted_responses[number_questions_so_far]) %>
     <% end %>
-    </ul></td>
-  <% else %>
-    <td class="previous-question-body">
-    <%= question.response_label(@presenter.accepted_responses[number_questions_so_far]) %></td>
-  <% end %>
-
-  <td class="link-right">
+  </td>
+  <td class="govuk-table__cell">
     <%= link_to @presenter.change_collapsed_question_link(number_questions_so_far + 1), class: "govuk-link" do %>
       Change<span class="visuallyhidden"> answer to "<%= question.title %>"</span>
     <% end %>

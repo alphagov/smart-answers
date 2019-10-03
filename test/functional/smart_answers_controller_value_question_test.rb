@@ -23,7 +23,7 @@ class SmartAnswersControllerValueQuestionTest < ActionController::TestCase
     context "value question" do
       should "display question" do
         get :show, params: { id: "smart-answers-controller-sample-with-value-question", started: "y" }
-        assert_select ".step.current .govuk-label", /How many green bottles\?/
+        assert_select ".govuk-label", /How many green bottles\?/
         assert_select "input[type=text][name=response]"
       end
 
@@ -34,7 +34,7 @@ class SmartAnswersControllerValueQuestionTest < ActionController::TestCase
 
       should "display collapsed question, and format number" do
         get :show, params: { id: "smart-answers-controller-sample-with-value-question", started: "y", responses: "12345" }
-        assert_select ".done-questions", /How many green bottles\?\s+12,345/
+        assert_select ".govuk-table", /How many green bottles\?\s+12,345/
       end
     end
   end

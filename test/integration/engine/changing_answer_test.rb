@@ -20,7 +20,7 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       within(".current-question") { assert_page_has_content "Which country were you born in?" }
 
-      within("tr.section:nth-child(1)") { click_on "Change" }
+      within("tbody tr.govuk-table__row:nth-child(1)") { click_on "Change" }
 
       within ".current-question" do
         assert_page_has_content "Which country do you live in?"
@@ -37,7 +37,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       select "1985", from: "Year"
       click_on "Next step"
 
-      within("tr.section:nth-child(2)") { click_on "Change" }
+      within("tbody tr.govuk-table__row:nth-child(2)") { click_on "Change" }
 
       within ".current-question .question-body" do
         assert page.has_select? "Day", selected: "10"
@@ -67,7 +67,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       click_on "Next step"
 
       within(".result-info") { assert_page_has_content "OK, here you go." }
-      within("tr.section:nth-child(1)") { click_on "Change" }
+      within("tbody tr.govuk-table__row:nth-child(1)") { click_on "Change" }
 
       within ".current-question .question-body" do
         assert page.has_field? "response[amount]", with: "5000.0"
@@ -83,7 +83,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       fill_in "response", with: "2000000"
       click_on "Next step"
 
-      within("tr.section:nth-child(2)") { click_on "Change" }
+      within("tbody tr.govuk-table__row:nth-child(2)") { click_on "Change" }
 
       within(".current-question .question-body") { assert page.has_field? "response", with: "2000000.0" }
 
@@ -110,7 +110,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       click_on "Next step"
 
       within(".result-info") { assert_page_has_content "Right, off you go." }
-      within("tr.section:nth-child(1)") { click_on "Change" }
+      within("tbody tr.govuk-table__row:nth-child(1)") { click_on "Change" }
 
       within(".current-question .question-body") { assert page.has_field? "response", with: "Lancelot" }
 
@@ -128,7 +128,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       click_on "Next step"
 
       within(".result-info") { assert_page_has_content "Right, off you go." }
-      within("tr.section:nth-child(2)") { click_on "Change" }
+      within("tbody tr.govuk-table__row:nth-child(2)") { click_on "Change" }
 
       within ".current-question .question-body" do
         assert page.has_checked_field?("To seek the Holy Grail", visible: false)
@@ -145,7 +145,7 @@ class ChangingAnswerTest < EngineIntegrationTest
       click_on "Next step"
 
       within(".result-info") { assert_page_has_content "Right, off you go." }
-      within("tr.section:nth-child(3)") { click_on "Change" }
+      within("tbody tr.govuk-table__row:nth-child(3)") { click_on "Change" }
 
       within ".current-question .question-body" do
         assert page.has_checked_field?("Blue", visible: false)
@@ -170,7 +170,7 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       assert_current_url "/checkbox-sample/y/pepperoni,peppers"
 
-      within("tr.section:nth-child(1)") { click_on "Change" }
+      within("tbody tr.govuk-table__row:nth-child(1)") { click_on "Change" }
 
       within ".current-question .question-body" do
         assert page.has_unchecked_field?("Ham", visible: false)
@@ -195,7 +195,7 @@ class ChangingAnswerTest < EngineIntegrationTest
 
       assert_current_url "/postcode-sample/y/#{URI.escape('B1 1PW')}" # rubocop:disable Lint/UriEscapeUnescape
 
-      within("tr.section:nth-child(1)") { click_on "Change" }
+      within("tbody tr.govuk-table__row:nth-child(1)") { click_on "Change" }
 
       within ".current-question .question-body" do
         assert page.has_field? "response", with: "B1 1PW"
