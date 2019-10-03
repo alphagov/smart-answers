@@ -1,6 +1,7 @@
 <%= render "govuk_publishing_components/components/checkboxes", {
   name: "response[]",
   heading: question.title,
+  description: question.body,
   id: "response",
   error: question.error,
   hint_text: question.hint_text,
