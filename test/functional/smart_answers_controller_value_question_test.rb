@@ -36,16 +36,6 @@ class SmartAnswersControllerValueQuestionTest < ActionController::TestCase
         get :show, params: { id: "smart-answers-controller-sample-with-value-question", started: "y", responses: "12345" }
         assert_select ".done-questions", /How many green bottles\?\s+12,345/
       end
-
-      context "label in erb template" do
-        setup do
-          get :show, params: { id: "smart-answers-controller-sample-with-value-question", started: "y", responses: "12345" }
-        end
-        should "show the label text before the question input" do
-          assert_match(/value-question-label.*?input.*?name="response".*?/m, response.body)
-          assert_select "input[type=text][name=response]"
-        end
-      end
     end
   end
 

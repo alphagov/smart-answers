@@ -254,6 +254,10 @@ $is-ie: false !default;
         margin-top: 20px;
       }
     }
+
+    li {
+      margin-bottom: govuk-spacing(1);
+    }
   }
 
   .current-question {
