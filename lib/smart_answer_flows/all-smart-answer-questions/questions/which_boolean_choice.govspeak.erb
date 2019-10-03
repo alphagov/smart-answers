@@ -2,6 +2,14 @@
   Multiple choice (yes/no): Would you like to see the other questions?
 <% end %>
 
+<% content_for :body do %>
+  Body can contain further explanations.
+<% end %>
+
+<% content_for :hint do %>
+  This is a hint
+<% end %>
+
 <% options(
   "yes": "Yes",
   "no": "No"
