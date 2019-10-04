@@ -6,37 +6,39 @@
   <% end %>
 <% end %>
 
-<div class="transaction">
-  <%= render "govuk_publishing_components/components/title", {
-    title: start_node.title
-  } %>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/title", {
+      title: start_node.title
+    } %>
 
-  <div class="article-container group">
-    <article role="article" class="group" data-debug-template-path="<%= start_node.relative_erb_template_path %>">
-      <div class="inner">
-        <section class="intro">
-          <div class="descriptive__text">
-            <%= start_node.body %>
-          </div>
-
-          <p class="get-started">
-            <%= render "govuk_publishing_components/components/button", {
-              text: start_node.start_button_text,
-              href: smart_answer_path(@name.to_s, started: "y"),
-              rel: "nofollow",
-              start: true
-            } %>
-          </p>
-        </section>
-        <section class="more">
-          <% unless start_node.post_body.blank? %>
-            <div id="before-you-start" class="descriptive__text">
-              <h2>Before you start</h2>
-              <%= start_node.post_body %>
+    <div class="article-container group">
+      <article role="article" class="group" data-debug-template-path="<%= start_node.relative_erb_template_path %>">
+        <div class="inner">
+          <section class="intro">
+            <div class="descriptive__text">
+              <%= start_node.body %>
             </div>
-          <% end %>
-        </section>
-      </div>
-    </article>
+
+            <p class="get-started">
+              <%= render "govuk_publishing_components/components/button", {
+                text: start_node.start_button_text,
+                href: smart_answer_path(@name.to_s, started: "y"),
+                rel: "nofollow",
+                start: true
+              } %>
+            </p>
+          </section>
+          <section class="more">
+            <% unless start_node.post_body.blank? %>
+              <div id="before-you-start" class="descriptive__text">
+                <h2>Before you start</h2>
+                <%= start_node.post_body %>
+              </div>
+            <% end %>
+          </section>
+        </div>
+      </article>
+    </div>
   </div>
 </div>

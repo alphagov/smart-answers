@@ -1,10 +1,14 @@
-<h1>Smart Answers</h1>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1>Smart Answers</h1>
 
-<ul>
-  <% @flows.each do |flow| %>
-    <li>
-      <%= link_to flow.name, smart_answer_path(flow.name) %>
-      (<%= link_to 'visualise', visualise_path(flow.name) %>)
-    </li>
-  <% end %>
-</ul>
+    <ul>
+      <% @flows.each do |flow| %>
+        <li>
+          <%= link_to flow.name, smart_answer_path(flow.name) %>
+          (<%= link_to 'visualise', visualise_path(flow.name) %>)
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

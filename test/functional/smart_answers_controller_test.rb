@@ -146,7 +146,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
       end
 
       should "show the next question" do
-        assert_select ".current", /Do you like jam\?/
+        assert_select ".current-question", /Do you like jam\?/
       end
 
       should "link back to change the response" do

@@ -2,51 +2,53 @@
   <meta name="robots" content="noindex">
 <% end %>
 
-<%= render 'debug' %>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <%= render 'debug' %>
+    <%= render "govuk_publishing_components/components/title", {
+      title: @presenter.title
+    } %>
 
-<%= render "govuk_publishing_components/components/title", {
-  title: @presenter.title
-} %>
+    <% outcome = @presenter.current_node %>
 
-<% outcome = @presenter.current_node %>
+    <div class="article-container outcome">
+      <article class="outcome group">
+        <div class="result-info" data-debug-template-path="<%= outcome.relative_erb_template_path %>">
+          <div class="inner group">
+            <% if outcome.title.present? %>
+              <div class="summary"><h2 class="result-title"><%= outcome.title %></h2></div>
+            <% end %>
 
-<div class="article-container outcome">
-  <article class="outcome group">
-    <div class="result-info" data-debug-template-path="<%= outcome.relative_erb_template_path %>">
-      <div class="inner group">
-        <% if outcome.title.present? %>
-          <div class="summary"><h2 class="result-title"><%= outcome.title %></h2></div>
-        <% end %>
-
-        <div class="descriptive__text">
-          <%= outcome.body %>
+            <div class="descriptive__text">
+              <%= outcome.body %>
+            </div>
+          </div>
         </div>
-      </div>
+
+        <% if outcome.next_steps.present? %>
+          <div class="related-wrapper">
+            <div class="related next-steps">
+              <h2>Next steps</h2>
+
+              <%= outcome.next_steps %>
+            </div>
+          </div>
+        <% end %>
+      </article>
     </div>
 
-    <% if outcome.next_steps.present? %>
-      <div class="related-wrapper">
-        <div class="related next-steps">
-          <h2>Next steps</h2>
-
-          <%= outcome.next_steps %>
-        </div>
-      </div>
-    <% end %>
-  </article>
+    <script type="text/javascript">
+      $(function() {
+        var flowName = '<%= @name %>';
+        var page = document.location.pathname;
+        var options = {
+          label: flowName,
+          nonInteraction: true,
+          page: page
+        };
+        GOVUK.analytics.trackEvent('Smart Answer', 'Completed', options);
+      });
+    </script>
+    <%= render 'previous_answers' %>
+  </div>
 </div>
-
-<script type="text/javascript">
-  $(function() {
-    var flowName = '<%= @name %>';
-    var page = document.location.pathname;
-    var options = {
-      label: flowName,
-      nonInteraction: true,
-      page: page
-    };
-    GOVUK.analytics.trackEvent('Smart Answer', 'Completed', options);
-  });
-</script>
-
-<%= render 'previous_answers' %>
