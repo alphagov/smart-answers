@@ -188,7 +188,7 @@ module SmartAnswer::Calculators
         paydates.each do |paydate|
           # Pay period includes the date of payment hence the range starts the day after.
           pay = pay_for_period(last_paydate, paydate)
-          if pay > 0 # rubocop:disable Styles/NumericPredicate
+          if pay > 0 # rubocop:disable Style/NumericPredicate
             ary << { date: paydate, pay: pay.round(2) }
             last_paydate = paydate + 1
           end
