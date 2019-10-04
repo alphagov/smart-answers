@@ -1,105 +1,100 @@
+require "bigdecimal"
 require "date"
-require "ostruct"
 
 module SmartAnswer::Calculators
-  class HolidayEntitlement < OpenStruct
+  class HolidayEntitlement
     # created for the holiday entitlement calculator
-    STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS = 5.6
-    MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT_IN_DAYS = 28.0
+    STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS = BigDecimal(5.6, 10)
+    MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT_IN_DAYS = 28.to_d
+    MONTHS_PER_YEAR = 12.to_d
+    DAYS_PER_YEAR = 365.to_d
+    DAYS_PER_LEAP_YEAR = 366.to_d
+    STANDARD_DAYS_PER_WEEK = 5.to_d
+
+    attr_reader :days_per_week, :start_date, :leaving_date, :leave_year_start_date
+
+    def initialize(days_per_week: 0, start_date: nil, leaving_date: nil, leave_year_start_date: nil)
+      @days_per_week = BigDecimal(days_per_week, 10)
+      @start_date = start_date
+      @leaving_date = leaving_date
+      @leave_year_start_date = leave_year_start_date || calculate_leave_year_start_date
+    end
 
     def full_time_part_time_days
       days = STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS * days_per_week
-      days_cap = MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT_IN_DAYS
-      actual_days = days > days_cap ? days_cap : days
+      actual_days = if left_before_year_end || (days_per_week < STANDARD_DAYS_PER_WEEK)
+                      days
+                    else
+                      [MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT_IN_DAYS, days].min
+                    end
       (actual_days * fraction_of_year).round(10)
     end
 
-    def full_time_part_time_hours
-      hours = STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS * hours_per_week
-      hours_in_day = hours_per_week.to_f / days_per_week
-      hours_cap = MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT_IN_DAYS * hours_in_day
-      actual_hours = hours > hours_cap ? hours_cap : hours
-      (actual_hours * fraction_of_year).round(10)
-    end
-
-    def full_time_part_time_hours_and_minutes
-      (full_time_part_time_hours * 60).ceil.divmod(60).map(&:ceil)
-    end
-
-    def compressed_hours_entitlement
-      minutes = STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS * hours_per_week * 60
-      minutes.ceil.divmod(60).map(&:ceil)
-    end
-
-    def compressed_hours_daily_average
-      minutes = hours_per_week.to_f / days_per_week * 60
-      minutes.ceil.divmod(60).map(&:ceil)
-    end
-
-    def shift_entitlement
-      (STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS * fraction_of_year * shifts_per_week).round(10)
+    def formatted_full_time_part_time_days
+      if started_after_year_began || worked_full_year
+        rounded_days = (full_time_part_time_days * 2).ceil / 2.00
+        format_number(rounded_days)
+      else
+        format_number(full_time_part_time_days)
+      end
     end
 
     def fraction_of_year
-      return 1 if self.start_date.nil? && self.leaving_date.nil?
+      days_in_year = leave_year_range.leap? ? DAYS_PER_LEAP_YEAR : DAYS_PER_YEAR
 
-      days_divide = leave_year_range.leap? ? 366 : 365
-
-      if start_date && leaving_date
-        (leaving_date - start_date + 1.0) / days_divide
-      elsif leaving_date
-        (leaving_date - leave_year_range.begins_on + 1.0) / days_divide
+      if started_after_year_began
+        months_worked / MONTHS_PER_YEAR
+      elsif worked_partial_year
+        BigDecimal(leaving_date - start_date + 1.0, 10) / days_in_year
+      elsif left_before_year_end
+        BigDecimal(leaving_date - leave_year_range.begins_on + 1, 10) / days_in_year
       else
-        (leave_year_range.ends_on - start_date + 1.0) / days_divide
+        MONTHS_PER_YEAR / MONTHS_PER_YEAR
       end
-    end
-
-    def formatted_fraction_of_year(decimals = 2)
-      format_number(fraction_of_year, decimals)
-    end
-
-    def strip_zeros(number)
-      number.to_s.sub(/\.0+$/, "")
-    end
-
-    # rubocop:disable Style/MissingRespondToMissing
-    def method_missing(symbol, *args)
-      # formatted_foo calls format_number on foo
-      formatting_method = formatting_method(symbol)
-      if formatting_method
-        format_number(send(formatting_method), args.first || 1)
-      else
-        super
-      end
-    end
-    # rubocop:enable Style/MissingRespondToMissing
-
-    def respond_to?(symbol, include_all = false)
-      formatting_method(symbol).present? || super
     end
 
   private
 
-    def formatting_method(symbol)
-      matches = symbol.to_s.match(/\Aformatted_(.*)\z/)
-      matches ? matches[1].to_sym : nil
+    def calculate_leave_year_start_date
+      leaving_date ? leaving_date.beginning_of_year : Date.today.beginning_of_year
+    end
+
+    def worked_full_year
+      start_date.nil? && leaving_date.nil?
+    end
+
+    def started_after_year_began
+      start_date.present? && leaving_date.nil?
+    end
+
+    def left_before_year_end
+      start_date.nil? && leaving_date.present?
+    end
+
+    def worked_partial_year
+      start_date.present? && leaving_date.present?
+    end
+
+    def months_worked
+      year_difference = BigDecimal(leave_year_range.ends_on.year - start_date.year, 10)
+      month_difference = MONTHS_PER_YEAR * year_difference + leave_year_range.ends_on.month - start_date.month
+      leave_year_range.ends_on.day > start_date.day ? month_difference + 1 : month_difference
     end
 
     def leave_year_range
-      leave_year_start = self.leave_year_start_date || "1 January"
-      SmartAnswer::YearRange.resetting_on(leave_year_start).including(date_calc)
-    end
-
-    def shifts_per_week
-      (shifts_per_shift_pattern.to_f / days_per_shift_pattern * 7).round(10)
+      SmartAnswer::YearRange.resetting_on(leave_year_start_date).including(date_calc)
     end
 
     def date_calc
-      if self.start_date
-        start_date
-      else
-        leaving_date
-      end
+      return leave_year_start_date if worked_full_year
+
+      return leaving_date if leaving_date
+
+      start_date
+    end
+
+    def strip_zeros(number)
+      number.to_s.sub(/\.0+$/, "")
     end
 
     def format_number(number, decimal_places = 1)
