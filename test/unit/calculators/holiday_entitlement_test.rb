@@ -276,7 +276,7 @@ module SmartAnswer::Calculators
 
     context "calculate entitltment on hours worked per week" do
       context "for a full leave year" do
-        should "for 4 hours over 5 days per week" do
+        should "for 40 hours over 5 days per week" do
           calc = HolidayEntitlement.new(days_per_week: 5, hours_per_week: 40)
           assert_equal "224", calc.formatted_full_time_part_time_hours
         end
@@ -289,6 +289,84 @@ module SmartAnswer::Calculators
         should "for 36 hours over more than 5 days a week" do
           calc = HolidayEntitlement.new(days_per_week: 6, hours_per_week: 36)
           assert_equal "168", calc.formatted_full_time_part_time_hours
+        end
+      end
+
+      context "starting part way through a leave year" do
+        context "for a standard year" do
+          should "for 40 hours over 5 days a week" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-06-01"),
+              leave_year_start_date: Date.parse("2019-01-01"),
+              days_per_week: 5,
+              hours_per_week: 40,
+            )
+
+            assert_equal BigDecimal("16.3333333333").round(10), calc.full_time_part_time_days.round(10)
+            assert_equal BigDecimal("16.5").round(10), calc.rounded_full_time_part_time_days.round(10)
+            assert_equal "132", calc.formatted_full_time_part_time_hours
+          end
+
+          should "for 25 hours less than 5 days a week" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-11-23"),
+              leave_year_start_date: Date.parse("2020-04-01"),
+              days_per_week: 3,
+              hours_per_week: 25,
+            )
+
+            assert_equal BigDecimal("7").round(10), calc.full_time_part_time_days.round(10)
+            assert_equal BigDecimal("7").round(10), calc.rounded_full_time_part_time_days.round(10)
+            assert_equal "58.34", calc.formatted_full_time_part_time_hours
+          end
+
+          should "for 36 hours more than 5 days a week" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-11-14"),
+              leave_year_start_date: Date.parse("2019-01-01"),
+              days_per_week: 6,
+              hours_per_week: 36,
+            )
+
+            assert_equal BigDecimal("4.6666666667").round(10), calc.full_time_part_time_days.round(10)
+            assert_equal BigDecimal("5").round(10), calc.rounded_full_time_part_time_days.round(10)
+            assert_equal "30", calc.formatted_full_time_part_time_hours
+          end
+        end
+
+        context "for a leap year" do
+          should "for 40 hours over 5 days a week" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-06-01"),
+              leave_year_start_date: Date.parse("2020-01-01"),
+              days_per_week: 5,
+              hours_per_week: 40,
+            )
+
+            assert_equal "132", calc.formatted_full_time_part_time_hours
+          end
+
+          should "for 25 hours less than 5 days a week" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-11-23"),
+              leave_year_start_date: Date.parse("2019-04-01"),
+              days_per_week: 3,
+              hours_per_week: 25,
+            )
+
+            assert_equal "58.34", calc.formatted_full_time_part_time_hours
+          end
+
+          should "for 36 hours more than 5 days a week" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-11-14"),
+              leave_year_start_date: Date.parse("2020-01-01"),
+              days_per_week: 6,
+              hours_per_week: 36,
+            )
+
+            assert_equal "30", calc.formatted_full_time_part_time_hours
+          end
         end
       end
     end
