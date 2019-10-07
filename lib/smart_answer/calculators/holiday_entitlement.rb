@@ -11,10 +11,11 @@ module SmartAnswer::Calculators
     DAYS_PER_LEAP_YEAR = 366.to_d
     STANDARD_DAYS_PER_WEEK = 5.to_d
 
-    attr_reader :days_per_week, :start_date, :leaving_date, :leave_year_start_date
+    attr_reader :days_per_week, :hours_per_week, :start_date, :leaving_date, :leave_year_start_date
 
-    def initialize(days_per_week: 0, start_date: nil, leaving_date: nil, leave_year_start_date: nil)
+    def initialize(days_per_week: 0, hours_per_week: 0, start_date: nil, leaving_date: nil, leave_year_start_date: nil)
       @days_per_week = BigDecimal(days_per_week, 10)
+      @hours_per_week = BigDecimal(hours_per_week, 10)
       @start_date = start_date
       @leaving_date = leaving_date
       @leave_year_start_date = leave_year_start_date || calculate_leave_year_start_date
@@ -28,6 +29,17 @@ module SmartAnswer::Calculators
                       [MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT_IN_DAYS, days].min
                     end
       (actual_days * fraction_of_year).round(10)
+    end
+
+    def full_time_part_time_hours
+      hours = STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS * hours_per_week
+      max_hours = MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT_IN_DAYS * (hours_per_week / days_per_week)
+      actual_hours = [max_hours, hours].min
+      (actual_hours * fraction_of_year).round(10)
+    end
+
+    def formatted_full_time_part_time_hours
+      format_number(full_time_part_time_hours)
     end
 
     def formatted_full_time_part_time_days
