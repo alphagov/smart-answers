@@ -273,5 +273,24 @@ module SmartAnswer::Calculators
         end
       end
     end
+
+    context "calculate entitltment on hours worked per week" do
+      context "for a full leave year" do
+        should "for 4 hours over 5 days per week" do
+          calc = HolidayEntitlement.new(days_per_week: 5, hours_per_week: 40)
+          assert_equal "224", calc.formatted_full_time_part_time_hours
+        end
+
+        should "for 25 hours over less than 5 days a week" do
+          calc = HolidayEntitlement.new(days_per_week: 3, hours_per_week: 25)
+          assert_equal "140", calc.formatted_full_time_part_time_hours
+        end
+
+        should "for 36 hours over more than 5 days a week" do
+          calc = HolidayEntitlement.new(days_per_week: 6, hours_per_week: 36)
+          assert_equal "168", calc.formatted_full_time_part_time_hours
+        end
+      end
+    end
   end
 end
