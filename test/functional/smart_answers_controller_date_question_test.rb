@@ -52,7 +52,7 @@ class SmartAnswersControllerDateQuestionTest < ActionController::TestCase
 
         should "show an error message" do
           submit_response(day: "", month: "", year: "")
-          assert_select ".error"
+          assert_select ".govuk-error-message"
         end
       end
 

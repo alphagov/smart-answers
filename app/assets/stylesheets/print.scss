@@ -1,15 +1,5 @@
-// PRINT STYLESHEET COMPILER
-
-
-// STYLEGUIDE
-// Mixins to be shared across gov.uk sites. Anything set in these
-// files can be used in the view files.
-
-$is-print: true;
-
 // Hide uneeded elements for print
 .smart_answer {
-
   .outcome .inner {
     padding-top: 1em;
   }

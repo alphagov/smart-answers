@@ -24,13 +24,12 @@ class PrecalculationsTest < EngineIntegrationTest
       form = page.find(:xpath, "id('content')//form")
       assert_same_url "/precalculation-sample/y", form[:action]
 
-      within ".current-question" do
+      within "#current-question" do
         within ".govuk-label" do
           assert_page_has_content "How much wood would a woodchuck chuck if a woodchuck could chuck wood?"
         end
-        within ".question-body" do
-          assert page.has_field?("response", type: "text")
-        end
+
+        assert page.has_field?("response", type: "text")
       end
 
       fill_in "response", with: "10"
@@ -38,13 +37,12 @@ class PrecalculationsTest < EngineIntegrationTest
 
       assert_current_url "/precalculation-sample/y/10"
 
-      within ".current-question" do
+      within "#current-question" do
         within ".govuk-label" do
           assert_page_has_content "How many woodchucks do you have?"
         end
-        within ".question-body" do
-          assert page.has_field?("response", type: "text")
-        end
+
+        assert page.has_field?("response", type: "text")
       end
 
       fill_in "response", with: "42"
@@ -52,11 +50,9 @@ class PrecalculationsTest < EngineIntegrationTest
 
       assert_current_url "/precalculation-sample/y/10/42"
 
-      within ".outcome:nth-child(1)" do
-        within ".result-info" do
-          within("h2.result-title") { assert_page_has_content "420 pieces of wood would be chucked." }
-          within(".info-notice") { assert_page_has_content "42 woodchucks, each chucking 10 pieces of wood = 420 pieces of wood being chucked." }
-        end
+      within "#result-info" do
+        within("h2.gem-c-heading") { assert_page_has_content "420 pieces of wood would be chucked." }
+        within(".info-notice") { assert_page_has_content "42 woodchucks, each chucking 10 pieces of wood = 420 pieces of wood being chucked." }
       end
     end
   end # with_and_without_javascript

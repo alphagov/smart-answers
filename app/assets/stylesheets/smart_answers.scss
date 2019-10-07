@@ -1,299 +1,35 @@
 // Short term fix. Needs removing in the future.
 $is-ie: false !default;
 
-// Styles
 // The more generic SmartAnswer CSS is in Static _multi_step.scss
 
 .smart_answer {
-  .outcome {
-    min-height: 0px;
-  }
-
-  article {
-    min-height: 0px;
-  }
-
-  .descriptive__text a:focus {
+  a:not(.govuk-button):focus {
     @include govuk-focused-text;
   }
 
-  .previous-answers-top {
-    margin-bottom: 1.5em;
+  .outcome {
+    min-height: 0; //overrides a much higher min height from static
   }
-
-  .start-again {
-    width: auto; // this is overidden below in another statement targeting start-again
-  }
-
-  // Current question
-  .page-title {
-    margin-top: 0;
-    @include govuk-font(24, $weight: bold);
-  }
-
-  .hint {
-    @include govuk-font(16);
-    display: block;
-  }
-
-  .start-again {
-    background: #fff;
-    height: 2.5em;
-    padding: 0 1em;
-
-    @include govuk-media-query($from: tablet) {
-      position: absolute;
-      right: 0;
-      top: -2.5em;
-      width: 11em;
-
-      a {
-        text-align: center;
-      }
-    }
-
-    a {
-      @include govuk-font(19, $line-height: 40 / 19);
-      display: block;
-      text-align: right;
-      text-decoration: underline;
-
-      &:hover {
-        text-decoration: none;
-      }
-    }
-  }
-
-  .question-number {
-    padding-right: 0.5em;
-  }
-
-  .upcoming-questions ol {
-    background-color: #fff;
-    margin: 0;
-    padding: 0 0 0 1em;
-    position: relative;
-    z-index: 1;
-
-    li {
-      list-style: none;
-      position: relative;
-      padding: 0.5em 1em;
-
-      @include govuk-media-query($from: tablet) {
-        padding: 0.75em 1.5em 0.75em 1em;
-      }
-
-      h3 {
-        @include govuk-font(16);
-      }
-
-      &.done {
-        background: #D5ECEA;
-        border-bottom: solid 1px #b6d6d2;
-        overflow: hidden;
-        padding-right: 9.5em;
-        list-style: none;
-        position: relative;
-
-        .answer {
-          @include govuk-font(16, $weight: bold);
-          color: #315843;
-          display: block;
-          margin: 0 0.5em 0 1em;
-
-          &.multiple {
-            display: block;
-
-            ul {
-              margin-top: 0;
-
-              li {
-                margin: 0;
-                padding: 0;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .upcoming-questions ol {
-
-    li {
-      background-color: #f0e7d7;
-      border-bottom: solid 1px #dac39c;
-    }
-  }
-
-  .question .question-number {
-    font-weight: normal;
-  }
-
-  li.done .answer ul {
-    margin: 0.5em 0 0 -2.1em;
-    padding-left: 2.1em;
-  }
-
-  .question-body + p input.button {
-    margin-top: 0.5em;
-  }
-
-  .question-body {
-    .none-option {
-      p {
-        clear: left;
-        display: block;
-        float: left;
-        margin-left: 5px;
-        margin-top: 20px;
-      }
-    }
-
-    li {
-      margin-bottom: govuk-spacing(1);
-    }
-  }
-
-  .current-question {
-    padding: 1.5em 0 1em 0;
-    margin: 1.5em 0 0 0;
-
-    .question {
-      margin: .5em 0 2em 0;
-    }
-
-    h2 {
-      border: none;
-      @include govuk-font(19, $weight: bold);
-      margin: 0 0 1em;
-      position: relative;
-      line-height: 1.2em;
-
-      .question-number {
-        padding-right: 0.25em;
-        font-weight: 400;
-      }
-    }
-
-    ul {
-      label {
-        margin-left: 0.25em;
-      }
-
-      select {
-        margin-right: 0.25em;
-      }
-
-      /* this is the multiple choice selector */
-      &.options {
-        list-style: none;
-        padding: 0; /* this aligns optional questions with gutter */
-
-        li {
-          line-height: 1.5em;
-          margin: 0.5em 0;
-        }
-      }
-
-      &.optional-date {
-        li {
-          fieldset { display: inline; }
-        }
-      }
-    }
-  }
-
-  .next-question {
-    margin: 1.5em 0 0.5em 0;
-  }
-
-  /*
-   * results / outcome
-   */
-
-  .next-steps {
-    right: -24em;
-    top: 0;
-    margin-top: 2em;
-
-    .inner {
-      padding: 0.25em 1em 0.25em 1em;
-
-      @include govuk-media-query($from: tablet) {
-        margin: 0;
-        padding-top: 0.5em;
-        padding-bottom: 1em;
-        padding-right: 0;
-      }
-
-      ul {
-        padding: 0;
-        list-style: none;
-        list-style-image: none;
-
-        li {
-          font-size: 1em;
-          margin-top: 0;
-          margin-left: 0;
-        }
-      }
-    }
-  }
-
-
-  .article-container {
-  }
-
-  /*
-   * errors messages
-   */
-  article .error {
-    border:1px solid #B01117;
-    background-color:#FFF3CF;
-    color:#B01117;
-    margin: 0 0 -0.5em -0.5em;
-    padding: 0.5em;
-
-    ul {
-      margin-bottom: 0;
-    }
-  }
-
-  /*
-   * calculators
-   */
-  .calculator article {
-    min-height: 0;
-  }
-
-  /*
-   * loading indicators
-   */
-  .loading .next-step {
-    display: inline-block;
-    line-height: 1.5em;
-    height: 32px;
-    margin: 0 0 0 1.3em;
-    padding: 0;
-    vertical-align: top;
-  }
-
 }
 
 //Heroku alert
 .heroku-alert {
     margin: 0 15px 15px 15px;
     border: 1px solid #B01117;
-    background-color: #B01117;
-    color: #FFF;
+    background-color: govuk-colour('red');
+    color: govuk-colour('white');
     padding: 1em;
     font-weight: bold;
 
     a {
       cursor: pointer;
-      color: #FFF3CF;
+      color: govuk-colour('white');
+      text-decoration: underline;
+
+      &:focus {
+        @include govuk-focused-text;
+      }
     }
 }
 

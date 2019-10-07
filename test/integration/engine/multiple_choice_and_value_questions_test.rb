@@ -37,13 +37,12 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
 
       assert page.has_xpath?("//meta[@name = 'robots'][@content = 'noindex']", visible: :all)
 
-      within ".current-question" do
+      within "#current-question" do
         within ".govuk-label" do
           assert_page_has_content "What...is your name?"
         end
-        within ".question-body" do
-          assert page.has_field?("response", type: "text")
-        end
+
+        assert page.has_field?("response", type: "text")
       end
 
       fill_in "response", with: "Lancelot"
@@ -62,18 +61,17 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
         end
       end
 
-      within ".current-question" do
+      within "#current-question" do
         within ".govuk-fieldset__legend" do
           assert_page_has_content "What...is your quest?"
         end
-        within ".question-body" do
-          assert page.has_field?("To seek the Holy Grail", type: "radio", with: "to_seek_the_holy_grail", visible: false)
-          assert page.has_field?("To rescue the princess", type: "radio", with: "to_rescue_the_princess", visible: false)
-          assert page.has_field?("I dunno", type: "radio", with: "dunno", visible: false)
-          # Assert they're in the correct order
-          options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
-          assert_equal ["To seek the Holy Grail", "To rescue the princess", "I dunno"], options
-        end
+
+        assert page.has_field?("To seek the Holy Grail", type: "radio", with: "to_seek_the_holy_grail", visible: false)
+        assert page.has_field?("To rescue the princess", type: "radio", with: "to_rescue_the_princess", visible: false)
+        assert page.has_field?("I dunno", type: "radio", with: "dunno", visible: false)
+        # Assert they're in the correct order
+        options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
+        assert_equal ["To seek the Holy Grail", "To rescue the princess", "I dunno"], options
       end
 
       choose("To seek the Holy Grail", visible: false)
@@ -99,18 +97,17 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
         end
       end
 
-      within ".current-question" do
+      within "#current-question" do
         within ".govuk-fieldset__legend" do
           assert_page_has_content "What...is your favorite colour?"
         end
-        within ".question-body" do
-          assert page.has_field?("Blue", type: "radio", with: "blue", visible: false)
-          assert page.has_field?("Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", type: "radio", with: "blue_no_yellow", visible: false)
-          assert page.has_field?("Red", type: "radio", with: "red", visible: false)
-          # Assert they're in the correct order
-          options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
-          assert_equal ["Blue", "Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", "Red"], options
-        end
+
+        assert page.has_field?("Blue", type: "radio", with: "blue", visible: false)
+        assert page.has_field?("Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", type: "radio", with: "blue_no_yellow", visible: false)
+        assert page.has_field?("Red", type: "radio", with: "red", visible: false)
+        # Assert they're in the correct order
+        options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
+        assert_equal ["Blue", "Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", "Red"], options
       end
 
       choose("Blue", visible: false)
@@ -143,11 +140,9 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
         end
       end
 
-      within ".outcome:nth-child(1)" do
-        within ".result-info" do
-          within("h2.result-title") { assert_page_has_content "Right, off you go." }
-          assert_page_has_content "Oh! Well, thank you. Thank you very much."
-        end
+      within "#result-info" do
+        within("h2.gem-c-heading") { assert_page_has_content "Right, off you go." }
+        assert_page_has_content "Oh! Well, thank you. Thank you very much."
       end
     end
   end # with_and_without_javascript
@@ -181,23 +176,20 @@ class MultipleChoiceAndValueQuestionsTest < EngineIntegrationTest
       end
     end
 
-    within ".current-question" do
+    within "#current-question" do
       within ".govuk-label" do
         assert_page_has_content "What...is the capital of Assyria?"
       end
-      within ".question-body" do
-        assert page.has_field?("response", type: "text")
-      end
+
+      assert page.has_field?("response", type: "text")
     end
 
     fill_in "response", with: "I don't know THAT"
     click_on "Next step"
 
-    within ".outcome:nth-child(1)" do
-      within ".result-info" do
-        within("h2.result-title") { assert_page_has_content "AAAAARRRRRRRRRRRRRRRRGGGGGHHH!!!!!!!" }
-        within(".info-notice") { assert_page_has_content "Robin is thrown into the Gorge of Eternal Peril" }
-      end
+    within "#result-info" do
+      within("h2.gem-c-heading") { assert_page_has_content "AAAAARRRRRRRRRRRRRRRRGGGGGHHH!!!!!!!" }
+      within(".info-notice") { assert_page_has_content "Robin is thrown into the Gorge of Eternal Peril" }
     end
   end
 end

@@ -9,19 +9,18 @@ class CheckboxQuestionsTest < EngineIntegrationTest
     should "handle checkbox questions" do
       visit "/checkbox-sample/y"
 
-      within ".current-question" do
+      within "#current-question" do
         within ".govuk-fieldset__legend" do
           assert_page_has_content "What do you want on your pizza?"
         end
-        within ".question-body" do
-          assert page.has_field?("Ham", type: "checkbox", with: "ham", visible: false)
-          assert page.has_field?("Peppers", type: "checkbox", with: "peppers", visible: false)
-          assert page.has_field?("Ice Cream!!!", type: "checkbox", with: "ice_cream", visible: false)
-          assert page.has_field?("Pepperoni", type: "checkbox", with: "pepperoni", visible: false)
-          # Assert they're in the correct order
-          options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
-          assert_equal ["Ham", "Peppers", "Ice Cream!!!", "Pepperoni"], options
-        end
+
+        assert page.has_field?("Ham", type: "checkbox", with: "ham", visible: false)
+        assert page.has_field?("Peppers", type: "checkbox", with: "peppers", visible: false)
+        assert page.has_field?("Ice Cream!!!", type: "checkbox", with: "ice_cream", visible: false)
+        assert page.has_field?("Pepperoni", type: "checkbox", with: "pepperoni", visible: false)
+        # Assert they're in the correct order
+        options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
+        assert_equal ["Ham", "Peppers", "Ice Cream!!!", "Pepperoni"], options
       end
 
       check("Ham", visible: false)

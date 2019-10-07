@@ -9,14 +9,13 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
     should "handle money and salary questions" do
       visit "/money-and-salary-sample/y"
 
-      within ".current-question" do
+      within "#current-question" do
         within '.govuk-label[for="response_amount"]' do
           assert_page_has_content "How much do you earn?"
         end
-        within ".question-body" do
-          assert page.has_field?("response[amount]", type: "text")
-          assert page.has_select?("response[period]", options: ["per week", "per month", "per year"])
-        end
+
+        assert page.has_field?("response[amount]", type: "text")
+        assert page.has_select?("response[period]", options: ["per week", "per month", "per year"])
       end
 
       fill_in "response[amount]", with: "5000"
@@ -36,13 +35,12 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
         end
       end
 
-      within ".current-question" do
+      within "#current-question" do
         within '.govuk-label[for="response"]' do
           assert_page_has_content "What size bonus do you want?"
         end
-        within ".question-body" do
-          assert page.has_field?("response", type: "text")
-        end
+
+        assert page.has_field?("response", type: "text")
       end
 
       fill_in "response", with: "1000000"
@@ -68,11 +66,9 @@ class MoneyAndSalaryQuestionsTest < EngineIntegrationTest
         end
       end
 
-      within ".outcome:nth-child(1)" do
-        within ".result-info" do
-          within("h2.result-title") { assert_page_has_content "OK, here you go." }
-          within(".info-notice") { assert_page_has_content "This is allowed because £1,000,000 is more than your annual salary of £60,000" }
-        end
+      within "#result-info" do
+        within("h2.gem-c-heading") { assert_page_has_content "OK, here you go." }
+        within(".info-notice") { assert_page_has_content "This is allowed because £1,000,000 is more than your annual salary of £60,000" }
       end
     end
   end # with_and_without_javascript

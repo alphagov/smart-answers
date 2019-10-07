@@ -19,10 +19,10 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
     should "handle country and date questions" do
       visit "/country-and-date-sample/y"
 
-      within ".current-question" do
+      within "#current-question" do
         assert_page_has_content "Which country do you live in?"
       end
-      within ".question-body" do
+      within "#current-question" do
         assert page.has_select?("response")
         actual = page.all("select option").map(&:value)
         assert_equal @location_slugs, actual
@@ -44,11 +44,11 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         end
       end
 
-      within ".current-question" do
+      within "#current-question" do
         assert_page_has_content "What date did you move there?"
       end
 
-      within ".question-body" do
+      within "#current-question" do
         # TODO Check options for dates
         assert page.has_select? "Day"
         assert page.has_select? "Month"
@@ -82,10 +82,10 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         end
       end
 
-      within ".current-question" do
+      within "#current-question" do
         assert_page_has_content "Which country were you born in?"
       end
-      within ".question-body" do
+      within "#current-question" do
         assert page.has_select?("response")
         actual = page.all("select option").map(&:value)
         assert_equal @location_slugs, actual
@@ -125,10 +125,8 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
         end
       end
 
-      within ".outcome:nth-child(1)" do
-        within ".result-info" do
-          within("h2.result-title") { assert_page_has_content "Great - you've lived in belarus for 37 years, and were born in venezuela!" }
-        end
+      within "#result-info" do
+        within("h2.gem-c-heading") { assert_page_has_content "Great - you've lived in belarus for 37 years, and were born in venezuela!" }
       end
     end
   end # with_and_without_javascript
