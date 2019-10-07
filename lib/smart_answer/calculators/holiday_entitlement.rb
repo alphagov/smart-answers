@@ -5,6 +5,7 @@ module SmartAnswer::Calculators
   class HolidayEntitlement
     # created for the holiday entitlement calculator
     STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS = BigDecimal(5.6, 10)
+    MAXIMUM_STATUTORY_DAYS_PER_WEEK = 5.to_d
     MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT_IN_DAYS = 28.to_d
     MONTHS_PER_YEAR = 12.to_d
     DAYS_PER_YEAR = 365.to_d
@@ -31,24 +32,34 @@ module SmartAnswer::Calculators
       (actual_days * fraction_of_year).round(10)
     end
 
-    def full_time_part_time_hours
-      hours = STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS * hours_per_week
-      max_hours = MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT_IN_DAYS * (hours_per_week / days_per_week)
-      actual_hours = [max_hours, hours].min
-      (actual_hours * fraction_of_year).round(10)
-    end
-
-    def formatted_full_time_part_time_hours
-      format_number(full_time_part_time_hours)
+    def rounded_full_time_part_time_days
+      if started_after_year_began || worked_full_year
+        (full_time_part_time_days * 2).ceil / 2.00
+      else
+        full_time_part_time_days
+      end
     end
 
     def formatted_full_time_part_time_days
-      if started_after_year_began || worked_full_year
-        rounded_days = (full_time_part_time_days * 2).ceil / 2.00
-        format_number(rounded_days)
+      format_number(rounded_full_time_part_time_days)
+    end
+
+    def full_time_part_time_hours
+      minimum_days_per_week = [days_per_week, MAXIMUM_STATUTORY_DAYS_PER_WEEK].min
+
+      STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS * minimum_days_per_week * (hours_per_week / days_per_week)
+    end
+
+    def rounded_full_time_part_time_hours
+      if started_after_year_began
+        (rounded_full_time_part_time_days * hours_per_week) / days_per_week
       else
-        format_number(full_time_part_time_days)
+        full_time_part_time_hours
       end
+    end
+
+    def formatted_full_time_part_time_hours
+      format_number(rounded_full_time_part_time_hours, 2)
     end
 
     def fraction_of_year
