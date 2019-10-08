@@ -59,7 +59,15 @@ module SmartAnswer::Calculators
     end
 
     def formatted_full_time_part_time_hours
-      format_number(rounded_full_time_part_time_hours, 2)
+      if left_before_year_end?
+        format_number(pro_rated_hours, 2)
+      else
+        format_number(rounded_full_time_part_time_hours, 2)
+      end
+    end
+
+    def pro_rated_hours
+      fraction_of_year * rounded_full_time_part_time_hours
     end
 
     def fraction_of_year
