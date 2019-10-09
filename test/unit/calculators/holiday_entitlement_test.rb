@@ -274,7 +274,7 @@ module SmartAnswer::Calculators
       end
     end
 
-    context "calculate entitltment on hours worked per week" do
+    context "calculate entitlement on hours worked per week" do
       context "for a full leave year" do
         should "for 40 hours over 5 days per week" do
           calc = HolidayEntitlement.new(days_per_week: 5, hours_per_week: 40)
