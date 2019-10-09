@@ -24,7 +24,6 @@ PLEK_SERVICE_CONTENT_STORE_URI=https://www.gov.uk/api \
 PLEK_SERVICE_STATIC_URI=https://assets-origin.integration.publishing.service.gov.uk/ \
 RUNNING_ON_HEROKU=true \
 EXPOSE_GOVSPEAK=true \
-ERRBIT_ENV=integration
 
 echo
 echo "# Pushing the current branch to Heroku's master"
@@ -48,8 +47,5 @@ else
     echo $HEROKU_URL$SMART_ANSWER_TO_OPEN
 fi
 
-echo
-echo "*Set ERRBIT_API_KEY and ERRBIT_HOST manually to enable error reporting*"
-echo "*You can find those key values on https://errbit.<environment>.publishing.service.gov.uk*"
 echo "All done"
 echo
