@@ -325,7 +325,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
-    uk_postcode (2.1.4)
+    uk_postcode (2.1.5)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.6)
@@ -390,7 +390,7 @@ DEPENDENCIES
   tilt (= 2.0.10)
   timecop
   uglifier
-  uk_postcode (~> 2.1.4)
+  uk_postcode (~> 2.1.5)
   webmock (~> 3.7.6)
 
 RUBY VERSION

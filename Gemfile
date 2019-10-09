@@ -27,7 +27,7 @@ gem "sass-rails", "~> 5.0.7"
 gem "slimmer", "~> 13.1.0"
 gem "tilt", "2.0.10"
 gem "uglifier"
-gem "uk_postcode", "~> 2.1.4"
+gem "uk_postcode", "~> 2.1.5"
 
 group :development do
   gem "better_errors"
