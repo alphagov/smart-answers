@@ -58,7 +58,7 @@ module SmartAnswer::Calculators
       end
     end
 
-    def formatted_full_time_part_time_hours
+    def formatted_full_time_part_time_compressed_hours
       if left_before_year_end? || worked_partial_year?
         format_number(pro_rated_hours, 2)
       else
