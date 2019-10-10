@@ -1,46 +1,14 @@
-@import "grid_layout.scss";
-@import "colours.scss";
-@import "typography.scss";
-@import "design-patterns/buttons.scss";
+$govuk-compatibility-govuktemplate: true;
 
-#content {
-    @include outer-block;
-
-    .container {
-        @include inner-block;
-    }
-
-    header {
-        margin: 2em 0;
-
-        h1 {
-            @include bold-48;
-
-            span {
-                display: block;
-                color: $grey-1;
-                @include core-27;
-                font-weight: normal;
-            }
-
-            a {
-                text-decoration: none;
-            }
-        }
-    }
-
-    #btn-toggle-rankdir {
-        @include button;
-    }
-
-}
+@import "govuk_publishing_components/all_components";
 
 .warning {
   border-left: 6px solid red;
   padding: 0.5em 2em;
 }
 
-#paper {
-    // Prevents the 
-    min-height: 600px;
+.paper {
+  min-height: 600px;
+  margin: 2em auto;
+  position: relative
 }

@@ -22,7 +22,7 @@ class SmartAnswersControllerMultipleChoiceQuestionTest < ActionController::TestC
     context "no response given" do
       should "show an error message" do
         submit_response(nil)
-        assert_select ".step.current .error"
+        assert_select ".govuk-error-message"
       end
     end
   end

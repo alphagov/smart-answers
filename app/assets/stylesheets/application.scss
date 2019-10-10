@@ -1,12 +1,4 @@
-$govuk-compatibility-govukfrontendtoolkit: true;
 $govuk-compatibility-govuktemplate: true;
 
-// frontend_toolkit
-@import "conditionals";
-@import "typography";
-@import "colours";
-@import "shims";
-
 @import "govuk_publishing_components/all_components";
-
 @import "smart_answers";

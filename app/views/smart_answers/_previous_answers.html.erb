@@ -1,19 +1,20 @@
 <% if @presenter.current_question_number > 1 %>
-  <div class="previous-answers">
-    <div class="done-questions">
-      <article>
-          <h3 class="previous-answers-title">
-            Previous answers
-          </h3>
-          <%= link_to "Start again", smart_answer_path(params[:id]), :class => "start-right govuk-link" %>
-        <table>
-          <tbody>
-            <% @presenter.collapsed_questions.each_with_index do |question, number_questions_so_far| %>
-              <%= render partial: 'previous_answer', locals: {question: question, number_questions_so_far: number_questions_so_far} %>
-            <% end %>
-          </tbody>
-        </table>
-      </article>
-    </div>
-  </div>
+  <table class="govuk-table govuk-!-margin-top-9">
+    <caption class="govuk-table__caption">
+      Previous answers
+      <p><%= link_to "Start again", smart_answer_path(params[:id]), :class => "govuk-link" %></p>
+    </caption>
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Question</th>
+        <th scope="col" class="govuk-table__header">Answer</th>
+        <th scope="col" class="govuk-table__header">Change answer</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <% @presenter.collapsed_questions.each_with_index do |question, number_questions_so_far| %>
+        <%= render partial: 'previous_answer', locals: {question: question, number_questions_so_far: number_questions_so_far} %>
+      <% end %>
+    </tbody>
+  </table>
 <% end %>

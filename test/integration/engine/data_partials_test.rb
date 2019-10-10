@@ -8,8 +8,8 @@ class DataPartialsTest < EngineIntegrationTest
   should "output data partials correctly" do
     visit "/data-partial-sample/y/data_partial_with_scalar"
 
-    within ".result-info" do
-      within("h2.result-title") { assert_page_has_content "Data partial with scalar data" }
+    within "#result-info" do
+      within("h2.gem-c-heading") { assert_page_has_content "Data partial with scalar data" }
 
       assert page.has_selector?("p", text: "Some data that was passed through")
 
@@ -34,8 +34,8 @@ class DataPartialsTest < EngineIntegrationTest
 
     visit "/data-partial-sample/y/data_partial_with_array"
 
-    within ".result-info" do
-      within("h2.result-title") { assert_page_has_content "Data partial with array data" }
+    within "#result-info" do
+      within("h2.gem-c-heading") { assert_page_has_content "Data partial with array data" }
 
       assert page.has_selector?("p", text: "Some data that was passed through")
 

@@ -116,7 +116,7 @@ class SmartAnswersControllerTest < ActionController::TestCase
 
     should "display first question after starting" do
       get :show, params: { id: "smart-answers-controller-sample", started: "y" }
-      assert_select ".step.current .govuk-fieldset__legend", /Do you like chocolate\?/
+      assert_select ".govuk-fieldset__legend", /Do you like chocolate\?/
       assert_select "input[name=response][value=yes]"
       assert_select "input[name=response][value=no]"
     end
@@ -142,15 +142,15 @@ class SmartAnswersControllerTest < ActionController::TestCase
       end
 
       should "show response summary" do
-        assert_select ".done-questions", /Do you like chocolate\?\s+No/
+        assert_select ".govuk-table", /Do you like chocolate\?\s+No/
       end
 
       should "show the next question" do
-        assert_select ".current", /Do you like jam\?/
+        assert_select "#current-question", /Do you like jam\?/
       end
 
       should "link back to change the response" do
-        assert_select ".done-questions a", /Change/ do |link_nodes|
+        assert_select ".govuk-table a", /Change/ do |link_nodes|
           assert_equal "/smart-answers-controller-sample/y?previous_response=no", link_nodes.first["href"]
         end
       end

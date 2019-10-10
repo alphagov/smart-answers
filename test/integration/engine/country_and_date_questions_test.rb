@@ -19,10 +19,10 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
     should "handle country and date questions" do
       visit "/country-and-date-sample/y"
 
-      within ".current-question" do
+      within "#current-question" do
         assert_page_has_content "Which country do you live in?"
       end
-      within ".question-body" do
+      within "#current-question" do
         assert page.has_select?("response")
         actual = page.all("select option").map(&:value)
         assert_equal @location_slugs, actual
@@ -33,22 +33,22 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
 
       assert_current_url "/country-and-date-sample/y/belarus"
 
-      within ".done-questions" do
+      within ".govuk-table" do
         assert page.has_link?("Start again", href: "/country-and-date-sample")
-        within "tr.section:nth-child(1)" do
-          within "td.previous-question-title" do
+        within "tbody tr.govuk-table__row:nth-child(1)" do
+          within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "Which country do you live in?"
           end
-          within("td.previous-question-body") { assert_page_has_content "Belarus" }
-          within(".link-right") { assert page.has_link?("Change", href: "/country-and-date-sample/y?previous_response=belarus") }
+          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "Belarus" }
+          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/country-and-date-sample/y?previous_response=belarus") }
         end
       end
 
-      within ".current-question" do
+      within "#current-question" do
         assert_page_has_content "What date did you move there?"
       end
 
-      within ".question-body" do
+      within "#current-question" do
         # TODO Check options for dates
         assert page.has_select? "Day"
         assert page.has_select? "Month"
@@ -62,30 +62,30 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
 
       assert_current_url "/country-and-date-sample/y/belarus/1975-05-05"
 
-      within ".done-questions" do
+      within ".govuk-table" do
         assert page.has_link?("Start again", href: "/country-and-date-sample")
-        within "tr.section:nth-child(1)" do
-          within "td.previous-question-title" do
+        within "tbody tr.govuk-table__row:nth-child(1)" do
+          within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "Which country do you live in?"
           end
-          within("td.previous-question-body") { assert_page_has_content "Belarus" }
-          within(".link-right") { assert page.has_link?("Change", href: "/country-and-date-sample/y?previous_response=belarus") }
+          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "Belarus" }
+          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/country-and-date-sample/y?previous_response=belarus") }
         end
 
-        within "tr.section:nth-child(2)" do
-          within "td.previous-question-title" do
+        within "tbody tr.govuk-table__row:nth-child(2)" do
+          within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "What date did you move there?"
           end
 
-          within("td.previous-question-body") { assert_page_has_content "5 May 1975" }
-          within(".link-right") { assert page.has_link?("Change", href: "/country-and-date-sample/y/belarus?previous_response=1975-05-05") }
+          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "5 May 1975" }
+          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/country-and-date-sample/y/belarus?previous_response=1975-05-05") }
         end
       end
 
-      within ".current-question" do
+      within "#current-question" do
         assert_page_has_content "Which country were you born in?"
       end
-      within ".question-body" do
+      within "#current-question" do
         assert page.has_select?("response")
         actual = page.all("select option").map(&:value)
         assert_equal @location_slugs, actual
@@ -96,39 +96,37 @@ class CountryAndDateQuestionsTest < EngineIntegrationTest
 
       assert_current_url "/country-and-date-sample/y/belarus/1975-05-05/venezuela"
 
-      within ".done-questions" do
+      within ".govuk-table" do
         assert page.has_link?("Start again", href: "/country-and-date-sample")
-        within "tr.section:nth-child(1)" do
-          within "td.previous-question-title" do
+        within "tbody tr.govuk-table__row:nth-child(1)" do
+          within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "Which country do you live in?"
           end
-          within("td.previous-question-body") { assert_page_has_content "Belarus" }
-          within(".link-right") { assert page.has_link?("Change", href: "/country-and-date-sample/y?previous_response=belarus") }
+          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "Belarus" }
+          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/country-and-date-sample/y?previous_response=belarus") }
         end
 
-        within "tr.section:nth-child(2)" do
-          within "td.previous-question-title" do
+        within "tbody tr.govuk-table__row:nth-child(2)" do
+          within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "What date did you move there?"
           end
 
-          within("td.previous-question-body") { assert_page_has_content "5 May 1975" }
-          within(".link-right") { assert page.has_link?("Change", href: "/country-and-date-sample/y/belarus?previous_response=1975-05-05") }
+          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "5 May 1975" }
+          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/country-and-date-sample/y/belarus?previous_response=1975-05-05") }
         end
 
-        within "tr.section:nth-child(3)" do
-          within "td.previous-question-title" do
+        within "tbody tr.govuk-table__row:nth-child(3)" do
+          within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "Which country were you born in?"
           end
 
-          within(".previous-question-body") { assert_page_has_content "Venezuela" }
-          within(".link-right") { assert page.has_link?("Change", href: "/country-and-date-sample/y/belarus/1975-05-05?previous_response=venezuela") }
+          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "Venezuela" }
+          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/country-and-date-sample/y/belarus/1975-05-05?previous_response=venezuela") }
         end
       end
 
-      within ".outcome:nth-child(1)" do
-        within ".result-info" do
-          within("h2.result-title") { assert_page_has_content "Great - you've lived in belarus for 37 years, and were born in venezuela!" }
-        end
+      within "#result-info" do
+        within("h2.gem-c-heading") { assert_page_has_content "Great - you've lived in belarus for 37 years, and were born in venezuela!" }
       end
     end
   end # with_and_without_javascript

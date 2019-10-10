@@ -9,19 +9,18 @@ class CheckboxQuestionsTest < EngineIntegrationTest
     should "handle checkbox questions" do
       visit "/checkbox-sample/y"
 
-      within ".current-question" do
+      within "#current-question" do
         within ".govuk-fieldset__legend" do
           assert_page_has_content "What do you want on your pizza?"
         end
-        within ".question-body" do
-          assert page.has_field?("Ham", type: "checkbox", with: "ham", visible: false)
-          assert page.has_field?("Peppers", type: "checkbox", with: "peppers", visible: false)
-          assert page.has_field?("Ice Cream!!!", type: "checkbox", with: "ice_cream", visible: false)
-          assert page.has_field?("Pepperoni", type: "checkbox", with: "pepperoni", visible: false)
-          # Assert they're in the correct order
-          options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
-          assert_equal ["Ham", "Peppers", "Ice Cream!!!", "Pepperoni"], options
-        end
+
+        assert page.has_field?("Ham", type: "checkbox", with: "ham", visible: false)
+        assert page.has_field?("Peppers", type: "checkbox", with: "peppers", visible: false)
+        assert page.has_field?("Ice Cream!!!", type: "checkbox", with: "ice_cream", visible: false)
+        assert page.has_field?("Pepperoni", type: "checkbox", with: "pepperoni", visible: false)
+        # Assert they're in the correct order
+        options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
+        assert_equal ["Ham", "Peppers", "Ice Cream!!!", "Pepperoni"], options
       end
 
       check("Ham", visible: false)
@@ -30,16 +29,16 @@ class CheckboxQuestionsTest < EngineIntegrationTest
 
       assert_current_url "/checkbox-sample/y/ham,pepperoni"
 
-      within ".done-questions" do
+      within ".govuk-table" do
         assert page.has_link?("Start again", href: "/checkbox-sample")
-        within "tr.section" do
-          within "td.previous-question-title" do
+        within "tbody tr.govuk-table__row" do
+          within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "What do you want on your pizza?"
           end
-          within "td.previous-question-body" do
+          within ".govuk-table__cell:nth-child(2)" do
             assert_equal %w(Ham Pepperoni), page.all("li").map(&:text)
           end
-          within(".link-right") { assert page.has_link?("Change", href: "/checkbox-sample/y?previous_response=ham%2Cpepperoni") }
+          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/checkbox-sample/y?previous_response=ham%2Cpepperoni") }
         end
       end
 
@@ -56,14 +55,14 @@ class CheckboxQuestionsTest < EngineIntegrationTest
 
       assert_current_url "/checkbox-sample/y/none"
 
-      within ".done-questions" do
+      within ".govuk-table" do
         assert page.has_link?("Start again", href: "/checkbox-sample")
-        within "tr.section" do
-          within "td.previous-question-title" do
+        within "tbody tr.govuk-table__row" do
+          within ".govuk-table__cell:nth-child(1)" do
             assert_page_has_content "What do you want on your pizza?"
           end
-          within("td.previous-question-body") { assert_page_has_content "none" }
-          within(".link-right") { assert page.has_link?("Change", href: "/checkbox-sample/y?previous_response=none") }
+          within(".govuk-table__cell:nth-child(2)") { assert_page_has_content "none" }
+          within(".govuk-table__cell:nth-child(3)") { assert page.has_link?("Change", href: "/checkbox-sample/y?previous_response=none") }
         end
       end
 

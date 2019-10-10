@@ -23,13 +23,13 @@ class SmartAnswersControllerMoneyQuestionTest < ActionController::TestCase
     context "money question" do
       should "display question" do
         get :show, params: { id: "smart-answers-controller-sample-with-money-question", started: "y" }
-        assert_select ".step.current .govuk-label", /How much\?/
+        assert_select ".govuk-label", /How much\?/
         assert_select "input[type=text][name=response]"
       end
 
       should "show a validation error if invalid input" do
         submit_response "bad_number"
-        assert_select ".step.current .govuk-label", /How much\?/
+        assert_select ".govuk-label", /How much\?/
         assert_select "body", /Please answer this question/
       end
 
