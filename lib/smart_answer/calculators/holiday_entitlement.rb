@@ -58,12 +58,20 @@ module SmartAnswer::Calculators
       end
     end
 
-    def formatted_full_time_part_time_hours
+    def formatted_full_time_part_time_compressed_hours
       if left_before_year_end? || worked_partial_year?
         format_number(pro_rated_hours, 2)
       else
         format_number(rounded_full_time_part_time_hours, 2)
       end
+    end
+
+    def full_time_part_time_hours_and_minutes
+      time_in_seconds = (BigDecimal(formatted_full_time_part_time_compressed_hours, 10) * 3600).to_i
+      seconds = time_in_seconds % 60
+      minutes = (time_in_seconds / 60) % 60
+      hours = time_in_seconds / 3600
+      [hours, seconds < 30 ? minutes : minutes + 1]
     end
 
     def pro_rated_hours
