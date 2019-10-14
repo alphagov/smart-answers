@@ -121,11 +121,11 @@ GEM
       rake
       rouge
       sassc-rails (>= 2.0.1)
-    govuk_test (1.0.1)
+    govuk_test (1.0.2)
       capybara
       puma
       selenium-webdriver (>= 3.142)
-      webdrivers (~> 4)
+      webdrivers (>= 4)
     hashdiff (1.0.0)
     htmlentities (4.3.4)
     http-accept (1.7.0)
