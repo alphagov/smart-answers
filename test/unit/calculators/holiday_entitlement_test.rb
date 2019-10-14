@@ -534,5 +534,130 @@ module SmartAnswer::Calculators
         end
       end
     end
+
+    context "calculate entitlement on shifts worked" do
+      context "for a full leave year" do
+        should "for 6 hours over 14 days with 4 days per week" do
+          calc = HolidayEntitlement.new(hours_per_shift: 6,
+                                        shifts_per_shift_pattern: 8,
+                                        days_per_shift_pattern: 14)
+          assert_equal "22.4", calc.shift_entitlement
+        end
+        should "for 25 hours over less than 5 days a week" do
+          calc = HolidayEntitlement.new(hours_per_shift: 25, shifts_per_shift_pattern: 7, days_per_shift_pattern: 10)
+          assert_equal "27.5", calc.shift_entitlement
+        end
+        should "for 36 hours over more than 5 days a week" do
+          calc = HolidayEntitlement.new(hours_per_shift: 36, shifts_per_shift_pattern: 12, days_per_shift_pattern: 14)
+          assert_equal "33.6", calc.shift_entitlement
+        end
+      end
+
+      context "for starting part way through a leave year" do
+        should "for 4 shifts per week" do
+          calc = HolidayEntitlement.new(
+            start_date: Date.parse("2019-06-01"),
+            leave_year_start_date: Date.parse("2019-01-01"),
+            hours_per_shift: 6,
+            shifts_per_shift_pattern: 8,
+            days_per_shift_pattern: 14,
+            )
+
+          assert_equal "13.5", calc.shift_entitlement
+        end
+
+        should "for 4.9 shifts per week" do
+          calc = HolidayEntitlement.new(
+            start_date: Date.parse("2020-11-23"),
+            leave_year_start_date: Date.parse("2020-04-01"),
+            hours_per_shift: 25,
+            shifts_per_shift_pattern: 7,
+            days_per_shift_pattern: 10,
+            )
+
+          assert_equal "11.5", calc.shift_entitlement
+        end
+
+        should "for 6 shifts per week" do
+          calc = HolidayEntitlement.new(
+            start_date: Date.parse("2019-11-14"),
+            leave_year_start_date: Date.parse("2019-01-01"),
+            hours_per_shift: 36,
+            shifts_per_shift_pattern: 12,
+            days_per_shift_pattern: 14,
+            )
+
+          assert_equal "5.0", calc.shift_entitlement
+        end
+      end
+      context "leaving part way through a leave year" do
+        context "for a standard year" do
+          should "for 6 hours over 4 days a week" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2019-06-01"),
+              leave_year_start_date: Date.parse("2019-01-01"),
+              hours_per_shift: 6,
+              shifts_per_shift_pattern: 8,
+              days_per_shift_pattern: 14,
+              )
+
+            assert_equal "9.33", calc.shift_entitlement
+          end
+
+          should "for 25 hours over 4.9 days a week" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2020-11-23"),
+              leave_year_start_date: Date.parse("2020-04-01"),
+              hours_per_shift: 25,
+              shifts_per_shift_pattern: 7,
+              days_per_shift_pattern: 10,
+            )
+
+            assert_equal "17.82", calc.shift_entitlement
+          end
+
+          should "for 36 hours over 6 days a week" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2019-11-14"),
+              leave_year_start_date: Date.parse("2019-01-01"),
+              hours_per_shift: 36,
+              shifts_per_shift_pattern: 12,
+              days_per_shift_pattern: 14,
+            )
+
+            assert_equal "24.40", calc.shift_entitlement
+          end
+        end
+        context "for a leap year" do
+          should "for 6 hours over 4 days a week" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2020-06-01"),
+              leave_year_start_date: Date.parse("2020-01-01"),
+              hours_per_shift: 6,
+              shifts_per_shift_pattern: 8,
+              days_per_shift_pattern: 14,
+            )
+
+            assert_equal "9.37", calc.shift_entitlement
+          end
+        end
+      end
+
+      context "starting and leaving part way through a leave year" do
+        context "for a standard year" do
+          should "for 6 hours over 4 days a week" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-01-20"),
+              leaving_date: Date.parse("2019-07-18"),
+              hours_per_shift: 6,
+              shifts_per_shift_pattern: 8,
+              days_per_shift_pattern: 14,
+            )
+
+            assert_equal "11.05", calc.shift_entitlement
+          end
+        end
+      end
+    end
   end
 end
