@@ -12,14 +12,25 @@ module SmartAnswer::Calculators
     DAYS_PER_LEAP_YEAR = 366.to_d
     STANDARD_DAYS_PER_WEEK = 5.to_d
 
-    attr_reader :days_per_week, :hours_per_week, :start_date, :leaving_date, :leave_year_start_date
+    attr_reader :days_per_week, :hours_per_week, :start_date, :leaving_date, :leave_year_start_date,
+                :hours_per_shift, :shifts_per_shift_pattern, :days_per_shift_pattern
 
-    def initialize(days_per_week: 0, hours_per_week: 0, start_date: nil, leaving_date: nil, leave_year_start_date: nil)
+    def initialize(days_per_week: 0,
+                   hours_per_week: 0,
+                   start_date: nil,
+                   leaving_date: nil,
+                   leave_year_start_date: nil,
+                   hours_per_shift: 0,
+                   shifts_per_shift_pattern: 0,
+                   days_per_shift_pattern: 0)
       @days_per_week = BigDecimal(days_per_week, 10)
       @hours_per_week = BigDecimal(hours_per_week, 10)
       @start_date = start_date
       @leaving_date = leaving_date
       @leave_year_start_date = leave_year_start_date || calculate_leave_year_start_date
+      @hours_per_shift = BigDecimal(hours_per_shift, 10)
+      @shifts_per_shift_pattern = BigDecimal(shifts_per_shift_pattern, 10)
+      @days_per_shift_pattern = BigDecimal(days_per_shift_pattern, 10)
     end
 
     def full_time_part_time_days
@@ -84,7 +95,27 @@ module SmartAnswer::Calculators
       end
     end
 
+    def shift_entitlement
+      minimum_days_per_week = [shifts_per_week, MAXIMUM_STATUTORY_DAYS_PER_WEEK].min
+
+      if left_before_year_end? || worked_partial_year?
+        format_number(calculate_holiday * minimum_days_per_week, 2)
+      elsif start_date.present? && leave_year_start_date.present?
+        ((calculate_holiday * minimum_days_per_week * 2).ceil / 2.00).to_s
+      else
+        format_number((calculate_holiday * shifts_per_week))
+      end
+    end
+
   private
+
+    def calculate_holiday
+      STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS * fraction_of_year
+    end
+
+    def shifts_per_week
+      (shifts_per_shift_pattern / days_per_shift_pattern * 7).round(10)
+    end
 
     def calculate_leave_year_start_date
       leaving_date ? leaving_date.beginning_of_year : Date.today.beginning_of_year
