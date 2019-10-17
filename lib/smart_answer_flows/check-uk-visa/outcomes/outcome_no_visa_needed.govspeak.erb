@@ -1,10 +1,25 @@
 <% content_for :title do %>
-  You do not need a visa to come to the UK
+  <% if calculator.passport_country_ireland_or_outside_eea? %>
+    You do not need a visa to come to the UK
+  <% elsif calculator.passport_country_in_eea? %>
+    You do not need a visa to come to the UK before 31 December 2020
+  <% end %>
 <% end %>
 
 <% content_for :body do %>
 
-  ^When the UK leaves the EU, the rules for how long you can stay without a visa may change. [Check if you need to act now](/guidance/visiting-the-uk-after-brexit) so you can travel as planned.
+  <% if calculator.passport_country_is_ireland? %>
+    Your rights to live, work and study in the UK have not changed now that the UK has left the EU.
+  <% elsif calculator.passport_country_in_eea? %>
+    Your rights to live, work and study in the UK will not change until then.
+
+    If you want to stay after 31 December 2020, you’ll need to either:
+
+      - [apply for European temporary leave to remain (Euro TLR)](/european-temporary-leave-to-remain-in-the-uk) - you can only do this once you’ve moved to the UK
+      - apply for a different immigration status under the [new skills-based immigration system](/government/publications/the-uks-future-skills-based-immigration-system)
+
+    ^ If you have an EU, EEA or Swiss family member who started living in the UK on or before 31 October 2019, you may be eligible for [EU settled status](/settled-status-eu-citizens-families). ^
+  <% end %>
 
   <% if calculator.study_visit? %>
     <% if calculator.passport_country_in_epassport_gate_list? %>

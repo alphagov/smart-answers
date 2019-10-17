@@ -41,12 +41,20 @@ module SmartAnswer::Calculators
       COUNTRY_GROUP_EPASSPORT_GATES.include?(@passport_country)
     end
 
+    def passport_country_ireland_or_outside_eea?
+      self.passport_country_is_ireland? || !self.passport_country_in_eea?
+    end
+
     def passport_country_in_b1_b2_visa_exception_list?
       @passport_country == "syria"
     end
 
     def passport_country_is_israel?
       @passport_country == "israel"
+    end
+
+    def passport_country_is_ireland?
+      @passport_country == "ireland"
     end
 
     def passport_country_is_taiwan?
