@@ -17,6 +17,26 @@ module SmartAnswer
         end
       end
 
+      context "#passport_country_ireland_or_outside_eea?" do
+        should "return true if passport country is Ireland" do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = "ireland"
+          assert calculator.passport_country_ireland_or_outside_eea?
+        end
+
+        should "return true if passport country is not in list of EEA countries" do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = "made-up-country"
+          assert calculator.passport_country_ireland_or_outside_eea?
+        end
+
+        should "return false if passport country is in list of EEA countries" do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = "austria"
+          refute calculator.passport_country_ireland_or_outside_eea?
+        end
+      end
+
       context "#passport_country_in_visa_national_list?" do
         should "return true if passport_country is in list of visa national countries" do
           calculator = UkVisaCalculator.new
@@ -266,6 +286,20 @@ module SmartAnswer
           calculator = UkVisaCalculator.new
           calculator.passport_country = "made-up-country"
           refute calculator.passport_country_is_israel?
+        end
+      end
+
+      context "#passport_country_is_ireland?" do
+        should 'return true if passport_country is "ireland"' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = "ireland"
+          assert calculator.passport_country_is_ireland?
+        end
+
+        should 'return false if passport_country is not "ireland"' do
+          calculator = UkVisaCalculator.new
+          calculator.passport_country = "made-up-country"
+          refute calculator.passport_country_is_ireland?
         end
       end
 
