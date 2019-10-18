@@ -691,7 +691,7 @@ module SmartAnswer::Calculators
               days_per_shift_pattern: 10,
             )
 
-            assert_equal "17.82", calc.shift_entitlement
+            assert_equal "17.77", calc.shift_entitlement
           end
 
           should "for 36 hours over 6 days a week" do
@@ -703,7 +703,7 @@ module SmartAnswer::Calculators
               days_per_shift_pattern: 14,
             )
 
-            assert_equal "24.48", calc.shift_entitlement
+            assert_equal "24.41", calc.shift_entitlement
           end
         end
       end
@@ -757,7 +757,7 @@ module SmartAnswer::Calculators
               days_per_shift_pattern: 14,
             )
 
-            assert_equal "11.11", calc.shift_entitlement
+            assert_equal "11.08", calc.shift_entitlement
           end
 
           should "for 25 hours over 4.9 days a week" do
@@ -769,7 +769,7 @@ module SmartAnswer::Calculators
               days_per_shift_pattern: 10,
             )
 
-            assert_equal "10.30", calc.shift_entitlement
+            assert_equal "10.28", calc.shift_entitlement
           end
 
           should "for 36 hours over 6 days a week" do
@@ -781,7 +781,7 @@ module SmartAnswer::Calculators
               days_per_shift_pattern: 14,
             )
 
-            assert_equal "26.47", calc.shift_entitlement
+            assert_equal "26.40", calc.shift_entitlement
           end
         end
       end
