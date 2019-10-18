@@ -53,6 +53,17 @@ class ErrorHandlingTest < ActionDispatch::IntegrationTest
     end
   end
 
+  context "when GdsApi::HTTPForbidden raised before render" do
+    setup do
+      ExampleController.exception_to_raise_before_render = GdsApi::HTTPForbidden.new(403)
+    end
+
+    should "set response status code to 403" do
+      get "/test"
+      assert_response 403
+    end
+  end
+
   context "when GdsApi::TimedOutException raised after render" do
     setup do
       ExampleController.exception_to_raise_after_render = GdsApi::TimedOutException
