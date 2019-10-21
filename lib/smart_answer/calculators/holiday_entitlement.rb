@@ -80,6 +80,22 @@ module SmartAnswer::Calculators
       fraction_of_year * rounded_full_time_part_time_hours
     end
 
+    def full_time_part_time_weeks
+      if worked_full_year?
+        STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS
+      else
+        STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS * fraction_of_year
+      end
+    end
+
+    def formatted_full_time_part_time_weeks
+      if worked_full_year?
+        format_number(full_time_part_time_weeks)
+      else
+        format_number(full_time_part_time_weeks, 2)
+      end
+    end
+
     def fraction_of_year
       days_in_year = leave_year_range.leap? ? DAYS_PER_LEAP_YEAR : DAYS_PER_YEAR
 
