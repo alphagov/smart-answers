@@ -37,7 +37,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         SmartAnswer::Calculators::HolidayEntitlement
           .expects(:new)
           .with(
-            days_per_week: 5,
+            working_days_per_week: 5,
             start_date: nil,
             leaving_date: nil,
             leave_year_start_date: nil,
@@ -53,7 +53,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         SmartAnswer::Calculators::HolidayEntitlement
           .expects(:new)
           .with(
-            days_per_week: 6,
+            working_days_per_week: 6,
             start_date: nil,
             leaving_date: nil,
             leave_year_start_date: nil,
@@ -97,7 +97,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             SmartAnswer::Calculators::HolidayEntitlement
               .expects(:new)
               .with(
-                days_per_week: 5,
+                working_days_per_week: 5,
                 start_date: Date.parse("#{Date.today.year}-03-14"),
                 leaving_date: nil,
                 leave_year_start_date: Date.parse("#{Date.today.year}-05-02"),
@@ -107,14 +107,14 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             add_response "5"
             assert_current_node :days_per_week_done
             assert_state_variable :holiday_entitlement_days, "formatted days"
-            assert_state_variable :days_per_week, 5
+            assert_state_variable :working_days_per_week, 5
           end
 
           should "calculate and be done part year when 6 or 7 days" do
             SmartAnswer::Calculators::HolidayEntitlement
               .expects(:new)
               .with(
-                days_per_week: 5,
+                working_days_per_week: 5,
                 start_date: Date.parse("#{Date.today.year}-03-14"),
                 leaving_date: nil,
                 leave_year_start_date: Date.parse("#{Date.today.year}-05-02"),
@@ -124,7 +124,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             add_response "6"
             assert_current_node :days_per_week_done
             assert_state_variable :holiday_entitlement_days, "formatted days"
-            assert_state_variable :days_per_week, 6
+            assert_state_variable :working_days_per_week, 6
             assert_state_variable :days_per_week_calculated, 5
           end
         end # with a leave year start date
@@ -162,7 +162,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             SmartAnswer::Calculators::HolidayEntitlement
               .expects(:new)
               .with(
-                days_per_week: 5,
+                working_days_per_week: 5,
                 start_date: nil,
                 leaving_date: Date.parse("#{Date.today.year}-07-14"),
                 leave_year_start_date: Date.parse("#{Date.today.year}-01-01"),
@@ -172,14 +172,14 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             add_response "5"
             assert_current_node :days_per_week_done
             assert_state_variable :holiday_entitlement_days, "formatted days"
-            assert_state_variable :days_per_week, 5
+            assert_state_variable :working_days_per_week, 5
           end
 
           should "calculate and be done part year when 6 days" do
             SmartAnswer::Calculators::HolidayEntitlement
               .expects(:new)
               .with(
-                days_per_week: 5,
+                working_days_per_week: 5,
                 start_date: nil,
                 leaving_date: Date.parse("#{Date.today.year}-07-14"),
                 leave_year_start_date: Date.parse("#{Date.today.year}-01-01"),
@@ -189,7 +189,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             add_response "6"
             assert_current_node :days_per_week_done
             assert_state_variable :holiday_entitlement_days, "formatted days"
-            assert_state_variable :days_per_week, 6
+            assert_state_variable :working_days_per_week, 6
           end
         end # with a leave year start date
       end # with a start date
@@ -220,7 +220,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             SmartAnswer::Calculators::HolidayEntitlement
               .expects(:new)
               .with(
-                days_per_week: 5,
+                working_days_per_week: 5,
                 start_date: Date.parse("#{Date.today.year}-07-14"),
                 leaving_date: Date.parse("#{Date.today.year}-10-14"),
                 leave_year_start_date: nil,
@@ -230,7 +230,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             add_response "5"
             assert_current_node :days_per_week_done
             assert_state_variable :holiday_entitlement_days, "formatted days"
-            assert_state_variable :days_per_week, 5
+            assert_state_variable :working_days_per_week, 5
           end
         end
       end
@@ -267,7 +267,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
               .expects(:new)
               .with(
                 hours_per_week: 32.0,
-                days_per_week: 5.0,
+                working_days_per_week: 5.0,
                 start_date: nil,
                 leaving_date: nil,
                 leave_year_start_date: nil,
@@ -316,7 +316,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                   expects(:new).
                   with(
                     hours_per_week: 37.0,
-                    days_per_week: 5,
+                    working_days_per_week: 5,
                     start_date: Date.parse("#{Date.today.year}-06-15"),
                     leaving_date: nil,
                     leave_year_start_date: Date.parse("#{Date.today.year}-01-01"),
@@ -368,7 +368,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                   expects(:new).
                   with(
                     hours_per_week: 26.5,
-                    days_per_week: 5,
+                    working_days_per_week: 5,
                     start_date: nil,
                     leaving_date: Date.parse("#{Date.today.year}-06-15"),
                     leave_year_start_date: Date.parse("#{Date.today.year}-01-01"),
@@ -419,7 +419,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 .expects(:new)
                 .with(
                   hours_per_week: 37,
-                  days_per_week: 5,
+                  working_days_per_week: 5,
                   start_date: Date.parse("#{Date.today.year}-07-14"),
                   leaving_date: Date.parse("#{Date.today.year}-10-14"),
                   leave_year_start_date: nil,
@@ -476,7 +476,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
     should "calculate and be done with hours and days entered" do
       SmartAnswer::Calculators::HolidayEntitlement
         .expects(:new)
-        .with(hours_per_week: 20.5, days_per_week: 3)
+        .with(hours_per_week: 20.5, working_days_per_week: 3)
         .returns(@stubbed_calculator)
       @stubbed_calculator.expects(:compressed_hours_entitlement).at_least_once.returns(["formatted hours", "formatted minutes"])
       @stubbed_calculator.expects(:compressed_hours_daily_average).at_least_once.returns(["formatted daily hours", "formatted daily minutes"])
@@ -485,7 +485,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       add_response "3"
       assert_current_node :compressed_hours_done
       assert_state_variable :hours_per_week, 20.5
-      assert_state_variable :days_per_week, 3
+      assert_state_variable :working_days_per_week, 3
       assert_state_variable :holiday_entitlement_hours, "formatted hours"
       assert_state_variable :holiday_entitlement_minutes, "formatted minutes"
       assert_state_variable :hours_daily, "formatted daily hours"
