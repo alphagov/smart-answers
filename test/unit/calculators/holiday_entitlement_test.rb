@@ -6,19 +6,19 @@ module SmartAnswer::Calculators
       # /days-worked-per-week/full-year/5.0
       context "for a full leave year" do
         should "for 5 days a week" do
-          calc = HolidayEntitlement.new(days_per_week: 5)
+          calc = HolidayEntitlement.new(working_days_per_week: 5)
           assert_equal "28", calc.formatted_full_time_part_time_days
         end
 
         # /days-worked-per-week/full-year/5.0
         should "for more than 5 days a week" do
-          calc = HolidayEntitlement.new(days_per_week: 7)
+          calc = HolidayEntitlement.new(working_days_per_week: 7)
           assert_equal "28", calc.formatted_full_time_part_time_days
         end
 
         # /days-worked-per-week/full-year/3.5
         should "for less than 5 days a week" do
-          calc = HolidayEntitlement.new(days_per_week: 3)
+          calc = HolidayEntitlement.new(working_days_per_week: 3)
           assert_equal "17", calc.formatted_full_time_part_time_days
         end
       end
@@ -30,7 +30,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2019-06-01"),
               leave_year_start_date: Date.parse("2019-01-01"),
-              days_per_week: 5,
+              working_days_per_week: 5,
             )
 
             assert_equal BigDecimal("0.5833333333").round(10), calc.fraction_of_year.round(10)
@@ -43,7 +43,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2019-11-23"),
               leave_year_start_date: Date.parse("2019-04-01"),
-              days_per_week: 3,
+              working_days_per_week: 3,
             )
 
             assert_equal BigDecimal("0.4166666667").round(10), calc.fraction_of_year.round(10)
@@ -56,7 +56,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2019-11-14"),
               leave_year_start_date: Date.parse("2019-01-01"),
-              days_per_week: 6,
+              working_days_per_week: 6,
             )
 
             assert_equal BigDecimal("0.1666666667").round(10), calc.fraction_of_year.round(10)
@@ -71,7 +71,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2020-06-01"),
               leave_year_start_date: Date.parse("2020-01-01"),
-              days_per_week: 5,
+              working_days_per_week: 5,
             )
 
             assert_equal BigDecimal("0.5833333333").round(10), calc.fraction_of_year.round(10)
@@ -84,7 +84,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2020-11-23"),
               leave_year_start_date: Date.parse("2020-04-01"),
-              days_per_week: 3,
+              working_days_per_week: 3,
             )
 
             assert_equal BigDecimal("0.4166666667").round(10), calc.fraction_of_year.round(10)
@@ -97,7 +97,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2020-11-14"),
               leave_year_start_date: Date.parse("2020-01-01"),
-              days_per_week: 6,
+              working_days_per_week: 6,
             )
 
             assert_equal BigDecimal("0.1666666667").round(10), calc.fraction_of_year.round(10)
@@ -114,7 +114,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2019-06-01"),
               leave_year_start_date: Date.parse("2019-01-01"),
-              days_per_week: 5,
+              working_days_per_week: 5,
             )
 
             assert_equal BigDecimal("0.4164383562").round(10), calc.fraction_of_year.round(10)
@@ -127,7 +127,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2018-11-23"),
               leave_year_start_date: Date.parse("2018-04-01"),
-              days_per_week: 3,
+              working_days_per_week: 3,
             )
             assert_equal BigDecimal("0.6493150685").round(10), calc.fraction_of_year.round(10)
             assert_equal BigDecimal("10.9084931507").round(10), calc.full_time_part_time_days.round(10)
@@ -139,7 +139,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2019-08-22"),
               leave_year_start_date: Date.parse("2019-01-01"),
-              days_per_week: 6,
+              working_days_per_week: 6,
             )
             assert_equal BigDecimal("0.6410958904").round(10), calc.fraction_of_year.round(10)
             assert_equal BigDecimal("21.5408219178").round(10), calc.full_time_part_time_days.round(10)
@@ -153,7 +153,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2020-06-01"),
               leave_year_start_date: Date.parse("2020-01-01"),
-              days_per_week: 5,
+              working_days_per_week: 5,
             )
 
             assert_equal BigDecimal("0.4180327869").round(10), calc.fraction_of_year.round(10)
@@ -166,7 +166,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2019-11-23"),
               leave_year_start_date: Date.parse("2019-04-01"),
-              days_per_week: 3,
+              working_days_per_week: 3,
             )
 
             assert_equal BigDecimal("0.6475409836").round(10), calc.fraction_of_year.round(10)
@@ -179,7 +179,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2020-08-22"),
               leave_year_start_date: Date.parse("2020-01-01"),
-              days_per_week: 6,
+              working_days_per_week: 6,
             )
 
             assert_equal BigDecimal("0.6420765027").round(10), calc.fraction_of_year.round(10)
@@ -196,7 +196,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2019-01-20"),
               leaving_date: Date.parse("2019-07-18"),
-              days_per_week: 5,
+              working_days_per_week: 5,
             )
 
             assert_equal BigDecimal("0.4931506849").round(10), calc.fraction_of_year.round(10)
@@ -209,7 +209,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2018-11-23"),
               leaving_date: Date.parse("2019-04-07"),
-              days_per_week: 3,
+              working_days_per_week: 3,
             )
 
             assert_equal BigDecimal("0.3726027397").round(10), calc.fraction_of_year.round(10)
@@ -222,7 +222,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2018-08-22"),
               leaving_date: Date.parse("2019-07-31"),
-              days_per_week: 6,
+              working_days_per_week: 6,
             )
 
             assert_equal BigDecimal("0.9424657534").round(10), calc.fraction_of_year.round(10)
@@ -237,7 +237,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2020-01-20"),
               leaving_date: Date.parse("2020-07-18"),
-              days_per_week: 5,
+              working_days_per_week: 5,
             )
 
             assert_equal BigDecimal("0.4945355191").round(10), calc.fraction_of_year.round(10)
@@ -250,7 +250,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2019-11-23"),
               leaving_date: Date.parse("2020-04-07"),
-              days_per_week: 3,
+              working_days_per_week: 3,
             )
 
             assert_equal BigDecimal("0.3743169399").round(10), calc.fraction_of_year.round(10)
@@ -263,7 +263,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2019-08-22"),
               leaving_date: Date.parse("2020-07-31"),
-              days_per_week: 6,
+              working_days_per_week: 6,
             )
 
             assert_equal BigDecimal("0.9426229508").round(10), calc.fraction_of_year.round(10)
@@ -277,19 +277,19 @@ module SmartAnswer::Calculators
     context "calculate entitlement on hours worked per week and compressed hours" do
       context "for a full leave year" do
         should "for 40 hours over 5 days per week" do
-          calc = HolidayEntitlement.new(days_per_week: 5, hours_per_week: 40)
+          calc = HolidayEntitlement.new(working_days_per_week: 5, hours_per_week: 40)
           assert_equal "224", calc.formatted_full_time_part_time_compressed_hours
           assert_equal [224, 0], calc.full_time_part_time_hours_and_minutes
         end
 
         should "for 25 hours over less than 5 days a week" do
-          calc = HolidayEntitlement.new(days_per_week: 3, hours_per_week: 25)
+          calc = HolidayEntitlement.new(working_days_per_week: 3, hours_per_week: 25)
           assert_equal "140", calc.formatted_full_time_part_time_compressed_hours
           assert_equal [140, 0], calc.full_time_part_time_hours_and_minutes
         end
 
         should "for 36 hours over more than 5 days a week" do
-          calc = HolidayEntitlement.new(days_per_week: 6, hours_per_week: 36)
+          calc = HolidayEntitlement.new(working_days_per_week: 6, hours_per_week: 36)
           assert_equal "168", calc.formatted_full_time_part_time_compressed_hours
           assert_equal [168, 0], calc.full_time_part_time_hours_and_minutes
         end
@@ -301,7 +301,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2019-06-01"),
               leave_year_start_date: Date.parse("2019-01-01"),
-              days_per_week: 5,
+              working_days_per_week: 5,
               hours_per_week: 40,
             )
 
@@ -315,7 +315,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2020-11-23"),
               leave_year_start_date: Date.parse("2020-04-01"),
-              days_per_week: 3,
+              working_days_per_week: 3,
               hours_per_week: 25,
             )
 
@@ -329,7 +329,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2019-11-14"),
               leave_year_start_date: Date.parse("2019-01-01"),
-              days_per_week: 6,
+              working_days_per_week: 6,
               hours_per_week: 36,
             )
 
@@ -345,7 +345,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2020-06-01"),
               leave_year_start_date: Date.parse("2020-01-01"),
-              days_per_week: 5,
+              working_days_per_week: 5,
               hours_per_week: 40,
             )
 
@@ -357,7 +357,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2019-11-23"),
               leave_year_start_date: Date.parse("2019-04-01"),
-              days_per_week: 3,
+              working_days_per_week: 3,
               hours_per_week: 25,
             )
 
@@ -369,7 +369,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2020-11-14"),
               leave_year_start_date: Date.parse("2020-01-01"),
-              days_per_week: 6,
+              working_days_per_week: 6,
               hours_per_week: 36,
             )
 
@@ -385,7 +385,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2019-06-01"),
               leave_year_start_date: Date.parse("2019-01-01"),
-              days_per_week: 5,
+              working_days_per_week: 5,
               hours_per_week: 40,
             )
 
@@ -399,7 +399,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2020-11-23"),
               leave_year_start_date: Date.parse("2020-04-01"),
-              days_per_week: 3,
+              working_days_per_week: 3,
               hours_per_week: 25,
             )
 
@@ -413,7 +413,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2019-08-22"),
               leave_year_start_date: Date.parse("2019-01-01"),
-              days_per_week: 6,
+              working_days_per_week: 6,
               hours_per_week: 36,
             )
 
@@ -428,7 +428,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2020-06-01"),
               leave_year_start_date: Date.parse("2020-01-01"),
-              days_per_week: 5,
+              working_days_per_week: 5,
               hours_per_week: 40,
             )
 
@@ -441,7 +441,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2019-11-23"),
               leave_year_start_date: Date.parse("2019-04-01"),
-              days_per_week: 3,
+              working_days_per_week: 3,
               hours_per_week: 25,
             )
 
@@ -455,7 +455,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2020-08-22"),
               leave_year_start_date: Date.parse("2020-01-01"),
-              days_per_week: 6,
+              working_days_per_week: 6,
               hours_per_week: 36,
             )
 
@@ -473,7 +473,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2019-01-20"),
               leaving_date: Date.parse("2019-07-18"),
-              days_per_week: 5,
+              working_days_per_week: 5,
               hours_per_week: 40,
             )
 
@@ -487,7 +487,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2018-11-23"),
               leaving_date: Date.parse("2019-04-07"),
-              days_per_week: 3,
+              working_days_per_week: 3,
               hours_per_week: 25,
             )
 
@@ -501,7 +501,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2018-08-22"),
               leaving_date: Date.parse("2019-07-31"),
-              days_per_week: 6,
+              working_days_per_week: 6,
               hours_per_week: 36,
             )
 
@@ -516,7 +516,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2020-01-20"),
               leaving_date: Date.parse("2020-07-18"),
-              days_per_week: 5,
+              working_days_per_week: 5,
               hours_per_week: 40,
             )
 
@@ -529,7 +529,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2019-11-23"),
               leaving_date: Date.parse("2020-04-07"),
-              days_per_week: 3,
+              working_days_per_week: 3,
               hours_per_week: 25,
             )
 
@@ -543,7 +543,7 @@ module SmartAnswer::Calculators
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2019-08-22"),
               leaving_date: Date.parse("2020-07-31"),
-              days_per_week: 6,
+              working_days_per_week: 6,
               hours_per_week: 36,
             )
 
@@ -551,6 +551,464 @@ module SmartAnswer::Calculators
             assert_equal BigDecimal("158.3606557377").round(10), calc.pro_rated_hours.round(10)
             assert_equal "158.37", calc.formatted_full_time_part_time_compressed_hours
             assert_equal [158, 22], calc.full_time_part_time_hours_and_minutes
+          end
+        end
+      end
+    end
+
+    context "calculate entitlement on shifts worked" do
+      context "for a full leave year" do
+        should "for 6 hours over 14 days with 4 days per week" do
+          calc = HolidayEntitlement.new(shifts_per_shift_pattern: 8,
+                                        days_per_shift_pattern: 14)
+          assert_equal "22.4", calc.shift_entitlement
+        end
+        should "for 25 hours over less than 5 days a week" do
+          calc = HolidayEntitlement.new(shifts_per_shift_pattern: 7, days_per_shift_pattern: 10)
+          assert_equal "27.5", calc.shift_entitlement
+        end
+        should "for 36 hours over more than 5 days a week" do
+          calc = HolidayEntitlement.new(shifts_per_shift_pattern: 12, days_per_shift_pattern: 14)
+          assert_equal "33.6", calc.shift_entitlement
+        end
+      end
+
+      context "for starting part way through a leave year" do
+        context "for a standard year" do
+          should "for 4 shifts per week" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-06-01"),
+              leave_year_start_date: Date.parse("2019-01-01"),
+              shifts_per_shift_pattern: 8,
+              days_per_shift_pattern: 14,
+              )
+
+            assert_equal "13.5", calc.shift_entitlement
+          end
+
+          should "for 4.9 shifts per week" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-11-23"),
+              leave_year_start_date: Date.parse("2020-04-01"),
+              shifts_per_shift_pattern: 7,
+              days_per_shift_pattern: 10,
+              )
+
+            assert_equal "11.5", calc.shift_entitlement
+          end
+
+          should "for 6 shifts per week" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-11-14"),
+              leave_year_start_date: Date.parse("2019-01-01"),
+              shifts_per_shift_pattern: 12,
+              days_per_shift_pattern: 14,
+              )
+
+            assert_equal "5", calc.shift_entitlement
+          end
+        end
+
+        context "for a leap year" do
+          should "for 4 shifts per week" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-06-01"),
+              leave_year_start_date: Date.parse("2020-01-01"),
+              shifts_per_shift_pattern: 8,
+              days_per_shift_pattern: 14,
+              )
+
+            assert_equal "13.5", calc.shift_entitlement
+          end
+
+          should "for 4.9 shifts per week" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-11-23"),
+              leave_year_start_date: Date.parse("2019-04-01"),
+              shifts_per_shift_pattern: 7,
+              days_per_shift_pattern: 10,
+              )
+
+            assert_equal "11.5", calc.shift_entitlement
+          end
+
+          should "for 6 shifts per week" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-11-14"),
+              leave_year_start_date: Date.parse("2020-01-01"),
+              shifts_per_shift_pattern: 12,
+              days_per_shift_pattern: 14,
+              )
+
+            assert_equal "5", calc.shift_entitlement
+          end
+        end
+      end
+
+      context "leaving part way through a leave year" do
+        context "for a standard year" do
+          should "for 6 hours over 4 days a week" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2019-06-01"),
+              leave_year_start_date: Date.parse("2019-01-01"),
+              shifts_per_shift_pattern: 8,
+              days_per_shift_pattern: 14,
+              )
+
+            assert_equal "9.33", calc.shift_entitlement
+          end
+
+          should "for 25 hours over 4.9 days a week" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2020-11-23"),
+              leave_year_start_date: Date.parse("2020-04-01"),
+              shifts_per_shift_pattern: 7,
+              days_per_shift_pattern: 10,
+            )
+
+            assert_equal "17.82", calc.shift_entitlement
+          end
+
+          should "for 36 hours over 6 days a week" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2019-11-14"),
+              leave_year_start_date: Date.parse("2019-01-01"),
+              shifts_per_shift_pattern: 12,
+              days_per_shift_pattern: 14,
+            )
+
+            assert_equal "24.40", calc.shift_entitlement
+          end
+        end
+        context "for a leap year" do
+          should "for 6 hours over 4 days a week" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2020-06-01"),
+              leave_year_start_date: Date.parse("2020-01-01"),
+              shifts_per_shift_pattern: 8,
+              days_per_shift_pattern: 14,
+            )
+
+            assert_equal "9.37", calc.shift_entitlement
+          end
+
+          should "for 25 hours over 4.9 days a week" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2019-11-23"),
+              leave_year_start_date: Date.parse("2019-04-01"),
+              shifts_per_shift_pattern: 7,
+              days_per_shift_pattern: 10,
+            )
+
+            assert_equal "17.77", calc.shift_entitlement
+          end
+
+          should "for 36 hours over 6 days a week" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2020-11-14"),
+              leave_year_start_date: Date.parse("2020-01-01"),
+              shifts_per_shift_pattern: 12,
+              days_per_shift_pattern: 14,
+            )
+
+            assert_equal "24.41", calc.shift_entitlement
+          end
+        end
+      end
+
+      context "starting and leaving part way through a leave year" do
+        context "for a standard year" do
+          should "for 6 hours over 4 days a week" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-01-20"),
+              leaving_date: Date.parse("2019-07-18"),
+              shifts_per_shift_pattern: 8,
+              days_per_shift_pattern: 14,
+            )
+
+            assert_equal "11.05", calc.shift_entitlement
+          end
+
+          should "for 25 hours over 4.9 days a week" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-11-23"),
+              leaving_date: Date.parse("2021-04-07"),
+              shifts_per_shift_pattern: 7,
+              days_per_shift_pattern: 10,
+            )
+
+            assert_equal "10.23", calc.shift_entitlement
+          end
+
+          should "for 36 hours over 6 days a week" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-08-22"),
+              leaving_date: Date.parse("2021-07-31"),
+              shifts_per_shift_pattern: 12,
+              days_per_shift_pattern: 14,
+            )
+
+            assert_equal "26.39", calc.shift_entitlement
+          end
+        end
+
+        context "for a leap year" do
+          should "for 6 hours over 4 days a week" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-01-20"),
+              leaving_date: Date.parse("2020-07-18"),
+              shifts_per_shift_pattern: 8,
+              days_per_shift_pattern: 14,
+            )
+
+            assert_equal "11.08", calc.shift_entitlement
+          end
+
+          should "for 25 hours over 4.9 days a week" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-11-23"),
+              leaving_date: Date.parse("2020-04-07"),
+              shifts_per_shift_pattern: 7,
+              days_per_shift_pattern: 10,
+            )
+
+            assert_equal "10.28", calc.shift_entitlement
+          end
+
+          should "for 36 hours over 6 days a week" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-08-22"),
+              leaving_date: Date.parse("2020-07-31"),
+              shifts_per_shift_pattern: 12,
+              days_per_shift_pattern: 14,
+            )
+
+            assert_equal "26.40", calc.shift_entitlement
+          end
+        end
+      end
+    end
+
+    context "calculate entitlement on irregular and annualised hours" do
+      context "for a full leave year" do
+        should "return 5.6 weeks" do
+          calc = HolidayEntitlement.new
+          assert_equal "5.6", calc.formatted_full_time_part_time_weeks
+        end
+      end
+
+      context "starting part way through a leave year" do
+        context "for a standard year" do
+          should "return 3.27 weeks when start_date is 2019-06-01 and leave_year_start_date is 2019-01-01" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-06-01"),
+              leave_year_start_date: Date.parse("2019-01-01"),
+            )
+
+            assert_equal BigDecimal("0.5833333333").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("3.2666666667").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "3.27", calc.formatted_full_time_part_time_weeks
+          end
+
+          should "return 2.34 weeks when start_date is 2020-11-23 and leave_year_start_date is 2020-04-01" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-11-23"),
+              leave_year_start_date: Date.parse("2020-04-01"),
+            )
+
+            assert_equal BigDecimal("0.4166666667").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("2.3333333333").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "2.34", calc.formatted_full_time_part_time_weeks
+          end
+
+          should "return 0.94 weeks when start_date is 2019-11-14 and leave_year_start_date is 2019-01-01" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-11-14"),
+              leave_year_start_date: Date.parse("2019-01-01"),
+            )
+
+            assert_equal BigDecimal("0.1666666667").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("0.9333333333").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "0.94", calc.formatted_full_time_part_time_weeks
+          end
+        end
+
+        context "for a leap year" do
+          should "return 3.27 weeks when start_date is 2020-06-01 and leave_year_start_date is 2020-01-01" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-06-01"),
+              leave_year_start_date: Date.parse("2020-01-01"),
+            )
+
+            assert_equal BigDecimal("0.5833333333").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("3.2666666667").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "3.27", calc.formatted_full_time_part_time_weeks
+          end
+
+          should "return 2.34 weeks when start_date is 2019-11-23 and leave_year_start_date is 2019-04-01" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-11-23"),
+              leave_year_start_date: Date.parse("2019-04-01"),
+            )
+
+            assert_equal BigDecimal("0.4166666667").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("2.3333333333").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "2.34", calc.formatted_full_time_part_time_weeks
+          end
+
+          should "return 0.94 weeks when start_date is 2020-11-14 and leave_year_start_date is 2020-01-01" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-11-14"),
+              leave_year_start_date: Date.parse("2020-01-01"),
+            )
+
+            assert_equal BigDecimal("0.1666666667").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("0.9333333333").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "0.94", calc.formatted_full_time_part_time_weeks
+          end
+        end
+      end
+
+      context "leaving part way through a leave year" do
+        context "for a standard year" do
+          should "return 2.34 weeks when leaving_date is 2019-06-01 and leave_year_start_date is 2019-01-01" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2019-06-01"),
+              leave_year_start_date: Date.parse("2019-01-01"),
+            )
+
+            assert_equal BigDecimal("0.4164383562").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("2.3320547945").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "2.34", calc.formatted_full_time_part_time_weeks
+          end
+
+          should "return 3.64 weeks when leaving_date is 2020-11-23 and leave_year_start_date is 2020-04-01" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2020-11-23"),
+              leave_year_start_date: Date.parse("2020-04-01"),
+            )
+
+            assert_equal BigDecimal("0.6493150685").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("3.6361643836").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "3.64", calc.formatted_full_time_part_time_weeks
+          end
+
+          should "return 3.60 weeks when leaving_date is 2019-08-22 and leave_year_start_date is 2019-01-01" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2019-08-22"),
+              leave_year_start_date: Date.parse("2019-01-01"),
+            )
+
+            assert_equal BigDecimal("0.6410958904").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("3.5901369863").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "3.60", calc.formatted_full_time_part_time_weeks
+          end
+        end
+
+        context "for a leap year" do
+          should "return 2.35 weeks when leaving_date is 2020-06-01 and leave_year_start_date is 2020-01-01" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2020-06-01"),
+              leave_year_start_date: Date.parse("2020-01-01"),
+            )
+
+            assert_equal BigDecimal("0.4180327869").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("2.3409836066").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "2.35", calc.formatted_full_time_part_time_weeks
+          end
+
+          should "return 3.63 weeks when leaving_date is 2019-11-23 and leave_year_start_date is 2019-04-01" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2019-11-23"),
+              leave_year_start_date: Date.parse("2019-04-01"),
+            )
+
+            assert_equal BigDecimal("0.6475409836").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("3.6262295082").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "3.63", calc.formatted_full_time_part_time_weeks
+          end
+
+          should "return 3.60 weeks when leaving_date is 2020-08-22 and leave_year_start_date is 2020-01-01" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2020-08-22"),
+              leave_year_start_date: Date.parse("2020-01-01"),
+            )
+
+            assert_equal BigDecimal("0.6420765027").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("3.5956284153").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "3.60", calc.formatted_full_time_part_time_weeks
+          end
+        end
+      end
+
+      context "starting and leaving part way through a leave year" do
+        context "for a standard year" do
+          should "return 2.77 weeks when start_date is 2019-01-20 and leaving_date is 2019-07-18" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-01-20"),
+              leaving_date: Date.parse("2019-07-18"),
+            )
+
+            assert_equal BigDecimal("0.4931506849").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("2.7616438356").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "2.77", calc.formatted_full_time_part_time_weeks
+          end
+
+          should "return 2.09 weeks when start_date is 2020-11-23 and leaving_date is 2021-04-07" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-11-23"),
+              leaving_date: Date.parse("2021-04-07"),
+            )
+
+            assert_equal BigDecimal("0.3726027397").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("2.0865753425").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "2.09", calc.formatted_full_time_part_time_weeks
+          end
+
+          should "return 5.28 weeks when start_date is 2020-08-22 and leaving_date is 2021-07-31" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-08-22"),
+              leaving_date: Date.parse("2021-07-31"),
+            )
+
+            assert_equal BigDecimal("0.9424657534").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("5.2778082192").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "5.28", calc.formatted_full_time_part_time_weeks
+          end
+        end
+
+        context "for a leap year" do
+          should "return 2.77 weeks when start_date is 2020-01-20 and leaving_date is 2020-07-18" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-01-20"),
+              leaving_date: Date.parse("2020-07-18"),
+            )
+
+            assert_equal BigDecimal("0.4945355191").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("2.7693989071").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "2.77", calc.formatted_full_time_part_time_weeks
+          end
+
+          should "return 2.10 weeks when start_date is 2019-11-23 and leaving_date is 2020-04-07" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-11-23"),
+              leaving_date: Date.parse("2020-04-07"),
+            )
+
+            assert_equal BigDecimal("0.3743169399").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("2.0961748634").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "2.10", calc.formatted_full_time_part_time_weeks
+          end
+
+          should "return 5.28 weeks when start_date is 2019-08-22 and leaving_date is 2020-07-31" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-08-22"),
+              leaving_date: Date.parse("2020-07-31"),
+            )
+
+            assert_equal BigDecimal("0.9426229508").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("5.2786885246").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "5.28", calc.formatted_full_time_part_time_weeks
           end
         end
       end
