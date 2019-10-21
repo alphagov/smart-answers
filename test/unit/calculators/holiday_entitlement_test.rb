@@ -767,5 +767,230 @@ module SmartAnswer::Calculators
         end
       end
     end
+
+    context "calculate entitlement on irregular and annualised hours" do
+      context "for a full leave year" do
+        should "return 5.6 weeks" do
+          calc = HolidayEntitlement.new
+          assert_equal "5.6", calc.formatted_full_time_part_time_weeks
+        end
+      end
+
+      context "starting part way through a leave year" do
+        context "for a standard year" do
+          should "return 3.27 weeks when start_date is 2019-06-01 and leave_year_start_date is 2019-01-01" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-06-01"),
+              leave_year_start_date: Date.parse("2019-01-01")
+            )
+
+            assert_equal BigDecimal("0.5833333333").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("3.2666666667").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "3.27", calc.formatted_full_time_part_time_weeks
+          end
+
+          should "return 2.34 weeks when start_date is 2020-11-23 and leave_year_start_date is 2020-04-01" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-11-23"),
+              leave_year_start_date: Date.parse("2020-04-01")
+            )
+
+            assert_equal BigDecimal("0.4166666667").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("2.3333333333").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "2.34", calc.formatted_full_time_part_time_weeks
+          end
+
+          should "return 0.94 weeks when start_date is 2019-11-14 and leave_year_start_date is 2019-01-01" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-11-14"),
+              leave_year_start_date: Date.parse("2019-01-01")
+            )
+
+            assert_equal BigDecimal("0.1666666667").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("0.9333333333").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "0.94", calc.formatted_full_time_part_time_weeks
+          end
+        end
+
+        context "for a leap year" do
+          should "return 3.27 weeks when start_date is 2020-06-01 and leave_year_start_date is 2020-01-01" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-06-01"),
+              leave_year_start_date: Date.parse("2020-01-01")
+            )
+
+            assert_equal BigDecimal("0.5833333333").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("3.2666666667").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "3.27", calc.formatted_full_time_part_time_weeks
+          end
+
+          should "return 2.34 weeks when start_date is 2019-11-23 and leave_year_start_date is 2019-04-01" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-11-23"),
+              leave_year_start_date: Date.parse("2019-04-01")
+            )
+
+            assert_equal BigDecimal("0.4166666667").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("2.3333333333").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "2.34", calc.formatted_full_time_part_time_weeks
+          end
+
+          should "return 0.94 weeks when start_date is 2020-11-14 and leave_year_start_date is 2020-01-01" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-11-14"),
+              leave_year_start_date: Date.parse("2020-01-01")
+            )
+
+            assert_equal BigDecimal("0.1666666667").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("0.9333333333").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "0.94", calc.formatted_full_time_part_time_weeks
+          end
+        end
+      end
+
+      context "leaving part way through a leave year" do
+        context "for a standard year" do
+          should "return 2.34 weeks when leaving_date is 2019-06-01 and leave_year_start_date is 2019-01-01" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2019-06-01"),
+              leave_year_start_date: Date.parse("2019-01-01")
+            )
+
+            assert_equal BigDecimal("0.4164383562").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("2.3320547945").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "2.34", calc.formatted_full_time_part_time_weeks
+          end
+
+          should "return 3.64 weeks when leaving_date is 2020-11-23 and leave_year_start_date is 2020-04-01" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2020-11-23"),
+              leave_year_start_date: Date.parse("2020-04-01")
+            )
+
+            assert_equal BigDecimal("0.6493150685").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("3.6361643836").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "3.64", calc.formatted_full_time_part_time_weeks
+          end
+
+          should "return 3.60 weeks when leaving_date is 2019-08-22 and leave_year_start_date is 2019-01-01" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2019-08-22"),
+              leave_year_start_date: Date.parse("2019-01-01")
+            )
+
+            assert_equal BigDecimal("0.6410958904").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("3.5901369863").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "3.60", calc.formatted_full_time_part_time_weeks
+          end
+        end
+
+        context "for a leap year" do
+          should "return 2.35 weeks when leaving_date is 2020-06-01 and leave_year_start_date is 2020-01-01" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2020-06-01"),
+              leave_year_start_date: Date.parse("2020-01-01")
+            )
+
+            assert_equal BigDecimal("0.4180327869").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("2.3409836066").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "2.35", calc.formatted_full_time_part_time_weeks
+          end
+
+          should "return 3.63 weeks when leaving_date is 2019-11-23 and leave_year_start_date is 2019-04-01" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2019-11-23"),
+              leave_year_start_date: Date.parse("2019-04-01")
+            )
+
+            assert_equal BigDecimal("0.6475409836").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("3.6262295082").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "3.63", calc.formatted_full_time_part_time_weeks
+          end
+
+          should "return 3.60 weeks when leaving_date is 2020-08-22 and leave_year_start_date is 2020-01-01" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2020-08-22"),
+              leave_year_start_date: Date.parse("2020-01-01")
+            )
+
+            assert_equal BigDecimal("0.6420765027").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("3.5956284153").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "3.60", calc.formatted_full_time_part_time_weeks
+          end
+        end
+      end
+
+      context "starting and leaving part way through a leave year" do
+        context "for a standard year" do
+          should "return 2.77 weeks when start_date is 2019-01-20 and leaving_date is 2019-07-18" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-01-20"),
+              leaving_date: Date.parse("2019-07-18")
+            )
+
+            assert_equal BigDecimal("0.4931506849").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("2.7616438356").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "2.77", calc.formatted_full_time_part_time_weeks
+          end
+
+          should "return 2.09 weeks when start_date is 2020-11-23 and leaving_date is 2021-04-07" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-11-23"),
+              leaving_date: Date.parse("2021-04-07")
+            )
+
+            assert_equal BigDecimal("0.3726027397").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("2.0865753425").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "2.09", calc.formatted_full_time_part_time_weeks
+          end
+
+          should "return 5.28 weeks when start_date is 2020-08-22 and leaving_date is 2021-07-31" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-08-22"),
+              leaving_date: Date.parse("2021-07-31")
+            )
+
+            assert_equal BigDecimal("0.9424657534").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("5.2778082192").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "5.28", calc.formatted_full_time_part_time_weeks
+          end
+        end
+
+        context "for a leap year" do
+          should "return 2.77 weeks when start_date is 2020-01-20 and leaving_date is 2020-07-18" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-01-20"),
+              leaving_date: Date.parse("2020-07-18")
+            )
+
+            assert_equal BigDecimal("0.4945355191").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("2.7693989071").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "2.77", calc.formatted_full_time_part_time_weeks
+          end
+
+          should "return 2.10 weeks when start_date is 2019-11-23 and leaving_date is 2020-04-07" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-11-23"),
+              leaving_date: Date.parse("2020-04-07")
+            )
+
+            assert_equal BigDecimal("0.3743169399").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("2.0961748634").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "2.10", calc.formatted_full_time_part_time_weeks
+          end
+
+          should "return 5.28 weeks when start_date is 2019-08-22 and leaving_date is 2020-07-31" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-08-22"),
+              leaving_date: Date.parse("2020-07-31")
+            )
+
+            assert_equal BigDecimal("0.9426229508").round(10), calc.fraction_of_year.round(10)
+            assert_equal BigDecimal("5.2786885246").round(10), calc.full_time_part_time_weeks.round(10)
+            assert_equal "5.28", calc.formatted_full_time_part_time_weeks
+          end
+        end
+      end
+    end
   end
 end
