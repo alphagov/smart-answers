@@ -76,6 +76,14 @@ module SmartAnswer::Calculators
       end
     end
 
+    def full_time_part_time_hours_and_minutes
+      time_in_seconds = (BigDecimal(formatted_full_time_part_time_compressed_hours, 10) * 3600).to_i
+      seconds = time_in_seconds % 60
+      minutes = (time_in_seconds / 60) % 60
+      hours = time_in_seconds / 3600
+      [hours, seconds < 30 ? minutes : minutes + 1]
+    end
+
     def pro_rated_hours
       fraction_of_year * rounded_full_time_part_time_hours
     end
