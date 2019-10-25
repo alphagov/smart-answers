@@ -245,12 +245,9 @@ module SmartAnswer
       end
 
       outcome :days_per_week_done do
-        precalculate :days_per_week_calculated do
-          (working_days_per_week < 5 ? working_days_per_week : 5)
-        end
         precalculate :calculator do
           Calculators::HolidayEntitlement.new(
-            working_days_per_week: (leave_year_start_date.nil? ? working_days_per_week : days_per_week_calculated),
+            working_days_per_week: working_days_per_week,
             start_date: start_date,
             leaving_date: leaving_date,
             leave_year_start_date: leave_year_start_date,
