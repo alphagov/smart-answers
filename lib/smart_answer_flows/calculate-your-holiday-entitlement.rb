@@ -55,7 +55,7 @@ module SmartAnswer
         end
       end
 
-      # Q3
+      # Q3 - Q7 - Q8
       value_question :how_many_days_per_week?, parse: Float do
         calculate :working_days_per_week do |response|
           working_days_per_week = response
@@ -105,7 +105,7 @@ module SmartAnswer
         end
       end
 
-      # Q21
+      # Q6
       date_question :when_does_your_leave_year_start? do
         from { Date.civil(1.year.ago.year, 1, 1) }
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
@@ -245,12 +245,9 @@ module SmartAnswer
       end
 
       outcome :days_per_week_done do
-        precalculate :days_per_week_calculated do
-          (working_days_per_week < 5 ? working_days_per_week : 5)
-        end
         precalculate :calculator do
           Calculators::HolidayEntitlement.new(
-            working_days_per_week: (leave_year_start_date.nil? ? working_days_per_week : days_per_week_calculated),
+            working_days_per_week: working_days_per_week,
             start_date: start_date,
             leaving_date: leaving_date,
             leave_year_start_date: leave_year_start_date,
