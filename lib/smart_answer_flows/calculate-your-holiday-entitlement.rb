@@ -55,7 +55,7 @@ module SmartAnswer
         end
       end
 
-      # Q3
+      # Q3 - Q7
       value_question :how_many_days_per_week?, parse: Float do
         calculate :working_days_per_week do |response|
           working_days_per_week = response
@@ -105,7 +105,7 @@ module SmartAnswer
         end
       end
 
-      # Q21
+      # Q6
       date_question :when_does_your_leave_year_start? do
         from { Date.civil(1.year.ago.year, 1, 1) }
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
