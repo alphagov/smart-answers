@@ -59,5 +59,54 @@ RSpec.describe(SmartAnswer::CalculateYourHolidayEntitlementFlow) do
         end
       end
     end
+
+    context "when starting part-way through a leave year" do
+      before do
+        add_response("starting")
+      end
+
+      let(:start_date) { "2019-03-14" }
+      let(:leave_year_start_date) { "2019-05-02" }
+
+      context "with valid number of days worked per week" do
+        valid_working_days_per_week.each do |working_days_per_week|
+          it "calculates the outcome" do
+            assert_current_node(:what_is_your_starting_date?)
+            add_response(start_date)
+            assert_current_node(:when_does_your_leave_year_start?)
+            add_response(leave_year_start_date)
+            assert_current_node(:how_many_days_per_week?)
+            add_response(working_days_per_week)
+            expect(calculator_class).to receive(:new)
+              .with(
+                working_days_per_week: working_days_per_week,
+                start_date: Date.parse(start_date),
+                leaving_date: nil,
+                leave_year_start_date: Date.parse(leave_year_start_date)
+              )
+              .and_return(calculator_instance)
+            expect(calculator_instance).to receive(:formatted_full_time_part_time_days)
+              .and_return(some_value)
+            assert_current_node(:days_per_week_done)
+            assert_state_variable(:holiday_entitlement_days, some_value)
+          end
+        end
+      end
+
+      context "with invalid number of days worked per week" do
+        invalid_working_days_per_week.each do |working_days_per_week|
+          it "raises an invalid response error" do
+            assert_current_node(:what_is_your_starting_date?)
+            add_response(start_date)
+            assert_current_node(:when_does_your_leave_year_start?)
+            add_response(leave_year_start_date)
+            assert_current_node(:how_many_days_per_week?)
+            add_response(working_days_per_week)
+            expect(calculator_class).to_not receive(:new)
+            assert_current_node(:how_many_days_per_week?, error: SmartAnswer::InvalidResponse)
+          end
+        end
+      end
+    end
   end
 end
