@@ -55,7 +55,7 @@ module SmartAnswer
         end
       end
 
-      # Q3 - Q7
+      # Q3 - Q7 - Q8
       value_question :how_many_days_per_week?, parse: Float do
         calculate :working_days_per_week do |response|
           working_days_per_week = response
