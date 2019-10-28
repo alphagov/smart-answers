@@ -11,6 +11,29 @@ $is-ie: false !default;
   .outcome {
     min-height: 0; //overrides a much higher min height from static
   }
+
+  .govspeak-wrapper {
+    h2 {
+      @extend %govuk-heading-l;
+    }
+
+    h3 {
+      @extend %govuk-heading-m;
+    }
+
+    p {
+      @extend %govuk-body-m;
+    }
+
+    ul {
+      @extend %govuk-list;
+      @extend %govuk-list--bullet;
+    }
+  }
+
+  .application-notice {
+    padding-top: govuk-spacing(3);
+  }
 }
 
 //Heroku alert
