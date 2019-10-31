@@ -5,6 +5,9 @@ AllCops:
 Style/CommentedKeyword:
   Enabled: false
 
+Style/FormatStringToken:
+  Enabled: false
+
 Metrics/BlockLength:
   Exclude:
     - 'lib/tasks/**/*.rake'
