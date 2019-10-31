@@ -28,7 +28,7 @@ module MinitestWithTeardownCustomisations
     WorldLocation.reset_cache
   end
 end
-Minitest::Test.send(:prepend, MinitestWithTeardownCustomisations)
+Minitest::Test.prepend MinitestWithTeardownCustomisations
 
 require "gds_api/test_helpers/json_client_helper"
 require_relative "support/fixture_methods"
