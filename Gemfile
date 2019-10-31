@@ -45,7 +45,7 @@ end
 group :test do
   gem "ci_reporter"
   gem "govuk_test"
-  gem "minitest", "~> 5.12"
+  gem "minitest", "~> 5.13"
   gem "minitest-focus", "~> 1.1", ">= 1.1.2"
   gem "mocha", "1.9.0", require: false
   gem "rails-controller-testing"

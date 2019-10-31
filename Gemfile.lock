@@ -166,7 +166,7 @@ GEM
     mimemagic (0.3.3)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.12.2)
+    minitest (5.13.0)
     minitest-focus (1.1.2)
       minitest (>= 4, < 6)
     mocha (1.9.0)
@@ -385,7 +385,7 @@ DEPENDENCIES
   json
   lrucache (= 0.1.4)
   method_source
-  minitest (~> 5.12)
+  minitest (~> 5.13)
   minitest-focus (~> 1.1, >= 1.1.2)
   mocha (= 1.9.0)
   nokogiri
