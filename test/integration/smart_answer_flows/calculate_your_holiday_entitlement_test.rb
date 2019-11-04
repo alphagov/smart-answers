@@ -255,6 +255,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         end
       end
     end
+
     context "answer starting part way through the leave year" do
       setup do
         add_response "starting"
@@ -291,6 +292,51 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 assert_current_node :compressed_hours_done
                 assert_state_variable "holiday_entitlement_hours", 132
                 assert_state_variable "holiday_entitlement_minutes", 0
+                assert_state_variable "hours_daily", 8
+                assert_state_variable "minutes_daily", 0
+              end
+            end
+          end
+        end
+      end
+    end
+
+    context "answer leaving part way through the leave year" do
+      setup do
+        add_response "leaving"
+      end
+      should "ask for the employment end date" do
+        assert_current_node :what_is_your_leaving_date?
+      end
+      context "answer June 1st 2019" do
+        setup do
+          add_response "2019-06-01"
+        end
+        should "ask when the leave year started" do
+          assert_current_node :when_does_your_leave_year_start?
+        end
+        context "answer Jan 1st 2019" do
+          setup do
+            add_response "2019-01-01"
+          end
+          should "ask the number of hours worked per week" do
+            assert_current_node :how_many_hours_per_week?
+          end
+          context "answer 40 hours" do
+            setup do
+              add_response "40"
+            end
+            should "ask the number of days worked per week" do
+              assert_current_node :how_many_days_per_week_for_hours?
+            end
+            context "answer 5 days" do
+              setup do
+                add_response "5"
+              end
+              should "calculate the holiday entitlement" do
+                assert_current_node :compressed_hours_done
+                assert_state_variable "holiday_entitlement_hours", 93
+                assert_state_variable "holiday_entitlement_minutes", 17
                 assert_state_variable "hours_daily", 8
                 assert_state_variable "minutes_daily", 0
               end
