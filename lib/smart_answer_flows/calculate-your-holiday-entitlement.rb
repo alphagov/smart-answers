@@ -113,7 +113,7 @@ module SmartAnswer
           case calculation_basis
           when "days-worked-per-week"
             question :how_many_days_per_week?
-          when "hours-worked-per-week"
+          when "hours-worked-per-week", "compressed-hours"
             question :how_many_hours_per_week?
           when "shift-worker"
             question :shift_worker_hours_per_shift?
@@ -259,6 +259,9 @@ module SmartAnswer
           Calculators::HolidayEntitlement.new(
             hours_per_week: hours_per_week,
             working_days_per_week: working_days_per_week,
+            start_date: start_date,
+            leaving_date: leaving_date,
+            leave_year_start_date: leave_year_start_date,
           )
         end
         precalculate :holiday_entitlement_hours do
