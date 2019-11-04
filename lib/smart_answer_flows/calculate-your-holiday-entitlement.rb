@@ -101,6 +101,8 @@ module SmartAnswer
               question :how_many_hours_per_week?
             when "shift-worker"
               question :shift_worker_hours_per_shift?
+            when "irregular-hours"
+              outcome :irregular_and_annualised_done
             end
           else
             question :when_does_your_leave_year_start?
@@ -293,12 +295,6 @@ module SmartAnswer
         end
         precalculate :holiday_entitlement do
           calculator.formatted_full_time_part_time_weeks
-        end
-        precalculate :irregular_and_annualised_hours do
-          true
-        end
-        precalculate :worked_full_year_and_left_before_year_end do
-          calculator.worked_full_year? || calculator.left_before_year_end?
         end
       end
     end
