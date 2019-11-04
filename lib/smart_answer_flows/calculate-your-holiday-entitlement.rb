@@ -71,7 +71,7 @@ module SmartAnswer
         end
       end
 
-      # Q4 - Q12 - Q20
+      # Q4 - Q12 - Q20 - Q36
       date_question :what_is_your_starting_date? do
         from { Date.civil(1.year.ago.year, 1, 1) }
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
@@ -86,7 +86,7 @@ module SmartAnswer
         end
       end
 
-      # Q5 - Q13 - Q21
+      # Q5 - Q13 - Q21 - Q37
       date_question :what_is_your_leaving_date? do
         from { Date.civil(1.year.ago.year, 1, 1) }
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
@@ -110,7 +110,7 @@ module SmartAnswer
         end
       end
 
-      # Q6 - Q14 - Q22
+      # Q6 - Q14 - Q22 - Q38
       date_question :when_does_your_leave_year_start? do
         from { Date.civil(1.year.ago.year, 1, 1) }
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
