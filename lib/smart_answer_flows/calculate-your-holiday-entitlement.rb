@@ -12,6 +12,7 @@ module SmartAnswer
         option "days-worked-per-week"
         option "hours-worked-per-week"
         option "irregular-hours"
+        option "annualised-hours"
         option "compressed-hours"
         option "shift-worker"
         save_input_as :calculation_basis
@@ -22,7 +23,7 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when "days-worked-per-week", "hours-worked-per-week", "compressed-hours", "irregular-hours"
+          when "days-worked-per-week", "hours-worked-per-week", "compressed-hours", "irregular-hours", "annualised-hours"
             question :calculation_period?
           when "shift-worker"
             question :shift_worker_basis?
@@ -45,7 +46,7 @@ module SmartAnswer
           when "leaving"
             question :what_is_your_leaving_date?
           when "full-year"
-            if calculation_basis == "irregular-hours"
+            if calculation_basis == "irregular-hours" || calculation_basis == "annualised-hours"
               outcome :irregular_and_annualised_done
             end
           else
@@ -101,7 +102,7 @@ module SmartAnswer
               question :how_many_hours_per_week?
             when "shift-worker"
               question :shift_worker_hours_per_shift?
-            when "irregular-hours"
+            when "irregular-hours", "annualised-hours"
               outcome :irregular_and_annualised_done
             end
           else
@@ -122,7 +123,7 @@ module SmartAnswer
             question :how_many_days_per_week?
           when "hours-worked-per-week", "compressed-hours"
             question :how_many_hours_per_week?
-          when "irregular-hours"
+          when "irregular-hours", "annualised-hours"
             outcome :irregular_and_annualised_done
           when "shift-worker"
             question :shift_worker_hours_per_shift?
