@@ -65,23 +65,26 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       should "ask for the employment start date" do
         assert_current_node :what_is_your_starting_date?
       end
-      context "answer June 15th this year" do
+      context "answer June 1st 2019" do
         setup do
-          add_response "#{Date.today.year}-06-15"
+          add_response "2019-06-01"
         end
         should "ask when the leave year started" do
           assert_current_node :when_does_your_leave_year_start?
         end
-        context "answer Jan 1st this year" do
+        context "answer Jan 1st 2019" do
           setup do
-            add_response "#{Date.today.year}-01-01"
+            add_response "2019-01-01"
           end
           should "ask the number of hours worked per week" do
             assert_current_node :how_many_hours_per_week?
           end
-          context "answer 37 hours" do
+          context "answer 40 hours" do
             setup do
-              add_response "37"
+              add_response "40"
+            end
+            should "ask the number of days worked per week" do
+              assert_current_node :how_many_days_per_week_for_hours?
             end
             context "answer 5 days" do
               setup do
@@ -91,18 +94,17 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 SmartAnswer::Calculators::HolidayEntitlement.
                   expects(:new).
                   with(
-                    hours_per_week: 37.0,
+                    hours_per_week: 40.0,
                     working_days_per_week: 5,
-                    start_date: Date.parse("#{Date.today.year}-06-15"),
+                    start_date: Date.parse("2019-06-01"),
                     leaving_date: nil,
-                    leave_year_start_date: Date.parse("#{Date.today.year}-01-01"),
+                    leave_year_start_date: Date.parse("2019-01-01"),
                   ).
                   returns(@stubbed_calculator)
-                @stubbed_calculator.expects(:full_time_part_time_hours).returns(79.5)
+                @stubbed_calculator.expects(:full_time_part_time_hours).returns(132.0)
 
                 assert_current_node :hours_per_week_done
-                assert_state_variable "holiday_entitlement_hours", 79
-                assert_state_variable "holiday_entitlement_minutes", 30
+                assert_state_variable "holiday_entitlement_hours", 132
               end
             end
           end

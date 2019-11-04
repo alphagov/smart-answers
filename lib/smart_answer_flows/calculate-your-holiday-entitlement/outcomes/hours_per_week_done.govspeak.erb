@@ -6,4 +6,8 @@
   <% end %>
 
   <%= render partial: 'your_employer_with_rounding.govspeak.erb' %>
+
+  <% if holiday_period == "starting" %>
+    <%= render partial: "the_user_should_be_aware.govspeak.erb" %>
+  <% end %>
 <% end %>
