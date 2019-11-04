@@ -29,9 +29,9 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       should "ask the number of hours worked per week" do
         assert_current_node :how_many_hours_per_week?
       end
-      context "answer 32 hours" do
+      context "answer 40 hours" do
         setup do
-          add_response "32"
+          add_response "40"
         end
         should "ask the number of days worked per week" do
           assert_current_node :how_many_days_per_week_for_hours?
@@ -44,18 +44,16 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             SmartAnswer::Calculators::HolidayEntitlement
               .expects(:new)
               .with(
-                hours_per_week: 32.0,
+                hours_per_week: 40.0,
                 working_days_per_week: 5.0,
                 start_date: nil,
                 leaving_date: nil,
                 leave_year_start_date: nil,
               ).returns(@stubbed_calculator)
-            @stubbed_calculator.expects(:full_time_part_time_hours).returns(179.2)
+            @stubbed_calculator.expects(:full_time_part_time_hours).returns(224.0)
 
             assert_current_node :hours_per_week_done
-            assert_state_variable "holiday_entitlement_hours", 179
-            assert_state_variable "holiday_entitlement_minutes", 12
-            assert_current_node :hours_per_week_done
+            assert_state_variable "holiday_entitlement_hours", 224
           end
         end
       end
