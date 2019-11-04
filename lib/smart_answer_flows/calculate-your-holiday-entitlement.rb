@@ -92,7 +92,7 @@ module SmartAnswer
             case calculation_basis
             when "days-worked-per-week"
               question :how_many_days_per_week?
-            when "hours-worked-per-week"
+            when "hours-worked-per-week", "compressed-hours"
               question :how_many_hours_per_week?
             when "shift-worker"
               question :shift_worker_hours_per_shift?

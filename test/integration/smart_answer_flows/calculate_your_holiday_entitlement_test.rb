@@ -345,6 +345,51 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         end
       end
     end
+
+    context "starting and leaving within a leave year" do
+      setup do
+        add_response "starting-and-leaving"
+      end
+      should "ask for the employment start date" do
+        assert_current_node :what_is_your_starting_date?
+      end
+      context "answer 'Jan 20th 2019'" do
+        setup do
+          add_response "2019-01-20"
+        end
+        should "ask for the employment end date" do
+          assert_current_node :what_is_your_leaving_date?
+        end
+        context "answer 'July 18th 2019'" do
+          setup do
+            add_response "2019-07-18"
+          end
+          should "ask the number of hours worked per week" do
+            assert_current_node :how_many_hours_per_week?
+          end
+          context "answer 40 hours" do
+            setup do
+              add_response "40"
+            end
+            should "ask the number of days worked per week" do
+              assert_current_node :how_many_days_per_week_for_hours?
+            end
+            context "answer 5 days" do
+              setup do
+                add_response "5"
+              end
+              should "calculate the holiday entitlement" do
+                assert_current_node :compressed_hours_done
+                assert_state_variable "holiday_entitlement_hours", 110
+                assert_state_variable "holiday_entitlement_minutes", 28
+                assert_state_variable "hours_daily", 8
+                assert_state_variable "minutes_daily", 0
+              end
+            end
+          end
+        end
+      end
+    end
   end # compressed-hours
 
   context "shift worker" do
