@@ -140,6 +140,8 @@ module SmartAnswer::Calculators
       started_after_year_began? ? (pro_rated_shifts * 2).ceil / 2.0 : pro_rated_shifts
     end
 
+  private
+
     def worked_full_year?
       start_date.nil? && leaving_date.nil?
     end
@@ -147,8 +149,6 @@ module SmartAnswer::Calculators
     def left_before_year_end?
       start_date.nil? && leaving_date.present?
     end
-
-  private
 
     def shifts_per_week
       (shifts_per_shift_pattern / days_per_shift_pattern * DAYS_PER_WEEK).round(10)
