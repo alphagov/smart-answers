@@ -68,7 +68,7 @@ module SmartAnswer
         end
       end
 
-      # Q4
+      # Q4 - Q12
       date_question :what_is_your_starting_date? do
         from { Date.civil(1.year.ago.year, 1, 1) }
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
@@ -83,7 +83,7 @@ module SmartAnswer
         end
       end
 
-      # Q5
+      # Q5 - Q13
       date_question :what_is_your_leaving_date? do
         from { Date.civil(1.year.ago.year, 1, 1) }
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
@@ -105,7 +105,7 @@ module SmartAnswer
         end
       end
 
-      # Q6
+      # Q6 - Q14
       date_question :when_does_your_leave_year_start? do
         from { Date.civil(1.year.ago.year, 1, 1) }
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
@@ -132,6 +132,7 @@ module SmartAnswer
         end
       end
 
+      # Q11 - Q16
       value_question :how_many_days_per_week_for_hours?, parse: Float do
         calculate :working_days_per_week do |response|
           working_days_per_week = response
@@ -273,9 +274,6 @@ module SmartAnswer
         end
         precalculate :holiday_entitlement_hours do
           holiday_entitlement_hours_and_minutes.first
-        end
-        precalculate :holiday_entitlement_minutes do
-          holiday_entitlement_hours_and_minutes.last
         end
       end
 
