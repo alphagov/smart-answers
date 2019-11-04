@@ -629,6 +629,274 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
     end
   end # compressed-hours
 
+  context "irregular hours" do
+    setup do
+      add_response "irregular-hours"
+    end
+    should "ask the time period for the calculation" do
+      assert_current_node :calculation_period?
+    end
+
+    context "answer full leave year" do
+      setup do
+        add_response "full-year"
+      end
+      should "calculate the holiday entitlement" do
+        SmartAnswer::Calculators::HolidayEntitlement
+          .expects(:new)
+          .with(
+            start_date: nil,
+            leaving_date: nil,
+            leave_year_start_date: nil
+          ).returns(@stubbed_calculator)
+        @stubbed_calculator.expects(:formatted_full_time_part_time_weeks).returns("5.6")
+
+        assert_state_variable "holiday_entitlement", "5.6"
+        assert_current_node :irregular_and_annualised_done
+      end
+    end
+
+    context "answer starting part way through the leave year" do
+      setup do
+        add_response "starting"
+      end
+      should "ask for the employment start date" do
+        assert_current_node :what_is_your_starting_date?
+      end
+      context "answer June 1st this year" do
+        setup do
+          add_response "#{Date.today.year}-06-01"
+        end
+        should "ask when the leave year started" do
+          assert_current_node :when_does_your_leave_year_start?
+        end
+        context "answer Jan 1st this year" do
+          setup do
+            add_response "#{Date.today.year}-01-01"
+          end
+          should "calculate the holiday entitlement" do
+            SmartAnswer::Calculators::HolidayEntitlement.
+              expects(:new).
+              with(
+                start_date: Date.parse("#{Date.today.year}-06-01"),
+                leaving_date: nil,
+                leave_year_start_date: Date.parse("#{Date.today.year}-01-01"),
+              ).returns(@stubbed_calculator)
+            @stubbed_calculator.expects(:formatted_full_time_part_time_weeks).returns("3.27")
+
+            assert_current_node :irregular_and_annualised_done
+            assert_state_variable "holiday_entitlement", "3.27"
+          end
+        end
+      end
+    end
+
+    context "answer leaving part way through the leave year" do
+      setup do
+        add_response "leaving"
+      end
+      should "ask for the employment end date" do
+        assert_current_node :what_is_your_leaving_date?
+      end
+      context "answer June 1st this year" do
+        setup do
+          add_response "#{Date.today.year}-06-01"
+        end
+        should "ask when the leave year started" do
+          assert_current_node :when_does_your_leave_year_start?
+        end
+        context "answer Jan 01 this year" do
+          setup do
+            add_response "#{Date.today.year}-01-01"
+          end
+
+          should "calculate the holiday entitlement" do
+            SmartAnswer::Calculators::HolidayEntitlement.
+              expects(:new).
+              with(
+                start_date: nil,
+                leaving_date: Date.parse("#{Date.today.year}-06-01"),
+                leave_year_start_date: Date.parse("#{Date.today.year}-01-01"),
+              ).returns(@stubbed_calculator)
+            @stubbed_calculator.expects(:formatted_full_time_part_time_weeks).returns("2.34")
+
+            assert_state_variable "holiday_entitlement", "2.34"
+            assert_current_node :irregular_and_annualised_done
+          end
+        end
+      end
+    end
+
+    context "starting and leaving within a leave year" do
+      setup do
+        add_response "starting-and-leaving"
+      end
+      should "ask what was the employment start date" do
+        assert_current_node :what_is_your_starting_date?
+      end
+      context "answer Jan 20th this year" do
+        setup do
+          add_response "#{Date.today.year}-01-20"
+        end
+        should "ask what date employment finished" do
+          assert_current_node :what_is_your_leaving_date?
+        end
+        context "answer June 18th this year" do
+          setup do
+            add_response "#{Date.today.year}-07-18"
+          end
+          should "calculate the holiday entitlement" do
+            SmartAnswer::Calculators::HolidayEntitlement
+              .expects(:new)
+              .with(
+                start_date: Date.parse("#{Date.today.year}-01-20"),
+                leaving_date: Date.parse("#{Date.today.year}-07-18"),
+                leave_year_start_date: nil,
+              ).returns(@stubbed_calculator)
+            @stubbed_calculator.expects(:formatted_full_time_part_time_weeks).returns("2.77")
+
+            assert_state_variable "holiday_entitlement", "2.77"
+            assert_current_node :irregular_and_annualised_done
+          end
+        end
+      end
+    end
+  end # irregular hours
+
+  context "annualised hours" do
+    setup do
+      add_response "annualised-hours"
+    end
+    should "ask the time period for the calculation" do
+      assert_current_node :calculation_period?
+    end
+
+    context "answer full leave year" do
+      setup do
+        add_response "full-year"
+      end
+      should "calculate the holiday entitlement" do
+        SmartAnswer::Calculators::HolidayEntitlement
+          .expects(:new)
+          .with(
+            start_date: nil,
+            leaving_date: nil,
+            leave_year_start_date: nil
+          ).returns(@stubbed_calculator)
+        @stubbed_calculator.expects(:formatted_full_time_part_time_weeks).returns("5.6")
+
+        assert_state_variable "holiday_entitlement", "5.6"
+        assert_current_node :irregular_and_annualised_done
+      end
+    end
+
+    context "answer starting part way through the leave year" do
+      setup do
+        add_response "starting"
+      end
+      should "ask for the employment start date" do
+        assert_current_node :what_is_your_starting_date?
+      end
+      context "answer June 1st this year" do
+        setup do
+          add_response "#{Date.today.year}-06-01"
+        end
+        should "ask when the leave year started" do
+          assert_current_node :when_does_your_leave_year_start?
+        end
+        context "answer Jan 1st this year" do
+          setup do
+            add_response "#{Date.today.year}-01-01"
+          end
+          should "calculate the holiday entitlement" do
+            SmartAnswer::Calculators::HolidayEntitlement.
+              expects(:new).
+              with(
+                start_date: Date.parse("#{Date.today.year}-06-01"),
+                leaving_date: nil,
+                leave_year_start_date: Date.parse("#{Date.today.year}-01-01"),
+              ).returns(@stubbed_calculator)
+            @stubbed_calculator.expects(:formatted_full_time_part_time_weeks).returns("3.27")
+
+            assert_current_node :irregular_and_annualised_done
+            assert_state_variable "holiday_entitlement", "3.27"
+          end
+        end
+      end
+    end
+
+    context "answer leaving part way through the leave year" do
+      setup do
+        add_response "leaving"
+      end
+      should "ask for the employment end date" do
+        assert_current_node :what_is_your_leaving_date?
+      end
+      context "answer June 1st this year" do
+        setup do
+          add_response "#{Date.today.year}-06-01"
+        end
+        should "ask when the leave year started" do
+          assert_current_node :when_does_your_leave_year_start?
+        end
+        context "answer Jan 01 this year" do
+          setup do
+            add_response "#{Date.today.year}-01-01"
+          end
+
+          should "calculate the holiday entitlement" do
+            SmartAnswer::Calculators::HolidayEntitlement.
+              expects(:new).
+              with(
+                start_date: nil,
+                leaving_date: Date.parse("#{Date.today.year}-06-01"),
+                leave_year_start_date: Date.parse("#{Date.today.year}-01-01"),
+              ).returns(@stubbed_calculator)
+            @stubbed_calculator.expects(:formatted_full_time_part_time_weeks).returns("2.34")
+
+            assert_state_variable "holiday_entitlement", "2.34"
+            assert_current_node :irregular_and_annualised_done
+          end
+        end
+      end
+    end
+
+    context "starting and leaving within a leave year" do
+      setup do
+        add_response "starting-and-leaving"
+      end
+      should "ask what was the employment start date" do
+        assert_current_node :what_is_your_starting_date?
+      end
+      context "answer Jan 20th this year" do
+        setup do
+          add_response "#{Date.today.year}-01-20"
+        end
+        should "ask what date employment finished" do
+          assert_current_node :what_is_your_leaving_date?
+        end
+        context "answer June 18th this year" do
+          setup do
+            add_response "#{Date.today.year}-07-18"
+          end
+          should "calculate the holiday entitlement" do
+            SmartAnswer::Calculators::HolidayEntitlement
+              .expects(:new)
+              .with(
+                start_date: Date.parse("#{Date.today.year}-01-20"),
+                leaving_date: Date.parse("#{Date.today.year}-07-18"),
+                leave_year_start_date: nil,
+              ).returns(@stubbed_calculator)
+            @stubbed_calculator.expects(:formatted_full_time_part_time_weeks).returns("2.77")
+
+            assert_state_variable "holiday_entitlement", "2.77"
+            assert_current_node :irregular_and_annualised_done
+          end
+        end
+      end
+    end
+  end #annualised hours
+
   context "shift worker" do
     setup do
       add_response "shift-worker"

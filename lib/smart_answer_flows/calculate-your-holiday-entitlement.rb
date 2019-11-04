@@ -11,6 +11,8 @@ module SmartAnswer
       multiple_choice :basis_of_calculation? do
         option "days-worked-per-week"
         option "hours-worked-per-week"
+        option "irregular-hours"
+        option "annualised-hours"
         option "compressed-hours"
         option "shift-worker"
         save_input_as :calculation_basis
@@ -21,7 +23,7 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when "days-worked-per-week", "hours-worked-per-week", "compressed-hours"
+          when "days-worked-per-week", "hours-worked-per-week", "compressed-hours", "irregular-hours", "annualised-hours"
             question :calculation_period?
           when "shift-worker"
             question :shift_worker_basis?
@@ -29,7 +31,7 @@ module SmartAnswer
         end
       end
 
-      # Q2
+      # Q2, Q35
       multiple_choice :calculation_period? do
         option "full-year"
         option "starting"
@@ -68,7 +70,7 @@ module SmartAnswer
         end
       end
 
-      # Q4 - Q12 - Q20
+      # Q4 - Q12 - Q20 - Q36
       date_question :what_is_your_starting_date? do
         from { Date.civil(1.year.ago.year, 1, 1) }
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
@@ -83,7 +85,7 @@ module SmartAnswer
         end
       end
 
-      # Q5 - Q13 - Q21
+      # Q5 - Q13 - Q21 - Q37
       date_question :what_is_your_leaving_date? do
         from { Date.civil(1.year.ago.year, 1, 1) }
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
@@ -98,6 +100,8 @@ module SmartAnswer
               question :how_many_hours_per_week?
             when "shift-worker"
               question :shift_worker_hours_per_shift?
+            when "irregular-hours", "annualised-hours"
+              outcome :irregular_and_annualised_done
             end
           else
             question :when_does_your_leave_year_start?
@@ -105,7 +109,7 @@ module SmartAnswer
         end
       end
 
-      # Q6 - Q14 - Q22
+      # Q6 - Q14 - Q22 - Q38
       date_question :when_does_your_leave_year_start? do
         from { Date.civil(1.year.ago.year, 1, 1) }
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
@@ -117,6 +121,8 @@ module SmartAnswer
             question :how_many_days_per_week?
           when "hours-worked-per-week", "compressed-hours"
             question :how_many_hours_per_week?
+          when "irregular-hours", "annualised-hours"
+            outcome :irregular_and_annualised_done
           when "shift-worker"
             question :shift_worker_hours_per_shift?
           end
@@ -277,6 +283,19 @@ module SmartAnswer
         end
         precalculate :minutes_daily do
           calculator.compressed_hours_daily_average.last
+        end
+      end
+
+      outcome :irregular_and_annualised_done do
+        precalculate :calculator do
+          Calculators::HolidayEntitlement.new(
+            start_date: start_date,
+            leave_year_start_date: leave_year_start_date,
+            leaving_date: leaving_date
+          )
+        end
+        precalculate :holiday_entitlement do
+          calculator.formatted_full_time_part_time_weeks
         end
       end
     end
