@@ -3,7 +3,7 @@
 
   <%= render partial: 'your_employer_with_rounding.govspeak.erb' %>
 
-  <% if worked_full_year %>
+  <% if worked_full_year_and_left_before_year_end %>
     <%= render partial: 'entitlement_restriction.govspeak.erb' %>
   <% else %>
     <%= render partial: 'irregular_and_annualised_user_awareness.govspeak.erb' %>
