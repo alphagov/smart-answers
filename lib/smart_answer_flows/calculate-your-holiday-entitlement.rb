@@ -11,6 +11,7 @@ module SmartAnswer
       multiple_choice :basis_of_calculation? do
         option "days-worked-per-week"
         option "hours-worked-per-week"
+        option "irregular-hours"
         option "compressed-hours"
         option "shift-worker"
         save_input_as :calculation_basis
@@ -21,7 +22,7 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when "days-worked-per-week", "hours-worked-per-week", "compressed-hours"
+          when "days-worked-per-week", "hours-worked-per-week", "compressed-hours", "irregular-hours"
             question :calculation_period?
           when "shift-worker"
             question :shift_worker_basis?
@@ -29,7 +30,7 @@ module SmartAnswer
         end
       end
 
-      # Q2
+      # Q2, Q35
       multiple_choice :calculation_period? do
         option "full-year"
         option "starting"
@@ -43,6 +44,10 @@ module SmartAnswer
             question :what_is_your_starting_date?
           when "leaving"
             question :what_is_your_leaving_date?
+          when "full-year"
+            if calculation_basis == "irregular-hours"
+              outcome :irregular_and_annualised_done
+            end
           else
             if calculation_basis == "days-worked-per-week"
               question :how_many_days_per_week?
@@ -115,6 +120,8 @@ module SmartAnswer
             question :how_many_days_per_week?
           when "hours-worked-per-week", "compressed-hours"
             question :how_many_hours_per_week?
+          when "irregular-hours"
+            outcome :irregular_and_annualised_done
           when "shift-worker"
             question :shift_worker_hours_per_shift?
           end
@@ -275,6 +282,22 @@ module SmartAnswer
         end
         precalculate :minutes_daily do
           calculator.compressed_hours_daily_average.last
+        end
+      end
+
+      outcome :irregular_and_annualised_done do
+        precalculate :calculator do
+          Calculators::HolidayEntitlement.new(start_date: start_date,
+                                              leave_year_start_date: leave_year_start_date)
+        end
+        precalculate :holiday_entitlement do
+          calculator.formatted_full_time_part_time_weeks
+        end
+        precalculate :irregular_and_annualised_hours do
+          true
+        end
+        precalculate :worked_full_year do
+          calculator.worked_full_year?
         end
       end
     end
