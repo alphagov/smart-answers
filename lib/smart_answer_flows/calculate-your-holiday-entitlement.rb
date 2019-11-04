@@ -123,7 +123,7 @@ module SmartAnswer
         end
       end
 
-      # Q10
+      # Q10 - Q15
       value_question :how_many_hours_per_week?, parse: Float do
         save_input_as :hours_per_week
 
