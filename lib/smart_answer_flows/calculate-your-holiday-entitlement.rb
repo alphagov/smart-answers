@@ -288,7 +288,8 @@ module SmartAnswer
       outcome :irregular_and_annualised_done do
         precalculate :calculator do
           Calculators::HolidayEntitlement.new(start_date: start_date,
-                                              leave_year_start_date: leave_year_start_date)
+                                              leave_year_start_date: leave_year_start_date,
+                                              leaving_date: leaving_date)
         end
         precalculate :holiday_entitlement do
           calculator.formatted_full_time_part_time_weeks
@@ -296,8 +297,8 @@ module SmartAnswer
         precalculate :irregular_and_annualised_hours do
           true
         end
-        precalculate :worked_full_year do
-          calculator.worked_full_year?
+        precalculate :worked_full_year_and_left_before_year_end do
+          calculator.worked_full_year? || calculator.left_before_year_end?
         end
       end
     end
