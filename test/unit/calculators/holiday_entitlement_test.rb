@@ -802,7 +802,7 @@ module SmartAnswer::Calculators
           should "return 3.27 weeks when start_date is 2019-06-01 and leave_year_start_date is 2019-01-01" do
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2019-06-01"),
-              leave_year_start_date: Date.parse("2019-01-01")
+              leave_year_start_date: Date.parse("2019-01-01"),
             )
 
             assert_equal BigDecimal("0.5833333333").round(10), calc.fraction_of_year.round(10)
@@ -813,7 +813,7 @@ module SmartAnswer::Calculators
           should "return 2.34 weeks when start_date is 2020-11-23 and leave_year_start_date is 2020-04-01" do
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2020-11-23"),
-              leave_year_start_date: Date.parse("2020-04-01")
+              leave_year_start_date: Date.parse("2020-04-01"),
             )
 
             assert_equal BigDecimal("0.4166666667").round(10), calc.fraction_of_year.round(10)
@@ -824,7 +824,7 @@ module SmartAnswer::Calculators
           should "return 0.94 weeks when start_date is 2019-11-14 and leave_year_start_date is 2019-01-01" do
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2019-11-14"),
-              leave_year_start_date: Date.parse("2019-01-01")
+              leave_year_start_date: Date.parse("2019-01-01"),
             )
 
             assert_equal BigDecimal("0.1666666667").round(10), calc.fraction_of_year.round(10)
@@ -837,7 +837,7 @@ module SmartAnswer::Calculators
           should "return 3.27 weeks when start_date is 2020-06-01 and leave_year_start_date is 2020-01-01" do
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2020-06-01"),
-              leave_year_start_date: Date.parse("2020-01-01")
+              leave_year_start_date: Date.parse("2020-01-01"),
             )
 
             assert_equal BigDecimal("0.5833333333").round(10), calc.fraction_of_year.round(10)
@@ -848,7 +848,7 @@ module SmartAnswer::Calculators
           should "return 2.34 weeks when start_date is 2019-11-23 and leave_year_start_date is 2019-04-01" do
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2019-11-23"),
-              leave_year_start_date: Date.parse("2019-04-01")
+              leave_year_start_date: Date.parse("2019-04-01"),
             )
 
             assert_equal BigDecimal("0.4166666667").round(10), calc.fraction_of_year.round(10)
@@ -859,7 +859,7 @@ module SmartAnswer::Calculators
           should "return 0.94 weeks when start_date is 2020-11-14 and leave_year_start_date is 2020-01-01" do
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2020-11-14"),
-              leave_year_start_date: Date.parse("2020-01-01")
+              leave_year_start_date: Date.parse("2020-01-01"),
             )
 
             assert_equal BigDecimal("0.1666666667").round(10), calc.fraction_of_year.round(10)
@@ -874,7 +874,7 @@ module SmartAnswer::Calculators
           should "return 2.34 weeks when leaving_date is 2019-06-01 and leave_year_start_date is 2019-01-01" do
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2019-06-01"),
-              leave_year_start_date: Date.parse("2019-01-01")
+              leave_year_start_date: Date.parse("2019-01-01"),
             )
 
             assert_equal BigDecimal("0.4164383562").round(10), calc.fraction_of_year.round(10)
@@ -885,7 +885,7 @@ module SmartAnswer::Calculators
           should "return 3.64 weeks when leaving_date is 2020-11-23 and leave_year_start_date is 2020-04-01" do
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2020-11-23"),
-              leave_year_start_date: Date.parse("2020-04-01")
+              leave_year_start_date: Date.parse("2020-04-01"),
             )
 
             assert_equal BigDecimal("0.6493150685").round(10), calc.fraction_of_year.round(10)
@@ -896,7 +896,7 @@ module SmartAnswer::Calculators
           should "return 3.60 weeks when leaving_date is 2019-08-22 and leave_year_start_date is 2019-01-01" do
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2019-08-22"),
-              leave_year_start_date: Date.parse("2019-01-01")
+              leave_year_start_date: Date.parse("2019-01-01"),
             )
 
             assert_equal BigDecimal("0.6410958904").round(10), calc.fraction_of_year.round(10)
@@ -909,7 +909,7 @@ module SmartAnswer::Calculators
           should "return 2.35 weeks when leaving_date is 2020-06-01 and leave_year_start_date is 2020-01-01" do
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2020-06-01"),
-              leave_year_start_date: Date.parse("2020-01-01")
+              leave_year_start_date: Date.parse("2020-01-01"),
             )
 
             assert_equal BigDecimal("0.4180327869").round(10), calc.fraction_of_year.round(10)
@@ -920,7 +920,7 @@ module SmartAnswer::Calculators
           should "return 3.63 weeks when leaving_date is 2019-11-23 and leave_year_start_date is 2019-04-01" do
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2019-11-23"),
-              leave_year_start_date: Date.parse("2019-04-01")
+              leave_year_start_date: Date.parse("2019-04-01"),
             )
 
             assert_equal BigDecimal("0.6475409836").round(10), calc.fraction_of_year.round(10)
@@ -931,7 +931,7 @@ module SmartAnswer::Calculators
           should "return 3.60 weeks when leaving_date is 2020-08-22 and leave_year_start_date is 2020-01-01" do
             calc = HolidayEntitlement.new(
               leaving_date: Date.parse("2020-08-22"),
-              leave_year_start_date: Date.parse("2020-01-01")
+              leave_year_start_date: Date.parse("2020-01-01"),
             )
 
             assert_equal BigDecimal("0.6420765027").round(10), calc.fraction_of_year.round(10)
@@ -946,7 +946,7 @@ module SmartAnswer::Calculators
           should "return 2.77 weeks when start_date is 2019-01-20 and leaving_date is 2019-07-18" do
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2019-01-20"),
-              leaving_date: Date.parse("2019-07-18")
+              leaving_date: Date.parse("2019-07-18"),
             )
 
             assert_equal BigDecimal("0.4931506849").round(10), calc.fraction_of_year.round(10)
@@ -957,7 +957,7 @@ module SmartAnswer::Calculators
           should "return 2.09 weeks when start_date is 2020-11-23 and leaving_date is 2021-04-07" do
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2020-11-23"),
-              leaving_date: Date.parse("2021-04-07")
+              leaving_date: Date.parse("2021-04-07"),
             )
 
             assert_equal BigDecimal("0.3726027397").round(10), calc.fraction_of_year.round(10)
@@ -968,7 +968,7 @@ module SmartAnswer::Calculators
           should "return 5.28 weeks when start_date is 2020-08-22 and leaving_date is 2021-07-31" do
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2020-08-22"),
-              leaving_date: Date.parse("2021-07-31")
+              leaving_date: Date.parse("2021-07-31"),
             )
 
             assert_equal BigDecimal("0.9424657534").round(10), calc.fraction_of_year.round(10)
@@ -981,7 +981,7 @@ module SmartAnswer::Calculators
           should "return 2.77 weeks when start_date is 2020-01-20 and leaving_date is 2020-07-18" do
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2020-01-20"),
-              leaving_date: Date.parse("2020-07-18")
+              leaving_date: Date.parse("2020-07-18"),
             )
 
             assert_equal BigDecimal("0.4945355191").round(10), calc.fraction_of_year.round(10)
@@ -992,7 +992,7 @@ module SmartAnswer::Calculators
           should "return 2.10 weeks when start_date is 2019-11-23 and leaving_date is 2020-04-07" do
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2019-11-23"),
-              leaving_date: Date.parse("2020-04-07")
+              leaving_date: Date.parse("2020-04-07"),
             )
 
             assert_equal BigDecimal("0.3743169399").round(10), calc.fraction_of_year.round(10)
@@ -1003,7 +1003,7 @@ module SmartAnswer::Calculators
           should "return 5.28 weeks when start_date is 2019-08-22 and leaving_date is 2020-07-31" do
             calc = HolidayEntitlement.new(
               start_date: Date.parse("2019-08-22"),
-              leaving_date: Date.parse("2020-07-31")
+              leaving_date: Date.parse("2020-07-31"),
             )
 
             assert_equal BigDecimal("0.9426229508").round(10), calc.fraction_of_year.round(10)
