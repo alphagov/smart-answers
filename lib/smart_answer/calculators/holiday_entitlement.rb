@@ -142,14 +142,6 @@ module SmartAnswer::Calculators
 
   private
 
-    def worked_full_year?
-      start_date.nil? && leaving_date.nil?
-    end
-
-    def left_before_year_end?
-      start_date.nil? && leaving_date.present?
-    end
-
     def shifts_per_week
       (shifts_per_shift_pattern / days_per_shift_pattern * DAYS_PER_WEEK).round(10)
     end
@@ -158,8 +150,16 @@ module SmartAnswer::Calculators
       leaving_date ? leaving_date.beginning_of_year : Date.today.beginning_of_year
     end
 
+    def worked_full_year?
+      start_date.nil? && leaving_date.nil?
+    end
+
     def started_after_year_began?
       start_date.present? && leaving_date.nil?
+    end
+
+    def left_before_year_end?
+      start_date.nil? && leaving_date.present?
     end
 
     def worked_partial_year?

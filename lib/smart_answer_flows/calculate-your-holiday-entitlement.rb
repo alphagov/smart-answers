@@ -290,9 +290,11 @@ module SmartAnswer
 
       outcome :irregular_and_annualised_done do
         precalculate :calculator do
-          Calculators::HolidayEntitlement.new(start_date: start_date,
-                                              leave_year_start_date: leave_year_start_date,
-                                              leaving_date: leaving_date)
+          Calculators::HolidayEntitlement.new(
+            start_date: start_date,
+            leave_year_start_date: leave_year_start_date,
+            leaving_date: leaving_date
+          )
         end
         precalculate :holiday_entitlement do
           calculator.formatted_full_time_part_time_weeks
