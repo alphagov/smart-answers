@@ -410,7 +410,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           .with(
             start_date: nil,
             leaving_date: nil,
-            leave_year_start_date: nil
+            leave_year_start_date: nil,
           ).returns(@stubbed_calculator)
         @stubbed_calculator.expects(:formatted_full_time_part_time_weeks).returns("5.6")
 
@@ -544,7 +544,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           .with(
             start_date: nil,
             leaving_date: nil,
-            leave_year_start_date: nil
+            leave_year_start_date: nil,
           ).returns(@stubbed_calculator)
         @stubbed_calculator.expects(:formatted_full_time_part_time_weeks).returns("5.6")
 
