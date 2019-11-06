@@ -70,7 +70,7 @@ module SmartAnswer
         end
       end
 
-      # Q4 - Q12 - Q20 - Q36
+      # Q4 - Q12 - Q20 - Q29 - Q36
       date_question :what_is_your_starting_date? do
         from { Date.civil(1.year.ago.year, 1, 1) }
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
@@ -85,7 +85,7 @@ module SmartAnswer
         end
       end
 
-      # Q5 - Q13 - Q21 - Q37
+      # Q5 - Q13 - Q21 - Q29 - Q30 - Q37
       date_question :what_is_your_leaving_date? do
         from { Date.civil(1.year.ago.year, 1, 1) }
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
@@ -109,7 +109,7 @@ module SmartAnswer
         end
       end
 
-      # Q6 - Q14 - Q22 - Q38
+      # Q6 - Q14 - Q22 - Q31 - Q38
       date_question :when_does_your_leave_year_start? do
         from { Date.civil(1.year.ago.year, 1, 1) }
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
@@ -174,6 +174,7 @@ module SmartAnswer
         end
       end
 
+      # Q26 - Q32
       value_question :shift_worker_hours_per_shift?, parse: Float do
         calculate :hours_per_shift do |response|
           hours_per_shift = response
@@ -186,6 +187,7 @@ module SmartAnswer
         end
       end
 
+      # Q27 - Q33
       value_question :shift_worker_shifts_per_shift_pattern?, parse: Integer do
         calculate :shifts_per_shift_pattern do |response|
           shifts = response
@@ -198,6 +200,7 @@ module SmartAnswer
         end
       end
 
+      # Q28 - Q34
       value_question :shift_worker_days_per_shift_pattern?, parse: Float do
         calculate :days_per_shift_pattern do |response|
           days = response
@@ -217,16 +220,15 @@ module SmartAnswer
             start_date: start_date,
             leaving_date: leaving_date,
             leave_year_start_date: leave_year_start_date,
-            hours_per_shift: hours_per_shift,
             shifts_per_shift_pattern: shifts_per_shift_pattern,
             days_per_shift_pattern: days_per_shift_pattern,
           )
         end
         precalculate :holiday_entitlement_shifts do
-          calculator.formatted_shift_entitlement
+          calculator.shift_entitlement
         end
-        precalculate :hours_per_shift do
-          calculator.strip_zeros hours_per_shift
+        precalculate :shifts_per_week do
+          calculator.shifts_per_week
         end
       end
 

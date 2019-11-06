@@ -1,5 +1,12 @@
 <% content_for :body do %>
   $!The statutory holiday entitlement is <%= "#{holiday_entitlement_shifts} #{'shift'.pluralize(holiday_entitlement_shifts)}" %> for the year. Each shift being <%= "#{hours_per_shift} #{'hour'.pluralize(hours_per_shift)}" %>.$!
 
-  <%= render partial: 'your_employer_with_rounding.govspeak.erb' %>
+  <% if shifts_per_week > 5 %>
+    Even though more than 5 shifts a week are worked the maximum statutory holiday entitlement is 28 shifts.
+  <% end %>
+
+  <%= render partial: 'shift_worker_your_employer_with_rounding.govspeak.erb' %>
+  <% if holiday_period == "starting" %>
+    <%= render partial: "the_user_should_be_aware.govspeak.erb" %>
+  <% end %>
 <% end %>
