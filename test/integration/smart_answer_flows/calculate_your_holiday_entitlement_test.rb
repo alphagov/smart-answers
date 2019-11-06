@@ -956,68 +956,76 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       end
     end # full year
 
-    context "starting this year" do
+    context "answer starting this year" do
       setup do
         add_response "starting"
       end
 
-      should "ask your start date" do
+      should "ask for the employment start date" do
         assert_current_node :what_is_your_starting_date?
       end
 
       context "with a date" do
         setup do
-          add_response "#{Date.today.year}-02-16"
+          add_response "#{Date.today.year}-06-01"
         end
 
-        should "ask when your leave year starts" do
+        should "ask when the leave year started" do
           assert_current_node :when_does_your_leave_year_start?
         end
 
         context "with a leave year start date" do
           setup do
-            add_response "#{Date.today.year}-07-01"
+            add_response "#{Date.today.year}-01-01"
           end
 
           should "ask how many hours in each shift" do
             assert_current_node :shift_worker_hours_per_shift?
           end
 
-          should "ask how many shifts per shift pattern" do
-            add_response "8"
-            assert_current_node :shift_worker_shifts_per_shift_pattern?
-          end
+          context "answer 6 hours" do
+            setup do
+              add_response "6"
+            end
 
-          should "ask how many days per shift pattern" do
-            add_response "8"
-            add_response "4"
-            assert_current_node :shift_worker_days_per_shift_pattern?
-          end
+            should "ask how many shifts per shift pattern" do
+              assert_current_node :shift_worker_shifts_per_shift_pattern?
+            end
+            context "answer 8 shifts" do
+              setup do
+                add_response "8"
+              end
 
-          should "be done when all entered" do
-            add_response "7.5"
-            add_response "4"
-            add_response "8"
+              should "ask how many days per shift pattern" do
+                assert_current_node :shift_worker_days_per_shift_pattern?
+              end
 
-            SmartAnswer::Calculators::HolidayEntitlement
-              .expects(:new)
-              .with(
-                start_date: Date.parse("#{Date.today.year}-02-16"),
-                leaving_date: nil,
-                leave_year_start_date: Date.parse("#{Date.today.year}-07-01"),
-                hours_per_shift: 7.5,
-                shifts_per_shift_pattern: 4,
-                days_per_shift_pattern: 8,
-              ).returns(@stubbed_calculator)
-            @stubbed_calculator.expects(:formatted_shift_entitlement).returns("some shifts")
+              context "answer 14 days" do
+                setup do
+                  add_response "14"
+                end
+                should "calculate the holiday entitlement" do
 
-            assert_current_node :shift_worker_done
+                  SmartAnswer::Calculators::HolidayEntitlement
+                  .expects(:new)
+                  .with(
+                    start_date: Date.parse("#{Date.today.year}-06-01"),
+                    leaving_date: nil,
+                    leave_year_start_date: Date.parse("#{Date.today.year}-01-01"),
+                    shifts_per_shift_pattern: 8,
+                    days_per_shift_pattern: 14,
+                  ).returns(@stubbed_calculator)
+                  @stubbed_calculator.expects(:rounded_shift_entitlement).returns(13.5)
 
-            assert_state_variable :hours_per_shift, "7.5"
-            assert_state_variable :shifts_per_shift_pattern, 4
-            assert_state_variable :days_per_shift_pattern, 8
+                  assert_current_node :shift_worker_done
 
-            assert_state_variable :holiday_entitlement_shifts, "some shifts"
+                  assert_state_variable :hours_per_shift, 6
+                  assert_state_variable :shifts_per_shift_pattern, 8
+                  assert_state_variable :days_per_shift_pattern, 14
+                  assert_state_variable :holiday_entitlement_shifts, 13.5
+                end
+              end
+            end
           end
         end # with a leave year start date
       end # with a date
