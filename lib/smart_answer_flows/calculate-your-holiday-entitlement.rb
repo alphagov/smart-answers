@@ -174,6 +174,7 @@ module SmartAnswer
         end
       end
 
+      # Q26
       value_question :shift_worker_hours_per_shift?, parse: Float do
         calculate :hours_per_shift do |response|
           hours_per_shift = response
@@ -186,6 +187,7 @@ module SmartAnswer
         end
       end
 
+      # Q27
       value_question :shift_worker_shifts_per_shift_pattern?, parse: Integer do
         calculate :shifts_per_shift_pattern do |response|
           shifts = response
@@ -198,6 +200,7 @@ module SmartAnswer
         end
       end
 
+      # Q28
       value_question :shift_worker_days_per_shift_pattern?, parse: Float do
         calculate :days_per_shift_pattern do |response|
           days = response
@@ -217,16 +220,12 @@ module SmartAnswer
             start_date: start_date,
             leaving_date: leaving_date,
             leave_year_start_date: leave_year_start_date,
-            hours_per_shift: hours_per_shift,
             shifts_per_shift_pattern: shifts_per_shift_pattern,
             days_per_shift_pattern: days_per_shift_pattern,
           )
         end
         precalculate :holiday_entitlement_shifts do
-          calculator.formatted_shift_entitlement
-        end
-        precalculate :hours_per_shift do
-          calculator.strip_zeros hours_per_shift
+          calculator.rounded_shift_entitlement
         end
       end
 
