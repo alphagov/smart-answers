@@ -293,7 +293,7 @@ module SmartAnswer
           Calculators::HolidayEntitlement.new(
             start_date: start_date,
             leave_year_start_date: leave_year_start_date,
-            leaving_date: leaving_date
+            leaving_date: leaving_date,
           )
         end
         precalculate :holiday_entitlement do

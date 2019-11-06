@@ -37,7 +37,7 @@ RSpec.describe(SmartAnswer::CalculateYourHolidayEntitlementFlow) do
                 working_days_per_week: working_days_per_week,
                 start_date: nil,
                 leaving_date: nil,
-                leave_year_start_date: nil
+                leave_year_start_date: nil,
               )
               .and_return(calculator_instance)
             expect(calculator_instance).to receive(:formatted_full_time_part_time_days)
@@ -82,7 +82,7 @@ RSpec.describe(SmartAnswer::CalculateYourHolidayEntitlementFlow) do
                 working_days_per_week: working_days_per_week,
                 start_date: Date.parse(start_date),
                 leaving_date: nil,
-                leave_year_start_date: Date.parse(leave_year_start_date)
+                leave_year_start_date: Date.parse(leave_year_start_date),
               )
               .and_return(calculator_instance)
             expect(calculator_instance).to receive(:formatted_full_time_part_time_days)
@@ -131,7 +131,7 @@ RSpec.describe(SmartAnswer::CalculateYourHolidayEntitlementFlow) do
                 working_days_per_week: working_days_per_week,
                 start_date: nil,
                 leaving_date: Date.parse(leaving_date),
-                leave_year_start_date: Date.parse(leave_year_start_date)
+                leave_year_start_date: Date.parse(leave_year_start_date),
               )
               .and_return(calculator_instance)
             expect(calculator_instance).to receive(:formatted_full_time_part_time_days)
@@ -180,7 +180,7 @@ RSpec.describe(SmartAnswer::CalculateYourHolidayEntitlementFlow) do
                 working_days_per_week: working_days_per_week,
                 start_date: Date.parse(start_date),
                 leaving_date: Date.parse(leaving_date),
-                leave_year_start_date: nil
+                leave_year_start_date: nil,
               )
               .and_return(calculator_instance)
             expect(calculator_instance).to receive(:formatted_full_time_part_time_days)
