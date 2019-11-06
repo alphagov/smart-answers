@@ -906,7 +906,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       assert_current_node :shift_worker_basis?
     end
 
-    context "full year" do
+    context "answer full year year" do
       setup do
         add_response "full-year"
       end
@@ -914,42 +914,45 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       should "ask how many hours in each shift" do
         assert_current_node :shift_worker_hours_per_shift?
       end
+      context "answer 6 hours" do
+        setup do
+          add_response "6"
+        end
+        should "ask how many shifts per shift pattern" do
+          assert_current_node :shift_worker_shifts_per_shift_pattern?
+        end
+        context "answer 8 shifts" do
+          setup do
+            add_response "8"
+          end
+          should "ask how many days per shift pattern" do
+            assert_current_node :shift_worker_days_per_shift_pattern?
+          end
+          context "answer 14 days" do
+            setup do
+              add_response "14"
+            end
+            should "calculate the holiday entitlement" do
+              SmartAnswer::Calculators::HolidayEntitlement
+                .expects(:new)
+                .with(
+                  start_date: nil,
+                  leaving_date: nil,
+                  leave_year_start_date: nil,
+                  shifts_per_shift_pattern: 8,
+                  days_per_shift_pattern: 14,
+                ).returns(@stubbed_calculator)
+              @stubbed_calculator.expects(:rounded_shift_entitlement).returns(22.40)
 
-      should "ask how many shifts per shift pattern" do
-        add_response "7.5"
-        assert_current_node :shift_worker_shifts_per_shift_pattern?
-      end
+              assert_current_node :shift_worker_done
 
-      should "ask how many days per shift pattern" do
-        add_response "7.5"
-        add_response "4"
-        assert_current_node :shift_worker_days_per_shift_pattern?
-      end
-
-      should "calculate and be done when all entered" do
-        add_response "7.25"
-        add_response "4"
-        add_response "8"
-
-        SmartAnswer::Calculators::HolidayEntitlement
-          .expects(:new)
-          .with(
-            start_date: nil,
-            leaving_date: nil,
-            leave_year_start_date: nil,
-            hours_per_shift: 7.25,
-            shifts_per_shift_pattern: 4,
-            days_per_shift_pattern: 8,
-          ).returns(@stubbed_calculator)
-        @stubbed_calculator.expects(:formatted_shift_entitlement).returns("some shifts")
-
-        assert_current_node :shift_worker_done
-
-        assert_state_variable :hours_per_shift, "7.25"
-        assert_state_variable :shifts_per_shift_pattern, 4
-        assert_state_variable :days_per_shift_pattern, 8
-
-        assert_state_variable :holiday_entitlement_shifts, "some shifts"
+              assert_state_variable :hours_per_shift, 6
+              assert_state_variable :shifts_per_shift_pattern, 8
+              assert_state_variable :days_per_shift_pattern, 14
+              assert_state_variable :holiday_entitlement_shifts, 22.40
+            end
+          end
+        end
       end
     end # full year
 
