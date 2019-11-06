@@ -21,10 +21,8 @@ module SmartAnswer
 
         next_node do |response|
           case response
-          when "days-worked-per-week", "hours-worked-per-week"
+          when "days-worked-per-week", "hours-worked-per-week", "compressed-hours"
             question :calculation_period?
-          when "compressed-hours"
-            question :compressed_hours_how_many_hours_per_week?
           when "shift-worker"
             question :shift_worker_basis?
           end
@@ -68,7 +66,7 @@ module SmartAnswer
         end
       end
 
-      # Q4
+      # Q4 - Q12 - Q20
       date_question :what_is_your_starting_date? do
         from { Date.civil(1.year.ago.year, 1, 1) }
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
@@ -83,7 +81,7 @@ module SmartAnswer
         end
       end
 
-      # Q5
+      # Q5 - Q13 - Q21
       date_question :what_is_your_leaving_date? do
         from { Date.civil(1.year.ago.year, 1, 1) }
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
@@ -94,7 +92,7 @@ module SmartAnswer
             case calculation_basis
             when "days-worked-per-week"
               question :how_many_days_per_week?
-            when "hours-worked-per-week"
+            when "hours-worked-per-week", "compressed-hours"
               question :how_many_hours_per_week?
             when "shift-worker"
               question :shift_worker_hours_per_shift?
@@ -105,7 +103,7 @@ module SmartAnswer
         end
       end
 
-      # Q6
+      # Q6 - Q14 - Q22
       date_question :when_does_your_leave_year_start? do
         from { Date.civil(1.year.ago.year, 1, 1) }
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
@@ -115,7 +113,7 @@ module SmartAnswer
           case calculation_basis
           when "days-worked-per-week"
             question :how_many_days_per_week?
-          when "hours-worked-per-week"
+          when "hours-worked-per-week", "compressed-hours"
             question :how_many_hours_per_week?
           when "shift-worker"
             question :shift_worker_hours_per_shift?
@@ -123,7 +121,7 @@ module SmartAnswer
         end
       end
 
-      # Q10
+      # Q10 - Q15 - Q18
       value_question :how_many_hours_per_week?, parse: Float do
         save_input_as :hours_per_week
 
@@ -132,6 +130,7 @@ module SmartAnswer
         end
       end
 
+      # Q11 - Q16 - Q19
       value_question :how_many_days_per_week_for_hours?, parse: Float do
         calculate :working_days_per_week do |response|
           working_days_per_week = response
@@ -140,32 +139,11 @@ module SmartAnswer
           working_days_per_week
         end
         next_node do
-          outcome :hours_per_week_done
-        end
-      end
-
-      value_question :compressed_hours_how_many_hours_per_week?, parse: Float do
-        calculate :hours_per_week do |response|
-          hours = response
-          raise InvalidResponse if hours <= 0 || hours > 168
-
-          hours
-        end
-        next_node do
-          question :compressed_hours_how_many_days_per_week?
-        end
-      end
-
-      value_question :compressed_hours_how_many_days_per_week?, parse: Float do
-        calculate :working_days_per_week do |response|
-          days = response
-          raise InvalidResponse if days <= 0 || days > 7
-
-          days
-        end
-
-        next_node do
-          outcome :compressed_hours_done
+          if calculation_basis == "compressed-hours"
+            outcome :compressed_hours_done
+          else
+            outcome :hours_per_week_done
+          end
         end
       end
 
@@ -274,9 +252,6 @@ module SmartAnswer
         precalculate :holiday_entitlement_hours do
           holiday_entitlement_hours_and_minutes.first
         end
-        precalculate :holiday_entitlement_minutes do
-          holiday_entitlement_hours_and_minutes.last
-        end
       end
 
       outcome :compressed_hours_done do
@@ -284,13 +259,16 @@ module SmartAnswer
           Calculators::HolidayEntitlement.new(
             hours_per_week: hours_per_week,
             working_days_per_week: working_days_per_week,
+            start_date: start_date,
+            leaving_date: leaving_date,
+            leave_year_start_date: leave_year_start_date,
           )
         end
         precalculate :holiday_entitlement_hours do
-          calculator.compressed_hours_entitlement.first
+          calculator.full_time_part_time_hours_and_minutes.first
         end
         precalculate :holiday_entitlement_minutes do
-          calculator.compressed_hours_entitlement.last
+          calculator.full_time_part_time_hours_and_minutes.last
         end
         precalculate :hours_daily do
           calculator.compressed_hours_daily_average.first

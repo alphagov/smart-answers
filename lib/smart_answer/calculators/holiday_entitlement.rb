@@ -32,6 +32,11 @@ module SmartAnswer::Calculators
       @days_per_shift_pattern = BigDecimal(days_per_shift_pattern, 10)
     end
 
+    def compressed_hours_daily_average
+      minutes = hours_per_week.to_f / working_days_per_week * 60
+      minutes.ceil.divmod(60).map(&:ceil)
+    end
+
     def full_time_part_time_days
       days = STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS * working_days_per_week
       actual_days = if left_before_year_end? || (working_days_per_week < STANDARD_WORKING_DAYS_PER_WEEK)
