@@ -93,7 +93,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             assert_current_node :how_many_days_per_week?
           end
 
-          context 'answer 5 days' do
+          context "answer 5 days" do
             setup do
               add_response "5"
             end
@@ -114,7 +114,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             end
           end
 
-          context 'answer 7 days' do
+          context "answer 7 days" do
             setup do
               add_response "7"
             end
@@ -165,7 +165,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             assert_current_node :how_many_days_per_week?
           end
 
-          context 'answer 5 days' do
+          context "answer 5 days" do
             setup do
               add_response "5"
             end
@@ -186,7 +186,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             end
           end
 
-          context 'answer 6 days' do
+          context "answer 6 days" do
             setup do
               add_response "6"
             end
