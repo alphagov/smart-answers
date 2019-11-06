@@ -906,7 +906,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       assert_current_node :shift_worker_basis?
     end
 
-    context "answer full year year" do
+    context "answer full leave year" do
       setup do
         add_response "full-year"
       end
@@ -1005,7 +1005,6 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                   add_response "14"
                 end
                 should "calculate the holiday entitlement" do
-
                   SmartAnswer::Calculators::HolidayEntitlement
                   .expects(:new)
                   .with(
