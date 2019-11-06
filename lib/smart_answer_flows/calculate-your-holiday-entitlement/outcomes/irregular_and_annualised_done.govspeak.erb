@@ -1,0 +1,11 @@
+<% content_for :body do %>
+  The statutory holiday entitlement is <%= holiday_entitlement %> weeks holiday.
+
+  <%= render partial: 'your_employer_with_rounding.govspeak.erb' %>
+
+  <% if holiday_period == 'starting' %>
+    <%= render partial: 'irregular_and_annualised_user_awareness.govspeak.erb' %>
+  <% else %>
+    <%= render partial: 'entitlement_restriction.govspeak.erb' %>
+  <% end %>
+<% end %>
