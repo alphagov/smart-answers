@@ -82,7 +82,7 @@ GEM
     faraday (0.17.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.1)
-    gds-api-adapters (60.1.0)
+    gds-api-adapters (61.0.0)
       addressable
       link_header
       null_logger
@@ -190,7 +190,7 @@ GEM
     puma (4.2.1)
       nio4r (~> 2.0)
     rack (2.0.7)
-    rack-cache (1.9.0)
+    rack-cache (1.10.0)
       rack (>= 0.4)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -373,7 +373,7 @@ DEPENDENCIES
   binding_of_caller
   byebug
   ci_reporter
-  gds-api-adapters (~> 60.1.0)
+  gds-api-adapters (~> 61.0.0)
   govspeak (~> 6.5.0)
   govuk-content-schema-test-helpers (~> 1.6.1)
   govuk-lint
