@@ -227,6 +227,9 @@ module SmartAnswer
         precalculate :holiday_entitlement_shifts do
           calculator.shift_entitlement
         end
+        precalculate :shifts_per_week do
+          calculator.shifts_per_week
+        end
       end
 
       outcome :days_per_week_done do
