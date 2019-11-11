@@ -104,7 +104,7 @@ GEM
       sanitize (~> 5)
     govuk-content-schema-test-helpers (1.6.1)
       json-schema (~> 2.8.0)
-    govuk-lint (4.2.0)
+    govuk-lint (4.3.0)
       rubocop (~> 0.76)
       rubocop-rails (~> 2)
       rubocop-rspec (~> 1.28)
