@@ -36,9 +36,9 @@ end
 
 group :development, :test do
   gem "byebug"
-  gem "govuk-lint"
   gem "pry"
   gem "rspec-rails", "~> 3.9.0"
+  gem "rubocop-govuk"
   gem "timecop"
 end
 
