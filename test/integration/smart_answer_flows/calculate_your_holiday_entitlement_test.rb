@@ -93,7 +93,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             assert_current_node :how_many_days_per_week?
           end
 
-          context 'answer 5 days' do
+          context "answer 5 days" do
             setup do
               add_response "5"
             end
@@ -114,7 +114,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             end
           end
 
-          context 'answer 7 days' do
+          context "answer 7 days" do
             setup do
               add_response "7"
             end
@@ -165,7 +165,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             assert_current_node :how_many_days_per_week?
           end
 
-          context 'answer 5 days' do
+          context "answer 5 days" do
             setup do
               add_response "5"
             end
@@ -186,7 +186,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             end
           end
 
-          context 'answer 6 days' do
+          context "answer 6 days" do
             setup do
               add_response "6"
             end
@@ -647,7 +647,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           .with(
             start_date: nil,
             leaving_date: nil,
-            leave_year_start_date: nil
+            leave_year_start_date: nil,
           ).returns(@stubbed_calculator)
         @stubbed_calculator.expects(:formatted_full_time_part_time_weeks).returns("5.6")
 
@@ -781,7 +781,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           .with(
             start_date: nil,
             leaving_date: nil,
-            leave_year_start_date: nil
+            leave_year_start_date: nil,
           ).returns(@stubbed_calculator)
         @stubbed_calculator.expects(:formatted_full_time_part_time_weeks).returns("5.6")
 
@@ -906,7 +906,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       assert_current_node :shift_worker_basis?
     end
 
-    context "answer full year year" do
+    context "answer full leave year" do
       setup do
         add_response "full-year"
       end
@@ -1005,7 +1005,6 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                   add_response "14"
                 end
                 should "calculate the holiday entitlement" do
-
                   SmartAnswer::Calculators::HolidayEntitlement
                   .expects(:new)
                   .with(
