@@ -27,7 +27,11 @@ module SmartAnswer
     end
 
     def self.parse(raw_input)
-      raw_input.is_a?(Numeric) ? raw_input : raw_input.to_s.delete(",").gsub(/\s/, "")
+      if raw_input.is_a?(Numeric)
+        raw_input
+      else
+        raw_input.to_s.delete(",").gsub(/\s/, "").gsub(/£/, "")
+      end
     end
 
     def self.validate!(input)
