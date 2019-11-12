@@ -224,6 +224,16 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         should "ask what date employment finished" do
           assert_current_node :what_is_your_leaving_date?
         end
+
+        context "add leaving_date before start_date" do
+          setup do
+            add_response "#{Date.today.year - 1}-10-14"
+          end
+          should "raise an invalid response" do
+            assert_current_node :what_is_your_leaving_date?, error: true
+          end
+        end
+
         context "add employment end date" do
           setup do
             add_response "#{Date.today.year}-10-14"
@@ -417,6 +427,16 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         should "ask for the employment end date" do
           assert_current_node :what_is_your_leaving_date?
         end
+
+        context "add leaving_date before start_date" do
+          setup do
+            add_response "2018-10-14"
+          end
+          should "raise an invalid response" do
+            assert_current_node :what_is_your_leaving_date?, error: true
+          end
+        end
+
         context "answer 'July 18th 2019'" do
           setup do
             add_response "2019-07-18"
@@ -597,6 +617,16 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         should "ask for the employment end date" do
           assert_current_node :what_is_your_leaving_date?
         end
+
+        context "add employment end date before start_date" do
+          setup do
+            add_response "2018-10-14"
+          end
+          should "raise an invalid response" do
+            assert_current_node :what_is_your_leaving_date?, error: true
+          end
+        end
+
         context "answer 'July 18th 2019'" do
           setup do
             add_response "2019-07-18"
@@ -741,6 +771,16 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         should "ask what date employment finished" do
           assert_current_node :what_is_your_leaving_date?
         end
+
+        context "add employment end date before start_date" do
+          setup do
+            add_response "#{Date.today.year - 1}-10-14"
+          end
+          should "raise an invalid response" do
+            assert_current_node :what_is_your_leaving_date?, error: true
+          end
+        end
+
         context "answer June 18th this year" do
           setup do
             add_response "#{Date.today.year}-07-18"
@@ -875,6 +915,16 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         should "ask what date employment finished" do
           assert_current_node :what_is_your_leaving_date?
         end
+
+        context "add employment end date before start_date" do
+          setup do
+            add_response "#{Date.today.year - 1}-01-20"
+          end
+          should "raise an invalid response" do
+            assert_current_node :what_is_your_leaving_date?, error: true
+          end
+        end
+
         context "answer June 18th this year" do
           setup do
             add_response "#{Date.today.year}-07-18"
@@ -1122,6 +1172,15 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
 
         should "ask for the employment end date" do
           assert_current_node :what_is_your_leaving_date?
+        end
+
+        context "add employment end date before start_date" do
+          setup do
+            add_response "#{Date.today.year - 1}-01-20"
+          end
+          should "raise an invalid response" do
+            assert_current_node :what_is_your_leaving_date?, error: true
+          end
         end
 
         context "with a leaving date" do
