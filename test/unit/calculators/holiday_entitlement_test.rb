@@ -18,8 +18,8 @@ module SmartAnswer::Calculators
 
         # /days-worked-per-week/full-year/3.5
         should "for less than 5 days a week" do
-          calc = HolidayEntitlement.new(working_days_per_week: 3)
-          assert_equal "17", calc.formatted_full_time_part_time_days
+          calc = HolidayEntitlement.new(working_days_per_week: 3.5)
+          assert_equal "19.6", calc.formatted_full_time_part_time_days
         end
 
         context "for department test data" do
