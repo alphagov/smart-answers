@@ -7,7 +7,7 @@ The [govuk_smart_answers master build](https://ci.integration.publishing.service
 * Attempts to merge the current branch (`master`) into `master` - this should always succeed and is effectively a no-op
 * Checks out the latest [govuk-content-schemas](https://github.com/alphagov/govuk-content-schemas) which are used in a few of the tests
 * Installs the bundled gems
-* Runs govuk-lint-ruby (see [Rubocop docs](rubocop.md))
+* Runs RuboCop with the linting rules provided by the `rubocop-govuk` gem
 * Runs the `test` rake task with `TEST_COVERAGE` enabled
 * Pre-compiles assets
 
