@@ -24,6 +24,11 @@ module SmartAnswer
       assert two == 2000
     end
 
+    test "Values with £ sign are stripped out and parsed correctly" do
+      salary = SmartAnswer::Money.new("£15000")
+      assert salary == 15000
+    end
+
     test "should be possible to initialize with a BigDecimal" do
       v = BigDecimal("1234.5678")
       money = SmartAnswer::Money.new(v)

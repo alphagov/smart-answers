@@ -6,6 +6,4 @@
   This is their earnings before deductions like PAYE, pension or National Insurance contributions.
 <% end %>
 
-<% content_for :error_message do %>
-  Please enter a number greater than 0
-<% end %>
+<%= render partial: 'earnings_question_error_message.govspeak.erb' %>
