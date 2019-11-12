@@ -89,7 +89,15 @@ module SmartAnswer
       date_question :what_is_your_leaving_date? do
         from { Date.civil(1.year.ago.year, 1, 1) }
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
-        save_input_as :leaving_date
+
+        calculate :leaving_date do |response|
+          leaving_date = response
+          if holiday_period == "starting-and-leaving"
+            raise InvalidResponse if leaving_date <= start_date
+          end
+
+          leaving_date
+        end
 
         next_node do
           if holiday_period == "starting-and-leaving"
