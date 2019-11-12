@@ -48,7 +48,7 @@ module SmartAnswer::Calculators
     end
 
     def rounded_full_time_part_time_days
-      if started_after_year_began? || worked_full_year?
+      if started_after_year_began?
         (full_time_part_time_days * 2).ceil / 2.0
       else
         full_time_part_time_days
