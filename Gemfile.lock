@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    PriorityQueue (0.1.2)
     actioncable (5.2.2.1)
       actionpack (= 5.2.2.1)
       nio4r (~> 2.0)
@@ -147,8 +146,6 @@ GEM
     loofah (2.3.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
-    lrucache (0.1.4)
-      PriorityQueue (~> 0.1.2)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (0.3.3)
@@ -378,7 +375,6 @@ DEPENDENCIES
   govuk_test
   htmlentities (~> 4)
   json
-  lrucache (= 0.1.4)
   method_source
   minitest (~> 5.13)
   minitest-focus (~> 1.1, >= 1.1.2)
