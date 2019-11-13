@@ -355,6 +355,31 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
               end
             end
           end
+          context "impossible working patterns" do
+            should "be invalid if answer <= 0 hours entered" do
+              add_response "0"
+              assert_current_node :how_many_hours_per_week?, error: true
+            end
+
+            should "be invalid if more than 168 hours entered" do
+              add_response "168.5"
+              assert_current_node :how_many_hours_per_week?, error: true
+            end
+
+            # Dept Test 7
+            should "be invalid if 43 hours worked for 1 day (dept Test 7)" do
+              add_response "43"
+              add_response "1"
+              assert_current_node :how_many_days_per_week_for_hours?, error: true
+            end
+
+            # Dept Test 8
+            should "be invalid if 77 hours worked over 3 days (dept Test 8)" do
+              add_response "77"
+              add_response "3"
+              assert_current_node :how_many_days_per_week_for_hours?, error: true
+            end
+          end
         end
       end
     end
@@ -409,6 +434,23 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
               end
             end
           end
+          # Dept Test 16
+          context "impossible working patterns" do
+            should "be invalid if 63 hours for 1 day entered (dept Test 16)" do
+              add_response "63"
+              add_response "1"
+              assert_current_node :how_many_hours_per_week?, error: true
+            end
+          end
+        end
+      end
+      # Dept Test 18
+      context "answer 31 September 2020" do
+        setup do
+          add_response "2019-06-01"
+        end
+        should "be an invalid date" do
+          assert_current_node :what_is_your_leaving_date?, error: true
         end
       end
     end
