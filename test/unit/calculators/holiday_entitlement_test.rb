@@ -519,6 +519,50 @@ module SmartAnswer::Calculators
           assert_equal "168", calc.formatted_full_time_part_time_compressed_hours
           assert_equal [168, 0], calc.full_time_part_time_hours_and_minutes
         end
+
+        context "for department test data" do
+          # Test 1 - /hours-worked-per-week/full-year/80.0/7.0
+          should "for 80 hours 7 days per week (dept Test 1)" do
+            calc = HolidayEntitlement.new(working_days_per_week: 7, hours_per_week: 80)
+            assert_equal "320", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [320, 0], calc.full_time_part_time_hours_and_minutes
+          end
+
+          # Test 2 - /hours-worked-per-week/full-year/49.0/4.0
+          should "for 49 hours 4 days per week (dept Test 2)" do
+            calc = HolidayEntitlement.new(working_days_per_week: 4, hours_per_week: 49)
+            assert_equal "274.40", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [274, 24], calc.full_time_part_time_hours_and_minutes
+          end
+
+          # Test 3 - /hours-worked-per-week/full-year/76.0/6.0
+          should "for 76 hours 6 days per week (dept Test 3)" do
+            calc = HolidayEntitlement.new(working_days_per_week: 6, hours_per_week: 76)
+            assert_equal "354.67", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [354, 40], calc.full_time_part_time_hours_and_minutes
+          end
+
+          # Test 4 - /hours-worked-per-week/full-year/55.0/5.0
+          should "for 55 hours 3 days per week (dept Test 4)" do
+            calc = HolidayEntitlement.new(working_days_per_week: 3, hours_per_week: 55)
+            assert_equal "308", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [308, 0], calc.full_time_part_time_hours_and_minutes
+          end
+
+          # Test 5 - /hours-worked-per-week/full-year/13.0/2.0
+          should "for 13 hours 2 days per week (dept Test 5)" do
+            calc = HolidayEntitlement.new(working_days_per_week: 2, hours_per_week: 13)
+            assert_equal "72.80", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [72, 48], calc.full_time_part_time_hours_and_minutes
+          end
+
+          # Test 6 - /hours-worked-per-week/full-year/45.0/5.0
+          should "for 45 hours 5 days per week (dept Test 6)" do
+            calc = HolidayEntitlement.new(working_days_per_week: 5, hours_per_week: 45)
+            assert_equal "252", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [252, 0], calc.full_time_part_time_hours_and_minutes
+          end
+        end
       end
 
       context "starting part way through a leave year" do
@@ -601,6 +645,60 @@ module SmartAnswer::Calculators
 
             assert_equal "30", calc.formatted_full_time_part_time_compressed_hours
             assert_equal [30, 0], calc.full_time_part_time_hours_and_minutes
+          end
+        end
+
+        context "for department test data" do
+          # Test 9 - /starting/2020-08-21/2019-11-01/69.0/6.0
+          should "for 69 hours 6 days a week (Test 9)" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-08-21"),
+              leave_year_start_date: Date.parse("2019-11-01"),
+              working_days_per_week: 6,
+              hours_per_week: 69,
+            )
+
+            assert_equal "80.50", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [80, 30], calc.full_time_part_time_hours_and_minutes
+          end
+
+          # Test 10 - /starting/2020-07-28/2020-01-01/50.0/6.0
+          should "for 50 hours 6 days a week (Test 10)" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-07-28"),
+              leave_year_start_date: Date.parse("2020-01-01"),
+              working_days_per_week: 6,
+              hours_per_week: 50,
+            )
+
+            assert_equal "116.67", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [116, 40], calc.full_time_part_time_hours_and_minutes
+          end
+
+          # Test 11 - /starting/2020-02-03/2019-11-01/14.0/5.0
+          should "for 14 hours 5 days a week (Test 11)" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-02-03"),
+              leave_year_start_date: Date.parse("2019-11-01"),
+              working_days_per_week: 5,
+              hours_per_week: 14,
+            )
+
+            assert_equal "58.80", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [58, 48], calc.full_time_part_time_hours_and_minutes
+          end
+
+          # Test 12 - /starting/2021-03-04/2020-08-03/50.0/6.0
+          should "for 50 hours 6 days a week (Test 12)" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2021-03-04"),
+              leave_year_start_date: Date.parse("2020-08-03"),
+              working_days_per_week: 6,
+              hours_per_week: 50,
+            )
+
+            assert_equal "100", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [100, 0], calc.full_time_part_time_hours_and_minutes
           end
         end
       end
@@ -691,6 +789,60 @@ module SmartAnswer::Calculators
             assert_equal [107, 52], calc.full_time_part_time_hours_and_minutes
           end
         end
+
+        context "for department test data" do
+          # Test 13 - /leaving/2020-02-11/2019-06-01/34.0/2.0
+          should "for 34 hours 2 days a week (Test 13)" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2020-02-11"),
+              leave_year_start_date: Date.parse("2019-06-01"),
+              working_days_per_week: 2,
+              hours_per_week: 34,
+            )
+
+            assert_equal "133.18", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [133, 11], calc.full_time_part_time_hours_and_minutes
+          end
+
+          # Test 14 - /leaving/2019-06-26/2018-10-01/47.0/2.0
+          should "for 47 hours 2 days a week (Test 14)" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2019-06-26"),
+              leave_year_start_date: Date.parse("2018-10-01"),
+              working_days_per_week: 2,
+              hours_per_week: 47,
+            )
+
+            assert_equal "193.98", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [193, 59], calc.full_time_part_time_hours_and_minutes
+          end
+
+          # Test 15 - /leaving/2020-04-19/2019-10-01/71.0/7.0
+          should "for 71 hours 7 days a week (Test 15)" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2020-04-19"),
+              leave_year_start_date: Date.parse("2019-10-01"),
+              working_days_per_week: 7,
+              hours_per_week: 71,
+            )
+
+            assert_equal "156.75", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [156, 45], calc.full_time_part_time_hours_and_minutes
+          end
+
+          # Test 17 - /leaving/2020-04-30/2019-06-01/63.0/5.0
+          should "for 63 hours 5 days a week (Test 17)" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2020-04-30"),
+              leave_year_start_date: Date.parse("2019-06-01"),
+              working_days_per_week: 5,
+              hours_per_week: 63,
+            )
+
+            assert_equal "322.92", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [322, 55], calc.full_time_part_time_hours_and_minutes
+          end
+        end
       end
 
       context "starting and leaving part way through a leave year" do
@@ -777,6 +929,86 @@ module SmartAnswer::Calculators
             assert_equal BigDecimal("158.3606557377").round(10), calc.pro_rated_hours.round(10)
             assert_equal "158.37", calc.formatted_full_time_part_time_compressed_hours
             assert_equal [158, 22], calc.full_time_part_time_hours_and_minutes
+          end
+        end
+
+        context "for department test data" do
+          # Test 19 - /starting-and-leaving/2020-11-17/2021-01-21/55.0/3.0
+          should "for 55 hours 3 days a week (Test 19)" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-11-17"),
+              leaving_date: Date.parse("2021-01-21"),
+              working_days_per_week: 3,
+              hours_per_week: 55,
+            )
+
+            assert_equal "55.70", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [55, 42], calc.full_time_part_time_hours_and_minutes
+          end
+
+          # Test 20 - /starting-and-leaving/2018-10-04/2018-12-14/25.0/6.0
+          should "for 25 hours 6 days a week (Test 20)" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2018-10-04"),
+              leaving_date: Date.parse("2018-12-14"),
+              working_days_per_week: 6,
+              hours_per_week: 25,
+            )
+
+            assert_equal "23.02", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [23, 1], calc.full_time_part_time_hours_and_minutes
+          end
+
+          # Test 21 - /starting-and-leaving/2018-05-29/2019-01-22/61.0/3.0
+          should "for 61 hours 3 days a week (Test 21)" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2018-05-29"),
+              leaving_date: Date.parse("2019-01-22"),
+              working_days_per_week: 3,
+              hours_per_week: 61,
+            )
+
+            assert_equal "223.68", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [223, 41], calc.full_time_part_time_hours_and_minutes
+          end
+
+          # Test 22 - /starting-and-leaving/2018-12-25/2019-11-08/26.0/6.0
+          should "for 26 hours 6 days a week (Test 22)" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2018-12-25"),
+              leaving_date: Date.parse("2019-11-08"),
+              working_days_per_week: 6,
+              hours_per_week: 26,
+            )
+
+            assert_equal "106.05", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [106, 3], calc.full_time_part_time_hours_and_minutes
+          end
+
+          # Test 23 - /starting-and-leaving/2019-04-03/2020-03-04/44.0/6.0
+          should "for 44 hours 6 days a week (Test 23)" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-04-03"),
+              leaving_date: Date.parse("2020-03-04"),
+              working_days_per_week: 6,
+              hours_per_week: 44,
+            )
+
+            assert_equal "189.07", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [189, 4], calc.full_time_part_time_hours_and_minutes
+          end
+
+          # Test 24 - /starting-and-leaving/2018-01-03/2018-04-04/32.0/4.0
+          should "for 32 hours 4 days a week (Test 24)" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2018-01-03"),
+              leaving_date: Date.parse("2018-04-04"),
+              working_days_per_week: 4,
+              hours_per_week: 32,
+            )
+
+            assert_equal "45.17", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [45, 10], calc.full_time_part_time_hours_and_minutes
           end
         end
       end
