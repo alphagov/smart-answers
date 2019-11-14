@@ -562,6 +562,36 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       should "ask for the employment start date" do
         assert_current_node :what_is_your_starting_date?
       end
+
+      # Dept Test 11 - employment cannot start after leave year ends
+      context "answer 1 June 2021" do
+        setup do
+          add_response "2021-06-01"
+        end
+        should "ask when the leave year started" do
+          assert_current_node :when_does_your_leave_year_start?
+        end
+
+        context "answer 1 March 2019" do
+          setup do
+            add_response "2019-03-01"
+          end
+          should "be an invalid date" do
+            assert_current_node :when_does_your_leave_year_start?, error: true
+          end
+        end
+
+        # Dept Test 12 - employment cannot start after leave year ends
+        context "answer 1 March 2020" do
+          setup do
+            add_response "2020-03-01"
+          end
+          should "be an invalid date" do
+            assert_current_node :when_does_your_leave_year_start?, error: true
+          end
+        end
+      end
+
       context "answer June 1st 2019" do
         setup do
           add_response "2019-06-01"
@@ -569,6 +599,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         should "ask when the leave year started" do
           assert_current_node :when_does_your_leave_year_start?
         end
+
         context "answer Jan 1st 2019" do
           setup do
             add_response "2019-01-01"
@@ -576,6 +607,19 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
           should "ask the number of hours worked per week" do
             assert_current_node :how_many_hours_per_week?
           end
+
+          context "impossible working patterns" do
+            should "be invalid if answer <= 0 hours entered" do
+              add_response "0"
+              assert_current_node :how_many_hours_per_week?, error: true
+            end
+
+            should "be invalid if more than 168 hours entered" do
+              add_response "168.5"
+              assert_current_node :how_many_hours_per_week?, error: true
+            end
+          end
+
           context "answer 40 hours" do
             setup do
               add_response "40"
@@ -607,6 +651,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       should "ask for the employment end date" do
         assert_current_node :what_is_your_leaving_date?
       end
+
       context "answer June 1st 2019" do
         setup do
           add_response "2019-06-01"
@@ -614,6 +659,35 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         should "ask when the leave year started" do
           assert_current_node :when_does_your_leave_year_start?
         end
+        # Dept Test 17 - employment cannot start after leave year ends
+        context "answer 1 June 2021" do
+          setup do
+            add_response "2021-06-01"
+          end
+          should "ask when the leave year started" do
+            assert_current_node :when_does_your_leave_year_start?
+          end
+
+          context "answer 1 March 2019" do
+            setup do
+              add_response "2019-03-01"
+            end
+            should "be an invalid date" do
+              assert_current_node :when_does_your_leave_year_start?, error: true
+            end
+          end
+
+          # Dept Test 18 - employment cannot start after leave year ends
+          context "answer 1 March 2020" do
+            setup do
+              add_response "2020-03-01"
+            end
+            should "be an invalid date" do
+              assert_current_node :when_does_your_leave_year_start?, error: true
+            end
+          end
+        end
+
         context "answer Jan 1st 2019" do
           setup do
             add_response "2019-01-01"
@@ -640,6 +714,22 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 assert_state_variable "minutes_daily", 0
               end
             end
+
+            context "impossible working patterns" do
+              # Dept Test 14
+              should "be invalid if 73 hours for 1 day entered (dept Test 14)" do
+                add_response "73"
+                add_response "1"
+                assert_current_node :how_many_hours_per_week?, error: true
+              end
+
+              # Dept Test 16
+              should "be invalid if 40 hours for 1 day entered (dept Test 16)" do
+                add_response "40"
+                add_response "1"
+                assert_current_node :how_many_hours_per_week?, error: true
+              end
+            end
           end
         end
       end
@@ -652,6 +742,36 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       should "ask for the employment start date" do
         assert_current_node :what_is_your_starting_date?
       end
+
+      # Dept Test 23 - employment cannot start after leave year ends
+      context "answer 1 June 2021" do
+        setup do
+          add_response "2021-06-01"
+        end
+        should "ask when the leave year started" do
+          assert_current_node :when_does_your_leave_year_start?
+        end
+
+        context "answer 1 March 2019" do
+          setup do
+            add_response "2019-03-01"
+          end
+          should "be an invalid date" do
+            assert_current_node :when_does_your_leave_year_start?, error: true
+          end
+        end
+
+        # Dept Test 24 - employment cannot start after leave year ends
+        context "answer 1 March 2020" do
+          setup do
+            add_response "2020-03-01"
+          end
+          should "be an invalid date" do
+            assert_current_node :when_does_your_leave_year_start?, error: true
+          end
+        end
+      end
+
       context "answer 'Jan 20th 2019'" do
         setup do
           add_response "2019-01-20"

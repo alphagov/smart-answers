@@ -501,6 +501,189 @@ module SmartAnswer::Calculators
     end
 
     context "calculate entitlement on hours worked per week and compressed hours" do
+      context "for compressed hours department test data" do
+        should "for a full year (Test 1)" do
+          calc = HolidayEntitlement.new(working_days_per_week: 7, hours_per_week: 68)
+          assert_equal "272", calc.formatted_full_time_part_time_compressed_hours
+          assert_equal [272, 0], calc.full_time_part_time_hours_and_minutes
+        end
+
+        should "for a full year (Test 2)" do
+          calc = HolidayEntitlement.new(working_days_per_week: 7, hours_per_week: 73)
+          assert_equal "292", calc.formatted_full_time_part_time_compressed_hours
+          assert_equal [292, 0], calc.full_time_part_time_hours_and_minutes
+        end
+
+        should "for a full year (Test 3)" do
+          calc = HolidayEntitlement.new(working_days_per_week: 5, hours_per_week: 57)
+          assert_equal "319.2", calc.formatted_full_time_part_time_compressed_hours
+          assert_equal [319, 12], calc.full_time_part_time_hours_and_minutes
+        end
+
+        should "for a full year (Test 4)" do
+          calc = HolidayEntitlement.new(working_days_per_week: 6, hours_per_week: 80)
+          assert_equal "373.4", calc.formatted_full_time_part_time_compressed_hours
+          assert_equal [373, 24], calc.full_time_part_time_hours_and_minutes
+        end
+
+        should "for a full year (Test 5)" do
+          calc = HolidayEntitlement.new(working_days_per_week: 5, hours_per_week: 38)
+          assert_equal "212.8", calc.formatted_full_time_part_time_compressed_hours
+          assert_equal [212, 48], calc.full_time_part_time_hours_and_minutes
+        end
+
+        should "for a full year (Test 6)" do
+          calc = HolidayEntitlement.new(working_days_per_week: 4, hours_per_week: 40)
+          assert_equal "224", calc.formatted_full_time_part_time_compressed_hours
+          assert_equal [224, 0], calc.full_time_part_time_hours_and_minutes
+        end
+
+        # Test 7 is a data entry validation test implemented in
+        # test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+
+        #  /compressed-hours/starting/2020-07-14/2019-11-01/26.0/2.0
+        should "for starting part way through a leave year (Test 8)" do
+          calc = HolidayEntitlement.new(
+            start_date: Date.parse("2020-07-14"),
+            leave_year_start_date: Date.parse("2019-11-01"),
+            working_days_per_week: 2,
+            hours_per_week: 26,
+          )
+
+          assert_equal "52", calc.formatted_full_time_part_time_compressed_hours
+          assert_equal [52, 0], calc.full_time_part_time_hours_and_minutes
+        end
+
+        # /compressed-hours/starting/2018-09-12/2018-04-01/49.0/5.0
+        should "for starting part way through a leave year (Test 9)" do
+          calc = HolidayEntitlement.new(
+            start_date: Date.parse("2018-09-12"),
+            leave_year_start_date: Date.parse("2018-04-01"),
+            working_days_per_week: 5,
+            hours_per_week: 49,
+          )
+
+          assert_equal "161.7", calc.formatted_full_time_part_time_compressed_hours
+          assert_equal [161, 42], calc.full_time_part_time_hours_and_minutes
+        end
+
+        # /compressed-hours/starting/2019-11-08/2019-04-01/35.0/3.0
+        should "for starting part way through a leave year (Test 10)" do
+          calc = HolidayEntitlement.new(
+            start_date: Date.parse("2019-11-08"),
+            leave_year_start_date: Date.parse("2019-04-01"),
+            working_days_per_week: 3,
+            hours_per_week: 35,
+          )
+
+          assert_equal "81.7", calc.formatted_full_time_part_time_compressed_hours
+          assert_equal [81, 42], calc.full_time_part_time_hours_and_minutes
+        end
+
+      # Tests 11 and 12 are data entry validation tests implemented in
+      # test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+
+       # /compressed-hours/leaving/2019-07-10/2018-11-01/33.0/3.0
+       should "for leaving part way through a leave year (Test 13)" do
+         calc = HolidayEntitlement.new(
+           leaving_date: Date.parse("2019-07-10"),
+           leave_year_start_date: Date.parse("2018-11-01"),
+           working_days_per_week: 3,
+           hours_per_week: 33,
+         )
+
+         assert_equal "127.6", calc.formatted_full_time_part_time_compressed_hours
+         assert_equal [127, 36], calc.full_time_part_time_hours_and_minutes
+       end
+
+       # Test 14 is a data entry validation test implemented in
+       # test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+
+       # /compressed-hours/leaving/2020-03-18/2019-10-01/73.0/7.0
+       should "for leaving part way through a leave year (Test 15)" do
+         calc = HolidayEntitlement.new(
+           leaving_date: Date.parse("2020-03-18"),
+           leave_year_start_date: Date.parse("2019-10-01"),
+           working_days_per_week: 7,
+           hours_per_week: 73,
+         )
+
+         assert_equal "135.7", calc.formatted_full_time_part_time_compressed_hours
+         assert_equal [135, 42], calc.full_time_part_time_hours_and_minutes
+       end
+
+       # Tests 16-18 are a data entry validation tests implemented in
+       # test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+
+       # /compressed-hours/starting-and-leaving/2018-05-10/2018-12-04/35.0/3.0
+       should "starting and leaving part way through a leave year (Test 19)" do
+         calc = HolidayEntitlement.new(
+           start_date: Date.parse("2018-05-10"),
+           leaving_date: Date.parse("2018-12-04"),
+           working_days_per_week: 3,
+           hours_per_week: 35,
+         )
+
+         assert_equal "112.3", calc.formatted_full_time_part_time_compressed_hours
+         assert_equal [112, 18], calc.full_time_part_time_hours_and_minutes
+       end
+
+      # /compressed-hours/starting-and-leaving/2018-04-02/2019-03-08/29.0/2.0
+      should "starting and leaving part way through a leave year (Test 20)" do
+        calc = HolidayEntitlement.new(
+          start_date: Date.parse("2018-04-02"),
+          leaving_date: Date.parse("2019-03-08"),
+          working_days_per_week: 2,
+          hours_per_week: 29,
+        )
+
+        assert_equal "151.8", calc.formatted_full_time_part_time_compressed_hours
+        assert_equal [151, 48], calc.full_time_part_time_hours_and_minutes
+      end
+
+      # /compressed-hours/starting-and-leaving/2019-11-23/2020-06-07/47.0/6.0
+      should "starting and leaving part way through a leave year (Test 21)" do
+        calc = HolidayEntitlement.new(
+          start_date: Date.parse("2019-11-23"),
+          leaving_date: Date.parse("2020-06-07"),
+          working_days_per_week: 6,
+          hours_per_week: 47,
+        )
+
+        assert_equal "118.7", calc.formatted_full_time_part_time_compressed_hours
+        assert_equal [118, 42], calc.full_time_part_time_hours_and_minutes
+      end
+
+      # /compressed-hours/starting-and-leaving/2019-10-30/2020-10-12/25.0/6.0
+      should "starting and leaving part way through a leave year (Test 22)" do
+        calc = HolidayEntitlement.new(
+          start_date: Date.parse("2019-10-30"),
+          leaving_date: Date.parse("2020-10-12"),
+          working_days_per_week: 6,
+          hours_per_week: 25,
+        )
+
+        assert_equal "111.3", calc.formatted_full_time_part_time_compressed_hours
+        assert_equal [111, 18], calc.full_time_part_time_hours_and_minutes
+      end
+
+      # Test 23 is a data entry validation test implemented in
+      # test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+
+      # /compressed-hours/starting-and-leaving/2020-03-01/2020-06-01/37.5/5.0
+      should "starting and leaving part way through a leave year (Test 24)" do
+        calc = HolidayEntitlement.new(
+          start_date: Date.parse("2020-03-01"),
+          leaving_date: Date.parse("2020-06-01"),
+          working_days_per_week: 5,
+          hours_per_week: 37.5,
+        )
+
+        assert_equal "53.6", calc.formatted_full_time_part_time_compressed_hours
+        assert_equal [53, 36], calc.full_time_part_time_hours_and_minutes
+      end
+     end
+
       context "for a full leave year" do
         should "for 40 hours over 5 days per week" do
           calc = HolidayEntitlement.new(working_days_per_week: 5, hours_per_week: 40)
