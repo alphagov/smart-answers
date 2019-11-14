@@ -281,9 +281,9 @@ module SmartAnswer::Calculators
 
         context "for department test data" do
           # /days-worked-per-week/leaving/2020-10-20/2020-05-01/5.0
-          should "for  5 days a week (dept test 13)" do
+          should "for 5 days a week (dept test 13)" do
             calc = HolidayEntitlement.new(
-              leaving_date: Date.parse("2020-1O-2O"),
+              leaving_date: Date.parse("2020-10-20"),
               leave_year_start_date: Date.parse("2020-05-01"),
               working_days_per_week: 5,
             )
@@ -1429,7 +1429,8 @@ module SmartAnswer::Calculators
 
     context "calculate entitlement on annualised hours" do
       context "for a full leave year" do
-        should "return 5.6 weeks" do
+        # /irregular-hours/full-year
+        should "return 5.6 weeks (dept test 1)" do
           calc = HolidayEntitlement.new
           assert_equal "5.6", calc.formatted_full_time_part_time_weeks
         end
@@ -1505,6 +1506,72 @@ module SmartAnswer::Calculators
             assert_equal "0.94", calc.formatted_full_time_part_time_weeks
           end
         end
+
+        context "for department test data" do
+          # /annualised-hours/starting/2020-05-29/2019-12-01
+          should "dept test 2" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-05-29"),
+              leave_year_start_date: Date.parse("2019-12-01"),
+            )
+
+            assert_equal "3.27", calc.formatted_full_time_part_time_weeks
+          end
+          # /annualised-hours/starting/2020-09-03/2019-12-01
+          should "dept test 3" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-09-03"),
+              leave_year_start_date: Date.parse("2019-12-01"),
+            )
+
+            assert_equal "1.40", calc.formatted_full_time_part_time_weeks
+          end
+          # /annualised-hours/starting/2019-03-01/2018-10-01
+          should "dept test 4" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-03-01"),
+              leave_year_start_date: Date.parse("2018-10-01"),
+            )
+
+            assert_equal "3.27", calc.formatted_full_time_part_time_weeks
+          end
+          # /annualised-hours/starting/2020-06-05/2020-01-01
+          should "dept test 5" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-06-05"),
+              leave_year_start_date: Date.parse("2020-01-01"),
+            )
+
+            assert_equal "3.27", calc.formatted_full_time_part_time_weeks
+          end
+          # /annualised-hours/starting/2019-04-07/2019-11-01
+          should "dept test 6" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-04-07"),
+              leave_year_start_date: Date.parse("2019-11-01"),
+            )
+
+            assert_equal "3.27", calc.formatted_full_time_part_time_weeks
+          end
+          # /annualised-hours/starting/2019-09-23/2018-08-14
+          should "dept test 7" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-09-23"),
+              leave_year_start_date: Date.parse("2018-08-14"),
+            )
+
+            assert_equal "5.14", calc.formatted_full_time_part_time_weeks
+          end
+          # /annualised-hours/starting/2020-02-16/2019-04-02
+          should "dept test 8" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-02-16"),
+              leave_year_start_date: Date.parse("2019-04-02"),
+            )
+
+            assert_equal "0.94", calc.formatted_full_time_part_time_weeks
+          end
+        end
       end
 
       context "leaving part way through a leave year" do
@@ -1577,6 +1644,67 @@ module SmartAnswer::Calculators
             assert_equal "3.60", calc.formatted_full_time_part_time_weeks
           end
         end
+
+        context "for department test data" do
+         # /annualised-hours/leaving/2020-06-24/2019-12-01
+          should "dept test 9" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2020-06-24"),
+              leave_year_start_date: Date.parse("2019-12-01"),
+            )
+
+            assert_equal "3.17", calc.formatted_full_time_part_time_weeks
+          end
+
+          # department test 10 is data validation to ensure leaving date is after leave year start
+          # this is covered in  test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+
+          # /annualised-hours/leaving/2018-12-30/2018-06-01
+          should "dept test 11" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2018-12-30"),
+              leave_year_start_date: Date.parse("2018-06-01"),
+            )
+
+            assert_equal "3.27", calc.formatted_full_time_part_time_weeks
+          end
+          # /annualised-hours/leaving/2020-12-13/2020-08-01
+          should "dept test 12" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2020-12-13"),
+              leave_year_start_date: Date.parse("2020-08-01"),
+            )
+
+            assert_equal "2.08", calc.formatted_full_time_part_time_weeks
+          end
+          # /annualised-hours/leaving/2020-08-31/2020-01-01
+          should "dept test 13" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2020-08-31"),
+              leave_year_start_date: Date.parse("2020-01-01"),
+            )
+
+            assert_equal "3.74", calc.formatted_full_time_part_time_weeks
+          end
+          # /annualised-hours/leaving/2019-11-07/2019-08-05
+          should "dept test 14" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2019-11-07"),
+              leave_year_start_date: Date.parse("2019-08-05"),
+            )
+
+            assert_equal "1.46", calc.formatted_full_time_part_time_weeks
+          end
+          # /annualised-hours/leaving/2020-06-18/2019-10-20
+          should "dept test 15" do
+            calc = HolidayEntitlement.new(
+              leaving_date: Date.parse("2020-06-18"),
+              leave_year_start_date: Date.parse("2019-10-20"),
+            )
+
+            assert_equal "3.72", calc.formatted_full_time_part_time_weeks
+          end
+        end
       end
 
       context "starting and leaving part way through a leave year" do
@@ -1647,6 +1775,72 @@ module SmartAnswer::Calculators
             assert_equal BigDecimal("0.9426229508").round(10), calc.fraction_of_year.round(10)
             assert_equal BigDecimal("5.2786885246").round(10), calc.full_time_part_time_weeks.round(10)
             assert_equal "5.28", calc.formatted_full_time_part_time_weeks
+          end
+        end
+
+        context "for department test data" do
+          # /annualised-hours/starting-and-leaving/2019-01-12/2019-03-27
+          should "dept test 16" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-01-12"),
+              leaving_date: Date.parse("2019-03-27"),
+            )
+
+            assert_equal "1.16", calc.formatted_full_time_part_time_weeks
+          end
+          # /annualised-hours/starting-and-leaving/2018-12-10/2019-05-14
+          should "dept test 17" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2018-12-10"),
+              leaving_date: Date.parse("2019-05-14"),
+            )
+
+            assert_equal "2.40", calc.formatted_full_time_part_time_weeks
+          end
+          # /annualised-hours/starting-and-leaving/2018-08-30/2019-05-27
+          should "dept test 18" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2018-08-30"),
+              leaving_date: Date.parse("2019-05-27"),
+            )
+
+            assert_equal "4.16", calc.formatted_full_time_part_time_weeks
+          end
+          # /annualised-hours/starting-and-leaving/2019-10-07/2019-12-20
+          should "dept test 19" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-10-07"),
+              leaving_date: Date.parse("2019-12-20"),
+            )
+
+            assert_equal "1.15", calc.formatted_full_time_part_time_weeks
+          end
+          # /annualised-hours/starting-and-leaving/2019-07-29/2020-05-23
+          should "dept test 20" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-07-29"),
+              leaving_date: Date.parse("2020-05-23"),
+            )
+
+            assert_equal "4.60", calc.formatted_full_time_part_time_weeks
+          end
+          # /annualised-hours/starting-and-leaving/2020-01-01/2020-06-01
+          should "dept test 21" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2020-01-01"),
+              leaving_date: Date.parse("2020-06-01"),
+            )
+
+            assert_equal "2.35", calc.formatted_full_time_part_time_weeks
+          end
+          # /annualised-hours/starting-and-leaving/2019-04-06/2020-02-03
+          should "dept test 22" do
+            calc = HolidayEntitlement.new(
+              start_date: Date.parse("2019-04-06"),
+              leaving_date: Date.parse("2020-02-03"),
+            )
+
+            assert_equal "4.66", calc.formatted_full_time_part_time_weeks
           end
         end
       end
