@@ -502,30 +502,35 @@ module SmartAnswer::Calculators
 
     context "calculate entitlement on hours worked per week and compressed hours" do
       context "for compressed hours department test data" do
+        # /compressed-hours/full-year/68.0/7.0
         should "for a full year (Test 1)" do
           calc = HolidayEntitlement.new(working_days_per_week: 7, hours_per_week: 68)
           assert_equal "272", calc.formatted_full_time_part_time_compressed_hours
           assert_equal [272, 0], calc.full_time_part_time_hours_and_minutes
         end
 
+        # /compressed-hours/full-year/73.0/7.0
         should "for a full year (Test 2)" do
           calc = HolidayEntitlement.new(working_days_per_week: 7, hours_per_week: 73)
           assert_equal "292", calc.formatted_full_time_part_time_compressed_hours
           assert_equal [292, 0], calc.full_time_part_time_hours_and_minutes
         end
 
+        # /compressed-hours/full-year/57.0/5.0
         should "for a full year (Test 3)" do
           calc = HolidayEntitlement.new(working_days_per_week: 5, hours_per_week: 57)
           assert_equal "319.2", calc.formatted_full_time_part_time_compressed_hours
           assert_equal [319, 12], calc.full_time_part_time_hours_and_minutes
         end
 
+        # /compressed-hours/full-year/80.0/6.0
         should "for a full year (Test 4)" do
           calc = HolidayEntitlement.new(working_days_per_week: 6, hours_per_week: 80)
           assert_equal "373.4", calc.formatted_full_time_part_time_compressed_hours
           assert_equal [373, 24], calc.full_time_part_time_hours_and_minutes
         end
 
+        # /compressed-hours/full-year/38.0/5.0
         should "for a full year (Test 5)" do
           calc = HolidayEntitlement.new(working_days_per_week: 5, hours_per_week: 38)
           assert_equal "212.8", calc.formatted_full_time_part_time_compressed_hours
@@ -580,109 +585,109 @@ module SmartAnswer::Calculators
           assert_equal [81, 42], calc.full_time_part_time_hours_and_minutes
         end
 
-      # Tests 11 and 12 are data entry validation tests implemented in
-      # test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+        # Tests 11 and 12 are data entry validation tests implemented in
+        # test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
 
-       # /compressed-hours/leaving/2019-07-10/2018-11-01/33.0/3.0
-       should "for leaving part way through a leave year (Test 13)" do
-         calc = HolidayEntitlement.new(
-           leaving_date: Date.parse("2019-07-10"),
-           leave_year_start_date: Date.parse("2018-11-01"),
-           working_days_per_week: 3,
-           hours_per_week: 33,
-         )
+        # /compressed-hours/leaving/2019-07-10/2018-11-01/33.0/3.0
+        should "for leaving part way through a leave year (Test 13)" do
+          calc = HolidayEntitlement.new(
+            leaving_date: Date.parse("2019-07-10"),
+            leave_year_start_date: Date.parse("2018-11-01"),
+            working_days_per_week: 3,
+            hours_per_week: 33,
+          )
 
-         assert_equal "127.6", calc.formatted_full_time_part_time_compressed_hours
-         assert_equal [127, 36], calc.full_time_part_time_hours_and_minutes
-       end
+          assert_equal "127.6", calc.formatted_full_time_part_time_compressed_hours
+          assert_equal [127, 36], calc.full_time_part_time_hours_and_minutes
+        end
 
-       # Test 14 is a data entry validation test implemented in
-       # test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+        # Test 14 is a data entry validation test implemented in
+        # test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
 
-       # /compressed-hours/leaving/2020-03-18/2019-10-01/73.0/7.0
-       should "for leaving part way through a leave year (Test 15)" do
-         calc = HolidayEntitlement.new(
-           leaving_date: Date.parse("2020-03-18"),
-           leave_year_start_date: Date.parse("2019-10-01"),
-           working_days_per_week: 7,
-           hours_per_week: 73,
-         )
+        # /compressed-hours/leaving/2020-03-18/2019-10-01/73.0/7.0
+        should "for leaving part way through a leave year (Test 15)" do
+          calc = HolidayEntitlement.new(
+            leaving_date: Date.parse("2020-03-18"),
+            leave_year_start_date: Date.parse("2019-10-01"),
+            working_days_per_week: 7,
+            hours_per_week: 73,
+          )
 
-         assert_equal "135.7", calc.formatted_full_time_part_time_compressed_hours
-         assert_equal [135, 42], calc.full_time_part_time_hours_and_minutes
-       end
+          assert_equal "135.7", calc.formatted_full_time_part_time_compressed_hours
+          assert_equal [135, 42], calc.full_time_part_time_hours_and_minutes
+        end
 
-       # Tests 16-18 are a data entry validation tests implemented in
-       # test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+        # Tests 16-18 are a data entry validation tests implemented in
+        # test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
 
-       # /compressed-hours/starting-and-leaving/2018-05-10/2018-12-04/35.0/3.0
-       should "starting and leaving part way through a leave year (Test 19)" do
-         calc = HolidayEntitlement.new(
-           start_date: Date.parse("2018-05-10"),
-           leaving_date: Date.parse("2018-12-04"),
-           working_days_per_week: 3,
-           hours_per_week: 35,
-         )
+        # /compressed-hours/starting-and-leaving/2018-05-10/2018-12-04/35.0/3.0
+        should "starting and leaving part way through a leave year (Test 19)" do
+          calc = HolidayEntitlement.new(
+            start_date: Date.parse("2018-05-10"),
+            leaving_date: Date.parse("2018-12-04"),
+            working_days_per_week: 3,
+            hours_per_week: 35,
+          )
 
-         assert_equal "112.3", calc.formatted_full_time_part_time_compressed_hours
-         assert_equal [112, 18], calc.full_time_part_time_hours_and_minutes
-       end
+          assert_equal "112.3", calc.formatted_full_time_part_time_compressed_hours
+          assert_equal [112, 18], calc.full_time_part_time_hours_and_minutes
+        end
 
-      # /compressed-hours/starting-and-leaving/2018-04-02/2019-03-08/29.0/2.0
-      should "starting and leaving part way through a leave year (Test 20)" do
-        calc = HolidayEntitlement.new(
-          start_date: Date.parse("2018-04-02"),
-          leaving_date: Date.parse("2019-03-08"),
-          working_days_per_week: 2,
-          hours_per_week: 29,
-        )
+        # /compressed-hours/starting-and-leaving/2018-04-02/2019-03-08/29.0/2.0
+        should "starting and leaving part way through a leave year (Test 20)" do
+          calc = HolidayEntitlement.new(
+            start_date: Date.parse("2018-04-02"),
+            leaving_date: Date.parse("2019-03-08"),
+            working_days_per_week: 2,
+            hours_per_week: 29,
+          )
 
-        assert_equal "151.8", calc.formatted_full_time_part_time_compressed_hours
-        assert_equal [151, 48], calc.full_time_part_time_hours_and_minutes
+          assert_equal "151.8", calc.formatted_full_time_part_time_compressed_hours
+          assert_equal [151, 48], calc.full_time_part_time_hours_and_minutes
+        end
+
+        # /compressed-hours/starting-and-leaving/2019-11-23/2020-06-07/47.0/6.0
+        should "starting and leaving part way through a leave year (Test 21)" do
+          calc = HolidayEntitlement.new(
+            start_date: Date.parse("2019-11-23"),
+            leaving_date: Date.parse("2020-06-07"),
+            working_days_per_week: 6,
+            hours_per_week: 47,
+          )
+
+          assert_equal "118.7", calc.formatted_full_time_part_time_compressed_hours
+          assert_equal [118, 42], calc.full_time_part_time_hours_and_minutes
+        end
+
+        # /compressed-hours/starting-and-leaving/2019-10-30/2020-10-12/25.0/6.0
+        should "starting and leaving part way through a leave year (Test 22)" do
+          calc = HolidayEntitlement.new(
+            start_date: Date.parse("2019-10-30"),
+            leaving_date: Date.parse("2020-10-12"),
+            working_days_per_week: 6,
+            hours_per_week: 25,
+          )
+
+          assert_equal "111.3", calc.formatted_full_time_part_time_compressed_hours
+          assert_equal [111, 18], calc.full_time_part_time_hours_and_minutes
+        end
+
+        # Test 23 is a data entry validation test implemented in
+        # test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
+
+        # /compressed-hours/starting-and-leaving/2020-03-01/2020-06-01/37.5/5.0
+        should "starting and leaving part way through a leave year (Test 24)" do
+          calc = HolidayEntitlement.new(
+            start_date: Date.parse("2020-03-01"),
+            leaving_date: Date.parse("2020-06-01"),
+            working_days_per_week: 5,
+            hours_per_week: 37.5,
+          )
+
+          assert_equal "53.6", calc.formatted_full_time_part_time_compressed_hours
+          assert_equal [53, 36], calc.full_time_part_time_hours_and_minutes
+        end
       end
-
-      # /compressed-hours/starting-and-leaving/2019-11-23/2020-06-07/47.0/6.0
-      should "starting and leaving part way through a leave year (Test 21)" do
-        calc = HolidayEntitlement.new(
-          start_date: Date.parse("2019-11-23"),
-          leaving_date: Date.parse("2020-06-07"),
-          working_days_per_week: 6,
-          hours_per_week: 47,
-        )
-
-        assert_equal "118.7", calc.formatted_full_time_part_time_compressed_hours
-        assert_equal [118, 42], calc.full_time_part_time_hours_and_minutes
-      end
-
-      # /compressed-hours/starting-and-leaving/2019-10-30/2020-10-12/25.0/6.0
-      should "starting and leaving part way through a leave year (Test 22)" do
-        calc = HolidayEntitlement.new(
-          start_date: Date.parse("2019-10-30"),
-          leaving_date: Date.parse("2020-10-12"),
-          working_days_per_week: 6,
-          hours_per_week: 25,
-        )
-
-        assert_equal "111.3", calc.formatted_full_time_part_time_compressed_hours
-        assert_equal [111, 18], calc.full_time_part_time_hours_and_minutes
-      end
-
-      # Test 23 is a data entry validation test implemented in
-      # test/integration/smart_answer_flows/calculate_your_holiday_entitlement_test.rb
-
-      # /compressed-hours/starting-and-leaving/2020-03-01/2020-06-01/37.5/5.0
-      should "starting and leaving part way through a leave year (Test 24)" do
-        calc = HolidayEntitlement.new(
-          start_date: Date.parse("2020-03-01"),
-          leaving_date: Date.parse("2020-06-01"),
-          working_days_per_week: 5,
-          hours_per_week: 37.5,
-        )
-
-        assert_equal "53.6", calc.formatted_full_time_part_time_compressed_hours
-        assert_equal [53, 36], calc.full_time_part_time_hours_and_minutes
-      end
-     end
 
       context "for a full leave year" do
         should "for 40 hours over 5 days per week" do
@@ -708,42 +713,36 @@ module SmartAnswer::Calculators
           should "for 80 hours 7 days per week (dept Test 1)" do
             calc = HolidayEntitlement.new(working_days_per_week: 7, hours_per_week: 80)
             assert_equal "320", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [320, 0], calc.full_time_part_time_hours_and_minutes
           end
 
           # Test 2 - /hours-worked-per-week/full-year/49.0/4.0
           should "for 49 hours 4 days per week (dept Test 2)" do
             calc = HolidayEntitlement.new(working_days_per_week: 4, hours_per_week: 49)
-            assert_equal "274.40", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [274, 24], calc.full_time_part_time_hours_and_minutes
+            assert_equal "274.4", calc.formatted_full_time_part_time_compressed_hours
           end
 
           # Test 3 - /hours-worked-per-week/full-year/76.0/6.0
           should "for 76 hours 6 days per week (dept Test 3)" do
             calc = HolidayEntitlement.new(working_days_per_week: 6, hours_per_week: 76)
-            assert_equal "354.67", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [354, 40], calc.full_time_part_time_hours_and_minutes
+            assert_equal "354.7", calc.formatted_full_time_part_time_compressed_hours
           end
 
           # Test 4 - /hours-worked-per-week/full-year/55.0/5.0
           should "for 55 hours 3 days per week (dept Test 4)" do
             calc = HolidayEntitlement.new(working_days_per_week: 3, hours_per_week: 55)
             assert_equal "308", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [308, 0], calc.full_time_part_time_hours_and_minutes
           end
 
           # Test 5 - /hours-worked-per-week/full-year/13.0/2.0
           should "for 13 hours 2 days per week (dept Test 5)" do
             calc = HolidayEntitlement.new(working_days_per_week: 2, hours_per_week: 13)
-            assert_equal "72.80", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [72, 48], calc.full_time_part_time_hours_and_minutes
+            assert_equal "72.8", calc.formatted_full_time_part_time_compressed_hours
           end
 
           # Test 6 - /hours-worked-per-week/full-year/45.0/5.0
           should "for 45 hours 5 days per week (dept Test 6)" do
             calc = HolidayEntitlement.new(working_days_per_week: 5, hours_per_week: 45)
             assert_equal "252", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [252, 0], calc.full_time_part_time_hours_and_minutes
           end
         end
       end
@@ -774,8 +773,8 @@ module SmartAnswer::Calculators
 
             assert_equal BigDecimal("7").round(10), calc.full_time_part_time_days.round(10)
             assert_equal BigDecimal("7").round(10), calc.rounded_full_time_part_time_days.round(10)
-            assert_equal "58.34", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [58, 20], calc.full_time_part_time_hours_and_minutes
+            assert_equal "58.4", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [58, 24], calc.full_time_part_time_hours_and_minutes
           end
 
           should "for 36 hours more than 5 days a week" do
@@ -814,8 +813,8 @@ module SmartAnswer::Calculators
               hours_per_week: 25,
             )
 
-            assert_equal "58.34", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [58, 20], calc.full_time_part_time_hours_and_minutes
+            assert_equal "58.4", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [58, 24], calc.full_time_part_time_hours_and_minutes
           end
 
           should "for 36 hours more than 5 days a week" do
@@ -841,8 +840,7 @@ module SmartAnswer::Calculators
               hours_per_week: 69,
             )
 
-            assert_equal "80.50", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [80, 30], calc.full_time_part_time_hours_and_minutes
+            assert_equal "80.5", calc.formatted_full_time_part_time_compressed_hours
           end
 
           # Test 10 - /starting/2020-07-28/2020-01-01/50.0/6.0
@@ -854,8 +852,7 @@ module SmartAnswer::Calculators
               hours_per_week: 50,
             )
 
-            assert_equal "116.67", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [116, 40], calc.full_time_part_time_hours_and_minutes
+            assert_equal "116.7", calc.formatted_full_time_part_time_compressed_hours
           end
 
           # Test 11 - /starting/2020-02-03/2019-11-01/14.0/5.0
@@ -867,8 +864,7 @@ module SmartAnswer::Calculators
               hours_per_week: 14,
             )
 
-            assert_equal "58.80", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [58, 48], calc.full_time_part_time_hours_and_minutes
+            assert_equal "58.8", calc.formatted_full_time_part_time_compressed_hours
           end
 
           # Test 12 - /starting/2021-03-04/2020-08-03/50.0/6.0
@@ -881,7 +877,6 @@ module SmartAnswer::Calculators
             )
 
             assert_equal "100", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [100, 0], calc.full_time_part_time_hours_and_minutes
           end
         end
       end
@@ -898,8 +893,8 @@ module SmartAnswer::Calculators
 
             assert_equal BigDecimal("224").round(10), calc.full_time_part_time_hours.round(10)
             assert_equal BigDecimal("93.2821917808").round(10), calc.pro_rated_hours.round(10)
-            assert_equal "93.29", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [93, 17], calc.full_time_part_time_hours_and_minutes
+            assert_equal "93.3", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [93, 18], calc.full_time_part_time_hours_and_minutes
           end
 
           should "for 25 hours less than 5 days a week" do
@@ -912,8 +907,8 @@ module SmartAnswer::Calculators
 
             assert_equal BigDecimal("140").round(10), calc.full_time_part_time_hours.round(10)
             assert_equal BigDecimal("90.9041095890").round(10), calc.pro_rated_hours.round(10)
-            assert_equal "90.91", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [90, 55], calc.full_time_part_time_hours_and_minutes
+            assert_equal "91", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [91, 0], calc.full_time_part_time_hours_and_minutes
           end
 
           should "for 36 hours more than 5 days a week" do
@@ -926,8 +921,8 @@ module SmartAnswer::Calculators
 
             assert_equal BigDecimal("168").round(10), calc.full_time_part_time_hours.round(10)
             assert_equal BigDecimal("107.7041095890").round(10), calc.pro_rated_hours.round(10)
-            assert_equal "107.71", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [107, 43], calc.full_time_part_time_hours_and_minutes
+            assert_equal "107.8", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [107, 48], calc.full_time_part_time_hours_and_minutes
           end
         end
         context "for a leap year" do
@@ -941,8 +936,8 @@ module SmartAnswer::Calculators
 
             assert_equal BigDecimal("224").round(10), calc.full_time_part_time_hours.round(10)
             assert_equal BigDecimal("93.6393442623").round(10), calc.pro_rated_hours.round(10)
-            assert_equal "93.64", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [93, 38], calc.full_time_part_time_hours_and_minutes
+            assert_equal "93.7", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [93, 42], calc.full_time_part_time_hours_and_minutes
           end
           should "for 25 hours less than 5 days a week" do
             calc = HolidayEntitlement.new(
@@ -954,8 +949,8 @@ module SmartAnswer::Calculators
 
             assert_equal BigDecimal("140").round(10), calc.full_time_part_time_hours.round(10)
             assert_equal BigDecimal("90.6557377049").round(10), calc.pro_rated_hours.round(10)
-            assert_equal "90.66", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [90, 40], calc.full_time_part_time_hours_and_minutes
+            assert_equal "90.7", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [90, 42], calc.full_time_part_time_hours_and_minutes
           end
 
           should "for 36 hours more than 5 days a week" do
@@ -968,8 +963,8 @@ module SmartAnswer::Calculators
 
             assert_equal BigDecimal("168").round(10), calc.full_time_part_time_hours.round(10)
             assert_equal BigDecimal("107.8688524590").round(10), calc.pro_rated_hours.round(10)
-            assert_equal "107.87", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [107, 52], calc.full_time_part_time_hours_and_minutes
+            assert_equal "107.9", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [107, 54], calc.full_time_part_time_hours_and_minutes
           end
         end
 
@@ -983,8 +978,7 @@ module SmartAnswer::Calculators
               hours_per_week: 34,
             )
 
-            assert_equal "133.18", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [133, 11], calc.full_time_part_time_hours_and_minutes
+            assert_equal "133.2", calc.formatted_full_time_part_time_compressed_hours
           end
 
           # Test 14 - /leaving/2019-06-26/2018-10-01/47.0/2.0
@@ -996,8 +990,7 @@ module SmartAnswer::Calculators
               hours_per_week: 47,
             )
 
-            assert_equal "193.98", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [193, 59], calc.full_time_part_time_hours_and_minutes
+            assert_equal "194", calc.formatted_full_time_part_time_compressed_hours
           end
 
           # Test 15 - /leaving/2020-04-19/2019-10-01/71.0/7.0
@@ -1009,8 +1002,7 @@ module SmartAnswer::Calculators
               hours_per_week: 71,
             )
 
-            assert_equal "156.75", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [156, 45], calc.full_time_part_time_hours_and_minutes
+            assert_equal "156.8", calc.formatted_full_time_part_time_compressed_hours
           end
 
           # Test 17 - /leaving/2020-04-30/2019-06-01/63.0/5.0
@@ -1022,8 +1014,7 @@ module SmartAnswer::Calculators
               hours_per_week: 63,
             )
 
-            assert_equal "322.92", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [322, 55], calc.full_time_part_time_hours_and_minutes
+            assert_equal "323", calc.formatted_full_time_part_time_compressed_hours
           end
         end
       end
@@ -1040,8 +1031,8 @@ module SmartAnswer::Calculators
 
             assert_equal BigDecimal("224").round(10), calc.full_time_part_time_hours.round(10)
             assert_equal BigDecimal("110.4657534247").round(10), calc.pro_rated_hours.round(10)
-            assert_equal "110.47", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [110, 28], calc.full_time_part_time_hours_and_minutes
+            assert_equal "110.5", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [110, 30], calc.full_time_part_time_hours_and_minutes
           end
 
           should "for 25 hours less than 5 days a week" do
@@ -1054,8 +1045,8 @@ module SmartAnswer::Calculators
 
             assert_equal BigDecimal("140").round(10), calc.full_time_part_time_hours.round(10)
             assert_equal BigDecimal("52.1643835616").round(10), calc.pro_rated_hours.round(10)
-            assert_equal "52.17", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [52, 10], calc.full_time_part_time_hours_and_minutes
+            assert_equal "52.2", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [52, 12], calc.full_time_part_time_hours_and_minutes
           end
 
           should "for 36 hours more than 5 days a week" do
@@ -1068,8 +1059,8 @@ module SmartAnswer::Calculators
 
             assert_equal BigDecimal("168").round(10), calc.full_time_part_time_hours.round(10)
             assert_equal BigDecimal("158.3342465753").round(10), calc.pro_rated_hours.round(10)
-            assert_equal "158.34", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [158, 20], calc.full_time_part_time_hours_and_minutes
+            assert_equal "158.4", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [158, 24], calc.full_time_part_time_hours_and_minutes
           end
         end
         context "for a leap year" do
@@ -1083,8 +1074,8 @@ module SmartAnswer::Calculators
 
             assert_equal BigDecimal("224").round(10), calc.full_time_part_time_hours.round(10)
             assert_equal BigDecimal("110.7759562842").round(10), calc.pro_rated_hours.round(10)
-            assert_equal "110.78", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [110, 47], calc.full_time_part_time_hours_and_minutes
+            assert_equal "110.8", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [110, 48], calc.full_time_part_time_hours_and_minutes
           end
           should "for 25 hours less than 5 days a week" do
             calc = HolidayEntitlement.new(
@@ -1096,8 +1087,8 @@ module SmartAnswer::Calculators
 
             assert_equal BigDecimal("140").round(10), calc.full_time_part_time_hours.round(10)
             assert_equal BigDecimal("52.4043715847").round(10), calc.pro_rated_hours.round(10)
-            assert_equal "52.41", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [52, 25], calc.full_time_part_time_hours_and_minutes
+            assert_equal "52.5", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [52, 30], calc.full_time_part_time_hours_and_minutes
           end
 
           should "for 36 hours more than 5 days a week" do
@@ -1110,8 +1101,8 @@ module SmartAnswer::Calculators
 
             assert_equal BigDecimal("168").round(10), calc.full_time_part_time_hours.round(10)
             assert_equal BigDecimal("158.3606557377").round(10), calc.pro_rated_hours.round(10)
-            assert_equal "158.37", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [158, 22], calc.full_time_part_time_hours_and_minutes
+            assert_equal "158.4", calc.formatted_full_time_part_time_compressed_hours
+            assert_equal [158, 24], calc.full_time_part_time_hours_and_minutes
           end
         end
 
@@ -1125,8 +1116,7 @@ module SmartAnswer::Calculators
               hours_per_week: 55,
             )
 
-            assert_equal "55.70", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [55, 42], calc.full_time_part_time_hours_and_minutes
+            assert_equal "55.7", calc.formatted_full_time_part_time_compressed_hours
           end
 
           # Test 20 - /starting-and-leaving/2018-10-04/2018-12-14/25.0/6.0
@@ -1138,8 +1128,7 @@ module SmartAnswer::Calculators
               hours_per_week: 25,
             )
 
-            assert_equal "23.02", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [23, 1], calc.full_time_part_time_hours_and_minutes
+            assert_equal "23.1", calc.formatted_full_time_part_time_compressed_hours
           end
 
           # Test 21 - /starting-and-leaving/2018-05-29/2019-01-22/61.0/3.0
@@ -1151,8 +1140,7 @@ module SmartAnswer::Calculators
               hours_per_week: 61,
             )
 
-            assert_equal "223.68", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [223, 41], calc.full_time_part_time_hours_and_minutes
+            assert_equal "223.7", calc.formatted_full_time_part_time_compressed_hours
           end
 
           # Test 22 - /starting-and-leaving/2018-12-25/2019-11-08/26.0/6.0
@@ -1164,8 +1152,7 @@ module SmartAnswer::Calculators
               hours_per_week: 26,
             )
 
-            assert_equal "106.05", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [106, 3], calc.full_time_part_time_hours_and_minutes
+            assert_equal "106.1", calc.formatted_full_time_part_time_compressed_hours
           end
 
           # Test 23 - /starting-and-leaving/2019-04-03/2020-03-04/44.0/6.0
@@ -1177,8 +1164,7 @@ module SmartAnswer::Calculators
               hours_per_week: 44,
             )
 
-            assert_equal "189.07", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [189, 4], calc.full_time_part_time_hours_and_minutes
+            assert_equal "189.1", calc.formatted_full_time_part_time_compressed_hours
           end
 
           # Test 24 - /starting-and-leaving/2018-01-03/2018-04-04/32.0/4.0
@@ -1190,8 +1176,7 @@ module SmartAnswer::Calculators
               hours_per_week: 32,
             )
 
-            assert_equal "45.17", calc.formatted_full_time_part_time_compressed_hours
-            assert_equal [45, 10], calc.full_time_part_time_hours_and_minutes
+            assert_equal "45.2", calc.formatted_full_time_part_time_compressed_hours
           end
         end
       end
