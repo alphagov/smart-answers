@@ -268,7 +268,7 @@ module SmartAnswer
           calculator.full_time_part_time_hours_and_minutes
         end
         precalculate :holiday_entitlement_hours do
-          holiday_entitlement_hours_and_minutes.first
+          calculator.formatted_full_time_part_time_compressed_hours
         end
       end
 
