@@ -1177,6 +1177,24 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         assert_current_node :what_is_your_starting_date?
       end
 
+      # Dept test 10
+      context "with invalid dates" do
+        setup do
+          add_response "2019-06-20"
+        end
+
+        should "ask when the leave year started" do
+          assert_current_node :when_does_your_leave_year_start?
+        end
+
+        context "with a leave year start date" do
+          should "be invalid if the start date is not within leave year" do
+            add_response "2018-01-03"
+            assert_current_node :when_does_your_leave_year_start?, error: true
+          end
+        end
+      end
+
       context "with a date" do
         setup do
           add_response "#{Date.today.year}-06-01"
