@@ -39,8 +39,8 @@ module SmartAnswer::Calculators
 
     def full_time_part_time_days
       days = STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS * working_days_per_week
-      actual_days = if left_before_year_end? || (working_days_per_week < STANDARD_WORKING_DAYS_PER_WEEK)
-                      days
+      actual_days = if working_days_per_week > STANDARD_WORKING_DAYS_PER_WEEK
+                      MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT_IN_DAYS
                     else
                       [MAXIMUM_STATUTORY_HOLIDAY_ENTITLEMENT_IN_DAYS, days].min
                     end
