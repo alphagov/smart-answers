@@ -1239,7 +1239,7 @@ module SmartAnswer::Calculators
         end
         should "for 36 hours over more than 5 days a week" do
           calc = HolidayEntitlement.new(shifts_per_shift_pattern: 12, days_per_shift_pattern: 14)
-          assert_equal "33.6", calc.shift_entitlement
+          assert_equal "28", calc.shift_entitlement
         end
       end
 
