@@ -66,7 +66,7 @@ module SmartAnswer::Calculators
     end
 
     def rounded_full_time_part_time_hours
-      if started_after_year_began?
+      if started_after_year_began? || worked_full_year?
         (rounded_full_time_part_time_days * hours_per_week) / working_days_per_week
       else
         full_time_part_time_hours
