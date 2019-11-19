@@ -121,14 +121,13 @@ module SmartAnswer
       date_question :when_does_your_leave_year_start? do
         from { Date.civil(1.year.ago.year, 1, 1) }
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
-        save_input_as :leave_year_start_date
 
         calculate :leave_year_start_date do |response|
           leave_year_start_date = response
-          if holiday_period == "starting-and-leaving" || holiday_period == 'leaving'
-            raise InvalidResponse if leave_year_start_date >= leaving_date
+          if leaving_date.present?
+            raise InvalidResponse, :end_date_before_start_date if leaving_date <= leave_year_start_date
+            raise InvalidResponse, :end_date_in_leave_year_range if !YearRange.new(begins_on: leave_year_start_date).include?(leaving_date)
           end
-
           leave_year_start_date
         end
 
