@@ -447,11 +447,12 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         end
       end
       # Dept Test 18
-      context "answer 31 September 2020" do
+      context "answer 31 September 2020 - day that does not exist" do
         setup do
-          add_response "2019-06-01"
+          add_response "2020-09-31"
         end
-        should "be an invalid date" do
+
+        should "ask when the leave year started" do
           assert_current_node :what_is_your_leaving_date?, error: true
         end
       end
