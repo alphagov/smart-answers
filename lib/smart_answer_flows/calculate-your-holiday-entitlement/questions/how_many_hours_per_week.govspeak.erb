@@ -6,6 +6,10 @@
   Include half-hours, for example 40.5.
 <% end %>
 
-<% content_for :error_message do %>
+<% content_for :over_168_hours_worked do %>
   You can enter a maximum of 168 hours per week. Don't enter fractions. If you work half-hours, enter .5 for half. eg 40.5
+<% end %>
+
+<% content_for :no_hours_worked do %>
+  Please enter at least .5 hours worked. Don't enter fractions. If you work half-hours, enter .5 for half. eg 40.5
 <% end %>
