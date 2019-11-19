@@ -123,6 +123,15 @@ module SmartAnswer
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
         save_input_as :leave_year_start_date
 
+        calculate :leave_year_start_date do |response|
+          leave_year_start_date = response
+          if holiday_period == "starting-and-leaving" || holiday_period == 'leaving'
+            raise InvalidResponse if leave_year_start_date >= leaving_date
+          end
+
+          leave_year_start_date
+        end
+
         next_node do
           case calculation_basis
           when "days-worked-per-week"
