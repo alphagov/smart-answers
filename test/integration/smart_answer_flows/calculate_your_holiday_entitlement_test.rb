@@ -652,40 +652,41 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         assert_current_node :what_is_your_leaving_date?
       end
 
+      context "answer 1 June 2020" do
+        setup do
+          add_response "2020-06-01"
+        end
+        should "ask when the leave year started" do
+          assert_current_node :when_does_your_leave_year_start?
+        end
+
+        # Dept Test 17 - employment cannot start after leave year ends
+        context "answer 1 March 2019" do
+          setup do
+            add_response "2019-03-01"
+          end
+          should "be an invalid date" do
+            assert_current_node :when_does_your_leave_year_start?, error: true
+          end
+        end
+
+        # Dept Test 18 - employment cannot start after leave year ends
+        context "answer 30 May 2019" do
+          setup do
+            add_response "2019-05-30"
+          end
+          should "be an invalid date" do
+            assert_current_node :when_does_your_leave_year_start?, error: true
+          end
+        end
+      end
+
       context "answer June 1st 2019" do
         setup do
           add_response "2019-06-01"
         end
         should "ask when the leave year started" do
           assert_current_node :when_does_your_leave_year_start?
-        end
-        # Dept Test 17 - employment cannot start after leave year ends
-        context "answer 1 June 2021" do
-          setup do
-            add_response "2021-06-01"
-          end
-          should "ask when the leave year started" do
-            assert_current_node :when_does_your_leave_year_start?
-          end
-
-          context "answer 1 March 2019" do
-            setup do
-              add_response "2019-03-01"
-            end
-            should "be an invalid date" do
-              assert_current_node :when_does_your_leave_year_start?, error: true
-            end
-          end
-
-          # Dept Test 18 - employment cannot start after leave year ends
-          context "answer 1 March 2020" do
-            setup do
-              add_response "2020-03-01"
-            end
-            should "be an invalid date" do
-              assert_current_node :when_does_your_leave_year_start?, error: true
-            end
-          end
         end
 
         context "answer Jan 1st 2019" do
