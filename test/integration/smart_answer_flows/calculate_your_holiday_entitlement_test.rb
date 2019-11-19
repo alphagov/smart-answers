@@ -86,7 +86,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
 
         context "with a leave year start date" do
           setup do
-            add_response "#{Date.today.year}-05-02"
+            add_response "#{Date.today.year}-03-02"
           end
 
           should "ask how many days per week you work" do
@@ -104,7 +104,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                   working_days_per_week: 5,
                   start_date: Date.parse("#{Date.today.year}-03-14"),
                   leaving_date: nil,
-                  leave_year_start_date: Date.parse("#{Date.today.year}-05-02"),
+                  leave_year_start_date: Date.parse("#{Date.today.year}-03-02"),
                   ).returns(@stubbed_calculator)
               @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns("formatted days")
 
@@ -125,7 +125,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                   working_days_per_week: 7,
                   start_date: Date.parse("#{Date.today.year}-03-14"),
                   leaving_date: nil,
-                  leave_year_start_date: Date.parse("#{Date.today.year}-05-02"),
+                  leave_year_start_date: Date.parse("#{Date.today.year}-03-02"),
                   ).returns(@stubbed_calculator)
               @stubbed_calculator.expects(:formatted_full_time_part_time_days).returns("formatted days")
 
