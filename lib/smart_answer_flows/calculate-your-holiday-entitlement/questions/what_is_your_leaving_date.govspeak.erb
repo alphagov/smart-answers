@@ -2,6 +2,8 @@
   What was the employment end date?
 <% end %>
 
-<% content_for :error_message do %>
-  Your end date can not be before your start date of <%="#{start_date.strftime('%d %B %Y')}"%>.
+<% if start_date%>
+  <% content_for :error_message do %>
+    Your end date can not be before your start date of <%="#{start_date.strftime('%d %B %Y')}"%>.
+  <% end %>
 <% end %>
