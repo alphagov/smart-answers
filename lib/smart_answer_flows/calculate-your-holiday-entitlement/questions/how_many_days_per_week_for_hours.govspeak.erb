@@ -6,6 +6,10 @@
   We need this to calculate how many hours are worked in an average day. Include half-days, for example 3.5.
 <% end %>
 
-<% content_for :error_message do %>
+<% content_for :over_7_days_per_week do %>
   There are only 7 days in a week. Please check and enter a correct value.
+<% end %>
+
+<% content_for :over_24_hours_per_day do %>
+  There are only 24 hours per day. Please check and enter a correct value.
 <% end %>

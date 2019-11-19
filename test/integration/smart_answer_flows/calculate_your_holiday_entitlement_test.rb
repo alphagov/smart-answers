@@ -369,6 +369,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             # Dept Test 7
             should "be invalid if 43 hours worked for 1 day (dept Test 7)" do
               add_response "43"
+              assert_current_node :how_many_days_per_week_for_hours?
               add_response "1"
               assert_current_node :how_many_days_per_week_for_hours?, error: true
             end
@@ -376,6 +377,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             # Dept Test 8
             should "be invalid if 77 hours worked over 3 days (dept Test 8)" do
               add_response "77"
+              assert_current_node :how_many_days_per_week_for_hours?
               add_response "3"
               assert_current_node :how_many_days_per_week_for_hours?, error: true
             end
@@ -439,7 +441,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
             should "be invalid if 63 hours for 1 day entered (dept Test 16)" do
               add_response "63"
               add_response "1"
-              assert_current_node :how_many_hours_per_week?, error: true
+              assert_current_node :how_many_days_per_week_for_hours?, error: true
             end
           end
         end
@@ -715,21 +717,23 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
                 assert_state_variable "minutes_daily", 0
               end
             end
+          end
 
-            context "impossible working patterns" do
-              # Dept Test 14
-              should "be invalid if 73 hours for 1 day entered (dept Test 14)" do
-                add_response "73"
-                add_response "1"
-                assert_current_node :how_many_hours_per_week?, error: true
-              end
+          context "impossible working patterns" do
+            # Dept Test 14
+            should "be invalid if 73 hours for 1 day entered (dept Test 14)" do
+              add_response "73"
+              assert_current_node :how_many_days_per_week_for_hours?, error: false
+              add_response "1"
+              assert_current_node :how_many_days_per_week_for_hours?, error: true
+            end
 
-              # Dept Test 16
-              should "be invalid if 40 hours for 1 day entered (dept Test 16)" do
-                add_response "40"
-                add_response "1"
-                assert_current_node :how_many_hours_per_week?, error: true
-              end
+            # Dept Test 16
+            should "be invalid if 40 hours for 1 day entered (dept Test 16)" do
+              add_response "40"
+              assert_current_node :how_many_days_per_week_for_hours?, error: false
+              add_response "1"
+              assert_current_node :how_many_days_per_week_for_hours?, error: true
             end
           end
         end
