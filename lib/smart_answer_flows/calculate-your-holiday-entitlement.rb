@@ -284,9 +284,6 @@ module SmartAnswer
             leave_year_start_date: leave_year_start_date,
           )
         end
-        precalculate :holiday_entitlement_hours_and_minutes do
-          calculator.full_time_part_time_hours_and_minutes
-        end
         precalculate :holiday_entitlement_hours do
           calculator.formatted_full_time_part_time_compressed_hours
         end
