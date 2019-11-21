@@ -129,9 +129,8 @@ module SmartAnswer
             raise InvalidResponse, :end_date_before_start_date if leaving_date <= leave_year_start_date
             raise InvalidResponse, :end_date_outside_leave_year_range if !YearRange.new(begins_on: leave_year_start_date).include?(leaving_date)
           end
-
           if start_date
-            raise InvalidResponse, :start_date_outside_in_leave_year_range if !YearRange.new(begins_on: leave_year_start_date).include?(start_date)
+            raise InvalidResponse, :start_date_outside_leave_year_range if !YearRange.new(begins_on: leave_year_start_date).include?(start_date)
           end
           leave_year_start_date
         end
