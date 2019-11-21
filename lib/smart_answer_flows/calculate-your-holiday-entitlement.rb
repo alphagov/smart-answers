@@ -127,6 +127,7 @@ module SmartAnswer
           leave_year_start_date = response
           if leaving_date.present?
             raise InvalidResponse, :end_date_before_start_date if leaving_date <= leave_year_start_date
+
             raise InvalidResponse, :end_date_outside_leave_year_range if !YearRange.new(begins_on: leave_year_start_date).include?(leaving_date)
           end
           if start_date
@@ -154,7 +155,9 @@ module SmartAnswer
         calculate :hours_per_week do |response|
           hours_per_week = response
           raise InvalidResponse, :over_168_hours_worked if hours_per_week > 168
+
           raise InvalidResponse, :no_hours_worked if hours_per_week <= 0
+
           hours_per_week
         end
 
@@ -168,6 +171,7 @@ module SmartAnswer
         calculate :working_days_per_week do |response|
           working_days_per_week = response
           raise InvalidResponse, :over_7_days_per_week if working_days_per_week <= 0 || working_days_per_week > 7
+
           if hours_per_week
             raise InvalidResponse, :over_24_hours_per_day if (hours_per_week / working_days_per_week) > 24
           end

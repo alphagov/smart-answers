@@ -126,7 +126,7 @@ module SmartAnswer::Calculators
     def shift_entitlement
       if left_before_year_end? || worked_partial_year?
         format_number(rounded_shift_entitlement, 2)
-      else started_after_year_began? || worked_full_year?
+      elsif started_after_year_began? || worked_full_year?
         format_number(rounded_shift_entitlement)
       end
     end
