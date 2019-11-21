@@ -749,31 +749,21 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
         assert_current_node :what_is_your_starting_date?
       end
 
-      # Dept Test 23 - employment cannot start after leave year ends
-      context "answer 1 June 2021" do
+      # Dept Test 23 - employment must not extend beyond a year
+      context "answer 1 March 2019" do
         setup do
-          add_response "2021-06-01"
+          add_response "2019-03-01"
         end
-        should "ask when the leave year started" do
-          assert_current_node :when_does_your_leave_year_start?
-        end
-
-        context "answer 1 March 2019" do
-          setup do
-            add_response "2019-03-01"
-          end
-          should "be an invalid date" do
-            assert_current_node :when_does_your_leave_year_start?, error: true
-          end
+        should "ask for the employment end date" do
+          assert_current_node :what_is_your_leaving_date?
         end
 
-        # Dept Test 24 - employment cannot start after leave year ends
-        context "answer 1 March 2020" do
+        context "answer 1 June 2021" do
           setup do
-            add_response "2020-03-01"
+            add_response "2021-06-01"
           end
           should "be an invalid date" do
-            assert_current_node :when_does_your_leave_year_start?, error: true
+            assert_current_node :what_is_your_leaving_date?, error: true
           end
         end
       end

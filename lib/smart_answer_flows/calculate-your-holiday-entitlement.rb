@@ -93,7 +93,8 @@ module SmartAnswer
         calculate :leaving_date do |response|
           leaving_date = response
           if holiday_period == "starting-and-leaving"
-            raise InvalidResponse if leaving_date <= start_date
+            raise InvalidResponse, :end_date_before_start_date if leaving_date <= start_date
+            raise InvalidResponse, :end_date_outside_year_range if !YearRange.new(begins_on: start_date).include?(leaving_date)
           end
 
           leaving_date
