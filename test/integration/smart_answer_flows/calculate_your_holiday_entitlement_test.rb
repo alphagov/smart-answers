@@ -713,7 +713,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
               should "calculate the holiday entitlement" do
                 assert_current_node :compressed_hours_done
                 assert_state_variable "holiday_entitlement_hours", 93
-                assert_state_variable "holiday_entitlement_minutes", 17
+                assert_state_variable "holiday_entitlement_minutes", 18
                 assert_state_variable "hours_daily", 8
                 assert_state_variable "minutes_daily", 0
               end
@@ -806,7 +806,7 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
               should "calculate the holiday entitlement" do
                 assert_current_node :compressed_hours_done
                 assert_state_variable "holiday_entitlement_hours", 110
-                assert_state_variable "holiday_entitlement_minutes", 28
+                assert_state_variable "holiday_entitlement_minutes", 30
                 assert_state_variable "hours_daily", 8
                 assert_state_variable "minutes_daily", 0
               end
