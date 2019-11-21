@@ -310,13 +310,13 @@ class ChildcareCostsForTaxCreditsTest < ActiveSupport::TestCase
     should "take the user to Q21 if they give an answer" do
       add_response 4
       assert_state_variable :new_weekly_costs, 1
-      assert_current_node :old_weekly_amount_3?
+      assert_current_node :old_monthly_amount?
     end
 
     context "answering Q21" do
       setup do
         add_response 4 # Q19
-        add_response 10
+        add_response 40
       end
 
       should "calculate old costs and difference" do
