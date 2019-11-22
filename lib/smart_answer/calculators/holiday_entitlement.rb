@@ -66,7 +66,7 @@ module SmartAnswer::Calculators
     end
 
     def rounded_full_time_part_time_hours
-      if started_after_year_began?
+      if started_after_year_began? || worked_full_year?
         (rounded_full_time_part_time_days * hours_per_week) / working_days_per_week
       else
         full_time_part_time_hours
@@ -75,9 +75,9 @@ module SmartAnswer::Calculators
 
     def formatted_full_time_part_time_compressed_hours
       if left_before_year_end? || worked_partial_year?
-        format_number(pro_rated_hours, 2)
+        format_number(pro_rated_hours, 1)
       else
-        format_number(rounded_full_time_part_time_hours, 2)
+        format_number(rounded_full_time_part_time_hours, 1)
       end
     end
 
@@ -126,10 +126,8 @@ module SmartAnswer::Calculators
     def shift_entitlement
       if left_before_year_end? || worked_partial_year?
         format_number(rounded_shift_entitlement, 2)
-      elsif started_after_year_began?
+      elsif started_after_year_began? || worked_full_year?
         format_number(rounded_shift_entitlement)
-      else
-        format_number(STATUTORY_HOLIDAY_ENTITLEMENT_IN_WEEKS * shifts_per_week)
       end
     end
 
@@ -169,7 +167,7 @@ module SmartAnswer::Calculators
     def months_worked
       year_difference = BigDecimal(leave_year_range.ends_on.year - start_date.year, 10)
       month_difference = MONTHS_PER_YEAR * year_difference + leave_year_range.ends_on.month - start_date.month
-      leave_year_range.ends_on.day > start_date.day ? month_difference + 1 : month_difference
+      leave_year_range.ends_on.day >= start_date.day ? month_difference + 1 : month_difference
     end
 
     def leave_year_range

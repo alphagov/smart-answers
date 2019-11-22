@@ -93,7 +93,9 @@ module SmartAnswer
         calculate :leaving_date do |response|
           leaving_date = response
           if holiday_period == "starting-and-leaving"
-            raise InvalidResponse if leaving_date <= start_date
+            raise InvalidResponse, :end_date_before_start_date if leaving_date <= start_date
+
+            raise InvalidResponse, :end_date_outside_year_range if !YearRange.new(begins_on: start_date).include?(leaving_date)
           end
 
           leaving_date
@@ -121,7 +123,19 @@ module SmartAnswer
       date_question :when_does_your_leave_year_start? do
         from { Date.civil(1.year.ago.year, 1, 1) }
         to { Date.civil(1.year.since(Date.today).year, 12, 31) }
-        save_input_as :leave_year_start_date
+
+        calculate :leave_year_start_date do |response|
+          leave_year_start_date = response
+          if leaving_date.present?
+            raise InvalidResponse, :end_date_before_start_date if leaving_date <= leave_year_start_date
+
+            raise InvalidResponse, :end_date_outside_leave_year_range if !YearRange.new(begins_on: leave_year_start_date).include?(leaving_date)
+          end
+          if start_date
+            raise InvalidResponse, :start_date_outside_leave_year_range if !YearRange.new(begins_on: leave_year_start_date).include?(start_date)
+          end
+          leave_year_start_date
+        end
 
         next_node do
           case calculation_basis
@@ -139,7 +153,14 @@ module SmartAnswer
 
       # Q10 - Q15 - Q18
       value_question :how_many_hours_per_week?, parse: Float do
-        save_input_as :hours_per_week
+        calculate :hours_per_week do |response|
+          hours_per_week = response
+          raise InvalidResponse, :over_168_hours_worked if hours_per_week > 168
+
+          raise InvalidResponse, :no_hours_worked if hours_per_week <= 0
+
+          hours_per_week
+        end
 
         next_node do
           question :how_many_days_per_week_for_hours?
@@ -150,10 +171,14 @@ module SmartAnswer
       value_question :how_many_days_per_week_for_hours?, parse: Float do
         calculate :working_days_per_week do |response|
           working_days_per_week = response
-          raise InvalidResponse if working_days_per_week <= 0 || working_days_per_week > 7
+          raise InvalidResponse, :over_7_days_per_week if working_days_per_week <= 0 || working_days_per_week > 7
 
+          if hours_per_week
+            raise InvalidResponse, :over_24_hours_per_day if (hours_per_week / working_days_per_week) > 24
+          end
           working_days_per_week
         end
+
         next_node do
           if calculation_basis == "compressed-hours"
             outcome :compressed_hours_done
@@ -264,11 +289,8 @@ module SmartAnswer
             leave_year_start_date: leave_year_start_date,
           )
         end
-        precalculate :holiday_entitlement_hours_and_minutes do
-          calculator.full_time_part_time_hours_and_minutes
-        end
         precalculate :holiday_entitlement_hours do
-          holiday_entitlement_hours_and_minutes.first
+          calculator.formatted_full_time_part_time_compressed_hours
         end
       end
 
