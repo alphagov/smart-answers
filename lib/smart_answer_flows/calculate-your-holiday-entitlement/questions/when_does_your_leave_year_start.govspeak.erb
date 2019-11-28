@@ -17,6 +17,10 @@
 <% end %>
 
 <% if start_date%>
+  <% content_for :start_date_before_start_leave_year_date do %>
+    Your leave year start date must be earlier than your employment start date of <%="#{start_date.strftime('%d %B %Y')}"%>.
+  <% end%>
+
   <% content_for :start_date_outside_leave_year_range do %>
     Your employment start date of <%="#{start_date.strftime('%d %B %Y')}"%> must be within 1 year of the leave year start date.
   <% end %>

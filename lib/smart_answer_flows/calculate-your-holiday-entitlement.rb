@@ -132,6 +132,7 @@ module SmartAnswer
             raise InvalidResponse, :end_date_outside_leave_year_range if !YearRange.new(begins_on: leave_year_start_date).include?(leaving_date)
           end
           if start_date
+            raise InvalidResponse, :start_date_before_start_leave_year_date if start_date <= leave_year_start_date
             raise InvalidResponse, :start_date_outside_leave_year_range if !YearRange.new(begins_on: leave_year_start_date).include?(start_date)
           end
           leave_year_start_date
@@ -211,7 +212,8 @@ module SmartAnswer
       value_question :shift_worker_hours_per_shift?, parse: Float do
         calculate :hours_per_shift do |response|
           hours_per_shift = response
-          raise InvalidResponse if hours_per_shift <= 0
+          raise InvalidResponse, :no_hours_worked if hours_per_shift <= 0
+          raise InvalidResponse, :over_24_hours_worked if hours_per_shift > 24
 
           hours_per_shift
         end

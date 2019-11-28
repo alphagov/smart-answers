@@ -1122,6 +1122,26 @@ class CalculateYourHolidayEntitlementTest < ActiveSupport::TestCase
       should "ask how many hours in each shift" do
         assert_current_node :shift_worker_hours_per_shift?
       end
+      context "with invalid hours" do
+        context "with 0 hours" do
+          setup do
+            add_response "0"
+          end
+
+          should "present an error" do
+            assert_current_node :shift_worker_hours_per_shift?, error: true
+          end
+        end
+        context "with over 24 hours" do
+          setup do
+            add_response "25"
+          end
+
+          should "present an error" do
+            assert_current_node :shift_worker_hours_per_shift?, error: true
+          end
+        end
+      end
       context "answer 6 hours" do
         setup do
           add_response "6"
