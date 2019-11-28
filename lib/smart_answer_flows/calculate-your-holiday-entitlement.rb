@@ -211,7 +211,8 @@ module SmartAnswer
       value_question :shift_worker_hours_per_shift?, parse: Float do
         calculate :hours_per_shift do |response|
           hours_per_shift = response
-          raise InvalidResponse if hours_per_shift <= 0
+          raise InvalidResponse, :no_hours_worked if hours_per_shift <= 0
+          raise InvalidResponse, :over_24_hours_worked if hours_per_shift > 24
 
           hours_per_shift
         end

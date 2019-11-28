@@ -6,6 +6,10 @@
   Hours per shift
 <% end %>
 
-<% content_for :error_message do %>
+<% content_for :no_hours_worked do %>
   You need to enter a number greater than 0. Don't enter fractions. If you work half-hours, enter .5 for half. eg 4.5
+<% end %>
+
+<% content_for :over_24_hours_worked do %>
+  24 is the maximum number of hours per shift. Don't enter fractions. If you work half-hours, enter .5 for half. eg 4.5
 <% end %>
