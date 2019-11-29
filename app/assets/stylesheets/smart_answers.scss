@@ -67,3 +67,8 @@ $is-ie: false !default;
   @include govuk-font($size: 16);
   color: $govuk-secondary-text-colour;
 }
+
+.app-o-next-steps,
+.app-o-answer {
+  margin-bottom: govuk-spacing(6);
+}

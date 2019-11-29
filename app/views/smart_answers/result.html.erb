@@ -3,7 +3,7 @@
 <% end %>
 
 <div class="govuk-grid-row">
-  <div id="result-info" class="govuk-grid-column-two-thirds outcome govspeak-wrapper">
+  <div id="result-info" class="govuk-grid-column-two-thirds outcome">
     <%= render 'debug' %>
     <%= render "govuk_publishing_components/components/title", {
       title: @presenter.title
@@ -11,7 +11,7 @@
 
     <% outcome = @presenter.current_node %>
 
-    <div data-debug-template-path="<%= outcome.relative_erb_template_path %>">
+    <div class="app-o-answer govspeak-wrapper" data-debug-template-path="<%= outcome.relative_erb_template_path %>">
       <% if outcome.title.present? %>
         <%= render "govuk_publishing_components/components/heading", {
           text: outcome.title
@@ -22,11 +22,13 @@
     </div>
 
     <% if outcome.next_steps.present? %>
-      <%= render "govuk_publishing_components/components/heading", {
-        text: "Next steps"
-      } %>
+      <div class="app-o-next-steps govspeak-wrapper">
+        <%= render "govuk_publishing_components/components/heading", {
+          text: "Next steps"
+        } %>
 
-      <%= outcome.next_steps %>
+        <%= outcome.next_steps %>
+      </div>
     <% end %>
 
     <script type="text/javascript">
