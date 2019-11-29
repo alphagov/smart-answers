@@ -18,12 +18,12 @@ module SmartAnswer
 
         should "be invalid if the stopped trading date is before the tax year that the tax credits award ended" do
           @calculator.stopped_trading_on = Date.parse("2015-04-05")
-          refute @calculator.valid_stopped_trading_date?
+          assert_not @calculator.valid_stopped_trading_date?
         end
 
         should "be invalid if the stopped trading date is after the tax year that the tax credits award ended" do
           @calculator.stopped_trading_on = Date.parse("2016-04-06")
-          refute @calculator.valid_stopped_trading_date?
+          assert_not @calculator.valid_stopped_trading_date?
         end
       end
 
@@ -44,9 +44,9 @@ module SmartAnswer
 
           should "be invalid if the date is on or after the date the tax credits award ends" do
             @calculator.started_trading_on = Date.parse("2015-08-01")
-            refute @calculator.valid_start_trading_date?
+            assert_not @calculator.valid_start_trading_date?
             @calculator.started_trading_on = Date.parse("2016-01-01")
-            refute @calculator.valid_start_trading_date?
+            assert_not @calculator.valid_start_trading_date?
           end
         end
 
@@ -63,9 +63,9 @@ module SmartAnswer
 
           should "be invalid if the date is on or after the date the business stopped trading" do
             @calculator.started_trading_on = Date.parse("2015-07-01")
-            refute @calculator.valid_start_trading_date?
+            assert_not @calculator.valid_start_trading_date?
             @calculator.started_trading_on = Date.parse("2016-01-01")
-            refute @calculator.valid_start_trading_date?
+            assert_not @calculator.valid_start_trading_date?
           end
         end
       end

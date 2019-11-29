@@ -8,7 +8,7 @@ module SmartAnswer::Calculators
     context MaternityPayCalculator do
       context "due date 4 months in future" do
         setup do
-          @due_date = 4.months.since(Date.today)
+          @due_date = 4.months.since(Time.zone.today)
           @start_of_week_in_four_months = @due_date - @due_date.wday
           @calculator = MaternityPayCalculator.new(@due_date)
           Timecop.travel("25 March 2013")
@@ -173,7 +173,7 @@ module SmartAnswer::Calculators
 
       context "average_weekly_earnings" do
         setup do
-          @calculator = MaternityPayCalculator.new(4.months.since(Date.today))
+          @calculator = MaternityPayCalculator.new(4.months.since(Time.zone.today))
         end
 
         should "make no calculation for a weekly pay pattern" do

@@ -6,8 +6,8 @@ module SmartAnswer
 
         ## QM1
         date_question :baby_due_date_maternity? do
-          from { 1.year.ago(Date.today) }
-          to { 2.years.since(Date.today) }
+          from { 1.year.ago(Time.zone.today) }
+          to { 2.years.since(Time.zone.today) }
 
           calculate :calculator do |response|
             Calculators::MaternityPayCalculator.new(response)
@@ -19,8 +19,8 @@ module SmartAnswer
 
         ## QM2
         date_question :date_leave_starts? do
-          from { 2.years.ago(Date.today) }
-          to { 2.years.since(Date.today) }
+          from { 2.years.ago(Time.zone.today) }
+          to { 2.years.since(Time.zone.today) }
 
           precalculate :leave_earliest_start_date do
             calculator.leave_earliest_start_date
@@ -105,8 +105,8 @@ module SmartAnswer
 
         ## QM5
         date_question :last_normal_payday? do
-          from { 2.years.ago(Date.today) }
-          to { 2.years.since(Date.today) }
+          from { 2.years.ago(Time.zone.today) }
+          to { 2.years.since(Time.zone.today) }
 
           calculate :last_payday do |response|
             calculator.last_payday = response
@@ -121,8 +121,8 @@ module SmartAnswer
 
         ## QM6
         date_question :payday_eight_weeks? do
-          from { 2.year.ago(Date.today) }
-          to { 2.years.since(Date.today) }
+          from { 2.years.ago(Time.zone.today) }
+          to { 2.years.since(Time.zone.today) }
 
           precalculate :payday_offset do
             calculator.payday_offset
@@ -343,13 +343,13 @@ module SmartAnswer
           end
 
           precalculate :total_smp do
-            unless not_entitled_to_pay_reason.present?
+            if not_entitled_to_pay_reason.blank?
               sprintf("%.2f", calculator.total_statutory_pay)
             end
           end
 
           precalculate :pay_dates_and_pay do
-            unless not_entitled_to_pay_reason.present?
+            if not_entitled_to_pay_reason.blank?
               lines = calculator.paydates_and_pay.map do |date_and_pay|
                 %(#{date_and_pay[:date].strftime('%e %B %Y')}|£#{sprintf('%.2f', date_and_pay[:pay])})
               end

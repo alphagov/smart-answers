@@ -50,7 +50,7 @@ module SmartAnswer
 
       should "set adoption_is_from_overseas to false when answering with 'no'" do
         @question.answer_with("no")
-        refute(@question.next_node.adoption_is_from_overseas)
+        assert_not(@question.next_node.adoption_is_from_overseas)
       end
     end
 
@@ -61,7 +61,7 @@ module SmartAnswer
       end
 
       should "ask date_of_adoption_placement? next" do
-        @question.answer_with(Date.today)
+        @question.answer_with(Time.zone.today)
         assert_node_has_name(:date_of_adoption_placement?, @question.next_node)
       end
     end
@@ -79,7 +79,7 @@ module SmartAnswer
         end
 
         should "ask adoption_did_the_employee_work_for_you? next" do
-          @question.answer_with(Date.today)
+          @question.answer_with(Time.zone.today)
           assert_node_has_name(:adoption_did_the_employee_work_for_you?, @question.next_node)
         end
 
@@ -298,7 +298,7 @@ module SmartAnswer
       setup do
         @question = TestNode.new(@flow, :last_normal_payday_adoption?)
           .with_stubbed_calculator
-          .with(to_saturday: Date.today)
+          .with(to_saturday: Time.zone.today)
       end
 
       should "ask payday_eight_weeks_adoption?" do
@@ -310,7 +310,7 @@ module SmartAnswer
     context "when answering payday_eight_weeks_adoption?" do
       setup do
         @question = TestNode.new(@flow, :payday_eight_weeks_adoption?)
-          .with_stubbed_calculator(payday_offset: Date.today)
+          .with_stubbed_calculator(payday_offset: Time.zone.today)
       end
 
       should "ask pay_frequency_adoption?" do

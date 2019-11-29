@@ -51,7 +51,7 @@ module SmartAnswer::Calculators
     def available_days
       SmartAnswer::DateRange.new(
         begins_on: start_of_holiday_year,
-        ends_on: Date.today,
+        ends_on: Time.zone.today,
       ).non_inclusive_days
     end
 

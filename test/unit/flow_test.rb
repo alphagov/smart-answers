@@ -184,7 +184,7 @@ class FlowTest < ActiveSupport::TestCase
   test "should not be draft" do
     s = SmartAnswer::Flow.new {}
 
-    refute s.draft?
+    assert_not s.draft?
   end
 
   test "should be draft if status is draft" do

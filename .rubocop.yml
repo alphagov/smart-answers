@@ -1,6 +1,7 @@
 inherit_gem:
   rubocop-govuk:
     - config/default.yml
+    - config/rails.yml
 
 AllCops:
   Exclude:
@@ -18,3 +19,8 @@ Metrics/BlockLength:
     - 'lib/smart_answer_flows/**/*.rb'
     - 'test/**/*.rb'
     - 'spec/**/*.rb'
+
+Rails/OutputSafety:
+  Enabled: false
+Rails/HelperInstanceVariable:
+  Enabled: false

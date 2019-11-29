@@ -33,7 +33,7 @@ module SmartAnswer
 
         should "not be valid if current PIW would be empty" do
           @calculator.sick_end_date = @date - 1
-          refute @calculator.valid_last_sick_day?
+          assert_not @calculator.valid_last_sick_day?
         end
       end
 
@@ -50,7 +50,7 @@ module SmartAnswer
 
         should "not be valid if linked PIW begins on same day as current PIW" do
           @calculator.linked_sickness_start_date = @date
-          refute @calculator.valid_linked_sickness_start_date?
+          assert_not @calculator.valid_linked_sickness_start_date?
         end
       end
 
@@ -70,7 +70,7 @@ module SmartAnswer
 
         should "not be valid if gap between linked PIW and current PIW is more than 8 weeks" do
           @calculator.linked_sickness_end_date = @date - 8.weeks - 2.days
-          refute @calculator.within_eight_weeks_of_current_sickness_period?
+          assert_not @calculator.within_eight_weeks_of_current_sickness_period?
         end
       end
 
@@ -90,7 +90,7 @@ module SmartAnswer
 
         should "not be valid if there is no gap between linked PIW and current PIW" do
           @calculator.linked_sickness_end_date = @date - 1.day
-          refute @calculator.at_least_1_day_before_first_sick_day?
+          assert_not @calculator.at_least_1_day_before_first_sick_day?
         end
       end
 
@@ -112,7 +112,7 @@ module SmartAnswer
             sick_start_date: @date,
             sick_end_date: @date + 2.days,
           )
-          refute calculator.valid_period_of_incapacity_for_work?
+          assert_not calculator.valid_period_of_incapacity_for_work?
         end
       end
 
@@ -131,7 +131,7 @@ module SmartAnswer
 
         should "not be valid if current PIW is less than 4 days long" do
           @calculator.linked_sickness_end_date = @date + 2.days
-          refute @calculator.valid_linked_period_of_incapacity_for_work?
+          assert_not @calculator.valid_linked_period_of_incapacity_for_work?
         end
       end
 
@@ -148,7 +148,7 @@ module SmartAnswer
 
         should "not be valid if last payday is not before current PIW" do
           @calculator.relevant_period_to = @date
-          refute @calculator.valid_last_payday_before_sickness?
+          assert_not @calculator.valid_last_payday_before_sickness?
         end
       end
 
@@ -166,7 +166,7 @@ module SmartAnswer
 
         should "not be valid if last payday is more than one day after offset date" do
           @calculator.relevant_period_from = @calculator.pay_day_offset + 2.days
-          refute @calculator.valid_last_payday_before_offset?
+          assert_not @calculator.valid_last_payday_before_offset?
         end
       end
 
@@ -183,7 +183,7 @@ module SmartAnswer
 
         should "not be valid if it includes letters" do
           @calculator.contractual_days_covered_by_earnings = "4 weeks"
-          refute @calculator.valid_contractual_days_covered_by_earnings?
+          assert_not @calculator.valid_contractual_days_covered_by_earnings?
         end
       end
 

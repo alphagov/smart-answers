@@ -63,12 +63,12 @@ private
       StatePensionDate.new(:both, Date.new(1961, 1, 6), Date.new(1961, 2, 5), 66.years.since(dob) + 10.months),
       StatePensionDate.new(:both, Date.new(1961, 2, 6), Date.new(1961, 3, 5), 66.years.since(dob) + 11.months),
       StatePensionDate.new(:both, Date.new(1961, 3, 6), Date.new(1977, 4, 5), 67.years.since(dob)),
-      StatePensionDate.new(:both, Date.new(1978, 4, 6), Date.today + 1, 68.years.since(dob)),
+      StatePensionDate.new(:both, Date.new(1978, 4, 6), Time.zone.today + 1, 68.years.since(dob)),
     ]
   end
 
   def pension_dates_static
-    YAML.load_file(Rails.root.join("lib", "data", "state_pension_dates.yml"))
+    YAML.load_file(Rails.root.join("lib/data/state_pension_dates.yml"))
   end
 end
 # rubocop:enable Metrics/BlockLength

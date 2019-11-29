@@ -55,7 +55,7 @@ module SmartAnswer
       should "return a new state instance" do
         calculation = Calculation.new(:bar) {}
         new_state = calculation.evaluate(@state)
-        refute_same @state, new_state
+        assert_not_same @state, new_state
       end
 
       should "freeze new state" do

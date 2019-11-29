@@ -112,7 +112,7 @@ module SmartAnswer::Calculators
 
       should "be invalid if filing date is before start of next tax year" do
         @calculator.filing_date = @calculator.start_of_next_tax_year - 1
-        refute @calculator.valid_filing_date?
+        assert_not @calculator.valid_filing_date?
       end
     end
 
@@ -124,7 +124,7 @@ module SmartAnswer::Calculators
 
       should "be invalid if filing date is before filing date" do
         @calculator.payment_date = @calculator.filing_date - 1
-        refute @calculator.valid_payment_date?
+        assert_not @calculator.valid_payment_date?
       end
     end
 
@@ -142,7 +142,7 @@ module SmartAnswer::Calculators
 
       context "filed or paid late" do
         should "confirm payment was made late" do
-          refute @calculator.paid_on_time?
+          assert_not @calculator.paid_on_time?
         end
 
         should "calculate late filing penalty" do
@@ -294,7 +294,7 @@ module SmartAnswer::Calculators
           @calculator.payment_date = Date.parse("2014-02-01")
         end
         should "confirm payment was made late" do
-          refute @calculator.paid_on_time?
+          assert_not @calculator.paid_on_time?
         end
       end
     end

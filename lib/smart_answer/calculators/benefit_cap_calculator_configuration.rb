@@ -61,7 +61,7 @@ module SmartAnswer::Calculators
   private
 
     def data
-      @data ||= YAML.load_file(Rails.root.join("lib", "data", "benefit_cap_data.yml")).with_indifferent_access
+      @data ||= YAML.load_file(Rails.root.join("lib/data/benefit_cap_data.yml")).with_indifferent_access
     end
   end
 end

@@ -17,7 +17,7 @@ module SmartAnswer
     end
 
     def current
-      including(Date.today)
+      including(Time.zone.today)
     end
   end
 end

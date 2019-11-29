@@ -162,7 +162,7 @@ class CalculateAgriculturalHolidayEntitlementTest < ActiveSupport::TestCase
     context "My holiday starts on august 1 2012" do
       setup do
         # Fix today's date
-        Date.stubs(:today).returns Date.civil(2012, 6, 17)
+        Time.zone.stubs(:today).returns Date.civil(2012, 6, 17)
         add_response "2012-08-01"
       end
 
@@ -201,7 +201,7 @@ class CalculateAgriculturalHolidayEntitlementTest < ActiveSupport::TestCase
     context "My holiday starts on feb 1 2013" do
       setup do
         # Fix today's date
-        Date.stubs(:today).returns Date.civil(2012, 11, 2)
+        Time.zone.stubs(:today).returns Date.civil(2012, 11, 2)
         add_response "2013-02-01"
       end
 

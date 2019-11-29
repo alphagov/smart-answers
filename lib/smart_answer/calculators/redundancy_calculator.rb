@@ -57,7 +57,7 @@ module SmartAnswer::Calculators
     end
 
     def self.between_january_and_august?
-      Date.today.month < 9
+      Time.zone.today.month < 9
     end
 
     def self.four_years_ago
@@ -69,11 +69,11 @@ module SmartAnswer::Calculators
     end
 
     def self.end_of_current_year
-      Date.today.end_of_year
+      Time.zone.today.end_of_year
     end
 
     def self.end_of_next_year
-      Date.today.next_year.end_of_year
+      Time.zone.today.next_year.end_of_year
     end
 
     private_class_method :between_january_and_august?, :four_years_ago, :three_years_ago, :end_of_current_year, :end_of_next_year

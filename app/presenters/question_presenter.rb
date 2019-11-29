@@ -26,7 +26,7 @@ class QuestionPresenter < NodePresenter
 
   def error_message_for(key)
     message = @renderer.single_line_of_content_for(key.to_sym)
-    message.blank? ? nil : message
+    message.presence
   end
 
   def hint

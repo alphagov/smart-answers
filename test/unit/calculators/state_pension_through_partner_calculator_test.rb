@@ -14,17 +14,17 @@ module SmartAnswer::Calculators
 
         should "be false when widowed" do
           @calculator.marital_status = "widowed"
-          refute @calculator.widow_and_new_pension?
+          assert_not @calculator.widow_and_new_pension?
         end
 
         should "be false when married" do
           @calculator.marital_status = "married"
-          refute @calculator.widow_and_new_pension?
+          assert_not @calculator.widow_and_new_pension?
         end
 
         should "be false when divorced" do
           @calculator.marital_status = "divorced"
-          refute @calculator.widow_and_new_pension?
+          assert_not @calculator.widow_and_new_pension?
         end
       end
 
@@ -40,12 +40,12 @@ module SmartAnswer::Calculators
 
         should "be false when married" do
           @calculator.marital_status = "married"
-          refute @calculator.widow_and_new_pension?
+          assert_not @calculator.widow_and_new_pension?
         end
 
         should "be false when divorced" do
           @calculator.marital_status = "divorced"
-          refute @calculator.widow_and_new_pension?
+          assert_not @calculator.widow_and_new_pension?
         end
       end
     end
@@ -63,12 +63,12 @@ module SmartAnswer::Calculators
 
         should "be false when married" do
           @calculator.marital_status = "married"
-          refute @calculator.widow_and_old_pension?
+          assert_not @calculator.widow_and_old_pension?
         end
 
         should "be false when divorced" do
           @calculator.marital_status = "divorced"
-          refute @calculator.widow_and_old_pension?
+          assert_not @calculator.widow_and_old_pension?
         end
       end
 
@@ -79,17 +79,17 @@ module SmartAnswer::Calculators
 
         should "be false when widowed" do
           @calculator.marital_status = "widowed"
-          refute @calculator.widow_and_old_pension?
+          assert_not @calculator.widow_and_old_pension?
         end
 
         should "be false when married" do
           @calculator.marital_status = "married"
-          refute @calculator.widow_and_old_pension?
+          assert_not @calculator.widow_and_old_pension?
         end
 
         should "be false when divorced" do
           @calculator.marital_status = "divorced"
-          refute @calculator.widow_and_old_pension?
+          assert_not @calculator.widow_and_old_pension?
         end
       end
     end
@@ -112,7 +112,7 @@ module SmartAnswer::Calculators
 
           should "be false when partner reached pension age after specific date" do
             @calculator.when_will_your_partner_reach_pension_age = "partner_pension_age_after_specific_date"
-            refute @calculator.current_rules_no_additional_pension?
+            assert_not @calculator.current_rules_no_additional_pension?
           end
         end
 
@@ -123,12 +123,12 @@ module SmartAnswer::Calculators
 
           should "be false when partner reached pension age before specific date" do
             @calculator.when_will_your_partner_reach_pension_age = "partner_pension_age_before_specific_date"
-            refute @calculator.current_rules_no_additional_pension?
+            assert_not @calculator.current_rules_no_additional_pension?
           end
 
           should "be false when partner reached pension age after specific date" do
             @calculator.when_will_your_partner_reach_pension_age = "partner_pension_age_after_specific_date"
-            refute @calculator.current_rules_no_additional_pension?
+            assert_not @calculator.current_rules_no_additional_pension?
           end
         end
       end
@@ -145,12 +145,12 @@ module SmartAnswer::Calculators
 
           should "be false when partner reached pension age before specific date" do
             @calculator.when_will_your_partner_reach_pension_age = "partner_pension_age_before_specific_date"
-            refute @calculator.current_rules_no_additional_pension?
+            assert_not @calculator.current_rules_no_additional_pension?
           end
 
           should "be false when partner reached pension age after specific date" do
             @calculator.when_will_your_partner_reach_pension_age = "partner_pension_age_after_specific_date"
-            refute @calculator.current_rules_no_additional_pension?
+            assert_not @calculator.current_rules_no_additional_pension?
           end
         end
 
@@ -161,12 +161,12 @@ module SmartAnswer::Calculators
 
           should "be false when partner reached pension age before specific date" do
             @calculator.when_will_your_partner_reach_pension_age = "partner_pension_age_before_specific_date"
-            refute @calculator.current_rules_no_additional_pension?
+            assert_not @calculator.current_rules_no_additional_pension?
           end
 
           should "be false when partner reached pension age after specific date" do
             @calculator.when_will_your_partner_reach_pension_age = "partner_pension_age_after_specific_date"
-            refute @calculator.current_rules_no_additional_pension?
+            assert_not @calculator.current_rules_no_additional_pension?
           end
         end
       end
@@ -183,12 +183,12 @@ module SmartAnswer::Calculators
 
           should "be false when partner reached pension age before specific date" do
             @calculator.when_will_your_partner_reach_pension_age = "partner_pension_age_before_specific_date"
-            refute @calculator.current_rules_no_additional_pension?
+            assert_not @calculator.current_rules_no_additional_pension?
           end
 
           should "be false when partner reached pension age after specific date" do
             @calculator.when_will_your_partner_reach_pension_age = "partner_pension_age_after_specific_date"
-            refute @calculator.current_rules_no_additional_pension?
+            assert_not @calculator.current_rules_no_additional_pension?
           end
         end
 
@@ -199,12 +199,12 @@ module SmartAnswer::Calculators
 
           should "be false when partner reached pension age before specific date" do
             @calculator.when_will_your_partner_reach_pension_age = "partner_pension_age_before_specific_date"
-            refute @calculator.current_rules_no_additional_pension?
+            assert_not @calculator.current_rules_no_additional_pension?
           end
 
           should "be false when partner reached pension age after specific date" do
             @calculator.when_will_your_partner_reach_pension_age = "partner_pension_age_after_specific_date"
-            refute @calculator.current_rules_no_additional_pension?
+            assert_not @calculator.current_rules_no_additional_pension?
           end
         end
       end
@@ -223,7 +223,7 @@ module SmartAnswer::Calculators
 
           should "be false when partner reached pension age before specific date" do
             @calculator.when_will_your_partner_reach_pension_age = "partner_pension_age_before_specific_date"
-            refute @calculator.current_rules_national_insurance_no_state_pension?
+            assert_not @calculator.current_rules_national_insurance_no_state_pension?
           end
 
           should "be true when partner reached pension age after specific date" do
@@ -239,12 +239,12 @@ module SmartAnswer::Calculators
 
           should "be false when partner reached pension age before specific date" do
             @calculator.when_will_your_partner_reach_pension_age = "partner_pension_age_before_specific_date"
-            refute @calculator.current_rules_national_insurance_no_state_pension?
+            assert_not @calculator.current_rules_national_insurance_no_state_pension?
           end
 
           should "be false when partner reached pension age after specific date" do
             @calculator.when_will_your_partner_reach_pension_age = "partner_pension_age_after_specific_date"
-            refute @calculator.current_rules_national_insurance_no_state_pension?
+            assert_not @calculator.current_rules_national_insurance_no_state_pension?
           end
         end
       end
@@ -261,12 +261,12 @@ module SmartAnswer::Calculators
 
           should "be false when partner reached pension age before specific date" do
             @calculator.when_will_your_partner_reach_pension_age = "partner_pension_age_before_specific_date"
-            refute @calculator.current_rules_national_insurance_no_state_pension?
+            assert_not @calculator.current_rules_national_insurance_no_state_pension?
           end
 
           should "be false when partner reached pension age after specific date" do
             @calculator.when_will_your_partner_reach_pension_age = "partner_pension_age_after_specific_date"
-            refute @calculator.current_rules_national_insurance_no_state_pension?
+            assert_not @calculator.current_rules_national_insurance_no_state_pension?
           end
         end
 
@@ -277,12 +277,12 @@ module SmartAnswer::Calculators
 
           should "be false when partner reached pension age before specific date" do
             @calculator.when_will_your_partner_reach_pension_age = "partner_pension_age_before_specific_date"
-            refute @calculator.current_rules_national_insurance_no_state_pension?
+            assert_not @calculator.current_rules_national_insurance_no_state_pension?
           end
 
           should "be false when partner reached pension age after specific date" do
             @calculator.when_will_your_partner_reach_pension_age = "partner_pension_age_after_specific_date"
-            refute @calculator.current_rules_national_insurance_no_state_pension?
+            assert_not @calculator.current_rules_national_insurance_no_state_pension?
           end
         end
       end
@@ -299,12 +299,12 @@ module SmartAnswer::Calculators
 
           should "be false when partner reached pension age before specific date" do
             @calculator.when_will_your_partner_reach_pension_age = "partner_pension_age_before_specific_date"
-            refute @calculator.current_rules_national_insurance_no_state_pension?
+            assert_not @calculator.current_rules_national_insurance_no_state_pension?
           end
 
           should "be false when partner reached pension age after specific date" do
             @calculator.when_will_your_partner_reach_pension_age = "partner_pension_age_after_specific_date"
-            refute @calculator.current_rules_national_insurance_no_state_pension?
+            assert_not @calculator.current_rules_national_insurance_no_state_pension?
           end
         end
 
@@ -315,12 +315,12 @@ module SmartAnswer::Calculators
 
           should "be false when partner reached pension age before specific date" do
             @calculator.when_will_your_partner_reach_pension_age = "partner_pension_age_before_specific_date"
-            refute @calculator.current_rules_national_insurance_no_state_pension?
+            assert_not @calculator.current_rules_national_insurance_no_state_pension?
           end
 
           should "be false when partner reached pension age after specific date" do
             @calculator.when_will_your_partner_reach_pension_age = "partner_pension_age_after_specific_date"
-            refute @calculator.current_rules_national_insurance_no_state_pension?
+            assert_not @calculator.current_rules_national_insurance_no_state_pension?
           end
         end
       end

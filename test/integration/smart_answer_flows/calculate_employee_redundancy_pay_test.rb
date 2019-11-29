@@ -330,7 +330,7 @@ class CalculateEmployeeRedundancyPayTest < ActiveSupport::TestCase
 
   context "answer tomorrow" do
     setup do
-      add_response((Date.today + 1.day).to_s)
+      add_response((Time.zone.today + 1.day).to_s)
     end
 
     should "ask employee age" do

@@ -70,7 +70,7 @@ module SmartAnswer
 
     should "not respond_to reader method for attribute that hasn't previously been set" do
       state = State.new(:start_node)
-      refute state.respond_to?(:new_attribute)
+      assert_not state.respond_to?(:new_attribute)
     end
 
     should "respond_to writer method for attribute set in constructor" do

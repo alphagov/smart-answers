@@ -27,7 +27,7 @@ module SmartAnswer::Calculators
     end
 
     def self.prisoner_packs
-      @prisoner_packs ||= YAML::load_file(Rails.root.join("lib", "data", "prisoner_packs.yml"))
+      @prisoner_packs ||= YAML::load_file(Rails.root.join("lib/data/prisoner_packs.yml"))
     end
 
     def countries_with_regions

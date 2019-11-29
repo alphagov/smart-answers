@@ -28,7 +28,7 @@ module SmartAnswer
       # you are entitled to based on your age and income.
 
       def age_related_allowance(birth_date)
-        if Date.today > AGE_VERSUS_DOB_CHANGEOVER_DATE
+        if Time.zone.today > AGE_VERSUS_DOB_CHANGEOVER_DATE
           if birth_date > HIGHER_ALLOWANCE_1_DOB
             personal_allowance
           elsif birth_date > HIGHER_ALLOWANCE_2_DOB

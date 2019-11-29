@@ -104,10 +104,10 @@ class CheckboxQuestionsTest < EngineIntegrationTest
 
       check("Definitely no toppings", visible: false)
       check("Hmm I'm not sure, ask me again please", visible: false)
-      refute page.has_checked_field?("Definitely no toppings")
+      assert_not page.has_checked_field?("Definitely no toppings")
 
       check("Definitely no toppings", visible: false)
-      refute page.has_checked_field?("Hmm I'm not sure, ask me again please")
+      assert_not page.has_checked_field?("Hmm I'm not sure, ask me again please")
       click_on "Next step"
 
       assert_current_url "/checkbox-sample/y/none/none"

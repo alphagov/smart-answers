@@ -147,14 +147,14 @@ module SmartAnswer
 
     test "range returns false when only the from date is set" do
       q = Question::Date.new(nil, :question_name) do
-        from { Date.today }
+        from { Time.zone.today }
       end
       assert_equal false, q.range
     end
 
     test "range returns false when only the to date is set" do
       q = Question::Date.new(nil, :question_name) do
-        to { Date.today }
+        to { Time.zone.today }
       end
       assert_equal false, q.range
     end

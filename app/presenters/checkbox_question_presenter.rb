@@ -16,7 +16,7 @@ class CheckboxQuestionPresenter < QuestionWithOptionsPresenter
   end
 
   def hint_text
-    none_option_prefix.present? ? none_option_prefix : hint
+    none_option_prefix.presence || hint
   end
 
   def checkboxes

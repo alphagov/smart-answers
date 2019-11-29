@@ -27,7 +27,7 @@ module SmartAnswer::Calculators
       end
 
       should "determine that the rules do not apply" do
-        refute @calculator.rules_apply?
+        assert_not @calculator.rules_apply?
       end
     end
 
@@ -98,7 +98,7 @@ module SmartAnswer::Calculators
     should "return false when nationality is from somewhere else" do
       @calculator.nationality = "non-eea"
 
-      refute @calculator.from_somewhere_else?
+      assert_not @calculator.from_somewhere_else?
     end
 
     context "when Imminence responds with an error" do

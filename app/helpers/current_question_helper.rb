@@ -34,7 +34,7 @@ module CurrentQuestionHelper
     elsif params[:response]
       response = params[:response]
     end
-    if !response.blank? && attribute
+    if response.present? && attribute
       begin
         response[attribute]
       rescue TypeError

@@ -18,7 +18,7 @@ class HtmlEscapingUserInputTest < EngineIntegrationTest
     should "escape user input interpolated into outcome ERB template" do
       assert page.has_content?("text-before-user-input"), "Not on outcome page"
       assert page.has_content?("text-after-user-input"), "Not on outcome page"
-      refute page.has_css?("script#naughty", text: @javascript, visible: false), "Includes unsafe HTML"
+      assert_not page.has_css?("script#naughty", text: @javascript, visible: false), "Includes unsafe HTML"
     end
   end
 end

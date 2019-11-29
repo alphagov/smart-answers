@@ -43,7 +43,7 @@ module SmartAnswer
       end
 
       date_question :whats_the_husbands_date_of_birth? do
-        from { Date.today.end_of_year }
+        from { Time.zone.today.end_of_year }
         to { Date.parse("1 Jan 1896") }
 
         on_response do |response|
@@ -57,7 +57,7 @@ module SmartAnswer
 
       date_question :whats_the_highest_earners_date_of_birth? do
         to { Date.parse("1 Jan 1896") }
-        from { Date.today.end_of_year }
+        from { Time.zone.today.end_of_year }
 
         on_response do |response|
           calculator.birth_date = response

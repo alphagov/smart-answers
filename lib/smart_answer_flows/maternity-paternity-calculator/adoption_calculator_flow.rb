@@ -203,8 +203,8 @@ module SmartAnswer
         end
 
         date_question :last_normal_payday_adoption? do
-          from { 2.years.ago(Date.today) }
-          to { 2.years.since(Date.today) }
+          from { 2.years.ago(Time.zone.today) }
+          to { 2.years.since(Time.zone.today) }
 
           calculate :last_payday do |response|
             last_payday = response
@@ -219,8 +219,8 @@ module SmartAnswer
         end
 
         date_question :payday_eight_weeks_adoption? do
-          from { 2.year.ago(Date.today) }
-          to { 2.years.since(Date.today) }
+          from { 2.years.ago(Time.zone.today) }
+          to { 2.years.since(Time.zone.today) }
 
           precalculate :payday_offset do
             calculator.payday_offset

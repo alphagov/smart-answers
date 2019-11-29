@@ -15,7 +15,7 @@ module SmartAnswer::Calculators
     end
 
     def can_apply?
-      Date.today >= earliest_application_date
+      Time.zone.today >= earliest_application_date
     end
 
     def pension_on_feb_29?
@@ -41,7 +41,7 @@ module SmartAnswer::Calculators
     end
 
     def before_state_pension_date?(days: 0)
-      Date.today < state_pension_date - days.days
+      Time.zone.today < state_pension_date - days.days
     end
 
     def bus_pass_qualification_date
@@ -53,7 +53,7 @@ module SmartAnswer::Calculators
     end
 
     def before_pension_credit_date?(days: 0)
-      Date.today < pension_credit_date - days.days
+      Time.zone.today < pension_credit_date - days.days
     end
 
     def old_state_pension?

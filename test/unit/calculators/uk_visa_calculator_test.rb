@@ -13,7 +13,7 @@ module SmartAnswer
         should "return false if passport_country is not in list of EEA countries" do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "made-up-country"
-          refute calculator.passport_country_in_eea?
+          assert_not calculator.passport_country_in_eea?
         end
       end
 
@@ -27,7 +27,7 @@ module SmartAnswer
         should "return false if passport_country is not in list of visa national countries" do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "made-up-country"
-          refute calculator.passport_country_in_visa_national_list?
+          assert_not calculator.passport_country_in_visa_national_list?
         end
       end
 
@@ -41,7 +41,7 @@ module SmartAnswer
         should "return false if passport_country is not in list of non-visa national countries" do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "made-up-country"
-          refute calculator.passport_country_in_non_visa_national_list?
+          assert_not calculator.passport_country_in_non_visa_national_list?
         end
       end
 
@@ -55,7 +55,7 @@ module SmartAnswer
         should "return false if passport_country is not in list of uk overseas territories" do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "made-up-country"
-          refute calculator.passport_country_in_ukot_list?
+          assert_not calculator.passport_country_in_ukot_list?
         end
       end
 
@@ -69,7 +69,7 @@ module SmartAnswer
         should "return false if passport_country is not in list of countries requiring a direct airside transit visa" do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "made-up-country"
-          refute calculator.passport_country_in_datv_list?
+          assert_not calculator.passport_country_in_datv_list?
         end
       end
 
@@ -83,7 +83,7 @@ module SmartAnswer
         should 'return false if purpose_of_visit_answer is not "tourism"' do
           calculator = UkVisaCalculator.new
           calculator.purpose_of_visit_answer = "not-tourism"
-          refute calculator.tourism_visit?
+          assert_not calculator.tourism_visit?
         end
       end
 
@@ -97,7 +97,7 @@ module SmartAnswer
         should 'return false if purpose_of_visit_answer is not "work"' do
           calculator = UkVisaCalculator.new
           calculator.purpose_of_visit_answer = "not-work"
-          refute calculator.work_visit?
+          assert_not calculator.work_visit?
         end
       end
 
@@ -111,7 +111,7 @@ module SmartAnswer
         should 'return false if purpose_of_visit_answer is not "study"' do
           calculator = UkVisaCalculator.new
           calculator.purpose_of_visit_answer = "not-study"
-          refute calculator.study_visit?
+          assert_not calculator.study_visit?
         end
       end
 
@@ -125,7 +125,7 @@ module SmartAnswer
         should 'return false if purpose_of_visit_answer is not "transit"' do
           calculator = UkVisaCalculator.new
           calculator.purpose_of_visit_answer = "not-transit"
-          refute calculator.transit_visit?
+          assert_not calculator.transit_visit?
         end
       end
 
@@ -139,7 +139,7 @@ module SmartAnswer
         should 'return false if purpose_of_visit_answer is not "family"' do
           calculator = UkVisaCalculator.new
           calculator.purpose_of_visit_answer = "not-family"
-          refute calculator.family_visit?
+          assert_not calculator.family_visit?
         end
       end
 
@@ -153,7 +153,7 @@ module SmartAnswer
         should 'return false if purpose_of_visit_answer is not "marriage"' do
           calculator = UkVisaCalculator.new
           calculator.purpose_of_visit_answer = "not-marriage"
-          refute calculator.marriage_visit?
+          assert_not calculator.marriage_visit?
         end
       end
 
@@ -167,7 +167,7 @@ module SmartAnswer
         should 'return false if purpose_of_visit_answer is not "school"' do
           calculator = UkVisaCalculator.new
           calculator.purpose_of_visit_answer = "not-school"
-          refute calculator.school_visit?
+          assert_not calculator.school_visit?
         end
       end
 
@@ -181,7 +181,7 @@ module SmartAnswer
         should 'return false if purpose_of_visit_answer is not "medical"' do
           calculator = UkVisaCalculator.new
           calculator.purpose_of_visit_answer = "not-medical"
-          refute calculator.medical_visit?
+          assert_not calculator.medical_visit?
         end
       end
 
@@ -195,7 +195,7 @@ module SmartAnswer
         should 'return false if purpose_of_visit_answer is not "diplomatic"' do
           calculator = UkVisaCalculator.new
           calculator.purpose_of_visit_answer = "not-diplomatic"
-          refute calculator.diplomatic_visit?
+          assert_not calculator.diplomatic_visit?
         end
       end
 
@@ -209,7 +209,7 @@ module SmartAnswer
         should "return false if passport_country is not in list of youth mobility scheme countries" do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "made-up-country"
-          refute calculator.passport_country_in_youth_mobility_scheme_list?
+          assert_not calculator.passport_country_in_youth_mobility_scheme_list?
         end
       end
 
@@ -223,7 +223,7 @@ module SmartAnswer
         should "return false if passport_country is not in list of countries that can apply for an electronic visa waiver" do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "made-up-country"
-          refute calculator.passport_country_in_electronic_visa_waiver_list?
+          assert_not calculator.passport_country_in_electronic_visa_waiver_list?
         end
       end
 
@@ -237,7 +237,7 @@ module SmartAnswer
         should "return false if passport_country is not in list of countries that can use ePassport Gates" do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "made-up-country"
-          refute calculator.passport_country_in_epassport_gate_list?
+          assert_not calculator.passport_country_in_epassport_gate_list?
         end
       end
 
@@ -251,7 +251,7 @@ module SmartAnswer
         should "return false if passport_country is not in list of countries to which the b1/b2 visa exception applies" do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "made-up-country"
-          refute calculator.passport_country_in_b1_b2_visa_exception_list?
+          assert_not calculator.passport_country_in_b1_b2_visa_exception_list?
         end
       end
 
@@ -265,7 +265,7 @@ module SmartAnswer
         should 'return false if passport_country is not "israel"' do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "made-up-country"
-          refute calculator.passport_country_is_israel?
+          assert_not calculator.passport_country_is_israel?
         end
       end
 
@@ -279,7 +279,7 @@ module SmartAnswer
         should 'return false if passport_country is not "taiwan"' do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "made-up-country"
-          refute calculator.passport_country_is_taiwan?
+          assert_not calculator.passport_country_is_taiwan?
         end
       end
 
@@ -293,7 +293,7 @@ module SmartAnswer
         should 'return false if passport_country is not "venezuela"' do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "made-up-country"
-          refute calculator.passport_country_is_venezuela?
+          assert_not calculator.passport_country_is_venezuela?
         end
       end
 
@@ -307,7 +307,7 @@ module SmartAnswer
         should 'return false if passport_country is not "croatia"' do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "made-up-country"
-          refute calculator.passport_country_is_croatia?
+          assert_not calculator.passport_country_is_croatia?
         end
       end
 
@@ -321,7 +321,7 @@ module SmartAnswer
         should 'return false if passport_country is not "china"' do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "made-up-country"
-          refute calculator.passport_country_is_china?
+          assert_not calculator.passport_country_is_china?
         end
       end
 
@@ -335,7 +335,7 @@ module SmartAnswer
         should 'return false if passport_country is not "turkey"' do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "made-up-country"
-          refute calculator.passport_country_is_turkey?
+          assert_not calculator.passport_country_is_turkey?
         end
       end
 
@@ -349,7 +349,7 @@ module SmartAnswer
         should "return false if passport_country is not Estonia" do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "not-estonia"
-          refute calculator.passport_country_is_estonia?
+          assert_not calculator.passport_country_is_estonia?
         end
 
         should "return true of user has an alien passport" do
@@ -369,11 +369,11 @@ module SmartAnswer
         should 'return false if passport_country is not "hong-kong"' do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "not-hong-kong"
-          refute calculator.passport_country_is_hong_kong?
+          assert_not calculator.passport_country_is_hong_kong?
 
           calculator = UkVisaCalculator.new
           calculator.passport_country = "hong-kong-(british-national-overseas)"
-          refute calculator.passport_country_is_hong_kong?
+          assert_not calculator.passport_country_is_hong_kong?
         end
       end
 
@@ -387,7 +387,7 @@ module SmartAnswer
         should "return false if passport_country is not Latvia" do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "not-latvia"
-          refute calculator.passport_country_is_latvia?
+          assert_not calculator.passport_country_is_latvia?
         end
 
         should "return true of user has an alien passport" do
@@ -407,7 +407,7 @@ module SmartAnswer
         should 'return false if passport_country is not "macao"' do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "not-macao"
-          refute calculator.passport_country_is_macao?
+          assert_not calculator.passport_country_is_macao?
         end
       end
 
@@ -421,7 +421,7 @@ module SmartAnswer
         should 'return false if passport_country is not "stateless-or-refugee"' do
           calculator = UkVisaCalculator.new
           calculator.passport_country = "not-stateless-or-refugee"
-          refute calculator.applicant_is_stateless_or_a_refugee?
+          assert_not calculator.applicant_is_stateless_or_a_refugee?
         end
       end
 
@@ -435,7 +435,7 @@ module SmartAnswer
         should 'return false if passing_through_uk_border_control_answer is "no"' do
           calculator = UkVisaCalculator.new
           calculator.passing_through_uk_border_control_answer = "no"
-          refute calculator.passing_through_uk_border_control?
+          assert_not calculator.passing_through_uk_border_control?
         end
       end
 
@@ -450,7 +450,7 @@ module SmartAnswer
           should 'return false if travelling_to_cta_answer is not equal to "channel_islands_or_isle_of_man"' do
             calculator = UkVisaCalculator.new
             calculator.travelling_to_cta_answer = "something_else"
-            refute calculator.travelling_to_channel_islands_or_isle_of_man?
+            assert_not calculator.travelling_to_channel_islands_or_isle_of_man?
           end
         end
 
@@ -464,7 +464,7 @@ module SmartAnswer
           should 'return false if travelling_to_cta_answer is "republic_of_ireland"' do
             calculator = UkVisaCalculator.new
             calculator.travelling_to_cta_answer = "something_else"
-            refute calculator.travelling_to_ireland?
+            assert_not calculator.travelling_to_ireland?
           end
         end
 
@@ -478,7 +478,7 @@ module SmartAnswer
           should 'return false if travelling_to_cta_answer is "somewhere_else"' do
             calculator = UkVisaCalculator.new
             calculator.travelling_to_cta_answer = "something_else"
-            refute calculator.travelling_to_elsewhere?
+            assert_not calculator.travelling_to_elsewhere?
           end
         end
       end

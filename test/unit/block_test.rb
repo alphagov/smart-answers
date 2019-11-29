@@ -47,7 +47,7 @@ module SmartAnswer
       should "return a new state instance" do
         block = Block.new {}
         new_state = block.evaluate(@state)
-        refute_same @state, new_state
+        assert_not_same @state, new_state
       end
 
       should "freeze new state" do

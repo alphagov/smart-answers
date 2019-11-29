@@ -145,7 +145,7 @@ module SmartAnswer::Calculators
   private
 
     def calculate_leave_year_start_date
-      worked_partial_year? ? start_date : Date.today
+      worked_partial_year? ? start_date : Time.zone.today
     end
 
     def worked_full_year?

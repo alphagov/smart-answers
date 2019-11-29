@@ -297,7 +297,7 @@ module SmartAnswer::Calculators
     end
 
     def current_statutory_rate
-      statutory_rate(Date.today)
+      statutory_rate(Time.zone.today)
     end
 
     def average_weekly_earnings_under_lower_earning_limit?

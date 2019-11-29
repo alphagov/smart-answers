@@ -67,13 +67,13 @@ class WorldLocationTest < ActiveSupport::TestCase
         assert_requested(:get, %r{\A#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations}, times: 2) # 2 pages of results, once each
         assert_equal first, second
 
-        Timecop.travel(Time.now + 23.hours) do
+        Timecop.travel(Time.zone.now + 23.hours) do
           third = WorldLocation.all
           assert_requested(:get, %r{\A#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations}, times: 2) # 2 pages of results, once each
           assert_equal first, third
         end
 
-        Timecop.travel(Time.now + 25.hours) do
+        Timecop.travel(Time.zone.now + 25.hours) do
           fourth = WorldLocation.all
           assert_requested(:get, %r{\A#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations}, times: 4) # 2 pages of results, twice each
           assert_equal first, fourth
@@ -85,14 +85,14 @@ class WorldLocationTest < ActiveSupport::TestCase
 
         stub_request(:get, "#{WORLDWIDE_API_ENDPOINT}/api/world-locations").to_timeout
 
-        Timecop.travel(Time.now + 25.hours) do
+        Timecop.travel(Time.zone.now + 25.hours) do
           assert_nothing_raised do
             second = WorldLocation.all
             assert_equal first, second
           end
         end
 
-        Timecop.travel(Time.now + 1.week + 1.hour) do
+        Timecop.travel(Time.zone.now + 1.week + 1.hour) do
           assert_raises GdsApi::TimedOutException do
             WorldLocation.all
           end
@@ -170,13 +170,13 @@ class WorldLocationTest < ActiveSupport::TestCase
         assert_requested(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan", times: 1)
         assert_equal first, second
 
-        Timecop.travel(Time.now + 23.hours) do
+        Timecop.travel(Time.zone.now + 23.hours) do
           third = WorldLocation.find("rohan")
           assert_requested(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan", times: 1)
           assert_equal first, third
         end
 
-        Timecop.travel(Time.now + 25.hours) do
+        Timecop.travel(Time.zone.now + 25.hours) do
           fourth = WorldLocation.find("rohan")
           assert_requested(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan", times: 2)
           assert_equal first, fourth
@@ -188,14 +188,14 @@ class WorldLocationTest < ActiveSupport::TestCase
 
         stub_request(:get, "#{GdsApi::TestHelpers::Worldwide::WORLDWIDE_API_ENDPOINT}/api/world-locations/rohan").to_timeout
 
-        Timecop.travel(Time.now + 25.hours) do
+        Timecop.travel(Time.zone.now + 25.hours) do
           assert_nothing_raised do
             second = WorldLocation.find("rohan")
             assert_equal first, second
           end
         end
 
-        Timecop.travel(Time.now + 1.week + 1.hour) do
+        Timecop.travel(Time.zone.now + 1.week + 1.hour) do
           assert_raises GdsApi::TimedOutException do
             WorldLocation.find("rohan")
           end
@@ -221,13 +221,13 @@ class WorldLocationTest < ActiveSupport::TestCase
     should "not consider instances with different slugs as ==" do
       loc1 = WorldLocation.find("rohan")
       loc2 = WorldLocation.find("gondor")
-      refute loc1 == loc2
+      assert_not loc1 == loc2
     end
 
     should "not consider instance of a different class as ==" do
       loc1 = WorldLocation.find("rohan")
       loc2 = OpenStruct.new(slug: "rohan")
-      refute loc1 == loc2
+      assert_not loc1 == loc2
     end
   end
 

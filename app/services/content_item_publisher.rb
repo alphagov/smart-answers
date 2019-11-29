@@ -12,19 +12,19 @@ class ContentItemPublisher
   end
 
   def unpublish(content_id)
-    raise "Content id has not been supplied" unless content_id.present?
+    raise "Content id has not been supplied" if content_id.blank?
 
     Services.publishing_api.unpublish(
       content_id,
       type: "gone",
-      unpublished_at: Time.now,
+      unpublished_at: Time.zone.now,
     )
   end
 
   def unpublish_with_redirect(content_id, path, destination)
-    raise "Content id has not been supplied" unless content_id.present?
-    raise "Path has not been supplied" unless path.present?
-    raise "Destination has not been supplied" unless destination.present?
+    raise "Content id has not been supplied" if content_id.blank?
+    raise "Path has not been supplied" if path.blank?
+    raise "Destination has not been supplied" if destination.blank?
 
     Services.publishing_api.unpublish(
       content_id,
@@ -41,7 +41,7 @@ class ContentItemPublisher
   end
 
   def unpublish_with_vanish(content_id)
-    raise "Content id has not been supplied" unless content_id.present?
+    raise "Content id has not been supplied" if content_id.blank?
 
     Services.publishing_api.unpublish(content_id, type: "vanish")
   end
@@ -57,11 +57,11 @@ class ContentItemPublisher
   end
 
   def publish_transaction(base_path, publishing_app:, title:, content:, link:)
-    raise "The base path isn't supplied" unless base_path.present?
-    raise "The publishing_app isn't supplied" unless publishing_app.present?
-    raise "The title isn't supplied" unless title.present?
-    raise "The content isn't supplied" unless content.present?
-    raise "The link isn't supplied" unless link.present?
+    raise "The base path isn't supplied" if base_path.blank?
+    raise "The publishing_app isn't supplied" if publishing_app.blank?
+    raise "The title isn't supplied" if title.blank?
+    raise "The content isn't supplied" if content.blank?
+    raise "The link isn't supplied" if link.blank?
 
     publish_transaction_via_publishing_api(
       base_path,
@@ -73,10 +73,10 @@ class ContentItemPublisher
   end
 
   def publish_answer(base_path, publishing_app:, title:, content:)
-    raise "The base path isn't supplied" unless base_path.present?
-    raise "The publishing_app isn't supplied" unless publishing_app.present?
-    raise "The title isn't supplied" unless title.present?
-    raise "The content isn't supplied" unless content.present?
+    raise "The base path isn't supplied" if base_path.blank?
+    raise "The publishing_app isn't supplied" if publishing_app.blank?
+    raise "The title isn't supplied" if title.blank?
+    raise "The content isn't supplied" if content.blank?
 
     publish_answer_via_publishing_api(
       base_path,

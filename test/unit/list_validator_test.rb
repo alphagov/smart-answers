@@ -11,27 +11,27 @@ class ListValidatorTest < ActiveSupport::TestCase
     end
 
     should "returns false if list contents are of different type" do
-      refute @list_validator.all_valid?(%w(a b c))
+      assert_not @list_validator.all_valid?(%w(a b c))
     end
 
     should "returns false if list contents aren't valid" do
-      refute @list_validator.all_valid?(%i(arbitary invalid))
+      assert_not @list_validator.all_valid?(%i(arbitary invalid))
     end
 
     should "returns false if list contains at least one invalid element" do
-      refute @list_validator.all_valid?(%i(invalid a))
+      assert_not @list_validator.all_valid?(%i(invalid a))
     end
 
     should "returns false if list isn't an array" do
-      refute @list_validator.all_valid?("string")
+      assert_not @list_validator.all_valid?("string")
     end
 
     should "returns false if list is empty" do
-      refute @list_validator.all_valid?([])
+      assert_not @list_validator.all_valid?([])
     end
 
     should "returns false if list is nil" do
-      refute @list_validator.all_valid?(nil)
+      assert_not @list_validator.all_valid?(nil)
     end
   end
 end
