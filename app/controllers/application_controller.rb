@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   rescue_from GdsApi::HTTPForbidden, with: :error_403
   rescue_from ActionController::UnknownFormat, with: :error_404
 
-  slimmer_template "wrapper"
+  slimmer_template "core_layout"
 
 protected
 
