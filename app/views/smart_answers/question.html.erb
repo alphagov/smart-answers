@@ -12,12 +12,11 @@
       title: @presenter.title,
       margin_bottom: 9
     } %>
-    <%= form_tag calculate_current_question_path(@presenter), :method => :get %>
+    <%= form_tag calculate_current_question_path(@presenter), :method => :get do %>
       <div class="govuk-!-margin-top-9" id="current-question">
-        <div class="question" data-debug-template-path="<%= question.relative_erb_template_path %>">
-          <%
-            show_body = ['salary_question', 'country_select_question'].include? question.partial_template_name
-          %>
+        <div class="question govspeak-wrapper" data-debug-template-path="<%= question.relative_erb_template_path %>">
+          <% show_body = ['salary_question', 'country_select_question'].include? question.partial_template_name %>
+
           <% if question.body.present? && show_body %>
             <article role="article">
               <%= question.body %>
@@ -31,10 +30,11 @@
 
         <input type="hidden" name="next" value="1" />
         <%= render "govuk_publishing_components/components/button", {
-          text: "Next step"
+          text: "Next step",
+          margin_bottom: true
         } %>
       </div>
-    </form>
+    <% end %>
 
     <%= render 'previous_answers' %>
   </div>

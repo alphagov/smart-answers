@@ -1,8 +1,8 @@
 <% if @presenter.current_question_number > 1 %>
-  <table class="govuk-table govuk-!-margin-top-9">
+  <table class="govuk-table">
     <caption class="govuk-table__caption">
-      Previous answers
-      <p><%= link_to "Start again", smart_answer_path(params[:id]), :class => "govuk-link" %></p>
+      <h2 class="govuk-heading-m">Previous answers</h2>
+      <p class="govuk-body"><%= link_to "Start again", smart_answer_path(params[:id]), :class => "govuk-link" %></p>
     </caption>
     <thead class="govuk-table__head">
       <tr class="govuk-table__row">

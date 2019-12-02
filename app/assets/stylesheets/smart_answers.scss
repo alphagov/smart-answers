@@ -62,3 +62,13 @@ $is-ie: false !default;
     margin-bottom: govuk-spacing(3);
   }
 }
+
+.app-c-meta-data {
+  @include govuk-font($size: 16);
+  color: $govuk-secondary-text-colour;
+}
+
+.app-o-next-steps,
+.app-o-answer {
+  margin-bottom: govuk-spacing(6);
+}
