@@ -78,7 +78,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.9.0)
     execjs (2.7.0)
-    faraday (0.17.0)
+    faraday (0.17.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.3)
     gds-api-adapters (61.0.0)
@@ -108,7 +108,7 @@ GEM
       sentry-raven (>= 2.7.1, < 2.12.0)
       statsd-ruby (~> 1.4.0)
       unicorn (>= 5.4, < 5.6)
-    govuk_publishing_components (21.13.2)
+    govuk_publishing_components (21.13.3)
       gds-api-adapters
       govuk_app_config
       kramdown
@@ -369,7 +369,7 @@ DEPENDENCIES
   govspeak (~> 6.5.1)
   govuk-content-schema-test-helpers (~> 1.6.1)
   govuk_app_config
-  govuk_publishing_components (= 21.13.2)
+  govuk_publishing_components (= 21.13.3)
   govuk_test
   htmlentities (~> 4)
   json
