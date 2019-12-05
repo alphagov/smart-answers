@@ -22,6 +22,11 @@ module SmartAnswer
           "away-outside-london" => 8_944,
           "away-in-london" => 11_672,
         },
+        "2020-2021" => {
+          "at-home" => 7_747,
+          "away-outside-london" => 9_203,
+          "away-in-london" => 12_010,
+        },
       }.freeze
       REDUCED_MAINTENTANCE_LOAN_AMOUNTS = {
         "2018-2019" => {
@@ -34,6 +39,11 @@ module SmartAnswer
           "away-in-london" => 3354,
           "away-outside-london" => 2389,
         },
+        "2020-2021" => {
+          "at-home" => 1845,
+          "away-in-london" => 3451,
+          "away-outside-london" => 2458,
+        },
       }.freeze
       CHILD_CARE_GRANTS = {
         "2018-2019" => {
@@ -44,14 +54,20 @@ module SmartAnswer
           "one-child" => 169.31,
           "more-than-one-child" => 290.27,
         },
+        "2020-2021" => {
+          "one-child" => 174.22,
+          "more-than-one-child" => 298.69,
+        },
       }.freeze
       PARENTS_LEARNING_ALLOWANCE = {
         "2018-2019" => 1_669,
         "2019-2020" => 1_716,
+        "2020-2021" => 1_766,
       }.freeze
       ADULT_DEPENDANT_ALLOWANCE = {
         "2018-2019" => 2_925,
         "2019-2020" => 3_007,
+        "2020-2021" => 3_094,
       }.freeze
       TUITION_FEE_MAXIMUM = {
         "full-time" => 9_250,
@@ -68,6 +84,11 @@ module SmartAnswer
           "away-outside-london" => 4_168,
           "away-in-london" => 5_812,
         },
+        "2020-2021" => {
+          "at-home" => 3_410,
+          "away-outside-london" => 4_289,
+          "away-in-london" => 5_981,
+        },
       }.freeze
       INCOME_PENALTY_RATIO = {
         "2018-2019" => {
@@ -79,6 +100,11 @@ module SmartAnswer
           "at-home" => 7.88,
           "away-outside-london" => 7.79,
           "away-in-london" => 7.66,
+        },
+        "2020-2021" => {
+          "at-home" => 7.66,
+          "away-outside-london" => 7.58,
+          "away-in-london" => 7.46,
         },
       }.freeze
 
