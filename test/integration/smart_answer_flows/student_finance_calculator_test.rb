@@ -14,9 +14,9 @@ class StudentFinanceCalculatorTest < ActiveSupport::TestCase
     assert_current_node :when_does_your_course_start?
   end
 
-  context "course starting between 2018 and 2019" do
+  context "course starting between 2020 and 2021" do
     setup do
-      add_response "2018-2019"
+      add_response "2020-2021"
     end
     should "ask what sort of a student you are" do
       assert_current_node :what_type_of_student_are_you?
